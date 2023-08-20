@@ -1,0 +1,79 @@
+
+void FUN_0042f8b0(undefined4 *param_1,undefined4 param_2)
+
+{
+  int local_88;
+  undefined4 local_54;
+  undefined4 local_50;
+  undefined4 local_4c;
+  undefined4 local_48;
+  undefined4 local_44;
+  undefined4 local_40;
+  undefined4 local_3c;
+  undefined4 local_38;
+  undefined4 local_34;
+  undefined4 local_30;
+  undefined4 local_2c;
+  undefined4 local_28;
+  undefined4 local_24;
+  undefined4 local_20;
+  undefined4 local_1c;
+  undefined4 local_18;
+  undefined4 local_14;
+  undefined4 local_10;
+  undefined4 local_c;
+  undefined4 local_8;
+  
+  local_88 = 4;
+  do {
+    local_88 = local_88 + -1;
+  } while (-1 < local_88);
+  local_50 = param_1[1];
+  local_54 = *param_1;
+  local_4c = 0;
+  local_3c = param_1[1];
+  local_40 = param_1[2];
+  local_38 = 0;
+  local_28 = param_1[3];
+  local_2c = *param_1;
+  local_24 = 0;
+  local_14 = param_1[3];
+  local_18 = param_1[2];
+  local_10 = 0;
+  local_c = 0x3f800000;
+  local_20 = 0x3f800000;
+  local_34 = 0x3f800000;
+  local_48 = 0x3f800000;
+  local_8 = param_2;
+  local_1c = param_2;
+  local_30 = param_2;
+  local_44 = param_2;
+  if (((uint)g_GameContext.cfg._52_4_ >> 8 & 1) == 0) {
+    (**(code **)(*(int *)g_GameContext._8_4_ + 0xfc))(g_GameContext._8_4_,0,4,2);
+    (**(code **)(*(int *)g_GameContext._8_4_ + 0xfc))(g_GameContext._8_4_,0,1,2);
+  }
+  (**(code **)(*(int *)g_GameContext._8_4_ + 0xfc))(g_GameContext._8_4_,0,5,0);
+  (**(code **)(*(int *)g_GameContext._8_4_ + 0xfc))(g_GameContext._8_4_,0,2,0);
+  if (((uint)g_GameContext.cfg._52_4_ >> 6 & 1) == 0) {
+    (**(code **)(*(int *)g_GameContext._8_4_ + 200))(g_GameContext._8_4_,0x17,8);
+    (**(code **)(*(int *)g_GameContext._8_4_ + 200))(g_GameContext._8_4_,0xe,0);
+  }
+  (**(code **)(*(int *)g_GameContext._8_4_ + 200))(g_GameContext._8_4_,0x14,6);
+  (**(code **)(*(int *)g_GameContext._8_4_ + 0x130))(g_GameContext._8_4_,0x44);
+  (**(code **)(*(int *)g_GameContext._8_4_ + 0x120))(g_GameContext._8_4_,5,2,&local_54,0x14);
+  *(undefined *)(DAT_006d4588 + 0x210be) = 0xff;
+  *(undefined4 *)(DAT_006d4588 + 0x210c0) = 0;
+  *(undefined4 *)(DAT_006d4588 + 0x210b8) = 0;
+  *(undefined *)(DAT_006d4588 + 0x210bd) = 0xff;
+  *(undefined *)(DAT_006d4588 + 0x210bc) = 0xff;
+  *(undefined *)(DAT_006d4588 + 0x210bf) = 0xff;
+  if (((uint)g_GameContext.cfg._52_4_ >> 8 & 1) == 0) {
+    (**(code **)(*(int *)g_GameContext._8_4_ + 0xfc))(g_GameContext._8_4_,0,4,4);
+    (**(code **)(*(int *)g_GameContext._8_4_ + 0xfc))(g_GameContext._8_4_,0,1,4);
+  }
+  (**(code **)(*(int *)g_GameContext._8_4_ + 0xfc))(g_GameContext._8_4_,0,5,2);
+  (**(code **)(*(int *)g_GameContext._8_4_ + 0xfc))(g_GameContext._8_4_,0,2,2);
+  (**(code **)(*(int *)g_GameContext._8_4_ + 200))(g_GameContext._8_4_,0x17,4);
+  return;
+}
+

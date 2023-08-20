@@ -1,11 +1,11 @@
 
-bool FUN_00420bd0(void)
+bool InitD3dInterface(void)
 
 {
   bool bVar1;
   
-  g_GameContext.field1_0x4 = Direct3DCreate8(0x78);
-  bVar1 = g_GameContext.field1_0x4 == 0;
+  g_GameContext.d3d_iface = (IDirect3D8 *)Direct3DCreate8(0x78);
+  bVar1 = g_GameContext.d3d_iface == (IDirect3D8 *)0x0;
   if (bVar1) {
     GameErrorContextFatal
               (&g_GameErrorContext,

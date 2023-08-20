@@ -96,7 +96,7 @@ undefined4 __thiscall GameContext::Parse(void *this,char *config_file_name)
     _free(_Memory);
   }
   if ((*(uint *)((int)this + 0x148) >> 1 & 1) != 0) {
-    GameErrorContextLog(&g_GameErrorContext,"頂点バッファの使用��抑制します\n");
+    GameErrorContextLog(&g_GameErrorContext,"頂点バッファの使用を抑制します\n");
   }
   if ((*(uint *)((int)this + 0x148) >> 10 & 1) != 0) {
     GameErrorContextLog(&g_GameErrorContext,"フォグの使用を抑制します\n");
@@ -117,7 +117,7 @@ undefined4 __thiscall GameContext::Parse(void *this,char *config_file_name)
     ;
   }
   if ((*(uint *)((int)this + 0x148) >> 6 & 1) != 0) {
-    GameErrorContextLog(&g_GameErrorContext,"デプステスト��抑制します\n");
+    GameErrorContextLog(&g_GameErrorContext,"デプステストを抑制します\n");
   }
   if ((*(uint *)((int)this + 0x148) >> 7 & 1) != 0) {
     GameErrorContextLog(&g_GameErrorContext,"６０フレーム強制モードにします\n");
@@ -138,13 +138,13 @@ undefined4 __thiscall GameContext::Parse(void *this,char *config_file_name)
                         "パッド、キーボードの入力に DirectInput を使用しません\n"
                        );
   }
-  iVar3 = FUN_0041e460(config_file_name,0x6c6e2c,0x38);
+  iVar3 = FUN_0041e460(config_file_name,&g_GameContext.cfg,0x38);
   if (iVar3 == 0) {
     uVar2 = 0;
   }
   else {
     GameErrorContextFatal
-              (&g_GameErrorContext,"ファイル���書き出せません %s\n",config_file_name);
+              (&g_GameErrorContext,"ファイルが書き出せません %s\n",config_file_name);
     GameErrorContextFatal
               (&g_GameErrorContext,
                "フォルダが書込み禁止属性になっているか、ディスクがいっぱいいっぱいになってませんか？\n"

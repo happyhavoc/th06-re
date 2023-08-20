@@ -44,7 +44,8 @@ undefined4 FUN_00420e60(void)
     *piVar3 = 0;
     piVar3 = piVar3 + 1;
   }
-  (**(code **)(*g_GameContext.field1_0x4 + 0x20))(g_GameContext.field1_0x4,0,local_18);
+  (*(code *)(g_GameContext.d3d_iface)->vtbl->GetAdapterDisplayMode)
+            (g_GameContext.d3d_iface,0,local_18);
   if (g_GameContext.cfg._30_1_ == '\0') {
     if (((uint)g_GameContext.cfg._52_4_ >> 2 & 1) == 1) {
       local_4c[2] = 0x17;
@@ -55,7 +56,7 @@ undefined4 FUN_00420e60(void)
         local_4c[2] = 0x16;
         g_GameContext.cfg._26_1_ = 0;
         GameErrorContextLog(&g_GameErrorContext,
-                            "初回起動、画面を 32Bits で初期化しました\n");
+                            "���回起動、画面を 32Bits で初期化しました\n");
       }
       else {
         local_4c[2] = 0x17;
@@ -106,16 +107,16 @@ undefined4 FUN_00420e60(void)
   }
   do {
     if (((uint)g_GameContext.cfg._52_4_ >> 9 & 1) == 0) {
-      iVar2 = (**(code **)(*g_GameContext.field1_0x4 + 0x3c))
-                        (g_GameContext.field1_0x4,0,1,DAT_006c6bd4,0x40,local_4c);
+      iVar2 = (*(code *)(g_GameContext.d3d_iface)->vtbl->CreateDevice)
+                        (g_GameContext.d3d_iface,0,1,GAME_WINDOW,0x40,local_4c);
       if (-1 < iVar2) {
         GameErrorContextLog(&g_GameErrorContext,"T&L HAL で動作しま〜す\n");
         DAT_006c7114 = 1;
         goto LAB_004211ab;
       }
       GameErrorContextLog(&g_GameErrorContext,"T&L HAL は使用できないようです\n");
-      iVar2 = (**(code **)(*g_GameContext.field1_0x4 + 0x3c))
-                        (g_GameContext.field1_0x4,0,1,DAT_006c6bd4,0x20,local_4c);
+      iVar2 = (*(code *)(g_GameContext.d3d_iface)->vtbl->CreateDevice)
+                        (g_GameContext.d3d_iface,0,1,GAME_WINDOW,0x20,local_4c);
       if (iVar2 < 0) {
         GameErrorContextLog(&g_GameErrorContext,"HAL も使用できないようです\n");
         goto LAB_00421077;
@@ -164,8 +165,8 @@ LAB_004211ab:
         g_GameContext.cfg._52_4_ = g_GameContext.cfg._52_4_ & 0xffffff7f;
       }
       if ((((uint)g_GameContext.cfg._52_4_ >> 2 & 1) == 0) && ((local_5 & 0xff) != 0)) {
-        iVar2 = (**(code **)(*g_GameContext.field1_0x4 + 0x28))
-                          (g_GameContext.field1_0x4,0,1,local_4c[2],0,3,0x15);
+        iVar2 = (*(code *)(g_GameContext.d3d_iface)->vtbl->CheckDeviceFormat)
+                          (g_GameContext.d3d_iface,0,1,local_4c[2],0,3,0x15);
         if (iVar2 == 0) {
           DAT_006c7116 = 1;
         }
@@ -179,14 +180,14 @@ LAB_004211ab:
       }
       FUN_00421420();
       FUN_0042f790(0);
-      _DAT_006c6bd8 = 0;
+      IS_APP_CLOSING = 0;
       _DAT_006c6ebc = 0;
       DAT_006c6ec4 = 0;
       return 0;
     }
 LAB_00421077:
-    iVar2 = (**(code **)(*g_GameContext.field1_0x4 + 0x3c))
-                      (g_GameContext.field1_0x4,0,2,DAT_006c6bd4,0x20,local_4c);
+    iVar2 = (*(code *)(g_GameContext.d3d_iface)->vtbl->CreateDevice)
+                      (g_GameContext.d3d_iface,0,2,GAME_WINDOW,0x20,local_4c);
     if (-1 < iVar2) {
       GameErrorContextLog(&g_GameErrorContext,
                           "REF で動作しますが、重すぎて恐らくゲームになりません...\n"
@@ -199,9 +200,9 @@ LAB_00421077:
         GameErrorContextFatal
                   (&g_GameErrorContext,
                    "Direct3D の初期化に失敗、これではゲームは出来ません\n");
-        if (g_GameContext.field1_0x4 != (int *)0x0) {
-          (**(code **)(*g_GameContext.field1_0x4 + 8))();
-          g_GameContext.field1_0x4 = (int *)0x0;
+        if (g_GameContext.d3d_iface != (IDirect3D8 *)0x0) {
+          (*((g_GameContext.d3d_iface)->vtbl->unk).Release)((IUnknown *)g_GameContext.d3d_iface);
+          g_GameContext.d3d_iface = (IDirect3D8 *)0x0;
         }
         return 1;
       }

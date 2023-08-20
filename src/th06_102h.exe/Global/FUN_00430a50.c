@@ -67,7 +67,7 @@ undefined4 FUN_00430a50(undefined4 param_1)
         uVar4 = *(int *)(local_b0 + 4) * 2 * (uint)uVar1 >> 2;
         pvVar5 = CreateEventA((LPSECURITY_ATTRIBUTES)0x0,0,0,(LPCSTR)0x0);
         in_ECX[0x18c] = (int)pvVar5;
-        pvVar5 = CreateThread((LPSECURITY_ATTRIBUTES)0x0,0,FUN_00431370,(LPVOID)g_GameContext._68_4_
+        pvVar5 = CreateThread((LPSECURITY_ATTRIBUTES)0x0,0,FUN_00431370,g_GameContext.hwndGameWindow
                               ,0,(LPDWORD)(in_ECX + 0x185));
         in_ECX[0x186] = (int)pvVar5;
         iVar2 = FUN_0043a9c0(in_ECX + 0x18b,param_1,0x10100,0,0,0,0,4,uVar4 - uVar4 % (uint)uVar1,

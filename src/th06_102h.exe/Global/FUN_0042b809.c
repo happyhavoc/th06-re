@@ -20,7 +20,7 @@ void FUN_0042b809(void **param_1)
   undefined4 *local_20;
   int local_1c;
   void *local_18;
-  int local_14;
+  size_t local_14;
   int local_c;
   int local_8;
   
@@ -70,7 +70,7 @@ void FUN_0042b809(void **param_1)
         }
       }
       *(undefined4 *)((int)_Dst + 8) = 0x14;
-      *(int *)((int)_Dst + 0x10) = local_14;
+      *(size_t *)((int)_Dst + 0x10) = local_14;
       *(undefined2 *)((int)_Dst + 2) = 0;
       uVar2 = FUN_0041e780();
       local_4c = (undefined)((uVar2 & 0xffff) % 0x100);
@@ -79,13 +79,13 @@ void FUN_0042b809(void **param_1)
       local_50 = (undefined)((uVar2 & 0xffff) % 0x100);
       *(undefined *)((int)_Dst + 6) = local_50;
       *(undefined2 *)((int)_Dst + 4) = 0x10;
-      for (local_38 = 4; local_38 < local_14; local_38 = local_38 + 1) {
+      for (local_38 = 4; local_38 < (int)local_14; local_38 = local_38 + 1) {
         *(ushort *)((int)_Dst + 2) =
              *(short *)((int)_Dst + 2) + (ushort)*(byte *)((int)_Dst + local_38);
       }
       local_40 = (byte *)((int)_Dst + 1);
       local_39 = *local_40;
-      for (local_38 = local_14 + -2; 0 < local_38; local_38 = local_38 + -1) {
+      for (local_38 = local_14 - 2; 0 < local_38; local_38 = local_38 + -1) {
         bVar1 = local_40[1];
         local_39 = (byte)((int)(local_39 & 0xe0) >> 5) | (byte)((local_39 & 0x1f) << 3);
         local_40[1] = local_40[1] ^ local_39;

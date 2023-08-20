@@ -12,7 +12,7 @@ bool FUN_00421af0(HMIDIOUT param_1)
     FUN_00421b50();
   }
   in_ECX[1] = param_1;
-  MVar1 = midiOutOpen(in_ECX,(UINT)param_1,g_GameContext._68_4_,0,0x10000);
+  MVar1 = midiOutOpen(in_ECX,(UINT)param_1,(DWORD_PTR)g_GameContext.hwndGameWindow,0,0x10000);
   return MVar1 != 0;
 }
 

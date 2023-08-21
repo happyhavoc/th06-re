@@ -366,38 +366,22 @@
         <TYPE_DEF NAME="FuncInfo" NAMESPACE="/" DATATYPE="_s_FuncInfo" DATATYPE_NAMESPACE="/" />
         <TYPE_DEF NAME="GUID" NAMESPACE="/guiddef.h" DATATYPE="_GUID" DATATYPE_NAMESPACE="/guiddef.h" />
         <STRUCTURE NAME="GameConfiguration" NAMESPACE="/th06" SIZE="0x38">
-            <MEMBER OFFSET="0x0" DATATYPE="undefined" DATATYPE_NAMESPACE="/" SIZE="0x1" />
-            <MEMBER OFFSET="0x1" DATATYPE="undefined" DATATYPE_NAMESPACE="/" SIZE="0x1" />
-            <MEMBER OFFSET="0x2" DATATYPE="undefined" DATATYPE_NAMESPACE="/" SIZE="0x1" />
-            <MEMBER OFFSET="0x3" DATATYPE="undefined" DATATYPE_NAMESPACE="/" SIZE="0x1" />
-            <MEMBER OFFSET="0x4" DATATYPE="undefined" DATATYPE_NAMESPACE="/" SIZE="0x1" />
-            <MEMBER OFFSET="0x5" DATATYPE="undefined" DATATYPE_NAMESPACE="/" SIZE="0x1" />
-            <MEMBER OFFSET="0x6" DATATYPE="undefined" DATATYPE_NAMESPACE="/" SIZE="0x1" />
-            <MEMBER OFFSET="0x7" DATATYPE="undefined" DATATYPE_NAMESPACE="/" SIZE="0x1" />
-            <MEMBER OFFSET="0x8" DATATYPE="undefined" DATATYPE_NAMESPACE="/" SIZE="0x1" />
-            <MEMBER OFFSET="0x9" DATATYPE="undefined" DATATYPE_NAMESPACE="/" SIZE="0x1" />
-            <MEMBER OFFSET="0xa" DATATYPE="undefined" DATATYPE_NAMESPACE="/" SIZE="0x1" />
-            <MEMBER OFFSET="0xb" DATATYPE="undefined" DATATYPE_NAMESPACE="/" SIZE="0x1" />
-            <MEMBER OFFSET="0xc" DATATYPE="undefined" DATATYPE_NAMESPACE="/" SIZE="0x1" />
-            <MEMBER OFFSET="0xd" DATATYPE="undefined" DATATYPE_NAMESPACE="/" SIZE="0x1" />
-            <MEMBER OFFSET="0xe" DATATYPE="undefined" DATATYPE_NAMESPACE="/" SIZE="0x1" />
-            <MEMBER OFFSET="0xf" DATATYPE="undefined" DATATYPE_NAMESPACE="/" SIZE="0x1" />
-            <MEMBER OFFSET="0x10" DATATYPE="undefined" DATATYPE_NAMESPACE="/" SIZE="0x1" />
-            <MEMBER OFFSET="0x11" DATATYPE="undefined" DATATYPE_NAMESPACE="/" SIZE="0x1" />
+            <MEMBER OFFSET="0x0" DATATYPE="int" DATATYPE_NAMESPACE="/" SIZE="0x4" />
+            <MEMBER OFFSET="0x4" DATATYPE="int" DATATYPE_NAMESPACE="/" SIZE="0x4" />
+            <MEMBER OFFSET="0x8" DATATYPE="int" DATATYPE_NAMESPACE="/" SIZE="0x4" />
+            <MEMBER OFFSET="0xc" DATATYPE="int" DATATYPE_NAMESPACE="/" SIZE="0x4" />
+            <MEMBER OFFSET="0x10" DATATYPE="short" DATATYPE_NAMESPACE="/" SIZE="0x2" />
             <MEMBER OFFSET="0x12" DATATYPE="undefined" DATATYPE_NAMESPACE="/" SIZE="0x1" />
             <MEMBER OFFSET="0x13" DATATYPE="undefined" DATATYPE_NAMESPACE="/" SIZE="0x1" />
-            <MEMBER OFFSET="0x14" DATATYPE="undefined" DATATYPE_NAMESPACE="/" SIZE="0x1" />
-            <MEMBER OFFSET="0x15" DATATYPE="undefined" DATATYPE_NAMESPACE="/" SIZE="0x1" />
-            <MEMBER OFFSET="0x16" DATATYPE="undefined" DATATYPE_NAMESPACE="/" SIZE="0x1" />
-            <MEMBER OFFSET="0x17" DATATYPE="undefined" DATATYPE_NAMESPACE="/" SIZE="0x1" />
+            <MEMBER OFFSET="0x14" DATATYPE="int" DATATYPE_NAMESPACE="/" SIZE="0x4" />
             <MEMBER OFFSET="0x18" DATATYPE="byte" DATATYPE_NAMESPACE="/" NAME="lifeCount" SIZE="0x1" />
             <MEMBER OFFSET="0x19" DATATYPE="byte" DATATYPE_NAMESPACE="/" NAME="bombCount" SIZE="0x1" />
-            <MEMBER OFFSET="0x1a" DATATYPE="undefined" DATATYPE_NAMESPACE="/" SIZE="0x1" />
-            <MEMBER OFFSET="0x1b" DATATYPE="undefined" DATATYPE_NAMESPACE="/" SIZE="0x1" />
-            <MEMBER OFFSET="0x1c" DATATYPE="undefined" DATATYPE_NAMESPACE="/" SIZE="0x1" />
-            <MEMBER OFFSET="0x1d" DATATYPE="undefined" DATATYPE_NAMESPACE="/" SIZE="0x1" />
-            <MEMBER OFFSET="0x1e" DATATYPE="undefined" DATATYPE_NAMESPACE="/" SIZE="0x1" />
-            <MEMBER OFFSET="0x1f" DATATYPE="undefined" DATATYPE_NAMESPACE="/" SIZE="0x1" />
+            <MEMBER OFFSET="0x1a" DATATYPE="byte" DATATYPE_NAMESPACE="/" SIZE="0x1" />
+            <MEMBER OFFSET="0x1b" DATATYPE="byte" DATATYPE_NAMESPACE="/" NAME="midi_stuff" SIZE="0x1" />
+            <MEMBER OFFSET="0x1c" DATATYPE="byte" DATATYPE_NAMESPACE="/" SIZE="0x1" />
+            <MEMBER OFFSET="0x1d" DATATYPE="byte" DATATYPE_NAMESPACE="/" SIZE="0x1" />
+            <MEMBER OFFSET="0x1e" DATATYPE="byte" DATATYPE_NAMESPACE="/" SIZE="0x1" />
+            <MEMBER OFFSET="0x1f" DATATYPE="byte" DATATYPE_NAMESPACE="/" SIZE="0x1" />
             <MEMBER OFFSET="0x20" DATATYPE="ushort" DATATYPE_NAMESPACE="/" NAME="padAxisX" SIZE="0x2" />
             <MEMBER OFFSET="0x22" DATATYPE="ushort" DATATYPE_NAMESPACE="/" NAME="padAxisY" SIZE="0x2" />
             <MEMBER OFFSET="0x24" DATATYPE="undefined" DATATYPE_NAMESPACE="/" SIZE="0x1" />
@@ -416,10 +400,7 @@
             <MEMBER OFFSET="0x31" DATATYPE="undefined" DATATYPE_NAMESPACE="/" SIZE="0x1" />
             <MEMBER OFFSET="0x32" DATATYPE="undefined" DATATYPE_NAMESPACE="/" SIZE="0x1" />
             <MEMBER OFFSET="0x33" DATATYPE="undefined" DATATYPE_NAMESPACE="/" SIZE="0x1" />
-            <MEMBER OFFSET="0x34" DATATYPE="undefined" DATATYPE_NAMESPACE="/" SIZE="0x1" />
-            <MEMBER OFFSET="0x35" DATATYPE="undefined" DATATYPE_NAMESPACE="/" SIZE="0x1" />
-            <MEMBER OFFSET="0x36" DATATYPE="undefined" DATATYPE_NAMESPACE="/" SIZE="0x1" />
-            <MEMBER OFFSET="0x37" DATATYPE="undefined" DATATYPE_NAMESPACE="/" SIZE="0x1" />
+            <MEMBER OFFSET="0x34" DATATYPE="int" DATATYPE_NAMESPACE="/" SIZE="0x4" />
         </STRUCTURE>
         <STRUCTURE NAME="GameContext" NAMESPACE="/th06" SIZE="0x150">
             <MEMBER OFFSET="0x0" DATATYPE="HINSTANCE" DATATYPE_NAMESPACE="/WinDef.h" NAME="hInstance" SIZE="0x4" />
@@ -5492,6 +5473,8 @@
             <EQUATE NAME="WM_CLOSE" VALUE="0x10" />
             <EQUATE NAME="WM_ACTIVATEAPP" VALUE="0x1c" />
             <EQUATE NAME="WM_SETCURSOR" VALUE="0x20" />
+            <EQUATE NAME="&apos;\\&apos;" VALUE="0x5c" />
+            <EQUATE NAME="&apos;/&apos;" VALUE="0x2f" />
         </EQUATE_GROUP>
     </EQUATES>
     <COMMENTS>
@@ -7739,6 +7722,7 @@ Libraries: Visual Studio 2003 Debug, Visual Studio 2003 Release</COMMENT>
         <SYMBOL ADDRESS="0041cb6e" NAME="switchdataD_0041cb6e" NAMESPACE="switchD_0041cb14::" TYPE="global" SOURCE_TYPE="ANALYSIS" PRIMARY="y" />
         <SYMBOL ADDRESS="0041e260" NAME="ReleaseDocSite" NAMESPACE="CDocObjectServer::" TYPE="global" SOURCE_TYPE="ANALYSIS" PRIMARY="y" />
         <SYMBOL ADDRESS="0041e260" NAME="?ReleaseDocSite@CDocObjectServer@@QAEXXZ" NAMESPACE="" TYPE="global" SOURCE_TYPE="ANALYSIS" PRIMARY="n" />
+        <SYMBOL ADDRESS="0041e290" NAME="OpenPath" NAMESPACE="" TYPE="global" SOURCE_TYPE="USER_DEFINED" PRIMARY="y" />
         <SYMBOL ADDRESS="0041e4d0" NAME="GameErrorContextLog" NAMESPACE="" TYPE="global" SOURCE_TYPE="USER_DEFINED" PRIMARY="y" />
         <SYMBOL ADDRESS="0041e620" NAME="GameErrorContextFatal" NAMESPACE="" TYPE="global" SOURCE_TYPE="USER_DEFINED" PRIMARY="y" />
         <SYMBOL ADDRESS="0041e940" NAME="DebugPrint2" NAMESPACE="" TYPE="global" SOURCE_TYPE="USER_DEFINED" PRIMARY="y" />
@@ -12214,7 +12198,7 @@ Library: Visual Studio 2003 Debug</REGULAR_CMT>
             </STACK_FRAME>
             <REGISTER_VAR NAME="this" REGISTER="ECX" DATATYPE="CDocObjectServer *" DATATYPE_NAMESPACE="/Demangler" />
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0041e290" NAME="FUN_0041e290" LIBRARY_FUNCTION="n">
+        <FUNCTION ENTRY_POINT="0041e290" NAME="OpenPath" LIBRARY_FUNCTION="n">
             <ADDRESS_RANGE START="0041e290" END="0041e457" />
             <STACK_FRAME LOCAL_VAR_SIZE="0x20" PARAM_OFFSET="0x4" RETURN_ADDR_SIZE="0x0" BYTES_PURGED="0">
                 <STACK_VAR STACK_PTR_OFFSET="-0x1c" NAME="local_1c" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
@@ -13117,7 +13101,7 @@ Library: Visual Studio 2003 Debug</REGULAR_CMT>
                 <STACK_VAR STACK_PTR_OFFSET="-0x8" NAME="local_8" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="0x4" NAME="config_file_name" DATATYPE="char *" DATATYPE_NAMESPACE="/" SIZE="0x4" />
             </STACK_FRAME>
-            <REGISTER_VAR NAME="this" REGISTER="ECX" DATATYPE="void *" DATATYPE_NAMESPACE="/" />
+            <REGISTER_VAR NAME="this" REGISTER="ECX" DATATYPE="GameContext *" DATATYPE_NAMESPACE="/th06" />
         </FUNCTION>
         <FUNCTION ENTRY_POINT="00424aac" NAME="FUN_00424aac" LIBRARY_FUNCTION="n">
             <ADDRESS_RANGE START="00424aac" END="00424ae3" />
@@ -25504,6 +25488,8 @@ Libraries: Visual Studio 2003 Debug, Visual Studio 2003 Release</REGULAR_CMT>
         <EQUATE_REFERENCE ADDRESS="00420d56" OPERAND_INDEX="0x1" NAME="WM_CLOSE" VALUE="0x10" />
         <EQUATE_REFERENCE ADDRESS="00420d60" OPERAND_INDEX="0x1" NAME="WM_ACTIVATEAPP" VALUE="0x1c" />
         <EQUATE_REFERENCE ADDRESS="00420d50" OPERAND_INDEX="0x1" NAME="WM_SETCURSOR" VALUE="0x20" />
+        <EQUATE_REFERENCE ADDRESS="0041e2a7" OPERAND_INDEX="0x0" NAME="&apos;\\&apos;" VALUE="0x5c" />
+        <EQUATE_REFERENCE ADDRESS="0041e2cf" OPERAND_INDEX="0x0" NAME="&apos;/&apos;" VALUE="0x2f" />
     </MARKUP>
     <EXT_LIBRARY_TABLE>
         <EXT_LIBRARY NAME="DINPUT8.DLL" PATH="" />

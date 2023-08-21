@@ -13,7 +13,7 @@ char * FUN_0042b0d9(undefined4 param_1)
   int local_c;
   char *local_8;
   
-  local_8 = (char *)FUN_0041e290(param_1,1);
+  local_8 = (char *)OpenPath(param_1,1);
   if (local_8 != (char *)0x0) {
     if (g_FileSize < 0x14) {
       _free(local_8);

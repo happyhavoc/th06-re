@@ -12,7 +12,7 @@ undefined4 FUN_00404690(undefined4 param_1,undefined4 param_2)
   
   iVar1 = FUN_00431dc0(4,param_1,0x300);
   if (iVar1 == 0) {
-    pvVar3 = (void *)FUN_0041e290(param_2,0);
+    pvVar3 = (void *)OpenPath(param_2,0);
     in_ECX[1] = pvVar3;
     if (in_ECX[1] == (void *)0x0) {
       GameErrorContextLog(&g_GameErrorContext,

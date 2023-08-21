@@ -19,7 +19,7 @@ undefined4 FUN_00431dc0(int param_1,undefined4 param_2,int param_3)
   int local_8;
   
   FUN_00432030(param_1);
-  uVar1 = FUN_0041e290(param_2,0);
+  uVar1 = OpenPath(param_2,0);
   *(undefined4 *)(in_ECX + 0x20934 + param_1 * 4) = uVar1;
   local_8 = *(int *)(in_ECX + 0x20934 + param_1 * 4);
   if (local_8 == 0) {

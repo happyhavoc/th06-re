@@ -85,7 +85,7 @@ undefined4 FUN_00433150(float *param_1)
       }
     }
     if (*(char *)(in_ECX + 0x210be) != '\x03') {
-      if (((uint)g_GameContext.cfg._52_4_ >> 1 & 1) == 0) {
+      if (((uint)g_GameContext.cfg.field34_0x34 >> 1 & 1) == 0) {
         (**(code **)(*(int *)g_GameContext._8_4_ + 0x130))(g_GameContext._8_4_,0x102);
         (**(code **)(*(int *)g_GameContext._8_4_ + 0x14c))
                   (g_GameContext._8_4_,0,*(undefined4 *)(in_ECX + 0x210c4),0x14);
@@ -96,7 +96,7 @@ undefined4 FUN_00433150(float *param_1)
       *(undefined *)(in_ECX + 0x210be) = 3;
     }
     FUN_004324d0(param_1);
-    if (((uint)g_GameContext.cfg._52_4_ >> 1 & 1) == 0) {
+    if (((uint)g_GameContext.cfg.field34_0x34 >> 1 & 1) == 0) {
       (**(code **)(*(int *)g_GameContext._8_4_ + 0x118))(g_GameContext._8_4_,5,0,2);
     }
     else {

@@ -15,9 +15,9 @@ undefined4 FUN_004206e0(void)
     if (*(char *)(in_ECX + 0x10) != '\0') goto LAB_00420894;
     do {
       while( true ) {
-        if ((byte)g_GameContext.cfg._31_1_ <= *(byte *)(in_ECX + 0x10)) {
-          if (((uint)g_GameContext.cfg._52_4_ >> 3 & 1 | (uint)g_GameContext.cfg._52_4_ >> 4 & 1) !=
-              0) {
+        if (g_GameContext.cfg.field15_0x1f <= *(byte *)(in_ECX + 0x10)) {
+          if (((uint)g_GameContext.cfg.field34_0x34 >> 3 & 1 |
+              (uint)g_GameContext.cfg.field34_0x34 >> 4 & 1) != 0) {
             (**(code **)(*(int *)g_GameContext._8_4_ + 0xa0))(g_GameContext._8_4_);
             (**(code **)(*(int *)g_GameContext._8_4_ + 0x90))
                       (g_GameContext._8_4_,0,0,3,DAT_00487b60,0x3f800000,0);
@@ -43,8 +43,8 @@ undefined4 FUN_004206e0(void)
         }
         *(char *)(in_ECX + 0x10) = *(char *)(in_ECX + 0x10) + '\x01';
 LAB_00420894:
-        if (g_GameContext.cfg._30_1_ != '\0') break;
-        if ((((uint)g_GameContext.cfg._52_4_ >> 7 & 1) == 0) || (_DAT_006c6eb8 == 0)) {
+        if (g_GameContext.cfg.field14_0x1e != 0) break;
+        if ((((uint)g_GameContext.cfg.field34_0x34 >> 7 & 1) == 0) || (_DAT_006c6eb8 == 0)) {
           bVar2 = false;
         }
         else {
@@ -52,10 +52,10 @@ LAB_00420894:
         }
         if (bVar2) break;
 LAB_004209ab:
-        if (g_GameContext.cfg._30_1_ != '\0') {
+        if (g_GameContext.cfg.field14_0x1e != 0) {
           return 0;
         }
-        if ((((uint)g_GameContext.cfg._52_4_ >> 7 & 1) == 0) || (_DAT_006c6eb8 == 0)) {
+        if ((((uint)g_GameContext.cfg.field34_0x34 >> 7 & 1) == 0) || (_DAT_006c6eb8 == 0)) {
           bVar2 = false;
         }
         else {
@@ -64,7 +64,7 @@ LAB_004209ab:
         if (bVar2) {
           return 0;
         }
-        if ((byte)g_GameContext.cfg._31_1_ < *(byte *)(in_ECX + 0x10)) goto LAB_00420a0b;
+        if (g_GameContext.cfg.field15_0x1f < *(byte *)(in_ECX + 0x10)) goto LAB_00420a0b;
         FUN_00420b50();
       }
       if (*(char *)(in_ECX + 0x10) == '\0') goto LAB_004209ab;
@@ -82,7 +82,7 @@ LAB_004209ab:
         _DAT_006c6bf8 = _DAT_006c6bf8 + 16.66666666666667;
         local_34 = local_34 - 16.66666666666667;
       } while (16.66666666666667 <= local_34);
-    } while (*(byte *)(in_ECX + 0x10) <= (byte)g_GameContext.cfg._31_1_);
+    } while (*(byte *)(in_ECX + 0x10) <= g_GameContext.cfg.field15_0x1f);
 LAB_00420a0b:
     FUN_00420b50();
     if (NAN(DAT_006c6ec4) == (DAT_006c6ec4 == 0.0)) {
@@ -95,7 +95,7 @@ LAB_00420a0b:
         _DAT_006c6ebc = DVar4;
       }
       dVar1 = ((((double)(ulonglong)(DVar4 - _DAT_006c6ebc) * 60.0) / 2.0) / 1000.0) /
-              (double)((byte)g_GameContext.cfg._31_1_ + 1);
+              (double)(g_GameContext.cfg.field15_0x1f + 1);
       if (dVar1 < 0.865) {
         if (dVar1 < 0.6) {
           DAT_006c6ec0 = 0.5;

@@ -1,5 +1,5 @@
 
-void * FUN_0041e290(char *file_path,int param_2)
+void * OpenPath(char *file_path,int param_2)
 
 {
   char *pcVar1;
@@ -12,14 +12,14 @@ void * FUN_0041e290(char *file_path,int param_2)
   
   local_10 = -1;
   if (param_2 == 0) {
-    pcVar1 = _strrchr(file_path,0x5c);
+    pcVar1 = _strrchr(file_path,L'\\');
     if (pcVar1 == (char *)0x0) {
       local_c = file_path;
     }
     else {
       local_c = pcVar1 + 1;
     }
-    pcVar1 = _strrchr(local_c,0x2f);
+    pcVar1 = _strrchr(local_c,L'/');
     if (pcVar1 == (char *)0x0) {
       local_c = file_path;
     }

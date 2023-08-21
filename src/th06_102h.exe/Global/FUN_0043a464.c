@@ -41,7 +41,7 @@ LAB_0043a520:
     *(undefined4 *)(param_1 + 0x81a0) = 2;
   }
   DAT_0069d4c3 = 0;
-  if ((g_GameContext.cfg._52_4_ & 1) == 0) {
+  if ((g_GameContext.cfg.field34_0x34 & 1U) == 0) {
     *(undefined4 *)(param_1 + 0x8208) = 0x80004000;
     *(undefined4 *)(param_1 + 0x8204) = 0xff008000;
   }

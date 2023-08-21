@@ -7,7 +7,7 @@ undefined4 FUN_004148f0(undefined4 param_1)
   int iVar1;
   undefined4 uVar2;
   
-  if ((g_GameContext.cfg._52_4_ & 1) == 0) {
+  if ((g_GameContext.cfg.field34_0x34 & 1U) == 0) {
     PTR_DAT_00476438 = &DAT_00476358;
   }
   else {

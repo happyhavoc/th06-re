@@ -7,7 +7,7 @@ undefined4 FUN_004106d0(undefined4 param_1)
   int in_ECX;
   
   _Memory = *(void **)(in_ECX + 0x1114);
-  uVar1 = FUN_0041e290(param_1,0);
+  uVar1 = OpenPath(param_1,0);
   *(undefined4 *)(in_ECX + 0x1114) = uVar1;
   if (*(int *)(in_ECX + 0x1114) == 0) {
     GameErrorContextLog(&g_GameErrorContext,

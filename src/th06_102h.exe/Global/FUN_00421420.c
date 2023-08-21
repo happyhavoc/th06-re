@@ -2,7 +2,7 @@
 void FUN_00421420(void)
 
 {
-  if (((uint)g_GameContext.cfg._52_4_ >> 6 & 1) == 0) {
+  if (((uint)g_GameContext.cfg.field34_0x34 >> 6 & 1) == 0) {
     (**(code **)(*(int *)g_GameContext._8_4_ + 200))(g_GameContext._8_4_,7,1);
   }
   else {
@@ -11,7 +11,7 @@ void FUN_00421420(void)
   (**(code **)(*(int *)g_GameContext._8_4_ + 200))(g_GameContext._8_4_,0x89,0);
   (**(code **)(*(int *)g_GameContext._8_4_ + 200))(g_GameContext._8_4_,0x16,1);
   (**(code **)(*(int *)g_GameContext._8_4_ + 200))(g_GameContext._8_4_,0x1b,1);
-  if (((uint)g_GameContext.cfg._52_4_ >> 5 & 1) == 0) {
+  if (((uint)g_GameContext.cfg.field34_0x34 >> 5 & 1) == 0) {
     (**(code **)(*(int *)g_GameContext._8_4_ + 200))(g_GameContext._8_4_,9,2);
   }
   else {
@@ -19,7 +19,7 @@ void FUN_00421420(void)
   }
   (**(code **)(*(int *)g_GameContext._8_4_ + 200))(g_GameContext._8_4_,0x13,5);
   (**(code **)(*(int *)g_GameContext._8_4_ + 200))(g_GameContext._8_4_,0x14,6);
-  if (((uint)g_GameContext.cfg._52_4_ >> 6 & 1) == 0) {
+  if (((uint)g_GameContext.cfg.field34_0x34 >> 6 & 1) == 0) {
     (**(code **)(*(int *)g_GameContext._8_4_ + 200))(g_GameContext._8_4_,0x17,4);
   }
   else {
@@ -28,7 +28,7 @@ void FUN_00421420(void)
   (**(code **)(*(int *)g_GameContext._8_4_ + 200))(g_GameContext._8_4_,0xf,1);
   (**(code **)(*(int *)g_GameContext._8_4_ + 200))(g_GameContext._8_4_,0x18,4);
   (**(code **)(*(int *)g_GameContext._8_4_ + 200))(g_GameContext._8_4_,0x19,7);
-  if (((uint)g_GameContext.cfg._52_4_ >> 10 & 1) == 0) {
+  if (((uint)g_GameContext.cfg.field34_0x34 >> 10 & 1) == 0) {
     (**(code **)(*(int *)g_GameContext._8_4_ + 200))(g_GameContext._8_4_,0x1c,1);
   }
   else {
@@ -39,27 +39,27 @@ void FUN_00421420(void)
   (**(code **)(*(int *)g_GameContext._8_4_ + 200))(g_GameContext._8_4_,0x22,0xffa0a0a0);
   (**(code **)(*(int *)g_GameContext._8_4_ + 200))(g_GameContext._8_4_,0x24,0x447a0000);
   (**(code **)(*(int *)g_GameContext._8_4_ + 200))(g_GameContext._8_4_,0x25,0x459c4000);
-  if (((uint)g_GameContext.cfg._52_4_ >> 8 & 1) == 0) {
+  if (((uint)g_GameContext.cfg.field34_0x34 >> 8 & 1) == 0) {
     (**(code **)(*(int *)g_GameContext._8_4_ + 0xfc))(g_GameContext._8_4_,0,4,4);
   }
   else {
     (**(code **)(*(int *)g_GameContext._8_4_ + 0xfc))(g_GameContext._8_4_,0,4,2);
   }
   (**(code **)(*(int *)g_GameContext._8_4_ + 0xfc))(g_GameContext._8_4_,0,5,2);
-  if (((uint)g_GameContext.cfg._52_4_ >> 1 & 1) == 0) {
+  if (((uint)g_GameContext.cfg.field34_0x34 >> 1 & 1) == 0) {
     (**(code **)(*(int *)g_GameContext._8_4_ + 0xfc))(g_GameContext._8_4_,0,6,3);
   }
   else {
     (**(code **)(*(int *)g_GameContext._8_4_ + 0xfc))(g_GameContext._8_4_,0,6,0);
   }
-  if (((uint)g_GameContext.cfg._52_4_ >> 8 & 1) == 0) {
+  if (((uint)g_GameContext.cfg.field34_0x34 >> 8 & 1) == 0) {
     (**(code **)(*(int *)g_GameContext._8_4_ + 0xfc))(g_GameContext._8_4_,0,1,4);
   }
   else {
     (**(code **)(*(int *)g_GameContext._8_4_ + 0xfc))(g_GameContext._8_4_,0,1,2);
   }
   (**(code **)(*(int *)g_GameContext._8_4_ + 0xfc))(g_GameContext._8_4_,0,2,2);
-  if (((uint)g_GameContext.cfg._52_4_ >> 1 & 1) == 0) {
+  if (((uint)g_GameContext.cfg.field34_0x34 >> 1 & 1) == 0) {
     (**(code **)(*(int *)g_GameContext._8_4_ + 0xfc))(g_GameContext._8_4_,0,3,3);
   }
   else {

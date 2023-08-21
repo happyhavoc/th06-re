@@ -29,7 +29,7 @@ void FUN_004381ec(void)
         local_14 = 0;
         for (local_c = 0; local_c < 0xf; local_c = local_c + 1) {
           FUN_0045c386(local_5c,"./replay/th6_%.2d.rpy",local_c + 1);
-          local_18 = (undefined4 *)FUN_0041e290(local_5c,1);
+          local_18 = (undefined4 *)OpenPath(local_5c,1);
           if (local_18 != (undefined4 *)0x0) {
             iVar1 = FUN_0042a140(local_18,g_FileSize);
             if (iVar1 == 0) {
@@ -52,7 +52,7 @@ void FUN_004381ec(void)
         local_10 = FindFirstFileA("th6_ud????.rpy",&local_19c);
         if (local_10 != (HANDLE)0xffffffff) {
           for (local_c = 0; local_c < 0x2d; local_c = local_c + 1) {
-            local_18 = (undefined4 *)FUN_0041e290(local_19c.cFileName,1);
+            local_18 = (undefined4 *)OpenPath(local_19c.cFileName,1);
             if (local_18 != (undefined4 *)0x0) {
               iVar1 = FUN_0042a140(local_18,g_FileSize);
               if (iVar1 == 0) {
@@ -111,7 +111,7 @@ void FUN_004381ec(void)
           *(undefined4 *)(in_ECX + 0x81f4) = 0;
           *(undefined4 *)(in_ECX + 0x81a0) = 0;
           FUN_004311e0(10,0);
-          uVar3 = FUN_0041e290(in_ECX + 0x823c + *(int *)(in_ECX + 0x81e8) * 0x200,1);
+          uVar3 = OpenPath(in_ECX + 0x823c + *(int *)(in_ECX + 0x81e8) * 0x200,1);
           *(undefined4 *)(in_ECX + 0x10edc) = uVar3;
           FUN_0042a140(*(undefined4 *)(in_ECX + 0x10edc),g_FileSize);
           for (local_c = 0; local_c < 7; local_c = local_c + 1) {

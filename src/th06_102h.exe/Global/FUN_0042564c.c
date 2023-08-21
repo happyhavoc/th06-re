@@ -29,7 +29,7 @@ void FUN_0042564c(int param_1)
     *(undefined2 *)(param_1 + 0xd8) = 0x100;
     FUN_00432430(param_1 + 0x24,*(undefined4 *)(iVar2 + 0x1cd34));
     *(undefined4 *)(param_1 + 8) = 0;
-    local_18 = (char *)FUN_0041e290("data/musiccmt.txt",0);
+    local_18 = (char *)OpenPath("data/musiccmt.txt",0);
     local_10 = local_18;
     if (local_18 != (char *)0x0) {
       local_8c = (undefined4 *)operator_new(0x4e40);

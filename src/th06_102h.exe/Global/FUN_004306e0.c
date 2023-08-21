@@ -32,7 +32,7 @@ void FUN_004306e0(int param_1,undefined4 param_2)
       (**(code **)(*in_ECX[param_1 + 2] + 8))(in_ECX[param_1 + 2]);
       in_ECX[param_1 + 2] = (int *)0x0;
     }
-    local_4c = (char *)FUN_0041e290(param_2,0);
+    local_4c = (char *)OpenPath(param_2,0);
     local_8 = local_4c;
     if (local_4c != (char *)0x0) {
       iVar1 = _strncmp(local_4c,"RIFF",4);

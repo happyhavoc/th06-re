@@ -15,7 +15,8 @@ void FUN_004324d0(int param_1)
       (**(code **)(*(int *)g_GameContext._8_4_ + 200))(g_GameContext._8_4_,0x14,2);
     }
   }
-  if ((((g_GameContext.cfg._52_4_ & 1) == 0) && (((uint)g_GameContext.cfg._52_4_ >> 8 & 1) == 0)) &&
+  if ((((g_GameContext.cfg.field34_0x34 & 1U) == 0) &&
+      (((uint)g_GameContext.cfg.field34_0x34 >> 8 & 1) == 0)) &&
      ((uint)*(byte *)(in_ECX + 0x210bd) != (*(uint *)(param_1 + 0x80) >> 3 & 1))) {
     *(byte *)(in_ECX + 0x210bd) = (byte)(*(uint *)(param_1 + 0x80) >> 3) & 1;
     if (*(char *)(in_ECX + 0x210bd) == '\0') {
@@ -25,7 +26,7 @@ void FUN_004324d0(int param_1)
       (**(code **)(*(int *)g_GameContext._8_4_ + 0xfc))(g_GameContext._8_4_,0,1,7);
     }
   }
-  if (((uint)g_GameContext.cfg._52_4_ >> 1 & 1) == 0) {
+  if (((uint)g_GameContext.cfg.field34_0x34 >> 1 & 1) == 0) {
     if (*(int *)(in_ECX + 0x210b4) != *(int *)(param_1 + 0x7c)) {
       *(undefined4 *)(in_ECX + 0x210b4) = *(undefined4 *)(param_1 + 0x7c);
       (**(code **)(*(int *)g_GameContext._8_4_ + 200))
@@ -42,7 +43,7 @@ void FUN_004324d0(int param_1)
     _DAT_006d469c = *(undefined4 *)(param_1 + 0x7c);
     _DAT_006d46b4 = *(undefined4 *)(param_1 + 0x7c);
   }
-  if ((((uint)g_GameContext.cfg._52_4_ >> 6 & 1) == 0) &&
+  if ((((uint)g_GameContext.cfg.field34_0x34 >> 6 & 1) == 0) &&
      ((uint)*(byte *)(in_ECX + 0x210bf) != (*(uint *)(param_1 + 0x80) >> 0xc & 1))) {
     *(byte *)(in_ECX + 0x210bf) = (byte)(*(uint *)(param_1 + 0x80) >> 0xc) & 1;
     if (*(char *)(in_ECX + 0x210bf) == '\0') {

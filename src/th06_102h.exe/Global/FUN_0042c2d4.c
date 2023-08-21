@@ -226,7 +226,7 @@ LAB_0042c515:
       FUN_0045d588("replay");
       for (local_10 = 0; local_10 < 0xf; local_10 = local_10 + 1) {
         FUN_0045c386(local_5c,"./replay/th6_%.2d.rpy",local_10 + 1);
-        local_14 = (undefined4 *)FUN_0041e290(local_5c,1);
+        local_14 = (undefined4 *)OpenPath(local_5c,1);
         if (local_14 != (undefined4 *)0x0) {
           iVar1 = FUN_0042a140(local_14,g_FileSize);
           if (iVar1 == 0) {

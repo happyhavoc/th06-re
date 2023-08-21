@@ -7,7 +7,7 @@ LRESULT WindowProc(HWND hWnd,uint uMsg,WPARAM wParam,LPARAM lParam)
   
   if (uMsg < 0x21) {
     if (uMsg == WM_SETCURSOR) {
-      if (g_GameContext.cfg._30_1_ == '\0') {
+      if (g_GameContext.cfg.field14_0x1e == 0) {
         if (IS_APP_ACTIVE == 0) {
           ShowCursor(0);
           SetCursor((HCURSOR)0x0);

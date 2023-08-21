@@ -17,7 +17,7 @@ void FUN_00423f3f(void)
     _DAT_006c6d0c = timeGetTime();
   }
   local_8 = timeGetTime();
-  DAT_006c6d08 = DAT_006c6d08 + 1 + (uint)(byte)g_GameContext.cfg._31_1_;
+  DAT_006c6d08 = DAT_006c6d08 + 1 + (uint)g_GameContext.cfg.field15_0x1f;
   if (499 < local_8 - _DAT_006c6d0c) {
     local_14 = (float)(ulonglong)(local_8 - _DAT_006c6d0c) / 1000.0;
     local_10 = (float)(ulonglong)DAT_006c6d08 / local_14;

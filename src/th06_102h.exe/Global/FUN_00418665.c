@@ -7,7 +7,7 @@ undefined4 FUN_00418665(undefined4 param_1)
   int local_8;
   
   FUN_0041872a();
-  uVar1 = FUN_0041e290(param_1,0);
+  uVar1 = OpenPath(param_1,0);
   *(undefined4 *)(*(int *)(in_ECX + 4) + 0x2534) = uVar1;
   if (*(int *)(*(int *)(in_ECX + 4) + 0x2534) == 0) {
     GameErrorContextLog(&g_GameErrorContext,

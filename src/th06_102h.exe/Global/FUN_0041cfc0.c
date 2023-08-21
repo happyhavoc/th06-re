@@ -74,17 +74,19 @@ void FUN_0041cfc0(uint param_1)
                      local_38.dwButtons);
         uVar4 = extraout_var;
       }
-      FUN_0041d600(&param_1,CONCAT22(uVar4,g_GameContext.cfg._2_2_),2,local_38.dwButtons);
-      FUN_0041d600(&param_1,CONCAT22(extraout_var_00,g_GameContext.cfg._6_2_),8,local_38.dwButtons);
-      FUN_0041d600(&param_1,CONCAT22(extraout_var_01,g_GameContext.cfg._8_2_),0x10,
+      FUN_0041d600(&param_1,CONCAT22(uVar4,g_GameContext.cfg.field0_0x0._2_2_),2,local_38.dwButtons)
+      ;
+      FUN_0041d600(&param_1,CONCAT22(extraout_var_00,g_GameContext.cfg.field1_0x4._2_2_),8,
                    local_38.dwButtons);
-      FUN_0041d600(&param_1,CONCAT22(extraout_var_02,g_GameContext.cfg._10_2_),0x20,
+      FUN_0041d600(&param_1,CONCAT22(extraout_var_01,(undefined2)g_GameContext.cfg.field2_0x8),0x10,
                    local_38.dwButtons);
-      FUN_0041d600(&param_1,CONCAT22(extraout_var_03,g_GameContext.cfg._12_2_),0x40,
+      FUN_0041d600(&param_1,CONCAT22(extraout_var_02,g_GameContext.cfg.field2_0x8._2_2_),0x20,
                    local_38.dwButtons);
-      FUN_0041d600(&param_1,CONCAT22(extraout_var_04,g_GameContext.cfg._14_2_),0x80,
+      FUN_0041d600(&param_1,CONCAT22(extraout_var_03,(undefined2)g_GameContext.cfg.field3_0xc),0x40,
                    local_38.dwButtons);
-      FUN_0041d600(&param_1,CONCAT22(extraout_var_05,g_GameContext.cfg._16_2_),0x100,
+      FUN_0041d600(&param_1,CONCAT22(extraout_var_04,g_GameContext.cfg.field3_0xc._2_2_),0x80,
+                   local_38.dwButtons);
+      FUN_0041d600(&param_1,CONCAT22(extraout_var_05,g_GameContext.cfg.field4_0x10),0x100,
                    local_38.dwButtons);
       uVar2 = (uint)(DAT_0069d788 - DAT_0069d784) >> 2;
       local_3c = (uint)(DAT_0069d790 - DAT_0069d78c) >> 2;
@@ -122,7 +124,7 @@ void FUN_0041cfc0(uint param_1)
       local_48 = (**(code **)(*(int *)g_GameContext._20_4_ + 0x24))
                            (g_GameContext._20_4_,0x110,local_15c);
       if (-1 < local_48) {
-        local_44 = FUN_0041d580(&param_1,g_GameContext.cfg._0_2_,1,local_12c);
+        local_44 = FUN_0041d580(&param_1,(undefined2)g_GameContext.cfg.field0_0x0,1,local_12c);
         iVar3 = (int)(short)DAT_004765a0;
         if (iVar3 == (short)DAT_004765a4) {
           if (local_44 == 0) {
@@ -146,17 +148,23 @@ void FUN_0041cfc0(uint param_1)
           }
         }
         else {
-          FUN_0041d580(&param_1,CONCAT22((short)DAT_004765a0 >> 0xf,g_GameContext.cfg._4_2_),4,
-                       local_12c);
+          FUN_0041d580(&param_1,CONCAT22((short)DAT_004765a0 >> 0xf,
+                                         (undefined2)g_GameContext.cfg.field1_0x4),4,local_12c);
           uVar4 = extraout_var_07;
         }
-        FUN_0041d580(&param_1,CONCAT22(uVar4,g_GameContext.cfg._2_2_),2,local_12c);
-        FUN_0041d580(&param_1,CONCAT22(extraout_var_08,g_GameContext.cfg._6_2_),8,local_12c);
-        FUN_0041d580(&param_1,CONCAT22(extraout_var_09,g_GameContext.cfg._8_2_),0x10,local_12c);
-        FUN_0041d580(&param_1,CONCAT22(extraout_var_10,g_GameContext.cfg._10_2_),0x20,local_12c);
-        FUN_0041d580(&param_1,CONCAT22(extraout_var_11,g_GameContext.cfg._12_2_),0x40,local_12c);
-        FUN_0041d580(&param_1,CONCAT22(extraout_var_12,g_GameContext.cfg._14_2_),0x80,local_12c);
-        FUN_0041d580(&param_1,CONCAT22(extraout_var_13,g_GameContext.cfg._16_2_),0x100,local_12c);
+        FUN_0041d580(&param_1,CONCAT22(uVar4,g_GameContext.cfg.field0_0x0._2_2_),2,local_12c);
+        FUN_0041d580(&param_1,CONCAT22(extraout_var_08,g_GameContext.cfg.field1_0x4._2_2_),8,
+                     local_12c);
+        FUN_0041d580(&param_1,CONCAT22(extraout_var_09,(undefined2)g_GameContext.cfg.field2_0x8),
+                     0x10,local_12c);
+        FUN_0041d580(&param_1,CONCAT22(extraout_var_10,g_GameContext.cfg.field2_0x8._2_2_),0x20,
+                     local_12c);
+        FUN_0041d580(&param_1,CONCAT22(extraout_var_11,(undefined2)g_GameContext.cfg.field3_0xc),
+                     0x40,local_12c);
+        FUN_0041d580(&param_1,CONCAT22(extraout_var_12,g_GameContext.cfg.field3_0xc._2_2_),0x80,
+                     local_12c);
+        FUN_0041d580(&param_1,CONCAT22(extraout_var_13,g_GameContext.cfg.field4_0x10),0x100,
+                     local_12c);
         param_1 = CONCAT22(param_1._2_2_,
                            (ushort)param_1 |
                            (local_15c[0] <= (short)g_GameContext.cfg.padAxisX) - 1 & 0x80 |

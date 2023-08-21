@@ -46,32 +46,32 @@ undefined4 FUN_00420e60(void)
   }
   (*(code *)(g_GameContext.d3d_iface)->vtbl->GetAdapterDisplayMode)
             (g_GameContext.d3d_iface,0,local_18);
-  if (g_GameContext.cfg._30_1_ == '\0') {
-    if (((uint)g_GameContext.cfg._52_4_ >> 2 & 1) == 1) {
+  if (g_GameContext.cfg.field14_0x1e == 0) {
+    if (((uint)g_GameContext.cfg.field34_0x34 >> 2 & 1) == 1) {
       local_4c[2] = 0x17;
-      g_GameContext.cfg._26_1_ = 1;
+      g_GameContext.cfg.field10_0x1a = 1;
     }
-    else if (g_GameContext.cfg._26_1_ == -1) {
+    else if (g_GameContext.cfg.field10_0x1a == 0xff) {
       if ((local_c == 0x16) || (local_c == 0x15)) {
         local_4c[2] = 0x16;
-        g_GameContext.cfg._26_1_ = 0;
+        g_GameContext.cfg.field10_0x1a = 0;
         GameErrorContextLog(&g_GameErrorContext,
-                            "���回起動、画面を 32Bits で初期化しました\n");
+                            "初回起動、画面を 32Bits で初期化しました\n");
       }
       else {
         local_4c[2] = 0x17;
-        g_GameContext.cfg._26_1_ = 1;
+        g_GameContext.cfg.field10_0x1a = 1;
         GameErrorContextLog(&g_GameErrorContext,
                             "初回起動、画面を 16Bits で初期化しました\n");
       }
     }
-    else if (g_GameContext.cfg._26_1_ == '\0') {
+    else if (g_GameContext.cfg.field10_0x1a == 0) {
       local_4c[2] = 0x16;
     }
     else {
       local_4c[2] = 0x17;
     }
-    if (((uint)g_GameContext.cfg._52_4_ >> 7 & 1) == 0) {
+    if (((uint)g_GameContext.cfg.field34_0x34 >> 7 & 1) == 0) {
       local_1c = 1;
     }
     else {
@@ -80,7 +80,7 @@ undefined4 FUN_00420e60(void)
       GameErrorContextLog(&g_GameErrorContext,
                           "リフレッシュレートを60Hzに変更します\n");
     }
-    if (g_GameContext.cfg._31_1_ == '\0') {
+    if (g_GameContext.cfg.field15_0x1f == 0) {
       local_38 = 2;
     }
     else {
@@ -106,7 +106,7 @@ undefined4 FUN_00420e60(void)
     piVar4 = piVar4 + 1;
   }
   do {
-    if (((uint)g_GameContext.cfg._52_4_ >> 9 & 1) == 0) {
+    if (((uint)g_GameContext.cfg.field34_0x34 >> 9 & 1) == 0) {
       iVar2 = (*(code *)(g_GameContext.d3d_iface)->vtbl->CreateDevice)
                         (g_GameContext.d3d_iface,0,1,GAME_WINDOW,0x40,local_4c);
       if (-1 < iVar2) {
@@ -146,13 +146,13 @@ LAB_004211ab:
       (**(code **)(*(int *)g_GameContext._8_4_ + 0x94))(g_GameContext._8_4_,3,0x6c6da0);
       (**(code **)(*(int *)g_GameContext._8_4_ + 0xa4))(g_GameContext._8_4_,0x6c6de0);
       (**(code **)(*(int *)g_GameContext._8_4_ + 0x1c))(g_GameContext._8_4_,&DAT_006c711c);
-      if (((g_GameContext.cfg._52_4_ & 1) == 0) && ((DAT_006c71ac & 0x40) == 0)) {
+      if (((g_GameContext.cfg.field34_0x34 & 1U) == 0) && ((DAT_006c71ac & 0x40) == 0)) {
         GameErrorContextLog(&g_GameErrorContext,
                             "D3DTEXOPCAPS_ADD をサポートしていません、色加算エミュレートモードで動作します\n"
                            );
-        g_GameContext.cfg._52_4_ = g_GameContext.cfg._52_4_ | 1;
+        g_GameContext.cfg.field34_0x34 = g_GameContext.cfg.field34_0x34 | 1;
       }
-      if ((((uint)g_GameContext.cfg._52_4_ >> 7 & 1) == 0) || (_DAT_006c6eb8 == 0)) {
+      if ((((uint)g_GameContext.cfg.field34_0x34 >> 7 & 1) == 0) || (_DAT_006c6eb8 == 0)) {
         bVar1 = false;
       }
       else {
@@ -160,11 +160,11 @@ LAB_004211ab:
       }
       if ((bVar1) && ((DAT_006c7130 & 0x80000000) == 0)) {
         GameErrorContextLog(&g_GameErrorContext,
-                            "ビデオカードが非同期フリップをサポートしていません、Force60Frameで動作できません\n"
+                            "ビデオカードが非同期フリップをサポ���トしていません、Force60Frameで動作できません\n"
                            );
-        g_GameContext.cfg._52_4_ = g_GameContext.cfg._52_4_ & 0xffffff7f;
+        g_GameContext.cfg.field34_0x34 = g_GameContext.cfg.field34_0x34 & 0xffffff7f;
       }
-      if ((((uint)g_GameContext.cfg._52_4_ >> 2 & 1) == 0) && ((local_5 & 0xff) != 0)) {
+      if ((((uint)g_GameContext.cfg.field34_0x34 >> 2 & 1) == 0) && ((local_5 & 0xff) != 0)) {
         iVar2 = (*(code *)(g_GameContext.d3d_iface)->vtbl->CheckDeviceFormat)
                           (g_GameContext.d3d_iface,0,1,local_4c[2],0,3,0x15);
         if (iVar2 == 0) {
@@ -172,7 +172,7 @@ LAB_004211ab:
         }
         else {
           DAT_006c7116 = 0;
-          g_GameContext.cfg._52_4_ = g_GameContext.cfg._52_4_ | 4;
+          g_GameContext.cfg.field34_0x34 = g_GameContext.cfg.field34_0x34 | 4;
           GameErrorContextLog(&g_GameErrorContext,
                               "D3DFMT_A8R8G8B8 をサポートしていません、減色モードで動作します\n"
                              );
@@ -195,7 +195,7 @@ LAB_00421077:
       local_5 = local_5 & 0xffffff00;
       goto LAB_00421190;
     }
-    if ((((uint)g_GameContext.cfg._52_4_ >> 7 & 1) == 0) || (_DAT_006c6eb8 != 0)) {
+    if ((((uint)g_GameContext.cfg.field34_0x34 >> 7 & 1) == 0) || (_DAT_006c6eb8 != 0)) {
       if (local_24 != 1) {
         GameErrorContextFatal
                   (&g_GameErrorContext,

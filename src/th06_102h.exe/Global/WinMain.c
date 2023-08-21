@@ -41,7 +41,7 @@ int WinMain(HINSTANCE hInstance,HINSTANCE hPrevInstance,LPSTR lpCmdLine,int nSho
           DAT_006d4588 = local_58;
           retCode = FUN_0042386b();
           if (retCode == 0) {
-            if (g_GameContext.cfg._30_1_ == '\0') {
+            if (g_GameContext.cfg.field14_0x1e == 0) {
               ShowCursor(0);
             }
             DAT_006c6be4 = 0;
@@ -106,7 +106,7 @@ LAB_0042055a:
           GameErrorContextLog(&g_GameErrorContext,
                               "再起動を要するオプションが変更されたので再起動します\n"
                              );
-          if (g_GameContext.cfg._30_1_ == '\0') {
+          if (g_GameContext.cfg.field14_0x1e == 0) {
             ShowCursor(1);
           }
         }

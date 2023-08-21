@@ -35,7 +35,7 @@ undefined4 FUN_00439f88(int param_1)
                         FUN_004051b0(local_c,local_8);
                         *(uint *)(local_c + 0x80) = *(uint *)(local_c + 0x80) & 0xfffffffe;
                         *(uint *)(local_c + 0x80) = *(uint *)(local_c + 0x80) | 8;
-                        if ((g_GameContext.cfg._52_4_ & 1) == 0) {
+                        if ((g_GameContext.cfg.field34_0x34 & 1U) == 0) {
                           *(undefined4 *)(local_c + 0x7c) = 0xff000000;
                         }
                         else {

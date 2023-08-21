@@ -7,7 +7,7 @@ undefined4 FUN_00407340(undefined4 param_1)
   short **in_ECX;
   int local_8;
   
-  psVar1 = (short *)FUN_0041e290(param_1,0);
+  psVar1 = (short *)OpenPath(param_1,0);
   *in_ECX = psVar1;
   if (*in_ECX == (short *)0x0) {
     GameErrorContextLog(&g_GameErrorContext,

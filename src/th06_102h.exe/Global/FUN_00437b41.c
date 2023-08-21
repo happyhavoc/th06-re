@@ -33,8 +33,8 @@ undefined4 FUN_00437b41(void)
         if (3 < _DAT_0069bcb0) {
           _DAT_0069bcb0 = 1;
         }
-        if (3 < (byte)g_GameContext.cfg._29_1_) {
-          g_GameContext.cfg._29_1_ = 1;
+        if (3 < g_GameContext.cfg.field13_0x1d) {
+          g_GameContext.cfg.field13_0x1d = 1;
         }
         *(undefined4 *)(in_ECX + 0x81f4) = 0;
         *(undefined4 *)(in_ECX + 0x81fc) = 0x40000000;
@@ -73,8 +73,8 @@ undefined4 FUN_00437b41(void)
         if (3 < _DAT_0069bcb0) {
           _DAT_0069bcb0 = 1;
         }
-        if (3 < (byte)g_GameContext.cfg._29_1_) {
-          g_GameContext.cfg._29_1_ = 1;
+        if (3 < g_GameContext.cfg.field13_0x1d) {
+          g_GameContext.cfg.field13_0x1d = 1;
         }
         *(undefined4 *)(in_ECX + 0x81f4) = 0;
         *(undefined4 *)(in_ECX + 0x81fc) = 0x40000000;
@@ -123,9 +123,9 @@ undefined4 FUN_00437b41(void)
           *(undefined2 *)(in_ECX + 0x8a + local_8 * 0x110) = 3;
         }
         *(undefined4 *)(in_ECX + 0x81a0) = 0;
-        *(undefined *)(in_ECX + 0x8230) = g_GameContext.cfg._26_1_;
-        *(undefined *)(in_ECX + 0x8231) = g_GameContext.cfg._30_1_;
-        *(undefined *)(in_ECX + 0x8232) = g_GameContext.cfg._31_1_;
+        *(byte *)(in_ECX + 0x8230) = g_GameContext.cfg.field10_0x1a;
+        *(byte *)(in_ECX + 0x8231) = g_GameContext.cfg.field14_0x1e;
+        *(byte *)(in_ECX + 0x8232) = g_GameContext.cfg.field15_0x1f;
         FUN_004311e0(10,0);
         break;
       case 7:

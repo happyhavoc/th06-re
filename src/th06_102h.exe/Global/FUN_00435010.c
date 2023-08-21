@@ -11,7 +11,7 @@ undefined4 FUN_00435010(int param_1,undefined4 param_2)
   if (*(int *)(in_ECX + 0x20d34 + param_1 * 4) != 0) {
     FUN_00435270(param_1);
   }
-  _Memory = (void *)FUN_0041e290(param_2,0);
+  _Memory = (void *)OpenPath(param_2,0);
   if (_Memory == (void *)0x0) {
     GameErrorContextFatal(&g_GameErrorContext,"%sが読み込めないです。\n",param_2);
     uVar1 = 0xffffffff;

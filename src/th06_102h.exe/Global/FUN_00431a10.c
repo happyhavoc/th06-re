@@ -27,7 +27,7 @@ undefined4 FUN_00431a10(int param_1,undefined4 param_2,undefined4 param_3,undefi
   uint local_8;
   
   local_3c = (int *)0x0;
-  local_28 = (void *)FUN_0041e290(param_2,0);
+  local_28 = (void *)OpenPath(param_2,0);
   if (local_28 != (void *)0x0) {
     (**(code **)(**(int **)(in_ECX + 0x1c110 + param_1 * 4) + 0x38))
               (*(undefined4 *)(in_ECX + 0x1c110 + param_1 * 4),0,local_24);

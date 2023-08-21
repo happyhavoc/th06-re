@@ -48,13 +48,13 @@ void FUN_0042f8b0(undefined4 *param_1,undefined4 param_2)
   local_1c = param_2;
   local_30 = param_2;
   local_44 = param_2;
-  if (((uint)g_GameContext.cfg._52_4_ >> 8 & 1) == 0) {
+  if (((uint)g_GameContext.cfg.field34_0x34 >> 8 & 1) == 0) {
     (**(code **)(*(int *)g_GameContext._8_4_ + 0xfc))(g_GameContext._8_4_,0,4,2);
     (**(code **)(*(int *)g_GameContext._8_4_ + 0xfc))(g_GameContext._8_4_,0,1,2);
   }
   (**(code **)(*(int *)g_GameContext._8_4_ + 0xfc))(g_GameContext._8_4_,0,5,0);
   (**(code **)(*(int *)g_GameContext._8_4_ + 0xfc))(g_GameContext._8_4_,0,2,0);
-  if (((uint)g_GameContext.cfg._52_4_ >> 6 & 1) == 0) {
+  if (((uint)g_GameContext.cfg.field34_0x34 >> 6 & 1) == 0) {
     (**(code **)(*(int *)g_GameContext._8_4_ + 200))(g_GameContext._8_4_,0x17,8);
     (**(code **)(*(int *)g_GameContext._8_4_ + 200))(g_GameContext._8_4_,0xe,0);
   }
@@ -67,7 +67,7 @@ void FUN_0042f8b0(undefined4 *param_1,undefined4 param_2)
   *(undefined *)(DAT_006d4588 + 0x210bd) = 0xff;
   *(undefined *)(DAT_006d4588 + 0x210bc) = 0xff;
   *(undefined *)(DAT_006d4588 + 0x210bf) = 0xff;
-  if (((uint)g_GameContext.cfg._52_4_ >> 8 & 1) == 0) {
+  if (((uint)g_GameContext.cfg.field34_0x34 >> 8 & 1) == 0) {
     (**(code **)(*(int *)g_GameContext._8_4_ + 0xfc))(g_GameContext._8_4_,0,4,4);
     (**(code **)(*(int *)g_GameContext._8_4_ + 0xfc))(g_GameContext._8_4_,0,1,4);
   }

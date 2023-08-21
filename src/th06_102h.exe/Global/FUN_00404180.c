@@ -27,7 +27,7 @@ undefined4 FUN_00404180(int param_1)
   }
   iVar1 = DAT_006d4588;
   if (0 < *(int *)(param_1 + 0x80)) {
-    if (*(int *)(param_1 + 0x84) <= (int)(uint)(byte)g_GameContext.cfg._31_1_) {
+    if (*(int *)(param_1 + 0x84) <= (int)(uint)g_GameContext.cfg.field15_0x1f) {
       *(undefined2 *)(param_1 + 0x13c) = 0x2b3;
       FUN_00432430(param_1 + 0x88,*(undefined4 *)(iVar1 + 0x1d400));
     }

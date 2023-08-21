@@ -200,11 +200,11 @@ switchD_004358f7_caseD_2:
           DAT_004765a8 = *(undefined4 *)(param_1 + 0x8224);
           DAT_004765ac = *(undefined4 *)(param_1 + 0x8228);
           DAT_004765b0 = *(undefined2 *)(param_1 + 0x822c);
-          g_GameContext.cfg._0_4_ = *(undefined4 *)(param_1 + 0x821c);
-          g_GameContext.cfg._4_4_ = *(undefined4 *)(param_1 + 0x8220);
-          g_GameContext.cfg._8_4_ = *(undefined4 *)(param_1 + 0x8224);
-          g_GameContext.cfg._12_4_ = *(undefined4 *)(param_1 + 0x8228);
-          g_GameContext.cfg._16_2_ = *(undefined2 *)(param_1 + 0x822c);
+          g_GameContext.cfg.field0_0x0 = *(int *)(param_1 + 0x821c);
+          g_GameContext.cfg.field1_0x4 = *(int *)(param_1 + 0x8220);
+          g_GameContext.cfg.field2_0x8 = *(int *)(param_1 + 0x8224);
+          g_GameContext.cfg.field3_0xc = *(int *)(param_1 + 0x8228);
+          g_GameContext.cfg.field4_0x10 = *(short *)(param_1 + 0x822c);
         }
       }
     }
@@ -225,7 +225,7 @@ switchD_004358f7_caseD_2:
       for (local_8 = 0; (int)local_8 < 0x7a; local_8 = local_8 + 1) {
         *(undefined2 *)(param_1 + 0x8a + local_8 * 0x110) = 6;
       }
-      *(uint *)(param_1 + 0x81a0) = (uint)(byte)g_GameContext.cfg._29_1_;
+      *(uint *)(param_1 + 0x81a0) = (uint)g_GameContext.cfg.field13_0x1d;
     }
     else {
       for (local_8 = 0; (int)local_8 < 0x7a; local_8 = local_8 + 1) {
@@ -245,7 +245,7 @@ switchD_004358f7_caseD_2:
       FUN_0043753c(param_1,4);
       for (local_8 = 0; (int)local_8 < 4; local_8 = local_8 + 1) {
         if (local_8 == *(int *)(param_1 + 0x81a0)) {
-          if ((g_GameContext.cfg._52_4_ & 1) == 0) {
+          if ((g_GameContext.cfg.field34_0x34 & 1U) == 0) {
             *(undefined4 *)(local_c + 0x7c) = 0xff000000;
           }
           else {
@@ -256,7 +256,7 @@ switchD_004358f7_caseD_2:
           *(undefined4 *)(local_c + 0xec) = 0;
         }
         else {
-          if ((g_GameContext.cfg._52_4_ & 1) == 0) {
+          if ((g_GameContext.cfg.field34_0x34 & 1U) == 0) {
             *(undefined4 *)(local_c + 0x7c) = 0x60000000;
           }
           else {
@@ -277,7 +277,7 @@ switchD_004358f7_caseD_2:
         local_c = local_c + 0x110;
       }
       for (local_8 = 4; (int)local_8 < 5; local_8 = local_8 + 1) {
-        if ((g_GameContext.cfg._52_4_ & 1) == 0) {
+        if ((g_GameContext.cfg.field34_0x34 & 1U) == 0) {
           *(undefined4 *)(local_c + 0x7c) = 0xff000000;
         }
         else {
@@ -313,7 +313,7 @@ switchD_004358f7_caseD_2:
             *(uint *)(param_1 + 0x81a0) = (uint)DAT_0069d4bd;
           }
         }
-        g_GameContext.cfg._29_1_ = DAT_0069bcb0;
+        g_GameContext.cfg.field13_0x1d = DAT_0069bcb0;
         local_c = param_1 + 0x5b60;
         for (local_8 = 0; (int)local_8 < 2; local_8 = local_8 + 1) {
           if (local_8 != *(int *)(param_1 + 0x81a0)) {
@@ -332,7 +332,7 @@ switchD_004358f7_caseD_2:
       }
       FUN_004311e0(0xb,0);
       if (_DAT_0069bcb0 < 4) {
-        g_GameContext.cfg._29_1_ = *(undefined *)(param_1 + 0x81a0);
+        g_GameContext.cfg.field13_0x1d = *(byte *)(param_1 + 0x81a0);
         if (DAT_0069d4c3 == '\0') {
           *(undefined4 *)(param_1 + 0x81a0) = 0;
         }
@@ -456,7 +456,7 @@ LAB_0043666d:
         for (local_8 = 0; (int)local_8 < 0x7a; local_8 = local_8 + 1) {
           *(undefined2 *)(param_1 + 0x8a + local_8 * 0x110) = 6;
         }
-        *(uint *)(param_1 + 0x81a0) = (uint)(byte)g_GameContext.cfg._29_1_;
+        *(uint *)(param_1 + 0x81a0) = (uint)g_GameContext.cfg.field13_0x1d;
       }
       else {
         for (local_8 = 0; (int)local_8 < 0x7a; local_8 = local_8 + 1) {
@@ -489,7 +489,7 @@ LAB_0043666d:
       *(uint *)(local_c + 0x80) = *(uint *)(local_c + 0x80) | 8;
       *(uint *)(local_c + 0x80) = *(uint *)(local_c + 0x80) | 1;
       if (local_8 == *(int *)(param_1 + 0x81a0)) {
-        if ((g_GameContext.cfg._52_4_ & 1) == 0) {
+        if ((g_GameContext.cfg.field34_0x34 & 1U) == 0) {
           *(undefined4 *)(local_c + 0x7c) = 0xff202020;
         }
         else {
@@ -500,7 +500,7 @@ LAB_0043666d:
         *(undefined4 *)(local_c + 0xec) = 0;
       }
       else {
-        if ((g_GameContext.cfg._52_4_ & 1) == 0) {
+        if ((g_GameContext.cfg.field34_0x34 & 1U) == 0) {
           *(undefined4 *)(local_c + 0x7c) = 0xa0000000;
         }
         else {

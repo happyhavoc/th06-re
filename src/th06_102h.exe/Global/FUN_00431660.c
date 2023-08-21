@@ -49,7 +49,7 @@ void FUN_00431660(void)
   _DAT_006d46a4 = *(undefined4 *)(in_ECX + 0x21100);
   _DAT_006d46b8 = *(undefined4 *)(in_ECX + 0x21110);
   _DAT_006d46bc = *(undefined4 *)(in_ECX + 0x21114);
-  if (((uint)g_GameContext.cfg._52_4_ >> 1 & 1) == 0) {
+  if (((uint)g_GameContext.cfg.field34_0x34 >> 1 & 1) == 0) {
     (**(code **)(*(int *)g_GameContext._8_4_ + 0x5c))
               (g_GameContext._8_4_,0x50,0,0x102,1,in_ECX + 0x210c4);
     (**(code **)(**(int **)(in_ECX + 0x210c4) + 0x2c))

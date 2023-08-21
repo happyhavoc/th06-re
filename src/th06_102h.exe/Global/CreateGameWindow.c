@@ -22,7 +22,7 @@ void CreateGameWindow(HINSTANCE param_1)
   IS_APP_ACTIVE = 0;
   local_34.lpszClassName = "BASE";
   RegisterClassA(&local_34);
-  if (g_GameContext.cfg._30_1_ == '\0') {
+  if (g_GameContext.cfg.field14_0x1e == 0) {
     local_c = 0x280;
     local_8 = 0x1e0;
     GAME_WINDOW = CreateWindowExA(0,"BASE",

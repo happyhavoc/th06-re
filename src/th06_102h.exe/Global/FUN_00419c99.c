@@ -167,10 +167,10 @@ void FUN_00419c99(void)
   g_GameContext._212_4_ = 0x1e0;
   (**(code **)(*(int *)g_GameContext._8_4_ + 0xa0))(g_GameContext._8_4_,0x6c6de0);
   local_14 = in_ECX[1] + 0x660;
-  if ((((uint)g_GameContext.cfg._52_4_ >> 4 & 1) == 0) &&
+  if ((((uint)g_GameContext.cfg.field34_0x34 >> 4 & 1) == 0) &&
      (((*(int *)(in_ECX[1] + 0x71c) != 0 || (DAT_006c6eb0 != 0)) ||
-      (((uint)g_GameContext.cfg._52_4_ >> 3 & 1 | (uint)g_GameContext.cfg._52_4_ >> 4 & 1) != 0))))
-  {
+      (((uint)g_GameContext.cfg.field34_0x34 >> 3 & 1 |
+       (uint)g_GameContext.cfg.field34_0x34 >> 4 & 1) != 0)))) {
     for (local_8 = 0.0; local_8 < 464.0 != NAN(local_8); local_8 = local_8 + 32.0) {
       local_a0 = 0;
       local_9c = local_8;
@@ -230,7 +230,7 @@ void FUN_00419c99(void)
     *in_ECX = *in_ECX & 0xfffffcff | 0x200;
     *in_ECX = *in_ECX & 0xffffffcf | 0x20;
   }
-  if (((uint)g_GameContext.cfg._52_4_ >> 4 & 1) == 0) {
+  if (((uint)g_GameContext.cfg.field34_0x34 >> 4 & 1) == 0) {
     uVar1 = in_ECX[1];
     local_14 = uVar1 + 0x1760;
     local_c = 496.0;
@@ -308,7 +308,7 @@ void FUN_00419c99(void)
     *(undefined4 *)(local_14 + 0x98) = 0x3efae148;
     FUN_00432ad0(local_14);
   }
-  if (((*in_ECX & 3) != 0) || (((uint)g_GameContext.cfg._52_4_ >> 4 & 1) != 0)) {
+  if (((*in_ECX & 3) != 0) || (((uint)g_GameContext.cfg.field34_0x34 >> 4 & 1) != 0)) {
     local_14 = in_ECX[1] + 0x1100;
     local_c = 496.0;
     for (local_10 = 0; local_10 < DAT_0069d4ba; local_10 = local_10 + 1) {
@@ -322,7 +322,7 @@ void FUN_00419c99(void)
       local_c = local_c + 16.0;
     }
   }
-  if (((*in_ECX >> 2 & 3) != 0) || (((uint)g_GameContext.cfg._52_4_ >> 4 & 1) != 0)) {
+  if (((*in_ECX >> 2 & 3) != 0) || (((uint)g_GameContext.cfg.field34_0x34 >> 4 & 1) != 0)) {
     local_14 = in_ECX[1] + 0x1210;
     local_c = 496.0;
     for (local_10 = 0; local_10 < DAT_0069d4bb; local_10 = local_10 + 1) {
@@ -336,7 +336,7 @@ void FUN_00419c99(void)
       local_c = local_c + 16.0;
     }
   }
-  if (((*in_ECX >> 4 & 3) != 0) || (((uint)g_GameContext.cfg._52_4_ >> 4 & 1) != 0)) {
+  if (((*in_ECX >> 4 & 3) != 0) || (((uint)g_GameContext.cfg.field34_0x34 >> 4 & 1) != 0)) {
     local_1c0 = 4;
     do {
       local_1c0 = local_1c0 + -1;
@@ -374,13 +374,13 @@ void FUN_00419c99(void)
       local_70 = 0x3f800000;
       local_68 = local_160;
       local_40 = local_178;
-      if (((uint)g_GameContext.cfg._52_4_ >> 8 & 1) == 0) {
+      if (((uint)g_GameContext.cfg.field34_0x34 >> 8 & 1) == 0) {
         (**(code **)(*(int *)g_GameContext._8_4_ + 0xfc))(g_GameContext._8_4_,0,4,2);
         (**(code **)(*(int *)g_GameContext._8_4_ + 0xfc))(g_GameContext._8_4_,0,1,2);
       }
       (**(code **)(*(int *)g_GameContext._8_4_ + 0xfc))(g_GameContext._8_4_,0,5,0);
       (**(code **)(*(int *)g_GameContext._8_4_ + 0xfc))(g_GameContext._8_4_,0,2,0);
-      if (((uint)g_GameContext.cfg._52_4_ >> 6 & 1) == 0) {
+      if (((uint)g_GameContext.cfg.field34_0x34 >> 6 & 1) == 0) {
         (**(code **)(*(int *)g_GameContext._8_4_ + 200))(g_GameContext._8_4_,0x17,8);
         (**(code **)(*(int *)g_GameContext._8_4_ + 200))(g_GameContext._8_4_,0xe,0);
       }
@@ -390,7 +390,7 @@ void FUN_00419c99(void)
       *(undefined *)(DAT_006d4588 + 0x210bd) = 0xff;
       *(undefined *)(DAT_006d4588 + 0x210bc) = 0xff;
       *(undefined *)(DAT_006d4588 + 0x210bf) = 0xff;
-      if (((uint)g_GameContext.cfg._52_4_ >> 8 & 1) == 0) {
+      if (((uint)g_GameContext.cfg.field34_0x34 >> 8 & 1) == 0) {
         (**(code **)(*(int *)g_GameContext._8_4_ + 0xfc))(g_GameContext._8_4_,0,4,4);
         (**(code **)(*(int *)g_GameContext._8_4_ + 0xfc))(g_GameContext._8_4_,0,1,4);
       }
@@ -423,13 +423,13 @@ void FUN_00419c99(void)
   local_84 = 0x42680000;
   local_80 = 0;
   FUN_00401650(&DAT_0047b900,&local_88,&DAT_0046ac24,DAT_0069bcac);
-  if (((*in_ECX >> 6 & 3) != 0) || (((uint)g_GameContext.cfg._52_4_ >> 4 & 1) != 0)) {
+  if (((*in_ECX >> 6 & 3) != 0) || (((uint)g_GameContext.cfg.field34_0x34 >> 4 & 1) != 0)) {
     local_88 = 0x43f80000;
     local_84 = 0x434e0000;
     local_80 = 0;
     FUN_00401650(&DAT_0047b900,&local_88,&DAT_0046ac68,DAT_0069bcb4);
   }
-  if (((*in_ECX >> 8 & 3) != 0) || (((uint)g_GameContext.cfg._52_4_ >> 4 & 1) != 0)) {
+  if (((*in_ECX >> 8 & 3) != 0) || (((uint)g_GameContext.cfg.field34_0x34 >> 4 & 1) != 0)) {
     local_88 = 0x43f80000;
     local_84 = 0x43620000;
     local_80 = 0;

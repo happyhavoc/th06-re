@@ -26,7 +26,8 @@ void FUN_00401530(undefined4 *param_1,char *param_2)
     *(undefined4 *)(pcVar1 + 0x50) = *(undefined4 *)(in_ECX + 0x6228);
     *(undefined4 *)(pcVar1 + 0x54) = *(undefined4 *)(in_ECX + 0x622c);
     *(undefined4 *)(pcVar1 + 0x5c) = *(undefined4 *)(in_ECX + 0x6230);
-    if (((uint)g_GameContext.cfg._52_4_ >> 8 & 1 | g_GameContext.cfg._52_4_ & 1) == 0) {
+    if (((uint)g_GameContext.cfg.field34_0x34 >> 8 & 1 | g_GameContext.cfg.field34_0x34 & 1U) == 0)
+    {
       *(undefined4 *)(pcVar1 + 0x58) = 0;
     }
     else {

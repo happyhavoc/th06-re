@@ -11,14 +11,14 @@ undefined4 FUN_00430e10(undefined4 param_1)
   if (*(int *)(in_ECX + 0x610) == 0) {
     uVar3 = 0xffffffff;
   }
-  else if (g_GameContext.cfg._28_1_ == '\0') {
+  else if (g_GameContext.cfg.field12_0x1c == 0) {
     uVar3 = 0xffffffff;
   }
   else if (*(int *)(in_ECX + 0x62c) == 0) {
     uVar3 = 0xffffffff;
   }
   else {
-    _Memory = (int *)FUN_0041e290(param_1,0);
+    _Memory = (int *)OpenPath(param_1,0);
     if (_Memory == (int *)0x0) {
       uVar3 = 0xffffffff;
     }

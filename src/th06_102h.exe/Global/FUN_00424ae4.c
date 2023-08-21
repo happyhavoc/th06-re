@@ -4,7 +4,7 @@ undefined4 FUN_00424ae4(undefined4 param_1)
 {
   undefined4 uVar1;
   
-  if (g_GameContext.cfg._27_1_ == '\x02') {
+  if (g_GameContext.cfg.midi_stuff == 2) {
     if (DAT_006c6ec8 != 0) {
       FUN_004224e0();
       FUN_00422140(param_1);

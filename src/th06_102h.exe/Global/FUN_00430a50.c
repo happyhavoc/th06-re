@@ -27,7 +27,7 @@ undefined4 FUN_00430a50(undefined4 param_1)
     FUN_0043ba10();
     uVar6 = 0xffffffff;
   }
-  else if (g_GameContext.cfg._28_1_ == '\0') {
+  else if (g_GameContext.cfg.field12_0x1c == 0) {
     local_8 = 0xffffffff;
     FUN_0043ba10();
     uVar6 = 0xffffffff;

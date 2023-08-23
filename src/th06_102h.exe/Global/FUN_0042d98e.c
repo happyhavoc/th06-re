@@ -100,7 +100,7 @@ undefined4 FUN_0042d98e(int param_1)
       else if (iVar1 != 1) {
         if (iVar1 == 2) {
           if (0x3b < *(int *)(param_1 + 4)) {
-            DAT_006c6ea4 = 1;
+            g_GameContext._396_4_ = 1;
             return 0;
           }
         }
@@ -276,7 +276,7 @@ undefined4 FUN_0042d98e(int param_1)
         FUN_0042d292();
       }
       else if (iVar1 == 0x11) {
-        DAT_006c6ea4 = 1;
+        g_GameContext._396_4_ = 1;
         return 0;
       }
     }

@@ -27,8 +27,8 @@ undefined4 FUN_00429930(int param_1)
       *(float *)(param_1 + 0x2b4) = _DAT_0069d6e0 + *(float *)(param_1 + 0x2b4);
       *(undefined4 *)(param_1 + 0x1a8) = 0x3efb645a;
       *(undefined4 *)(param_1 + 0x2b8) = 0x3efb645a;
-      FUN_00432cc0(param_1 + 0x110);
-      FUN_00432cc0(param_1 + 0x220);
+      FUN_00432cc0((void *)(param_1 + 0x110));
+      FUN_00432cc0((void *)(param_1 + 0x220));
     }
   }
   return 1;

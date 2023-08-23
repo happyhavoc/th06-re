@@ -45,7 +45,7 @@ void FUN_004066f0(int param_1)
     }
     else {
       FUN_00420130();
-      FUN_00417acd(0x4a3,&DAT_0046a420);
+      FUN_00417acd(0x69bc30,0x4a3,&DAT_0046a420);
       *(undefined4 *)(param_1 + 0x75cc) = 0xfa;
       *(undefined4 *)(param_1 + 0x75bc) = 300;
       *(undefined4 *)(param_1 + 0x75b8) = 0;

@@ -190,7 +190,7 @@ undefined4 FUN_00439137(void)
            (*(byte *)(in_ECX + 0x8232) != g_GameContext.cfg.field15_0x1f)) {
           g_GameContext.cfg.field14_0x1e = *(byte *)(in_ECX + 0x8231);
           g_GameContext.cfg.field15_0x1f = *(byte *)(in_ECX + 0x8232);
-          DAT_006c6ea4 = 5;
+          g_GameContext._396_4_ = 5;
           return 1;
         }
       }

@@ -13,7 +13,7 @@ undefined4 FUN_004253dd(int param_1)
       }
       break;
     }
-    iVar2 = FUN_00424e8f();
+    iVar2 = FUN_00424e8f(param_1);
   } while (iVar2 != 0);
   if (iVar1 == *(int *)(param_1 + 0xc)) {
     *(int *)(param_1 + 8) = *(int *)(param_1 + 8) + 1;

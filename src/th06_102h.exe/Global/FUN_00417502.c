@@ -69,12 +69,12 @@ void FUN_00417502(int param_1)
     }
     local_c = local_c + 16.0;
     if ((_DAT_0069bcb0 < 4) && (DAT_0069d4c3 == '\0')) {
-      if (DAT_006c6e7c == '\x03') {
+      if (g_GameContext._356_1_ == '\x03') {
         _DAT_00481b24 = 0xffff8080;
         FUN_00401650(&DAT_0047b900,&local_10,"Player Penalty * 0.5\n");
         local_c = local_c + 16.0;
       }
-      else if (DAT_006c6e7c == '\x04') {
+      else if (g_GameContext._356_1_ == '\x04') {
         _DAT_00481b24 = 0xffff8080;
         FUN_00401650(&DAT_0047b900,&local_10,"Player Penalty * 0.2\n");
         local_c = local_c + 16.0;

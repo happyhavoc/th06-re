@@ -12,7 +12,7 @@ undefined4 FUN_004224e0(void)
   else {
     for (local_8 = 0; local_8 < 0x20; local_8 = local_8 + 1) {
       if (*(int *)(in_ECX + 0x10 + *(int *)(in_ECX + 0x90) * 4) != 0) {
-        FUN_00422560(*(undefined4 *)(in_ECX + 0x10 + *(int *)(in_ECX + 0x90) * 4));
+        FUN_00422560(in_ECX,*(LPMIDIHDR *)(in_ECX + 0x10 + *(int *)(in_ECX + 0x90) * 4));
       }
     }
     FUN_00421d10();

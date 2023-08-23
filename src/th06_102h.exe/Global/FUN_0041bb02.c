@@ -14,13 +14,13 @@ undefined4 FUN_0041bb02(uint *param_1)
   
   bVar1 = false;
   (**(code **)(*(int *)g_GameContext._8_4_ + 0x14))(g_GameContext._8_4_,0);
-  if (DAT_006c6ea4 == 3) {
+  if (g_GameContext._396_4_ == 3) {
     *param_1 = param_1[1];
     param_1[2] = 0;
   }
   else {
-    DAT_006c6e7d = DAT_0069d4bb;
-    DAT_006c6e7c = DAT_0069d4ba;
+    g_GameContext._357_1_ = DAT_0069d4bb;
+    g_GameContext._356_1_ = DAT_0069d4ba;
     param_1[0x68f] = 0x42000000;
     param_1[0x690] = 0x41800000;
     param_1[0x691] = 0x43c00000;
@@ -145,7 +145,7 @@ undefined4 FUN_0041bb02(uint *param_1)
                 }
                 *(undefined *)(param_1 + 0x608) = 0;
                 *(undefined *)((int)param_1 + 0x1821) = 1;
-                if (DAT_006c6ea4 != 3) {
+                if (g_GameContext._396_4_ != 3) {
                   _DAT_006c6ecc = 0;
                   _DAT_006c6ed0 = 0;
                 }
@@ -154,9 +154,9 @@ undefined4 FUN_0041bb02(uint *param_1)
                 *(undefined *)((int)param_1 + 0x1822) = 0;
                 FUN_00401410();
                 if (bVar1) {
-                  DAT_006c6ea4 = 1;
+                  g_GameContext._396_4_ = 1;
                 }
-                DAT_006c6eb0 = 3;
+                g_GameContext._408_4_ = 3;
                 uVar3 = 0;
               }
               else {
@@ -173,7 +173,7 @@ undefined4 FUN_0041bb02(uint *param_1)
           }
           else {
             GameErrorContextLog(&g_GameErrorContext,
-                                "error : 敵頭脳の初期化に失敗しま��た\n");
+                                "error : 敵頭脳の初期化に失敗しました\n");
             uVar3 = 0xffffffff;
           }
         }

@@ -1,52 +1,52 @@
 
-void FUN_0041cde0(short *param_1)
+void __thiscall FUN_0041cde0(short *param_1_00,short *param_2)
 
 {
   code *pcVar1;
   bool bVar2;
-  short *in_ECX;
   short *local_c;
   
   bVar2 = false;
-  local_c = in_ECX;
-  if (param_1 != (short *)0x0) {
+  local_c = param_1_00;
+  if (param_2 != (short *)0x0) {
     for (; local_c != (short *)0x0; local_c = *(short **)(local_c + 10)) {
-      if (local_c == param_1) goto LAB_0041ce4c;
+      if (local_c == param_2) goto LAB_0041ce4c;
     }
     bVar2 = true;
-    for (local_c = in_ECX + 0x10; local_c != (short *)0x0; local_c = *(short **)(local_c + 10)) {
-      if (local_c == param_1) {
+    for (local_c = param_1_00 + 0x10; local_c != (short *)0x0; local_c = *(short **)(local_c + 10))
+    {
+      if (local_c == param_2) {
 LAB_0041ce4c:
         if (bVar2) {
-          DebugPrint2("draw cut Chain (Pri = %d)\n",(int)*param_1);
+          DebugPrint2("draw cut Chain (Pri = %d)\n",(int)*param_2);
         }
         else {
-          DebugPrint2("calc cut Chain (Pri = %d)\n",(int)*param_1);
+          DebugPrint2("calc cut Chain (Pri = %d)\n",(int)*param_2);
         }
-        if (*(int *)(param_1 + 8) == 0) {
+        if (*(int *)(param_2 + 8) == 0) {
           return;
         }
-        *(undefined4 *)(param_1 + 2) = 0;
-        *(undefined4 *)(*(int *)(param_1 + 8) + 0x14) = *(undefined4 *)(param_1 + 10);
-        if (*(int *)(param_1 + 10) != 0) {
-          *(undefined4 *)(*(int *)(param_1 + 10) + 0x10) = *(undefined4 *)(param_1 + 8);
+        *(undefined4 *)(param_2 + 2) = 0;
+        *(undefined4 *)(*(int *)(param_2 + 8) + 0x14) = *(undefined4 *)(param_2 + 10);
+        if (*(int *)(param_2 + 10) != 0) {
+          *(undefined4 *)(*(int *)(param_2 + 10) + 0x10) = *(undefined4 *)(param_2 + 8);
         }
-        *(undefined4 *)(param_1 + 8) = 0;
-        *(undefined4 *)(param_1 + 10) = 0;
-        if ((param_1[1] & 1U) != 0) {
-          if (param_1 == (short *)0x0) {
+        *(undefined4 *)(param_2 + 8) = 0;
+        *(undefined4 *)(param_2 + 10) = 0;
+        if ((param_2[1] & 1U) != 0) {
+          if (param_2 == (short *)0x0) {
             return;
           }
           FUN_0041c790();
-          _free(param_1);
+          _free(param_2);
           return;
         }
-        if (*(int *)(param_1 + 6) == 0) {
+        if (*(int *)(param_2 + 6) == 0) {
           return;
         }
-        pcVar1 = *(code **)(param_1 + 6);
-        *(undefined4 *)(param_1 + 6) = 0;
-        (*pcVar1)(*(undefined4 *)(param_1 + 0xe));
+        pcVar1 = *(code **)(param_2 + 6);
+        *(undefined4 *)(param_2 + 6) = 0;
+        (*pcVar1)(*(undefined4 *)(param_2 + 0xe));
         return;
       }
     }

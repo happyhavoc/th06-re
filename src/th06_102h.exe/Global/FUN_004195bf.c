@@ -139,11 +139,11 @@ void FUN_004195bf(void)
     else if (_DAT_0069bcb0 == 4) {
       local_c = local_c * 2 - (local_c * 2) % 10;
     }
-    if (DAT_006c6e7c == '\x03') {
+    if (g_GameContext._356_1_ == '\x03') {
       local_c = (local_c * 5) / 10;
       local_c = local_c - local_c % 10;
     }
-    else if (DAT_006c6e7c == '\x04') {
+    else if (g_GameContext._356_1_ == '\x04') {
       local_c = (local_c << 1) / 10;
       local_c = local_c - local_c % 10;
     }

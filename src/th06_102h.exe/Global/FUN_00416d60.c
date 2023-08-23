@@ -15,12 +15,12 @@ undefined4 FUN_00416d60(int param_1)
   undefined2 local_c;
   uint local_8;
   
-  if (DAT_006c6ea4 != 3) {
-    iVar4 = FUN_00431dc0(6,"data/etama3.anm",0x200);
+  if (g_GameContext._396_4_ != 3) {
+    iVar4 = FUN_00431dc0(DAT_006d4588,6,"data/etama3.anm",0x200);
     if (iVar4 != 0) {
       return 0xffffffff;
     }
-    iVar4 = FUN_00431dc0(7,"data/etama4.anm",0x29a);
+    iVar4 = FUN_00431dc0(DAT_006d4588,7,"data/etama4.anm",0x29a);
     if (iVar4 != 0) {
       return 0xffffffff;
     }

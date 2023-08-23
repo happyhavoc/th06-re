@@ -1,5 +1,5 @@
 
-undefined4 FUN_00404690(undefined4 param_1,undefined4 param_2)
+undefined4 FUN_00404690(char *param_1,undefined4 param_2)
 
 {
   int iVar1;
@@ -10,7 +10,7 @@ undefined4 FUN_00404690(undefined4 param_1,undefined4 param_2)
   int local_c;
   int local_8;
   
-  iVar1 = FUN_00431dc0(4,param_1,0x300);
+  iVar1 = FUN_00431dc0(DAT_006d4588,4,param_1,0x300);
   if (iVar1 == 0) {
     pvVar3 = (void *)OpenPath(param_2,0);
     in_ECX[1] = pvVar3;

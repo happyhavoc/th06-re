@@ -15,7 +15,7 @@ undefined4 FUN_00431370(void)
     }
     if (DVar2 == 0) {
       if (DAT_006d457c != 0) {
-        FUN_0043b560(1);
+        HandleWaveStreamNotification(DAT_006d457c,1);
       }
     }
     else if (DVar2 == 1) {

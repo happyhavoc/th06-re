@@ -64,7 +64,7 @@ LAB_004359b3:
       _strcpy(&DAT_0069d4cc,"data/demo/demo00.rpy");
       _DAT_0069bcb0 = 3;
       DAT_0069d6d4 = 3;
-      DAT_006c6ea4 = 2;
+      g_GameContext._396_4_ = 2;
       return 0;
     }
     iVar5 = FUN_004379e4();
@@ -89,7 +89,7 @@ switchD_004358f7_caseD_2:
     break;
   case 4:
     if (0x3b < *(int *)(param_1 + 0x81f4)) {
-      DAT_006c6ea4 = 4;
+      g_GameContext._396_4_ = 4;
       return 0;
     }
     break;
@@ -214,7 +214,7 @@ switchD_004358f7_caseD_2:
     iVar5 = FUN_00439f88();
     if (iVar5 != 0) {
       GameErrorContextLog(&g_GameErrorContext,"セレクト画面の読み込みに失敗\n");
-      DAT_006c6ea4 = 4;
+      g_GameContext._396_4_ = 4;
       return 0;
     }
     *(undefined4 *)(param_1 + 0x81f0) = 7;
@@ -469,7 +469,7 @@ LAB_0043666d:
     break;
   case 10:
     if (0x3b < *(int *)(param_1 + 0x81f4)) {
-      DAT_006c6ea4 = 6;
+      g_GameContext._396_4_ = 6;
       return 0;
     }
     break;
@@ -607,7 +607,7 @@ LAB_0043666d:
     break;
   case 0x10:
     if (0x3b < *(int *)(param_1 + 0x81f4)) {
-      DAT_006c6ea4 = 9;
+      g_GameContext._396_4_ = 9;
       return 0;
     }
     break;
@@ -636,7 +636,7 @@ LAB_00436de7:
             DAT_0069d4ba = 2;
             DAT_0069d4bb = 3;
           }
-          DAT_006c6ea4 = 2;
+          g_GameContext._396_4_ = 2;
           FUN_004311e0(10,0);
           _DAT_0069bcbc = 0;
           local_48 = 0.0;

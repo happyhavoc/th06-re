@@ -22,10 +22,12 @@ void FUN_0042564c(int param_1)
   int local_8;
   
   local_1c = __security_cookie ^ unaff_retaddr;
-  iVar2 = FUN_00435010(0,"data/result/music.jpg");
-  if ((((iVar2 == 0) && (iVar2 = FUN_00431dc0(0x29,"data/music00.anm",0x100), iVar2 == 0)) &&
-      (iVar2 = FUN_00431dc0(0x2a,"data/music01.anm",0x101), iVar2 == 0)) &&
-     (iVar3 = FUN_00431dc0(0x2b,"data/music02.anm",0x111), iVar2 = DAT_006d4588, iVar3 == 0)) {
+  iVar2 = FUN_00435010(DAT_006d4588,0,"data/result/music.jpg");
+  if ((((iVar2 == 0) &&
+       (iVar2 = FUN_00431dc0(DAT_006d4588,0x29,"data/music00.anm",0x100), iVar2 == 0)) &&
+      (iVar2 = FUN_00431dc0(DAT_006d4588,0x2a,"data/music01.anm",0x101), iVar2 == 0)) &&
+     (iVar3 = FUN_00431dc0(DAT_006d4588,0x2b,"data/music02.anm",0x111), iVar2 = DAT_006d4588,
+     iVar3 == 0)) {
     *(undefined2 *)(param_1 + 0xd8) = 0x100;
     FUN_00432430(param_1 + 0x24,*(undefined4 *)(iVar2 + 0x1cd34));
     *(undefined4 *)(param_1 + 8) = 0;

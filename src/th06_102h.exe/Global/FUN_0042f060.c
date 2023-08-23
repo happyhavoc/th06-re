@@ -13,23 +13,23 @@ undefined4 FUN_0042f060(undefined4 *param_1)
   int local_8;
   
   if (param_1[2] != 0x11) {
-    iVar1 = FUN_00435010(0,"data/result/result.jpg");
+    iVar1 = FUN_00435010(DAT_006d4588,0,"data/result/result.jpg");
     if (iVar1 != 0) {
       return 0xffffffff;
     }
-    iVar1 = FUN_00431dc0(0x25,"data/result00.anm",0x100);
+    iVar1 = FUN_00431dc0(DAT_006d4588,0x25,"data/result00.anm",0x100);
     if (iVar1 != 0) {
       return 0xffffffff;
     }
-    iVar1 = FUN_00431dc0(0x26,"data/result01.anm",0x108);
+    iVar1 = FUN_00431dc0(DAT_006d4588,0x26,"data/result01.anm",0x108);
     if (iVar1 != 0) {
       return 0xffffffff;
     }
-    iVar1 = FUN_00431dc0(0x27,"data/result02.anm",0x10f);
+    iVar1 = FUN_00431dc0(DAT_006d4588,0x27,"data/result02.anm",0x10f);
     if (iVar1 != 0) {
       return 0xffffffff;
     }
-    iVar1 = FUN_00431dc0(0x28,"data/result03.anm",0x125);
+    iVar1 = FUN_00431dc0(DAT_006d4588,0x28,"data/result03.anm",0x125);
     if (iVar1 != 0) {
       return 0xffffffff;
     }

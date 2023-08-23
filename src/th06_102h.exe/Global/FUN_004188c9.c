@@ -133,23 +133,23 @@ undefined4 FUN_004188c9(void)
         DAT_0069bca0 = DAT_0069bca4;
         if (DAT_0069d4c3 == '\0') {
           if ((DAT_0069d6d4 < 5) || ((_DAT_0069bcb0 != 0 && (DAT_0069d6d4 == 5)))) {
-            DAT_006c6ea4 = 3;
+            g_GameContext._396_4_ = 3;
           }
           else if (_DAT_0069bcbc == 0) {
             if (_DAT_0069bcb0 == 4) {
               DAT_0069d4c2 = 1;
-              DAT_006c6ea4 = 7;
+              g_GameContext._396_4_ = 7;
             }
             else {
-              DAT_006c6ea4 = 10;
+              g_GameContext._396_4_ = 10;
             }
           }
           else {
-            DAT_006c6ea4 = 8;
+            g_GameContext._396_4_ = 8;
           }
         }
         else {
-          DAT_006c6ea4 = 7;
+          g_GameContext._396_4_ = 7;
         }
         goto LAB_00418fe0;
       case 0xc:

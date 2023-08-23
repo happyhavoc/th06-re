@@ -14,12 +14,13 @@ void FUN_00424b5d(char *param_1)
   uint local_c;
   char *local_8;
   
+  iVar2 = DAT_006c6ec8;
   local_c = __security_cookie ^ unaff_retaddr;
   if (g_GameContext.cfg.midi_stuff == 2) {
     if (DAT_006c6ec8 != 0) {
       FUN_004224e0();
       FUN_00422380(param_1);
-      FUN_00422490();
+      FUN_00422490(iVar2);
     }
   }
   else if (g_GameContext.cfg.midi_stuff == 1) {
@@ -39,21 +40,21 @@ void FUN_00424b5d(char *param_1)
       local_228 = local_228 + 1;
       local_22c = local_22c + 1;
     } while (cVar1 != '\0');
-    local_8 = _strrchr(local_20c,0x2e);
+    local_8 = _strrchr(local_20c,L'.');
     local_8[1] = 'w';
     local_8[2] = 'a';
     local_8[3] = 'v';
-    local_8 = _strrchr(local_10c,0x2e);
+    local_8 = _strrchr(local_10c,L'.');
     local_8[1] = 'p';
     local_8[2] = 'o';
     local_8[3] = 's';
     FUN_00430a50(local_20c);
     iVar2 = FUN_00430e10(local_10c);
     if (iVar2 < 0) {
-      FUN_00430ec0(0);
+      FUN_00430ec0(0x6d3f50,0);
     }
     else {
-      FUN_00430ec0(1);
+      FUN_00430ec0(0x6d3f50,1);
     }
   }
   __security_check_cookie(local_c ^ unaff_retaddr);

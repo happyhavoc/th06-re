@@ -45,7 +45,7 @@ void FUN_00423f3f(void)
       }
     }
   }
-  if (_DAT_006c6eb4 == 0) {
+  if (g_GameContext._412_4_ == 0) {
     local_20 = 0x44000000;
     local_1c = 0x43e80000;
     local_18 = 0;

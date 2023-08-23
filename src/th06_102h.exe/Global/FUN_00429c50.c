@@ -12,7 +12,8 @@ undefined4 FUN_00429c50(int param_1)
   int local_8;
   
   if (DAT_0069d4bd == 0) {
-    if ((DAT_006c6ea4 != 3) && (iVar1 = FUN_00431dc0(5,"data/player00.anm",0x400), iVar1 != 0)) {
+    if ((g_GameContext._396_4_ != 3) &&
+       (iVar1 = FUN_00431dc0(DAT_006d4588,5,"data/player00.anm",0x400), iVar1 != 0)) {
       return 0xffffffff;
     }
     iVar1 = DAT_006d4588;
@@ -20,7 +21,8 @@ undefined4 FUN_00429c50(int param_1)
     FUN_00432430(param_1,*(undefined4 *)(iVar1 + 0x1d934));
   }
   else if (DAT_0069d4bd == 1) {
-    if ((DAT_006c6ea4 != 3) && (iVar1 = FUN_00431dc0(5,"data/player01.anm",0x400), iVar1 != 0)) {
+    if ((g_GameContext._396_4_ != 3) &&
+       (iVar1 = FUN_00431dc0(DAT_006d4588,5,"data/player01.anm",0x400), iVar1 != 0)) {
       return 0xffffffff;
     }
     iVar1 = DAT_006d4588;

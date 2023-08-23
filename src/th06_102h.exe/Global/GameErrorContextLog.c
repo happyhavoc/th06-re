@@ -1,5 +1,5 @@
 
-void GameErrorContextLog(GameErrorContext *ctx,char *fmt,...)
+char * GameErrorContextLog(GameErrorContext *ctx,char *fmt,...)
 
 {
   uint unaff_retaddr;
@@ -33,6 +33,6 @@ void GameErrorContextLog(GameErrorContext *ctx,char *fmt,...)
   }
   args = (va_list)0x0;
   __security_check_cookie(stack_cookie ^ unaff_retaddr);
-  return;
+  return fmt;
 }
 

@@ -168,7 +168,7 @@ void FUN_0042ab30(char *param_1,char *param_2)
         }
       }
     }
-    FUN_0041cde0(*(undefined4 *)(DAT_006d3f18 + 0x68));
+    FUN_0041cde0((short *)&DAT_0069d918,*(short **)(DAT_006d3f18 + 0x68));
   }
   __security_check_cookie(local_14 ^ unaff_retaddr);
   return;

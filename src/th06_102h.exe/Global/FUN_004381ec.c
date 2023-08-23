@@ -89,7 +89,7 @@ void FUN_004381ec(void)
       }
       else {
         GameErrorContextLog(&g_GameErrorContext,"セレクト画面の読み込みに失敗\n");
-        DAT_006c6ea4 = 4;
+        g_GameContext._396_4_ = 4;
       }
     }
   }
@@ -202,7 +202,7 @@ LAB_0043877b:
       _free(*(void **)(in_ECX + 0x10edc));
       *(undefined4 *)(in_ECX + 0x10edc) = 0;
       DAT_0069d6d4 = *(undefined4 *)(in_ECX + 0x81a0);
-      DAT_006c6ea4 = 2;
+      g_GameContext._396_4_ = 2;
     }
   }
 LAB_00438bb2:

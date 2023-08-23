@@ -88,18 +88,19 @@ void FUN_0041cfc0(uint param_1)
                    local_38.dwButtons);
       FUN_0041d600(&param_1,CONCAT22(extraout_var_05,g_GameContext.cfg.field4_0x10),0x100,
                    local_38.dwButtons);
-      uVar2 = (uint)(DAT_0069d788 - DAT_0069d784) >> 2;
-      local_3c = (uint)(DAT_0069d790 - DAT_0069d78c) >> 2;
+      uVar2 = JOYSTICK_CAPS.wXmax - JOYSTICK_CAPS.wXmin >> 2;
+      local_3c = JOYSTICK_CAPS.wYmax - JOYSTICK_CAPS.wYmin >> 2;
       param_1 = CONCAT22(param_1._2_2_,
                          (ushort)param_1 |
-                         -(ushort)(((uint)(DAT_0069d784 + DAT_0069d788) >> 1) + uVar2 <
+                         -(ushort)((JOYSTICK_CAPS.wXmin + JOYSTICK_CAPS.wXmax >> 1) + uVar2 <
                                   local_38.dwXpos) & 0x80 |
                          -(ushort)(local_38.dwXpos <
-                                  ((uint)(DAT_0069d784 + DAT_0069d788) >> 1) - uVar2) & 0x40 |
-                         -(ushort)(((uint)(DAT_0069d78c + DAT_0069d790) >> 1) + local_3c <
+                                  (JOYSTICK_CAPS.wXmin + JOYSTICK_CAPS.wXmax >> 1) - uVar2) & 0x40 |
+                         -(ushort)((JOYSTICK_CAPS.wYmin + JOYSTICK_CAPS.wYmax >> 1) + local_3c <
                                   local_38.dwYpos) & 0x20 |
                          -(ushort)(local_38.dwYpos <
-                                  ((uint)(DAT_0069d78c + DAT_0069d790) >> 1) - local_3c) & 0x10);
+                                  (JOYSTICK_CAPS.wYmin + JOYSTICK_CAPS.wYmax >> 1) - local_3c) &
+                         0x10);
     }
   }
   else {

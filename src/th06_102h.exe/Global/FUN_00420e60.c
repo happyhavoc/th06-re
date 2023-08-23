@@ -9,19 +9,14 @@ undefined4 FUN_00420e60(void)
   undefined4 unaff_EBP;
   int *piVar3;
   int *piVar4;
-  float10 fVar5;
-  undefined4 local_84;
-  float local_80;
-  float local_7c;
-  undefined4 local_78;
-  float local_74;
-  undefined4 local_70;
+  vec3f local_84;
+  vec3f local_78;
   undefined4 local_6c;
   undefined4 local_68;
   undefined4 local_64;
-  undefined4 local_60;
-  undefined4 local_5c;
-  undefined4 local_58;
+  float local_60;
+  float local_5c;
+  float local_58;
   float local_54;
   float local_50;
   int local_4c [5];
@@ -125,23 +120,23 @@ undefined4 FUN_00420e60(void)
 LAB_00421190:
       DAT_006c7114 = 0;
 LAB_004211ab:
-      local_58 = 0x43a00000;
+      local_58 = 320.0;
       local_54 = 240.0;
-      local_5c = 0x3faaaaab;
-      local_60 = 0x3f060a92;
-      fVar5 = (float10)FUN_0045c4c4(0x3fd0c15240000000);
-      local_50 = local_54 / (float)fVar5;
+      local_5c = 1.333333;
+      local_60 = 0.5235988;
+      local_50 = fload_withFB(0);
+      local_50 = local_54 / local_50;
       local_6c = 0;
       local_68 = 0x3f800000;
       local_64 = 0;
-      local_78 = local_58;
-      local_74 = -local_54;
-      local_70 = 0;
-      local_84 = local_58;
-      local_80 = -local_54;
-      local_7c = -local_50;
-      FUN_0043f561(0x6c6d60,&local_84,&local_78,&local_6c);
-      FUN_0043efee(0x6c6da0,local_60,local_5c,0x42c80000,0x461c4000);
+      local_78.x = local_58;
+      local_78.y = -local_54;
+      local_78.z = 0.0;
+      local_84.x = local_58;
+      local_84.y = -local_54;
+      local_84.z = -local_50;
+      FUN_0043f561((float *)&g_GameContext.field_0x48,&local_84,&local_78,&local_6c);
+      FUN_0043efee((float *)&g_GameContext.field_0x88,local_60,local_5c,100.0,10000.0);
       (**(code **)(*(int *)g_GameContext._8_4_ + 0x94))(g_GameContext._8_4_,2,0x6c6d60);
       (**(code **)(*(int *)g_GameContext._8_4_ + 0x94))(g_GameContext._8_4_,3,0x6c6da0);
       (**(code **)(*(int *)g_GameContext._8_4_ + 0xa4))(g_GameContext._8_4_,0x6c6de0);
@@ -152,7 +147,8 @@ LAB_004211ab:
                            );
         g_GameContext.cfg.field34_0x34 = g_GameContext.cfg.field34_0x34 | 1;
       }
-      if ((((uint)g_GameContext.cfg.field34_0x34 >> 7 & 1) == 0) || (_DAT_006c6eb8 == 0)) {
+      if ((((uint)g_GameContext.cfg.field34_0x34 >> 7 & 1) == 0) ||
+         (g_GameContext.field352_0x1a0 == 0)) {
         bVar1 = false;
       }
       else {
@@ -160,7 +156,7 @@ LAB_004211ab:
       }
       if ((bVar1) && ((DAT_006c7130 & 0x80000000) == 0)) {
         GameErrorContextLog(&g_GameErrorContext,
-                            "ビデオカードが非同期フリップをサポ���トしていません、Force60Frameで動作できません\n"
+                            "ビデオカードが非同期フリップをサポートしていません、Force60Frameで動作できません\n"
                            );
         g_GameContext.cfg.field34_0x34 = g_GameContext.cfg.field34_0x34 & 0xffffff7f;
       }
@@ -195,7 +191,8 @@ LAB_00421077:
       local_5 = local_5 & 0xffffff00;
       goto LAB_00421190;
     }
-    if ((((uint)g_GameContext.cfg.field34_0x34 >> 7 & 1) == 0) || (_DAT_006c6eb8 != 0)) {
+    if ((((uint)g_GameContext.cfg.field34_0x34 >> 7 & 1) == 0) ||
+       (g_GameContext.field352_0x1a0 != 0)) {
       if (local_24 != 1) {
         GameErrorContextFatal
                   (&g_GameErrorContext,
@@ -216,7 +213,7 @@ LAB_00421077:
                           "リフレッシュレートが変更できません、vsync 非同期に変更します\n"
                          );
       local_20 = 0;
-      _DAT_006c6eb8 = 1;
+      g_GameContext.field352_0x1a0 = 1;
       local_1c = 0x80000000;
     }
   } while( true );

@@ -5,7 +5,7 @@ undefined4 FUN_0042333b(int param_1)
   int iVar1;
   
   if (DAT_006d457c != 0) {
-    FUN_0043b4d0();
+    FUN_0043b4d0(DAT_006d457c);
   }
   DAT_0069d908 = DAT_0069d904;
   DAT_0069d904 = FUN_0041d820();

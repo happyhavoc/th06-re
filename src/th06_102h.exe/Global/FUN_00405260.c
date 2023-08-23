@@ -22,7 +22,7 @@ void FUN_00405260(int param_1)
   if (*(int *)(param_1 + 0x75d8) < *(int *)(param_1 + 0x75cc)) {
     if ((*(int *)(param_1 + 0x75d8) != *(int *)(param_1 + 0x75d0)) &&
        (*(int *)(param_1 + 0x75d8) == 0)) {
-      FUN_00417acd(0x4a1,&DAT_0046a3f4);
+      FUN_00417acd(0x69bc30,0x4a1,&DAT_0046a3f4);
       *(undefined4 *)(param_1 + 0x75cc) = 300;
       *(undefined4 *)(param_1 + 0x75bc) = 0x168;
       *(undefined4 *)(param_1 + 0x75b8) = 0;

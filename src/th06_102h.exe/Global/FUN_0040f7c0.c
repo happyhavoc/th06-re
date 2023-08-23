@@ -158,7 +158,7 @@ switchD_0040fa93_caseD_52:
           FUN_004323a0(in_ECX + 0x14 + iVar4 * 0x110,iVar2 + 0x600);
           break;
         case 0x62:
-          iVar4 = FUN_00435010(0,*(int *)(in_ECX + 0x116c) + 1);
+          iVar4 = FUN_00435010(DAT_006d4588,0,(char *)(*(int *)(in_ECX + 0x116c) + 1));
           if (iVar4 != 0) goto LAB_004105d3;
           break;
         case 99:

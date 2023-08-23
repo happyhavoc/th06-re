@@ -16,18 +16,18 @@ undefined4 FUN_0043a464(int param_1)
     *(undefined4 *)(iVar1 + 0x1cd34 + local_c * 4) = 0;
   }
   *(undefined4 *)(param_1 + 0x81e4) = 0;
-  if (DAT_006c6ea8 < 2) {
+  if ((int)g_GameContext._400_4_ < 2) {
 LAB_0043a516:
     *(undefined4 *)(param_1 + 0x81a0) = 0;
   }
   else {
-    if (3 < DAT_006c6ea8) {
-      if (DAT_006c6ea8 == 6) {
+    if (3 < (int)g_GameContext._400_4_) {
+      if (g_GameContext._400_4_ == 6) {
         *(undefined4 *)(param_1 + 0x81a0) = 4;
         goto LAB_0043a520;
       }
-      if (DAT_006c6ea8 != 7) {
-        if (DAT_006c6ea8 == 9) {
+      if (g_GameContext._400_4_ != 7) {
+        if (g_GameContext._400_4_ == 9) {
           *(undefined4 *)(param_1 + 0x81a0) = 5;
           goto LAB_0043a520;
         }

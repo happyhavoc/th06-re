@@ -44,7 +44,8 @@ undefined4 FUN_004206e0(void)
         *(char *)(in_ECX + 0x10) = *(char *)(in_ECX + 0x10) + '\x01';
 LAB_00420894:
         if (g_GameContext.cfg.field14_0x1e != 0) break;
-        if ((((uint)g_GameContext.cfg.field34_0x34 >> 7 & 1) == 0) || (_DAT_006c6eb8 == 0)) {
+        if ((((uint)g_GameContext.cfg.field34_0x34 >> 7 & 1) == 0) ||
+           (g_GameContext.field352_0x1a0 == 0)) {
           bVar2 = false;
         }
         else {
@@ -55,7 +56,8 @@ LAB_004209ab:
         if (g_GameContext.cfg.field14_0x1e != 0) {
           return 0;
         }
-        if ((((uint)g_GameContext.cfg.field34_0x34 >> 7 & 1) == 0) || (_DAT_006c6eb8 == 0)) {
+        if ((((uint)g_GameContext.cfg.field34_0x34 >> 7 & 1) == 0) ||
+           (g_GameContext.field352_0x1a0 == 0)) {
           bVar2 = false;
         }
         else {

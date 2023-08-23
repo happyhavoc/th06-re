@@ -2,7 +2,7 @@
 undefined4 FUN_0042a0b0(void)
 
 {
-  if (DAT_006c6ea4 != 3) {
+  if (g_GameContext._396_4_ != 3) {
     FUN_00432030(5);
   }
   return 0;

@@ -10,9 +10,9 @@ undefined4 FUN_0043a1ec(int param_1)
   for (local_8 = 0x15; local_8 < 0x1b; local_8 = local_8 + 1) {
     FUN_00432030(local_8);
   }
-  iVar1 = FUN_00435010(0,"data/title/select00.jpg");
+  iVar1 = FUN_00435010(DAT_006d4588,0,"data/title/select00.jpg");
   if (iVar1 == 0) {
-    iVar1 = FUN_00431dc0(0x24,"data/replay00.anm",0x160);
+    iVar1 = FUN_00431dc0(DAT_006d4588,0x24,"data/replay00.anm",0x160);
     if (iVar1 == 0) {
       local_c = param_1 + 0x6600;
       for (local_8 = 0x160; local_8 < 0x17a; local_8 = local_8 + 1) {

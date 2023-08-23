@@ -43,7 +43,7 @@ void FUN_00422680(void)
       *(uint *)(in_ECX + 0x128) = uVar1 + 1;
       *(uint *)(in_ECX + 300) = *(int *)(in_ECX + 300) + (uint)(0xfffffffe < uVar1);
       if (!bVar2) {
-        FUN_004223c0();
+        FUN_004223c0(in_ECX);
       }
       return;
     }

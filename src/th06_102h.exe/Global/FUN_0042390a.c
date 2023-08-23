@@ -19,7 +19,7 @@ undefined4 FUN_0042390a(void)
   DAT_0069d900 = *(int *)(unaff_EBP + 8) + 0x1bc;
   iVar1 = FUN_00424375(0,&DAT_0046b63c);
   if (iVar1 == 0) {
-    FUN_00435010(0,"data/title/th06logo.jpg");
+    FUN_00435010(DAT_006d4588,0,"data/title/th06logo.jpg");
     FUN_00435300(0,0,0,0,0);
     iVar1 = (**(code **)(*(int *)g_GameContext._8_4_ + 0x3c))(g_GameContext._8_4_,0,0,0,0);
     if (iVar1 < 0) {
@@ -51,8 +51,8 @@ undefined4 FUN_0042390a(void)
     *(short *)(unaff_EBP + -0x1a) = (short)DVar3;
     DAT_0069d8f8 = *(undefined2 *)(unaff_EBP + -0x1a);
     _DAT_0069d8fc = 0;
-    FUN_00431080();
-    iVar1 = FUN_00431dc0(0,"data/text.anm",0x700);
+    FUN_00431080((int **)&UNK_GAME_WINDOW_);
+    iVar1 = FUN_00431dc0(DAT_006d4588,0,"data/text.anm",0x700);
     if (iVar1 == 0) {
       iVar1 = FUN_004012c0();
       if (iVar1 == 0) {

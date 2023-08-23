@@ -20,7 +20,7 @@ undefined4 FUN_0042f5bc(void **param_1)
   FUN_00432030(0x27);
   FUN_00432030(0x28);
   FUN_00435270(0);
-  FUN_0041cde0(param_1[0x146b]);
+  FUN_0041cde0((short *)&DAT_0069d918,(short *)param_1[0x146b]);
   param_1[0x146b] = (void *)0x0;
   if (param_1 != (void **)0x0) {
     _free(*param_1);

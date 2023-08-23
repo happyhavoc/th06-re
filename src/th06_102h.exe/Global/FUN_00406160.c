@@ -62,7 +62,7 @@ void FUN_00406160(int param_1)
     }
     else {
       FUN_00420130();
-      FUN_00417acd(0x4a3,&DAT_0046a410);
+      FUN_00417acd(0x69bc30,0x4a3,&DAT_0046a410);
       *(undefined4 *)(param_1 + 0x75cc) = 0x8c;
       *(undefined4 *)(param_1 + 0x75bc) = 200;
       *(undefined4 *)(param_1 + 0x75b8) = 0;

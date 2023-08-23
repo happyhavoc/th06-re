@@ -96,6 +96,14 @@ struct CLIENT_ID {
     void *UniqueThread;
 };
 
+typedef struct vec3f vec3f, *Pvec3f;
+
+struct vec3f {
+    float x;
+    float y;
+    float z;
+};
+
 typedef struct _s_FuncInfo FuncInfo;
 
 typedef struct _SYSTEM_INFO _SYSTEM_INFO, *P_SYSTEM_INFO;
@@ -611,33 +619,9 @@ struct HTASK__ {
     int unused;
 };
 
-typedef struct HMIDIOUT__ HMIDIOUT__, *PHMIDIOUT__;
-
-typedef struct HMIDIOUT__ *HMIDIOUT;
-
-typedef HMIDIOUT *LPHMIDIOUT;
-
-struct HMIDIOUT__ {
-    int unused;
-};
-
-typedef void (TIMECALLBACK)(UINT, UINT, DWORD_PTR, DWORD_PTR, DWORD_PTR);
-
-typedef TIMECALLBACK *LPTIMECALLBACK;
-
-typedef struct _MMCKINFO _MMCKINFO, *P_MMCKINFO;
-
-typedef struct _MMCKINFO MMCKINFO;
-
-struct _MMCKINFO {
-    FOURCC ckid;
-    DWORD cksize;
-    FOURCC fccType;
-    DWORD dwDataOffset;
-    DWORD dwFlags;
-};
-
 typedef struct tagJOYCAPSA tagJOYCAPSA, *PtagJOYCAPSA;
+
+typedef struct tagJOYCAPSA JOYCAPSA;
 
 struct tagJOYCAPSA {
     WORD wMid;
@@ -664,6 +648,32 @@ struct tagJOYCAPSA {
     UINT wMaxButtons;
     CHAR szRegKey[32];
     CHAR szOEMVxD[260];
+};
+
+typedef struct HMIDIOUT__ HMIDIOUT__, *PHMIDIOUT__;
+
+typedef struct HMIDIOUT__ *HMIDIOUT;
+
+typedef HMIDIOUT *LPHMIDIOUT;
+
+struct HMIDIOUT__ {
+    int unused;
+};
+
+typedef void (TIMECALLBACK)(UINT, UINT, DWORD_PTR, DWORD_PTR, DWORD_PTR);
+
+typedef TIMECALLBACK *LPTIMECALLBACK;
+
+typedef struct _MMCKINFO _MMCKINFO, *P_MMCKINFO;
+
+typedef struct _MMCKINFO MMCKINFO;
+
+struct _MMCKINFO {
+    FOURCC ckid;
+    DWORD cksize;
+    FOURCC fccType;
+    DWORD dwDataOffset;
+    DWORD dwFlags;
 };
 
 typedef struct joyinfoex_tag *LPJOYINFOEX;
@@ -1289,6 +1299,87 @@ struct GameContext {
     undefined field269_0x14d;
     undefined field270_0x14e;
     undefined field271_0x14f;
+    undefined field272_0x150;
+    undefined field273_0x151;
+    undefined field274_0x152;
+    undefined field275_0x153;
+    undefined field276_0x154;
+    undefined field277_0x155;
+    undefined field278_0x156;
+    undefined field279_0x157;
+    undefined field280_0x158;
+    undefined field281_0x159;
+    undefined field282_0x15a;
+    undefined field283_0x15b;
+    undefined field284_0x15c;
+    undefined field285_0x15d;
+    undefined field286_0x15e;
+    undefined field287_0x15f;
+    undefined field288_0x160;
+    undefined field289_0x161;
+    undefined field290_0x162;
+    undefined field291_0x163;
+    undefined field292_0x164;
+    undefined field293_0x165;
+    undefined field294_0x166;
+    undefined field295_0x167;
+    undefined field296_0x168;
+    undefined field297_0x169;
+    undefined field298_0x16a;
+    undefined field299_0x16b;
+    undefined field300_0x16c;
+    undefined field301_0x16d;
+    undefined field302_0x16e;
+    undefined field303_0x16f;
+    undefined field304_0x170;
+    undefined field305_0x171;
+    undefined field306_0x172;
+    undefined field307_0x173;
+    undefined field308_0x174;
+    undefined field309_0x175;
+    undefined field310_0x176;
+    undefined field311_0x177;
+    undefined field312_0x178;
+    undefined field313_0x179;
+    undefined field314_0x17a;
+    undefined field315_0x17b;
+    undefined field316_0x17c;
+    undefined field317_0x17d;
+    undefined field318_0x17e;
+    undefined field319_0x17f;
+    undefined field320_0x180;
+    undefined field321_0x181;
+    undefined field322_0x182;
+    undefined field323_0x183;
+    undefined field324_0x184;
+    undefined field325_0x185;
+    undefined field326_0x186;
+    undefined field327_0x187;
+    undefined field328_0x188;
+    undefined field329_0x189;
+    undefined field330_0x18a;
+    undefined field331_0x18b;
+    undefined field332_0x18c;
+    undefined field333_0x18d;
+    undefined field334_0x18e;
+    undefined field335_0x18f;
+    undefined field336_0x190;
+    undefined field337_0x191;
+    undefined field338_0x192;
+    undefined field339_0x193;
+    undefined field340_0x194;
+    undefined field341_0x195;
+    undefined field342_0x196;
+    undefined field343_0x197;
+    undefined field344_0x198;
+    undefined field345_0x199;
+    undefined field346_0x19a;
+    undefined field347_0x19b;
+    undefined field348_0x19c;
+    undefined field349_0x19d;
+    undefined field350_0x19e;
+    undefined field351_0x19f;
+    int field352_0x1a0;
 };
 
 typedef struct GameErrorContext GameErrorContext, *PGameErrorContext;

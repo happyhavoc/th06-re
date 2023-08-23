@@ -1,18 +1,17 @@
 
-undefined4 FUN_00421ff0(int param_1,undefined4 param_2)
+undefined4 __thiscall FUN_00421ff0(int param_1_00,int param_2,undefined4 param_3)
 
 {
   undefined4 uVar1;
-  int in_ECX;
   
   if (g_GameContext.cfg.midi_stuff == 2) {
     FUN_004224e0();
-    FUN_00422070(param_1);
-    uVar1 = OpenPath(param_2,0);
-    *(undefined4 *)(in_ECX + 0x94 + param_1 * 4) = uVar1;
-    if (*(int *)(in_ECX + 0x94 + param_1 * 4) == 0) {
+    FUN_00422070(param_2);
+    uVar1 = OpenPath(param_3,0);
+    *(undefined4 *)(param_1_00 + 0x94 + param_2 * 4) = uVar1;
+    if (*(int *)(param_1_00 + 0x94 + param_2 * 4) == 0) {
       GameErrorContextLog(&g_GameErrorContext,"error : MIDI File が読み込めない %s \n",
-                          param_2);
+                          param_3);
       uVar1 = 0xffffffff;
     }
     else {

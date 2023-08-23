@@ -31,7 +31,7 @@ undefined4 FUN_00404180(int param_1)
       *(undefined2 *)(param_1 + 0x13c) = 0x2b3;
       FUN_00432430(param_1 + 0x88,*(undefined4 *)(iVar1 + 0x1d400));
     }
-    FUN_00432cc0(param_1 + 0x88);
+    FUN_00432cc0((void *)(param_1 + 0x88));
   }
   g_GameContext._216_4_ = 0;
   g_GameContext._220_4_ = 0x3f000000;

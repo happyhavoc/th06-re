@@ -1,17 +1,15 @@
 
-undefined2 * FUN_0041c720(void)
+undefined2 * __fastcall FUN_0041c720(undefined2 *param_1)
 
 {
-  undefined2 *in_ECX;
-  
-  *(undefined4 *)(in_ECX + 8) = 0;
-  *(undefined4 *)(in_ECX + 10) = 0;
-  *(undefined4 *)(in_ECX + 2) = 0;
-  *(undefined2 **)(in_ECX + 0xc) = in_ECX;
-  *(undefined4 *)(in_ECX + 4) = 0;
-  *(undefined4 *)(in_ECX + 6) = 0;
-  *in_ECX = 0;
-  in_ECX[1] = in_ECX[1] & 0xfffe;
-  return in_ECX;
+  *(undefined4 *)(param_1 + 8) = 0;
+  *(undefined4 *)(param_1 + 10) = 0;
+  *(undefined4 *)(param_1 + 2) = 0;
+  *(undefined2 **)(param_1 + 0xc) = param_1;
+  *(undefined4 *)(param_1 + 4) = 0;
+  *(undefined4 *)(param_1 + 6) = 0;
+  *param_1 = 0;
+  param_1[1] = param_1[1] & 0xfffe;
+  return param_1;
 }
 

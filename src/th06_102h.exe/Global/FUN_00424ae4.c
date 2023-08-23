@@ -2,19 +2,21 @@
 undefined4 FUN_00424ae4(undefined4 param_1)
 
 {
-  undefined4 uVar1;
+  int iVar1;
+  undefined4 uVar2;
   
+  iVar1 = DAT_006c6ec8;
   if (g_GameContext.cfg.midi_stuff == 2) {
     if (DAT_006c6ec8 != 0) {
       FUN_004224e0();
       FUN_00422140(param_1);
-      FUN_00422490();
+      FUN_00422490(iVar1);
     }
-    uVar1 = 0;
+    uVar2 = 0;
   }
   else {
-    uVar1 = 1;
+    uVar2 = 1;
   }
-  return uVar1;
+  return uVar2;
 }
 

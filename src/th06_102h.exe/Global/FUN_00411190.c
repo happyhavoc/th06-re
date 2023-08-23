@@ -1,8 +1,8 @@
 
-undefined4 FUN_00411190(void)
+int FUN_00411190(void)
 
 {
-  undefined4 in_ECX;
+  int in_ECX;
   int local_8c;
   
   FUN_00411240();
@@ -10,7 +10,7 @@ undefined4 FUN_00411190(void)
   while (local_8c = local_8c + -1, -1 < local_8c) {
     FUN_00411240();
   }
-  FUN_00424127();
+  FUN_00424127((undefined4 *)(in_ECX + 0xee5e0));
   FUN_00410e30();
   return in_ECX;
 }

@@ -1,15 +1,15 @@
 
-bool FUN_0041cf60(void)
+bool GetJoystickCaps(void)
 
 {
   MMRESULT MVar1;
-  joyinfoex_tag local_38;
+  joyinfoex_tag joyinfo;
   
-  local_38.dwSize = 0x34;
-  local_38.dwFlags = 0xff;
-  MVar1 = joyGetPosEx(0,&local_38);
+  joyinfo.dwSize = 0x34;
+  joyinfo.dwFlags = 0xff;
+  MVar1 = joyGetPosEx(0,&joyinfo);
   if (MVar1 == 0) {
-    joyGetDevCapsA(0,(LPJOYCAPSA)&DAT_0069d760,0x194);
+    joyGetDevCapsA(0,&JOYSTICK_CAPS,0x194);
   }
   else {
     GameErrorContextLog(&g_GameErrorContext,

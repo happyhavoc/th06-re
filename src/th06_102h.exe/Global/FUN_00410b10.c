@@ -7,11 +7,11 @@ undefined4 FUN_00410b10(int param_1)
   int iVar1;
   
   DAT_0069d4c2 = 1;
-  _DAT_006c6eb4 = 1;
+  g_GameContext._412_4_ = 1;
   FUN_00424375(5,&DAT_0046a6cc);
-  FUN_00431dc0(0x2c,"data/staff01.anm",0x600);
-  FUN_00431dc0(0x2d,"data/staff02.anm",0x607);
-  FUN_00431dc0(0x2e,"data/staff03.anm",0x60e);
+  FUN_00431dc0(DAT_006d4588,0x2c,"data/staff01.anm",0x600);
+  FUN_00431dc0(DAT_006d4588,0x2d,"data/staff02.anm",0x607);
+  FUN_00431dc0(DAT_006d4588,0x2e,"data/staff03.anm",0x60e);
   *(undefined4 *)(DAT_006d4588 + 0x210b8) = 0;
   *(undefined4 *)(DAT_006d4588 + 0x210c0) = 0;
   *(undefined *)(DAT_006d4588 + 0x210bc) = 0xff;

@@ -2,10 +2,10 @@
 int WinMain(HINSTANCE hInstance,HINSTANCE hPrevInstance,LPSTR lpCmdLine,int nShowCmd)
 
 {
-  void *pvVar1;
+  undefined4 *puVar1;
   BOOL BVar2;
   int retCode;
-  void *local_58;
+  undefined4 *local_58;
   tagMSG local_28;
   int local_c;
   int local_8;
@@ -28,15 +28,15 @@ int WinMain(HINSTANCE hInstance,HINSTANCE hPrevInstance,LPSTR lpCmdLine,int nSho
           CreateGameWindow(hInstance);
           retCode = FUN_00420e60();
           if (retCode != 0) break;
-          FUN_00430270(GAME_WINDOW);
-          FUN_0041cf60();
-          FUN_0041e0c0();
-          pvVar1 = operator_new(0x2112c);
-          if (pvVar1 == (void *)0x0) {
-            local_58 = (void *)0x0;
+          FUN_00430270((int **)&UNK_GAME_WINDOW_,GAME_WINDOW);
+          GetJoystickCaps();
+          reset_keyboard();
+          puVar1 = (undefined4 *)operator_new(0x2112c);
+          if (puVar1 == (undefined4 *)0x0) {
+            local_58 = (undefined4 *)0x0;
           }
           else {
-            local_58 = (void *)FUN_00431470();
+            local_58 = FUN_00431470(puVar1);
           }
           DAT_006d4588 = local_58;
           retCode = FUN_0042386b();
@@ -62,7 +62,7 @@ int WinMain(HINSTANCE hInstance,HINSTANCE hPrevInstance,LPSTR lpCmdLine,int nSho
                                       (g_GameContext._8_4_,0x6c6df8);
                   if (retCode != 0) goto LAB_0042055a;
                   FUN_00421420();
-                  DAT_006c6eb0 = 3;
+                  g_GameContext._408_4_ = 3;
                 }
               }
               local_8 = FUN_004206e0();
@@ -71,17 +71,17 @@ int WinMain(HINSTANCE hInstance,HINSTANCE hPrevInstance,LPSTR lpCmdLine,int nSho
 LAB_0042055a:
           FUN_0041cd10();
           FUN_00430510();
-          pvVar1 = DAT_006d4588;
-          if (DAT_006d4588 == (void *)0x0) {
-            pvVar1 = (void *)0x0;
+          puVar1 = DAT_006d4588;
+          if (DAT_006d4588 == (undefined4 *)0x0) {
+            puVar1 = (undefined4 *)0x0;
           }
           else {
             FUN_00423330();
-            _free(pvVar1);
+            _free(puVar1);
           }
-          DAT_006d4588 = (void *)0x0;
+          DAT_006d4588 = (undefined4 *)0x0;
           if (g_GameContext._8_4_ != 0) {
-            (**(code **)(*(int *)g_GameContext._8_4_ + 8))(g_GameContext._8_4_,pvVar1);
+            (**(code **)(*(int *)g_GameContext._8_4_ + 8))(g_GameContext._8_4_,puVar1);
             g_GameContext._8_4_ = 0;
           }
           ShowWindow(GAME_WINDOW,0);

@@ -5,15 +5,18 @@ undefined4 * FUN_004108b0(void)
   undefined4 *in_ECX;
   int iVar1;
   undefined4 *puVar2;
+  undefined4 *local_20;
   int local_18;
   
   local_18 = 0x10;
+  local_20 = in_ECX + 5;
   while (local_18 = local_18 + -1, -1 < local_18) {
-    FUN_00403720();
+    FUN_00403720((int)local_20);
+    local_20 = local_20 + 0x44;
   }
-  FUN_00424127();
-  FUN_00424127();
-  FUN_00424127();
+  FUN_00424127(in_ECX + 0x447);
+  FUN_00424127(in_ECX + 0x44a);
+  FUN_00424127(in_ECX + 0x44d);
   puVar2 = in_ECX;
   for (iVar1 = 0x45c; iVar1 != 0; iVar1 = iVar1 + -1) {
     *puVar2 = 0;

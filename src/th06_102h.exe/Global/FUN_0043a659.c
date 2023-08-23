@@ -16,7 +16,7 @@ undefined4 FUN_0043a659(int param_1)
   for (local_c = 0; local_c < 0x7a; local_c = local_c + 1) {
     *(undefined4 *)(iVar1 + 0x1cd34 + local_c * 4) = 0;
   }
-  FUN_0041cde0(*(undefined4 *)(param_1 + 0x8238));
+  FUN_0041cde0((short *)&DAT_0069d918,*(short **)(param_1 + 0x8238));
   *(undefined4 *)(param_1 + 0x8238) = 0;
   _free(*(void **)(param_1 + 0x10edc));
   return 0;

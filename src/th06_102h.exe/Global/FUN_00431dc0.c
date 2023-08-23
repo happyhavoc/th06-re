@@ -1,10 +1,9 @@
 
-undefined4 FUN_00431dc0(int param_1,undefined4 param_2,int param_3)
+undefined4 __thiscall FUN_00431dc0(int param_1_00,int param_2,char *path,int param_4)
 
 {
   undefined4 uVar1;
   int iVar2;
-  int in_ECX;
   undefined4 local_50;
   int local_4c;
   int local_48;
@@ -18,19 +17,19 @@ undefined4 FUN_00431dc0(int param_1,undefined4 param_2,int param_3)
   char *local_c;
   int local_8;
   
-  FUN_00432030(param_1);
-  uVar1 = OpenPath(param_2,0);
-  *(undefined4 *)(in_ECX + 0x20934 + param_1 * 4) = uVar1;
-  local_8 = *(int *)(in_ECX + 0x20934 + param_1 * 4);
+  FUN_00432030(param_2);
+  uVar1 = OpenPath(path,0);
+  *(undefined4 *)(param_1_00 + 0x20934 + param_2 * 4) = uVar1;
+  local_8 = *(int *)(param_1_00 + 0x20934 + param_2 * 4);
   if (local_8 == 0) {
     GameErrorContextFatal
               (&g_GameErrorContext,
                "スプライトアニメ %s が読み込めません。データが失われてるか壊れています\n"
-               ,param_2);
+               ,path);
     uVar1 = 0xffffffff;
   }
   else {
-    *(int *)(local_8 + 8) = param_1;
+    *(int *)(local_8 + 8) = param_2;
     local_c = (char *)(local_8 + *(int *)(local_8 + 0x1c));
     if (*local_c == '@') {
       FUN_00431d70(*(undefined4 *)(local_8 + 8),*(undefined4 *)(local_8 + 0xc),
@@ -59,27 +58,27 @@ undefined4 FUN_00431dc0(int param_1,undefined4 param_2,int param_3)
         return 0xffffffff;
       }
     }
-    *(int *)(local_8 + 0x20) = param_3;
+    *(int *)(local_8 + 0x20) = param_4;
     local_18 = (int *)(local_8 + 0x40);
-    for (local_14 = 0; local_14 < **(int **)(in_ECX + 0x20934 + param_1 * 4);
+    for (local_14 = 0; local_14 < **(int **)(param_1_00 + 0x20934 + param_2 * 4);
         local_14 = local_14 + 1) {
       local_10 = (int *)(local_8 + *local_18);
-      local_50 = *(undefined4 *)(*(int *)(in_ECX + 0x20934 + param_1 * 4) + 8);
+      local_50 = *(undefined4 *)(*(int *)(param_1_00 + 0x20934 + param_2 * 4) + 8);
       local_4c = local_10[1];
       local_48 = local_10[2];
       local_44 = (float)local_10[1] + (float)local_10[3];
       local_40 = (float)local_10[2] + (float)local_10[4];
       local_38 = (float)*(int *)(local_8 + 0xc);
       local_3c = (float)*(int *)(local_8 + 0x10);
-      FUN_00432260(*local_10 + param_3,&local_50);
+      FUN_00432260(*local_10 + param_4,&local_50);
       local_18 = local_18 + 1;
     }
     for (local_14 = 0; local_14 < *(int *)(local_8 + 4); local_14 = local_14 + 1) {
-      *(int *)(in_ECX + 0x1c934 + (*local_18 + param_3) * 4) = local_8 + local_18[1];
-      *(int *)(in_ECX + 0x1e934 + (*local_18 + param_3) * 4) = param_3;
+      *(int *)(param_1_00 + 0x1c934 + (*local_18 + param_4) * 4) = local_8 + local_18[1];
+      *(int *)(param_1_00 + 0x1e934 + (*local_18 + param_4) * 4) = param_4;
       local_18 = local_18 + 2;
     }
-    *(int *)(in_ECX + 0x20b34 + param_1 * 4) = param_3;
+    *(int *)(param_1_00 + 0x20b34 + param_2 * 4) = param_4;
     uVar1 = 0;
   }
   return uVar1;

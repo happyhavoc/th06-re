@@ -181,7 +181,7 @@ undefined4 FUN_00401b80(void)
     if (0x13 < in_ECX[1]) {
       *in_ECX = 0;
       DAT_0069d4bf = 0;
-      DAT_006c6ea4 = 1;
+      g_GameContext._396_4_ = 1;
       for (local_8 = 0; local_8 < 6; local_8 = local_8 + 1) {
         in_ECX[local_8 * 0x44 + 0x22] = in_ECX[local_8 * 0x44 + 0x22] & 0xfffffffe;
       }

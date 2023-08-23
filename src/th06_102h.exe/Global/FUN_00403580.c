@@ -24,7 +24,7 @@ void FUN_00403580(void)
   *(undefined2 *)(in_ECX + 0x22) = 0;
   *(undefined2 *)((int)in_ECX + 0x8a) = 0;
   *(undefined2 *)(in_ECX + 0x23) = 0;
-  FUN_00424127();
+  FUN_00424127(in_ECX + 0xc);
   return;
 }
 

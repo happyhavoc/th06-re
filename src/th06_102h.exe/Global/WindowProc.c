@@ -1,5 +1,5 @@
 
-LRESULT WindowProc(HWND hWnd,uint uMsg,WPARAM wParam,LPARAM lParam)
+LRESULT WindowProc(HWND hWnd,uint uMsg,WPARAM wParam,LPMIDIHDR lParam)
 
 {
   HCURSOR pHVar1;
@@ -35,9 +35,9 @@ LRESULT WindowProc(HWND hWnd,uint uMsg,WPARAM wParam,LPARAM lParam)
     }
   }
   else if ((uMsg == 0x3c9) && (DAT_006c6ec8 != 0)) {
-    FUN_00422560(lParam);
+    FUN_00422560(DAT_006c6ec8,lParam);
   }
-  LVar2 = DefWindowProcA(hWnd,uMsg,wParam,lParam);
+  LVar2 = DefWindowProcA(hWnd,uMsg,wParam,(LPARAM)lParam);
   return LVar2;
 }
 

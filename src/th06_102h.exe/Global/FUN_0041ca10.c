@@ -2,26 +2,26 @@
 int FUN_0041ca10(void)
 
 {
-  int iVar1;
+  short *psVar1;
   undefined4 uVar2;
-  int in_ECX;
+  short *in_ECX;
   int local_c;
-  int local_8;
+  short *local_8;
   
 LAB_0041ca19:
   local_c = 0;
   local_8 = in_ECX;
 LAB_0041ca26:
   while( true ) {
-    if (local_8 == 0) {
+    if (local_8 == (short *)0x0) {
       return local_c;
     }
-    if (*(int *)(local_8 + 4) != 0) break;
+    if (*(int *)(local_8 + 2) != 0) break;
 LAB_0041ca9b:
-    local_8 = *(int *)(local_8 + 0x14);
+    local_8 = *(short **)(local_8 + 10);
   }
   do {
-    uVar2 = (**(code **)(local_8 + 4))(*(undefined4 *)(local_8 + 0x1c));
+    uVar2 = (**(code **)(local_8 + 2))(*(undefined4 *)(local_8 + 0xe));
     switch(uVar2) {
     case 0:
       goto switchD_0041ca51_caseD_0;
@@ -41,10 +41,10 @@ LAB_0041ca9b:
     }
   } while( true );
 switchD_0041ca51_caseD_0:
-  iVar1 = *(int *)(local_8 + 0x14);
-  FUN_0041cde0(local_8);
+  psVar1 = *(short **)(local_8 + 10);
+  FUN_0041cde0(in_ECX,local_8);
   local_c = local_c + 1;
-  local_8 = iVar1;
+  local_8 = psVar1;
   goto LAB_0041ca26;
 }
 

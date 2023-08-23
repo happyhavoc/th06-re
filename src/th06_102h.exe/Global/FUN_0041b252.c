@@ -12,7 +12,7 @@ undefined4 FUN_0041b252(void)
   
   FUN_0045c3e0();
   *(undefined4 **)(unaff_EBP + -0x10) = &DAT_0069bc30;
-  if (DAT_006c6ea4 != 3) {
+  if (g_GameContext._396_4_ != 3) {
     puVar4 = *(undefined4 **)(unaff_EBP + -0x10);
     for (iVar3 = 0xb; iVar3 != 0; iVar3 = iVar3 + -1) {
       *puVar4 = 0;

@@ -168,7 +168,7 @@ void FUN_00419c99(void)
   (**(code **)(*(int *)g_GameContext._8_4_ + 0xa0))(g_GameContext._8_4_,0x6c6de0);
   local_14 = in_ECX[1] + 0x660;
   if ((((uint)g_GameContext.cfg.field34_0x34 >> 4 & 1) == 0) &&
-     (((*(int *)(in_ECX[1] + 0x71c) != 0 || (DAT_006c6eb0 != 0)) ||
+     (((*(int *)(in_ECX[1] + 0x71c) != 0 || (g_GameContext._408_4_ != 0)) ||
       (((uint)g_GameContext.cfg.field34_0x34 >> 3 & 1 |
        (uint)g_GameContext.cfg.field34_0x34 >> 4 & 1) != 0)))) {
     for (local_8 = 0.0; local_8 < 464.0 != NAN(local_8); local_8 = local_8 + 32.0) {
@@ -211,12 +211,12 @@ void FUN_00419c99(void)
       *(undefined4 *)(local_14 + 0x98) = 0x3efae148;
       FUN_00432ad0(local_14);
     }
-    FUN_00432cc0(in_ECX[1] + 0x550);
-    FUN_00432cc0(in_ECX[1]);
-    FUN_00432cc0(in_ECX[1] + 0x110);
-    FUN_00432cc0(in_ECX[1] + 0x330);
-    FUN_00432cc0(in_ECX[1] + 0x440);
-    FUN_00432cc0(in_ECX[1] + 0x220);
+    FUN_00432cc0((void *)(in_ECX[1] + 0x550));
+    FUN_00432cc0((void *)in_ECX[1]);
+    FUN_00432cc0((void *)(in_ECX[1] + 0x110));
+    FUN_00432cc0((void *)(in_ECX[1] + 0x330));
+    FUN_00432cc0((void *)(in_ECX[1] + 0x440));
+    FUN_00432cc0((void *)(in_ECX[1] + 0x220));
     FUN_00432ad0(in_ECX[1] + 0x990);
     FUN_00432ad0(in_ECX[1] + 0xaa0);
     FUN_00432ad0(in_ECX[1] + 0xbb0);

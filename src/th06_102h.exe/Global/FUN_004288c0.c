@@ -100,7 +100,7 @@ undefined4 FUN_004288c0(int param_1)
     }
     DAT_0069d4ba = DAT_0069d4ba + -1;
     if ((_DAT_0069bcb0 < 4) && (DAT_0069d4c3 == '\0')) {
-      DAT_0069d4bb = DAT_006c6e7d;
+      DAT_0069d4bb = g_GameContext._357_1_;
     }
     else {
       DAT_0069d4bb = '\x03';

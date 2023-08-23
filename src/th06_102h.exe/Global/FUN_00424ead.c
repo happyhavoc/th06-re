@@ -87,7 +87,7 @@ LAB_0042508a:
     }
   }
   if (((DAT_0069d904 & 10) != 0) && ((DAT_0069d904 & 10) != (DAT_0069d908 & 10))) {
-    DAT_006c6ea4 = 1;
+    g_GameContext._396_4_ = 1;
   }
   __security_check_cookie(local_10 ^ unaff_retaddr);
   return;

@@ -39,7 +39,7 @@ undefined4 FUN_004378a2(void)
     uVar3 = 0;
   }
   else {
-    DAT_006c6ea4 = 4;
+    g_GameContext._396_4_ = 4;
     uVar3 = 0xffffffff;
   }
   return uVar3;

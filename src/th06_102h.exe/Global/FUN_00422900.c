@@ -46,7 +46,7 @@ void FUN_00422900(undefined4 *param_1)
   case 0xf0:
     if (bStack_17 == 0xf0) {
       if (*(int *)(in_ECX + 0x10 + *(int *)(in_ECX + 0x90) * 4) != 0) {
-        FUN_00422560(*(undefined4 *)(in_ECX + 0x10 + *(int *)(in_ECX + 0x90) * 4));
+        FUN_00422560(in_ECX,*(LPMIDIHDR *)(in_ECX + 0x10 + *(int *)(in_ECX + 0x90) * 4));
       }
       pvVar2 = _malloc(0x40);
       *(void **)(in_ECX + 0x10 + *(int *)(in_ECX + 0x90) * 4) = pvVar2;

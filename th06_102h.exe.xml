@@ -402,7 +402,7 @@
             <MEMBER OFFSET="0x33" DATATYPE="undefined" DATATYPE_NAMESPACE="/" SIZE="0x1" />
             <MEMBER OFFSET="0x34" DATATYPE="int" DATATYPE_NAMESPACE="/" SIZE="0x4" />
         </STRUCTURE>
-        <STRUCTURE NAME="GameContext" NAMESPACE="/th06" SIZE="0x150">
+        <STRUCTURE NAME="GameContext" NAMESPACE="/th06" SIZE="0x1a4">
             <MEMBER OFFSET="0x0" DATATYPE="HINSTANCE" DATATYPE_NAMESPACE="/WinDef.h" NAME="hInstance" SIZE="0x4" />
             <MEMBER OFFSET="0x4" DATATYPE="IDirect3D8 *" DATATYPE_NAMESPACE="/d3d8.h" NAME="d3d_iface" SIZE="0x4" />
             <MEMBER OFFSET="0x8" DATATYPE="undefined" DATATYPE_NAMESPACE="/" SIZE="0x1" />
@@ -675,6 +675,87 @@
             <MEMBER OFFSET="0x14d" DATATYPE="undefined" DATATYPE_NAMESPACE="/" SIZE="0x1" />
             <MEMBER OFFSET="0x14e" DATATYPE="undefined" DATATYPE_NAMESPACE="/" SIZE="0x1" />
             <MEMBER OFFSET="0x14f" DATATYPE="undefined" DATATYPE_NAMESPACE="/" SIZE="0x1" />
+            <MEMBER OFFSET="0x150" DATATYPE="undefined" DATATYPE_NAMESPACE="/" SIZE="0x1" />
+            <MEMBER OFFSET="0x151" DATATYPE="undefined" DATATYPE_NAMESPACE="/" SIZE="0x1" />
+            <MEMBER OFFSET="0x152" DATATYPE="undefined" DATATYPE_NAMESPACE="/" SIZE="0x1" />
+            <MEMBER OFFSET="0x153" DATATYPE="undefined" DATATYPE_NAMESPACE="/" SIZE="0x1" />
+            <MEMBER OFFSET="0x154" DATATYPE="undefined" DATATYPE_NAMESPACE="/" SIZE="0x1" />
+            <MEMBER OFFSET="0x155" DATATYPE="undefined" DATATYPE_NAMESPACE="/" SIZE="0x1" />
+            <MEMBER OFFSET="0x156" DATATYPE="undefined" DATATYPE_NAMESPACE="/" SIZE="0x1" />
+            <MEMBER OFFSET="0x157" DATATYPE="undefined" DATATYPE_NAMESPACE="/" SIZE="0x1" />
+            <MEMBER OFFSET="0x158" DATATYPE="undefined" DATATYPE_NAMESPACE="/" SIZE="0x1" />
+            <MEMBER OFFSET="0x159" DATATYPE="undefined" DATATYPE_NAMESPACE="/" SIZE="0x1" />
+            <MEMBER OFFSET="0x15a" DATATYPE="undefined" DATATYPE_NAMESPACE="/" SIZE="0x1" />
+            <MEMBER OFFSET="0x15b" DATATYPE="undefined" DATATYPE_NAMESPACE="/" SIZE="0x1" />
+            <MEMBER OFFSET="0x15c" DATATYPE="undefined" DATATYPE_NAMESPACE="/" SIZE="0x1" />
+            <MEMBER OFFSET="0x15d" DATATYPE="undefined" DATATYPE_NAMESPACE="/" SIZE="0x1" />
+            <MEMBER OFFSET="0x15e" DATATYPE="undefined" DATATYPE_NAMESPACE="/" SIZE="0x1" />
+            <MEMBER OFFSET="0x15f" DATATYPE="undefined" DATATYPE_NAMESPACE="/" SIZE="0x1" />
+            <MEMBER OFFSET="0x160" DATATYPE="undefined" DATATYPE_NAMESPACE="/" SIZE="0x1" />
+            <MEMBER OFFSET="0x161" DATATYPE="undefined" DATATYPE_NAMESPACE="/" SIZE="0x1" />
+            <MEMBER OFFSET="0x162" DATATYPE="undefined" DATATYPE_NAMESPACE="/" SIZE="0x1" />
+            <MEMBER OFFSET="0x163" DATATYPE="undefined" DATATYPE_NAMESPACE="/" SIZE="0x1" />
+            <MEMBER OFFSET="0x164" DATATYPE="undefined" DATATYPE_NAMESPACE="/" SIZE="0x1" />
+            <MEMBER OFFSET="0x165" DATATYPE="undefined" DATATYPE_NAMESPACE="/" SIZE="0x1" />
+            <MEMBER OFFSET="0x166" DATATYPE="undefined" DATATYPE_NAMESPACE="/" SIZE="0x1" />
+            <MEMBER OFFSET="0x167" DATATYPE="undefined" DATATYPE_NAMESPACE="/" SIZE="0x1" />
+            <MEMBER OFFSET="0x168" DATATYPE="undefined" DATATYPE_NAMESPACE="/" SIZE="0x1" />
+            <MEMBER OFFSET="0x169" DATATYPE="undefined" DATATYPE_NAMESPACE="/" SIZE="0x1" />
+            <MEMBER OFFSET="0x16a" DATATYPE="undefined" DATATYPE_NAMESPACE="/" SIZE="0x1" />
+            <MEMBER OFFSET="0x16b" DATATYPE="undefined" DATATYPE_NAMESPACE="/" SIZE="0x1" />
+            <MEMBER OFFSET="0x16c" DATATYPE="undefined" DATATYPE_NAMESPACE="/" SIZE="0x1" />
+            <MEMBER OFFSET="0x16d" DATATYPE="undefined" DATATYPE_NAMESPACE="/" SIZE="0x1" />
+            <MEMBER OFFSET="0x16e" DATATYPE="undefined" DATATYPE_NAMESPACE="/" SIZE="0x1" />
+            <MEMBER OFFSET="0x16f" DATATYPE="undefined" DATATYPE_NAMESPACE="/" SIZE="0x1" />
+            <MEMBER OFFSET="0x170" DATATYPE="undefined" DATATYPE_NAMESPACE="/" SIZE="0x1" />
+            <MEMBER OFFSET="0x171" DATATYPE="undefined" DATATYPE_NAMESPACE="/" SIZE="0x1" />
+            <MEMBER OFFSET="0x172" DATATYPE="undefined" DATATYPE_NAMESPACE="/" SIZE="0x1" />
+            <MEMBER OFFSET="0x173" DATATYPE="undefined" DATATYPE_NAMESPACE="/" SIZE="0x1" />
+            <MEMBER OFFSET="0x174" DATATYPE="undefined" DATATYPE_NAMESPACE="/" SIZE="0x1" />
+            <MEMBER OFFSET="0x175" DATATYPE="undefined" DATATYPE_NAMESPACE="/" SIZE="0x1" />
+            <MEMBER OFFSET="0x176" DATATYPE="undefined" DATATYPE_NAMESPACE="/" SIZE="0x1" />
+            <MEMBER OFFSET="0x177" DATATYPE="undefined" DATATYPE_NAMESPACE="/" SIZE="0x1" />
+            <MEMBER OFFSET="0x178" DATATYPE="undefined" DATATYPE_NAMESPACE="/" SIZE="0x1" />
+            <MEMBER OFFSET="0x179" DATATYPE="undefined" DATATYPE_NAMESPACE="/" SIZE="0x1" />
+            <MEMBER OFFSET="0x17a" DATATYPE="undefined" DATATYPE_NAMESPACE="/" SIZE="0x1" />
+            <MEMBER OFFSET="0x17b" DATATYPE="undefined" DATATYPE_NAMESPACE="/" SIZE="0x1" />
+            <MEMBER OFFSET="0x17c" DATATYPE="undefined" DATATYPE_NAMESPACE="/" SIZE="0x1" />
+            <MEMBER OFFSET="0x17d" DATATYPE="undefined" DATATYPE_NAMESPACE="/" SIZE="0x1" />
+            <MEMBER OFFSET="0x17e" DATATYPE="undefined" DATATYPE_NAMESPACE="/" SIZE="0x1" />
+            <MEMBER OFFSET="0x17f" DATATYPE="undefined" DATATYPE_NAMESPACE="/" SIZE="0x1" />
+            <MEMBER OFFSET="0x180" DATATYPE="undefined" DATATYPE_NAMESPACE="/" SIZE="0x1" />
+            <MEMBER OFFSET="0x181" DATATYPE="undefined" DATATYPE_NAMESPACE="/" SIZE="0x1" />
+            <MEMBER OFFSET="0x182" DATATYPE="undefined" DATATYPE_NAMESPACE="/" SIZE="0x1" />
+            <MEMBER OFFSET="0x183" DATATYPE="undefined" DATATYPE_NAMESPACE="/" SIZE="0x1" />
+            <MEMBER OFFSET="0x184" DATATYPE="undefined" DATATYPE_NAMESPACE="/" SIZE="0x1" />
+            <MEMBER OFFSET="0x185" DATATYPE="undefined" DATATYPE_NAMESPACE="/" SIZE="0x1" />
+            <MEMBER OFFSET="0x186" DATATYPE="undefined" DATATYPE_NAMESPACE="/" SIZE="0x1" />
+            <MEMBER OFFSET="0x187" DATATYPE="undefined" DATATYPE_NAMESPACE="/" SIZE="0x1" />
+            <MEMBER OFFSET="0x188" DATATYPE="undefined" DATATYPE_NAMESPACE="/" SIZE="0x1" />
+            <MEMBER OFFSET="0x189" DATATYPE="undefined" DATATYPE_NAMESPACE="/" SIZE="0x1" />
+            <MEMBER OFFSET="0x18a" DATATYPE="undefined" DATATYPE_NAMESPACE="/" SIZE="0x1" />
+            <MEMBER OFFSET="0x18b" DATATYPE="undefined" DATATYPE_NAMESPACE="/" SIZE="0x1" />
+            <MEMBER OFFSET="0x18c" DATATYPE="undefined" DATATYPE_NAMESPACE="/" SIZE="0x1" />
+            <MEMBER OFFSET="0x18d" DATATYPE="undefined" DATATYPE_NAMESPACE="/" SIZE="0x1" />
+            <MEMBER OFFSET="0x18e" DATATYPE="undefined" DATATYPE_NAMESPACE="/" SIZE="0x1" />
+            <MEMBER OFFSET="0x18f" DATATYPE="undefined" DATATYPE_NAMESPACE="/" SIZE="0x1" />
+            <MEMBER OFFSET="0x190" DATATYPE="undefined" DATATYPE_NAMESPACE="/" SIZE="0x1" />
+            <MEMBER OFFSET="0x191" DATATYPE="undefined" DATATYPE_NAMESPACE="/" SIZE="0x1" />
+            <MEMBER OFFSET="0x192" DATATYPE="undefined" DATATYPE_NAMESPACE="/" SIZE="0x1" />
+            <MEMBER OFFSET="0x193" DATATYPE="undefined" DATATYPE_NAMESPACE="/" SIZE="0x1" />
+            <MEMBER OFFSET="0x194" DATATYPE="undefined" DATATYPE_NAMESPACE="/" SIZE="0x1" />
+            <MEMBER OFFSET="0x195" DATATYPE="undefined" DATATYPE_NAMESPACE="/" SIZE="0x1" />
+            <MEMBER OFFSET="0x196" DATATYPE="undefined" DATATYPE_NAMESPACE="/" SIZE="0x1" />
+            <MEMBER OFFSET="0x197" DATATYPE="undefined" DATATYPE_NAMESPACE="/" SIZE="0x1" />
+            <MEMBER OFFSET="0x198" DATATYPE="undefined" DATATYPE_NAMESPACE="/" SIZE="0x1" />
+            <MEMBER OFFSET="0x199" DATATYPE="undefined" DATATYPE_NAMESPACE="/" SIZE="0x1" />
+            <MEMBER OFFSET="0x19a" DATATYPE="undefined" DATATYPE_NAMESPACE="/" SIZE="0x1" />
+            <MEMBER OFFSET="0x19b" DATATYPE="undefined" DATATYPE_NAMESPACE="/" SIZE="0x1" />
+            <MEMBER OFFSET="0x19c" DATATYPE="undefined" DATATYPE_NAMESPACE="/" SIZE="0x1" />
+            <MEMBER OFFSET="0x19d" DATATYPE="undefined" DATATYPE_NAMESPACE="/" SIZE="0x1" />
+            <MEMBER OFFSET="0x19e" DATATYPE="undefined" DATATYPE_NAMESPACE="/" SIZE="0x1" />
+            <MEMBER OFFSET="0x19f" DATATYPE="undefined" DATATYPE_NAMESPACE="/" SIZE="0x1" />
+            <MEMBER OFFSET="0x1a0" DATATYPE="int" DATATYPE_NAMESPACE="/" SIZE="0x4" />
         </STRUCTURE>
         <STRUCTURE NAME="GameErrorContext" NAMESPACE="/th06" SIZE="0x805">
             <MEMBER OFFSET="0x0" DATATYPE="char[2048]" DATATYPE_NAMESPACE="/" NAME="m_Buffer" SIZE="0x800" />
@@ -925,6 +1006,7 @@
             <MEMBER OFFSET="0x8" DATATYPE="_func_5023 *" DATATYPE_NAMESPACE="/unknwn.h/functions" NAME="Release" SIZE="0x4" />
         </STRUCTURE>
         <TYPE_DEF NAME="ImageBaseOffset32" NAMESPACE="/" DATATYPE="pointer32" DATATYPE_NAMESPACE="/" />
+        <TYPE_DEF NAME="JOYCAPSA" NAMESPACE="/mmsystem.h" DATATYPE="tagJOYCAPSA" DATATYPE_NAMESPACE="/mmsystem.h" />
         <TYPE_DEF NAME="LARGE_INTEGER" NAMESPACE="/winnt.h" DATATYPE="_LARGE_INTEGER" DATATYPE_NAMESPACE="/winnt.h" />
         <TYPE_DEF NAME="LCID" NAMESPACE="/winnt.h" DATATYPE="DWORD" DATATYPE_NAMESPACE="/WinDef.h" />
         <TYPE_DEF NAME="LCTYPE" NAMESPACE="/winnls.h" DATATYPE="DWORD" DATATYPE_NAMESPACE="/WinDef.h" />
@@ -1698,6 +1780,11 @@
         </STRUCTURE>
         <TYPE_DEF NAME="uintptr_t" NAMESPACE="/vadefs.h" DATATYPE="uint" DATATYPE_NAMESPACE="/" />
         <TYPE_DEF NAME="va_list" NAMESPACE="/vadefs.h" DATATYPE="char *" DATATYPE_NAMESPACE="/" />
+        <STRUCTURE NAME="vec3f" NAMESPACE="/" SIZE="0xc">
+            <MEMBER OFFSET="0x0" DATATYPE="float" DATATYPE_NAMESPACE="/" NAME="x" SIZE="0x4" />
+            <MEMBER OFFSET="0x4" DATATYPE="float" DATATYPE_NAMESPACE="/" NAME="y" SIZE="0x4" />
+            <MEMBER OFFSET="0x8" DATATYPE="float" DATATYPE_NAMESPACE="/" NAME="z" SIZE="0x4" />
+        </STRUCTURE>
     </DATATYPES>
     <MEMORY_MAP>
         <MEMORY_SECTION NAME="Headers" START_ADDR="00400000" LENGTH="0x1000" PERMISSIONS="r" COMMENT="">
@@ -5208,10 +5295,7 @@
         <DEFINED_DATA ADDRESS="0069d6f8" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
         <DEFINED_DATA ADDRESS="0069d70c" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
         <DEFINED_DATA ADDRESS="0069d710" DATATYPE="undefined1" DATATYPE_NAMESPACE="/" SIZE="0x1" />
-        <DEFINED_DATA ADDRESS="0069d784" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
-        <DEFINED_DATA ADDRESS="0069d788" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
-        <DEFINED_DATA ADDRESS="0069d78c" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
-        <DEFINED_DATA ADDRESS="0069d790" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
+        <DEFINED_DATA ADDRESS="0069d760" DATATYPE="JOYCAPSA" DATATYPE_NAMESPACE="/mmsystem.h" SIZE="0x194" />
         <DEFINED_DATA ADDRESS="0069d8f4" DATATYPE="undefined2" DATATYPE_NAMESPACE="/" SIZE="0x2" />
         <DEFINED_DATA ADDRESS="0069d8f8" DATATYPE="undefined2" DATATYPE_NAMESPACE="/" SIZE="0x2" />
         <DEFINED_DATA ADDRESS="0069d900" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
@@ -5225,7 +5309,7 @@
         <DEFINED_DATA ADDRESS="0069e230" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
         <DEFINED_DATA ADDRESS="0069e240" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
         <DEFINED_DATA ADDRESS="0069e268" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
-        <DEFINED_DATA ADDRESS="006c6bd4" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
+        <DEFINED_DATA ADDRESS="006c6bd4" DATATYPE="HWND" DATATYPE_NAMESPACE="/WinDef.h" SIZE="0x4" />
         <DEFINED_DATA ADDRESS="006c6bd8" DATATYPE="int" DATATYPE_NAMESPACE="/" SIZE="0x4" />
         <DEFINED_DATA ADDRESS="006c6bdc" DATATYPE="int" DATATYPE_NAMESPACE="/" SIZE="0x4" />
         <DEFINED_DATA ADDRESS="006c6be0" DATATYPE="int" DATATYPE_NAMESPACE="/" SIZE="0x4" />
@@ -5235,14 +5319,7 @@
         <DEFINED_DATA ADDRESS="006c6bf4" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
         <DEFINED_DATA ADDRESS="006c6d08" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
         <DEFINED_DATA ADDRESS="006c6d10" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
-        <DEFINED_DATA ADDRESS="006c6d18" DATATYPE="GameContext" DATATYPE_NAMESPACE="/th06" SIZE="0x150" />
-        <DEFINED_DATA ADDRESS="006c6e7c" DATATYPE="undefined1" DATATYPE_NAMESPACE="/" SIZE="0x1" />
-        <DEFINED_DATA ADDRESS="006c6e7d" DATATYPE="undefined1" DATATYPE_NAMESPACE="/" SIZE="0x1" />
-        <DEFINED_DATA ADDRESS="006c6e9c" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
-        <DEFINED_DATA ADDRESS="006c6ea0" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
-        <DEFINED_DATA ADDRESS="006c6ea4" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
-        <DEFINED_DATA ADDRESS="006c6ea8" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
-        <DEFINED_DATA ADDRESS="006c6eb0" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
+        <DEFINED_DATA ADDRESS="006c6d18" DATATYPE="GameContext" DATATYPE_NAMESPACE="/th06" SIZE="0x1a4" />
         <DEFINED_DATA ADDRESS="006c6ec0" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
         <DEFINED_DATA ADDRESS="006c6ec4" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
         <DEFINED_DATA ADDRESS="006c6ec8" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
@@ -5267,32 +5344,42 @@
         <DEFINED_DATA ADDRESS="006d3f18" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
         <DEFINED_DATA ADDRESS="006d457c" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
         <DEFINED_DATA ADDRESS="006d4588" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
-        <DEFINED_DATA ADDRESS="006d45b8" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
+        <DEFINED_DATA ADDRESS="006d459c" DATATYPE="float" DATATYPE_NAMESPACE="/" SIZE="0x4" />
+        <DEFINED_DATA ADDRESS="006d45a4" DATATYPE="uint" DATATYPE_NAMESPACE="/" SIZE="0x4" />
+        <DEFINED_DATA ADDRESS="006d45a8" DATATYPE="uint" DATATYPE_NAMESPACE="/" SIZE="0x4" />
+        <DEFINED_DATA ADDRESS="006d45b8" DATATYPE="float" DATATYPE_NAMESPACE="/" SIZE="0x4" />
+        <DEFINED_DATA ADDRESS="006d45c0" DATATYPE="float" DATATYPE_NAMESPACE="/" SIZE="0x4" />
         <DEFINED_DATA ADDRESS="006d45c4" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
-        <DEFINED_DATA ADDRESS="006d45d4" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
+        <DEFINED_DATA ADDRESS="006d45d4" DATATYPE="float" DATATYPE_NAMESPACE="/" SIZE="0x4" />
         <DEFINED_DATA ADDRESS="006d45dc" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
-        <DEFINED_DATA ADDRESS="006d45f0" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
+        <DEFINED_DATA ADDRESS="006d45e0" DATATYPE="float" DATATYPE_NAMESPACE="/" SIZE="0x4" />
+        <DEFINED_DATA ADDRESS="006d45f0" DATATYPE="float" DATATYPE_NAMESPACE="/" SIZE="0x4" />
         <DEFINED_DATA ADDRESS="006d45f8" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
         <DEFINED_DATA ADDRESS="006d45fc" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
-        <DEFINED_DATA ADDRESS="006d4600" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
-        <DEFINED_DATA ADDRESS="006d4604" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
+        <DEFINED_DATA ADDRESS="006d4600" DATATYPE="float" DATATYPE_NAMESPACE="/" SIZE="0x4" />
+        <DEFINED_DATA ADDRESS="006d4604" DATATYPE="float" DATATYPE_NAMESPACE="/" SIZE="0x4" />
         <DEFINED_DATA ADDRESS="006d4608" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
-        <DEFINED_DATA ADDRESS="006d4618" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
-        <DEFINED_DATA ADDRESS="006d461c" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
+        <DEFINED_DATA ADDRESS="006d460c" DATATYPE="float" DATATYPE_NAMESPACE="/" SIZE="0x4" />
+        <DEFINED_DATA ADDRESS="006d4610" DATATYPE="float" DATATYPE_NAMESPACE="/" SIZE="0x4" />
+        <DEFINED_DATA ADDRESS="006d4614" DATATYPE="float" DATATYPE_NAMESPACE="/" SIZE="0x4" />
+        <DEFINED_DATA ADDRESS="006d4618" DATATYPE="float" DATATYPE_NAMESPACE="/" SIZE="0x4" />
+        <DEFINED_DATA ADDRESS="006d461c" DATATYPE="float" DATATYPE_NAMESPACE="/" SIZE="0x4" />
         <DEFINED_DATA ADDRESS="006d4620" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
-        <DEFINED_DATA ADDRESS="006d4624" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
+        <DEFINED_DATA ADDRESS="006d4624" DATATYPE="float" DATATYPE_NAMESPACE="/" SIZE="0x4" />
+        <DEFINED_DATA ADDRESS="006d4628" DATATYPE="float" DATATYPE_NAMESPACE="/" SIZE="0x4" />
         <DEFINED_DATA ADDRESS="006d462c" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
-        <DEFINED_DATA ADDRESS="006d4630" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
-        <DEFINED_DATA ADDRESS="006d4634" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
+        <DEFINED_DATA ADDRESS="006d4630" DATATYPE="float" DATATYPE_NAMESPACE="/" SIZE="0x4" />
+        <DEFINED_DATA ADDRESS="006d4634" DATATYPE="float" DATATYPE_NAMESPACE="/" SIZE="0x4" />
         <DEFINED_DATA ADDRESS="006d4638" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
-        <DEFINED_DATA ADDRESS="006d463c" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
+        <DEFINED_DATA ADDRESS="006d463c" DATATYPE="float" DATATYPE_NAMESPACE="/" SIZE="0x4" />
         <DEFINED_DATA ADDRESS="006d4640" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
-        <DEFINED_DATA ADDRESS="006d4648" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
-        <DEFINED_DATA ADDRESS="006d464c" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
+        <DEFINED_DATA ADDRESS="006d4644" DATATYPE="float" DATATYPE_NAMESPACE="/" SIZE="0x4" />
+        <DEFINED_DATA ADDRESS="006d4648" DATATYPE="float" DATATYPE_NAMESPACE="/" SIZE="0x4" />
+        <DEFINED_DATA ADDRESS="006d464c" DATATYPE="float" DATATYPE_NAMESPACE="/" SIZE="0x4" />
         <DEFINED_DATA ADDRESS="006d4650" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
-        <DEFINED_DATA ADDRESS="006d4654" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
-        <DEFINED_DATA ADDRESS="006d4658" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
-        <DEFINED_DATA ADDRESS="006d465c" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
+        <DEFINED_DATA ADDRESS="006d4654" DATATYPE="float" DATATYPE_NAMESPACE="/" SIZE="0x4" />
+        <DEFINED_DATA ADDRESS="006d4658" DATATYPE="float" DATATYPE_NAMESPACE="/" SIZE="0x4" />
+        <DEFINED_DATA ADDRESS="006d465c" DATATYPE="float" DATATYPE_NAMESPACE="/" SIZE="0x4" />
         <DEFINED_DATA ADDRESS="006dc8b0" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
         <DEFINED_DATA ADDRESS="006dc8b4" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
         <DEFINED_DATA ADDRESS="006dc8f4" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
@@ -5475,6 +5562,7 @@
             <EQUATE NAME="WM_SETCURSOR" VALUE="0x20" />
             <EQUATE NAME="&apos;\\&apos;" VALUE="0x5c" />
             <EQUATE NAME="&apos;/&apos;" VALUE="0x2f" />
+            <EQUATE NAME="&apos;.&apos;" VALUE="0x2e" />
         </EQUATE_GROUP>
     </EQUATES>
     <COMMENTS>
@@ -6812,12 +6900,12 @@ Libraries: Visual Studio 2003 Debug, Visual Studio 2003 Release</COMMENT>
     &amp;lt;STATE NAME=&amp;quot;ASCII Strings&amp;quot; TYPE=&amp;quot;long&amp;quot; VALUE=&amp;quot;209&amp;quot; /&amp;gt;
     &amp;lt;STATE NAME=&amp;quot;Apply Data Archives&amp;quot; TYPE=&amp;quot;long&amp;quot; VALUE=&amp;quot;167&amp;quot; /&amp;gt;
     &amp;lt;STATE NAME=&amp;quot;CUSTOM_OPTION_CLASS&amp;quot; TYPE=&amp;quot;string&amp;quot; VALUE=&amp;quot;ghidra.app.plugin.core.analysis.StoredAnalyzerTimes&amp;quot; /&amp;gt;
-    &amp;lt;STATE NAME=&amp;quot;Call Convention ID&amp;quot; TYPE=&amp;quot;long&amp;quot; VALUE=&amp;quot;122&amp;quot; /&amp;gt;
-    &amp;lt;STATE NAME=&amp;quot;Call-Fixup Installer&amp;quot; TYPE=&amp;quot;long&amp;quot; VALUE=&amp;quot;28&amp;quot; /&amp;gt;
+    &amp;lt;STATE NAME=&amp;quot;Call Convention ID&amp;quot; TYPE=&amp;quot;long&amp;quot; VALUE=&amp;quot;136&amp;quot; /&amp;gt;
+    &amp;lt;STATE NAME=&amp;quot;Call-Fixup Installer&amp;quot; TYPE=&amp;quot;long&amp;quot; VALUE=&amp;quot;31&amp;quot; /&amp;gt;
     &amp;lt;STATE NAME=&amp;quot;Create Address Tables&amp;quot; TYPE=&amp;quot;long&amp;quot; VALUE=&amp;quot;5&amp;quot; /&amp;gt;
     &amp;lt;STATE NAME=&amp;quot;Create Address Tables - One Time&amp;quot; TYPE=&amp;quot;long&amp;quot; VALUE=&amp;quot;141&amp;quot; /&amp;gt;
     &amp;lt;STATE NAME=&amp;quot;Create Function&amp;quot; TYPE=&amp;quot;long&amp;quot; VALUE=&amp;quot;294&amp;quot; /&amp;gt;
-    &amp;lt;STATE NAME=&amp;quot;Data Reference&amp;quot; TYPE=&amp;quot;long&amp;quot; VALUE=&amp;quot;117&amp;quot; /&amp;gt;
+    &amp;lt;STATE NAME=&amp;quot;Data Reference&amp;quot; TYPE=&amp;quot;long&amp;quot; VALUE=&amp;quot;119&amp;quot; /&amp;gt;
     &amp;lt;STATE NAME=&amp;quot;Decompiler Switch Analysis&amp;quot; TYPE=&amp;quot;long&amp;quot; VALUE=&amp;quot;5231&amp;quot; /&amp;gt;
     &amp;lt;STATE NAME=&amp;quot;Demangler Microsoft&amp;quot; TYPE=&amp;quot;long&amp;quot; VALUE=&amp;quot;34&amp;quot; /&amp;gt;
     &amp;lt;STATE NAME=&amp;quot;Disassemble&amp;quot; TYPE=&amp;quot;long&amp;quot; VALUE=&amp;quot;1191&amp;quot; /&amp;gt;
@@ -6826,24 +6914,24 @@ Libraries: Visual Studio 2003 Debug, Visual Studio 2003 Release</COMMENT>
     &amp;lt;STATE NAME=&amp;quot;External Entry References&amp;quot; TYPE=&amp;quot;long&amp;quot; VALUE=&amp;quot;1&amp;quot; /&amp;gt;
     &amp;lt;STATE NAME=&amp;quot;Function ID&amp;quot; TYPE=&amp;quot;long&amp;quot; VALUE=&amp;quot;648&amp;quot; /&amp;gt;
     &amp;lt;STATE NAME=&amp;quot;Function Start Pre Search&amp;quot; TYPE=&amp;quot;long&amp;quot; VALUE=&amp;quot;14&amp;quot; /&amp;gt;
-    &amp;lt;STATE NAME=&amp;quot;Function Start Search&amp;quot; TYPE=&amp;quot;long&amp;quot; VALUE=&amp;quot;97&amp;quot; /&amp;gt;
+    &amp;lt;STATE NAME=&amp;quot;Function Start Search&amp;quot; TYPE=&amp;quot;long&amp;quot; VALUE=&amp;quot;103&amp;quot; /&amp;gt;
     &amp;lt;STATE NAME=&amp;quot;Function Start Search After Code&amp;quot; TYPE=&amp;quot;long&amp;quot; VALUE=&amp;quot;68&amp;quot; /&amp;gt;
-    &amp;lt;STATE NAME=&amp;quot;Function Start Search After Data&amp;quot; TYPE=&amp;quot;long&amp;quot; VALUE=&amp;quot;58&amp;quot; /&amp;gt;
+    &amp;lt;STATE NAME=&amp;quot;Function Start Search After Data&amp;quot; TYPE=&amp;quot;long&amp;quot; VALUE=&amp;quot;63&amp;quot; /&amp;gt;
     &amp;lt;STATE NAME=&amp;quot;Function Start Search delayed - One Time&amp;quot; TYPE=&amp;quot;long&amp;quot; VALUE=&amp;quot;2&amp;quot; /&amp;gt;
     &amp;lt;STATE NAME=&amp;quot;Non-Returning Functions - Discovered&amp;quot; TYPE=&amp;quot;long&amp;quot; VALUE=&amp;quot;118&amp;quot; /&amp;gt;
     &amp;lt;STATE NAME=&amp;quot;Non-Returning Functions - Known&amp;quot; TYPE=&amp;quot;long&amp;quot; VALUE=&amp;quot;2&amp;quot; /&amp;gt;
     &amp;lt;STATE NAME=&amp;quot;PDB Universal&amp;quot; TYPE=&amp;quot;long&amp;quot; VALUE=&amp;quot;1&amp;quot; /&amp;gt;
     &amp;lt;STATE NAME=&amp;quot;Reference&amp;quot; TYPE=&amp;quot;long&amp;quot; VALUE=&amp;quot;142&amp;quot; /&amp;gt;
     &amp;lt;STATE NAME=&amp;quot;Scalar Operand References&amp;quot; TYPE=&amp;quot;long&amp;quot; VALUE=&amp;quot;454&amp;quot; /&amp;gt;
-    &amp;lt;STATE NAME=&amp;quot;Shared Return Calls&amp;quot; TYPE=&amp;quot;long&amp;quot; VALUE=&amp;quot;145&amp;quot; /&amp;gt;
-    &amp;lt;STATE NAME=&amp;quot;Stack&amp;quot; TYPE=&amp;quot;long&amp;quot; VALUE=&amp;quot;3225&amp;quot; /&amp;gt;
+    &amp;lt;STATE NAME=&amp;quot;Shared Return Calls&amp;quot; TYPE=&amp;quot;long&amp;quot; VALUE=&amp;quot;150&amp;quot; /&amp;gt;
+    &amp;lt;STATE NAME=&amp;quot;Stack&amp;quot; TYPE=&amp;quot;long&amp;quot; VALUE=&amp;quot;3267&amp;quot; /&amp;gt;
     &amp;lt;STATE NAME=&amp;quot;Subroutine References&amp;quot; TYPE=&amp;quot;long&amp;quot; VALUE=&amp;quot;120&amp;quot; /&amp;gt;
     &amp;lt;STATE NAME=&amp;quot;Subroutine References - One Time&amp;quot; TYPE=&amp;quot;long&amp;quot; VALUE=&amp;quot;6&amp;quot; /&amp;gt;
     &amp;lt;STATE NAME=&amp;quot;Windows x86 PE Exception Handling&amp;quot; TYPE=&amp;quot;long&amp;quot; VALUE=&amp;quot;665&amp;quot; /&amp;gt;
     &amp;lt;STATE NAME=&amp;quot;Windows x86 PE RTTI Analyzer&amp;quot; TYPE=&amp;quot;long&amp;quot; VALUE=&amp;quot;0&amp;quot; /&amp;gt;
     &amp;lt;STATE NAME=&amp;quot;Windows x86 Thread Environment Block (TEB) Analyzer&amp;quot; TYPE=&amp;quot;long&amp;quot; VALUE=&amp;quot;14&amp;quot; /&amp;gt;
     &amp;lt;STATE NAME=&amp;quot;WindowsResourceReference&amp;quot; TYPE=&amp;quot;long&amp;quot; VALUE=&amp;quot;60&amp;quot; /&amp;gt;
-    &amp;lt;STATE NAME=&amp;quot;X86 Function Callee Purge&amp;quot; TYPE=&amp;quot;long&amp;quot; VALUE=&amp;quot;170&amp;quot; /&amp;gt;
+    &amp;lt;STATE NAME=&amp;quot;X86 Function Callee Purge&amp;quot; TYPE=&amp;quot;long&amp;quot; VALUE=&amp;quot;175&amp;quot; /&amp;gt;
     &amp;lt;STATE NAME=&amp;quot;x86 Constant Reference Analyzer&amp;quot; TYPE=&amp;quot;long&amp;quot; VALUE=&amp;quot;2506&amp;quot; /&amp;gt;
 &amp;lt;/SAVE_STATE&amp;gt;" />
         <PROPERTY NAME="Program Information.Analyzed" TYPE="bool" VALUE="y" />
@@ -7720,6 +7808,8 @@ Libraries: Visual Studio 2003 Debug, Visual Studio 2003 Release</COMMENT>
         <SYMBOL ADDRESS="0041cb4e" NAME="caseD_5" NAMESPACE="switchD_0041cb14::" TYPE="global" SOURCE_TYPE="ANALYSIS" PRIMARY="y" />
         <SYMBOL ADDRESS="0041cb53" NAME="caseD_1" NAMESPACE="switchD_0041cb14::" TYPE="global" SOURCE_TYPE="ANALYSIS" PRIMARY="y" />
         <SYMBOL ADDRESS="0041cb6e" NAME="switchdataD_0041cb6e" NAMESPACE="switchD_0041cb14::" TYPE="global" SOURCE_TYPE="ANALYSIS" PRIMARY="y" />
+        <SYMBOL ADDRESS="0041cf60" NAME="GetJoystickCaps" NAMESPACE="" TYPE="global" SOURCE_TYPE="USER_DEFINED" PRIMARY="y" />
+        <SYMBOL ADDRESS="0041e0c0" NAME="reset_keyboard" NAMESPACE="" TYPE="global" SOURCE_TYPE="USER_DEFINED" PRIMARY="y" />
         <SYMBOL ADDRESS="0041e260" NAME="ReleaseDocSite" NAMESPACE="CDocObjectServer::" TYPE="global" SOURCE_TYPE="ANALYSIS" PRIMARY="y" />
         <SYMBOL ADDRESS="0041e260" NAME="?ReleaseDocSite@CDocObjectServer@@QAEXXZ" NAMESPACE="" TYPE="global" SOURCE_TYPE="ANALYSIS" PRIMARY="n" />
         <SYMBOL ADDRESS="0041e290" NAME="OpenPath" NAMESPACE="" TYPE="global" SOURCE_TYPE="USER_DEFINED" PRIMARY="y" />
@@ -7984,6 +8074,8 @@ Libraries: Visual Studio 2003 Debug, Visual Studio 2003 Release</COMMENT>
         <SYMBOL ADDRESS="004380ba" NAME="caseD_7" NAMESPACE="switchD_00437c69::" TYPE="global" SOURCE_TYPE="ANALYSIS" PRIMARY="y" />
         <SYMBOL ADDRESS="0043810a" NAME="caseD_8" NAMESPACE="switchD_00437c69::" TYPE="global" SOURCE_TYPE="ANALYSIS" PRIMARY="y" />
         <SYMBOL ADDRESS="004381cc" NAME="switchdataD_004381cc" NAMESPACE="switchD_00437c69::" TYPE="global" SOURCE_TYPE="ANALYSIS" PRIMARY="y" />
+        <SYMBOL ADDRESS="0043a800" NAME="direct_sound_init" NAMESPACE="" TYPE="global" SOURCE_TYPE="USER_DEFINED" PRIMARY="y" />
+        <SYMBOL ADDRESS="0043b560" NAME="HandleWaveStreamNotification" NAMESPACE="" TYPE="global" SOURCE_TYPE="USER_DEFINED" PRIMARY="y" />
         <SYMBOL ADDRESS="0043bb0b" NAME="switchD" NAMESPACE="switchD_0043bb0b::" TYPE="global" SOURCE_TYPE="ANALYSIS" PRIMARY="y" />
         <SYMBOL ADDRESS="0043bb12" NAME="caseD_10c" NAMESPACE="switchD_0043bb0b::" TYPE="global" SOURCE_TYPE="ANALYSIS" PRIMARY="y" />
         <SYMBOL ADDRESS="0043bb21" NAME="caseD_110" NAMESPACE="switchD_0043bb0b::" TYPE="global" SOURCE_TYPE="ANALYSIS" PRIMARY="y" />
@@ -8121,6 +8213,7 @@ Libraries: Visual Studio 2003 Debug, Visual Studio 2003 Release</COMMENT>
         <SYMBOL ADDRESS="0045c4b0" NAME="FID_conflict:__CItan_default" NAMESPACE="" TYPE="global" SOURCE_TYPE="ANALYSIS" PRIMARY="y" />
         <SYMBOL ADDRESS="0045c4b0" NAME="__CItan" NAMESPACE="" TYPE="global" SOURCE_TYPE="ANALYSIS" PRIMARY="n" />
         <SYMBOL ADDRESS="0045c4b0" NAME="__CItan_default" NAMESPACE="" TYPE="global" SOURCE_TYPE="ANALYSIS" PRIMARY="n" />
+        <SYMBOL ADDRESS="0045c4c4" NAME="fload_withFB" NAMESPACE="" TYPE="global" SOURCE_TYPE="USER_DEFINED" PRIMARY="y" />
         <SYMBOL ADDRESS="0045c4cd" NAME="start" NAMESPACE="" TYPE="global" SOURCE_TYPE="ANALYSIS" PRIMARY="y" />
         <SYMBOL ADDRESS="0045c562" NAME="__fclose_lk" NAMESPACE="" TYPE="global" SOURCE_TYPE="ANALYSIS" PRIMARY="y" />
         <SYMBOL ADDRESS="0045c5ae" NAME="_fclose" NAMESPACE="" TYPE="global" SOURCE_TYPE="ANALYSIS" PRIMARY="y" />
@@ -8626,7 +8719,9 @@ Libraries: Visual Studio 2003 Debug, Visual Studio 2003 Release</COMMENT>
         <SYMBOL ADDRESS="0046939e" NAME="Unwind@0046939e" NAMESPACE="" TYPE="global" SOURCE_TYPE="ANALYSIS" PRIMARY="y" />
         <SYMBOL ADDRESS="004693a8" NAME="Unwind@004693a8" NAMESPACE="" TYPE="global" SOURCE_TYPE="ANALYSIS" PRIMARY="y" />
         <SYMBOL ADDRESS="00469710" NAME="$E1" NAMESPACE="" TYPE="global" SOURCE_TYPE="USER_DEFINED" PRIMARY="y" />
+        <SYMBOL ADDRESS="004697ac" NAME="INIT_G_GAME_CONTEXT" NAMESPACE="" TYPE="global" SOURCE_TYPE="USER_DEFINED" PRIMARY="y" />
         <SYMBOL ADDRESS="0047a630" NAME="__security_cookie" NAMESPACE="" TYPE="global" SOURCE_TYPE="USER_DEFINED" PRIMARY="y" />
+        <SYMBOL ADDRESS="0069d760" NAME="JOYSTICK_CAPS" NAMESPACE="" TYPE="global" SOURCE_TYPE="USER_DEFINED" PRIMARY="y" />
         <SYMBOL ADDRESS="0069d914" NAME="g_FileSize" NAMESPACE="" TYPE="global" SOURCE_TYPE="USER_DEFINED" PRIMARY="y" />
         <SYMBOL ADDRESS="0069d998" NAME="g_GameErrorContext" NAMESPACE="" TYPE="global" SOURCE_TYPE="USER_DEFINED" PRIMARY="y" />
         <SYMBOL ADDRESS="006c6bd4" NAME="GAME_WINDOW" NAMESPACE="" TYPE="global" SOURCE_TYPE="USER_DEFINED" PRIMARY="y" />
@@ -8634,6 +8729,7 @@ Libraries: Visual Studio 2003 Debug, Visual Studio 2003 Release</COMMENT>
         <SYMBOL ADDRESS="006c6bdc" NAME="ACTIVATEAPP_PARAM" NAMESPACE="" TYPE="global" SOURCE_TYPE="USER_DEFINED" PRIMARY="y" />
         <SYMBOL ADDRESS="006c6be0" NAME="IS_APP_ACTIVE" NAMESPACE="" TYPE="global" SOURCE_TYPE="USER_DEFINED" PRIMARY="y" />
         <SYMBOL ADDRESS="006c6d18" NAME="g_GameContext" NAMESPACE="" TYPE="global" SOURCE_TYPE="USER_DEFINED" PRIMARY="y" />
+        <SYMBOL ADDRESS="006d3f50" NAME="UNK_GAME_WINDOW?" NAMESPACE="" TYPE="global" SOURCE_TYPE="USER_DEFINED" PRIMARY="y" />
         <SYMBOL ADDRESS="006e80a0" NAME="Rsrc_Icon_1_411" NAMESPACE="" TYPE="global" SOURCE_TYPE="IMPORTED" PRIMARY="y" />
         <SYMBOL ADDRESS="006e8948" NAME="Rsrc_GroupIcon_69_411" NAMESPACE="" TYPE="global" SOURCE_TYPE="IMPORTED" PRIMARY="y" />
         <SYMBOL ADDRESS="ffdff000" NAME="ExceptionList" NAMESPACE="" TYPE="global" SOURCE_TYPE="ANALYSIS" PRIMARY="y" />
@@ -8981,7 +9077,9 @@ Libraries: Visual Studio 2003 Debug, Visual Studio 2003 Release</COMMENT>
             </STACK_FRAME>
         </FUNCTION>
         <FUNCTION ENTRY_POINT="00403720" NAME="FUN_00403720" LIBRARY_FUNCTION="n">
+            <RETURN_TYPE DATATYPE="int" DATATYPE_NAMESPACE="/" SIZE="0x4" />
             <ADDRESS_RANGE START="00403720" END="00403787" />
+            <TYPEINFO_CMT>int __fastcall FUN_00403720(int param_1)</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x1c" PARAM_OFFSET="0x4" RETURN_ADDR_SIZE="0x0" BYTES_PURGED="0">
                 <STACK_VAR STACK_PTR_OFFSET="-0x18" NAME="local_18" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="-0x14" NAME="local_14" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
@@ -8989,6 +9087,7 @@ Libraries: Visual Studio 2003 Debug, Visual Studio 2003 Release</COMMENT>
                 <STACK_VAR STACK_PTR_OFFSET="-0xc" NAME="local_c" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="-0x8" NAME="local_8" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
             </STACK_FRAME>
+            <REGISTER_VAR NAME="param_1" REGISTER="ECX" DATATYPE="int" DATATYPE_NAMESPACE="/" />
         </FUNCTION>
         <FUNCTION ENTRY_POINT="00403790" NAME="FUN_00403790" LIBRARY_FUNCTION="n">
             <ADDRESS_RANGE START="00403790" END="00403801" />
@@ -9413,7 +9512,9 @@ Libraries: Visual Studio 2003 Debug, Visual Studio 2003 Release</COMMENT>
             </STACK_FRAME>
         </FUNCTION>
         <FUNCTION ENTRY_POINT="004071b0" NAME="FUN_004071b0" LIBRARY_FUNCTION="n">
+            <RETURN_TYPE DATATYPE="void" DATATYPE_NAMESPACE="/" SIZE="0x0" />
             <ADDRESS_RANGE START="004071b0" END="00407334" />
+            <TYPEINFO_CMT>void __stdcall FUN_004071b0(void * param_1)</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x28" PARAM_OFFSET="0x4" RETURN_ADDR_SIZE="0x0" BYTES_PURGED="0">
                 <STACK_VAR STACK_PTR_OFFSET="-0x24" NAME="local_24" DATATYPE="undefined8" DATATYPE_NAMESPACE="/" SIZE="0x8" />
                 <STACK_VAR STACK_PTR_OFFSET="-0x1c" NAME="local_1c" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
@@ -9422,7 +9523,7 @@ Libraries: Visual Studio 2003 Debug, Visual Studio 2003 Release</COMMENT>
                 <STACK_VAR STACK_PTR_OFFSET="-0x10" NAME="local_10" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="-0xc" NAME="local_c" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="-0x8" NAME="local_8" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
-                <STACK_VAR STACK_PTR_OFFSET="0x4" NAME="param_1" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="0x4" NAME="param_1" DATATYPE="void *" DATATYPE_NAMESPACE="/" SIZE="0x4" />
             </STACK_FRAME>
         </FUNCTION>
         <FUNCTION ENTRY_POINT="00407340" NAME="FUN_00407340" LIBRARY_FUNCTION="n">
@@ -11408,7 +11509,9 @@ Libraries: Visual Studio 2005 Debug, Visual Studio 2008 Debug, Visual Studio 201
             </STACK_FRAME>
         </FUNCTION>
         <FUNCTION ENTRY_POINT="00417acd" NAME="FUN_00417acd" LIBRARY_FUNCTION="n">
+            <RETURN_TYPE DATATYPE="void" DATATYPE_NAMESPACE="/" SIZE="0x0" />
             <ADDRESS_RANGE START="00417acd" END="00417bfc" />
+            <TYPEINFO_CMT>void __thiscall FUN_00417acd(int param_1_00, undefined4 param_2, char * param_3)</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x38" PARAM_OFFSET="0x4" RETURN_ADDR_SIZE="0x0" BYTES_PURGED="8">
                 <STACK_VAR STACK_PTR_OFFSET="-0x34" NAME="local_34" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="-0x30" NAME="local_30" DATATYPE="undefined8" DATATYPE_NAMESPACE="/" SIZE="0x8" />
@@ -11421,9 +11524,10 @@ Libraries: Visual Studio 2005 Debug, Visual Studio 2008 Debug, Visual Studio 201
                 <STACK_VAR STACK_PTR_OFFSET="-0x10" NAME="local_10" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="-0xc" NAME="local_c" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="-0x8" NAME="local_8" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
-                <STACK_VAR STACK_PTR_OFFSET="0x4" NAME="param_1" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
-                <STACK_VAR STACK_PTR_OFFSET="0x8" NAME="param_2" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="0x4" NAME="param_2" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="0x8" NAME="param_3" DATATYPE="char *" DATATYPE_NAMESPACE="/" SIZE="0x4" />
             </STACK_FRAME>
+            <REGISTER_VAR NAME="param_1_00" REGISTER="ECX" DATATYPE="int" DATATYPE_NAMESPACE="/" />
         </FUNCTION>
         <FUNCTION ENTRY_POINT="00417bfd" NAME="FUN_00417bfd" LIBRARY_FUNCTION="n">
             <ADDRESS_RANGE START="00417bfd" END="00417d28" />
@@ -11943,10 +12047,13 @@ Libraries: Visual Studio 2005 Debug, Visual Studio 2008 Debug, Visual Studio 201
             </STACK_FRAME>
         </FUNCTION>
         <FUNCTION ENTRY_POINT="0041c720" NAME="FUN_0041c720" LIBRARY_FUNCTION="n">
+            <RETURN_TYPE DATATYPE="undefined2 *" DATATYPE_NAMESPACE="/" SIZE="0x4" />
             <ADDRESS_RANGE START="0041c720" END="0041c780" />
+            <TYPEINFO_CMT>undefined2 * __fastcall FUN_0041c720(undefined2 * param_1)</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0xc" PARAM_OFFSET="0x4" RETURN_ADDR_SIZE="0x0" BYTES_PURGED="0">
                 <STACK_VAR STACK_PTR_OFFSET="-0x8" NAME="local_8" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
             </STACK_FRAME>
+            <REGISTER_VAR NAME="param_1" REGISTER="ECX" DATATYPE="undefined2 *" DATATYPE_NAMESPACE="/" />
         </FUNCTION>
         <FUNCTION ENTRY_POINT="0041c790" NAME="FUN_0041c790" LIBRARY_FUNCTION="n">
             <ADDRESS_RANGE START="0041c790" END="0041c7e5" />
@@ -12045,7 +12152,9 @@ Libraries: Visual Studio 2005 Debug, Visual Studio 2008 Debug, Visual Studio 201
             </STACK_FRAME>
         </FUNCTION>
         <FUNCTION ENTRY_POINT="0041cde0" NAME="FUN_0041cde0" LIBRARY_FUNCTION="n">
+            <RETURN_TYPE DATATYPE="void" DATATYPE_NAMESPACE="/" SIZE="0x0" />
             <ADDRESS_RANGE START="0041cde0" END="0041cf5b" />
+            <TYPEINFO_CMT>void __thiscall FUN_0041cde0(short * param_1_00, short * param_2)</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x24" PARAM_OFFSET="0x4" RETURN_ADDR_SIZE="0x0" BYTES_PURGED="4">
                 <STACK_VAR STACK_PTR_OFFSET="-0x20" NAME="local_20" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="-0x1c" NAME="local_1c" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
@@ -12054,14 +12163,14 @@ Libraries: Visual Studio 2005 Debug, Visual Studio 2008 Debug, Visual Studio 201
                 <STACK_VAR STACK_PTR_OFFSET="-0x10" NAME="local_10" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="-0xc" NAME="local_c" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="-0x8" NAME="local_8" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
-                <STACK_VAR STACK_PTR_OFFSET="0x4" NAME="param_1" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="0x4" NAME="param_2" DATATYPE="short *" DATATYPE_NAMESPACE="/" SIZE="0x4" />
             </STACK_FRAME>
+            <REGISTER_VAR NAME="param_1_00" REGISTER="ECX" DATATYPE="short *" DATATYPE_NAMESPACE="/" />
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0041cf60" NAME="FUN_0041cf60" LIBRARY_FUNCTION="n">
+        <FUNCTION ENTRY_POINT="0041cf60" NAME="GetJoystickCaps" LIBRARY_FUNCTION="n">
             <ADDRESS_RANGE START="0041cf60" END="0041cfb4" />
             <STACK_FRAME LOCAL_VAR_SIZE="0x3c" PARAM_OFFSET="0x4" RETURN_ADDR_SIZE="0x0" BYTES_PURGED="0">
-                <STACK_VAR STACK_PTR_OFFSET="-0x38" NAME="local_38" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
-                <STACK_VAR STACK_PTR_OFFSET="-0x34" NAME="local_34" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="-0x38" NAME="joyinfo" DATATYPE="undefined1[52]" DATATYPE_NAMESPACE="/" SIZE="0x34" />
             </STACK_FRAME>
         </FUNCTION>
         <FUNCTION ENTRY_POINT="0041cfc0" NAME="FUN_0041cfc0" LIBRARY_FUNCTION="n">
@@ -12129,32 +12238,16 @@ Libraries: Visual Studio 2005 Debug, Visual Studio 2008 Debug, Visual Studio 201
             <STACK_FRAME LOCAL_VAR_SIZE="0x118" PARAM_OFFSET="0x4" RETURN_ADDR_SIZE="0x0" BYTES_PURGED="0">
                 <STACK_VAR STACK_PTR_OFFSET="-0x114" NAME="local_114" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="-0x110" NAME="local_110" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
-                <STACK_VAR STACK_PTR_OFFSET="-0x10c" NAME="local_10c" DATATYPE="undefined1" DATATYPE_NAMESPACE="/" SIZE="0x1" />
-                <STACK_VAR STACK_PTR_OFFSET="-0x10b" NAME="local_10b" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
-                <STACK_VAR STACK_PTR_OFFSET="-0xfc" NAME="local_fc" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
-                <STACK_VAR STACK_PTR_OFFSET="-0xf1" NAME="local_f1" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
-                <STACK_VAR STACK_PTR_OFFSET="-0xed" NAME="local_ed" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
-                <STACK_VAR STACK_PTR_OFFSET="-0xe6" NAME="local_e6" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
-                <STACK_VAR STACK_PTR_OFFSET="-0xe0" NAME="local_e0" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
-                <STACK_VAR STACK_PTR_OFFSET="-0xd6" NAME="local_d6" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
-                <STACK_VAR STACK_PTR_OFFSET="-0xc4" NAME="local_c4" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
-                <STACK_VAR STACK_PTR_OFFSET="-0xbf" NAME="local_bf" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
-                <STACK_VAR STACK_PTR_OFFSET="-0xbb" NAME="local_bb" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
-                <STACK_VAR STACK_PTR_OFFSET="-0xb2" NAME="local_b2" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
-                <STACK_VAR STACK_PTR_OFFSET="-0xaa" NAME="local_aa" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
-                <STACK_VAR STACK_PTR_OFFSET="-0xa4" NAME="local_a4" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
-                <STACK_VAR STACK_PTR_OFFSET="-0x6f" NAME="local_6f" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
-                <STACK_VAR STACK_PTR_OFFSET="-0x44" NAME="local_44" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
-                <STACK_VAR STACK_PTR_OFFSET="-0x3c" NAME="local_3c" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="-0x10c" NAME="local_10c" DATATYPE="char[256]" DATATYPE_NAMESPACE="/" SIZE="0x100" />
                 <STACK_VAR STACK_PTR_OFFSET="-0x8" NAME="local_8" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="0x0" NAME="local_res0" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0041e0c0" NAME="FUN_0041e0c0" LIBRARY_FUNCTION="n">
+        <FUNCTION ENTRY_POINT="0041e0c0" NAME="reset_keyboard" LIBRARY_FUNCTION="n">
             <ADDRESS_RANGE START="0041e0c0" END="0041e144" />
             <STACK_FRAME LOCAL_VAR_SIZE="0x114" PARAM_OFFSET="0x4" RETURN_ADDR_SIZE="0x0" BYTES_PURGED="0">
-                <STACK_VAR STACK_PTR_OFFSET="-0x110" NAME="local_110" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
-                <STACK_VAR STACK_PTR_OFFSET="-0x10c" NAME="local_10c" DATATYPE="undefined1" DATATYPE_NAMESPACE="/" SIZE="0x1" />
+                <STACK_VAR STACK_PTR_OFFSET="-0x110" NAME="idx" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="-0x10c" NAME="key_states" DATATYPE="byte[256]" DATATYPE_NAMESPACE="/" SIZE="0x100" />
                 <STACK_VAR STACK_PTR_OFFSET="-0x8" NAME="local_8" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="0x0" NAME="local_res0" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
             </STACK_FRAME>
@@ -12223,9 +12316,9 @@ Library: Visual Studio 2003 Debug</REGULAR_CMT>
             </STACK_FRAME>
         </FUNCTION>
         <FUNCTION ENTRY_POINT="0041e4d0" NAME="GameErrorContextLog" LIBRARY_FUNCTION="n">
-            <RETURN_TYPE DATATYPE="void" DATATYPE_NAMESPACE="/" SIZE="0x0" />
+            <RETURN_TYPE DATATYPE="char *" DATATYPE_NAMESPACE="/" SIZE="0x4" />
             <ADDRESS_RANGE START="0041e4d0" END="0041e61a" />
-            <TYPEINFO_CMT>void __stdcall GameErrorContextLog(GameErrorContext * ctx, char * fmt, ...)</TYPEINFO_CMT>
+            <TYPEINFO_CMT>char * __stdcall GameErrorContextLog(GameErrorContext * ctx, char * fmt, ...)</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x231" PARAM_OFFSET="0x4" RETURN_ADDR_SIZE="0x0" BYTES_PURGED="0">
                 <STACK_VAR STACK_PTR_OFFSET="-0x22d" NAME="local_22d" DATATYPE="undefined1" DATATYPE_NAMESPACE="/" SIZE="0x1" />
                 <STACK_VAR STACK_PTR_OFFSET="-0x22c" NAME="local_22c" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
@@ -12804,12 +12897,15 @@ Library: Visual Studio 2003 Debug</REGULAR_CMT>
             </STACK_FRAME>
         </FUNCTION>
         <FUNCTION ENTRY_POINT="00421ff0" NAME="FUN_00421ff0" LIBRARY_FUNCTION="n">
+            <RETURN_TYPE DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
             <ADDRESS_RANGE START="00421ff0" END="00422068" />
+            <TYPEINFO_CMT>undefined4 __thiscall FUN_00421ff0(int param_1_00, int param_2, undefined4 param_3)</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0xc" PARAM_OFFSET="0x4" RETURN_ADDR_SIZE="0x0" BYTES_PURGED="8">
                 <STACK_VAR STACK_PTR_OFFSET="-0x8" NAME="local_8" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
-                <STACK_VAR STACK_PTR_OFFSET="0x4" NAME="param_1" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
-                <STACK_VAR STACK_PTR_OFFSET="0x8" NAME="param_2" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="0x4" NAME="param_2" DATATYPE="int" DATATYPE_NAMESPACE="/" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="0x8" NAME="param_3" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
             </STACK_FRAME>
+            <REGISTER_VAR NAME="param_1_00" REGISTER="ECX" DATATYPE="int" DATATYPE_NAMESPACE="/" />
         </FUNCTION>
         <FUNCTION ENTRY_POINT="00422070" NAME="FUN_00422070" LIBRARY_FUNCTION="n">
             <ADDRESS_RANGE START="00422070" END="004220ab" />
@@ -12858,18 +12954,24 @@ Library: Visual Studio 2003 Debug</REGULAR_CMT>
             </STACK_FRAME>
         </FUNCTION>
         <FUNCTION ENTRY_POINT="004223c0" NAME="FUN_004223c0" LIBRARY_FUNCTION="n">
+            <RETURN_TYPE DATATYPE="void" DATATYPE_NAMESPACE="/" SIZE="0x0" />
             <ADDRESS_RANGE START="004223c0" END="0042248e" />
+            <TYPEINFO_CMT>void __fastcall FUN_004223c0(int param_1)</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x14" PARAM_OFFSET="0x4" RETURN_ADDR_SIZE="0x0" BYTES_PURGED="0">
                 <STACK_VAR STACK_PTR_OFFSET="-0x10" NAME="local_10" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="-0xc" NAME="local_c" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="-0x8" NAME="local_8" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
             </STACK_FRAME>
+            <REGISTER_VAR NAME="param_1" REGISTER="ECX" DATATYPE="int" DATATYPE_NAMESPACE="/" />
         </FUNCTION>
         <FUNCTION ENTRY_POINT="00422490" NAME="FUN_00422490" LIBRARY_FUNCTION="n">
+            <RETURN_TYPE DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
             <ADDRESS_RANGE START="00422490" END="004224d3" />
+            <TYPEINFO_CMT>undefined4 __fastcall FUN_00422490(int param_1)</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0xc" PARAM_OFFSET="0x4" RETURN_ADDR_SIZE="0x0" BYTES_PURGED="0">
                 <STACK_VAR STACK_PTR_OFFSET="-0x8" NAME="local_8" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
             </STACK_FRAME>
+            <REGISTER_VAR NAME="param_1" REGISTER="ECX" DATATYPE="int" DATATYPE_NAMESPACE="/" />
         </FUNCTION>
         <FUNCTION ENTRY_POINT="004224e0" NAME="FUN_004224e0" LIBRARY_FUNCTION="n">
             <ADDRESS_RANGE START="004224e0" END="0042255b" />
@@ -12879,14 +12981,17 @@ Library: Visual Studio 2003 Debug</REGULAR_CMT>
             </STACK_FRAME>
         </FUNCTION>
         <FUNCTION ENTRY_POINT="00422560" NAME="FUN_00422560" LIBRARY_FUNCTION="n">
+            <RETURN_TYPE DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
             <ADDRESS_RANGE START="00422560" END="00422626" />
+            <TYPEINFO_CMT>undefined4 __thiscall FUN_00422560(int param_1_00, LPMIDIHDR param_2)</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x18" PARAM_OFFSET="0x4" RETURN_ADDR_SIZE="0x0" BYTES_PURGED="4">
                 <STACK_VAR STACK_PTR_OFFSET="-0x14" NAME="local_14" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="-0x10" NAME="local_10" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="-0xc" NAME="local_c" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="-0x8" NAME="local_8" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
-                <STACK_VAR STACK_PTR_OFFSET="0x4" NAME="param_1" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="0x4" NAME="param_2" DATATYPE="LPMIDIHDR" DATATYPE_NAMESPACE="/mmsystem.h" SIZE="0x4" />
             </STACK_FRAME>
+            <REGISTER_VAR NAME="param_1_00" REGISTER="ECX" DATATYPE="int" DATATYPE_NAMESPACE="/" />
         </FUNCTION>
         <FUNCTION ENTRY_POINT="00422630" NAME="FUN_00422630" LIBRARY_FUNCTION="n">
             <ADDRESS_RANGE START="00422630" END="0042267e" />
@@ -13047,10 +13152,13 @@ Library: Visual Studio 2003 Debug</REGULAR_CMT>
             </STACK_FRAME>
         </FUNCTION>
         <FUNCTION ENTRY_POINT="00424127" NAME="FUN_00424127" LIBRARY_FUNCTION="n">
+            <RETURN_TYPE DATATYPE="void" DATATYPE_NAMESPACE="/" SIZE="0x0" />
             <ADDRESS_RANGE START="00424127" END="00424144" />
+            <TYPEINFO_CMT>void __fastcall FUN_00424127(undefined4 * param_1)</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0xc" PARAM_OFFSET="0x4" RETURN_ADDR_SIZE="0x0" BYTES_PURGED="0">
                 <STACK_VAR STACK_PTR_OFFSET="-0x8" NAME="local_8" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
             </STACK_FRAME>
+            <REGISTER_VAR NAME="param_1" REGISTER="ECX" DATATYPE="undefined4 *" DATATYPE_NAMESPACE="/" />
         </FUNCTION>
         <FUNCTION ENTRY_POINT="00424145" NAME="FUN_00424145" LIBRARY_FUNCTION="n">
             <ADDRESS_RANGE START="00424145" END="004241e4" />
@@ -13169,10 +13277,13 @@ Library: Visual Studio 2003 Debug</REGULAR_CMT>
             </STACK_FRAME>
         </FUNCTION>
         <FUNCTION ENTRY_POINT="00424e8f" NAME="FUN_00424e8f" LIBRARY_FUNCTION="n">
+            <RETURN_TYPE DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
             <ADDRESS_RANGE START="00424e8f" END="00424eac" />
+            <TYPEINFO_CMT>undefined4 __fastcall FUN_00424e8f(int param_1)</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0xc" PARAM_OFFSET="0x4" RETURN_ADDR_SIZE="0x0" BYTES_PURGED="0">
                 <STACK_VAR STACK_PTR_OFFSET="-0x8" NAME="local_8" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
             </STACK_FRAME>
+            <REGISTER_VAR NAME="param_1" REGISTER="ECX" DATATYPE="int" DATATYPE_NAMESPACE="/" />
         </FUNCTION>
         <FUNCTION ENTRY_POINT="00424ead" NAME="FUN_00424ead" LIBRARY_FUNCTION="n">
             <ADDRESS_RANGE START="00424ead" END="00425239" />
@@ -13277,7 +13388,9 @@ Library: Visual Studio 2003 Debug</REGULAR_CMT>
             </STACK_FRAME>
         </FUNCTION>
         <FUNCTION ENTRY_POINT="00425e10" NAME="FUN_00425e10" LIBRARY_FUNCTION="n">
+            <RETURN_TYPE DATATYPE="int" DATATYPE_NAMESPACE="/" SIZE="0x4" />
             <ADDRESS_RANGE START="00425e10" END="00425ff7" />
+            <TYPEINFO_CMT>int __fastcall FUN_00425e10(int param_1)</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0xac" PARAM_OFFSET="0x4" RETURN_ADDR_SIZE="0x0" BYTES_PURGED="0">
                 <STACK_VAR STACK_PTR_OFFSET="-0xa8" NAME="local_a8" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="-0x6c" NAME="local_6c" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
@@ -13303,6 +13416,7 @@ Library: Visual Studio 2003 Debug</REGULAR_CMT>
                 <STACK_VAR STACK_PTR_OFFSET="-0x1c" NAME="local_1c" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="-0x18" NAME="local_18" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
             </STACK_FRAME>
+            <REGISTER_VAR NAME="param_1" REGISTER="ECX" DATATYPE="int" DATATYPE_NAMESPACE="/" />
         </FUNCTION>
         <FUNCTION ENTRY_POINT="00426000" NAME="FUN_00426000" LIBRARY_FUNCTION="n">
             <ADDRESS_RANGE START="00426000" END="004260c1" />
@@ -14503,7 +14617,9 @@ Library: Visual Studio 2003 Debug</REGULAR_CMT>
             </STACK_FRAME>
         </FUNCTION>
         <FUNCTION ENTRY_POINT="00430270" NAME="FUN_00430270" LIBRARY_FUNCTION="n">
+            <RETURN_TYPE DATATYPE="void" DATATYPE_NAMESPACE="/" SIZE="0x0" />
             <ADDRESS_RANGE START="00430270" END="0043050c" />
+            <TYPEINFO_CMT>void __thiscall FUN_00430270(int * * param_1_00, HWND param_2)</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x80" PARAM_OFFSET="0x4" RETURN_ADDR_SIZE="0x0" BYTES_PURGED="4">
                 <STACK_VAR STACK_PTR_OFFSET="-0x7c" NAME="local_7c" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="-0x78" NAME="local_78" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
@@ -14530,8 +14646,9 @@ Library: Visual Studio 2003 Debug</REGULAR_CMT>
                 <STACK_VAR STACK_PTR_OFFSET="-0x10" NAME="local_10" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="-0x8" NAME="local_8" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="0x0" NAME="local_res0" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
-                <STACK_VAR STACK_PTR_OFFSET="0x4" NAME="param_1" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="0x4" NAME="param_2" DATATYPE="HWND" DATATYPE_NAMESPACE="/WinDef.h" SIZE="0x4" />
             </STACK_FRAME>
+            <REGISTER_VAR NAME="param_1_00" REGISTER="ECX" DATATYPE="int * *" DATATYPE_NAMESPACE="/" />
         </FUNCTION>
         <FUNCTION ENTRY_POINT="00430510" NAME="FUN_00430510" LIBRARY_FUNCTION="n">
             <ADDRESS_RANGE START="00430510" END="004306dc" />
@@ -14622,13 +14739,16 @@ Library: Visual Studio 2003 Debug</REGULAR_CMT>
             </STACK_FRAME>
         </FUNCTION>
         <FUNCTION ENTRY_POINT="00430ec0" NAME="FUN_00430ec0" LIBRARY_FUNCTION="n">
+            <RETURN_TYPE DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
             <ADDRESS_RANGE START="00430ec0" END="00430f7d" />
+            <TYPEINFO_CMT>undefined4 __thiscall FUN_00430ec0(int param_1_00, undefined4 param_2)</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x14" PARAM_OFFSET="0x4" RETURN_ADDR_SIZE="0x0" BYTES_PURGED="4">
                 <STACK_VAR STACK_PTR_OFFSET="-0x10" NAME="local_10" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="-0xc" NAME="local_c" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="-0x8" NAME="local_8" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
-                <STACK_VAR STACK_PTR_OFFSET="0x4" NAME="param_1" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="0x4" NAME="param_2" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
             </STACK_FRAME>
+            <REGISTER_VAR NAME="param_1_00" REGISTER="ECX" DATATYPE="int" DATATYPE_NAMESPACE="/" />
         </FUNCTION>
         <FUNCTION ENTRY_POINT="00430f80" NAME="FUN_00430f80" LIBRARY_FUNCTION="n">
             <ADDRESS_RANGE START="00430f80" END="0043107b" />
@@ -14640,11 +14760,14 @@ Library: Visual Studio 2003 Debug</REGULAR_CMT>
             </STACK_FRAME>
         </FUNCTION>
         <FUNCTION ENTRY_POINT="00431080" NAME="FUN_00431080" LIBRARY_FUNCTION="n">
+            <RETURN_TYPE DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
             <ADDRESS_RANGE START="00431080" END="004311d5" />
+            <TYPEINFO_CMT>undefined4 __fastcall FUN_00431080(int * * param_1)</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x10" PARAM_OFFSET="0x4" RETURN_ADDR_SIZE="0x0" BYTES_PURGED="0">
                 <STACK_VAR STACK_PTR_OFFSET="-0xc" NAME="local_c" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="-0x8" NAME="local_8" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
             </STACK_FRAME>
+            <REGISTER_VAR NAME="param_1" REGISTER="ECX" DATATYPE="int * *" DATATYPE_NAMESPACE="/" />
         </FUNCTION>
         <FUNCTION ENTRY_POINT="004311e0" NAME="FUN_004311e0" LIBRARY_FUNCTION="n">
             <ADDRESS_RANGE START="004311e0" END="00431264" />
@@ -14685,7 +14808,9 @@ Library: Visual Studio 2003 Debug</REGULAR_CMT>
             </STACK_FRAME>
         </FUNCTION>
         <FUNCTION ENTRY_POINT="00431470" NAME="FUN_00431470" LIBRARY_FUNCTION="n">
+            <RETURN_TYPE DATATYPE="undefined4 *" DATATYPE_NAMESPACE="/" SIZE="0x4" />
             <ADDRESS_RANGE START="00431470" END="0043165c" />
+            <TYPEINFO_CMT>undefined4 * __fastcall FUN_00431470(undefined4 * param_1)</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x2c" PARAM_OFFSET="0x4" RETURN_ADDR_SIZE="0x0" BYTES_PURGED="0">
                 <STACK_VAR STACK_PTR_OFFSET="-0x28" NAME="local_28" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="-0x24" NAME="local_24" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
@@ -14693,6 +14818,7 @@ Library: Visual Studio 2003 Debug</REGULAR_CMT>
                 <STACK_VAR STACK_PTR_OFFSET="-0x1c" NAME="local_1c" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="-0x8" NAME="local_8" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
             </STACK_FRAME>
+            <REGISTER_VAR NAME="param_1" REGISTER="ECX" DATATYPE="undefined4 *" DATATYPE_NAMESPACE="/" />
         </FUNCTION>
         <FUNCTION ENTRY_POINT="00431660" NAME="FUN_00431660" LIBRARY_FUNCTION="n">
             <ADDRESS_RANGE START="00431660" END="0043191b" />
@@ -14754,7 +14880,9 @@ Library: Visual Studio 2003 Debug</REGULAR_CMT>
             </STACK_FRAME>
         </FUNCTION>
         <FUNCTION ENTRY_POINT="00431dc0" NAME="FUN_00431dc0" LIBRARY_FUNCTION="n">
+            <RETURN_TYPE DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
             <ADDRESS_RANGE START="00431dc0" END="0043202f" />
+            <TYPEINFO_CMT>undefined4 __thiscall FUN_00431dc0(int param_1_00, int param_2, char * path, int param_4)</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x58" PARAM_OFFSET="0x4" RETURN_ADDR_SIZE="0x0" BYTES_PURGED="12">
                 <STACK_VAR STACK_PTR_OFFSET="-0x54" NAME="local_54" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="-0x50" NAME="local_50" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
@@ -14769,10 +14897,11 @@ Library: Visual Studio 2003 Debug</REGULAR_CMT>
                 <STACK_VAR STACK_PTR_OFFSET="-0x10" NAME="local_10" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="-0xc" NAME="local_c" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="-0x8" NAME="local_8" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
-                <STACK_VAR STACK_PTR_OFFSET="0x4" NAME="param_1" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
-                <STACK_VAR STACK_PTR_OFFSET="0x8" NAME="param_2" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
-                <STACK_VAR STACK_PTR_OFFSET="0xc" NAME="param_3" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="0x4" NAME="param_2" DATATYPE="int" DATATYPE_NAMESPACE="/" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="0x8" NAME="path" DATATYPE="char *" DATATYPE_NAMESPACE="/" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="0xc" NAME="param_4" DATATYPE="int" DATATYPE_NAMESPACE="/" SIZE="0x4" />
             </STACK_FRAME>
+            <REGISTER_VAR NAME="param_1_00" REGISTER="ECX" DATATYPE="int" DATATYPE_NAMESPACE="/" />
         </FUNCTION>
         <FUNCTION ENTRY_POINT="00432030" NAME="FUN_00432030" LIBRARY_FUNCTION="n">
             <ADDRESS_RANGE START="00432030" END="004321d1" />
@@ -14858,7 +14987,9 @@ Library: Visual Studio 2003 Debug</REGULAR_CMT>
             </STACK_FRAME>
         </FUNCTION>
         <FUNCTION ENTRY_POINT="00432cc0" NAME="FUN_00432cc0" LIBRARY_FUNCTION="n">
+            <RETURN_TYPE DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
             <ADDRESS_RANGE START="00432cc0" END="00432f96" />
+            <TYPEINFO_CMT>undefined4 __stdcall FUN_00432cc0(void * param_1)</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x50" PARAM_OFFSET="0x4" RETURN_ADDR_SIZE="0x0" BYTES_PURGED="4">
                 <STACK_VAR STACK_PTR_OFFSET="-0x4c" NAME="local_4c" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="-0x48" NAME="local_48" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
@@ -14874,7 +15005,7 @@ Library: Visual Studio 2003 Debug</REGULAR_CMT>
                 <STACK_VAR STACK_PTR_OFFSET="-0x10" NAME="local_10" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="-0xc" NAME="local_c" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="-0x8" NAME="local_8" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
-                <STACK_VAR STACK_PTR_OFFSET="0x4" NAME="param_1" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="0x4" NAME="param_1" DATATYPE="void *" DATATYPE_NAMESPACE="/" SIZE="0x4" />
             </STACK_FRAME>
         </FUNCTION>
         <FUNCTION ENTRY_POINT="00432fa0" NAME="FUN_00432fa0" LIBRARY_FUNCTION="n">
@@ -15094,13 +15225,15 @@ Library: Visual Studio 2003 Debug</REGULAR_CMT>
         </FUNCTION>
         <FUNCTION ENTRY_POINT="00435010" NAME="FUN_00435010" LIBRARY_FUNCTION="n">
             <ADDRESS_RANGE START="00435010" END="0043526a" />
+            <TYPEINFO_CMT>undefined __thiscall FUN_00435010(undefined4 param_1_00, undefined4 param_2, char * path)</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x14" PARAM_OFFSET="0x4" RETURN_ADDR_SIZE="0x0" BYTES_PURGED="8">
                 <STACK_VAR STACK_PTR_OFFSET="-0x10" NAME="local_10" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="-0xc" NAME="local_c" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="-0x8" NAME="local_8" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
-                <STACK_VAR STACK_PTR_OFFSET="0x4" NAME="param_1" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
-                <STACK_VAR STACK_PTR_OFFSET="0x8" NAME="param_2" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="0x4" NAME="param_2" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="0x8" NAME="path" DATATYPE="char *" DATATYPE_NAMESPACE="/" SIZE="0x4" />
             </STACK_FRAME>
+            <REGISTER_VAR NAME="param_1_00" REGISTER="ECX" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" />
         </FUNCTION>
         <FUNCTION ENTRY_POINT="00435270" NAME="FUN_00435270" LIBRARY_FUNCTION="n">
             <ADDRESS_RANGE START="00435270" END="004352fe" />
@@ -15165,13 +15298,16 @@ Library: Visual Studio 2003 Debug</REGULAR_CMT>
             </STACK_FRAME>
         </FUNCTION>
         <FUNCTION ENTRY_POINT="0043575d" NAME="FUN_0043575d" LIBRARY_FUNCTION="n">
+            <RETURN_TYPE DATATYPE="int" DATATYPE_NAMESPACE="/" SIZE="0x4" />
             <ADDRESS_RANGE START="0043575d" END="0043579e" />
+            <TYPEINFO_CMT>int __fastcall FUN_0043575d(int param_1)</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x28" PARAM_OFFSET="0x4" RETURN_ADDR_SIZE="0x0" BYTES_PURGED="0">
                 <STACK_VAR STACK_PTR_OFFSET="-0x24" NAME="local_24" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="-0x20" NAME="local_20" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="-0x1c" NAME="local_1c" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="-0x18" NAME="local_18" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
             </STACK_FRAME>
+            <REGISTER_VAR NAME="param_1" REGISTER="ECX" DATATYPE="int" DATATYPE_NAMESPACE="/" />
         </FUNCTION>
         <FUNCTION ENTRY_POINT="0043579f" NAME="FUN_0043579f" LIBRARY_FUNCTION="n">
             <ADDRESS_RANGE START="0043579f" END="004374cf" />
@@ -15463,10 +15599,13 @@ Library: Visual Studio 2003 Debug</REGULAR_CMT>
             </STACK_FRAME>
         </FUNCTION>
         <FUNCTION ENTRY_POINT="0043a7b0" NAME="FUN_0043a7b0" LIBRARY_FUNCTION="n">
+            <RETURN_TYPE DATATYPE="undefined4 *" DATATYPE_NAMESPACE="/" SIZE="0x4" />
             <ADDRESS_RANGE START="0043a7b0" END="0043a7c6" />
+            <TYPEINFO_CMT>undefined4 * __fastcall FUN_0043a7b0(undefined4 * param_1)</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0xc" PARAM_OFFSET="0x4" RETURN_ADDR_SIZE="0x0" BYTES_PURGED="0">
                 <STACK_VAR STACK_PTR_OFFSET="-0x8" NAME="local_8" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
             </STACK_FRAME>
+            <REGISTER_VAR NAME="param_1" REGISTER="ECX" DATATYPE="undefined4 *" DATATYPE_NAMESPACE="/" />
         </FUNCTION>
         <FUNCTION ENTRY_POINT="0043a7d0" NAME="FUN_0043a7d0" LIBRARY_FUNCTION="n">
             <ADDRESS_RANGE START="0043a7d0" END="0043a7fb" />
@@ -15474,18 +15613,21 @@ Library: Visual Studio 2003 Debug</REGULAR_CMT>
                 <STACK_VAR STACK_PTR_OFFSET="-0x8" NAME="local_8" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0043a800" NAME="FUN_0043a800" LIBRARY_FUNCTION="n">
+        <FUNCTION ENTRY_POINT="0043a800" NAME="direct_sound_init" LIBRARY_FUNCTION="n">
+            <RETURN_TYPE DATATYPE="int" DATATYPE_NAMESPACE="/" SIZE="0x4" />
             <ADDRESS_RANGE START="0043a800" END="0043a88d" />
+            <TYPEINFO_CMT>int __thiscall direct_sound_init(int * * param_1_00, HWND param_2, undefined4 param_3, undefined4 param_4, undefined4 param_5, undefined4 param_6)</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x14" PARAM_OFFSET="0x4" RETURN_ADDR_SIZE="0x0" BYTES_PURGED="20">
                 <STACK_VAR STACK_PTR_OFFSET="-0x10" NAME="local_10" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="-0xc" NAME="local_c" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="-0x8" NAME="local_8" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
-                <STACK_VAR STACK_PTR_OFFSET="0x4" NAME="param_1" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
-                <STACK_VAR STACK_PTR_OFFSET="0x8" NAME="param_2" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
-                <STACK_VAR STACK_PTR_OFFSET="0xc" NAME="param_3" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
-                <STACK_VAR STACK_PTR_OFFSET="0x10" NAME="param_4" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
-                <STACK_VAR STACK_PTR_OFFSET="0x14" NAME="param_5" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="0x4" NAME="param_2" DATATYPE="HWND" DATATYPE_NAMESPACE="/WinDef.h" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="0x8" NAME="param_3" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="0xc" NAME="param_4" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="0x10" NAME="param_5" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="0x14" NAME="param_6" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
             </STACK_FRAME>
+            <REGISTER_VAR NAME="param_1_00" REGISTER="ECX" DATATYPE="int * *" DATATYPE_NAMESPACE="/" />
         </FUNCTION>
         <FUNCTION ENTRY_POINT="0043a890" NAME="FUN_0043a890" LIBRARY_FUNCTION="n">
             <ADDRESS_RANGE START="0043a890" END="0043a9bc" />
@@ -15673,15 +15815,20 @@ Library: Visual Studio 2003 Debug</REGULAR_CMT>
             </STACK_FRAME>
         </FUNCTION>
         <FUNCTION ENTRY_POINT="0043b4d0" NAME="FUN_0043b4d0" LIBRARY_FUNCTION="n">
+            <RETURN_TYPE DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
             <ADDRESS_RANGE START="0043b4d0" END="0043b55e" />
+            <TYPEINFO_CMT>undefined4 __fastcall FUN_0043b4d0(int param_1)</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x14" PARAM_OFFSET="0x4" RETURN_ADDR_SIZE="0x0" BYTES_PURGED="0">
                 <STACK_VAR STACK_PTR_OFFSET="-0x10" NAME="local_10" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="-0xc" NAME="local_c" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="-0x8" NAME="local_8" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
             </STACK_FRAME>
+            <REGISTER_VAR NAME="param_1" REGISTER="ECX" DATATYPE="int" DATATYPE_NAMESPACE="/" />
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0043b560" NAME="FUN_0043b560" LIBRARY_FUNCTION="n">
+        <FUNCTION ENTRY_POINT="0043b560" NAME="HandleWaveStreamNotification" LIBRARY_FUNCTION="n">
+            <RETURN_TYPE DATATYPE="int" DATATYPE_NAMESPACE="/" SIZE="0x4" />
             <ADDRESS_RANGE START="0043b560" END="0043b8d6" />
+            <TYPEINFO_CMT>int __thiscall HandleWaveStreamNotification(int param_1_00, int param_2)</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x34" PARAM_OFFSET="0x4" RETURN_ADDR_SIZE="0x0" BYTES_PURGED="4">
                 <STACK_VAR STACK_PTR_OFFSET="-0x30" NAME="local_30" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="-0x2c" NAME="local_2c" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
@@ -15694,8 +15841,9 @@ Library: Visual Studio 2003 Debug</REGULAR_CMT>
                 <STACK_VAR STACK_PTR_OFFSET="-0x10" NAME="local_10" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="-0xc" NAME="local_c" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="-0x8" NAME="local_8" DATATYPE="undefined1" DATATYPE_NAMESPACE="/" SIZE="0x1" />
-                <STACK_VAR STACK_PTR_OFFSET="0x4" NAME="param_1" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="0x4" NAME="param_2" DATATYPE="int" DATATYPE_NAMESPACE="/" SIZE="0x4" />
             </STACK_FRAME>
+            <REGISTER_VAR NAME="param_1_00" REGISTER="ECX" DATATYPE="int" DATATYPE_NAMESPACE="/" />
         </FUNCTION>
         <FUNCTION ENTRY_POINT="0043b8e0" NAME="FUN_0043b8e0" LIBRARY_FUNCTION="n">
             <ADDRESS_RANGE START="0043b8e0" END="0043b9a1" />
@@ -16038,28 +16186,32 @@ Library: Visual Studio 2003 Debug</REGULAR_CMT>
             </STACK_FRAME>
         </FUNCTION>
         <FUNCTION ENTRY_POINT="0043efee" NAME="FUN_0043efee" LIBRARY_FUNCTION="n">
+            <RETURN_TYPE DATATYPE="void" DATATYPE_NAMESPACE="/" SIZE="0x0" />
             <ADDRESS_RANGE START="0043efee" END="0043f081" />
+            <TYPEINFO_CMT>void __stdcall FUN_0043efee(float * param_1, float param_2, float param_3, float param_4, float param_5)</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x18" PARAM_OFFSET="0x4" RETURN_ADDR_SIZE="0x0" BYTES_PURGED="20">
                 <STACK_VAR STACK_PTR_OFFSET="-0x14" NAME="local_14" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="-0x10" NAME="local_10" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="-0xc" NAME="local_c" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="-0x8" NAME="local_8" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
-                <STACK_VAR STACK_PTR_OFFSET="0x4" NAME="param_1" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
-                <STACK_VAR STACK_PTR_OFFSET="0x8" NAME="param_2" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
-                <STACK_VAR STACK_PTR_OFFSET="0xc" NAME="param_3" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
-                <STACK_VAR STACK_PTR_OFFSET="0x10" NAME="param_4" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
-                <STACK_VAR STACK_PTR_OFFSET="0x14" NAME="param_5" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="0x4" NAME="param_1" DATATYPE="float *" DATATYPE_NAMESPACE="/" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="0x8" NAME="param_2" DATATYPE="float" DATATYPE_NAMESPACE="/" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="0xc" NAME="param_3" DATATYPE="float" DATATYPE_NAMESPACE="/" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="0x10" NAME="param_4" DATATYPE="float" DATATYPE_NAMESPACE="/" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="0x14" NAME="param_5" DATATYPE="float" DATATYPE_NAMESPACE="/" SIZE="0x4" />
             </STACK_FRAME>
         </FUNCTION>
         <FUNCTION ENTRY_POINT="0043f082" NAME="FUN_0043f082" LIBRARY_FUNCTION="n">
+            <RETURN_TYPE DATATYPE="void" DATATYPE_NAMESPACE="/" SIZE="0x0" />
             <ADDRESS_RANGE START="0043f082" END="0043f0cd" />
+            <TYPEINFO_CMT>void __stdcall FUN_0043f082(vec3f * out, vec3f * in1, vec3f * in2)</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x14" PARAM_OFFSET="0x4" RETURN_ADDR_SIZE="0x0" BYTES_PURGED="0">
                 <STACK_VAR STACK_PTR_OFFSET="-0x10" NAME="local_10" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="-0xc" NAME="local_c" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="-0x8" NAME="local_8" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
-                <STACK_VAR STACK_PTR_OFFSET="0x4" NAME="param_1" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
-                <STACK_VAR STACK_PTR_OFFSET="0x8" NAME="param_2" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
-                <STACK_VAR STACK_PTR_OFFSET="0xc" NAME="param_3" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="0x4" NAME="out" DATATYPE="vec3f *" DATATYPE_NAMESPACE="/" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="0x8" NAME="in1" DATATYPE="vec3f *" DATATYPE_NAMESPACE="/" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="0xc" NAME="in2" DATATYPE="vec3f *" DATATYPE_NAMESPACE="/" SIZE="0x4" />
             </STACK_FRAME>
         </FUNCTION>
         <FUNCTION ENTRY_POINT="0043f0ce" NAME="FUN_0043f0ce" LIBRARY_FUNCTION="n">
@@ -16126,7 +16278,9 @@ Library: Visual Studio 2003 Debug</REGULAR_CMT>
             </STACK_FRAME>
         </FUNCTION>
         <FUNCTION ENTRY_POINT="0043f561" NAME="FUN_0043f561" LIBRARY_FUNCTION="n">
+            <RETURN_TYPE DATATYPE="void" DATATYPE_NAMESPACE="/" SIZE="0x0" />
             <ADDRESS_RANGE START="0043f561" END="0043f666" />
+            <TYPEINFO_CMT>void __stdcall FUN_0043f561(float * param_1, vec3f * param_2, vec3f * param_3, undefined4 param_4)</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x2c" PARAM_OFFSET="0x4" RETURN_ADDR_SIZE="0x0" BYTES_PURGED="16">
                 <STACK_VAR STACK_PTR_OFFSET="-0x28" NAME="local_28" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="-0x24" NAME="local_24" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
@@ -16137,9 +16291,9 @@ Library: Visual Studio 2003 Debug</REGULAR_CMT>
                 <STACK_VAR STACK_PTR_OFFSET="-0x10" NAME="local_10" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="-0xc" NAME="local_c" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="-0x8" NAME="local_8" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
-                <STACK_VAR STACK_PTR_OFFSET="0x4" NAME="param_1" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
-                <STACK_VAR STACK_PTR_OFFSET="0x8" NAME="param_2" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
-                <STACK_VAR STACK_PTR_OFFSET="0xc" NAME="param_3" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="0x4" NAME="param_1" DATATYPE="float *" DATATYPE_NAMESPACE="/" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="0x8" NAME="param_2" DATATYPE="vec3f *" DATATYPE_NAMESPACE="/" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="0xc" NAME="param_3" DATATYPE="vec3f *" DATATYPE_NAMESPACE="/" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="0x10" NAME="param_4" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
             </STACK_FRAME>
         </FUNCTION>
@@ -20661,6 +20815,10 @@ Library: Visual Studio 2003 Debug</REGULAR_CMT>
 Library: Visual Studio 2003 Release</REGULAR_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x4" PARAM_OFFSET="0x4" RETURN_ADDR_SIZE="0x0" BYTES_PURGED="0" />
         </FUNCTION>
+        <FUNCTION ENTRY_POINT="0045b91f" NAME="FUN_0045b91f" LIBRARY_FUNCTION="n">
+            <ADDRESS_RANGE START="0045b91f" END="0045b946" />
+            <STACK_FRAME LOCAL_VAR_SIZE="0x4" PARAM_OFFSET="0x4" RETURN_ADDR_SIZE="0x0" BYTES_PURGED="0" />
+        </FUNCTION>
         <FUNCTION ENTRY_POINT="0045b947" NAME="__onexit" LIBRARY_FUNCTION="y">
             <RETURN_TYPE DATATYPE="_onexit_t" DATATYPE_NAMESPACE="/stdlib.h" SIZE="0x4" />
             <ADDRESS_RANGE START="0045b947" END="0045b978" />
@@ -21175,10 +21333,12 @@ Libraries: Visual Studio 2003, Visual Studio 2005, Visual Studio 2008, Visual St
                 <STACK_VAR STACK_PTR_OFFSET="-0xc" NAME="local_c" DATATYPE="undefined8" DATATYPE_NAMESPACE="/" SIZE="0x8" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0045c4c4" NAME="FUN_0045c4c4" LIBRARY_FUNCTION="n">
+        <FUNCTION ENTRY_POINT="0045c4c4" NAME="fload_withFB" LIBRARY_FUNCTION="n">
+            <RETURN_TYPE DATATYPE="float" DATATYPE_NAMESPACE="/" SIZE="0x4" />
             <ADDRESS_RANGE START="0045c4c4" END="0045c4cc" />
+            <TYPEINFO_CMT>float __stdcall fload_withFB(undefined float)</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x4" PARAM_OFFSET="0x4" RETURN_ADDR_SIZE="0x0">
-                <STACK_VAR STACK_PTR_OFFSET="0x4" NAME="param_1" DATATYPE="undefined1" DATATYPE_NAMESPACE="/" SIZE="0x1" />
+                <STACK_VAR STACK_PTR_OFFSET="0x4" NAME="float" DATATYPE="undefined" DATATYPE_NAMESPACE="/" SIZE="0x1" />
             </STACK_FRAME>
         </FUNCTION>
         <FUNCTION ENTRY_POINT="0045c4cd" NAME="start" LIBRARY_FUNCTION="y">
@@ -23052,6 +23212,10 @@ Library: Visual Studio 2003 Release</REGULAR_CMT>
                 <STACK_VAR STACK_PTR_OFFSET="0x4" NAME="param_1" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
             </STACK_FRAME>
         </FUNCTION>
+        <FUNCTION ENTRY_POINT="00462d70" NAME="FUN_00462d70" LIBRARY_FUNCTION="n">
+            <ADDRESS_RANGE START="00462d70" END="00462e18" />
+            <STACK_FRAME LOCAL_VAR_SIZE="0x4" PARAM_OFFSET="0x4" RETURN_ADDR_SIZE="0x0" BYTES_PURGED="0" />
+        </FUNCTION>
         <FUNCTION ENTRY_POINT="00462e2d" NAME="__lock_file" LIBRARY_FUNCTION="y">
             <RETURN_TYPE DATATYPE="void" DATATYPE_NAMESPACE="/" SIZE="0x0" />
             <ADDRESS_RANGE START="00462e2d" END="00462e5b" />
@@ -23286,6 +23450,10 @@ Library: Visual Studio 2003 Release</REGULAR_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x4" PARAM_OFFSET="0x4" RETURN_ADDR_SIZE="0x0" BYTES_PURGED="4">
                 <STACK_VAR STACK_PTR_OFFSET="0x4" NAME="param_1" DATATYPE="undefined4" DATATYPE_NAMESPACE="/" SIZE="0x4" />
             </STACK_FRAME>
+        </FUNCTION>
+        <FUNCTION ENTRY_POINT="00463aec" NAME="FUN_00463aec" LIBRARY_FUNCTION="n">
+            <ADDRESS_RANGE START="00463aec" END="00463afe" />
+            <STACK_FRAME LOCAL_VAR_SIZE="0x4" PARAM_OFFSET="0x4" RETURN_ADDR_SIZE="0x0" BYTES_PURGED="0" />
         </FUNCTION>
         <FUNCTION ENTRY_POINT="00463b0c" NAME="__stbuf" LIBRARY_FUNCTION="y">
             <RETURN_TYPE DATATYPE="int" DATATYPE_NAMESPACE="/" SIZE="0x4" />
@@ -24858,7 +25026,7 @@ Libraries: Visual Studio 2003 Debug, Visual Studio 2003 Release</REGULAR_CMT>
             <ADDRESS_RANGE START="00469790" END="004697ab" />
             <STACK_FRAME LOCAL_VAR_SIZE="0x4" PARAM_OFFSET="0x4" RETURN_ADDR_SIZE="0x0" BYTES_PURGED="0" />
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="004697ac" NAME="FUN_004697ac" LIBRARY_FUNCTION="n">
+        <FUNCTION ENTRY_POINT="004697ac" NAME="INIT_G_GAME_CONTEXT" LIBRARY_FUNCTION="n">
             <ADDRESS_RANGE START="004697ac" END="004697c0" />
             <STACK_FRAME LOCAL_VAR_SIZE="0x4" PARAM_OFFSET="0x4" RETURN_ADDR_SIZE="0x0" BYTES_PURGED="0" />
         </FUNCTION>
@@ -25490,6 +25658,8 @@ Libraries: Visual Studio 2003 Debug, Visual Studio 2003 Release</REGULAR_CMT>
         <EQUATE_REFERENCE ADDRESS="00420d50" OPERAND_INDEX="0x1" NAME="WM_SETCURSOR" VALUE="0x20" />
         <EQUATE_REFERENCE ADDRESS="0041e2a7" OPERAND_INDEX="0x0" NAME="&apos;\\&apos;" VALUE="0x5c" />
         <EQUATE_REFERENCE ADDRESS="0041e2cf" OPERAND_INDEX="0x0" NAME="&apos;/&apos;" VALUE="0x2f" />
+        <EQUATE_REFERENCE ADDRESS="00424c90" OPERAND_INDEX="0x0" NAME="&apos;.&apos;" VALUE="0x2e" />
+        <EQUATE_REFERENCE ADDRESS="00424cb8" OPERAND_INDEX="0x0" NAME="&apos;.&apos;" VALUE="0x2e" />
     </MARKUP>
     <EXT_LIBRARY_TABLE>
         <EXT_LIBRARY NAME="DINPUT8.DLL" PATH="" />

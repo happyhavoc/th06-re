@@ -32,8 +32,9 @@ undefined4 FUN_00431a10(int param_1,undefined4 param_2,undefined4 param_3,undefi
     (**(code **)(**(int **)(in_ECX + 0x1c110 + param_1 * 4) + 0x38))
               (*(undefined4 *)(in_ECX + 0x1c110 + param_1 * 4),0,local_24);
     if (((local_24[0] == 0x15) || (local_24[0] == 0x1a)) || (local_24[0] == 0x19)) {
-      iVar1 = FUN_004401c6(g_GameContext.d3d_device,local_28,g_FileSize,0,0,0,0,local_24[0],2,3,
-                           0xffffffff,param_4,0,0,&local_3c);
+      iVar1 = _D3DXCreateTextureFromFileInMemoryEx_60
+                        (g_GameContext.d3d_device,local_28,g_FileSize,0,0,0,0,local_24[0],2,3,
+                         0xffffffff,param_4,0,0,&local_3c);
       if (((iVar1 == 0) &&
           (iVar1 = (**(code **)(**(int **)(in_ECX + 0x1c110 + param_1 * 4) + 0x40))
                              (*(undefined4 *)(in_ECX + 0x1c110 + param_1 * 4),0,&local_30,0,0),
@@ -85,7 +86,7 @@ undefined4 FUN_00431a10(int param_1,undefined4 param_2,undefined4 param_3,undefi
     }
     else {
       GameErrorContextFatal
-                (&g_GameErrorContext,"error : イメージがα���持っていません\n");
+                (&g_GameErrorContext,"error : イメージがαを持っていません\n");
     }
     if (local_3c != (int *)0x0) {
       (**(code **)(*local_3c + 8))(local_3c);

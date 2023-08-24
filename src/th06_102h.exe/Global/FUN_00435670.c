@@ -23,7 +23,7 @@ FUN_00435670(VeryBigStruct *param_1_00,int param_2,int param_3,int param_4,int p
       local_10 = param_4;
       local_c = param_3 + param_5;
       local_8 = param_4 + param_6;
-      iVar2 = FUN_0043ff78(local_18,0,0,backbuffer,0,&local_14,0xffffffff,0);
+      iVar2 = _D3DXLoadSurfaceFromSurface_32(local_18,0,0,backbuffer,0,&local_14,0xffffffff,0);
       if (iVar2 == 0) {
         (**(code **)(*local_18 + 8))(local_18);
         (*backbuffer->lpVtbl->Release)(backbuffer);

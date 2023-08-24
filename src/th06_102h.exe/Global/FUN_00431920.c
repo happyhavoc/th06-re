@@ -23,9 +23,10 @@ undefined4 FUN_00431920(int param_1,undefined4 param_2,int param_3,undefined4 pa
         param_3 = 3;
       }
     }
-    iVar3 = FUN_004401c6(g_GameContext.d3d_device,*(undefined4 *)(in_ECX + 0x1c530 + param_1 * 4),
-                         g_FileSize,0,0,0,0,*(undefined4 *)(&DAT_0046c220 + param_3 * 4),1,3,
-                         0xffffffff,param_4,0,0,in_ECX + 0x1c110 + param_1 * 4);
+    iVar3 = _D3DXCreateTextureFromFileInMemoryEx_60
+                      (g_GameContext.d3d_device,*(undefined4 *)(in_ECX + 0x1c530 + param_1 * 4),
+                       g_FileSize,0,0,0,0,*(undefined4 *)(&DAT_0046c220 + param_3 * 4),1,3,
+                       0xffffffff,param_4,0,0,in_ECX + 0x1c110 + param_1 * 4);
     if (iVar3 == 0) {
       uVar2 = 0;
     }

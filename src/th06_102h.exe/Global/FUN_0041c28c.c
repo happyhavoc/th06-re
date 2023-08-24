@@ -32,10 +32,11 @@ void FUN_0041c28c(float param_1)
   local_3c.x = local_10;
   local_3c.y = -local_c;
   local_3c.z = -local_8;
-  FUN_0043f561(&g_GameContext.view_matrix,&local_3c,&local_30,&local_24);
+  _D3DXMatrixLookAtLH_16(&g_GameContext.view_matrix,&local_3c,&local_30,&local_24);
   dVar1 = _fabs((double)local_8);
   _DAT_0069d6fc = (float)dVar1;
-  FUN_0043efee((float *)&g_GameContext.projection_matrix,local_18,local_14,100.0,param_1 + 10000.0);
+  _D3DXMatrixPerspectiveFovLH_20
+            ((float *)&g_GameContext.projection_matrix,local_18,local_14,100.0,param_1 + 10000.0);
   (*(g_GameContext.d3d_device)->lpVtbl->SetTransform)
             (g_GameContext.d3d_device,D3DTS_VIEW,(D3DMATRIX *)0x6c6d60);
   (*(g_GameContext.d3d_device)->lpVtbl->SetTransform)

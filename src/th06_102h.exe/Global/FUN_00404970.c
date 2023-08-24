@@ -42,26 +42,26 @@ undefined4 FUN_00404970(int param_1)
       local_20 = -((*(float *)(local_58 + 8) + *(float *)(local_14 + 4)) - (float)in_ECX[0x10]);
       local_1c = ((*(float *)(local_58 + 0xc) + *(float *)(local_14 + 6)) - (float)in_ECX[0x11]) +
                  *(float *)(local_58 + 0x18);
-      FUN_0043f245(&local_70,&local_84,0x6c6de0,0x6c6da0,0x6c6d60,local_54);
+      _D3DXVec3Project_24(&local_70,&local_84,0x6c6de0,0x6c6da0,0x6c6d60,local_54);
       if ((local_6c < (float)(ulonglong)g_GameContext.viewport.Y) ||
          (local_6c < (float)(ulonglong)(g_GameContext.viewport.Y + g_GameContext.viewport.Height) ==
           (local_6c == (float)(ulonglong)(g_GameContext.viewport.Y + g_GameContext.viewport.Height))
          )) {
         local_20 = local_20 - *(float *)(local_58 + 0x14);
-        FUN_0043f245(&local_70,&local_84,0x6c6de0,0x6c6da0,0x6c6d60,local_54);
+        _D3DXVec3Project_24(&local_70,&local_84,0x6c6de0,0x6c6da0,0x6c6d60,local_54);
         if ((local_6c < (float)(ulonglong)g_GameContext.viewport.Y) ||
            (local_6c < (float)(ulonglong)(g_GameContext.viewport.Y + g_GameContext.viewport.Height)
             == (local_6c ==
                (float)(ulonglong)(g_GameContext.viewport.Y + g_GameContext.viewport.Height)))) {
           local_1c = local_1c - *(float *)(local_58 + 0x18);
-          FUN_0043f245(&local_70,&local_84,0x6c6de0,0x6c6da0,0x6c6d60,local_54);
+          _D3DXVec3Project_24(&local_70,&local_84,0x6c6de0,0x6c6da0,0x6c6d60,local_54);
           if ((local_6c < (float)(ulonglong)g_GameContext.viewport.Y) ||
              (local_6c <
               (float)(ulonglong)(g_GameContext.viewport.Y + g_GameContext.viewport.Height) ==
               (local_6c ==
               (float)(ulonglong)(g_GameContext.viewport.Y + g_GameContext.viewport.Height)))) {
             local_20 = local_20 + *(float *)(local_58 + 0x14);
-            FUN_0043f245(&local_70,&local_84,0x6c6de0,0x6c6da0,0x6c6d60,local_54);
+            _D3DXVec3Project_24(&local_70,&local_84,0x6c6de0,0x6c6da0,0x6c6d60,local_54);
             if ((local_6c < (float)(ulonglong)g_GameContext.viewport.Y) ||
                (local_6c <
                 (float)(ulonglong)(g_GameContext.viewport.Y + g_GameContext.viewport.Height) ==
@@ -73,14 +73,14 @@ undefined4 FUN_00404970(int param_1)
                           (float)in_ECX[0x10]);
               local_1c = ((*(float *)(local_58 + 0xc) + *(float *)(local_14 + 6)) -
                          (float)in_ECX[0x11]) + *(float *)(local_58 + 0x18);
-              FUN_0043f245(&local_70,&local_84,0x6c6de0,0x6c6da0,0x6c6d60,local_54);
+              _D3DXVec3Project_24(&local_70,&local_84,0x6c6de0,0x6c6da0,0x6c6d60,local_54);
               if ((local_6c < (float)(ulonglong)g_GameContext.viewport.Y) ||
                  (local_6c <
                   (float)(ulonglong)(g_GameContext.viewport.Y + g_GameContext.viewport.Height) ==
                   (local_6c ==
                   (float)(ulonglong)(g_GameContext.viewport.Y + g_GameContext.viewport.Height)))) {
                 local_20 = local_20 - *(float *)(local_58 + 0x14);
-                FUN_0043f245(&local_70,&local_84,0x6c6de0,0x6c6da0,0x6c6d60,local_54);
+                _D3DXVec3Project_24(&local_70,&local_84,0x6c6de0,0x6c6da0,0x6c6d60,local_54);
                 if ((local_6c < (float)(ulonglong)g_GameContext.viewport.Y) ||
                    (local_6c <
                     (float)(ulonglong)(g_GameContext.viewport.Y + g_GameContext.viewport.Height) ==
@@ -88,7 +88,7 @@ undefined4 FUN_00404970(int param_1)
                     (float)(ulonglong)(g_GameContext.viewport.Y + g_GameContext.viewport.Height))))
                 {
                   local_1c = local_1c - *(float *)(local_58 + 0x18);
-                  FUN_0043f245(&local_70,&local_84,0x6c6de0,0x6c6da0,0x6c6d60,local_54);
+                  _D3DXVec3Project_24(&local_70,&local_84,0x6c6de0,0x6c6da0,0x6c6d60,local_54);
                   if ((local_6c < (float)(ulonglong)g_GameContext.viewport.Y) ||
                      (local_6c <
                       (float)(ulonglong)(g_GameContext.viewport.Y + g_GameContext.viewport.Height)
@@ -96,7 +96,7 @@ undefined4 FUN_00404970(int param_1)
                          (float)(ulonglong)
                                 (g_GameContext.viewport.Y + g_GameContext.viewport.Height)))) {
                     local_20 = local_20 + *(float *)(local_58 + 0x14);
-                    FUN_0043f245(&local_70,&local_84,0x6c6de0,0x6c6da0,0x6c6d60,local_54);
+                    _D3DXVec3Project_24(&local_70,&local_84,0x6c6de0,0x6c6da0,0x6c6d60,local_54);
                     if ((local_6c < (float)(ulonglong)g_GameContext.viewport.Y) ||
                        (local_6c <
                         (float)(ulonglong)(g_GameContext.viewport.Y + g_GameContext.viewport.Height)
@@ -139,9 +139,9 @@ undefined4 FUN_00404970(int param_1)
             local_24 = *(float *)(local_c + 0x90);
             local_20 = -*(float *)(local_c + 0x94);
             local_1c = *(float *)(local_c + 0x98);
-            FUN_0043f245(&local_70,&local_84,0x6c6de0,0x6c6da0,0x6c6d60,local_54);
+            _D3DXVec3Project_24(&local_70,&local_84,0x6c6de0,0x6c6da0,0x6c6d60,local_54);
             local_24 = local_88 * *(float *)(local_c + 0x1c) + local_24;
-            FUN_0043f245(local_64,&local_84,0x6c6de0,0x6c6da0,0x6c6d60,local_54);
+            _D3DXVec3Project_24(local_64,&local_84,0x6c6de0,0x6c6da0,0x6c6d60,local_54);
             *(float *)(local_c + 0x1c) = (local_64[0] - local_70) / local_88;
             *(undefined4 *)(local_c + 0x18) = *(undefined4 *)(local_c + 0x1c);
             *(float *)(local_c + 0x90) = local_70;

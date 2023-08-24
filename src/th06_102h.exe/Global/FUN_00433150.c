@@ -32,16 +32,16 @@ undefined4 FUN_00433150(float *param_1)
     local_c4.field0_0x0.field0._11 = local_c4.field0_0x0.field0._11 * param_1[7];
     local_c4.field0_0x0.field0._22 = -param_1[6] * local_c4.field0_0x0.field0._22;
     if (NAN(*param_1) == (*param_1 == 0.0)) {
-      FUN_0043ed9b(local_84,*param_1);
-      FUN_0043ec4b(&local_c4,&local_c4,local_84);
+      _D3DXMatrixRotationX_8(local_84,*param_1);
+      _D3DXMatrixMultiply_12(&local_c4,&local_c4,local_84);
     }
     if (NAN(param_1[1]) == (param_1[1] == 0.0)) {
-      FUN_0043ee15(local_84,param_1[1]);
-      FUN_0043ec4b(&local_c4,&local_c4,local_84);
+      _D3DXMatrixRotationY_8(local_84,param_1[1]);
+      _D3DXMatrixMultiply_12(&local_c4,&local_c4,local_84);
     }
     if (NAN(param_1[2]) == (param_1[2] == 0.0)) {
-      FUN_0043ee90(local_84,param_1[2]);
-      FUN_0043ec4b(&local_c4,&local_c4,local_84);
+      _D3DXMatrixRotationZ_8(local_84,param_1[2]);
+      _D3DXMatrixMultiply_12(&local_c4,&local_c4,local_84);
     }
     if (((uint)param_1[0x20] >> 8 & 1) == 0) {
       local_c4.field0_0x0.field0._41 = param_1[0x24];

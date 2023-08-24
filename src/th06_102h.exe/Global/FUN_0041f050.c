@@ -46,8 +46,9 @@ void FUN_0041f050(void)
   *(int *)(unaff_EBP + -0x60) = *(int *)(unaff_EBP + 0x18) * 2 + -2;
   (**(code **)(**(int **)(unaff_EBP + 0x2c) + 0x3c))
             (*(undefined4 *)(unaff_EBP + 0x2c),0,unaff_EBP + -0x80);
-  FUN_0043ff78(*(undefined4 *)(unaff_EBP + -0x80),0,unaff_EBP + -0x7c,DAT_0069e230,0,
-               unaff_EBP + -0x6c,4,0);
+  _D3DXLoadSurfaceFromSurface_32
+            (*(undefined4 *)(unaff_EBP + -0x80),0,unaff_EBP + -0x7c,DAT_0069e230,0,unaff_EBP + -0x6c
+             ,4,0);
   if (*(int *)(unaff_EBP + -0x80) != 0) {
     (**(code **)(**(int **)(unaff_EBP + -0x80) + 8))(*(undefined4 *)(unaff_EBP + -0x80));
     *(undefined4 *)(unaff_EBP + -0x80) = 0;

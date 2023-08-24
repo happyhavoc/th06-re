@@ -129,8 +129,9 @@ LAB_004211ab:
       local_84.x = local_58;
       local_84.y = -local_54;
       local_84.z = -local_50;
-      FUN_0043f561(&g_GameContext.view_matrix,&local_84,&local_78,&local_6c);
-      FUN_0043efee((float *)&g_GameContext.projection_matrix,local_60,local_5c,100.0,10000.0);
+      _D3DXMatrixLookAtLH_16(&g_GameContext.view_matrix,&local_84,&local_78,&local_6c);
+      _D3DXMatrixPerspectiveFovLH_20
+                ((float *)&g_GameContext.projection_matrix,local_60,local_5c,100.0,10000.0);
       (*(g_GameContext.d3d_device)->lpVtbl->SetTransform)
                 (g_GameContext.d3d_device,D3DTS_VIEW,&g_GameContext.view_matrix);
       (*(g_GameContext.d3d_device)->lpVtbl->SetTransform)
@@ -153,7 +154,7 @@ LAB_004211ab:
       }
       if ((bVar1) && ((D3D_CAPS.PresentationIntervals & 0x80000000) == 0)) {
         GameErrorContextLog(&g_GameErrorContext,
-                            "ビデオカード���非同期フリップをサポートしていません、Force60Frameで動作できません\n"
+                            "ビデオカードが非同期フリップをサポートしていません、Force60Frameで動作できません\n"
                            );
         g_GameContext.cfg.field34_0x34 = g_GameContext.cfg.field34_0x34 & 0xffffff7f;
       }

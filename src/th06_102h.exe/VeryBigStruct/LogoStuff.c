@@ -21,8 +21,9 @@ undefined4 __thiscall VeryBigStruct::LogoStuff(VeryBigStruct *this,int param_2,c
                       (g_GameContext.d3d_device,0x280,0x400,
                        g_GameContext.present_parameters.BackBufferFormat,&local_8);
     if (HVar2 == 0) {
-      iVar3 = FUN_0043fec2((int)local_8,0,0,data,g_FileSize,(int *)0x0,1,0,
-                           this->field19247_0x20e34 + param_2);
+      iVar3 = _D3DXLoadSurfaceFromFileInMemory_36
+                        ((int)local_8,0,0,data,g_FileSize,(int *)0x0,1,0,
+                         this->field19247_0x20e34 + param_2);
       if (((iVar3 == 0) &&
           (((HVar2 = (*(g_GameContext.d3d_device)->lpVtbl->CreateRenderTarget)
                                (g_GameContext.d3d_device,
@@ -45,9 +46,11 @@ undefined4 __thiscall VeryBigStruct::LogoStuff(VeryBigStruct *this,int param_2,c
                                g_GameContext.present_parameters.BackBufferFormat,
                                (IDirect3DSurface8 **)(this->field19118_0x20d34 + param_2 + 0x20)),
            HVar2 == 0)))) &&
-         ((iVar3 = FUN_0043ff78(this->field19118_0x20d34[param_2],0,0,local_8,0,0,1,0), iVar3 == 0
-          && (iVar3 = FUN_0043ff78(this->field19118_0x20d34[param_2 + 0x20],0,0,local_8,0,0,1,0),
-             iVar3 == 0)))) {
+         ((iVar3 = _D3DXLoadSurfaceFromSurface_32
+                             (this->field19118_0x20d34[param_2],0,0,local_8,0,0,1,0), iVar3 == 0 &&
+          (iVar3 = _D3DXLoadSurfaceFromSurface_32
+                             (this->field19118_0x20d34[param_2 + 0x20],0,0,local_8,0,0,1,0),
+          iVar3 == 0)))) {
         if (local_8 != (IDirect3DSurface8 *)0x0) {
           (*local_8->lpVtbl->Release)(local_8);
           local_8 = (IDirect3DSurface8 *)0x0;

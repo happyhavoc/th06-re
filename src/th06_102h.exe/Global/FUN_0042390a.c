@@ -35,7 +35,7 @@ undefined4 FUN_0042390a(void)
       (*(g_GameContext.d3d_device)->lpVtbl->Reset)
                 (g_GameContext.d3d_device,(D3DPRESENT_PARAMETERS *)0x6c6df8);
     }
-    FUN_00435270(0);
+    FUN_00435270(VERY_BIG_STRUCT,0);
     DVar4 = timeGetTime();
     *(DWORD *)(*(int *)(unaff_EBP + 8) + 0x400) = DVar4;
     FUN_00423b14(*(undefined4 *)(unaff_EBP + 8));
@@ -56,7 +56,7 @@ undefined4 FUN_0042390a(void)
     *(short *)(unaff_EBP + -0x1a) = (short)DVar4;
     DAT_0069d8f8 = *(undefined2 *)(unaff_EBP + -0x1a);
     _DAT_0069d8fc = 0;
-    FUN_00431080((int **)&UNK_GAME_WINDOW_);
+    FUN_00431080((int **)&SOUND_PLAYER);
     iVar1 = FUN_00431dc0((int)VERY_BIG_STRUCT,0,"data/text.anm",0x700);
     if (iVar1 == 0) {
       iVar1 = FUN_004012c0();

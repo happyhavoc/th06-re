@@ -13,7 +13,7 @@ void FUN_00420b50(void)
     InitD3dDevice();
     g_GameContext._408_4_ = 2;
   }
-  FUN_00421a40();
+  FUN_00421a40(VERY_BIG_STRUCT);
   if (g_GameContext._408_4_ != 0) {
     g_GameContext._408_4_ = g_GameContext._408_4_ + -1;
   }

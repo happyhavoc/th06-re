@@ -30,7 +30,7 @@ int WinMain(HINSTANCE hInstance,HINSTANCE hPrevInstance,LPSTR lpCmdLine,int nSho
           CreateGameWindow(hInstance);
           retCode = InitD3dRendering();
           if (retCode != 0) break;
-          FUN_00430270((SoundStuff *)&UNK_GAME_WINDOW_,GAME_WINDOW);
+          SoundPlayer::InitSound(&SOUND_PLAYER,(HWND)GAME_WINDOW.window);
           GetJoystickCaps();
           ResetKeyboard();
           puVar1 = (VeryBigStruct *)operator_new(0x2112c);
@@ -46,11 +46,11 @@ int WinMain(HINSTANCE hInstance,HINSTANCE hPrevInstance,LPSTR lpCmdLine,int nSho
             if (g_GameContext.cfg.field14_0x1e == 0) {
               ShowCursor(0);
             }
-            DAT_006c6be4 = 0;
+            GAME_WINDOW.field4_0x10._0_1_ = 0;
             do {
               while( true ) {
                 while( true ) {
-                  if (IS_APP_CLOSING != 0) goto LAB_0042055a;
+                  if (GAME_WINDOW.is_app_closing != 0) goto LAB_0042055a;
                   BVar1 = PeekMessageA(&local_28,(HWND)0x0,0,0,1);
                   if (BVar1 == 0) break;
                   TranslateMessage(&local_28);
@@ -68,12 +68,12 @@ int WinMain(HINSTANCE hInstance,HINSTANCE hPrevInstance,LPSTR lpCmdLine,int nSho
                   g_GameContext._408_4_ = 3;
                 }
               }
-              local_8 = FUN_004206e0(0x6c6bd4);
+              local_8 = GameWindow::Render(&GAME_WINDOW);
             } while (local_8 == 0);
           }
 LAB_0042055a:
           FUN_0041cd10(0x69d918);
-          FUN_00430510((undefined4 *)&UNK_GAME_WINDOW_);
+          SoundPlayer::Release(&SOUND_PLAYER);
           _Memory = VERY_BIG_STRUCT;
           if (VERY_BIG_STRUCT != (VeryBigStruct *)0x0) {
             FUN_00423330();
@@ -84,9 +84,9 @@ LAB_0042055a:
             (*(g_GameContext.d3d_device)->lpVtbl->Release)(g_GameContext.d3d_device);
             g_GameContext.d3d_device = (IDirect3DDevice8 *)0x0;
           }
-          ShowWindow(GAME_WINDOW,0);
-          MoveWindow(GAME_WINDOW,0,0,0,0,0);
-          DestroyWindow(GAME_WINDOW);
+          ShowWindow((HWND)GAME_WINDOW.window,0);
+          MoveWindow((HWND)GAME_WINDOW.window,0,0,0,0,0);
+          DestroyWindow((HWND)GAME_WINDOW.window);
           if (local_8 != 2) {
             write_data_to_file("東方紅魔郷.cfg",&g_GameContext.cfg,0x38);
             SystemParametersInfoA(0x11,DAT_006c6be8,(PVOID)0x0,2);

@@ -11,7 +11,7 @@ undefined4 FUN_0043a659(int param_1)
   for (local_8 = 0x1b; local_8 < 0x25; local_8 = local_8 + 1) {
     FUN_00432030(local_8);
   }
-  FUN_00435270(0);
+  FUN_00435270(VERY_BIG_STRUCT,0);
   pVVar1 = VERY_BIG_STRUCT;
   for (local_c = 0; local_c < 0x7a; local_c = local_c + 1) {
     *(undefined4 *)(&pVVar1->field_0x1cd34 + local_c * 4) = 0;

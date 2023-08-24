@@ -64,7 +64,7 @@ void FUN_00431660(void)
     (**(code **)(**(int **)(in_ECX + 0x210c4) + 0x30))(*(undefined4 *)(in_ECX + 0x210c4));
     (*(g_GameContext.d3d_device)->lpVtbl->SetStreamSource)
               (g_GameContext.d3d_device,0,
-               (IDirect3DVertexBuffer8 *)VERY_BIG_STRUCT->field20255_0x210c4,0x14);
+               (IDirect3DVertexBuffer8 *)VERY_BIG_STRUCT->field20252_0x210c4,0x14);
   }
   return;
 }

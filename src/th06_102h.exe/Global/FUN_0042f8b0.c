@@ -69,7 +69,7 @@ void FUN_0042f8b0(undefined4 *param_1,undefined4 param_2)
             (g_GameContext.d3d_device,D3DPT_TRIANGLESTRIP,2,&local_54,0x14);
   VERY_BIG_STRUCT->field_0x210be = 0xff;
   *(undefined4 *)&VERY_BIG_STRUCT->field_0x210c0 = 0;
-  VERY_BIG_STRUCT->field20246_0x210b8 = 0;
+  VERY_BIG_STRUCT->field20243_0x210b8 = 0;
   VERY_BIG_STRUCT->field_0x210bd = 0xff;
   VERY_BIG_STRUCT->field_0x210bc = 0xff;
   VERY_BIG_STRUCT->field_0x210bf = 0xff;

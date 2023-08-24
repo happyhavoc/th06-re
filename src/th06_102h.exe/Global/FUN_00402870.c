@@ -47,11 +47,11 @@ undefined4 FUN_00402870(void)
         *(undefined2 *)((int)in_ECX + local_8 * 0x110 + 0x92) = 1;
       }
       if (DAT_006c7115 != '\0') {
-        VERY_BIG_STRUCT->field20336_0x21118 = 3;
-        pVVar1->field20337_0x2111c = 0x20;
-        pVVar1->field20338_0x21120 = 0x10;
-        pVVar1->field20339_0x21124 = 0x180;
-        pVVar1->field20340_0x21128 = 0x1c0;
+        VERY_BIG_STRUCT->field20333_0x21118 = 3;
+        pVVar1->field20334_0x2111c = 0x20;
+        pVVar1->field20335_0x21120 = 0x10;
+        pVVar1->field20336_0x21124 = 0x180;
+        pVVar1->field20337_0x21128 = 0x1c0;
         pVVar1 = VERY_BIG_STRUCT;
         *(undefined2 *)(in_ECX + 0x1c7) = 0x718;
         FUN_00432430(in_ECX + 0x19a,*(undefined4 *)&pVVar1->field_0x1e594);

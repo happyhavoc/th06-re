@@ -14,7 +14,7 @@ undefined4 FUN_0042545a(int param_1)
   
   local_c = 0x7f;
   local_b = 0;
-  VERY_BIG_STRUCT->field20246_0x210b8 = 0;
+  VERY_BIG_STRUCT->field20243_0x210b8 = 0;
   FUN_00435300(0,0,0,0,0);
   FUN_00432ad0(param_1 + 0x24);
   for (local_8 = *(int *)(param_1 + 0x18); local_8 < *(int *)(param_1 + 0x18) + 10;

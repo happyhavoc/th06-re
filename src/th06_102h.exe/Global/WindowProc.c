@@ -8,7 +8,7 @@ LRESULT WindowProc(HWND hWnd,uint uMsg,WPARAM wParam,LPMIDIHDR lParam)
   if (uMsg < 0x21) {
     if (uMsg == WM_SETCURSOR) {
       if (g_GameContext.cfg.field14_0x1e == 0) {
-        if (IS_APP_ACTIVE == 0) {
+        if (GAME_WINDOW.is_app_active == 0) {
           ShowCursor(0);
           SetCursor((HCURSOR)0x0);
         }
@@ -26,12 +26,12 @@ LRESULT WindowProc(HWND hWnd,uint uMsg,WPARAM wParam,LPMIDIHDR lParam)
       return 1;
     }
     if (uMsg == WM_CLOSE) {
-      IS_APP_CLOSING = 1;
+      GAME_WINDOW.is_app_closing = 1;
       return 1;
     }
     if (uMsg == WM_ACTIVATEAPP) {
-      ACTIVATEAPP_PARAM = wParam;
-      IS_APP_ACTIVE = (int)(wParam == 0);
+      GAME_WINDOW.activeapp_param = wParam;
+      GAME_WINDOW.is_app_active = (int)(wParam == 0);
     }
   }
   else if ((uMsg == 0x3c9) && (DAT_006c6ec8 != 0)) {

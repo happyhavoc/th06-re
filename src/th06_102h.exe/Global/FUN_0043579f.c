@@ -739,7 +739,7 @@ LAB_00436de7:
       bVar6 = false;
     }
     else {
-      bVar6 = *(int *)(&VERY_BIG_STRUCT->field_0x1c110 + **(int **)(iVar5 + 0xc0) * 4) != 0;
+      bVar6 = VERY_BIG_STRUCT->field6_0x1c110[**(int **)(iVar5 + 0xc0)] != (int **)0x0;
     }
     if (bVar6) {
       FUN_00433960();

@@ -95,7 +95,7 @@ undefined4 InitD3dRendering(void)
   do {
     if (((uint)g_GameContext.cfg.field34_0x34 >> 9 & 1) == 0) {
       HVar2 = (*(g_GameContext.d3d_iface)->lpVtbl->CreateDevice)
-                        (g_GameContext.d3d_iface,0,D3DDEVTYPE_HAL,(HWND)GAME_WINDOW,0x40,
+                        (g_GameContext.d3d_iface,0,D3DDEVTYPE_HAL,GAME_WINDOW.window,0x40,
                          &present_params,&g_GameContext.d3d_device);
       if (-1 < HVar2) {
         GameErrorContextLog(&g_GameErrorContext,"T&L HAL で動作しま〜す\n");
@@ -104,8 +104,8 @@ undefined4 InitD3dRendering(void)
       }
       GameErrorContextLog(&g_GameErrorContext,"T&L HAL は使用できないようです\n");
       iVar3 = (*(g_GameContext.d3d_iface)->lpVtbl->CreateDevice)
-                        (g_GameContext.d3d_iface,0,1,GAME_WINDOW,0x20,(int *)&present_params,
-                         &g_GameContext.d3d_device);
+                        (g_GameContext.d3d_iface,0,1,(HWND)GAME_WINDOW.window,0x20,
+                         (int *)&present_params,&g_GameContext.d3d_device);
       if (iVar3 < 0) {
         GameErrorContextLog(&g_GameErrorContext,"HAL も使用できないようです\n");
         goto LAB_00421077;
@@ -153,7 +153,7 @@ LAB_004211ab:
       }
       if ((bVar1) && ((D3D_CAPS.PresentationIntervals & 0x80000000) == 0)) {
         GameErrorContextLog(&g_GameErrorContext,
-                            "ビデオカー���が非同期フリップをサポートしていません、Force60Frameで動作できません\n"
+                            "ビデオカード���非同期フリップをサポートしていません、Force60Frameで動作できません\n"
                            );
         g_GameContext.cfg.field34_0x34 = g_GameContext.cfg.field34_0x34 & 0xffffff7f;
       }
@@ -174,14 +174,14 @@ LAB_004211ab:
       }
       InitD3dDevice();
       SetViewport(0);
-      IS_APP_CLOSING = 0;
+      GAME_WINDOW.is_app_closing = 0;
       INT_006c6ebc = 0;
       DAT_006c6ec4 = 0;
       return 0;
     }
 LAB_00421077:
     HVar2 = (*(g_GameContext.d3d_iface)->lpVtbl->CreateDevice)
-                      (g_GameContext.d3d_iface,0,D3DDEVTYPE_REF,(HWND)GAME_WINDOW,0x20,
+                      (g_GameContext.d3d_iface,0,D3DDEVTYPE_REF,GAME_WINDOW.window,0x20,
                        &present_params,&g_GameContext.d3d_device);
     if (-1 < HVar2) {
       GameErrorContextLog(&g_GameErrorContext,

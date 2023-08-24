@@ -13,7 +13,7 @@ void FUN_0041f050(void)
   *(HFONT *)(unaff_EBP + -0x14) = pHVar1;
   FUN_0041e945();
   *(undefined4 *)(unaff_EBP + -4) = 0;
-  (**(code **)(*DAT_0069e230 + 0x20))(DAT_0069e230,unaff_EBP + -0x34);
+  (*DAT_0069e230->lpVtbl->GetDesc)(DAT_0069e230,(D3DSURFACE_DESC *)(unaff_EBP + -0x34));
   FUN_0041ea04(*(undefined4 *)(unaff_EBP + -0x1c),*(undefined4 *)(unaff_EBP + -0x18),
                *(undefined4 *)(unaff_EBP + -0x34));
   *(undefined4 *)(unaff_EBP + -0x10) = *(undefined4 *)(unaff_EBP + -0x48);

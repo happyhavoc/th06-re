@@ -32,7 +32,7 @@ void FUN_004354c0(int param_1,LONG param_2,LONG param_3,int param_4,int param_5,
         return;
       }
       iVar2 = FUN_0043ff78(*(undefined4 *)(in_ECX + 0x20d34 + param_1 * 4),0,0,
-                           *(undefined4 *)(in_ECX + 0x20db4 + param_1 * 4),0,0,1,0);
+                           *(IDirect3DSurface8 **)(in_ECX + 0x20db4 + param_1 * 4),0,0,1,0);
       if (iVar2 != 0) {
         (*local_20->lpVtbl->Release)(local_20);
         return;

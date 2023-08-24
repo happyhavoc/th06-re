@@ -108,7 +108,7 @@ void InitD3dDevice(void)
     VERY_BIG_STRUCT->field_0x210bc = 0xff;
     VERY_BIG_STRUCT->field_0x210bd = 0xff;
     VERY_BIG_STRUCT->field_0x210be = 0xff;
-    VERY_BIG_STRUCT->field20246_0x210b8 = 0;
+    VERY_BIG_STRUCT->field20243_0x210b8 = 0;
   }
   DAT_00487b8c = 1;
   return;

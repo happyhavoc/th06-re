@@ -11,7 +11,7 @@ undefined4 FUN_00423ddf(int param_1)
   }
   FUN_00432030(0);
   FUN_00401500();
-  FUN_00430f80();
+  SoundPlayer::StopBGM(&SOUND_PLAYER);
   if (*(int *)(param_1 + 0x1b0) != 0) {
     FUN_004224e0();
     _Memory = *(void **)(param_1 + 0x1b0);

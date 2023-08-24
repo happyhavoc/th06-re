@@ -1,7 +1,7 @@
 
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
 
-undefined4 __fastcall FUN_004206e0(int param_1)
+undefined4 __thiscall GameWindow::Render(GameWindow *this)
 
 {
   double dVar1;
@@ -11,11 +11,11 @@ undefined4 __fastcall FUN_004206e0(int param_1)
   D3DVIEWPORT8 local_20;
   int local_8;
   
-  if (*(int *)(param_1 + 8) != 0) {
-    if (*(char *)(param_1 + 0x10) != '\0') goto LAB_00420894;
+  if (this->activeapp_param != 0) {
+    if (*(char *)&this->field4_0x10 != '\0') goto LAB_00420894;
     do {
       while( true ) {
-        if (g_GameContext.cfg.field15_0x1f <= *(byte *)(param_1 + 0x10)) {
+        if (g_GameContext.cfg.field15_0x1f <= *(byte *)&this->field4_0x10) {
           if (((uint)g_GameContext.cfg.field34_0x34 >> 3 & 1 |
               (uint)g_GameContext.cfg.field34_0x34 >> 4 & 1) != 0) {
             local_20.X = 0;
@@ -50,7 +50,7 @@ undefined4 __fastcall FUN_004206e0(int param_1)
         if (local_8 == -1) {
           return 2;
         }
-        *(char *)(param_1 + 0x10) = *(char *)(param_1 + 0x10) + '\x01';
+        *(char *)&this->field4_0x10 = *(char *)&this->field4_0x10 + '\x01';
 LAB_00420894:
         if (g_GameContext.cfg.field14_0x1e != 0) break;
         if ((((uint)g_GameContext.cfg.field34_0x34 >> 7 & 1) == 0) ||
@@ -75,10 +75,10 @@ LAB_004209ab:
         if (bVar2) {
           return 0;
         }
-        if (g_GameContext.cfg.field15_0x1f < *(byte *)(param_1 + 0x10)) goto LAB_00420a0b;
+        if (g_GameContext.cfg.field15_0x1f < *(byte *)&this->field4_0x10) goto LAB_00420a0b;
         FUN_00420b50();
       }
-      if (*(char *)(param_1 + 0x10) == '\0') goto LAB_004209ab;
+      if (*(char *)&this->field4_0x10 == '\0') goto LAB_004209ab;
       DAT_006c6ec4 = 1.0;
       timeBeginPeriod(1);
       DVar3 = timeGetTime();
@@ -93,7 +93,7 @@ LAB_004209ab:
         _DAT_006c6bf8 = _DAT_006c6bf8 + 16.66666666666667;
         local_34 = local_34 - 16.66666666666667;
       } while (16.66666666666667 <= local_34);
-    } while (*(byte *)(param_1 + 0x10) <= g_GameContext.cfg.field15_0x1f);
+    } while (*(byte *)&this->field4_0x10 <= g_GameContext.cfg.field15_0x1f);
 LAB_00420a0b:
     FUN_00420b50();
     if (NAN(DAT_006c6ec4) == (DAT_006c6ec4 == 0.0)) {
@@ -122,7 +122,7 @@ LAB_00420a0b:
       timeEndPeriod(1);
       DAT_006c6bf4 = 0;
     }
-    *(undefined *)(param_1 + 0x10) = 0;
+    *(undefined *)&this->field4_0x10 = 0;
     DAT_006c6bf4 = DAT_006c6bf4 + 1;
   }
   return 0;

@@ -7,7 +7,8 @@ undefined4 FUN_004288c0(int param_1)
   float fVar1;
   VeryBigStruct *pVVar2;
   int iVar3;
-  uint uVar4;
+  long lVar4;
+  uint uVar5;
   int local_8;
   
   if (DAT_0069bccc != '\0') {
@@ -77,8 +78,9 @@ undefined4 FUN_004288c0(int param_1)
     fVar1 = ((float)*(int *)(param_1 + 0x75bc) + *(float *)(param_1 + 0x75b8)) / 30.0;
     *(float *)(param_1 + 0x18) = fVar1 * 3.0 + 1.0;
     *(float *)(param_1 + 0x1c) = 1.0 - fVar1 * 1.0;
-    iVar3 = __ftol2();
-    *(uint *)(param_1 + 0x7c) = iVar3 << 0x18 | 0xffffff;
+    lVar4 = __ftol2((double)(255.0 - (((float)*(int *)(param_1 + 0x75bc) +
+                                      *(float *)(param_1 + 0x75b8)) * 255.0) / 30.0));
+    *(uint *)(param_1 + 0x7c) = lVar4 << 0x18 | 0xffffff;
     *(uint *)(param_1 + 0x80) = *(uint *)(param_1 + 0x80) | 4;
     *(undefined4 *)(param_1 + 0xa10) = 0;
     *(undefined4 *)(param_1 + 0xa14) = 0;
@@ -145,11 +147,11 @@ LAB_00428fa8:
       *(undefined4 *)(param_1 + 0x7c) = 0xffffffff;
     }
     else {
-      uVar4 = *(uint *)(param_1 + 0x75bc) & 0x80000007;
-      if ((int)uVar4 < 0) {
-        uVar4 = (uVar4 - 1 | 0xfffffff8) + 1;
+      uVar5 = *(uint *)(param_1 + 0x75bc) & 0x80000007;
+      if ((int)uVar5 < 0) {
+        uVar5 = (uVar5 - 1 | 0xfffffff8) + 1;
       }
-      if ((int)uVar4 < 2) {
+      if ((int)uVar5 < 2) {
         *(uint *)(param_1 + 0x80) = *(uint *)(param_1 + 0x80) | 8;
         *(undefined4 *)(param_1 + 0x7c) = 0xff404040;
       }

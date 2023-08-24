@@ -2,13 +2,13 @@
 undefined4 FUN_00424d82(float param_1)
 
 {
-  undefined4 uVar1;
+  long lVar1;
   int in_ECX;
   
   if (g_GameContext.cfg.midi_stuff == 2) {
     if (DAT_006c6ec8 != 0) {
-      uVar1 = __ftol2();
-      FUN_00422630(uVar1);
+      lVar1 = __ftol2((double)(param_1 * 1000.0));
+      FUN_00422630(lVar1);
     }
   }
   else {

@@ -12,7 +12,8 @@ undefined4 FUN_00433960(float *param_1)
   int local_e0;
   float local_3c;
   int local_38;
-  int local_34;
+  long local_34;
+  float local_30;
   float local_2c;
   float local_28;
   short *local_24;
@@ -288,8 +289,15 @@ LAB_00434338:
       FUN_00424285(param_1 + 0x42,param_1 + 0x41);
       local_2c = param_1[0x31];
       local_28 = param_1[0x32];
+      local_30 = ((float)(int)param_1[0x42] + param_1[0x41]) /
+                 (float)(int)*(short *)(param_1 + 0x21);
+      if (1.0 <= local_30) {
+        local_30 = 1.0;
+      }
       for (local_38 = 0; local_38 < 4; local_38 = local_38 + 1) {
-        local_34 = __ftol2();
+        local_34 = __ftol2((double)(((float)(uint)*(byte *)((int)&local_28 + local_38) -
+                                    (float)(uint)*(byte *)((int)&local_2c + local_38)) * local_30 +
+                                   (float)(uint)*(byte *)((int)&local_2c + local_38)));
         if (local_34 < 0) {
           local_34 = 0;
         }

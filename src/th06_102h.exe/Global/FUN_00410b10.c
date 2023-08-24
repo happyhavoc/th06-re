@@ -12,7 +12,7 @@ undefined4 FUN_00410b10(int param_1)
   VeryBigStruct::LoadAnim(VERY_BIG_STRUCT,0x2c,"data/staff01.anm",0x600);
   VeryBigStruct::LoadAnim(VERY_BIG_STRUCT,0x2d,"data/staff02.anm",0x607);
   VeryBigStruct::LoadAnim(VERY_BIG_STRUCT,0x2e,"data/staff03.anm",0x60e);
-  VERY_BIG_STRUCT->field19869_0x210b8 = 0;
+  VERY_BIG_STRUCT->field19989_0x210b8 = 0;
   *(undefined4 *)&VERY_BIG_STRUCT->field_0x210c0 = 0;
   VERY_BIG_STRUCT->field_0x210bc = 0xff;
   VERY_BIG_STRUCT->field_0x210be = 0xff;

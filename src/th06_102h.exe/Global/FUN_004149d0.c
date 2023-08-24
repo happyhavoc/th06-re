@@ -349,7 +349,9 @@ LAB_00414a1a:
             local_20 = local_14 / 2.0;
           }
           else {
-            local_28 = __ftol2();
+            local_28 = __ftol2((double)((((float)*(int *)(local_2c + 0x264) +
+                                         *(float *)(local_2c + 0x260)) * 255.0) /
+                                       (float)*(int *)(local_2c + 0x244)));
             if (0xff < local_28) {
               local_28 = 0xff;
             }
@@ -393,7 +395,9 @@ LAB_004161bf:
             }
           }
           else {
-            local_28 = __ftol2();
+            local_28 = __ftol2((double)((((float)*(int *)(local_2c + 0x264) +
+                                         *(float *)(local_2c + 0x260)) * 255.0) /
+                                       (float)*(int *)(local_2c + 0x244)));
             if (0xff < local_28) {
               local_28 = 0xff;
             }

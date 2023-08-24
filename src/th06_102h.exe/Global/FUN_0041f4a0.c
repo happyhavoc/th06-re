@@ -9,8 +9,9 @@ void FUN_0041f4a0(void)
   float fVar3;
   bool bVar4;
   int iVar5;
+  long lVar6;
   int in_ECX;
-  float10 fVar6;
+  float10 fVar7;
   int local_ec;
   int local_e8;
   int local_e4;
@@ -61,11 +62,11 @@ void FUN_0041f4a0(void)
       else {
         if ((*(char *)(local_18 + 0x143) == '\x01') ||
            ((0x7f < _DAT_0069d4b0 && (DAT_006caa6c < 128.0 != NAN(DAT_006caa6c))))) {
-          fVar6 = (float10)FUN_00428700(local_18 + 0x110);
-          fVar1 = (float10)fcos((float10)(float)fVar6);
-          fVar6 = (float10)fsin((float10)(float)fVar6);
+          fVar7 = (float10)FUN_00428700(local_18 + 0x110);
+          fVar1 = (float10)fcos((float10)(float)fVar7);
+          fVar7 = (float10)fsin((float10)(float)fVar7);
           *(float *)(local_18 + 0x11c) = (float)(fVar1 * (float10)8.0);
-          *(float *)(local_18 + 0x120) = (float)(fVar6 * (float10)8.0);
+          *(float *)(local_18 + 0x120) = (float)(fVar7 * (float10)8.0);
           *(undefined *)(local_18 + 0x143) = 1;
         }
         else {
@@ -144,49 +145,49 @@ LAB_0041f7c5:
           switch(_DAT_0069bcb0) {
           case 0:
           case 1:
-            iVar5 = __ftol2();
-            if (iVar5 < 0x80) {
+            lVar6 = __ftol2((double)*(float *)(local_18 + 0x114));
+            if (lVar6 < 0x80) {
               local_e0 = 100000;
             }
             else {
-              iVar5 = __ftol2();
-              local_e0 = (iVar5 + -0x80) * -100 + 60000;
+              lVar6 = __ftol2((double)*(float *)(local_18 + 0x114));
+              local_e0 = (lVar6 + -0x80) * -100 + 60000;
             }
             local_c = local_e0;
             FUN_00401940(local_18 + 0x110,local_e0,((local_e0 < 100000) - 1 & 0xffffff01) - 1);
             break;
           case 2:
-            iVar5 = __ftol2();
-            if (iVar5 < 0x80) {
+            lVar6 = __ftol2((double)*(float *)(local_18 + 0x114));
+            if (lVar6 < 0x80) {
               local_e4 = 150000;
             }
             else {
-              iVar5 = __ftol2();
-              local_e4 = (iVar5 + -0x80) * -0xb4 + 100000;
+              lVar6 = __ftol2((double)*(float *)(local_18 + 0x114));
+              local_e4 = (lVar6 + -0x80) * -0xb4 + 100000;
             }
             local_c = local_e4;
             FUN_00401940(local_18 + 0x110,local_e4,((local_e4 < 150000) - 1 & 0xffffff01) - 1);
             break;
           case 3:
-            iVar5 = __ftol2();
-            if (iVar5 < 0x80) {
+            lVar6 = __ftol2((double)*(float *)(local_18 + 0x114));
+            if (lVar6 < 0x80) {
               local_e8 = 200000;
             }
             else {
-              iVar5 = __ftol2();
-              local_e8 = (iVar5 + -0x80) * -0x10e + 150000;
+              lVar6 = __ftol2((double)*(float *)(local_18 + 0x114));
+              local_e8 = (lVar6 + -0x80) * -0x10e + 150000;
             }
             local_c = local_e8;
             FUN_00401940(local_18 + 0x110,local_e8,((local_e8 < 200000) - 1 & 0xffffff01) - 1);
             break;
           case 4:
-            iVar5 = __ftol2();
-            if (iVar5 < 0x80) {
+            lVar6 = __ftol2((double)*(float *)(local_18 + 0x114));
+            if (lVar6 < 0x80) {
               local_ec = 300000;
             }
             else {
-              iVar5 = __ftol2();
-              local_ec = (iVar5 + -0x80) * -400 + 200000;
+              lVar6 = __ftol2((double)*(float *)(local_18 + 0x114));
+              local_ec = (lVar6 + -0x80) * -400 + 200000;
             }
             local_c = local_ec;
             FUN_00401940(local_18 + 0x110,local_ec,((local_ec < 300000) - 1 & 0xffffff01) - 1);

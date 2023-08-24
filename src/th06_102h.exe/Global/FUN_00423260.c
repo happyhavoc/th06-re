@@ -2,7 +2,7 @@
 void FUN_00423260(int param_1)
 
 {
-  int iVar1;
+  long lVar1;
   uint uVar2;
   int in_ECX;
   uint local_18;
@@ -10,8 +10,9 @@ void FUN_00423260(int param_1)
   
   if (*(int *)(in_ECX + 0x2d4) == 0) {
     for (local_c = 0; local_c < 0x10; local_c = local_c + 1) {
-      iVar1 = __ftol2((float)(uint)*(byte *)(in_ECX + 0x169 + local_c * 0x17));
-      uVar2 = iVar1 + param_1;
+      lVar1 = __ftol2((double)((float)(uint)*(byte *)(in_ECX + 0x169 + local_c * 0x17) *
+                              *(float *)(in_ECX + 0x2c8)));
+      uVar2 = lVar1 + param_1;
       if ((int)uVar2 < 0) {
         local_18 = 0;
       }

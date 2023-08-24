@@ -1,4 +1,6 @@
 
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
 void FUN_004033b0(void)
 
 {
@@ -9,10 +11,10 @@ void FUN_004033b0(void)
   int local_8;
   
   local_8 = in_ECX + 0x7134;
-  g_GameContext.viewport.X = __ftol2();
-  g_GameContext.viewport.Y = __ftol2();
-  g_GameContext.viewport.Width = __ftol2();
-  g_GameContext.viewport.Height = __ftol2();
+  g_GameContext.viewport.X = __ftol2((double)_DAT_0069d6dc);
+  g_GameContext.viewport.Y = __ftol2((double)_DAT_0069d6e0);
+  g_GameContext.viewport.Width = __ftol2((double)_DAT_0069d6e4);
+  g_GameContext.viewport.Height = __ftol2((double)_DAT_0069d6e8);
   (*(g_GameContext.d3d_device)->lpVtbl->SetViewport)
             (g_GameContext.d3d_device,(D3DVIEWPORT8 *)0x6c6de0);
   for (local_10 = 0; local_10 < 0x203; local_10 = local_10 + 1) {

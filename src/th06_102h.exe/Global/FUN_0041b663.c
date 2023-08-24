@@ -37,10 +37,10 @@ undefined4 FUN_0041b663(uint *param_1)
     local_c = 0;
   }
   *(undefined *)((int)param_1 + 0x1821) = local_c;
-  g_GameContext.viewport.X = __ftol2();
-  g_GameContext.viewport.Y = __ftol2();
-  g_GameContext.viewport.Width = __ftol2();
-  g_GameContext.viewport.Height = __ftol2();
+  g_GameContext.viewport.X = __ftol2((double)(float)param_1[0x68f]);
+  g_GameContext.viewport.Y = __ftol2((double)(float)param_1[0x690]);
+  g_GameContext.viewport.Width = __ftol2((double)(float)param_1[0x691]);
+  g_GameContext.viewport.Height = __ftol2((double)(float)param_1[0x692]);
   g_GameContext.viewport.MinZ = 0.5;
   g_GameContext.viewport.MaxZ = 1.0;
   FUN_0041c3f3(0);

@@ -1987,7 +1987,883 @@ typedef struct VeryBigStruct VeryBigStruct, *PVeryBigStruct;
 
 typedef struct VeryBigStruct1c000 VeryBigStruct1c000, *PVeryBigStruct1c000;
 
+typedef struct IDirect3DTexture8 IDirect3DTexture8, *PIDirect3DTexture8;
+
+typedef struct IDirect3DSurface8 IDirect3DSurface8, *PIDirect3DSurface8;
+
 typedef struct Unk3field Unk3field, *PUnk3field;
+
+typedef struct IDirect3DTexture8Vtbl IDirect3DTexture8Vtbl, *PIDirect3DTexture8Vtbl;
+
+typedef struct IDirect3DDevice8 IDirect3DDevice8, *PIDirect3DDevice8;
+
+typedef enum _D3DRESOURCETYPE {
+    D3DRTYPE_SURFACE=1,
+    D3DRTYPE_VOLUME=2,
+    D3DRTYPE_TEXTURE=3,
+    D3DRTYPE_VOLUMETEXTURE=4,
+    D3DRTYPE_CUBETEXTURE=5,
+    D3DRTYPE_VERTEXBUFFER=6,
+    D3DRTYPE_INDEXBUFFER=7,
+    D3DRTYPE_FORCE_DWORD=2147483647
+} _D3DRESOURCETYPE;
+
+typedef enum _D3DRESOURCETYPE D3DRESOURCETYPE;
+
+typedef uint UINT;
+
+typedef struct _D3DSURFACE_DESC _D3DSURFACE_DESC, *P_D3DSURFACE_DESC;
+
+typedef struct _D3DSURFACE_DESC D3DSURFACE_DESC;
+
+typedef struct _D3DLOCKED_RECT _D3DLOCKED_RECT, *P_D3DLOCKED_RECT;
+
+typedef struct _D3DLOCKED_RECT D3DLOCKED_RECT;
+
+typedef struct tagRECT tagRECT, *PtagRECT;
+
+typedef struct tagRECT RECT;
+
+typedef struct IDirect3DSurface8Vtbl IDirect3DSurface8Vtbl, *PIDirect3DSurface8Vtbl;
+
+typedef struct IDirect3DDevice8Vtbl IDirect3DDevice8Vtbl, *PIDirect3DDevice8Vtbl;
+
+typedef struct IDirect3D8 IDirect3D8, *PIDirect3D8;
+
+typedef struct _D3DCAPS8 _D3DCAPS8, *P_D3DCAPS8;
+
+typedef struct _D3DCAPS8 D3DCAPS8;
+
+typedef struct _D3DDISPLAYMODE _D3DDISPLAYMODE, *P_D3DDISPLAYMODE;
+
+typedef struct _D3DDISPLAYMODE D3DDISPLAYMODE;
+
+typedef struct _D3DDEVICE_CREATION_PARAMETERS _D3DDEVICE_CREATION_PARAMETERS, *P_D3DDEVICE_CREATION_PARAMETERS;
+
+typedef struct _D3DDEVICE_CREATION_PARAMETERS D3DDEVICE_CREATION_PARAMETERS;
+
+typedef int BOOL;
+
+typedef struct _D3DPRESENT_PARAMETERS_ _D3DPRESENT_PARAMETERS_, *P_D3DPRESENT_PARAMETERS_;
+
+typedef struct _D3DPRESENT_PARAMETERS_ D3DPRESENT_PARAMETERS;
+
+typedef struct IDirect3DSwapChain8 IDirect3DSwapChain8, *PIDirect3DSwapChain8;
+
+typedef struct _RGNDATA _RGNDATA, *P_RGNDATA;
+
+typedef struct _RGNDATA RGNDATA;
+
+typedef enum _D3DBACKBUFFER_TYPE {
+    D3DBACKBUFFER_TYPE_MONO=0,
+    D3DBACKBUFFER_TYPE_LEFT=1,
+    D3DBACKBUFFER_TYPE_RIGHT=2,
+    D3DBACKBUFFER_TYPE_FORCE_DWORD=2147483647
+} _D3DBACKBUFFER_TYPE;
+
+typedef enum _D3DBACKBUFFER_TYPE D3DBACKBUFFER_TYPE;
+
+typedef struct _D3DRASTER_STATUS _D3DRASTER_STATUS, *P_D3DRASTER_STATUS;
+
+typedef struct _D3DRASTER_STATUS D3DRASTER_STATUS;
+
+typedef struct _D3DGAMMARAMP _D3DGAMMARAMP, *P_D3DGAMMARAMP;
+
+typedef struct _D3DGAMMARAMP D3DGAMMARAMP;
+
+typedef enum _D3DFORMAT {
+    D3DFMT_UNKNOWN=0,
+    D3DFMT_R8G8B8=20,
+    D3DFMT_A8R8G8B8=21,
+    D3DFMT_X8R8G8B8=22,
+    D3DFMT_R5G6B5=23,
+    D3DFMT_X1R5G5B5=24,
+    D3DFMT_A1R5G5B5=25,
+    D3DFMT_A4R4G4B4=26,
+    D3DFMT_R3G3B2=27,
+    D3DFMT_A8=28,
+    D3DFMT_A8R3G3B2=29,
+    D3DFMT_X4R4G4B4=30,
+    D3DFMT_A8P8=40,
+    D3DFMT_P8=41,
+    D3DFMT_L8=50,
+    D3DFMT_A8L8=51,
+    D3DFMT_A4L4=52,
+    D3DFMT_V8U8=60,
+    D3DFMT_L6V5U5=61,
+    D3DFMT_X8L8V8U8=62,
+    D3DFMT_Q8W8V8U8=63,
+    D3DFMT_V16U16=64,
+    D3DFMT_W11V11U10=65,
+    D3DFMT_UYVY=66,
+    D3DFMT_YUY2=67,
+    D3DFMT_DXT1=68,
+    D3DFMT_DXT2=69,
+    D3DFMT_D16_LOCKABLE=70,
+    D3DFMT_DXT3=70,
+    D3DFMT_D32=71,
+    D3DFMT_DXT4=71,
+    D3DFMT_DXT5=72,
+    D3DFMT_D15S1=73,
+    D3DFMT_D24S8=75,
+    D3DFMT_D24X8=77,
+    D3DFMT_D24X4S4=79,
+    D3DFMT_D16=80,
+    D3DFMT_VERTEXDATA=100,
+    D3DFMT_INDEX16=101,
+    D3DFMT_INDEX32=102,
+    D3DFMT_FORCE_DWORD=2147483647
+} _D3DFORMAT;
+
+typedef enum _D3DFORMAT D3DFORMAT;
+
+typedef enum _D3DPOOL {
+    D3DPOOL_DEFAULT=0,
+    D3DPOOL_MANAGED=1,
+    D3DPOOL_SYSTEMMEM=2,
+    D3DPOOL_FORCE_DWORD=2147483647
+} _D3DPOOL;
+
+typedef enum _D3DPOOL D3DPOOL;
+
+typedef struct IDirect3DVolumeTexture8 IDirect3DVolumeTexture8, *PIDirect3DVolumeTexture8;
+
+typedef struct IDirect3DCubeTexture8 IDirect3DCubeTexture8, *PIDirect3DCubeTexture8;
+
+typedef struct IDirect3DVertexBuffer8 IDirect3DVertexBuffer8, *PIDirect3DVertexBuffer8;
+
+typedef struct IDirect3DIndexBuffer8 IDirect3DIndexBuffer8, *PIDirect3DIndexBuffer8;
+
+typedef enum _D3DMULTISAMPLE_TYPE {
+    D3DMULTISAMPLE_NONE=0,
+    D3DMULTISAMPLE_2_SAMPLES=2,
+    D3DMULTISAMPLE_3_SAMPLES=3,
+    D3DMULTISAMPLE_4_SAMPLES=4,
+    D3DMULTISAMPLE_5_SAMPLES=5,
+    D3DMULTISAMPLE_6_SAMPLES=6,
+    D3DMULTISAMPLE_7_SAMPLES=7,
+    D3DMULTISAMPLE_8_SAMPLES=8,
+    D3DMULTISAMPLE_9_SAMPLES=9,
+    D3DMULTISAMPLE_10_SAMPLES=10,
+    D3DMULTISAMPLE_11_SAMPLES=11,
+    D3DMULTISAMPLE_12_SAMPLES=12,
+    D3DMULTISAMPLE_13_SAMPLES=13,
+    D3DMULTISAMPLE_14_SAMPLES=14,
+    D3DMULTISAMPLE_15_SAMPLES=15,
+    D3DMULTISAMPLE_16_SAMPLES=16,
+    D3DMULTISAMPLE_FORCE_DWORD=2147483647
+} _D3DMULTISAMPLE_TYPE;
+
+typedef enum _D3DMULTISAMPLE_TYPE D3DMULTISAMPLE_TYPE;
+
+typedef struct tagPOINT tagPOINT, *PtagPOINT;
+
+typedef struct tagPOINT POINT;
+
+typedef struct IDirect3DBaseTexture8 IDirect3DBaseTexture8, *PIDirect3DBaseTexture8;
+
+typedef struct _D3DRECT _D3DRECT, *P_D3DRECT;
+
+typedef struct _D3DRECT D3DRECT;
+
+typedef DWORD D3DCOLOR;
+
+typedef enum _D3DTRANSFORMSTATETYPE {
+    D3DTS_VIEW=2,
+    D3DTS_PROJECTION=3,
+    D3DTS_TEXTURE0=16,
+    D3DTS_TEXTURE1=17,
+    D3DTS_TEXTURE2=18,
+    D3DTS_TEXTURE3=19,
+    D3DTS_TEXTURE4=20,
+    D3DTS_TEXTURE5=21,
+    D3DTS_TEXTURE6=22,
+    D3DTS_TEXTURE7=23,
+    D3DTS_FORCE_DWORD=2147483647
+} _D3DTRANSFORMSTATETYPE;
+
+typedef enum _D3DTRANSFORMSTATETYPE D3DTRANSFORMSTATETYPE;
+
+typedef struct _D3DMATRIX _D3DMATRIX, *P_D3DMATRIX;
+
+typedef struct _D3DMATRIX D3DMATRIX;
+
+typedef struct _D3DVIEWPORT8 _D3DVIEWPORT8, *P_D3DVIEWPORT8;
+
+typedef struct _D3DVIEWPORT8 D3DVIEWPORT8;
+
+typedef struct _D3DMATERIAL8 _D3DMATERIAL8, *P_D3DMATERIAL8;
+
+typedef struct _D3DMATERIAL8 D3DMATERIAL8;
+
+typedef struct _D3DLIGHT8 _D3DLIGHT8, *P_D3DLIGHT8;
+
+typedef struct _D3DLIGHT8 D3DLIGHT8;
+
+typedef enum _D3DRENDERSTATETYPE {
+    D3DRS_ZENABLE=7,
+    D3DRS_FILLMODE=8,
+    D3DRS_SHADEMODE=9,
+    D3DRS_LINEPATTERN=10,
+    D3DRS_ZWRITEENABLE=14,
+    D3DRS_ALPHATESTENABLE=15,
+    D3DRS_LASTPIXEL=16,
+    D3DRS_SRCBLEND=19,
+    D3DRS_DESTBLEND=20,
+    D3DRS_CULLMODE=22,
+    D3DRS_ZFUNC=23,
+    D3DRS_ALPHAREF=24,
+    D3DRS_ALPHAFUNC=25,
+    D3DRS_DITHERENABLE=26,
+    D3DRS_ALPHABLENDENABLE=27,
+    D3DRS_FOGENABLE=28,
+    D3DRS_SPECULARENABLE=29,
+    D3DRS_ZVISIBLE=30,
+    D3DRS_FOGCOLOR=34,
+    D3DRS_FOGTABLEMODE=35,
+    D3DRS_FOGSTART=36,
+    D3DRS_FOGEND=37,
+    D3DRS_FOGDENSITY=38,
+    D3DRS_EDGEANTIALIAS=40,
+    D3DRS_ZBIAS=47,
+    D3DRS_RANGEFOGENABLE=48,
+    D3DRS_STENCILENABLE=52,
+    D3DRS_STENCILFAIL=53,
+    D3DRS_STENCILZFAIL=54,
+    D3DRS_STENCILPASS=55,
+    D3DRS_STENCILFUNC=56,
+    D3DRS_STENCILREF=57,
+    D3DRS_STENCILMASK=58,
+    D3DRS_STENCILWRITEMASK=59,
+    D3DRS_TEXTUREFACTOR=60,
+    D3DRS_WRAP0=128,
+    D3DRS_WRAP1=129,
+    D3DRS_WRAP2=130,
+    D3DRS_WRAP3=131,
+    D3DRS_WRAP4=132,
+    D3DRS_WRAP5=133,
+    D3DRS_WRAP6=134,
+    D3DRS_WRAP7=135,
+    D3DRS_CLIPPING=136,
+    D3DRS_LIGHTING=137,
+    D3DRS_AMBIENT=139,
+    D3DRS_FOGVERTEXMODE=140,
+    D3DRS_COLORVERTEX=141,
+    D3DRS_LOCALVIEWER=142,
+    D3DRS_NORMALIZENORMALS=143,
+    D3DRS_DIFFUSEMATERIALSOURCE=145,
+    D3DRS_SPECULARMATERIALSOURCE=146,
+    D3DRS_AMBIENTMATERIALSOURCE=147,
+    D3DRS_EMISSIVEMATERIALSOURCE=148,
+    D3DRS_VERTEXBLEND=151,
+    D3DRS_CLIPPLANEENABLE=152,
+    D3DRS_SOFTWAREVERTEXPROCESSING=153,
+    D3DRS_POINTSIZE=154,
+    D3DRS_POINTSIZE_MIN=155,
+    D3DRS_POINTSPRITEENABLE=156,
+    D3DRS_POINTSCALEENABLE=157,
+    D3DRS_POINTSCALE_A=158,
+    D3DRS_POINTSCALE_B=159,
+    D3DRS_POINTSCALE_C=160,
+    D3DRS_MULTISAMPLEANTIALIAS=161,
+    D3DRS_MULTISAMPLEMASK=162,
+    D3DRS_PATCHEDGESTYLE=163,
+    D3DRS_PATCHSEGMENTS=164,
+    D3DRS_DEBUGMONITORTOKEN=165,
+    D3DRS_POINTSIZE_MAX=166,
+    D3DRS_INDEXEDVERTEXBLENDENABLE=167,
+    D3DRS_COLORWRITEENABLE=168,
+    D3DRS_TWEENFACTOR=170,
+    D3DRS_BLENDOP=171,
+    D3DRS_FORCE_DWORD=2147483647
+} _D3DRENDERSTATETYPE;
+
+typedef enum _D3DRENDERSTATETYPE D3DRENDERSTATETYPE;
+
+typedef enum _D3DSTATEBLOCKTYPE {
+    D3DSBT_ALL=1,
+    D3DSBT_PIXELSTATE=2,
+    D3DSBT_VERTEXSTATE=3,
+    D3DSBT_FORCE_DWORD=2147483647
+} _D3DSTATEBLOCKTYPE;
+
+typedef enum _D3DSTATEBLOCKTYPE D3DSTATEBLOCKTYPE;
+
+typedef struct _D3DCLIPSTATUS8 _D3DCLIPSTATUS8, *P_D3DCLIPSTATUS8;
+
+typedef struct _D3DCLIPSTATUS8 D3DCLIPSTATUS8;
+
+typedef enum _D3DTEXTURESTAGESTATETYPE {
+    D3DTSS_COLOROP=1,
+    D3DTSS_COLORARG1=2,
+    D3DTSS_COLORARG2=3,
+    D3DTSS_ALPHAOP=4,
+    D3DTSS_ALPHAARG1=5,
+    D3DTSS_ALPHAARG2=6,
+    D3DTSS_BUMPENVMAT00=7,
+    D3DTSS_BUMPENVMAT01=8,
+    D3DTSS_BUMPENVMAT10=9,
+    D3DTSS_BUMPENVMAT11=10,
+    D3DTSS_TEXCOORDINDEX=11,
+    D3DTSS_ADDRESSU=13,
+    D3DTSS_ADDRESSV=14,
+    D3DTSS_BORDERCOLOR=15,
+    D3DTSS_MAGFILTER=16,
+    D3DTSS_MINFILTER=17,
+    D3DTSS_MIPFILTER=18,
+    D3DTSS_MIPMAPLODBIAS=19,
+    D3DTSS_MAXMIPLEVEL=20,
+    D3DTSS_MAXANISOTROPY=21,
+    D3DTSS_BUMPENVLSCALE=22,
+    D3DTSS_BUMPENVLOFFSET=23,
+    D3DTSS_TEXTURETRANSFORMFLAGS=24,
+    D3DTSS_ADDRESSW=25,
+    D3DTSS_COLORARG0=26,
+    D3DTSS_ALPHAARG0=27,
+    D3DTSS_RESULTARG=28,
+    D3DTSS_FORCE_DWORD=2147483647
+} _D3DTEXTURESTAGESTATETYPE;
+
+typedef enum _D3DTEXTURESTAGESTATETYPE D3DTEXTURESTAGESTATETYPE;
+
+typedef struct tagPALETTEENTRY tagPALETTEENTRY, *PtagPALETTEENTRY;
+
+typedef struct tagPALETTEENTRY PALETTEENTRY;
+
+typedef enum _D3DPRIMITIVETYPE {
+    D3DPT_POINTLIST=1,
+    D3DPT_LINELIST=2,
+    D3DPT_LINESTRIP=3,
+    D3DPT_TRIANGLELIST=4,
+    D3DPT_TRIANGLESTRIP=5,
+    D3DPT_TRIANGLEFAN=6,
+    D3DPT_FORCE_DWORD=2147483647
+} _D3DPRIMITIVETYPE;
+
+typedef enum _D3DPRIMITIVETYPE D3DPRIMITIVETYPE;
+
+typedef struct _D3DRECTPATCH_INFO _D3DRECTPATCH_INFO, *P_D3DRECTPATCH_INFO;
+
+typedef struct _D3DRECTPATCH_INFO D3DRECTPATCH_INFO;
+
+typedef struct _D3DTRIPATCH_INFO _D3DTRIPATCH_INFO, *P_D3DTRIPATCH_INFO;
+
+typedef struct _D3DTRIPATCH_INFO D3DTRIPATCH_INFO;
+
+typedef int INT;
+
+typedef struct IDirect3D8Vtbl IDirect3D8Vtbl, *PIDirect3D8Vtbl;
+
+typedef struct _D3DADAPTER_IDENTIFIER8 _D3DADAPTER_IDENTIFIER8, *P_D3DADAPTER_IDENTIFIER8;
+
+typedef struct _D3DADAPTER_IDENTIFIER8 D3DADAPTER_IDENTIFIER8;
+
+typedef enum _D3DDEVTYPE {
+    D3DDEVTYPE_HAL=1,
+    D3DDEVTYPE_REF=2,
+    D3DDEVTYPE_SW=3,
+    D3DDEVTYPE_FORCE_DWORD=2147483647
+} _D3DDEVTYPE;
+
+typedef enum _D3DDEVTYPE D3DDEVTYPE;
+
+typedef struct HMONITOR__ HMONITOR__, *PHMONITOR__;
+
+typedef struct HMONITOR__ *HMONITOR;
+
+typedef enum _D3DSWAPEFFECT {
+    D3DSWAPEFFECT_DISCARD=1,
+    D3DSWAPEFFECT_FLIP=2,
+    D3DSWAPEFFECT_COPY=3,
+    D3DSWAPEFFECT_COPY_VSYNC=4,
+    D3DSWAPEFFECT_FORCE_DWORD=2147483647
+} _D3DSWAPEFFECT;
+
+typedef enum _D3DSWAPEFFECT D3DSWAPEFFECT;
+
+typedef struct IDirect3DSwapChain8Vtbl IDirect3DSwapChain8Vtbl, *PIDirect3DSwapChain8Vtbl;
+
+typedef struct _RGNDATAHEADER _RGNDATAHEADER, *P_RGNDATAHEADER;
+
+typedef struct _RGNDATAHEADER RGNDATAHEADER;
+
+typedef struct IDirect3DVolumeTexture8Vtbl IDirect3DVolumeTexture8Vtbl, *PIDirect3DVolumeTexture8Vtbl;
+
+typedef struct _D3DVOLUME_DESC _D3DVOLUME_DESC, *P_D3DVOLUME_DESC;
+
+typedef struct _D3DVOLUME_DESC D3DVOLUME_DESC;
+
+typedef struct IDirect3DVolume8 IDirect3DVolume8, *PIDirect3DVolume8;
+
+typedef struct _D3DLOCKED_BOX _D3DLOCKED_BOX, *P_D3DLOCKED_BOX;
+
+typedef struct _D3DLOCKED_BOX D3DLOCKED_BOX;
+
+typedef struct _D3DBOX _D3DBOX, *P_D3DBOX;
+
+typedef struct _D3DBOX D3DBOX;
+
+typedef struct IDirect3DCubeTexture8Vtbl IDirect3DCubeTexture8Vtbl, *PIDirect3DCubeTexture8Vtbl;
+
+typedef enum _D3DCUBEMAP_FACES {
+    D3DCUBEMAP_FACE_POSITIVE_X=0,
+    D3DCUBEMAP_FACE_NEGATIVE_X=1,
+    D3DCUBEMAP_FACE_POSITIVE_Y=2,
+    D3DCUBEMAP_FACE_NEGATIVE_Y=3,
+    D3DCUBEMAP_FACE_POSITIVE_Z=4,
+    D3DCUBEMAP_FACE_NEGATIVE_Z=5,
+    D3DCUBEMAP_FACE_FORCE_DWORD=2147483647
+} _D3DCUBEMAP_FACES;
+
+typedef enum _D3DCUBEMAP_FACES D3DCUBEMAP_FACES;
+
+typedef struct IDirect3DVertexBuffer8Vtbl IDirect3DVertexBuffer8Vtbl, *PIDirect3DVertexBuffer8Vtbl;
+
+typedef uchar BYTE;
+
+typedef struct _D3DVERTEXBUFFER_DESC _D3DVERTEXBUFFER_DESC, *P_D3DVERTEXBUFFER_DESC;
+
+typedef struct _D3DVERTEXBUFFER_DESC D3DVERTEXBUFFER_DESC;
+
+typedef struct IDirect3DIndexBuffer8Vtbl IDirect3DIndexBuffer8Vtbl, *PIDirect3DIndexBuffer8Vtbl;
+
+typedef struct _D3DINDEXBUFFER_DESC _D3DINDEXBUFFER_DESC, *P_D3DINDEXBUFFER_DESC;
+
+typedef struct _D3DINDEXBUFFER_DESC D3DINDEXBUFFER_DESC;
+
+typedef struct IDirect3DBaseTexture8Vtbl IDirect3DBaseTexture8Vtbl, *PIDirect3DBaseTexture8Vtbl;
+
+typedef union _union_2533 _union_2533, *P_union_2533;
+
+typedef struct _D3DCOLORVALUE _D3DCOLORVALUE, *P_D3DCOLORVALUE;
+
+typedef struct _D3DCOLORVALUE D3DCOLORVALUE;
+
+typedef enum _D3DLIGHTTYPE {
+    D3DLIGHT_POINT=1,
+    D3DLIGHT_SPOT=2,
+    D3DLIGHT_DIRECTIONAL=3,
+    D3DLIGHT_FORCE_DWORD=2147483647
+} _D3DLIGHTTYPE;
+
+typedef enum _D3DLIGHTTYPE D3DLIGHTTYPE;
+
+typedef struct _D3DVECTOR _D3DVECTOR, *P_D3DVECTOR;
+
+typedef struct _D3DVECTOR D3DVECTOR;
+
+typedef enum _D3DBASISTYPE {
+    D3DBASIS_BEZIER=0,
+    D3DBASIS_BSPLINE=1,
+    D3DBASIS_INTERPOLATE=2,
+    D3DBASIS_FORCE_DWORD=2147483647
+} _D3DBASISTYPE;
+
+typedef enum _D3DBASISTYPE D3DBASISTYPE;
+
+typedef enum _D3DORDERTYPE {
+    D3DORDER_LINEAR=1,
+    D3DORDER_CUBIC=3,
+    D3DORDER_QUINTIC=5,
+    D3DORDER_FORCE_DWORD=2147483647
+} _D3DORDERTYPE;
+
+typedef enum _D3DORDERTYPE D3DORDERTYPE;
+
+typedef union _LARGE_INTEGER _LARGE_INTEGER, *P_LARGE_INTEGER;
+
+typedef union _LARGE_INTEGER LARGE_INTEGER;
+
+typedef struct IDirect3DVolume8Vtbl IDirect3DVolume8Vtbl, *PIDirect3DVolume8Vtbl;
+
+typedef struct _struct_2534 _struct_2534, *P_struct_2534;
+
+typedef struct _struct_7 _struct_7, *P_struct_7;
+
+typedef struct _struct_8 _struct_8, *P_struct_8;
+
+typedef double LONGLONG;
+
+struct _D3DINDEXBUFFER_DESC {
+    D3DFORMAT Format;
+    D3DRESOURCETYPE Type;
+    DWORD Usage;
+    D3DPOOL Pool;
+    UINT Size;
+};
+
+struct tagPOINT {
+    LONG x;
+    LONG y;
+};
+
+struct _D3DGAMMARAMP {
+    WORD red[256];
+    WORD green[256];
+    WORD blue[256];
+};
+
+struct IDirect3DVolume8 {
+    struct IDirect3DVolume8Vtbl *lpVtbl;
+};
+
+struct IDirect3DVolumeTexture8 {
+    struct IDirect3DVolumeTexture8Vtbl *lpVtbl;
+};
+
+struct tagRECT {
+    LONG left;
+    LONG top;
+    LONG right;
+    LONG bottom;
+};
+
+struct _RGNDATAHEADER {
+    DWORD dwSize;
+    DWORD iType;
+    DWORD nCount;
+    DWORD nRgnSize;
+    RECT rcBound;
+};
+
+struct _struct_7 {
+    DWORD LowPart;
+    LONG HighPart;
+};
+
+struct _struct_8 {
+    DWORD LowPart;
+    LONG HighPart;
+};
+
+union _LARGE_INTEGER {
+    struct _struct_7 field0;
+    struct _struct_8 u;
+    LONGLONG QuadPart;
+};
+
+struct IDirect3DTexture8Vtbl {
+    HRESULT (*QueryInterface)(struct IDirect3DTexture8 *, IID *, void **);
+    ULONG (*AddRef)(struct IDirect3DTexture8 *);
+    ULONG (*Release)(struct IDirect3DTexture8 *);
+    HRESULT (*GetDevice)(struct IDirect3DTexture8 *, struct IDirect3DDevice8 **);
+    HRESULT (*SetPrivateData)(struct IDirect3DTexture8 *, GUID *, void *, DWORD, DWORD);
+    HRESULT (*GetPrivateData)(struct IDirect3DTexture8 *, GUID *, void *, DWORD *);
+    HRESULT (*FreePrivateData)(struct IDirect3DTexture8 *, GUID *);
+    DWORD (*SetPriority)(struct IDirect3DTexture8 *, DWORD);
+    DWORD (*GetPriority)(struct IDirect3DTexture8 *);
+    void (*PreLoad)(struct IDirect3DTexture8 *);
+    D3DRESOURCETYPE (*GetType)(struct IDirect3DTexture8 *);
+    DWORD (*SetLOD)(struct IDirect3DTexture8 *, DWORD);
+    DWORD (*GetLOD)(struct IDirect3DTexture8 *);
+    DWORD (*GetLevelCount)(struct IDirect3DTexture8 *);
+    HRESULT (*GetLevelDesc)(struct IDirect3DTexture8 *, UINT, D3DSURFACE_DESC *);
+    HRESULT (*GetSurfaceLevel)(struct IDirect3DTexture8 *, UINT, struct IDirect3DSurface8 **);
+    HRESULT (*LockRect)(struct IDirect3DTexture8 *, UINT, D3DLOCKED_RECT *, RECT *, DWORD);
+    HRESULT (*UnlockRect)(struct IDirect3DTexture8 *, UINT);
+    HRESULT (*AddDirtyRect)(struct IDirect3DTexture8 *, RECT *);
+};
+
+struct _D3DRECTPATCH_INFO {
+    UINT StartVertexOffsetWidth;
+    UINT StartVertexOffsetHeight;
+    UINT Width;
+    UINT Height;
+    UINT Stride;
+    D3DBASISTYPE Basis;
+    D3DORDERTYPE Order;
+};
+
+struct IDirect3DDevice8Vtbl {
+    HRESULT (*QueryInterface)(struct IDirect3DDevice8 *, IID *, void **);
+    ULONG (*AddRef)(struct IDirect3DDevice8 *);
+    ULONG (*Release)(struct IDirect3DDevice8 *);
+    HRESULT (*TestCooperativeLevel)(struct IDirect3DDevice8 *);
+    UINT (*GetAvailableTextureMem)(struct IDirect3DDevice8 *);
+    HRESULT (*ResourceManagerDiscardBytes)(struct IDirect3DDevice8 *, DWORD);
+    HRESULT (*GetDirect3D)(struct IDirect3DDevice8 *, struct IDirect3D8 **);
+    HRESULT (*GetDeviceCaps)(struct IDirect3DDevice8 *, D3DCAPS8 *);
+    HRESULT (*GetDisplayMode)(struct IDirect3DDevice8 *, D3DDISPLAYMODE *);
+    HRESULT (*GetCreationParameters)(struct IDirect3DDevice8 *, D3DDEVICE_CREATION_PARAMETERS *);
+    HRESULT (*SetCursorProperties)(struct IDirect3DDevice8 *, UINT, UINT, struct IDirect3DSurface8 *);
+    void (*SetCursorPosition)(struct IDirect3DDevice8 *, UINT, UINT, DWORD);
+    BOOL (*ShowCursor)(struct IDirect3DDevice8 *, BOOL);
+    HRESULT (*CreateAdditionalSwapChain)(struct IDirect3DDevice8 *, D3DPRESENT_PARAMETERS *, struct IDirect3DSwapChain8 **);
+    HRESULT (*Reset)(struct IDirect3DDevice8 *, D3DPRESENT_PARAMETERS *);
+    HRESULT (*Present)(struct IDirect3DDevice8 *, RECT *, RECT *, HWND, RGNDATA *);
+    HRESULT (*GetBackBuffer)(struct IDirect3DDevice8 *, UINT, D3DBACKBUFFER_TYPE, struct IDirect3DSurface8 **);
+    HRESULT (*GetRasterStatus)(struct IDirect3DDevice8 *, D3DRASTER_STATUS *);
+    void (*SetGammaRamp)(struct IDirect3DDevice8 *, DWORD, D3DGAMMARAMP *);
+    void (*GetGammaRamp)(struct IDirect3DDevice8 *, D3DGAMMARAMP *);
+    HRESULT (*CreateTexture)(struct IDirect3DDevice8 *, UINT, UINT, UINT, DWORD, D3DFORMAT, D3DPOOL, struct IDirect3DTexture8 **);
+    HRESULT (*CreateVolumeTexture)(struct IDirect3DDevice8 *, UINT, UINT, UINT, UINT, DWORD, D3DFORMAT, D3DPOOL, struct IDirect3DVolumeTexture8 **);
+    HRESULT (*CreateCubeTexture)(struct IDirect3DDevice8 *, UINT, UINT, DWORD, D3DFORMAT, D3DPOOL, struct IDirect3DCubeTexture8 **);
+    HRESULT (*CreateVertexBuffer)(struct IDirect3DDevice8 *, UINT, DWORD, DWORD, D3DPOOL, struct IDirect3DVertexBuffer8 **);
+    HRESULT (*CreateIndexBuffer)(struct IDirect3DDevice8 *, UINT, DWORD, D3DFORMAT, D3DPOOL, struct IDirect3DIndexBuffer8 **);
+    HRESULT (*CreateRenderTarget)(struct IDirect3DDevice8 *, UINT, UINT, D3DFORMAT, D3DMULTISAMPLE_TYPE, BOOL, struct IDirect3DSurface8 **);
+    HRESULT (*CreateDepthStencilSurface)(struct IDirect3DDevice8 *, UINT, UINT, D3DFORMAT, D3DMULTISAMPLE_TYPE, struct IDirect3DSurface8 **);
+    HRESULT (*CreateImageSurface)(struct IDirect3DDevice8 *, UINT, UINT, D3DFORMAT, struct IDirect3DSurface8 **);
+    HRESULT (*CopyRects)(struct IDirect3DDevice8 *, struct IDirect3DSurface8 *, RECT *, UINT, struct IDirect3DSurface8 *, POINT *);
+    HRESULT (*UpdateTexture)(struct IDirect3DDevice8 *, struct IDirect3DBaseTexture8 *, struct IDirect3DBaseTexture8 *);
+    HRESULT (*GetFrontBuffer)(struct IDirect3DDevice8 *, struct IDirect3DSurface8 *);
+    HRESULT (*SetRenderTarget)(struct IDirect3DDevice8 *, struct IDirect3DSurface8 *, struct IDirect3DSurface8 *);
+    HRESULT (*GetRenderTarget)(struct IDirect3DDevice8 *, struct IDirect3DSurface8 **);
+    HRESULT (*GetDepthStencilSurface)(struct IDirect3DDevice8 *, struct IDirect3DSurface8 **);
+    HRESULT (*BeginScene)(struct IDirect3DDevice8 *);
+    HRESULT (*EndScene)(struct IDirect3DDevice8 *);
+    HRESULT (*Clear)(struct IDirect3DDevice8 *, DWORD, D3DRECT *, DWORD, D3DCOLOR, float, DWORD);
+    HRESULT (*SetTransform)(struct IDirect3DDevice8 *, D3DTRANSFORMSTATETYPE, D3DMATRIX *);
+    HRESULT (*GetTransform)(struct IDirect3DDevice8 *, D3DTRANSFORMSTATETYPE, D3DMATRIX *);
+    HRESULT (*MultiplyTransform)(struct IDirect3DDevice8 *, D3DTRANSFORMSTATETYPE, D3DMATRIX *);
+    HRESULT (*SetViewport)(struct IDirect3DDevice8 *, D3DVIEWPORT8 *);
+    HRESULT (*GetViewport)(struct IDirect3DDevice8 *, D3DVIEWPORT8 *);
+    HRESULT (*SetMaterial)(struct IDirect3DDevice8 *, D3DMATERIAL8 *);
+    HRESULT (*GetMaterial)(struct IDirect3DDevice8 *, D3DMATERIAL8 *);
+    HRESULT (*SetLight)(struct IDirect3DDevice8 *, DWORD, D3DLIGHT8 *);
+    HRESULT (*GetLight)(struct IDirect3DDevice8 *, DWORD, D3DLIGHT8 *);
+    HRESULT (*LightEnable)(struct IDirect3DDevice8 *, DWORD, BOOL);
+    HRESULT (*GetLightEnable)(struct IDirect3DDevice8 *, DWORD, BOOL *);
+    HRESULT (*SetClipPlane)(struct IDirect3DDevice8 *, DWORD, float *);
+    HRESULT (*GetClipPlane)(struct IDirect3DDevice8 *, DWORD, float *);
+    HRESULT (*SetRenderState)(struct IDirect3DDevice8 *, D3DRENDERSTATETYPE, DWORD);
+    HRESULT (*GetRenderState)(struct IDirect3DDevice8 *, D3DRENDERSTATETYPE, DWORD *);
+    HRESULT (*BeginStateBlock)(struct IDirect3DDevice8 *);
+    HRESULT (*EndStateBlock)(struct IDirect3DDevice8 *, DWORD *);
+    HRESULT (*ApplyStateBlock)(struct IDirect3DDevice8 *, DWORD);
+    HRESULT (*CaptureStateBlock)(struct IDirect3DDevice8 *, DWORD);
+    HRESULT (*DeleteStateBlock)(struct IDirect3DDevice8 *, DWORD);
+    HRESULT (*CreateStateBlock)(struct IDirect3DDevice8 *, D3DSTATEBLOCKTYPE, DWORD *);
+    HRESULT (*SetClipStatus)(struct IDirect3DDevice8 *, D3DCLIPSTATUS8 *);
+    HRESULT (*GetClipStatus)(struct IDirect3DDevice8 *, D3DCLIPSTATUS8 *);
+    HRESULT (*GetTexture)(struct IDirect3DDevice8 *, DWORD, struct IDirect3DBaseTexture8 **);
+    HRESULT (*SetTexture)(struct IDirect3DDevice8 *, DWORD, struct IDirect3DBaseTexture8 *);
+    HRESULT (*GetTextureStageState)(struct IDirect3DDevice8 *, DWORD, D3DTEXTURESTAGESTATETYPE, DWORD *);
+    HRESULT (*SetTextureStageState)(struct IDirect3DDevice8 *, DWORD, D3DTEXTURESTAGESTATETYPE, DWORD);
+    HRESULT (*ValidateDevice)(struct IDirect3DDevice8 *, DWORD *);
+    HRESULT (*GetInfo)(struct IDirect3DDevice8 *, DWORD, void *, DWORD);
+    HRESULT (*SetPaletteEntries)(struct IDirect3DDevice8 *, UINT, PALETTEENTRY *);
+    HRESULT (*GetPaletteEntries)(struct IDirect3DDevice8 *, UINT, PALETTEENTRY *);
+    HRESULT (*SetCurrentTexturePalette)(struct IDirect3DDevice8 *, UINT);
+    HRESULT (*GetCurrentTexturePalette)(struct IDirect3DDevice8 *, UINT *);
+    HRESULT (*DrawPrimitive)(struct IDirect3DDevice8 *, D3DPRIMITIVETYPE, UINT, UINT);
+    HRESULT (*DrawIndexedPrimitive)(struct IDirect3DDevice8 *, D3DPRIMITIVETYPE, UINT, UINT, UINT, UINT);
+    HRESULT (*DrawPrimitiveUP)(struct IDirect3DDevice8 *, D3DPRIMITIVETYPE, UINT, void *, UINT);
+    HRESULT (*DrawIndexedPrimitiveUP)(struct IDirect3DDevice8 *, D3DPRIMITIVETYPE, UINT, UINT, UINT, void *, D3DFORMAT, void *, UINT);
+    HRESULT (*ProcessVertices)(struct IDirect3DDevice8 *, UINT, UINT, UINT, struct IDirect3DVertexBuffer8 *, DWORD);
+    HRESULT (*CreateVertexShader)(struct IDirect3DDevice8 *, DWORD *, DWORD *, DWORD *, DWORD);
+    HRESULT (*SetVertexShader)(struct IDirect3DDevice8 *, DWORD);
+    HRESULT (*GetVertexShader)(struct IDirect3DDevice8 *, DWORD *);
+    HRESULT (*DeleteVertexShader)(struct IDirect3DDevice8 *, DWORD);
+    HRESULT (*SetVertexShaderConstant)(struct IDirect3DDevice8 *, DWORD, void *, DWORD);
+    HRESULT (*GetVertexShaderConstant)(struct IDirect3DDevice8 *, DWORD, void *, DWORD);
+    HRESULT (*GetVertexShaderDeclaration)(struct IDirect3DDevice8 *, DWORD, void *, DWORD *);
+    HRESULT (*GetVertexShaderFunction)(struct IDirect3DDevice8 *, DWORD, void *, DWORD *);
+    HRESULT (*SetStreamSource)(struct IDirect3DDevice8 *, UINT, struct IDirect3DVertexBuffer8 *, UINT);
+    HRESULT (*GetStreamSource)(struct IDirect3DDevice8 *, UINT, struct IDirect3DVertexBuffer8 **, UINT *);
+    HRESULT (*SetIndices)(struct IDirect3DDevice8 *, struct IDirect3DIndexBuffer8 *, UINT);
+    HRESULT (*GetIndices)(struct IDirect3DDevice8 *, struct IDirect3DIndexBuffer8 **, UINT *);
+    HRESULT (*CreatePixelShader)(struct IDirect3DDevice8 *, DWORD *, DWORD *);
+    HRESULT (*SetPixelShader)(struct IDirect3DDevice8 *, DWORD);
+    HRESULT (*GetPixelShader)(struct IDirect3DDevice8 *, DWORD *);
+    HRESULT (*DeletePixelShader)(struct IDirect3DDevice8 *, DWORD);
+    HRESULT (*SetPixelShaderConstant)(struct IDirect3DDevice8 *, DWORD, void *, DWORD);
+    HRESULT (*GetPixelShaderConstant)(struct IDirect3DDevice8 *, DWORD, void *, DWORD);
+    HRESULT (*GetPixelShaderFunction)(struct IDirect3DDevice8 *, DWORD, void *, DWORD *);
+    HRESULT (*DrawRectPatch)(struct IDirect3DDevice8 *, UINT, float *, D3DRECTPATCH_INFO *);
+    HRESULT (*DrawTriPatch)(struct IDirect3DDevice8 *, UINT, float *, D3DTRIPATCH_INFO *);
+    HRESULT (*DeletePatch)(struct IDirect3DDevice8 *, UINT);
+};
+
+struct IDirect3D8 {
+    struct IDirect3D8Vtbl *lpVtbl;
+};
+
+struct IDirect3DSurface8 {
+    struct IDirect3DSurface8Vtbl *lpVtbl;
+};
+
+struct _D3DBOX {
+    UINT Left;
+    UINT Top;
+    UINT Right;
+    UINT Bottom;
+    UINT Front;
+    UINT Back;
+};
+
+struct _D3DDISPLAYMODE {
+    UINT Width;
+    UINT Height;
+    UINT RefreshRate;
+    D3DFORMAT Format;
+};
+
+struct _D3DRASTER_STATUS {
+    BOOL InVBlank;
+    UINT ScanLine;
+};
+
+struct IDirect3DSurface8Vtbl {
+    HRESULT (*QueryInterface)(struct IDirect3DSurface8 *, IID *, void **);
+    ULONG (*AddRef)(struct IDirect3DSurface8 *);
+    ULONG (*Release)(struct IDirect3DSurface8 *);
+    HRESULT (*GetDevice)(struct IDirect3DSurface8 *, struct IDirect3DDevice8 **);
+    HRESULT (*SetPrivateData)(struct IDirect3DSurface8 *, GUID *, void *, DWORD, DWORD);
+    HRESULT (*GetPrivateData)(struct IDirect3DSurface8 *, GUID *, void *, DWORD *);
+    HRESULT (*FreePrivateData)(struct IDirect3DSurface8 *, GUID *);
+    HRESULT (*GetContainer)(struct IDirect3DSurface8 *, IID *, void **);
+    HRESULT (*GetDesc)(struct IDirect3DSurface8 *, D3DSURFACE_DESC *);
+    HRESULT (*LockRect)(struct IDirect3DSurface8 *, D3DLOCKED_RECT *, RECT *, DWORD);
+    HRESULT (*UnlockRect)(struct IDirect3DSurface8 *);
+};
+
+struct _struct_2534 {
+    float _11;
+    float _12;
+    float _13;
+    float _14;
+    float _21;
+    float _22;
+    float _23;
+    float _24;
+    float _31;
+    float _32;
+    float _33;
+    float _34;
+    float _41;
+    float _42;
+    float _43;
+    float _44;
+};
+
+union _union_2533 {
+    struct _struct_2534 field0;
+    float m[4][4];
+};
+
+struct _D3DMATRIX {
+    union _union_2533 field0_0x0;
+};
+
+struct IDirect3DVolume8Vtbl {
+    HRESULT (*QueryInterface)(struct IDirect3DVolume8 *, IID *, void **);
+    ULONG (*AddRef)(struct IDirect3DVolume8 *);
+    ULONG (*Release)(struct IDirect3DVolume8 *);
+    HRESULT (*GetDevice)(struct IDirect3DVolume8 *, struct IDirect3DDevice8 **);
+    HRESULT (*SetPrivateData)(struct IDirect3DVolume8 *, GUID *, void *, DWORD, DWORD);
+    HRESULT (*GetPrivateData)(struct IDirect3DVolume8 *, GUID *, void *, DWORD *);
+    HRESULT (*FreePrivateData)(struct IDirect3DVolume8 *, GUID *);
+    HRESULT (*GetContainer)(struct IDirect3DVolume8 *, IID *, void **);
+    HRESULT (*GetDesc)(struct IDirect3DVolume8 *, D3DVOLUME_DESC *);
+    HRESULT (*LockBox)(struct IDirect3DVolume8 *, D3DLOCKED_BOX *, D3DBOX *, DWORD);
+    HRESULT (*UnlockBox)(struct IDirect3DVolume8 *);
+};
+
+struct _D3DCOLORVALUE {
+    float r;
+    float g;
+    float b;
+    float a;
+};
+
+struct _D3DVECTOR {
+    float x;
+    float y;
+    float z;
+};
+
+struct _D3DMATERIAL8 {
+    D3DCOLORVALUE Diffuse;
+    D3DCOLORVALUE Ambient;
+    D3DCOLORVALUE Specular;
+    D3DCOLORVALUE Emissive;
+    float Power;
+};
+
+struct _D3DCAPS8 {
+    D3DDEVTYPE DeviceType;
+    UINT AdapterOrdinal;
+    DWORD Caps;
+    DWORD Caps2;
+    DWORD Caps3;
+    DWORD PresentationIntervals;
+    DWORD CursorCaps;
+    DWORD DevCaps;
+    DWORD PrimitiveMiscCaps;
+    DWORD RasterCaps;
+    DWORD ZCmpCaps;
+    DWORD SrcBlendCaps;
+    DWORD DestBlendCaps;
+    DWORD AlphaCmpCaps;
+    DWORD ShadeCaps;
+    DWORD TextureCaps;
+    DWORD TextureFilterCaps;
+    DWORD CubeTextureFilterCaps;
+    DWORD VolumeTextureFilterCaps;
+    DWORD TextureAddressCaps;
+    DWORD VolumeTextureAddressCaps;
+    DWORD LineCaps;
+    DWORD MaxTextureWidth;
+    DWORD MaxTextureHeight;
+    DWORD MaxVolumeExtent;
+    DWORD MaxTextureRepeat;
+    DWORD MaxTextureAspectRatio;
+    DWORD MaxAnisotropy;
+    float MaxVertexW;
+    float GuardBandLeft;
+    float GuardBandTop;
+    float GuardBandRight;
+    float GuardBandBottom;
+    float ExtentsAdjust;
+    DWORD StencilCaps;
+    DWORD FVFCaps;
+    DWORD TextureOpCaps;
+    DWORD MaxTextureBlendStages;
+    DWORD MaxSimultaneousTextures;
+    DWORD VertexProcessingCaps;
+    DWORD MaxActiveLights;
+    DWORD MaxUserClipPlanes;
+    DWORD MaxVertexBlendMatrices;
+    DWORD MaxVertexBlendMatrixIndex;
+    float MaxPointSize;
+    DWORD MaxPrimitiveCount;
+    DWORD MaxVertexIndex;
+    DWORD MaxStreams;
+    DWORD MaxStreamStride;
+    DWORD VertexShaderVersion;
+    DWORD MaxVertexShaderConst;
+    DWORD PixelShaderVersion;
+    float MaxPixelShaderValue;
+};
+
+struct IDirect3DIndexBuffer8 {
+    struct IDirect3DIndexBuffer8Vtbl *lpVtbl;
+};
+
+struct _D3DLIGHT8 {
+    D3DLIGHTTYPE Type;
+    D3DCOLORVALUE Diffuse;
+    D3DCOLORVALUE Specular;
+    D3DCOLORVALUE Ambient;
+    D3DVECTOR Position;
+    D3DVECTOR Direction;
+    float Range;
+    float Falloff;
+    float Attenuation0;
+    float Attenuation1;
+    float Attenuation2;
+    float Theta;
+    float Phi;
+};
+
+struct _D3DVIEWPORT8 {
+    DWORD X;
+    DWORD Y;
+    DWORD Width;
+    DWORD Height;
+    float MinZ;
+    float MaxZ;
+};
 
 struct Unk3field {
     undefined4 field0_0x0;
@@ -2228,7 +3104,7 @@ struct VeryBigStruct {
     undefined field3_0x1c10d;
     undefined field4_0x1c10e;
     undefined field5_0x1c10f;
-    int **field6_0x1c110[1];
+    struct IDirect3DTexture8 *texture_i_think[1];
     undefined field7_0x1c114;
     undefined field8_0x1c115;
     undefined field9_0x1c116;
@@ -21340,852 +22216,1230 @@ struct VeryBigStruct {
     undefined field19115_0x20d31;
     undefined field19116_0x20d32;
     undefined field19117_0x20d33;
-    struct VeryBigStruct20d34 *field19118_0x20d34[32];
-    undefined field19119_0x20db4;
-    undefined field19120_0x20db5;
-    undefined field19121_0x20db6;
-    undefined field19122_0x20db7;
-    undefined field19123_0x20db8;
-    undefined field19124_0x20db9;
-    undefined field19125_0x20dba;
-    undefined field19126_0x20dbb;
-    undefined field19127_0x20dbc;
-    undefined field19128_0x20dbd;
-    undefined field19129_0x20dbe;
-    undefined field19130_0x20dbf;
-    undefined field19131_0x20dc0;
-    undefined field19132_0x20dc1;
-    undefined field19133_0x20dc2;
-    undefined field19134_0x20dc3;
-    undefined field19135_0x20dc4;
-    undefined field19136_0x20dc5;
-    undefined field19137_0x20dc6;
-    undefined field19138_0x20dc7;
-    undefined field19139_0x20dc8;
-    undefined field19140_0x20dc9;
-    undefined field19141_0x20dca;
-    undefined field19142_0x20dcb;
-    undefined field19143_0x20dcc;
-    undefined field19144_0x20dcd;
-    undefined field19145_0x20dce;
-    undefined field19146_0x20dcf;
-    undefined field19147_0x20dd0;
-    undefined field19148_0x20dd1;
-    undefined field19149_0x20dd2;
-    undefined field19150_0x20dd3;
-    undefined field19151_0x20dd4;
-    undefined field19152_0x20dd5;
-    undefined field19153_0x20dd6;
-    undefined field19154_0x20dd7;
-    undefined field19155_0x20dd8;
-    undefined field19156_0x20dd9;
-    undefined field19157_0x20dda;
-    undefined field19158_0x20ddb;
-    undefined field19159_0x20ddc;
-    undefined field19160_0x20ddd;
-    undefined field19161_0x20dde;
-    undefined field19162_0x20ddf;
-    undefined field19163_0x20de0;
-    undefined field19164_0x20de1;
-    undefined field19165_0x20de2;
-    undefined field19166_0x20de3;
-    undefined field19167_0x20de4;
-    undefined field19168_0x20de5;
-    undefined field19169_0x20de6;
-    undefined field19170_0x20de7;
-    undefined field19171_0x20de8;
-    undefined field19172_0x20de9;
-    undefined field19173_0x20dea;
-    undefined field19174_0x20deb;
-    undefined field19175_0x20dec;
-    undefined field19176_0x20ded;
-    undefined field19177_0x20dee;
-    undefined field19178_0x20def;
-    undefined field19179_0x20df0;
-    undefined field19180_0x20df1;
-    undefined field19181_0x20df2;
-    undefined field19182_0x20df3;
-    undefined field19183_0x20df4;
-    undefined field19184_0x20df5;
-    undefined field19185_0x20df6;
-    undefined field19186_0x20df7;
-    undefined field19187_0x20df8;
-    undefined field19188_0x20df9;
-    undefined field19189_0x20dfa;
-    undefined field19190_0x20dfb;
-    undefined field19191_0x20dfc;
-    undefined field19192_0x20dfd;
-    undefined field19193_0x20dfe;
-    undefined field19194_0x20dff;
-    undefined field19195_0x20e00;
-    undefined field19196_0x20e01;
-    undefined field19197_0x20e02;
-    undefined field19198_0x20e03;
-    undefined field19199_0x20e04;
-    undefined field19200_0x20e05;
-    undefined field19201_0x20e06;
-    undefined field19202_0x20e07;
-    undefined field19203_0x20e08;
-    undefined field19204_0x20e09;
-    undefined field19205_0x20e0a;
-    undefined field19206_0x20e0b;
-    undefined field19207_0x20e0c;
-    undefined field19208_0x20e0d;
-    undefined field19209_0x20e0e;
-    undefined field19210_0x20e0f;
-    undefined field19211_0x20e10;
-    undefined field19212_0x20e11;
-    undefined field19213_0x20e12;
-    undefined field19214_0x20e13;
-    undefined field19215_0x20e14;
-    undefined field19216_0x20e15;
-    undefined field19217_0x20e16;
-    undefined field19218_0x20e17;
-    undefined field19219_0x20e18;
-    undefined field19220_0x20e19;
-    undefined field19221_0x20e1a;
-    undefined field19222_0x20e1b;
-    undefined field19223_0x20e1c;
-    undefined field19224_0x20e1d;
-    undefined field19225_0x20e1e;
-    undefined field19226_0x20e1f;
-    undefined field19227_0x20e20;
-    undefined field19228_0x20e21;
-    undefined field19229_0x20e22;
-    undefined field19230_0x20e23;
-    undefined field19231_0x20e24;
-    undefined field19232_0x20e25;
-    undefined field19233_0x20e26;
-    undefined field19234_0x20e27;
-    undefined field19235_0x20e28;
-    undefined field19236_0x20e29;
-    undefined field19237_0x20e2a;
-    undefined field19238_0x20e2b;
-    undefined field19239_0x20e2c;
-    undefined field19240_0x20e2d;
-    undefined field19241_0x20e2e;
-    undefined field19242_0x20e2f;
-    undefined field19243_0x20e30;
-    undefined field19244_0x20e31;
-    undefined field19245_0x20e32;
-    undefined field19246_0x20e33;
-    struct VeryBigStruct20e34 field19247_0x20e34[1];
-    undefined field19248_0x20e48;
-    undefined field19249_0x20e49;
-    undefined field19250_0x20e4a;
-    undefined field19251_0x20e4b;
-    undefined field19252_0x20e4c;
-    undefined field19253_0x20e4d;
-    undefined field19254_0x20e4e;
-    undefined field19255_0x20e4f;
-    undefined field19256_0x20e50;
-    undefined field19257_0x20e51;
-    undefined field19258_0x20e52;
-    undefined field19259_0x20e53;
-    undefined field19260_0x20e54;
-    undefined field19261_0x20e55;
-    undefined field19262_0x20e56;
-    undefined field19263_0x20e57;
-    undefined field19264_0x20e58;
-    undefined field19265_0x20e59;
-    undefined field19266_0x20e5a;
-    undefined field19267_0x20e5b;
-    undefined field19268_0x20e5c;
-    undefined field19269_0x20e5d;
-    undefined field19270_0x20e5e;
-    undefined field19271_0x20e5f;
-    undefined field19272_0x20e60;
-    undefined field19273_0x20e61;
-    undefined field19274_0x20e62;
-    undefined field19275_0x20e63;
-    undefined field19276_0x20e64;
-    undefined field19277_0x20e65;
-    undefined field19278_0x20e66;
-    undefined field19279_0x20e67;
-    undefined field19280_0x20e68;
-    undefined field19281_0x20e69;
-    undefined field19282_0x20e6a;
-    undefined field19283_0x20e6b;
-    undefined field19284_0x20e6c;
-    undefined field19285_0x20e6d;
-    undefined field19286_0x20e6e;
-    undefined field19287_0x20e6f;
-    undefined field19288_0x20e70;
-    undefined field19289_0x20e71;
-    undefined field19290_0x20e72;
-    undefined field19291_0x20e73;
-    undefined field19292_0x20e74;
-    undefined field19293_0x20e75;
-    undefined field19294_0x20e76;
-    undefined field19295_0x20e77;
-    undefined field19296_0x20e78;
-    undefined field19297_0x20e79;
-    undefined field19298_0x20e7a;
-    undefined field19299_0x20e7b;
-    undefined field19300_0x20e7c;
-    undefined field19301_0x20e7d;
-    undefined field19302_0x20e7e;
-    undefined field19303_0x20e7f;
-    undefined field19304_0x20e80;
-    undefined field19305_0x20e81;
-    undefined field19306_0x20e82;
-    undefined field19307_0x20e83;
-    undefined field19308_0x20e84;
-    undefined field19309_0x20e85;
-    undefined field19310_0x20e86;
-    undefined field19311_0x20e87;
-    undefined field19312_0x20e88;
-    undefined field19313_0x20e89;
-    undefined field19314_0x20e8a;
-    undefined field19315_0x20e8b;
-    undefined field19316_0x20e8c;
-    undefined field19317_0x20e8d;
-    undefined field19318_0x20e8e;
-    undefined field19319_0x20e8f;
-    undefined field19320_0x20e90;
-    undefined field19321_0x20e91;
-    undefined field19322_0x20e92;
-    undefined field19323_0x20e93;
-    undefined field19324_0x20e94;
-    undefined field19325_0x20e95;
-    undefined field19326_0x20e96;
-    undefined field19327_0x20e97;
-    undefined field19328_0x20e98;
-    undefined field19329_0x20e99;
-    undefined field19330_0x20e9a;
-    undefined field19331_0x20e9b;
-    undefined field19332_0x20e9c;
-    undefined field19333_0x20e9d;
-    undefined field19334_0x20e9e;
-    undefined field19335_0x20e9f;
-    undefined field19336_0x20ea0;
-    undefined field19337_0x20ea1;
-    undefined field19338_0x20ea2;
-    undefined field19339_0x20ea3;
-    undefined field19340_0x20ea4;
-    undefined field19341_0x20ea5;
-    undefined field19342_0x20ea6;
-    undefined field19343_0x20ea7;
-    undefined field19344_0x20ea8;
-    undefined field19345_0x20ea9;
-    undefined field19346_0x20eaa;
-    undefined field19347_0x20eab;
-    undefined field19348_0x20eac;
-    undefined field19349_0x20ead;
-    undefined field19350_0x20eae;
-    undefined field19351_0x20eaf;
-    undefined field19352_0x20eb0;
-    undefined field19353_0x20eb1;
-    undefined field19354_0x20eb2;
-    undefined field19355_0x20eb3;
-    undefined field19356_0x20eb4;
-    undefined field19357_0x20eb5;
-    undefined field19358_0x20eb6;
-    undefined field19359_0x20eb7;
-    undefined field19360_0x20eb8;
-    undefined field19361_0x20eb9;
-    undefined field19362_0x20eba;
-    undefined field19363_0x20ebb;
-    undefined field19364_0x20ebc;
-    undefined field19365_0x20ebd;
-    undefined field19366_0x20ebe;
-    undefined field19367_0x20ebf;
-    undefined field19368_0x20ec0;
-    undefined field19369_0x20ec1;
-    undefined field19370_0x20ec2;
-    undefined field19371_0x20ec3;
-    undefined field19372_0x20ec4;
-    undefined field19373_0x20ec5;
-    undefined field19374_0x20ec6;
-    undefined field19375_0x20ec7;
-    undefined field19376_0x20ec8;
-    undefined field19377_0x20ec9;
-    undefined field19378_0x20eca;
-    undefined field19379_0x20ecb;
-    undefined field19380_0x20ecc;
-    undefined field19381_0x20ecd;
-    undefined field19382_0x20ece;
-    undefined field19383_0x20ecf;
-    undefined field19384_0x20ed0;
-    undefined field19385_0x20ed1;
-    undefined field19386_0x20ed2;
-    undefined field19387_0x20ed3;
-    undefined field19388_0x20ed4;
-    undefined field19389_0x20ed5;
-    undefined field19390_0x20ed6;
-    undefined field19391_0x20ed7;
-    undefined field19392_0x20ed8;
-    undefined field19393_0x20ed9;
-    undefined field19394_0x20eda;
-    undefined field19395_0x20edb;
-    undefined field19396_0x20edc;
-    undefined field19397_0x20edd;
-    undefined field19398_0x20ede;
-    undefined field19399_0x20edf;
-    undefined field19400_0x20ee0;
-    undefined field19401_0x20ee1;
-    undefined field19402_0x20ee2;
-    undefined field19403_0x20ee3;
-    undefined field19404_0x20ee4;
-    undefined field19405_0x20ee5;
-    undefined field19406_0x20ee6;
-    undefined field19407_0x20ee7;
-    undefined field19408_0x20ee8;
-    undefined field19409_0x20ee9;
-    undefined field19410_0x20eea;
-    undefined field19411_0x20eeb;
-    undefined field19412_0x20eec;
-    undefined field19413_0x20eed;
-    undefined field19414_0x20eee;
-    undefined field19415_0x20eef;
-    undefined field19416_0x20ef0;
-    undefined field19417_0x20ef1;
-    undefined field19418_0x20ef2;
-    undefined field19419_0x20ef3;
-    undefined field19420_0x20ef4;
-    undefined field19421_0x20ef5;
-    undefined field19422_0x20ef6;
-    undefined field19423_0x20ef7;
-    undefined field19424_0x20ef8;
-    undefined field19425_0x20ef9;
-    undefined field19426_0x20efa;
-    undefined field19427_0x20efb;
-    undefined field19428_0x20efc;
-    undefined field19429_0x20efd;
-    undefined field19430_0x20efe;
-    undefined field19431_0x20eff;
-    undefined field19432_0x20f00;
-    undefined field19433_0x20f01;
-    undefined field19434_0x20f02;
-    undefined field19435_0x20f03;
-    undefined field19436_0x20f04;
-    undefined field19437_0x20f05;
-    undefined field19438_0x20f06;
-    undefined field19439_0x20f07;
-    undefined field19440_0x20f08;
-    undefined field19441_0x20f09;
-    undefined field19442_0x20f0a;
-    undefined field19443_0x20f0b;
-    undefined field19444_0x20f0c;
-    undefined field19445_0x20f0d;
-    undefined field19446_0x20f0e;
-    undefined field19447_0x20f0f;
-    undefined field19448_0x20f10;
-    undefined field19449_0x20f11;
-    undefined field19450_0x20f12;
-    undefined field19451_0x20f13;
-    undefined field19452_0x20f14;
-    undefined field19453_0x20f15;
-    undefined field19454_0x20f16;
-    undefined field19455_0x20f17;
-    undefined field19456_0x20f18;
-    undefined field19457_0x20f19;
-    undefined field19458_0x20f1a;
-    undefined field19459_0x20f1b;
-    undefined field19460_0x20f1c;
-    undefined field19461_0x20f1d;
-    undefined field19462_0x20f1e;
-    undefined field19463_0x20f1f;
-    undefined field19464_0x20f20;
-    undefined field19465_0x20f21;
-    undefined field19466_0x20f22;
-    undefined field19467_0x20f23;
-    undefined field19468_0x20f24;
-    undefined field19469_0x20f25;
-    undefined field19470_0x20f26;
-    undefined field19471_0x20f27;
-    undefined field19472_0x20f28;
-    undefined field19473_0x20f29;
-    undefined field19474_0x20f2a;
-    undefined field19475_0x20f2b;
-    undefined field19476_0x20f2c;
-    undefined field19477_0x20f2d;
-    undefined field19478_0x20f2e;
-    undefined field19479_0x20f2f;
-    undefined field19480_0x20f30;
-    undefined field19481_0x20f31;
-    undefined field19482_0x20f32;
-    undefined field19483_0x20f33;
-    undefined field19484_0x20f34;
-    undefined field19485_0x20f35;
-    undefined field19486_0x20f36;
-    undefined field19487_0x20f37;
-    undefined field19488_0x20f38;
-    undefined field19489_0x20f39;
-    undefined field19490_0x20f3a;
-    undefined field19491_0x20f3b;
-    undefined field19492_0x20f3c;
-    undefined field19493_0x20f3d;
-    undefined field19494_0x20f3e;
-    undefined field19495_0x20f3f;
-    undefined field19496_0x20f40;
-    undefined field19497_0x20f41;
-    undefined field19498_0x20f42;
-    undefined field19499_0x20f43;
-    undefined field19500_0x20f44;
-    undefined field19501_0x20f45;
-    undefined field19502_0x20f46;
-    undefined field19503_0x20f47;
-    undefined field19504_0x20f48;
-    undefined field19505_0x20f49;
-    undefined field19506_0x20f4a;
-    undefined field19507_0x20f4b;
-    undefined field19508_0x20f4c;
-    undefined field19509_0x20f4d;
-    undefined field19510_0x20f4e;
-    undefined field19511_0x20f4f;
-    undefined field19512_0x20f50;
-    undefined field19513_0x20f51;
-    undefined field19514_0x20f52;
-    undefined field19515_0x20f53;
-    undefined field19516_0x20f54;
-    undefined field19517_0x20f55;
-    undefined field19518_0x20f56;
-    undefined field19519_0x20f57;
-    undefined field19520_0x20f58;
-    undefined field19521_0x20f59;
-    undefined field19522_0x20f5a;
-    undefined field19523_0x20f5b;
-    undefined field19524_0x20f5c;
-    undefined field19525_0x20f5d;
-    undefined field19526_0x20f5e;
-    undefined field19527_0x20f5f;
-    undefined field19528_0x20f60;
-    undefined field19529_0x20f61;
-    undefined field19530_0x20f62;
-    undefined field19531_0x20f63;
-    undefined field19532_0x20f64;
-    undefined field19533_0x20f65;
-    undefined field19534_0x20f66;
-    undefined field19535_0x20f67;
-    undefined field19536_0x20f68;
-    undefined field19537_0x20f69;
-    undefined field19538_0x20f6a;
-    undefined field19539_0x20f6b;
-    undefined field19540_0x20f6c;
-    undefined field19541_0x20f6d;
-    undefined field19542_0x20f6e;
-    undefined field19543_0x20f6f;
-    undefined field19544_0x20f70;
-    undefined field19545_0x20f71;
-    undefined field19546_0x20f72;
-    undefined field19547_0x20f73;
-    undefined field19548_0x20f74;
-    undefined field19549_0x20f75;
-    undefined field19550_0x20f76;
-    undefined field19551_0x20f77;
-    undefined field19552_0x20f78;
-    undefined field19553_0x20f79;
-    undefined field19554_0x20f7a;
-    undefined field19555_0x20f7b;
-    undefined field19556_0x20f7c;
-    undefined field19557_0x20f7d;
-    undefined field19558_0x20f7e;
-    undefined field19559_0x20f7f;
-    undefined field19560_0x20f80;
-    undefined field19561_0x20f81;
-    undefined field19562_0x20f82;
-    undefined field19563_0x20f83;
-    undefined field19564_0x20f84;
-    undefined field19565_0x20f85;
-    undefined field19566_0x20f86;
-    undefined field19567_0x20f87;
-    undefined field19568_0x20f88;
-    undefined field19569_0x20f89;
-    undefined field19570_0x20f8a;
-    undefined field19571_0x20f8b;
-    undefined field19572_0x20f8c;
-    undefined field19573_0x20f8d;
-    undefined field19574_0x20f8e;
-    undefined field19575_0x20f8f;
-    undefined field19576_0x20f90;
-    undefined field19577_0x20f91;
-    undefined field19578_0x20f92;
-    undefined field19579_0x20f93;
-    undefined field19580_0x20f94;
-    undefined field19581_0x20f95;
-    undefined field19582_0x20f96;
-    undefined field19583_0x20f97;
-    undefined field19584_0x20f98;
-    undefined field19585_0x20f99;
-    undefined field19586_0x20f9a;
-    undefined field19587_0x20f9b;
-    undefined field19588_0x20f9c;
-    undefined field19589_0x20f9d;
-    undefined field19590_0x20f9e;
-    undefined field19591_0x20f9f;
-    undefined field19592_0x20fa0;
-    undefined field19593_0x20fa1;
-    undefined field19594_0x20fa2;
-    undefined field19595_0x20fa3;
-    undefined field19596_0x20fa4;
-    undefined field19597_0x20fa5;
-    undefined field19598_0x20fa6;
-    undefined field19599_0x20fa7;
-    undefined field19600_0x20fa8;
-    undefined field19601_0x20fa9;
-    undefined field19602_0x20faa;
-    undefined field19603_0x20fab;
-    undefined field19604_0x20fac;
-    undefined field19605_0x20fad;
-    undefined field19606_0x20fae;
-    undefined field19607_0x20faf;
-    undefined field19608_0x20fb0;
-    undefined field19609_0x20fb1;
-    undefined field19610_0x20fb2;
-    undefined field19611_0x20fb3;
-    undefined field19612_0x20fb4;
-    undefined field19613_0x20fb5;
-    undefined field19614_0x20fb6;
-    undefined field19615_0x20fb7;
-    undefined field19616_0x20fb8;
-    undefined field19617_0x20fb9;
-    undefined field19618_0x20fba;
-    undefined field19619_0x20fbb;
-    undefined field19620_0x20fbc;
-    undefined field19621_0x20fbd;
-    undefined field19622_0x20fbe;
-    undefined field19623_0x20fbf;
-    undefined field19624_0x20fc0;
-    undefined field19625_0x20fc1;
-    undefined field19626_0x20fc2;
-    undefined field19627_0x20fc3;
-    undefined field19628_0x20fc4;
-    undefined field19629_0x20fc5;
-    undefined field19630_0x20fc6;
-    undefined field19631_0x20fc7;
-    undefined field19632_0x20fc8;
-    undefined field19633_0x20fc9;
-    undefined field19634_0x20fca;
-    undefined field19635_0x20fcb;
-    undefined field19636_0x20fcc;
-    undefined field19637_0x20fcd;
-    undefined field19638_0x20fce;
-    undefined field19639_0x20fcf;
-    undefined field19640_0x20fd0;
-    undefined field19641_0x20fd1;
-    undefined field19642_0x20fd2;
-    undefined field19643_0x20fd3;
-    undefined field19644_0x20fd4;
-    undefined field19645_0x20fd5;
-    undefined field19646_0x20fd6;
-    undefined field19647_0x20fd7;
-    undefined field19648_0x20fd8;
-    undefined field19649_0x20fd9;
-    undefined field19650_0x20fda;
-    undefined field19651_0x20fdb;
-    undefined field19652_0x20fdc;
-    undefined field19653_0x20fdd;
-    undefined field19654_0x20fde;
-    undefined field19655_0x20fdf;
-    undefined field19656_0x20fe0;
-    undefined field19657_0x20fe1;
-    undefined field19658_0x20fe2;
-    undefined field19659_0x20fe3;
-    undefined field19660_0x20fe4;
-    undefined field19661_0x20fe5;
-    undefined field19662_0x20fe6;
-    undefined field19663_0x20fe7;
-    undefined field19664_0x20fe8;
-    undefined field19665_0x20fe9;
-    undefined field19666_0x20fea;
-    undefined field19667_0x20feb;
-    undefined field19668_0x20fec;
-    undefined field19669_0x20fed;
-    undefined field19670_0x20fee;
-    undefined field19671_0x20fef;
-    undefined field19672_0x20ff0;
-    undefined field19673_0x20ff1;
-    undefined field19674_0x20ff2;
-    undefined field19675_0x20ff3;
-    undefined field19676_0x20ff4;
-    undefined field19677_0x20ff5;
-    undefined field19678_0x20ff6;
-    undefined field19679_0x20ff7;
-    undefined field19680_0x20ff8;
-    undefined field19681_0x20ff9;
-    undefined field19682_0x20ffa;
-    undefined field19683_0x20ffb;
-    undefined field19684_0x20ffc;
-    undefined field19685_0x20ffd;
-    undefined field19686_0x20ffe;
-    undefined field19687_0x20fff;
-    undefined field19688_0x21000;
-    undefined field19689_0x21001;
-    undefined field19690_0x21002;
-    undefined field19691_0x21003;
-    undefined field19692_0x21004;
-    undefined field19693_0x21005;
-    undefined field19694_0x21006;
-    undefined field19695_0x21007;
-    undefined field19696_0x21008;
-    undefined field19697_0x21009;
-    undefined field19698_0x2100a;
-    undefined field19699_0x2100b;
-    undefined field19700_0x2100c;
-    undefined field19701_0x2100d;
-    undefined field19702_0x2100e;
-    undefined field19703_0x2100f;
-    undefined field19704_0x21010;
-    undefined field19705_0x21011;
-    undefined field19706_0x21012;
-    undefined field19707_0x21013;
-    undefined field19708_0x21014;
-    undefined field19709_0x21015;
-    undefined field19710_0x21016;
-    undefined field19711_0x21017;
-    undefined field19712_0x21018;
-    undefined field19713_0x21019;
-    undefined field19714_0x2101a;
-    undefined field19715_0x2101b;
-    undefined field19716_0x2101c;
-    undefined field19717_0x2101d;
-    undefined field19718_0x2101e;
-    undefined field19719_0x2101f;
-    undefined field19720_0x21020;
-    undefined field19721_0x21021;
-    undefined field19722_0x21022;
-    undefined field19723_0x21023;
-    undefined field19724_0x21024;
-    undefined field19725_0x21025;
-    undefined field19726_0x21026;
-    undefined field19727_0x21027;
-    undefined field19728_0x21028;
-    undefined field19729_0x21029;
-    undefined field19730_0x2102a;
-    undefined field19731_0x2102b;
-    undefined field19732_0x2102c;
-    undefined field19733_0x2102d;
-    undefined field19734_0x2102e;
-    undefined field19735_0x2102f;
-    undefined field19736_0x21030;
-    undefined field19737_0x21031;
-    undefined field19738_0x21032;
-    undefined field19739_0x21033;
-    undefined field19740_0x21034;
-    undefined field19741_0x21035;
-    undefined field19742_0x21036;
-    undefined field19743_0x21037;
-    undefined field19744_0x21038;
-    undefined field19745_0x21039;
-    undefined field19746_0x2103a;
-    undefined field19747_0x2103b;
-    undefined field19748_0x2103c;
-    undefined field19749_0x2103d;
-    undefined field19750_0x2103e;
-    undefined field19751_0x2103f;
-    undefined field19752_0x21040;
-    undefined field19753_0x21041;
-    undefined field19754_0x21042;
-    undefined field19755_0x21043;
-    undefined field19756_0x21044;
-    undefined field19757_0x21045;
-    undefined field19758_0x21046;
-    undefined field19759_0x21047;
-    undefined field19760_0x21048;
-    undefined field19761_0x21049;
-    undefined field19762_0x2104a;
-    undefined field19763_0x2104b;
-    undefined field19764_0x2104c;
-    undefined field19765_0x2104d;
-    undefined field19766_0x2104e;
-    undefined field19767_0x2104f;
-    undefined field19768_0x21050;
-    undefined field19769_0x21051;
-    undefined field19770_0x21052;
-    undefined field19771_0x21053;
-    undefined field19772_0x21054;
-    undefined field19773_0x21055;
-    undefined field19774_0x21056;
-    undefined field19775_0x21057;
-    undefined field19776_0x21058;
-    undefined field19777_0x21059;
-    undefined field19778_0x2105a;
-    undefined field19779_0x2105b;
-    undefined field19780_0x2105c;
-    undefined field19781_0x2105d;
-    undefined field19782_0x2105e;
-    undefined field19783_0x2105f;
-    undefined field19784_0x21060;
-    undefined field19785_0x21061;
-    undefined field19786_0x21062;
-    undefined field19787_0x21063;
-    undefined field19788_0x21064;
-    undefined field19789_0x21065;
-    undefined field19790_0x21066;
-    undefined field19791_0x21067;
-    undefined field19792_0x21068;
-    undefined field19793_0x21069;
-    undefined field19794_0x2106a;
-    undefined field19795_0x2106b;
-    undefined field19796_0x2106c;
-    undefined field19797_0x2106d;
-    undefined field19798_0x2106e;
-    undefined field19799_0x2106f;
-    undefined field19800_0x21070;
-    undefined field19801_0x21071;
-    undefined field19802_0x21072;
-    undefined field19803_0x21073;
-    undefined field19804_0x21074;
-    undefined field19805_0x21075;
-    undefined field19806_0x21076;
-    undefined field19807_0x21077;
-    undefined field19808_0x21078;
-    undefined field19809_0x21079;
-    undefined field19810_0x2107a;
-    undefined field19811_0x2107b;
-    undefined field19812_0x2107c;
-    undefined field19813_0x2107d;
-    undefined field19814_0x2107e;
-    undefined field19815_0x2107f;
-    undefined field19816_0x21080;
-    undefined field19817_0x21081;
-    undefined field19818_0x21082;
-    undefined field19819_0x21083;
-    undefined field19820_0x21084;
-    undefined field19821_0x21085;
-    undefined field19822_0x21086;
-    undefined field19823_0x21087;
-    undefined field19824_0x21088;
-    undefined field19825_0x21089;
-    undefined field19826_0x2108a;
-    undefined field19827_0x2108b;
-    undefined field19828_0x2108c;
-    undefined field19829_0x2108d;
-    undefined field19830_0x2108e;
-    undefined field19831_0x2108f;
-    undefined field19832_0x21090;
-    undefined field19833_0x21091;
-    undefined field19834_0x21092;
-    undefined field19835_0x21093;
-    undefined field19836_0x21094;
-    undefined field19837_0x21095;
-    undefined field19838_0x21096;
-    undefined field19839_0x21097;
-    undefined field19840_0x21098;
-    undefined field19841_0x21099;
-    undefined field19842_0x2109a;
-    undefined field19843_0x2109b;
-    undefined field19844_0x2109c;
-    undefined field19845_0x2109d;
-    undefined field19846_0x2109e;
-    undefined field19847_0x2109f;
-    undefined field19848_0x210a0;
-    undefined field19849_0x210a1;
-    undefined field19850_0x210a2;
-    undefined field19851_0x210a3;
-    undefined field19852_0x210a4;
-    undefined field19853_0x210a5;
-    undefined field19854_0x210a6;
-    undefined field19855_0x210a7;
-    undefined field19856_0x210a8;
-    undefined field19857_0x210a9;
-    undefined field19858_0x210aa;
-    undefined field19859_0x210ab;
-    undefined field19860_0x210ac;
-    undefined field19861_0x210ad;
-    undefined field19862_0x210ae;
-    undefined field19863_0x210af;
-    undefined field19864_0x210b0;
-    undefined field19865_0x210b1;
-    undefined field19866_0x210b2;
-    undefined field19867_0x210b3;
-    int field19868_0x210b4;
-    int field19869_0x210b8;
-    undefined field19870_0x210bc;
-    undefined field19871_0x210bd;
-    undefined field19872_0x210be;
-    undefined field19873_0x210bf;
-    undefined field19874_0x210c0;
-    undefined field19875_0x210c1;
-    undefined field19876_0x210c2;
-    undefined field19877_0x210c3;
-    int field19878_0x210c4;
-    undefined field19879_0x210c8;
-    undefined field19880_0x210c9;
-    undefined field19881_0x210ca;
-    undefined field19882_0x210cb;
-    undefined field19883_0x210cc;
-    undefined field19884_0x210cd;
-    undefined field19885_0x210ce;
-    undefined field19886_0x210cf;
-    undefined field19887_0x210d0;
-    undefined field19888_0x210d1;
-    undefined field19889_0x210d2;
-    undefined field19890_0x210d3;
-    undefined field19891_0x210d4;
-    undefined field19892_0x210d5;
-    undefined field19893_0x210d6;
-    undefined field19894_0x210d7;
-    undefined field19895_0x210d8;
-    undefined field19896_0x210d9;
-    undefined field19897_0x210da;
-    undefined field19898_0x210db;
-    undefined field19899_0x210dc;
-    undefined field19900_0x210dd;
-    undefined field19901_0x210de;
-    undefined field19902_0x210df;
-    undefined field19903_0x210e0;
-    undefined field19904_0x210e1;
-    undefined field19905_0x210e2;
-    undefined field19906_0x210e3;
-    undefined field19907_0x210e4;
-    undefined field19908_0x210e5;
-    undefined field19909_0x210e6;
-    undefined field19910_0x210e7;
-    undefined field19911_0x210e8;
-    undefined field19912_0x210e9;
-    undefined field19913_0x210ea;
-    undefined field19914_0x210eb;
-    undefined field19915_0x210ec;
-    undefined field19916_0x210ed;
-    undefined field19917_0x210ee;
-    undefined field19918_0x210ef;
-    undefined field19919_0x210f0;
-    undefined field19920_0x210f1;
-    undefined field19921_0x210f2;
-    undefined field19922_0x210f3;
-    undefined field19923_0x210f4;
-    undefined field19924_0x210f5;
-    undefined field19925_0x210f6;
-    undefined field19926_0x210f7;
-    undefined field19927_0x210f8;
-    undefined field19928_0x210f9;
-    undefined field19929_0x210fa;
-    undefined field19930_0x210fb;
-    undefined field19931_0x210fc;
-    undefined field19932_0x210fd;
-    undefined field19933_0x210fe;
-    undefined field19934_0x210ff;
-    undefined field19935_0x21100;
-    undefined field19936_0x21101;
-    undefined field19937_0x21102;
-    undefined field19938_0x21103;
-    undefined field19939_0x21104;
-    undefined field19940_0x21105;
-    undefined field19941_0x21106;
-    undefined field19942_0x21107;
-    undefined field19943_0x21108;
-    undefined field19944_0x21109;
-    undefined field19945_0x2110a;
-    undefined field19946_0x2110b;
-    undefined field19947_0x2110c;
-    undefined field19948_0x2110d;
-    undefined field19949_0x2110e;
-    undefined field19950_0x2110f;
-    undefined field19951_0x21110;
-    undefined field19952_0x21111;
-    undefined field19953_0x21112;
-    undefined field19954_0x21113;
-    undefined field19955_0x21114;
-    undefined field19956_0x21115;
-    undefined field19957_0x21116;
-    undefined field19958_0x21117;
-    int field19959_0x21118;
-    int field19960_0x2111c;
-    int field19961_0x21120;
-    int field19962_0x21124;
-    int field19963_0x21128;
+    struct IDirect3DSurface8 *surfaces[2];
+    undefined field19119_0x20d3c;
+    undefined field19120_0x20d3d;
+    undefined field19121_0x20d3e;
+    undefined field19122_0x20d3f;
+    undefined field19123_0x20d40;
+    undefined field19124_0x20d41;
+    undefined field19125_0x20d42;
+    undefined field19126_0x20d43;
+    undefined field19127_0x20d44;
+    undefined field19128_0x20d45;
+    undefined field19129_0x20d46;
+    undefined field19130_0x20d47;
+    undefined field19131_0x20d48;
+    undefined field19132_0x20d49;
+    undefined field19133_0x20d4a;
+    undefined field19134_0x20d4b;
+    undefined field19135_0x20d4c;
+    undefined field19136_0x20d4d;
+    undefined field19137_0x20d4e;
+    undefined field19138_0x20d4f;
+    undefined field19139_0x20d50;
+    undefined field19140_0x20d51;
+    undefined field19141_0x20d52;
+    undefined field19142_0x20d53;
+    undefined field19143_0x20d54;
+    undefined field19144_0x20d55;
+    undefined field19145_0x20d56;
+    undefined field19146_0x20d57;
+    undefined field19147_0x20d58;
+    undefined field19148_0x20d59;
+    undefined field19149_0x20d5a;
+    undefined field19150_0x20d5b;
+    undefined field19151_0x20d5c;
+    undefined field19152_0x20d5d;
+    undefined field19153_0x20d5e;
+    undefined field19154_0x20d5f;
+    undefined field19155_0x20d60;
+    undefined field19156_0x20d61;
+    undefined field19157_0x20d62;
+    undefined field19158_0x20d63;
+    undefined field19159_0x20d64;
+    undefined field19160_0x20d65;
+    undefined field19161_0x20d66;
+    undefined field19162_0x20d67;
+    undefined field19163_0x20d68;
+    undefined field19164_0x20d69;
+    undefined field19165_0x20d6a;
+    undefined field19166_0x20d6b;
+    undefined field19167_0x20d6c;
+    undefined field19168_0x20d6d;
+    undefined field19169_0x20d6e;
+    undefined field19170_0x20d6f;
+    undefined field19171_0x20d70;
+    undefined field19172_0x20d71;
+    undefined field19173_0x20d72;
+    undefined field19174_0x20d73;
+    undefined field19175_0x20d74;
+    undefined field19176_0x20d75;
+    undefined field19177_0x20d76;
+    undefined field19178_0x20d77;
+    undefined field19179_0x20d78;
+    undefined field19180_0x20d79;
+    undefined field19181_0x20d7a;
+    undefined field19182_0x20d7b;
+    undefined field19183_0x20d7c;
+    undefined field19184_0x20d7d;
+    undefined field19185_0x20d7e;
+    undefined field19186_0x20d7f;
+    undefined field19187_0x20d80;
+    undefined field19188_0x20d81;
+    undefined field19189_0x20d82;
+    undefined field19190_0x20d83;
+    undefined field19191_0x20d84;
+    undefined field19192_0x20d85;
+    undefined field19193_0x20d86;
+    undefined field19194_0x20d87;
+    undefined field19195_0x20d88;
+    undefined field19196_0x20d89;
+    undefined field19197_0x20d8a;
+    undefined field19198_0x20d8b;
+    undefined field19199_0x20d8c;
+    undefined field19200_0x20d8d;
+    undefined field19201_0x20d8e;
+    undefined field19202_0x20d8f;
+    undefined field19203_0x20d90;
+    undefined field19204_0x20d91;
+    undefined field19205_0x20d92;
+    undefined field19206_0x20d93;
+    undefined field19207_0x20d94;
+    undefined field19208_0x20d95;
+    undefined field19209_0x20d96;
+    undefined field19210_0x20d97;
+    undefined field19211_0x20d98;
+    undefined field19212_0x20d99;
+    undefined field19213_0x20d9a;
+    undefined field19214_0x20d9b;
+    undefined field19215_0x20d9c;
+    undefined field19216_0x20d9d;
+    undefined field19217_0x20d9e;
+    undefined field19218_0x20d9f;
+    undefined field19219_0x20da0;
+    undefined field19220_0x20da1;
+    undefined field19221_0x20da2;
+    undefined field19222_0x20da3;
+    undefined field19223_0x20da4;
+    undefined field19224_0x20da5;
+    undefined field19225_0x20da6;
+    undefined field19226_0x20da7;
+    undefined field19227_0x20da8;
+    undefined field19228_0x20da9;
+    undefined field19229_0x20daa;
+    undefined field19230_0x20dab;
+    undefined field19231_0x20dac;
+    undefined field19232_0x20dad;
+    undefined field19233_0x20dae;
+    undefined field19234_0x20daf;
+    undefined field19235_0x20db0;
+    undefined field19236_0x20db1;
+    undefined field19237_0x20db2;
+    undefined field19238_0x20db3;
+    undefined field19239_0x20db4;
+    undefined field19240_0x20db5;
+    undefined field19241_0x20db6;
+    undefined field19242_0x20db7;
+    undefined field19243_0x20db8;
+    undefined field19244_0x20db9;
+    undefined field19245_0x20dba;
+    undefined field19246_0x20dbb;
+    undefined field19247_0x20dbc;
+    undefined field19248_0x20dbd;
+    undefined field19249_0x20dbe;
+    undefined field19250_0x20dbf;
+    undefined field19251_0x20dc0;
+    undefined field19252_0x20dc1;
+    undefined field19253_0x20dc2;
+    undefined field19254_0x20dc3;
+    undefined field19255_0x20dc4;
+    undefined field19256_0x20dc5;
+    undefined field19257_0x20dc6;
+    undefined field19258_0x20dc7;
+    undefined field19259_0x20dc8;
+    undefined field19260_0x20dc9;
+    undefined field19261_0x20dca;
+    undefined field19262_0x20dcb;
+    undefined field19263_0x20dcc;
+    undefined field19264_0x20dcd;
+    undefined field19265_0x20dce;
+    undefined field19266_0x20dcf;
+    undefined field19267_0x20dd0;
+    undefined field19268_0x20dd1;
+    undefined field19269_0x20dd2;
+    undefined field19270_0x20dd3;
+    undefined field19271_0x20dd4;
+    undefined field19272_0x20dd5;
+    undefined field19273_0x20dd6;
+    undefined field19274_0x20dd7;
+    undefined field19275_0x20dd8;
+    undefined field19276_0x20dd9;
+    undefined field19277_0x20dda;
+    undefined field19278_0x20ddb;
+    undefined field19279_0x20ddc;
+    undefined field19280_0x20ddd;
+    undefined field19281_0x20dde;
+    undefined field19282_0x20ddf;
+    undefined field19283_0x20de0;
+    undefined field19284_0x20de1;
+    undefined field19285_0x20de2;
+    undefined field19286_0x20de3;
+    undefined field19287_0x20de4;
+    undefined field19288_0x20de5;
+    undefined field19289_0x20de6;
+    undefined field19290_0x20de7;
+    undefined field19291_0x20de8;
+    undefined field19292_0x20de9;
+    undefined field19293_0x20dea;
+    undefined field19294_0x20deb;
+    undefined field19295_0x20dec;
+    undefined field19296_0x20ded;
+    undefined field19297_0x20dee;
+    undefined field19298_0x20def;
+    undefined field19299_0x20df0;
+    undefined field19300_0x20df1;
+    undefined field19301_0x20df2;
+    undefined field19302_0x20df3;
+    undefined field19303_0x20df4;
+    undefined field19304_0x20df5;
+    undefined field19305_0x20df6;
+    undefined field19306_0x20df7;
+    undefined field19307_0x20df8;
+    undefined field19308_0x20df9;
+    undefined field19309_0x20dfa;
+    undefined field19310_0x20dfb;
+    undefined field19311_0x20dfc;
+    undefined field19312_0x20dfd;
+    undefined field19313_0x20dfe;
+    undefined field19314_0x20dff;
+    undefined field19315_0x20e00;
+    undefined field19316_0x20e01;
+    undefined field19317_0x20e02;
+    undefined field19318_0x20e03;
+    undefined field19319_0x20e04;
+    undefined field19320_0x20e05;
+    undefined field19321_0x20e06;
+    undefined field19322_0x20e07;
+    undefined field19323_0x20e08;
+    undefined field19324_0x20e09;
+    undefined field19325_0x20e0a;
+    undefined field19326_0x20e0b;
+    undefined field19327_0x20e0c;
+    undefined field19328_0x20e0d;
+    undefined field19329_0x20e0e;
+    undefined field19330_0x20e0f;
+    undefined field19331_0x20e10;
+    undefined field19332_0x20e11;
+    undefined field19333_0x20e12;
+    undefined field19334_0x20e13;
+    undefined field19335_0x20e14;
+    undefined field19336_0x20e15;
+    undefined field19337_0x20e16;
+    undefined field19338_0x20e17;
+    undefined field19339_0x20e18;
+    undefined field19340_0x20e19;
+    undefined field19341_0x20e1a;
+    undefined field19342_0x20e1b;
+    undefined field19343_0x20e1c;
+    undefined field19344_0x20e1d;
+    undefined field19345_0x20e1e;
+    undefined field19346_0x20e1f;
+    undefined field19347_0x20e20;
+    undefined field19348_0x20e21;
+    undefined field19349_0x20e22;
+    undefined field19350_0x20e23;
+    undefined field19351_0x20e24;
+    undefined field19352_0x20e25;
+    undefined field19353_0x20e26;
+    undefined field19354_0x20e27;
+    undefined field19355_0x20e28;
+    undefined field19356_0x20e29;
+    undefined field19357_0x20e2a;
+    undefined field19358_0x20e2b;
+    undefined field19359_0x20e2c;
+    undefined field19360_0x20e2d;
+    undefined field19361_0x20e2e;
+    undefined field19362_0x20e2f;
+    undefined field19363_0x20e30;
+    undefined field19364_0x20e31;
+    undefined field19365_0x20e32;
+    undefined field19366_0x20e33;
+    struct VeryBigStruct20e34 field19367_0x20e34[1];
+    undefined field19368_0x20e48;
+    undefined field19369_0x20e49;
+    undefined field19370_0x20e4a;
+    undefined field19371_0x20e4b;
+    undefined field19372_0x20e4c;
+    undefined field19373_0x20e4d;
+    undefined field19374_0x20e4e;
+    undefined field19375_0x20e4f;
+    undefined field19376_0x20e50;
+    undefined field19377_0x20e51;
+    undefined field19378_0x20e52;
+    undefined field19379_0x20e53;
+    undefined field19380_0x20e54;
+    undefined field19381_0x20e55;
+    undefined field19382_0x20e56;
+    undefined field19383_0x20e57;
+    undefined field19384_0x20e58;
+    undefined field19385_0x20e59;
+    undefined field19386_0x20e5a;
+    undefined field19387_0x20e5b;
+    undefined field19388_0x20e5c;
+    undefined field19389_0x20e5d;
+    undefined field19390_0x20e5e;
+    undefined field19391_0x20e5f;
+    undefined field19392_0x20e60;
+    undefined field19393_0x20e61;
+    undefined field19394_0x20e62;
+    undefined field19395_0x20e63;
+    undefined field19396_0x20e64;
+    undefined field19397_0x20e65;
+    undefined field19398_0x20e66;
+    undefined field19399_0x20e67;
+    undefined field19400_0x20e68;
+    undefined field19401_0x20e69;
+    undefined field19402_0x20e6a;
+    undefined field19403_0x20e6b;
+    undefined field19404_0x20e6c;
+    undefined field19405_0x20e6d;
+    undefined field19406_0x20e6e;
+    undefined field19407_0x20e6f;
+    undefined field19408_0x20e70;
+    undefined field19409_0x20e71;
+    undefined field19410_0x20e72;
+    undefined field19411_0x20e73;
+    undefined field19412_0x20e74;
+    undefined field19413_0x20e75;
+    undefined field19414_0x20e76;
+    undefined field19415_0x20e77;
+    undefined field19416_0x20e78;
+    undefined field19417_0x20e79;
+    undefined field19418_0x20e7a;
+    undefined field19419_0x20e7b;
+    undefined field19420_0x20e7c;
+    undefined field19421_0x20e7d;
+    undefined field19422_0x20e7e;
+    undefined field19423_0x20e7f;
+    undefined field19424_0x20e80;
+    undefined field19425_0x20e81;
+    undefined field19426_0x20e82;
+    undefined field19427_0x20e83;
+    undefined field19428_0x20e84;
+    undefined field19429_0x20e85;
+    undefined field19430_0x20e86;
+    undefined field19431_0x20e87;
+    undefined field19432_0x20e88;
+    undefined field19433_0x20e89;
+    undefined field19434_0x20e8a;
+    undefined field19435_0x20e8b;
+    undefined field19436_0x20e8c;
+    undefined field19437_0x20e8d;
+    undefined field19438_0x20e8e;
+    undefined field19439_0x20e8f;
+    undefined field19440_0x20e90;
+    undefined field19441_0x20e91;
+    undefined field19442_0x20e92;
+    undefined field19443_0x20e93;
+    undefined field19444_0x20e94;
+    undefined field19445_0x20e95;
+    undefined field19446_0x20e96;
+    undefined field19447_0x20e97;
+    undefined field19448_0x20e98;
+    undefined field19449_0x20e99;
+    undefined field19450_0x20e9a;
+    undefined field19451_0x20e9b;
+    undefined field19452_0x20e9c;
+    undefined field19453_0x20e9d;
+    undefined field19454_0x20e9e;
+    undefined field19455_0x20e9f;
+    undefined field19456_0x20ea0;
+    undefined field19457_0x20ea1;
+    undefined field19458_0x20ea2;
+    undefined field19459_0x20ea3;
+    undefined field19460_0x20ea4;
+    undefined field19461_0x20ea5;
+    undefined field19462_0x20ea6;
+    undefined field19463_0x20ea7;
+    undefined field19464_0x20ea8;
+    undefined field19465_0x20ea9;
+    undefined field19466_0x20eaa;
+    undefined field19467_0x20eab;
+    undefined field19468_0x20eac;
+    undefined field19469_0x20ead;
+    undefined field19470_0x20eae;
+    undefined field19471_0x20eaf;
+    undefined field19472_0x20eb0;
+    undefined field19473_0x20eb1;
+    undefined field19474_0x20eb2;
+    undefined field19475_0x20eb3;
+    undefined field19476_0x20eb4;
+    undefined field19477_0x20eb5;
+    undefined field19478_0x20eb6;
+    undefined field19479_0x20eb7;
+    undefined field19480_0x20eb8;
+    undefined field19481_0x20eb9;
+    undefined field19482_0x20eba;
+    undefined field19483_0x20ebb;
+    undefined field19484_0x20ebc;
+    undefined field19485_0x20ebd;
+    undefined field19486_0x20ebe;
+    undefined field19487_0x20ebf;
+    undefined field19488_0x20ec0;
+    undefined field19489_0x20ec1;
+    undefined field19490_0x20ec2;
+    undefined field19491_0x20ec3;
+    undefined field19492_0x20ec4;
+    undefined field19493_0x20ec5;
+    undefined field19494_0x20ec6;
+    undefined field19495_0x20ec7;
+    undefined field19496_0x20ec8;
+    undefined field19497_0x20ec9;
+    undefined field19498_0x20eca;
+    undefined field19499_0x20ecb;
+    undefined field19500_0x20ecc;
+    undefined field19501_0x20ecd;
+    undefined field19502_0x20ece;
+    undefined field19503_0x20ecf;
+    undefined field19504_0x20ed0;
+    undefined field19505_0x20ed1;
+    undefined field19506_0x20ed2;
+    undefined field19507_0x20ed3;
+    undefined field19508_0x20ed4;
+    undefined field19509_0x20ed5;
+    undefined field19510_0x20ed6;
+    undefined field19511_0x20ed7;
+    undefined field19512_0x20ed8;
+    undefined field19513_0x20ed9;
+    undefined field19514_0x20eda;
+    undefined field19515_0x20edb;
+    undefined field19516_0x20edc;
+    undefined field19517_0x20edd;
+    undefined field19518_0x20ede;
+    undefined field19519_0x20edf;
+    undefined field19520_0x20ee0;
+    undefined field19521_0x20ee1;
+    undefined field19522_0x20ee2;
+    undefined field19523_0x20ee3;
+    undefined field19524_0x20ee4;
+    undefined field19525_0x20ee5;
+    undefined field19526_0x20ee6;
+    undefined field19527_0x20ee7;
+    undefined field19528_0x20ee8;
+    undefined field19529_0x20ee9;
+    undefined field19530_0x20eea;
+    undefined field19531_0x20eeb;
+    undefined field19532_0x20eec;
+    undefined field19533_0x20eed;
+    undefined field19534_0x20eee;
+    undefined field19535_0x20eef;
+    undefined field19536_0x20ef0;
+    undefined field19537_0x20ef1;
+    undefined field19538_0x20ef2;
+    undefined field19539_0x20ef3;
+    undefined field19540_0x20ef4;
+    undefined field19541_0x20ef5;
+    undefined field19542_0x20ef6;
+    undefined field19543_0x20ef7;
+    undefined field19544_0x20ef8;
+    undefined field19545_0x20ef9;
+    undefined field19546_0x20efa;
+    undefined field19547_0x20efb;
+    undefined field19548_0x20efc;
+    undefined field19549_0x20efd;
+    undefined field19550_0x20efe;
+    undefined field19551_0x20eff;
+    undefined field19552_0x20f00;
+    undefined field19553_0x20f01;
+    undefined field19554_0x20f02;
+    undefined field19555_0x20f03;
+    undefined field19556_0x20f04;
+    undefined field19557_0x20f05;
+    undefined field19558_0x20f06;
+    undefined field19559_0x20f07;
+    undefined field19560_0x20f08;
+    undefined field19561_0x20f09;
+    undefined field19562_0x20f0a;
+    undefined field19563_0x20f0b;
+    undefined field19564_0x20f0c;
+    undefined field19565_0x20f0d;
+    undefined field19566_0x20f0e;
+    undefined field19567_0x20f0f;
+    undefined field19568_0x20f10;
+    undefined field19569_0x20f11;
+    undefined field19570_0x20f12;
+    undefined field19571_0x20f13;
+    undefined field19572_0x20f14;
+    undefined field19573_0x20f15;
+    undefined field19574_0x20f16;
+    undefined field19575_0x20f17;
+    undefined field19576_0x20f18;
+    undefined field19577_0x20f19;
+    undefined field19578_0x20f1a;
+    undefined field19579_0x20f1b;
+    undefined field19580_0x20f1c;
+    undefined field19581_0x20f1d;
+    undefined field19582_0x20f1e;
+    undefined field19583_0x20f1f;
+    undefined field19584_0x20f20;
+    undefined field19585_0x20f21;
+    undefined field19586_0x20f22;
+    undefined field19587_0x20f23;
+    undefined field19588_0x20f24;
+    undefined field19589_0x20f25;
+    undefined field19590_0x20f26;
+    undefined field19591_0x20f27;
+    undefined field19592_0x20f28;
+    undefined field19593_0x20f29;
+    undefined field19594_0x20f2a;
+    undefined field19595_0x20f2b;
+    undefined field19596_0x20f2c;
+    undefined field19597_0x20f2d;
+    undefined field19598_0x20f2e;
+    undefined field19599_0x20f2f;
+    undefined field19600_0x20f30;
+    undefined field19601_0x20f31;
+    undefined field19602_0x20f32;
+    undefined field19603_0x20f33;
+    undefined field19604_0x20f34;
+    undefined field19605_0x20f35;
+    undefined field19606_0x20f36;
+    undefined field19607_0x20f37;
+    undefined field19608_0x20f38;
+    undefined field19609_0x20f39;
+    undefined field19610_0x20f3a;
+    undefined field19611_0x20f3b;
+    undefined field19612_0x20f3c;
+    undefined field19613_0x20f3d;
+    undefined field19614_0x20f3e;
+    undefined field19615_0x20f3f;
+    undefined field19616_0x20f40;
+    undefined field19617_0x20f41;
+    undefined field19618_0x20f42;
+    undefined field19619_0x20f43;
+    undefined field19620_0x20f44;
+    undefined field19621_0x20f45;
+    undefined field19622_0x20f46;
+    undefined field19623_0x20f47;
+    undefined field19624_0x20f48;
+    undefined field19625_0x20f49;
+    undefined field19626_0x20f4a;
+    undefined field19627_0x20f4b;
+    undefined field19628_0x20f4c;
+    undefined field19629_0x20f4d;
+    undefined field19630_0x20f4e;
+    undefined field19631_0x20f4f;
+    undefined field19632_0x20f50;
+    undefined field19633_0x20f51;
+    undefined field19634_0x20f52;
+    undefined field19635_0x20f53;
+    undefined field19636_0x20f54;
+    undefined field19637_0x20f55;
+    undefined field19638_0x20f56;
+    undefined field19639_0x20f57;
+    undefined field19640_0x20f58;
+    undefined field19641_0x20f59;
+    undefined field19642_0x20f5a;
+    undefined field19643_0x20f5b;
+    undefined field19644_0x20f5c;
+    undefined field19645_0x20f5d;
+    undefined field19646_0x20f5e;
+    undefined field19647_0x20f5f;
+    undefined field19648_0x20f60;
+    undefined field19649_0x20f61;
+    undefined field19650_0x20f62;
+    undefined field19651_0x20f63;
+    undefined field19652_0x20f64;
+    undefined field19653_0x20f65;
+    undefined field19654_0x20f66;
+    undefined field19655_0x20f67;
+    undefined field19656_0x20f68;
+    undefined field19657_0x20f69;
+    undefined field19658_0x20f6a;
+    undefined field19659_0x20f6b;
+    undefined field19660_0x20f6c;
+    undefined field19661_0x20f6d;
+    undefined field19662_0x20f6e;
+    undefined field19663_0x20f6f;
+    undefined field19664_0x20f70;
+    undefined field19665_0x20f71;
+    undefined field19666_0x20f72;
+    undefined field19667_0x20f73;
+    undefined field19668_0x20f74;
+    undefined field19669_0x20f75;
+    undefined field19670_0x20f76;
+    undefined field19671_0x20f77;
+    undefined field19672_0x20f78;
+    undefined field19673_0x20f79;
+    undefined field19674_0x20f7a;
+    undefined field19675_0x20f7b;
+    undefined field19676_0x20f7c;
+    undefined field19677_0x20f7d;
+    undefined field19678_0x20f7e;
+    undefined field19679_0x20f7f;
+    undefined field19680_0x20f80;
+    undefined field19681_0x20f81;
+    undefined field19682_0x20f82;
+    undefined field19683_0x20f83;
+    undefined field19684_0x20f84;
+    undefined field19685_0x20f85;
+    undefined field19686_0x20f86;
+    undefined field19687_0x20f87;
+    undefined field19688_0x20f88;
+    undefined field19689_0x20f89;
+    undefined field19690_0x20f8a;
+    undefined field19691_0x20f8b;
+    undefined field19692_0x20f8c;
+    undefined field19693_0x20f8d;
+    undefined field19694_0x20f8e;
+    undefined field19695_0x20f8f;
+    undefined field19696_0x20f90;
+    undefined field19697_0x20f91;
+    undefined field19698_0x20f92;
+    undefined field19699_0x20f93;
+    undefined field19700_0x20f94;
+    undefined field19701_0x20f95;
+    undefined field19702_0x20f96;
+    undefined field19703_0x20f97;
+    undefined field19704_0x20f98;
+    undefined field19705_0x20f99;
+    undefined field19706_0x20f9a;
+    undefined field19707_0x20f9b;
+    undefined field19708_0x20f9c;
+    undefined field19709_0x20f9d;
+    undefined field19710_0x20f9e;
+    undefined field19711_0x20f9f;
+    undefined field19712_0x20fa0;
+    undefined field19713_0x20fa1;
+    undefined field19714_0x20fa2;
+    undefined field19715_0x20fa3;
+    undefined field19716_0x20fa4;
+    undefined field19717_0x20fa5;
+    undefined field19718_0x20fa6;
+    undefined field19719_0x20fa7;
+    undefined field19720_0x20fa8;
+    undefined field19721_0x20fa9;
+    undefined field19722_0x20faa;
+    undefined field19723_0x20fab;
+    undefined field19724_0x20fac;
+    undefined field19725_0x20fad;
+    undefined field19726_0x20fae;
+    undefined field19727_0x20faf;
+    undefined field19728_0x20fb0;
+    undefined field19729_0x20fb1;
+    undefined field19730_0x20fb2;
+    undefined field19731_0x20fb3;
+    undefined field19732_0x20fb4;
+    undefined field19733_0x20fb5;
+    undefined field19734_0x20fb6;
+    undefined field19735_0x20fb7;
+    undefined field19736_0x20fb8;
+    undefined field19737_0x20fb9;
+    undefined field19738_0x20fba;
+    undefined field19739_0x20fbb;
+    undefined field19740_0x20fbc;
+    undefined field19741_0x20fbd;
+    undefined field19742_0x20fbe;
+    undefined field19743_0x20fbf;
+    undefined field19744_0x20fc0;
+    undefined field19745_0x20fc1;
+    undefined field19746_0x20fc2;
+    undefined field19747_0x20fc3;
+    undefined field19748_0x20fc4;
+    undefined field19749_0x20fc5;
+    undefined field19750_0x20fc6;
+    undefined field19751_0x20fc7;
+    undefined field19752_0x20fc8;
+    undefined field19753_0x20fc9;
+    undefined field19754_0x20fca;
+    undefined field19755_0x20fcb;
+    undefined field19756_0x20fcc;
+    undefined field19757_0x20fcd;
+    undefined field19758_0x20fce;
+    undefined field19759_0x20fcf;
+    undefined field19760_0x20fd0;
+    undefined field19761_0x20fd1;
+    undefined field19762_0x20fd2;
+    undefined field19763_0x20fd3;
+    undefined field19764_0x20fd4;
+    undefined field19765_0x20fd5;
+    undefined field19766_0x20fd6;
+    undefined field19767_0x20fd7;
+    undefined field19768_0x20fd8;
+    undefined field19769_0x20fd9;
+    undefined field19770_0x20fda;
+    undefined field19771_0x20fdb;
+    undefined field19772_0x20fdc;
+    undefined field19773_0x20fdd;
+    undefined field19774_0x20fde;
+    undefined field19775_0x20fdf;
+    undefined field19776_0x20fe0;
+    undefined field19777_0x20fe1;
+    undefined field19778_0x20fe2;
+    undefined field19779_0x20fe3;
+    undefined field19780_0x20fe4;
+    undefined field19781_0x20fe5;
+    undefined field19782_0x20fe6;
+    undefined field19783_0x20fe7;
+    undefined field19784_0x20fe8;
+    undefined field19785_0x20fe9;
+    undefined field19786_0x20fea;
+    undefined field19787_0x20feb;
+    undefined field19788_0x20fec;
+    undefined field19789_0x20fed;
+    undefined field19790_0x20fee;
+    undefined field19791_0x20fef;
+    undefined field19792_0x20ff0;
+    undefined field19793_0x20ff1;
+    undefined field19794_0x20ff2;
+    undefined field19795_0x20ff3;
+    undefined field19796_0x20ff4;
+    undefined field19797_0x20ff5;
+    undefined field19798_0x20ff6;
+    undefined field19799_0x20ff7;
+    undefined field19800_0x20ff8;
+    undefined field19801_0x20ff9;
+    undefined field19802_0x20ffa;
+    undefined field19803_0x20ffb;
+    undefined field19804_0x20ffc;
+    undefined field19805_0x20ffd;
+    undefined field19806_0x20ffe;
+    undefined field19807_0x20fff;
+    undefined field19808_0x21000;
+    undefined field19809_0x21001;
+    undefined field19810_0x21002;
+    undefined field19811_0x21003;
+    undefined field19812_0x21004;
+    undefined field19813_0x21005;
+    undefined field19814_0x21006;
+    undefined field19815_0x21007;
+    undefined field19816_0x21008;
+    undefined field19817_0x21009;
+    undefined field19818_0x2100a;
+    undefined field19819_0x2100b;
+    undefined field19820_0x2100c;
+    undefined field19821_0x2100d;
+    undefined field19822_0x2100e;
+    undefined field19823_0x2100f;
+    undefined field19824_0x21010;
+    undefined field19825_0x21011;
+    undefined field19826_0x21012;
+    undefined field19827_0x21013;
+    undefined field19828_0x21014;
+    undefined field19829_0x21015;
+    undefined field19830_0x21016;
+    undefined field19831_0x21017;
+    undefined field19832_0x21018;
+    undefined field19833_0x21019;
+    undefined field19834_0x2101a;
+    undefined field19835_0x2101b;
+    undefined field19836_0x2101c;
+    undefined field19837_0x2101d;
+    undefined field19838_0x2101e;
+    undefined field19839_0x2101f;
+    undefined field19840_0x21020;
+    undefined field19841_0x21021;
+    undefined field19842_0x21022;
+    undefined field19843_0x21023;
+    undefined field19844_0x21024;
+    undefined field19845_0x21025;
+    undefined field19846_0x21026;
+    undefined field19847_0x21027;
+    undefined field19848_0x21028;
+    undefined field19849_0x21029;
+    undefined field19850_0x2102a;
+    undefined field19851_0x2102b;
+    undefined field19852_0x2102c;
+    undefined field19853_0x2102d;
+    undefined field19854_0x2102e;
+    undefined field19855_0x2102f;
+    undefined field19856_0x21030;
+    undefined field19857_0x21031;
+    undefined field19858_0x21032;
+    undefined field19859_0x21033;
+    undefined field19860_0x21034;
+    undefined field19861_0x21035;
+    undefined field19862_0x21036;
+    undefined field19863_0x21037;
+    undefined field19864_0x21038;
+    undefined field19865_0x21039;
+    undefined field19866_0x2103a;
+    undefined field19867_0x2103b;
+    undefined field19868_0x2103c;
+    undefined field19869_0x2103d;
+    undefined field19870_0x2103e;
+    undefined field19871_0x2103f;
+    undefined field19872_0x21040;
+    undefined field19873_0x21041;
+    undefined field19874_0x21042;
+    undefined field19875_0x21043;
+    undefined field19876_0x21044;
+    undefined field19877_0x21045;
+    undefined field19878_0x21046;
+    undefined field19879_0x21047;
+    undefined field19880_0x21048;
+    undefined field19881_0x21049;
+    undefined field19882_0x2104a;
+    undefined field19883_0x2104b;
+    undefined field19884_0x2104c;
+    undefined field19885_0x2104d;
+    undefined field19886_0x2104e;
+    undefined field19887_0x2104f;
+    undefined field19888_0x21050;
+    undefined field19889_0x21051;
+    undefined field19890_0x21052;
+    undefined field19891_0x21053;
+    undefined field19892_0x21054;
+    undefined field19893_0x21055;
+    undefined field19894_0x21056;
+    undefined field19895_0x21057;
+    undefined field19896_0x21058;
+    undefined field19897_0x21059;
+    undefined field19898_0x2105a;
+    undefined field19899_0x2105b;
+    undefined field19900_0x2105c;
+    undefined field19901_0x2105d;
+    undefined field19902_0x2105e;
+    undefined field19903_0x2105f;
+    undefined field19904_0x21060;
+    undefined field19905_0x21061;
+    undefined field19906_0x21062;
+    undefined field19907_0x21063;
+    undefined field19908_0x21064;
+    undefined field19909_0x21065;
+    undefined field19910_0x21066;
+    undefined field19911_0x21067;
+    undefined field19912_0x21068;
+    undefined field19913_0x21069;
+    undefined field19914_0x2106a;
+    undefined field19915_0x2106b;
+    undefined field19916_0x2106c;
+    undefined field19917_0x2106d;
+    undefined field19918_0x2106e;
+    undefined field19919_0x2106f;
+    undefined field19920_0x21070;
+    undefined field19921_0x21071;
+    undefined field19922_0x21072;
+    undefined field19923_0x21073;
+    undefined field19924_0x21074;
+    undefined field19925_0x21075;
+    undefined field19926_0x21076;
+    undefined field19927_0x21077;
+    undefined field19928_0x21078;
+    undefined field19929_0x21079;
+    undefined field19930_0x2107a;
+    undefined field19931_0x2107b;
+    undefined field19932_0x2107c;
+    undefined field19933_0x2107d;
+    undefined field19934_0x2107e;
+    undefined field19935_0x2107f;
+    undefined field19936_0x21080;
+    undefined field19937_0x21081;
+    undefined field19938_0x21082;
+    undefined field19939_0x21083;
+    undefined field19940_0x21084;
+    undefined field19941_0x21085;
+    undefined field19942_0x21086;
+    undefined field19943_0x21087;
+    undefined field19944_0x21088;
+    undefined field19945_0x21089;
+    undefined field19946_0x2108a;
+    undefined field19947_0x2108b;
+    undefined field19948_0x2108c;
+    undefined field19949_0x2108d;
+    undefined field19950_0x2108e;
+    undefined field19951_0x2108f;
+    undefined field19952_0x21090;
+    undefined field19953_0x21091;
+    undefined field19954_0x21092;
+    undefined field19955_0x21093;
+    undefined field19956_0x21094;
+    undefined field19957_0x21095;
+    undefined field19958_0x21096;
+    undefined field19959_0x21097;
+    undefined field19960_0x21098;
+    undefined field19961_0x21099;
+    undefined field19962_0x2109a;
+    undefined field19963_0x2109b;
+    undefined field19964_0x2109c;
+    undefined field19965_0x2109d;
+    undefined field19966_0x2109e;
+    undefined field19967_0x2109f;
+    undefined field19968_0x210a0;
+    undefined field19969_0x210a1;
+    undefined field19970_0x210a2;
+    undefined field19971_0x210a3;
+    undefined field19972_0x210a4;
+    undefined field19973_0x210a5;
+    undefined field19974_0x210a6;
+    undefined field19975_0x210a7;
+    undefined field19976_0x210a8;
+    undefined field19977_0x210a9;
+    undefined field19978_0x210aa;
+    undefined field19979_0x210ab;
+    undefined field19980_0x210ac;
+    undefined field19981_0x210ad;
+    undefined field19982_0x210ae;
+    undefined field19983_0x210af;
+    undefined field19984_0x210b0;
+    undefined field19985_0x210b1;
+    undefined field19986_0x210b2;
+    undefined field19987_0x210b3;
+    int field19988_0x210b4;
+    int field19989_0x210b8;
+    undefined field19990_0x210bc;
+    undefined field19991_0x210bd;
+    undefined field19992_0x210be;
+    undefined field19993_0x210bf;
+    undefined field19994_0x210c0;
+    undefined field19995_0x210c1;
+    undefined field19996_0x210c2;
+    undefined field19997_0x210c3;
+    int field19998_0x210c4;
+    undefined field19999_0x210c8;
+    undefined field20000_0x210c9;
+    undefined field20001_0x210ca;
+    undefined field20002_0x210cb;
+    undefined field20003_0x210cc;
+    undefined field20004_0x210cd;
+    undefined field20005_0x210ce;
+    undefined field20006_0x210cf;
+    undefined field20007_0x210d0;
+    undefined field20008_0x210d1;
+    undefined field20009_0x210d2;
+    undefined field20010_0x210d3;
+    undefined field20011_0x210d4;
+    undefined field20012_0x210d5;
+    undefined field20013_0x210d6;
+    undefined field20014_0x210d7;
+    undefined field20015_0x210d8;
+    undefined field20016_0x210d9;
+    undefined field20017_0x210da;
+    undefined field20018_0x210db;
+    undefined field20019_0x210dc;
+    undefined field20020_0x210dd;
+    undefined field20021_0x210de;
+    undefined field20022_0x210df;
+    undefined field20023_0x210e0;
+    undefined field20024_0x210e1;
+    undefined field20025_0x210e2;
+    undefined field20026_0x210e3;
+    undefined field20027_0x210e4;
+    undefined field20028_0x210e5;
+    undefined field20029_0x210e6;
+    undefined field20030_0x210e7;
+    undefined field20031_0x210e8;
+    undefined field20032_0x210e9;
+    undefined field20033_0x210ea;
+    undefined field20034_0x210eb;
+    undefined field20035_0x210ec;
+    undefined field20036_0x210ed;
+    undefined field20037_0x210ee;
+    undefined field20038_0x210ef;
+    undefined field20039_0x210f0;
+    undefined field20040_0x210f1;
+    undefined field20041_0x210f2;
+    undefined field20042_0x210f3;
+    undefined field20043_0x210f4;
+    undefined field20044_0x210f5;
+    undefined field20045_0x210f6;
+    undefined field20046_0x210f7;
+    undefined field20047_0x210f8;
+    undefined field20048_0x210f9;
+    undefined field20049_0x210fa;
+    undefined field20050_0x210fb;
+    undefined field20051_0x210fc;
+    undefined field20052_0x210fd;
+    undefined field20053_0x210fe;
+    undefined field20054_0x210ff;
+    undefined field20055_0x21100;
+    undefined field20056_0x21101;
+    undefined field20057_0x21102;
+    undefined field20058_0x21103;
+    undefined field20059_0x21104;
+    undefined field20060_0x21105;
+    undefined field20061_0x21106;
+    undefined field20062_0x21107;
+    undefined field20063_0x21108;
+    undefined field20064_0x21109;
+    undefined field20065_0x2110a;
+    undefined field20066_0x2110b;
+    undefined field20067_0x2110c;
+    undefined field20068_0x2110d;
+    undefined field20069_0x2110e;
+    undefined field20070_0x2110f;
+    undefined field20071_0x21110;
+    undefined field20072_0x21111;
+    undefined field20073_0x21112;
+    undefined field20074_0x21113;
+    undefined field20075_0x21114;
+    undefined field20076_0x21115;
+    undefined field20077_0x21116;
+    undefined field20078_0x21117;
+    int field20079_0x21118;
+    int field20080_0x2111c;
+    int field20081_0x21120;
+    int field20082_0x21124;
+    int field20083_0x21128;
+};
+
+struct IDirect3DDevice8 {
+    struct IDirect3DDevice8Vtbl *lpVtbl;
+};
+
+struct _D3DADAPTER_IDENTIFIER8 {
+    char Driver[512];
+    char Description[512];
+    LARGE_INTEGER DriverVersion;
+    DWORD VendorId;
+    DWORD DeviceId;
+    DWORD SubSysId;
+    DWORD Revision;
+    GUID DeviceIdentifier;
+    DWORD WHQLLevel;
+};
+
+struct IDirect3DBaseTexture8 {
+    struct IDirect3DBaseTexture8Vtbl *lpVtbl;
+};
+
+struct IDirect3DVolumeTexture8Vtbl {
+    HRESULT (*QueryInterface)(struct IDirect3DVolumeTexture8 *, IID *, void **);
+    ULONG (*AddRef)(struct IDirect3DVolumeTexture8 *);
+    ULONG (*Release)(struct IDirect3DVolumeTexture8 *);
+    HRESULT (*GetDevice)(struct IDirect3DVolumeTexture8 *, struct IDirect3DDevice8 **);
+    HRESULT (*SetPrivateData)(struct IDirect3DVolumeTexture8 *, GUID *, void *, DWORD, DWORD);
+    HRESULT (*GetPrivateData)(struct IDirect3DVolumeTexture8 *, GUID *, void *, DWORD *);
+    HRESULT (*FreePrivateData)(struct IDirect3DVolumeTexture8 *, GUID *);
+    DWORD (*SetPriority)(struct IDirect3DVolumeTexture8 *, DWORD);
+    DWORD (*GetPriority)(struct IDirect3DVolumeTexture8 *);
+    void (*PreLoad)(struct IDirect3DVolumeTexture8 *);
+    D3DRESOURCETYPE (*GetType)(struct IDirect3DVolumeTexture8 *);
+    DWORD (*SetLOD)(struct IDirect3DVolumeTexture8 *, DWORD);
+    DWORD (*GetLOD)(struct IDirect3DVolumeTexture8 *);
+    DWORD (*GetLevelCount)(struct IDirect3DVolumeTexture8 *);
+    HRESULT (*GetLevelDesc)(struct IDirect3DVolumeTexture8 *, UINT, D3DVOLUME_DESC *);
+    HRESULT (*GetVolumeLevel)(struct IDirect3DVolumeTexture8 *, UINT, struct IDirect3DVolume8 **);
+    HRESULT (*LockBox)(struct IDirect3DVolumeTexture8 *, UINT, D3DLOCKED_BOX *, D3DBOX *, DWORD);
+    HRESULT (*UnlockBox)(struct IDirect3DVolumeTexture8 *, UINT);
+    HRESULT (*AddDirtyBox)(struct IDirect3DVolumeTexture8 *, D3DBOX *);
+};
+
+struct _RGNDATA {
+    RGNDATAHEADER rdh;
+    char Buffer[1];
+};
+
+struct IDirect3DSwapChain8Vtbl {
+    HRESULT (*QueryInterface)(struct IDirect3DSwapChain8 *, IID *, void **);
+    ULONG (*AddRef)(struct IDirect3DSwapChain8 *);
+    ULONG (*Release)(struct IDirect3DSwapChain8 *);
+    HRESULT (*Present)(struct IDirect3DSwapChain8 *, RECT *, RECT *, HWND, RGNDATA *);
+    HRESULT (*GetBackBuffer)(struct IDirect3DSwapChain8 *, UINT, D3DBACKBUFFER_TYPE, struct IDirect3DSurface8 **);
+};
+
+struct IDirect3DVertexBuffer8Vtbl {
+    HRESULT (*QueryInterface)(struct IDirect3DVertexBuffer8 *, IID *, void **);
+    ULONG (*AddRef)(struct IDirect3DVertexBuffer8 *);
+    ULONG (*Release)(struct IDirect3DVertexBuffer8 *);
+    HRESULT (*GetDevice)(struct IDirect3DVertexBuffer8 *, struct IDirect3DDevice8 **);
+    HRESULT (*SetPrivateData)(struct IDirect3DVertexBuffer8 *, GUID *, void *, DWORD, DWORD);
+    HRESULT (*GetPrivateData)(struct IDirect3DVertexBuffer8 *, GUID *, void *, DWORD *);
+    HRESULT (*FreePrivateData)(struct IDirect3DVertexBuffer8 *, GUID *);
+    DWORD (*SetPriority)(struct IDirect3DVertexBuffer8 *, DWORD);
+    DWORD (*GetPriority)(struct IDirect3DVertexBuffer8 *);
+    void (*PreLoad)(struct IDirect3DVertexBuffer8 *);
+    D3DRESOURCETYPE (*GetType)(struct IDirect3DVertexBuffer8 *);
+    HRESULT (*Lock)(struct IDirect3DVertexBuffer8 *, UINT, UINT, BYTE **, DWORD);
+    HRESULT (*Unlock)(struct IDirect3DVertexBuffer8 *);
+    HRESULT (*GetDesc)(struct IDirect3DVertexBuffer8 *, D3DVERTEXBUFFER_DESC *);
+};
+
+struct _D3DSURFACE_DESC {
+    D3DFORMAT Format;
+    D3DRESOURCETYPE Type;
+    DWORD Usage;
+    D3DPOOL Pool;
+    UINT Size;
+    D3DMULTISAMPLE_TYPE MultiSampleType;
+    UINT Width;
+    UINT Height;
+};
+
+struct IDirect3DBaseTexture8Vtbl {
+    HRESULT (*QueryInterface)(struct IDirect3DBaseTexture8 *, IID *, void **);
+    ULONG (*AddRef)(struct IDirect3DBaseTexture8 *);
+    ULONG (*Release)(struct IDirect3DBaseTexture8 *);
+    HRESULT (*GetDevice)(struct IDirect3DBaseTexture8 *, struct IDirect3DDevice8 **);
+    HRESULT (*SetPrivateData)(struct IDirect3DBaseTexture8 *, GUID *, void *, DWORD, DWORD);
+    HRESULT (*GetPrivateData)(struct IDirect3DBaseTexture8 *, GUID *, void *, DWORD *);
+    HRESULT (*FreePrivateData)(struct IDirect3DBaseTexture8 *, GUID *);
+    DWORD (*SetPriority)(struct IDirect3DBaseTexture8 *, DWORD);
+    DWORD (*GetPriority)(struct IDirect3DBaseTexture8 *);
+    void (*PreLoad)(struct IDirect3DBaseTexture8 *);
+    D3DRESOURCETYPE (*GetType)(struct IDirect3DBaseTexture8 *);
+    DWORD (*SetLOD)(struct IDirect3DBaseTexture8 *, DWORD);
+    DWORD (*GetLOD)(struct IDirect3DBaseTexture8 *);
+    DWORD (*GetLevelCount)(struct IDirect3DBaseTexture8 *);
+};
+
+struct _D3DLOCKED_RECT {
+    INT Pitch;
+    void *pBits;
+};
+
+struct _D3DTRIPATCH_INFO {
+    UINT StartVertexOffset;
+    UINT NumVertices;
+    D3DBASISTYPE Basis;
+    D3DORDERTYPE Order;
+};
+
+struct _D3DLOCKED_BOX {
+    INT RowPitch;
+    INT SlicePitch;
+    void *pBits;
+};
+
+struct IDirect3DSwapChain8 {
+    struct IDirect3DSwapChain8Vtbl *lpVtbl;
+};
+
+struct _D3DPRESENT_PARAMETERS_ {
+    UINT BackBufferWidth;
+    UINT BackBufferHeight;
+    D3DFORMAT BackBufferFormat;
+    UINT BackBufferCount;
+    D3DMULTISAMPLE_TYPE MultiSampleType;
+    D3DSWAPEFFECT SwapEffect;
+    HWND hDeviceWindow;
+    BOOL Windowed;
+    BOOL EnableAutoDepthStencil;
+    D3DFORMAT AutoDepthStencilFormat;
+    DWORD Flags;
+    UINT FullScreen_RefreshRateInHz;
+    UINT FullScreen_PresentationInterval;
+};
+
+struct IDirect3DVertexBuffer8 {
+    struct IDirect3DVertexBuffer8Vtbl *lpVtbl;
+};
+
+struct _D3DCLIPSTATUS8 {
+    DWORD ClipUnion;
+    DWORD ClipIntersection;
+};
+
+struct IDirect3D8Vtbl {
+    HRESULT (*QueryInterface)(struct IDirect3D8 *, IID *, void **);
+    ULONG (*AddRef)(struct IDirect3D8 *);
+    ULONG (*Release)(struct IDirect3D8 *);
+    HRESULT (*RegisterSoftwareDevice)(struct IDirect3D8 *, void *);
+    UINT (*GetAdapterCount)(struct IDirect3D8 *);
+    HRESULT (*GetAdapterIdentifier)(struct IDirect3D8 *, UINT, DWORD, D3DADAPTER_IDENTIFIER8 *);
+    UINT (*GetAdapterModeCount)(struct IDirect3D8 *, UINT);
+    HRESULT (*EnumAdapterModes)(struct IDirect3D8 *, UINT, UINT, D3DDISPLAYMODE *);
+    HRESULT (*GetAdapterDisplayMode)(struct IDirect3D8 *, UINT, D3DDISPLAYMODE *);
+    HRESULT (*CheckDeviceType)(struct IDirect3D8 *, UINT, D3DDEVTYPE, D3DFORMAT, D3DFORMAT, BOOL);
+    HRESULT (*CheckDeviceFormat)(struct IDirect3D8 *, UINT, D3DDEVTYPE, D3DFORMAT, DWORD, D3DRESOURCETYPE, D3DFORMAT);
+    HRESULT (*CheckDeviceMultiSampleType)(struct IDirect3D8 *, UINT, D3DDEVTYPE, D3DFORMAT, BOOL, D3DMULTISAMPLE_TYPE);
+    HRESULT (*CheckDepthStencilMatch)(struct IDirect3D8 *, UINT, D3DDEVTYPE, D3DFORMAT, D3DFORMAT, D3DFORMAT);
+    HRESULT (*GetDeviceCaps)(struct IDirect3D8 *, UINT, D3DDEVTYPE, D3DCAPS8 *);
+    HMONITOR (*GetAdapterMonitor)(struct IDirect3D8 *, UINT);
+    HRESULT (*CreateDevice)(struct IDirect3D8 *, UINT, D3DDEVTYPE, HWND, DWORD, D3DPRESENT_PARAMETERS *, struct IDirect3DDevice8 **);
+};
+
+struct HMONITOR__ {
+    int unused;
+};
+
+struct _D3DDEVICE_CREATION_PARAMETERS {
+    UINT AdapterOrdinal;
+    D3DDEVTYPE DeviceType;
+    HWND hFocusWindow;
+    DWORD BehaviorFlags;
+};
+
+struct _D3DVOLUME_DESC {
+    D3DFORMAT Format;
+    D3DRESOURCETYPE Type;
+    DWORD Usage;
+    D3DPOOL Pool;
+    UINT Size;
+    UINT Width;
+    UINT Height;
+    UINT Depth;
+};
+
+struct _D3DVERTEXBUFFER_DESC {
+    D3DFORMAT Format;
+    D3DRESOURCETYPE Type;
+    DWORD Usage;
+    D3DPOOL Pool;
+    UINT Size;
+    DWORD FVF;
+};
+
+struct tagPALETTEENTRY {
+    BYTE peRed;
+    BYTE peGreen;
+    BYTE peBlue;
+    BYTE peFlags;
+};
+
+struct IDirect3DIndexBuffer8Vtbl {
+    HRESULT (*QueryInterface)(struct IDirect3DIndexBuffer8 *, IID *, void **);
+    ULONG (*AddRef)(struct IDirect3DIndexBuffer8 *);
+    ULONG (*Release)(struct IDirect3DIndexBuffer8 *);
+    HRESULT (*GetDevice)(struct IDirect3DIndexBuffer8 *, struct IDirect3DDevice8 **);
+    HRESULT (*SetPrivateData)(struct IDirect3DIndexBuffer8 *, GUID *, void *, DWORD, DWORD);
+    HRESULT (*GetPrivateData)(struct IDirect3DIndexBuffer8 *, GUID *, void *, DWORD *);
+    HRESULT (*FreePrivateData)(struct IDirect3DIndexBuffer8 *, GUID *);
+    DWORD (*SetPriority)(struct IDirect3DIndexBuffer8 *, DWORD);
+    DWORD (*GetPriority)(struct IDirect3DIndexBuffer8 *);
+    void (*PreLoad)(struct IDirect3DIndexBuffer8 *);
+    D3DRESOURCETYPE (*GetType)(struct IDirect3DIndexBuffer8 *);
+    HRESULT (*Lock)(struct IDirect3DIndexBuffer8 *, UINT, UINT, BYTE **, DWORD);
+    HRESULT (*Unlock)(struct IDirect3DIndexBuffer8 *);
+    HRESULT (*GetDesc)(struct IDirect3DIndexBuffer8 *, D3DINDEXBUFFER_DESC *);
+};
+
+struct IDirect3DCubeTexture8Vtbl {
+    HRESULT (*QueryInterface)(struct IDirect3DCubeTexture8 *, IID *, void **);
+    ULONG (*AddRef)(struct IDirect3DCubeTexture8 *);
+    ULONG (*Release)(struct IDirect3DCubeTexture8 *);
+    HRESULT (*GetDevice)(struct IDirect3DCubeTexture8 *, struct IDirect3DDevice8 **);
+    HRESULT (*SetPrivateData)(struct IDirect3DCubeTexture8 *, GUID *, void *, DWORD, DWORD);
+    HRESULT (*GetPrivateData)(struct IDirect3DCubeTexture8 *, GUID *, void *, DWORD *);
+    HRESULT (*FreePrivateData)(struct IDirect3DCubeTexture8 *, GUID *);
+    DWORD (*SetPriority)(struct IDirect3DCubeTexture8 *, DWORD);
+    DWORD (*GetPriority)(struct IDirect3DCubeTexture8 *);
+    void (*PreLoad)(struct IDirect3DCubeTexture8 *);
+    D3DRESOURCETYPE (*GetType)(struct IDirect3DCubeTexture8 *);
+    DWORD (*SetLOD)(struct IDirect3DCubeTexture8 *, DWORD);
+    DWORD (*GetLOD)(struct IDirect3DCubeTexture8 *);
+    DWORD (*GetLevelCount)(struct IDirect3DCubeTexture8 *);
+    HRESULT (*GetLevelDesc)(struct IDirect3DCubeTexture8 *, UINT, D3DSURFACE_DESC *);
+    HRESULT (*GetCubeMapSurface)(struct IDirect3DCubeTexture8 *, D3DCUBEMAP_FACES, UINT, struct IDirect3DSurface8 **);
+    HRESULT (*LockRect)(struct IDirect3DCubeTexture8 *, D3DCUBEMAP_FACES, UINT, D3DLOCKED_RECT *, RECT *, DWORD);
+    HRESULT (*UnlockRect)(struct IDirect3DCubeTexture8 *, D3DCUBEMAP_FACES, UINT);
+    HRESULT (*AddDirtyRect)(struct IDirect3DCubeTexture8 *, D3DCUBEMAP_FACES, RECT *);
+};
+
+struct IDirect3DCubeTexture8 {
+    struct IDirect3DCubeTexture8Vtbl *lpVtbl;
+};
+
+struct _D3DRECT {
+    LONG x1;
+    LONG y1;
+    LONG x2;
+    LONG y2;
+};
+
+struct IDirect3DTexture8 {
+    struct IDirect3DTexture8Vtbl *lpVtbl;
 };
 
 typedef struct vec3f vec3f, *Pvec3f;
@@ -22521,8 +23775,6 @@ typedef struct tagBSTRBLOB tagBSTRBLOB, *PtagBSTRBLOB;
 
 typedef struct tagBSTRBLOB BSTRBLOB;
 
-typedef uchar BYTE;
-
 struct tagBSTRBLOB {
     ULONG cbSize;
     BYTE *pData;
@@ -22590,23 +23842,6 @@ typedef struct tagLOGPALETTE tagLOGPALETTE, *PtagLOGPALETTE;
 
 typedef struct tagLOGPALETTE LOGPALETTE;
 
-typedef struct tagPALETTEENTRY tagPALETTEENTRY, *PtagPALETTEENTRY;
-
-typedef struct tagPALETTEENTRY PALETTEENTRY;
-
-struct tagPALETTEENTRY {
-    BYTE peRed;
-    BYTE peGreen;
-    BYTE peBlue;
-    BYTE peFlags;
-};
-
-struct tagLOGPALETTE {
-    WORD palVersion;
-    WORD palNumEntries;
-    PALETTEENTRY palPalEntry[1];
-};
-
 union __MIDL_IWinTypes_0008 {
     long hInproc;
     LOGPALETTE *hRemote;
@@ -22616,6 +23851,12 @@ union __MIDL_IWinTypes_0008 {
 struct _userHPALETTE {
     long fContext;
     union __MIDL_IWinTypes_0008 u;
+};
+
+struct tagLOGPALETTE {
+    WORD palVersion;
+    WORD palNumEntries;
+    PALETTEENTRY palPalEntry[1];
 };
 
 typedef struct tagRemHMETAFILEPICT tagRemHMETAFILEPICT, *PtagRemHMETAFILEPICT;
@@ -22648,16 +23889,6 @@ typedef struct _struct_1277.conflict _struct_1277.conflict, *P_struct_1277.confl
 
 typedef double ULONGLONG;
 
-struct _struct_1275 {
-    BYTE scale;
-    BYTE sign;
-};
-
-union _union_1274 {
-    struct _struct_1275 field0;
-    USHORT signscale;
-};
-
 struct _struct_1277.conflict {
     ULONG Lo32;
     ULONG Mid32;
@@ -22666,6 +23897,16 @@ struct _struct_1277.conflict {
 union _union_1276.conflict {
     struct _struct_1277.conflict field0;
     ULONGLONG Lo64;
+};
+
+struct _struct_1275 {
+    BYTE scale;
+    BYTE sign;
+};
+
+union _union_1274 {
+    struct _struct_1275 field0;
+    USHORT signscale;
 };
 
 struct tagDEC {
@@ -22801,8 +24042,6 @@ typedef union tagCY CY;
 
 typedef struct _struct_1272 _struct_1272, *P_struct_1272;
 
-typedef double LONGLONG;
-
 struct _struct_1272 {
     ulong Lo;
     long Hi;
@@ -22857,14 +24096,14 @@ union __MIDL_IWinTypes_0002 {
     DWORD_BLOB *hRemote;
 };
 
-struct _GDI_NONREMOTE {
-    long fContext;
-    union __MIDL_IWinTypes_0002 u;
-};
-
 struct _DWORD_BLOB {
     ulong clSize;
     ulong alData[1];
+};
+
+struct _GDI_NONREMOTE {
+    long fContext;
+    union __MIDL_IWinTypes_0002 u;
 };
 
 typedef enum tagMSHLFLAGS {
@@ -22921,15 +24160,15 @@ union __MIDL_IWinTypes_0003 {
     longlong hInproc64;
 };
 
-struct _userHGLOBAL {
-    long fContext;
-    union __MIDL_IWinTypes_0003 u;
-};
-
 struct _FLAGGED_BYTE_BLOB {
     ulong fFlags;
     ulong clSize;
     byte abData[1];
+};
+
+struct _userHGLOBAL {
+    long fContext;
+    union __MIDL_IWinTypes_0003 u;
 };
 
 typedef OLECHAR *LPCOLESTR;
@@ -22946,15 +24185,15 @@ typedef struct _BYTE_BLOB _BYTE_BLOB, *P_BYTE_BLOB;
 
 typedef struct _BYTE_BLOB BYTE_BLOB;
 
-struct _BYTE_BLOB {
-    ulong clSize;
-    byte abData[1];
-};
-
 union __MIDL_IWinTypes_0004 {
     long hInproc;
     BYTE_BLOB *hRemote;
     longlong hInproc64;
+};
+
+struct _BYTE_BLOB {
+    ulong clSize;
+    byte abData[1];
 };
 
 typedef union __MIDL_IWinTypes_0005 __MIDL_IWinTypes_0005, *P__MIDL_IWinTypes_0005;
@@ -22967,11 +24206,6 @@ typedef struct _userHMETAFILE _userHMETAFILE, *P_userHMETAFILE;
 
 typedef struct _userHMETAFILE userHMETAFILE;
 
-struct _userHMETAFILE {
-    long fContext;
-    union __MIDL_IWinTypes_0004 u;
-};
-
 struct _remoteMETAFILEPICT {
     long mm;
     long xExt;
@@ -22983,6 +24217,11 @@ union __MIDL_IWinTypes_0005 {
     long hInproc;
     remoteMETAFILEPICT *hRemote;
     longlong hInproc64;
+};
+
+struct _userHMETAFILE {
+    long fContext;
+    union __MIDL_IWinTypes_0004 u;
 };
 
 typedef union __MIDL_IWinTypes_0006 __MIDL_IWinTypes_0006, *P__MIDL_IWinTypes_0006;
@@ -23173,13 +24412,13 @@ typedef struct _struct_1287 _struct_1287, *P_struct_1287;
 
 typedef struct _struct_1288 _struct_1288, *P_struct_1288;
 
-struct _struct_1288 {
-    GUID ObjectId;
+struct _struct_1287 {
+    LPOLESTR pPackageName;
     GUID PolicyId;
 };
 
-struct _struct_1287 {
-    LPOLESTR pPackageName;
+struct _struct_1288 {
+    GUID ObjectId;
     GUID PolicyId;
 };
 
@@ -23984,6 +25223,10 @@ typedef struct _DSEFFECTDESC _DSEFFECTDESC, *P_DSEFFECTDESC;
 
 typedef struct _DSEFFECTDESC *LPDSEFFECTDESC;
 
+struct IDirectSoundBuffer8 {
+    struct IDirectSoundBuffer8Vtbl *lpVtbl;
+};
+
 struct IDirectSoundBuffer8Vtbl {
     HRESULT (*QueryInterface)(struct IDirectSoundBuffer8 *, IID *, LPVOID *);
     ULONG (*AddRef)(struct IDirectSoundBuffer8 *);
@@ -24009,10 +25252,6 @@ struct IDirectSoundBuffer8Vtbl {
     HRESULT (*SetFX)(struct IDirectSoundBuffer8 *, DWORD, LPDSEFFECTDESC, LPDWORD);
     HRESULT (*AcquireResources)(struct IDirectSoundBuffer8 *, DWORD, DWORD, LPDWORD);
     HRESULT (*GetObjectInPath)(struct IDirectSoundBuffer8 *, GUID *, DWORD, GUID *, LPVOID *);
-};
-
-struct IDirectSoundBuffer8 {
-    struct IDirectSoundBuffer8Vtbl *lpVtbl;
 };
 
 struct _DSEFFECTDESC {
@@ -24099,15 +25338,6 @@ typedef struct _DSCEFFECTDESC _DSCEFFECTDESC, *P_DSCEFFECTDESC;
 
 typedef struct _DSCEFFECTDESC *LPDSCEFFECTDESC;
 
-struct IDirectSoundCaptureVtbl {
-    HRESULT (*QueryInterface)(struct IDirectSoundCapture *, IID *, LPVOID *);
-    ULONG (*AddRef)(struct IDirectSoundCapture *);
-    ULONG (*Release)(struct IDirectSoundCapture *);
-    HRESULT (*CreateCaptureBuffer)(struct IDirectSoundCapture *, LPCDSCBUFFERDESC, LPDIRECTSOUNDCAPTUREBUFFER *, LPUNKNOWN);
-    HRESULT (*GetCaps)(struct IDirectSoundCapture *, LPDSCCAPS);
-    HRESULT (*Initialize)(struct IDirectSoundCapture *, LPCGUID);
-};
-
 struct IDirectSoundCaptureBufferVtbl {
     HRESULT (*QueryInterface)(struct IDirectSoundCaptureBuffer *, IID *, LPVOID *);
     ULONG (*AddRef)(struct IDirectSoundCaptureBuffer *);
@@ -24121,6 +25351,26 @@ struct IDirectSoundCaptureBufferVtbl {
     HRESULT (*Start)(struct IDirectSoundCaptureBuffer *, DWORD);
     HRESULT (*Stop)(struct IDirectSoundCaptureBuffer *);
     HRESULT (*Unlock)(struct IDirectSoundCaptureBuffer *, LPVOID, DWORD, LPVOID, DWORD);
+};
+
+struct _DSCCAPS {
+    DWORD dwSize;
+    DWORD dwFlags;
+    DWORD dwFormats;
+    DWORD dwChannels;
+};
+
+struct IDirectSoundCaptureVtbl {
+    HRESULT (*QueryInterface)(struct IDirectSoundCapture *, IID *, LPVOID *);
+    ULONG (*AddRef)(struct IDirectSoundCapture *);
+    ULONG (*Release)(struct IDirectSoundCapture *);
+    HRESULT (*CreateCaptureBuffer)(struct IDirectSoundCapture *, LPCDSCBUFFERDESC, LPDIRECTSOUNDCAPTUREBUFFER *, LPUNKNOWN);
+    HRESULT (*GetCaps)(struct IDirectSoundCapture *, LPDSCCAPS);
+    HRESULT (*Initialize)(struct IDirectSoundCapture *, LPCGUID);
+};
+
+struct IDirectSoundCaptureBuffer {
+    struct IDirectSoundCaptureBufferVtbl *lpVtbl;
 };
 
 struct IDirectSoundCapture {
@@ -24144,17 +25394,6 @@ struct _DSCBUFFERDESC {
     LPWAVEFORMATEX lpwfxFormat;
     DWORD dwFXCount;
     LPDSCEFFECTDESC lpDSCFXDesc;
-};
-
-struct IDirectSoundCaptureBuffer {
-    struct IDirectSoundCaptureBufferVtbl *lpVtbl;
-};
-
-struct _DSCCAPS {
-    DWORD dwSize;
-    DWORD dwFlags;
-    DWORD dwFormats;
-    DWORD dwChannels;
 };
 
 typedef struct _DSFXI3DL2Reverb _DSFXI3DL2Reverb, *P_DSFXI3DL2Reverb;
@@ -24184,15 +25423,27 @@ typedef struct _DS3DBUFFER _DS3DBUFFER, *P_DS3DBUFFER;
 
 typedef struct _DS3DBUFFER *LPDS3DBUFFER;
 
-typedef struct _D3DVECTOR _D3DVECTOR, *P_D3DVECTOR;
 
-typedef struct _D3DVECTOR D3DVECTOR;
+/* WARNING! conflicting data type names: /dsound.h/D3DVECTOR - /d3d8types.h/D3DVECTOR */
 
 typedef float D3DVALUE;
 
 typedef struct _DS3DBUFFER DS3DBUFFER;
 
 typedef DS3DBUFFER *LPCDS3DBUFFER;
+
+struct _DS3DBUFFER {
+    DWORD dwSize;
+    D3DVECTOR vPosition;
+    D3DVECTOR vVelocity;
+    DWORD dwInsideConeAngle;
+    DWORD dwOutsideConeAngle;
+    D3DVECTOR vConeOrientation;
+    LONG lConeOutsideVolume;
+    D3DVALUE flMinDistance;
+    D3DVALUE flMaxDistance;
+    DWORD dwMode;
+};
 
 struct IDirectSound3DBufferVtbl {
     HRESULT (*QueryInterface)(struct IDirectSound3DBuffer *, IID *, LPVOID *);
@@ -24218,27 +25469,8 @@ struct IDirectSound3DBufferVtbl {
     HRESULT (*SetVelocity)(struct IDirectSound3DBuffer *, D3DVALUE, D3DVALUE, D3DVALUE, DWORD);
 };
 
-struct _D3DVECTOR {
-    float x;
-    float y;
-    float z;
-};
-
 struct IDirectSound3DBuffer {
     struct IDirectSound3DBufferVtbl *lpVtbl;
-};
-
-struct _DS3DBUFFER {
-    DWORD dwSize;
-    D3DVECTOR vPosition;
-    D3DVECTOR vVelocity;
-    DWORD dwInsideConeAngle;
-    DWORD dwOutsideConeAngle;
-    D3DVECTOR vConeOrientation;
-    LONG lConeOutsideVolume;
-    D3DVALUE flMinDistance;
-    D3DVALUE flMaxDistance;
-    DWORD dwMode;
 };
 
 typedef struct IDirectSoundFXEcho IDirectSoundFXEcho, *PIDirectSoundFXEcho;
@@ -24249,16 +25481,16 @@ typedef struct IDirectSoundFXEchoVtbl IDirectSoundFXEchoVtbl, *PIDirectSoundFXEc
 
 typedef struct _DSFXEcho *LPDSFXEcho;
 
+struct IDirectSoundFXEcho {
+    struct IDirectSoundFXEchoVtbl *lpVtbl;
+};
+
 struct IDirectSoundFXEchoVtbl {
     HRESULT (*QueryInterface)(struct IDirectSoundFXEcho *, IID *, LPVOID *);
     ULONG (*AddRef)(struct IDirectSoundFXEcho *);
     ULONG (*Release)(struct IDirectSoundFXEcho *);
     HRESULT (*SetAllParameters)(struct IDirectSoundFXEcho *, LPCDSFXEcho);
     HRESULT (*GetAllParameters)(struct IDirectSoundFXEcho *, LPDSFXEcho);
-};
-
-struct IDirectSoundFXEcho {
-    struct IDirectSoundFXEchoVtbl *lpVtbl;
 };
 
 typedef struct _DSFXCompressor _DSFXCompressor, *P_DSFXCompressor;
@@ -24279,8 +25511,6 @@ typedef struct _DSCFXAec _DSCFXAec, *P_DSCFXAec;
 typedef struct _DSCFXAec DSCFXAec;
 
 typedef DSCFXAec *LPCDSCFXAec;
-
-typedef int BOOL;
 
 struct _DSCFXAec {
     BOOL fEnable;
@@ -24381,16 +25611,16 @@ typedef DSFXFlanger *LPCDSFXFlanger;
 
 typedef struct _DSFXFlanger *LPDSFXFlanger;
 
-struct IDirectSoundFXFlanger {
-    struct IDirectSoundFXFlangerVtbl *lpVtbl;
-};
-
 struct IDirectSoundFXFlangerVtbl {
     HRESULT (*QueryInterface)(struct IDirectSoundFXFlanger *, IID *, LPVOID *);
     ULONG (*AddRef)(struct IDirectSoundFXFlanger *);
     ULONG (*Release)(struct IDirectSoundFXFlanger *);
     HRESULT (*SetAllParameters)(struct IDirectSoundFXFlanger *, LPCDSFXFlanger);
     HRESULT (*GetAllParameters)(struct IDirectSoundFXFlanger *, LPDSFXFlanger);
+};
+
+struct IDirectSoundFXFlanger {
+    struct IDirectSoundFXFlangerVtbl *lpVtbl;
 };
 
 typedef struct _DSBCAPS DSBCAPS;
@@ -24408,17 +25638,6 @@ typedef struct _DS3DLISTENER *LPDS3DLISTENER;
 typedef struct _DS3DLISTENER DS3DLISTENER;
 
 typedef DS3DLISTENER *LPCDS3DLISTENER;
-
-struct _DS3DLISTENER {
-    DWORD dwSize;
-    D3DVECTOR vPosition;
-    D3DVECTOR vVelocity;
-    D3DVECTOR vOrientFront;
-    D3DVECTOR vOrientTop;
-    D3DVALUE flDistanceFactor;
-    D3DVALUE flRolloffFactor;
-    D3DVALUE flDopplerFactor;
-};
 
 struct IDirectSound3DListenerVtbl {
     HRESULT (*QueryInterface)(struct IDirectSound3DListener *, IID *, LPVOID *);
@@ -24445,6 +25664,17 @@ struct IDirectSound3DListener {
     struct IDirectSound3DListenerVtbl *lpVtbl;
 };
 
+struct _DS3DLISTENER {
+    DWORD dwSize;
+    D3DVECTOR vPosition;
+    D3DVECTOR vVelocity;
+    D3DVECTOR vOrientFront;
+    D3DVECTOR vOrientTop;
+    D3DVALUE flDistanceFactor;
+    D3DVALUE flRolloffFactor;
+    D3DVALUE flDopplerFactor;
+};
+
 typedef struct IDirectSoundFXParamEqVtbl IDirectSoundFXParamEqVtbl, *PIDirectSoundFXParamEqVtbl;
 
 typedef struct IDirectSoundFXParamEq IDirectSoundFXParamEq, *PIDirectSoundFXParamEq;
@@ -24457,16 +25687,16 @@ typedef DSFXParamEq *LPCDSFXParamEq;
 
 typedef struct _DSFXParamEq *LPDSFXParamEq;
 
+struct IDirectSoundFXParamEq {
+    struct IDirectSoundFXParamEqVtbl *lpVtbl;
+};
+
 struct IDirectSoundFXParamEqVtbl {
     HRESULT (*QueryInterface)(struct IDirectSoundFXParamEq *, IID *, LPVOID *);
     ULONG (*AddRef)(struct IDirectSoundFXParamEq *);
     ULONG (*Release)(struct IDirectSoundFXParamEq *);
     HRESULT (*SetAllParameters)(struct IDirectSoundFXParamEq *, LPCDSFXParamEq);
     HRESULT (*GetAllParameters)(struct IDirectSoundFXParamEq *, LPDSFXParamEq);
-};
-
-struct IDirectSoundFXParamEq {
-    struct IDirectSoundFXParamEqVtbl *lpVtbl;
 };
 
 struct _DSFXParamEq {
@@ -24493,17 +25723,17 @@ struct IDirectSoundCaptureFXNoiseSuppress {
     struct IDirectSoundCaptureFXNoiseSuppressVtbl *lpVtbl;
 };
 
-struct _DSCFXNoiseSuppress {
-    BOOL fEnable;
-    BOOL fReset;
-};
-
 struct IDirectSoundCaptureFXNoiseSuppressVtbl {
     HRESULT (*QueryInterface)(struct IDirectSoundCaptureFXNoiseSuppress *, IID *, LPVOID *);
     ULONG (*AddRef)(struct IDirectSoundCaptureFXNoiseSuppress *);
     ULONG (*Release)(struct IDirectSoundCaptureFXNoiseSuppress *);
     HRESULT (*SetAllParameters)(struct IDirectSoundCaptureFXNoiseSuppress *, LPCDSCFXNoiseSuppress);
     HRESULT (*GetAllParameters)(struct IDirectSoundCaptureFXNoiseSuppress *, LPDSCFXNoiseSuppress);
+};
+
+struct _DSCFXNoiseSuppress {
+    BOOL fEnable;
+    BOOL fReset;
 };
 
 typedef struct _DSFXWavesReverb *LPDSFXWavesReverb;
@@ -24516,16 +25746,16 @@ typedef DSFXGargle *LPCDSFXGargle;
 
 typedef struct _DSFXGargle *LPDSFXGargle;
 
-struct IDirectSoundFXGargle {
-    struct IDirectSoundFXGargleVtbl *lpVtbl;
-};
-
 struct IDirectSoundFXGargleVtbl {
     HRESULT (*QueryInterface)(struct IDirectSoundFXGargle *, IID *, LPVOID *);
     ULONG (*AddRef)(struct IDirectSoundFXGargle *);
     ULONG (*Release)(struct IDirectSoundFXGargle *);
     HRESULT (*SetAllParameters)(struct IDirectSoundFXGargle *, LPCDSFXGargle);
     HRESULT (*GetAllParameters)(struct IDirectSoundFXGargle *, LPDSFXGargle);
+};
+
+struct IDirectSoundFXGargle {
+    struct IDirectSoundFXGargleVtbl *lpVtbl;
 };
 
 typedef D3DVECTOR *LPD3DVECTOR;
@@ -24617,15 +25847,15 @@ typedef struct IDirectSoundBuffer8 *LPDIRECTSOUNDBUFFER8;
 
 typedef LPDIRECTSOUNDBUFFER8 *LPLPDIRECTSOUNDBUFFER8;
 
-struct IDirectSoundFullDuplex {
-    struct IDirectSoundFullDuplexVtbl *lpVtbl;
-};
-
 struct IDirectSoundFullDuplexVtbl {
     HRESULT (*QueryInterface)(struct IDirectSoundFullDuplex *, IID *, LPVOID *);
     ULONG (*AddRef)(struct IDirectSoundFullDuplex *);
     ULONG (*Release)(struct IDirectSoundFullDuplex *);
     HRESULT (*Initialize)(struct IDirectSoundFullDuplex *, LPCGUID, LPCGUID, LPCDSCBUFFERDESC, LPCDSBUFFERDESC, HWND, DWORD, LPLPDIRECTSOUNDCAPTUREBUFFER8, LPLPDIRECTSOUNDBUFFER8);
+};
+
+struct IDirectSoundFullDuplex {
+    struct IDirectSoundFullDuplexVtbl *lpVtbl;
 };
 
 typedef struct _DSBUFFERDESC1 _DSBUFFERDESC1, *P_DSBUFFERDESC1;
@@ -24716,16 +25946,16 @@ typedef struct IDirectSoundCaptureFXAec *LPDIRECTSOUNDCAPTUREFXAEC8;
 
 typedef struct IDirectSoundCaptureFXAecVtbl IDirectSoundCaptureFXAecVtbl, *PIDirectSoundCaptureFXAecVtbl;
 
+struct IDirectSoundCaptureFXAec {
+    struct IDirectSoundCaptureFXAecVtbl *lpVtbl;
+};
+
 struct IDirectSoundCaptureFXAecVtbl {
     HRESULT (*QueryInterface)(struct IDirectSoundCaptureFXAec *, IID *, LPVOID *);
     ULONG (*AddRef)(struct IDirectSoundCaptureFXAec *);
     ULONG (*Release)(struct IDirectSoundCaptureFXAec *);
     HRESULT (*SetAllParameters)(struct IDirectSoundCaptureFXAec *, LPCDSCFXAec);
     HRESULT (*GetAllParameters)(struct IDirectSoundCaptureFXAec *, LPDSCFXAec);
-};
-
-struct IDirectSoundCaptureFXAec {
-    struct IDirectSoundCaptureFXAecVtbl *lpVtbl;
 };
 
 typedef struct _DSCBUFFERDESC1 _DSCBUFFERDESC1, *P_DSCBUFFERDESC1;
@@ -24804,6 +26034,9 @@ typedef struct IDirectSound3DBuffer *LPDIRECTSOUND3DBUFFER;
 
 typedef struct _DSBUFFERDESC *LPDSBUFFERDESC;
 
+
+/* WARNING! conflicting data type names: /dsound.h/_D3DVECTOR - /d3d8types.h/_D3DVECTOR */
+
 typedef struct IDirectSoundFXWavesReverb *LPDIRECTSOUNDFXWAVESREVERB8;
 
 typedef struct IDirectSoundFXI3DL2Reverb *LPDIRECTSOUNDFXI3DL2REVERB;
@@ -24871,8 +26104,6 @@ typedef LPDIRECTSOUND8 *LPLPDIRECTSOUND8;
 typedef LPDIRECTSOUND3DBUFFER *LPLPDIRECTSOUND3DBUFFER;
 
 typedef LPDIRECTSOUNDCAPTURE *LPLPDIRECTSOUNDCAPTURE;
-
-typedef DWORD D3DCOLOR;
 
 typedef struct IDirectSoundCaptureFXNoiseSuppress *LPDIRECTSOUNDCAPTUREFXNOISESUPPRESS;
 
@@ -25266,10 +26497,6 @@ typedef struct IStorage IStorage, *PIStorage;
 
 typedef struct IStreamVtbl IStreamVtbl, *PIStreamVtbl;
 
-typedef union _LARGE_INTEGER _LARGE_INTEGER, *P_LARGE_INTEGER;
-
-typedef union _LARGE_INTEGER LARGE_INTEGER;
-
 typedef union _ULARGE_INTEGER _ULARGE_INTEGER, *P_ULARGE_INTEGER;
 
 typedef union _ULARGE_INTEGER ULARGE_INTEGER;
@@ -25287,10 +26514,6 @@ typedef struct IEnumSTATSTG IEnumSTATSTG, *PIEnumSTATSTG;
 typedef struct _FILETIME _FILETIME, *P_FILETIME;
 
 typedef struct _FILETIME FILETIME;
-
-typedef struct _struct_7 _struct_7, *P_struct_7;
-
-typedef struct _struct_8 _struct_8, *P_struct_8;
 
 typedef struct _struct_10.conflict _struct_10.conflict, *P_struct_10.conflict;
 
@@ -25315,6 +26538,21 @@ struct IStreamVtbl {
     HRESULT (*Clone)(struct IStream *, struct IStream **);
 };
 
+struct _struct_11 {
+    DWORD LowPart;
+    DWORD HighPart;
+};
+
+union _union_1695 {
+    HBITMAP hBitmap;
+    HMETAFILEPICT hMetaFilePict;
+    HENHMETAFILE hEnhMetaFile;
+    HGLOBAL hGlobal;
+    LPOLESTR lpszFileName;
+    struct IStream *pstm;
+    struct IStorage *pstg;
+};
+
 struct IStorageVtbl {
     HRESULT (*QueryInterface)(struct IStorage *, IID *, void **);
     ULONG (*AddRef)(struct IStorage *);
@@ -25336,8 +26574,27 @@ struct IStorageVtbl {
     HRESULT (*Stat)(struct IStorage *, STATSTG *, DWORD);
 };
 
-struct IInternetBindInfo {
-    struct IInternetBindInfoVtbl *lpVtbl;
+struct IEnumSTATSTGVtbl {
+    HRESULT (*QueryInterface)(struct IEnumSTATSTG *, IID *, void **);
+    ULONG (*AddRef)(struct IEnumSTATSTG *);
+    ULONG (*Release)(struct IEnumSTATSTG *);
+    HRESULT (*Next)(struct IEnumSTATSTG *, ULONG, STATSTG *, ULONG *);
+    HRESULT (*Skip)(struct IEnumSTATSTG *, ULONG);
+    HRESULT (*Reset)(struct IEnumSTATSTG *);
+    HRESULT (*Clone)(struct IEnumSTATSTG *, struct IEnumSTATSTG **);
+};
+
+struct HBITMAP__ {
+    int unused;
+};
+
+struct IEnumSTATSTG {
+    struct IEnumSTATSTGVtbl *lpVtbl;
+};
+
+struct _struct_10.conflict {
+    DWORD LowPart;
+    DWORD HighPart;
 };
 
 struct _SECURITY_ATTRIBUTES {
@@ -25350,91 +26607,16 @@ struct IStream {
     struct IStreamVtbl *lpVtbl;
 };
 
-struct _FILETIME {
-    DWORD dwLowDateTime;
-    DWORD dwHighDateTime;
-};
-
-struct _struct_8 {
-    DWORD LowPart;
-    LONG HighPart;
-};
-
-struct _struct_7 {
-    DWORD LowPart;
-    LONG HighPart;
-};
-
-union _LARGE_INTEGER {
-    struct _struct_7 field0;
-    struct _struct_8 u;
-    LONGLONG QuadPart;
-};
-
-struct IStorage {
-    struct IStorageVtbl *lpVtbl;
-};
-
-struct IEnumSTATSTGVtbl {
-    HRESULT (*QueryInterface)(struct IEnumSTATSTG *, IID *, void **);
-    ULONG (*AddRef)(struct IEnumSTATSTG *);
-    ULONG (*Release)(struct IEnumSTATSTG *);
-    HRESULT (*Next)(struct IEnumSTATSTG *, ULONG, STATSTG *, ULONG *);
-    HRESULT (*Skip)(struct IEnumSTATSTG *, ULONG);
-    HRESULT (*Reset)(struct IEnumSTATSTG *);
-    HRESULT (*Clone)(struct IEnumSTATSTG *, struct IEnumSTATSTG **);
-};
-
-union _union_1695 {
-    HBITMAP hBitmap;
-    HMETAFILEPICT hMetaFilePict;
-    HENHMETAFILE hEnhMetaFile;
-    HGLOBAL hGlobal;
-    LPOLESTR lpszFileName;
-    struct IStream *pstm;
-    struct IStorage *pstg;
-};
-
 struct tagSTGMEDIUM {
     DWORD tymed;
     union _union_1695 field1_0x4;
     struct IUnknown *pUnkForRelease;
 };
 
-struct HBITMAP__ {
-    int unused;
-};
-
-struct IEnumSTATSTG {
-    struct IEnumSTATSTGVtbl *lpVtbl;
-};
-
-struct IInternetBindInfoVtbl {
-    HRESULT (*QueryInterface)(struct IInternetBindInfo *, IID *, void **);
-    ULONG (*AddRef)(struct IInternetBindInfo *);
-    ULONG (*Release)(struct IInternetBindInfo *);
-    HRESULT (*GetBindInfo)(struct IInternetBindInfo *, DWORD *, BINDINFO *);
-    HRESULT (*GetBindString)(struct IInternetBindInfo *, ULONG, LPOLESTR *, ULONG, ULONG *);
-};
-
-struct _struct_11 {
-    DWORD LowPart;
-    DWORD HighPart;
-};
-
-struct _struct_10.conflict {
-    DWORD LowPart;
-    DWORD HighPart;
-};
-
 union _ULARGE_INTEGER {
     struct _struct_10.conflict field0;
     struct _struct_11 u;
     ULONGLONG QuadPart;
-};
-
-struct HENHMETAFILE__ {
-    int unused;
 };
 
 struct _tagBINDINFO {
@@ -25454,6 +26636,11 @@ struct _tagBINDINFO {
     DWORD dwReserved;
 };
 
+struct _FILETIME {
+    DWORD dwLowDateTime;
+    DWORD dwHighDateTime;
+};
+
 struct tagSTATSTG {
     LPOLESTR pwcsName;
     DWORD type;
@@ -25466,6 +26653,26 @@ struct tagSTATSTG {
     CLSID clsid;
     DWORD grfStateBits;
     DWORD reserved;
+};
+
+struct IInternetBindInfo {
+    struct IInternetBindInfoVtbl *lpVtbl;
+};
+
+struct IStorage {
+    struct IStorageVtbl *lpVtbl;
+};
+
+struct IInternetBindInfoVtbl {
+    HRESULT (*QueryInterface)(struct IInternetBindInfo *, IID *, void **);
+    ULONG (*AddRef)(struct IInternetBindInfo *);
+    ULONG (*Release)(struct IInternetBindInfo *);
+    HRESULT (*GetBindInfo)(struct IInternetBindInfo *, DWORD *, BINDINFO *);
+    HRESULT (*GetBindString)(struct IInternetBindInfo *, ULONG, LPOLESTR *, ULONG, ULONG *);
+};
+
+struct HENHMETAFILE__ {
+    int unused;
 };
 
 typedef struct IInternetSessionVtbl IInternetSessionVtbl, *PIInternetSessionVtbl;
@@ -25516,10 +26723,6 @@ typedef struct IMonikerVtbl IMonikerVtbl, *PIMonikerVtbl;
 
 typedef struct IEnumMonikerVtbl IEnumMonikerVtbl, *PIEnumMonikerVtbl;
 
-struct IInternetProtocol {
-    struct IInternetProtocolVtbl *lpVtbl;
-};
-
 struct IInternetSessionVtbl {
     HRESULT (*QueryInterface)(struct IInternetSession *, IID *, void **);
     ULONG (*AddRef)(struct IInternetSession *);
@@ -25543,6 +26746,48 @@ struct IEnumStringVtbl {
     HRESULT (*Clone)(struct IEnumString *, struct IEnumString **);
 };
 
+struct IInternetProtocolSink {
+    struct IInternetProtocolSinkVtbl *lpVtbl;
+};
+
+struct IEnumString {
+    struct IEnumStringVtbl *lpVtbl;
+};
+
+struct _tagPROTOCOLDATA {
+    DWORD grfFlags;
+    DWORD dwState;
+    LPVOID pData;
+    ULONG cbData;
+};
+
+struct IInternetProtocolVtbl {
+    HRESULT (*QueryInterface)(struct IInternetProtocol *, IID *, void **);
+    ULONG (*AddRef)(struct IInternetProtocol *);
+    ULONG (*Release)(struct IInternetProtocol *);
+    HRESULT (*Start)(struct IInternetProtocol *, LPCWSTR, struct IInternetProtocolSink *, struct IInternetBindInfo *, DWORD, HANDLE_PTR);
+    HRESULT (*Continue)(struct IInternetProtocol *, PROTOCOLDATA *);
+    HRESULT (*Abort)(struct IInternetProtocol *, HRESULT, DWORD);
+    HRESULT (*Terminate)(struct IInternetProtocol *, DWORD);
+    HRESULT (*Suspend)(struct IInternetProtocol *);
+    HRESULT (*Resume)(struct IInternetProtocol *);
+    HRESULT (*Read)(struct IInternetProtocol *, void *, ULONG, ULONG *);
+    HRESULT (*Seek)(struct IInternetProtocol *, LARGE_INTEGER, DWORD, ULARGE_INTEGER *);
+    HRESULT (*LockRequest)(struct IInternetProtocol *, DWORD);
+    HRESULT (*UnlockRequest)(struct IInternetProtocol *);
+};
+
+struct tagBIND_OPTS {
+    DWORD cbStruct;
+    DWORD grfFlags;
+    DWORD grfMode;
+    DWORD dwTickCountDeadline;
+};
+
+struct IInternetProtocol {
+    struct IInternetProtocolVtbl *lpVtbl;
+};
+
 struct IInternetProtocolSinkVtbl {
     HRESULT (*QueryInterface)(struct IInternetProtocolSink *, IID *, void **);
     ULONG (*AddRef)(struct IInternetProtocolSink *);
@@ -25551,6 +26796,53 @@ struct IInternetProtocolSinkVtbl {
     HRESULT (*ReportProgress)(struct IInternetProtocolSink *, ULONG, LPCWSTR);
     HRESULT (*ReportData)(struct IInternetProtocolSink *, DWORD, ULONG, ULONG);
     HRESULT (*ReportResult)(struct IInternetProtocolSink *, HRESULT, DWORD, LPCWSTR);
+};
+
+struct IMoniker {
+    struct IMonikerVtbl *lpVtbl;
+};
+
+struct IEnumMonikerVtbl {
+    HRESULT (*QueryInterface)(struct IEnumMoniker *, IID *, void **);
+    ULONG (*AddRef)(struct IEnumMoniker *);
+    ULONG (*Release)(struct IEnumMoniker *);
+    HRESULT (*Next)(struct IEnumMoniker *, ULONG, struct IMoniker **, ULONG *);
+    HRESULT (*Skip)(struct IEnumMoniker *, ULONG);
+    HRESULT (*Reset)(struct IEnumMoniker *);
+    HRESULT (*Clone)(struct IEnumMoniker *, struct IEnumMoniker **);
+};
+
+struct IBindCtx {
+    struct IBindCtxVtbl *lpVtbl;
+};
+
+struct IBindCtxVtbl {
+    HRESULT (*QueryInterface)(struct IBindCtx *, IID *, void **);
+    ULONG (*AddRef)(struct IBindCtx *);
+    ULONG (*Release)(struct IBindCtx *);
+    HRESULT (*RegisterObjectBound)(struct IBindCtx *, struct IUnknown *);
+    HRESULT (*RevokeObjectBound)(struct IBindCtx *, struct IUnknown *);
+    HRESULT (*ReleaseBoundObjects)(struct IBindCtx *);
+    HRESULT (*SetBindOptions)(struct IBindCtx *, BIND_OPTS *);
+    HRESULT (*GetBindOptions)(struct IBindCtx *, BIND_OPTS *);
+    HRESULT (*GetRunningObjectTable)(struct IBindCtx *, struct IRunningObjectTable **);
+    HRESULT (*RegisterObjectParam)(struct IBindCtx *, LPOLESTR, struct IUnknown *);
+    HRESULT (*GetObjectParam)(struct IBindCtx *, LPOLESTR, struct IUnknown **);
+    HRESULT (*EnumObjectParam)(struct IBindCtx *, struct IEnumString **);
+    HRESULT (*RevokeObjectParam)(struct IBindCtx *, LPOLESTR);
+};
+
+struct IRunningObjectTableVtbl {
+    HRESULT (*QueryInterface)(struct IRunningObjectTable *, IID *, void **);
+    ULONG (*AddRef)(struct IRunningObjectTable *);
+    ULONG (*Release)(struct IRunningObjectTable *);
+    HRESULT (*Register)(struct IRunningObjectTable *, DWORD, struct IUnknown *, struct IMoniker *, DWORD *);
+    HRESULT (*Revoke)(struct IRunningObjectTable *, DWORD);
+    HRESULT (*IsRunning)(struct IRunningObjectTable *, struct IMoniker *);
+    HRESULT (*GetObjectA)(struct IRunningObjectTable *, struct IMoniker *, struct IUnknown **);
+    HRESULT (*NoteChangeTime)(struct IRunningObjectTable *, DWORD, FILETIME *);
+    HRESULT (*GetTimeOfLastChange)(struct IRunningObjectTable *, struct IMoniker *, FILETIME *);
+    HRESULT (*EnumRunning)(struct IRunningObjectTable *, struct IEnumMoniker **);
 };
 
 struct IClassFactory {
@@ -25591,101 +26883,16 @@ struct IMonikerVtbl {
     HRESULT (*IsSystemMoniker)(struct IMoniker *, DWORD *);
 };
 
-struct IInternetProtocolSink {
-    struct IInternetProtocolSinkVtbl *lpVtbl;
-};
-
-struct IMoniker {
-    struct IMonikerVtbl *lpVtbl;
-};
-
 struct IInternetSession {
     struct IInternetSessionVtbl *lpVtbl;
-};
-
-struct IEnumString {
-    struct IEnumStringVtbl *lpVtbl;
-};
-
-struct IEnumMonikerVtbl {
-    HRESULT (*QueryInterface)(struct IEnumMoniker *, IID *, void **);
-    ULONG (*AddRef)(struct IEnumMoniker *);
-    ULONG (*Release)(struct IEnumMoniker *);
-    HRESULT (*Next)(struct IEnumMoniker *, ULONG, struct IMoniker **, ULONG *);
-    HRESULT (*Skip)(struct IEnumMoniker *, ULONG);
-    HRESULT (*Reset)(struct IEnumMoniker *);
-    HRESULT (*Clone)(struct IEnumMoniker *, struct IEnumMoniker **);
-};
-
-struct _tagPROTOCOLDATA {
-    DWORD grfFlags;
-    DWORD dwState;
-    LPVOID pData;
-    ULONG cbData;
-};
-
-struct IInternetProtocolVtbl {
-    HRESULT (*QueryInterface)(struct IInternetProtocol *, IID *, void **);
-    ULONG (*AddRef)(struct IInternetProtocol *);
-    ULONG (*Release)(struct IInternetProtocol *);
-    HRESULT (*Start)(struct IInternetProtocol *, LPCWSTR, struct IInternetProtocolSink *, struct IInternetBindInfo *, DWORD, HANDLE_PTR);
-    HRESULT (*Continue)(struct IInternetProtocol *, PROTOCOLDATA *);
-    HRESULT (*Abort)(struct IInternetProtocol *, HRESULT, DWORD);
-    HRESULT (*Terminate)(struct IInternetProtocol *, DWORD);
-    HRESULT (*Suspend)(struct IInternetProtocol *);
-    HRESULT (*Resume)(struct IInternetProtocol *);
-    HRESULT (*Read)(struct IInternetProtocol *, void *, ULONG, ULONG *);
-    HRESULT (*Seek)(struct IInternetProtocol *, LARGE_INTEGER, DWORD, ULARGE_INTEGER *);
-    HRESULT (*LockRequest)(struct IInternetProtocol *, DWORD);
-    HRESULT (*UnlockRequest)(struct IInternetProtocol *);
 };
 
 struct IRunningObjectTable {
     struct IRunningObjectTableVtbl *lpVtbl;
 };
 
-struct tagBIND_OPTS {
-    DWORD cbStruct;
-    DWORD grfFlags;
-    DWORD grfMode;
-    DWORD dwTickCountDeadline;
-};
-
-struct IBindCtx {
-    struct IBindCtxVtbl *lpVtbl;
-};
-
-struct IBindCtxVtbl {
-    HRESULT (*QueryInterface)(struct IBindCtx *, IID *, void **);
-    ULONG (*AddRef)(struct IBindCtx *);
-    ULONG (*Release)(struct IBindCtx *);
-    HRESULT (*RegisterObjectBound)(struct IBindCtx *, struct IUnknown *);
-    HRESULT (*RevokeObjectBound)(struct IBindCtx *, struct IUnknown *);
-    HRESULT (*ReleaseBoundObjects)(struct IBindCtx *);
-    HRESULT (*SetBindOptions)(struct IBindCtx *, BIND_OPTS *);
-    HRESULT (*GetBindOptions)(struct IBindCtx *, BIND_OPTS *);
-    HRESULT (*GetRunningObjectTable)(struct IBindCtx *, struct IRunningObjectTable **);
-    HRESULT (*RegisterObjectParam)(struct IBindCtx *, LPOLESTR, struct IUnknown *);
-    HRESULT (*GetObjectParam)(struct IBindCtx *, LPOLESTR, struct IUnknown **);
-    HRESULT (*EnumObjectParam)(struct IBindCtx *, struct IEnumString **);
-    HRESULT (*RevokeObjectParam)(struct IBindCtx *, LPOLESTR);
-};
-
 struct IEnumMoniker {
     struct IEnumMonikerVtbl *lpVtbl;
-};
-
-struct IRunningObjectTableVtbl {
-    HRESULT (*QueryInterface)(struct IRunningObjectTable *, IID *, void **);
-    ULONG (*AddRef)(struct IRunningObjectTable *);
-    ULONG (*Release)(struct IRunningObjectTable *);
-    HRESULT (*Register)(struct IRunningObjectTable *, DWORD, struct IUnknown *, struct IMoniker *, DWORD *);
-    HRESULT (*Revoke)(struct IRunningObjectTable *, DWORD);
-    HRESULT (*IsRunning)(struct IRunningObjectTable *, struct IMoniker *);
-    HRESULT (*GetObjectA)(struct IRunningObjectTable *, struct IMoniker *, struct IUnknown **);
-    HRESULT (*NoteChangeTime)(struct IRunningObjectTable *, DWORD, FILETIME *);
-    HRESULT (*GetTimeOfLastChange)(struct IRunningObjectTable *, struct IMoniker *, FILETIME *);
-    HRESULT (*EnumRunning)(struct IRunningObjectTable *, struct IEnumMoniker **);
 };
 
 typedef struct _tagSOFTDISTINFO _tagSOFTDISTINFO, *P_tagSOFTDISTINFO;
@@ -25736,6 +26943,15 @@ struct _tagDATAINFO {
     ULONG ulProcessorSpeed;
 };
 
+struct IDataFilterVtbl {
+    HRESULT (*QueryInterface)(struct IDataFilter *, IID *, void **);
+    ULONG (*AddRef)(struct IDataFilter *);
+    ULONG (*Release)(struct IDataFilter *);
+    HRESULT (*DoEncode)(struct IDataFilter *, DWORD, LONG, BYTE *, LONG, BYTE *, LONG, LONG *, LONG *, DWORD);
+    HRESULT (*DoDecode)(struct IDataFilter *, DWORD, LONG, BYTE *, LONG, BYTE *, LONG, LONG *, LONG *, DWORD);
+    HRESULT (*SetEncodingLevel)(struct IDataFilter *, DWORD);
+};
+
 struct IDataFilter {
     struct IDataFilterVtbl *lpVtbl;
 };
@@ -25746,15 +26962,6 @@ struct IEncodingFilterFactoryVtbl {
     ULONG (*Release)(struct IEncodingFilterFactory *);
     HRESULT (*FindBestFilter)(struct IEncodingFilterFactory *, LPCWSTR, LPCWSTR, DATAINFO, struct IDataFilter **);
     HRESULT (*GetDefaultFilter)(struct IEncodingFilterFactory *, LPCWSTR, LPCWSTR, struct IDataFilter **);
-};
-
-struct IDataFilterVtbl {
-    HRESULT (*QueryInterface)(struct IDataFilter *, IID *, void **);
-    ULONG (*AddRef)(struct IDataFilter *);
-    ULONG (*Release)(struct IDataFilter *);
-    HRESULT (*DoEncode)(struct IDataFilter *, DWORD, LONG, BYTE *, LONG, BYTE *, LONG, LONG *, LONG *, DWORD);
-    HRESULT (*DoDecode)(struct IDataFilter *, DWORD, LONG, BYTE *, LONG, BYTE *, LONG, LONG *, LONG *, DWORD);
-    HRESULT (*SetEncodingLevel)(struct IDataFilter *, DWORD);
 };
 
 typedef struct _tagRemBINDINFO _tagRemBINDINFO, *P_tagRemBINDINFO;
@@ -25795,16 +27002,16 @@ typedef struct IInternetThreadSwitch IInternetThreadSwitch, *PIInternetThreadSwi
 
 typedef struct IInternetThreadSwitchVtbl IInternetThreadSwitchVtbl, *PIInternetThreadSwitchVtbl;
 
+struct IInternetThreadSwitch {
+    struct IInternetThreadSwitchVtbl *lpVtbl;
+};
+
 struct IInternetThreadSwitchVtbl {
     HRESULT (*QueryInterface)(struct IInternetThreadSwitch *, IID *, void **);
     ULONG (*AddRef)(struct IInternetThreadSwitch *);
     ULONG (*Release)(struct IInternetThreadSwitch *);
     HRESULT (*Prepare)(struct IInternetThreadSwitch *);
     HRESULT (*Continue)(struct IInternetThreadSwitch *);
-};
-
-struct IInternetThreadSwitch {
-    struct IInternetThreadSwitchVtbl *lpVtbl;
 };
 
 typedef struct IHttpSecurity IHttpSecurity, *PIHttpSecurity;
@@ -25876,10 +27083,6 @@ typedef struct tagDVTARGETDEVICE tagDVTARGETDEVICE, *PtagDVTARGETDEVICE;
 
 typedef struct tagDVTARGETDEVICE DVTARGETDEVICE;
 
-struct IBindStatusCallback {
-    struct IBindStatusCallbackVtbl *lpVtbl;
-};
-
 struct tagFORMATETC {
     CLIPFORMAT cfFormat;
     DVTARGETDEVICE *ptd;
@@ -25890,6 +27093,22 @@ struct tagFORMATETC {
 
 struct IBinding {
     struct IBindingVtbl *lpVtbl;
+};
+
+struct IBindingVtbl {
+    HRESULT (*QueryInterface)(struct IBinding *, IID *, void **);
+    ULONG (*AddRef)(struct IBinding *);
+    ULONG (*Release)(struct IBinding *);
+    HRESULT (*Abort)(struct IBinding *);
+    HRESULT (*Suspend)(struct IBinding *);
+    HRESULT (*Resume)(struct IBinding *);
+    HRESULT (*SetPriority)(struct IBinding *, LONG);
+    HRESULT (*GetPriority)(struct IBinding *, LONG *);
+    HRESULT (*GetBindResult)(struct IBinding *, CLSID *, DWORD *, LPOLESTR *, DWORD *);
+};
+
+struct IBindStatusCallback {
+    struct IBindStatusCallbackVtbl *lpVtbl;
 };
 
 struct IBindStatusCallbackVtbl {
@@ -25904,18 +27123,6 @@ struct IBindStatusCallbackVtbl {
     HRESULT (*GetBindInfo)(struct IBindStatusCallback *, DWORD *, BINDINFO *);
     HRESULT (*OnDataAvailable)(struct IBindStatusCallback *, DWORD, DWORD, FORMATETC *, STGMEDIUM *);
     HRESULT (*OnObjectAvailable)(struct IBindStatusCallback *, IID *, struct IUnknown *);
-};
-
-struct IBindingVtbl {
-    HRESULT (*QueryInterface)(struct IBinding *, IID *, void **);
-    ULONG (*AddRef)(struct IBinding *);
-    ULONG (*Release)(struct IBinding *);
-    HRESULT (*Abort)(struct IBinding *);
-    HRESULT (*Suspend)(struct IBinding *);
-    HRESULT (*Resume)(struct IBinding *);
-    HRESULT (*SetPriority)(struct IBinding *, LONG);
-    HRESULT (*GetPriority)(struct IBinding *, LONG *);
-    HRESULT (*GetBindResult)(struct IBinding *, CLSID *, DWORD *, LPOLESTR *, DWORD *);
 };
 
 struct tagDVTARGETDEVICE {
@@ -25943,6 +27150,17 @@ typedef enum _URLZONEREG {
 
 typedef enum _URLZONEREG URLZONEREG;
 
+struct _ZONEATTRIBUTES {
+    ULONG cbSize;
+    WCHAR szDisplayName[260];
+    WCHAR szDescription[200];
+    WCHAR szIconPath[260];
+    DWORD dwTemplateMinLevel;
+    DWORD dwTemplateRecommended;
+    DWORD dwTemplateCurrentLevel;
+    DWORD dwFlags;
+};
+
 struct IInternetZoneManagerVtbl {
     HRESULT (*QueryInterface)(struct IInternetZoneManager *, IID *, void **);
     ULONG (*AddRef)(struct IInternetZoneManager *);
@@ -25961,17 +27179,6 @@ struct IInternetZoneManagerVtbl {
     HRESULT (*CopyTemplatePoliciesToZone)(struct IInternetZoneManager *, DWORD, DWORD, DWORD);
 };
 
-struct _ZONEATTRIBUTES {
-    ULONG cbSize;
-    WCHAR szDisplayName[260];
-    WCHAR szDescription[200];
-    WCHAR szIconPath[260];
-    DWORD dwTemplateMinLevel;
-    DWORD dwTemplateRecommended;
-    DWORD dwTemplateCurrentLevel;
-    DWORD dwFlags;
-};
-
 struct IInternetZoneManager {
     struct IInternetZoneManagerVtbl *lpVtbl;
 };
@@ -25984,10 +27191,6 @@ typedef ulong ULONG_PTR;
 
 typedef ULONG_PTR DWORD_PTR;
 
-struct IHttpNegotiate2 {
-    struct IHttpNegotiate2Vtbl *lpVtbl;
-};
-
 struct IHttpNegotiate2Vtbl {
     HRESULT (*QueryInterface)(struct IHttpNegotiate2 *, IID *, void **);
     ULONG (*AddRef)(struct IHttpNegotiate2 *);
@@ -25995,6 +27198,10 @@ struct IHttpNegotiate2Vtbl {
     HRESULT (*BeginningTransaction)(struct IHttpNegotiate2 *, LPCWSTR, LPCWSTR, DWORD, LPWSTR *);
     HRESULT (*OnResponse)(struct IHttpNegotiate2 *, DWORD, LPCWSTR, LPCWSTR, LPWSTR *);
     HRESULT (*GetRootSecurityId)(struct IHttpNegotiate2 *, BYTE *, DWORD *, DWORD_PTR);
+};
+
+struct IHttpNegotiate2 {
+    struct IHttpNegotiate2Vtbl *lpVtbl;
 };
 
 typedef struct IHttpNegotiateVtbl IHttpNegotiateVtbl, *PIHttpNegotiateVtbl;
@@ -26017,10 +27224,6 @@ typedef struct IInternetProtocolRootVtbl IInternetProtocolRootVtbl, *PIInternetP
 
 typedef struct IInternetProtocolRoot IInternetProtocolRoot, *PIInternetProtocolRoot;
 
-struct IInternetProtocolRoot {
-    struct IInternetProtocolRootVtbl *lpVtbl;
-};
-
 struct IInternetProtocolRootVtbl {
     HRESULT (*QueryInterface)(struct IInternetProtocolRoot *, IID *, void **);
     ULONG (*AddRef)(struct IInternetProtocolRoot *);
@@ -26031,6 +27234,10 @@ struct IInternetProtocolRootVtbl {
     HRESULT (*Terminate)(struct IInternetProtocolRoot *, DWORD);
     HRESULT (*Suspend)(struct IInternetProtocolRoot *);
     HRESULT (*Resume)(struct IInternetProtocolRoot *);
+};
+
+struct IInternetProtocolRoot {
+    struct IInternetProtocolRootVtbl *lpVtbl;
 };
 
 typedef struct IWinInetHttpInfo IWinInetHttpInfo, *PIWinInetHttpInfo;
@@ -26089,15 +27296,15 @@ typedef struct IWrappedProtocol IWrappedProtocol, *PIWrappedProtocol;
 
 typedef struct IWrappedProtocolVtbl IWrappedProtocolVtbl, *PIWrappedProtocolVtbl;
 
-struct IWrappedProtocol {
-    struct IWrappedProtocolVtbl *lpVtbl;
-};
-
 struct IWrappedProtocolVtbl {
     HRESULT (*QueryInterface)(struct IWrappedProtocol *, IID *, void **);
     ULONG (*AddRef)(struct IWrappedProtocol *);
     ULONG (*Release)(struct IWrappedProtocol *);
     HRESULT (*GetWrapperCode)(struct IWrappedProtocol *, LONG *, DWORD_PTR);
+};
+
+struct IWrappedProtocol {
+    struct IWrappedProtocolVtbl *lpVtbl;
 };
 
 typedef enum _tagPARSEACTION {
@@ -26332,10 +27539,6 @@ typedef enum _tagQUERYOPTION {
 
 typedef enum _tagQUERYOPTION QUERYOPTION;
 
-struct IInternetProtocolInfo {
-    struct IInternetProtocolInfoVtbl *lpVtbl;
-};
-
 struct IInternetProtocolInfoVtbl {
     HRESULT (*QueryInterface)(struct IInternetProtocolInfo *, IID *, void **);
     ULONG (*AddRef)(struct IInternetProtocolInfo *);
@@ -26344,6 +27547,10 @@ struct IInternetProtocolInfoVtbl {
     HRESULT (*CombineUrl)(struct IInternetProtocolInfo *, LPCWSTR, LPCWSTR, DWORD, LPWSTR, DWORD, DWORD *, DWORD);
     HRESULT (*CompareUrl)(struct IInternetProtocolInfo *, LPCWSTR, LPCWSTR, DWORD);
     HRESULT (*QueryInfo)(struct IInternetProtocolInfo *, LPCWSTR, QUERYOPTION, DWORD, LPVOID, DWORD, DWORD *, DWORD);
+};
+
+struct IInternetProtocolInfo {
+    struct IInternetProtocolInfoVtbl *lpVtbl;
 };
 
 typedef enum __MIDL_IInternetZoneManager_0001 {
@@ -26393,10 +27600,6 @@ typedef struct IInternetProtocolSinkStackable IInternetProtocolSinkStackable, *P
 
 typedef struct IInternetProtocolSinkStackableVtbl IInternetProtocolSinkStackableVtbl, *PIInternetProtocolSinkStackableVtbl;
 
-struct IInternetProtocolSinkStackable {
-    struct IInternetProtocolSinkStackableVtbl *lpVtbl;
-};
-
 struct IInternetProtocolSinkStackableVtbl {
     HRESULT (*QueryInterface)(struct IInternetProtocolSinkStackable *, IID *, void **);
     ULONG (*AddRef)(struct IInternetProtocolSinkStackable *);
@@ -26404,6 +27607,10 @@ struct IInternetProtocolSinkStackableVtbl {
     HRESULT (*SwitchSink)(struct IInternetProtocolSinkStackable *, struct IInternetProtocolSink *);
     HRESULT (*CommitSwitch)(struct IInternetProtocolSinkStackable *);
     HRESULT (*RollbackSwitch)(struct IInternetProtocolSinkStackable *);
+};
+
+struct IInternetProtocolSinkStackable {
+    struct IInternetProtocolSinkStackableVtbl *lpVtbl;
 };
 
 typedef enum __MIDL_IInternetSecurityManager_0001 {
@@ -26434,8 +27641,6 @@ typedef struct _tagCODEBASEHOLD _tagCODEBASEHOLD, *P_tagCODEBASEHOLD;
 typedef struct _tagCODEBASEHOLD *LPCODEBASEHOLD;
 
 typedef struct IXMLElementVtbl IXMLElementVtbl, *PIXMLElementVtbl;
-
-typedef uint UINT;
 
 typedef struct ITypeInfo ITypeInfo, *PITypeInfo;
 
@@ -26474,8 +27679,6 @@ typedef struct tagVARDESC VARDESC;
 typedef DISPID MEMBERID;
 
 typedef DWORD HREFTYPE;
-
-typedef int INT;
 
 typedef void *PVOID;
 
@@ -26739,34 +27942,6 @@ struct _struct_2085 {
     union _union_2086 field4_0x8;
 };
 
-union _union_2084 {
-    struct _struct_2085 field0;
-    DECIMAL decVal;
-};
-
-struct IXMLElementCollectionVtbl {
-    HRESULT (*QueryInterface)(struct IXMLElementCollection *, IID *, void **);
-    ULONG (*AddRef)(struct IXMLElementCollection *);
-    ULONG (*Release)(struct IXMLElementCollection *);
-    HRESULT (*GetTypeInfoCount)(struct IXMLElementCollection *, UINT *);
-    HRESULT (*GetTypeInfo)(struct IXMLElementCollection *, UINT, LCID, struct ITypeInfo **);
-    HRESULT (*GetIDsOfNames)(struct IXMLElementCollection *, IID *, LPOLESTR *, UINT, LCID, DISPID *);
-    HRESULT (*Invoke)(struct IXMLElementCollection *, DISPID, IID *, LCID, WORD, DISPPARAMS *, VARIANT *, EXCEPINFO *, UINT *);
-    HRESULT (*put_length)(struct IXMLElementCollection *, long);
-    HRESULT (*get_length)(struct IXMLElementCollection *, long *);
-    HRESULT (*get__newEnum)(struct IXMLElementCollection *, struct IUnknown **);
-    HRESULT (*item)(struct IXMLElementCollection *, VARIANT, VARIANT, struct IDispatch **);
-};
-
-struct tagVARIANT {
-    union _union_2084 field0_0x0;
-};
-
-struct tagPARAMDESCEX {
-    ULONG cBytes;
-    VARIANTARG varDefaultValue;
-};
-
 union _union_2112 {
     ULONG oInst;
     VARIANT *lpvarValue;
@@ -26791,6 +27966,156 @@ struct ITypeCompVtbl {
 
 struct IXMLElement {
     struct IXMLElementVtbl *lpVtbl;
+};
+
+struct tagSAFEARRAYBOUND {
+    ULONG cElements;
+    LONG lLbound;
+};
+
+struct tagSAFEARRAY {
+    USHORT cDims;
+    USHORT fFeatures;
+    ULONG cbElements;
+    ULONG cLocks;
+    PVOID pvData;
+    SAFEARRAYBOUND rgsabound[1];
+};
+
+struct tagTLIBATTR {
+    GUID guid;
+    LCID lcid;
+    SYSKIND syskind;
+    WORD wMajorVerNum;
+    WORD wMinorVerNum;
+    WORD wLibFlags;
+};
+
+struct tagARRAYDESC {
+    TYPEDESC tdescElem;
+    USHORT cDims;
+    SAFEARRAYBOUND rgbounds[1];
+};
+
+struct IRecordInfo {
+    struct IRecordInfoVtbl *lpVtbl;
+};
+
+struct tagTYPEATTR {
+    GUID guid;
+    LCID lcid;
+    DWORD dwReserved;
+    MEMBERID memidConstructor;
+    MEMBERID memidDestructor;
+    LPOLESTR lpstrSchema;
+    ULONG cbSizeInstance;
+    TYPEKIND typekind;
+    WORD cFuncs;
+    WORD cVars;
+    WORD cImplTypes;
+    WORD cbSizeVft;
+    WORD cbAlignment;
+    WORD wTypeFlags;
+    WORD wMajorVerNum;
+    WORD wMinorVerNum;
+    TYPEDESC tdescAlias;
+    IDLDESC idldescType;
+};
+
+struct tagDISPPARAMS {
+    VARIANTARG *rgvarg;
+    DISPID *rgdispidNamedArgs;
+    UINT cArgs;
+    UINT cNamedArgs;
+};
+
+struct ISoftDistExtVtbl {
+    HRESULT (*QueryInterface)(struct ISoftDistExt *, IID *, void **);
+    ULONG (*AddRef)(struct ISoftDistExt *);
+    ULONG (*Release)(struct ISoftDistExt *);
+    HRESULT (*ProcessSoftDist)(struct ISoftDistExt *, LPCWSTR, struct IXMLElement *, LPSOFTDISTINFO);
+    HRESULT (*GetFirstCodeBase)(struct ISoftDistExt *, LPWSTR *, LPDWORD);
+    HRESULT (*GetNextCodeBase)(struct ISoftDistExt *, LPWSTR *, LPDWORD);
+    HRESULT (*AsyncInstallDistributionUnit)(struct ISoftDistExt *, struct IBindCtx *, LPVOID, DWORD, LPCODEBASEHOLD);
+};
+
+union tagBINDPTR {
+    FUNCDESC *lpfuncdesc;
+    VARDESC *lpvardesc;
+    struct ITypeComp *lptcomp;
+};
+
+struct IDispatch {
+    struct IDispatchVtbl *lpVtbl;
+};
+
+struct IDispatchVtbl {
+    HRESULT (*QueryInterface)(struct IDispatch *, IID *, void **);
+    ULONG (*AddRef)(struct IDispatch *);
+    ULONG (*Release)(struct IDispatch *);
+    HRESULT (*GetTypeInfoCount)(struct IDispatch *, UINT *);
+    HRESULT (*GetTypeInfo)(struct IDispatch *, UINT, LCID, struct ITypeInfo **);
+    HRESULT (*GetIDsOfNames)(struct IDispatch *, IID *, LPOLESTR *, UINT, LCID, DISPID *);
+    HRESULT (*Invoke)(struct IDispatch *, DISPID, IID *, LCID, WORD, DISPPARAMS *, VARIANT *, EXCEPINFO *, UINT *);
+};
+
+struct IXMLElementVtbl {
+    HRESULT (*QueryInterface)(struct IXMLElement *, IID *, void **);
+    ULONG (*AddRef)(struct IXMLElement *);
+    ULONG (*Release)(struct IXMLElement *);
+    HRESULT (*GetTypeInfoCount)(struct IXMLElement *, UINT *);
+    HRESULT (*GetTypeInfo)(struct IXMLElement *, UINT, LCID, struct ITypeInfo **);
+    HRESULT (*GetIDsOfNames)(struct IXMLElement *, IID *, LPOLESTR *, UINT, LCID, DISPID *);
+    HRESULT (*Invoke)(struct IXMLElement *, DISPID, IID *, LCID, WORD, DISPPARAMS *, VARIANT *, EXCEPINFO *, UINT *);
+    HRESULT (*get_tagName)(struct IXMLElement *, BSTR *);
+    HRESULT (*put_tagName)(struct IXMLElement *, BSTR);
+    HRESULT (*get_parent)(struct IXMLElement *, struct IXMLElement **);
+    HRESULT (*setAttribute)(struct IXMLElement *, BSTR, VARIANT);
+    HRESULT (*getAttribute)(struct IXMLElement *, BSTR, VARIANT *);
+    HRESULT (*removeAttribute)(struct IXMLElement *, BSTR);
+    HRESULT (*get_children)(struct IXMLElement *, struct IXMLElementCollection **);
+    HRESULT (*get_type)(struct IXMLElement *, long *);
+    HRESULT (*get_text)(struct IXMLElement *, BSTR *);
+    HRESULT (*put_text)(struct IXMLElement *, BSTR);
+    HRESULT (*addChild)(struct IXMLElement *, struct IXMLElement *, long, long);
+    HRESULT (*removeChild)(struct IXMLElement *, struct IXMLElement *);
+};
+
+union _union_2084 {
+    struct _struct_2085 field0;
+    DECIMAL decVal;
+};
+
+struct tagVARIANT {
+    union _union_2084 field0_0x0;
+};
+
+struct _tagCODEBASEHOLD {
+    ULONG cbSize;
+    LPWSTR szDistUnit;
+    LPWSTR szCodeBase;
+    DWORD dwVersionMS;
+    DWORD dwVersionLS;
+    DWORD dwStyle;
+};
+
+struct IXMLElementCollectionVtbl {
+    HRESULT (*QueryInterface)(struct IXMLElementCollection *, IID *, void **);
+    ULONG (*AddRef)(struct IXMLElementCollection *);
+    ULONG (*Release)(struct IXMLElementCollection *);
+    HRESULT (*GetTypeInfoCount)(struct IXMLElementCollection *, UINT *);
+    HRESULT (*GetTypeInfo)(struct IXMLElementCollection *, UINT, LCID, struct ITypeInfo **);
+    HRESULT (*GetIDsOfNames)(struct IXMLElementCollection *, IID *, LPOLESTR *, UINT, LCID, DISPID *);
+    HRESULT (*Invoke)(struct IXMLElementCollection *, DISPID, IID *, LCID, WORD, DISPPARAMS *, VARIANT *, EXCEPINFO *, UINT *);
+    HRESULT (*put_length)(struct IXMLElementCollection *, long);
+    HRESULT (*get_length)(struct IXMLElementCollection *, long *);
+    HRESULT (*get__newEnum)(struct IXMLElementCollection *, struct IUnknown **);
+    HRESULT (*item)(struct IXMLElementCollection *, VARIANT, VARIANT, struct IDispatch **);
+};
+
+struct tagPARAMDESCEX {
+    ULONG cBytes;
+    VARIANTARG varDefaultValue;
 };
 
 struct ITypeInfoVtbl {
@@ -26834,66 +28159,12 @@ struct ITypeLibVtbl {
     void (*ReleaseTLibAttr)(struct ITypeLib *, TLIBATTR *);
 };
 
-struct tagSAFEARRAYBOUND {
-    ULONG cElements;
-    LONG lLbound;
-};
-
-struct tagSAFEARRAY {
-    USHORT cDims;
-    USHORT fFeatures;
-    ULONG cbElements;
-    ULONG cLocks;
-    PVOID pvData;
-    SAFEARRAYBOUND rgsabound[1];
-};
-
-struct tagTLIBATTR {
-    GUID guid;
-    LCID lcid;
-    SYSKIND syskind;
-    WORD wMajorVerNum;
-    WORD wMinorVerNum;
-    WORD wLibFlags;
-};
-
-struct tagARRAYDESC {
-    TYPEDESC tdescElem;
-    USHORT cDims;
-    SAFEARRAYBOUND rgbounds[1];
-};
-
 struct ITypeComp {
     struct ITypeCompVtbl *lpVtbl;
 };
 
 struct ISoftDistExt {
     struct ISoftDistExtVtbl *lpVtbl;
-};
-
-struct IRecordInfo {
-    struct IRecordInfoVtbl *lpVtbl;
-};
-
-struct tagTYPEATTR {
-    GUID guid;
-    LCID lcid;
-    DWORD dwReserved;
-    MEMBERID memidConstructor;
-    MEMBERID memidDestructor;
-    LPOLESTR lpstrSchema;
-    ULONG cbSizeInstance;
-    TYPEKIND typekind;
-    WORD cFuncs;
-    WORD cVars;
-    WORD cImplTypes;
-    WORD cbSizeVft;
-    WORD cbAlignment;
-    WORD wTypeFlags;
-    WORD wMajorVerNum;
-    WORD wMinorVerNum;
-    TYPEDESC tdescAlias;
-    IDLDESC idldescType;
 };
 
 struct IRecordInfoVtbl {
@@ -26918,43 +28189,6 @@ struct IRecordInfoVtbl {
     HRESULT (*RecordDestroy)(struct IRecordInfo *, PVOID);
 };
 
-struct tagDISPPARAMS {
-    VARIANTARG *rgvarg;
-    DISPID *rgdispidNamedArgs;
-    UINT cArgs;
-    UINT cNamedArgs;
-};
-
-struct ISoftDistExtVtbl {
-    HRESULT (*QueryInterface)(struct ISoftDistExt *, IID *, void **);
-    ULONG (*AddRef)(struct ISoftDistExt *);
-    ULONG (*Release)(struct ISoftDistExt *);
-    HRESULT (*ProcessSoftDist)(struct ISoftDistExt *, LPCWSTR, struct IXMLElement *, LPSOFTDISTINFO);
-    HRESULT (*GetFirstCodeBase)(struct ISoftDistExt *, LPWSTR *, LPDWORD);
-    HRESULT (*GetNextCodeBase)(struct ISoftDistExt *, LPWSTR *, LPDWORD);
-    HRESULT (*AsyncInstallDistributionUnit)(struct ISoftDistExt *, struct IBindCtx *, LPVOID, DWORD, LPCODEBASEHOLD);
-};
-
-union tagBINDPTR {
-    FUNCDESC *lpfuncdesc;
-    VARDESC *lpvardesc;
-    struct ITypeComp *lptcomp;
-};
-
-struct IDispatch {
-    struct IDispatchVtbl *lpVtbl;
-};
-
-struct IDispatchVtbl {
-    HRESULT (*QueryInterface)(struct IDispatch *, IID *, void **);
-    ULONG (*AddRef)(struct IDispatch *);
-    ULONG (*Release)(struct IDispatch *);
-    HRESULT (*GetTypeInfoCount)(struct IDispatch *, UINT *);
-    HRESULT (*GetTypeInfo)(struct IDispatch *, UINT, LCID, struct ITypeInfo **);
-    HRESULT (*GetIDsOfNames)(struct IDispatch *, IID *, LPOLESTR *, UINT, LCID, DISPID *);
-    HRESULT (*Invoke)(struct IDispatch *, DISPID, IID *, LCID, WORD, DISPPARAMS *, VARIANT *, EXCEPINFO *, UINT *);
-};
-
 struct ITypeLib {
     struct ITypeLibVtbl *lpVtbl;
 };
@@ -26973,37 +28207,6 @@ struct tagEXCEPINFO {
     PVOID pvReserved;
     HRESULT (*pfnDeferredFillIn)(struct tagEXCEPINFO *);
     SCODE scode;
-};
-
-struct IXMLElementVtbl {
-    HRESULT (*QueryInterface)(struct IXMLElement *, IID *, void **);
-    ULONG (*AddRef)(struct IXMLElement *);
-    ULONG (*Release)(struct IXMLElement *);
-    HRESULT (*GetTypeInfoCount)(struct IXMLElement *, UINT *);
-    HRESULT (*GetTypeInfo)(struct IXMLElement *, UINT, LCID, struct ITypeInfo **);
-    HRESULT (*GetIDsOfNames)(struct IXMLElement *, IID *, LPOLESTR *, UINT, LCID, DISPID *);
-    HRESULT (*Invoke)(struct IXMLElement *, DISPID, IID *, LCID, WORD, DISPPARAMS *, VARIANT *, EXCEPINFO *, UINT *);
-    HRESULT (*get_tagName)(struct IXMLElement *, BSTR *);
-    HRESULT (*put_tagName)(struct IXMLElement *, BSTR);
-    HRESULT (*get_parent)(struct IXMLElement *, struct IXMLElement **);
-    HRESULT (*setAttribute)(struct IXMLElement *, BSTR, VARIANT);
-    HRESULT (*getAttribute)(struct IXMLElement *, BSTR, VARIANT *);
-    HRESULT (*removeAttribute)(struct IXMLElement *, BSTR);
-    HRESULT (*get_children)(struct IXMLElement *, struct IXMLElementCollection **);
-    HRESULT (*get_type)(struct IXMLElement *, long *);
-    HRESULT (*get_text)(struct IXMLElement *, BSTR *);
-    HRESULT (*put_text)(struct IXMLElement *, BSTR);
-    HRESULT (*addChild)(struct IXMLElement *, struct IXMLElement *, long, long);
-    HRESULT (*removeChild)(struct IXMLElement *, struct IXMLElement *);
-};
-
-struct _tagCODEBASEHOLD {
-    ULONG cbSize;
-    LPWSTR szDistUnit;
-    LPWSTR szCodeBase;
-    DWORD dwVersionMS;
-    DWORD dwVersionLS;
-    DWORD dwStyle;
 };
 
 typedef struct IInternetThreadSwitch *LPIINTERNETTHREADSWITCH;
@@ -27073,16 +28276,16 @@ typedef struct IInternetPriority IInternetPriority, *PIInternetPriority;
 
 typedef struct IInternetPriorityVtbl IInternetPriorityVtbl, *PIInternetPriorityVtbl;
 
+struct IInternetPriority {
+    struct IInternetPriorityVtbl *lpVtbl;
+};
+
 struct IInternetPriorityVtbl {
     HRESULT (*QueryInterface)(struct IInternetPriority *, IID *, void **);
     ULONG (*AddRef)(struct IInternetPriority *);
     ULONG (*Release)(struct IInternetPriority *);
     HRESULT (*SetPriority)(struct IInternetPriority *, LONG);
     HRESULT (*GetPriority)(struct IInternetPriority *, LONG *);
-};
-
-struct IInternetPriority {
-    struct IInternetPriorityVtbl *lpVtbl;
 };
 
 typedef struct IBindHost IBindHost, *PIBindHost;
@@ -27683,14 +28886,6 @@ struct HBRUSH__ {
     int unused;
 };
 
-typedef struct HMONITOR__ HMONITOR__, *PHMONITOR__;
-
-typedef struct HMONITOR__ *HMONITOR;
-
-struct HMONITOR__ {
-    int unused;
-};
-
 typedef struct tagSIZE tagSIZE, *PtagSIZE;
 
 struct tagSIZE {
@@ -27714,14 +28909,7 @@ struct HMETAFILE__ {
 
 typedef HINSTANCE HMODULE;
 
-typedef struct tagPOINT tagPOINT, *PtagPOINT;
-
 typedef struct tagPOINT *PPOINT;
-
-struct tagPOINT {
-    LONG x;
-    LONG y;
-};
 
 typedef struct HSTR__ HSTR__, *PHSTR__;
 
@@ -27831,16 +29019,7 @@ struct HTASK__ {
     int unused;
 };
 
-typedef struct tagRECT tagRECT, *PtagRECT;
-
 typedef struct tagRECT *PRECT;
-
-struct tagRECT {
-    LONG left;
-    LONG top;
-    LONG right;
-    LONG bottom;
-};
 
 typedef struct HDC__ HDC__, *PHDC__;
 
@@ -27971,75 +29150,6 @@ typedef struct _POINTL *PPOINTL;
 #define DM_IN_PROMPT 4
 
 #define DC_PAPERNAMES 16
-
-typedef struct _D3DCAPS8 _D3DCAPS8, *P_D3DCAPS8;
-
-typedef struct _D3DCAPS8 D3DCAPS8;
-
-typedef enum _D3DDEVTYPE {
-    D3DDEVTYPE_HAL=1,
-    D3DDEVTYPE_REF=2,
-    D3DDEVTYPE_SW=3,
-    D3DDEVTYPE_FORCE_DWORD=2147483647
-} _D3DDEVTYPE;
-
-typedef enum _D3DDEVTYPE D3DDEVTYPE;
-
-struct _D3DCAPS8 {
-    D3DDEVTYPE DeviceType;
-    UINT AdapterOrdinal;
-    DWORD Caps;
-    DWORD Caps2;
-    DWORD Caps3;
-    DWORD PresentationIntervals;
-    DWORD CursorCaps;
-    DWORD DevCaps;
-    DWORD PrimitiveMiscCaps;
-    DWORD RasterCaps;
-    DWORD ZCmpCaps;
-    DWORD SrcBlendCaps;
-    DWORD DestBlendCaps;
-    DWORD AlphaCmpCaps;
-    DWORD ShadeCaps;
-    DWORD TextureCaps;
-    DWORD TextureFilterCaps;
-    DWORD CubeTextureFilterCaps;
-    DWORD VolumeTextureFilterCaps;
-    DWORD TextureAddressCaps;
-    DWORD VolumeTextureAddressCaps;
-    DWORD LineCaps;
-    DWORD MaxTextureWidth;
-    DWORD MaxTextureHeight;
-    DWORD MaxVolumeExtent;
-    DWORD MaxTextureRepeat;
-    DWORD MaxTextureAspectRatio;
-    DWORD MaxAnisotropy;
-    float MaxVertexW;
-    float GuardBandLeft;
-    float GuardBandTop;
-    float GuardBandRight;
-    float GuardBandBottom;
-    float ExtentsAdjust;
-    DWORD StencilCaps;
-    DWORD FVFCaps;
-    DWORD TextureOpCaps;
-    DWORD MaxTextureBlendStages;
-    DWORD MaxSimultaneousTextures;
-    DWORD VertexProcessingCaps;
-    DWORD MaxActiveLights;
-    DWORD MaxUserClipPlanes;
-    DWORD MaxVertexBlendMatrices;
-    DWORD MaxVertexBlendMatrixIndex;
-    float MaxPointSize;
-    DWORD MaxPrimitiveCount;
-    DWORD MaxVertexIndex;
-    DWORD MaxStreams;
-    DWORD MaxStreamStride;
-    DWORD VertexShaderVersion;
-    DWORD MaxVertexShaderConst;
-    DWORD PixelShaderVersion;
-    float MaxPixelShaderValue;
-};
 
 #define D3DPTEXTURECAPS_POW2 2
 
@@ -28943,14 +30053,14 @@ union _union_732 {
     DWORD dwReserved[6];
 };
 
-struct _struct_731 {
-    DWORD dwMinimum;
-    DWORD dwMaximum;
-};
-
 struct _struct_730 {
     LONG lMinimum;
     LONG lMaximum;
+};
+
+struct _struct_731 {
+    DWORD dwMinimum;
+    DWORD dwMaximum;
 };
 
 union _union_729 {
@@ -29539,8 +30649,6 @@ typedef WAVECALLBACK *LPWAVECALLBACK;
 
 typedef struct tagMCI_OVLY_LOAD_PARMSA tagMCI_OVLY_LOAD_PARMSA, *PtagMCI_OVLY_LOAD_PARMSA;
 
-typedef struct tagRECT RECT;
-
 struct tagMCI_OVLY_LOAD_PARMSA {
     DWORD_PTR dwCallback;
     LPCSTR lpfilename;
@@ -29559,6 +30667,12 @@ typedef struct tagMIXERCONTROLW *LPMIXERCONTROLW;
 
 typedef union _union_737 _union_737, *P_union_737;
 
+union _union_737 {
+    DWORD cSteps;
+    DWORD cbCustomData;
+    DWORD dwReserved[6];
+};
+
 union _union_741 {
     DWORD dwControlID;
     DWORD dwControlType;
@@ -29571,12 +30685,6 @@ struct tagMIXERLINECONTROLSW {
     DWORD cControls;
     DWORD cbmxctrl;
     LPMIXERCONTROLW pamxctrl;
-};
-
-union _union_737 {
-    DWORD cSteps;
-    DWORD cbCustomData;
-    DWORD dwReserved[6];
 };
 
 struct tagMIXERCONTROLW {
@@ -29926,10 +31034,6 @@ typedef struct HMMIO__ HMMIO__, *PHMMIO__;
 
 typedef struct HMMIO__ *HMMIO;
 
-struct HMMIO__ {
-    int unused;
-};
-
 struct _MMIOINFO {
     DWORD dwFlags;
     FOURCC fccIOProc;
@@ -29947,6 +31051,10 @@ struct _MMIOINFO {
     DWORD dwReserved1;
     DWORD dwReserved2;
     HMMIO hmmio;
+};
+
+struct HMMIO__ {
+    int unused;
 };
 
 typedef struct tagMCI_VD_ESCAPE_PARMSA tagMCI_VD_ESCAPE_PARMSA, *PtagMCI_VD_ESCAPE_PARMSA;
@@ -33166,6 +34274,44 @@ struct lconv {
     wchar_t *_W_negative_sign;
 };
 
+struct threadmbcinfostruct {
+    int refcount;
+    int mbcodepage;
+    int ismbcodepage;
+    ushort mbulinfo[6];
+    uchar mbctype[257];
+    uchar mbcasemap[256];
+    wchar_t *mblocalename;
+};
+
+struct localerefcount {
+    char *locale;
+    wchar_t *wlocale;
+    int *refcount;
+    int *wrefcount;
+};
+
+struct threadlocaleinfostruct {
+    int refcount;
+    uint lc_codepage;
+    uint lc_collate_cp;
+    uint lc_time_cp;
+    locrefcount lc_category[6];
+    int lc_clike;
+    int mb_cur_max;
+    int *lconv_intl_refcount;
+    int *lconv_num_refcount;
+    int *lconv_mon_refcount;
+    struct lconv *lconv;
+    int *ctype1_refcount;
+    ushort *ctype1;
+    ushort *pctype;
+    uchar *pclmap;
+    uchar *pcumap;
+    struct __lc_time_data *lc_time_curr;
+    wchar_t *locale_name[6];
+};
+
 struct _tiddata {
     ulong _tid;
     uintptr_t _thandle;
@@ -33239,44 +34385,6 @@ struct __lc_time_data {
     wchar_t *_W_ww_locale_name;
 };
 
-struct threadmbcinfostruct {
-    int refcount;
-    int mbcodepage;
-    int ismbcodepage;
-    ushort mbulinfo[6];
-    uchar mbctype[257];
-    uchar mbcasemap[256];
-    wchar_t *mblocalename;
-};
-
-struct localerefcount {
-    char *locale;
-    wchar_t *wlocale;
-    int *refcount;
-    int *wrefcount;
-};
-
-struct threadlocaleinfostruct {
-    int refcount;
-    uint lc_codepage;
-    uint lc_collate_cp;
-    uint lc_time_cp;
-    locrefcount lc_category[6];
-    int lc_clike;
-    int mb_cur_max;
-    int *lconv_intl_refcount;
-    int *lconv_num_refcount;
-    int *lconv_mon_refcount;
-    struct lconv *lconv;
-    int *ctype1_refcount;
-    ushort *ctype1;
-    ushort *pctype;
-    uchar *pclmap;
-    uchar *pcumap;
-    struct __lc_time_data *lc_time_curr;
-    wchar_t *locale_name[6];
-};
-
 typedef struct _tiddata *_ptiddata;
 
 typedef struct sockaddr sockaddr, *Psockaddr;
@@ -33313,16 +34421,16 @@ typedef ulong u_long;
 
 typedef uchar u_char;
 
-struct _struct_882 {
-    u_short s_w1;
-    u_short s_w2;
-};
-
 struct _struct_881 {
     u_char s_b1;
     u_char s_b2;
     u_char s_b3;
     u_char s_b4;
+};
+
+struct _struct_882 {
+    u_short s_w1;
+    u_short s_w2;
 };
 
 union _union_880 {
@@ -34014,6 +35122,11 @@ typedef struct _struct_392 _struct_392, *P_struct_392;
 
 typedef struct _POINTL POINTL;
 
+union _union_393.conflict {
+    DWORD dmDisplayFlags;
+    DWORD dmNup;
+};
+
 struct _struct_392 {
     short dmOrientation;
     short dmPaperSize;
@@ -34024,11 +35137,6 @@ struct _struct_392 {
 union _union_391 {
     struct _struct_392 field0;
     POINTL dmPosition;
-};
-
-union _union_393.conflict {
-    DWORD dmDisplayFlags;
-    DWORD dmNup;
 };
 
 struct _devicemodeA {
@@ -34135,12 +35243,6 @@ typedef union _union_397.conflict _union_397.conflict, *P_union_397.conflict;
 
 typedef struct _struct_396 _struct_396, *P_struct_396;
 
-struct _PRINTER_DEFAULTSW {
-    LPWSTR pDatatype;
-    LPDEVMODEW pDevMode;
-    ACCESS_MASK DesiredAccess;
-};
-
 struct _struct_396 {
     short dmOrientation;
     short dmPaperSize;
@@ -34190,6 +35292,12 @@ struct _devicemodeW {
     DWORD dmReserved2;
     DWORD dmPanningWidth;
     DWORD dmPanningHeight;
+};
+
+struct _PRINTER_DEFAULTSW {
+    LPWSTR pDatatype;
+    LPDEVMODEW pDevMode;
+    ACCESS_MASK DesiredAccess;
 };
 
 typedef struct _ADDJOB_INFO_1A _ADDJOB_INFO_1A, *P_ADDJOB_INFO_1A;
@@ -36648,6 +37756,15 @@ typedef struct tagINTERFACEINFO tagINTERFACEINFO, *PtagINTERFACEINFO;
 
 typedef struct tagINTERFACEINFO *LPINTERFACEINFO;
 
+struct IMessageFilterVtbl {
+    HRESULT (*QueryInterface)(struct IMessageFilter *, IID *, void **);
+    ULONG (*AddRef)(struct IMessageFilter *);
+    ULONG (*Release)(struct IMessageFilter *);
+    DWORD (*HandleInComingCall)(struct IMessageFilter *, DWORD, HTASK, DWORD, LPINTERFACEINFO);
+    DWORD (*RetryRejectedCall)(struct IMessageFilter *, HTASK, DWORD, DWORD);
+    DWORD (*MessagePending)(struct IMessageFilter *, HTASK, DWORD, DWORD);
+};
+
 struct IMessageFilter {
     struct IMessageFilterVtbl *lpVtbl;
 };
@@ -36656,15 +37773,6 @@ struct tagINTERFACEINFO {
     struct IUnknown *pUnk;
     IID iid;
     WORD wMethod;
-};
-
-struct IMessageFilterVtbl {
-    HRESULT (*QueryInterface)(struct IMessageFilter *, IID *, void **);
-    ULONG (*AddRef)(struct IMessageFilter *);
-    ULONG (*Release)(struct IMessageFilter *);
-    DWORD (*HandleInComingCall)(struct IMessageFilter *, DWORD, HTASK, DWORD, LPINTERFACEINFO);
-    DWORD (*RetryRejectedCall)(struct IMessageFilter *, HTASK, DWORD, DWORD);
-    DWORD (*MessagePending)(struct IMessageFilter *, HTASK, DWORD, DWORD);
 };
 
 typedef struct IAddrExclusionControl IAddrExclusionControl, *PIAddrExclusionControl;
@@ -36782,17 +37890,6 @@ struct _STGMEDIUM_UNION {
     union __MIDL_IAdviseSink_0003 u;
 };
 
-union __MIDL_IAdviseSink_0002 {
-    wireHBITMAP hBitmap;
-    wireHPALETTE hPalette;
-    wireHGLOBAL hGeneric;
-};
-
-struct _GDI_OBJECT {
-    DWORD ObjectType;
-    union __MIDL_IAdviseSink_0002 u;
-};
-
 struct _userSTGMEDIUM {
     struct _STGMEDIUM_UNION field0_0x0;
     struct IUnknown *pUnkForRelease;
@@ -36802,6 +37899,17 @@ struct _userFLAG_STGMEDIUM {
     long ContextFlags;
     long fPassOwnership;
     userSTGMEDIUM Stgmed;
+};
+
+union __MIDL_IAdviseSink_0002 {
+    wireHBITMAP hBitmap;
+    wireHPALETTE hPalette;
+    wireHGLOBAL hGeneric;
+};
+
+struct _GDI_OBJECT {
+    DWORD ObjectType;
+    union __MIDL_IAdviseSink_0002 u;
 };
 
 typedef struct ILockBytesVtbl ILockBytesVtbl, *PILockBytesVtbl;
@@ -36862,12 +37970,12 @@ struct ISynchronizeVtbl {
     HRESULT (*Reset)(struct ISynchronize *);
 };
 
-struct IAsyncRpcChannelBuffer {
-    struct IAsyncRpcChannelBufferVtbl *lpVtbl;
-};
-
 struct ISynchronize {
     struct ISynchronizeVtbl *lpVtbl;
+};
+
+struct IAsyncRpcChannelBuffer {
+    struct IAsyncRpcChannelBufferVtbl *lpVtbl;
 };
 
 struct IAsyncRpcChannelBufferVtbl {
@@ -36896,15 +38004,15 @@ typedef struct IROTDataVtbl IROTDataVtbl, *PIROTDataVtbl;
 
 typedef struct IROTData IROTData, *PIROTData;
 
+struct IROTData {
+    struct IROTDataVtbl *lpVtbl;
+};
+
 struct IROTDataVtbl {
     HRESULT (*QueryInterface)(struct IROTData *, IID *, void **);
     ULONG (*AddRef)(struct IROTData *);
     ULONG (*Release)(struct IROTData *);
     HRESULT (*GetComparisonData)(struct IROTData *, byte *, ULONG, ULONG *);
-};
-
-struct IROTData {
-    struct IROTDataVtbl *lpVtbl;
 };
 
 typedef struct IMallocSpyVtbl IMallocSpyVtbl, *PIMallocSpyVtbl;
@@ -37060,6 +38168,10 @@ typedef struct AsyncIPipeDouble AsyncIPipeDouble, *PAsyncIPipeDouble;
 
 typedef struct AsyncIPipeDoubleVtbl AsyncIPipeDoubleVtbl, *PAsyncIPipeDoubleVtbl;
 
+struct AsyncIPipeDouble {
+    struct AsyncIPipeDoubleVtbl *lpVtbl;
+};
+
 struct AsyncIPipeDoubleVtbl {
     HRESULT (*QueryInterface)(struct AsyncIPipeDouble *, IID *, void **);
     ULONG (*AddRef)(struct AsyncIPipeDouble *);
@@ -37070,13 +38182,13 @@ struct AsyncIPipeDoubleVtbl {
     HRESULT (*Finish_Push)(struct AsyncIPipeDouble *);
 };
 
-struct AsyncIPipeDouble {
-    struct AsyncIPipeDoubleVtbl *lpVtbl;
-};
-
 typedef struct IFillLockBytes IFillLockBytes, *PIFillLockBytes;
 
 typedef struct IFillLockBytesVtbl IFillLockBytesVtbl, *PIFillLockBytesVtbl;
+
+struct IFillLockBytes {
+    struct IFillLockBytesVtbl *lpVtbl;
+};
 
 struct IFillLockBytesVtbl {
     HRESULT (*QueryInterface)(struct IFillLockBytes *, IID *, void **);
@@ -37088,13 +38200,13 @@ struct IFillLockBytesVtbl {
     HRESULT (*Terminate)(struct IFillLockBytes *, BOOL);
 };
 
-struct IFillLockBytes {
-    struct IFillLockBytesVtbl *lpVtbl;
-};
-
 typedef struct IEnumFORMATETCVtbl IEnumFORMATETCVtbl, *PIEnumFORMATETCVtbl;
 
 typedef struct IEnumFORMATETC IEnumFORMATETC, *PIEnumFORMATETC;
+
+struct IEnumFORMATETC {
+    struct IEnumFORMATETCVtbl *lpVtbl;
+};
 
 struct IEnumFORMATETCVtbl {
     HRESULT (*QueryInterface)(struct IEnumFORMATETC *, IID *, void **);
@@ -37104,10 +38216,6 @@ struct IEnumFORMATETCVtbl {
     HRESULT (*Skip)(struct IEnumFORMATETC *, ULONG);
     HRESULT (*Reset)(struct IEnumFORMATETC *);
     HRESULT (*Clone)(struct IEnumFORMATETC *, struct IEnumFORMATETC **);
-};
-
-struct IEnumFORMATETC {
-    struct IEnumFORMATETCVtbl *lpVtbl;
 };
 
 typedef struct AsyncIPipeByte AsyncIPipeByte, *PAsyncIPipeByte;
@@ -37201,6 +38309,17 @@ struct IEnumSTATDATA {
     struct IEnumSTATDATAVtbl *lpVtbl;
 };
 
+struct IDataAdviseHolder {
+    struct IDataAdviseHolderVtbl *lpVtbl;
+};
+
+struct tagSTATDATA {
+    FORMATETC formatetc;
+    DWORD advf;
+    struct IAdviseSink *pAdvSink;
+    DWORD dwConnection;
+};
+
 struct IEnumSTATDATAVtbl {
     HRESULT (*QueryInterface)(struct IEnumSTATDATA *, IID *, void **);
     ULONG (*AddRef)(struct IEnumSTATDATA *);
@@ -37209,10 +38328,6 @@ struct IEnumSTATDATAVtbl {
     HRESULT (*Skip)(struct IEnumSTATDATA *, ULONG);
     HRESULT (*Reset)(struct IEnumSTATDATA *);
     HRESULT (*Clone)(struct IEnumSTATDATA *, struct IEnumSTATDATA **);
-};
-
-struct IDataAdviseHolder {
-    struct IDataAdviseHolderVtbl *lpVtbl;
 };
 
 struct IDataObject {
@@ -37242,13 +38357,6 @@ struct IDataObjectVtbl {
     HRESULT (*DAdvise)(struct IDataObject *, FORMATETC *, DWORD, struct IAdviseSink *, DWORD *);
     HRESULT (*DUnadvise)(struct IDataObject *, DWORD);
     HRESULT (*EnumDAdvise)(struct IDataObject *, struct IEnumSTATDATA **);
-};
-
-struct tagSTATDATA {
-    FORMATETC formatetc;
-    DWORD advf;
-    struct IAdviseSink *pAdvSink;
-    DWORD dwConnection;
 };
 
 typedef struct ICancelMethodCallsVtbl ICancelMethodCallsVtbl, *PICancelMethodCallsVtbl;
@@ -37304,16 +38412,16 @@ typedef struct IRpcHelper IRpcHelper, *PIRpcHelper;
 
 typedef struct IRpcHelperVtbl IRpcHelperVtbl, *PIRpcHelperVtbl;
 
+struct IRpcHelper {
+    struct IRpcHelperVtbl *lpVtbl;
+};
+
 struct IRpcHelperVtbl {
     HRESULT (*QueryInterface)(struct IRpcHelper *, IID *, void **);
     ULONG (*AddRef)(struct IRpcHelper *);
     ULONG (*Release)(struct IRpcHelper *);
     HRESULT (*GetDCOMProtocolVersion)(struct IRpcHelper *, DWORD *);
     HRESULT (*GetIIDFromOBJREF)(struct IRpcHelper *, void *, IID **);
-};
-
-struct IRpcHelper {
-    struct IRpcHelperVtbl *lpVtbl;
 };
 
 typedef enum _APTTYPE {
@@ -37330,15 +38438,15 @@ typedef struct IDummyHICONIncluder IDummyHICONIncluder, *PIDummyHICONIncluder;
 
 typedef struct IDummyHICONIncluderVtbl IDummyHICONIncluderVtbl, *PIDummyHICONIncluderVtbl;
 
-struct IDummyHICONIncluder {
-    struct IDummyHICONIncluderVtbl *lpVtbl;
-};
-
 struct IDummyHICONIncluderVtbl {
     HRESULT (*QueryInterface)(struct IDummyHICONIncluder *, IID *, void **);
     ULONG (*AddRef)(struct IDummyHICONIncluder *);
     ULONG (*Release)(struct IDummyHICONIncluder *);
     HRESULT (*Dummy)(struct IDummyHICONIncluder *, HICON, HDC);
+};
+
+struct IDummyHICONIncluder {
+    struct IDummyHICONIncluderVtbl *lpVtbl;
 };
 
 typedef enum tagSTREAM_SEEK {
@@ -37547,6 +38655,10 @@ typedef struct IRpcChannelBuffer3Vtbl IRpcChannelBuffer3Vtbl, *PIRpcChannelBuffe
 
 typedef struct IRpcChannelBuffer3 IRpcChannelBuffer3, *PIRpcChannelBuffer3;
 
+struct IRpcChannelBuffer3 {
+    struct IRpcChannelBuffer3Vtbl *lpVtbl;
+};
+
 struct IRpcChannelBuffer3Vtbl {
     HRESULT (*QueryInterface)(struct IRpcChannelBuffer3 *, IID *, void **);
     ULONG (*AddRef)(struct IRpcChannelBuffer3 *);
@@ -37564,10 +38676,6 @@ struct IRpcChannelBuffer3Vtbl {
     HRESULT (*GetDestCtxEx)(struct IRpcChannelBuffer3 *, RPCOLEMESSAGE *, DWORD *, void **);
     HRESULT (*GetState)(struct IRpcChannelBuffer3 *, RPCOLEMESSAGE *, DWORD *);
     HRESULT (*RegisterAsync)(struct IRpcChannelBuffer3 *, RPCOLEMESSAGE *, struct IAsyncManager *);
-};
-
-struct IRpcChannelBuffer3 {
-    struct IRpcChannelBuffer3Vtbl *lpVtbl;
 };
 
 typedef struct ILockBytes *LPLOCKBYTES;
@@ -37700,10 +38808,6 @@ typedef struct IChannelHook IChannelHook, *PIChannelHook;
 
 typedef struct IChannelHookVtbl IChannelHookVtbl, *PIChannelHookVtbl;
 
-struct IChannelHook {
-    struct IChannelHookVtbl *lpVtbl;
-};
-
 struct IChannelHookVtbl {
     HRESULT (*QueryInterface)(struct IChannelHook *, IID *, void **);
     ULONG (*AddRef)(struct IChannelHook *);
@@ -37714,6 +38818,10 @@ struct IChannelHookVtbl {
     void (*ServerNotify)(struct IChannelHook *, GUID *, IID *, ULONG, void *, DWORD);
     void (*ServerGetSize)(struct IChannelHook *, GUID *, IID *, HRESULT, ULONG *);
     void (*ServerFillBuffer)(struct IChannelHook *, GUID *, IID *, ULONG *, void *, HRESULT);
+};
+
+struct IChannelHook {
+    struct IChannelHookVtbl *lpVtbl;
 };
 
 typedef struct IExternalConnectionVtbl IExternalConnectionVtbl, *PIExternalConnectionVtbl;
@@ -37973,10 +39081,6 @@ typedef struct IWaitMultiple IWaitMultiple, *PIWaitMultiple;
 
 typedef struct IWaitMultipleVtbl IWaitMultipleVtbl, *PIWaitMultipleVtbl;
 
-struct IWaitMultiple {
-    struct IWaitMultipleVtbl *lpVtbl;
-};
-
 struct IWaitMultipleVtbl {
     HRESULT (*QueryInterface)(struct IWaitMultiple *, IID *, void **);
     ULONG (*AddRef)(struct IWaitMultiple *);
@@ -37985,13 +39089,13 @@ struct IWaitMultipleVtbl {
     HRESULT (*AddSynchronize)(struct IWaitMultiple *, struct ISynchronize *);
 };
 
+struct IWaitMultiple {
+    struct IWaitMultipleVtbl *lpVtbl;
+};
+
 typedef struct IMultiQI IMultiQI, *PIMultiQI;
 
 typedef struct IMultiQIVtbl IMultiQIVtbl, *PIMultiQIVtbl;
-
-struct IMultiQI {
-    struct IMultiQIVtbl *lpVtbl;
-};
 
 struct IMultiQIVtbl {
     HRESULT (*QueryInterface)(struct IMultiQI *, IID *, void **);
@@ -38000,13 +39104,13 @@ struct IMultiQIVtbl {
     HRESULT (*QueryMultipleInterfaces)(struct IMultiQI *, ULONG, MULTI_QI *);
 };
 
+struct IMultiQI {
+    struct IMultiQIVtbl *lpVtbl;
+};
+
 typedef struct IEnumUnknownVtbl IEnumUnknownVtbl, *PIEnumUnknownVtbl;
 
 typedef struct IEnumUnknown IEnumUnknown, *PIEnumUnknown;
-
-struct IEnumUnknown {
-    struct IEnumUnknownVtbl *lpVtbl;
-};
 
 struct IEnumUnknownVtbl {
     HRESULT (*QueryInterface)(struct IEnumUnknown *, IID *, void **);
@@ -38016,6 +39120,10 @@ struct IEnumUnknownVtbl {
     HRESULT (*Skip)(struct IEnumUnknown *, ULONG);
     HRESULT (*Reset)(struct IEnumUnknown *);
     HRESULT (*Clone)(struct IEnumUnknown *, struct IEnumUnknown **);
+};
+
+struct IEnumUnknown {
+    struct IEnumUnknownVtbl *lpVtbl;
 };
 
 typedef struct ISynchronizeEvent ISynchronizeEvent, *PISynchronizeEvent;
@@ -38038,6 +39146,10 @@ typedef struct IComThreadingInfo IComThreadingInfo, *PIComThreadingInfo;
 
 typedef struct IComThreadingInfoVtbl IComThreadingInfoVtbl, *PIComThreadingInfoVtbl;
 
+struct IComThreadingInfo {
+    struct IComThreadingInfoVtbl *lpVtbl;
+};
+
 struct IComThreadingInfoVtbl {
     HRESULT (*QueryInterface)(struct IComThreadingInfo *, IID *, void **);
     ULONG (*AddRef)(struct IComThreadingInfo *);
@@ -38048,19 +39160,11 @@ struct IComThreadingInfoVtbl {
     HRESULT (*SetCurrentLogicalThreadId)(struct IComThreadingInfo *, GUID *);
 };
 
-struct IComThreadingInfo {
-    struct IComThreadingInfoVtbl *lpVtbl;
-};
-
 typedef struct IMarshal IMarshal, *PIMarshal;
 
 typedef struct IMarshal *LPMARSHAL;
 
 typedef struct IMarshalVtbl IMarshalVtbl, *PIMarshalVtbl;
-
-struct IMarshal {
-    struct IMarshalVtbl *lpVtbl;
-};
 
 struct IMarshalVtbl {
     HRESULT (*QueryInterface)(struct IMarshal *, IID *, void **);
@@ -38072,6 +39176,10 @@ struct IMarshalVtbl {
     HRESULT (*UnmarshalInterface)(struct IMarshal *, struct IStream *, IID *, void **);
     HRESULT (*ReleaseMarshalData)(struct IMarshal *, struct IStream *);
     HRESULT (*DisconnectObject)(struct IMarshal *, DWORD);
+};
+
+struct IMarshal {
+    struct IMarshalVtbl *lpVtbl;
 };
 
 typedef enum tagADVF {
@@ -38216,10 +39324,6 @@ typedef struct IRpcStubBuffer IRpcStubBuffer, *PIRpcStubBuffer;
 
 typedef struct IRpcStubBufferVtbl IRpcStubBufferVtbl, *PIRpcStubBufferVtbl;
 
-struct IPSFactoryBuffer {
-    struct IPSFactoryBufferVtbl *lpVtbl;
-};
-
 struct IRpcStubBufferVtbl {
     HRESULT (*QueryInterface)(struct IRpcStubBuffer *, IID *, void **);
     ULONG (*AddRef)(struct IRpcStubBuffer *);
@@ -38231,6 +39335,10 @@ struct IRpcStubBufferVtbl {
     ULONG (*CountRefs)(struct IRpcStubBuffer *);
     HRESULT (*DebugServerQueryInterface)(struct IRpcStubBuffer *, void **);
     void (*DebugServerRelease)(struct IRpcStubBuffer *, void *);
+};
+
+struct IPSFactoryBuffer {
+    struct IPSFactoryBufferVtbl *lpVtbl;
 };
 
 struct IPSFactoryBufferVtbl {
@@ -38281,16 +39389,16 @@ typedef struct IAddrTrackingControl IAddrTrackingControl, *PIAddrTrackingControl
 
 typedef struct IAddrTrackingControlVtbl IAddrTrackingControlVtbl, *PIAddrTrackingControlVtbl;
 
+struct IAddrTrackingControl {
+    struct IAddrTrackingControlVtbl *lpVtbl;
+};
+
 struct IAddrTrackingControlVtbl {
     HRESULT (*QueryInterface)(struct IAddrTrackingControl *, IID *, void **);
     ULONG (*AddRef)(struct IAddrTrackingControl *);
     ULONG (*Release)(struct IAddrTrackingControl *);
     HRESULT (*EnableCOMDynamicAddrTracking)(struct IAddrTrackingControl *);
     HRESULT (*DisableCOMDynamicAddrTracking)(struct IAddrTrackingControl *);
-};
-
-struct IAddrTrackingControl {
-    struct IAddrTrackingControlVtbl *lpVtbl;
 };
 
 typedef STGMEDIUM *LPSTGMEDIUM;
@@ -38345,10 +39453,6 @@ typedef struct IServerSecurity IServerSecurity, *PIServerSecurity;
 
 typedef struct IServerSecurityVtbl IServerSecurityVtbl, *PIServerSecurityVtbl;
 
-struct IServerSecurity {
-    struct IServerSecurityVtbl *lpVtbl;
-};
-
 struct IServerSecurityVtbl {
     HRESULT (*QueryInterface)(struct IServerSecurity *, IID *, void **);
     ULONG (*AddRef)(struct IServerSecurity *);
@@ -38357,6 +39461,10 @@ struct IServerSecurityVtbl {
     HRESULT (*ImpersonateClient)(struct IServerSecurity *);
     HRESULT (*RevertToSelf)(struct IServerSecurity *);
     BOOL (*IsImpersonating)(struct IServerSecurity *);
+};
+
+struct IServerSecurity {
+    struct IServerSecurityVtbl *lpVtbl;
 };
 
 typedef enum tagLOCKTYPE LOCKTYPE;
@@ -38504,670 +39612,8 @@ typedef struct GameContext GameContext, *PGameContext;
 
 /* WARNING! conflicting data type names: /WinDef.h/HINSTANCE - /windef.h/HINSTANCE */
 
-typedef struct IDirect3D8 IDirect3D8, *PIDirect3D8;
-
-typedef struct IDirect3DDevice8 IDirect3DDevice8, *PIDirect3DDevice8;
-
 
 /* WARNING! conflicting data type names: /WinDef.h/HWND - /windef.h/HWND */
-
-typedef struct _D3DMATRIX _D3DMATRIX, *P_D3DMATRIX;
-
-typedef struct _D3DMATRIX D3DMATRIX;
-
-typedef struct _D3DVIEWPORT8 _D3DVIEWPORT8, *P_D3DVIEWPORT8;
-
-typedef struct _D3DVIEWPORT8 D3DVIEWPORT8;
-
-typedef struct _D3DPRESENT_PARAMETERS_ _D3DPRESENT_PARAMETERS_, *P_D3DPRESENT_PARAMETERS_;
-
-typedef struct _D3DPRESENT_PARAMETERS_ D3DPRESENT_PARAMETERS;
-
-typedef struct IDirect3D8Vtbl IDirect3D8Vtbl, *PIDirect3D8Vtbl;
-
-typedef struct _D3DADAPTER_IDENTIFIER8 _D3DADAPTER_IDENTIFIER8, *P_D3DADAPTER_IDENTIFIER8;
-
-typedef struct _D3DADAPTER_IDENTIFIER8 D3DADAPTER_IDENTIFIER8;
-
-typedef struct _D3DDISPLAYMODE _D3DDISPLAYMODE, *P_D3DDISPLAYMODE;
-
-typedef struct _D3DDISPLAYMODE D3DDISPLAYMODE;
-
-typedef enum _D3DFORMAT {
-    D3DFMT_UNKNOWN=0,
-    D3DFMT_R8G8B8=20,
-    D3DFMT_A8R8G8B8=21,
-    D3DFMT_X8R8G8B8=22,
-    D3DFMT_R5G6B5=23,
-    D3DFMT_X1R5G5B5=24,
-    D3DFMT_A1R5G5B5=25,
-    D3DFMT_A4R4G4B4=26,
-    D3DFMT_R3G3B2=27,
-    D3DFMT_A8=28,
-    D3DFMT_A8R3G3B2=29,
-    D3DFMT_X4R4G4B4=30,
-    D3DFMT_A8P8=40,
-    D3DFMT_P8=41,
-    D3DFMT_L8=50,
-    D3DFMT_A8L8=51,
-    D3DFMT_A4L4=52,
-    D3DFMT_V8U8=60,
-    D3DFMT_L6V5U5=61,
-    D3DFMT_X8L8V8U8=62,
-    D3DFMT_Q8W8V8U8=63,
-    D3DFMT_V16U16=64,
-    D3DFMT_W11V11U10=65,
-    D3DFMT_UYVY=66,
-    D3DFMT_YUY2=67,
-    D3DFMT_DXT1=68,
-    D3DFMT_DXT2=69,
-    D3DFMT_D16_LOCKABLE=70,
-    D3DFMT_DXT3=70,
-    D3DFMT_D32=71,
-    D3DFMT_DXT4=71,
-    D3DFMT_DXT5=72,
-    D3DFMT_D15S1=73,
-    D3DFMT_D24S8=75,
-    D3DFMT_D24X8=77,
-    D3DFMT_D24X4S4=79,
-    D3DFMT_D16=80,
-    D3DFMT_VERTEXDATA=100,
-    D3DFMT_INDEX16=101,
-    D3DFMT_INDEX32=102,
-    D3DFMT_FORCE_DWORD=2147483647
-} _D3DFORMAT;
-
-typedef enum _D3DFORMAT D3DFORMAT;
-
-typedef enum _D3DRESOURCETYPE {
-    D3DRTYPE_SURFACE=1,
-    D3DRTYPE_VOLUME=2,
-    D3DRTYPE_TEXTURE=3,
-    D3DRTYPE_VOLUMETEXTURE=4,
-    D3DRTYPE_CUBETEXTURE=5,
-    D3DRTYPE_VERTEXBUFFER=6,
-    D3DRTYPE_INDEXBUFFER=7,
-    D3DRTYPE_FORCE_DWORD=2147483647
-} _D3DRESOURCETYPE;
-
-typedef enum _D3DRESOURCETYPE D3DRESOURCETYPE;
-
-typedef enum _D3DMULTISAMPLE_TYPE {
-    D3DMULTISAMPLE_NONE=0,
-    D3DMULTISAMPLE_2_SAMPLES=2,
-    D3DMULTISAMPLE_3_SAMPLES=3,
-    D3DMULTISAMPLE_4_SAMPLES=4,
-    D3DMULTISAMPLE_5_SAMPLES=5,
-    D3DMULTISAMPLE_6_SAMPLES=6,
-    D3DMULTISAMPLE_7_SAMPLES=7,
-    D3DMULTISAMPLE_8_SAMPLES=8,
-    D3DMULTISAMPLE_9_SAMPLES=9,
-    D3DMULTISAMPLE_10_SAMPLES=10,
-    D3DMULTISAMPLE_11_SAMPLES=11,
-    D3DMULTISAMPLE_12_SAMPLES=12,
-    D3DMULTISAMPLE_13_SAMPLES=13,
-    D3DMULTISAMPLE_14_SAMPLES=14,
-    D3DMULTISAMPLE_15_SAMPLES=15,
-    D3DMULTISAMPLE_16_SAMPLES=16,
-    D3DMULTISAMPLE_FORCE_DWORD=2147483647
-} _D3DMULTISAMPLE_TYPE;
-
-typedef enum _D3DMULTISAMPLE_TYPE D3DMULTISAMPLE_TYPE;
-
-typedef struct IDirect3DDevice8Vtbl IDirect3DDevice8Vtbl, *PIDirect3DDevice8Vtbl;
-
-typedef struct _D3DDEVICE_CREATION_PARAMETERS _D3DDEVICE_CREATION_PARAMETERS, *P_D3DDEVICE_CREATION_PARAMETERS;
-
-typedef struct _D3DDEVICE_CREATION_PARAMETERS D3DDEVICE_CREATION_PARAMETERS;
-
-typedef struct IDirect3DSurface8 IDirect3DSurface8, *PIDirect3DSurface8;
-
-typedef struct IDirect3DSwapChain8 IDirect3DSwapChain8, *PIDirect3DSwapChain8;
-
-typedef struct _RGNDATA _RGNDATA, *P_RGNDATA;
-
-typedef struct _RGNDATA RGNDATA;
-
-typedef enum _D3DBACKBUFFER_TYPE {
-    D3DBACKBUFFER_TYPE_MONO=0,
-    D3DBACKBUFFER_TYPE_LEFT=1,
-    D3DBACKBUFFER_TYPE_RIGHT=2,
-    D3DBACKBUFFER_TYPE_FORCE_DWORD=2147483647
-} _D3DBACKBUFFER_TYPE;
-
-typedef enum _D3DBACKBUFFER_TYPE D3DBACKBUFFER_TYPE;
-
-typedef struct _D3DRASTER_STATUS _D3DRASTER_STATUS, *P_D3DRASTER_STATUS;
-
-typedef struct _D3DRASTER_STATUS D3DRASTER_STATUS;
-
-typedef struct _D3DGAMMARAMP _D3DGAMMARAMP, *P_D3DGAMMARAMP;
-
-typedef struct _D3DGAMMARAMP D3DGAMMARAMP;
-
-typedef enum _D3DPOOL {
-    D3DPOOL_DEFAULT=0,
-    D3DPOOL_MANAGED=1,
-    D3DPOOL_SYSTEMMEM=2,
-    D3DPOOL_FORCE_DWORD=2147483647
-} _D3DPOOL;
-
-typedef enum _D3DPOOL D3DPOOL;
-
-typedef struct IDirect3DTexture8 IDirect3DTexture8, *PIDirect3DTexture8;
-
-typedef struct IDirect3DVolumeTexture8 IDirect3DVolumeTexture8, *PIDirect3DVolumeTexture8;
-
-typedef struct IDirect3DCubeTexture8 IDirect3DCubeTexture8, *PIDirect3DCubeTexture8;
-
-typedef struct IDirect3DVertexBuffer8 IDirect3DVertexBuffer8, *PIDirect3DVertexBuffer8;
-
-typedef struct IDirect3DIndexBuffer8 IDirect3DIndexBuffer8, *PIDirect3DIndexBuffer8;
-
-typedef struct tagPOINT POINT;
-
-typedef struct IDirect3DBaseTexture8 IDirect3DBaseTexture8, *PIDirect3DBaseTexture8;
-
-typedef struct _D3DRECT _D3DRECT, *P_D3DRECT;
-
-typedef struct _D3DRECT D3DRECT;
-
-typedef enum _D3DTRANSFORMSTATETYPE {
-    D3DTS_VIEW=2,
-    D3DTS_PROJECTION=3,
-    D3DTS_TEXTURE0=16,
-    D3DTS_TEXTURE1=17,
-    D3DTS_TEXTURE2=18,
-    D3DTS_TEXTURE3=19,
-    D3DTS_TEXTURE4=20,
-    D3DTS_TEXTURE5=21,
-    D3DTS_TEXTURE6=22,
-    D3DTS_TEXTURE7=23,
-    D3DTS_FORCE_DWORD=2147483647
-} _D3DTRANSFORMSTATETYPE;
-
-typedef enum _D3DTRANSFORMSTATETYPE D3DTRANSFORMSTATETYPE;
-
-typedef struct _D3DMATERIAL8 _D3DMATERIAL8, *P_D3DMATERIAL8;
-
-typedef struct _D3DMATERIAL8 D3DMATERIAL8;
-
-typedef struct _D3DLIGHT8 _D3DLIGHT8, *P_D3DLIGHT8;
-
-typedef struct _D3DLIGHT8 D3DLIGHT8;
-
-typedef enum _D3DRENDERSTATETYPE {
-    D3DRS_ZENABLE=7,
-    D3DRS_FILLMODE=8,
-    D3DRS_SHADEMODE=9,
-    D3DRS_LINEPATTERN=10,
-    D3DRS_ZWRITEENABLE=14,
-    D3DRS_ALPHATESTENABLE=15,
-    D3DRS_LASTPIXEL=16,
-    D3DRS_SRCBLEND=19,
-    D3DRS_DESTBLEND=20,
-    D3DRS_CULLMODE=22,
-    D3DRS_ZFUNC=23,
-    D3DRS_ALPHAREF=24,
-    D3DRS_ALPHAFUNC=25,
-    D3DRS_DITHERENABLE=26,
-    D3DRS_ALPHABLENDENABLE=27,
-    D3DRS_FOGENABLE=28,
-    D3DRS_SPECULARENABLE=29,
-    D3DRS_ZVISIBLE=30,
-    D3DRS_FOGCOLOR=34,
-    D3DRS_FOGTABLEMODE=35,
-    D3DRS_FOGSTART=36,
-    D3DRS_FOGEND=37,
-    D3DRS_FOGDENSITY=38,
-    D3DRS_EDGEANTIALIAS=40,
-    D3DRS_ZBIAS=47,
-    D3DRS_RANGEFOGENABLE=48,
-    D3DRS_STENCILENABLE=52,
-    D3DRS_STENCILFAIL=53,
-    D3DRS_STENCILZFAIL=54,
-    D3DRS_STENCILPASS=55,
-    D3DRS_STENCILFUNC=56,
-    D3DRS_STENCILREF=57,
-    D3DRS_STENCILMASK=58,
-    D3DRS_STENCILWRITEMASK=59,
-    D3DRS_TEXTUREFACTOR=60,
-    D3DRS_WRAP0=128,
-    D3DRS_WRAP1=129,
-    D3DRS_WRAP2=130,
-    D3DRS_WRAP3=131,
-    D3DRS_WRAP4=132,
-    D3DRS_WRAP5=133,
-    D3DRS_WRAP6=134,
-    D3DRS_WRAP7=135,
-    D3DRS_CLIPPING=136,
-    D3DRS_LIGHTING=137,
-    D3DRS_AMBIENT=139,
-    D3DRS_FOGVERTEXMODE=140,
-    D3DRS_COLORVERTEX=141,
-    D3DRS_LOCALVIEWER=142,
-    D3DRS_NORMALIZENORMALS=143,
-    D3DRS_DIFFUSEMATERIALSOURCE=145,
-    D3DRS_SPECULARMATERIALSOURCE=146,
-    D3DRS_AMBIENTMATERIALSOURCE=147,
-    D3DRS_EMISSIVEMATERIALSOURCE=148,
-    D3DRS_VERTEXBLEND=151,
-    D3DRS_CLIPPLANEENABLE=152,
-    D3DRS_SOFTWAREVERTEXPROCESSING=153,
-    D3DRS_POINTSIZE=154,
-    D3DRS_POINTSIZE_MIN=155,
-    D3DRS_POINTSPRITEENABLE=156,
-    D3DRS_POINTSCALEENABLE=157,
-    D3DRS_POINTSCALE_A=158,
-    D3DRS_POINTSCALE_B=159,
-    D3DRS_POINTSCALE_C=160,
-    D3DRS_MULTISAMPLEANTIALIAS=161,
-    D3DRS_MULTISAMPLEMASK=162,
-    D3DRS_PATCHEDGESTYLE=163,
-    D3DRS_PATCHSEGMENTS=164,
-    D3DRS_DEBUGMONITORTOKEN=165,
-    D3DRS_POINTSIZE_MAX=166,
-    D3DRS_INDEXEDVERTEXBLENDENABLE=167,
-    D3DRS_COLORWRITEENABLE=168,
-    D3DRS_TWEENFACTOR=170,
-    D3DRS_BLENDOP=171,
-    D3DRS_FORCE_DWORD=2147483647
-} _D3DRENDERSTATETYPE;
-
-typedef enum _D3DRENDERSTATETYPE D3DRENDERSTATETYPE;
-
-typedef enum _D3DSTATEBLOCKTYPE {
-    D3DSBT_ALL=1,
-    D3DSBT_PIXELSTATE=2,
-    D3DSBT_VERTEXSTATE=3,
-    D3DSBT_FORCE_DWORD=2147483647
-} _D3DSTATEBLOCKTYPE;
-
-typedef enum _D3DSTATEBLOCKTYPE D3DSTATEBLOCKTYPE;
-
-typedef struct _D3DCLIPSTATUS8 _D3DCLIPSTATUS8, *P_D3DCLIPSTATUS8;
-
-typedef struct _D3DCLIPSTATUS8 D3DCLIPSTATUS8;
-
-typedef enum _D3DTEXTURESTAGESTATETYPE {
-    D3DTSS_COLOROP=1,
-    D3DTSS_COLORARG1=2,
-    D3DTSS_COLORARG2=3,
-    D3DTSS_ALPHAOP=4,
-    D3DTSS_ALPHAARG1=5,
-    D3DTSS_ALPHAARG2=6,
-    D3DTSS_BUMPENVMAT00=7,
-    D3DTSS_BUMPENVMAT01=8,
-    D3DTSS_BUMPENVMAT10=9,
-    D3DTSS_BUMPENVMAT11=10,
-    D3DTSS_TEXCOORDINDEX=11,
-    D3DTSS_ADDRESSU=13,
-    D3DTSS_ADDRESSV=14,
-    D3DTSS_BORDERCOLOR=15,
-    D3DTSS_MAGFILTER=16,
-    D3DTSS_MINFILTER=17,
-    D3DTSS_MIPFILTER=18,
-    D3DTSS_MIPMAPLODBIAS=19,
-    D3DTSS_MAXMIPLEVEL=20,
-    D3DTSS_MAXANISOTROPY=21,
-    D3DTSS_BUMPENVLSCALE=22,
-    D3DTSS_BUMPENVLOFFSET=23,
-    D3DTSS_TEXTURETRANSFORMFLAGS=24,
-    D3DTSS_ADDRESSW=25,
-    D3DTSS_COLORARG0=26,
-    D3DTSS_ALPHAARG0=27,
-    D3DTSS_RESULTARG=28,
-    D3DTSS_FORCE_DWORD=2147483647
-} _D3DTEXTURESTAGESTATETYPE;
-
-typedef enum _D3DTEXTURESTAGESTATETYPE D3DTEXTURESTAGESTATETYPE;
-
-typedef enum _D3DPRIMITIVETYPE {
-    D3DPT_POINTLIST=1,
-    D3DPT_LINELIST=2,
-    D3DPT_LINESTRIP=3,
-    D3DPT_TRIANGLELIST=4,
-    D3DPT_TRIANGLESTRIP=5,
-    D3DPT_TRIANGLEFAN=6,
-    D3DPT_FORCE_DWORD=2147483647
-} _D3DPRIMITIVETYPE;
-
-typedef enum _D3DPRIMITIVETYPE D3DPRIMITIVETYPE;
-
-typedef struct _D3DRECTPATCH_INFO _D3DRECTPATCH_INFO, *P_D3DRECTPATCH_INFO;
-
-typedef struct _D3DRECTPATCH_INFO D3DRECTPATCH_INFO;
-
-typedef struct _D3DTRIPATCH_INFO _D3DTRIPATCH_INFO, *P_D3DTRIPATCH_INFO;
-
-typedef struct _D3DTRIPATCH_INFO D3DTRIPATCH_INFO;
-
-typedef union _union_2533 _union_2533, *P_union_2533;
-
-typedef enum _D3DSWAPEFFECT {
-    D3DSWAPEFFECT_DISCARD=1,
-    D3DSWAPEFFECT_FLIP=2,
-    D3DSWAPEFFECT_COPY=3,
-    D3DSWAPEFFECT_COPY_VSYNC=4,
-    D3DSWAPEFFECT_FORCE_DWORD=2147483647
-} _D3DSWAPEFFECT;
-
-typedef enum _D3DSWAPEFFECT D3DSWAPEFFECT;
-
-typedef struct IDirect3DSurface8Vtbl IDirect3DSurface8Vtbl, *PIDirect3DSurface8Vtbl;
-
-typedef struct _D3DSURFACE_DESC _D3DSURFACE_DESC, *P_D3DSURFACE_DESC;
-
-typedef struct _D3DSURFACE_DESC D3DSURFACE_DESC;
-
-typedef struct _D3DLOCKED_RECT _D3DLOCKED_RECT, *P_D3DLOCKED_RECT;
-
-typedef struct _D3DLOCKED_RECT D3DLOCKED_RECT;
-
-typedef struct IDirect3DSwapChain8Vtbl IDirect3DSwapChain8Vtbl, *PIDirect3DSwapChain8Vtbl;
-
-typedef struct _RGNDATAHEADER _RGNDATAHEADER, *P_RGNDATAHEADER;
-
-typedef struct _RGNDATAHEADER RGNDATAHEADER;
-
-typedef struct IDirect3DTexture8Vtbl IDirect3DTexture8Vtbl, *PIDirect3DTexture8Vtbl;
-
-typedef struct IDirect3DVolumeTexture8Vtbl IDirect3DVolumeTexture8Vtbl, *PIDirect3DVolumeTexture8Vtbl;
-
-typedef struct _D3DVOLUME_DESC _D3DVOLUME_DESC, *P_D3DVOLUME_DESC;
-
-typedef struct _D3DVOLUME_DESC D3DVOLUME_DESC;
-
-typedef struct IDirect3DVolume8 IDirect3DVolume8, *PIDirect3DVolume8;
-
-typedef struct _D3DLOCKED_BOX _D3DLOCKED_BOX, *P_D3DLOCKED_BOX;
-
-typedef struct _D3DLOCKED_BOX D3DLOCKED_BOX;
-
-typedef struct _D3DBOX _D3DBOX, *P_D3DBOX;
-
-typedef struct _D3DBOX D3DBOX;
-
-typedef struct IDirect3DCubeTexture8Vtbl IDirect3DCubeTexture8Vtbl, *PIDirect3DCubeTexture8Vtbl;
-
-typedef enum _D3DCUBEMAP_FACES {
-    D3DCUBEMAP_FACE_POSITIVE_X=0,
-    D3DCUBEMAP_FACE_NEGATIVE_X=1,
-    D3DCUBEMAP_FACE_POSITIVE_Y=2,
-    D3DCUBEMAP_FACE_NEGATIVE_Y=3,
-    D3DCUBEMAP_FACE_POSITIVE_Z=4,
-    D3DCUBEMAP_FACE_NEGATIVE_Z=5,
-    D3DCUBEMAP_FACE_FORCE_DWORD=2147483647
-} _D3DCUBEMAP_FACES;
-
-typedef enum _D3DCUBEMAP_FACES D3DCUBEMAP_FACES;
-
-typedef struct IDirect3DVertexBuffer8Vtbl IDirect3DVertexBuffer8Vtbl, *PIDirect3DVertexBuffer8Vtbl;
-
-typedef struct _D3DVERTEXBUFFER_DESC _D3DVERTEXBUFFER_DESC, *P_D3DVERTEXBUFFER_DESC;
-
-typedef struct _D3DVERTEXBUFFER_DESC D3DVERTEXBUFFER_DESC;
-
-typedef struct IDirect3DIndexBuffer8Vtbl IDirect3DIndexBuffer8Vtbl, *PIDirect3DIndexBuffer8Vtbl;
-
-typedef struct _D3DINDEXBUFFER_DESC _D3DINDEXBUFFER_DESC, *P_D3DINDEXBUFFER_DESC;
-
-typedef struct _D3DINDEXBUFFER_DESC D3DINDEXBUFFER_DESC;
-
-typedef struct IDirect3DBaseTexture8Vtbl IDirect3DBaseTexture8Vtbl, *PIDirect3DBaseTexture8Vtbl;
-
-typedef struct _D3DCOLORVALUE _D3DCOLORVALUE, *P_D3DCOLORVALUE;
-
-typedef struct _D3DCOLORVALUE D3DCOLORVALUE;
-
-typedef enum _D3DLIGHTTYPE {
-    D3DLIGHT_POINT=1,
-    D3DLIGHT_SPOT=2,
-    D3DLIGHT_DIRECTIONAL=3,
-    D3DLIGHT_FORCE_DWORD=2147483647
-} _D3DLIGHTTYPE;
-
-typedef enum _D3DLIGHTTYPE D3DLIGHTTYPE;
-
-
-/* WARNING! conflicting data type names: /d3d8types.h/D3DVECTOR - /dsound.h/D3DVECTOR */
-
-typedef enum _D3DBASISTYPE {
-    D3DBASIS_BEZIER=0,
-    D3DBASIS_BSPLINE=1,
-    D3DBASIS_INTERPOLATE=2,
-    D3DBASIS_FORCE_DWORD=2147483647
-} _D3DBASISTYPE;
-
-typedef enum _D3DBASISTYPE D3DBASISTYPE;
-
-typedef enum _D3DORDERTYPE {
-    D3DORDER_LINEAR=1,
-    D3DORDER_CUBIC=3,
-    D3DORDER_QUINTIC=5,
-    D3DORDER_FORCE_DWORD=2147483647
-} _D3DORDERTYPE;
-
-typedef enum _D3DORDERTYPE D3DORDERTYPE;
-
-typedef struct _struct_2534 _struct_2534, *P_struct_2534;
-
-typedef struct IDirect3DVolume8Vtbl IDirect3DVolume8Vtbl, *PIDirect3DVolume8Vtbl;
-
-struct _D3DINDEXBUFFER_DESC {
-    D3DFORMAT Format;
-    D3DRESOURCETYPE Type;
-    DWORD Usage;
-    D3DPOOL Pool;
-    UINT Size;
-};
-
-struct _D3DGAMMARAMP {
-    WORD red[256];
-    WORD green[256];
-    WORD blue[256];
-};
-
-struct IDirect3DVolume8 {
-    struct IDirect3DVolume8Vtbl *lpVtbl;
-};
-
-struct IDirect3DVolumeTexture8 {
-    struct IDirect3DVolumeTexture8Vtbl *lpVtbl;
-};
-
-struct _RGNDATAHEADER {
-    DWORD dwSize;
-    DWORD iType;
-    DWORD nCount;
-    DWORD nRgnSize;
-    RECT rcBound;
-};
-
-struct IDirect3DTexture8Vtbl {
-    HRESULT (*QueryInterface)(struct IDirect3DTexture8 *, IID *, void **);
-    ULONG (*AddRef)(struct IDirect3DTexture8 *);
-    ULONG (*Release)(struct IDirect3DTexture8 *);
-    HRESULT (*GetDevice)(struct IDirect3DTexture8 *, struct IDirect3DDevice8 **);
-    HRESULT (*SetPrivateData)(struct IDirect3DTexture8 *, GUID *, void *, DWORD, DWORD);
-    HRESULT (*GetPrivateData)(struct IDirect3DTexture8 *, GUID *, void *, DWORD *);
-    HRESULT (*FreePrivateData)(struct IDirect3DTexture8 *, GUID *);
-    DWORD (*SetPriority)(struct IDirect3DTexture8 *, DWORD);
-    DWORD (*GetPriority)(struct IDirect3DTexture8 *);
-    void (*PreLoad)(struct IDirect3DTexture8 *);
-    D3DRESOURCETYPE (*GetType)(struct IDirect3DTexture8 *);
-    DWORD (*SetLOD)(struct IDirect3DTexture8 *, DWORD);
-    DWORD (*GetLOD)(struct IDirect3DTexture8 *);
-    DWORD (*GetLevelCount)(struct IDirect3DTexture8 *);
-    HRESULT (*GetLevelDesc)(struct IDirect3DTexture8 *, UINT, D3DSURFACE_DESC *);
-    HRESULT (*GetSurfaceLevel)(struct IDirect3DTexture8 *, UINT, struct IDirect3DSurface8 **);
-    HRESULT (*LockRect)(struct IDirect3DTexture8 *, UINT, D3DLOCKED_RECT *, RECT *, DWORD);
-    HRESULT (*UnlockRect)(struct IDirect3DTexture8 *, UINT);
-    HRESULT (*AddDirtyRect)(struct IDirect3DTexture8 *, RECT *);
-};
-
-struct _D3DRECTPATCH_INFO {
-    UINT StartVertexOffsetWidth;
-    UINT StartVertexOffsetHeight;
-    UINT Width;
-    UINT Height;
-    UINT Stride;
-    D3DBASISTYPE Basis;
-    D3DORDERTYPE Order;
-};
-
-struct IDirect3DDevice8Vtbl {
-    HRESULT (*QueryInterface)(struct IDirect3DDevice8 *, IID *, void **);
-    ULONG (*AddRef)(struct IDirect3DDevice8 *);
-    ULONG (*Release)(struct IDirect3DDevice8 *);
-    HRESULT (*TestCooperativeLevel)(struct IDirect3DDevice8 *);
-    UINT (*GetAvailableTextureMem)(struct IDirect3DDevice8 *);
-    HRESULT (*ResourceManagerDiscardBytes)(struct IDirect3DDevice8 *, DWORD);
-    HRESULT (*GetDirect3D)(struct IDirect3DDevice8 *, struct IDirect3D8 **);
-    HRESULT (*GetDeviceCaps)(struct IDirect3DDevice8 *, D3DCAPS8 *);
-    HRESULT (*GetDisplayMode)(struct IDirect3DDevice8 *, D3DDISPLAYMODE *);
-    HRESULT (*GetCreationParameters)(struct IDirect3DDevice8 *, D3DDEVICE_CREATION_PARAMETERS *);
-    HRESULT (*SetCursorProperties)(struct IDirect3DDevice8 *, UINT, UINT, struct IDirect3DSurface8 *);
-    void (*SetCursorPosition)(struct IDirect3DDevice8 *, UINT, UINT, DWORD);
-    BOOL (*ShowCursor)(struct IDirect3DDevice8 *, BOOL);
-    HRESULT (*CreateAdditionalSwapChain)(struct IDirect3DDevice8 *, D3DPRESENT_PARAMETERS *, struct IDirect3DSwapChain8 **);
-    HRESULT (*Reset)(struct IDirect3DDevice8 *, D3DPRESENT_PARAMETERS *);
-    HRESULT (*Present)(struct IDirect3DDevice8 *, RECT *, RECT *, HWND, RGNDATA *);
-    HRESULT (*GetBackBuffer)(struct IDirect3DDevice8 *, UINT, D3DBACKBUFFER_TYPE, struct IDirect3DSurface8 **);
-    HRESULT (*GetRasterStatus)(struct IDirect3DDevice8 *, D3DRASTER_STATUS *);
-    void (*SetGammaRamp)(struct IDirect3DDevice8 *, DWORD, D3DGAMMARAMP *);
-    void (*GetGammaRamp)(struct IDirect3DDevice8 *, D3DGAMMARAMP *);
-    HRESULT (*CreateTexture)(struct IDirect3DDevice8 *, UINT, UINT, UINT, DWORD, D3DFORMAT, D3DPOOL, struct IDirect3DTexture8 **);
-    HRESULT (*CreateVolumeTexture)(struct IDirect3DDevice8 *, UINT, UINT, UINT, UINT, DWORD, D3DFORMAT, D3DPOOL, struct IDirect3DVolumeTexture8 **);
-    HRESULT (*CreateCubeTexture)(struct IDirect3DDevice8 *, UINT, UINT, DWORD, D3DFORMAT, D3DPOOL, struct IDirect3DCubeTexture8 **);
-    HRESULT (*CreateVertexBuffer)(struct IDirect3DDevice8 *, UINT, DWORD, DWORD, D3DPOOL, struct IDirect3DVertexBuffer8 **);
-    HRESULT (*CreateIndexBuffer)(struct IDirect3DDevice8 *, UINT, DWORD, D3DFORMAT, D3DPOOL, struct IDirect3DIndexBuffer8 **);
-    HRESULT (*CreateRenderTarget)(struct IDirect3DDevice8 *, UINT, UINT, D3DFORMAT, D3DMULTISAMPLE_TYPE, BOOL, struct IDirect3DSurface8 **);
-    HRESULT (*CreateDepthStencilSurface)(struct IDirect3DDevice8 *, UINT, UINT, D3DFORMAT, D3DMULTISAMPLE_TYPE, struct IDirect3DSurface8 **);
-    HRESULT (*CreateImageSurface)(struct IDirect3DDevice8 *, UINT, UINT, D3DFORMAT, struct IDirect3DSurface8 **);
-    HRESULT (*CopyRects)(struct IDirect3DDevice8 *, struct IDirect3DSurface8 *, RECT *, UINT, struct IDirect3DSurface8 *, POINT *);
-    HRESULT (*UpdateTexture)(struct IDirect3DDevice8 *, struct IDirect3DBaseTexture8 *, struct IDirect3DBaseTexture8 *);
-    HRESULT (*GetFrontBuffer)(struct IDirect3DDevice8 *, struct IDirect3DSurface8 *);
-    HRESULT (*SetRenderTarget)(struct IDirect3DDevice8 *, struct IDirect3DSurface8 *, struct IDirect3DSurface8 *);
-    HRESULT (*GetRenderTarget)(struct IDirect3DDevice8 *, struct IDirect3DSurface8 **);
-    HRESULT (*GetDepthStencilSurface)(struct IDirect3DDevice8 *, struct IDirect3DSurface8 **);
-    HRESULT (*BeginScene)(struct IDirect3DDevice8 *);
-    HRESULT (*EndScene)(struct IDirect3DDevice8 *);
-    HRESULT (*Clear)(struct IDirect3DDevice8 *, DWORD, D3DRECT *, DWORD, D3DCOLOR, float, DWORD);
-    HRESULT (*SetTransform)(struct IDirect3DDevice8 *, D3DTRANSFORMSTATETYPE, D3DMATRIX *);
-    HRESULT (*GetTransform)(struct IDirect3DDevice8 *, D3DTRANSFORMSTATETYPE, D3DMATRIX *);
-    HRESULT (*MultiplyTransform)(struct IDirect3DDevice8 *, D3DTRANSFORMSTATETYPE, D3DMATRIX *);
-    HRESULT (*SetViewport)(struct IDirect3DDevice8 *, D3DVIEWPORT8 *);
-    HRESULT (*GetViewport)(struct IDirect3DDevice8 *, D3DVIEWPORT8 *);
-    HRESULT (*SetMaterial)(struct IDirect3DDevice8 *, D3DMATERIAL8 *);
-    HRESULT (*GetMaterial)(struct IDirect3DDevice8 *, D3DMATERIAL8 *);
-    HRESULT (*SetLight)(struct IDirect3DDevice8 *, DWORD, D3DLIGHT8 *);
-    HRESULT (*GetLight)(struct IDirect3DDevice8 *, DWORD, D3DLIGHT8 *);
-    HRESULT (*LightEnable)(struct IDirect3DDevice8 *, DWORD, BOOL);
-    HRESULT (*GetLightEnable)(struct IDirect3DDevice8 *, DWORD, BOOL *);
-    HRESULT (*SetClipPlane)(struct IDirect3DDevice8 *, DWORD, float *);
-    HRESULT (*GetClipPlane)(struct IDirect3DDevice8 *, DWORD, float *);
-    HRESULT (*SetRenderState)(struct IDirect3DDevice8 *, D3DRENDERSTATETYPE, DWORD);
-    HRESULT (*GetRenderState)(struct IDirect3DDevice8 *, D3DRENDERSTATETYPE, DWORD *);
-    HRESULT (*BeginStateBlock)(struct IDirect3DDevice8 *);
-    HRESULT (*EndStateBlock)(struct IDirect3DDevice8 *, DWORD *);
-    HRESULT (*ApplyStateBlock)(struct IDirect3DDevice8 *, DWORD);
-    HRESULT (*CaptureStateBlock)(struct IDirect3DDevice8 *, DWORD);
-    HRESULT (*DeleteStateBlock)(struct IDirect3DDevice8 *, DWORD);
-    HRESULT (*CreateStateBlock)(struct IDirect3DDevice8 *, D3DSTATEBLOCKTYPE, DWORD *);
-    HRESULT (*SetClipStatus)(struct IDirect3DDevice8 *, D3DCLIPSTATUS8 *);
-    HRESULT (*GetClipStatus)(struct IDirect3DDevice8 *, D3DCLIPSTATUS8 *);
-    HRESULT (*GetTexture)(struct IDirect3DDevice8 *, DWORD, struct IDirect3DBaseTexture8 **);
-    HRESULT (*SetTexture)(struct IDirect3DDevice8 *, DWORD, struct IDirect3DBaseTexture8 *);
-    HRESULT (*GetTextureStageState)(struct IDirect3DDevice8 *, DWORD, D3DTEXTURESTAGESTATETYPE, DWORD *);
-    HRESULT (*SetTextureStageState)(struct IDirect3DDevice8 *, DWORD, D3DTEXTURESTAGESTATETYPE, DWORD);
-    HRESULT (*ValidateDevice)(struct IDirect3DDevice8 *, DWORD *);
-    HRESULT (*GetInfo)(struct IDirect3DDevice8 *, DWORD, void *, DWORD);
-    HRESULT (*SetPaletteEntries)(struct IDirect3DDevice8 *, UINT, PALETTEENTRY *);
-    HRESULT (*GetPaletteEntries)(struct IDirect3DDevice8 *, UINT, PALETTEENTRY *);
-    HRESULT (*SetCurrentTexturePalette)(struct IDirect3DDevice8 *, UINT);
-    HRESULT (*GetCurrentTexturePalette)(struct IDirect3DDevice8 *, UINT *);
-    HRESULT (*DrawPrimitive)(struct IDirect3DDevice8 *, D3DPRIMITIVETYPE, UINT, UINT);
-    HRESULT (*DrawIndexedPrimitive)(struct IDirect3DDevice8 *, D3DPRIMITIVETYPE, UINT, UINT, UINT, UINT);
-    HRESULT (*DrawPrimitiveUP)(struct IDirect3DDevice8 *, D3DPRIMITIVETYPE, UINT, void *, UINT);
-    HRESULT (*DrawIndexedPrimitiveUP)(struct IDirect3DDevice8 *, D3DPRIMITIVETYPE, UINT, UINT, UINT, void *, D3DFORMAT, void *, UINT);
-    HRESULT (*ProcessVertices)(struct IDirect3DDevice8 *, UINT, UINT, UINT, struct IDirect3DVertexBuffer8 *, DWORD);
-    HRESULT (*CreateVertexShader)(struct IDirect3DDevice8 *, DWORD *, DWORD *, DWORD *, DWORD);
-    HRESULT (*SetVertexShader)(struct IDirect3DDevice8 *, DWORD);
-    HRESULT (*GetVertexShader)(struct IDirect3DDevice8 *, DWORD *);
-    HRESULT (*DeleteVertexShader)(struct IDirect3DDevice8 *, DWORD);
-    HRESULT (*SetVertexShaderConstant)(struct IDirect3DDevice8 *, DWORD, void *, DWORD);
-    HRESULT (*GetVertexShaderConstant)(struct IDirect3DDevice8 *, DWORD, void *, DWORD);
-    HRESULT (*GetVertexShaderDeclaration)(struct IDirect3DDevice8 *, DWORD, void *, DWORD *);
-    HRESULT (*GetVertexShaderFunction)(struct IDirect3DDevice8 *, DWORD, void *, DWORD *);
-    HRESULT (*SetStreamSource)(struct IDirect3DDevice8 *, UINT, struct IDirect3DVertexBuffer8 *, UINT);
-    HRESULT (*GetStreamSource)(struct IDirect3DDevice8 *, UINT, struct IDirect3DVertexBuffer8 **, UINT *);
-    HRESULT (*SetIndices)(struct IDirect3DDevice8 *, struct IDirect3DIndexBuffer8 *, UINT);
-    HRESULT (*GetIndices)(struct IDirect3DDevice8 *, struct IDirect3DIndexBuffer8 **, UINT *);
-    HRESULT (*CreatePixelShader)(struct IDirect3DDevice8 *, DWORD *, DWORD *);
-    HRESULT (*SetPixelShader)(struct IDirect3DDevice8 *, DWORD);
-    HRESULT (*GetPixelShader)(struct IDirect3DDevice8 *, DWORD *);
-    HRESULT (*DeletePixelShader)(struct IDirect3DDevice8 *, DWORD);
-    HRESULT (*SetPixelShaderConstant)(struct IDirect3DDevice8 *, DWORD, void *, DWORD);
-    HRESULT (*GetPixelShaderConstant)(struct IDirect3DDevice8 *, DWORD, void *, DWORD);
-    HRESULT (*GetPixelShaderFunction)(struct IDirect3DDevice8 *, DWORD, void *, DWORD *);
-    HRESULT (*DrawRectPatch)(struct IDirect3DDevice8 *, UINT, float *, D3DRECTPATCH_INFO *);
-    HRESULT (*DrawTriPatch)(struct IDirect3DDevice8 *, UINT, float *, D3DTRIPATCH_INFO *);
-    HRESULT (*DeletePatch)(struct IDirect3DDevice8 *, UINT);
-};
-
-struct _D3DPRESENT_PARAMETERS_ {
-    UINT BackBufferWidth;
-    UINT BackBufferHeight;
-    D3DFORMAT BackBufferFormat;
-    UINT BackBufferCount;
-    D3DMULTISAMPLE_TYPE MultiSampleType;
-    D3DSWAPEFFECT SwapEffect;
-    HWND hDeviceWindow;
-    BOOL Windowed;
-    BOOL EnableAutoDepthStencil;
-    D3DFORMAT AutoDepthStencilFormat;
-    DWORD Flags;
-    UINT FullScreen_RefreshRateInHz;
-    UINT FullScreen_PresentationInterval;
-};
-
-struct _D3DVIEWPORT8 {
-    DWORD X;
-    DWORD Y;
-    DWORD Width;
-    DWORD Height;
-    float MinZ;
-    float MaxZ;
-};
-
-struct _struct_2534 {
-    float _11;
-    float _12;
-    float _13;
-    float _14;
-    float _21;
-    float _22;
-    float _23;
-    float _24;
-    float _31;
-    float _32;
-    float _33;
-    float _34;
-    float _41;
-    float _42;
-    float _43;
-    float _44;
-};
-
-union _union_2533 {
-    struct _struct_2534 field0;
-    float m[4][4];
-};
-
-struct _D3DMATRIX {
-    union _union_2533 field0_0x0;
-};
 
 struct GameContext {
     HINSTANCE hInstance;
@@ -39320,329 +39766,6 @@ struct GameContext {
     undefined field147_0x19e;
     undefined field148_0x19f;
     int field149_0x1a0;
-};
-
-struct IDirect3D8 {
-    struct IDirect3D8Vtbl *lpVtbl;
-};
-
-struct IDirect3DSurface8 {
-    struct IDirect3DSurface8Vtbl *lpVtbl;
-};
-
-struct _D3DBOX {
-    UINT Left;
-    UINT Top;
-    UINT Right;
-    UINT Bottom;
-    UINT Front;
-    UINT Back;
-};
-
-struct _D3DDISPLAYMODE {
-    UINT Width;
-    UINT Height;
-    UINT RefreshRate;
-    D3DFORMAT Format;
-};
-
-struct _D3DRASTER_STATUS {
-    BOOL InVBlank;
-    UINT ScanLine;
-};
-
-struct IDirect3DSurface8Vtbl {
-    HRESULT (*QueryInterface)(struct IDirect3DSurface8 *, IID *, void **);
-    ULONG (*AddRef)(struct IDirect3DSurface8 *);
-    ULONG (*Release)(struct IDirect3DSurface8 *);
-    HRESULT (*GetDevice)(struct IDirect3DSurface8 *, struct IDirect3DDevice8 **);
-    HRESULT (*SetPrivateData)(struct IDirect3DSurface8 *, GUID *, void *, DWORD, DWORD);
-    HRESULT (*GetPrivateData)(struct IDirect3DSurface8 *, GUID *, void *, DWORD *);
-    HRESULT (*FreePrivateData)(struct IDirect3DSurface8 *, GUID *);
-    HRESULT (*GetContainer)(struct IDirect3DSurface8 *, IID *, void **);
-    HRESULT (*GetDesc)(struct IDirect3DSurface8 *, D3DSURFACE_DESC *);
-    HRESULT (*LockRect)(struct IDirect3DSurface8 *, D3DLOCKED_RECT *, RECT *, DWORD);
-    HRESULT (*UnlockRect)(struct IDirect3DSurface8 *);
-};
-
-struct IDirect3DVolume8Vtbl {
-    HRESULT (*QueryInterface)(struct IDirect3DVolume8 *, IID *, void **);
-    ULONG (*AddRef)(struct IDirect3DVolume8 *);
-    ULONG (*Release)(struct IDirect3DVolume8 *);
-    HRESULT (*GetDevice)(struct IDirect3DVolume8 *, struct IDirect3DDevice8 **);
-    HRESULT (*SetPrivateData)(struct IDirect3DVolume8 *, GUID *, void *, DWORD, DWORD);
-    HRESULT (*GetPrivateData)(struct IDirect3DVolume8 *, GUID *, void *, DWORD *);
-    HRESULT (*FreePrivateData)(struct IDirect3DVolume8 *, GUID *);
-    HRESULT (*GetContainer)(struct IDirect3DVolume8 *, IID *, void **);
-    HRESULT (*GetDesc)(struct IDirect3DVolume8 *, D3DVOLUME_DESC *);
-    HRESULT (*LockBox)(struct IDirect3DVolume8 *, D3DLOCKED_BOX *, D3DBOX *, DWORD);
-    HRESULT (*UnlockBox)(struct IDirect3DVolume8 *);
-};
-
-struct _D3DCOLORVALUE {
-    float r;
-    float g;
-    float b;
-    float a;
-};
-
-struct _D3DMATERIAL8 {
-    D3DCOLORVALUE Diffuse;
-    D3DCOLORVALUE Ambient;
-    D3DCOLORVALUE Specular;
-    D3DCOLORVALUE Emissive;
-    float Power;
-};
-
-struct IDirect3DIndexBuffer8 {
-    struct IDirect3DIndexBuffer8Vtbl *lpVtbl;
-};
-
-struct _D3DLIGHT8 {
-    D3DLIGHTTYPE Type;
-    D3DCOLORVALUE Diffuse;
-    D3DCOLORVALUE Specular;
-    D3DCOLORVALUE Ambient;
-    D3DVECTOR Position;
-    D3DVECTOR Direction;
-    float Range;
-    float Falloff;
-    float Attenuation0;
-    float Attenuation1;
-    float Attenuation2;
-    float Theta;
-    float Phi;
-};
-
-struct IDirect3DDevice8 {
-    struct IDirect3DDevice8Vtbl *lpVtbl;
-};
-
-struct _D3DADAPTER_IDENTIFIER8 {
-    char Driver[512];
-    char Description[512];
-    LARGE_INTEGER DriverVersion;
-    DWORD VendorId;
-    DWORD DeviceId;
-    DWORD SubSysId;
-    DWORD Revision;
-    GUID DeviceIdentifier;
-    DWORD WHQLLevel;
-};
-
-struct IDirect3DBaseTexture8 {
-    struct IDirect3DBaseTexture8Vtbl *lpVtbl;
-};
-
-struct IDirect3DVolumeTexture8Vtbl {
-    HRESULT (*QueryInterface)(struct IDirect3DVolumeTexture8 *, IID *, void **);
-    ULONG (*AddRef)(struct IDirect3DVolumeTexture8 *);
-    ULONG (*Release)(struct IDirect3DVolumeTexture8 *);
-    HRESULT (*GetDevice)(struct IDirect3DVolumeTexture8 *, struct IDirect3DDevice8 **);
-    HRESULT (*SetPrivateData)(struct IDirect3DVolumeTexture8 *, GUID *, void *, DWORD, DWORD);
-    HRESULT (*GetPrivateData)(struct IDirect3DVolumeTexture8 *, GUID *, void *, DWORD *);
-    HRESULT (*FreePrivateData)(struct IDirect3DVolumeTexture8 *, GUID *);
-    DWORD (*SetPriority)(struct IDirect3DVolumeTexture8 *, DWORD);
-    DWORD (*GetPriority)(struct IDirect3DVolumeTexture8 *);
-    void (*PreLoad)(struct IDirect3DVolumeTexture8 *);
-    D3DRESOURCETYPE (*GetType)(struct IDirect3DVolumeTexture8 *);
-    DWORD (*SetLOD)(struct IDirect3DVolumeTexture8 *, DWORD);
-    DWORD (*GetLOD)(struct IDirect3DVolumeTexture8 *);
-    DWORD (*GetLevelCount)(struct IDirect3DVolumeTexture8 *);
-    HRESULT (*GetLevelDesc)(struct IDirect3DVolumeTexture8 *, UINT, D3DVOLUME_DESC *);
-    HRESULT (*GetVolumeLevel)(struct IDirect3DVolumeTexture8 *, UINT, struct IDirect3DVolume8 **);
-    HRESULT (*LockBox)(struct IDirect3DVolumeTexture8 *, UINT, D3DLOCKED_BOX *, D3DBOX *, DWORD);
-    HRESULT (*UnlockBox)(struct IDirect3DVolumeTexture8 *, UINT);
-    HRESULT (*AddDirtyBox)(struct IDirect3DVolumeTexture8 *, D3DBOX *);
-};
-
-struct _RGNDATA {
-    RGNDATAHEADER rdh;
-    char Buffer[1];
-};
-
-struct IDirect3DSwapChain8Vtbl {
-    HRESULT (*QueryInterface)(struct IDirect3DSwapChain8 *, IID *, void **);
-    ULONG (*AddRef)(struct IDirect3DSwapChain8 *);
-    ULONG (*Release)(struct IDirect3DSwapChain8 *);
-    HRESULT (*Present)(struct IDirect3DSwapChain8 *, RECT *, RECT *, HWND, RGNDATA *);
-    HRESULT (*GetBackBuffer)(struct IDirect3DSwapChain8 *, UINT, D3DBACKBUFFER_TYPE, struct IDirect3DSurface8 **);
-};
-
-struct IDirect3DVertexBuffer8Vtbl {
-    HRESULT (*QueryInterface)(struct IDirect3DVertexBuffer8 *, IID *, void **);
-    ULONG (*AddRef)(struct IDirect3DVertexBuffer8 *);
-    ULONG (*Release)(struct IDirect3DVertexBuffer8 *);
-    HRESULT (*GetDevice)(struct IDirect3DVertexBuffer8 *, struct IDirect3DDevice8 **);
-    HRESULT (*SetPrivateData)(struct IDirect3DVertexBuffer8 *, GUID *, void *, DWORD, DWORD);
-    HRESULT (*GetPrivateData)(struct IDirect3DVertexBuffer8 *, GUID *, void *, DWORD *);
-    HRESULT (*FreePrivateData)(struct IDirect3DVertexBuffer8 *, GUID *);
-    DWORD (*SetPriority)(struct IDirect3DVertexBuffer8 *, DWORD);
-    DWORD (*GetPriority)(struct IDirect3DVertexBuffer8 *);
-    void (*PreLoad)(struct IDirect3DVertexBuffer8 *);
-    D3DRESOURCETYPE (*GetType)(struct IDirect3DVertexBuffer8 *);
-    HRESULT (*Lock)(struct IDirect3DVertexBuffer8 *, UINT, UINT, BYTE **, DWORD);
-    HRESULT (*Unlock)(struct IDirect3DVertexBuffer8 *);
-    HRESULT (*GetDesc)(struct IDirect3DVertexBuffer8 *, D3DVERTEXBUFFER_DESC *);
-};
-
-struct _D3DSURFACE_DESC {
-    D3DFORMAT Format;
-    D3DRESOURCETYPE Type;
-    DWORD Usage;
-    D3DPOOL Pool;
-    UINT Size;
-    D3DMULTISAMPLE_TYPE MultiSampleType;
-    UINT Width;
-    UINT Height;
-};
-
-struct IDirect3DBaseTexture8Vtbl {
-    HRESULT (*QueryInterface)(struct IDirect3DBaseTexture8 *, IID *, void **);
-    ULONG (*AddRef)(struct IDirect3DBaseTexture8 *);
-    ULONG (*Release)(struct IDirect3DBaseTexture8 *);
-    HRESULT (*GetDevice)(struct IDirect3DBaseTexture8 *, struct IDirect3DDevice8 **);
-    HRESULT (*SetPrivateData)(struct IDirect3DBaseTexture8 *, GUID *, void *, DWORD, DWORD);
-    HRESULT (*GetPrivateData)(struct IDirect3DBaseTexture8 *, GUID *, void *, DWORD *);
-    HRESULT (*FreePrivateData)(struct IDirect3DBaseTexture8 *, GUID *);
-    DWORD (*SetPriority)(struct IDirect3DBaseTexture8 *, DWORD);
-    DWORD (*GetPriority)(struct IDirect3DBaseTexture8 *);
-    void (*PreLoad)(struct IDirect3DBaseTexture8 *);
-    D3DRESOURCETYPE (*GetType)(struct IDirect3DBaseTexture8 *);
-    DWORD (*SetLOD)(struct IDirect3DBaseTexture8 *, DWORD);
-    DWORD (*GetLOD)(struct IDirect3DBaseTexture8 *);
-    DWORD (*GetLevelCount)(struct IDirect3DBaseTexture8 *);
-};
-
-struct _D3DLOCKED_RECT {
-    INT Pitch;
-    void *pBits;
-};
-
-struct _D3DTRIPATCH_INFO {
-    UINT StartVertexOffset;
-    UINT NumVertices;
-    D3DBASISTYPE Basis;
-    D3DORDERTYPE Order;
-};
-
-struct _D3DLOCKED_BOX {
-    INT RowPitch;
-    INT SlicePitch;
-    void *pBits;
-};
-
-struct IDirect3DSwapChain8 {
-    struct IDirect3DSwapChain8Vtbl *lpVtbl;
-};
-
-struct IDirect3DVertexBuffer8 {
-    struct IDirect3DVertexBuffer8Vtbl *lpVtbl;
-};
-
-struct _D3DCLIPSTATUS8 {
-    DWORD ClipUnion;
-    DWORD ClipIntersection;
-};
-
-struct IDirect3D8Vtbl {
-    HRESULT (*QueryInterface)(struct IDirect3D8 *, IID *, void **);
-    ULONG (*AddRef)(struct IDirect3D8 *);
-    ULONG (*Release)(struct IDirect3D8 *);
-    HRESULT (*RegisterSoftwareDevice)(struct IDirect3D8 *, void *);
-    UINT (*GetAdapterCount)(struct IDirect3D8 *);
-    HRESULT (*GetAdapterIdentifier)(struct IDirect3D8 *, UINT, DWORD, D3DADAPTER_IDENTIFIER8 *);
-    UINT (*GetAdapterModeCount)(struct IDirect3D8 *, UINT);
-    HRESULT (*EnumAdapterModes)(struct IDirect3D8 *, UINT, UINT, D3DDISPLAYMODE *);
-    HRESULT (*GetAdapterDisplayMode)(struct IDirect3D8 *, UINT, D3DDISPLAYMODE *);
-    HRESULT (*CheckDeviceType)(struct IDirect3D8 *, UINT, D3DDEVTYPE, D3DFORMAT, D3DFORMAT, BOOL);
-    HRESULT (*CheckDeviceFormat)(struct IDirect3D8 *, UINT, D3DDEVTYPE, D3DFORMAT, DWORD, D3DRESOURCETYPE, D3DFORMAT);
-    HRESULT (*CheckDeviceMultiSampleType)(struct IDirect3D8 *, UINT, D3DDEVTYPE, D3DFORMAT, BOOL, D3DMULTISAMPLE_TYPE);
-    HRESULT (*CheckDepthStencilMatch)(struct IDirect3D8 *, UINT, D3DDEVTYPE, D3DFORMAT, D3DFORMAT, D3DFORMAT);
-    HRESULT (*GetDeviceCaps)(struct IDirect3D8 *, UINT, D3DDEVTYPE, D3DCAPS8 *);
-    HMONITOR (*GetAdapterMonitor)(struct IDirect3D8 *, UINT);
-    HRESULT (*CreateDevice)(struct IDirect3D8 *, UINT, D3DDEVTYPE, HWND, DWORD, D3DPRESENT_PARAMETERS *, struct IDirect3DDevice8 **);
-};
-
-struct _D3DDEVICE_CREATION_PARAMETERS {
-    UINT AdapterOrdinal;
-    D3DDEVTYPE DeviceType;
-    HWND hFocusWindow;
-    DWORD BehaviorFlags;
-};
-
-struct _D3DVOLUME_DESC {
-    D3DFORMAT Format;
-    D3DRESOURCETYPE Type;
-    DWORD Usage;
-    D3DPOOL Pool;
-    UINT Size;
-    UINT Width;
-    UINT Height;
-    UINT Depth;
-};
-
-struct _D3DVERTEXBUFFER_DESC {
-    D3DFORMAT Format;
-    D3DRESOURCETYPE Type;
-    DWORD Usage;
-    D3DPOOL Pool;
-    UINT Size;
-    DWORD FVF;
-};
-
-struct IDirect3DIndexBuffer8Vtbl {
-    HRESULT (*QueryInterface)(struct IDirect3DIndexBuffer8 *, IID *, void **);
-    ULONG (*AddRef)(struct IDirect3DIndexBuffer8 *);
-    ULONG (*Release)(struct IDirect3DIndexBuffer8 *);
-    HRESULT (*GetDevice)(struct IDirect3DIndexBuffer8 *, struct IDirect3DDevice8 **);
-    HRESULT (*SetPrivateData)(struct IDirect3DIndexBuffer8 *, GUID *, void *, DWORD, DWORD);
-    HRESULT (*GetPrivateData)(struct IDirect3DIndexBuffer8 *, GUID *, void *, DWORD *);
-    HRESULT (*FreePrivateData)(struct IDirect3DIndexBuffer8 *, GUID *);
-    DWORD (*SetPriority)(struct IDirect3DIndexBuffer8 *, DWORD);
-    DWORD (*GetPriority)(struct IDirect3DIndexBuffer8 *);
-    void (*PreLoad)(struct IDirect3DIndexBuffer8 *);
-    D3DRESOURCETYPE (*GetType)(struct IDirect3DIndexBuffer8 *);
-    HRESULT (*Lock)(struct IDirect3DIndexBuffer8 *, UINT, UINT, BYTE **, DWORD);
-    HRESULT (*Unlock)(struct IDirect3DIndexBuffer8 *);
-    HRESULT (*GetDesc)(struct IDirect3DIndexBuffer8 *, D3DINDEXBUFFER_DESC *);
-};
-
-struct IDirect3DCubeTexture8Vtbl {
-    HRESULT (*QueryInterface)(struct IDirect3DCubeTexture8 *, IID *, void **);
-    ULONG (*AddRef)(struct IDirect3DCubeTexture8 *);
-    ULONG (*Release)(struct IDirect3DCubeTexture8 *);
-    HRESULT (*GetDevice)(struct IDirect3DCubeTexture8 *, struct IDirect3DDevice8 **);
-    HRESULT (*SetPrivateData)(struct IDirect3DCubeTexture8 *, GUID *, void *, DWORD, DWORD);
-    HRESULT (*GetPrivateData)(struct IDirect3DCubeTexture8 *, GUID *, void *, DWORD *);
-    HRESULT (*FreePrivateData)(struct IDirect3DCubeTexture8 *, GUID *);
-    DWORD (*SetPriority)(struct IDirect3DCubeTexture8 *, DWORD);
-    DWORD (*GetPriority)(struct IDirect3DCubeTexture8 *);
-    void (*PreLoad)(struct IDirect3DCubeTexture8 *);
-    D3DRESOURCETYPE (*GetType)(struct IDirect3DCubeTexture8 *);
-    DWORD (*SetLOD)(struct IDirect3DCubeTexture8 *, DWORD);
-    DWORD (*GetLOD)(struct IDirect3DCubeTexture8 *);
-    DWORD (*GetLevelCount)(struct IDirect3DCubeTexture8 *);
-    HRESULT (*GetLevelDesc)(struct IDirect3DCubeTexture8 *, UINT, D3DSURFACE_DESC *);
-    HRESULT (*GetCubeMapSurface)(struct IDirect3DCubeTexture8 *, D3DCUBEMAP_FACES, UINT, struct IDirect3DSurface8 **);
-    HRESULT (*LockRect)(struct IDirect3DCubeTexture8 *, D3DCUBEMAP_FACES, UINT, D3DLOCKED_RECT *, RECT *, DWORD);
-    HRESULT (*UnlockRect)(struct IDirect3DCubeTexture8 *, D3DCUBEMAP_FACES, UINT);
-    HRESULT (*AddDirtyRect)(struct IDirect3DCubeTexture8 *, D3DCUBEMAP_FACES, RECT *);
-};
-
-struct IDirect3DCubeTexture8 {
-    struct IDirect3DCubeTexture8Vtbl *lpVtbl;
-};
-
-struct _D3DRECT {
-    LONG x1;
-    LONG y1;
-    LONG x2;
-    LONG y2;
-};
-
-struct IDirect3DTexture8 {
-    struct IDirect3DTexture8Vtbl *lpVtbl;
 };
 
 typedef struct GameErrorContext GameErrorContext, *PGameErrorContext;
@@ -83857,9 +83980,6 @@ typedef enum _D3DSHADER_PARAM_SRCMOD_TYPE {
 } _D3DSHADER_PARAM_SRCMOD_TYPE;
 
 typedef enum _D3DSHADER_PARAM_SRCMOD_TYPE D3DSHADER_PARAM_SRCMOD_TYPE;
-
-
-/* WARNING! conflicting data type names: /d3d8types.h/_D3DVECTOR - /dsound.h/_D3DVECTOR */
 
 typedef enum _D3DCULL {
     D3DCULL_NONE=1,

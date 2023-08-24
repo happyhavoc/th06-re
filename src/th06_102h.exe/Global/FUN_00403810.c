@@ -9,9 +9,7 @@ undefined4 FUN_00403810(int param_1)
   int iVar3;
   float fVar4;
   int *piVar5;
-  undefined uVar6;
-  uint uVar7;
-  uint uVar8;
+  long lVar6;
   int local_24;
   float local_20;
   int *local_c;
@@ -98,11 +96,10 @@ switchD_00403892_caseD_6:
               local_20 = 1.0;
             }
             for (local_24 = 0; local_24 < 4; local_24 = local_24 + 1) {
-              uVar8 = (uint)*(byte *)(param_1 + local_24 + 0x5c);
-              uVar7 = (uint)*(byte *)(param_1 + local_24 + 0x5c);
-              uVar6 = __ftol2((float)uVar7,uVar7,(float)uVar8,uVar8,
-                              (float)(uint)*(byte *)(param_1 + local_24 + 0x68));
-              *(undefined *)(param_1 + local_24 + 0x50) = uVar6;
+              lVar6 = __ftol2((double)(((float)(uint)*(byte *)(param_1 + local_24 + 0x68) -
+                                       (float)(uint)*(byte *)(param_1 + local_24 + 0x5c)) * local_20
+                                      + (float)(uint)*(byte *)(param_1 + local_24 + 0x5c)));
+              *(char *)(param_1 + local_24 + 0x50) = (char)lVar6;
             }
             *(float *)(param_1 + 0x48) =
                  (*(float *)(param_1 + 0x60) - *(float *)(param_1 + 0x54)) * local_20 +

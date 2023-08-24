@@ -5,7 +5,7 @@ undefined4 FUN_00423ddf(int param_1)
   void *_Memory;
   int local_8;
   
-  FUN_004240f0();
+  FUN_004240f0(VERY_BIG_STRUCT);
   for (local_8 = 0; local_8 < 0x10; local_8 = local_8 + 1) {
     FUN_004242f3(local_8);
   }

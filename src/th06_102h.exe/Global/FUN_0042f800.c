@@ -3,11 +3,12 @@ bool FUN_0042f800(int param_1)
 
 {
   bool bVar1;
-  undefined4 uVar2;
+  long lVar2;
   
   if (*(int *)(param_1 + 0x14) != 0) {
-    uVar2 = __ftol2((float)*(int *)(param_1 + 0x14),(float)*(int *)(param_1 + 0x2c));
-    *(undefined4 *)(param_1 + 0x10) = uVar2;
+    lVar2 = __ftol2((double)(255.0 - (((float)*(int *)(param_1 + 0x2c) + *(float *)(param_1 + 0x28))
+                                     * 255.0) / (float)*(int *)(param_1 + 0x14)));
+    *(long *)(param_1 + 0x10) = lVar2;
     if (*(int *)(param_1 + 0x10) < 0) {
       *(undefined4 *)(param_1 + 0x10) = 0;
     }

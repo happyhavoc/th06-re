@@ -4,6 +4,7 @@
 void FUN_00420190(void)
 
 {
+  long lVar1;
   int in_ECX;
   int local_10;
   int local_c;
@@ -28,8 +29,8 @@ void FUN_00420190(void)
           FUN_004323a0(local_10,*(char *)(local_10 + 0x140) + 0x207);
           *(undefined *)(local_10 + 0x142) = 0;
         }
-        local_8 = __ftol2();
-        local_8 = 0xff - local_8;
+        lVar1 = __ftol2((double)(((8.0 - *(float *)(local_10 + 0x114)) * 255.0) / 128.0));
+        local_8 = 0xff - lVar1;
         if (local_8 < 0x40) {
           local_8 = 0x40;
         }

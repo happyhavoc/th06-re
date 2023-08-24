@@ -23831,6 +23831,109 @@ typedef struct SCARD_T0_REQUEST *LPSCARD_T0_REQUEST;
 
 #define SHTDN_REASON_MINOR_NETWORKCARD 9
 
+typedef double *png_doublep;
+
+typedef long png_int_32;
+
+typedef char ***png_charppp;
+
+typedef char *png_charp;
+
+typedef short png_int_16;
+
+typedef ulong png_uint_32;
+
+typedef png_uint_32 **png_uint_32pp;
+
+typedef double **png_doublepp;
+
+typedef char charf;
+
+typedef charf *png_zcharp;
+
+typedef struct z_stream_s z_stream_s, *Pz_stream_s;
+
+typedef struct z_stream_s z_stream;
+
+typedef z_stream *png_zstreamp;
+
+typedef uchar Byte;
+
+typedef Byte Bytef;
+
+typedef uint uInt;
+
+typedef ulong uLong;
+
+typedef struct internal_state internal_state, *Pinternal_state;
+
+typedef void *voidpf;
+
+typedef voidpf (*alloc_func)(voidpf, uInt, uInt);
+
+typedef void (*free_func)(voidpf, voidpf);
+
+struct internal_state {
+    int dummy;
+};
+
+struct z_stream_s {
+    Bytef *next_in;
+    uInt avail_in;
+    uLong total_in;
+    Bytef *next_out;
+    uInt avail_out;
+    uLong total_out;
+    char *msg;
+    struct internal_state *state;
+    alloc_func zalloc;
+    free_func zfree;
+    voidpf opaque;
+    int data_type;
+    uLong adler;
+    uLong reserved;
+};
+
+typedef uchar png_byte;
+
+typedef ushort png_uint_16;
+
+typedef png_uint_16 *png_uint_16p;
+
+typedef char *png_const_charp;
+
+typedef png_byte *png_bytep;
+
+typedef png_int_32 **png_int_32pp;
+
+typedef char **png_charpp;
+
+typedef png_uint_16 **png_uint_16pp;
+
+typedef uint size_t;
+
+typedef size_t png_size_t;
+
+typedef png_int_16 *png_int_16p;
+
+typedef void *png_voidp;
+
+typedef char **png_const_charpp;
+
+typedef png_uint_32 *png_uint_32p;
+
+typedef png_int_32 *png_int_32p;
+
+typedef png_int_16 **png_int_16pp;
+
+typedef png_byte **png_bytepp;
+
+typedef charf **png_zcharpp;
+
+#define PNG_ZBUF_SIZE 8192
+
+typedef long time_t;
+
 typedef struct _iobuf _iobuf, *P_iobuf;
 
 struct _iobuf {
@@ -40287,6 +40390,111 @@ typedef enum tagUSERCLASSTYPE USERCLASSTYPE;
 #define UPDFCACHE_IFBLANKORONSAVECACHE 18
 
 #define DD_DEFDRAGMINDIST 2
+
+typedef struct fpos_t fpos_t, *Pfpos_t;
+
+struct fpos_t {
+    uint lopart;
+    int hipart;
+};
+
+#define _IOWRT 2
+
+#define FOPEN_MAX 20
+
+#define _IORW 128
+
+#define _IONBF 4
+
+#define _IOEOF 16
+
+#define _IOMYBUF 8
+
+#define _IOERR 32
+
+#define _IOLBF 64
+
+#define SYS_OPEN 20
+
+#define _SYS_OPEN 20
+
+#define EOF -1
+
+#define _IOSTRG 64
+
+#define _IOFBF 0
+
+#define _IOREAD 1
+
+#define _IOB_ENTRIES 20
+
+#define FILENAME_MAX 260
+
+#define TMP_MAX 32767
+
+#define BUFSIZ 512
+
+#define _NSTREAM_ 512
+
+#define _NFILE 512
+
+typedef z_stream *z_streamp;
+
+typedef void *voidp;
+
+typedef voidp gzFile;
+
+#define Z_DEFLATED 8
+
+#define Z_DEFAULT_STRATEGY 0
+
+#define Z_FILTERED 1
+
+#define Z_BEST_SPEED 1
+
+#define Z_PARTIAL_FLUSH 1
+
+#define Z_ERRNO -1
+
+#define Z_STREAM_END 1
+
+#define Z_VERSION_ERROR -6
+
+#define Z_SYNC_FLUSH 2
+
+#define Z_UNKNOWN 2
+
+#define Z_NO_FLUSH 0
+
+#define Z_DEFAULT_COMPRESSION -1
+
+#define Z_NEED_DICT 2
+
+#define Z_FINISH 4
+
+#define Z_DATA_ERROR -3
+
+#define Z_BEST_COMPRESSION 9
+
+#define Z_NO_COMPRESSION 0
+
+#define Z_STREAM_ERROR -2
+
+#define Z_BINARY 0
+
+#define Z_ASCII 1
+
+#define Z_FULL_FLUSH 3
+
+#define Z_BUF_ERROR -5
+
+#define Z_HUFFMAN_ONLY 2
+
+#define Z_MEM_ERROR -4
+
+#define Z_NULL 0
+
+#define Z_OK 0
 
 typedef struct _UNIVERSAL_NAME_INFOA _UNIVERSAL_NAME_INFOA, *P_UNIVERSAL_NAME_INFOA;
 
@@ -60363,6 +60571,26 @@ typedef struct tagMONERRSTRUCT MONERRSTRUCT;
 
 #define EC_ENABLEONE 128
 
+typedef struct tm tm, *Ptm;
+
+struct tm {
+    int tm_sec;
+    int tm_min;
+    int tm_hour;
+    int tm_mday;
+    int tm_mon;
+    int tm_year;
+    int tm_wday;
+    int tm_yday;
+    int tm_isdst;
+};
+
+typedef long clock_t;
+
+#define CLOCKS_PER_SEC 1000
+
+#define CLK_TCK 1000
+
 typedef struct pvalueA pvalueA, *PpvalueA;
 
 typedef struct pvalueA *PPVALUEA;
@@ -65669,8 +65897,6 @@ typedef struct _XMIT_ROUTINE_QUINTUPLE _XMIT_ROUTINE_QUINTUPLE, *P_XMIT_ROUTINE_
 typedef struct _XMIT_ROUTINE_QUINTUPLE XMIT_ROUTINE_QUINTUPLE;
 
 typedef struct _MIDL_STUB_MESSAGE _MIDL_STUB_MESSAGE, *P_MIDL_STUB_MESSAGE;
-
-typedef uint size_t;
 
 typedef struct _MIDL_STUB_MESSAGE *PMIDL_STUB_MESSAGE;
 
@@ -73618,6 +73844,469 @@ struct _CRT_DOUBLE {
 
 #define EXIT_SUCCESS 0
 
+typedef struct png_color_8_struct png_color_8_struct, *Ppng_color_8_struct;
+
+typedef struct png_color_8_struct png_color_8;
+
+typedef png_color_8 *png_color_8p;
+
+struct png_color_8_struct {
+    png_byte red;
+    png_byte green;
+    png_byte blue;
+    png_byte gray;
+    png_byte alpha;
+};
+
+typedef struct png_info_struct png_info_struct, *Ppng_info_struct;
+
+typedef struct png_color_struct png_color_struct, *Ppng_color_struct;
+
+typedef struct png_color_struct png_color;
+
+typedef png_color *png_colorp;
+
+typedef struct png_text_struct png_text_struct, *Ppng_text_struct;
+
+typedef struct png_text_struct png_text;
+
+typedef png_text *png_textp;
+
+typedef struct png_time_struct png_time_struct, *Ppng_time_struct;
+
+typedef struct png_time_struct png_time;
+
+typedef struct png_color_16_struct png_color_16_struct, *Ppng_color_16_struct;
+
+typedef struct png_color_16_struct png_color_16;
+
+struct png_color_struct {
+    png_byte red;
+    png_byte green;
+    png_byte blue;
+};
+
+struct png_color_16_struct {
+    png_byte index;
+    png_uint_16 red;
+    png_uint_16 green;
+    png_uint_16 blue;
+    png_uint_16 gray;
+};
+
+struct png_time_struct {
+    png_uint_16 year;
+    png_byte month;
+    png_byte day;
+    png_byte hour;
+    png_byte minute;
+    png_byte second;
+};
+
+struct png_info_struct {
+    png_uint_32 width;
+    png_uint_32 height;
+    png_uint_32 valid;
+    png_uint_32 rowbytes;
+    png_colorp palette;
+    png_uint_16 num_palette;
+    png_uint_16 num_trans;
+    png_byte bit_depth;
+    png_byte color_type;
+    png_byte compression_type;
+    png_byte filter_type;
+    png_byte interlace_type;
+    png_byte channels;
+    png_byte pixel_depth;
+    png_byte spare_byte;
+    png_byte signature[8];
+    float gamma;
+    png_byte srgb_intent;
+    int num_text;
+    int max_text;
+    png_textp text;
+    png_time mod_time;
+    png_color_8 sig_bit;
+    png_bytep trans;
+    png_color_16 trans_values;
+    png_color_16 background;
+    png_uint_32 x_offset;
+    png_uint_32 y_offset;
+    png_byte offset_unit_type;
+    png_uint_32 x_pixels_per_unit;
+    png_uint_32 y_pixels_per_unit;
+    png_byte phys_unit_type;
+    png_uint_16p hist;
+    float x_white;
+    float y_white;
+    float x_red;
+    float y_red;
+    float x_green;
+    float y_green;
+    float x_blue;
+    float y_blue;
+    png_charp pcal_purpose;
+    png_int_32 pcal_X0;
+    png_int_32 pcal_X1;
+    png_charp pcal_units;
+    png_charpp pcal_params;
+    png_byte pcal_type;
+    png_byte pcal_nparams;
+};
+
+struct png_text_struct {
+    int compression;
+    png_charp key;
+    png_charp text;
+    png_size_t text_length;
+};
+
+typedef struct png_struct_def png_struct_def, *Ppng_struct_def;
+
+typedef struct png_struct_def png_struct;
+
+typedef png_struct *png_structp;
+
+typedef void (*png_flush_ptr)(png_structp);
+
+typedef int jmp_buf[16];
+
+typedef void (*png_error_ptr)(png_structp, png_const_charp);
+
+typedef void (*png_rw_ptr)(png_structp, png_bytep, png_size_t);
+
+typedef struct png_row_info_struct png_row_info_struct, *Ppng_row_info_struct;
+
+typedef struct png_row_info_struct png_row_info;
+
+typedef png_row_info *png_row_infop;
+
+typedef void (*png_user_transform_ptr)(png_structp, png_row_infop, png_bytep);
+
+typedef void (*png_read_status_ptr)(png_structp, png_uint_32, int);
+
+typedef void (*png_write_status_ptr)(png_structp, png_uint_32, int);
+
+typedef struct png_info_struct png_info;
+
+typedef png_info *png_infop;
+
+typedef void (*png_progressive_info_ptr)(png_structp, png_infop);
+
+typedef void (*png_progressive_row_ptr)(png_structp, png_bytep, png_uint_32, int);
+
+typedef void (*png_progressive_end_ptr)(png_structp, png_infop);
+
+struct png_row_info_struct {
+    png_uint_32 width;
+    png_uint_32 rowbytes;
+    png_byte color_type;
+    png_byte bit_depth;
+    png_byte channels;
+    png_byte pixel_depth;
+};
+
+struct png_struct_def {
+    jmp_buf jmpbuf;
+    png_error_ptr error_fn;
+    png_error_ptr warning_fn;
+    png_voidp error_ptr;
+    png_rw_ptr write_data_fn;
+    png_rw_ptr read_data_fn;
+    png_voidp io_ptr;
+    png_user_transform_ptr read_user_transform_fn;
+    png_user_transform_ptr write_user_transform_fn;
+    png_voidp user_transform_ptr;
+    png_byte user_transform_depth;
+    png_byte user_transform_channels;
+    png_uint_32 mode;
+    png_uint_32 flags;
+    png_uint_32 transformations;
+    z_stream zstream;
+    png_bytep zbuf;
+    png_size_t zbuf_size;
+    int zlib_level;
+    int zlib_method;
+    int zlib_window_bits;
+    int zlib_mem_level;
+    int zlib_strategy;
+    png_uint_32 width;
+    png_uint_32 height;
+    png_uint_32 num_rows;
+    png_uint_32 usr_width;
+    png_uint_32 rowbytes;
+    png_uint_32 irowbytes;
+    png_uint_32 iwidth;
+    png_uint_32 row_number;
+    png_bytep prev_row;
+    png_bytep row_buf;
+    png_bytep sub_row;
+    png_bytep up_row;
+    png_bytep avg_row;
+    png_bytep paeth_row;
+    png_row_info row_info;
+    png_uint_32 idat_size;
+    png_uint_32 crc;
+    png_colorp palette;
+    png_uint_16 num_palette;
+    png_uint_16 num_trans;
+    png_byte chunk_name[5];
+    png_byte compression;
+    png_byte filter;
+    png_byte interlaced;
+    png_byte pass;
+    png_byte do_filter;
+    png_byte color_type;
+    png_byte bit_depth;
+    png_byte usr_bit_depth;
+    png_byte pixel_depth;
+    png_byte channels;
+    png_byte usr_channels;
+    png_byte sig_bytes;
+    png_uint_16 filler;
+    png_byte background_gamma_type;
+    float background_gamma;
+    png_color_16 background;
+    png_color_16 background_1;
+    png_flush_ptr output_flush_fn;
+    png_uint_32 flush_dist;
+    png_uint_32 flush_rows;
+    int gamma_shift;
+    float gamma;
+    float screen_gamma;
+    png_bytep gamma_table;
+    png_bytep gamma_from_1;
+    png_bytep gamma_to_1;
+    png_uint_16pp gamma_16_table;
+    png_uint_16pp gamma_16_from_1;
+    png_uint_16pp gamma_16_to_1;
+    png_color_8 sig_bit;
+    png_color_8 shift;
+    png_bytep trans;
+    png_color_16 trans_values;
+    png_read_status_ptr read_row_fn;
+    png_write_status_ptr write_row_fn;
+    png_progressive_info_ptr info_fn;
+    png_progressive_row_ptr row_fn;
+    png_progressive_end_ptr end_fn;
+    png_bytep save_buffer_ptr;
+    png_bytep save_buffer;
+    png_bytep current_buffer_ptr;
+    png_bytep current_buffer;
+    png_uint_32 push_length;
+    png_uint_32 skip_length;
+    png_size_t save_buffer_size;
+    png_size_t save_buffer_max;
+    png_size_t buffer_size;
+    png_size_t current_buffer_size;
+    int process_mode;
+    int cur_palette;
+    png_size_t current_text_size;
+    png_size_t current_text_left;
+    png_charp current_text;
+    png_charp current_text_ptr;
+    png_bytep palette_lookup;
+    png_bytep dither_index;
+    png_uint_16p hist;
+    png_byte heuristic_method;
+    png_byte num_prev_filters;
+    png_bytep prev_filters;
+    png_uint_16p filter_weights;
+    png_uint_16p inv_filter_weights;
+    png_uint_16p filter_costs;
+    png_uint_16p inv_filter_costs;
+    png_charp time_buffer;
+    png_byte rgb_to_gray_status;
+    png_byte rgb_to_gray_red_coeff;
+    png_byte rgb_to_gray_green_coeff;
+    png_byte rgb_to_gray_blue_coeff;
+    png_byte empty_plte_permitted;
+};
+
+typedef png_time *png_timep;
+
+typedef png_time **png_timepp;
+
+typedef png_structp version_1_0_5;
+
+typedef png_color_16 *png_color_16p;
+
+typedef png_color_16 **png_color_16pp;
+
+typedef png_struct **png_structpp;
+
+typedef png_text **png_textpp;
+
+typedef png_row_info **png_row_infopp;
+
+typedef void (*png_free_ptr)(png_structp, png_voidp);
+
+typedef png_color **png_colorpp;
+
+typedef png_color_8 **png_color_8pp;
+
+typedef png_voidp (*png_malloc_ptr)(png_structp, png_size_t);
+
+typedef png_info **png_infopp;
+
+#define PNG_BACKGROUND_GAMMA_FILE 2
+
+#define PNG_INTERLACE_NONE 0
+
+#define PNG_RESOLUTION_LAST 2
+
+#define PNG_CRC_QUIET_USE 4
+
+#define PNG_COLOR_TYPE_GRAY 0
+
+#define PNG_INFO_pHYs 128
+
+#define PNG_INTERLACE_ADAM7 1
+
+#define PNG_COMPRESSION_TYPE_DEFAULT 0
+
+#define PNG_CRC_ERROR_QUIT 1
+
+#define PNG_EQUATION_LINEAR 0
+
+#define PNG_INFO_cHRM 4
+
+#define PNG_RESOLUTION_METER 1
+
+#define PNG_FILTER_PAETH 128
+
+#define PNG_EQUATION_ARBITRARY 2
+
+#define PNG_INFO_pCAL 1024
+
+#define PNG_CRC_DEFAULT 0
+
+#define PNG_RESOLUTION_UNKNOWN 0
+
+#define PNG_TEXT_COMPRESSION_LAST 1
+
+#define PNG_FILTER_HEURISTIC_DEFAULT 0
+
+#define PNG_FILTER_VALUE_UP 2
+
+#define PNG_CRC_WARN_USE 3
+
+#define PNG_INFO_oFFs 256
+
+#define PNG_EQUATION_HYPERBOLIC 3
+
+#define PNG_BACKGROUND_GAMMA_SCREEN 1
+
+#define PNG_INFO_gAMA 1
+
+#define PNG_FILTER_VALUE_LAST 5
+
+#define PNG_COLOR_TYPE_PALETTE 3
+
+#define PNG_MAX_UINT 2147483647
+
+#define PNG_FILLER_AFTER 1
+
+#define PNG_BACKGROUND_GAMMA_UNKNOWN 0
+
+#define PNG_OFFSET_LAST 2
+
+#define PNG_sRGB_INTENT_ABSOLUTE 2
+
+#define PNG_FILTER_HEURISTIC_WEIGHTED 2
+
+#define PNG_OFFSET_PIXEL 0
+
+#define PNG_INTERLACE_LAST 2
+
+#define PNG_LIBPNG_VER 10005
+
+#define PNG_FILTER_VALUE_AVG 3
+
+#define PNG_INFO_hIST 64
+
+#define PNG_FILLER_BEFORE 0
+
+#define PNG_TEXT_COMPRESSION_zTXt 0
+
+#define PNG_FILTER_HEURISTIC_LAST 3
+
+#define PNG_FILTER_AVG 64
+
+#define PNG_EQUATION_LAST 4
+
+#define PNG_INFO_tRNS 16
+
+#define PNG_INFO_sBIT 2
+
+#define PNG_sRGB_INTENT_SATURATION 0
+
+#define PNG_TEXT_COMPRESSION_zTXt_WR -2
+
+#define PNG_FILTER_UP 32
+
+#define PNG_TEXT_COMPRESSION_NONE_WR -3
+
+#define PNG_COLOR_TYPE_RGB 2
+
+#define PNG_sRGB_INTENT_RELATIVE 3
+
+#define PNG_ALL_FILTERS 248
+
+#define PNG_INFO_bKGD 32
+
+#define PNG_CRC_NO_CHANGE 5
+
+#define PNG_COLOR_TYPE_GRAY_ALPHA 4
+
+#define PNG_FILTER_VALUE_NONE 0
+
+#define PNG_FILTER_TYPE_BASE 0
+
+#define PNG_INFO_tIME 512
+
+#define PNG_COLOR_MASK_PALETTE 1
+
+#define PNG_OFFSET_MICROMETER 1
+
+#define PNG_FILTER_SUB 16
+
+#define PNG_NO_FILTERS 0
+
+#define PNG_BACKGROUND_GAMMA_UNIQUE 3
+
+#define PNG_INFO_sRGB 2048
+
+#define PNG_COLOR_MASK_COLOR 2
+
+#define PNG_EQUATION_BASE_E 1
+
+#define PNG_sRGB_INTENT_LAST 4
+
+#define PNG_sRGB_INTENT_PERCEPTUAL 1
+
+#define PNG_FILTER_VALUE_PAETH 4
+
+#define PNG_FILTER_NONE 8
+
+#define PNG_COMPRESSION_TYPE_BASE 0
+
+#define PNG_INFO_PLTE 8
+
+#define PNG_TEXT_COMPRESSION_NONE -1
+
+#define PNG_COLOR_MASK_ALPHA 4
+
+#define PNG_FILTER_HEURISTIC_UNWEIGHTED 1
+
+#define PNG_CRC_WARN_DISCARD 2
+
+#define PNG_FILTER_TYPE_DEFAULT 0
+
+#define PNG_FILTER_VALUE_SUB 1
+
+#define PNG_COLOR_TYPE_RGB_ALPHA 6
+
 typedef struct _cpinfo _cpinfo, *P_cpinfo;
 
 struct _cpinfo {
@@ -74661,6 +75350,26 @@ typedef CURRENCYFMTA CURRENCYFMT;
 
 #define RPC_S_UNKNOWN_PRINCIPAL 1332
 
+typedef struct __JUMP_BUFFER __JUMP_BUFFER, *P__JUMP_BUFFER;
+
+struct __JUMP_BUFFER {
+    ulong Ebp;
+    ulong Ebx;
+    ulong Edi;
+    ulong Esi;
+    ulong Esp;
+    ulong Eip;
+    ulong Registration;
+    ulong TryLevel;
+    ulong Cookie;
+    ulong UnwindFunc;
+    ulong UnwindData[6];
+};
+
+typedef struct __JUMP_BUFFER _JUMP_BUFFER;
+
+#define _JBLEN 16
+
 typedef struct _COORD _COORD, *P_COORD;
 
 typedef struct _COORD COORD;
@@ -74990,6 +75699,18 @@ typedef struct _SMALL_RECT *PSMALL_RECT;
 #define BACKGROUND_INTENSITY 128
 
 #define ENABLE_ECHO_INPUT 4
+
+typedef ushort ino_t;
+
+typedef uint _dev_t;
+
+typedef long off_t;
+
+typedef long _off_t;
+
+typedef ushort _ino_t;
+
+typedef uint dev_t;
 
 typedef ushort wint_t;
 
@@ -83721,6 +84442,25 @@ typedef enum _D3DSHADER_PARAM_REGISTER_TYPE D3DSHADER_PARAM_REGISTER_TYPE;
 #define D3DFVF_XYZB2 8
 
 #define D3DFVF_XYZB1 6
+
+typedef uLong uLongf;
+
+typedef int intf;
+
+typedef uInt uIntf;
+
+#define MAX_MEM_LEVEL 9
+
+
+/* WARNING! conflicting data type names: /zconf.h/defines/define_SEEK_SET - /mmsystem.h/defines/define_SEEK_SET */
+
+
+/* WARNING! conflicting data type names: /zconf.h/defines/define_SEEK_CUR - /mmsystem.h/defines/define_SEEK_CUR */
+
+#define MAX_WBITS 15
+
+
+/* WARNING! conflicting data type names: /zconf.h/defines/define_SEEK_END - /mmsystem.h/defines/define_SEEK_END */
 
 typedef struct _PROPSHEETHEADERW _PROPSHEETHEADERW, *P_PROPSHEETHEADERW;
 

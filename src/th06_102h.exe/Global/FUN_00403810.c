@@ -110,12 +110,12 @@ switchD_00403892_caseD_6:
             *(float *)(param_1 + 0x4c) =
                  (*(float *)(param_1 + 100) - *(float *)(param_1 + 0x58)) * local_20 +
                  *(float *)(param_1 + 0x58);
-            (**(code **)(*(int *)g_GameContext._8_4_ + 200))
-                      (g_GameContext._8_4_,0x22,*(undefined4 *)(param_1 + 0x50));
-            (**(code **)(*(int *)g_GameContext._8_4_ + 200))
-                      (g_GameContext._8_4_,0x24,*(undefined4 *)(param_1 + 0x48));
-            (**(code **)(*(int *)g_GameContext._8_4_ + 200))
-                      (g_GameContext._8_4_,0x25,*(undefined4 *)(param_1 + 0x4c));
+            (*(g_GameContext.d3d_device)->lpVtbl->SetRenderState)
+                      (g_GameContext.d3d_device,D3DRS_FOGCOLOR,*(DWORD *)(param_1 + 0x50));
+            (*(g_GameContext.d3d_device)->lpVtbl->SetRenderState)
+                      (g_GameContext.d3d_device,D3DRS_FOGSTART,*(DWORD *)(param_1 + 0x48));
+            (*(g_GameContext.d3d_device)->lpVtbl->SetRenderState)
+                      (g_GameContext.d3d_device,D3DRS_FOGEND,*(DWORD *)(param_1 + 0x4c));
             if (*(int *)(param_1 + 0x6c) <= *(int *)(param_1 + 0x78)) {
               *(undefined4 *)(param_1 + 0x6c) = 0;
             }
@@ -140,12 +140,12 @@ switchD_00403892_caseD_6:
           *(int *)(param_1 + 0x48) = local_c[3];
           *(int *)(param_1 + 0x4c) = local_c[4];
           if (*(int *)(param_1 + 0x6c) == 0) {
-            (**(code **)(*(int *)g_GameContext._8_4_ + 200))
-                      (g_GameContext._8_4_,0x22,*(undefined4 *)(param_1 + 0x50));
-            (**(code **)(*(int *)g_GameContext._8_4_ + 200))
-                      (g_GameContext._8_4_,0x24,*(undefined4 *)(param_1 + 0x48));
-            (**(code **)(*(int *)g_GameContext._8_4_ + 200))
-                      (g_GameContext._8_4_,0x25,*(undefined4 *)(param_1 + 0x4c));
+            (*(g_GameContext.d3d_device)->lpVtbl->SetRenderState)
+                      (g_GameContext.d3d_device,D3DRS_FOGCOLOR,*(DWORD *)(param_1 + 0x50));
+            (*(g_GameContext.d3d_device)->lpVtbl->SetRenderState)
+                      (g_GameContext.d3d_device,D3DRS_FOGSTART,*(DWORD *)(param_1 + 0x48));
+            (*(g_GameContext.d3d_device)->lpVtbl->SetRenderState)
+                      (g_GameContext.d3d_device,D3DRS_FOGEND,*(DWORD *)(param_1 + 0x4c));
           }
           *(int *)(param_1 + 0x28) = *(int *)(param_1 + 0x28) + 1;
           *(undefined4 *)(param_1 + 0x60) = *(undefined4 *)(param_1 + 0x48);

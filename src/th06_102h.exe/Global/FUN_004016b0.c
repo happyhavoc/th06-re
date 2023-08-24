@@ -24,18 +24,20 @@ void FUN_004016b0(void)
     if (local_18 != *(int *)(local_10 + 0x5c)) {
       local_18 = *(int *)(local_10 + 0x5c);
       if (local_18 == 0) {
-        g_GameContext._200_4_ = 0;
-        g_GameContext._204_4_ = 0;
-        g_GameContext._208_4_ = 0x280;
-        g_GameContext._212_4_ = 0x1e0;
-        (**(code **)(*(int *)g_GameContext._8_4_ + 0xa0))(g_GameContext._8_4_,0x6c6de0);
+        g_GameContext.viewport.X = 0;
+        g_GameContext.viewport.Y = 0;
+        g_GameContext.viewport.Width = 0x280;
+        g_GameContext.viewport.Height = 0x1e0;
+        (*(g_GameContext.d3d_device)->lpVtbl->SetViewport)
+                  (g_GameContext.d3d_device,(D3DVIEWPORT8 *)0x6c6de0);
       }
       else {
-        g_GameContext._200_4_ = __ftol2();
-        g_GameContext._204_4_ = __ftol2();
-        g_GameContext._208_4_ = __ftol2();
-        g_GameContext._212_4_ = __ftol2();
-        (**(code **)(*(int *)g_GameContext._8_4_ + 0xa0))(g_GameContext._8_4_,0x6c6de0);
+        g_GameContext.viewport.X = __ftol2();
+        g_GameContext.viewport.Y = __ftol2();
+        g_GameContext.viewport.Width = __ftol2();
+        g_GameContext.viewport.Height = __ftol2();
+        (*(g_GameContext.d3d_device)->lpVtbl->SetViewport)
+                  (g_GameContext.d3d_device,(D3DVIEWPORT8 *)0x6c6de0);
       }
     }
     for (; *local_14 != 0; local_14 = local_14 + 1) {
@@ -48,11 +50,11 @@ void FUN_004016b0(void)
       }
       else {
         if (*(int *)(local_10 + 0x58) == 0) {
-          *(uint *)(in_ECX + 0xc0) = DAT_006d4588 + (*local_14 - 0x15) * 0x38;
+          *(uint *)(in_ECX + 0xc0) = (int)VERY_BIG_STRUCT + (*local_14 - 0x15) * 0x38;
           *(undefined4 *)(in_ECX + 0x7c) = *(undefined4 *)(local_10 + 0x4c);
         }
         else {
-          *(uint *)(in_ECX + 0xc0) = DAT_006d4588 + (*local_14 + 0x61) * 0x38;
+          *(VeryBigStruct0tbl **)(in_ECX + 0xc0) = VERY_BIG_STRUCT->field0_0x0 + *local_14 + 0x61;
           *(undefined4 *)(in_ECX + 0x7c) = 0xffffffff;
         }
         FUN_00432ad0(in_ECX);

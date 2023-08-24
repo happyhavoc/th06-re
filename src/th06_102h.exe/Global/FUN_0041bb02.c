@@ -13,7 +13,7 @@ undefined4 FUN_0041bb02(uint *param_1)
   uint *local_c;
   
   bVar1 = false;
-  (**(code **)(*(int *)g_GameContext._8_4_ + 0x14))(g_GameContext._8_4_,0);
+  (*(g_GameContext.d3d_device)->lpVtbl->ResourceManagerDiscardBytes)(g_GameContext.d3d_device,0);
   if (g_GameContext._396_4_ == 3) {
     *param_1 = param_1[1];
     param_1[2] = 0;

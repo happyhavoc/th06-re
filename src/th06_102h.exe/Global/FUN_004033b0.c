@@ -9,11 +9,12 @@ void FUN_004033b0(void)
   int local_8;
   
   local_8 = in_ECX + 0x7134;
-  g_GameContext._200_4_ = __ftol2();
-  g_GameContext._204_4_ = __ftol2();
-  g_GameContext._208_4_ = __ftol2();
-  g_GameContext._212_4_ = __ftol2();
-  (**(code **)(*(int *)g_GameContext._8_4_ + 0xa0))(g_GameContext._8_4_,0x6c6de0);
+  g_GameContext.viewport.X = __ftol2();
+  g_GameContext.viewport.Y = __ftol2();
+  g_GameContext.viewport.Width = __ftol2();
+  g_GameContext.viewport.Height = __ftol2();
+  (*(g_GameContext.d3d_device)->lpVtbl->SetViewport)
+            (g_GameContext.d3d_device,(D3DVIEWPORT8 *)0x6c6de0);
   for (local_10 = 0; local_10 < 0x203; local_10 = local_10 + 1) {
     if (*(char *)(local_8 + 0x24) != '\0') {
       *(float *)(in_ECX + 0x1a0) =
@@ -22,7 +23,7 @@ void FUN_004033b0(void)
       *(undefined4 *)(in_ECX + 0x18c) = *(undefined4 *)(local_8 + 0x14);
       local_14 = (byte *)(local_8 + -1 + (uint)*(byte *)(local_8 + 0x25));
       for (local_c = (uint)*(byte *)(local_8 + 0x25); 0 < (int)local_c; local_c = local_c - 1) {
-        *(uint *)(in_ECX + 0x1d0) = DAT_006d4588 + (uint)*local_14 * 0x38;
+        *(VeryBigStruct0tbl **)(in_ECX + 0x1d0) = VERY_BIG_STRUCT->field0_0x0 + *local_14;
         if (*local_14 < 10) {
           FUN_00433590(in_ECX + 0x110);
         }

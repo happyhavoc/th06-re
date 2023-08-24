@@ -3,7 +3,7 @@ void FUN_0042564c(int param_1)
 
 {
   char cVar1;
-  int iVar2;
+  VeryBigStruct *pVVar2;
   int iVar3;
   char *pcVar4;
   undefined4 *puVar5;
@@ -22,14 +22,14 @@ void FUN_0042564c(int param_1)
   int local_8;
   
   local_1c = __security_cookie ^ unaff_retaddr;
-  iVar2 = FUN_00435010(DAT_006d4588,0,"data/result/music.jpg");
-  if ((((iVar2 == 0) &&
-       (iVar2 = FUN_00431dc0(DAT_006d4588,0x29,"data/music00.anm",0x100), iVar2 == 0)) &&
-      (iVar2 = FUN_00431dc0(DAT_006d4588,0x2a,"data/music01.anm",0x101), iVar2 == 0)) &&
-     (iVar3 = FUN_00431dc0(DAT_006d4588,0x2b,"data/music02.anm",0x111), iVar2 = DAT_006d4588,
-     iVar3 == 0)) {
+  iVar3 = VeryBigStruct::LogoStuff(VERY_BIG_STRUCT,0,"data/result/music.jpg");
+  if ((((iVar3 == 0) &&
+       (iVar3 = FUN_00431dc0((int)VERY_BIG_STRUCT,0x29,"data/music00.anm",0x100), iVar3 == 0)) &&
+      (iVar3 = FUN_00431dc0((int)VERY_BIG_STRUCT,0x2a,"data/music01.anm",0x101), iVar3 == 0)) &&
+     (iVar3 = FUN_00431dc0((int)VERY_BIG_STRUCT,0x2b,"data/music02.anm",0x111),
+     pVVar2 = VERY_BIG_STRUCT, iVar3 == 0)) {
     *(undefined2 *)(param_1 + 0xd8) = 0x100;
-    FUN_00432430(param_1 + 0x24,*(undefined4 *)(iVar2 + 0x1cd34));
+    FUN_00432430(param_1 + 0x24,*(undefined4 *)&pVVar2->field_0x1cd34);
     *(undefined4 *)(param_1 + 8) = 0;
     local_18 = (char *)OpenPath("data/musiccmt.txt",0);
     local_10 = local_18;
@@ -43,7 +43,7 @@ void FUN_0042564c(int param_1)
         local_78 = local_8c;
         while (local_70 = local_70 + -1, -1 < local_70) {
           puVar5 = local_78;
-          for (iVar2 = 0x9c; iVar2 != 0; iVar2 = iVar2 + -1) {
+          for (iVar3 = 0x9c; iVar3 != 0; iVar3 = iVar3 + -1) {
             *puVar5 = 0;
             puVar5 = puVar5 + 1;
           }
@@ -83,7 +83,7 @@ void FUN_0042564c(int param_1)
           while ((local_c < 8 && (*local_10 != '@'))) {
             puVar5 = (undefined4 *)
                      (*(int *)(param_1 + 0x20) + local_8 * 0x272 + 0x62 + local_c * 0x42);
-            for (iVar2 = 0x10; iVar2 != 0; iVar2 = iVar2 + -1) {
+            for (iVar3 = 0x10; iVar3 != 0; iVar3 = iVar3 + -1) {
               *puVar5 = 0;
               puVar5 = puVar5 + 1;
             }
@@ -110,10 +110,10 @@ void FUN_0042564c(int param_1)
 LAB_004259f3:
       *(int *)(param_1 + 0x1c) = local_8 + 1;
       for (local_8 = 0; local_8 < *(int *)(param_1 + 0x1c); local_8 = local_8 + 1) {
-        iVar2 = local_8 * 0x110;
+        iVar3 = local_8 * 0x110;
         FUN_00403580();
-        FUN_004323a0(param_1 + 0x134 + iVar2,local_8 + 0x101);
-        FUN_00434b60(DAT_006d4588,param_1 + 0x134 + local_8 * 0x110,0xc0e0ff,0x302080,
+        FUN_004323a0(param_1 + 0x134 + iVar3,local_8 + 0x101);
+        FUN_00434b60(VERY_BIG_STRUCT,param_1 + 0x134 + local_8 * 0x110,0xc0e0ff,0x302080,
                      *(int *)(param_1 + 0x20) + 0x40 + local_8 * 0x272);
         *(undefined4 *)(param_1 + 0x1c4 + local_8 * 0x110) = 0x42ba0000;
         *(float *)(param_1 + 0x1c8 + local_8 * 0x110) =
@@ -123,11 +123,11 @@ LAB_004259f3:
              *(uint *)(param_1 + 0x1b4 + local_8 * 0x110) | 0x300;
       }
       for (local_8 = 0; local_8 < 0x10; local_8 = local_8 + 1) {
-        iVar2 = local_8 * 0x110;
+        iVar3 = local_8 * 0x110;
         FUN_00403580();
-        FUN_004323a0(param_1 + 0x2334 + iVar2,local_8 + 0x708);
+        FUN_004323a0(param_1 + 0x2334 + iVar3,local_8 + 0x708);
         puVar5 = local_5c;
-        for (iVar2 = 0x10; iVar2 != 0; iVar2 = iVar2 + -1) {
+        for (iVar3 = 0x10; iVar3 != 0; iVar3 = iVar3 + -1) {
           *puVar5 = 0;
           puVar5 = puVar5 + 1;
         }
@@ -136,7 +136,7 @@ LAB_00425c09:
           puVar5 = (undefined4 *)
                    (*(int *)(param_1 + 0x20) + 0x62 + (local_8 / 2) * 0x42 + (local_8 % 2) * 0x20);
           puVar6 = local_5c;
-          for (iVar2 = 8; iVar2 != 0; iVar2 = iVar2 + -1) {
+          for (iVar3 = 8; iVar3 != 0; iVar3 = iVar3 + -1) {
             *puVar6 = *puVar5;
             puVar5 = puVar5 + 1;
             puVar6 = puVar6 + 1;
@@ -159,7 +159,8 @@ LAB_00425c09:
         else {
           *(uint *)(param_1 + 0x23b4 + local_8 * 0x110) =
                *(uint *)(param_1 + 0x23b4 + local_8 * 0x110) | 2;
-          FUN_00434b60(DAT_006d4588,param_1 + 0x2334 + local_8 * 0x110,0xffe0c0,0x300000,local_5c);
+          FUN_00434b60(VERY_BIG_STRUCT,param_1 + 0x2334 + local_8 * 0x110,0xffe0c0,0x300000,local_5c
+                      );
         }
         *(float *)(param_1 + 0x23c4 + local_8 * 0x110) = (float)(local_8 % 2) * 248.0 + 96.0;
         *(float *)(param_1 + 0x23c8 + local_8 * 0x110) = (float)(local_8 / 2 << 4) + 320.0;

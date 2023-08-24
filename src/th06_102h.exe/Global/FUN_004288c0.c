@@ -5,8 +5,9 @@ undefined4 FUN_004288c0(int param_1)
 
 {
   float fVar1;
-  int iVar2;
-  uint uVar3;
+  VeryBigStruct *pVVar2;
+  int iVar3;
+  uint uVar4;
   int local_8;
   
   if (DAT_0069bccc != '\0') {
@@ -19,8 +20,8 @@ undefined4 FUN_004288c0(int param_1)
     *(undefined4 *)(param_1 + 0x8c0 + local_8 * 0x10) = 0;
   }
   if (*(int *)(param_1 + 0x75c8) == 0) {
-    iVar2 = FUN_004195a2();
-    if (((((iVar2 == 0) && (*(int *)(param_1 + 0x9d8) != 0)) && ('\0' < DAT_0069d4bb)) &&
+    iVar3 = FUN_004195a2();
+    if (((((iVar3 == 0) && (*(int *)(param_1 + 0x9d8) != 0)) && ('\0' < DAT_0069d4bb)) &&
         (((DAT_0069d904 & 2) != 0 && ((DAT_0069d904 & 2) != (DAT_0069d908 & 2))))) &&
        (*(int *)(param_1 + 0x75dc) != 0)) {
       DAT_0069bcc4 = DAT_0069bcc4 + 1;
@@ -76,8 +77,8 @@ undefined4 FUN_004288c0(int param_1)
     fVar1 = ((float)*(int *)(param_1 + 0x75bc) + *(float *)(param_1 + 0x75b8)) / 30.0;
     *(float *)(param_1 + 0x18) = fVar1 * 3.0 + 1.0;
     *(float *)(param_1 + 0x1c) = 1.0 - fVar1 * 1.0;
-    iVar2 = __ftol2();
-    *(uint *)(param_1 + 0x7c) = iVar2 << 0x18 | 0xffffff;
+    iVar3 = __ftol2();
+    *(uint *)(param_1 + 0x7c) = iVar3 << 0x18 | 0xffffff;
     *(uint *)(param_1 + 0x80) = *(uint *)(param_1 + 0x80) | 4;
     *(undefined4 *)(param_1 + 0xa10) = 0;
     *(undefined4 *)(param_1 + 0xa14) = 0;
@@ -91,9 +92,9 @@ undefined4 FUN_004288c0(int param_1)
     *(undefined4 *)(param_1 + 0x75b4) = 0xfffffc19;
     *(undefined4 *)(param_1 + 0x1c) = 0x40400000;
     *(undefined4 *)(param_1 + 0x18) = 0x40400000;
-    iVar2 = DAT_006d4588;
+    pVVar2 = VERY_BIG_STRUCT;
     *(undefined2 *)(param_1 + 0xb4) = 0x400;
-    FUN_00432430(param_1,*(undefined4 *)(iVar2 + 0x1d934));
+    FUN_00432430(param_1,*(undefined4 *)&pVVar2->field_0x1d934);
     if (DAT_0069d4ba < '\x01') {
       DAT_0069d4c0 = 1;
       goto LAB_00428fa8;
@@ -144,11 +145,11 @@ LAB_00428fa8:
       *(undefined4 *)(param_1 + 0x7c) = 0xffffffff;
     }
     else {
-      uVar3 = *(uint *)(param_1 + 0x75bc) & 0x80000007;
-      if ((int)uVar3 < 0) {
-        uVar3 = (uVar3 - 1 | 0xfffffff8) + 1;
+      uVar4 = *(uint *)(param_1 + 0x75bc) & 0x80000007;
+      if ((int)uVar4 < 0) {
+        uVar4 = (uVar4 - 1 | 0xfffffff8) + 1;
       }
-      if ((int)uVar3 < 2) {
+      if ((int)uVar4 < 2) {
         *(uint *)(param_1 + 0x80) = *(uint *)(param_1 + 0x80) | 8;
         *(undefined4 *)(param_1 + 0x7c) = 0xff404040;
       }

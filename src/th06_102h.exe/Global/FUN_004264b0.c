@@ -8,11 +8,11 @@ int FUN_004264b0(float *param_1,float *param_2,undefined4 *param_3)
   float *pfVar1;
   float *pfVar2;
   float fVar3;
-  int iVar4;
+  short sVar4;
+  VeryBigStruct *pVVar5;
   int in_ECX;
-  int iVar5;
   int local_d4;
-  undefined2 local_80;
+  short local_80;
   float local_40;
   float local_3c;
   float local_38;
@@ -84,7 +84,7 @@ int FUN_004264b0(float *param_1,float *param_2,undefined4 *param_3)
             FUN_0040ef50(5,local_8 + 0x110,1,0xffffffff);
           }
         }
-        iVar4 = DAT_006d4588;
+        pVVar5 = VERY_BIG_STRUCT;
         if (*(short *)(local_8 + 0x150) == 3) {
           *(char *)(in_ECX + 0x9e4) = *(char *)(in_ECX + 0x9e4) + '\x01';
           if ((*(byte *)(in_ECX + 0x9e4) & 7) == 0) {
@@ -96,10 +96,10 @@ int FUN_004264b0(float *param_1,float *param_2,undefined4 *param_3)
         }
         else {
           if (*(short *)(local_8 + 0x14e) == 1) {
-            iVar5 = *(short *)(local_8 + 0xb4) + 0x20;
-            local_80 = (undefined2)iVar5;
-            *(undefined2 *)(local_8 + 0xb4) = local_80;
-            FUN_00432430(local_8,*(undefined4 *)(iVar4 + 0x1c934 + iVar5 * 4));
+            sVar4 = *(short *)(local_8 + 0xb4);
+            local_80 = sVar4 + 0x20;
+            *(short *)(local_8 + 0xb4) = local_80;
+            FUN_00432430(local_8,*(undefined4 *)(&pVVar5->field_0x1c9b4 + sVar4 * 4));
             FUN_0040ef50(5,local_8 + 0x110,1,0xffffffff);
             *(undefined4 *)(local_8 + 0x118) = 0x3dcccccd;
           }

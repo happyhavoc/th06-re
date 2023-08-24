@@ -2,13 +2,15 @@
 void FUN_00420b50(void)
 
 {
-  int iVar1;
+  HRESULT HVar1;
   
-  iVar1 = (**(code **)(*(int *)g_GameContext._8_4_ + 0x3c))(g_GameContext._8_4_,0,0,0,0);
-  if (iVar1 < 0) {
-    FUN_004219d0();
-    (**(code **)(*(int *)g_GameContext._8_4_ + 0x38))(g_GameContext._8_4_,0x6c6df8);
-    FUN_00421420();
+  HVar1 = (*(g_GameContext.d3d_device)->lpVtbl->Present)
+                    (g_GameContext.d3d_device,(RECT *)0x0,(RECT *)0x0,(HWND)0x0,(RGNDATA *)0x0);
+  if (HVar1 < 0) {
+    FUN_004219d0(VERY_BIG_STRUCT);
+    (*(g_GameContext.d3d_device)->lpVtbl->Reset)
+              (g_GameContext.d3d_device,(D3DPRESENT_PARAMETERS *)0x6c6df8);
+    InitD3dDevice();
     g_GameContext._408_4_ = 2;
   }
   FUN_00421a40();

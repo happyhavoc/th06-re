@@ -74,11 +74,12 @@ void FUN_0041adf3(void)
     FUN_00432ad0(*(int *)(in_ECX + 4) + 0x20f4);
   }
   if (-1 < *(short *)(*(int *)(in_ECX + 4) + 0x24d4)) {
-    g_GameContext._200_4_ = __ftol2();
-    g_GameContext._204_4_ = __ftol2();
-    g_GameContext._208_4_ = __ftol2();
-    g_GameContext._212_4_ = __ftol2();
-    (**(code **)(*(int *)g_GameContext._8_4_ + 0xa0))(g_GameContext._8_4_,0x6c6de0);
+    g_GameContext.viewport.X = __ftol2();
+    g_GameContext.viewport.Y = __ftol2();
+    g_GameContext.viewport.Width = __ftol2();
+    g_GameContext.viewport.Height = __ftol2();
+    (*(g_GameContext.d3d_device)->lpVtbl->SetViewport)
+              (g_GameContext.d3d_device,(D3DVIEWPORT8 *)0x6c6de0);
     FUN_00432ad0(*(int *)(in_ECX + 4) + 0x2424);
   }
   return;

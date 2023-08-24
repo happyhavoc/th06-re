@@ -121,7 +121,7 @@ undefined4 __thiscall GameContext::Parse(GameContext *this,char *config_file_nam
   }
   if (((uint)(this->cfg).field34_0x34 >> 7 & 1) != 0) {
     GameErrorContextLog(&g_GameErrorContext,"６０フレーム強制モードにします\n");
-    this->field352_0x1a0 = 0;
+    this->field149_0x1a0 = 0;
   }
   if (((uint)(this->cfg).field34_0x34 >> 8 & 1) != 0) {
     GameErrorContextLog(&g_GameErrorContext,"テクスチャの色合成を抑制しますn");
@@ -138,7 +138,7 @@ undefined4 __thiscall GameContext::Parse(GameContext *this,char *config_file_nam
                         "パッド、キーボードの入力に DirectInput を使用しません\n"
                        );
   }
-  iVar3 = FUN_0041e460(config_file_name,&g_GameContext.cfg,0x38);
+  iVar3 = write_data_to_file(config_file_name,&g_GameContext.cfg,0x38);
   if (iVar3 == 0) {
     uVar2 = 0;
   }

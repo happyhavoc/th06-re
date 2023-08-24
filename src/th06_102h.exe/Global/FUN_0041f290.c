@@ -2,10 +2,10 @@
 void FUN_0041f290(undefined4 *param_1,int param_2,int param_3)
 
 {
-  int iVar1;
+  VeryBigStruct *pVVar1;
   int in_ECX;
   float10 fVar2;
-  undefined2 local_14;
+  short local_14;
   int local_c;
   int local_8;
   
@@ -51,10 +51,10 @@ void FUN_0041f290(undefined4 *param_1,int param_2,int param_3)
     *(undefined4 *)(local_c + 0x120) = *(undefined4 *)(local_c + 0x114);
     *(undefined4 *)(local_c + 0x124) = *(undefined4 *)(local_c + 0x118);
   }
-  iVar1 = DAT_006d4588;
-  local_14 = (undefined2)(param_2 + 0x215);
-  *(undefined2 *)(local_c + 0xb4) = local_14;
-  FUN_00432430(local_c,*(undefined4 *)(iVar1 + 0x1c934 + (param_2 + 0x215) * 4));
+  pVVar1 = VERY_BIG_STRUCT;
+  local_14 = (short)param_2 + 0x215;
+  *(short *)(local_c + 0xb4) = local_14;
+  FUN_00432430(local_c,*(undefined4 *)(&pVVar1->field_0x1d188 + param_2 * 4));
   *(undefined4 *)(local_c + 0x7c) = 0xffffffff;
   *(undefined *)(local_c + 0x142) = 1;
   return;

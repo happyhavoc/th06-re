@@ -33,23 +33,23 @@ undefined4 FUN_00432730(int param_1,int param_2)
     if (*(int *)(in_ECX + 0x210b8) != *(int *)(in_ECX + 0x1c110 + **(int **)(param_1 + 0xc0) * 4)) {
       *(undefined4 *)(in_ECX + 0x210b8) =
            *(undefined4 *)(in_ECX + 0x1c110 + **(int **)(param_1 + 0xc0) * 4);
-      (**(code **)(*(int *)g_GameContext._8_4_ + 0xf4))
-                (g_GameContext._8_4_,0,*(undefined4 *)(in_ECX + 0x210b8));
+      (*(g_GameContext.d3d_device)->lpVtbl->SetTexture)
+                (g_GameContext.d3d_device,0,*(IDirect3DBaseTexture8 **)(in_ECX + 0x210b8));
     }
   }
   if (*(char *)(in_ECX + 0x210be) != '\x02') {
     if (((uint)g_GameContext.cfg.field34_0x34 >> 1 & 1) == 0) {
-      (**(code **)(*(int *)g_GameContext._8_4_ + 0x130))(g_GameContext._8_4_,0x104);
+      (*(g_GameContext.d3d_device)->lpVtbl->SetVertexShader)(g_GameContext.d3d_device,0x104);
     }
     else {
-      (**(code **)(*(int *)g_GameContext._8_4_ + 0x130))(g_GameContext._8_4_,0x144);
+      (*(g_GameContext.d3d_device)->lpVtbl->SetVertexShader)(g_GameContext.d3d_device,0x144);
     }
     *(undefined *)(in_ECX + 0x210be) = 2;
   }
   FUN_004324d0(param_1);
   if (((uint)g_GameContext.cfg.field34_0x34 >> 1 & 1) == 0) {
-    (**(code **)(*(int *)g_GameContext._8_4_ + 0x120))(g_GameContext._8_4_,5,2,&FLOAT_006d4600,0x18)
-    ;
+    (*(g_GameContext.d3d_device)->lpVtbl->DrawPrimitiveUP)
+              (g_GameContext.d3d_device,D3DPT_TRIANGLESTRIP,2,&FLOAT_006d4600,0x18);
   }
   else {
     _DAT_006d4590 = FLOAT_006d4600;
@@ -74,7 +74,8 @@ undefined4 FUN_00432730(int param_1,int param_2)
     DAT_006d45dc = (float)UINT_006d45a4;
     DAT_006d45f8 = FLOAT_006d45c0;
     DAT_006d45fc = FLOAT_006d45e0;
-    (**(code **)(*(int *)g_GameContext._8_4_ + 0x120))(g_GameContext._8_4_,5,2,&DAT_006d4590,0x1c);
+    (*(g_GameContext.d3d_device)->lpVtbl->DrawPrimitiveUP)
+              (g_GameContext.d3d_device,D3DPT_TRIANGLESTRIP,2,&DAT_006d4590,0x1c);
   }
   return 0;
 }

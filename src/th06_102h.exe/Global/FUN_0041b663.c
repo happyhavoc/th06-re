@@ -37,16 +37,17 @@ undefined4 FUN_0041b663(uint *param_1)
     local_c = 0;
   }
   *(undefined *)((int)param_1 + 0x1821) = local_c;
-  g_GameContext._200_4_ = __ftol2();
-  g_GameContext._204_4_ = __ftol2();
-  g_GameContext._208_4_ = __ftol2();
-  g_GameContext._212_4_ = __ftol2();
-  g_GameContext._216_4_ = 0x3f000000;
-  g_GameContext._220_4_ = 0x3f800000;
+  g_GameContext.viewport.X = __ftol2();
+  g_GameContext.viewport.Y = __ftol2();
+  g_GameContext.viewport.Width = __ftol2();
+  g_GameContext.viewport.Height = __ftol2();
+  g_GameContext.viewport.MinZ = 0.5;
+  g_GameContext.viewport.MaxZ = 1.0;
   FUN_0041c3f3(0);
-  (**(code **)(*(int *)g_GameContext._8_4_ + 0xa0))(g_GameContext._8_4_,0x6c6de0);
-  (**(code **)(*(int *)g_GameContext._8_4_ + 0x90))
-            (g_GameContext._8_4_,0,0,2,DAT_00487b60,0x3f800000,0);
+  (*(g_GameContext.d3d_device)->lpVtbl->SetViewport)
+            (g_GameContext.d3d_device,(D3DVIEWPORT8 *)0x6c6de0);
+  (*(g_GameContext.d3d_device)->lpVtbl->Clear)
+            (g_GameContext.d3d_device,0,(D3DRECT *)0x0,2,DAT_00487b60,1.0,0);
   if (((*(char *)((int)param_1 + 0x181f) == '\x01') || (*(char *)((int)param_1 + 0x181f) == '\x02'))
      || (*(char *)(param_1 + 0x608) != '\0')) {
     uVar1 = 3;

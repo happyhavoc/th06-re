@@ -10,7 +10,7 @@ undefined4 FUN_00416500(int param_1)
   int local_10;
   int local_8;
   
-  (**(code **)(*(int *)g_GameContext._8_4_ + 200))(g_GameContext._8_4_,0x17,8);
+  (*(g_GameContext.d3d_device)->lpVtbl->SetRenderState)(g_GameContext.d3d_device,D3DRS_ZFUNC,8);
   local_10 = param_1 + 0xec000;
   for (local_8 = 0; local_8 < 0x40; local_8 = local_8 + 1) {
     if (*(int *)(local_10 + 600) != 0) {
@@ -110,7 +110,7 @@ undefined4 FUN_00416500(int param_1)
       local_1c = local_1c + 0x5c4;
     }
   }
-  (**(code **)(*(int *)g_GameContext._8_4_ + 200))(g_GameContext._8_4_,0x17,4);
+  (*(g_GameContext.d3d_device)->lpVtbl->SetRenderState)(g_GameContext.d3d_device,D3DRS_ZFUNC,4);
   return 1;
 }
 

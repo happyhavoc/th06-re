@@ -1,25 +1,26 @@
 
-undefined4 * __fastcall FUN_00431470(undefined4 *param_1)
+undefined4 * __fastcall FUN_00431470(VeryBigStruct *param_1)
 
 {
   int iVar1;
-  undefined4 *puVar2;
+  VeryBigStruct *pVVar2;
   int local_1c;
   int local_8;
   
-  FUN_00403720((int)(param_1 + 0x7000));
+  FUN_00403720(&param_1->field1_0x1c000);
   local_1c = 4;
   do {
     local_1c = local_1c + -1;
   } while (-1 < local_1c);
-  param_1[0x724c] = 0;
-  puVar2 = param_1;
+  param_1->field2086_0x1c930 = 0;
+  pVVar2 = param_1;
+                    /* memset(this, 0, sizeof(this)); */
   for (iVar1 = 0x844b; iVar1 != 0; iVar1 = iVar1 + -1) {
-    *puVar2 = 0;
-    puVar2 = puVar2 + 1;
+    pVVar2->field0_0x0[0].field0_0x0 = 0;
+    pVVar2 = (VeryBigStruct *)&pVVar2->field0_0x0[0].field_0x4;
   }
   for (local_8 = 0; local_8 < 0x800; local_8 = local_8 + 1) {
-    param_1[local_8 * 0xe] = 0xffffffff;
+    param_1->field0_0x0[local_8].field0_0x0 = -1;
   }
   FLOAT_006d4654 = 1.0;
   FLOAT_006d463c = 1.0;
@@ -45,14 +46,14 @@ undefined4 * __fastcall FUN_00431470(undefined4 *param_1)
   FLOAT_006d45e0 = 1.0;
   DAT_006d45f8 = 0x3f800000;
   DAT_006d45fc = 0x3f800000;
-  param_1[0x8431] = 0;
-  param_1[0x842e] = 0;
-  *(undefined *)(param_1 + 0x842f) = 0;
-  *(undefined *)((int)param_1 + 0x210bd) = 0;
-  param_1[0x842d] = 1;
-  *(undefined *)((int)param_1 + 0x210be) = 0;
-  *(undefined *)((int)param_1 + 0x210bf) = 0;
-  param_1[0x8446] = 0xffffffff;
-  return param_1;
+  param_1->field20255_0x210c4 = 0;
+  param_1->field20246_0x210b8 = 0;
+  param_1->field_0x210bc = 0;
+  param_1->field_0x210bd = 0;
+  param_1->field20245_0x210b4 = 1;
+  param_1->field_0x210be = 0;
+  param_1->field_0x210bf = 0;
+  param_1->field20336_0x21118 = -1;
+  return (undefined4 *)param_1;
 }
 

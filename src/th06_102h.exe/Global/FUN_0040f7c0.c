@@ -2,15 +2,16 @@
 void FUN_0040f7c0(void)
 
 {
-  int iVar1;
+  VeryBigStruct *pVVar1;
   int iVar2;
-  undefined4 uVar3;
+  int iVar3;
+  undefined4 uVar4;
   int in_ECX;
-  int iVar4;
-  undefined4 *puVar5;
+  int iVar5;
+  undefined4 *puVar6;
   uint unaff_retaddr;
-  undefined2 local_ac;
-  undefined2 local_90;
+  short local_ac;
+  short local_90;
   int local_58;
   int local_54;
   int local_50;
@@ -22,12 +23,12 @@ void FUN_0040f7c0(void)
   local_c = __security_cookie ^ unaff_retaddr;
   local_8 = 0;
   local_38 = 0;
-  puVar5 = &local_34;
-  for (iVar4 = 9; iVar4 != 0; iVar4 = iVar4 + -1) {
-    *puVar5 = 0;
-    puVar5 = puVar5 + 1;
+  puVar6 = &local_34;
+  for (iVar5 = 9; iVar5 != 0; iVar5 = iVar5 + -1) {
+    *puVar6 = 0;
+    puVar6 = puVar6 + 1;
   }
-  *(undefined2 *)puVar5 = 0;
+  *(undefined2 *)puVar6 = 0;
   if (0 < *(int *)(in_ECX + 0x113c)) {
     FUN_004241e5(1);
     if (*(int *)(in_ECX + 0x1140) == 0) {
@@ -42,16 +43,16 @@ void FUN_0040f7c0(void)
       *(int *)(in_ECX + 0x1140) = *(int *)(in_ECX + 0x1140) + -1;
     }
     if (0 < *(int *)(in_ECX + 0x113c)) goto LAB_00410546;
-    puVar5 = (undefined4 *)(in_ECX + 0x14);
-    for (iVar4 = 0x440; iVar4 != 0; iVar4 = iVar4 + -1) {
-      *puVar5 = 0;
-      puVar5 = puVar5 + 1;
+    puVar6 = (undefined4 *)(in_ECX + 0x14);
+    for (iVar5 = 0x440; iVar5 != 0; iVar5 = iVar5 + -1) {
+      *puVar6 = 0;
+      puVar6 = puVar6 + 1;
     }
     *(undefined4 *)(in_ECX + 0x1154) = 0;
   }
   if (*(int *)(in_ECX + 0x1130) < 1) {
     do {
-      iVar4 = DAT_006d4588;
+      pVVar1 = VERY_BIG_STRUCT;
       switch(**(undefined **)(in_ECX + 0x116c)) {
       case 0:
       case 10:
@@ -63,25 +64,25 @@ void FUN_0040f7c0(void)
              *(undefined *)(*(int *)(in_ECX + 0x116c) + 1);
         local_38 = local_38 + 2;
         *(int *)(in_ECX + 0x116c) = *(int *)(in_ECX + 0x116c) + 2;
-        iVar4 = DAT_006d4588;
+        pVVar1 = VERY_BIG_STRUCT;
         if (0x1f < local_38) {
-          iVar2 = local_8 + 0x708 + *(int *)(in_ECX + 0x1154) * 2;
-          iVar1 = in_ECX + 0x14 + (local_8 + *(int *)(in_ECX + 0x1154) * 2) * 0x110;
-          local_ac = (undefined2)iVar2;
-          *(undefined2 *)(iVar1 + 0xb4) = local_ac;
-          FUN_00432430(iVar1,*(undefined4 *)(iVar4 + 0x1c934 + iVar2 * 4));
-          FUN_00434b60(DAT_006d4588,
+          iVar2 = *(int *)(in_ECX + 0x1154);
+          local_ac = (short)local_8 + 0x708 + (short)iVar2 * 2;
+          iVar5 = in_ECX + 0x14 + (local_8 + *(int *)(in_ECX + 0x1154) * 2) * 0x110;
+          *(short *)(iVar5 + 0xb4) = local_ac;
+          FUN_00432430(iVar5,*(undefined4 *)(&pVVar1->field_0x1e554 + local_8 * 4 + iVar2 * 8));
+          FUN_00434b60(VERY_BIG_STRUCT,
                        in_ECX + 0x14 + (local_8 + *(int *)(in_ECX + 0x1154) * 2) * 0x110,
                        *(undefined4 *)(in_ECX + 0x1158),0xc0d0d0,&local_34);
           if (local_8 != 0) goto LAB_00410546;
           local_8 = 1;
           local_38 = 0;
-          puVar5 = &local_34;
-          for (iVar4 = 9; iVar4 != 0; iVar4 = iVar4 + -1) {
-            *puVar5 = 0;
-            puVar5 = puVar5 + 1;
+          puVar6 = &local_34;
+          for (iVar5 = 9; iVar5 != 0; iVar5 = iVar5 + -1) {
+            *puVar6 = 0;
+            puVar6 = puVar6 + 1;
           }
-          *(undefined2 *)puVar5 = 0;
+          *(undefined2 *)puVar6 = 0;
         }
         break;
       case 0x40:
@@ -91,33 +92,33 @@ void FUN_0040f7c0(void)
           *(int *)(in_ECX + 0x116c) = *(int *)(in_ECX + 0x116c) + 1;
           *(undefined4 *)(in_ECX + 0x1168) = 1;
           *(undefined4 *)(in_ECX + 0x1160) = 0;
-          uVar3 = FUN_0040f4d0();
-          *(undefined4 *)(in_ECX + 0x1164) = uVar3;
+          uVar4 = FUN_0040f4d0();
+          *(undefined4 *)(in_ECX + 0x1164) = uVar4;
           break;
         case 0x31:
           *(int *)(in_ECX + 0x116c) = *(int *)(in_ECX + 0x116c) + 1;
           *(undefined4 *)(in_ECX + 0x1168) = 2;
           *(undefined4 *)(in_ECX + 0x1160) = 0;
-          uVar3 = FUN_0040f4d0();
-          *(undefined4 *)(in_ECX + 0x1164) = uVar3;
+          uVar4 = FUN_0040f4d0();
+          *(undefined4 *)(in_ECX + 0x1164) = uVar4;
           break;
         case 0x32:
           *(int *)(in_ECX + 0x116c) = *(int *)(in_ECX + 0x116c) + 1;
           *(undefined4 *)(in_ECX + 0x1168) = 3;
           *(undefined4 *)(in_ECX + 0x1160) = 0;
-          uVar3 = FUN_0040f4d0();
-          *(undefined4 *)(in_ECX + 0x1164) = uVar3;
+          uVar4 = FUN_0040f4d0();
+          *(undefined4 *)(in_ECX + 0x1164) = uVar4;
           break;
         case 0x33:
           *(int *)(in_ECX + 0x116c) = *(int *)(in_ECX + 0x116c) + 1;
           *(undefined4 *)(in_ECX + 0x1168) = 4;
           *(undefined4 *)(in_ECX + 0x1160) = 0;
-          uVar3 = FUN_0040f4d0();
-          *(undefined4 *)(in_ECX + 0x1164) = uVar3;
+          uVar4 = FUN_0040f4d0();
+          *(undefined4 *)(in_ECX + 0x1164) = uVar4;
           break;
         case 0x46:
-          iVar4 = FUN_004106d0(*(int *)(in_ECX + 0x116c) + 1);
-          if (iVar4 == 0) {
+          iVar5 = FUN_004106d0(*(int *)(in_ECX + 0x116c) + 1);
+          if (iVar5 == 0) {
             local_38 = 0;
             local_8 = 0;
             for (local_50 = 0; local_50 < 4; local_50 = local_50 + 1) {
@@ -134,8 +135,8 @@ void FUN_0040f7c0(void)
           goto LAB_004105d3;
         case 0x4d:
           *(int *)(in_ECX + 0x116c) = *(int *)(in_ECX + 0x116c) + 1;
-          iVar4 = FUN_0040f4d0();
-          FUN_00424d82((float)iVar4);
+          iVar5 = FUN_0040f4d0();
+          FUN_00424d82((float)iVar5);
           break;
         case 0x52:
 switchD_0040fa93_caseD_52:
@@ -145,38 +146,39 @@ switchD_0040fa93_caseD_52:
           break;
         case 0x56:
           *(int *)(in_ECX + 0x116c) = *(int *)(in_ECX + 0x116c) + 1;
-          iVar4 = FUN_0040f4d0();
-          iVar1 = FUN_0040f4d0();
-          *(float *)(in_ECX + 0x10) = (float)iVar4 / (float)iVar1;
+          iVar5 = FUN_0040f4d0();
+          iVar2 = FUN_0040f4d0();
+          *(float *)(in_ECX + 0x10) = (float)iVar5 / (float)iVar2;
           break;
         case 0x61:
           *(int *)(in_ECX + 0x116c) = *(int *)(in_ECX + 0x116c) + 1;
-          iVar4 = FUN_0040f4d0();
-          iVar1 = FUN_0040f4d0();
+          iVar5 = FUN_0040f4d0();
           iVar2 = FUN_0040f4d0();
-          FUN_004051b0(in_ECX + 0x14 + iVar4 * 0x110,iVar1 + 0x600);
-          FUN_004323a0(in_ECX + 0x14 + iVar4 * 0x110,iVar2 + 0x600);
+          iVar3 = FUN_0040f4d0();
+          FUN_004051b0(in_ECX + 0x14 + iVar5 * 0x110,iVar2 + 0x600);
+          FUN_004323a0(in_ECX + 0x14 + iVar5 * 0x110,iVar3 + 0x600);
           break;
         case 0x62:
-          iVar4 = FUN_00435010(DAT_006d4588,0,(char *)(*(int *)(in_ECX + 0x116c) + 1));
-          if (iVar4 != 0) goto LAB_004105d3;
+          iVar5 = VeryBigStruct::LogoStuff
+                            (VERY_BIG_STRUCT,0,(char *)(*(int *)(in_ECX + 0x116c) + 1));
+          if (iVar5 != 0) goto LAB_004105d3;
           break;
         case 99:
           *(int *)(in_ECX + 0x116c) = *(int *)(in_ECX + 0x116c) + 1;
-          uVar3 = FUN_0040f4d0();
-          *(undefined4 *)(in_ECX + 0x1158) = uVar3;
+          uVar4 = FUN_0040f4d0();
+          *(undefined4 *)(in_ECX + 0x1158) = uVar4;
           break;
         case 0x6d:
           FUN_00424b5d(*(int *)(in_ECX + 0x116c) + 1);
           break;
         case 0x72:
           *(int *)(in_ECX + 0x116c) = *(int *)(in_ECX + 0x116c) + 1;
-          uVar3 = FUN_0040f4d0();
-          *(undefined4 *)(in_ECX + 0x113c) = uVar3;
+          uVar4 = FUN_0040f4d0();
+          *(undefined4 *)(in_ECX + 0x113c) = uVar4;
           *(undefined4 *)(in_ECX + 0x1138) = 0;
           *(undefined4 *)(in_ECX + 0x1134) = 0xfffffc19;
-          uVar3 = FUN_0040f4d0();
-          *(undefined4 *)(in_ECX + 0x1140) = uVar3;
+          uVar4 = FUN_0040f4d0();
+          *(undefined4 *)(in_ECX + 0x1140) = uVar4;
           while ((**(char **)(in_ECX + 0x116c) != '\n' && (**(char **)(in_ECX + 0x116c) != '\r'))) {
             *(int *)(in_ECX + 0x116c) = *(int *)(in_ECX + 0x116c) + 1;
           }
@@ -186,24 +188,24 @@ switchD_0040fa93_caseD_52:
           goto LAB_00410546;
         case 0x73:
           *(int *)(in_ECX + 0x116c) = *(int *)(in_ECX + 0x116c) + 1;
-          uVar3 = FUN_0040f4d0();
-          *(undefined4 *)(in_ECX + 0x1148) = uVar3;
-          uVar3 = FUN_0040f4d0();
-          *(undefined4 *)(in_ECX + 0x114c) = uVar3;
+          uVar4 = FUN_0040f4d0();
+          *(undefined4 *)(in_ECX + 0x1148) = uVar4;
+          uVar4 = FUN_0040f4d0();
+          *(undefined4 *)(in_ECX + 0x114c) = uVar4;
           break;
         case 0x76:
           *(int *)(in_ECX + 0x116c) = *(int *)(in_ECX + 0x116c) + 1;
-          iVar4 = FUN_0040f4d0();
-          *(float *)(in_ECX + 0xc) = (float)iVar4;
+          iVar5 = FUN_0040f4d0();
+          *(float *)(in_ECX + 0xc) = (float)iVar5;
           break;
         case 0x77:
           *(int *)(in_ECX + 0x116c) = *(int *)(in_ECX + 0x116c) + 1;
-          uVar3 = FUN_0040f4d0();
-          *(undefined4 *)(in_ECX + 0x1130) = uVar3;
+          uVar4 = FUN_0040f4d0();
+          *(undefined4 *)(in_ECX + 0x1130) = uVar4;
           *(undefined4 *)(in_ECX + 0x112c) = 0;
           *(undefined4 *)(in_ECX + 0x1128) = 0xfffffc19;
-          uVar3 = FUN_0040f4d0();
-          *(undefined4 *)(in_ECX + 0x1144) = uVar3;
+          uVar4 = FUN_0040f4d0();
+          *(undefined4 *)(in_ECX + 0x1144) = uVar4;
           while ((**(char **)(in_ECX + 0x116c) != '\n' && (**(char **)(in_ECX + 0x116c) != '\r'))) {
             *(int *)(in_ECX + 0x116c) = *(int *)(in_ECX + 0x116c) + 1;
           }
@@ -238,12 +240,12 @@ switchD_0040fa93_caseD_52:
   goto LAB_00410546;
 switchD_0040fa32_caseD_0:
   if (local_38 != 0) {
-    iVar2 = local_8 + 0x708 + *(int *)(in_ECX + 0x1154) * 2;
-    iVar1 = in_ECX + 0x14 + (local_8 + *(int *)(in_ECX + 0x1154) * 2) * 0x110;
-    local_90 = (undefined2)iVar2;
-    *(undefined2 *)(iVar1 + 0xb4) = local_90;
-    FUN_00432430(iVar1,*(undefined4 *)(iVar4 + 0x1c934 + iVar2 * 4));
-    FUN_00434b60(DAT_006d4588,in_ECX + 0x14 + (local_8 + *(int *)(in_ECX + 0x1154) * 2) * 0x110,
+    iVar2 = *(int *)(in_ECX + 0x1154);
+    local_90 = (short)local_8 + 0x708 + (short)iVar2 * 2;
+    iVar5 = in_ECX + 0x14 + (local_8 + *(int *)(in_ECX + 0x1154) * 2) * 0x110;
+    *(short *)(iVar5 + 0xb4) = local_90;
+    FUN_00432430(iVar5,*(undefined4 *)(&pVVar1->field_0x1e554 + local_8 * 4 + iVar2 * 8));
+    FUN_00434b60(VERY_BIG_STRUCT,in_ECX + 0x14 + (local_8 + *(int *)(in_ECX + 0x1154) * 2) * 0x110,
                  *(undefined4 *)(in_ECX + 0x1158),0xc0d0d0,&local_34);
   }
   while (((**(char **)(in_ECX + 0x116c) == '\n' || (**(char **)(in_ECX + 0x116c) == '\0')) ||

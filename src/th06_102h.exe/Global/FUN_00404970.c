@@ -43,27 +43,30 @@ undefined4 FUN_00404970(int param_1)
       local_1c = ((*(float *)(local_58 + 0xc) + *(float *)(local_14 + 6)) - (float)in_ECX[0x11]) +
                  *(float *)(local_58 + 0x18);
       FUN_0043f245(&local_70,&local_84,0x6c6de0,0x6c6da0,0x6c6d60,local_54);
-      if ((local_6c < (float)(ulonglong)(uint)g_GameContext._204_4_) ||
-         (local_6c < (float)(ulonglong)(uint)(g_GameContext._204_4_ + g_GameContext._212_4_) ==
-          (local_6c == (float)(ulonglong)(uint)(g_GameContext._204_4_ + g_GameContext._212_4_)))) {
+      if ((local_6c < (float)(ulonglong)g_GameContext.viewport.Y) ||
+         (local_6c < (float)(ulonglong)(g_GameContext.viewport.Y + g_GameContext.viewport.Height) ==
+          (local_6c == (float)(ulonglong)(g_GameContext.viewport.Y + g_GameContext.viewport.Height))
+         )) {
         local_20 = local_20 - *(float *)(local_58 + 0x14);
         FUN_0043f245(&local_70,&local_84,0x6c6de0,0x6c6da0,0x6c6d60,local_54);
-        if ((local_6c < (float)(ulonglong)(uint)g_GameContext._204_4_) ||
-           (local_6c < (float)(ulonglong)(uint)(g_GameContext._204_4_ + g_GameContext._212_4_) ==
-            (local_6c == (float)(ulonglong)(uint)(g_GameContext._204_4_ + g_GameContext._212_4_))))
-        {
+        if ((local_6c < (float)(ulonglong)g_GameContext.viewport.Y) ||
+           (local_6c < (float)(ulonglong)(g_GameContext.viewport.Y + g_GameContext.viewport.Height)
+            == (local_6c ==
+               (float)(ulonglong)(g_GameContext.viewport.Y + g_GameContext.viewport.Height)))) {
           local_1c = local_1c - *(float *)(local_58 + 0x18);
           FUN_0043f245(&local_70,&local_84,0x6c6de0,0x6c6da0,0x6c6d60,local_54);
-          if ((local_6c < (float)(ulonglong)(uint)g_GameContext._204_4_) ||
-             (local_6c < (float)(ulonglong)(uint)(g_GameContext._204_4_ + g_GameContext._212_4_) ==
-              (local_6c == (float)(ulonglong)(uint)(g_GameContext._204_4_ + g_GameContext._212_4_)))
-             ) {
+          if ((local_6c < (float)(ulonglong)g_GameContext.viewport.Y) ||
+             (local_6c <
+              (float)(ulonglong)(g_GameContext.viewport.Y + g_GameContext.viewport.Height) ==
+              (local_6c ==
+              (float)(ulonglong)(g_GameContext.viewport.Y + g_GameContext.viewport.Height)))) {
             local_20 = local_20 + *(float *)(local_58 + 0x14);
             FUN_0043f245(&local_70,&local_84,0x6c6de0,0x6c6da0,0x6c6d60,local_54);
-            if ((local_6c < (float)(ulonglong)(uint)g_GameContext._204_4_) ||
-               (local_6c < (float)(ulonglong)(uint)(g_GameContext._204_4_ + g_GameContext._212_4_)
-                == (local_6c ==
-                   (float)(ulonglong)(uint)(g_GameContext._204_4_ + g_GameContext._212_4_)))) {
+            if ((local_6c < (float)(ulonglong)g_GameContext.viewport.Y) ||
+               (local_6c <
+                (float)(ulonglong)(g_GameContext.viewport.Y + g_GameContext.viewport.Height) ==
+                (local_6c ==
+                (float)(ulonglong)(g_GameContext.viewport.Y + g_GameContext.viewport.Height)))) {
               local_24 = ((*(float *)(local_58 + 4) + *(float *)(local_14 + 2)) - (float)in_ECX[0xf]
                          ) + *(float *)(local_58 + 0x10);
               local_20 = -((*(float *)(local_58 + 8) + *(float *)(local_14 + 4)) -
@@ -71,31 +74,35 @@ undefined4 FUN_00404970(int param_1)
               local_1c = ((*(float *)(local_58 + 0xc) + *(float *)(local_14 + 6)) -
                          (float)in_ECX[0x11]) + *(float *)(local_58 + 0x18);
               FUN_0043f245(&local_70,&local_84,0x6c6de0,0x6c6da0,0x6c6d60,local_54);
-              if ((local_6c < (float)(ulonglong)(uint)g_GameContext._204_4_) ||
-                 (local_6c < (float)(ulonglong)(uint)(g_GameContext._204_4_ + g_GameContext._212_4_)
-                  == (local_6c ==
-                     (float)(ulonglong)(uint)(g_GameContext._204_4_ + g_GameContext._212_4_)))) {
+              if ((local_6c < (float)(ulonglong)g_GameContext.viewport.Y) ||
+                 (local_6c <
+                  (float)(ulonglong)(g_GameContext.viewport.Y + g_GameContext.viewport.Height) ==
+                  (local_6c ==
+                  (float)(ulonglong)(g_GameContext.viewport.Y + g_GameContext.viewport.Height)))) {
                 local_20 = local_20 - *(float *)(local_58 + 0x14);
                 FUN_0043f245(&local_70,&local_84,0x6c6de0,0x6c6da0,0x6c6d60,local_54);
-                if ((local_6c < (float)(ulonglong)(uint)g_GameContext._204_4_) ||
+                if ((local_6c < (float)(ulonglong)g_GameContext.viewport.Y) ||
                    (local_6c <
-                    (float)(ulonglong)(uint)(g_GameContext._204_4_ + g_GameContext._212_4_) ==
+                    (float)(ulonglong)(g_GameContext.viewport.Y + g_GameContext.viewport.Height) ==
                     (local_6c ==
-                    (float)(ulonglong)(uint)(g_GameContext._204_4_ + g_GameContext._212_4_)))) {
+                    (float)(ulonglong)(g_GameContext.viewport.Y + g_GameContext.viewport.Height))))
+                {
                   local_1c = local_1c - *(float *)(local_58 + 0x18);
                   FUN_0043f245(&local_70,&local_84,0x6c6de0,0x6c6da0,0x6c6d60,local_54);
-                  if ((local_6c < (float)(ulonglong)(uint)g_GameContext._204_4_) ||
+                  if ((local_6c < (float)(ulonglong)g_GameContext.viewport.Y) ||
                      (local_6c <
-                      (float)(ulonglong)(uint)(g_GameContext._204_4_ + g_GameContext._212_4_) ==
-                      (local_6c ==
-                      (float)(ulonglong)(uint)(g_GameContext._204_4_ + g_GameContext._212_4_)))) {
+                      (float)(ulonglong)(g_GameContext.viewport.Y + g_GameContext.viewport.Height)
+                      == (local_6c ==
+                         (float)(ulonglong)
+                                (g_GameContext.viewport.Y + g_GameContext.viewport.Height)))) {
                     local_20 = local_20 + *(float *)(local_58 + 0x14);
                     FUN_0043f245(&local_70,&local_84,0x6c6de0,0x6c6da0,0x6c6d60,local_54);
-                    if ((local_6c < (float)(ulonglong)(uint)g_GameContext._204_4_) ||
+                    if ((local_6c < (float)(ulonglong)g_GameContext.viewport.Y) ||
                        (local_6c <
-                        (float)(ulonglong)(uint)(g_GameContext._204_4_ + g_GameContext._212_4_) ==
-                        (local_6c ==
-                        (float)(ulonglong)(uint)(g_GameContext._204_4_ + g_GameContext._212_4_))))
+                        (float)(ulonglong)(g_GameContext.viewport.Y + g_GameContext.viewport.Height)
+                        == (local_6c ==
+                           (float)(ulonglong)
+                                  (g_GameContext.viewport.Y + g_GameContext.viewport.Height))))
                     goto LAB_00405197;
                   }
                 }

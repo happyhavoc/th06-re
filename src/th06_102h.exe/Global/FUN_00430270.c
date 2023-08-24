@@ -1,12 +1,12 @@
 
-void __thiscall FUN_00430270(int **param_1_00,HWND param_2)
+void __thiscall FUN_00430270(SoundStuff *param_1_00,HWND param_2)
 
 {
-  int *_Memory;
+  void *_Memory;
   undefined4 *puVar1;
   int iVar2;
   uint unaff_retaddr;
-  int *local_78;
+  undefined4 *local_78;
   undefined4 local_5c;
   undefined4 local_58;
   undefined4 local_54;
@@ -31,29 +31,29 @@ void __thiscall FUN_00430270(int **param_1_00,HWND param_2)
   puVar1 = (undefined4 *)operator_new(4);
   local_8 = 0;
   if (puVar1 == (undefined4 *)0x0) {
-    local_78 = (int *)0x0;
+    local_78 = (undefined4 *)0x0;
   }
   else {
     local_78 = FUN_0043a7b0(puVar1);
   }
   local_8 = 0xffffffff;
-  param_1_00[0x184] = local_78;
-  iVar2 = direct_sound_init((int **)param_1_00[0x184],param_2,2,2,0xac44,0x10);
+  *(undefined4 **)&param_1_00->field_0x610 = local_78;
+  iVar2 = direct_sound_init(*(int ***)&param_1_00->field_0x610,param_2,2,2,0xac44,0x10);
   if (iVar2 < 0) {
     GameErrorContextLog(&g_GameErrorContext,
                         "DirectSound オブジェクトの初期化が失敗したよ\n");
-    if (param_1_00[0x184] != (int *)0x0) {
-      _Memory = param_1_00[0x184];
-      if (_Memory != (int *)0x0) {
+    if (*(int *)&param_1_00->field_0x610 != 0) {
+      _Memory = *(void **)&param_1_00->field_0x610;
+      if (_Memory != (void *)0x0) {
         FUN_0043a7d0();
         _free(_Memory);
       }
-      param_1_00[0x184] = (int *)0x0;
+      *(undefined4 *)&param_1_00->field_0x610 = 0;
     }
   }
   else {
-    *param_1_00 = (int *)*param_1_00[0x184];
-    param_1_00[0x186] = (int *)0x0;
+    *(undefined4 *)param_1_00 = **(undefined4 **)&param_1_00->field_0x610;
+    *(undefined4 *)&param_1_00->field_0x618 = 0;
     puVar1 = local_38;
     for (iVar2 = 9; iVar2 != 0; iVar2 = iVar2 + -1) {
       *puVar1 = 0;
@@ -68,21 +68,23 @@ void __thiscall FUN_00430270(int **param_1_00,HWND param_2)
     local_54 = 0x2b110;
     local_50 = 0x100004;
     local_28 = &local_5c;
-    iVar2 = (**(code **)(**param_1_00 + 0xc))(*param_1_00,local_38,param_1_00 + 0x182,0);
+    iVar2 = (**(code **)(**(int **)param_1_00 + 0xc))
+                      (*(undefined4 *)param_1_00,local_38,&param_1_00->field_0x608,0);
     if ((-1 < iVar2) &&
-       (iVar2 = (**(code **)(*param_1_00[0x182] + 0x2c))
-                          (param_1_00[0x182],0,0x8000,&local_48,&local_44,&local_3c,&local_40,0),
-       -1 < iVar2)) {
+       (iVar2 = (**(code **)(**(int **)&param_1_00->field_0x608 + 0x2c))
+                          (*(undefined4 *)&param_1_00->field_0x608,0,0x8000,&local_48,&local_44,
+                           &local_3c,&local_40,0), -1 < iVar2)) {
       puVar1 = local_48;
       for (iVar2 = 0x2000; iVar2 != 0; iVar2 = iVar2 + -1) {
         *puVar1 = 0;
         puVar1 = puVar1 + 1;
       }
-      (**(code **)(*param_1_00[0x182] + 0x4c))
-                (param_1_00[0x182],local_48,local_44,local_3c,local_40);
-      (**(code **)(*param_1_00[0x182] + 0x30))(param_1_00[0x182],0,0,1);
+      (**(code **)(**(int **)&param_1_00->field_0x608 + 0x4c))
+                (*(undefined4 *)&param_1_00->field_0x608,local_48,local_44,local_3c,local_40);
+      (**(code **)(**(int **)&param_1_00->field_0x608 + 0x30))
+                (*(undefined4 *)&param_1_00->field_0x608,0,0,1);
       SetTimer(param_2,0,0xfa,(TIMERPROC)0x0);
-      param_1_00[0x183] = &param_2->unused;
+      *(HWND *)&param_1_00->field_0x60c = param_2;
       GameErrorContextLog(&g_GameErrorContext,"DirectSound は正常に初期化されました\n");
     }
   }

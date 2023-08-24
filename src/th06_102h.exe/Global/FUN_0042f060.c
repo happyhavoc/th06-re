@@ -4,33 +4,34 @@
 undefined4 FUN_0042f060(undefined4 *param_1)
 
 {
-  int iVar1;
-  undefined4 uVar2;
-  undefined2 local_3c;
+  VeryBigStruct *pVVar1;
+  int iVar2;
+  undefined4 uVar3;
+  short local_3c;
   int local_14;
   int local_10;
   undefined4 *local_c;
   int local_8;
   
   if (param_1[2] != 0x11) {
-    iVar1 = FUN_00435010(DAT_006d4588,0,"data/result/result.jpg");
-    if (iVar1 != 0) {
+    iVar2 = VeryBigStruct::LogoStuff(VERY_BIG_STRUCT,0,"data/result/result.jpg");
+    if (iVar2 != 0) {
       return 0xffffffff;
     }
-    iVar1 = FUN_00431dc0(DAT_006d4588,0x25,"data/result00.anm",0x100);
-    if (iVar1 != 0) {
+    iVar2 = FUN_00431dc0((int)VERY_BIG_STRUCT,0x25,"data/result00.anm",0x100);
+    if (iVar2 != 0) {
       return 0xffffffff;
     }
-    iVar1 = FUN_00431dc0(DAT_006d4588,0x26,"data/result01.anm",0x108);
-    if (iVar1 != 0) {
+    iVar2 = FUN_00431dc0((int)VERY_BIG_STRUCT,0x26,"data/result01.anm",0x108);
+    if (iVar2 != 0) {
       return 0xffffffff;
     }
-    iVar1 = FUN_00431dc0(DAT_006d4588,0x27,"data/result02.anm",0x10f);
-    if (iVar1 != 0) {
+    iVar2 = FUN_00431dc0((int)VERY_BIG_STRUCT,0x27,"data/result02.anm",0x10f);
+    if (iVar2 != 0) {
       return 0xffffffff;
     }
-    iVar1 = FUN_00431dc0(DAT_006d4588,0x28,"data/result03.anm",0x125);
-    if (iVar1 != 0) {
+    iVar2 = FUN_00431dc0((int)VERY_BIG_STRUCT,0x28,"data/result03.anm",0x125);
+    if (iVar2 != 0) {
       return 0xffffffff;
     }
     local_c = param_1 + 0x10;
@@ -41,10 +42,10 @@ undefined4 FUN_0042f060(undefined4 *param_1)
       local_c[0x39] = 0;
       local_c[0x3a] = 0;
       local_c[0x3b] = 0;
-      iVar1 = DAT_006d4588;
-      local_3c = (undefined2)(local_8 + 0x100);
-      *(undefined2 *)(local_c + 0x2d) = local_3c;
-      FUN_00432430(local_c,*(undefined4 *)(iVar1 + 0x1c934 + (local_8 + 0x100) * 4));
+      pVVar1 = VERY_BIG_STRUCT;
+      local_3c = (short)local_8 + 0x100;
+      *(short *)(local_c + 0x2d) = local_3c;
+      FUN_00432430(local_c,*(undefined4 *)(&pVVar1->field_0x1cd34 + local_8 * 4));
       local_c = local_c + 0x44;
     }
     local_c = param_1 + 0xa28;
@@ -84,8 +85,8 @@ undefined4 FUN_0042f060(undefined4 *param_1)
     }
   }
   param_1[5] = 0;
-  uVar2 = FUN_0042b0d9("score.dat");
-  *param_1 = uVar2;
+  uVar3 = FUN_0042b0d9("score.dat");
+  *param_1 = uVar3;
   for (local_8 = 0; local_8 < 5; local_8 = local_8 + 1) {
     for (local_10 = 0; local_10 < 4; local_10 = local_10 + 1) {
       FUN_0042b280(*param_1,param_1 + local_8 * 0xc + local_10 * 3 + 0xeac,local_10,local_8);

@@ -6,7 +6,7 @@ uint FUN_00426100(int param_1,int param_2,int param_3,int param_4,int *param_5)
 {
   undefined4 *puVar1;
   short sVar2;
-  int iVar3;
+  VeryBigStruct *pVVar3;
   short *psVar4;
   float10 fVar5;
   
@@ -32,10 +32,10 @@ LAB_00426400:
     *(undefined4 *)(param_2 + 0x134) = *(undefined4 *)(psVar4 + 4);
   }
   else if (param_4 % (int)*psVar4 != (int)psVar4[1]) goto LAB_00426400;
-  iVar3 = DAT_006d4588;
+  pVVar3 = VERY_BIG_STRUCT;
   sVar2 = psVar4[0x10];
   *(short *)(param_2 + 0xb4) = sVar2;
-  FUN_00432430(param_2,*(undefined4 *)(iVar3 + 0x1c934 + sVar2 * 4));
+  FUN_00432430(param_2,*(undefined4 *)(&pVVar3->field_0x1c934 + sVar2 * 4));
   if (*(char *)(psVar4 + 0xf) == '\0') {
     *(undefined4 *)(param_2 + 0x110) = *(undefined4 *)(param_1 + 0x440);
     *(undefined4 *)(param_2 + 0x114) = *(undefined4 *)(param_1 + 0x444);

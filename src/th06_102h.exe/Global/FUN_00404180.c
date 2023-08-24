@@ -2,7 +2,8 @@
 undefined4 FUN_00404180(int param_1)
 
 {
-  int iVar1;
+  VeryBigStruct *pVVar1;
+  int iVar2;
   undefined4 local_1c;
   undefined4 local_18;
   undefined4 local_14;
@@ -11,8 +12,8 @@ undefined4 FUN_00404180(int param_1)
   undefined4 local_8;
   
   if (*(int *)(param_1 + 0x80) < 2) {
-    iVar1 = FUN_004172d3();
-    if (iVar1 == 0) {
+    iVar2 = FUN_004172d3();
+    if (iVar2 == 0) {
       FUN_00404970(2);
       FUN_00404970(3);
       if (*(int *)(param_1 + 0x80) == 1) {
@@ -25,22 +26,25 @@ undefined4 FUN_00404180(int param_1)
       }
     }
   }
-  iVar1 = DAT_006d4588;
+  pVVar1 = VERY_BIG_STRUCT;
   if (0 < *(int *)(param_1 + 0x80)) {
     if (*(int *)(param_1 + 0x84) <= (int)(uint)g_GameContext.cfg.field15_0x1f) {
       *(undefined2 *)(param_1 + 0x13c) = 0x2b3;
-      FUN_00432430(param_1 + 0x88,*(undefined4 *)(iVar1 + 0x1d400));
+      FUN_00432430(param_1 + 0x88,*(undefined4 *)&pVVar1->field_0x1d400);
     }
     FUN_00432cc0((void *)(param_1 + 0x88));
   }
-  g_GameContext._216_4_ = 0;
-  g_GameContext._220_4_ = 0x3f000000;
+  g_GameContext.viewport.MinZ = 0.0;
+  g_GameContext.viewport.MaxZ = 0.5;
   FUN_0041c28c(0);
-  (**(code **)(*(int *)g_GameContext._8_4_ + 0xa0))(g_GameContext._8_4_,0x6c6de0);
+  (*(g_GameContext.d3d_device)->lpVtbl->SetViewport)
+            (g_GameContext.d3d_device,(D3DVIEWPORT8 *)0x6c6de0);
   local_8 = 0x447a0000;
-  (**(code **)(*(int *)g_GameContext._8_4_ + 200))(g_GameContext._8_4_,0x24,0x447a0000);
+  (*(g_GameContext.d3d_device)->lpVtbl->SetRenderState)
+            (g_GameContext.d3d_device,D3DRS_FOGSTART,0x447a0000);
   local_8 = 0x44fa0000;
-  (**(code **)(*(int *)g_GameContext._8_4_ + 200))(g_GameContext._8_4_,0x25,0x44fa0000);
+  (*(g_GameContext.d3d_device)->lpVtbl->SetRenderState)
+            (g_GameContext.d3d_device,D3DRS_FOGEND,0x44fa0000);
   return 1;
 }
 

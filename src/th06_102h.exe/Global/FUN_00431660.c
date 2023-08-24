@@ -50,8 +50,9 @@ void FUN_00431660(void)
   _DAT_006d46b8 = *(undefined4 *)(in_ECX + 0x21110);
   _DAT_006d46bc = *(undefined4 *)(in_ECX + 0x21114);
   if (((uint)g_GameContext.cfg.field34_0x34 >> 1 & 1) == 0) {
-    (**(code **)(*(int *)g_GameContext._8_4_ + 0x5c))
-              (g_GameContext._8_4_,0x50,0,0x102,1,in_ECX + 0x210c4);
+    (*(g_GameContext.d3d_device)->lpVtbl->CreateVertexBuffer)
+              (g_GameContext.d3d_device,0x50,0,0x102,D3DPOOL_MANAGED,
+               (IDirect3DVertexBuffer8 **)(in_ECX + 0x210c4));
     (**(code **)(**(int **)(in_ECX + 0x210c4) + 0x2c))
               (*(undefined4 *)(in_ECX + 0x210c4),0,0,&local_8,0);
     puVar2 = (undefined4 *)(in_ECX + 0x210c8);
@@ -61,8 +62,9 @@ void FUN_00431660(void)
       local_8 = local_8 + 1;
     }
     (**(code **)(**(int **)(in_ECX + 0x210c4) + 0x30))(*(undefined4 *)(in_ECX + 0x210c4));
-    (**(code **)(*(int *)g_GameContext._8_4_ + 0x14c))
-              (g_GameContext._8_4_,0,*(undefined4 *)(DAT_006d4588 + 0x210c4),0x14);
+    (*(g_GameContext.d3d_device)->lpVtbl->SetStreamSource)
+              (g_GameContext.d3d_device,0,
+               (IDirect3DVertexBuffer8 *)VERY_BIG_STRUCT->field20255_0x210c4,0x14);
   }
   return;
 }

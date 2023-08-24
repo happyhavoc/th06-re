@@ -161,11 +161,12 @@ void FUN_00419c99(void)
     _DAT_00481b24 = 0xffffffff;
     in_ECX[7] = in_ECX[6];
   }
-  g_GameContext._200_4_ = 0;
-  g_GameContext._204_4_ = 0;
-  g_GameContext._208_4_ = 0x280;
-  g_GameContext._212_4_ = 0x1e0;
-  (**(code **)(*(int *)g_GameContext._8_4_ + 0xa0))(g_GameContext._8_4_,0x6c6de0);
+  g_GameContext.viewport.X = 0;
+  g_GameContext.viewport.Y = 0;
+  g_GameContext.viewport.Width = 0x280;
+  g_GameContext.viewport.Height = 0x1e0;
+  (*(g_GameContext.d3d_device)->lpVtbl->SetViewport)
+            (g_GameContext.d3d_device,(D3DVIEWPORT8 *)0x6c6de0);
   local_14 = in_ECX[1] + 0x660;
   if ((((uint)g_GameContext.cfg.field34_0x34 >> 4 & 1) == 0) &&
      (((*(int *)(in_ECX[1] + 0x71c) != 0 || (g_GameContext._408_4_ != 0)) ||
@@ -375,27 +376,38 @@ void FUN_00419c99(void)
       local_68 = local_160;
       local_40 = local_178;
       if (((uint)g_GameContext.cfg.field34_0x34 >> 8 & 1) == 0) {
-        (**(code **)(*(int *)g_GameContext._8_4_ + 0xfc))(g_GameContext._8_4_,0,4,2);
-        (**(code **)(*(int *)g_GameContext._8_4_ + 0xfc))(g_GameContext._8_4_,0,1,2);
+        (*(g_GameContext.d3d_device)->lpVtbl->SetTextureStageState)
+                  (g_GameContext.d3d_device,0,D3DTSS_ALPHAOP,2);
+        (*(g_GameContext.d3d_device)->lpVtbl->SetTextureStageState)
+                  (g_GameContext.d3d_device,0,D3DTSS_COLOROP,2);
       }
-      (**(code **)(*(int *)g_GameContext._8_4_ + 0xfc))(g_GameContext._8_4_,0,5,0);
-      (**(code **)(*(int *)g_GameContext._8_4_ + 0xfc))(g_GameContext._8_4_,0,2,0);
+      (*(g_GameContext.d3d_device)->lpVtbl->SetTextureStageState)
+                (g_GameContext.d3d_device,0,D3DTSS_ALPHAARG1,0);
+      (*(g_GameContext.d3d_device)->lpVtbl->SetTextureStageState)
+                (g_GameContext.d3d_device,0,D3DTSS_COLORARG1,0);
       if (((uint)g_GameContext.cfg.field34_0x34 >> 6 & 1) == 0) {
-        (**(code **)(*(int *)g_GameContext._8_4_ + 200))(g_GameContext._8_4_,0x17,8);
-        (**(code **)(*(int *)g_GameContext._8_4_ + 200))(g_GameContext._8_4_,0xe,0);
+        (*(g_GameContext.d3d_device)->lpVtbl->SetRenderState)
+                  (g_GameContext.d3d_device,D3DRS_ZFUNC,8);
+        (*(g_GameContext.d3d_device)->lpVtbl->SetRenderState)
+                  (g_GameContext.d3d_device,D3DRS_ZWRITEENABLE,0);
       }
-      (**(code **)(*(int *)g_GameContext._8_4_ + 0x130))(g_GameContext._8_4_,0x44);
-      (**(code **)(*(int *)g_GameContext._8_4_ + 0x120))(g_GameContext._8_4_,5,2,&local_7c,0x14);
-      *(undefined *)(DAT_006d4588 + 0x210be) = 0xff;
-      *(undefined *)(DAT_006d4588 + 0x210bd) = 0xff;
-      *(undefined *)(DAT_006d4588 + 0x210bc) = 0xff;
-      *(undefined *)(DAT_006d4588 + 0x210bf) = 0xff;
+      (*(g_GameContext.d3d_device)->lpVtbl->SetVertexShader)(g_GameContext.d3d_device,0x44);
+      (*(g_GameContext.d3d_device)->lpVtbl->DrawPrimitiveUP)
+                (g_GameContext.d3d_device,D3DPT_TRIANGLESTRIP,2,&local_7c,0x14);
+      VERY_BIG_STRUCT->field_0x210be = 0xff;
+      VERY_BIG_STRUCT->field_0x210bd = 0xff;
+      VERY_BIG_STRUCT->field_0x210bc = 0xff;
+      VERY_BIG_STRUCT->field_0x210bf = 0xff;
       if (((uint)g_GameContext.cfg.field34_0x34 >> 8 & 1) == 0) {
-        (**(code **)(*(int *)g_GameContext._8_4_ + 0xfc))(g_GameContext._8_4_,0,4,4);
-        (**(code **)(*(int *)g_GameContext._8_4_ + 0xfc))(g_GameContext._8_4_,0,1,4);
+        (*(g_GameContext.d3d_device)->lpVtbl->SetTextureStageState)
+                  (g_GameContext.d3d_device,0,D3DTSS_ALPHAOP,4);
+        (*(g_GameContext.d3d_device)->lpVtbl->SetTextureStageState)
+                  (g_GameContext.d3d_device,0,D3DTSS_COLOROP,4);
       }
-      (**(code **)(*(int *)g_GameContext._8_4_ + 0xfc))(g_GameContext._8_4_,0,5,2);
-      (**(code **)(*(int *)g_GameContext._8_4_ + 0xfc))(g_GameContext._8_4_,0,2,2);
+      (*(g_GameContext.d3d_device)->lpVtbl->SetTextureStageState)
+                (g_GameContext.d3d_device,0,D3DTSS_ALPHAARG1,2);
+      (*(g_GameContext.d3d_device)->lpVtbl->SetTextureStageState)
+                (g_GameContext.d3d_device,0,D3DTSS_COLORARG1,2);
       if (0x7f < _DAT_0069d4b0) {
         uVar1 = in_ECX[1];
         local_14 = uVar1 + 0x1320;

@@ -6,8 +6,9 @@ undefined4 FUN_0042390a(void)
 {
   int iVar1;
   undefined4 uVar2;
-  DWORD DVar3;
-  void *pvVar4;
+  HRESULT HVar3;
+  DWORD DVar4;
+  void *pvVar5;
   int unaff_EBP;
   
   FUN_0045c3e0();
@@ -19,23 +20,27 @@ undefined4 FUN_0042390a(void)
   DAT_0069d900 = *(int *)(unaff_EBP + 8) + 0x1bc;
   iVar1 = FUN_00424375(0,&DAT_0046b63c);
   if (iVar1 == 0) {
-    FUN_00435010(DAT_006d4588,0,"data/title/th06logo.jpg");
+    VeryBigStruct::LogoStuff(VERY_BIG_STRUCT,0,"data/title/th06logo.jpg");
     FUN_00435300(0,0,0,0,0);
-    iVar1 = (**(code **)(*(int *)g_GameContext._8_4_ + 0x3c))(g_GameContext._8_4_,0,0,0,0);
-    if (iVar1 < 0) {
-      (**(code **)(*(int *)g_GameContext._8_4_ + 0x38))(g_GameContext._8_4_,0x6c6df8);
+    HVar3 = (*(g_GameContext.d3d_device)->lpVtbl->Present)
+                      (g_GameContext.d3d_device,(RECT *)0x0,(RECT *)0x0,(HWND)0x0,(RGNDATA *)0x0);
+    if (HVar3 < 0) {
+      (*(g_GameContext.d3d_device)->lpVtbl->Reset)
+                (g_GameContext.d3d_device,(D3DPRESENT_PARAMETERS *)0x6c6df8);
     }
     FUN_00435300(0,0,0,0,0);
-    iVar1 = (**(code **)(*(int *)g_GameContext._8_4_ + 0x3c))(g_GameContext._8_4_,0,0,0,0);
-    if (iVar1 < 0) {
-      (**(code **)(*(int *)g_GameContext._8_4_ + 0x38))(g_GameContext._8_4_,0x6c6df8);
+    HVar3 = (*(g_GameContext.d3d_device)->lpVtbl->Present)
+                      (g_GameContext.d3d_device,(RECT *)0x0,(RECT *)0x0,(HWND)0x0,(RGNDATA *)0x0);
+    if (HVar3 < 0) {
+      (*(g_GameContext.d3d_device)->lpVtbl->Reset)
+                (g_GameContext.d3d_device,(D3DPRESENT_PARAMETERS *)0x6c6df8);
     }
     FUN_00435270(0);
-    DVar3 = timeGetTime();
-    *(DWORD *)(*(int *)(unaff_EBP + 8) + 0x400) = DVar3;
+    DVar4 = timeGetTime();
+    *(DWORD *)(*(int *)(unaff_EBP + 8) + 0x400) = DVar4;
     FUN_00423b14(*(undefined4 *)(unaff_EBP + 8));
-    pvVar4 = operator_new(0x300);
-    *(void **)(unaff_EBP + -0x18) = pvVar4;
+    pvVar5 = operator_new(0x300);
+    *(void **)(unaff_EBP + -0x18) = pvVar5;
     *(undefined4 *)(unaff_EBP + -4) = 0;
     if (*(int *)(unaff_EBP + -0x18) == 0) {
       *(undefined4 *)(unaff_EBP + -0x20) = 0;
@@ -47,12 +52,12 @@ undefined4 FUN_0042390a(void)
     *(undefined4 *)(unaff_EBP + -0x14) = *(undefined4 *)(unaff_EBP + -0x20);
     *(undefined4 *)(unaff_EBP + -4) = 0xffffffff;
     *(undefined4 *)(*(int *)(unaff_EBP + 8) + 0x1b0) = *(undefined4 *)(unaff_EBP + -0x14);
-    DVar3 = timeGetTime();
-    *(short *)(unaff_EBP + -0x1a) = (short)DVar3;
+    DVar4 = timeGetTime();
+    *(short *)(unaff_EBP + -0x1a) = (short)DVar4;
     DAT_0069d8f8 = *(undefined2 *)(unaff_EBP + -0x1a);
     _DAT_0069d8fc = 0;
     FUN_00431080((int **)&UNK_GAME_WINDOW_);
-    iVar1 = FUN_00431dc0(DAT_006d4588,0,"data/text.anm",0x700);
+    iVar1 = FUN_00431dc0((int)VERY_BIG_STRUCT,0,"data/text.anm",0x700);
     if (iVar1 == 0) {
       iVar1 = FUN_004012c0();
       if (iVar1 == 0) {

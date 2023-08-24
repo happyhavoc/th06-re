@@ -1,5 +1,5 @@
 
-void reset_keyboard(void)
+void ResetKeyboard(void)
 
 {
   DWORD_PTR cookie;

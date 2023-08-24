@@ -5,7 +5,8 @@ undefined4 FUN_00427860(void)
 
 {
   float fVar1;
-  int iVar2;
+  VeryBigStruct *pVVar2;
+  int iVar3;
   int in_ECX;
   float local_18;
   float local_14;
@@ -49,7 +50,7 @@ undefined4 FUN_00427860(void)
   else {
     *(undefined *)(in_ECX + 0x9e3) = 1;
   }
-  iVar2 = DAT_006d4588;
+  pVVar2 = VERY_BIG_STRUCT;
   switch(*(undefined4 *)(in_ECX + 0xa0c)) {
   case 1:
     if ((DAT_0069d904 & 4) == 0) {
@@ -127,24 +128,24 @@ undefined4 FUN_00427860(void)
     if ((NAN(local_10) != (local_10 == 0.0)) &&
        (*(float *)(in_ECX + 0xa10) < 0.0 != NAN(*(float *)(in_ECX + 0xa10)))) {
       *(undefined2 *)(in_ECX + 0xb4) = 0x402;
-      FUN_00432430(in_ECX,*(undefined4 *)(iVar2 + 0x1d93c));
+      FUN_00432430(in_ECX,*(undefined4 *)&pVVar2->field_0x1d93c);
     }
   }
   else {
     *(undefined2 *)(in_ECX + 0xb4) = 0x401;
-    FUN_00432430(in_ECX,*(undefined4 *)(iVar2 + 0x1d938));
+    FUN_00432430(in_ECX,*(undefined4 *)&pVVar2->field_0x1d938);
   }
-  iVar2 = DAT_006d4588;
+  pVVar2 = VERY_BIG_STRUCT;
   if ((local_10 <= 0.0) || (*(float *)(in_ECX + 0xa10) < 0.0 == (*(float *)(in_ECX + 0xa10) == 0.0))
      ) {
     if ((NAN(local_10) != (local_10 == 0.0)) && (0.0 < *(float *)(in_ECX + 0xa10))) {
       *(undefined2 *)(in_ECX + 0xb4) = 0x404;
-      FUN_00432430(in_ECX,*(undefined4 *)(iVar2 + 0x1d944));
+      FUN_00432430(in_ECX,*(undefined4 *)&pVVar2->field_0x1d944);
     }
   }
   else {
     *(undefined2 *)(in_ECX + 0xb4) = 0x403;
-    FUN_00432430(in_ECX,*(undefined4 *)(iVar2 + 0x1d940));
+    FUN_00432430(in_ECX,*(undefined4 *)&pVVar2->field_0x1d940);
   }
   *(float *)(in_ECX + 0xa10) = local_10;
   *(float *)(in_ECX + 0xa14) = local_c;
@@ -260,7 +261,7 @@ switchD_004281aa_caseD_4:
   *(float *)(in_ECX + 0x4ac) = local_18 + *(float *)(in_ECX + 0x4ac);
   *(float *)(in_ECX + 0x4a4) = local_14 + *(float *)(in_ECX + 0x4a4);
   *(float *)(in_ECX + 0x4b0) = local_14 + *(float *)(in_ECX + 0x4b0);
-  if (((DAT_0069d904 & 1) != 0) && (iVar2 = FUN_004195a2(), iVar2 == 0)) {
+  if (((DAT_0069d904 & 1) != 0) && (iVar3 = FUN_004195a2(), iVar3 == 0)) {
     FUN_00428630(in_ECX);
   }
   *(ushort *)(in_ECX + 0xa18) = DAT_0069d904;

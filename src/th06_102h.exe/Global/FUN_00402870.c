@@ -4,10 +4,10 @@
 undefined4 FUN_00402870(void)
 
 {
-  int iVar1;
+  VeryBigStruct *pVVar1;
   int *in_ECX;
-  undefined2 local_48;
-  undefined2 local_3c;
+  short local_48;
+  short local_3c;
   int local_8;
   
   if (DAT_0069d4c3 != '\0') {
@@ -31,30 +31,30 @@ undefined4 FUN_00402870(void)
   switch(*in_ECX) {
   case 0:
     if (in_ECX[1] == 0) {
-      for (local_8 = 0; iVar1 = DAT_006d4588, local_8 < 4; local_8 = local_8 + 1) {
+      for (local_8 = 0; pVVar1 = VERY_BIG_STRUCT, local_8 < 4; local_8 = local_8 + 1) {
         if (local_8 < 2) {
-          local_3c = (undefined2)(local_8 + 8);
-          *(undefined2 *)(in_ECX + local_8 * 0x44 + 2 + 0x2d) = local_3c;
+          local_3c = (short)local_8 + 8;
+          *(short *)(in_ECX + local_8 * 0x44 + 2 + 0x2d) = local_3c;
           FUN_00432430(in_ECX + local_8 * 0x44 + 2,
-                       *(undefined4 *)(iVar1 + 0x1c934 + (local_8 + 8) * 4));
+                       *(undefined4 *)(&pVVar1->field_0x1c954 + local_8 * 4));
         }
         else {
-          local_48 = (undefined2)(local_8 + 4);
-          *(undefined2 *)(in_ECX + local_8 * 0x44 + 2 + 0x2d) = local_48;
+          local_48 = (short)local_8 + 4;
+          *(short *)(in_ECX + local_8 * 0x44 + 2 + 0x2d) = local_48;
           FUN_00432430(in_ECX + local_8 * 0x44 + 2,
-                       *(undefined4 *)(iVar1 + 0x1c934 + (local_8 + 4) * 4));
+                       *(undefined4 *)(&pVVar1->field_0x1c944 + local_8 * 4));
         }
         *(undefined2 *)((int)in_ECX + local_8 * 0x110 + 0x92) = 1;
       }
       if (DAT_006c7115 != '\0') {
-        *(undefined4 *)(DAT_006d4588 + 0x21118) = 3;
-        *(undefined4 *)(iVar1 + 0x2111c) = 0x20;
-        *(undefined4 *)(iVar1 + 0x21120) = 0x10;
-        *(undefined4 *)(iVar1 + 0x21124) = 0x180;
-        *(undefined4 *)(iVar1 + 0x21128) = 0x1c0;
-        iVar1 = DAT_006d4588;
+        VERY_BIG_STRUCT->field20336_0x21118 = 3;
+        pVVar1->field20337_0x2111c = 0x20;
+        pVVar1->field20338_0x21120 = 0x10;
+        pVVar1->field20339_0x21124 = 0x180;
+        pVVar1->field20340_0x21128 = 0x1c0;
+        pVVar1 = VERY_BIG_STRUCT;
         *(undefined2 *)(in_ECX + 0x1c7) = 0x718;
-        FUN_00432430(in_ECX + 0x19a,*(undefined4 *)(iVar1 + 0x1e594));
+        FUN_00432430(in_ECX + 0x19a,*(undefined4 *)&pVVar1->field_0x1e594);
         in_ECX[0x1be] = 0x42000000;
         in_ECX[0x1bf] = 0x41800000;
         in_ECX[0x1c0] = 0;

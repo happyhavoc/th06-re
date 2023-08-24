@@ -16,10 +16,10 @@ void FUN_0041c3f3(float param_1)
   float local_c;
   float local_8;
   
-  local_10 = (float)(ulonglong)(uint)g_GameContext._208_4_ / 2.0;
-  local_c = (float)(ulonglong)(uint)g_GameContext._212_4_ / 2.0;
-  local_14 = (float)(ulonglong)(uint)g_GameContext._208_4_ /
-             (float)(ulonglong)(uint)g_GameContext._212_4_;
+  local_10 = (float)(ulonglong)g_GameContext.viewport.Width / 2.0;
+  local_c = (float)(ulonglong)g_GameContext.viewport.Height / 2.0;
+  local_14 = (float)(ulonglong)g_GameContext.viewport.Width /
+             (float)(ulonglong)g_GameContext.viewport.Height;
   local_18 = 0.5235988;
   local_8 = fload_withFB(0);
   local_8 = local_c / local_8;
@@ -32,12 +32,14 @@ void FUN_0041c3f3(float param_1)
   local_3c.z = -local_8 * _DAT_0069d708;
   local_3c.x = local_10;
   local_3c.y = -local_c;
-  FUN_0043f561((float *)&g_GameContext.field_0x48,&local_3c,&local_30,&local_24);
+  FUN_0043f561(&g_GameContext.view_matrix,&local_3c,&local_30,&local_24);
   dVar1 = _fabs((double)local_8);
   _DAT_0069d6fc = (float)dVar1;
-  FUN_0043efee((float *)&g_GameContext.field_0x88,local_18,local_14,100.0,param_1 + 10000.0);
-  (**(code **)(*(int *)g_GameContext._8_4_ + 0x94))(g_GameContext._8_4_,2,0x6c6d60);
-  (**(code **)(*(int *)g_GameContext._8_4_ + 0x94))(g_GameContext._8_4_,3,0x6c6da0);
+  FUN_0043efee((float *)&g_GameContext.projection_matrix,local_18,local_14,100.0,param_1 + 10000.0);
+  (*(g_GameContext.d3d_device)->lpVtbl->SetTransform)
+            (g_GameContext.d3d_device,D3DTS_VIEW,(D3DMATRIX *)0x6c6d60);
+  (*(g_GameContext.d3d_device)->lpVtbl->SetTransform)
+            (g_GameContext.d3d_device,D3DTS_PROJECTION,(D3DMATRIX *)0x6c6da0);
   return;
 }
 

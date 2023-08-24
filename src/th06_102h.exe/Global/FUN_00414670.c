@@ -4,13 +4,14 @@ int FUN_00414670(short *param_1)
 {
   short sVar1;
   int iVar2;
+  VeryBigStruct *pVVar3;
   int in_ECX;
-  float10 fVar3;
-  undefined2 local_10;
+  float10 fVar4;
+  short local_10;
   int local_c;
   int local_8;
   
-  iVar2 = DAT_006d4588;
+  pVVar3 = VERY_BIG_STRUCT;
   local_c = in_ECX + 0xec000;
   local_8 = 0;
   while( true ) {
@@ -22,9 +23,9 @@ int FUN_00414670(short *param_1)
     local_c = local_c + 0x270;
   }
   sVar1 = *param_1;
-  local_10 = (undefined2)(sVar1 + 0x209);
-  *(undefined2 *)(local_c + 0xb4) = local_10;
-  FUN_00432430(local_c,*(undefined4 *)(iVar2 + 0x1c934 + (sVar1 + 0x209) * 4));
+  local_10 = sVar1 + 0x209;
+  *(short *)(local_c + 0xb4) = local_10;
+  FUN_00432430(local_c,*(undefined4 *)(&pVVar3->field_0x1d158 + sVar1 * 4));
   FUN_004323a0(local_c,(int)*(short *)(local_c + 0xb0) + (int)param_1[1]);
   iVar2 = *(int *)(&DAT_00476440 + param_1[1] * 4);
   FUN_00403580();
@@ -37,8 +38,8 @@ int FUN_00414670(short *param_1)
   *(undefined4 *)(local_c + 600) = 1;
   *(undefined4 *)(local_c + 0x22c) = *(undefined4 *)(param_1 + 8);
   if (param_1[0x24] == 0) {
-    fVar3 = (float10)FUN_00428700(param_1 + 2);
-    *(float *)(local_c + 0x22c) = (float)(fVar3 + (float10)*(float *)(local_c + 0x22c));
+    fVar4 = (float10)FUN_00428700(param_1 + 2);
+    *(float *)(local_c + 0x22c) = (float)(fVar4 + (float10)*(float *)(local_c + 0x22c));
   }
   *(short *)(local_c + 0x268) = param_1[0x26];
   *(undefined4 *)(local_c + 0x264) = 0;

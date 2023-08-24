@@ -3,7 +3,7 @@ undefined4 FUN_00416d60(int param_1)
 
 {
   float fVar1;
-  int iVar2;
+  VeryBigStruct *pVVar2;
   undefined uVar3;
   int iVar4;
   int iVar5;
@@ -16,45 +16,45 @@ undefined4 FUN_00416d60(int param_1)
   uint local_8;
   
   if (g_GameContext._396_4_ != 3) {
-    iVar4 = FUN_00431dc0(DAT_006d4588,6,"data/etama3.anm",0x200);
+    iVar4 = FUN_00431dc0((int)VERY_BIG_STRUCT,6,"data/etama3.anm",0x200);
     if (iVar4 != 0) {
       return 0xffffffff;
     }
-    iVar4 = FUN_00431dc0(DAT_006d4588,7,"data/etama4.anm",0x29a);
+    iVar4 = FUN_00431dc0((int)VERY_BIG_STRUCT,7,"data/etama4.anm",0x29a);
     if (iVar4 != 0) {
       return 0xffffffff;
     }
   }
-  for (local_8 = 0; iVar4 = DAT_006d4588, local_8 < 10; local_8 = local_8 + 1) {
-    iVar2 = *(int *)(&DAT_0046a6e8 + local_8 * 0x14);
+  for (local_8 = 0; pVVar2 = VERY_BIG_STRUCT, local_8 < 10; local_8 = local_8 + 1) {
+    iVar4 = *(int *)(&DAT_0046a6e8 + local_8 * 0x14);
     iVar5 = param_1 + local_8 * 0x560;
-    local_c = (undefined2)iVar2;
+    local_c = (undefined2)iVar4;
     *(undefined2 *)(iVar5 + 0xb4) = local_c;
-    FUN_00432430(iVar5,*(undefined4 *)(iVar4 + 0x1c934 + iVar2 * 4));
-    iVar5 = DAT_006d4588;
-    iVar2 = *(int *)(&DAT_0046a6ec + local_8 * 0x14);
+    FUN_00432430(iVar5,*(undefined4 *)(&pVVar2->field_0x1c934 + iVar4 * 4));
+    pVVar2 = VERY_BIG_STRUCT;
+    iVar5 = *(int *)(&DAT_0046a6ec + local_8 * 0x14);
     iVar4 = param_1 + 0x110 + local_8 * 0x560;
-    local_18 = (undefined2)iVar2;
+    local_18 = (undefined2)iVar5;
     *(undefined2 *)(iVar4 + 0xb4) = local_18;
-    FUN_00432430(iVar4,*(undefined4 *)(iVar5 + 0x1c934 + iVar2 * 4));
-    iVar5 = DAT_006d4588;
-    iVar2 = *(int *)(&DAT_0046a6f0 + local_8 * 0x14);
+    FUN_00432430(iVar4,*(undefined4 *)(&pVVar2->field_0x1c934 + iVar5 * 4));
+    pVVar2 = VERY_BIG_STRUCT;
+    iVar5 = *(int *)(&DAT_0046a6f0 + local_8 * 0x14);
     iVar4 = param_1 + 0x220 + local_8 * 0x560;
-    local_24 = (undefined2)iVar2;
+    local_24 = (undefined2)iVar5;
     *(undefined2 *)(iVar4 + 0xb4) = local_24;
-    FUN_00432430(iVar4,*(undefined4 *)(iVar5 + 0x1c934 + iVar2 * 4));
-    iVar5 = DAT_006d4588;
-    iVar2 = *(int *)(&DAT_0046a6f4 + local_8 * 0x14);
+    FUN_00432430(iVar4,*(undefined4 *)(&pVVar2->field_0x1c934 + iVar5 * 4));
+    pVVar2 = VERY_BIG_STRUCT;
+    iVar5 = *(int *)(&DAT_0046a6f4 + local_8 * 0x14);
     iVar4 = param_1 + 0x330 + local_8 * 0x560;
-    local_30 = (undefined2)iVar2;
+    local_30 = (undefined2)iVar5;
     *(undefined2 *)(iVar4 + 0xb4) = local_30;
-    FUN_00432430(iVar4,*(undefined4 *)(iVar5 + 0x1c934 + iVar2 * 4));
-    iVar5 = DAT_006d4588;
-    iVar2 = *(int *)(&DAT_0046a6f8 + local_8 * 0x14);
+    FUN_00432430(iVar4,*(undefined4 *)(&pVVar2->field_0x1c934 + iVar5 * 4));
+    pVVar2 = VERY_BIG_STRUCT;
+    iVar5 = *(int *)(&DAT_0046a6f8 + local_8 * 0x14);
     iVar4 = param_1 + 0x440 + local_8 * 0x560;
-    local_3c = (undefined2)iVar2;
+    local_3c = (undefined2)iVar5;
     *(undefined2 *)(iVar4 + 0xb4) = local_3c;
-    FUN_00432430(iVar4,*(undefined4 *)(iVar5 + 0x1c934 + iVar2 * 4));
+    FUN_00432430(iVar4,*(undefined4 *)(&pVVar2->field_0x1c934 + iVar5 * 4));
     *(undefined2 *)(param_1 + 0xb2 + local_8 * 0x560) =
          *(undefined2 *)(param_1 + 0xb0 + local_8 * 0x560);
     uVar3 = __ftol2();

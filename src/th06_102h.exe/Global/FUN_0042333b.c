@@ -69,7 +69,8 @@ LAB_004235a0:
       FUN_0042ab30(0,0);
 LAB_00423454:
       *(undefined4 *)(param_1 + 0x18c) = 1;
-      (**(code **)(*(int *)g_GameContext._8_4_ + 0x14))(g_GameContext._8_4_,0);
+      (*(g_GameContext.d3d_device)->lpVtbl->ResourceManagerDiscardBytes)(g_GameContext.d3d_device,0)
+      ;
       iVar1 = FUN_0043a338(0);
       if (iVar1 != 0) {
         return 4;
@@ -100,7 +101,8 @@ LAB_00423454:
         *(undefined4 *)(param_1 + 0x18c) = 0;
         FUN_0042ab30(0,0);
         *(undefined4 *)(param_1 + 0x18c) = 1;
-        (**(code **)(*(int *)g_GameContext._8_4_ + 0x14))(g_GameContext._8_4_,0);
+        (*(g_GameContext.d3d_device)->lpVtbl->ResourceManagerDiscardBytes)
+                  (g_GameContext.d3d_device,0);
         iVar1 = FUN_0043a338(1);
         if (iVar1 != 0) {
           return 4;

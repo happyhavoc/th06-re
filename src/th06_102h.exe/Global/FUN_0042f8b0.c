@@ -49,31 +49,41 @@ void FUN_0042f8b0(undefined4 *param_1,undefined4 param_2)
   local_30 = param_2;
   local_44 = param_2;
   if (((uint)g_GameContext.cfg.field34_0x34 >> 8 & 1) == 0) {
-    (**(code **)(*(int *)g_GameContext._8_4_ + 0xfc))(g_GameContext._8_4_,0,4,2);
-    (**(code **)(*(int *)g_GameContext._8_4_ + 0xfc))(g_GameContext._8_4_,0,1,2);
+    (*(g_GameContext.d3d_device)->lpVtbl->SetTextureStageState)
+              (g_GameContext.d3d_device,0,D3DTSS_ALPHAOP,2);
+    (*(g_GameContext.d3d_device)->lpVtbl->SetTextureStageState)
+              (g_GameContext.d3d_device,0,D3DTSS_COLOROP,2);
   }
-  (**(code **)(*(int *)g_GameContext._8_4_ + 0xfc))(g_GameContext._8_4_,0,5,0);
-  (**(code **)(*(int *)g_GameContext._8_4_ + 0xfc))(g_GameContext._8_4_,0,2,0);
+  (*(g_GameContext.d3d_device)->lpVtbl->SetTextureStageState)
+            (g_GameContext.d3d_device,0,D3DTSS_ALPHAARG1,0);
+  (*(g_GameContext.d3d_device)->lpVtbl->SetTextureStageState)
+            (g_GameContext.d3d_device,0,D3DTSS_COLORARG1,0);
   if (((uint)g_GameContext.cfg.field34_0x34 >> 6 & 1) == 0) {
-    (**(code **)(*(int *)g_GameContext._8_4_ + 200))(g_GameContext._8_4_,0x17,8);
-    (**(code **)(*(int *)g_GameContext._8_4_ + 200))(g_GameContext._8_4_,0xe,0);
+    (*(g_GameContext.d3d_device)->lpVtbl->SetRenderState)(g_GameContext.d3d_device,D3DRS_ZFUNC,8);
+    (*(g_GameContext.d3d_device)->lpVtbl->SetRenderState)
+              (g_GameContext.d3d_device,D3DRS_ZWRITEENABLE,0);
   }
-  (**(code **)(*(int *)g_GameContext._8_4_ + 200))(g_GameContext._8_4_,0x14,6);
-  (**(code **)(*(int *)g_GameContext._8_4_ + 0x130))(g_GameContext._8_4_,0x44);
-  (**(code **)(*(int *)g_GameContext._8_4_ + 0x120))(g_GameContext._8_4_,5,2,&local_54,0x14);
-  *(undefined *)(DAT_006d4588 + 0x210be) = 0xff;
-  *(undefined4 *)(DAT_006d4588 + 0x210c0) = 0;
-  *(undefined4 *)(DAT_006d4588 + 0x210b8) = 0;
-  *(undefined *)(DAT_006d4588 + 0x210bd) = 0xff;
-  *(undefined *)(DAT_006d4588 + 0x210bc) = 0xff;
-  *(undefined *)(DAT_006d4588 + 0x210bf) = 0xff;
+  (*(g_GameContext.d3d_device)->lpVtbl->SetRenderState)(g_GameContext.d3d_device,D3DRS_DESTBLEND,6);
+  (*(g_GameContext.d3d_device)->lpVtbl->SetVertexShader)(g_GameContext.d3d_device,0x44);
+  (*(g_GameContext.d3d_device)->lpVtbl->DrawPrimitiveUP)
+            (g_GameContext.d3d_device,D3DPT_TRIANGLESTRIP,2,&local_54,0x14);
+  VERY_BIG_STRUCT->field_0x210be = 0xff;
+  *(undefined4 *)&VERY_BIG_STRUCT->field_0x210c0 = 0;
+  VERY_BIG_STRUCT->field20246_0x210b8 = 0;
+  VERY_BIG_STRUCT->field_0x210bd = 0xff;
+  VERY_BIG_STRUCT->field_0x210bc = 0xff;
+  VERY_BIG_STRUCT->field_0x210bf = 0xff;
   if (((uint)g_GameContext.cfg.field34_0x34 >> 8 & 1) == 0) {
-    (**(code **)(*(int *)g_GameContext._8_4_ + 0xfc))(g_GameContext._8_4_,0,4,4);
-    (**(code **)(*(int *)g_GameContext._8_4_ + 0xfc))(g_GameContext._8_4_,0,1,4);
+    (*(g_GameContext.d3d_device)->lpVtbl->SetTextureStageState)
+              (g_GameContext.d3d_device,0,D3DTSS_ALPHAOP,4);
+    (*(g_GameContext.d3d_device)->lpVtbl->SetTextureStageState)
+              (g_GameContext.d3d_device,0,D3DTSS_COLOROP,4);
   }
-  (**(code **)(*(int *)g_GameContext._8_4_ + 0xfc))(g_GameContext._8_4_,0,5,2);
-  (**(code **)(*(int *)g_GameContext._8_4_ + 0xfc))(g_GameContext._8_4_,0,2,2);
-  (**(code **)(*(int *)g_GameContext._8_4_ + 200))(g_GameContext._8_4_,0x17,4);
+  (*(g_GameContext.d3d_device)->lpVtbl->SetTextureStageState)
+            (g_GameContext.d3d_device,0,D3DTSS_ALPHAARG1,2);
+  (*(g_GameContext.d3d_device)->lpVtbl->SetTextureStageState)
+            (g_GameContext.d3d_device,0,D3DTSS_COLORARG1,2);
+  (*(g_GameContext.d3d_device)->lpVtbl->SetRenderState)(g_GameContext.d3d_device,D3DRS_ZFUNC,4);
   return;
 }
 

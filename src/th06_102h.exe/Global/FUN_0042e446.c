@@ -33,11 +33,12 @@ void FUN_0042e446(int param_1)
   
   local_18 = __security_cookie ^ unaff_retaddr;
   local_28 = param_1 + 0x40;
-  g_GameContext._200_4_ = 0;
-  g_GameContext._204_4_ = 0;
-  g_GameContext._208_4_ = 0x280;
-  g_GameContext._212_4_ = 0x1e0;
-  (**(code **)(*(int *)g_GameContext._8_4_ + 0xa0))(g_GameContext._8_4_,0x6c6de0);
+  g_GameContext.viewport.X = 0;
+  g_GameContext.viewport.Y = 0;
+  g_GameContext.viewport.Width = 0x280;
+  g_GameContext.viewport.Height = 0x1e0;
+  (*(g_GameContext.d3d_device)->lpVtbl->SetViewport)
+            (g_GameContext.d3d_device,&g_GameContext.viewport);
   FUN_00435300(0,0,0,0,0);
   for (local_14 = 0; local_14 < 0x26; local_14 = local_14 + 1) {
     local_40 = *(float *)(local_28 + 0x90);

@@ -15,8 +15,8 @@ void CreateGameWindow(HINSTANCE param_1)
     pWVar3 = (WNDCLASSA *)&pWVar3->lpfnWndProc;
   }
   local_34.hbrBackground = (HBRUSH)GetStockObject(0);
-  local_34.hCursor = LoadCursorA((HINSTANCE)0x0,(LPCSTR)0x7f00);
-  local_34.hInstance = param_1;
+  local_34.hCursor = (HCURSOR)LoadCursorA((HINSTANCE)0x0,(LPCSTR)0x7f00);
+  local_34.hInstance = (HINSTANCE)param_1;
   local_34.lpfnWndProc = WindowProc;
   ACTIVATEAPP_PARAM = 0;
   IS_APP_ACTIVE = 0;

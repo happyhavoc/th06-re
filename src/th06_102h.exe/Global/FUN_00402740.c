@@ -11,11 +11,12 @@ void FUN_00402740(void)
   int local_8;
   
   if (DAT_0069d4bf != '\0') {
-    g_GameContext._200_4_ = __ftol2();
-    g_GameContext._204_4_ = __ftol2();
-    g_GameContext._208_4_ = __ftol2();
-    g_GameContext._212_4_ = __ftol2();
-    (**(code **)(*(int *)g_GameContext._8_4_ + 0xa0))(g_GameContext._8_4_,0x6c6de0);
+    g_GameContext.viewport.X = __ftol2();
+    g_GameContext.viewport.Y = __ftol2();
+    g_GameContext.viewport.Width = __ftol2();
+    g_GameContext.viewport.Height = __ftol2();
+    (*(g_GameContext.d3d_device)->lpVtbl->SetViewport)
+              (g_GameContext.d3d_device,(D3DVIEWPORT8 *)0x6c6de0);
     if ((DAT_006c7115 != '\0') && (*in_ECX != 0)) {
       piVar2 = in_ECX + 0x19a;
       piVar3 = local_11c;

@@ -2,13 +2,14 @@
 undefined4 FUN_0043a338(int param_1)
 
 {
-  undefined4 uVar1;
+  UINT UVar1;
   int iVar2;
+  undefined4 uVar3;
   
   _memset(&DAT_006d46c0,0,0x10f34);
   DAT_0069d4bf = 0;
-  uVar1 = (**(code **)(*(int *)g_GameContext._8_4_ + 0x10))(g_GameContext._8_4_);
-  DebugPrint("Debug : title 開始 VRAM = %d\n",uVar1);
+  UVar1 = (*(g_GameContext.d3d_device)->lpVtbl->GetAvailableTextureMem)(g_GameContext.d3d_device);
+  DebugPrint("Debug : title 開始 VRAM = %d\n",UVar1);
   DAT_006dc8b0 = -(uint)(param_1 != 0) & 0xc;
   DAT_006c6ec4 = 0;
   DAT_006dc8f4 = FUN_0041cd40(FUN_0043579f);
@@ -24,11 +25,11 @@ undefined4 FUN_0043a338(int param_1)
     DAT_006e55f0 = 0;
     DAT_006dc8b4 = 0x3c;
     DAT_006e55ec = 0;
-    uVar1 = 0;
+    uVar3 = 0;
   }
   else {
-    uVar1 = 0xffffffff;
+    uVar3 = 0xffffffff;
   }
-  return uVar1;
+  return uVar3;
 }
 

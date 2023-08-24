@@ -4,16 +4,16 @@
 undefined4 FUN_0043a464(int param_1)
 
 {
-  int iVar1;
+  VeryBigStruct *pVVar1;
   undefined4 uVar2;
   int local_c;
   
   if (DAT_0069d4c4 == '\0') {
     FUN_00424b2f("bgm/th06_01.mid");
   }
-  iVar1 = DAT_006d4588;
+  pVVar1 = VERY_BIG_STRUCT;
   for (local_c = 0; local_c < 0x7a; local_c = local_c + 1) {
-    *(undefined4 *)(iVar1 + 0x1cd34 + local_c * 4) = 0;
+    *(undefined4 *)(&pVVar1->field_0x1cd34 + local_c * 4) = 0;
   }
   *(undefined4 *)(param_1 + 0x81e4) = 0;
   if ((int)g_GameContext._400_4_ < 2) {

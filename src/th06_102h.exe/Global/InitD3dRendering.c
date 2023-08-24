@@ -1,14 +1,13 @@
 
-/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
-
-undefined4 FUN_00420e60(void)
+undefined4 InitD3dRendering(void)
 
 {
   bool bVar1;
-  int iVar2;
+  HRESULT HVar2;
+  int iVar3;
   undefined4 unaff_EBP;
-  int *piVar3;
-  int *piVar4;
+  D3DPRESENT_PARAMETERS *pDVar4;
+  D3DPRESENT_PARAMETERS *pDVar5;
   vec3f local_84;
   vec3f local_78;
   undefined4 local_6c;
@@ -19,100 +18,95 @@ undefined4 FUN_00420e60(void)
   float local_58;
   float local_54;
   float local_50;
-  int local_4c [5];
-  undefined4 local_38;
-  undefined4 local_30;
-  undefined4 local_2c;
-  undefined4 local_28;
-  int local_24;
-  undefined4 local_20;
-  undefined4 local_1c;
-  undefined local_18 [12];
-  int local_c;
+  D3DPRESENT_PARAMETERS present_params;
+  D3DDISPLAYMODE display_mode;
   uint local_5;
   undefined uStack_1;
   
   uStack_1 = (undefined)((uint)unaff_EBP >> 0x18);
   local_5 = CONCAT31((int3)unaff_EBP,1);
-  piVar3 = local_4c;
-  for (iVar2 = 0xd; iVar2 != 0; iVar2 = iVar2 + -1) {
-    *piVar3 = 0;
-    piVar3 = piVar3 + 1;
+                    /* memset(&present_params, 0, sizeof(D3DPRESENT_PARAMETERS)); */
+  pDVar4 = &present_params;
+  for (iVar3 = 0xd; iVar3 != 0; iVar3 = iVar3 + -1) {
+    pDVar4->BackBufferWidth = 0;
+    pDVar4 = (D3DPRESENT_PARAMETERS *)&pDVar4->BackBufferHeight;
   }
-  (*(code *)(g_GameContext.d3d_iface)->vtbl->GetAdapterDisplayMode)
-            (g_GameContext.d3d_iface,0,local_18);
+  (*(g_GameContext.d3d_iface)->lpVtbl->GetAdapterDisplayMode)
+            (g_GameContext.d3d_iface,0,&display_mode);
   if (g_GameContext.cfg.field14_0x1e == 0) {
     if (((uint)g_GameContext.cfg.field34_0x34 >> 2 & 1) == 1) {
-      local_4c[2] = 0x17;
+      present_params.BackBufferFormat = D3DFMT_R5G6B5;
       g_GameContext.cfg.field10_0x1a = 1;
     }
     else if (g_GameContext.cfg.field10_0x1a == 0xff) {
-      if ((local_c == 0x16) || (local_c == 0x15)) {
-        local_4c[2] = 0x16;
+      if ((display_mode.Format == D3DFMT_X8R8G8B8) || (display_mode.Format == D3DFMT_A8R8G8B8)) {
+        present_params.BackBufferFormat = D3DFMT_X8R8G8B8;
         g_GameContext.cfg.field10_0x1a = 0;
         GameErrorContextLog(&g_GameErrorContext,
                             "初回起動、画面を 32Bits で初期化しました\n");
       }
       else {
-        local_4c[2] = 0x17;
+        present_params.BackBufferFormat = D3DFMT_R5G6B5;
         g_GameContext.cfg.field10_0x1a = 1;
         GameErrorContextLog(&g_GameErrorContext,
                             "初回起動、画面を 16Bits で初期化しました\n");
       }
     }
     else if (g_GameContext.cfg.field10_0x1a == 0) {
-      local_4c[2] = 0x16;
+      present_params.BackBufferFormat = D3DFMT_X8R8G8B8;
     }
     else {
-      local_4c[2] = 0x17;
+      present_params.BackBufferFormat = D3DFMT_R5G6B5;
     }
     if (((uint)g_GameContext.cfg.field34_0x34 >> 7 & 1) == 0) {
-      local_1c = 1;
+      present_params.FullScreen_PresentationInterval = 1;
     }
     else {
-      local_20 = 0x3c;
-      local_1c = 1;
+      present_params.FullScreen_RefreshRateInHz = 0x3c;
+      present_params.FullScreen_PresentationInterval = 1;
       GameErrorContextLog(&g_GameErrorContext,
                           "リフレッシュレートを60Hzに変更します\n");
     }
     if (g_GameContext.cfg.field15_0x1f == 0) {
-      local_38 = 2;
+      present_params.SwapEffect = D3DSWAPEFFECT_FLIP;
     }
     else {
-      local_38 = 4;
+      present_params.SwapEffect = D3DSWAPEFFECT_COPY_VSYNC;
     }
   }
   else {
-    local_4c[2] = local_c;
-    local_38 = 3;
-    local_30 = 1;
+    present_params.BackBufferFormat = display_mode.Format;
+    present_params.SwapEffect = D3DSWAPEFFECT_COPY;
+    present_params.Windowed = 1;
   }
-  local_4c[0] = 0x280;
-  local_4c[1] = 0x1e0;
-  local_2c = 1;
-  local_28 = 0x50;
-  local_24 = 1;
+  present_params.BackBufferWidth = 0x280;
+  present_params.BackBufferHeight = 0x1e0;
+  present_params.EnableAutoDepthStencil = 1;
+  present_params.AutoDepthStencilFormat = D3DFMT_D16;
+  present_params.Flags = 1;
   DAT_006c7115 = 1;
-  piVar3 = local_4c;
-  piVar4 = (int *)&g_GameContext.field_0xe0;
-  for (iVar2 = 0xd; iVar2 != 0; iVar2 = iVar2 + -1) {
-    *piVar4 = *piVar3;
-    piVar3 = piVar3 + 1;
-    piVar4 = piVar4 + 1;
+  pDVar4 = &present_params;
+  pDVar5 = &g_GameContext.present_parameters;
+  for (iVar3 = 0xd; iVar3 != 0; iVar3 = iVar3 + -1) {
+    pDVar5->BackBufferWidth = pDVar4->BackBufferWidth;
+    pDVar4 = (D3DPRESENT_PARAMETERS *)&pDVar4->BackBufferHeight;
+    pDVar5 = (D3DPRESENT_PARAMETERS *)&pDVar5->BackBufferHeight;
   }
   do {
     if (((uint)g_GameContext.cfg.field34_0x34 >> 9 & 1) == 0) {
-      iVar2 = (*(code *)(g_GameContext.d3d_iface)->vtbl->CreateDevice)
-                        (g_GameContext.d3d_iface,0,1,GAME_WINDOW,0x40,local_4c);
-      if (-1 < iVar2) {
+      HVar2 = (*(g_GameContext.d3d_iface)->lpVtbl->CreateDevice)
+                        (g_GameContext.d3d_iface,0,D3DDEVTYPE_HAL,(HWND)GAME_WINDOW,0x40,
+                         &present_params,&g_GameContext.d3d_device);
+      if (-1 < HVar2) {
         GameErrorContextLog(&g_GameErrorContext,"T&L HAL で動作しま〜す\n");
         DAT_006c7114 = 1;
         goto LAB_004211ab;
       }
       GameErrorContextLog(&g_GameErrorContext,"T&L HAL は使用できないようです\n");
-      iVar2 = (*(code *)(g_GameContext.d3d_iface)->vtbl->CreateDevice)
-                        (g_GameContext.d3d_iface,0,1,GAME_WINDOW,0x20,local_4c);
-      if (iVar2 < 0) {
+      iVar3 = (*(g_GameContext.d3d_iface)->lpVtbl->CreateDevice)
+                        (g_GameContext.d3d_iface,0,1,GAME_WINDOW,0x20,(int *)&present_params,
+                         &g_GameContext.d3d_device);
+      if (iVar3 < 0) {
         GameErrorContextLog(&g_GameErrorContext,"HAL も使用できないようです\n");
         goto LAB_00421077;
       }
@@ -135,35 +129,39 @@ LAB_004211ab:
       local_84.x = local_58;
       local_84.y = -local_54;
       local_84.z = -local_50;
-      FUN_0043f561((float *)&g_GameContext.field_0x48,&local_84,&local_78,&local_6c);
-      FUN_0043efee((float *)&g_GameContext.field_0x88,local_60,local_5c,100.0,10000.0);
-      (**(code **)(*(int *)g_GameContext._8_4_ + 0x94))(g_GameContext._8_4_,2,0x6c6d60);
-      (**(code **)(*(int *)g_GameContext._8_4_ + 0x94))(g_GameContext._8_4_,3,0x6c6da0);
-      (**(code **)(*(int *)g_GameContext._8_4_ + 0xa4))(g_GameContext._8_4_,0x6c6de0);
-      (**(code **)(*(int *)g_GameContext._8_4_ + 0x1c))(g_GameContext._8_4_,&DAT_006c711c);
-      if (((g_GameContext.cfg.field34_0x34 & 1U) == 0) && ((DAT_006c71ac & 0x40) == 0)) {
+      FUN_0043f561(&g_GameContext.view_matrix,&local_84,&local_78,&local_6c);
+      FUN_0043efee((float *)&g_GameContext.projection_matrix,local_60,local_5c,100.0,10000.0);
+      (*(g_GameContext.d3d_device)->lpVtbl->SetTransform)
+                (g_GameContext.d3d_device,D3DTS_VIEW,&g_GameContext.view_matrix);
+      (*(g_GameContext.d3d_device)->lpVtbl->SetTransform)
+                (g_GameContext.d3d_device,D3DTS_PROJECTION,&g_GameContext.projection_matrix);
+      (*(g_GameContext.d3d_device)->lpVtbl->GetViewport)
+                (g_GameContext.d3d_device,&g_GameContext.viewport);
+      (*(g_GameContext.d3d_device)->lpVtbl->GetDeviceCaps)(g_GameContext.d3d_device,&D3D_CAPS);
+      if (((g_GameContext.cfg.field34_0x34 & 1U) == 0) && ((D3D_CAPS.TextureOpCaps & 0x40) == 0)) {
         GameErrorContextLog(&g_GameErrorContext,
                             "D3DTEXOPCAPS_ADD をサポートしていません、色加算エミュレートモードで動作します\n"
                            );
         g_GameContext.cfg.field34_0x34 = g_GameContext.cfg.field34_0x34 | 1;
       }
       if ((((uint)g_GameContext.cfg.field34_0x34 >> 7 & 1) == 0) ||
-         (g_GameContext.field352_0x1a0 == 0)) {
+         (g_GameContext.field149_0x1a0 == 0)) {
         bVar1 = false;
       }
       else {
         bVar1 = true;
       }
-      if ((bVar1) && ((DAT_006c7130 & 0x80000000) == 0)) {
+      if ((bVar1) && ((D3D_CAPS.PresentationIntervals & 0x80000000) == 0)) {
         GameErrorContextLog(&g_GameErrorContext,
-                            "ビデオカードが非同期フリップをサポートしていません、Force60Frameで動作できません\n"
+                            "ビデオカー���が非同期フリップをサポートしていません、Force60Frameで動作できません\n"
                            );
         g_GameContext.cfg.field34_0x34 = g_GameContext.cfg.field34_0x34 & 0xffffff7f;
       }
       if ((((uint)g_GameContext.cfg.field34_0x34 >> 2 & 1) == 0) && ((local_5 & 0xff) != 0)) {
-        iVar2 = (*(code *)(g_GameContext.d3d_iface)->vtbl->CheckDeviceFormat)
-                          (g_GameContext.d3d_iface,0,1,local_4c[2],0,3,0x15);
-        if (iVar2 == 0) {
+        HVar2 = (*(g_GameContext.d3d_iface)->lpVtbl->CheckDeviceFormat)
+                          (g_GameContext.d3d_iface,0,D3DDEVTYPE_HAL,present_params.BackBufferFormat,
+                           0,D3DRTYPE_TEXTURE,D3DFMT_A8R8G8B8);
+        if (HVar2 == 0) {
           DAT_006c7116 = 1;
         }
         else {
@@ -174,17 +172,18 @@ LAB_004211ab:
                              );
         }
       }
-      FUN_00421420();
-      FUN_0042f790(0);
+      InitD3dDevice();
+      SetViewport(0);
       IS_APP_CLOSING = 0;
-      _DAT_006c6ebc = 0;
+      INT_006c6ebc = 0;
       DAT_006c6ec4 = 0;
       return 0;
     }
 LAB_00421077:
-    iVar2 = (*(code *)(g_GameContext.d3d_iface)->vtbl->CreateDevice)
-                      (g_GameContext.d3d_iface,0,2,GAME_WINDOW,0x20,local_4c);
-    if (-1 < iVar2) {
+    HVar2 = (*(g_GameContext.d3d_iface)->lpVtbl->CreateDevice)
+                      (g_GameContext.d3d_iface,0,D3DDEVTYPE_REF,(HWND)GAME_WINDOW,0x20,
+                       &present_params,&g_GameContext.d3d_device);
+    if (-1 < HVar2) {
       GameErrorContextLog(&g_GameErrorContext,
                           "REF で動作しますが、重すぎて恐らくゲームになりません...\n"
                          );
@@ -192,29 +191,29 @@ LAB_00421077:
       goto LAB_00421190;
     }
     if ((((uint)g_GameContext.cfg.field34_0x34 >> 7 & 1) == 0) ||
-       (g_GameContext.field352_0x1a0 != 0)) {
-      if (local_24 != 1) {
+       (g_GameContext.field149_0x1a0 != 0)) {
+      if (present_params.Flags != 1) {
         GameErrorContextFatal
                   (&g_GameErrorContext,
                    "Direct3D の初期化に失敗、これではゲームは出来ません\n");
         if (g_GameContext.d3d_iface != (IDirect3D8 *)0x0) {
-          (*((g_GameContext.d3d_iface)->vtbl->unk).Release)((IUnknown *)g_GameContext.d3d_iface);
+          (*(g_GameContext.d3d_iface)->lpVtbl->Release)(g_GameContext.d3d_iface);
           g_GameContext.d3d_iface = (IDirect3D8 *)0x0;
         }
         return 1;
       }
       GameErrorContextLog(&g_GameErrorContext,
                           "バックバッファをロック不可能にしてみます\n");
-      local_24 = 0;
+      present_params.Flags = 0;
       DAT_006c7115 = 0;
     }
     else {
       GameErrorContextLog(&g_GameErrorContext,
                           "リフレッシュレートが変更できません、vsync 非同期に変更します\n"
                          );
-      local_20 = 0;
-      g_GameContext.field352_0x1a0 = 1;
-      local_1c = 0x80000000;
+      present_params.FullScreen_RefreshRateInHz = 0;
+      g_GameContext.field149_0x1a0 = 1;
+      present_params.FullScreen_PresentationInterval = 0x80000000;
     }
   } while( true );
 }

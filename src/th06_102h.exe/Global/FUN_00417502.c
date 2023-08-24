@@ -15,7 +15,7 @@ void FUN_00417502(int param_1)
   undefined4 local_8;
   
   local_14 = __security_cookie ^ unaff_retaddr;
-  (**(code **)(*(int *)g_GameContext._8_4_ + 200))(g_GameContext._8_4_,0x17,8);
+  (*(g_GameContext.d3d_device)->lpVtbl->SetRenderState)(g_GameContext.d3d_device,D3DRS_ZFUNC,8);
   if (*(int *)(*(int *)(param_1 + 4) + 0x2bdc) != 0) {
     local_10 = 0x42940000;
     local_c = 128.0;
@@ -124,7 +124,7 @@ void FUN_00417502(int param_1)
     _DAT_00481b24 = 0xffffffff;
   }
   _DAT_00481b30 = 0;
-  (**(code **)(*(int *)g_GameContext._8_4_ + 200))(g_GameContext._8_4_,0x17,4);
+  (*(g_GameContext.d3d_device)->lpVtbl->SetRenderState)(g_GameContext.d3d_device,D3DRS_ZFUNC,4);
   __security_check_cookie(local_14 ^ unaff_retaddr);
   return;
 }

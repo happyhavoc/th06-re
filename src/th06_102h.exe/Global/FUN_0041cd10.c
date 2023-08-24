@@ -1,11 +1,9 @@
 
-void FUN_0041cd10(void)
+void __fastcall FUN_0041cd10(int param_1)
 
 {
-  int in_ECX;
-  
-  FUN_0041cb90(in_ECX);
-  FUN_0041cb90(in_ECX + 0x20);
+  FUN_0041cb90(param_1);
+  FUN_0041cb90(param_1 + 0x20);
   return;
 }
 

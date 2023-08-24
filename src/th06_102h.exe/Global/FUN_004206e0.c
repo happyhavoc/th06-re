@@ -1,51 +1,60 @@
 
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
 
-undefined4 FUN_004206e0(void)
+undefined4 __fastcall FUN_004206e0(int param_1)
 
 {
   double dVar1;
   bool bVar2;
-  int iVar3;
-  DWORD DVar4;
-  int in_ECX;
+  DWORD DVar3;
   double local_34;
+  D3DVIEWPORT8 local_20;
+  int local_8;
   
-  if (*(int *)(in_ECX + 8) != 0) {
-    if (*(char *)(in_ECX + 0x10) != '\0') goto LAB_00420894;
+  if (*(int *)(param_1 + 8) != 0) {
+    if (*(char *)(param_1 + 0x10) != '\0') goto LAB_00420894;
     do {
       while( true ) {
-        if (g_GameContext.cfg.field15_0x1f <= *(byte *)(in_ECX + 0x10)) {
+        if (g_GameContext.cfg.field15_0x1f <= *(byte *)(param_1 + 0x10)) {
           if (((uint)g_GameContext.cfg.field34_0x34 >> 3 & 1 |
               (uint)g_GameContext.cfg.field34_0x34 >> 4 & 1) != 0) {
-            (**(code **)(*(int *)g_GameContext._8_4_ + 0xa0))(g_GameContext._8_4_);
-            (**(code **)(*(int *)g_GameContext._8_4_ + 0x90))
-                      (g_GameContext._8_4_,0,0,3,DAT_00487b60,0x3f800000,0);
-            (**(code **)(*(int *)g_GameContext._8_4_ + 0xa0))(g_GameContext._8_4_,0x6c6de0);
+            local_20.X = 0;
+            local_20.Y = 0;
+            local_20.Width = 0x280;
+            local_20.Height = 0x1e0;
+            local_20.MinZ = 0.0;
+            local_20.MaxZ = 1.0;
+            (*(g_GameContext.d3d_device)->lpVtbl->SetViewport)(g_GameContext.d3d_device,&local_20);
+            (*(g_GameContext.d3d_device)->lpVtbl->Clear)
+                      (g_GameContext.d3d_device,0,(D3DRECT *)0x0,3,DAT_00487b60,1.0,0);
+            (*(g_GameContext.d3d_device)->lpVtbl->SetViewport)
+                      (g_GameContext.d3d_device,&g_GameContext.viewport);
           }
-          (**(code **)(*(int *)g_GameContext._8_4_ + 0x88))();
-          FUN_0041cad0();
-          (**(code **)(*(int *)g_GameContext._8_4_ + 0x8c))(g_GameContext._8_4_);
-          (**(code **)(*(int *)g_GameContext._8_4_ + 0xf4))(g_GameContext._8_4_,0,0);
+          (*(g_GameContext.d3d_device)->lpVtbl->BeginScene)(g_GameContext.d3d_device);
+          FUN_0041cad0((short *)&DAT_0069d918);
+          (*(g_GameContext.d3d_device)->lpVtbl->EndScene)(g_GameContext.d3d_device);
+          (*(g_GameContext.d3d_device)->lpVtbl->SetTexture)
+                    (g_GameContext.d3d_device,0,(IDirect3DBaseTexture8 *)0x0);
         }
-        g_GameContext._200_4_ = 0;
-        g_GameContext._204_4_ = 0;
-        g_GameContext._208_4_ = 0x280;
-        g_GameContext._212_4_ = 0x1e0;
-        (**(code **)(*(int *)g_GameContext._8_4_ + 0xa0))(g_GameContext._8_4_);
-        iVar3 = FUN_0041ca10();
+        g_GameContext.viewport.X = 0;
+        g_GameContext.viewport.Y = 0;
+        g_GameContext.viewport.Width = 0x280;
+        g_GameContext.viewport.Height = 0x1e0;
+        (*(g_GameContext.d3d_device)->lpVtbl->SetViewport)
+                  (g_GameContext.d3d_device,&g_GameContext.viewport);
+        local_8 = FUN_0041ca10();
         FUN_00431270();
-        if (iVar3 == 0) {
+        if (local_8 == 0) {
           return 1;
         }
-        if (iVar3 == -1) {
+        if (local_8 == -1) {
           return 2;
         }
-        *(char *)(in_ECX + 0x10) = *(char *)(in_ECX + 0x10) + '\x01';
+        *(char *)(param_1 + 0x10) = *(char *)(param_1 + 0x10) + '\x01';
 LAB_00420894:
         if (g_GameContext.cfg.field14_0x1e != 0) break;
         if ((((uint)g_GameContext.cfg.field34_0x34 >> 7 & 1) == 0) ||
-           (g_GameContext.field352_0x1a0 == 0)) {
+           (g_GameContext.field149_0x1a0 == 0)) {
           bVar2 = false;
         }
         else {
@@ -57,7 +66,7 @@ LAB_004209ab:
           return 0;
         }
         if ((((uint)g_GameContext.cfg.field34_0x34 >> 7 & 1) == 0) ||
-           (g_GameContext.field352_0x1a0 == 0)) {
+           (g_GameContext.field149_0x1a0 == 0)) {
           bVar2 = false;
         }
         else {
@@ -66,14 +75,14 @@ LAB_004209ab:
         if (bVar2) {
           return 0;
         }
-        if (g_GameContext.cfg.field15_0x1f < *(byte *)(in_ECX + 0x10)) goto LAB_00420a0b;
+        if (g_GameContext.cfg.field15_0x1f < *(byte *)(param_1 + 0x10)) goto LAB_00420a0b;
         FUN_00420b50();
       }
-      if (*(char *)(in_ECX + 0x10) == '\0') goto LAB_004209ab;
+      if (*(char *)(param_1 + 0x10) == '\0') goto LAB_004209ab;
       DAT_006c6ec4 = 1.0;
       timeBeginPeriod(1);
-      DVar4 = timeGetTime();
-      dVar1 = (double)(ulonglong)DVar4;
+      DVar3 = timeGetTime();
+      dVar1 = (double)(ulonglong)DVar3;
       if (dVar1 < _DAT_006c6bf8 != (NAN(dVar1) || NAN(_DAT_006c6bf8))) {
         _DAT_006c6bf8 = dVar1;
       }
@@ -84,7 +93,7 @@ LAB_004209ab:
         _DAT_006c6bf8 = _DAT_006c6bf8 + 16.66666666666667;
         local_34 = local_34 - 16.66666666666667;
       } while (16.66666666666667 <= local_34);
-    } while (*(byte *)(in_ECX + 0x10) <= g_GameContext.cfg.field15_0x1f);
+    } while (*(byte *)(param_1 + 0x10) <= g_GameContext.cfg.field15_0x1f);
 LAB_00420a0b:
     FUN_00420b50();
     if (NAN(DAT_006c6ec4) == (DAT_006c6ec4 == 0.0)) {
@@ -92,11 +101,11 @@ LAB_00420a0b:
     }
     else if (1 < DAT_006c6bf4) {
       timeBeginPeriod(1);
-      DVar4 = timeGetTime();
-      if (DVar4 < _DAT_006c6ebc) {
-        _DAT_006c6ebc = DVar4;
+      DVar3 = timeGetTime();
+      if (DVar3 < (uint)INT_006c6ebc) {
+        INT_006c6ebc = DVar3;
       }
-      dVar1 = ((((double)(ulonglong)(DVar4 - _DAT_006c6ebc) * 60.0) / 2.0) / 1000.0) /
+      dVar1 = ((((double)(ulonglong)(DVar3 - INT_006c6ebc) * 60.0) / 2.0) / 1000.0) /
               (double)(g_GameContext.cfg.field15_0x1f + 1);
       if (dVar1 < 0.865) {
         if (dVar1 < 0.6) {
@@ -109,11 +118,11 @@ LAB_00420a0b:
       else {
         DAT_006c6ec0 = 1.0;
       }
-      _DAT_006c6ebc = DVar4;
+      INT_006c6ebc = DVar3;
       timeEndPeriod(1);
       DAT_006c6bf4 = 0;
     }
-    *(undefined *)(in_ECX + 0x10) = 0;
+    *(undefined *)(param_1 + 0x10) = 0;
     DAT_006c6bf4 = DAT_006c6bf4 + 1;
   }
   return 0;

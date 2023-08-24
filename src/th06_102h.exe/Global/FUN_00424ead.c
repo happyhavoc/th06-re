@@ -77,7 +77,7 @@ LAB_0042508a:
       else {
         *(uint *)(in_ECX + 0x23b4 + local_c * 0x110) =
              *(uint *)(in_ECX + 0x23b4 + local_c * 0x110) | 2;
-        FUN_00434b60(DAT_006d4588,in_ECX + 0x2334 + local_c * 0x110,0xffe0c0,0x300000,local_54);
+        FUN_00434b60(VERY_BIG_STRUCT,in_ECX + 0x2334 + local_c * 0x110,0xffe0c0,0x300000,local_54);
       }
       *(float *)(in_ECX + 0x23c4 + local_c * 0x110) = (float)(local_c % 2) * 248.0 + 96.0;
       *(float *)(in_ECX + 0x23c8 + local_c * 0x110) = (float)(local_c / 2 << 4) + 320.0;

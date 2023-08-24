@@ -1,53 +1,53 @@
 
-void FUN_004354c0(int param_1,undefined4 param_2,undefined4 param_3,int param_4,int param_5,
-                 int param_6,int param_7)
+void FUN_004354c0(int param_1,LONG param_2,LONG param_3,int param_4,int param_5,int param_6,
+                 int param_7)
 
 {
-  int iVar1;
+  HRESULT HVar1;
+  int iVar2;
   int in_ECX;
-  int *local_20;
-  int local_1c;
-  int local_18;
-  int local_14;
-  int local_10;
-  undefined4 local_c;
-  undefined4 local_8;
+  IDirect3DSurface8 *local_20;
+  RECT local_1c;
+  POINT local_c;
   
   if (*(int *)(in_ECX + 0x20db4 + param_1 * 4) == 0) {
     return;
   }
-  iVar1 = (**(code **)(*(int *)g_GameContext._8_4_ + 0x40))(g_GameContext._8_4_,0,0,&local_20);
-  if (iVar1 == 0) {
+  HVar1 = (*(g_GameContext.d3d_device)->lpVtbl->GetBackBuffer)
+                    (g_GameContext.d3d_device,0,D3DBACKBUFFER_TYPE_MONO,&local_20);
+  if (HVar1 == 0) {
     if (*(int *)(in_ECX + 0x20d34 + param_1 * 4) == 0) {
-      iVar1 = (**(code **)(*(int *)g_GameContext._8_4_ + 100))
-                        (g_GameContext._8_4_,*(undefined4 *)(in_ECX + 0x20e34 + param_1 * 0x14),
-                         *(undefined4 *)(in_ECX + 0x20e38 + param_1 * 0x14),g_GameContext._232_4_,0,
-                         1,in_ECX + 0x20d34 + param_1 * 4);
-      if ((iVar1 != 0) &&
-         (iVar1 = (**(code **)(*(int *)g_GameContext._8_4_ + 0x6c))
-                            (g_GameContext._8_4_,*(undefined4 *)(in_ECX + 0x20e34 + param_1 * 0x14),
-                             *(undefined4 *)(in_ECX + 0x20e38 + param_1 * 0x14),
-                             g_GameContext._232_4_,in_ECX + 0x20d34 + param_1 * 4), iVar1 != 0)) {
-        (**(code **)(*local_20 + 8))(local_20);
+      HVar1 = (*(g_GameContext.d3d_device)->lpVtbl->CreateRenderTarget)
+                        (g_GameContext.d3d_device,*(UINT *)(in_ECX + 0x20e34 + param_1 * 0x14),
+                         *(UINT *)(in_ECX + 0x20e38 + param_1 * 0x14),
+                         g_GameContext.present_parameters.BackBufferFormat,D3DMULTISAMPLE_NONE,1,
+                         (IDirect3DSurface8 **)(in_ECX + 0x20d34 + param_1 * 4));
+      if ((HVar1 != 0) &&
+         (HVar1 = (*(g_GameContext.d3d_device)->lpVtbl->CreateImageSurface)
+                            (g_GameContext.d3d_device,*(UINT *)(in_ECX + 0x20e34 + param_1 * 0x14),
+                             *(UINT *)(in_ECX + 0x20e38 + param_1 * 0x14),
+                             g_GameContext.present_parameters.BackBufferFormat,
+                             (IDirect3DSurface8 **)(in_ECX + 0x20d34 + param_1 * 4)), HVar1 != 0)) {
+        (*local_20->lpVtbl->Release)(local_20);
         return;
       }
-      iVar1 = FUN_0043ff78(*(undefined4 *)(in_ECX + 0x20d34 + param_1 * 4),0,0,
+      iVar2 = FUN_0043ff78(*(undefined4 *)(in_ECX + 0x20d34 + param_1 * 4),0,0,
                            *(undefined4 *)(in_ECX + 0x20db4 + param_1 * 4),0,0,1,0);
-      if (iVar1 != 0) {
-        (**(code **)(*local_20 + 8))(local_20);
+      if (iVar2 != 0) {
+        (*local_20->lpVtbl->Release)(local_20);
         return;
       }
     }
-    local_1c = param_4;
-    local_18 = param_5;
-    local_14 = param_4 + param_6;
-    local_10 = param_5 + param_7;
-    local_c = param_2;
-    local_8 = param_3;
-    (**(code **)(*(int *)g_GameContext._8_4_ + 0x70))
-              (g_GameContext._8_4_,*(undefined4 *)(in_ECX + 0x20d34 + param_1 * 4),&local_1c,1,
-               local_20,&local_c);
-    (**(code **)(*local_20 + 8))(local_20);
+    local_1c.left = param_4;
+    local_1c.top = param_5;
+    local_1c.right = param_4 + param_6;
+    local_1c.bottom = param_5 + param_7;
+    local_c.x = param_2;
+    local_c.y = param_3;
+    (*(g_GameContext.d3d_device)->lpVtbl->CopyRects)
+              (g_GameContext.d3d_device,*(IDirect3DSurface8 **)(in_ECX + 0x20d34 + param_1 * 4),
+               &local_1c,1,local_20,&local_c);
+    (*local_20->lpVtbl->Release)(local_20);
     return;
   }
   return;

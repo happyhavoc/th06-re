@@ -9,10 +9,12 @@ void FUN_004324d0(int param_1)
   if ((uint)*(byte *)(in_ECX + 0x210bc) != (*(uint *)(param_1 + 0x80) >> 2 & 1)) {
     *(byte *)(in_ECX + 0x210bc) = (byte)(*(uint *)(param_1 + 0x80) >> 2) & 1;
     if (*(char *)(in_ECX + 0x210bc) == '\0') {
-      (**(code **)(*(int *)g_GameContext._8_4_ + 200))(g_GameContext._8_4_,0x14,6);
+      (*(g_GameContext.d3d_device)->lpVtbl->SetRenderState)
+                (g_GameContext.d3d_device,D3DRS_DESTBLEND,6);
     }
     else {
-      (**(code **)(*(int *)g_GameContext._8_4_ + 200))(g_GameContext._8_4_,0x14,2);
+      (*(g_GameContext.d3d_device)->lpVtbl->SetRenderState)
+                (g_GameContext.d3d_device,D3DRS_DESTBLEND,2);
     }
   }
   if ((((g_GameContext.cfg.field34_0x34 & 1U) == 0) &&
@@ -20,17 +22,19 @@ void FUN_004324d0(int param_1)
      ((uint)*(byte *)(in_ECX + 0x210bd) != (*(uint *)(param_1 + 0x80) >> 3 & 1))) {
     *(byte *)(in_ECX + 0x210bd) = (byte)(*(uint *)(param_1 + 0x80) >> 3) & 1;
     if (*(char *)(in_ECX + 0x210bd) == '\0') {
-      (**(code **)(*(int *)g_GameContext._8_4_ + 0xfc))(g_GameContext._8_4_,0,1,4);
+      (*(g_GameContext.d3d_device)->lpVtbl->SetTextureStageState)
+                (g_GameContext.d3d_device,0,D3DTSS_COLOROP,4);
     }
     else {
-      (**(code **)(*(int *)g_GameContext._8_4_ + 0xfc))(g_GameContext._8_4_,0,1,7);
+      (*(g_GameContext.d3d_device)->lpVtbl->SetTextureStageState)
+                (g_GameContext.d3d_device,0,D3DTSS_COLOROP,7);
     }
   }
   if (((uint)g_GameContext.cfg.field34_0x34 >> 1 & 1) == 0) {
     if (*(int *)(in_ECX + 0x210b4) != *(int *)(param_1 + 0x7c)) {
       *(undefined4 *)(in_ECX + 0x210b4) = *(undefined4 *)(param_1 + 0x7c);
-      (**(code **)(*(int *)g_GameContext._8_4_ + 200))
-                (g_GameContext._8_4_,0x3c,*(undefined4 *)(in_ECX + 0x210b4));
+      (*(g_GameContext.d3d_device)->lpVtbl->SetRenderState)
+                (g_GameContext.d3d_device,D3DRS_TEXTUREFACTOR,*(DWORD *)(in_ECX + 0x210b4));
     }
   }
   else {
@@ -47,10 +51,12 @@ void FUN_004324d0(int param_1)
      ((uint)*(byte *)(in_ECX + 0x210bf) != (*(uint *)(param_1 + 0x80) >> 0xc & 1))) {
     *(byte *)(in_ECX + 0x210bf) = (byte)(*(uint *)(param_1 + 0x80) >> 0xc) & 1;
     if (*(char *)(in_ECX + 0x210bf) == '\0') {
-      (**(code **)(*(int *)g_GameContext._8_4_ + 200))(g_GameContext._8_4_,0xe,1);
+      (*(g_GameContext.d3d_device)->lpVtbl->SetRenderState)
+                (g_GameContext.d3d_device,D3DRS_ZWRITEENABLE,1);
     }
     else {
-      (**(code **)(*(int *)g_GameContext._8_4_ + 200))(g_GameContext._8_4_,0xe,0);
+      (*(g_GameContext.d3d_device)->lpVtbl->SetRenderState)
+                (g_GameContext.d3d_device,D3DRS_ZWRITEENABLE,0);
     }
   }
   return;

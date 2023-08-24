@@ -14,7 +14,7 @@ void FUN_004306e0(int param_1,undefined4 param_2)
   undefined4 local_58;
   undefined4 local_54;
   undefined2 local_50;
-  char *local_4c;
+  byte *local_4c;
   undefined4 *local_48;
   uint local_44;
   uint local_40;
@@ -24,7 +24,7 @@ void FUN_004306e0(int param_1,undefined4 param_2)
   undefined4 local_30 [4];
   undefined4 *local_20;
   uint local_c;
-  char *local_8;
+  byte *local_8;
   
   local_c = __security_cookie ^ unaff_retaddr;
   if (in_ECX[0x184] != (int *)0x0) {
@@ -32,14 +32,14 @@ void FUN_004306e0(int param_1,undefined4 param_2)
       (**(code **)(*in_ECX[param_1 + 2] + 8))(in_ECX[param_1 + 2]);
       in_ECX[param_1 + 2] = (int *)0x0;
     }
-    local_4c = (char *)OpenPath(param_2,0);
+    local_4c = OpenPath(param_2,0);
     local_8 = local_4c;
-    if (local_4c != (char *)0x0) {
-      iVar1 = _strncmp(local_4c,"RIFF",4);
+    if (local_4c != (byte *)0x0) {
+      iVar1 = _strncmp((char *)local_4c,"RIFF",4);
       if (iVar1 == 0) {
         iVar1 = *(int *)(local_8 + 4);
         local_8 = local_8 + 8;
-        iVar2 = _strncmp(local_8,"WAVE",4);
+        iVar2 = _strncmp((char *)local_8,"WAVE",4);
         if (iVar2 == 0) {
           local_8 = local_8 + 4;
           local_34 = (undefined4 *)FUN_004309f0(local_8,&DAT_0046c0ec,&local_38,iVar1 + -0xc);

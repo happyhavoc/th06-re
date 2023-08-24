@@ -16,11 +16,11 @@ undefined4 FUN_00416d60(int param_1)
   uint local_8;
   
   if (g_GameContext._396_4_ != 3) {
-    iVar4 = FUN_00431dc0((int)VERY_BIG_STRUCT,6,"data/etama3.anm",0x200);
+    iVar4 = VeryBigStruct::LoadAnim(VERY_BIG_STRUCT,6,"data/etama3.anm",0x200);
     if (iVar4 != 0) {
       return 0xffffffff;
     }
-    iVar4 = FUN_00431dc0((int)VERY_BIG_STRUCT,7,"data/etama4.anm",0x29a);
+    iVar4 = VeryBigStruct::LoadAnim(VERY_BIG_STRUCT,7,"data/etama4.anm",0x29a);
     if (iVar4 != 0) {
       return 0xffffffff;
     }

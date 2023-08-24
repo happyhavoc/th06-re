@@ -2,7 +2,7 @@
 undefined4 FUN_004107b0(void)
 
 {
-  void *pvVar1;
+  undefined4 *puVar1;
   int iVar2;
   undefined4 uVar3;
   int *local_40;
@@ -14,13 +14,13 @@ undefined4 FUN_004107b0(void)
   puStack_c = &LAB_0046911b;
   local_10 = ExceptionList;
   ExceptionList = &local_10;
-  pvVar1 = operator_new(0x1170);
+  puVar1 = (undefined4 *)operator_new(0x1170);
   local_8 = 0;
-  if (pvVar1 == (void *)0x0) {
+  if (puVar1 == (undefined4 *)0x0) {
     local_40 = (int *)0x0;
   }
   else {
-    local_40 = (int *)FUN_004108b0();
+    local_40 = FUN_004108b0(puVar1);
   }
   local_8 = 0xffffffff;
   iVar2 = FUN_0041cd40(FUN_004109c0);

@@ -2,9 +2,9 @@
 undefined4 FUN_00410d80(void *param_1)
 
 {
-  FUN_00432030(0x2c);
-  FUN_00432030(0x2d);
-  FUN_00432030(0x2e);
+  FUN_00432030(VERY_BIG_STRUCT,0x2c);
+  FUN_00432030(VERY_BIG_STRUCT,0x2d);
+  FUN_00432030(VERY_BIG_STRUCT,0x2e);
   g_GameContext._396_4_ = 7;
   FUN_00435270(VERY_BIG_STRUCT,0);
   _free(*(void **)((int)param_1 + 0x1114));

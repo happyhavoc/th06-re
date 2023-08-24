@@ -5,14 +5,15 @@
 undefined4 FUN_0042a840(undefined4 *param_1)
 
 {
-  undefined4 uVar1;
+  byte *pbVar1;
   int iVar2;
+  undefined4 uVar3;
   int local_c;
   
   *param_1 = 0;
   if (param_1[1] == 0) {
-    uVar1 = OpenPath(param_1[3],DAT_0069d4c4 == '\0');
-    param_1[1] = uVar1;
+    pbVar1 = OpenPath(param_1[3],(uint)(DAT_0069d4c4 == '\0'));
+    param_1[1] = pbVar1;
     iVar2 = FUN_0042a140(param_1[1],g_FileSize);
     if (iVar2 != 0) {
       return 0xffffffff;
@@ -25,7 +26,7 @@ undefined4 FUN_0042a840(undefined4 *param_1)
     }
   }
   if (*(int *)(param_1[1] + 0x30 + DAT_0069d6d4 * 4) == 0) {
-    uVar1 = 0xffffffff;
+    uVar3 = 0xffffffff;
   }
   else {
     iVar2 = *(int *)(param_1[1] + 0x30 + DAT_0069d6d4 * 4);
@@ -45,8 +46,8 @@ undefined4 FUN_0042a840(undefined4 *param_1)
       DAT_0069bca0 = **(undefined4 **)(param_1[1] + 0x2c + DAT_0069d6d4 * 4);
       DAT_0069bca4 = DAT_0069bca0;
     }
-    uVar1 = 0;
+    uVar3 = 0;
   }
-  return uVar1;
+  return uVar3;
 }
 

@@ -9,10 +9,10 @@ undefined4 FUN_00410b10(int param_1)
   DAT_0069d4c2 = 1;
   g_GameContext._412_4_ = 1;
   FUN_00424375(5,&DAT_0046a6cc);
-  FUN_00431dc0((int)VERY_BIG_STRUCT,0x2c,"data/staff01.anm",0x600);
-  FUN_00431dc0((int)VERY_BIG_STRUCT,0x2d,"data/staff02.anm",0x607);
-  FUN_00431dc0((int)VERY_BIG_STRUCT,0x2e,"data/staff03.anm",0x60e);
-  VERY_BIG_STRUCT->field20243_0x210b8 = 0;
+  VeryBigStruct::LoadAnim(VERY_BIG_STRUCT,0x2c,"data/staff01.anm",0x600);
+  VeryBigStruct::LoadAnim(VERY_BIG_STRUCT,0x2d,"data/staff02.anm",0x607);
+  VeryBigStruct::LoadAnim(VERY_BIG_STRUCT,0x2e,"data/staff03.anm",0x60e);
+  VERY_BIG_STRUCT->field19869_0x210b8 = 0;
   *(undefined4 *)&VERY_BIG_STRUCT->field_0x210c0 = 0;
   VERY_BIG_STRUCT->field_0x210bc = 0xff;
   VERY_BIG_STRUCT->field_0x210be = 0xff;

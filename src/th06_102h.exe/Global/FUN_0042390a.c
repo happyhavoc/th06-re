@@ -57,7 +57,7 @@ undefined4 FUN_0042390a(void)
     DAT_0069d8f8 = *(undefined2 *)(unaff_EBP + -0x1a);
     _DAT_0069d8fc = 0;
     FUN_00431080((int **)&SOUND_PLAYER);
-    iVar1 = FUN_00431dc0((int)VERY_BIG_STRUCT,0,"data/text.anm",0x700);
+    iVar1 = VeryBigStruct::LoadAnim(VERY_BIG_STRUCT,0,"data/text.anm",0x700);
     if (iVar1 == 0) {
       iVar1 = FUN_004012c0();
       if (iVar1 == 0) {

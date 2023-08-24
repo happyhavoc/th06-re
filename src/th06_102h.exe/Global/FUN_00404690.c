@@ -4,16 +4,17 @@ undefined4 FUN_00404690(char *param_1,undefined4 param_2)
 {
   int iVar1;
   undefined4 uVar2;
-  void *pvVar3;
+  byte *pbVar3;
+  void *pvVar4;
   void **in_ECX;
   short *local_14;
   int local_c;
   int local_8;
   
-  iVar1 = FUN_00431dc0((int)VERY_BIG_STRUCT,4,param_1,0x300);
+  iVar1 = VeryBigStruct::LoadAnim(VERY_BIG_STRUCT,4,param_1,0x300);
   if (iVar1 == 0) {
-    pvVar3 = (void *)OpenPath(param_2,0);
-    in_ECX[1] = pvVar3;
+    pbVar3 = OpenPath(param_2,0);
+    in_ECX[1] = pbVar3;
     if (in_ECX[1] == (void *)0x0) {
       GameErrorContextLog(&g_GameErrorContext,
                           "ステージデータが見つかりません。データが壊れています\n"
@@ -31,8 +32,8 @@ undefined4 FUN_00404690(char *param_1,undefined4 param_2)
         *(int *)((int)in_ECX[4] + local_c * 4) =
              *(int *)((int)in_ECX[4] + local_c * 4) + (int)in_ECX[1];
       }
-      pvVar3 = _malloc((int)in_ECX[2] * 0x110);
-      *in_ECX = pvVar3;
+      pvVar4 = _malloc((int)in_ECX[2] * 0x110);
+      *in_ECX = pvVar4;
       local_8 = 0;
       for (local_c = 0; local_c < (int)in_ECX[3]; local_c = local_c + 1) {
         iVar1 = *(int *)((int)in_ECX[4] + local_c * 4);

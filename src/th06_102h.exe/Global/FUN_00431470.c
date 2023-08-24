@@ -46,14 +46,14 @@ undefined4 * __fastcall FUN_00431470(VeryBigStruct *param_1)
   FLOAT_006d45e0 = 1.0;
   DAT_006d45f8 = 0x3f800000;
   DAT_006d45fc = 0x3f800000;
-  param_1->field20252_0x210c4 = 0;
-  param_1->field20243_0x210b8 = 0;
+  param_1->field19878_0x210c4 = 0;
+  param_1->field19869_0x210b8 = 0;
   param_1->field_0x210bc = 0;
   param_1->field_0x210bd = 0;
-  param_1->field20242_0x210b4 = 1;
+  param_1->field19868_0x210b4 = 1;
   param_1->field_0x210be = 0;
   param_1->field_0x210bf = 0;
-  param_1->field20333_0x21118 = -1;
+  param_1->field19959_0x21118 = -1;
   return (undefined4 *)param_1;
 }
 

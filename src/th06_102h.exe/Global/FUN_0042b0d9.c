@@ -1,20 +1,20 @@
 
-char * FUN_0042b0d9(undefined4 param_1)
+byte * FUN_0042b0d9(undefined4 param_1)
 
 {
-  char *pcVar1;
+  byte *pbVar1;
   void *pvVar2;
   int local_24;
   int *local_20;
   int local_1c;
-  char *local_18;
+  byte *local_18;
   short local_14;
   byte local_d;
   int local_c;
-  char *local_8;
+  byte *local_8;
   
-  local_8 = (char *)OpenPath(param_1,1);
-  if (local_8 != (char *)0x0) {
+  local_8 = OpenPath(param_1,1);
+  if (local_8 != (byte *)0x0) {
     if (g_FileSize < 0x14) {
       _free(local_8);
     }
@@ -22,17 +22,17 @@ char * FUN_0042b0d9(undefined4 param_1)
       local_14 = 0;
       local_d = 0;
       local_c = 0;
-      pcVar1 = local_8;
-      for (local_1c = g_FileSize - 2; local_18 = pcVar1 + 1, 0 < local_1c; local_1c = local_1c + -1)
+      pbVar1 = local_8;
+      for (local_1c = g_FileSize - 2; local_18 = pbVar1 + 1, 0 < local_1c; local_1c = local_1c + -1)
       {
         local_d = (byte)((int)((byte)(local_d + *local_18) & 0xe0) >> 5) |
                   (byte)(((byte)(local_d + *local_18) & 0x1f) << 3);
-        pcVar1[2] = pcVar1[2] ^ local_d;
+        pbVar1[2] = pbVar1[2] ^ local_d;
         if (1 < local_c) {
-          local_14 = local_14 + (ushort)(byte)pcVar1[2];
+          local_14 = local_14 + (ushort)pbVar1[2];
         }
         local_c = local_c + 1;
-        pcVar1 = local_18;
+        pbVar1 = local_18;
       }
       if (*(short *)(local_8 + 2) == local_14) {
         local_20 = (int *)(local_8 + *(int *)(local_8 + 8));
@@ -49,7 +49,7 @@ char * FUN_0042b0d9(undefined4 param_1)
       }
     }
   }
-  local_8 = (char *)_malloc(0x14);
+  local_8 = (byte *)_malloc(0x14);
   *(undefined4 *)(local_8 + 8) = 0x14;
   *(undefined4 *)(local_8 + 0x10) = 0x14;
 LAB_0042b248:

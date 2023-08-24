@@ -8,11 +8,11 @@ undefined4 FUN_0043a1ec(int param_1)
   int local_8;
   
   for (local_8 = 0x15; local_8 < 0x1b; local_8 = local_8 + 1) {
-    FUN_00432030(local_8);
+    FUN_00432030(VERY_BIG_STRUCT,local_8);
   }
   iVar1 = VeryBigStruct::LogoStuff(VERY_BIG_STRUCT,0,"data/title/select00.jpg");
   if (iVar1 == 0) {
-    iVar1 = FUN_00431dc0((int)VERY_BIG_STRUCT,0x24,"data/replay00.anm",0x160);
+    iVar1 = VeryBigStruct::LoadAnim(VERY_BIG_STRUCT,0x24,"data/replay00.anm",0x160);
     if (iVar1 == 0) {
       local_c = param_1 + 0x6600;
       for (local_8 = 0x160; local_8 < 0x17a; local_8 = local_8 + 1) {

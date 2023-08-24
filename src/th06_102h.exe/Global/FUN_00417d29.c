@@ -23,50 +23,50 @@ undefined4 FUN_00417d29(void)
       *puVar4 = 0;
       puVar4 = puVar4 + 1;
     }
-    iVar3 = FUN_00431dc0((int)VERY_BIG_STRUCT,0xd,"data/front.anm",0x600);
+    iVar3 = VeryBigStruct::LoadAnim(VERY_BIG_STRUCT,0xd,"data/front.anm",0x600);
     if (iVar3 != 0) {
       return 0xffffffff;
     }
-    iVar3 = FUN_00431dc0((int)VERY_BIG_STRUCT,0xe,"data/loading.anm",0x619);
+    iVar3 = VeryBigStruct::LoadAnim(VERY_BIG_STRUCT,0xe,"data/loading.anm",0x619);
     if (iVar3 != 0) {
       return 0xffffffff;
     }
     *(undefined2 *)(in_ECX[1] + 0x24d4) = 0xffff;
     if (DAT_0069d4bd == '\0') {
-      iVar3 = FUN_00431dc0((int)VERY_BIG_STRUCT,0xf,"data/face00a.anm",0x4a0);
+      iVar3 = VeryBigStruct::LoadAnim(VERY_BIG_STRUCT,0xf,"data/face00a.anm",0x4a0);
       if (iVar3 != 0) {
         return 0xffffffff;
       }
-      iVar3 = FUN_00431dc0((int)VERY_BIG_STRUCT,0x10,"data/face00b.anm",0x4a2);
+      iVar3 = VeryBigStruct::LoadAnim(VERY_BIG_STRUCT,0x10,"data/face00b.anm",0x4a2);
       if (iVar3 != 0) {
         return 0xffffffff;
       }
-      iVar3 = FUN_00431dc0((int)VERY_BIG_STRUCT,0x11,"data/face00c.anm",0x4a4);
+      iVar3 = VeryBigStruct::LoadAnim(VERY_BIG_STRUCT,0x11,"data/face00c.anm",0x4a4);
       if (iVar3 != 0) {
         return 0xffffffff;
       }
     }
     else if (DAT_0069d4bd == '\x01') {
-      iVar3 = FUN_00431dc0((int)VERY_BIG_STRUCT,0xf,"data/face01a.anm",0x4a0);
+      iVar3 = VeryBigStruct::LoadAnim(VERY_BIG_STRUCT,0xf,"data/face01a.anm",0x4a0);
       if (iVar3 != 0) {
         return 0xffffffff;
       }
-      iVar3 = FUN_00431dc0((int)VERY_BIG_STRUCT,0x10,"data/face01b.anm",0x4a2);
+      iVar3 = VeryBigStruct::LoadAnim(VERY_BIG_STRUCT,0x10,"data/face01b.anm",0x4a2);
       if (iVar3 != 0) {
         return 0xffffffff;
       }
-      iVar3 = FUN_00431dc0((int)VERY_BIG_STRUCT,0x11,"data/face01c.anm",0x4a4);
+      iVar3 = VeryBigStruct::LoadAnim(VERY_BIG_STRUCT,0x11,"data/face01c.anm",0x4a4);
       if (iVar3 != 0) {
         return 0xffffffff;
       }
     }
   }
   if (DAT_0069d6d4 == 1) {
-    iVar3 = FUN_00431dc0((int)VERY_BIG_STRUCT,0x12,"data/face03a.anm",0x4a8);
+    iVar3 = VeryBigStruct::LoadAnim(VERY_BIG_STRUCT,0x12,"data/face03a.anm",0x4a8);
     if (iVar3 != 0) {
       return 0xffffffff;
     }
-    iVar3 = FUN_00431dc0((int)VERY_BIG_STRUCT,0x13,"data/face03b.anm",0x4aa);
+    iVar3 = VeryBigStruct::LoadAnim(VERY_BIG_STRUCT,0x13,"data/face03b.anm",0x4aa);
     if (iVar3 != 0) {
       return 0xffffffff;
     }
@@ -76,7 +76,7 @@ undefined4 FUN_00417d29(void)
     }
   }
   else if (DAT_0069d6d4 == 2) {
-    iVar3 = FUN_00431dc0((int)VERY_BIG_STRUCT,0x12,"data/face05a.anm",0x4a8);
+    iVar3 = VeryBigStruct::LoadAnim(VERY_BIG_STRUCT,0x12,"data/face05a.anm",0x4a8);
     if (iVar3 != 0) {
       return 0xffffffff;
     }
@@ -86,11 +86,11 @@ undefined4 FUN_00417d29(void)
     }
   }
   else if (DAT_0069d6d4 == 3) {
-    iVar3 = FUN_00431dc0((int)VERY_BIG_STRUCT,0x12,"data/face06a.anm",0x4a8);
+    iVar3 = VeryBigStruct::LoadAnim(VERY_BIG_STRUCT,0x12,"data/face06a.anm",0x4a8);
     if (iVar3 != 0) {
       return 0xffffffff;
     }
-    iVar3 = FUN_00431dc0((int)VERY_BIG_STRUCT,0x13,"data/face06b.anm",0x4aa);
+    iVar3 = VeryBigStruct::LoadAnim(VERY_BIG_STRUCT,0x13,"data/face06b.anm",0x4aa);
     if (iVar3 != 0) {
       return 0xffffffff;
     }
@@ -100,11 +100,11 @@ undefined4 FUN_00417d29(void)
     }
   }
   else if (DAT_0069d6d4 == 4) {
-    iVar3 = FUN_00431dc0((int)VERY_BIG_STRUCT,0x12,"data/face08a.anm",0x4a8);
+    iVar3 = VeryBigStruct::LoadAnim(VERY_BIG_STRUCT,0x12,"data/face08a.anm",0x4a8);
     if (iVar3 != 0) {
       return 0xffffffff;
     }
-    iVar3 = FUN_00431dc0((int)VERY_BIG_STRUCT,0x13,"data/face08b.anm",0x4aa);
+    iVar3 = VeryBigStruct::LoadAnim(VERY_BIG_STRUCT,0x13,"data/face08b.anm",0x4aa);
     if (iVar3 != 0) {
       return 0xffffffff;
     }
@@ -114,11 +114,11 @@ undefined4 FUN_00417d29(void)
     }
   }
   else if (DAT_0069d6d4 == 5) {
-    iVar3 = FUN_00431dc0((int)VERY_BIG_STRUCT,0x12,"data/face09a.anm",0x4a8);
+    iVar3 = VeryBigStruct::LoadAnim(VERY_BIG_STRUCT,0x12,"data/face09a.anm",0x4a8);
     if (iVar3 != 0) {
       return 0xffffffff;
     }
-    iVar3 = FUN_00431dc0((int)VERY_BIG_STRUCT,0x13,"data/face09b.anm",0x4aa);
+    iVar3 = VeryBigStruct::LoadAnim(VERY_BIG_STRUCT,0x13,"data/face09b.anm",0x4aa);
     if (iVar3 != 0) {
       return 0xffffffff;
     }
@@ -128,15 +128,15 @@ undefined4 FUN_00417d29(void)
     }
   }
   else if (DAT_0069d6d4 == 6) {
-    iVar3 = FUN_00431dc0((int)VERY_BIG_STRUCT,0x12,"data/face09b.anm",0x4a8);
+    iVar3 = VeryBigStruct::LoadAnim(VERY_BIG_STRUCT,0x12,"data/face09b.anm",0x4a8);
     if (iVar3 != 0) {
       return 0xffffffff;
     }
-    iVar3 = FUN_00431dc0((int)VERY_BIG_STRUCT,0x13,"data/face10a.anm",0x4aa);
+    iVar3 = VeryBigStruct::LoadAnim(VERY_BIG_STRUCT,0x13,"data/face10a.anm",0x4aa);
     if (iVar3 != 0) {
       return 0xffffffff;
     }
-    iVar3 = FUN_00431dc0((int)VERY_BIG_STRUCT,0x14,"data/face10b.anm",0x4ab);
+    iVar3 = VeryBigStruct::LoadAnim(VERY_BIG_STRUCT,0x14,"data/face10b.anm",0x4ab);
     if (iVar3 != 0) {
       return 0xffffffff;
     }
@@ -146,15 +146,15 @@ undefined4 FUN_00417d29(void)
     }
   }
   else {
-    iVar3 = FUN_00431dc0((int)VERY_BIG_STRUCT,0x12,"data/face08a.anm",0x4a8);
+    iVar3 = VeryBigStruct::LoadAnim(VERY_BIG_STRUCT,0x12,"data/face08a.anm",0x4a8);
     if (iVar3 != 0) {
       return 0xffffffff;
     }
-    iVar3 = FUN_00431dc0((int)VERY_BIG_STRUCT,0x13,"data/face12a.anm",0x4aa);
+    iVar3 = VeryBigStruct::LoadAnim(VERY_BIG_STRUCT,0x13,"data/face12a.anm",0x4aa);
     if (iVar3 != 0) {
       return 0xffffffff;
     }
-    iVar3 = FUN_00431dc0((int)VERY_BIG_STRUCT,0x14,"data/face12b.anm",0x4ab);
+    iVar3 = VeryBigStruct::LoadAnim(VERY_BIG_STRUCT,0x14,"data/face12b.anm",0x4ab);
     if (iVar3 != 0) {
       return 0xffffffff;
     }

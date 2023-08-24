@@ -6,7 +6,7 @@ void FUN_004381ec(void)
 {
   int iVar1;
   BOOL BVar2;
-  undefined4 uVar3;
+  byte *pbVar3;
   int in_ECX;
   undefined4 *puVar4;
   undefined4 *puVar5;
@@ -111,8 +111,8 @@ void FUN_004381ec(void)
           *(undefined4 *)(in_ECX + 0x81f4) = 0;
           *(undefined4 *)(in_ECX + 0x81a0) = 0;
           FUN_004311e0(10,0);
-          uVar3 = OpenPath(in_ECX + 0x823c + *(int *)(in_ECX + 0x81e8) * 0x200,1);
-          *(undefined4 *)(in_ECX + 0x10edc) = uVar3;
+          pbVar3 = OpenPath(in_ECX + 0x823c + *(int *)(in_ECX + 0x81e8) * 0x200,1);
+          *(byte **)(in_ECX + 0x10edc) = pbVar3;
           FUN_0042a140(*(undefined4 *)(in_ECX + 0x10edc),g_FileSize);
           for (local_c = 0; local_c < 7; local_c = local_c + 1) {
             if (*(int *)(*(int *)(in_ECX + 0x10edc) + 0x34 + local_c * 4) != 0) {

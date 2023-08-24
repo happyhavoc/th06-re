@@ -9,7 +9,7 @@ undefined4 FUN_0043a659(int param_1)
   (*(g_GameContext.d3d_device)->lpVtbl->ResourceManagerDiscardBytes)(g_GameContext.d3d_device,0);
   FUN_0043a70a();
   for (local_8 = 0x1b; local_8 < 0x25; local_8 = local_8 + 1) {
-    FUN_00432030(local_8);
+    FUN_00432030(VERY_BIG_STRUCT,local_8);
   }
   FUN_00435270(VERY_BIG_STRUCT,0);
   pVVar1 = VERY_BIG_STRUCT;

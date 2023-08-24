@@ -15,25 +15,25 @@ void FUN_0042564c(int param_1)
   int local_70;
   undefined4 local_5c [16];
   uint local_1c;
-  char *local_18;
+  byte *local_18;
   int local_14;
-  char *local_10;
+  byte *local_10;
   int local_c;
   int local_8;
   
   local_1c = __security_cookie ^ unaff_retaddr;
   iVar3 = VeryBigStruct::LogoStuff(VERY_BIG_STRUCT,0,"data/result/music.jpg");
   if ((((iVar3 == 0) &&
-       (iVar3 = FUN_00431dc0((int)VERY_BIG_STRUCT,0x29,"data/music00.anm",0x100), iVar3 == 0)) &&
-      (iVar3 = FUN_00431dc0((int)VERY_BIG_STRUCT,0x2a,"data/music01.anm",0x101), iVar3 == 0)) &&
-     (iVar3 = FUN_00431dc0((int)VERY_BIG_STRUCT,0x2b,"data/music02.anm",0x111),
-     pVVar2 = VERY_BIG_STRUCT, iVar3 == 0)) {
+       (iVar3 = VeryBigStruct::LoadAnim(VERY_BIG_STRUCT,0x29,"data/music00.anm",0x100), iVar3 == 0))
+      && (iVar3 = VeryBigStruct::LoadAnim(VERY_BIG_STRUCT,0x2a,"data/music01.anm",0x101), iVar3 == 0
+         )) && (iVar3 = VeryBigStruct::LoadAnim(VERY_BIG_STRUCT,0x2b,"data/music02.anm",0x111),
+               pVVar2 = VERY_BIG_STRUCT, iVar3 == 0)) {
     *(undefined2 *)(param_1 + 0xd8) = 0x100;
     FUN_00432430(param_1 + 0x24,*(undefined4 *)&pVVar2->field_0x1cd34);
     *(undefined4 *)(param_1 + 8) = 0;
-    local_18 = (char *)OpenPath("data/musiccmt.txt",0);
+    local_18 = OpenPath("data/musiccmt.txt",0);
     local_10 = local_18;
-    if (local_18 != (char *)0x0) {
+    if (local_18 != (byte *)0x0) {
       local_8c = (undefined4 *)operator_new(0x4e40);
       if (local_8c == (undefined4 *)0x0) {
         local_8c = (undefined4 *)0x0;
@@ -54,33 +54,33 @@ void FUN_0042564c(int param_1)
       *(undefined4 **)(param_1 + 0x20) = local_8c;
       local_8 = -1;
       while ((int)local_10 - (int)local_18 < g_FileSize) {
-        if (*local_10 == '@') {
+        if (*local_10 == 0x40) {
           local_10 = local_10 + 1;
           local_8 = local_8 + 1;
           local_14 = 0;
-          while ((*local_10 != '\n' && (*local_10 != '\r'))) {
-            *(char *)(local_8 * 0x272 + *(int *)(param_1 + 0x20) + local_14) = *local_10;
+          while ((*local_10 != 10 && (*local_10 != 0xd))) {
+            *(byte *)(local_8 * 0x272 + *(int *)(param_1 + 0x20) + local_14) = *local_10;
             local_10 = local_10 + 1;
             local_14 = local_14 + 1;
             if (g_FileSize <= (int)local_10 - (int)local_18) goto LAB_004259f3;
           }
-          while ((*local_10 == '\n' || (*local_10 == '\r'))) {
+          while ((*local_10 == 10 || (*local_10 == 0xd))) {
             local_10 = local_10 + 1;
             if (g_FileSize <= (int)local_10 - (int)local_18) goto LAB_004259f3;
           }
           local_14 = 0;
-          while ((*local_10 != '\n' && (*local_10 != '\r'))) {
-            *(char *)(local_8 * 0x272 + *(int *)(param_1 + 0x20) + 0x40 + local_14) = *local_10;
+          while ((*local_10 != 10 && (*local_10 != 0xd))) {
+            *(byte *)(local_8 * 0x272 + *(int *)(param_1 + 0x20) + 0x40 + local_14) = *local_10;
             local_10 = local_10 + 1;
             local_14 = local_14 + 1;
             if (g_FileSize <= (int)local_10 - (int)local_18) goto LAB_004259f3;
           }
-          while ((*local_10 == '\n' && (*local_10 == '\r'))) {
+          while ((*local_10 == 10 && (*local_10 == 0xd))) {
             local_10 = local_10 + 1;
             if (g_FileSize <= (int)local_10 - (int)local_18) goto LAB_004259f3;
           }
           local_c = 0;
-          while ((local_c < 8 && (*local_10 != '@'))) {
+          while ((local_c < 8 && (*local_10 != 0x40))) {
             puVar5 = (undefined4 *)
                      (*(int *)(param_1 + 0x20) + local_8 * 0x272 + 0x62 + local_c * 0x42);
             for (iVar3 = 0x10; iVar3 != 0; iVar3 = iVar3 + -1) {
@@ -89,14 +89,14 @@ void FUN_0042564c(int param_1)
             }
             *(undefined2 *)puVar5 = 0;
             local_14 = 0;
-            while ((*local_10 != '\n' && (*local_10 != '\r'))) {
-              *(char *)(local_c * 0x42 + 0x62 +
+            while ((*local_10 != 10 && (*local_10 != 0xd))) {
+              *(byte *)(local_c * 0x42 + 0x62 +
                        local_14 + *(int *)(param_1 + 0x20) + local_8 * 0x272) = *local_10;
               local_10 = local_10 + 1;
               local_14 = local_14 + 1;
               if (g_FileSize <= (int)local_10 - (int)local_18) goto LAB_004259f3;
             }
-            while ((*local_10 == '\n' || (*local_10 == '\r'))) {
+            while ((*local_10 == 10 || (*local_10 == 0xd))) {
               local_10 = local_10 + 1;
               if (g_FileSize <= (int)local_10 - (int)local_18) goto LAB_004259f3;
             }

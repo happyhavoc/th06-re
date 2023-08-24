@@ -1,9 +1,9 @@
 
-void * OpenPath(char *file_path,int param_2)
+byte * OpenPath(char *file_path,int param_2)
 
 {
   char *pcVar1;
-  void *_DstBuf;
+  byte *_DstBuf;
   FILE *_File;
   size_t _Size;
   int local_10;
@@ -35,7 +35,7 @@ void * OpenPath(char *file_path,int param_2)
       }
     }
     if (local_10 < 0) {
-      return (void *)0x0;
+      return (byte *)0x0;
     }
   }
   if (local_10 < 0) {
@@ -43,21 +43,21 @@ void * OpenPath(char *file_path,int param_2)
     _File = fopen(file_path,"rb");
     if (_File == (FILE *)0x0) {
       DebugPrint2("error : %s is not found.\n",file_path);
-      _DstBuf = (void *)0x0;
+      _DstBuf = (byte *)0x0;
     }
     else {
       _fseek(_File,0,2);
       _Size = _ftell(_File);
       g_FileSize = _Size;
       _fseek(_File,0,0);
-      _DstBuf = _malloc(_Size);
+      _DstBuf = (byte *)_malloc(_Size);
       _fread(_DstBuf,1,_Size,_File);
       _fclose(_File);
     }
   }
   else {
     DebugPrint2("%s Decode ... \n",local_c);
-    _DstBuf = (void *)FUN_0043cb40(local_10,local_c);
+    _DstBuf = (byte *)FUN_0043cb40(local_10,local_c);
     g_FileSize = FUN_0043c990(local_10);
   }
   return _DstBuf;

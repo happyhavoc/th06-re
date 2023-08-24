@@ -21,14 +21,14 @@ undefined4 FUN_00431a10(int param_1,undefined4 param_2,undefined4 param_3,undefi
   int local_34;
   int local_30;
   int local_2c;
-  void *local_28;
+  byte *local_28;
   int local_24 [6];
   uint local_c;
   uint local_8;
   
   local_3c = (int *)0x0;
-  local_28 = (void *)OpenPath(param_2,0);
-  if (local_28 != (void *)0x0) {
+  local_28 = OpenPath(param_2,0);
+  if (local_28 != (byte *)0x0) {
     (**(code **)(**(int **)(in_ECX + 0x1c110 + param_1 * 4) + 0x38))
               (*(undefined4 *)(in_ECX + 0x1c110 + param_1 * 4),0,local_24);
     if (((local_24[0] == 0x15) || (local_24[0] == 0x1a)) || (local_24[0] == 0x19)) {
@@ -85,7 +85,7 @@ undefined4 FUN_00431a10(int param_1,undefined4 param_2,undefined4 param_3,undefi
     }
     else {
       GameErrorContextFatal
-                (&g_GameErrorContext,"error : イメージがαを持っていません\n");
+                (&g_GameErrorContext,"error : イメージがα���持っていません\n");
     }
     if (local_3c != (int *)0x0) {
       (**(code **)(*local_3c + 8))(local_3c);

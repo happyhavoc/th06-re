@@ -14,7 +14,7 @@ undefined4 FUN_00429c50(int param_1)
   
   if (DAT_0069d4bd == 0) {
     if ((g_GameContext._396_4_ != 3) &&
-       (iVar2 = FUN_00431dc0((int)VERY_BIG_STRUCT,5,"data/player00.anm",0x400), iVar2 != 0)) {
+       (iVar2 = VeryBigStruct::LoadAnim(VERY_BIG_STRUCT,5,"data/player00.anm",0x400), iVar2 != 0)) {
       return 0xffffffff;
     }
     pVVar1 = VERY_BIG_STRUCT;
@@ -23,7 +23,7 @@ undefined4 FUN_00429c50(int param_1)
   }
   else if (DAT_0069d4bd == 1) {
     if ((g_GameContext._396_4_ != 3) &&
-       (iVar2 = FUN_00431dc0((int)VERY_BIG_STRUCT,5,"data/player01.anm",0x400), iVar2 != 0)) {
+       (iVar2 = VeryBigStruct::LoadAnim(VERY_BIG_STRUCT,5,"data/player01.anm",0x400), iVar2 != 0)) {
       return 0xffffffff;
     }
     pVVar1 = VERY_BIG_STRUCT;

@@ -9,7 +9,7 @@ undefined4 FUN_00423ddf(int param_1)
   for (local_8 = 0; local_8 < 0x10; local_8 = local_8 + 1) {
     FUN_004242f3(local_8);
   }
-  FUN_00432030(0);
+  FUN_00432030(VERY_BIG_STRUCT,0);
   FUN_00401500();
   SoundPlayer::StopBGM(&SOUND_PLAYER);
   if (*(int *)(param_1 + 0x1b0) != 0) {

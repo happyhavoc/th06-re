@@ -3,17 +3,18 @@ undefined4 FUN_004106d0(undefined4 param_1)
 
 {
   void *_Memory;
-  undefined4 uVar1;
+  byte *pbVar1;
+  undefined4 uVar2;
   int in_ECX;
   
   _Memory = *(void **)(in_ECX + 0x1114);
-  uVar1 = OpenPath(param_1,0);
-  *(undefined4 *)(in_ECX + 0x1114) = uVar1;
+  pbVar1 = OpenPath(param_1,0);
+  *(byte **)(in_ECX + 0x1114) = pbVar1;
   if (*(int *)(in_ECX + 0x1114) == 0) {
     GameErrorContextLog(&g_GameErrorContext,
                         "error : エンディングファイルが読み込めない、ファイルが破壊されています\n"
                        );
-    uVar1 = 0xffffffff;
+    uVar2 = 0xffffffff;
   }
   else {
     *(undefined4 *)(in_ECX + 0x116c) = *(undefined4 *)(in_ECX + 0x1114);
@@ -27,8 +28,8 @@ undefined4 FUN_004106d0(undefined4 param_1)
     if (_Memory != (void *)0x0) {
       _free(_Memory);
     }
-    uVar1 = 0;
+    uVar2 = 0;
   }
-  return uVar1;
+  return uVar2;
 }
 

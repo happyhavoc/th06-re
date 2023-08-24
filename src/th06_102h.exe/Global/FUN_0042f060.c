@@ -18,19 +18,19 @@ undefined4 FUN_0042f060(undefined4 *param_1)
     if (iVar2 != 0) {
       return 0xffffffff;
     }
-    iVar2 = FUN_00431dc0((int)VERY_BIG_STRUCT,0x25,"data/result00.anm",0x100);
+    iVar2 = VeryBigStruct::LoadAnim(VERY_BIG_STRUCT,0x25,"data/result00.anm",0x100);
     if (iVar2 != 0) {
       return 0xffffffff;
     }
-    iVar2 = FUN_00431dc0((int)VERY_BIG_STRUCT,0x26,"data/result01.anm",0x108);
+    iVar2 = VeryBigStruct::LoadAnim(VERY_BIG_STRUCT,0x26,"data/result01.anm",0x108);
     if (iVar2 != 0) {
       return 0xffffffff;
     }
-    iVar2 = FUN_00431dc0((int)VERY_BIG_STRUCT,0x27,"data/result02.anm",0x10f);
+    iVar2 = VeryBigStruct::LoadAnim(VERY_BIG_STRUCT,0x27,"data/result02.anm",0x10f);
     if (iVar2 != 0) {
       return 0xffffffff;
     }
-    iVar2 = FUN_00431dc0((int)VERY_BIG_STRUCT,0x28,"data/result03.anm",0x125);
+    iVar2 = VeryBigStruct::LoadAnim(VERY_BIG_STRUCT,0x28,"data/result03.anm",0x125);
     if (iVar2 != 0) {
       return 0xffffffff;
     }

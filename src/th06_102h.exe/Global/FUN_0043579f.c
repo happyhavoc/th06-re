@@ -53,7 +53,7 @@ undefined4 FUN_0043579f(int param_1)
     }
   case 1:
     *(int *)(param_1 + 0x81f8) = *(int *)(param_1 + 0x81f8) + 1;
-    if (DAT_0069d904 != 0) {
+    if (BUTTONS_PRESSED_CURFRAME != 0) {
       *(undefined4 *)(param_1 + 0x81f8) = 0;
     }
     if (0x2cf < *(int *)(param_1 + 0x81f8)) {
@@ -73,7 +73,7 @@ LAB_004359b3:
       *(undefined4 *)(param_1 + 0x81f8) = 0;
 switchD_004358f7_caseD_2:
       FUN_00437b41();
-      if (DAT_0069d904 != 0) {
+      if (BUTTONS_PRESSED_CURFRAME != 0) {
         *(undefined4 *)(param_1 + 0x81f8) = 0;
       }
       *(int *)(param_1 + 0x81f8) = *(int *)(param_1 + 0x81f8) + 1;
@@ -83,7 +83,7 @@ switchD_004358f7_caseD_2:
   case 2:
     goto switchD_004358f7_caseD_2;
   case 3:
-    iVar5 = FUN_00439137();
+    iVar5 = FUN_00439137(param_1);
     if (iVar5 != 0) {
       return 0;
     }
@@ -180,7 +180,8 @@ switchD_004358f7_caseD_2:
         }
       }
       DAT_00478690 = (short)local_28;
-      if (((DAT_0069d904 & 0x1001) != 0) && ((DAT_0069d904 & 0x1001) != (DAT_0069d908 & 0x1001))) {
+      if (((BUTTONS_PRESSED_CURFRAME & 0x1001) != 0) &&
+         ((BUTTONS_PRESSED_CURFRAME & 0x1001) != (BUTTONS_PRESSED_PREVFRAME & 0x1001))) {
         if (*(int *)(param_1 + 0x81a0) == 9) {
           *(undefined4 *)(param_1 + 0x821c) = 0x10000;
           *(undefined4 *)(param_1 + 0x8220) = 0xffff0000;
@@ -196,16 +197,16 @@ switchD_004358f7_caseD_2:
           }
           *(undefined4 *)(param_1 + 0x81a0) = 7;
           FUN_004311e0(0xb,0);
-          DAT_004765a0 = *(undefined4 *)(param_1 + 0x821c);
-          DAT_004765a4 = *(undefined4 *)(param_1 + 0x8220);
-          DAT_004765a8 = *(undefined4 *)(param_1 + 0x8224);
-          DAT_004765ac = *(undefined4 *)(param_1 + 0x8228);
-          DAT_004765b0 = *(undefined2 *)(param_1 + 0x822c);
-          g_GameContext.cfg.unk1 = *(int *)(param_1 + 0x821c);
-          g_GameContext.cfg.unk2 = *(int *)(param_1 + 0x8220);
-          g_GameContext.cfg.unk3 = *(int *)(param_1 + 0x8224);
-          g_GameContext.cfg.unk4 = *(int *)(param_1 + 0x8228);
-          g_GameContext.cfg.unk5 = *(short *)(param_1 + 0x822c);
+          g_ControllerMapping._0_4_ = *(undefined4 *)(param_1 + 0x821c);
+          g_ControllerMapping._4_4_ = *(undefined4 *)(param_1 + 0x8220);
+          g_ControllerMapping._8_4_ = *(undefined4 *)(param_1 + 0x8224);
+          g_ControllerMapping._12_4_ = *(undefined4 *)(param_1 + 0x8228);
+          g_ControllerMapping.unkButton = *(short *)(param_1 + 0x822c);
+          g_GameContext.cfg.controllerMapping._0_4_ = *(undefined4 *)(param_1 + 0x821c);
+          g_GameContext.cfg.controllerMapping._4_4_ = *(undefined4 *)(param_1 + 0x8220);
+          g_GameContext.cfg.controllerMapping._8_4_ = *(undefined4 *)(param_1 + 0x8224);
+          g_GameContext.cfg.controllerMapping._12_4_ = *(undefined4 *)(param_1 + 0x8228);
+          g_GameContext.cfg.controllerMapping.unkButton = *(short *)(param_1 + 0x822c);
         }
       }
     }
@@ -226,7 +227,7 @@ switchD_004358f7_caseD_2:
       for (local_8 = 0; (int)local_8 < 0x7a; local_8 = local_8 + 1) {
         *(undefined2 *)(param_1 + 0x8a + local_8 * 0x110) = 6;
       }
-      *(uint *)(param_1 + 0x81a0) = (uint)g_GameContext.cfg.unk7;
+      *(uint *)(param_1 + 0x81a0) = (uint)g_GameContext.cfg.defaultDifficulty;
     }
     else {
       for (local_8 = 0; (int)local_8 < 0x7a; local_8 = local_8 + 1) {
@@ -290,8 +291,10 @@ switchD_004358f7_caseD_2:
         local_c = local_c + 0x110;
       }
     }
-    if (((DAT_0069d904 & 10) == 0) || ((DAT_0069d904 & 10) == (DAT_0069d908 & 10))) {
-      if (((DAT_0069d904 & 0x1001) != 0) && ((DAT_0069d904 & 0x1001) != (DAT_0069d908 & 0x1001))) {
+    if (((BUTTONS_PRESSED_CURFRAME & 10) == 0) ||
+       ((BUTTONS_PRESSED_CURFRAME & 10) == (BUTTONS_PRESSED_PREVFRAME & 10))) {
+      if (((BUTTONS_PRESSED_CURFRAME & 0x1001) != 0) &&
+         ((BUTTONS_PRESSED_CURFRAME & 0x1001) != (BUTTONS_PRESSED_PREVFRAME & 0x1001))) {
         *(undefined4 *)(param_1 + 0x81f0) = 9;
         *(undefined4 *)(param_1 + 0x81f4) = 0;
         for (local_8 = 0; (int)local_8 < 0x7a; local_8 = local_8 + 1) {
@@ -314,7 +317,7 @@ switchD_004358f7_caseD_2:
             *(uint *)(param_1 + 0x81a0) = (uint)DAT_0069d4bd;
           }
         }
-        g_GameContext.cfg.unk7 = (byte)CUR_RANK;
+        g_GameContext.cfg.defaultDifficulty = (byte)CUR_RANK;
         local_c = param_1 + 0x5b60;
         for (local_8 = 0; (int)local_8 < 2; local_8 = local_8 + 1) {
           if (local_8 != *(int *)(param_1 + 0x81a0)) {
@@ -333,7 +336,7 @@ switchD_004358f7_caseD_2:
       }
       FUN_004311e0(0xb,0);
       if (CUR_RANK < 4) {
-        g_GameContext.cfg.unk7 = *(byte *)(param_1 + 0x81a0);
+        g_GameContext.cfg.defaultDifficulty = *(byte *)(param_1 + 0x81a0);
         if (DAT_0069d4c3 == '\0') {
           *(undefined4 *)(param_1 + 0x81a0) = 0;
         }
@@ -348,11 +351,13 @@ switchD_004358f7_caseD_2:
     break;
   case 9:
     if (*(int *)(param_1 + 0x81f4) < 0x1e) break;
-    if ((((DAT_0069d904 & 0x40) == 0) || ((DAT_0069d904 & 0x40) == (DAT_0069d908 & 0x40))) &&
-       (((DAT_0069d904 & 0x40) == 0 || (DAT_0069d90c == 0)))) {
+    if ((((BUTTONS_PRESSED_CURFRAME & 0x40) == 0) ||
+        ((BUTTONS_PRESSED_CURFRAME & 0x40) == (BUTTONS_PRESSED_PREVFRAME & 0x40))) &&
+       (((BUTTONS_PRESSED_CURFRAME & 0x40) == 0 || (DAT_0069d90c == 0)))) {
 LAB_0043666d:
-      if ((((DAT_0069d904 & 0x80) != 0) && ((DAT_0069d904 & 0x80) != (DAT_0069d908 & 0x80))) ||
-         (((DAT_0069d904 & 0x80) != 0 && (DAT_0069d90c != 0)))) {
+      if ((((BUTTONS_PRESSED_CURFRAME & 0x80) != 0) &&
+          ((BUTTONS_PRESSED_CURFRAME & 0x80) != (BUTTONS_PRESSED_PREVFRAME & 0x80))) ||
+         (((BUTTONS_PRESSED_CURFRAME & 0x80) != 0 && (DAT_0069d90c != 0)))) {
         *(int *)(param_1 + 0x81a0) = *(int *)(param_1 + 0x81a0) + -1;
         if (*(int *)(param_1 + 0x81a0) < 0) {
           *(int *)(param_1 + 0x81a0) = *(int *)(param_1 + 0x81a0) + 2;
@@ -410,8 +415,10 @@ LAB_0043666d:
         *(int *)(param_1 + 0x81a0) = *(int *)(param_1 + 0x81a0) + 2;
       }
     }
-    if (((DAT_0069d904 & 10) == 0) || ((DAT_0069d904 & 10) == (DAT_0069d908 & 10))) {
-      if (((DAT_0069d904 & 0x1001) != 0) && ((DAT_0069d904 & 0x1001) != (DAT_0069d908 & 0x1001))) {
+    if (((BUTTONS_PRESSED_CURFRAME & 10) == 0) ||
+       ((BUTTONS_PRESSED_CURFRAME & 10) == (BUTTONS_PRESSED_PREVFRAME & 10))) {
+      if (((BUTTONS_PRESSED_CURFRAME & 0x1001) != 0) &&
+         ((BUTTONS_PRESSED_CURFRAME & 0x1001) != (BUTTONS_PRESSED_PREVFRAME & 0x1001))) {
         *(undefined4 *)(param_1 + 0x81f0) = 0xb;
         *(undefined4 *)(param_1 + 0x81f4) = 0;
         for (local_8 = 0; (int)local_8 < 0x7a; local_8 = local_8 + 1) {
@@ -457,7 +464,7 @@ LAB_0043666d:
         for (local_8 = 0; (int)local_8 < 0x7a; local_8 = local_8 + 1) {
           *(undefined2 *)(param_1 + 0x8a + local_8 * 0x110) = 6;
         }
-        *(uint *)(param_1 + 0x81a0) = (uint)g_GameContext.cfg.unk7;
+        *(uint *)(param_1 + 0x81a0) = (uint)g_GameContext.cfg.defaultDifficulty;
       }
       else {
         for (local_8 = 0; (int)local_8 < 0x7a; local_8 = local_8 + 1) {
@@ -514,9 +521,10 @@ LAB_0043666d:
       local_c = local_c + 0x110;
     }
     if (0x1d < *(int *)(param_1 + 0x81f4)) {
-      if (((DAT_0069d904 & 10) == 0) || ((DAT_0069d904 & 10) == (DAT_0069d908 & 10))) {
-        if (((DAT_0069d904 & 0x1001) != 0) && ((DAT_0069d904 & 0x1001) != (DAT_0069d908 & 0x1001)))
-        {
+      if (((BUTTONS_PRESSED_CURFRAME & 10) == 0) ||
+         ((BUTTONS_PRESSED_CURFRAME & 10) == (BUTTONS_PRESSED_PREVFRAME & 10))) {
+        if (((BUTTONS_PRESSED_CURFRAME & 0x1001) != 0) &&
+           ((BUTTONS_PRESSED_CURFRAME & 0x1001) != (BUTTONS_PRESSED_PREVFRAME & 0x1001))) {
           DAT_0069d4be = *(byte *)(param_1 + 0x81a0);
           if (DAT_0069d4c3 == '\0') {
             if (CUR_RANK < 4) {
@@ -625,9 +633,10 @@ LAB_0043666d:
     }
     FUN_0043753c(param_1,cVar1);
     if (0x1d < *(int *)(param_1 + 0x81f4)) {
-      if (((DAT_0069d904 & 10) == 0) || ((DAT_0069d904 & 10) == (DAT_0069d908 & 10))) {
-        if (((DAT_0069d904 & 0x1001) != 0) && ((DAT_0069d904 & 0x1001) != (DAT_0069d908 & 0x1001)))
-        {
+      if (((BUTTONS_PRESSED_CURFRAME & 10) == 0) ||
+         ((BUTTONS_PRESSED_CURFRAME & 10) == (BUTTONS_PRESSED_PREVFRAME & 10))) {
+        if (((BUTTONS_PRESSED_CURFRAME & 0x1001) != 0) &&
+           ((BUTTONS_PRESSED_CURFRAME & 0x1001) != (BUTTONS_PRESSED_PREVFRAME & 0x1001))) {
           CUR_STAGE = *(undefined4 *)(param_1 + 0x81a0);
           DAT_0069d6d8 = *(undefined4 *)(param_1 + 0x81a0);
 LAB_00436de7:

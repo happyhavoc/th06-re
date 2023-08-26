@@ -23,7 +23,8 @@ undefined4 FUN_004288c0(int param_1)
   if (*(int *)(param_1 + 0x75c8) == 0) {
     iVar3 = FUN_004195a2();
     if (((((iVar3 == 0) && (*(int *)(param_1 + 0x9d8) != 0)) && ('\0' < (char)BOMB_COUNT)) &&
-        (((DAT_0069d904 & 2) != 0 && ((DAT_0069d904 & 2) != (DAT_0069d908 & 2))))) &&
+        (((BUTTONS_PRESSED_CURFRAME & 2) != 0 &&
+         ((BUTTONS_PRESSED_CURFRAME & 2) != (BUTTONS_PRESSED_PREVFRAME & 2))))) &&
        (*(int *)(param_1 + 0x75dc) != 0)) {
       DAT_0069bcc4 = DAT_0069bcc4 + 1;
       BOMB_COUNT = BOMB_COUNT - 1;
@@ -86,8 +87,8 @@ undefined4 FUN_004288c0(int param_1)
     *(undefined4 *)(param_1 + 0xa14) = 0;
     if (*(int *)(param_1 + 0x75bc) < 0x1e) goto LAB_00428fa8;
     *(undefined *)(param_1 + 0x9e0) = 1;
-    *(float *)(param_1 + 0x440) = _DAT_0069d6e4 / 2.0;
-    *(float *)(param_1 + 0x444) = _DAT_0069d6e8 - 64.0;
+    *(float *)(param_1 + 0x440) = VIEWPORT_WIDTH / 2.0;
+    *(float *)(param_1 + 0x444) = VIEWPORT_HEIGHT - 64.0;
     *(undefined4 *)(param_1 + 0x448) = 0x3e4ccccd;
     *(undefined4 *)(param_1 + 0x75bc) = 0;
     *(undefined4 *)(param_1 + 0x75b8) = 0;

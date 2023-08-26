@@ -49,8 +49,9 @@ undefined4 FUN_0042bc85(void)
   if (*(int *)(in_ECX + 4) < 0x1e) {
     return 0;
   }
-  if ((((DAT_0069d904 & 0x10) != 0) && ((DAT_0069d904 & 0x10) != (DAT_0069d908 & 0x10))) ||
-     (((DAT_0069d904 & 0x10) != 0 && (DAT_0069d90c != 0)))) {
+  if ((((BUTTONS_PRESSED_CURFRAME & 0x10) != 0) &&
+      ((BUTTONS_PRESSED_CURFRAME & 0x10) != (BUTTONS_PRESSED_PREVFRAME & 0x10))) ||
+     (((BUTTONS_PRESSED_CURFRAME & 0x10) != 0 && (DAT_0069d90c != 0)))) {
     do {
       *(int *)(in_ECX + 0x20) = *(int *)(in_ECX + 0x20) + -0x10;
       if (*(int *)(in_ECX + 0x20) < 0) {
@@ -59,8 +60,9 @@ undefined4 FUN_0042bc85(void)
     } while (PTR_DAT_004784d4[*(int *)(in_ECX + 0x20)] == ' ');
     FUN_004311e0(0xc,0);
   }
-  if ((((DAT_0069d904 & 0x20) != 0) && ((DAT_0069d904 & 0x20) != (DAT_0069d908 & 0x20))) ||
-     (((DAT_0069d904 & 0x20) != 0 && (DAT_0069d90c != 0)))) {
+  if ((((BUTTONS_PRESSED_CURFRAME & 0x20) != 0) &&
+      ((BUTTONS_PRESSED_CURFRAME & 0x20) != (BUTTONS_PRESSED_PREVFRAME & 0x20))) ||
+     (((BUTTONS_PRESSED_CURFRAME & 0x20) != 0 && (DAT_0069d90c != 0)))) {
     do {
       *(int *)(in_ECX + 0x20) = *(int *)(in_ECX + 0x20) + 0x10;
       if (0x5f < *(int *)(in_ECX + 0x20)) {
@@ -69,8 +71,9 @@ undefined4 FUN_0042bc85(void)
     } while (PTR_DAT_004784d4[*(int *)(in_ECX + 0x20)] == ' ');
     FUN_004311e0(0xc,0);
   }
-  if ((((DAT_0069d904 & 0x40) != 0) && ((DAT_0069d904 & 0x40) != (DAT_0069d908 & 0x40))) ||
-     (((DAT_0069d904 & 0x40) != 0 && (DAT_0069d90c != 0)))) {
+  if ((((BUTTONS_PRESSED_CURFRAME & 0x40) != 0) &&
+      ((BUTTONS_PRESSED_CURFRAME & 0x40) != (BUTTONS_PRESSED_PREVFRAME & 0x40))) ||
+     (((BUTTONS_PRESSED_CURFRAME & 0x40) != 0 && (DAT_0069d90c != 0)))) {
     do {
       *(int *)(in_ECX + 0x20) = *(int *)(in_ECX + 0x20) + -1;
       if (*(int *)(in_ECX + 0x20) % 0x10 == 0xf) {
@@ -82,8 +85,9 @@ undefined4 FUN_0042bc85(void)
     } while (PTR_DAT_004784d4[*(int *)(in_ECX + 0x20)] == ' ');
     FUN_004311e0(0xc,0);
   }
-  if ((((DAT_0069d904 & 0x80) != 0) && ((DAT_0069d904 & 0x80) != (DAT_0069d908 & 0x80))) ||
-     (((DAT_0069d904 & 0x80) != 0 && (DAT_0069d90c != 0)))) {
+  if ((((BUTTONS_PRESSED_CURFRAME & 0x80) != 0) &&
+      ((BUTTONS_PRESSED_CURFRAME & 0x80) != (BUTTONS_PRESSED_PREVFRAME & 0x80))) ||
+     (((BUTTONS_PRESSED_CURFRAME & 0x80) != 0 && (DAT_0069d90c != 0)))) {
     do {
       *(int *)(in_ECX + 0x20) = *(int *)(in_ECX + 0x20) + 1;
       if (*(int *)(in_ECX + 0x20) % 0x10 == 0) {
@@ -92,11 +96,13 @@ undefined4 FUN_0042bc85(void)
     } while (PTR_DAT_004784d4[*(int *)(in_ECX + 0x20)] == ' ');
     FUN_004311e0(0xc,0);
   }
-  if ((((DAT_0069d904 & 0x1001) == 0) || ((DAT_0069d904 & 0x1001) == (DAT_0069d908 & 0x1001))) &&
-     (((DAT_0069d904 & 0x1001) == 0 || (DAT_0069d90c == 0)))) {
+  if ((((BUTTONS_PRESSED_CURFRAME & 0x1001) == 0) ||
+      ((BUTTONS_PRESSED_CURFRAME & 0x1001) == (BUTTONS_PRESSED_PREVFRAME & 0x1001))) &&
+     (((BUTTONS_PRESSED_CURFRAME & 0x1001) == 0 || (DAT_0069d90c == 0)))) {
 LAB_0042c1aa:
-    if ((((DAT_0069d904 & 10) != 0) && ((DAT_0069d904 & 10) != (DAT_0069d908 & 10))) ||
-       (((DAT_0069d904 & 10) != 0 && (DAT_0069d90c != 0)))) {
+    if ((((BUTTONS_PRESSED_CURFRAME & 10) != 0) &&
+        ((BUTTONS_PRESSED_CURFRAME & 10) != (BUTTONS_PRESSED_PREVFRAME & 10))) ||
+       (((BUTTONS_PRESSED_CURFRAME & 10) != 0 && (DAT_0069d90c != 0)))) {
       if (*(int *)(in_ECX + 0x10) < 8) {
         local_20 = *(int *)(in_ECX + 0x10);
       }
@@ -109,10 +115,10 @@ LAB_0042c1aa:
       }
       FUN_004311e0(0xb,0);
     }
-    if ((DAT_0069d904 & 8) == 0) {
+    if ((BUTTONS_PRESSED_CURFRAME & 8) == 0) {
       return 0;
     }
-    if ((DAT_0069d904 & 8) == (DAT_0069d908 & 8)) {
+    if ((BUTTONS_PRESSED_CURFRAME & 8) == (BUTTONS_PRESSED_PREVFRAME & 8)) {
       return 0;
     }
   }

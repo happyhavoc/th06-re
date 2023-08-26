@@ -23,7 +23,7 @@ undefined4 FUN_004188c9(void)
     if (*(int *)(in_ECX + 0x2bd4) != 0) {
       *(int *)(in_ECX + 0x2bd4) = *(int *)(in_ECX + 0x2bd4) + -1;
     }
-    if ((*(char *)(in_ECX + 0x2bd8) != '\0') && ((DAT_0069d904 & 0x100) != 0)) {
+    if ((*(char *)(in_ECX + 0x2bd8) != '\0') && ((BUTTONS_PRESSED_CURFRAME & 0x100) != 0)) {
       *(uint *)(in_ECX + 0x2548) = (uint)**(ushort **)(in_ECX + 0x2538);
       *(undefined4 *)(in_ECX + 0x2544) = 0;
       *(undefined4 *)(in_ECX + 0x2540) = 0xfffffc19;
@@ -73,9 +73,10 @@ undefined4 FUN_004188c9(void)
         *(undefined4 *)(in_ECX + 0x254c) = 0;
         break;
       case 4:
-        if ((((*(char *)(in_ECX + 0x2bd8) == '\0') || ((DAT_0069d904 & 0x100) == 0)) &&
-            (((DAT_0069d904 & 1) == 0 ||
-             (((DAT_0069d904 & 1) == (DAT_0069d908 & 1) || (*(int *)(in_ECX + 0x254c) < 8)))))) &&
+        if ((((*(char *)(in_ECX + 0x2bd8) == '\0') || ((BUTTONS_PRESSED_CURFRAME & 0x100) == 0)) &&
+            (((BUTTONS_PRESSED_CURFRAME & 1) == 0 ||
+             (((BUTTONS_PRESSED_CURFRAME & 1) == (BUTTONS_PRESSED_PREVFRAME & 1) ||
+              (*(int *)(in_ECX + 0x254c) < 8)))))) &&
            (*(int *)(in_ECX + 0x254c) < *(int *)(*(int *)(in_ECX + 0x2538) + 4))) {
           *(int *)(in_ECX + 0x254c) = *(int *)(in_ECX + 0x254c) + 1;
           goto LAB_00418fe0;
@@ -172,7 +173,7 @@ LAB_00418fe0:
     FUN_00433960(in_ECX + 0x2990);
     FUN_00433960(in_ECX + 0x2aa0);
     if (((*(int *)(in_ECX + 0x2548) < 0x3c) && (*(char *)(in_ECX + 0x2bd8) != '\0')) &&
-       ((DAT_0069d904 & 0x100) != 0)) {
+       ((BUTTONS_PRESSED_CURFRAME & 0x100) != 0)) {
       *(undefined4 *)(in_ECX + 0x2548) = 0x3c;
       *(undefined4 *)(in_ECX + 0x2544) = 0;
       *(undefined4 *)(in_ECX + 0x2540) = 0xfffffc19;

@@ -88,7 +88,7 @@ LAB_0042055a:
           MoveWindow((HWND)GAME_WINDOW.window,0,0,0,0,0);
           DestroyWindow((HWND)GAME_WINDOW.window);
           if (local_8 != 2) {
-            write_data_to_file("東方紅魔郷.cfg",&g_GameContext.cfg,0x38);
+            WriteConfigToFile("東方紅魔郷.cfg",&g_GameContext.cfg,0x38);
             SystemParametersInfoA(0x11,g_SCREEN_SAVE_ACTIVE,(PVOID)0x0,2);
             SystemParametersInfoA(0x55,g_LOW_POWER_ACTIVE,(PVOID)0x0,2);
             SystemParametersInfoA(0x56,g_POWER_OFF_ACTIVE,(PVOID)0x0,2);

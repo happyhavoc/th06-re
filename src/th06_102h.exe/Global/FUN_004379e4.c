@@ -10,8 +10,9 @@ undefined4 FUN_004379e4(void)
   if (*(int *)(in_ECX + 0x81f4) < 0x1e) {
     uVar2 = 1;
   }
-  else if ((((DAT_0069d904 & 0x160b) == 0) || ((DAT_0069d904 & 0x160b) == (DAT_0069d908 & 0x160b)))
-          && (((DAT_0069d904 & 0x160b) == 0 || (DAT_0069d90c == 0)))) {
+  else if ((((BUTTONS_PRESSED_CURFRAME & 0x160b) == 0) ||
+           ((BUTTONS_PRESSED_CURFRAME & 0x160b) == (BUTTONS_PRESSED_PREVFRAME & 0x160b))) &&
+          (((BUTTONS_PRESSED_CURFRAME & 0x160b) == 0 || (DAT_0069d90c == 0)))) {
     uVar2 = 1;
   }
   else {

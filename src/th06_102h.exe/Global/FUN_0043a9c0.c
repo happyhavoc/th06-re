@@ -4,10 +4,11 @@ void FUN_0043a9c0(undefined4 *param_1,LPSTR param_2,uint param_3,undefined4 para
                  undefined4 param_10)
 
 {
-  void *pvVar1;
+  undefined4 *puVar1;
+  void *pvVar2;
   int **in_ECX;
-  int iVar2;
-  uint *puVar3;
+  int iVar3;
+  uint *puVar4;
   uint unaff_retaddr;
   undefined4 local_7c;
   void **local_78;
@@ -39,22 +40,22 @@ void FUN_0043a9c0(undefined4 *param_1,LPSTR param_2,uint param_3,undefined4 para
     local_18 = (void *)0x0;
     local_50 = (int *)0x0;
     ExceptionList = &local_10;
-    pvVar1 = operator_new(0x98);
+    puVar1 = (undefined4 *)operator_new(0x98);
     local_8 = 0;
-    if (pvVar1 == (void *)0x0) {
+    if (puVar1 == (undefined4 *)0x0) {
       local_78 = (void **)0x0;
     }
     else {
-      local_78 = (void **)FUN_0043b9b0();
+      local_78 = (void **)FUN_0043b9b0(puVar1);
     }
     local_8 = 0xffffffff;
     local_1c = local_78;
     FUN_0043ba60(local_78,param_2,0,(void *)0x1);
     local_14 = param_9 * param_8;
-    puVar3 = local_48;
-    for (iVar2 = 9; iVar2 != 0; iVar2 = iVar2 + -1) {
-      *puVar3 = 0;
-      puVar3 = puVar3 + 1;
+    puVar4 = local_48;
+    for (iVar3 = 9; iVar3 != 0; iVar3 = iVar3 + -1) {
+      *puVar4 = 0;
+      puVar4 = puVar4 + 1;
     }
     local_48[0] = 0x24;
     local_48[1] = param_3 | 0x18188;
@@ -92,9 +93,9 @@ void FUN_0043a9c0(undefined4 *param_1,LPSTR param_2,uint param_3,undefined4 para
           _free(local_18);
           local_18 = (void *)0x0;
         }
-        pvVar1 = operator_new(0x34);
+        pvVar2 = operator_new(0x34);
         local_8 = 1;
-        if (pvVar1 == (void *)0x0) {
+        if (pvVar2 == (void *)0x0) {
           local_7c = 0;
         }
         else {

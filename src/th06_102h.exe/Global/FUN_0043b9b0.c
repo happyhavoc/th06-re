@@ -1,15 +1,13 @@
 
-undefined4 * FUN_0043b9b0(void)
+undefined4 * __fastcall FUN_0043b9b0(undefined4 *param_1)
 
 {
-  undefined4 *in_ECX;
-  
-  *in_ECX = 0;
-  in_ECX[1] = 0;
-  in_ECX[0xc] = 0;
-  in_ECX[0x20] = 0;
-  in_ECX[0x25] = 0;
-  in_ECX[0x24] = 0;
-  return in_ECX;
+  *param_1 = 0;
+  param_1[1] = 0;
+  param_1[0xc] = 0;
+  param_1[0x20] = 0;
+  param_1[0x25] = 0;
+  param_1[0x24] = 0;
+  return param_1;
 }
 

@@ -31,8 +31,9 @@ void __fastcall FUN_0040f7c0(int param_1)
   if (0 < *(int *)(param_1 + 0x113c)) {
     FUN_004241e5(1);
     if (*(int *)(param_1 + 0x1140) == 0) {
-      if ((((DAT_0069d904 & 0x1001) != 0) && ((DAT_0069d904 & 0x1001) != (DAT_0069d908 & 0x1001)))
-         || ((*(int *)(param_1 + 0x1118) != 0 && ((DAT_0069d904 & 0x100) != 0)))) {
+      if ((((BUTTONS_PRESSED_CURFRAME & 0x1001) != 0) &&
+          ((BUTTONS_PRESSED_CURFRAME & 0x1001) != (BUTTONS_PRESSED_PREVFRAME & 0x1001))) ||
+         ((*(int *)(param_1 + 0x1118) != 0 && ((BUTTONS_PRESSED_CURFRAME & 0x100) != 0)))) {
         *(undefined4 *)(param_1 + 0x113c) = 0;
         *(undefined4 *)(param_1 + 0x1138) = 0;
         *(undefined4 *)(param_1 + 0x1134) = 0xfffffc19;
@@ -230,8 +231,9 @@ switchD_0040fa93_caseD_52:
   }
   FUN_004241e5(1);
   if (*(int *)(param_1 + 0x1144) == 0) {
-    if ((((DAT_0069d904 & 0x1001) != 0) && ((DAT_0069d904 & 0x1001) != (DAT_0069d908 & 0x1001))) ||
-       ((*(int *)(param_1 + 0x1118) != 0 && ((DAT_0069d904 & 0x100) != 0)))) {
+    if ((((BUTTONS_PRESSED_CURFRAME & 0x1001) != 0) &&
+        ((BUTTONS_PRESSED_CURFRAME & 0x1001) != (BUTTONS_PRESSED_PREVFRAME & 0x1001))) ||
+       ((*(int *)(param_1 + 0x1118) != 0 && ((BUTTONS_PRESSED_CURFRAME & 0x100) != 0)))) {
       *(undefined4 *)(param_1 + 0x1130) = 0;
       *(undefined4 *)(param_1 + 0x112c) = 0;
       *(undefined4 *)(param_1 + 0x1128) = 0xfffffc19;
@@ -255,7 +257,7 @@ switchD_0040fa32_caseD_0:
          (**(char **)(param_1 + 0x116c) == '\r'))) {
     *(int *)(param_1 + 0x116c) = *(int *)(param_1 + 0x116c) + 1;
   }
-  if ((DAT_0069d904 & 0x1001) == 0) {
+  if ((BUTTONS_PRESSED_CURFRAME & 0x1001) == 0) {
     *(undefined4 *)(param_1 + 0x1130) = *(undefined4 *)(param_1 + 0x1148);
     *(undefined4 *)(param_1 + 0x112c) = 0;
     *(undefined4 *)(param_1 + 0x1128) = 0xfffffc19;

@@ -1,5 +1,5 @@
 
-undefined4 write_data_to_file(char *path,void *data,size_t size)
+undefined4 WriteConfigToFile(char *path,void *data,size_t size)
 
 {
   FILE *_File;

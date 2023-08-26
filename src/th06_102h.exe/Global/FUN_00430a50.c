@@ -21,21 +21,21 @@ undefined4 FUN_00430a50(LPSTR param_1)
   puStack_c = &LAB_004692ab;
   local_10 = ExceptionList;
   ExceptionList = &local_10;
-  FUN_0043b9b0();
+  FUN_0043b9b0(local_b0);
   local_8 = 0;
   if (in_ECX->directsound8_uninit == (DirectSound8Player *)0x0) {
     local_8 = 0xffffffff;
-    FUN_0043ba10();
+    FUN_0043ba10(local_b0);
     uVar6 = 0xffffffff;
   }
-  else if (g_GameContext.cfg.unk6 == 0) {
+  else if (g_GameContext.cfg.playSound == 0) {
     local_8 = 0xffffffff;
-    FUN_0043ba10();
+    FUN_0043ba10(local_b0);
     uVar6 = 0xffffffff;
   }
   else if ((in_ECX->directsound).directsound8 == (LPDIRECTSOUND8)0x0) {
     local_8 = 0xffffffff;
-    FUN_0043ba10();
+    FUN_0043ba10(local_b0);
     uVar6 = 0xffffffff;
   }
   else {
@@ -46,7 +46,7 @@ undefined4 FUN_00430a50(LPSTR param_1)
       DebugPrint2("error : wav file load error %s\n",param_1);
       FUN_0043c2c0((int)local_b0);
       local_8 = 0xffffffff;
-      FUN_0043ba10();
+      FUN_0043ba10(local_b0);
       uVar6 = 0xffffffff;
     }
     else {
@@ -54,7 +54,7 @@ undefined4 FUN_00430a50(LPSTR param_1)
       if (iVar1 == 0) {
         FUN_0043c2c0((int)local_b0);
         local_8 = 0xffffffff;
-        FUN_0043ba10();
+        FUN_0043ba10(local_b0);
         uVar6 = 0xffffffff;
       }
       else {
@@ -76,7 +76,7 @@ undefined4 FUN_00430a50(LPSTR param_1)
         if (iVar1 < 0) {
           DebugPrint2(&DAT_0046c148);
           local_8 = 0xffffffff;
-          FUN_0043ba10();
+          FUN_0043ba10(local_b0);
           uVar6 = 0xffffffff;
         }
         else {
@@ -87,7 +87,7 @@ undefined4 FUN_00430a50(LPSTR param_1)
             local_cc = timeGetTime();
           }
           local_8 = 0xffffffff;
-          FUN_0043ba10();
+          FUN_0043ba10(local_b0);
           uVar6 = 0;
         }
       }

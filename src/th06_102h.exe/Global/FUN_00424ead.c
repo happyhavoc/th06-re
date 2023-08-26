@@ -17,7 +17,8 @@ void FUN_00424ead(void)
   
   local_10 = __security_cookie ^ unaff_retaddr;
   local_8 = *(undefined4 *)(in_ECX + 0x18);
-  if (((DAT_0069d904 & 0x10) != 0) && ((DAT_0069d904 & 0x10) != (DAT_0069d908 & 0x10))) {
+  if (((BUTTONS_PRESSED_CURFRAME & 0x10) != 0) &&
+     ((BUTTONS_PRESSED_CURFRAME & 0x10) != (BUTTONS_PRESSED_PREVFRAME & 0x10))) {
     *(int *)(in_ECX + 0x10) = *(int *)(in_ECX + 0x10) + -1;
     if (*(int *)(in_ECX + 0x10) < 0) {
       *(int *)(in_ECX + 0x10) = *(int *)(in_ECX + 0x1c) + -1;
@@ -27,7 +28,8 @@ void FUN_00424ead(void)
       *(undefined4 *)(in_ECX + 0x18) = *(undefined4 *)(in_ECX + 0x10);
     }
   }
-  if (((DAT_0069d904 & 0x20) != 0) && ((DAT_0069d904 & 0x20) != (DAT_0069d908 & 0x20))) {
+  if (((BUTTONS_PRESSED_CURFRAME & 0x20) != 0) &&
+     ((BUTTONS_PRESSED_CURFRAME & 0x20) != (BUTTONS_PRESSED_PREVFRAME & 0x20))) {
     *(int *)(in_ECX + 0x10) = *(int *)(in_ECX + 0x10) + 1;
     if (*(int *)(in_ECX + 0x10) < *(int *)(in_ECX + 0x1c)) {
       if (*(int *)(in_ECX + 0x18) <= *(int *)(in_ECX + 0x10) + -10) {
@@ -39,7 +41,8 @@ void FUN_00424ead(void)
       *(undefined4 *)(in_ECX + 0x18) = 0;
     }
   }
-  if (((DAT_0069d904 & 0x1001) != 0) && ((DAT_0069d904 & 0x1001) != (DAT_0069d908 & 0x1001))) {
+  if (((BUTTONS_PRESSED_CURFRAME & 0x1001) != 0) &&
+     ((BUTTONS_PRESSED_CURFRAME & 0x1001) != (BUTTONS_PRESSED_PREVFRAME & 0x1001))) {
     *(undefined4 *)(in_ECX + 0x14) = *(undefined4 *)(in_ECX + 0x10);
     FUN_00424b5d(*(int *)(in_ECX + 0x14) * 0x272 + *(int *)(in_ECX + 0x20));
     for (local_c = 0; local_c < 0x10; local_c = local_c + 1) {
@@ -86,7 +89,8 @@ LAB_0042508a:
            *(uint *)(in_ECX + 0x23b4 + local_c * 0x110) | 0x300;
     }
   }
-  if (((DAT_0069d904 & 10) != 0) && ((DAT_0069d904 & 10) != (DAT_0069d908 & 10))) {
+  if (((BUTTONS_PRESSED_CURFRAME & 10) != 0) &&
+     ((BUTTONS_PRESSED_CURFRAME & 10) != (BUTTONS_PRESSED_PREVFRAME & 10))) {
     g_GameContext._396_4_ = 1;
   }
   __security_check_cookie(local_10 ^ unaff_retaddr);

@@ -16,35 +16,35 @@ undefined4 FUN_00427860(void)
   local_10 = 0.0;
   local_c = 0.0;
   *(undefined4 *)(in_ECX + 0xa0c) = 0;
-  if ((DAT_0069d904 & 0x10) == 0) {
-    if ((DAT_0069d904 & 0x20) == 0) {
-      if ((DAT_0069d904 & 0x40) != 0) {
+  if ((BUTTONS_PRESSED_CURFRAME & 0x10) == 0) {
+    if ((BUTTONS_PRESSED_CURFRAME & 0x20) == 0) {
+      if ((BUTTONS_PRESSED_CURFRAME & 0x40) != 0) {
         *(undefined4 *)(in_ECX + 0xa0c) = 3;
       }
-      if ((DAT_0069d904 & 0x80) != 0) {
+      if ((BUTTONS_PRESSED_CURFRAME & 0x80) != 0) {
         *(undefined4 *)(in_ECX + 0xa0c) = 4;
       }
     }
     else {
       *(undefined4 *)(in_ECX + 0xa0c) = 2;
-      if ((DAT_0069d904 & 0x40) != 0) {
+      if ((BUTTONS_PRESSED_CURFRAME & 0x40) != 0) {
         *(undefined4 *)(in_ECX + 0xa0c) = 7;
       }
-      if ((DAT_0069d904 & 0x80) != 0) {
+      if ((BUTTONS_PRESSED_CURFRAME & 0x80) != 0) {
         *(undefined4 *)(in_ECX + 0xa0c) = 8;
       }
     }
   }
   else {
     *(undefined4 *)(in_ECX + 0xa0c) = 1;
-    if ((DAT_0069d904 & 0x40) != 0) {
+    if ((BUTTONS_PRESSED_CURFRAME & 0x40) != 0) {
       *(undefined4 *)(in_ECX + 0xa0c) = 5;
     }
-    if ((DAT_0069d904 & 0x80) != 0) {
+    if ((BUTTONS_PRESSED_CURFRAME & 0x80) != 0) {
       *(undefined4 *)(in_ECX + 0xa0c) = 6;
     }
   }
-  if ((DAT_0069d904 & 4) == 0) {
+  if ((BUTTONS_PRESSED_CURFRAME & 4) == 0) {
     *(undefined *)(in_ECX + 0x9e3) = 0;
   }
   else {
@@ -53,7 +53,7 @@ undefined4 FUN_00427860(void)
   pVVar2 = VERY_BIG_STRUCT;
   switch(*(undefined4 *)(in_ECX + 0xa0c)) {
   case 1:
-    if ((DAT_0069d904 & 4) == 0) {
+    if ((BUTTONS_PRESSED_CURFRAME & 4) == 0) {
       local_c = *(float *)(in_ECX + 0x9f4);
     }
     else {
@@ -62,7 +62,7 @@ undefined4 FUN_00427860(void)
     local_c = -local_c;
     break;
   case 2:
-    if ((DAT_0069d904 & 4) == 0) {
+    if ((BUTTONS_PRESSED_CURFRAME & 4) == 0) {
       local_c = *(float *)(in_ECX + 0x9f4);
     }
     else {
@@ -70,7 +70,7 @@ undefined4 FUN_00427860(void)
     }
     break;
   case 3:
-    if ((DAT_0069d904 & 4) == 0) {
+    if ((BUTTONS_PRESSED_CURFRAME & 4) == 0) {
       local_10 = *(float *)(in_ECX + 0x9f4);
     }
     else {
@@ -79,7 +79,7 @@ undefined4 FUN_00427860(void)
     local_10 = -local_10;
     break;
   case 4:
-    if ((DAT_0069d904 & 4) == 0) {
+    if ((BUTTONS_PRESSED_CURFRAME & 4) == 0) {
       local_10 = *(float *)(in_ECX + 0x9f4);
     }
     else {
@@ -87,7 +87,7 @@ undefined4 FUN_00427860(void)
     }
     break;
   case 5:
-    if ((DAT_0069d904 & 4) == 0) {
+    if ((BUTTONS_PRESSED_CURFRAME & 4) == 0) {
       local_10 = *(float *)(in_ECX + 0x9fc);
     }
     else {
@@ -97,7 +97,7 @@ undefined4 FUN_00427860(void)
     local_c = local_10;
     break;
   case 6:
-    if ((DAT_0069d904 & 4) == 0) {
+    if ((BUTTONS_PRESSED_CURFRAME & 4) == 0) {
       local_10 = *(float *)(in_ECX + 0x9fc);
     }
     else {
@@ -106,7 +106,7 @@ undefined4 FUN_00427860(void)
     local_c = -local_10;
     break;
   case 7:
-    if ((DAT_0069d904 & 4) == 0) {
+    if ((BUTTONS_PRESSED_CURFRAME & 4) == 0) {
       local_10 = *(float *)(in_ECX + 0x9fc);
     }
     else {
@@ -116,7 +116,7 @@ undefined4 FUN_00427860(void)
     local_c = -local_10;
     break;
   case 8:
-    if ((DAT_0069d904 & 4) == 0) {
+    if ((BUTTONS_PRESSED_CURFRAME & 4) == 0) {
       local_10 = *(float *)(in_ECX + 0x9fc);
     }
     else {
@@ -261,10 +261,10 @@ switchD_004281aa_caseD_4:
   *(float *)(in_ECX + 0x4ac) = local_18 + *(float *)(in_ECX + 0x4ac);
   *(float *)(in_ECX + 0x4a4) = local_14 + *(float *)(in_ECX + 0x4a4);
   *(float *)(in_ECX + 0x4b0) = local_14 + *(float *)(in_ECX + 0x4b0);
-  if (((DAT_0069d904 & 1) != 0) && (iVar3 = FUN_004195a2(), iVar3 == 0)) {
+  if (((BUTTONS_PRESSED_CURFRAME & 1) != 0) && (iVar3 = FUN_004195a2(), iVar3 == 0)) {
     FUN_00428630(in_ECX);
   }
-  *(ushort *)(in_ECX + 0xa18) = DAT_0069d904;
+  *(ushort *)(in_ECX + 0xa18) = BUTTONS_PRESSED_CURFRAME;
   return 0;
 }
 

@@ -1,6 +1,4 @@
 
-/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
-
 void __fastcall FUN_00402740(int *param_1)
 
 {
@@ -12,10 +10,10 @@ void __fastcall FUN_00402740(int *param_1)
   int local_8;
   
   if (DAT_0069d4bf != '\0') {
-    g_GameContext.viewport.X = __ftol2((double)_DAT_0069d6dc);
-    g_GameContext.viewport.Y = __ftol2((double)_DAT_0069d6e0);
-    g_GameContext.viewport.Width = __ftol2((double)_DAT_0069d6e4);
-    g_GameContext.viewport.Height = __ftol2((double)_DAT_0069d6e8);
+    g_GameContext.viewport.X = __ftol2((double)VIEWPORT_X);
+    g_GameContext.viewport.Y = __ftol2((double)VIEWPORT_Y);
+    g_GameContext.viewport.Width = __ftol2((double)VIEWPORT_WIDTH);
+    g_GameContext.viewport.Height = __ftol2((double)VIEWPORT_HEIGHT);
     (*(g_GameContext.d3d_device)->lpVtbl->SetViewport)
               (g_GameContext.d3d_device,&g_GameContext.viewport);
     if ((DAT_006c7115 != '\0') && (*param_1 != 0)) {

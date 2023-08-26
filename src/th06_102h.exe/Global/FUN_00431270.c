@@ -1,23 +1,23 @@
 
-void FUN_00431270(void)
+void __fastcall FUN_00431270(SoundPlayer *param_1)
 
 {
   int iVar1;
-  int in_ECX;
   int local_8;
   
-  if ((*(int *)(in_ECX + 0x610) != 0) && (g_GameContext.cfg.unk6 != 0)) {
-    for (local_8 = 0; (local_8 < 3 && (-1 < *(int *)(in_ECX + 0x620 + local_8 * 4)));
+  if ((param_1->directsound8_uninit != (DirectSound8Player *)0x0) &&
+     (g_GameContext.cfg.playSound != 0)) {
+    for (local_8 = 0; (local_8 < 3 && (-1 < *(int *)(&param_1->field_0x620 + local_8 * 4)));
         local_8 = local_8 + 1) {
-      iVar1 = *(int *)(in_ECX + 0x620 + local_8 * 4);
-      *(undefined4 *)(in_ECX + 0x620 + local_8 * 4) = 0xffffffff;
-      if (*(int *)(in_ECX + 0x208 + iVar1 * 4) != 0) {
-        (**(code **)(**(int **)(in_ECX + 0x208 + iVar1 * 4) + 0x48))
-                  (*(undefined4 *)(in_ECX + 0x208 + iVar1 * 4));
-        (**(code **)(**(int **)(in_ECX + 0x208 + iVar1 * 4) + 0x34))
-                  (*(undefined4 *)(in_ECX + 0x208 + iVar1 * 4),0);
-        (**(code **)(**(int **)(in_ECX + 0x208 + iVar1 * 4) + 0x30))
-                  (*(undefined4 *)(in_ECX + 0x208 + iVar1 * 4),0,0,0);
+      iVar1 = *(int *)(&param_1->field_0x620 + local_8 * 4);
+      *(undefined4 *)(&param_1->field_0x620 + local_8 * 4) = 0xffffffff;
+      if (param_1->duplicate_sound_buffer[iVar1] != (LPDIRECTSOUNDBUFFER)0x0) {
+        (*param_1->duplicate_sound_buffer[iVar1]->lpVtbl->Stop)
+                  (param_1->duplicate_sound_buffer[iVar1]);
+        (*param_1->duplicate_sound_buffer[iVar1]->lpVtbl->SetCurrentPosition)
+                  (param_1->duplicate_sound_buffer[iVar1],0);
+        (*param_1->duplicate_sound_buffer[iVar1]->lpVtbl->Play)
+                  (param_1->duplicate_sound_buffer[iVar1],0,0,0);
       }
     }
   }

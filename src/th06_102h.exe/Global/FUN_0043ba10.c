@@ -1,13 +1,11 @@
 
-void FUN_0043ba10(void)
+void __fastcall FUN_0043ba10(void **param_1)
 
 {
-  void **in_ECX;
-  
-  FUN_0043c2c0((int)in_ECX);
-  if ((in_ECX[0x20] == (void *)0x0) && (*in_ECX != (void *)0x0)) {
-    _free(*in_ECX);
-    *in_ECX = (void *)0x0;
+  FUN_0043c2c0((int)param_1);
+  if ((param_1[0x20] == (void *)0x0) && (*param_1 != (void *)0x0)) {
+    _free(*param_1);
+    *param_1 = (void *)0x0;
   }
   return;
 }

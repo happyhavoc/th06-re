@@ -2,7 +2,7 @@
 void FUN_0043ada0(void)
 
 {
-  void *_Memory;
+  void **_Memory;
   undefined4 *in_ECX;
   uint local_8;
   
@@ -19,9 +19,9 @@ void FUN_0043ada0(void)
     in_ECX[1] = 0;
   }
   if (in_ECX[3] != 0) {
-    _Memory = (void *)in_ECX[3];
-    if (_Memory != (void *)0x0) {
-      FUN_0043ba10();
+    _Memory = (void **)in_ECX[3];
+    if (_Memory != (void **)0x0) {
+      FUN_0043ba10(_Memory);
       _free(_Memory);
     }
     in_ECX[3] = 0;

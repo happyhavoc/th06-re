@@ -9,10 +9,10 @@ undefined4 FUN_0042333b(GameContext *param_1)
   if (DAT_006d457c != 0) {
     FUN_0043b4d0(DAT_006d457c);
   }
-  DAT_0069d908 = DAT_0069d904;
-  DAT_0069d904 = FUN_0041d820();
+  BUTTONS_PRESSED_PREVFRAME = BUTTONS_PRESSED_CURFRAME;
+  BUTTONS_PRESSED_CURFRAME = GetInput();
   DAT_0069d90c = 0;
-  if (DAT_0069d908 == DAT_0069d904) {
+  if (BUTTONS_PRESSED_PREVFRAME == BUTTONS_PRESSED_CURFRAME) {
     if ((0x1d < DAT_0069d910) &&
        (DAT_0069d90c = (ushort)((uint)DAT_0069d910 % 8 == 0), 0x25 < DAT_0069d910)) {
       DAT_0069d910 = 0x1e;
@@ -162,8 +162,8 @@ LAB_00423454:
     }
   }
   DAT_0069d90c = 0;
-  DAT_0069d908 = 0;
-  DAT_0069d904 = 0;
+  BUTTONS_PRESSED_PREVFRAME = 0;
+  BUTTONS_PRESSED_CURFRAME = 0;
 LAB_0042375b:
   *(undefined4 *)&param_1->field_0x188 = *(undefined4 *)&param_1->field_0x18c;
   *(int *)&param_1->field_0x184 = *(int *)&param_1->field_0x184 + 1;

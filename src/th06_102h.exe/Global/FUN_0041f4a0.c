@@ -83,8 +83,8 @@ LAB_0041f7c5:
              DAT_006c6ec0 * *(float *)(local_18 + 0x11c) + *(float *)(local_18 + 0x110);
         *(float *)(local_18 + 0x114) = fVar3 + *(float *)(local_18 + 0x114);
         *(float *)(local_18 + 0x118) = fVar2 + *(float *)(local_18 + 0x118);
-        if (_DAT_0069d6e8 + 16.0 < *(float *)(local_18 + 0x114) !=
-            (_DAT_0069d6e8 + 16.0 == *(float *)(local_18 + 0x114))) {
+        if (VIEWPORT_HEIGHT + 16.0 < *(float *)(local_18 + 0x114) !=
+            (VIEWPORT_HEIGHT + 16.0 == *(float *)(local_18 + 0x114))) {
           *(undefined *)(local_18 + 0x141) = 0;
           FUN_0041c5fa(3);
           goto LAB_0041f512;

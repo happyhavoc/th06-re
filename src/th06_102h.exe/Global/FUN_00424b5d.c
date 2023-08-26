@@ -16,14 +16,14 @@ void FUN_00424b5d(char *param_1)
   
   iVar2 = DAT_006c6ec8;
   local_c = __security_cookie ^ unaff_retaddr;
-  if (g_GameContext.cfg.sound_mode == 2) {
+  if (g_GameContext.cfg.soundMode == 2) {
     if (DAT_006c6ec8 != 0) {
       FUN_004224e0();
       FUN_00422380(param_1);
       FUN_00422490(iVar2);
     }
   }
-  else if (g_GameContext.cfg.sound_mode == 1) {
+  else if (g_GameContext.cfg.soundMode == 1) {
     local_218 = param_1;
     local_21c = local_20c;
     do {
@@ -49,7 +49,7 @@ void FUN_00424b5d(char *param_1)
     local_8[2] = 'o';
     local_8[3] = 's';
     FUN_00430a50(local_20c);
-    iVar2 = FUN_00430e10(local_10c);
+    iVar2 = SoundPlayer::FUN_00430e10(&SOUND_PLAYER,local_10c);
     if (iVar2 < 0) {
       FUN_00430ec0(0x6d3f50,0);
     }

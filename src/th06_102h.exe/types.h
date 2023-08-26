@@ -64888,41 +64888,51 @@ typedef struct IServiceProvider *LPSERVICEPROVIDER;
 
 typedef struct GameConfiguration GameConfiguration, *PGameConfiguration;
 
+typedef struct ControllerMapping ControllerMapping, *PControllerMapping;
+
+struct ControllerMapping {
+    short shootButton;
+    short bombButton;
+    short focusButton;
+    short menuButton;
+    short upButton;
+    short downButton;
+    short leftButton;
+    short rightButton;
+    short unkButton;
+};
+
 struct GameConfiguration {
-    int unk1;
-    int unk2;
-    int unk3;
-    int unk4;
-    short unk5;
-    undefined field5_0x12;
-    undefined field6_0x13;
+    struct ControllerMapping controllerMapping;
+    undefined field1_0x12;
+    undefined field2_0x13;
     int version; /* 0xAABB where AA is major and BB is minor */
     byte lifeCount;
     byte bombCount;
     byte colorMode16bit;
-    byte sound_mode; /* 1 = wav, 2 = midi */
-    byte unk6;
-    byte unk7;
+    byte soundMode; /* 0 = off, 1 = wav, 2 = midi */
+    byte playSound; /* 0 = off, 1 = on */
+    byte defaultDifficulty;
     bool windowed;
     byte frameskip_config; /* 0 = fullspeed, 1 = 1/2 speed, 2 = 1/4 speed */
     ushort padAxisX;
     ushort padAxisY;
-    undefined field18_0x24;
-    undefined field19_0x25;
-    undefined field20_0x26;
-    undefined field21_0x27;
-    undefined field22_0x28;
-    undefined field23_0x29;
-    undefined field24_0x2a;
-    undefined field25_0x2b;
-    undefined field26_0x2c;
-    undefined field27_0x2d;
-    undefined field28_0x2e;
-    undefined field29_0x2f;
-    undefined field30_0x30;
-    undefined field31_0x31;
-    undefined field32_0x32;
-    undefined field33_0x33;
+    undefined field14_0x24;
+    undefined field15_0x25;
+    undefined field16_0x26;
+    undefined field17_0x27;
+    undefined field18_0x28;
+    undefined field19_0x29;
+    undefined field20_0x2a;
+    undefined field21_0x2b;
+    undefined field22_0x2c;
+    undefined field23_0x2d;
+    undefined field24_0x2e;
+    undefined field25_0x2f;
+    undefined field26_0x30;
+    undefined field27_0x31;
+    undefined field28_0x32;
+    undefined field29_0x33;
     int render_opts;
 };
 

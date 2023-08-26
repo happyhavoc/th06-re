@@ -1,6 +1,4 @@
 
-/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
-
 void FUN_00420190(void)
 
 {
@@ -13,8 +11,8 @@ void FUN_00420190(void)
   local_10 = in_ECX;
   for (local_c = 0; local_c < 0x200; local_c = local_c + 1) {
     if (*(char *)(local_10 + 0x141) != '\0') {
-      *(float *)(local_10 + 0x90) = _DAT_0069d6dc + *(float *)(local_10 + 0x110);
-      *(float *)(local_10 + 0x94) = _DAT_0069d6e0 + *(float *)(local_10 + 0x114);
+      *(float *)(local_10 + 0x90) = VIEWPORT_X + *(float *)(local_10 + 0x110);
+      *(float *)(local_10 + 0x94) = VIEWPORT_Y + *(float *)(local_10 + 0x114);
       *(undefined4 *)(local_10 + 0x98) = 0x3c23d70a;
       if (*(float *)(local_10 + 0x114) < -8.0 == NAN(*(float *)(local_10 + 0x114))) {
         if (*(char *)(local_10 + 0x142) == '\0') {
@@ -24,7 +22,7 @@ void FUN_00420190(void)
         }
       }
       else {
-        *(float *)(local_10 + 0x94) = _DAT_0069d6e0 + 8.0;
+        *(float *)(local_10 + 0x94) = VIEWPORT_Y + 8.0;
         if (*(char *)(local_10 + 0x142) != '\0') {
           FUN_004323a0(local_10,*(char *)(local_10 + 0x140) + 0x207);
           *(undefined *)(local_10 + 0x142) = 0;

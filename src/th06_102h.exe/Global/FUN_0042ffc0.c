@@ -1,7 +1,6 @@
 
 /* WARNING: Removing unreachable block (ram,0x004300e2) */
 /* WARNING: Removing unreachable block (ram,0x00430173) */
-/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
 
 undefined4 FUN_0042ffc0(int param_1)
 
@@ -20,46 +19,46 @@ undefined4 FUN_0042ffc0(int param_1)
       uVar3 = FUN_0041e7f0();
       uVar3 = uVar3 % 3;
       if (uVar3 == 0) {
-        _DAT_0069d6dc = 32.0;
-        _DAT_0069d6e4 = 384.0;
+        VIEWPORT_X = 32.0;
+        VIEWPORT_WIDTH = 384.0;
       }
       else if (uVar3 == 1) {
-        _DAT_0069d6dc = fVar1 + 32.0;
-        _DAT_0069d6e4 = 384.0 - fVar1;
+        VIEWPORT_X = fVar1 + 32.0;
+        VIEWPORT_WIDTH = 384.0 - fVar1;
       }
       else if (uVar3 == 2) {
-        _DAT_0069d6dc = 32.0;
-        _DAT_0069d6e4 = 384.0 - fVar1;
+        VIEWPORT_X = 32.0;
+        VIEWPORT_WIDTH = 384.0 - fVar1;
       }
       uVar3 = FUN_0041e7f0();
       uVar3 = uVar3 % 3;
       if (uVar3 == 0) {
-        _DAT_0069d6e0 = 16.0;
-        _DAT_0069d6e8 = 448.0;
+        VIEWPORT_Y = 16.0;
+        VIEWPORT_HEIGHT = 448.0;
       }
       else if (uVar3 == 1) {
-        _DAT_0069d6e0 = fVar1 + 16.0;
-        _DAT_0069d6e8 = 448.0 - fVar1;
+        VIEWPORT_Y = fVar1 + 16.0;
+        VIEWPORT_HEIGHT = 448.0 - fVar1;
       }
       else if (uVar3 == 2) {
-        _DAT_0069d6e0 = 16.0;
-        _DAT_0069d6e8 = 448.0 - fVar1;
+        VIEWPORT_Y = 16.0;
+        VIEWPORT_HEIGHT = 448.0 - fVar1;
       }
       uVar2 = 1;
     }
     else {
-      _DAT_0069d6dc = 32.0;
-      _DAT_0069d6e0 = 16.0;
-      _DAT_0069d6e4 = 384.0;
-      _DAT_0069d6e8 = 448.0;
+      VIEWPORT_X = 32.0;
+      VIEWPORT_Y = 16.0;
+      VIEWPORT_WIDTH = 384.0;
+      VIEWPORT_HEIGHT = 448.0;
       uVar2 = 0;
     }
   }
   else {
-    _DAT_0069d6dc = 32.0;
-    _DAT_0069d6e0 = 16.0;
-    _DAT_0069d6e4 = 384.0;
-    _DAT_0069d6e8 = 448.0;
+    VIEWPORT_X = 32.0;
+    VIEWPORT_Y = 16.0;
+    VIEWPORT_WIDTH = 384.0;
+    VIEWPORT_HEIGHT = 448.0;
     uVar2 = 1;
   }
   return uVar2;

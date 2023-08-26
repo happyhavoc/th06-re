@@ -1,6 +1,4 @@
 
-/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
-
 void FUN_00406b10(int param_1)
 
 {
@@ -18,8 +16,8 @@ void FUN_00406b10(int param_1)
     *(undefined4 *)((int)local_8 + 0x90) = *puVar1;
     *(undefined4 *)((int)local_8 + 0x94) = puVar1[1];
     *(undefined4 *)((int)local_8 + 0x98) = puVar1[2];
-    *(float *)((int)local_8 + 0x90) = _DAT_0069d6dc + *(float *)((int)local_8 + 0x90);
-    *(float *)((int)local_8 + 0x94) = _DAT_0069d6e0 + *(float *)((int)local_8 + 0x94);
+    *(float *)((int)local_8 + 0x90) = VIEWPORT_X + *(float *)((int)local_8 + 0x90);
+    *(float *)((int)local_8 + 0x94) = VIEWPORT_Y + *(float *)((int)local_8 + 0x94);
     *(undefined4 *)((int)local_8 + 0x98) = 0;
     *(undefined4 *)((int)local_8 + 0x1c) = 0x404ccccd;
     *(undefined4 *)((int)local_8 + 0x18) = 0x404ccccd;

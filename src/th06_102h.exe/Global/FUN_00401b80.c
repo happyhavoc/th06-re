@@ -6,7 +6,8 @@ undefined4 __fastcall FUN_00401b80(int *param_1)
   short local_6c;
   int local_8;
   
-  if (((DAT_0069d904 & 8) != 0) && ((DAT_0069d904 & 8) != (DAT_0069d908 & 8))) {
+  if (((BUTTONS_PRESSED_CURFRAME & MENU) != 0) &&
+     ((BUTTONS_PRESSED_CURFRAME & 8) != (BUTTONS_PRESSED_PREVFRAME & 8))) {
     *param_1 = 3;
     for (local_8 = 0; local_8 < 6; local_8 = local_8 + 1) {
       if ((param_1[local_8 * 0x44 + 0x22] & 1U) != 0) {
@@ -16,7 +17,8 @@ undefined4 __fastcall FUN_00401b80(int *param_1)
     param_1[1] = 0;
     *(undefined2 *)((int)param_1 + 0x6f2) = 1;
   }
-  if (((DAT_0069d904 & 0x200) != 0) && ((DAT_0069d904 & 0x200) != (DAT_0069d908 & 0x200))) {
+  if (((BUTTONS_PRESSED_CURFRAME & 0x200) != 0) &&
+     ((BUTTONS_PRESSED_CURFRAME & 0x200) != (BUTTONS_PRESSED_PREVFRAME & 0x200))) {
     *param_1 = 6;
     for (local_8 = 0; local_8 < 6; local_8 = local_8 + 1) {
       if ((param_1[local_8 * 0x44 + 0x22] & 1U) != 0) {
@@ -66,11 +68,14 @@ undefined4 __fastcall FUN_00401b80(int *param_1)
     param_1[0xc4] = 0;
     param_1[0xc5] = 0;
     if (3 < param_1[1]) {
-      if ((((DAT_0069d904 & 0x10) != 0) && ((DAT_0069d904 & 0x10) != (DAT_0069d908 & 0x10))) ||
-         (((DAT_0069d904 & 0x20) != 0 && ((DAT_0069d904 & 0x20) != (DAT_0069d908 & 0x20))))) {
+      if ((((BUTTONS_PRESSED_CURFRAME & 0x10) != 0) &&
+          ((BUTTONS_PRESSED_CURFRAME & 0x10) != (BUTTONS_PRESSED_PREVFRAME & 0x10))) ||
+         (((BUTTONS_PRESSED_CURFRAME & 0x20) != 0 &&
+          ((BUTTONS_PRESSED_CURFRAME & 0x20) != (BUTTONS_PRESSED_PREVFRAME & 0x20))))) {
         *param_1 = 2;
       }
-      if (((DAT_0069d904 & 1) != 0) && ((DAT_0069d904 & 1) != (DAT_0069d908 & 1))) {
+      if (((BUTTONS_PRESSED_CURFRAME & 1) != 0) &&
+         ((BUTTONS_PRESSED_CURFRAME & 1) != (BUTTONS_PRESSED_PREVFRAME & 1))) {
         for (local_8 = 0; local_8 < 3; local_8 = local_8 + 1) {
           *(undefined2 *)((int)param_1 + local_8 * 0x110 + 0x92) = 2;
         }
@@ -94,11 +99,14 @@ undefined4 __fastcall FUN_00401b80(int *param_1)
     param_1[0xc4] = -0x3f800000;
     param_1[0xc5] = 0;
     if (3 < param_1[1]) {
-      if ((((DAT_0069d904 & 0x10) != 0) && ((DAT_0069d904 & 0x10) != (DAT_0069d908 & 0x10))) ||
-         (((DAT_0069d904 & 0x20) != 0 && ((DAT_0069d904 & 0x20) != (DAT_0069d908 & 0x20))))) {
+      if ((((BUTTONS_PRESSED_CURFRAME & 0x10) != 0) &&
+          ((BUTTONS_PRESSED_CURFRAME & 0x10) != (BUTTONS_PRESSED_PREVFRAME & 0x10))) ||
+         (((BUTTONS_PRESSED_CURFRAME & 0x20) != 0 &&
+          ((BUTTONS_PRESSED_CURFRAME & 0x20) != (BUTTONS_PRESSED_PREVFRAME & 0x20))))) {
         *param_1 = 1;
       }
-      if (((DAT_0069d904 & 1) != 0) && ((DAT_0069d904 & 1) != (DAT_0069d908 & 1))) {
+      if (((BUTTONS_PRESSED_CURFRAME & 1) != 0) &&
+         ((BUTTONS_PRESSED_CURFRAME & 1) != (BUTTONS_PRESSED_PREVFRAME & 1))) {
         for (local_8 = 0; local_8 < 3; local_8 = local_8 + 1) {
           *(undefined2 *)((int)param_1 + local_8 * 0x110 + 0x92) = 2;
         }
@@ -133,11 +141,14 @@ undefined4 __fastcall FUN_00401b80(int *param_1)
     param_1[400] = 0;
     param_1[0x191] = 0;
     if (3 < param_1[1]) {
-      if ((((DAT_0069d904 & 0x10) != 0) && ((DAT_0069d904 & 0x10) != (DAT_0069d908 & 0x10))) ||
-         (((DAT_0069d904 & 0x20) != 0 && ((DAT_0069d904 & 0x20) != (DAT_0069d908 & 0x20))))) {
+      if ((((BUTTONS_PRESSED_CURFRAME & 0x10) != 0) &&
+          ((BUTTONS_PRESSED_CURFRAME & 0x10) != (BUTTONS_PRESSED_PREVFRAME & 0x10))) ||
+         (((BUTTONS_PRESSED_CURFRAME & 0x20) != 0 &&
+          ((BUTTONS_PRESSED_CURFRAME & 0x20) != (BUTTONS_PRESSED_PREVFRAME & 0x20))))) {
         *param_1 = 5;
       }
-      if (((DAT_0069d904 & 1) != 0) && ((DAT_0069d904 & 1) != (DAT_0069d908 & 1))) {
+      if (((BUTTONS_PRESSED_CURFRAME & 1) != 0) &&
+         ((BUTTONS_PRESSED_CURFRAME & 1) != (BUTTONS_PRESSED_PREVFRAME & 1))) {
         for (local_8 = 3; local_8 < 6; local_8 = local_8 + 1) {
           *(undefined2 *)((int)param_1 + local_8 * 0x110 + 0x92) = 2;
         }
@@ -160,11 +171,14 @@ undefined4 __fastcall FUN_00401b80(int *param_1)
     param_1[400] = -0x3f800000;
     param_1[0x191] = 0;
     if (3 < param_1[1]) {
-      if ((((DAT_0069d904 & 0x10) != 0) && ((DAT_0069d904 & 0x10) != (DAT_0069d908 & 0x10))) ||
-         (((DAT_0069d904 & 0x20) != 0 && ((DAT_0069d904 & 0x20) != (DAT_0069d908 & 0x20))))) {
+      if ((((BUTTONS_PRESSED_CURFRAME & 0x10) != 0) &&
+          ((BUTTONS_PRESSED_CURFRAME & 0x10) != (BUTTONS_PRESSED_PREVFRAME & 0x10))) ||
+         (((BUTTONS_PRESSED_CURFRAME & 0x20) != 0 &&
+          ((BUTTONS_PRESSED_CURFRAME & 0x20) != (BUTTONS_PRESSED_PREVFRAME & 0x20))))) {
         *param_1 = 4;
       }
-      if (((DAT_0069d904 & 1) != 0) && ((DAT_0069d904 & 1) != (DAT_0069d908 & 1))) {
+      if (((BUTTONS_PRESSED_CURFRAME & 1) != 0) &&
+         ((BUTTONS_PRESSED_CURFRAME & 1) != (BUTTONS_PRESSED_PREVFRAME & 1))) {
         for (local_8 = 0; local_8 < 3; local_8 = local_8 + 1) {
           *(undefined2 *)((int)param_1 + local_8 * 0x110 + 0x92) = 1;
         }

@@ -20,7 +20,8 @@ undefined4 FUN_00437b41(void)
     local_c = local_c + 0x110;
   }
   if (0x13 < *(int *)(in_ECX + 0x81f4)) {
-    if (((DAT_0069d904 & 0x1001) != 0) && ((DAT_0069d904 & 0x1001) != (DAT_0069d908 & 0x1001))) {
+    if (((BUTTONS_PRESSED_CURFRAME & 0x1001) != 0) &&
+       ((BUTTONS_PRESSED_CURFRAME & 0x1001) != (BUTTONS_PRESSED_PREVFRAME & 0x1001))) {
       switch(*(undefined4 *)(in_ECX + 0x81a0)) {
       case 0:
         for (local_8 = 0; local_8 < 0x7a; local_8 = local_8 + 1) {
@@ -31,8 +32,8 @@ undefined4 FUN_00437b41(void)
         if (3 < CUR_RANK) {
           CUR_RANK = 1;
         }
-        if (3 < g_GameContext.cfg.unk7) {
-          g_GameContext.cfg.unk7 = 1;
+        if (3 < g_GameContext.cfg.defaultDifficulty) {
+          g_GameContext.cfg.defaultDifficulty = 1;
         }
         *(undefined4 *)(in_ECX + 0x81f4) = 0;
         *(undefined4 *)(in_ECX + 0x81fc) = 0x40000000;
@@ -71,8 +72,8 @@ undefined4 FUN_00437b41(void)
         if (3 < CUR_RANK) {
           CUR_RANK = 1;
         }
-        if (3 < g_GameContext.cfg.unk7) {
-          g_GameContext.cfg.unk7 = 1;
+        if (3 < g_GameContext.cfg.defaultDifficulty) {
+          g_GameContext.cfg.defaultDifficulty = 1;
         }
         *(undefined4 *)(in_ECX + 0x81f4) = 0;
         *(undefined4 *)(in_ECX + 0x81fc) = 0x40000000;
@@ -135,7 +136,8 @@ undefined4 FUN_00437b41(void)
         FUN_004311e0(0xb,0);
       }
     }
-    if (((DAT_0069d904 & 0x200) != 0) && ((DAT_0069d904 & 0x200) != (DAT_0069d908 & 0x200))) {
+    if (((BUTTONS_PRESSED_CURFRAME & 0x200) != 0) &&
+       ((BUTTONS_PRESSED_CURFRAME & 0x200) != (BUTTONS_PRESSED_PREVFRAME & 0x200))) {
       *(undefined4 *)(in_ECX + 0x81f0) = 4;
       *(undefined4 *)(in_ECX + 0x81f4) = 0;
       for (local_8 = 0; local_8 < 0x7a; local_8 = local_8 + 1) {
@@ -143,7 +145,8 @@ undefined4 FUN_00437b41(void)
       }
       FUN_004311e0(0xb,0);
     }
-    if (((DAT_0069d904 & 10) != 0) && ((DAT_0069d904 & 10) != (DAT_0069d908 & 10))) {
+    if (((BUTTONS_PRESSED_CURFRAME & 10) != 0) &&
+       ((BUTTONS_PRESSED_CURFRAME & 10) != (BUTTONS_PRESSED_PREVFRAME & 10))) {
       *(undefined4 *)(in_ECX + 0x81a0) = 7;
       FUN_004311e0(0xb,0);
     }

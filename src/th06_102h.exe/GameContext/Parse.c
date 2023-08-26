@@ -2,61 +2,69 @@
 undefined4 __thiscall GameContext::Parse(GameContext *this,char *config_file_name)
 
 {
-  int *_Memory;
-  FILE *pFVar1;
-  undefined4 uVar2;
-  int iVar3;
-  int *piVar4;
-  GameConfiguration *pGVar5;
+  undefined2 uVar1;
+  undefined4 *_Memory;
+  FILE *pFVar2;
+  undefined4 uVar3;
+  int iVar4;
+  undefined4 *puVar5;
+  GameConfiguration *pGVar6;
   
-  pGVar5 = &g_GameContext.cfg;
-  for (iVar3 = 0xe; iVar3 != 0; iVar3 = iVar3 + -1) {
-    pGVar5->unk1 = 0;
-    pGVar5 = (GameConfiguration *)&pGVar5->unk2;
+  pGVar6 = &g_GameContext.cfg;
+  for (iVar4 = 0xe; iVar4 != 0; iVar4 = iVar4 + -1) {
+    (pGVar6->controllerMapping).shootButton = 0;
+    (pGVar6->controllerMapping).bombButton = 0;
+    pGVar6 = (GameConfiguration *)&(pGVar6->controllerMapping).focusButton;
   }
   g_GameContext.cfg.render_opts = g_GameContext.cfg.render_opts | 1;
-  _Memory = (int *)OpenPath(config_file_name,1);
-  if (_Memory == (int *)0x0) {
+  _Memory = (undefined4 *)OpenPath(config_file_name,1);
+  if (_Memory == (undefined4 *)0x0) {
     g_GameContext.cfg.lifeCount = 2;
     g_GameContext.cfg.bombCount = 3;
     g_GameContext.cfg.colorMode16bit = 0xff;
     g_GameContext.cfg.version = 0x102;
     g_GameContext.cfg.padAxisX = 600;
     g_GameContext.cfg.padAxisY = 600;
-    pFVar1 = fopen("bgm/th06_01.wav","rb");
-    if (pFVar1 == (FILE *)0x0) {
-      g_GameContext.cfg.sound_mode = 2;
+    pFVar2 = fopen("bgm/th06_01.wav","rb");
+    if (pFVar2 == (FILE *)0x0) {
+      g_GameContext.cfg.soundMode = 2;
       DebugPrint("wave データが無いので、midi にします\n");
     }
     else {
-      g_GameContext.cfg.sound_mode = 1;
-      _fclose(pFVar1);
+      g_GameContext.cfg.soundMode = 1;
+      _fclose(pFVar2);
     }
-    g_GameContext.cfg.unk6 = 1;
-    g_GameContext.cfg.unk7 = 1;
+    g_GameContext.cfg.playSound = 1;
+    g_GameContext.cfg.defaultDifficulty = 1;
     g_GameContext.cfg.windowed = false;
     g_GameContext.cfg.frameskip_config = 0;
-    g_GameContext.cfg.unk1 = DAT_004765a0;
-    g_GameContext.cfg.unk2 = DAT_004765a4;
-    g_GameContext.cfg.unk3 = DAT_004765a8;
-    g_GameContext.cfg.unk4 = DAT_004765ac;
-    g_GameContext.cfg.unk5 = DAT_004765b0;
+    g_GameContext.cfg.controllerMapping.shootButton = g_ControllerMapping.shootButton;
+    g_GameContext.cfg.controllerMapping.bombButton = g_ControllerMapping.bombButton;
+    g_GameContext.cfg.controllerMapping.focusButton = g_ControllerMapping.focusButton;
+    g_GameContext.cfg.controllerMapping.menuButton = g_ControllerMapping.menuButton;
+    g_GameContext.cfg.controllerMapping.upButton = g_ControllerMapping.upButton;
+    g_GameContext.cfg.controllerMapping.downButton = g_ControllerMapping.downButton;
+    g_GameContext.cfg.controllerMapping.leftButton = g_ControllerMapping.leftButton;
+    g_GameContext.cfg.controllerMapping.rightButton = g_ControllerMapping.rightButton;
+    g_GameContext.cfg.controllerMapping.unkButton = g_ControllerMapping.unkButton;
     GameErrorContextLog(&g_GameErrorContext,
-                        "コンフィグデータが見つか���ないので初期化しました\n"
+                        "コンフィグデータが見つからないので初期化しました\n"
                        );
   }
   else {
-    piVar4 = _Memory;
-    pGVar5 = &g_GameContext.cfg;
-    for (iVar3 = 0xe; iVar3 != 0; iVar3 = iVar3 + -1) {
-      pGVar5->unk1 = *piVar4;
-      piVar4 = piVar4 + 1;
-      pGVar5 = (GameConfiguration *)&pGVar5->unk2;
+    puVar5 = _Memory;
+    pGVar6 = &g_GameContext.cfg;
+    for (iVar4 = 0xe; iVar4 != 0; iVar4 = iVar4 + -1) {
+      uVar1 = *(undefined2 *)((int)puVar5 + 2);
+      (pGVar6->controllerMapping).shootButton = *(undefined2 *)puVar5;
+      (pGVar6->controllerMapping).bombButton = uVar1;
+      puVar5 = puVar5 + 1;
+      pGVar6 = (GameConfiguration *)&(pGVar6->controllerMapping).focusButton;
     }
     if ((((((4 < g_GameContext.cfg.lifeCount) || (3 < g_GameContext.cfg.bombCount)) ||
           (1 < g_GameContext.cfg.colorMode16bit)) ||
-         ((2 < g_GameContext.cfg.sound_mode || (4 < g_GameContext.cfg.unk7)))) ||
-        ((1 < g_GameContext.cfg.unk6 ||
+         ((2 < g_GameContext.cfg.soundMode || (4 < g_GameContext.cfg.defaultDifficulty)))) ||
+        ((1 < g_GameContext.cfg.playSound ||
          ((true < g_GameContext.cfg.windowed || (2 < g_GameContext.cfg.frameskip_config)))))) ||
        ((g_GameContext.cfg.version != 0x102 || (g_FileSize != 0x38)))) {
       g_GameContext.cfg.lifeCount = 2;
@@ -65,34 +73,42 @@ undefined4 __thiscall GameContext::Parse(GameContext *this,char *config_file_nam
       g_GameContext.cfg.version = 0x102;
       g_GameContext.cfg.padAxisX = 600;
       g_GameContext.cfg.padAxisY = 600;
-      pFVar1 = fopen("bgm/th06_01.wav","rb");
-      if (pFVar1 == (FILE *)0x0) {
-        g_GameContext.cfg.sound_mode = 2;
+      pFVar2 = fopen("bgm/th06_01.wav","rb");
+      if (pFVar2 == (FILE *)0x0) {
+        g_GameContext.cfg.soundMode = 2;
         DebugPrint("wave データが無いので、midi にします\n");
       }
       else {
-        g_GameContext.cfg.sound_mode = 1;
-        _fclose(pFVar1);
+        g_GameContext.cfg.soundMode = 1;
+        _fclose(pFVar2);
       }
-      g_GameContext.cfg.unk6 = 1;
-      g_GameContext.cfg.unk7 = 1;
+      g_GameContext.cfg.playSound = 1;
+      g_GameContext.cfg.defaultDifficulty = 1;
       g_GameContext.cfg.windowed = false;
       g_GameContext.cfg.frameskip_config = 0;
-      g_GameContext.cfg.unk1 = DAT_004765a0;
-      g_GameContext.cfg.unk2 = DAT_004765a4;
-      g_GameContext.cfg.unk3 = DAT_004765a8;
-      g_GameContext.cfg.unk4 = DAT_004765ac;
-      g_GameContext.cfg.unk5 = DAT_004765b0;
+      g_GameContext.cfg.controllerMapping.shootButton = g_ControllerMapping.shootButton;
+      g_GameContext.cfg.controllerMapping.bombButton = g_ControllerMapping.bombButton;
+      g_GameContext.cfg.controllerMapping.focusButton = g_ControllerMapping.focusButton;
+      g_GameContext.cfg.controllerMapping.menuButton = g_ControllerMapping.menuButton;
+      g_GameContext.cfg.controllerMapping.upButton = g_ControllerMapping.upButton;
+      g_GameContext.cfg.controllerMapping.downButton = g_ControllerMapping.downButton;
+      g_GameContext.cfg.controllerMapping.leftButton = g_ControllerMapping.leftButton;
+      g_GameContext.cfg.controllerMapping.rightButton = g_ControllerMapping.rightButton;
+      g_GameContext.cfg.controllerMapping.unkButton = g_ControllerMapping.unkButton;
       g_GameContext.cfg.render_opts = 1;
       GameErrorContextLog(&g_GameErrorContext,
                           "コンフィグデータが破壊されていたので再初期化しました\n"
                          );
     }
-    DAT_004765a0 = g_GameContext.cfg.unk1;
-    DAT_004765a4 = g_GameContext.cfg.unk2;
-    DAT_004765a8 = g_GameContext.cfg.unk3;
-    DAT_004765ac = g_GameContext.cfg.unk4;
-    DAT_004765b0 = g_GameContext.cfg.unk5;
+    g_ControllerMapping.shootButton = g_GameContext.cfg.controllerMapping.shootButton;
+    g_ControllerMapping.bombButton = g_GameContext.cfg.controllerMapping.bombButton;
+    g_ControllerMapping.focusButton = g_GameContext.cfg.controllerMapping.focusButton;
+    g_ControllerMapping.menuButton = g_GameContext.cfg.controllerMapping.menuButton;
+    g_ControllerMapping.upButton = g_GameContext.cfg.controllerMapping.upButton;
+    g_ControllerMapping.downButton = g_GameContext.cfg.controllerMapping.downButton;
+    g_ControllerMapping.leftButton = g_GameContext.cfg.controllerMapping.leftButton;
+    g_ControllerMapping.rightButton = g_GameContext.cfg.controllerMapping.rightButton;
+    g_ControllerMapping.unkButton = g_GameContext.cfg.controllerMapping.unkButton;
     _free(_Memory);
   }
   if (((uint)(this->cfg).render_opts >> 1 & 1) != 0) {
@@ -138,9 +154,9 @@ undefined4 __thiscall GameContext::Parse(GameContext *this,char *config_file_nam
                         "パッド、キーボードの入力に DirectInput を使用しません\n"
                        );
   }
-  iVar3 = write_data_to_file(config_file_name,&g_GameContext.cfg,0x38);
-  if (iVar3 == 0) {
-    uVar2 = 0;
+  iVar4 = WriteConfigToFile(config_file_name,&g_GameContext.cfg,0x38);
+  if (iVar4 == 0) {
+    uVar3 = 0;
   }
   else {
     GameErrorContextFatal
@@ -149,8 +165,8 @@ undefined4 __thiscall GameContext::Parse(GameContext *this,char *config_file_nam
               (&g_GameErrorContext,
                "フォルダが書込み禁止属性になっているか、ディスクがいっぱいいっぱいになってませんか？\n"
               );
-    uVar2 = 0xffffffff;
+    uVar3 = 0xffffffff;
   }
-  return uVar2;
+  return uVar3;
 }
 

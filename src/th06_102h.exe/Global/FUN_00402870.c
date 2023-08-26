@@ -76,11 +76,14 @@ undefined4 __fastcall FUN_00402870(int *param_1)
     param_1[0x108] = 0;
     param_1[0x109] = 0;
     if (3 < param_1[1]) {
-      if ((((DAT_0069d904 & 0x10) != 0) && ((DAT_0069d904 & 0x10) != (DAT_0069d908 & 0x10))) ||
-         (((DAT_0069d904 & 0x20) != 0 && ((DAT_0069d904 & 0x20) != (DAT_0069d908 & 0x20))))) {
+      if ((((BUTTONS_PRESSED_CURFRAME & 0x10) != 0) &&
+          ((BUTTONS_PRESSED_CURFRAME & 0x10) != (BUTTONS_PRESSED_PREVFRAME & 0x10))) ||
+         (((BUTTONS_PRESSED_CURFRAME & 0x20) != 0 &&
+          ((BUTTONS_PRESSED_CURFRAME & 0x20) != (BUTTONS_PRESSED_PREVFRAME & 0x20))))) {
         *param_1 = 2;
       }
-      if (((DAT_0069d904 & 1) != 0) && ((DAT_0069d904 & 1) != (DAT_0069d908 & 1))) {
+      if (((BUTTONS_PRESSED_CURFRAME & 1) != 0) &&
+         ((BUTTONS_PRESSED_CURFRAME & 1) != (BUTTONS_PRESSED_PREVFRAME & 1))) {
         for (local_8 = 0; local_8 < 4; local_8 = local_8 + 1) {
           *(undefined2 *)((int)param_1 + local_8 * 0x110 + 0x92) = 2;
         }
@@ -104,11 +107,14 @@ undefined4 __fastcall FUN_00402870(int *param_1)
     param_1[0xc4] = 0;
     param_1[0xc5] = 0;
     if (0x1d < param_1[1]) {
-      if ((((DAT_0069d904 & 0x10) != 0) && ((DAT_0069d904 & 0x10) != (DAT_0069d908 & 0x10))) ||
-         (((DAT_0069d904 & 0x20) != 0 && ((DAT_0069d904 & 0x20) != (DAT_0069d908 & 0x20))))) {
+      if ((((BUTTONS_PRESSED_CURFRAME & 0x10) != 0) &&
+          ((BUTTONS_PRESSED_CURFRAME & 0x10) != (BUTTONS_PRESSED_PREVFRAME & 0x10))) ||
+         (((BUTTONS_PRESSED_CURFRAME & 0x20) != 0 &&
+          ((BUTTONS_PRESSED_CURFRAME & 0x20) != (BUTTONS_PRESSED_PREVFRAME & 0x20))))) {
         *param_1 = 1;
       }
-      if (((DAT_0069d904 & 1) != 0) && ((DAT_0069d904 & 1) != (DAT_0069d908 & 1))) {
+      if (((BUTTONS_PRESSED_CURFRAME & 1) != 0) &&
+         ((BUTTONS_PRESSED_CURFRAME & 1) != (BUTTONS_PRESSED_PREVFRAME & 1))) {
         for (local_8 = 0; local_8 < 4; local_8 = local_8 + 1) {
           *(undefined2 *)((int)param_1 + local_8 * 0x110 + 0x92) = 2;
         }

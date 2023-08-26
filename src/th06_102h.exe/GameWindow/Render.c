@@ -43,7 +43,7 @@ undefined4 __thiscall GameWindow::Render(GameWindow *this)
         (*(g_GameContext.d3d_device)->lpVtbl->SetViewport)
                   (g_GameContext.d3d_device,&g_GameContext.viewport);
         local_8 = UnkChain3((short *)&DAT_0069d918);
-        FUN_00431270();
+        FUN_00431270(&SOUND_PLAYER);
         if (local_8 == 0) {
           return 1;
         }

@@ -1,6 +1,4 @@
 
-/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
-
 undefined4 FUN_00429c50(int param_1)
 
 {
@@ -30,8 +28,8 @@ undefined4 FUN_00429c50(int param_1)
     *(undefined2 *)(param_1 + 0xb4) = 0x400;
     FUN_00432430(param_1,*(undefined4 *)&pVVar1->field_0x1d934);
   }
-  *(float *)(param_1 + 0x440) = _DAT_0069d6e4 / 2.0;
-  *(float *)(param_1 + 0x444) = _DAT_0069d6e8 - 64.0;
+  *(float *)(param_1 + 0x440) = VIEWPORT_WIDTH / 2.0;
+  *(float *)(param_1 + 0x444) = VIEWPORT_HEIGHT - 64.0;
   *(undefined4 *)(param_1 + 0x448) = 0x3efae148;
   *(undefined4 *)(param_1 + 0x4a8) = 0x3efae148;
   *(undefined4 *)(param_1 + 0x4b4) = 0x3efae148;

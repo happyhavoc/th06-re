@@ -33,32 +33,32 @@ undefined4 InitD3dRendering(void)
   }
   (*(g_GameContext.d3d_iface)->lpVtbl->GetAdapterDisplayMode)
             (g_GameContext.d3d_iface,0,&display_mode);
-  if (g_GameContext.cfg.field14_0x1e == 0) {
-    if (((uint)g_GameContext.cfg.field34_0x34 >> 2 & 1) == 1) {
+  if (g_GameContext.cfg.windowed == false) {
+    if (((uint)g_GameContext.cfg.render_opts >> 2 & 1) == 1) {
       present_params.BackBufferFormat = D3DFMT_R5G6B5;
-      g_GameContext.cfg.field10_0x1a = 1;
+      g_GameContext.cfg.colorMode16bit = 1;
     }
-    else if (g_GameContext.cfg.field10_0x1a == 0xff) {
+    else if (g_GameContext.cfg.colorMode16bit == 0xff) {
       if ((display_mode.Format == D3DFMT_X8R8G8B8) || (display_mode.Format == D3DFMT_A8R8G8B8)) {
         present_params.BackBufferFormat = D3DFMT_X8R8G8B8;
-        g_GameContext.cfg.field10_0x1a = 0;
+        g_GameContext.cfg.colorMode16bit = 0;
         GameErrorContextLog(&g_GameErrorContext,
                             "初回起動、画面を 32Bits で初期化しました\n");
       }
       else {
         present_params.BackBufferFormat = D3DFMT_R5G6B5;
-        g_GameContext.cfg.field10_0x1a = 1;
+        g_GameContext.cfg.colorMode16bit = 1;
         GameErrorContextLog(&g_GameErrorContext,
                             "初回起動、画面を 16Bits で初期化しました\n");
       }
     }
-    else if (g_GameContext.cfg.field10_0x1a == 0) {
+    else if (g_GameContext.cfg.colorMode16bit == 0) {
       present_params.BackBufferFormat = D3DFMT_X8R8G8B8;
     }
     else {
       present_params.BackBufferFormat = D3DFMT_R5G6B5;
     }
-    if (((uint)g_GameContext.cfg.field34_0x34 >> 7 & 1) == 0) {
+    if (((uint)g_GameContext.cfg.render_opts >> 7 & 1) == 0) {
       present_params.FullScreen_PresentationInterval = 1;
     }
     else {
@@ -67,7 +67,7 @@ undefined4 InitD3dRendering(void)
       GameErrorContextLog(&g_GameErrorContext,
                           "リフレッシュレートを60Hzに変更します\n");
     }
-    if (g_GameContext.cfg.field15_0x1f == 0) {
+    if (g_GameContext.cfg.frameskip_config == 0) {
       present_params.SwapEffect = D3DSWAPEFFECT_FLIP;
     }
     else {
@@ -93,7 +93,7 @@ undefined4 InitD3dRendering(void)
     pDVar5 = (D3DPRESENT_PARAMETERS *)&pDVar5->BackBufferHeight;
   }
   do {
-    if (((uint)g_GameContext.cfg.field34_0x34 >> 9 & 1) == 0) {
+    if (((uint)g_GameContext.cfg.render_opts >> 9 & 1) == 0) {
       HVar2 = (*(g_GameContext.d3d_iface)->lpVtbl->CreateDevice)
                         (g_GameContext.d3d_iface,0,D3DDEVTYPE_HAL,GAME_WINDOW.window,0x40,
                          &present_params,&g_GameContext.d3d_device);
@@ -139,13 +139,13 @@ LAB_004211ab:
       (*(g_GameContext.d3d_device)->lpVtbl->GetViewport)
                 (g_GameContext.d3d_device,&g_GameContext.viewport);
       (*(g_GameContext.d3d_device)->lpVtbl->GetDeviceCaps)(g_GameContext.d3d_device,&D3D_CAPS);
-      if (((g_GameContext.cfg.field34_0x34 & 1U) == 0) && ((D3D_CAPS.TextureOpCaps & 0x40) == 0)) {
+      if (((g_GameContext.cfg.render_opts & 1U) == 0) && ((D3D_CAPS.TextureOpCaps & 0x40) == 0)) {
         GameErrorContextLog(&g_GameErrorContext,
                             "D3DTEXOPCAPS_ADD をサポートしていません、色加算エミュレートモードで動作します\n"
                            );
-        g_GameContext.cfg.field34_0x34 = g_GameContext.cfg.field34_0x34 | 1;
+        g_GameContext.cfg.render_opts = g_GameContext.cfg.render_opts | 1;
       }
-      if ((((uint)g_GameContext.cfg.field34_0x34 >> 7 & 1) == 0) ||
+      if ((((uint)g_GameContext.cfg.render_opts >> 7 & 1) == 0) ||
          (g_GameContext.field149_0x1a0 == 0)) {
         bVar1 = false;
       }
@@ -156,9 +156,9 @@ LAB_004211ab:
         GameErrorContextLog(&g_GameErrorContext,
                             "ビデオカードが非同期フリップをサポートしていません、Force60Frameで動作できません\n"
                            );
-        g_GameContext.cfg.field34_0x34 = g_GameContext.cfg.field34_0x34 & 0xffffff7f;
+        g_GameContext.cfg.render_opts = g_GameContext.cfg.render_opts & 0xffffff7f;
       }
-      if ((((uint)g_GameContext.cfg.field34_0x34 >> 2 & 1) == 0) && ((local_5 & 0xff) != 0)) {
+      if ((((uint)g_GameContext.cfg.render_opts >> 2 & 1) == 0) && ((local_5 & 0xff) != 0)) {
         HVar2 = (*(g_GameContext.d3d_iface)->lpVtbl->CheckDeviceFormat)
                           (g_GameContext.d3d_iface,0,D3DDEVTYPE_HAL,present_params.BackBufferFormat,
                            0,D3DRTYPE_TEXTURE,D3DFMT_A8R8G8B8);
@@ -167,7 +167,7 @@ LAB_004211ab:
         }
         else {
           DAT_006c7116 = 0;
-          g_GameContext.cfg.field34_0x34 = g_GameContext.cfg.field34_0x34 | 4;
+          g_GameContext.cfg.render_opts = g_GameContext.cfg.render_opts | 4;
           GameErrorContextLog(&g_GameErrorContext,
                               "D3DFMT_A8R8G8B8 をサポートしていません、減色モードで動作します\n"
                              );
@@ -191,8 +191,8 @@ LAB_00421077:
       local_5 = local_5 & 0xffffff00;
       goto LAB_00421190;
     }
-    if ((((uint)g_GameContext.cfg.field34_0x34 >> 7 & 1) == 0) ||
-       (g_GameContext.field149_0x1a0 != 0)) {
+    if ((((uint)g_GameContext.cfg.render_opts >> 7 & 1) == 0) || (g_GameContext.field149_0x1a0 != 0)
+       ) {
       if (present_params.Flags != 1) {
         GameErrorContextFatal
                   (&g_GameErrorContext,

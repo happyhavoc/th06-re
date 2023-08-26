@@ -238,7 +238,7 @@ LAB_004074ce:
     FUN_00424285(param_1 + 0x99c,param_1 + 0x998);
     return 0;
   }
-  if (((uint)*(byte *)((int)local_20 + 9) & 1 << ((byte)_DAT_0069bcb0 & 0x1f)) == 0)
+  if (((uint)*(byte *)((int)local_20 + 9) & 1 << ((byte)CUR_RANK & 0x1f)) == 0)
   goto switchD_00407544_caseD_7f;
   local_1c = local_20 + 3;
   switch(*(undefined2 *)(local_20 + 1)) {

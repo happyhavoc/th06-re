@@ -33,7 +33,7 @@ void FUN_00411530(void)
   }
   iVar2 = FUN_004195a2();
   if (((iVar2 == 0) &&
-      (local_c = DAT_0069d4ba * -0xf0 + 0x960,
+      (local_c = LIFE_COUNT * -0xf0 + 0x960,
       *(int *)(in_ECX + 0xee5e8) != *(int *)(in_ECX + 0xee5e0))) &&
      (*(int *)(in_ECX + 0xee5e8) % local_c == 0)) {
     FUN_0041c57e(100);
@@ -175,7 +175,7 @@ void FUN_00411530(void)
         }
         break;
       case 8:
-        if (((_DAT_0069bcb0 == 0) && (DAT_0069d6d4 == 5)) &&
+        if (((CUR_RANK == 0) && (CUR_STAGE == 5)) &&
            (*(short *)(*(int *)(in_ECX + 0xee5dc) + 2) == 1)) {
           FUN_00418768((uint)DAT_0069d4bd * 10 + 3);
         }

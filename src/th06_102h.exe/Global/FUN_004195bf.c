@@ -120,30 +120,30 @@ void FUN_004195bf(void)
     FUN_0041b5af();
   }
   if (*(int *)(*(int *)(in_ECX + 4) + 0x2bdc) == 1) {
-    local_c = (DAT_0069d6d4 * 1000 + DAT_0069bcb4 * 10 + (uint)_DAT_0069d4b0 * 100) *
+    local_c = (CUR_STAGE * 1000 + DAT_0069bcb4 * 10 + (uint)_DAT_0069d4b0 * 100) *
               (uint)DAT_0069d4b4;
-    if (5 < DAT_0069d6d4) {
-      local_c = local_c + DAT_0069d4ba * 3000000 + DAT_0069d4bb * 1000000;
+    if (5 < CUR_STAGE) {
+      local_c = local_c + LIFE_COUNT * 3000000 + BOMB_COUNT * 1000000;
     }
-    if (_DAT_0069bcb0 == 0) {
+    if (CUR_RANK == 0) {
       local_c = local_c / 2 - (local_c / 2) % 10;
     }
-    else if (_DAT_0069bcb0 == 2) {
+    else if (CUR_RANK == 2) {
       local_c = (local_c * 0xc) / 10;
       local_c = local_c - local_c % 10;
     }
-    else if (_DAT_0069bcb0 == 3) {
+    else if (CUR_RANK == 3) {
       local_c = (local_c * 0xf) / 10;
       local_c = local_c - local_c % 10;
     }
-    else if (_DAT_0069bcb0 == 4) {
+    else if (CUR_RANK == 4) {
       local_c = local_c * 2 - (local_c * 2) % 10;
     }
-    if (g_GameContext._356_1_ == '\x03') {
+    if (g_GameContext.lifeCount == 3) {
       local_c = (local_c * 5) / 10;
       local_c = local_c - local_c % 10;
     }
-    else if (g_GameContext._356_1_ == '\x04') {
+    else if (g_GameContext.lifeCount == 4) {
       local_c = (local_c << 1) / 10;
       local_c = local_c - local_c % 10;
     }

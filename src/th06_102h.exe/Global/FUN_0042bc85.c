@@ -1,6 +1,4 @@
 
-/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
-
 undefined4 FUN_0042bc85(void)
 
 {
@@ -13,7 +11,7 @@ undefined4 FUN_0042bc85(void)
   
   if (*(int *)(in_ECX + 4) == 0) {
     *(uint *)(in_ECX + 0x24) = (uint)DAT_0069d4bd;
-    *(undefined4 *)(in_ECX + 0x2c) = _DAT_0069bcb0;
+    *(int *)(in_ECX + 0x2c) = CUR_RANK;
     local_c = in_ECX + 0x40;
     for (local_8 = 0; local_8 < 0x26; local_8 = local_8 + 1) {
       *(short *)(local_c + 0x8a) = (short)*(undefined4 *)(in_ECX + 0x2c) + 3;
@@ -35,7 +33,7 @@ undefined4 FUN_0042bc85(void)
     *(undefined *)(in_ECX + 0x5188) = 0x10;
     *(undefined4 *)(in_ECX + 0x5180) = 0x52435348;
     if (DAT_0069d4c2 == '\0') {
-      *(undefined *)(in_ECX + 0x5192) = (undefined)DAT_0069d6d4;
+      *(undefined *)(in_ECX + 0x5192) = (undefined)CUR_STAGE;
     }
     else {
       *(undefined *)(in_ECX + 0x5192) = 99;

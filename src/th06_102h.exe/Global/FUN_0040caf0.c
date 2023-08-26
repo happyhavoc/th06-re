@@ -2,7 +2,7 @@
 void FUN_0040caf0(int param_1)
 
 {
-  uint uVar1;
+  ushort uVar1;
   uint uVar2;
   float10 fVar3;
   int local_a0;
@@ -25,37 +25,37 @@ void FUN_0040caf0(int param_1)
   if (*(int *)(param_1 + 0xec4) == *(int *)(param_1 + 0xebc)) goto LAB_0040cffe;
   if (*(int *)(param_1 + 0xec4) < 0x79) {
     if (0x3c < *(int *)(param_1 + 0xec4)) {
-      uVar1 = *(uint *)(param_1 + 0xec4) & 0x80000001;
-      if ((int)uVar1 < 0) {
-        uVar1 = (uVar1 - 1 | 0xfffffffe) + 1;
+      uVar2 = *(uint *)(param_1 + 0xec4) & 0x80000001;
+      if ((int)uVar2 < 0) {
+        uVar2 = (uVar2 - 1 | 0xfffffffe) + 1;
       }
-      if (uVar1 == 0) goto LAB_0040cc18;
+      if (uVar2 == 0) goto LAB_0040cc18;
     }
     if (0x1e < *(int *)(param_1 + 0xec4)) {
-      uVar1 = *(uint *)(param_1 + 0xec4) & 0x80000003;
-      if ((int)uVar1 < 0) {
-        uVar1 = (uVar1 - 1 | 0xfffffffc) + 1;
+      uVar2 = *(uint *)(param_1 + 0xec4) & 0x80000003;
+      if ((int)uVar2 < 0) {
+        uVar2 = (uVar2 - 1 | 0xfffffffc) + 1;
       }
-      if (uVar1 == 0) goto LAB_0040cc18;
+      if (uVar2 == 0) goto LAB_0040cc18;
     }
-    uVar1 = *(uint *)(param_1 + 0xec4) & 0x80000007;
-    if ((int)uVar1 < 0) {
-      uVar1 = (uVar1 - 1 | 0xfffffff8) + 1;
+    uVar2 = *(uint *)(param_1 + 0xec4) & 0x80000007;
+    if ((int)uVar2 < 0) {
+      uVar2 = (uVar2 - 1 | 0xfffffff8) + 1;
     }
-    if (uVar1 != 0) goto LAB_0040cffe;
+    if (uVar2 != 0) goto LAB_0040cffe;
   }
 LAB_0040cc18:
   local_c = *(uint *)(param_1 + 0xec4) & 0x8000000f;
   if ((int)local_c < 0) {
     local_c = (local_c - 1 | 0xfffffff0) + 1;
   }
-  uVar1 = (int)local_c / 2;
-  if ((short)uVar1 == 0) {
+  uVar2 = (int)local_c / 2;
+  if ((short)uVar2 == 0) {
     local_a0 = 0;
   }
   else {
-    uVar2 = FUN_0041e780();
-    local_a0 = (int)((ulonglong)(uVar2 & 0xffff) % (ulonglong)(longlong)(int)(uVar1 & 0xffff));
+    uVar1 = FUN_0041e780(&DAT_0069d8f8);
+    local_a0 = (int)((ulonglong)uVar1 % (ulonglong)(longlong)(int)(uVar2 & 0xffff));
   }
   local_c = local_a0 + (int)local_c / 2;
   local_10 = ((float)local_c * 160.0) / 16.0 + 32.0;

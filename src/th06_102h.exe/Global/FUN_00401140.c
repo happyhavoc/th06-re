@@ -23,7 +23,7 @@ undefined4 FUN_00401140(int param_1)
     FUN_00401b80((int *)(param_1 + 0x6244));
   }
   if (DAT_0069d4c0 != '\0') {
-    FUN_00402870();
+    FUN_00402870((int *)(param_1 + 0x69bc));
   }
   return 1;
 }

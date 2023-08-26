@@ -1,12 +1,11 @@
 
 /* WARNING: Removing unreachable block (ram,0x0040c27a) */
 /* WARNING: Removing unreachable block (ram,0x0040c464) */
-/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
 
 void FUN_0040c180(int param_1,int param_2)
 
 {
-  uint uVar1;
+  ushort uVar1;
   float10 fVar2;
   float10 fVar3;
   undefined4 *local_18;
@@ -20,13 +19,13 @@ void FUN_0040c180(int param_1,int param_2)
   else {
     local_10 = 0xe;
     local_18 = &DAT_005ab5f8;
-    if (_DAT_0069bcb0 < 2) {
+    if (CUR_RANK < 2) {
       for (local_14 = 0; local_14 < 0x280; local_14 = local_14 + 1) {
         if (((*(short *)((int)local_18 + 0x5be) != 0) && (*(short *)((int)local_18 + 0x5be) != 5))
            && ((local_18[0x30] != 0 &&
                (((30.0 <= *(float *)(local_18[0x30] + 0x2c) &&
                  (*(short *)((int)local_18 + 0x5ba) != 5)) &&
-                (uVar1 = FUN_0041e780(), (uVar1 & 3) == 0)))))) {
+                (uVar1 = FUN_0041e780(&DAT_0069d8f8), (uVar1 & 3) == 0)))))) {
           *(undefined2 *)((int)local_18 + 0x5ba) = 5;
           FUN_004323a0(local_18,(int)*(short *)((int)local_18 + 0xb2) +
                                 (int)*(short *)((int)local_18 + 0x5ba));
@@ -57,7 +56,7 @@ void FUN_0040c180(int param_1,int param_2)
         if ((((*(short *)((int)local_18 + 0x5be) != 0) && (*(short *)((int)local_18 + 0x5be) != 5))
             && (local_18[0x30] != 0)) &&
            (((30.0 <= *(float *)(local_18[0x30] + 0x2c) && (*(short *)((int)local_18 + 0x5ba) != 5))
-            && (uVar1 = FUN_0041e780(), (uVar1 & 3) == 0)))) {
+            && (uVar1 = FUN_0041e780(&DAT_0069d8f8), (uVar1 & 3) == 0)))) {
           *(undefined2 *)((int)local_18 + 0x5ba) = 5;
           FUN_004323a0(local_18,(int)*(short *)((int)local_18 + 0xb2) +
                                 (int)*(short *)((int)local_18 + 0x5ba));

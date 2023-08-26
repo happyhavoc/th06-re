@@ -28,8 +28,8 @@ int FUN_00414670(short *param_1)
   FUN_00432430(local_c,*(undefined4 *)(&pVVar3->field_0x1d158 + sVar1 * 4));
   FUN_004323a0(local_c,(int)*(short *)(local_c + 0xb0) + (int)param_1[1]);
   iVar2 = *(int *)(&DAT_00476440 + param_1[1] * 4);
-  FUN_00403580();
-  FUN_004323a0(local_c + 0x110,iVar2 + 0x28c);
+  FUN_00403580((undefined4 *)(local_c + 0x110));
+  FUN_004323a0((undefined4 *)(local_c + 0x110),iVar2 + 0x28c);
   *(uint *)(local_c + 400) = *(uint *)(local_c + 400) | 4;
   *(undefined4 *)(local_c + 0x220) = *(undefined4 *)(param_1 + 2);
   *(undefined4 *)(local_c + 0x224) = *(undefined4 *)(param_1 + 4);

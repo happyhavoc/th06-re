@@ -5,7 +5,7 @@ undefined4 FUN_0041bb02(uint *param_1)
 
 {
   bool bVar1;
-  undefined2 uVar2;
+  ushort uVar2;
   undefined4 uVar3;
   int iVar4;
   uint local_14;
@@ -19,8 +19,8 @@ undefined4 FUN_0041bb02(uint *param_1)
     param_1[2] = 0;
   }
   else {
-    g_GameContext._357_1_ = DAT_0069d4bb;
-    g_GameContext._356_1_ = DAT_0069d4ba;
+    g_GameContext.bombCount = BOMB_COUNT;
+    g_GameContext.lifeCount = LIFE_COUNT;
     param_1[0x68f] = 0x42000000;
     param_1[0x690] = 0x41800000;
     param_1[0x691] = 0x43c00000;
@@ -52,8 +52,8 @@ undefined4 FUN_0041bb02(uint *param_1)
     local_c = param_1 + 0xc;
     for (local_10 = 0; local_10 < 0x40; local_10 = local_10 + 1) {
       for (local_14 = 0; local_14 < 0x20; local_14 = local_14 + 1) {
-        uVar2 = FUN_0041e780();
-        *(undefined2 *)((int)local_c + local_14 * 2) = uVar2;
+        uVar2 = FUN_0041e780(&DAT_0069d8f8);
+        *(ushort *)((int)local_c + local_14 * 2) = uVar2;
       }
       *local_c = 0x4b544143;
       *(undefined2 *)((int)local_c + 6) = 0x40;
@@ -65,18 +65,18 @@ undefined4 FUN_0041bb02(uint *param_1)
       local_c = local_c + 0x10;
     }
     uVar3 = FUN_0042b0d9("score.dat");
-    DAT_0069bcac = FUN_0042b280(uVar3,0,(uint)DAT_0069d4be + (uint)DAT_0069d4bd * 2,_DAT_0069bcb0);
+    DAT_0069bcac = FUN_0042b280(uVar3,0,(uint)DAT_0069d4be + (uint)DAT_0069d4bd * 2,CUR_RANK);
     FUN_0042b466(uVar3,param_1 + 0xc);
     FUN_0042b502(uVar3,param_1 + 0x40c);
     FUN_0042b65e(uVar3,param_1 + 0x424);
     if (*(char *)((int)param_1 + 0x1823) != '\0') {
       DAT_0069bcac = param_1[((uint)DAT_0069d4be + (uint)DAT_0069d4bd * 2) * 0x78 +
-                             DAT_0069d6d4 * 0x14 + _DAT_0069bcb0 * 5 + 0x427];
+                             CUR_STAGE * 0x14 + CUR_RANK * 5 + 0x427];
     }
     FUN_0042b7dc(uVar3);
-    param_1[0x69c] = *(uint *)(&DAT_00476564 + _DAT_0069bcb0 * 0xc);
-    param_1[0x69e] = *(uint *)(&DAT_00476568 + _DAT_0069bcb0 * 0xc);
-    param_1[0x69d] = *(uint *)(&DAT_0047656c + _DAT_0069bcb0 * 0xc);
+    param_1[0x69c] = *(uint *)(&DAT_00476564 + CUR_RANK * 0xc);
+    param_1[0x69e] = *(uint *)(&DAT_00476568 + CUR_RANK * 0xc);
+    param_1[0x69d] = *(uint *)(&DAT_0047656c + CUR_RANK * 0xc);
     param_1[8] = 0;
     param_1[9] = 0;
     param_1[10] = 0;
@@ -89,13 +89,13 @@ undefined4 FUN_0041bb02(uint *param_1)
   if (_DAT_0069bcbc == 0) {
     iVar4 = (uint)DAT_0069d4be + (uint)DAT_0069d4bd * 2;
     if ((*(char *)(param_1 + 0x606) == '\0') &&
-       ((int)(uint)*(byte *)((int)param_1 + _DAT_0069bcb0 + iVar4 * 0x18 + 0x103c) <
+       ((int)(uint)*(byte *)((int)param_1 + CUR_RANK + iVar4 * 0x18 + 0x103c) <
         (int)(param_1[0x68d] - 1))) {
-      *(char *)((int)param_1 + _DAT_0069bcb0 + iVar4 * 0x18 + 0x103c) = (char)param_1[0x68d] + -1;
+      *(char *)((int)param_1 + CUR_RANK + iVar4 * 0x18 + 0x103c) = (char)param_1[0x68d] + -1;
     }
-    if ((int)(uint)*(byte *)((int)param_1 + _DAT_0069bcb0 + iVar4 * 0x18 + 0x1041) <
+    if ((int)(uint)*(byte *)((int)param_1 + CUR_RANK + iVar4 * 0x18 + 0x1041) <
         (int)(param_1[0x68d] - 1)) {
-      *(char *)((int)param_1 + _DAT_0069bcb0 + iVar4 * 0x18 + 0x1041) = (char)param_1[0x68d] + -1;
+      *(char *)((int)param_1 + CUR_RANK + iVar4 * 0x18 + 0x1041) = (char)param_1[0x68d] + -1;
     }
   }
   if ((*(char *)((int)param_1 + 0x1823) != '\0') && (param_1[0x68d] != 1)) {
@@ -116,8 +116,8 @@ undefined4 FUN_0041bb02(uint *param_1)
     while (*(uint *)(&DAT_004764b0 + *(char *)(param_1 + 0x607) * 4) <= *param_1) {
       *(char *)(param_1 + 0x607) = *(char *)(param_1 + 0x607) + '\x01';
     }
-    param_1[0x69e] = *(uint *)(&DAT_0047652c + _DAT_0069bcb0 * 0xc);
-    param_1[0x69d] = *(uint *)(&DAT_00476530 + _DAT_0069bcb0 * 0xc);
+    param_1[0x69e] = *(uint *)(&DAT_0047652c + CUR_RANK * 0xc);
+    param_1[0x69d] = *(uint *)(&DAT_00476530 + CUR_RANK * 0xc);
   }
   _DAT_0069d8fc = 0;
   *(undefined2 *)(param_1 + 0x68b) = DAT_0069d8f8;
@@ -152,7 +152,7 @@ undefined4 FUN_0041bb02(uint *param_1)
                 *(undefined *)(param_1 + 0xb) = 0;
                 param_1[1] = 0;
                 *(undefined *)((int)param_1 + 0x1822) = 0;
-                FUN_00401410();
+                FUN_00401410((undefined4 *)&DAT_0047b900);
                 if (bVar1) {
                   g_GameContext._396_4_ = 1;
                 }

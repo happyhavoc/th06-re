@@ -1,5 +1,5 @@
 
-void __thiscall FUN_0041cde0(short *param_1_00,short *param_2)
+void __thiscall CutChain(short *param_1_00,short *param_2)
 
 {
   code *pcVar1;
@@ -37,7 +37,7 @@ LAB_0041ce4c:
           if (param_2 == (short *)0x0) {
             return;
           }
-          FUN_0041c790();
+          FUN_0041c790((int)param_2);
           _free(param_2);
           return;
         }

@@ -36,13 +36,13 @@ undefined4 FUN_0041b252(void)
   _DAT_0069bc84 = FUN_0041b1a4;
   _DAT_0069bc88 = FUN_0041b1b1;
   _DAT_0069bc98 = *(undefined4 *)(unaff_EBP + -0x10);
-  iVar3 = FUN_0041c860(&DAT_0069bc7c,0xc);
+  iVar3 = AddToCalcChain((short *)&DAT_0069d918,(ChainElem *)&DAT_0069bc7c,0xc);
   if (iVar3 == 0) {
     _DAT_0069bc60 = FUN_00417502;
     _DAT_0069bc64 = 0;
     _DAT_0069bc68 = 0;
     _DAT_0069bc78 = *(undefined4 *)(unaff_EBP + -0x10);
-    FUN_0041c940(&DAT_0069bc5c,0xb);
+    AddToDrawChain(0x69d918,(ChainElem *)&DAT_0069bc5c,0xb);
     uVar2 = 0;
   }
   else {

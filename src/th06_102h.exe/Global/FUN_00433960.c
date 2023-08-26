@@ -5,9 +5,10 @@ undefined4 FUN_00433960(float *param_1)
   ushort uVar1;
   float fVar2;
   float fVar3;
+  ushort uVar4;
   int in_ECX;
-  uint uVar4;
-  float10 fVar5;
+  uint uVar5;
+  float10 fVar6;
   undefined local_120;
   int local_e0;
   float local_3c;
@@ -132,8 +133,8 @@ LAB_00433998:
       local_e0 = 0;
     }
     else {
-      uVar4 = FUN_0041e780();
-      local_e0 = (int)((ulonglong)(uVar4 & 0xffff) % (ulonglong)(longlong)(int)(uint)uVar1);
+      uVar4 = FUN_0041e780(&DAT_0069d8f8);
+      local_e0 = (int)((ulonglong)uVar4 % (ulonglong)(longlong)(int)(uint)uVar1);
     }
     FUN_004323a0(param_1,*local_c + local_e0 +
                          *(int *)(in_ECX + 0x1e934 + *(short *)(param_1 + 0x2d) * 4));
@@ -246,16 +247,16 @@ switchD_004339dd_caseD_15:
     FUN_004241e5(1);
 LAB_00434338:
     if (NAN(param_1[3]) == (param_1[3] == 0.0)) {
-      fVar5 = (float10)FUN_0041e850(*param_1,DAT_006c6ec0 * param_1[3]);
-      *param_1 = (float)fVar5;
+      fVar6 = (float10)FUN_0041e850(*param_1,DAT_006c6ec0 * param_1[3]);
+      *param_1 = (float)fVar6;
     }
     if (NAN(param_1[4]) == (param_1[4] == 0.0)) {
-      fVar5 = (float10)FUN_0041e850(param_1[1],DAT_006c6ec0 * param_1[4]);
-      param_1[1] = (float)fVar5;
+      fVar6 = (float10)FUN_0041e850(param_1[1],DAT_006c6ec0 * param_1[4]);
+      param_1[1] = (float)fVar6;
     }
     if (NAN(param_1[5]) == (param_1[5] == 0.0)) {
-      fVar5 = (float10)FUN_0041e850(param_1[2],DAT_006c6ec0 * param_1[5]);
-      param_1[2] = (float)fVar5;
+      fVar6 = (float10)FUN_0041e850(param_1[2],DAT_006c6ec0 * param_1[5]);
+      param_1[2] = (float)fVar6;
     }
     if (*(short *)((int)param_1 + 0x86) < 1) {
       param_1[6] = DAT_006c6ec0 * param_1[8] + param_1[6];
@@ -320,11 +321,11 @@ LAB_00434338:
       if (1.0 <= local_3c) {
         local_3c = 1.0;
       }
-      uVar4 = (uint)param_1[0x20] >> 10 & 3;
-      if (uVar4 == 1) {
+      uVar5 = (uint)param_1[0x20] >> 10 & 3;
+      if (uVar5 == 1) {
         local_3c = 1.0 - (1.0 - local_3c) * (1.0 - local_3c);
       }
-      else if (uVar4 == 2) {
+      else if (uVar5 == 2) {
         local_3c = 1.0 - local_3c;
         local_3c = 1.0 - local_3c * local_3c * local_3c * local_3c;
       }

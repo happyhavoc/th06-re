@@ -61,7 +61,7 @@ undefined4 FUN_00417d29(void)
       }
     }
   }
-  if (DAT_0069d6d4 == 1) {
+  if (CUR_STAGE == 1) {
     iVar3 = VeryBigStruct::LoadAnim(VERY_BIG_STRUCT,0x12,"data/face03a.anm",0x4a8);
     if (iVar3 != 0) {
       return 0xffffffff;
@@ -75,7 +75,7 @@ undefined4 FUN_00417d29(void)
       return 0xffffffff;
     }
   }
-  else if (DAT_0069d6d4 == 2) {
+  else if (CUR_STAGE == 2) {
     iVar3 = VeryBigStruct::LoadAnim(VERY_BIG_STRUCT,0x12,"data/face05a.anm",0x4a8);
     if (iVar3 != 0) {
       return 0xffffffff;
@@ -85,7 +85,7 @@ undefined4 FUN_00417d29(void)
       return 0xffffffff;
     }
   }
-  else if (DAT_0069d6d4 == 3) {
+  else if (CUR_STAGE == 3) {
     iVar3 = VeryBigStruct::LoadAnim(VERY_BIG_STRUCT,0x12,"data/face06a.anm",0x4a8);
     if (iVar3 != 0) {
       return 0xffffffff;
@@ -99,7 +99,7 @@ undefined4 FUN_00417d29(void)
       return 0xffffffff;
     }
   }
-  else if (DAT_0069d6d4 == 4) {
+  else if (CUR_STAGE == 4) {
     iVar3 = VeryBigStruct::LoadAnim(VERY_BIG_STRUCT,0x12,"data/face08a.anm",0x4a8);
     if (iVar3 != 0) {
       return 0xffffffff;
@@ -113,7 +113,7 @@ undefined4 FUN_00417d29(void)
       return 0xffffffff;
     }
   }
-  else if (DAT_0069d6d4 == 5) {
+  else if (CUR_STAGE == 5) {
     iVar3 = VeryBigStruct::LoadAnim(VERY_BIG_STRUCT,0x12,"data/face09a.anm",0x4a8);
     if (iVar3 != 0) {
       return 0xffffffff;
@@ -127,7 +127,7 @@ undefined4 FUN_00417d29(void)
       return 0xffffffff;
     }
   }
-  else if (DAT_0069d6d4 == 6) {
+  else if (CUR_STAGE == 6) {
     iVar3 = VeryBigStruct::LoadAnim(VERY_BIG_STRUCT,0x12,"data/face09b.anm",0x4a8);
     if (iVar3 != 0) {
       return 0xffffffff;

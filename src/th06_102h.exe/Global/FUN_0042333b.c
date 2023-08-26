@@ -1,5 +1,7 @@
 
-undefined4 FUN_0042333b(int param_1)
+/* WARNING: Unknown calling convention -- yet parameter storage is locked */
+
+undefined4 FUN_0042333b(GameContext *param_1)
 
 {
   int iVar1;
@@ -20,12 +22,12 @@ undefined4 FUN_0042333b(int param_1)
   else {
     DAT_0069d910 = 0;
   }
-  if (*(int *)(param_1 + 0x188) == *(int *)(param_1 + 0x18c)) goto LAB_0042375b;
-  *(undefined4 *)(param_1 + 400) = *(undefined4 *)(param_1 + 0x188);
-  iVar1 = *(int *)(param_1 + 0x188);
+  if (*(int *)&param_1->field_0x188 == *(int *)&param_1->field_0x18c) goto LAB_0042375b;
+  *(undefined4 *)&param_1->field_0x190 = *(undefined4 *)&param_1->field_0x188;
+  iVar1 = *(int *)&param_1->field_0x188;
   if (iVar1 == 0) goto LAB_00423454;
   if (iVar1 == 1) {
-    iVar1 = *(int *)(param_1 + 0x18c);
+    iVar1 = *(int *)&param_1->field_0x18c;
     if (iVar1 == 2) {
       iVar1 = FUN_0041ba6a();
       if (iVar1 != 0) {
@@ -61,14 +63,14 @@ undefined4 FUN_0042333b(int param_1)
     }
   }
   else if (iVar1 == 2) {
-    iVar1 = *(int *)(param_1 + 0x18c);
+    iVar1 = *(int *)&param_1->field_0x18c;
     if (iVar1 == 1) {
 LAB_004235a0:
       FUN_0041c269();
-      *(undefined4 *)(param_1 + 0x18c) = 0;
+      *(undefined4 *)&param_1->field_0x18c = 0;
       FUN_0042ab30(0,0);
 LAB_00423454:
-      *(undefined4 *)(param_1 + 0x18c) = 1;
+      *(undefined4 *)&param_1->field_0x18c = 1;
       (*(g_GameContext.d3d_device)->lpVtbl->ResourceManagerDiscardBytes)(g_GameContext.d3d_device,0)
       ;
       iVar1 = FUN_0043a338(0);
@@ -82,8 +84,8 @@ LAB_00423454:
       if (iVar1 != 0) {
         return 4;
       }
-      if (*(int *)(param_1 + 0x18c) == 1) goto LAB_004235a0;
-      *(undefined4 *)(param_1 + 0x18c) = 2;
+      if (*(int *)&param_1->field_0x18c == 1) goto LAB_004235a0;
+      *(undefined4 *)&param_1->field_0x18c = 2;
     }
     else {
       if (iVar1 == 4) {
@@ -98,9 +100,9 @@ LAB_00423454:
       }
       else if (iVar1 == 8) {
         FUN_0041c269();
-        *(undefined4 *)(param_1 + 0x18c) = 0;
+        *(undefined4 *)&param_1->field_0x18c = 0;
         FUN_0042ab30(0,0);
-        *(undefined4 *)(param_1 + 0x18c) = 1;
+        *(undefined4 *)&param_1->field_0x18c = 1;
         (*(g_GameContext.d3d_device)->lpVtbl->ResourceManagerDiscardBytes)
                   (g_GameContext.d3d_device,0);
         iVar1 = FUN_0043a338(1);
@@ -118,38 +120,38 @@ LAB_00423454:
     }
   }
   else if (iVar1 == 6) {
-    if (*(int *)(param_1 + 0x18c) == 1) {
-      *(undefined4 *)(param_1 + 0x18c) = 0;
+    if (*(int *)&param_1->field_0x18c == 1) {
+      *(undefined4 *)&param_1->field_0x18c = 0;
       goto LAB_00423454;
     }
-    if (*(int *)(param_1 + 0x18c) == 4) {
+    if (*(int *)&param_1->field_0x18c == 4) {
       return 4;
     }
   }
   else if (iVar1 == 7) {
-    if (*(int *)(param_1 + 0x18c) == 1) {
-      *(undefined4 *)(param_1 + 0x18c) = 0;
+    if (*(int *)&param_1->field_0x18c == 1) {
+      *(undefined4 *)&param_1->field_0x18c = 0;
       FUN_0042ab30(0,0);
       goto LAB_00423454;
     }
-    if (*(int *)(param_1 + 0x18c) == 4) {
+    if (*(int *)&param_1->field_0x18c == 4) {
       FUN_0042ab30(0,0);
       return 4;
     }
   }
   else if (iVar1 == 9) {
-    if (*(int *)(param_1 + 0x18c) == 1) {
-      *(undefined4 *)(param_1 + 0x18c) = 0;
+    if (*(int *)&param_1->field_0x18c == 1) {
+      *(undefined4 *)&param_1->field_0x18c = 0;
       goto LAB_00423454;
     }
-    if (*(int *)(param_1 + 0x18c) == 4) {
+    if (*(int *)&param_1->field_0x18c == 4) {
       return 4;
     }
   }
   else if (iVar1 == 10) {
-    iVar1 = *(int *)(param_1 + 0x18c);
+    iVar1 = *(int *)&param_1->field_0x18c;
     if (iVar1 == 1) {
-      *(undefined4 *)(param_1 + 0x18c) = 0;
+      *(undefined4 *)&param_1->field_0x18c = 0;
       goto LAB_00423454;
     }
     if (iVar1 == 4) {
@@ -163,8 +165,8 @@ LAB_00423454:
   DAT_0069d908 = 0;
   DAT_0069d904 = 0;
 LAB_0042375b:
-  *(undefined4 *)(param_1 + 0x188) = *(undefined4 *)(param_1 + 0x18c);
-  *(int *)(param_1 + 0x184) = *(int *)(param_1 + 0x184) + 1;
+  *(undefined4 *)&param_1->field_0x188 = *(undefined4 *)&param_1->field_0x18c;
+  *(int *)&param_1->field_0x184 = *(int *)&param_1->field_0x184 + 1;
   return 1;
 }
 

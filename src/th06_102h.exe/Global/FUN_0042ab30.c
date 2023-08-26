@@ -9,7 +9,7 @@ void FUN_0042ab30(char *param_1,char *param_2)
 
 {
   char cVar1;
-  uint uVar2;
+  ushort uVar2;
   FILE *_File;
   int iVar3;
   char *pcVar4;
@@ -82,7 +82,7 @@ void FUN_0042ab30(char *param_1,char *param_2)
         local_38 = (1.0 - local_10) * 100.0;
         local_3c = local_38 + 1.12;
         local_34 = local_38 + 2.34;
-        **(undefined4 **)(*(int *)(local_c + 4) + 0x30 + DAT_0069d6d4 * 4) = DAT_0069bca4;
+        **(undefined4 **)(*(int *)(local_c + 4) + 0x30 + CUR_STAGE * 4) = DAT_0069bca4;
         local_90 = param_2;
         local_94 = local_4b;
         do {
@@ -92,16 +92,16 @@ void FUN_0042ab30(char *param_1,char *param_2)
           local_94 = local_94 + 1;
         } while (cVar1 != '\0');
         FUN_0045d414(local_55 + 1);
-        uVar2 = FUN_0041e780();
-        local_56 = (char)((uVar2 & 0xffff) % 0x80) + '@';
-        uVar2 = FUN_0041e780();
-        local_a4 = (char)((uVar2 & 0xffff) % 0x100);
+        uVar2 = FUN_0041e780(&DAT_0069d8f8);
+        local_56 = (char)((uint)uVar2 % 0x80) + '@';
+        uVar2 = FUN_0041e780(&DAT_0069d8f8);
+        local_a4 = (char)((uint)uVar2 % 0x100);
         local_55[0] = local_a4;
-        uVar2 = FUN_0041e780();
-        local_a8 = (undefined)((uVar2 & 0xffff) % 0x100);
+        uVar2 = FUN_0041e780(&DAT_0069d8f8);
+        local_a8 = (undefined)((uint)uVar2 % 0x100);
         local_58 = local_a8;
-        uVar2 = FUN_0041e780();
-        local_ac = (undefined)((uVar2 & 0xffff) % 0x100);
+        uVar2 = FUN_0041e780(&DAT_0069d8f8);
+        local_ac = (undefined)((uint)uVar2 % 0x100);
         local_57 = local_ac;
         pcVar4 = &local_56;
         uStack_75 = (undefined)((uint)pcVar4 >> 0x18);
@@ -168,7 +168,7 @@ void FUN_0042ab30(char *param_1,char *param_2)
         }
       }
     }
-    FUN_0041cde0((short *)&DAT_0069d918,*(short **)(DAT_006d3f18 + 0x68));
+    CutChain((short *)&DAT_0069d918,*(short **)(DAT_006d3f18 + 0x68));
   }
   __security_check_cookie(local_14 ^ unaff_retaddr);
   return;

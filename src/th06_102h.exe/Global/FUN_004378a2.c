@@ -24,7 +24,7 @@ undefined4 FUN_004378a2(void)
     for (local_c = 0; local_c < 0x7a; local_c = local_c + 1) {
       *(undefined2 *)(in_ECX + 0x8a + local_c * 0x110) = 1;
       *(uint *)(in_ECX + 0x80 + local_c * 0x110) = *(uint *)(in_ECX + 0x80 + local_c * 0x110) | 8;
-      if ((g_GameContext.cfg.field34_0x34 & 1U) == 0) {
+      if ((g_GameContext.cfg.render_opts & 1U) == 0) {
         *(undefined4 *)(in_ECX + 0x7c + local_c * 0x110) = 0xff000000;
       }
       else {

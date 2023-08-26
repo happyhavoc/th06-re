@@ -11,7 +11,7 @@ undefined4 FUN_00430e10(undefined4 param_1)
   if (*(int *)(in_ECX + 0x610) == 0) {
     uVar3 = 0xffffffff;
   }
-  else if (g_GameContext.cfg.field12_0x1c == 0) {
+  else if (g_GameContext.cfg.unk6 == 0) {
     uVar3 = 0xffffffff;
   }
   else if (*(int *)(in_ECX + 0x62c) == 0) {

@@ -1,9 +1,8 @@
 
-undefined2 * FUN_0041c7f0(void)
+undefined2 * __fastcall UnkChain2(undefined2 *param_1)
 
 {
   UINT UVar1;
-  undefined2 *in_ECX;
   void *local_10;
   undefined *puStack_c;
   undefined4 local_8;
@@ -12,13 +11,13 @@ undefined2 * FUN_0041c7f0(void)
   puStack_c = &LAB_00469148;
   local_10 = ExceptionList;
   ExceptionList = &local_10;
-  FUN_0041c720(in_ECX);
+  FUN_0041c720((ChainElem *)param_1);
   local_8 = 0;
-  FUN_0041c720(in_ECX + 0x10);
+  FUN_0041c720((ChainElem *)(param_1 + 0x10));
   UVar1 = midiOutGetNumDevs();
-  *(UINT *)(in_ECX + 0x20) = UVar1;
-  *(undefined4 *)(in_ECX + 0x22) = 0;
+  *(UINT *)(param_1 + 0x20) = UVar1;
+  *(undefined4 *)(param_1 + 0x22) = 0;
   ExceptionList = local_10;
-  return in_ECX;
+  return param_1;
 }
 

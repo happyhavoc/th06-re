@@ -6,8 +6,8 @@ void FUN_0042b809(void **param_1)
 
 {
   byte bVar1;
+  ushort uVar2;
   void *_Dst;
-  uint uVar2;
   undefined local_50;
   undefined local_4c;
   byte *local_40;
@@ -72,11 +72,11 @@ void FUN_0042b809(void **param_1)
       *(undefined4 *)((int)_Dst + 8) = 0x14;
       *(size_t *)((int)_Dst + 0x10) = local_14;
       *(undefined2 *)((int)_Dst + 2) = 0;
-      uVar2 = FUN_0041e780();
-      local_4c = (undefined)((uVar2 & 0xffff) % 0x100);
+      uVar2 = FUN_0041e780(&DAT_0069d8f8);
+      local_4c = (undefined)((uint)uVar2 % 0x100);
       *(undefined *)((int)_Dst + 1) = local_4c;
-      uVar2 = FUN_0041e780();
-      local_50 = (undefined)((uVar2 & 0xffff) % 0x100);
+      uVar2 = FUN_0041e780(&DAT_0069d8f8);
+      local_50 = (undefined)((uint)uVar2 % 0x100);
       *(undefined *)((int)_Dst + 6) = local_50;
       *(undefined2 *)((int)_Dst + 4) = 0x10;
       for (local_38 = 4; local_38 < (int)local_14; local_38 = local_38 + 1) {

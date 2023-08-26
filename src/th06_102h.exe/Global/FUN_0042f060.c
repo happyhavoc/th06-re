@@ -1,6 +1,4 @@
 
-/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
-
 undefined4 FUN_0042f060(undefined4 *param_1)
 
 {
@@ -50,7 +48,7 @@ undefined4 FUN_0042f060(undefined4 *param_1)
     }
     local_c = param_1 + 0xa28;
     for (local_8 = 0; local_8 < 0x10; local_8 = local_8 + 1) {
-      FUN_00403580();
+      FUN_00403580(local_c);
       FUN_004323a0(local_c,local_8 + 0x708);
       local_c[0x24] = 0;
       local_c[0x25] = 0;
@@ -99,12 +97,11 @@ undefined4 FUN_0042f060(undefined4 *param_1)
   }
   if ((param_1[2] == 0x11) &&
      ((uint)(&DAT_0069cd3c)
-            [(DAT_0069d6d4 + -1) * 0x14 +
-             ((uint)DAT_0069d4be + (uint)DAT_0069d4bd * 2) * 0x78 + _DAT_0069bcb0 * 5] <
-      DAT_0069bca4)) {
+            [(CUR_STAGE + -1) * 0x14 +
+             ((uint)DAT_0069d4be + (uint)DAT_0069d4bd * 2) * 0x78 + CUR_RANK * 5] < DAT_0069bca4)) {
     (&DAT_0069cd3c)
-    [(DAT_0069d6d4 + -1) * 0x14 +
-     ((uint)DAT_0069d4be + (uint)DAT_0069d4bd * 2) * 0x78 + _DAT_0069bcb0 * 5] = DAT_0069bca4;
+    [(CUR_STAGE + -1) * 0x14 + ((uint)DAT_0069d4be + (uint)DAT_0069d4bd * 2) * 0x78 + CUR_RANK * 5]
+         = DAT_0069bca4;
   }
   *(undefined2 *)(param_1 + 0xe94) = 0xffff;
   return 0;

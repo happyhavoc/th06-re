@@ -142,7 +142,7 @@ LAB_0041f7c5:
           FUN_0041c57e(1);
           break;
         case 1:
-          switch(_DAT_0069bcb0) {
+          switch(CUR_RANK) {
           case 0:
           case 1:
             lVar6 = __ftol2((double)*(float *)(local_18 + 0x114));
@@ -239,8 +239,8 @@ LAB_0041f7c5:
           }
           break;
         case 3:
-          if (DAT_0069d4bb < '\b') {
-            DAT_0069d4bb = DAT_0069d4bb + '\x01';
+          if (BOMB_COUNT < '\b') {
+            BOMB_COUNT = BOMB_COUNT + '\x01';
             DAT_0069bc30 = DAT_0069bc30 & 0xfffffff3 | 8;
           }
           FUN_0041c57e(5);
@@ -258,8 +258,8 @@ LAB_0041f7c5:
           DAT_0069bc30 = DAT_0069bc30 & 0xffffffcf | 0x20;
           break;
         case 5:
-          if (DAT_0069d4ba < '\b') {
-            DAT_0069d4ba = DAT_0069d4ba + '\x01';
+          if (LIFE_COUNT < '\b') {
+            LIFE_COUNT = LIFE_COUNT + '\x01';
             DAT_0069bc30 = DAT_0069bc30 & 0xfffffffc | 2;
           }
           FUN_0041c57e(200);

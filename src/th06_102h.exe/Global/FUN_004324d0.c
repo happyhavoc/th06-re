@@ -17,8 +17,8 @@ void FUN_004324d0(int param_1)
                 (g_GameContext.d3d_device,D3DRS_DESTBLEND,2);
     }
   }
-  if ((((g_GameContext.cfg.field34_0x34 & 1U) == 0) &&
-      (((uint)g_GameContext.cfg.field34_0x34 >> 8 & 1) == 0)) &&
+  if ((((g_GameContext.cfg.render_opts & 1U) == 0) &&
+      (((uint)g_GameContext.cfg.render_opts >> 8 & 1) == 0)) &&
      ((uint)*(byte *)(in_ECX + 0x210bd) != (*(uint *)(param_1 + 0x80) >> 3 & 1))) {
     *(byte *)(in_ECX + 0x210bd) = (byte)(*(uint *)(param_1 + 0x80) >> 3) & 1;
     if (*(char *)(in_ECX + 0x210bd) == '\0') {
@@ -30,7 +30,7 @@ void FUN_004324d0(int param_1)
                 (g_GameContext.d3d_device,0,D3DTSS_COLOROP,7);
     }
   }
-  if (((uint)g_GameContext.cfg.field34_0x34 >> 1 & 1) == 0) {
+  if (((uint)g_GameContext.cfg.render_opts >> 1 & 1) == 0) {
     if (*(int *)(in_ECX + 0x210b4) != *(int *)(param_1 + 0x7c)) {
       *(undefined4 *)(in_ECX + 0x210b4) = *(undefined4 *)(param_1 + 0x7c);
       (*(g_GameContext.d3d_device)->lpVtbl->SetRenderState)
@@ -47,7 +47,7 @@ void FUN_004324d0(int param_1)
     _DAT_006d469c = *(undefined4 *)(param_1 + 0x7c);
     _DAT_006d46b4 = *(undefined4 *)(param_1 + 0x7c);
   }
-  if ((((uint)g_GameContext.cfg.field34_0x34 >> 6 & 1) == 0) &&
+  if ((((uint)g_GameContext.cfg.render_opts >> 6 & 1) == 0) &&
      ((uint)*(byte *)(in_ECX + 0x210bf) != (*(uint *)(param_1 + 0x80) >> 0xc & 1))) {
     *(byte *)(in_ECX + 0x210bf) = (byte)(*(uint *)(param_1 + 0x80) >> 0xc) & 1;
     if (*(char *)(in_ECX + 0x210bf) == '\0') {

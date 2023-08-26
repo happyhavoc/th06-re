@@ -21,7 +21,7 @@ VeryBigStruct1c000 * FUN_0041b34b(void)
   FUN_00403720((VeryBigStruct1c000 *)&in_ECX[0x20].field_0x84);
   FUN_00403720((VeryBigStruct1c000 *)&in_ECX[0x21].field_0x88);
   FUN_00403720((VeryBigStruct1c000 *)&in_ECX[0x22].field_0x8c);
-  FUN_0041b4c4();
+  FUN_0041b4c4((int)&in_ECX[0x23].field_0x90);
   FUN_00424127((Unk3field *)(in_ECX + 0x2a));
   FUN_00424127((Unk3field *)&in_ECX[0x2a].field_0x20);
   FUN_00424127((Unk3field *)&in_ECX[0x2a].field_0x40);

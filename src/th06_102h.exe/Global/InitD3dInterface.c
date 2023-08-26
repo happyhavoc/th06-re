@@ -4,7 +4,7 @@ bool InitD3dInterface(void)
 {
   bool bVar1;
   
-  g_GameContext.d3d_iface = (IDirect3D8 *)Direct3DCreate8(0x78);
+  g_GameContext.d3d_iface = Direct3DCreate8(0x78);
   bVar1 = g_GameContext.d3d_iface == (IDirect3D8 *)0x0;
   if (bVar1) {
     GameErrorContextFatal

@@ -32,7 +32,7 @@ undefined4 FUN_004190ec(void)
   if (*(int *)(in_ECX + 0x253c) < 0) {
     uVar1 = 0xffffffff;
   }
-  else if ((DAT_0069d6d4 == 6) &&
+  else if ((CUR_STAGE == 6) &&
           ((*(int *)(in_ECX + 0x253c) == 1 || (*(int *)(in_ECX + 0x253c) == 0xb)))) {
     uVar1 = 0;
   }
@@ -69,7 +69,7 @@ undefined4 FUN_004190ec(void)
     local_50 = 0x3f800000;
     FUN_00432ad0(in_ECX + 0x2550);
     FUN_00432ad0(in_ECX + 0x2660);
-    if (((uint)g_GameContext.cfg.field34_0x34 >> 8 & 1) == 0) {
+    if (((uint)g_GameContext.cfg.render_opts >> NO_COLOR_COMP & 1) == 0) {
       (*(g_GameContext.d3d_device)->lpVtbl->SetTextureStageState)
                 (g_GameContext.d3d_device,0,D3DTSS_ALPHAOP,2);
       (*(g_GameContext.d3d_device)->lpVtbl->SetTextureStageState)
@@ -79,7 +79,7 @@ undefined4 FUN_004190ec(void)
               (g_GameContext.d3d_device,0,D3DTSS_ALPHAARG1,0);
     (*(g_GameContext.d3d_device)->lpVtbl->SetTextureStageState)
               (g_GameContext.d3d_device,0,D3DTSS_COLORARG1,0);
-    if (((uint)g_GameContext.cfg.field34_0x34 >> 6 & 1) == 0) {
+    if (((uint)g_GameContext.cfg.render_opts >> TURN_OFF_DEPTH_TEST & 1) == 0) {
       (*(g_GameContext.d3d_device)->lpVtbl->SetRenderState)
                 (g_GameContext.d3d_device,D3DRS_ZWRITEENABLE,0);
     }
@@ -90,7 +90,7 @@ undefined4 FUN_004190ec(void)
     VERY_BIG_STRUCT->field_0x210bd = 0xff;
     VERY_BIG_STRUCT->field_0x210bc = 0xff;
     VERY_BIG_STRUCT->field_0x210bf = 0xff;
-    if (((uint)g_GameContext.cfg.field34_0x34 >> 8 & 1) == 0) {
+    if (((uint)g_GameContext.cfg.render_opts >> NO_COLOR_COMP & 1) == 0) {
       (*(g_GameContext.d3d_device)->lpVtbl->SetTextureStageState)
                 (g_GameContext.d3d_device,0,D3DTSS_ALPHAOP,4);
       (*(g_GameContext.d3d_device)->lpVtbl->SetTextureStageState)

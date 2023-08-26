@@ -5,24 +5,24 @@ void CreateGameWindow(HINSTANCE param_1)
   int iVar1;
   int iVar2;
   WNDCLASSA *pWVar3;
-  WNDCLASSA local_34;
+  WNDCLASSA base_class;
   int local_c;
   int local_8;
   
-  pWVar3 = &local_34;
+  pWVar3 = &base_class;
   for (iVar2 = 10; iVar2 != 0; iVar2 = iVar2 + -1) {
     pWVar3->style = 0;
     pWVar3 = (WNDCLASSA *)&pWVar3->lpfnWndProc;
   }
-  local_34.hbrBackground = (HBRUSH)GetStockObject(0);
-  local_34.hCursor = (HCURSOR)LoadCursorA((HINSTANCE)0x0,(LPCSTR)0x7f00);
-  local_34.hInstance = (HINSTANCE)param_1;
-  local_34.lpfnWndProc = WindowProc;
+  base_class.hbrBackground = (HBRUSH)GetStockObject(0);
+  base_class.hCursor = (HCURSOR)LoadCursorA((HINSTANCE)0x0,(LPCSTR)0x7f00);
+  base_class.hInstance = (HINSTANCE)param_1;
+  base_class.lpfnWndProc = WindowProc;
   GAME_WINDOW.activeapp_param = 0;
   GAME_WINDOW.is_app_active = 0;
-  local_34.lpszClassName = "BASE";
-  RegisterClassA(&local_34);
-  if (g_GameContext.cfg.field14_0x1e == 0) {
+  base_class.lpszClassName = "BASE";
+  RegisterClassA(&base_class);
+  if (g_GameContext.cfg.windowed == false) {
     local_c = 0x280;
     local_8 = 0x1e0;
     GAME_WINDOW.window =

@@ -22,11 +22,11 @@ undefined4 FUN_004288c0(int param_1)
   }
   if (*(int *)(param_1 + 0x75c8) == 0) {
     iVar3 = FUN_004195a2();
-    if (((((iVar3 == 0) && (*(int *)(param_1 + 0x9d8) != 0)) && ('\0' < DAT_0069d4bb)) &&
+    if (((((iVar3 == 0) && (*(int *)(param_1 + 0x9d8) != 0)) && ('\0' < (char)BOMB_COUNT)) &&
         (((DAT_0069d904 & 2) != 0 && ((DAT_0069d904 & 2) != (DAT_0069d908 & 2))))) &&
        (*(int *)(param_1 + 0x75dc) != 0)) {
       DAT_0069bcc4 = DAT_0069bcc4 + 1;
-      DAT_0069d4bb = DAT_0069d4bb + -1;
+      BOMB_COUNT = BOMB_COUNT - 1;
       DAT_0069bc30 = DAT_0069bc30 & 0xfffffff3 | 8;
       *(undefined4 *)(param_1 + 0x75c8) = 1;
       *(undefined4 *)(param_1 + 0x75d8) = 0;
@@ -47,7 +47,7 @@ undefined4 FUN_004288c0(int param_1)
       *(int *)(param_1 + 0x9d8) = *(int *)(param_1 + 0x9d8) + -1;
       if (*(int *)(param_1 + 0x9d8) == 0) {
         DAT_0069d4b9 = 0;
-        if (DAT_0069d4ba < '\x01') {
+        if (LIFE_COUNT < '\x01') {
           FUN_0041f290(param_1 + 0x440,4,2);
           FUN_0041f290(param_1 + 0x440,4,2);
           FUN_0041f290(param_1 + 0x440,4,2);
@@ -97,16 +97,16 @@ undefined4 FUN_004288c0(int param_1)
     pVVar2 = VERY_BIG_STRUCT;
     *(undefined2 *)(param_1 + 0xb4) = 0x400;
     FUN_00432430(param_1,*(undefined4 *)&pVVar2->field_0x1d934);
-    if (DAT_0069d4ba < '\x01') {
+    if (LIFE_COUNT < '\x01') {
       DAT_0069d4c0 = 1;
       goto LAB_00428fa8;
     }
-    DAT_0069d4ba = DAT_0069d4ba + -1;
-    if ((_DAT_0069bcb0 < 4) && (DAT_0069d4c3 == '\0')) {
-      DAT_0069d4bb = g_GameContext._357_1_;
+    LIFE_COUNT = LIFE_COUNT + -1;
+    if ((CUR_RANK < 4) && (DAT_0069d4c3 == '\0')) {
+      BOMB_COUNT = g_GameContext.bombCount;
     }
     else {
-      DAT_0069d4bb = '\x03';
+      BOMB_COUNT = 3;
     }
     DAT_0069bc30 = DAT_0069bc30 & 0xfffffff0 | 10;
   }

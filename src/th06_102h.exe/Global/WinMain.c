@@ -20,9 +20,9 @@ int WinMain(HINSTANCE hInstance,HINSTANCE hPrevInstance,LPSTR lpCmdLine,int nSho
     if (retCode == 0) {
       retCode = InitD3dInterface();
       if (retCode == 0) {
-        SystemParametersInfoA(SPI_GETSCREENSAVEACTIVE,0,&DAT_006c6be8,0);
-        SystemParametersInfoA(SPI_GETLOWPOWERACTIVE,0,&DAT_006c6bec,0);
-        SystemParametersInfoA(SPI_GETPOWEROFFACTIVE,0,&DAT_006c6bf0,0);
+        SystemParametersInfoA(SPI_GETSCREENSAVEACTIVE,0,&g_SCREEN_SAVE_ACTIVE,0);
+        SystemParametersInfoA(SPI_GETLOWPOWERACTIVE,0,&g_LOW_POWER_ACTIVE,0);
+        SystemParametersInfoA(SPI_GETPOWEROFFACTIVE,0,&g_POWER_OFF_ACTIVE,0);
         SystemParametersInfoA(SPI_SETSCREENSAVEACTIVE,0,(PVOID)0x0,2);
         SystemParametersInfoA(SPI_SETLOWPOWERACTIVE,0,(PVOID)0x0,2);
         SystemParametersInfoA(SPI_SETPOWEROFFACTIVE,0,(PVOID)0x0,2);
@@ -43,7 +43,7 @@ int WinMain(HINSTANCE hInstance,HINSTANCE hPrevInstance,LPSTR lpCmdLine,int nSho
           VERY_BIG_STRUCT = local_58;
           retCode = FUN_0042386b();
           if (retCode == 0) {
-            if (g_GameContext.cfg.field14_0x1e == 0) {
+            if (g_GameContext.cfg.windowed == false) {
               ShowCursor(0);
             }
             GAME_WINDOW.field4_0x10._0_1_ = 0;
@@ -89,9 +89,9 @@ LAB_0042055a:
           DestroyWindow((HWND)GAME_WINDOW.window);
           if (local_8 != 2) {
             write_data_to_file("東方紅魔郷.cfg",&g_GameContext.cfg,0x38);
-            SystemParametersInfoA(0x11,DAT_006c6be8,(PVOID)0x0,2);
-            SystemParametersInfoA(0x55,DAT_006c6bec,(PVOID)0x0,2);
-            SystemParametersInfoA(0x56,DAT_006c6bf0,(PVOID)0x0,2);
+            SystemParametersInfoA(0x11,g_SCREEN_SAVE_ACTIVE,(PVOID)0x0,2);
+            SystemParametersInfoA(0x55,g_LOW_POWER_ACTIVE,(PVOID)0x0,2);
+            SystemParametersInfoA(0x56,g_POWER_OFF_ACTIVE,(PVOID)0x0,2);
             if (g_GameContext.d3d_iface != (IDirect3D8 *)0x0) {
               (*(g_GameContext.d3d_iface)->lpVtbl->Release)(g_GameContext.d3d_iface);
               g_GameContext.d3d_iface = (IDirect3D8 *)0x0;
@@ -105,7 +105,7 @@ LAB_0042055a:
           GameErrorContextLog(&g_GameErrorContext,
                               "再起動を要するオプションが変更されたので再起動します\n"
                              );
-          if (g_GameContext.cfg.field14_0x1e == 0) {
+          if (g_GameContext.cfg.windowed == false) {
             ShowCursor(1);
           }
         }

@@ -25,10 +25,10 @@ void FUN_0041878b(int param_1)
     *(undefined4 *)(in_ECX + 0x2bc0) = 0;
     *(undefined4 *)(in_ECX + 0x2bc4) = 0;
     *(undefined *)(in_ECX + 0x2bd8) = 1;
-    if ((DAT_0069d6d4 == 6) && ((param_1 == 0 || (param_1 == 10)))) {
+    if ((CUR_STAGE == 6) && ((param_1 == 0 || (param_1 == 10)))) {
       VeryBigStruct::LoadAnim(VERY_BIG_STRUCT,0xb,"data/eff06.anm",0x2b3);
     }
-    else if ((DAT_0069d6d4 == 7) && ((param_1 == 0 || (param_1 == 10)))) {
+    else if ((CUR_STAGE == 7) && ((param_1 == 0 || (param_1 == 10)))) {
       VeryBigStruct::LoadAnim(VERY_BIG_STRUCT,0xb,"data/eff07.anm",0x2b3);
       VeryBigStruct::LoadAnim(VERY_BIG_STRUCT,0x12,"data/face12c.anm",0x4a8);
     }

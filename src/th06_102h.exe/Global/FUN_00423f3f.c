@@ -17,7 +17,7 @@ void FUN_00423f3f(void)
     _DAT_006c6d0c = timeGetTime();
   }
   local_8 = timeGetTime();
-  DAT_006c6d08 = DAT_006c6d08 + 1 + (uint)g_GameContext.cfg.field15_0x1f;
+  DAT_006c6d08 = DAT_006c6d08 + 1 + (uint)g_GameContext.cfg.frameskip_config;
   if (499 < local_8 - _DAT_006c6d0c) {
     local_14 = (float)(ulonglong)(local_8 - _DAT_006c6d0c) / 1000.0;
     local_10 = (float)(ulonglong)DAT_006c6d08 / local_14;
@@ -49,7 +49,7 @@ void FUN_00423f3f(void)
     local_20 = 0x44000000;
     local_1c = 0x43e80000;
     local_18 = 0;
-    FUN_00401530(&local_20,&DAT_006c6c08);
+    FUN_00401530(0x47b900,&local_20,&DAT_006c6c08);
   }
   return;
 }

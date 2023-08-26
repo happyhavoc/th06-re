@@ -1,5 +1,5 @@
 
-void FUN_0043a9c0(undefined4 *param_1,undefined4 param_2,uint param_3,undefined4 param_4,
+void FUN_0043a9c0(undefined4 *param_1,LPSTR param_2,uint param_3,undefined4 param_4,
                  undefined4 param_5,undefined4 param_6,undefined4 param_7,uint param_8,int param_9,
                  undefined4 param_10)
 
@@ -10,19 +10,19 @@ void FUN_0043a9c0(undefined4 *param_1,undefined4 param_2,uint param_3,undefined4
   uint *puVar3;
   uint unaff_retaddr;
   undefined4 local_7c;
-  undefined4 *local_78;
+  void **local_78;
   uint local_54;
   int *local_50;
   int local_4c;
   uint local_48 [4];
-  undefined4 local_38;
+  void *local_38;
   undefined4 local_34;
   undefined4 local_30;
   undefined4 local_2c;
   undefined4 local_28;
   uint local_24;
   undefined4 *local_20;
-  undefined4 *local_1c;
+  void **local_1c;
   void *local_18;
   int local_14;
   void *local_10;
@@ -35,21 +35,21 @@ void FUN_0043a9c0(undefined4 *param_1,undefined4 param_2,uint param_3,undefined4
   local_24 = __security_cookie ^ unaff_retaddr;
   if (*in_ECX != (int *)0x0) {
     local_20 = (undefined4 *)0x0;
-    local_1c = (undefined4 *)0x0;
+    local_1c = (void **)0x0;
     local_18 = (void *)0x0;
     local_50 = (int *)0x0;
     ExceptionList = &local_10;
     pvVar1 = operator_new(0x98);
     local_8 = 0;
     if (pvVar1 == (void *)0x0) {
-      local_78 = (undefined4 *)0x0;
+      local_78 = (void **)0x0;
     }
     else {
-      local_78 = (undefined4 *)FUN_0043b9b0();
+      local_78 = (void **)FUN_0043b9b0();
     }
     local_8 = 0xffffffff;
     local_1c = local_78;
-    FUN_0043ba60(param_2,0,1);
+    FUN_0043ba60(local_78,param_2,0,(void *)0x1);
     local_14 = param_9 * param_8;
     puVar3 = local_48;
     for (iVar2 = 9; iVar2 != 0; iVar2 = iVar2 + -1) {

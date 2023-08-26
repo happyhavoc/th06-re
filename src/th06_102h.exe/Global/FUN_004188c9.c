@@ -121,7 +121,7 @@ undefined4 FUN_004188c9(void)
       case 9:
         *(undefined4 *)(in_ECX + 0x2bdc) = 1;
         pVVar3 = VERY_BIG_STRUCT;
-        if (DAT_0069d6d4 < 6) {
+        if (CUR_STAGE < 6) {
           *(undefined2 *)(in_ECX + 0x24d8) = 0x619;
           FUN_00432430(in_ECX + 0x2424,*(undefined4 *)&pVVar3->field_0x1e198);
         }
@@ -134,11 +134,11 @@ undefined4 FUN_004188c9(void)
       case 0xb:
         DAT_0069bca0 = DAT_0069bca4;
         if (DAT_0069d4c3 == '\0') {
-          if ((DAT_0069d6d4 < 5) || ((_DAT_0069bcb0 != 0 && (DAT_0069d6d4 == 5)))) {
+          if ((CUR_STAGE < 5) || ((CUR_RANK != 0 && (CUR_STAGE == 5)))) {
             g_GameContext._396_4_ = 3;
           }
           else if (_DAT_0069bcbc == 0) {
-            if (_DAT_0069bcb0 == 4) {
+            if (CUR_RANK == 4) {
               DAT_0069d4c2 = 1;
               g_GameContext._396_4_ = 7;
             }

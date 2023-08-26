@@ -1,5 +1,5 @@
 
-void FUN_0041c6d0(void)
+void __fastcall DropChain(int param_1)
 
 {
   void *local_10;
@@ -10,9 +10,9 @@ void FUN_0041c6d0(void)
   local_10 = ExceptionList;
   local_8 = 0;
   ExceptionList = &local_10;
-  FUN_0041c790();
+  FUN_0041c790(param_1 + 0x20);
   local_8 = 0xffffffff;
-  FUN_0041c790();
+  FUN_0041c790(param_1);
   ExceptionList = local_10;
   return;
 }

@@ -15,9 +15,9 @@ undefined4 __thiscall GameWindow::Render(GameWindow *this)
     if (*(char *)&this->field4_0x10 != '\0') goto LAB_00420894;
     do {
       while( true ) {
-        if (g_GameContext.cfg.field15_0x1f <= *(byte *)&this->field4_0x10) {
-          if (((uint)g_GameContext.cfg.field34_0x34 >> 3 & 1 |
-              (uint)g_GameContext.cfg.field34_0x34 >> 4 & 1) != 0) {
+        if (g_GameContext.cfg.frameskip_config <= *(byte *)&this->field4_0x10) {
+          if (((uint)g_GameContext.cfg.render_opts >> 3 & 1 |
+              (uint)g_GameContext.cfg.render_opts >> 4 & 1) != 0) {
             local_20.X = 0;
             local_20.Y = 0;
             local_20.Width = 0x280;
@@ -31,7 +31,7 @@ undefined4 __thiscall GameWindow::Render(GameWindow *this)
                       (g_GameContext.d3d_device,&g_GameContext.viewport);
           }
           (*(g_GameContext.d3d_device)->lpVtbl->BeginScene)(g_GameContext.d3d_device);
-          FUN_0041cad0((short *)&DAT_0069d918);
+          UnkChain4((short *)&DAT_0069d918);
           (*(g_GameContext.d3d_device)->lpVtbl->EndScene)(g_GameContext.d3d_device);
           (*(g_GameContext.d3d_device)->lpVtbl->SetTexture)
                     (g_GameContext.d3d_device,0,(IDirect3DBaseTexture8 *)0x0);
@@ -42,7 +42,7 @@ undefined4 __thiscall GameWindow::Render(GameWindow *this)
         g_GameContext.viewport.Height = 0x1e0;
         (*(g_GameContext.d3d_device)->lpVtbl->SetViewport)
                   (g_GameContext.d3d_device,&g_GameContext.viewport);
-        local_8 = FUN_0041ca10();
+        local_8 = UnkChain3((short *)&DAT_0069d918);
         FUN_00431270();
         if (local_8 == 0) {
           return 1;
@@ -52,8 +52,8 @@ undefined4 __thiscall GameWindow::Render(GameWindow *this)
         }
         *(char *)&this->field4_0x10 = *(char *)&this->field4_0x10 + '\x01';
 LAB_00420894:
-        if (g_GameContext.cfg.field14_0x1e != 0) break;
-        if ((((uint)g_GameContext.cfg.field34_0x34 >> 7 & 1) == 0) ||
+        if (g_GameContext.cfg.windowed != false) break;
+        if ((((uint)g_GameContext.cfg.render_opts >> 7 & 1) == 0) ||
            (g_GameContext.field149_0x1a0 == 0)) {
           bVar2 = false;
         }
@@ -62,10 +62,10 @@ LAB_00420894:
         }
         if (bVar2) break;
 LAB_004209ab:
-        if (g_GameContext.cfg.field14_0x1e != 0) {
+        if (g_GameContext.cfg.windowed != false) {
           return 0;
         }
-        if ((((uint)g_GameContext.cfg.field34_0x34 >> 7 & 1) == 0) ||
+        if ((((uint)g_GameContext.cfg.render_opts >> 7 & 1) == 0) ||
            (g_GameContext.field149_0x1a0 == 0)) {
           bVar2 = false;
         }
@@ -75,7 +75,7 @@ LAB_004209ab:
         if (bVar2) {
           return 0;
         }
-        if (g_GameContext.cfg.field15_0x1f < *(byte *)&this->field4_0x10) goto LAB_00420a0b;
+        if (g_GameContext.cfg.frameskip_config < *(byte *)&this->field4_0x10) goto LAB_00420a0b;
         FUN_00420b50();
       }
       if (*(char *)&this->field4_0x10 == '\0') goto LAB_004209ab;
@@ -93,7 +93,7 @@ LAB_004209ab:
         _DAT_006c6bf8 = _DAT_006c6bf8 + 16.66666666666667;
         local_34 = local_34 - 16.66666666666667;
       } while (16.66666666666667 <= local_34);
-    } while (*(byte *)&this->field4_0x10 <= g_GameContext.cfg.field15_0x1f);
+    } while (*(byte *)&this->field4_0x10 <= g_GameContext.cfg.frameskip_config);
 LAB_00420a0b:
     FUN_00420b50();
     if (NAN(DAT_006c6ec4) == (DAT_006c6ec4 == 0.0)) {
@@ -106,7 +106,7 @@ LAB_00420a0b:
         INT_006c6ebc = DVar3;
       }
       dVar1 = ((((double)(ulonglong)(DVar3 - INT_006c6ebc) * 60.0) / 2.0) / 1000.0) /
-              (double)(g_GameContext.cfg.field15_0x1f + 1);
+              (double)(g_GameContext.cfg.frameskip_config + 1);
       if (dVar1 < 0.865) {
         if (dVar1 < 0.6) {
           DAT_006c6ec0 = 0.5;

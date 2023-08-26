@@ -1,37 +1,40 @@
 
-undefined4 __fastcall FUN_00431080(int **param_1)
+undefined4 __fastcall FUN_00431080(SoundPlayer *param_1)
 
 {
   undefined4 uVar1;
   int iVar2;
-  uint local_8;
+  uint idx;
   
-  if (param_1[0x184] == (int *)0x0) {
+  if (param_1->directsound8_uninit == (DirectSound8Player *)0x0) {
     uVar1 = 0xffffffff;
   }
-  else if (*param_1 == (int *)0x0) {
+  else if ((param_1->directsound).directsound8 == (LPDIRECTSOUND8)0x0) {
     uVar1 = 0;
   }
   else {
-    for (local_8 = 0; (int)local_8 < 3; local_8 = local_8 + 1) {
-      param_1[local_8 + 0x188] = (int *)0xffffffff;
+    for (idx = 0; (int)idx < 3; idx = idx + 1) {
+      *(undefined4 *)(&param_1->field_0x620 + idx * 4) = 0xffffffff;
     }
-    for (local_8 = 0; (int)local_8 < 0x1a; local_8 = local_8 + 1) {
-      iVar2 = FUN_004306e0(local_8,(&PTR_s_data_wav_plst00_wav_00478628)[local_8]);
+    for (idx = 0; (int)idx < 0x1a; idx = idx + 1) {
+      iVar2 = idx;
+      FUN_004306e0(param_1,idx,(&PTR_s_data_wav_plst00_wav_00478628)[idx]);
       if (iVar2 != 0) {
         GameErrorContextLog(&g_GameErrorContext,
                             "error : Sound ファイルが読み込めない データを確認 %s\n"
-                            ,(&PTR_s_data_wav_plst00_wav_00478628)[local_8]);
+                            ,(&PTR_s_data_wav_plst00_wav_00478628)[idx]);
         return 0xffffffff;
       }
     }
-    for (local_8 = 0; local_8 < 0x20; local_8 = local_8 + 1) {
-      (**(code **)(**param_1 + 0x14))
-                (*param_1,param_1[*(int *)(&DAT_00478528 + local_8 * 8) + 2],
-                 param_1 + local_8 + 0x82);
-      (**(code **)(*param_1[local_8 + 0x82] + 0x34))(param_1[local_8 + 0x82],0);
-      (**(code **)(*param_1[local_8 + 0x82] + 0x3c))
-                (param_1[local_8 + 0x82],(int)*(short *)(&DAT_0047852c + local_8 * 8));
+    for (idx = 0; idx < 0x20; idx = idx + 1) {
+      (*((param_1->directsound).directsound8)->lpVtbl->DuplicateSoundBuffer)
+                ((param_1->directsound).directsound8,
+                 param_1->sound_buffers[SOUND_BUFFER_IDX_VOL[idx].buffer_idx],
+                 param_1->duplicate_sound_buffer + idx);
+      (*param_1->duplicate_sound_buffer[idx]->lpVtbl->SetCurrentPosition)
+                (param_1->duplicate_sound_buffer[idx],0);
+      (*param_1->duplicate_sound_buffer[idx]->lpVtbl->SetVolume)
+                (param_1->duplicate_sound_buffer[idx],(int)SOUND_BUFFER_IDX_VOL[idx].volume);
     }
     uVar1 = 0;
   }

@@ -38,7 +38,7 @@ undefined4 FUN_00432730(int param_1,int param_2)
     }
   }
   if (*(char *)(in_ECX + 0x210be) != '\x02') {
-    if (((uint)g_GameContext.cfg.field34_0x34 >> 1 & 1) == 0) {
+    if (((uint)g_GameContext.cfg.render_opts >> 1 & 1) == 0) {
       (*(g_GameContext.d3d_device)->lpVtbl->SetVertexShader)(g_GameContext.d3d_device,0x104);
     }
     else {
@@ -47,7 +47,7 @@ undefined4 FUN_00432730(int param_1,int param_2)
     *(undefined *)(in_ECX + 0x210be) = 2;
   }
   FUN_004324d0(param_1);
-  if (((uint)g_GameContext.cfg.field34_0x34 >> 1 & 1) == 0) {
+  if (((uint)g_GameContext.cfg.render_opts >> 1 & 1) == 0) {
     (*(g_GameContext.d3d_device)->lpVtbl->DrawPrimitiveUP)
               (g_GameContext.d3d_device,D3DPT_TRIANGLESTRIP,2,&FLOAT_006d4600,0x18);
   }

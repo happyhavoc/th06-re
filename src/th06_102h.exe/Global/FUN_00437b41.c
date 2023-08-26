@@ -1,6 +1,4 @@
 
-/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
-
 undefined4 FUN_00437b41(void)
 
 {
@@ -30,11 +28,11 @@ undefined4 FUN_00437b41(void)
         }
         *(undefined4 *)(in_ECX + 0x81f0) = 6;
         DAT_0069d4c3 = 0;
-        if (3 < _DAT_0069bcb0) {
-          _DAT_0069bcb0 = 1;
+        if (3 < CUR_RANK) {
+          CUR_RANK = 1;
         }
-        if (3 < g_GameContext.cfg.field13_0x1d) {
-          g_GameContext.cfg.field13_0x1d = 1;
+        if (3 < g_GameContext.cfg.unk7) {
+          g_GameContext.cfg.unk7 = 1;
         }
         *(undefined4 *)(in_ECX + 0x81f4) = 0;
         *(undefined4 *)(in_ECX + 0x81fc) = 0x40000000;
@@ -55,7 +53,7 @@ undefined4 FUN_00437b41(void)
           }
           *(undefined4 *)(in_ECX + 0x81f0) = 6;
           DAT_0069d4c3 = 0;
-          _DAT_0069bcb0 = 4;
+          CUR_RANK = 4;
           *(undefined4 *)(in_ECX + 0x81f4) = 0;
           *(undefined4 *)(in_ECX + 0x81fc) = 0x40000000;
           *(undefined4 *)(in_ECX + 0x8200) = 0xff000000;
@@ -70,11 +68,11 @@ undefined4 FUN_00437b41(void)
           *(undefined2 *)(in_ECX + 0x8a + local_8 * 0x110) = 4;
         }
         *(undefined4 *)(in_ECX + 0x81f0) = 6;
-        if (3 < _DAT_0069bcb0) {
-          _DAT_0069bcb0 = 1;
+        if (3 < CUR_RANK) {
+          CUR_RANK = 1;
         }
-        if (3 < g_GameContext.cfg.field13_0x1d) {
-          g_GameContext.cfg.field13_0x1d = 1;
+        if (3 < g_GameContext.cfg.unk7) {
+          g_GameContext.cfg.unk7 = 1;
         }
         *(undefined4 *)(in_ECX + 0x81f4) = 0;
         *(undefined4 *)(in_ECX + 0x81fc) = 0x40000000;
@@ -123,9 +121,9 @@ undefined4 FUN_00437b41(void)
           *(undefined2 *)(in_ECX + 0x8a + local_8 * 0x110) = 3;
         }
         *(undefined4 *)(in_ECX + 0x81a0) = 0;
-        *(byte *)(in_ECX + 0x8230) = g_GameContext.cfg.field10_0x1a;
-        *(byte *)(in_ECX + 0x8231) = g_GameContext.cfg.field14_0x1e;
-        *(byte *)(in_ECX + 0x8232) = g_GameContext.cfg.field15_0x1f;
+        *(byte *)(in_ECX + 0x8230) = g_GameContext.cfg.colorMode16bit;
+        *(bool *)(in_ECX + 0x8231) = g_GameContext.cfg.windowed;
+        *(byte *)(in_ECX + 0x8232) = g_GameContext.cfg.frameskip_config;
         FUN_004311e0(10,0);
         break;
       case 7:

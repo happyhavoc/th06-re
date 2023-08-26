@@ -3,8 +3,7 @@ void FUN_004377a3(int param_1,int param_2,int param_3,uint param_4,uint param_5,
 
 {
   if (param_2 == param_3) {
-    if (((uint)g_GameContext.cfg.field34_0x34 >> 8 & 1 | g_GameContext.cfg.field34_0x34 & 1U) == 0)
-    {
+    if (((uint)g_GameContext.cfg.render_opts >> 8 & 1 | g_GameContext.cfg.render_opts & 1U) == 0) {
       *(uint *)(param_1 + 0x7c) = param_4;
     }
     else {
@@ -16,8 +15,7 @@ void FUN_004377a3(int param_1,int param_2,int param_3,uint param_4,uint param_5,
     *(undefined4 *)(param_1 + 0xec) = 0;
   }
   else {
-    if (((uint)g_GameContext.cfg.field34_0x34 >> 8 & 1 | g_GameContext.cfg.field34_0x34 & 1U) == 0)
-    {
+    if (((uint)g_GameContext.cfg.render_opts >> 8 & 1 | g_GameContext.cfg.render_opts & 1U) == 0) {
       *(uint *)(param_1 + 0x7c) = param_5;
     }
     else {

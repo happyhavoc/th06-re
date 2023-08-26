@@ -5,7 +5,7 @@ undefined4 FUN_0040f280(void)
   int iVar1;
   
   FUN_0040e340();
-  switch(DAT_0069d6d4) {
+  switch(CUR_STAGE) {
   case 0:
   case 1:
     iVar1 = VeryBigStruct::LoadAnim(VERY_BIG_STRUCT,0xb,"data/eff01.anm",0x2b3);

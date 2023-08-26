@@ -8,14 +8,14 @@ undefined4 FUN_0042545a(int param_1)
   float local_18;
   float fStack_14;
   float fStack_10;
-  undefined local_c;
+  char local_c;
   undefined local_b;
   int local_8;
   
-  local_c = 0x7f;
+  local_c = '\x7f';
   local_b = 0;
-  VERY_BIG_STRUCT->field19989_0x210b8 = 0;
-  FUN_00435300(0,0,0,0,0);
+  VERY_BIG_STRUCT->field19739_0x210b8 = 0;
+  FUN_00435300(VERY_BIG_STRUCT,0,0,0,0,0);
   FUN_00432ad0(param_1 + 0x24);
   for (local_8 = *(int *)(param_1 + 0x18); local_8 < *(int *)(param_1 + 0x18) + 10;
       local_8 = local_8 + 1) {
@@ -37,10 +37,10 @@ undefined4 FUN_0042545a(int param_1)
     fStack_10 = pfVar1[2];
     local_18 = *pfVar1 - 60.0;
     if (*(int *)(param_1 + 0x10) == local_8) {
-      FUN_00401530(&local_18,&local_c);
+      FUN_00401530(0x47b900,&local_18,&local_c);
     }
     local_18 = local_18 + 15.0;
-    FUN_00401650(&DAT_0047b900,&local_18,&DAT_0046ba50,local_8 + 1);
+    FUN_00401650(0x47b900,&local_18,"%2d.",local_8 + 1);
   }
   for (local_8 = 0; local_8 < 0x10; local_8 = local_8 + 1) {
     FUN_00432ad0(param_1 + 0x2334 + local_8 * 0x110);

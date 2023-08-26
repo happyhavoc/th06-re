@@ -16,14 +16,14 @@ void FUN_00424b5d(char *param_1)
   
   iVar2 = DAT_006c6ec8;
   local_c = __security_cookie ^ unaff_retaddr;
-  if (g_GameContext.cfg.midi_stuff == 2) {
+  if (g_GameContext.cfg.sound_mode == 2) {
     if (DAT_006c6ec8 != 0) {
       FUN_004224e0();
       FUN_00422380(param_1);
       FUN_00422490(iVar2);
     }
   }
-  else if (g_GameContext.cfg.midi_stuff == 1) {
+  else if (g_GameContext.cfg.sound_mode == 1) {
     local_218 = param_1;
     local_21c = local_20c;
     do {

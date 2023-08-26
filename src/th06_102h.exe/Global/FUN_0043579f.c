@@ -44,7 +44,8 @@ undefined4 FUN_0043579f(int param_1)
       *(undefined4 *)(param_1 + 0x10f2c) = 0;
     }
   }
-  switch(*(undefined4 *)(param_1 + 0x81f0)) {
+  iVar5 = *(int *)(param_1 + 0x81f0);
+  switch(iVar5) {
   case 0:
     iVar5 = FUN_004378a2();
     if (iVar5 == -1) {
@@ -62,8 +63,8 @@ LAB_004359b3:
       _DAT_0069d4c8 = 0;
       DAT_006c6ec4 = 1.0;
       _strcpy(&DAT_0069d4cc,"data/demo/demo00.rpy");
-      _DAT_0069bcb0 = 3;
-      DAT_0069d6d4 = 3;
+      CUR_RANK = 3;
+      CUR_STAGE = 3;
       g_GameContext._396_4_ = 2;
       return 0;
     }
@@ -200,11 +201,11 @@ switchD_004358f7_caseD_2:
           DAT_004765a8 = *(undefined4 *)(param_1 + 0x8224);
           DAT_004765ac = *(undefined4 *)(param_1 + 0x8228);
           DAT_004765b0 = *(undefined2 *)(param_1 + 0x822c);
-          g_GameContext.cfg.field0_0x0 = *(int *)(param_1 + 0x821c);
-          g_GameContext.cfg.field1_0x4 = *(int *)(param_1 + 0x8220);
-          g_GameContext.cfg.field2_0x8 = *(int *)(param_1 + 0x8224);
-          g_GameContext.cfg.field3_0xc = *(int *)(param_1 + 0x8228);
-          g_GameContext.cfg.field4_0x10 = *(short *)(param_1 + 0x822c);
+          g_GameContext.cfg.unk1 = *(int *)(param_1 + 0x821c);
+          g_GameContext.cfg.unk2 = *(int *)(param_1 + 0x8220);
+          g_GameContext.cfg.unk3 = *(int *)(param_1 + 0x8224);
+          g_GameContext.cfg.unk4 = *(int *)(param_1 + 0x8228);
+          g_GameContext.cfg.unk5 = *(short *)(param_1 + 0x822c);
         }
       }
     }
@@ -221,11 +222,11 @@ switchD_004358f7_caseD_2:
     *(undefined4 *)(param_1 + 0x81fc) = 0;
     *(undefined4 *)(param_1 + 0x8214) = *(undefined4 *)(param_1 + 0x8210);
     *(undefined4 *)(param_1 + 0x8210) = 0;
-    if (_DAT_0069bcb0 < 4) {
+    if (CUR_RANK < 4) {
       for (local_8 = 0; (int)local_8 < 0x7a; local_8 = local_8 + 1) {
         *(undefined2 *)(param_1 + 0x8a + local_8 * 0x110) = 6;
       }
-      *(uint *)(param_1 + 0x81a0) = (uint)g_GameContext.cfg.field13_0x1d;
+      *(uint *)(param_1 + 0x81a0) = (uint)g_GameContext.cfg.unk7;
     }
     else {
       for (local_8 = 0; (int)local_8 < 0x7a; local_8 = local_8 + 1) {
@@ -241,11 +242,11 @@ switchD_004358f7_caseD_2:
     break;
   case 7:
     local_c = param_1 + 0x5610;
-    if (_DAT_0069bcb0 < 4) {
+    if (CUR_RANK < 4) {
       FUN_0043753c(param_1,4);
       for (local_8 = 0; (int)local_8 < 4; local_8 = local_8 + 1) {
         if (local_8 == *(int *)(param_1 + 0x81a0)) {
-          if ((g_GameContext.cfg.field34_0x34 & 1U) == 0) {
+          if ((g_GameContext.cfg.render_opts & 1U) == 0) {
             *(undefined4 *)(local_c + 0x7c) = 0xff000000;
           }
           else {
@@ -256,7 +257,7 @@ switchD_004358f7_caseD_2:
           *(undefined4 *)(local_c + 0xec) = 0;
         }
         else {
-          if ((g_GameContext.cfg.field34_0x34 & 1U) == 0) {
+          if ((g_GameContext.cfg.render_opts & 1U) == 0) {
             *(undefined4 *)(local_c + 0x7c) = 0x60000000;
           }
           else {
@@ -277,7 +278,7 @@ switchD_004358f7_caseD_2:
         local_c = local_c + 0x110;
       }
       for (local_8 = 4; (int)local_8 < 5; local_8 = local_8 + 1) {
-        if ((g_GameContext.cfg.field34_0x34 & 1U) == 0) {
+        if ((g_GameContext.cfg.render_opts & 1U) == 0) {
           *(undefined4 *)(local_c + 0x7c) = 0xff000000;
         }
         else {
@@ -297,14 +298,14 @@ switchD_004358f7_caseD_2:
           *(undefined2 *)(param_1 + 0x8a + local_8 * 0x110) = 7;
         }
         FUN_004311e0(10,0);
-        if (_DAT_0069bcb0 < 4) {
+        if (CUR_RANK < 4) {
           *(undefined2 *)(param_1 + (*(int *)(param_1 + 0x81a0) + 0x51) * 0x110 + 0x8a) = 8;
-          _DAT_0069bcb0 = *(int *)(param_1 + 0x81a0);
+          CUR_RANK = *(int *)(param_1 + 0x81a0);
           *(uint *)(param_1 + 0x81a0) = (uint)DAT_0069d4bd;
         }
         else {
           *(undefined2 *)(param_1 + 0x5ada) = 8;
-          _DAT_0069bcb0 = 4;
+          CUR_RANK = 4;
           iVar5 = FUN_0043a736(DAT_0069d4bd,0);
           if ((iVar5 == 0) && (iVar5 = FUN_0043a736(DAT_0069d4bd,1), iVar5 == 0)) {
             *(uint *)(param_1 + 0x81a0) = 1 - (uint)DAT_0069d4bd;
@@ -313,7 +314,7 @@ switchD_004358f7_caseD_2:
             *(uint *)(param_1 + 0x81a0) = (uint)DAT_0069d4bd;
           }
         }
-        g_GameContext.cfg.field13_0x1d = DAT_0069bcb0;
+        g_GameContext.cfg.unk7 = (byte)CUR_RANK;
         local_c = param_1 + 0x5b60;
         for (local_8 = 0; (int)local_8 < 2; local_8 = local_8 + 1) {
           if (local_8 != *(int *)(param_1 + 0x81a0)) {
@@ -331,8 +332,8 @@ switchD_004358f7_caseD_2:
         *(undefined2 *)(param_1 + 0x8a + local_8 * 0x110) = 4;
       }
       FUN_004311e0(0xb,0);
-      if (_DAT_0069bcb0 < 4) {
-        g_GameContext.cfg.field13_0x1d = *(byte *)(param_1 + 0x81a0);
+      if (CUR_RANK < 4) {
+        g_GameContext.cfg.unk7 = *(byte *)(param_1 + 0x81a0);
         if (DAT_0069d4c3 == '\0') {
           *(undefined4 *)(param_1 + 0x81a0) = 0;
         }
@@ -356,7 +357,7 @@ LAB_0043666d:
         if (*(int *)(param_1 + 0x81a0) < 0) {
           *(int *)(param_1 + 0x81a0) = *(int *)(param_1 + 0x81a0) + 2;
         }
-        if (((_DAT_0069bcb0 == 4) &&
+        if (((CUR_RANK == 4) &&
             (iVar5 = FUN_0043a736(*(undefined4 *)(param_1 + 0x81a0),0), iVar5 == 0)) &&
            (iVar5 = FUN_0043a736(*(undefined4 *)(param_1 + 0x81a0),1), iVar5 == 0)) {
           *(int *)(param_1 + 0x81a0) = *(int *)(param_1 + 0x81a0) + 1;
@@ -386,7 +387,7 @@ LAB_0043666d:
       if (1 < *(int *)(param_1 + 0x81a0)) {
         *(int *)(param_1 + 0x81a0) = *(int *)(param_1 + 0x81a0) + -2;
       }
-      if (((_DAT_0069bcb0 != 4) ||
+      if (((CUR_RANK != 4) ||
           (iVar5 = FUN_0043a736(*(undefined4 *)(param_1 + 0x81a0),0), iVar5 != 0)) ||
          (iVar5 = FUN_0043a736(*(undefined4 *)(param_1 + 0x81a0),1), iVar5 != 0)) {
         FUN_004311e0(0xc,0);
@@ -416,7 +417,7 @@ LAB_0043666d:
         for (local_8 = 0; (int)local_8 < 0x7a; local_8 = local_8 + 1) {
           *(undefined2 *)(param_1 + 0x8a + local_8 * 0x110) = 0xd;
         }
-        *(undefined2 *)(param_1 + (_DAT_0069bcb0 + 0x51) * 0x110 + 0x8a) = 0;
+        *(undefined2 *)(param_1 + (CUR_RANK + 0x51) * 0x110 + 0x8a) = 0;
         local_c = param_1 + 0x5b60;
         for (local_8 = 0; (int)local_8 < 2; local_8 = local_8 + 1) {
           if (local_8 != *(int *)(param_1 + 0x81a0)) {
@@ -434,7 +435,7 @@ LAB_0043666d:
           local_c = local_c + 0x220;
         }
         DAT_0069d4bd = *(byte *)(param_1 + 0x81a0);
-        if (_DAT_0069bcb0 < 4) {
+        if (CUR_RANK < 4) {
           *(uint *)(param_1 + 0x81a0) = (uint)DAT_0069d4be;
         }
         else {
@@ -452,11 +453,11 @@ LAB_0043666d:
     else {
       *(undefined4 *)(param_1 + 0x81f0) = 7;
       *(undefined4 *)(param_1 + 0x81f4) = 0;
-      if (_DAT_0069bcb0 < 4) {
+      if (CUR_RANK < 4) {
         for (local_8 = 0; (int)local_8 < 0x7a; local_8 = local_8 + 1) {
           *(undefined2 *)(param_1 + 0x8a + local_8 * 0x110) = 6;
         }
-        *(uint *)(param_1 + 0x81a0) = (uint)g_GameContext.cfg.field13_0x1d;
+        *(uint *)(param_1 + 0x81a0) = (uint)g_GameContext.cfg.unk7;
       }
       else {
         for (local_8 = 0; (int)local_8 < 0x7a; local_8 = local_8 + 1) {
@@ -475,7 +476,7 @@ LAB_0043666d:
     break;
   case 0xb:
     FUN_0043753c(param_1,2);
-    if ((_DAT_0069bcb0 == 4) &&
+    if ((CUR_RANK == 4) &&
        (iVar5 = FUN_0043a736(DAT_0069d4bd,*(undefined4 *)(param_1 + 0x81a0)), iVar5 == 0)) {
       *(int *)(param_1 + 0x81a0) = 1 - *(int *)(param_1 + 0x81a0);
     }
@@ -489,7 +490,7 @@ LAB_0043666d:
       *(uint *)(local_c + 0x80) = *(uint *)(local_c + 0x80) | 8;
       *(uint *)(local_c + 0x80) = *(uint *)(local_c + 0x80) | 1;
       if (local_8 == *(int *)(param_1 + 0x81a0)) {
-        if ((g_GameContext.cfg.field34_0x34 & 1U) == 0) {
+        if ((g_GameContext.cfg.render_opts & 1U) == 0) {
           *(undefined4 *)(local_c + 0x7c) = 0xff202020;
         }
         else {
@@ -500,7 +501,7 @@ LAB_0043666d:
         *(undefined4 *)(local_c + 0xec) = 0;
       }
       else {
-        if ((g_GameContext.cfg.field34_0x34 & 1U) == 0) {
+        if ((g_GameContext.cfg.render_opts & 1U) == 0) {
           *(undefined4 *)(local_c + 0x7c) = 0xa0000000;
         }
         else {
@@ -518,11 +519,11 @@ LAB_0043666d:
         {
           DAT_0069d4be = *(byte *)(param_1 + 0x81a0);
           if (DAT_0069d4c3 == '\0') {
-            if (_DAT_0069bcb0 < 4) {
-              DAT_0069d6d4 = 0;
+            if (CUR_RANK < 4) {
+              CUR_STAGE = 0;
             }
             else {
-              DAT_0069d6d4 = 6;
+              CUR_STAGE = 6;
             }
             goto LAB_00436de7;
           }
@@ -531,7 +532,7 @@ LAB_0043666d:
           for (local_8 = 0; (int)local_8 < 0x7a; local_8 = local_8 + 1) {
             *(undefined2 *)(param_1 + 0x8a + local_8 * 0x110) = 0x13;
           }
-          *(undefined2 *)(param_1 + (_DAT_0069bcb0 + 0x51) * 0x110 + 0x8a) = 0;
+          *(undefined2 *)(param_1 + (CUR_RANK + 0x51) * 0x110 + 0x8a) = 0;
           local_c = param_1 + 0x5b60;
           for (local_8 = 0; (int)local_8 < 2; local_8 = local_8 + 1) {
             if (local_8 != DAT_0069d4bd) {
@@ -549,17 +550,17 @@ LAB_0043666d:
             local_c = local_c + 0x220;
           }
           *(undefined4 *)(param_1 + 0x81a0) = DAT_0069d6d8;
-          if ((byte)(&DAT_0069cce1)
-                    [_DAT_0069bcb0 + ((uint)DAT_0069d4be + (uint)DAT_0069d4bd * 2) * 0x18] < 7) {
+          if ((byte)(&DAT_0069cce1)[CUR_RANK + ((uint)DAT_0069d4be + (uint)DAT_0069d4bd * 2) * 0x18]
+              < 7) {
             local_b4 = (uint)(byte)(&DAT_0069cce1)
-                                   [_DAT_0069bcb0 +
-                                    ((uint)DAT_0069d4be + (uint)DAT_0069d4bd * 2) * 0x18];
+                                   [CUR_RANK + ((uint)DAT_0069d4be + (uint)DAT_0069d4bd * 2) * 0x18]
+            ;
           }
           else {
             local_b4 = 6;
           }
           local_4c = local_b4;
-          if ((_DAT_0069bcb0 == 0) && (local_b4 == 6)) {
+          if ((CUR_RANK == 0) && (local_b4 == 6)) {
             local_4c = 5;
           }
           if ((int)local_4c <= *(int *)(param_1 + 0x81a0)) {
@@ -581,7 +582,7 @@ LAB_0043666d:
           }
           local_c = local_c + 0x220;
         }
-        *(undefined2 *)(param_1 + (_DAT_0069bcb0 + 0x51) * 0x110 + 0x8a) = 0;
+        *(undefined2 *)(param_1 + (CUR_RANK + 0x51) * 0x110 + 0x8a) = 0;
         FUN_004311e0(0xb,0);
         DAT_0069d4be = *(byte *)(param_1 + 0x81a0);
         *(uint *)(param_1 + 0x81a0) = (uint)DAT_0069d4bd;
@@ -600,7 +601,7 @@ LAB_0043666d:
   case 0xd:
   case 0xe:
   case 0xf:
-    iVar5 = FUN_004381ec();
+    FUN_004381ec(param_1);
     if (iVar5 != 0) {
       return 0;
     }
@@ -612,14 +613,14 @@ LAB_0043666d:
     }
     break;
   case 0x11:
-    if ((byte)(&DAT_0069cce1)[_DAT_0069bcb0 + ((uint)DAT_0069d4be + (uint)DAT_0069d4bd * 2) * 0x18]
-        < 7) {
-      cVar1 = (&DAT_0069cce1)[_DAT_0069bcb0 + ((uint)DAT_0069d4be + (uint)DAT_0069d4bd * 2) * 0x18];
+    if ((byte)(&DAT_0069cce1)[CUR_RANK + ((uint)DAT_0069d4be + (uint)DAT_0069d4bd * 2) * 0x18] < 7)
+    {
+      cVar1 = (&DAT_0069cce1)[CUR_RANK + ((uint)DAT_0069d4be + (uint)DAT_0069d4bd * 2) * 0x18];
     }
     else {
       cVar1 = '\x06';
     }
-    if ((_DAT_0069bcb0 == 0) && (cVar1 == '\x06')) {
+    if ((CUR_RANK == 0) && (cVar1 == '\x06')) {
       cVar1 = '\x05';
     }
     FUN_0043753c(param_1,cVar1);
@@ -627,14 +628,14 @@ LAB_0043666d:
       if (((DAT_0069d904 & 10) == 0) || ((DAT_0069d904 & 10) == (DAT_0069d908 & 10))) {
         if (((DAT_0069d904 & 0x1001) != 0) && ((DAT_0069d904 & 0x1001) != (DAT_0069d908 & 0x1001)))
         {
-          DAT_0069d6d4 = *(undefined4 *)(param_1 + 0x81a0);
+          CUR_STAGE = *(undefined4 *)(param_1 + 0x81a0);
           DAT_0069d6d8 = *(undefined4 *)(param_1 + 0x81a0);
 LAB_00436de7:
-          DAT_0069d4ba = g_GameContext.cfg.lifeCount;
-          DAT_0069d4bb = g_GameContext.cfg.bombCount;
-          if ((_DAT_0069bcb0 == 4) || (DAT_0069d4c3 != '\0')) {
-            DAT_0069d4ba = 2;
-            DAT_0069d4bb = 3;
+          LIFE_COUNT = g_GameContext.cfg.lifeCount;
+          BOMB_COUNT = g_GameContext.cfg.bombCount;
+          if ((CUR_RANK == 4) || (DAT_0069d4c3 != '\0')) {
+            LIFE_COUNT = 2;
+            BOMB_COUNT = 3;
           }
           g_GameContext._396_4_ = 2;
           FUN_004311e0(10,0);
@@ -707,7 +708,7 @@ LAB_00436de7:
         for (local_8 = 0; (int)local_8 < 0x7a; local_8 = local_8 + 1) {
           *(undefined2 *)(param_1 + 0x8a + local_8 * 0x110) = 0xd;
         }
-        *(undefined2 *)(param_1 + (_DAT_0069bcb0 + 0x51) * 0x110 + 0x8a) = 0;
+        *(undefined2 *)(param_1 + (CUR_RANK + 0x51) * 0x110 + 0x8a) = 0;
         local_c = param_1 + 0x5b60;
         for (local_8 = 0; (int)local_8 < 2; local_8 = local_8 + 1) {
           if (local_8 != DAT_0069d4bd) {

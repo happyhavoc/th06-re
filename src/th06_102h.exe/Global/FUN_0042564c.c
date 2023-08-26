@@ -110,9 +110,9 @@ void FUN_0042564c(int param_1)
 LAB_004259f3:
       *(int *)(param_1 + 0x1c) = local_8 + 1;
       for (local_8 = 0; local_8 < *(int *)(param_1 + 0x1c); local_8 = local_8 + 1) {
-        iVar3 = local_8 * 0x110;
-        FUN_00403580();
-        FUN_004323a0(param_1 + 0x134 + iVar3,local_8 + 0x101);
+        puVar5 = (undefined4 *)(param_1 + 0x134 + local_8 * 0x110);
+        FUN_00403580(puVar5);
+        FUN_004323a0(puVar5,local_8 + 0x101);
         FUN_00434b60(VERY_BIG_STRUCT,param_1 + 0x134 + local_8 * 0x110,0xc0e0ff,0x302080,
                      *(int *)(param_1 + 0x20) + 0x40 + local_8 * 0x272);
         *(undefined4 *)(param_1 + 0x1c4 + local_8 * 0x110) = 0x42ba0000;
@@ -123,9 +123,9 @@ LAB_004259f3:
              *(uint *)(param_1 + 0x1b4 + local_8 * 0x110) | 0x300;
       }
       for (local_8 = 0; local_8 < 0x10; local_8 = local_8 + 1) {
-        iVar3 = local_8 * 0x110;
-        FUN_00403580();
-        FUN_004323a0(param_1 + 0x2334 + iVar3,local_8 + 0x708);
+        puVar5 = (undefined4 *)(param_1 + 0x2334 + local_8 * 0x110);
+        FUN_00403580(puVar5);
+        FUN_004323a0(puVar5,local_8 + 0x708);
         puVar5 = local_5c;
         for (iVar3 = 0x10; iVar3 != 0; iVar3 = iVar3 + -1) {
           *puVar5 = 0;

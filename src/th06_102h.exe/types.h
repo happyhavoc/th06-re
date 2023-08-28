@@ -634,7 +634,7 @@ struct SoundPlayer {
     undefined field411_0x205;
     undefined field412_0x206;
     undefined field413_0x207;
-    LPDIRECTSOUNDBUFFER duplicate_sound_buffer[32];
+    LPDIRECTSOUNDBUFFER duplicateSoundBuffers[32];
     undefined field415_0x288;
     undefined field416_0x289;
     undefined field417_0x28a;
@@ -1543,22 +1543,11 @@ struct SoundPlayer {
     undefined field1320_0x61d;
     undefined field1321_0x61e;
     undefined field1322_0x61f;
-    undefined field1323_0x620;
-    undefined field1324_0x621;
-    undefined field1325_0x622;
-    undefined field1326_0x623;
-    undefined field1327_0x624;
-    undefined field1328_0x625;
-    undefined field1329_0x626;
-    undefined field1330_0x627;
-    undefined field1331_0x628;
-    undefined field1332_0x629;
-    undefined field1333_0x62a;
-    undefined field1334_0x62b;
-    undefined field1335_0x62c;
-    undefined field1336_0x62d;
-    undefined field1337_0x62e;
-    undefined field1338_0x62f;
+    int soundBuffersToPlay[3]; /* Created by retype action */
+    undefined field1324_0x62c;
+    undefined field1325_0x62d;
+    undefined field1326_0x62e;
+    undefined field1327_0x62f;
 };
 
 struct IDirectSoundBufferVtbl {
@@ -1830,6 +1819,8 @@ typedef struct IDirect3DTexture8 IDirect3DTexture8, *PIDirect3DTexture8;
 
 typedef struct IDirect3DSurface8 IDirect3DSurface8, *PIDirect3DSurface8;
 
+typedef struct IDirect3DVertexBuffer8 IDirect3DVertexBuffer8, *PIDirect3DVertexBuffer8;
+
 typedef struct Unk3field Unk3field, *PUnk3field;
 
 typedef struct IDirect3DTexture8Vtbl IDirect3DTexture8Vtbl, *PIDirect3DTexture8Vtbl;
@@ -1862,6 +1853,14 @@ typedef struct tagRECT tagRECT, *PtagRECT;
 typedef struct tagRECT RECT;
 
 typedef struct IDirect3DSurface8Vtbl IDirect3DSurface8Vtbl, *PIDirect3DSurface8Vtbl;
+
+typedef struct IDirect3DVertexBuffer8Vtbl IDirect3DVertexBuffer8Vtbl, *PIDirect3DVertexBuffer8Vtbl;
+
+typedef uchar BYTE;
+
+typedef struct _D3DVERTEXBUFFER_DESC _D3DVERTEXBUFFER_DESC, *P_D3DVERTEXBUFFER_DESC;
+
+typedef struct _D3DVERTEXBUFFER_DESC D3DVERTEXBUFFER_DESC;
 
 typedef struct IDirect3DDevice8Vtbl IDirect3DDevice8Vtbl, *PIDirect3DDevice8Vtbl;
 
@@ -1920,8 +1919,6 @@ typedef enum _D3DPOOL D3DPOOL;
 typedef struct IDirect3DVolumeTexture8 IDirect3DVolumeTexture8, *PIDirect3DVolumeTexture8;
 
 typedef struct IDirect3DCubeTexture8 IDirect3DCubeTexture8, *PIDirect3DCubeTexture8;
-
-typedef struct IDirect3DVertexBuffer8 IDirect3DVertexBuffer8, *PIDirect3DVertexBuffer8;
 
 typedef struct IDirect3DIndexBuffer8 IDirect3DIndexBuffer8, *PIDirect3DIndexBuffer8;
 
@@ -2207,14 +2204,6 @@ typedef enum _D3DCUBEMAP_FACES {
 } _D3DCUBEMAP_FACES;
 
 typedef enum _D3DCUBEMAP_FACES D3DCUBEMAP_FACES;
-
-typedef struct IDirect3DVertexBuffer8Vtbl IDirect3DVertexBuffer8Vtbl, *PIDirect3DVertexBuffer8Vtbl;
-
-typedef uchar BYTE;
-
-typedef struct _D3DVERTEXBUFFER_DESC _D3DVERTEXBUFFER_DESC, *P_D3DVERTEXBUFFER_DESC;
-
-typedef struct _D3DVERTEXBUFFER_DESC D3DVERTEXBUFFER_DESC;
 
 typedef struct IDirect3DIndexBuffer8Vtbl IDirect3DIndexBuffer8Vtbl, *PIDirect3DIndexBuffer8Vtbl;
 
@@ -22637,87 +22626,8 @@ struct VeryBigStruct {
     undefined field19745_0x210c1;
     undefined field19746_0x210c2;
     undefined field19747_0x210c3;
-    int field19748_0x210c4;
-    undefined field19749_0x210c8;
-    undefined field19750_0x210c9;
-    undefined field19751_0x210ca;
-    undefined field19752_0x210cb;
-    undefined field19753_0x210cc;
-    undefined field19754_0x210cd;
-    undefined field19755_0x210ce;
-    undefined field19756_0x210cf;
-    undefined field19757_0x210d0;
-    undefined field19758_0x210d1;
-    undefined field19759_0x210d2;
-    undefined field19760_0x210d3;
-    undefined field19761_0x210d4;
-    undefined field19762_0x210d5;
-    undefined field19763_0x210d6;
-    undefined field19764_0x210d7;
-    undefined field19765_0x210d8;
-    undefined field19766_0x210d9;
-    undefined field19767_0x210da;
-    undefined field19768_0x210db;
-    undefined field19769_0x210dc;
-    undefined field19770_0x210dd;
-    undefined field19771_0x210de;
-    undefined field19772_0x210df;
-    undefined field19773_0x210e0;
-    undefined field19774_0x210e1;
-    undefined field19775_0x210e2;
-    undefined field19776_0x210e3;
-    undefined field19777_0x210e4;
-    undefined field19778_0x210e5;
-    undefined field19779_0x210e6;
-    undefined field19780_0x210e7;
-    undefined field19781_0x210e8;
-    undefined field19782_0x210e9;
-    undefined field19783_0x210ea;
-    undefined field19784_0x210eb;
-    undefined field19785_0x210ec;
-    undefined field19786_0x210ed;
-    undefined field19787_0x210ee;
-    undefined field19788_0x210ef;
-    undefined field19789_0x210f0;
-    undefined field19790_0x210f1;
-    undefined field19791_0x210f2;
-    undefined field19792_0x210f3;
-    undefined field19793_0x210f4;
-    undefined field19794_0x210f5;
-    undefined field19795_0x210f6;
-    undefined field19796_0x210f7;
-    undefined field19797_0x210f8;
-    undefined field19798_0x210f9;
-    undefined field19799_0x210fa;
-    undefined field19800_0x210fb;
-    undefined field19801_0x210fc;
-    undefined field19802_0x210fd;
-    undefined field19803_0x210fe;
-    undefined field19804_0x210ff;
-    undefined field19805_0x21100;
-    undefined field19806_0x21101;
-    undefined field19807_0x21102;
-    undefined field19808_0x21103;
-    undefined field19809_0x21104;
-    undefined field19810_0x21105;
-    undefined field19811_0x21106;
-    undefined field19812_0x21107;
-    undefined field19813_0x21108;
-    undefined field19814_0x21109;
-    undefined field19815_0x2110a;
-    undefined field19816_0x2110b;
-    undefined field19817_0x2110c;
-    undefined field19818_0x2110d;
-    undefined field19819_0x2110e;
-    undefined field19820_0x2110f;
-    undefined field19821_0x21110;
-    undefined field19822_0x21111;
-    undefined field19823_0x21112;
-    undefined field19824_0x21113;
-    undefined field19825_0x21114;
-    undefined field19826_0x21115;
-    undefined field19827_0x21116;
-    undefined field19828_0x21117;
+    struct IDirect3DVertexBuffer8 *vertex_buffer;
+    byte vertex_buffer_contents[80];
     int idx;
     int left;
     int top;
@@ -22772,14 +22682,6 @@ struct _RGNDATA {
     char Buffer[1];
 };
 
-struct IDirect3DSwapChain8Vtbl {
-    HRESULT (*QueryInterface)(struct IDirect3DSwapChain8 *, IID *, void **);
-    ULONG (*AddRef)(struct IDirect3DSwapChain8 *);
-    ULONG (*Release)(struct IDirect3DSwapChain8 *);
-    HRESULT (*Present)(struct IDirect3DSwapChain8 *, RECT *, RECT *, HWND, RGNDATA *);
-    HRESULT (*GetBackBuffer)(struct IDirect3DSwapChain8 *, UINT, D3DBACKBUFFER_TYPE, struct IDirect3DSurface8 **);
-};
-
 struct IDirect3DVertexBuffer8Vtbl {
     HRESULT (*QueryInterface)(struct IDirect3DVertexBuffer8 *, IID *, void **);
     ULONG (*AddRef)(struct IDirect3DVertexBuffer8 *);
@@ -22795,6 +22697,14 @@ struct IDirect3DVertexBuffer8Vtbl {
     HRESULT (*Lock)(struct IDirect3DVertexBuffer8 *, UINT, UINT, BYTE **, DWORD);
     HRESULT (*Unlock)(struct IDirect3DVertexBuffer8 *);
     HRESULT (*GetDesc)(struct IDirect3DVertexBuffer8 *, D3DVERTEXBUFFER_DESC *);
+};
+
+struct IDirect3DSwapChain8Vtbl {
+    HRESULT (*QueryInterface)(struct IDirect3DSwapChain8 *, IID *, void **);
+    ULONG (*AddRef)(struct IDirect3DSwapChain8 *);
+    ULONG (*Release)(struct IDirect3DSwapChain8 *);
+    HRESULT (*Present)(struct IDirect3DSwapChain8 *, RECT *, RECT *, HWND, RGNDATA *);
+    HRESULT (*GetBackBuffer)(struct IDirect3DSwapChain8 *, UINT, D3DBACKBUFFER_TYPE, struct IDirect3DSurface8 **);
 };
 
 struct _D3DSURFACE_DESC {
@@ -23169,6 +23079,4599 @@ struct _iobuf {
 
 typedef struct _iobuf FILE;
 
+typedef struct DIDEVICEOBJECTINSTANCEA DIDEVICEOBJECTINSTANCEA, *PDIDEVICEOBJECTINSTANCEA;
+
+typedef struct DIDEVICEOBJECTINSTANCEA *LPDIDEVICEOBJECTINSTANCEA;
+
+typedef char CHAR;
+
+struct DIDEVICEOBJECTINSTANCEA {
+    DWORD dwSize;
+    GUID guidType;
+    DWORD dwOfs;
+    DWORD dwType;
+    DWORD dwFlags;
+    CHAR tszName[260];
+    DWORD dwFFMaxForce;
+    DWORD dwFFForceResolution;
+    WORD wCollectionNumber;
+    WORD wDesignatorIndex;
+    WORD wUsagePage;
+    WORD wUsage;
+    DWORD dwDimension;
+    WORD wExponent;
+    WORD wReportId;
+};
+
+typedef struct DIDEVICEINSTANCE_DX3W DIDEVICEINSTANCE_DX3W, *PDIDEVICEINSTANCE_DX3W;
+
+typedef wchar_t WCHAR;
+
+struct DIDEVICEINSTANCE_DX3W {
+    DWORD dwSize;
+    GUID guidInstance;
+    GUID guidProduct;
+    DWORD dwDevType;
+    WCHAR tszInstanceName[260];
+    WCHAR tszProductName[260];
+};
+
+typedef struct DIDEVICEOBJECTINSTANCE_DX3W DIDEVICEOBJECTINSTANCE_DX3W, *PDIDEVICEOBJECTINSTANCE_DX3W;
+
+typedef struct DIDEVICEOBJECTINSTANCE_DX3W *LPCDIDEVICEOBJECTINSTANCE_DX3W;
+
+struct DIDEVICEOBJECTINSTANCE_DX3W {
+    DWORD dwSize;
+    GUID guidType;
+    DWORD dwOfs;
+    DWORD dwType;
+    DWORD dwFlags;
+    WCHAR tszName[260];
+};
+
+typedef struct DIPROPPOINTER DIPROPPOINTER, *PDIPROPPOINTER;
+
+typedef struct DIPROPPOINTER *LPCDIPROPPOINTER;
+
+typedef struct DIPROPHEADER DIPROPHEADER, *PDIPROPHEADER;
+
+typedef uint UINT_PTR;
+
+struct DIPROPHEADER {
+    DWORD dwSize;
+    DWORD dwHeaderSize;
+    DWORD dwObj;
+    DWORD dwHow;
+};
+
+struct DIPROPPOINTER {
+    struct DIPROPHEADER diph;
+    UINT_PTR uData;
+};
+
+typedef struct _DIMOUSESTATE2 _DIMOUSESTATE2, *P_DIMOUSESTATE2;
+
+typedef struct _DIMOUSESTATE2 DIMOUSESTATE2;
+
+struct _DIMOUSESTATE2 {
+    LONG lX;
+    LONG lY;
+    LONG lZ;
+    BYTE rgbButtons[8];
+};
+
+typedef struct DIENVELOPE DIENVELOPE, *PDIENVELOPE;
+
+typedef struct DIENVELOPE *LPDIENVELOPE;
+
+struct DIENVELOPE {
+    DWORD dwSize;
+    DWORD dwAttackLevel;
+    DWORD dwAttackTime;
+    DWORD dwFadeLevel;
+    DWORD dwFadeTime;
+};
+
+typedef struct DIDEVCAPS_DX3 DIDEVCAPS_DX3, *PDIDEVCAPS_DX3;
+
+typedef struct DIDEVCAPS_DX3 *LPDIDEVCAPS_DX3;
+
+struct DIDEVCAPS_DX3 {
+    DWORD dwSize;
+    DWORD dwFlags;
+    DWORD dwDevType;
+    DWORD dwAxes;
+    DWORD dwButtons;
+    DWORD dwPOVs;
+};
+
+typedef struct IDirectInputDeviceWVtbl IDirectInputDeviceWVtbl, *PIDirectInputDeviceWVtbl;
+
+typedef struct IDirectInputDeviceW IDirectInputDeviceW, *PIDirectInputDeviceW;
+
+typedef struct DIDEVCAPS DIDEVCAPS, *PDIDEVCAPS;
+
+typedef struct DIDEVCAPS *LPDIDEVCAPS;
+
+typedef struct DIDEVICEOBJECTINSTANCEW DIDEVICEOBJECTINSTANCEW, *PDIDEVICEOBJECTINSTANCEW;
+
+typedef struct DIDEVICEOBJECTINSTANCEW *LPCDIDEVICEOBJECTINSTANCEW;
+
+typedef BOOL (*LPDIENUMDEVICEOBJECTSCALLBACKW)(LPCDIDEVICEOBJECTINSTANCEW, LPVOID);
+
+typedef struct DIPROPHEADER *LPDIPROPHEADER;
+
+typedef struct DIPROPHEADER *LPCDIPROPHEADER;
+
+typedef struct DIDEVICEOBJECTDATA DIDEVICEOBJECTDATA, *PDIDEVICEOBJECTDATA;
+
+typedef struct DIDEVICEOBJECTDATA *LPDIDEVICEOBJECTDATA;
+
+typedef struct _DIDATAFORMAT _DIDATAFORMAT, *P_DIDATAFORMAT;
+
+typedef struct _DIDATAFORMAT DIDATAFORMAT;
+
+typedef DIDATAFORMAT *LPCDIDATAFORMAT;
+
+typedef void *HANDLE;
+
+typedef struct DIDEVICEOBJECTINSTANCEW *LPDIDEVICEOBJECTINSTANCEW;
+
+typedef struct DIDEVICEINSTANCEW DIDEVICEINSTANCEW, *PDIDEVICEINSTANCEW;
+
+typedef struct DIDEVICEINSTANCEW *LPDIDEVICEINSTANCEW;
+
+typedef struct HINSTANCE__ HINSTANCE__, *PHINSTANCE__;
+
+typedef struct HINSTANCE__ *HINSTANCE;
+
+typedef struct _DIOBJECTDATAFORMAT _DIOBJECTDATAFORMAT, *P_DIOBJECTDATAFORMAT;
+
+typedef struct _DIOBJECTDATAFORMAT *LPDIOBJECTDATAFORMAT;
+
+struct DIDEVICEOBJECTINSTANCEW {
+    DWORD dwSize;
+    GUID guidType;
+    DWORD dwOfs;
+    DWORD dwType;
+    DWORD dwFlags;
+    WCHAR tszName[260];
+    DWORD dwFFMaxForce;
+    DWORD dwFFForceResolution;
+    WORD wCollectionNumber;
+    WORD wDesignatorIndex;
+    WORD wUsagePage;
+    WORD wUsage;
+    DWORD dwDimension;
+    WORD wExponent;
+    WORD wReportId;
+};
+
+struct DIDEVCAPS {
+    DWORD dwSize;
+    DWORD dwFlags;
+    DWORD dwDevType;
+    DWORD dwAxes;
+    DWORD dwButtons;
+    DWORD dwPOVs;
+    DWORD dwFFSamplePeriod;
+    DWORD dwFFMinTimeResolution;
+    DWORD dwFirmwareRevision;
+    DWORD dwHardwareRevision;
+    DWORD dwFFDriverVersion;
+};
+
+struct IDirectInputDeviceWVtbl {
+    HRESULT (*QueryInterface)(struct IDirectInputDeviceW *, IID *, LPVOID *);
+    ULONG (*AddRef)(struct IDirectInputDeviceW *);
+    ULONG (*Release)(struct IDirectInputDeviceW *);
+    HRESULT (*GetCapabilities)(struct IDirectInputDeviceW *, LPDIDEVCAPS);
+    HRESULT (*EnumObjects)(struct IDirectInputDeviceW *, LPDIENUMDEVICEOBJECTSCALLBACKW, LPVOID, DWORD);
+    HRESULT (*GetProperty)(struct IDirectInputDeviceW *, GUID *, LPDIPROPHEADER);
+    HRESULT (*SetProperty)(struct IDirectInputDeviceW *, GUID *, LPCDIPROPHEADER);
+    HRESULT (*Acquire)(struct IDirectInputDeviceW *);
+    HRESULT (*Unacquire)(struct IDirectInputDeviceW *);
+    HRESULT (*GetDeviceState)(struct IDirectInputDeviceW *, DWORD, LPVOID);
+    HRESULT (*GetDeviceData)(struct IDirectInputDeviceW *, DWORD, LPDIDEVICEOBJECTDATA, LPDWORD, DWORD);
+    HRESULT (*SetDataFormat)(struct IDirectInputDeviceW *, LPCDIDATAFORMAT);
+    HRESULT (*SetEventNotification)(struct IDirectInputDeviceW *, HANDLE);
+    HRESULT (*SetCooperativeLevel)(struct IDirectInputDeviceW *, HWND, DWORD);
+    HRESULT (*GetObjectInfo)(struct IDirectInputDeviceW *, LPDIDEVICEOBJECTINSTANCEW, DWORD, DWORD);
+    HRESULT (*GetDeviceInfo)(struct IDirectInputDeviceW *, LPDIDEVICEINSTANCEW);
+    HRESULT (*RunControlPanel)(struct IDirectInputDeviceW *, HWND, DWORD);
+    HRESULT (*Initialize)(struct IDirectInputDeviceW *, HINSTANCE, DWORD, GUID *);
+};
+
+struct DIDEVICEINSTANCEW {
+    DWORD dwSize;
+    GUID guidInstance;
+    GUID guidProduct;
+    DWORD dwDevType;
+    WCHAR tszInstanceName[260];
+    WCHAR tszProductName[260];
+    GUID guidFFDriver;
+    WORD wUsagePage;
+    WORD wUsage;
+};
+
+struct DIDEVICEOBJECTDATA {
+    DWORD dwOfs;
+    DWORD dwData;
+    DWORD dwTimeStamp;
+    DWORD dwSequence;
+    UINT_PTR uAppData;
+};
+
+struct _DIOBJECTDATAFORMAT {
+    GUID *pguid;
+    DWORD dwOfs;
+    DWORD dwType;
+    DWORD dwFlags;
+};
+
+struct IDirectInputDeviceW {
+    struct IDirectInputDeviceWVtbl *lpVtbl;
+};
+
+struct _DIDATAFORMAT {
+    DWORD dwSize;
+    DWORD dwObjSize;
+    DWORD dwFlags;
+    DWORD dwDataSize;
+    DWORD dwNumObjs;
+    LPDIOBJECTDATAFORMAT rgodf;
+};
+
+struct HINSTANCE__ {
+    int unused;
+};
+
+typedef struct DICONSTANTFORCE DICONSTANTFORCE, *PDICONSTANTFORCE;
+
+struct DICONSTANTFORCE {
+    LONG lMagnitude;
+};
+
+typedef struct DIEFFESCAPE DIEFFESCAPE, *PDIEFFESCAPE;
+
+struct DIEFFESCAPE {
+    DWORD dwSize;
+    DWORD dwCommand;
+    LPVOID lpvInBuffer;
+    DWORD cbInBuffer;
+    LPVOID lpvOutBuffer;
+    DWORD cbOutBuffer;
+};
+
+typedef struct IDirectInputA IDirectInputA, *PIDirectInputA;
+
+typedef struct IDirectInputA *LPDIRECTINPUT;
+
+typedef struct IDirectInputAVtbl IDirectInputAVtbl, *PIDirectInputAVtbl;
+
+typedef struct IDirectInputDeviceA IDirectInputDeviceA, *PIDirectInputDeviceA;
+
+typedef struct IDirectInputDeviceA *LPDIRECTINPUTDEVICEA;
+
+typedef struct DIDEVICEINSTANCEA DIDEVICEINSTANCEA, *PDIDEVICEINSTANCEA;
+
+typedef struct DIDEVICEINSTANCEA *LPCDIDEVICEINSTANCEA;
+
+typedef BOOL (*LPDIENUMDEVICESCALLBACKA)(LPCDIDEVICEINSTANCEA, LPVOID);
+
+typedef struct IDirectInputDeviceAVtbl IDirectInputDeviceAVtbl, *PIDirectInputDeviceAVtbl;
+
+typedef struct DIDEVICEOBJECTINSTANCEA *LPCDIDEVICEOBJECTINSTANCEA;
+
+typedef BOOL (*LPDIENUMDEVICEOBJECTSCALLBACKA)(LPCDIDEVICEOBJECTINSTANCEA, LPVOID);
+
+typedef struct DIDEVICEINSTANCEA *LPDIDEVICEINSTANCEA;
+
+struct IDirectInputDeviceA {
+    struct IDirectInputDeviceAVtbl *lpVtbl;
+};
+
+struct IDirectInputA {
+    struct IDirectInputAVtbl *lpVtbl;
+};
+
+struct IDirectInputAVtbl {
+    HRESULT (*QueryInterface)(struct IDirectInputA *, IID *, LPVOID *);
+    ULONG (*AddRef)(struct IDirectInputA *);
+    ULONG (*Release)(struct IDirectInputA *);
+    HRESULT (*CreateDevice)(struct IDirectInputA *, GUID *, LPDIRECTINPUTDEVICEA *, LPUNKNOWN);
+    HRESULT (*EnumDevices)(struct IDirectInputA *, DWORD, LPDIENUMDEVICESCALLBACKA, LPVOID, DWORD);
+    HRESULT (*GetDeviceStatus)(struct IDirectInputA *, GUID *);
+    HRESULT (*RunControlPanel)(struct IDirectInputA *, HWND, DWORD);
+    HRESULT (*Initialize)(struct IDirectInputA *, HINSTANCE, DWORD);
+};
+
+struct IDirectInputDeviceAVtbl {
+    HRESULT (*QueryInterface)(struct IDirectInputDeviceA *, IID *, LPVOID *);
+    ULONG (*AddRef)(struct IDirectInputDeviceA *);
+    ULONG (*Release)(struct IDirectInputDeviceA *);
+    HRESULT (*GetCapabilities)(struct IDirectInputDeviceA *, LPDIDEVCAPS);
+    HRESULT (*EnumObjects)(struct IDirectInputDeviceA *, LPDIENUMDEVICEOBJECTSCALLBACKA, LPVOID, DWORD);
+    HRESULT (*GetProperty)(struct IDirectInputDeviceA *, GUID *, LPDIPROPHEADER);
+    HRESULT (*SetProperty)(struct IDirectInputDeviceA *, GUID *, LPCDIPROPHEADER);
+    HRESULT (*Acquire)(struct IDirectInputDeviceA *);
+    HRESULT (*Unacquire)(struct IDirectInputDeviceA *);
+    HRESULT (*GetDeviceState)(struct IDirectInputDeviceA *, DWORD, LPVOID);
+    HRESULT (*GetDeviceData)(struct IDirectInputDeviceA *, DWORD, LPDIDEVICEOBJECTDATA, LPDWORD, DWORD);
+    HRESULT (*SetDataFormat)(struct IDirectInputDeviceA *, LPCDIDATAFORMAT);
+    HRESULT (*SetEventNotification)(struct IDirectInputDeviceA *, HANDLE);
+    HRESULT (*SetCooperativeLevel)(struct IDirectInputDeviceA *, HWND, DWORD);
+    HRESULT (*GetObjectInfo)(struct IDirectInputDeviceA *, LPDIDEVICEOBJECTINSTANCEA, DWORD, DWORD);
+    HRESULT (*GetDeviceInfo)(struct IDirectInputDeviceA *, LPDIDEVICEINSTANCEA);
+    HRESULT (*RunControlPanel)(struct IDirectInputDeviceA *, HWND, DWORD);
+    HRESULT (*Initialize)(struct IDirectInputDeviceA *, HINSTANCE, DWORD, GUID *);
+};
+
+struct DIDEVICEINSTANCEA {
+    DWORD dwSize;
+    GUID guidInstance;
+    GUID guidProduct;
+    DWORD dwDevType;
+    CHAR tszInstanceName[260];
+    CHAR tszProductName[260];
+    GUID guidFFDriver;
+    WORD wUsagePage;
+    WORD wUsage;
+};
+
+typedef struct IDirectInputDevice7A IDirectInputDevice7A, *PIDirectInputDevice7A;
+
+typedef struct IDirectInputDevice7AVtbl IDirectInputDevice7AVtbl, *PIDirectInputDevice7AVtbl;
+
+typedef struct DIEFFECT DIEFFECT, *PDIEFFECT;
+
+typedef struct DIEFFECT *LPCDIEFFECT;
+
+typedef struct IDirectInputEffect IDirectInputEffect, *PIDirectInputEffect;
+
+typedef struct IDirectInputEffect *LPDIRECTINPUTEFFECT;
+
+typedef struct DIEFFECTINFOA DIEFFECTINFOA, *PDIEFFECTINFOA;
+
+typedef struct DIEFFECTINFOA *LPCDIEFFECTINFOA;
+
+typedef BOOL (*LPDIENUMEFFECTSCALLBACKA)(LPCDIEFFECTINFOA, LPVOID);
+
+typedef struct DIEFFECTINFOA *LPDIEFFECTINFOA;
+
+typedef BOOL (*LPDIENUMCREATEDEFFECTOBJECTSCALLBACK)(LPDIRECTINPUTEFFECT, LPVOID);
+
+typedef struct DIEFFESCAPE *LPDIEFFESCAPE;
+
+typedef struct DIDEVICEOBJECTDATA *LPCDIDEVICEOBJECTDATA;
+
+typedef CHAR *LPCSTR;
+
+typedef struct DIFILEEFFECT DIFILEEFFECT, *PDIFILEEFFECT;
+
+typedef struct DIFILEEFFECT *LPCDIFILEEFFECT;
+
+typedef BOOL (*LPDIENUMEFFECTSINFILECALLBACK)(LPCDIFILEEFFECT, LPVOID);
+
+typedef struct DIFILEEFFECT *LPDIFILEEFFECT;
+
+typedef struct IDirectInputEffectVtbl IDirectInputEffectVtbl, *PIDirectInputEffectVtbl;
+
+typedef GUID *LPGUID;
+
+typedef struct DIEFFECT *LPDIEFFECT;
+
+struct IDirectInputDevice7A {
+    struct IDirectInputDevice7AVtbl *lpVtbl;
+};
+
+struct IDirectInputEffectVtbl {
+    HRESULT (*QueryInterface)(struct IDirectInputEffect *, IID *, LPVOID *);
+    ULONG (*AddRef)(struct IDirectInputEffect *);
+    ULONG (*Release)(struct IDirectInputEffect *);
+    HRESULT (*Initialize)(struct IDirectInputEffect *, HINSTANCE, DWORD, GUID *);
+    HRESULT (*GetEffectGuid)(struct IDirectInputEffect *, LPGUID);
+    HRESULT (*GetParameters)(struct IDirectInputEffect *, LPDIEFFECT, DWORD);
+    HRESULT (*SetParameters)(struct IDirectInputEffect *, LPCDIEFFECT, DWORD);
+    HRESULT (*Start)(struct IDirectInputEffect *, DWORD, DWORD);
+    HRESULT (*Stop)(struct IDirectInputEffect *);
+    HRESULT (*GetEffectStatus)(struct IDirectInputEffect *, LPDWORD);
+    HRESULT (*Download)(struct IDirectInputEffect *);
+    HRESULT (*Unload)(struct IDirectInputEffect *);
+    HRESULT (*Escape)(struct IDirectInputEffect *, LPDIEFFESCAPE);
+};
+
+struct IDirectInputEffect {
+    struct IDirectInputEffectVtbl *lpVtbl;
+};
+
+struct DIEFFECTINFOA {
+    DWORD dwSize;
+    GUID guid;
+    DWORD dwEffType;
+    DWORD dwStaticParams;
+    DWORD dwDynamicParams;
+    CHAR tszName[260];
+};
+
+struct DIEFFECT {
+    DWORD dwSize;
+    DWORD dwFlags;
+    DWORD dwDuration;
+    DWORD dwSamplePeriod;
+    DWORD dwGain;
+    DWORD dwTriggerButton;
+    DWORD dwTriggerRepeatInterval;
+    DWORD cAxes;
+    LPDWORD rgdwAxes;
+    LPLONG rglDirection;
+    LPDIENVELOPE lpEnvelope;
+    DWORD cbTypeSpecificParams;
+    LPVOID lpvTypeSpecificParams;
+    DWORD dwStartDelay;
+};
+
+struct DIFILEEFFECT {
+    DWORD dwSize;
+    GUID GuidEffect;
+    LPCDIEFFECT lpDiEffect;
+    CHAR szFriendlyName[260];
+};
+
+struct IDirectInputDevice7AVtbl {
+    HRESULT (*QueryInterface)(struct IDirectInputDevice7A *, IID *, LPVOID *);
+    ULONG (*AddRef)(struct IDirectInputDevice7A *);
+    ULONG (*Release)(struct IDirectInputDevice7A *);
+    HRESULT (*GetCapabilities)(struct IDirectInputDevice7A *, LPDIDEVCAPS);
+    HRESULT (*EnumObjects)(struct IDirectInputDevice7A *, LPDIENUMDEVICEOBJECTSCALLBACKA, LPVOID, DWORD);
+    HRESULT (*GetProperty)(struct IDirectInputDevice7A *, GUID *, LPDIPROPHEADER);
+    HRESULT (*SetProperty)(struct IDirectInputDevice7A *, GUID *, LPCDIPROPHEADER);
+    HRESULT (*Acquire)(struct IDirectInputDevice7A *);
+    HRESULT (*Unacquire)(struct IDirectInputDevice7A *);
+    HRESULT (*GetDeviceState)(struct IDirectInputDevice7A *, DWORD, LPVOID);
+    HRESULT (*GetDeviceData)(struct IDirectInputDevice7A *, DWORD, LPDIDEVICEOBJECTDATA, LPDWORD, DWORD);
+    HRESULT (*SetDataFormat)(struct IDirectInputDevice7A *, LPCDIDATAFORMAT);
+    HRESULT (*SetEventNotification)(struct IDirectInputDevice7A *, HANDLE);
+    HRESULT (*SetCooperativeLevel)(struct IDirectInputDevice7A *, HWND, DWORD);
+    HRESULT (*GetObjectInfo)(struct IDirectInputDevice7A *, LPDIDEVICEOBJECTINSTANCEA, DWORD, DWORD);
+    HRESULT (*GetDeviceInfo)(struct IDirectInputDevice7A *, LPDIDEVICEINSTANCEA);
+    HRESULT (*RunControlPanel)(struct IDirectInputDevice7A *, HWND, DWORD);
+    HRESULT (*Initialize)(struct IDirectInputDevice7A *, HINSTANCE, DWORD, GUID *);
+    HRESULT (*CreateEffect)(struct IDirectInputDevice7A *, GUID *, LPCDIEFFECT, LPDIRECTINPUTEFFECT *, LPUNKNOWN);
+    HRESULT (*EnumEffects)(struct IDirectInputDevice7A *, LPDIENUMEFFECTSCALLBACKA, LPVOID, DWORD);
+    HRESULT (*GetEffectInfo)(struct IDirectInputDevice7A *, LPDIEFFECTINFOA, GUID *);
+    HRESULT (*GetForceFeedbackState)(struct IDirectInputDevice7A *, LPDWORD);
+    HRESULT (*SendForceFeedbackCommand)(struct IDirectInputDevice7A *, DWORD);
+    HRESULT (*EnumCreatedEffectObjects)(struct IDirectInputDevice7A *, LPDIENUMCREATEDEFFECTOBJECTSCALLBACK, LPVOID, DWORD);
+    HRESULT (*Escape)(struct IDirectInputDevice7A *, LPDIEFFESCAPE);
+    HRESULT (*Poll)(struct IDirectInputDevice7A *);
+    HRESULT (*SendDeviceData)(struct IDirectInputDevice7A *, DWORD, LPCDIDEVICEOBJECTDATA, LPDWORD, DWORD);
+    HRESULT (*EnumEffectsInFile)(struct IDirectInputDevice7A *, LPCSTR, LPDIENUMEFFECTSINFILECALLBACK, LPVOID, DWORD);
+    HRESULT (*WriteEffectToFile)(struct IDirectInputDevice7A *, LPCSTR, DWORD, LPDIFILEEFFECT, DWORD);
+};
+
+typedef struct DIDEVICEOBJECTDATA_DX3 DIDEVICEOBJECTDATA_DX3, *PDIDEVICEOBJECTDATA_DX3;
+
+struct DIDEVICEOBJECTDATA_DX3 {
+    DWORD dwOfs;
+    DWORD dwData;
+    DWORD dwTimeStamp;
+    DWORD dwSequence;
+};
+
+typedef struct _DIDEVICEIMAGEINFOA _DIDEVICEIMAGEINFOA, *P_DIDEVICEIMAGEINFOA;
+
+struct _DIDEVICEIMAGEINFOA {
+    CHAR tszImagePath[260];
+    DWORD dwFlags;
+    DWORD dwViewID;
+    RECT rcOverlay;
+    DWORD dwObjID;
+    DWORD dwcValidPts;
+    POINT rgptCalloutLine[5];
+    RECT rcCalloutRect;
+    DWORD dwTextAlign;
+};
+
+typedef struct DIEFFECTINFOW DIEFFECTINFOW, *PDIEFFECTINFOW;
+
+typedef struct DIEFFECTINFOW *LPCDIEFFECTINFOW;
+
+typedef BOOL (*LPDIENUMEFFECTSCALLBACKW)(LPCDIEFFECTINFOW, LPVOID);
+
+struct DIEFFECTINFOW {
+    DWORD dwSize;
+    GUID guid;
+    DWORD dwEffType;
+    DWORD dwStaticParams;
+    DWORD dwDynamicParams;
+    WCHAR tszName[260];
+};
+
+typedef struct _DIDEVICEIMAGEINFOHEADERW _DIDEVICEIMAGEINFOHEADERW, *P_DIDEVICEIMAGEINFOHEADERW;
+
+typedef struct _DIDEVICEIMAGEINFOW _DIDEVICEIMAGEINFOW, *P_DIDEVICEIMAGEINFOW;
+
+typedef struct _DIDEVICEIMAGEINFOW *LPDIDEVICEIMAGEINFOW;
+
+struct _DIDEVICEIMAGEINFOHEADERW {
+    DWORD dwSize;
+    DWORD dwSizeImageInfo;
+    DWORD dwcViews;
+    DWORD dwcButtons;
+    DWORD dwcAxes;
+    DWORD dwcPOVs;
+    DWORD dwBufferSize;
+    DWORD dwBufferUsed;
+    LPDIDEVICEIMAGEINFOW lprgImageInfoArray;
+};
+
+struct _DIDEVICEIMAGEINFOW {
+    WCHAR tszImagePath[260];
+    DWORD dwFlags;
+    DWORD dwViewID;
+    RECT rcOverlay;
+    DWORD dwObjID;
+    DWORD dwcValidPts;
+    POINT rgptCalloutLine[5];
+    RECT rcCalloutRect;
+    DWORD dwTextAlign;
+};
+
+typedef struct IDirectInputDeviceA *LPDIRECTINPUTDEVICE;
+
+typedef struct IDirectInputDevice8A IDirectInputDevice8A, *PIDirectInputDevice8A;
+
+typedef struct IDirectInputDevice8AVtbl IDirectInputDevice8AVtbl, *PIDirectInputDevice8AVtbl;
+
+typedef struct _DIACTIONFORMATA _DIACTIONFORMATA, *P_DIACTIONFORMATA;
+
+typedef struct _DIACTIONFORMATA *LPDIACTIONFORMATA;
+
+typedef struct _DIDEVICEIMAGEINFOHEADERA _DIDEVICEIMAGEINFOHEADERA, *P_DIDEVICEIMAGEINFOHEADERA;
+
+typedef struct _DIDEVICEIMAGEINFOHEADERA *LPDIDEVICEIMAGEINFOHEADERA;
+
+typedef struct _DIACTIONA _DIACTIONA, *P_DIACTIONA;
+
+typedef struct _DIACTIONA *LPDIACTIONA;
+
+typedef struct _FILETIME _FILETIME, *P_FILETIME;
+
+typedef struct _FILETIME FILETIME;
+
+typedef struct _DIDEVICEIMAGEINFOA *LPDIDEVICEIMAGEINFOA;
+
+typedef union _union_2537 _union_2537, *P_union_2537;
+
+struct _DIDEVICEIMAGEINFOHEADERA {
+    DWORD dwSize;
+    DWORD dwSizeImageInfo;
+    DWORD dwcViews;
+    DWORD dwcButtons;
+    DWORD dwcAxes;
+    DWORD dwcPOVs;
+    DWORD dwBufferSize;
+    DWORD dwBufferUsed;
+    LPDIDEVICEIMAGEINFOA lprgImageInfoArray;
+};
+
+union _union_2537 {
+    LPCSTR lptszActionName;
+    UINT uResIdString;
+};
+
+struct _DIACTIONA {
+    UINT_PTR uAppData;
+    DWORD dwSemantic;
+    DWORD dwFlags;
+    union _union_2537 field3_0xc;
+    GUID guidInstance;
+    DWORD dwObjID;
+    DWORD dwHow;
+};
+
+struct _FILETIME {
+    DWORD dwLowDateTime;
+    DWORD dwHighDateTime;
+};
+
+struct _DIACTIONFORMATA {
+    DWORD dwSize;
+    DWORD dwActionSize;
+    DWORD dwDataSize;
+    DWORD dwNumActions;
+    LPDIACTIONA rgoAction;
+    GUID guidActionMap;
+    DWORD dwGenre;
+    DWORD dwBufferSize;
+    LONG lAxisMin;
+    LONG lAxisMax;
+    HINSTANCE hInstString;
+    FILETIME ftTimeStamp;
+    DWORD dwCRC;
+    CHAR tszActionMap[260];
+};
+
+struct IDirectInputDevice8AVtbl {
+    HRESULT (*QueryInterface)(struct IDirectInputDevice8A *, IID *, LPVOID *);
+    ULONG (*AddRef)(struct IDirectInputDevice8A *);
+    ULONG (*Release)(struct IDirectInputDevice8A *);
+    HRESULT (*GetCapabilities)(struct IDirectInputDevice8A *, LPDIDEVCAPS);
+    HRESULT (*EnumObjects)(struct IDirectInputDevice8A *, LPDIENUMDEVICEOBJECTSCALLBACKA, LPVOID, DWORD);
+    HRESULT (*GetProperty)(struct IDirectInputDevice8A *, GUID *, LPDIPROPHEADER);
+    HRESULT (*SetProperty)(struct IDirectInputDevice8A *, GUID *, LPCDIPROPHEADER);
+    HRESULT (*Acquire)(struct IDirectInputDevice8A *);
+    HRESULT (*Unacquire)(struct IDirectInputDevice8A *);
+    HRESULT (*GetDeviceState)(struct IDirectInputDevice8A *, DWORD, LPVOID);
+    HRESULT (*GetDeviceData)(struct IDirectInputDevice8A *, DWORD, LPDIDEVICEOBJECTDATA, LPDWORD, DWORD);
+    HRESULT (*SetDataFormat)(struct IDirectInputDevice8A *, LPCDIDATAFORMAT);
+    HRESULT (*SetEventNotification)(struct IDirectInputDevice8A *, HANDLE);
+    HRESULT (*SetCooperativeLevel)(struct IDirectInputDevice8A *, HWND, DWORD);
+    HRESULT (*GetObjectInfo)(struct IDirectInputDevice8A *, LPDIDEVICEOBJECTINSTANCEA, DWORD, DWORD);
+    HRESULT (*GetDeviceInfo)(struct IDirectInputDevice8A *, LPDIDEVICEINSTANCEA);
+    HRESULT (*RunControlPanel)(struct IDirectInputDevice8A *, HWND, DWORD);
+    HRESULT (*Initialize)(struct IDirectInputDevice8A *, HINSTANCE, DWORD, GUID *);
+    HRESULT (*CreateEffect)(struct IDirectInputDevice8A *, GUID *, LPCDIEFFECT, LPDIRECTINPUTEFFECT *, LPUNKNOWN);
+    HRESULT (*EnumEffects)(struct IDirectInputDevice8A *, LPDIENUMEFFECTSCALLBACKA, LPVOID, DWORD);
+    HRESULT (*GetEffectInfo)(struct IDirectInputDevice8A *, LPDIEFFECTINFOA, GUID *);
+    HRESULT (*GetForceFeedbackState)(struct IDirectInputDevice8A *, LPDWORD);
+    HRESULT (*SendForceFeedbackCommand)(struct IDirectInputDevice8A *, DWORD);
+    HRESULT (*EnumCreatedEffectObjects)(struct IDirectInputDevice8A *, LPDIENUMCREATEDEFFECTOBJECTSCALLBACK, LPVOID, DWORD);
+    HRESULT (*Escape)(struct IDirectInputDevice8A *, LPDIEFFESCAPE);
+    HRESULT (*Poll)(struct IDirectInputDevice8A *);
+    HRESULT (*SendDeviceData)(struct IDirectInputDevice8A *, DWORD, LPCDIDEVICEOBJECTDATA, LPDWORD, DWORD);
+    HRESULT (*EnumEffectsInFile)(struct IDirectInputDevice8A *, LPCSTR, LPDIENUMEFFECTSINFILECALLBACK, LPVOID, DWORD);
+    HRESULT (*WriteEffectToFile)(struct IDirectInputDevice8A *, LPCSTR, DWORD, LPDIFILEEFFECT, DWORD);
+    HRESULT (*BuildActionMap)(struct IDirectInputDevice8A *, LPDIACTIONFORMATA, LPCSTR, DWORD);
+    HRESULT (*SetActionMap)(struct IDirectInputDevice8A *, LPDIACTIONFORMATA, LPCSTR, DWORD);
+    HRESULT (*GetImageInfo)(struct IDirectInputDevice8A *, LPDIDEVICEIMAGEINFOHEADERA);
+};
+
+struct IDirectInputDevice8A {
+    struct IDirectInputDevice8AVtbl *lpVtbl;
+};
+
+typedef struct IDirectInput2W IDirectInput2W, *PIDirectInput2W;
+
+typedef struct IDirectInput2WVtbl IDirectInput2WVtbl, *PIDirectInput2WVtbl;
+
+typedef struct IDirectInputDeviceW *LPDIRECTINPUTDEVICEW;
+
+typedef struct DIDEVICEINSTANCEW *LPCDIDEVICEINSTANCEW;
+
+typedef BOOL (*LPDIENUMDEVICESCALLBACKW)(LPCDIDEVICEINSTANCEW, LPVOID);
+
+typedef WCHAR *LPCWSTR;
+
+struct IDirectInput2WVtbl {
+    HRESULT (*QueryInterface)(struct IDirectInput2W *, IID *, LPVOID *);
+    ULONG (*AddRef)(struct IDirectInput2W *);
+    ULONG (*Release)(struct IDirectInput2W *);
+    HRESULT (*CreateDevice)(struct IDirectInput2W *, GUID *, LPDIRECTINPUTDEVICEW *, LPUNKNOWN);
+    HRESULT (*EnumDevices)(struct IDirectInput2W *, DWORD, LPDIENUMDEVICESCALLBACKW, LPVOID, DWORD);
+    HRESULT (*GetDeviceStatus)(struct IDirectInput2W *, GUID *);
+    HRESULT (*RunControlPanel)(struct IDirectInput2W *, HWND, DWORD);
+    HRESULT (*Initialize)(struct IDirectInput2W *, HINSTANCE, DWORD);
+    HRESULT (*FindDevice)(struct IDirectInput2W *, GUID *, LPCWSTR, LPGUID);
+};
+
+struct IDirectInput2W {
+    struct IDirectInput2WVtbl *lpVtbl;
+};
+
+typedef struct DIPROPDWORD DIPROPDWORD, *PDIPROPDWORD;
+
+struct DIPROPDWORD {
+    struct DIPROPHEADER diph;
+    DWORD dwData;
+};
+
+typedef struct DIPROPCPOINTS DIPROPCPOINTS, *PDIPROPCPOINTS;
+
+typedef struct _CPOINT _CPOINT, *P_CPOINT;
+
+typedef struct _CPOINT CPOINT;
+
+struct _CPOINT {
+    LONG lP;
+    DWORD dwLog;
+};
+
+struct DIPROPCPOINTS {
+    struct DIPROPHEADER diph;
+    DWORD dwCPointsNum;
+    CPOINT cp[8];
+};
+
+typedef struct IDirectInput2A IDirectInput2A, *PIDirectInput2A;
+
+typedef struct IDirectInput2AVtbl IDirectInput2AVtbl, *PIDirectInput2AVtbl;
+
+struct IDirectInput2AVtbl {
+    HRESULT (*QueryInterface)(struct IDirectInput2A *, IID *, LPVOID *);
+    ULONG (*AddRef)(struct IDirectInput2A *);
+    ULONG (*Release)(struct IDirectInput2A *);
+    HRESULT (*CreateDevice)(struct IDirectInput2A *, GUID *, LPDIRECTINPUTDEVICEA *, LPUNKNOWN);
+    HRESULT (*EnumDevices)(struct IDirectInput2A *, DWORD, LPDIENUMDEVICESCALLBACKA, LPVOID, DWORD);
+    HRESULT (*GetDeviceStatus)(struct IDirectInput2A *, GUID *);
+    HRESULT (*RunControlPanel)(struct IDirectInput2A *, HWND, DWORD);
+    HRESULT (*Initialize)(struct IDirectInput2A *, HINSTANCE, DWORD);
+    HRESULT (*FindDevice)(struct IDirectInput2A *, GUID *, LPCSTR, LPGUID);
+};
+
+struct IDirectInput2A {
+    struct IDirectInput2AVtbl *lpVtbl;
+};
+
+typedef struct _DICOLORSET _DICOLORSET, *P_DICOLORSET;
+
+typedef struct _DICOLORSET DICOLORSET;
+
+typedef DICOLORSET *LPCDICOLORSET;
+
+struct _DICOLORSET {
+    DWORD dwSize;
+    D3DCOLOR cTextFore;
+    D3DCOLOR cTextHighlight;
+    D3DCOLOR cCalloutLine;
+    D3DCOLOR cCalloutHighlight;
+    D3DCOLOR cBorder;
+    D3DCOLOR cControlFill;
+    D3DCOLOR cHighlightFill;
+    D3DCOLOR cAreaFill;
+};
+
+typedef struct IDirectInputDevice7W IDirectInputDevice7W, *PIDirectInputDevice7W;
+
+typedef struct IDirectInputDevice7WVtbl IDirectInputDevice7WVtbl, *PIDirectInputDevice7WVtbl;
+
+typedef struct DIEFFECTINFOW *LPDIEFFECTINFOW;
+
+struct IDirectInputDevice7WVtbl {
+    HRESULT (*QueryInterface)(struct IDirectInputDevice7W *, IID *, LPVOID *);
+    ULONG (*AddRef)(struct IDirectInputDevice7W *);
+    ULONG (*Release)(struct IDirectInputDevice7W *);
+    HRESULT (*GetCapabilities)(struct IDirectInputDevice7W *, LPDIDEVCAPS);
+    HRESULT (*EnumObjects)(struct IDirectInputDevice7W *, LPDIENUMDEVICEOBJECTSCALLBACKW, LPVOID, DWORD);
+    HRESULT (*GetProperty)(struct IDirectInputDevice7W *, GUID *, LPDIPROPHEADER);
+    HRESULT (*SetProperty)(struct IDirectInputDevice7W *, GUID *, LPCDIPROPHEADER);
+    HRESULT (*Acquire)(struct IDirectInputDevice7W *);
+    HRESULT (*Unacquire)(struct IDirectInputDevice7W *);
+    HRESULT (*GetDeviceState)(struct IDirectInputDevice7W *, DWORD, LPVOID);
+    HRESULT (*GetDeviceData)(struct IDirectInputDevice7W *, DWORD, LPDIDEVICEOBJECTDATA, LPDWORD, DWORD);
+    HRESULT (*SetDataFormat)(struct IDirectInputDevice7W *, LPCDIDATAFORMAT);
+    HRESULT (*SetEventNotification)(struct IDirectInputDevice7W *, HANDLE);
+    HRESULT (*SetCooperativeLevel)(struct IDirectInputDevice7W *, HWND, DWORD);
+    HRESULT (*GetObjectInfo)(struct IDirectInputDevice7W *, LPDIDEVICEOBJECTINSTANCEW, DWORD, DWORD);
+    HRESULT (*GetDeviceInfo)(struct IDirectInputDevice7W *, LPDIDEVICEINSTANCEW);
+    HRESULT (*RunControlPanel)(struct IDirectInputDevice7W *, HWND, DWORD);
+    HRESULT (*Initialize)(struct IDirectInputDevice7W *, HINSTANCE, DWORD, GUID *);
+    HRESULT (*CreateEffect)(struct IDirectInputDevice7W *, GUID *, LPCDIEFFECT, LPDIRECTINPUTEFFECT *, LPUNKNOWN);
+    HRESULT (*EnumEffects)(struct IDirectInputDevice7W *, LPDIENUMEFFECTSCALLBACKW, LPVOID, DWORD);
+    HRESULT (*GetEffectInfo)(struct IDirectInputDevice7W *, LPDIEFFECTINFOW, GUID *);
+    HRESULT (*GetForceFeedbackState)(struct IDirectInputDevice7W *, LPDWORD);
+    HRESULT (*SendForceFeedbackCommand)(struct IDirectInputDevice7W *, DWORD);
+    HRESULT (*EnumCreatedEffectObjects)(struct IDirectInputDevice7W *, LPDIENUMCREATEDEFFECTOBJECTSCALLBACK, LPVOID, DWORD);
+    HRESULT (*Escape)(struct IDirectInputDevice7W *, LPDIEFFESCAPE);
+    HRESULT (*Poll)(struct IDirectInputDevice7W *);
+    HRESULT (*SendDeviceData)(struct IDirectInputDevice7W *, DWORD, LPCDIDEVICEOBJECTDATA, LPDWORD, DWORD);
+    HRESULT (*EnumEffectsInFile)(struct IDirectInputDevice7W *, LPCWSTR, LPDIENUMEFFECTSINFILECALLBACK, LPVOID, DWORD);
+    HRESULT (*WriteEffectToFile)(struct IDirectInputDevice7W *, LPCWSTR, DWORD, LPDIFILEEFFECT, DWORD);
+};
+
+struct IDirectInputDevice7W {
+    struct IDirectInputDevice7WVtbl *lpVtbl;
+};
+
+typedef struct IDirectInputDevice8A *LPDIRECTINPUTDEVICE8A;
+
+typedef struct _DIDEVICEIMAGEINFOHEADERA DIDEVICEIMAGEINFOHEADERA;
+
+typedef DIDEVICEIMAGEINFOHEADERA DIDEVICEIMAGEINFOHEADER;
+
+typedef struct DICONDITION DICONDITION, *PDICONDITION;
+
+struct DICONDITION {
+    LONG lOffset;
+    LONG lPositiveCoefficient;
+    LONG lNegativeCoefficient;
+    DWORD dwPositiveSaturation;
+    DWORD dwNegativeSaturation;
+    LONG lDeadBand;
+};
+
+typedef struct _DIDEVICEIMAGEINFOHEADERW *LPDIDEVICEIMAGEINFOHEADERW;
+
+typedef struct DIDEVICEINSTANCE_DX3A DIDEVICEINSTANCE_DX3A, *PDIDEVICEINSTANCE_DX3A;
+
+struct DIDEVICEINSTANCE_DX3A {
+    DWORD dwSize;
+    GUID guidInstance;
+    GUID guidProduct;
+    DWORD dwDevType;
+    CHAR tszInstanceName[260];
+    CHAR tszProductName[260];
+};
+
+typedef struct IDirectInputDevice8W IDirectInputDevice8W, *PIDirectInputDevice8W;
+
+typedef struct IDirectInputDevice8WVtbl IDirectInputDevice8WVtbl, *PIDirectInputDevice8WVtbl;
+
+typedef struct _DIACTIONFORMATW _DIACTIONFORMATW, *P_DIACTIONFORMATW;
+
+typedef struct _DIACTIONFORMATW *LPDIACTIONFORMATW;
+
+typedef struct _DIACTIONW _DIACTIONW, *P_DIACTIONW;
+
+typedef struct _DIACTIONW *LPDIACTIONW;
+
+typedef union _union_2539 _union_2539, *P_union_2539;
+
+union _union_2539 {
+    LPCWSTR lptszActionName;
+    UINT uResIdString;
+};
+
+struct _DIACTIONW {
+    UINT_PTR uAppData;
+    DWORD dwSemantic;
+    DWORD dwFlags;
+    union _union_2539 field3_0xc;
+    GUID guidInstance;
+    DWORD dwObjID;
+    DWORD dwHow;
+};
+
+struct IDirectInputDevice8WVtbl {
+    HRESULT (*QueryInterface)(struct IDirectInputDevice8W *, IID *, LPVOID *);
+    ULONG (*AddRef)(struct IDirectInputDevice8W *);
+    ULONG (*Release)(struct IDirectInputDevice8W *);
+    HRESULT (*GetCapabilities)(struct IDirectInputDevice8W *, LPDIDEVCAPS);
+    HRESULT (*EnumObjects)(struct IDirectInputDevice8W *, LPDIENUMDEVICEOBJECTSCALLBACKW, LPVOID, DWORD);
+    HRESULT (*GetProperty)(struct IDirectInputDevice8W *, GUID *, LPDIPROPHEADER);
+    HRESULT (*SetProperty)(struct IDirectInputDevice8W *, GUID *, LPCDIPROPHEADER);
+    HRESULT (*Acquire)(struct IDirectInputDevice8W *);
+    HRESULT (*Unacquire)(struct IDirectInputDevice8W *);
+    HRESULT (*GetDeviceState)(struct IDirectInputDevice8W *, DWORD, LPVOID);
+    HRESULT (*GetDeviceData)(struct IDirectInputDevice8W *, DWORD, LPDIDEVICEOBJECTDATA, LPDWORD, DWORD);
+    HRESULT (*SetDataFormat)(struct IDirectInputDevice8W *, LPCDIDATAFORMAT);
+    HRESULT (*SetEventNotification)(struct IDirectInputDevice8W *, HANDLE);
+    HRESULT (*SetCooperativeLevel)(struct IDirectInputDevice8W *, HWND, DWORD);
+    HRESULT (*GetObjectInfo)(struct IDirectInputDevice8W *, LPDIDEVICEOBJECTINSTANCEW, DWORD, DWORD);
+    HRESULT (*GetDeviceInfo)(struct IDirectInputDevice8W *, LPDIDEVICEINSTANCEW);
+    HRESULT (*RunControlPanel)(struct IDirectInputDevice8W *, HWND, DWORD);
+    HRESULT (*Initialize)(struct IDirectInputDevice8W *, HINSTANCE, DWORD, GUID *);
+    HRESULT (*CreateEffect)(struct IDirectInputDevice8W *, GUID *, LPCDIEFFECT, LPDIRECTINPUTEFFECT *, LPUNKNOWN);
+    HRESULT (*EnumEffects)(struct IDirectInputDevice8W *, LPDIENUMEFFECTSCALLBACKW, LPVOID, DWORD);
+    HRESULT (*GetEffectInfo)(struct IDirectInputDevice8W *, LPDIEFFECTINFOW, GUID *);
+    HRESULT (*GetForceFeedbackState)(struct IDirectInputDevice8W *, LPDWORD);
+    HRESULT (*SendForceFeedbackCommand)(struct IDirectInputDevice8W *, DWORD);
+    HRESULT (*EnumCreatedEffectObjects)(struct IDirectInputDevice8W *, LPDIENUMCREATEDEFFECTOBJECTSCALLBACK, LPVOID, DWORD);
+    HRESULT (*Escape)(struct IDirectInputDevice8W *, LPDIEFFESCAPE);
+    HRESULT (*Poll)(struct IDirectInputDevice8W *);
+    HRESULT (*SendDeviceData)(struct IDirectInputDevice8W *, DWORD, LPCDIDEVICEOBJECTDATA, LPDWORD, DWORD);
+    HRESULT (*EnumEffectsInFile)(struct IDirectInputDevice8W *, LPCWSTR, LPDIENUMEFFECTSINFILECALLBACK, LPVOID, DWORD);
+    HRESULT (*WriteEffectToFile)(struct IDirectInputDevice8W *, LPCWSTR, DWORD, LPDIFILEEFFECT, DWORD);
+    HRESULT (*BuildActionMap)(struct IDirectInputDevice8W *, LPDIACTIONFORMATW, LPCWSTR, DWORD);
+    HRESULT (*SetActionMap)(struct IDirectInputDevice8W *, LPDIACTIONFORMATW, LPCWSTR, DWORD);
+    HRESULT (*GetImageInfo)(struct IDirectInputDevice8W *, LPDIDEVICEIMAGEINFOHEADERW);
+};
+
+struct _DIACTIONFORMATW {
+    DWORD dwSize;
+    DWORD dwActionSize;
+    DWORD dwDataSize;
+    DWORD dwNumActions;
+    LPDIACTIONW rgoAction;
+    GUID guidActionMap;
+    DWORD dwGenre;
+    DWORD dwBufferSize;
+    LONG lAxisMin;
+    LONG lAxisMax;
+    HINSTANCE hInstString;
+    FILETIME ftTimeStamp;
+    DWORD dwCRC;
+    WCHAR tszActionMap[260];
+};
+
+struct IDirectInputDevice8W {
+    struct IDirectInputDevice8WVtbl *lpVtbl;
+};
+
+typedef struct DIPROPCAL DIPROPCAL, *PDIPROPCAL;
+
+struct DIPROPCAL {
+    struct DIPROPHEADER diph;
+    LONG lMin;
+    LONG lCenter;
+    LONG lMax;
+};
+
+typedef struct _DIACTIONFORMATW DIACTIONFORMATW;
+
+typedef struct DIDEVICEOBJECTINSTANCE_DX3A DIDEVICEOBJECTINSTANCE_DX3A, *PDIDEVICEOBJECTINSTANCE_DX3A;
+
+typedef struct DIDEVICEOBJECTINSTANCE_DX3A *LPDIDEVICEOBJECTINSTANCE_DX3A;
+
+struct DIDEVICEOBJECTINSTANCE_DX3A {
+    DWORD dwSize;
+    GUID guidType;
+    DWORD dwOfs;
+    DWORD dwType;
+    DWORD dwFlags;
+    CHAR tszName[260];
+};
+
+typedef struct IDirectInputDevice2A IDirectInputDevice2A, *PIDirectInputDevice2A;
+
+typedef struct IDirectInputDevice2A *LPDIRECTINPUTDEVICE2;
+
+typedef struct IDirectInputDevice2AVtbl IDirectInputDevice2AVtbl, *PIDirectInputDevice2AVtbl;
+
+struct IDirectInputDevice2A {
+    struct IDirectInputDevice2AVtbl *lpVtbl;
+};
+
+struct IDirectInputDevice2AVtbl {
+    HRESULT (*QueryInterface)(struct IDirectInputDevice2A *, IID *, LPVOID *);
+    ULONG (*AddRef)(struct IDirectInputDevice2A *);
+    ULONG (*Release)(struct IDirectInputDevice2A *);
+    HRESULT (*GetCapabilities)(struct IDirectInputDevice2A *, LPDIDEVCAPS);
+    HRESULT (*EnumObjects)(struct IDirectInputDevice2A *, LPDIENUMDEVICEOBJECTSCALLBACKA, LPVOID, DWORD);
+    HRESULT (*GetProperty)(struct IDirectInputDevice2A *, GUID *, LPDIPROPHEADER);
+    HRESULT (*SetProperty)(struct IDirectInputDevice2A *, GUID *, LPCDIPROPHEADER);
+    HRESULT (*Acquire)(struct IDirectInputDevice2A *);
+    HRESULT (*Unacquire)(struct IDirectInputDevice2A *);
+    HRESULT (*GetDeviceState)(struct IDirectInputDevice2A *, DWORD, LPVOID);
+    HRESULT (*GetDeviceData)(struct IDirectInputDevice2A *, DWORD, LPDIDEVICEOBJECTDATA, LPDWORD, DWORD);
+    HRESULT (*SetDataFormat)(struct IDirectInputDevice2A *, LPCDIDATAFORMAT);
+    HRESULT (*SetEventNotification)(struct IDirectInputDevice2A *, HANDLE);
+    HRESULT (*SetCooperativeLevel)(struct IDirectInputDevice2A *, HWND, DWORD);
+    HRESULT (*GetObjectInfo)(struct IDirectInputDevice2A *, LPDIDEVICEOBJECTINSTANCEA, DWORD, DWORD);
+    HRESULT (*GetDeviceInfo)(struct IDirectInputDevice2A *, LPDIDEVICEINSTANCEA);
+    HRESULT (*RunControlPanel)(struct IDirectInputDevice2A *, HWND, DWORD);
+    HRESULT (*Initialize)(struct IDirectInputDevice2A *, HINSTANCE, DWORD, GUID *);
+    HRESULT (*CreateEffect)(struct IDirectInputDevice2A *, GUID *, LPCDIEFFECT, LPDIRECTINPUTEFFECT *, LPUNKNOWN);
+    HRESULT (*EnumEffects)(struct IDirectInputDevice2A *, LPDIENUMEFFECTSCALLBACKA, LPVOID, DWORD);
+    HRESULT (*GetEffectInfo)(struct IDirectInputDevice2A *, LPDIEFFECTINFOA, GUID *);
+    HRESULT (*GetForceFeedbackState)(struct IDirectInputDevice2A *, LPDWORD);
+    HRESULT (*SendForceFeedbackCommand)(struct IDirectInputDevice2A *, DWORD);
+    HRESULT (*EnumCreatedEffectObjects)(struct IDirectInputDevice2A *, LPDIENUMCREATEDEFFECTOBJECTSCALLBACK, LPVOID, DWORD);
+    HRESULT (*Escape)(struct IDirectInputDevice2A *, LPDIEFFESCAPE);
+    HRESULT (*Poll)(struct IDirectInputDevice2A *);
+    HRESULT (*SendDeviceData)(struct IDirectInputDevice2A *, DWORD, LPCDIDEVICEOBJECTDATA, LPDWORD, DWORD);
+};
+
+typedef struct DIPROPGUIDANDPATH DIPROPGUIDANDPATH, *PDIPROPGUIDANDPATH;
+
+struct DIPROPGUIDANDPATH {
+    struct DIPROPHEADER diph;
+    GUID guidClass;
+    WCHAR wszPath[260];
+};
+
+typedef struct IDirectInput8AVtbl IDirectInput8AVtbl, *PIDirectInput8AVtbl;
+
+typedef struct IDirectInput8A IDirectInput8A, *PIDirectInput8A;
+
+typedef BOOL (*LPDIENUMDEVICESBYSEMANTICSCBA)(LPCDIDEVICEINSTANCEA, LPDIRECTINPUTDEVICE8A, DWORD, DWORD, LPVOID);
+
+typedef BOOL (*LPDICONFIGUREDEVICESCALLBACK)(struct IUnknown *, LPVOID);
+
+typedef struct _DICONFIGUREDEVICESPARAMSA _DICONFIGUREDEVICESPARAMSA, *P_DICONFIGUREDEVICESPARAMSA;
+
+typedef struct _DICONFIGUREDEVICESPARAMSA *LPDICONFIGUREDEVICESPARAMSA;
+
+typedef CHAR *LPSTR;
+
+struct IDirectInput8A {
+    struct IDirectInput8AVtbl *lpVtbl;
+};
+
+struct IDirectInput8AVtbl {
+    HRESULT (*QueryInterface)(struct IDirectInput8A *, IID *, LPVOID *);
+    ULONG (*AddRef)(struct IDirectInput8A *);
+    ULONG (*Release)(struct IDirectInput8A *);
+    HRESULT (*CreateDevice)(struct IDirectInput8A *, GUID *, LPDIRECTINPUTDEVICE8A *, LPUNKNOWN);
+    HRESULT (*EnumDevices)(struct IDirectInput8A *, DWORD, LPDIENUMDEVICESCALLBACKA, LPVOID, DWORD);
+    HRESULT (*GetDeviceStatus)(struct IDirectInput8A *, GUID *);
+    HRESULT (*RunControlPanel)(struct IDirectInput8A *, HWND, DWORD);
+    HRESULT (*Initialize)(struct IDirectInput8A *, HINSTANCE, DWORD);
+    HRESULT (*FindDevice)(struct IDirectInput8A *, GUID *, LPCSTR, LPGUID);
+    HRESULT (*EnumDevicesBySemantics)(struct IDirectInput8A *, LPCSTR, LPDIACTIONFORMATA, LPDIENUMDEVICESBYSEMANTICSCBA, LPVOID, DWORD);
+    HRESULT (*ConfigureDevices)(struct IDirectInput8A *, LPDICONFIGUREDEVICESCALLBACK, LPDICONFIGUREDEVICESPARAMSA, DWORD, LPVOID);
+};
+
+struct _DICONFIGUREDEVICESPARAMSA {
+    DWORD dwSize;
+    DWORD dwcUsers;
+    LPSTR lptszUserNames;
+    DWORD dwcFormats;
+    LPDIACTIONFORMATA lprgFormats;
+    HWND hwnd;
+    DICOLORSET dics;
+    struct IUnknown *lpUnkDDSTarget;
+};
+
+typedef struct _DICONFIGUREDEVICESPARAMSW _DICONFIGUREDEVICESPARAMSW, *P_DICONFIGUREDEVICESPARAMSW;
+
+typedef struct _DICONFIGUREDEVICESPARAMSW *LPDICONFIGUREDEVICESPARAMSW;
+
+typedef WCHAR *LPWSTR;
+
+struct _DICONFIGUREDEVICESPARAMSW {
+    DWORD dwSize;
+    DWORD dwcUsers;
+    LPWSTR lptszUserNames;
+    DWORD dwcFormats;
+    LPDIACTIONFORMATW lprgFormats;
+    HWND hwnd;
+    DICOLORSET dics;
+    struct IUnknown *lpUnkDDSTarget;
+};
+
+typedef struct _DIACTIONFORMATA DIACTIONFORMATA;
+
+typedef LPDIDEVICEIMAGEINFOA LPDIDEVICEIMAGEINFO;
+
+typedef struct _DICONFIGUREDEVICESPARAMSA DICONFIGUREDEVICESPARAMSA;
+
+typedef DICONFIGUREDEVICESPARAMSA DICONFIGUREDEVICESPARAMS;
+
+typedef struct _DIACTIONA DIACTIONA;
+
+typedef LPDICONFIGUREDEVICESPARAMSA LPDICONFIGUREDEVICESPARAMS;
+
+typedef struct IDirectInputDevice7A *LPDIRECTINPUTDEVICE7;
+
+typedef struct IDirectInputDevice8A *LPDIRECTINPUTDEVICE8;
+
+typedef struct DIJOYSTATE DIJOYSTATE, *PDIJOYSTATE;
+
+typedef struct DIJOYSTATE *LPDIJOYSTATE;
+
+struct DIJOYSTATE {
+    LONG lX;
+    LONG lY;
+    LONG lZ;
+    LONG lRx;
+    LONG lRy;
+    LONG lRz;
+    LONG rglSlider[2];
+    DWORD rgdwPOV[4];
+    BYTE rgbButtons[32];
+};
+
+typedef struct DIDEVICEOBJECTINSTANCE_DX3W *LPDIDEVICEOBJECTINSTANCE_DX3W;
+
+typedef struct _DIDEVICEIMAGEINFOW DIDEVICEIMAGEINFOW;
+
+typedef struct DICONDITION *LPDICONDITION;
+
+typedef struct _DIDEVICEIMAGEINFOHEADERW DIDEVICEIMAGEINFOHEADERW;
+
+typedef DIDEVICEIMAGEINFOHEADERW *LPCDIDEVICEIMAGEINFOHEADERW;
+
+typedef DIDEVICEIMAGEINFOHEADERA *LPCDIDEVICEIMAGEINFOHEADERA;
+
+typedef struct IDirectInputWVtbl IDirectInputWVtbl, *PIDirectInputWVtbl;
+
+typedef struct IDirectInputW IDirectInputW, *PIDirectInputW;
+
+struct IDirectInputW {
+    struct IDirectInputWVtbl *lpVtbl;
+};
+
+struct IDirectInputWVtbl {
+    HRESULT (*QueryInterface)(struct IDirectInputW *, IID *, LPVOID *);
+    ULONG (*AddRef)(struct IDirectInputW *);
+    ULONG (*Release)(struct IDirectInputW *);
+    HRESULT (*CreateDevice)(struct IDirectInputW *, GUID *, LPDIRECTINPUTDEVICEW *, LPUNKNOWN);
+    HRESULT (*EnumDevices)(struct IDirectInputW *, DWORD, LPDIENUMDEVICESCALLBACKW, LPVOID, DWORD);
+    HRESULT (*GetDeviceStatus)(struct IDirectInputW *, GUID *);
+    HRESULT (*RunControlPanel)(struct IDirectInputW *, HWND, DWORD);
+    HRESULT (*Initialize)(struct IDirectInputW *, HINSTANCE, DWORD);
+};
+
+typedef struct DIPROPCAL *LPDIPROPCAL;
+
+typedef struct _DIDEVICEIMAGEINFOA DIDEVICEIMAGEINFOA;
+
+typedef DIACTIONFORMATA DIACTIONFORMAT;
+
+typedef struct _DIOBJECTDATAFORMAT DIOBJECTDATAFORMAT;
+
+typedef DIOBJECTDATAFORMAT *LPCDIOBJECTDATAFORMAT;
+
+typedef struct DIPROPSTRING DIPROPSTRING, *PDIPROPSTRING;
+
+typedef struct DIPROPSTRING *LPCDIPROPSTRING;
+
+struct DIPROPSTRING {
+    struct DIPROPHEADER diph;
+    WCHAR wsz[260];
+};
+
+typedef struct DIRAMPFORCE DIRAMPFORCE, *PDIRAMPFORCE;
+
+typedef struct DIRAMPFORCE *LPDIRAMPFORCE;
+
+struct DIRAMPFORCE {
+    LONG lStart;
+    LONG lEnd;
+};
+
+typedef DICONFIGUREDEVICESPARAMS *LPCDICONFIGUREDEVICESPARAMS;
+
+typedef struct DICUSTOMFORCE DICUSTOMFORCE, *PDICUSTOMFORCE;
+
+typedef struct DICUSTOMFORCE *LPDICUSTOMFORCE;
+
+struct DICUSTOMFORCE {
+    DWORD cChannels;
+    DWORD dwSamplePeriod;
+    DWORD cSamples;
+    LPLONG rglForceData;
+};
+
+typedef struct DIPROPPOINTER *LPDIPROPPOINTER;
+
+typedef struct DIDEVICEOBJECTDATA_DX3 *LPCDIDEVICEOBJECTDATA_DX;
+
+typedef struct IDirectInput8WVtbl IDirectInput8WVtbl, *PIDirectInput8WVtbl;
+
+typedef struct IDirectInput8W IDirectInput8W, *PIDirectInput8W;
+
+typedef struct IDirectInputDevice8W *LPDIRECTINPUTDEVICE8W;
+
+typedef BOOL (*LPDIENUMDEVICESBYSEMANTICSCBW)(LPCDIDEVICEINSTANCEW, LPDIRECTINPUTDEVICE8W, DWORD, DWORD, LPVOID);
+
+struct IDirectInput8W {
+    struct IDirectInput8WVtbl *lpVtbl;
+};
+
+struct IDirectInput8WVtbl {
+    HRESULT (*QueryInterface)(struct IDirectInput8W *, IID *, LPVOID *);
+    ULONG (*AddRef)(struct IDirectInput8W *);
+    ULONG (*Release)(struct IDirectInput8W *);
+    HRESULT (*CreateDevice)(struct IDirectInput8W *, GUID *, LPDIRECTINPUTDEVICE8W *, LPUNKNOWN);
+    HRESULT (*EnumDevices)(struct IDirectInput8W *, DWORD, LPDIENUMDEVICESCALLBACKW, LPVOID, DWORD);
+    HRESULT (*GetDeviceStatus)(struct IDirectInput8W *, GUID *);
+    HRESULT (*RunControlPanel)(struct IDirectInput8W *, HWND, DWORD);
+    HRESULT (*Initialize)(struct IDirectInput8W *, HINSTANCE, DWORD);
+    HRESULT (*FindDevice)(struct IDirectInput8W *, GUID *, LPCWSTR, LPGUID);
+    HRESULT (*EnumDevicesBySemantics)(struct IDirectInput8W *, LPCWSTR, LPDIACTIONFORMATW, LPDIENUMDEVICESBYSEMANTICSCBW, LPVOID, DWORD);
+    HRESULT (*ConfigureDevices)(struct IDirectInput8W *, LPDICONFIGUREDEVICESCALLBACK, LPDICONFIGUREDEVICESPARAMSW, DWORD, LPVOID);
+};
+
+typedef LPDIDEVICEINSTANCEA LPDIDEVICEINSTANCE;
+
+typedef struct IDirectInputDevice2WVtbl IDirectInputDevice2WVtbl, *PIDirectInputDevice2WVtbl;
+
+typedef struct IDirectInputDevice2W IDirectInputDevice2W, *PIDirectInputDevice2W;
+
+struct IDirectInputDevice2WVtbl {
+    HRESULT (*QueryInterface)(struct IDirectInputDevice2W *, IID *, LPVOID *);
+    ULONG (*AddRef)(struct IDirectInputDevice2W *);
+    ULONG (*Release)(struct IDirectInputDevice2W *);
+    HRESULT (*GetCapabilities)(struct IDirectInputDevice2W *, LPDIDEVCAPS);
+    HRESULT (*EnumObjects)(struct IDirectInputDevice2W *, LPDIENUMDEVICEOBJECTSCALLBACKW, LPVOID, DWORD);
+    HRESULT (*GetProperty)(struct IDirectInputDevice2W *, GUID *, LPDIPROPHEADER);
+    HRESULT (*SetProperty)(struct IDirectInputDevice2W *, GUID *, LPCDIPROPHEADER);
+    HRESULT (*Acquire)(struct IDirectInputDevice2W *);
+    HRESULT (*Unacquire)(struct IDirectInputDevice2W *);
+    HRESULT (*GetDeviceState)(struct IDirectInputDevice2W *, DWORD, LPVOID);
+    HRESULT (*GetDeviceData)(struct IDirectInputDevice2W *, DWORD, LPDIDEVICEOBJECTDATA, LPDWORD, DWORD);
+    HRESULT (*SetDataFormat)(struct IDirectInputDevice2W *, LPCDIDATAFORMAT);
+    HRESULT (*SetEventNotification)(struct IDirectInputDevice2W *, HANDLE);
+    HRESULT (*SetCooperativeLevel)(struct IDirectInputDevice2W *, HWND, DWORD);
+    HRESULT (*GetObjectInfo)(struct IDirectInputDevice2W *, LPDIDEVICEOBJECTINSTANCEW, DWORD, DWORD);
+    HRESULT (*GetDeviceInfo)(struct IDirectInputDevice2W *, LPDIDEVICEINSTANCEW);
+    HRESULT (*RunControlPanel)(struct IDirectInputDevice2W *, HWND, DWORD);
+    HRESULT (*Initialize)(struct IDirectInputDevice2W *, HINSTANCE, DWORD, GUID *);
+    HRESULT (*CreateEffect)(struct IDirectInputDevice2W *, GUID *, LPCDIEFFECT, LPDIRECTINPUTEFFECT *, LPUNKNOWN);
+    HRESULT (*EnumEffects)(struct IDirectInputDevice2W *, LPDIENUMEFFECTSCALLBACKW, LPVOID, DWORD);
+    HRESULT (*GetEffectInfo)(struct IDirectInputDevice2W *, LPDIEFFECTINFOW, GUID *);
+    HRESULT (*GetForceFeedbackState)(struct IDirectInputDevice2W *, LPDWORD);
+    HRESULT (*SendForceFeedbackCommand)(struct IDirectInputDevice2W *, DWORD);
+    HRESULT (*EnumCreatedEffectObjects)(struct IDirectInputDevice2W *, LPDIENUMCREATEDEFFECTOBJECTSCALLBACK, LPVOID, DWORD);
+    HRESULT (*Escape)(struct IDirectInputDevice2W *, LPDIEFFESCAPE);
+    HRESULT (*Poll)(struct IDirectInputDevice2W *);
+    HRESULT (*SendDeviceData)(struct IDirectInputDevice2W *, DWORD, LPCDIDEVICEOBJECTDATA, LPDWORD, DWORD);
+};
+
+struct IDirectInputDevice2W {
+    struct IDirectInputDevice2WVtbl *lpVtbl;
+};
+
+typedef struct DIPERIODIC DIPERIODIC, *PDIPERIODIC;
+
+typedef struct DIPERIODIC *LPDIPERIODIC;
+
+struct DIPERIODIC {
+    DWORD dwMagnitude;
+    LONG lOffset;
+    DWORD dwPhase;
+    DWORD dwPeriod;
+};
+
+typedef struct IDirectInputDevice7A *LPDIRECTINPUTDEVICE7A;
+
+typedef struct IDirectInputDevice7W *LPDIRECTINPUTDEVICE7W;
+
+typedef DIACTIONFORMAT *LPCDIACTIONFORMAT;
+
+typedef struct DIEFFECT_DX5 DIEFFECT_DX5, *PDIEFFECT_DX5;
+
+struct DIEFFECT_DX5 {
+    DWORD dwSize;
+    DWORD dwFlags;
+    DWORD dwDuration;
+    DWORD dwSamplePeriod;
+    DWORD dwGain;
+    DWORD dwTriggerButton;
+    DWORD dwTriggerRepeatInterval;
+    DWORD cAxes;
+    LPDWORD rgdwAxes;
+    LPLONG rglDirection;
+    LPDIENVELOPE lpEnvelope;
+    DWORD cbTypeSpecificParams;
+    LPVOID lpvTypeSpecificParams;
+};
+
+typedef struct DIDEVICEINSTANCEA DIDEVICEINSTANCE;
+
+typedef struct DIJOYSTATE2 DIJOYSTATE2, *PDIJOYSTATE2;
+
+struct DIJOYSTATE2 {
+    LONG lX;
+    LONG lY;
+    LONG lZ;
+    LONG lRx;
+    LONG lRy;
+    LONG lRz;
+    LONG rglSlider[2];
+    DWORD rgdwPOV[4];
+    BYTE rgbButtons[128];
+    LONG lVX;
+    LONG lVY;
+    LONG lVZ;
+    LONG lVRx;
+    LONG lVRy;
+    LONG lVRz;
+    LONG rglVSlider[2];
+    LONG lAX;
+    LONG lAY;
+    LONG lAZ;
+    LONG lARx;
+    LONG lARy;
+    LONG lARz;
+    LONG rglASlider[2];
+    LONG lFX;
+    LONG lFY;
+    LONG lFZ;
+    LONG lFRx;
+    LONG lFRy;
+    LONG lFRz;
+    LONG rglFSlider[2];
+};
+
+typedef struct DIDEVICEINSTANCE_DX3W *LPDIDEVICEINSTANCE_DX3W;
+
+typedef struct _CPOINT *PCPOINT;
+
+typedef struct DIDEVICEOBJECTINSTANCEA DIDEVICEOBJECTINSTANCE;
+
+typedef DIDEVICEOBJECTINSTANCE *LPCDIDEVICEOBJECTINSTANCE;
+
+typedef struct _DIMOUSESTATE _DIMOUSESTATE, *P_DIMOUSESTATE;
+
+typedef struct _DIMOUSESTATE *LPDIMOUSESTATE;
+
+struct _DIMOUSESTATE {
+    LONG lX;
+    LONG lY;
+    LONG lZ;
+    BYTE rgbButtons[4];
+};
+
+typedef struct DIEFFECTINFOA DIEFFECTINFO;
+
+typedef struct DIRAMPFORCE *LPCDIRAMPFORCE;
+
+typedef struct DIDEVICEOBJECTDATA_DX3 *LPDIDEVICEOBJECTDATA_DX3;
+
+typedef struct _DIDATAFORMAT *LPDIDATAFORMAT;
+
+typedef struct DIPROPCAL *LPCDIPROPCAL;
+
+typedef DIDEVICEIMAGEINFOA *LPCDIDEVICEIMAGEINFOA;
+
+typedef struct DIPROPRANGE DIPROPRANGE, *PDIPROPRANGE;
+
+struct DIPROPRANGE {
+    struct DIPROPHEADER diph;
+    LONG lMin;
+    LONG lMax;
+};
+
+typedef LPDIEFFECTINFOA LPDIEFFECTINFO;
+
+typedef struct DIDEVICEINSTANCE_DX3A *LPDIDEVICEINSTANCE_DX3A;
+
+typedef struct DICONSTANTFORCE *LPCDICONSTANTFORCE;
+
+typedef DIDEVICEIMAGEINFOW *LPCDIDEVICEIMAGEINFOW;
+
+typedef struct DIDEVICEOBJECTINSTANCE_DX3A *LPCDIDEVICEOBJECTINSTANCE_DX3A;
+
+typedef struct _DIACTIONW DIACTIONW;
+
+typedef DIACTIONW *LPCDIACTIONW;
+
+typedef struct DIENVELOPE *LPCDIENVELOPE;
+
+typedef struct IDirectInput7WVtbl IDirectInput7WVtbl, *PIDirectInput7WVtbl;
+
+typedef struct IDirectInput7W IDirectInput7W, *PIDirectInput7W;
+
+struct IDirectInput7WVtbl {
+    HRESULT (*QueryInterface)(struct IDirectInput7W *, IID *, LPVOID *);
+    ULONG (*AddRef)(struct IDirectInput7W *);
+    ULONG (*Release)(struct IDirectInput7W *);
+    HRESULT (*CreateDevice)(struct IDirectInput7W *, GUID *, LPDIRECTINPUTDEVICEW *, LPUNKNOWN);
+    HRESULT (*EnumDevices)(struct IDirectInput7W *, DWORD, LPDIENUMDEVICESCALLBACKW, LPVOID, DWORD);
+    HRESULT (*GetDeviceStatus)(struct IDirectInput7W *, GUID *);
+    HRESULT (*RunControlPanel)(struct IDirectInput7W *, HWND, DWORD);
+    HRESULT (*Initialize)(struct IDirectInput7W *, HINSTANCE, DWORD);
+    HRESULT (*FindDevice)(struct IDirectInput7W *, GUID *, LPCWSTR, LPGUID);
+    HRESULT (*CreateDeviceEx)(struct IDirectInput7W *, GUID *, IID *, LPVOID *, LPUNKNOWN);
+};
+
+struct IDirectInput7W {
+    struct IDirectInput7WVtbl *lpVtbl;
+};
+
+typedef struct IDirectInput7W *LPDIRECTINPUT7W;
+
+typedef struct IDirectInput7A IDirectInput7A, *PIDirectInput7A;
+
+typedef struct IDirectInput7A *LPDIRECTINPUT7A;
+
+typedef struct IDirectInput7AVtbl IDirectInput7AVtbl, *PIDirectInput7AVtbl;
+
+struct IDirectInput7AVtbl {
+    HRESULT (*QueryInterface)(struct IDirectInput7A *, IID *, LPVOID *);
+    ULONG (*AddRef)(struct IDirectInput7A *);
+    ULONG (*Release)(struct IDirectInput7A *);
+    HRESULT (*CreateDevice)(struct IDirectInput7A *, GUID *, LPDIRECTINPUTDEVICEA *, LPUNKNOWN);
+    HRESULT (*EnumDevices)(struct IDirectInput7A *, DWORD, LPDIENUMDEVICESCALLBACKA, LPVOID, DWORD);
+    HRESULT (*GetDeviceStatus)(struct IDirectInput7A *, GUID *);
+    HRESULT (*RunControlPanel)(struct IDirectInput7A *, HWND, DWORD);
+    HRESULT (*Initialize)(struct IDirectInput7A *, HINSTANCE, DWORD);
+    HRESULT (*FindDevice)(struct IDirectInput7A *, GUID *, LPCSTR, LPGUID);
+    HRESULT (*CreateDeviceEx)(struct IDirectInput7A *, GUID *, IID *, LPVOID *, LPUNKNOWN);
+};
+
+struct IDirectInput7A {
+    struct IDirectInput7AVtbl *lpVtbl;
+};
+
+typedef struct DIPROPSTRING *LPDIPROPSTRING;
+
+typedef DIACTIONA *LPCDIACTIONA;
+
+typedef struct _DICONFIGUREDEVICESPARAMSW DICONFIGUREDEVICESPARAMSW;
+
+typedef struct IDirectInput8W *LPDIRECTINPUT8W;
+
+typedef struct IDirectInput8A *LPDIRECTINPUT8A;
+
+typedef DIACTIONFORMATW *LPCDIACTIONFORMATW;
+
+typedef struct DIPROPGUIDANDPATH *LPDIPROPGUIDANDPATH;
+
+typedef DIDEVICEIMAGEINFOHEADER *LPCDIDEVICEIMAGEINFOHEADER;
+
+typedef struct DIDEVICEOBJECTINSTANCE_DX3A DIDEVICEOBJECTINSTANCE_DX3;
+
+typedef DIACTIONFORMATA *LPCDIACTIONFORMATA;
+
+typedef struct _DICOLORSET *LPDICOLORSET;
+
+typedef DIDEVICEIMAGEINFOA DIDEVICEIMAGEINFO;
+
+typedef LPDIEFFECT LPDIEFFECT_DX6;
+
+typedef struct DIEFFECT_DX5 *LPDIEFFECT_DX5;
+
+typedef LPDIDEVICEINSTANCE_DX3A LPDIDEVICEINSTANCE_DX3;
+
+typedef struct DIDEVICEINSTANCE_DX3A DIDEVICEINSTANCE_DX3;
+
+typedef LPDIDEVICEOBJECTINSTANCEA LPDIDEVICEOBJECTINSTANCE;
+
+typedef struct _DIMOUSESTATE2 *LPDIMOUSESTATE2;
+
+typedef struct DIPROPCPOINTS *LPCDIPROPCPOINTS;
+
+typedef DIDEVICEINSTANCE *LPCDIDEVICEINSTANCE;
+
+typedef DIEFFECTINFO *LPCDIEFFECTINFO;
+
+typedef DIACTIONA DIACTION;
+
+typedef struct DIPROPDWORD *LPCDIPROPDWORD;
+
+typedef struct DIPROPGUIDANDPATH *LPCDIPROPGUIDANDPATH;
+
+typedef DICONFIGUREDEVICESPARAMSW *LPCDICONFIGUREDEVICESPARAMSW;
+
+typedef struct IDirectInputDevice2W *LPDIRECTINPUTDEVICE2W;
+
+typedef struct IDirectInputDevice2A *LPDIRECTINPUTDEVICE2A;
+
+typedef DICONFIGUREDEVICESPARAMSA *LPCDICONFIGUREDEVICESPARAMSA;
+
+typedef struct DIEFFECT DIEFFECT_DX6;
+
+typedef struct DIEFFECT_DX5 *LPCDIEFFECT_DX5;
+
+typedef LPDIDEVICEIMAGEINFOHEADERA LPDIDEVICEIMAGEINFOHEADER;
+
+typedef struct DIDEVICEINSTANCE_DX3A *LPCDIDEVICEINSTANCE_DX3A;
+
+typedef DIDEVICEIMAGEINFO *LPCDIDEVICEIMAGEINFO;
+
+typedef LPDIACTIONA LPDIACTION;
+
+typedef DIDEVICEINSTANCE_DX3 *LPCDIDEVICEINSTANCE_DX3;
+
+typedef struct IDirectInputA *LPDIRECTINPUTA;
+
+typedef struct DIDEVICEINSTANCE_DX3W *LPCDIDEVICEINSTANCE_DX3W;
+
+typedef struct _DIMOUSESTATE DIMOUSESTATE;
+
+typedef struct IDirectInputW *LPDIRECTINPUTW;
+
+typedef struct DIPERIODIC *LPCDIPERIODIC;
+
+typedef struct DICUSTOMFORCE *LPCDICUSTOMFORCE;
+
+typedef struct DIJOYSTATE2 *LPDIJOYSTATE2;
+
+typedef LPDIACTIONFORMATA LPDIACTIONFORMAT;
+
+typedef struct DICONSTANTFORCE *LPDICONSTANTFORCE;
+
+typedef struct IDirectInput2A *LPDIRECTINPUT2A;
+
+typedef struct DIPROPRANGE *LPDIPROPRANGE;
+
+typedef struct IDirectInput2W *LPDIRECTINPUT2W;
+
+typedef DIDEVICEOBJECTINSTANCE_DX3 *LPCDIDEVICEOBJECTINSTANCE_DX3;
+
+typedef struct DIPROPRANGE *LPCDIPROPRANGE;
+
+typedef DIACTION *LPCDIACTION;
+
+typedef LPDIDEVICEOBJECTINSTANCE_DX3A LPDIDEVICEOBJECTINSTANCE_DX3;
+
+typedef struct DICONDITION *LPCDICONDITION;
+
+typedef struct IDirectInput2A *LPDIRECTINPUT2;
+
+typedef struct DIPROPCPOINTS *LPDIPROPCPOINTS;
+
+typedef struct IDirectInput8A *LPDIRECTINPUT8;
+
+typedef struct IDirectInput7A *LPDIRECTINPUT7;
+
+typedef struct DIPROPDWORD *LPDIPROPDWORD;
+
+#define DIBUTTON_FOOTBALLP_DEVICE 335561982
+
+#define DIBUTTON_SOCCERO_DEVICE 503334142
+
+#define DIKEYBOARD_AX 2164262038
+
+#define DIAXIS_FLYINGH_TORQUE 100817412
+
+#define DIKEYBOARD_LBRACKET 2164261914
+
+#define DIKEYBOARD_AT 2164262033
+
+#define DIBUTTON_FOOTBALLP_HELP 335545347
+
+#define DIAXIS_2DCONTROL_LATERAL 587235841
+
+#define DIBUTTON_TPS_STEPLEFT 167789575
+
+#define DIEP_DIRECTION 64
+
+#define DIBUTTON_BBALLD_JUMP 318768129
+
+#define DIAXIS_FISHING_MOVE 234947074
+
+#define DIHATSWITCH_CADF_HATSWITCH 620774913
+
+#define DI8DEVTYPE1STPERSON_LIMITED 1
+
+#define DIBUTTON_BBALLO_POST 302007308
+
+#define DIBUTTON_FLYINGC_PAUSE 67126524
+
+#define DIKEYBOARD_MULTIPLY 2164261943
+
+#define DIDC_DEADBAND 16384
+
+#define DIK_MINUS 12
+
+#define DIAXIS_FOOTBALLO_MOVE 369164802
+
+#define DIHATSWITCH_3DCONTROL_HATSWITCH 603997697
+
+#define DIBUTTON_SOCCERD_PAUSE 520111356
+
+#define DIKEYBOARD_F8 2164261954
+
+#define DIKEYBOARD_F7 2164261953
+
+#define DIKEYBOARD_F9 2164261955
+
+#define DIKEYBOARD_F4 2164261950
+
+#define DIKEYBOARD_F3 2164261949
+
+#define DIBUTTON_FLYINGH_PAUSE 100680956
+
+#define DIKEYBOARD_F6 2164261952
+
+#define DIKEYBOARD_F5 2164261951
+
+#define DIKEYBOARD_F2 2164261948
+
+#define DIBUTTON_ARCADEP_FIRE 570426370
+
+#define DIKEYBOARD_F1 2164261947
+
+#define DIBUTTON_DRIVINGT_DASHBOARD 50355205
+
+#define DIERR_HASEFFECTS 2147746308
+
+#define DIBUTTON_DRIVINGR_MENU 16778493
+
+#define DIDAL_RIGHTALIGNED 2
+
+#define DIBUTTON_BIKINGM_DEVICE 469779710
+
+#define DIBUTTON_MECHA_BACK_LINK 687949032
+
+#define DIKEYBOARD_DECIMAL 2164261971
+
+#define JOY_PASSDRIVERDATA 268435456
+
+#define DIVIRTUAL_REMOTE_CONTROL 654311424
+
+#define DIVOICE_VOICECOMMAND 2197816336
+
+#define DIEFT_CONDITION 4
+
+#define DI8DEVTYPEGAMEPAD_LIMITED 1
+
+#define DIBUTTON_SPACESIM_RIGHT_LINK 117490924
+
+#define DISDD_CONTINUE 1
+
+#define DIBUTTON_HUNTING_WEAPON 218104835
+
+#define DIBUTTON_SOCCERD_FORWARD_LINK 520176864
+
+#define DIEDBSFL_ATTACHEDONLY 0
+
+#define DIBUTTON_MECHA_FORWARD_LINK 687949024
+
+#define DI8DEVTYPE1STPERSON_SHOOTER 4
+
+#define DIAXIS_HOCKEYD_MOVE 436273666
+
+#define DIBUTTON_STRATEGYR_ROTATE_RIGHT_LINK 184698092
+
+#define DIBUTTON_FLYINGM_TARGET 83889155
+
+#define DIK_INSERT 210
+
+#define JOY_HWS_AUTOLOAD 268435456
+
+#define DIBUTTON_BASEBALLP_LOOK 268452871
+
+#define DIBUTTON_BASEBALLP_BASE 268436483
+
+#define DIBUTTON_BASEBALLF_DIVE 285213702
+
+#define DIBUTTON_ARCADEP_MENU 570426621
+
+#define DIBUTTON_HOCKEYD_BLOCK 436208644
+
+#define DIGDD_PEEK 1
+
+#define DIERR_NOINTERFACE 2147500034
+
+#define DIBUTTON_HOCKEYD_ZOOM 436225030
+
+#define DI8DEVTYPEKEYBOARD_JAPANAX 11
+
+#define DIKEYBOARD_WEBFORWARD 2164262121
+
+#define DIEFT_STARTDELAY 32768
+
+#define DIBUTTON_REMOTE_TV 654334984
+
+#define DIPROP_GUIDANDPATH 12
+
+#define DIK_CAPSLOCK 58
+
+#define DI8DEVTYPE_DEVICE 17
+
+#define DIKEYBOARD_RSHIFT 2164261942
+
+#define DIBUTTON_FLYINGM_FLAPSUP 83907591
+
+#define DIAXIS_FLYINGH_PITCH 100731394
+
+#define DIKEYBOARD_POWER 2164262110
+
+#define DIBUTTON_SPACESIM_MENU 117441789
+
+#define DIBUTTON_FOOTBALLD_SELECT 385876994
+
+#define DIBUTTON_FIGHTINGH_PAUSE 134235388
+
+#define DIBUTTON_FPS_GLANCE_UP_LINK 151110880
+
+#define DIBUTTON_RACQUET_FORWARD_LINK 536954080
+
+#define DIBUTTON_BASEBALLP_DEVICE 268453118
+
+#define DIBUTTON_BBALLD_TIMEOUT 318784520
+
+#define DIBUTTON_HUNTING_FIRESECONDARY 218121227
+
+#define DIBUTTON_ARCADEP_PAUSE 570443004
+
+#define DIERR_OTHERAPPHASPRIO 2147942405
+
+#define DIKEYBOARD_NUMPADENTER 2164262044
+
+#define DIKEYBOARD_WEBFAVORITES 2164262118
+
+#define DIBUTTON_FLYINGM_PAUSE 83903740
+
+#define DIAXIS_FLYINGM_PITCH 83954178
+
+#define DIAXIS_FLYINGM_BANK 83921409
+
+#define DIKEYBOARD_TAB 2164261903
+
+#define DIBUTTON_FLYINGC_GLANCE_RIGHT_LINK 67618028
+
+#define DISCL_EXCLUSIVE 1
+
+#define DIBUTTON_SOCCERO_BACK_LINK 503399656
+
+#define DIEP_ALLPARAMS_DX5 511
+
+#define DIBUTTON_BASEBALLP_THROW 268436484
+
+#define DIBUTTON_SPACESIM_DEVICE 117458174
+
+#define DIBUTTON_FISHING_ROTATE_LEFT_LINK 235029732
+
+#define DIVOICE_CHANNEL2 2197816322
+
+#define DIVOICE_CHANNEL1 2197816321
+
+#define DIVOICE_CHANNEL4 2197816324
+
+#define DIVOICE_CHANNEL3 2197816323
+
+#define DIVOICE_CHANNEL6 2197816326
+
+#define DIVOICE_CHANNEL5 2197816325
+
+#define DIVOICE_CHANNEL8 2197816328
+
+#define DIVOICE_CHANNEL7 2197816327
+
+#define DIBUTTON_SOCCERO_SUBSTITUTE 503333895
+
+#define DI_EFFECTRESTARTED 4
+
+#define DIBUTTON_STRATEGYR_MENU 184550653
+
+#define DIBUTTON_3DCONTROL_DEVICE 603997438
+
+#define DIBUTTON_SKIING_DEVICE 486556926
+
+#define DIEDBSFL_FORCEFEEDBACK 256
+
+#define DI8DEVTYPEMOUSE_TRACKBALL 5
+
+#define DIBUTTON_BASEBALLF_PAUSE 285230332
+
+#define DIBUTTON_SOCCERO_LEFT_LINK 503366884
+
+#define DIBUTTON_BASEBALLF_BURST 285213700
+
+#define DIBUTTON_SPACESIM_WEAPONS 117441538
+
+#define DIAXIS_2DCONTROL_ROTATEZ 587350532
+
+#define DIBUTTON_2DCONTROL_SELECT 587203585
+
+#define DIBUTTON_FOOTBALLD_SUBSTITUTE 385893389
+
+#define DIBUTTON_FOOTBALLD_ZOOM 385893388
+
+#define DIBUTTON_3DCONTROL_SELECT 603980801
+
+#define DIK_NEXTTRACK 153
+
+#define DIBUTTON_HUNTING_DEVICE 218121470
+
+#define DIERR_NOTFOUND 2147942402
+
+#define DIBUTTON_CADF_DISPLAY 620774405
+
+#define DIAXIS_RACQUET_LATERAL 536904193
+
+#define DIAH_ERROR 2147483648
+
+#define DIBUTTON_FLYINGM_GLANCE_LEFT_LINK 84395236
+
+#define DIDC_POSNEGSATURATION 8192
+
+#define DIBUTTON_BBALLD_BACK_LINK 318850280
+
+#define DIBUTTON_FOOTBALLO_PAUSE 369116412
+
+#define DIVIRTUAL_SPORTS_FOOTBALL_QBCK 352321536
+
+#define DIPROPAUTOCENTER_OFF 0
+
+#define DIBUTTON_DRIVINGT_WEAPONS 50334722
+
+#define DIPROP_VIDPID 24
+
+#define DIBUTTON_FLYINGM_GLANCE_DOWN_LINK 84395240
+
+#define DIK_APOSTROPHE 40
+
+#define DI8DEVTYPE_FLIGHT 23
+
+#define DI8DEVTYPEDRIVING_LIMITED 1
+
+#define DIHATSWITCH_ARCADES_VIEW 553666049
+
+#define DIPROP_BUFFERSIZE 1
+
+#define DIAXIS_SOCCERD_MOVE 520159746
+
+#define DIBUTTON_FOOTBALLQ_FORWARD_LINK 352404704
+
+#define DIBUTTON_FIGHTINGH_BLOCK 134218755
+
+#define DIAXIS_SOCCERO_MOVE 503382530
+
+#define DIKEYBOARD_WEBSEARCH 2164262117
+
+#define DIBUTTON_SKIING_RIGHT_LINK 486589676
+
+#define DI8DEVTYPEMOUSE_TOUCHPAD 4
+
+#define DIBUTTON_FPS_CROUCH 150995973
+
+#define DIK_DIVIDE 181
+
+#define DIKEYBOARD_NUMLOCK 2164261957
+
+#define DIBUTTON_DRIVINGR_BRAKE 16796676
+
+#define DIBUTTON_TPS_ACTION 167773186
+
+#define DIBUTTON_MECHA_DEVICE 687883518
+
+#define DIEP_TYPESPECIFICPARAMS 256
+
+#define DIVIRTUAL_SPORTS_HUNTING 218103808
+
+#define DIBUTTON_HOCKEYO_PASS 419431426
+
+#define DIAXIS_FOOTBALLO_LATERAL 369132033
+
+#define DIAXIS_SPACESIM_CLIMB 117555716
+
+#define DIHATSWITCH_BBALLO_GLANCE 302007809
+
+#define DI8DEVTYPEJOYSTICK_LIMITED 1
+
+#define DIBUTTON_HOCKEYG_STEAL 452985859
+
+#define DIK_STOP 149
+
+#define DIBUTTON_REMOTE_CABLE 654334985
+
+#define DI8DEVTYPESUPPLEMENTAL_HANDTRACKER 5
+
+#define DIAXIS_DRIVINGT_STEER 50366977
+
+#define DIDOI_POLLED 32768
+
+#define DIDFT_POV 16
+
+#define DIAXIS_DRIVINGR_ACCELERATE 17011202
+
+#define DIDFT_RELAXIS 1
+
+#define DIPROP_USERNAME 25
+
+#define DIBUTTON_TPS_GLANCE_LEFT_LINK 168281316
+
+#define DIAXIS_STRATEGYR_ROTATE 184697347
+
+#define DIK_POWER 222
+
+#define DIDIFT_OVERLAY 2
+
+#define DIBUTTON_BROWSER_PRINT 671106058
+
+#define DIBUTTON_REMOTE_CD 654334986
+
+#define DIKEYBOARD_DELETE 2164262099
+
+#define DI8DEVTYPE_REMOTE 27
+
+#define DIBUTTON_BBALLO_SPECIAL 301990917
+
+#define DIAXIS_ANY_Y_1 4278272513
+
+#define DIAXIS_FLYINGH_COLLECTIVE 100764163
+
+#define DIAXIS_ANY_Y_2 4278272514
+
+#define DI8DEVTYPEMOUSE_ABSOLUTE 6
+
+#define DIBUTTON_DRIVINGR_STEER_LEFT_LINK 16829668
+
+#define DIBUTTON_BASEBALLP_PAUSE 268453116
+
+#define DIEP_STARTDELAY 512
+
+#define DIAXIS_2DCONTROL_INOUT 587301379
+
+#define DIBUTTON_DRIVINGT_STEER_RIGHT_LINK 50384108
+
+#define DIBUTTON_BBALLO_FAKE 301990916
+
+#define DIBUTTON_RACQUET_SMASH 536871939
+
+#define DIBUTTON_DRIVINGT_TARGET 50334723
+
+#define DIBUTTON_SOCCERD_RIGHT_LINK 520144108
+
+#define DIBUTTON_DRIVINGT_DEVICE 50349310
+
+#define DIVIRTUAL_SPORTS_SKIING 486539264
+
+#define DIBUTTON_FISHING_DEVICE 234898686
+
+#define DIBUTTON_DRIVINGR_SHIFTUP 16780289
+
+#define DIBUTTON_ARCADEP_RIGHT_LINK 570475756
+
+#define DIBUTTON_DRIVINGC_FIRESECONDARY 33573897
+
+#define DIK_ABNT_C1 115
+
+#define DIK_ABNT_C2 126
+
+#define DIBUTTON_FOOTBALLD_PAUSE 385893628
+
+#define DIBUTTON_FISHING_BAIT 234882052
+
+#define DIBUTTON_ARCADES_VIEW_LEFT_LINK 554157284
+
+#define DIBUTTON_MECHA_FASTER_LINK 688112864
+
+#define DIERR_UNSUPPORTED 2147500033
+
+#define DIK_VOLUMEUP 176
+
+#define DIK_NEXT 209
+
+#define DIBUTTON_FPS_ROTATE_RIGHT_LINK 151045356
+
+#define DIBUTTON_DRIVINGT_BARREL_DOWN_LINK 50414824
+
+#define DIGFFS_EMPTY 1
+
+#define DIBUTTON_SOCCERO_SHOOT 503317505
+
+#define DIBUTTON_STRATEGYR_JUMP 184550407
+
+#define DIPROP_AUTOCENTER 9
+
+#define DIBUTTON_DRIVINGT_GLANCE_RIGHT_LINK 50840812
+
+#define DIES_SOLO 1
+
+#define DIBUTTON_HUNTING_JUMP 218121226
+
+#define DI8DEVTYPE_JOYSTICK 20
+
+#define DIKEYBOARD_SYSRQ 2164262071
+
+#define DIBUTTON_STRATEGYT_BACK_LINK 201409768
+
+#define DIDFT_VENDORDEFINED 67108864
+
+#define DIBUTTON_ARCADES_VIEW_RIGHT_LINK 554157292
+
+#define DIBUTTON_FOOTBALLQ_MENU 352322813
+
+#define DI8DEVTYPEKEYBOARD_NEC98LAPTOP 8
+
+#define DIK_CONVERT 121
+
+#define DI_DOWNLOADSKIPPED 3
+
+#define DIGFFS_USERFFSWITCHON 1024
+
+#define DIPROP_JOYSTICKID 15
+
+#define DIBUTTON_3DCONTROL_MENU 603981053
+
+#define DIBUTTON_FOOTBALLO_DEVICE 369116414
+
+#define DIAXIS_DRIVINGT_ACCELERATE 50565635
+
+#define DIBUTTON_BBALLO_MENU 301991165
+
+#define DIBUTTON_TPS_GLANCE_DOWN_LINK 168281320
+
+#define DIBUTTON_BBALLD_FAKE 318768131
+
+#define DIBUTTON_FOOTBALLP_SELECT 335545346
+
+#define DIK_APPS 221
+
+#define DIVIRTUAL_SPORTS_RACQUET 536870912
+
+#define DIEP_NORESTART 1073741824
+
+#define DIVIRTUAL_ARCADE_PLATFORM 570425344
+
+#define DIBUTTON_CADM_SPECIAL 637535235
+
+#define DIBUTTON_BIKINGM_LEFT_LINK 469812452
+
+#define DIBUTTON_FISHING_RIGHT_LINK 234931436
+
+#define DIKEYBOARD_WAKE 2164262115
+
+#define DIBUTTON_FPS_SELECT 150995972
+
+#define DIBUTTON_DRIVINGC_SHIFTDOWN 33573893
+
+#define DIBUTTON_REMOTE_DIGIT9 654332952
+
+#define DIBUTTON_REMOTE_DIGIT8 654332951
+
+#define DIBUTTON_BBALLD_LEFT_LINK 318817508
+
+#define DIKEYBOARD_RMENU 2164262072
+
+#define DIBUTTON_SKIING_SELECT 486540293
+
+#define DIBUTTON_DRIVINGR_GLANCE_RIGHT_LINK 17286380
+
+#define DIK_TAB 15
+
+#define DIAH_UNMAPPED 0
+
+#define DISCL_NONEXCLUSIVE 2
+
+#define DIBUTTON_FOOTBALLO_LEFTARM 369099778
+
+#define DIBUTTON_REMOTE_DIGIT3 654332946
+
+#define DIAFTS_NEWDEVICELOW 4294967295
+
+#define DIBUTTON_REMOTE_DIGIT2 654332945
+
+#define DIBUTTON_REMOTE_DIGIT1 654332944
+
+#define DIBUTTON_BASEBALLP_SELECT 268436481
+
+#define DIAXIS_HOCKEYG_MOVE 453050882
+
+#define DIBUTTON_REMOTE_DIGIT0 654332943
+
+#define DIBUTTON_REMOTE_DIGIT7 654332950
+
+#define DIBUTTON_REMOTE_DIGIT6 654332949
+
+#define DIBUTTON_REMOTE_DIGIT5 654332948
+
+#define DIDOI_ASPECTPOSITION 256
+
+#define DIBUTTON_REMOTE_DIGIT4 654332947
+
+#define DIBUTTON_BASEBALLB_PAUSE 251675900
+
+#define DIBUTTON_REMOTE_PLAY 654320643
+
+#define DIAXIS_CADF_MOVE 620823042
+
+#define DIBUTTON_MECHA_FIRE 687866881
+
+#define DIRECTINPUT_VERSION 2048
+
+#define DIBUTTON_STRATEGYT_LEFT_LINK 201376996
+
+#define DIKEYBOARD_MUTE 2164262048
+
+#define DIBUTTON_SOCCERD_LEFT_LINK 520144100
+
+#define DIBUTTON_MECHA_MENU 687867133
+
+#define DIBUTTON_BBALLO_TIMEOUT 302007309
+
+#define DIKEYBOARD_RCONTROL 2164262045
+
+#define DIBUTTON_BBALLO_SCREEN 302007305
+
+#define DIKEYBOARD_NUMPADEQUALS 2164262029
+
+#define DIBUTTON_BBALLD_SUBSTITUTE 318784521
+
+#define DIBUTTON_MECHA_ROTATE_LEFT_LINK 688014564
+
+#define DIVOICE_TRANSMIT 2197816333
+
+#define DIAFTS_UNUSEDDEVICELOW 0
+
+#define DIKEYBOARD_HOME 2164262087
+
+#define DI8DEVTYPESUPPLEMENTAL_THREEPEDALS 12
+
+#define DIK_UNLABELED 151
+
+#define DIEFT_FFATTACK 512
+
+#define DIPROP_KEYNAME 20
+
+#define DIAXIS_BASEBALLB_MOVE 251724290
+
+#define DIBUTTON_STRATEGYT_DEVICE 201344254
+
+#define DIKEYBOARD_COLON 2164262034
+
+#define DIBUTTON_FOOTBALLD_FORWARD_LINK 385959136
+
+#define DIAXIS_FLYINGC_PITCH 67176962
+
+#define DIBUTTON_BASEBALLF_SHIFTOUT 285230088
+
+#define DIBUTTON_FLYINGH_VIEW 100688901
+
+#define DIEFF_OBJECTOFFSETS 2
+
+#define DIBUTTON_HUNTING_BINOCULAR 218104836
+
+#define DIERR_READONLY 2147942405
+
+#define DIBUTTON_BIKINGM_SELECT 469763076
+
+#define DIBUTTON_BASEBALLP_PITCH 268436482
+
+#define DIBUTTON_DRIVINGR_SHIFTDOWN 16780290
+
+#define DIBUTTON_SPACESIM_DISPLAY 117457925
+
+#define DIBUTTON_BBALLD_DEVICE 318784766
+
+#define DIBUTTON_HOCKEYD_SUBSTITUTE 436225033
+
+#define DIAXIS_BASEBALLP_MOVE 268501506
+
+#define DIGFFS_SAFETYSWITCHON 256
+
+#define DIAH_USERCONFIG 1
+
+#define DIBUTTON_FIGHTINGH_DODGE 134235146
+
+#define DIK_PAUSE 197
+
+#define DIAXIS_FIGHTINGH_MOVE 134283778
+
+#define DIBUTTON_FOOTBALLQ_FAKE 352322566
+
+#define DIBUTTON_SOCCERD_BLOCK 520094721
+
+#define DIBUTTON_CADF_PAUSE 620774652
+
+#define DIBUTTON_SOCCERO_SHOOTHIGH 503333897
+
+#define DIBUTTON_FLYINGM_COUNTER 83909636
+
+#define DIBUTTON_BBALLD_MENU 318768381
+
+#define DIBUTTON_FPS_FORWARD_LINK 151078112
+
+#define DIBUTTON_DRIVINGC_AIDS 33571847
+
+#define DIBUTTON_SOCCERO_PASS 503317506
+
+#define DIAXIS_ANY_X_1 4278239745
+
+#define DIAXIS_ANY_X_2 4278239746
+
+#define DIBUTTON_BASEBALLB_NOSTEAL 251675657
+
+#define DIHATSWITCH_DRIVINGT_GLANCE 50349569
+
+#define DIBUTTON_FPS_BACKWARD_LINK 151078120
+
+#define DIAXIS_HOCKEYO_MOVE 419496450
+
+#define DIBUTTON_SOCCERD_SPECIAL 520094725
+
+#define DIPROP_APPDATA 22
+
+#define DIPROP_LOGICALRANGE 19
+
+#define DIBUTTON_SKIING_CAMERA 486540291
+
+#define DIBUTTON_HOCKEYG_TIMEOUT 453002247
+
+#define DIBUTTON_DRIVINGC_TARGET 33557507
+
+#define DIGFFS_USERFFSWITCHOFF 2048
+
+#define DIK_DOWNARROW 208
+
+#define DIBUTTON_FLYINGH_COUNTER 100684804
+
+#define DI8DEVCLASS_DEVICE 1
+
+#define DIHATSWITCH_RACQUET_GLANCE 536888833
+
+#define DIBUTTON_STRATEGYT_SELECT 201327617
+
+#define DIBUTTON_TPS_GLANCE_UP_LINK 168281312
+
+#define DIK_RALT 184
+
+#define DIBUTTON_FLYINGH_SLOWER_LINK 100916456
+
+#define DIBUTTON_FLYINGH_GLANCE_RIGHT_LINK 101172460
+
+#define DIDAL_MIDDLE 0
+
+#define DIKEYBOARD_SLEEP 2164262111
+
+#define DIAXIS_DRIVINGC_ACCELERATE 33788418
+
+#define DIAXIS_BASEBALLF_LATERAL 285245953
+
+#define DIBUTTON_RACQUET_TIMEOUT 536888326
+
+#define DI8DEVTYPE1STPERSON_SIXDOF 3
+
+#define DIBUTTON_MECHA_LEFT_LINK 687916260
+
+#define DIDFT_NOCOLLECTION 16776960
+
+#define DIBUTTON_DRIVINGC_STEER_LEFT_LINK 33606884
+
+#define DIBUTTON_TPS_STEPRIGHT 167789576
+
+#define DIEFT_HARDWARE 255
+
+#define DIPH_DEVICE 0
+
+#define DIHATSWITCH_FLYINGC_GLANCE 67126785
+
+#define DIHATSWITCH_HOCKEYO_SCROLL 419448321
+
+#define DIDFT_PSHBUTTON 4
+
+#define DIBUTTON_FIGHTINGH_FORWARD_LINK 134300896
+
+#define DI8DEVCLASS_POINTER 2
+
+#define DIBUTTON_FLYINGH_FASTER_LINK 100916448
+
+#define DIBUTTON_FLYINGH_GEAR 100688902
+
+#define DIBUTTON_MECHA_JUMP 687866886
+
+#define DIBUTTON_BASEBALLB_BURST 251659270
+
+#define DIBUTTON_FOOTBALLO_SUBSTITUTE 369116171
+
+#define DIEP_TRIGGERBUTTON 8
+
+#define DIAXIS_HUNTING_LATERAL 218137089
+
+#define DI8DEVTYPESCREENPTR_UNKNOWN 2
+
+#define DIHATSWITCH_STRATEGYR_GLANCE 184567297
+
+#define DIBUTTON_FOOTBALLO_BACK_LINK 369181928
+
+#define DIBUTTON_BASEBALLP_RIGHT_LINK 268485868
+
+#define DIAXIS_DRIVINGT_BRAKE 50614789
+
+#define DIKEYBOARD_LSHIFT 2164261930
+
+#define DIBUTTON_GOLF_RIGHT_LINK 402703596
+
+#define DIBUTTON_MECHA_ROTATE_RIGHT_LINK 688014572
+
+#define DIDF_ABSAXIS 1
+
+#define DIBUTTON_FOOTBALLP_PAUSE 335561980
+
+#define DIVOICE_PLAYBACKMUTE 2197816332
+
+#define DIBUTTON_ARCADES_VIEW_UP_LINK 554157280
+
+#define DIBUTTON_DRIVINGC_FIRE 33557505
+
+#define DIBUTTON_FIGHTINGH_LEFT_LINK 134268132
+
+#define DIK_MEDIASTOP 164
+
+#define DI8DEVTYPE_DEVICECTRL 25
+
+#define DIAXIS_FPS_ROTATE 151028225
+
+#define DIK_LMENU 56
+
+#define DIBUTTON_2DCONTROL_SPECIAL2 587203588
+
+#define DIBUTTON_2DCONTROL_SPECIAL1 587203586
+
+#define DIBUTTON_RACQUET_BACK_LINK 536954088
+
+#define DIAXIS_BIKINGM_TURN 469795329
+
+#define DIBUTTON_BBALLD_STEAL 318768130
+
+#define DIK_PERIOD 52
+
+#define DIBUTTON_SKIING_JUMP 486540289
+
+#define DIK_SLASH 53
+
+#define DIEFF_POLAR 32
+
+#define JOY_HWS_NODEVNODE 536870912
+
+#define DIDC_POSNEGCOEFFICIENTS 4096
+
+#define DIK_YEN 125
+
+#define DIAXIS_SKIING_TURN 486572545
+
+#define DIBUTTON_BASEBALLB_POWER 251659267
+
+#define DIBUTTON_3DCONTROL_PAUSE 603997436
+
+#define DIBUTTON_BASEBALLF_SHIFTIN 285230087
+
+#define DIBUTTON_FLYINGM_GLANCE_RIGHT_LINK 84395244
+
+#define DIAXIS_BASEBALLP_LATERAL 268468737
+
+#define DIBUTTON_HOCKEYO_PAUSE 419448060
+
+#define DIBUTTON_2DCONTROL_PAUSE 587220220
+
+#define DIBUTTON_BIKINGM_CAMERA 469763074
+
+#define DIBUTTON_SOCCERO_PASSTHRU 503333898
+
+#define DI8DEVTYPESUPPLEMENTAL_SHIFTSTICKGATE 6
+
+#define DIK_RIGHTARROW 205
+
+#define DIBUTTON_TPS_SELECT 167773187
+
+#define DIERR_OBJECTNOTFOUND 2147942402
+
+#define DIBUTTON_STRATEGYR_LEFT_LINK 184599780
+
+#define DIBUTTON_BBALLD_PLAY 318768135
+
+#define DIBUTTON_STRATEGYR_RIGHT_LINK 184599788
+
+#define DIDC_POLLEDDEVICE 2
+
+#define DIVOICE_ALL 2197816330
+
+#define DIK_RIGHT 205
+
+#define DIBUTTON_DRIVINGR_AIDS 16794630
+
+#define DIBUTTON_TPS_TURN_RIGHT_LINK 167920876
+
+#define DIKEYBOARD_NOCONVERT 2164262011
+
+#define DIAH_APPREQUESTED 2
+
+#define DIBUTTON_DRIVINGR_STEER_RIGHT_LINK 16829676
+
+#define DIBUTTON_SOCCERD_DEVICE 520111358
+
+#define DIHATSWITCH_MECHA_GLANCE 687883777
+
+#define DIBUTTON_MECHA_VIEW 687883272
+
+#define DIERR_GENERIC 2147500037
+
+#define DIBUTTON_BBALLO_SUBSTITUTE 302007310
+
+#define DIEGES_EMULATED 2
+
+#define DIBUTTON_SKIING_MENU 486540541
+
+#define DIBUTTON_DRIVINGC_MENU 33555709
+
+#define DIAXIS_SOCCERO_BEND 503415299
+
+#define DIBUTTON_FPS_DEVICE 151012606
+
+#define DIAXIS_CADM_MOVE 637600258
+
+#define DIAXIS_BROWSER_VIEW 671187459
+
+#define DIBUTTON_SOCCERD_BACK_LINK 520176872
+
+#define DIAXIS_ANY_A_1 4278436353
+
+#define DIBUTTON_FIGHTINGH_BACKWARD_LINK 134300904
+
+#define DIAXIS_ANY_A_2 4278436354
+
+#define DIVIRTUAL_CAD_2DCONTROL 587202560
+
+#define DIK_AT 145
+
+#define DIBUTTON_BBALLD_PLAYER 318768133
+
+#define DIK_AX 150
+
+#define DIK_RWIN 220
+
+#define DIBUTTON_RACQUET_SUBSTITUTE 536888327
+
+#define DIKEYBOARD_SPACE 2164261945
+
+#define DI8DEVTYPE_MOUSE 18
+
+#define DI_SECONDS 1000000
+
+#define DIAXIS_FLYINGM_BRAKE 84173317
+
+#define DIBUTTON_FISHING_CAST 234882049
+
+#define DIAXIS_FLYINGC_RUDDER 67260933
+
+#define DIVIRTUAL_SPORTS_SOCCER_OFFENSE 503316480
+
+#define DI8DEVTYPEFLIGHT_STICK 2
+
+#define DIBUTTON_SPACESIM_TURN_RIGHT_LINK 117589228
+
+#define DIBUTTON_HOCKEYG_STRATEGY 453002246
+
+#define DIBUTTON_FOOTBALLD_SUPERTACKLE 385876998
+
+#define DIAXIS_ANY_S_1 4278534657
+
+#define DIBUTTON_HUNTING_FORWARD_LINK 218186976
+
+#define DIBUTTON_FLYINGH_GLANCE_UP_LINK 101172448
+
+#define DIBUTTON_FLYINGC_GEAR 67120131
+
+#define DIAXIS_ANY_S_2 4278534658
+
+#define DIBUTTON_HUNTING_MAP 218104838
+
+#define DIKEYBOARD_MEDIASELECT 2164262125
+
+#define DIK_PREVTRACK 144
+
+#define DIK_GRAVE 41
+
+#define DIBUTTON_HUNTING_MENU 218105085
+
+#define DIPROP_PRODUCTNAME 14
+
+#define DIK_F4 62
+
+#define DIERR_HANDLEEXISTS 2147942405
+
+#define DIK_F3 61
+
+#define DIK_F2 60
+
+#define DIK_F1 59
+
+#define DIK_F8 66
+
+#define DIK_F7 65
+
+#define DIK_F6 64
+
+#define DIK_F5 63
+
+#define DIK_F9 67
+
+#define DI8DEVTYPESUPPLEMENTAL_DUALPEDALS 11
+
+#define DIAXIS_ANY_B_2 4278469122
+
+#define DIAXIS_ANY_B_1 4278469121
+
+#define DIBUTTON_ARCADEP_FIRESECONDARY 570442758
+
+#define DIBUTTON_MECHA_SLOWER_LINK 688112872
+
+#define DIBUTTON_SPACESIM_VIEW 117457924
+
+#define DIBUTTON_GOLF_BACK_LINK 402736360
+
+#define DIBUTTON_SOCCERO_SPRINT 503333899
+
+#define DIBUTTON_FOOTBALLQ_SLIDE 352322564
+
+#define DI8DEVTYPEDRIVING_HANDHELD 5
+
+#define DIBUTTON_BASEBALLF_FORWARD_LINK 285295840
+
+#define DIPROP_CALIBRATIONMODE 10
+
+#define DIK_WEBSTOP 232
+
+#define DI8DEVCLASS_GAMECTRL 4
+
+#define DIBUTTON_FLYINGM_DEVICE 83903742
+
+#define DIBUTTON_HUNTING_FIRE 218104833
+
+#define DIBUTTON_SPACESIM_GLANCE_LEFT_LINK 117949668
+
+#define DI8DEVTYPEFLIGHT_RC 4
+
+#define DIBUTTON_FIGHTINGH_CROUCH 134218756
+
+#define DIPROP_SATURATION 6
+
+#define DIAXIS_FIGHTINGH_ROTATE 134365699
+
+#define DIBUTTON_HUNTING_PAUSE 218121468
+
+#define DIKEYBOARD_WEBBACK 2164262122
+
+#define DIAXIS_SPACESIM_ROTATE 117588485
+
+#define DIBUTTON_ARCADEP_CROUCH 570426371
+
+#define DIK_BACKSLASH 43
+
+#define DIKEYBOARD_COMMA 2164261939
+
+#define DIVIRTUAL_FLYING_HELICOPTER 100663296
+
+#define DIVIRTUAL_FLYING_MILITARY 83886080
+
+#define DIAXIS_CADM_LATERAL 637567489
+
+#define DIBUTTON_FLYINGC_FLAPSDOWN 67134469
+
+#define DIBUTTON_HOCKEYO_BURST 419431427
+
+#define DIBUTTON_FLYINGM_WEAPONS 83889154
+
+#define DIBUTTON_FLYINGH_FIRE 100668417
+
+#define DIBUTTON_FOOTBALLD_PLAY 385876993
+
+#define DI8DEVTYPESUPPLEMENTAL_THROTTLE 8
+
+#define DIEP_SAMPLEPERIOD 2
+
+#define DIVIRTUAL_STRATEGY_ROLEPLAYING 184549376
+
+#define DIDFT_ALL 0
+
+#define DI8DEVTYPE_SCREENPOINTER 26
+
+#define DIBUTTON_BASEBALLB_BUNT 251659268
+
+#define DIAXIS_FLYINGM_THROTTLE 84120067
+
+#define DIEDBS_NEWDEVICE 32
+
+#define DIBUTTON_RACQUET_MENU 536872189
+
+#define DIBUTTON_3DCONTROL_SPECIAL 603980803
+
+#define DIBUTTON_DRIVINGT_BARREL_UP_LINK 50414816
+
+#define DIVIRTUAL_SPORTS_BIKING_MOUNTAIN 469762048
+
+#define DIKEYBOARD_PRIOR 2164262089
+
+#define DIBUTTON_SPACESIM_TURN_LEFT_LINK 117589220
+
+#define DIDOI_FFACTUATOR 1
+
+#define DIBUTTON_DRIVINGT_FIRESECONDARY 50351111
+
+#define DIKEYBOARD_A 2164261918
+
+#define DIKEYBOARD_B 2164261936
+
+#define DIKEYBOARD_C 2164261934
+
+#define DIKEYBOARD_D 2164261920
+
+#define DIKEYBOARD_E 2164261906
+
+#define DIKEYBOARD_F 2164261921
+
+#define DIKEYBOARD_G 2164261922
+
+#define DIKEYBOARD_H 2164261923
+
+#define DIKEYBOARD_I 2164261911
+
+#define DIKEYBOARD_J 2164261924
+
+#define DIKEYBOARD_K 2164261925
+
+#define DIKEYBOARD_L 2164261926
+
+#define DIKEYBOARD_M 2164261938
+
+#define DIKEYBOARD_N 2164261937
+
+#define DIBUTTON_BASEBALLB_SELECT 251659265
+
+#define DIKEYBOARD_0 2164261899
+
+#define DIBUTTON_HOCKEYD_BACK_LINK 436290792
+
+#define DIKEYBOARD_1 2164261890
+
+#define DIKEYBOARD_2 2164261891
+
+#define DIKEYBOARD_3 2164261892
+
+#define DIKEYBOARD_4 2164261893
+
+#define DIKEYBOARD_5 2164261894
+
+#define DIKEYBOARD_6 2164261895
+
+#define DIKEYBOARD_7 2164261896
+
+#define DIKEYBOARD_8 2164261897
+
+#define DIKEYBOARD_9 2164261898
+
+#define DIBUTTON_BASEBALLB_NORMAL 251659266
+
+#define DIBUTTON_FLYINGH_MENU 100664573
+
+#define DIKEYBOARD_O 2164261912
+
+#define DIEDFL_ATTACHEDONLY 1
+
+#define DIKEYBOARD_P 2164261913
+
+#define DIKEYBOARD_Q 2164261904
+
+#define DI8DEVTYPESCREENPTR_LIGHTGUN 3
+
+#define DIKEYBOARD_R 2164261907
+
+#define DIKEYBOARD_S 2164261919
+
+#define DIBUTTON_FOOTBALLQ_JUMP 352322563
+
+#define DIBUTTON_BIKINGM_RIGHT_LINK 469812460
+
+#define DIKEYBOARD_T 2164261908
+
+#define DIKEYBOARD_U 2164261910
+
+#define DIKEYBOARD_V 2164261935
+
+#define DIKEYBOARD_W 2164261905
+
+#define DIKEYBOARD_X 2164261933
+
+#define DIKEYBOARD_Y 2164261909
+
+#define DIKEYBOARD_Z 2164261932
+
+#define DIAXIS_DRIVINGR_BRAKE 17043971
+
+#define DI8DEVTYPESCREENPTR_LIGHTPEN 4
+
+#define DISCL_BACKGROUND 8
+
+#define DIAXIS_BBALLO_MOVE 302055938
+
+#define DIK_LEFT 203
+
+#define DIVIRTUAL_SPORTS_FISHING 234881024
+
+#define DIBUTTON_FOOTBALLQ_RIGHT_LINK 352371948
+
+#define DIAXIS_3DCONTROL_INOUT 604078595
+
+#define DIERR_DEVICENOTREG 2147746132
+
+#define DIBUTTON_DRIVINGC_WEAPONS 33557506
+
+#define DIK_WEBFAVORITES 230
+
+#define DIDOI_FFEFFECTTRIGGER 2
+
+#define DIBUTTON_SPACESIM_LEFT_LINK 117490916
+
+#define DIKEYBOARD_NEXT 2164262097
+
+#define DIBUTTON_BROWSER_MENU 671089917
+
+#define DIVIRTUAL_FIGHTING_THIRDPERSON 167772160
+
+#define DIBUTTON_ARCADES_FORWARD_LINK 553731296
+
+#define DIDF_RELAXIS 2
+
+#define DIDC_POLLEDDATAFORMAT 8
+
+#define DIBUTTON_FOOTBALLD_DEVICE 385893630
+
+#define DIBUTTON_FPS_WEAPONS 150995970
+
+#define DIAXIS_FIGHTINGH_LATERAL 134251009
+
+#define DI8DEVTYPE_1STPERSON 24
+
+#define DIEP_TRIGGERREPEATINTERVAL 16
+
+#define DIERR_BADDRIVERVER 2147942519
+
+#define DIEFT_POSNEGSATURATION 8192
+
+#define DIPROP_FFLOAD 8
+
+#define DIAXIS_BBALLD_MOVE 318833154
+
+#define DIBUTTON_FOOTBALLP_PLAY 335545345
+
+#define DIDAL_CENTERED 0
+
+#define DIKEYBOARD_SCROLL 2164261958
+
+#define DIBUTTON_FLYINGM_GLANCE_UP_LINK 84395232
+
+#define DIAXIS_HOCKEYG_LATERAL 453018113
+
+#define DIEFT_CONSTANTFORCE 1
+
+#define DIBUTTON_FPS_JUMP 150995974
+
+#define DIA_FORCEFEEDBACK 1
+
+#define JOY_HWS_ISGAMEPORTDRIVER 67108864
+
+#define DISCL_NOWINKEY 16
+
+#define DIK_RCONTROL 157
+
+#define DIAXIS_BROWSER_LATERAL 671121921
+
+#define DIK_NUMPADSTAR 55
+
+#define DIBUTTON_DRIVINGC_PAUSE 33572092
+
+#define DIBUTTON_BROWSER_HOME 671106053
+
+#define DIBUTTON_SOCCERD_SUBSTITUTE 520111116
+
+#define DIBUTTON_ARCADEP_FORWARD_LINK 570508512
+
+#define DIBUTTON_DRIVINGC_DASHBOARD 33571846
+
+#define DIBUTTON_HOCKEYG_BLOCK 452985860
+
+#define JOY_HWS_ISANALOGPORTDRIVER 134217728
+
+#define DIBUTTON_STRATEGYT_MENU 201327869
+
+#define DIBUTTON_HOCKEYG_PAUSE 453002492
+
+#define DIVIRTUAL_SPACESIM 117440512
+
+#define DI_OK 0
+
+#define DIBUTTON_BASEBALLF_NEAREST 285213697
+
+#define DIBUTTON_ARCADES_DEVICE 553665790
+
+#define DIVIRTUAL_SPORTS_HOCKEY_GOALIE 452984832
+
+#define DIBUTTON_HOCKEYD_FORWARD_LINK 436290784
+
+#define JOY_US_VOLATILE 8
+
+#define DIKEYBOARD_ADD 2164261966
+
+#define DIDC_SATURATION 2048
+
+#define DIBUTTON_FIGHTINGH_PUNCH 134218753
+
+#define DIVIRTUAL_CAD_3DCONTROL 603979776
+
+#define DIBUTTON_DRIVINGT_STEER_LEFT_LINK 50384100
+
+#define DIDFT_FFEFFECTTRIGGER 33554432
+
+#define DIKEYBOARD_KANJI 2164262036
+
+#define DIBUTTON_RACQUET_SWING 536871937
+
+#define DIKEYBOARD_ESCAPE 2164261889
+
+#define DI_DEGREES 100
+
+#define DIBUTTON_SOCCERO_HEAD 503333901
+
+#define DIBUTTON_ARCADEP_BACK_LINK 570508520
+
+#define DIBUTTON_BBALLO_PLAYER 301990918
+
+#define DIBUTTON_MECHA_FIRESECONDARY 687883273
+
+#define DIBUTTON_FOOTBALLQ_FAKESNAP 352338951
+
+#define DIGFFS_SAFETYSWITCHOFF 512
+
+#define DIBUTTON_HUNTING_ROTATE_LEFT_LINK 218252516
+
+#define DIBUTTON_2DCONTROL_MENU 587203837
+
+#define DI8DEVTYPESCREENPTR_TOUCH 5
+
+#define DIAXIS_MECHA_THROTTLE 688095748
+
+#define DIBUTTON_ARCADES_PAUSE 553665788
+
+#define DIBUTTON_REMOTE_PAUSE 654329084
+
+#define DIBUTTON_SPACESIM_GEAR 117457928
+
+#define DIDC_PHANTOM 131072
+
+#define DIKEYBOARD_APPS 2164262109
+
+#define DIK_PLAYPAUSE 162
+
+#define DIAH_DEFAULT 32
+
+#define DIK_LEFTARROW 203
+
+#define DIVIRTUAL_CAD_MODEL 637534208
+
+#define DIBUTTON_HOCKEYD_PLAYER 436208641
+
+#define DIAXIS_HUNTING_MOVE 218169858
+
+#define DIK_WEBBACK 234
+
+#define DIPH_BYUSAGE 3
+
+#define DIHATSWITCH_FISHING_GLANCE 234898945
+
+#define DIBUTTON_DRIVINGC_STEER_RIGHT_LINK 33606892
+
+#define DIAH_HWDEFAULT 8
+
+#define DIBUTTON_BIKINGM_FASTER_LINK 469845216
+
+#define DIPROP_GRANULARITY 3
+
+#define DIAXIS_FOOTBALLD_MOVE 385942018
+
+#define DIK_DECIMAL 83
+
+#define DIBUTTON_STRATEGYR_DEVICE 184567038
+
+#define DIAXIS_FPS_MOVE 151060994
+
+#define DIBUTTON_DRIVINGT_MENU 50332925
+
+#define DIK_SUBTRACT 74
+
+#define DIBUTTON_SOCCERD_FOUL 520111112
+
+#define DIBUTTON_FISHING_MAP 234882053
+
+#define DI8DEVTYPEFLIGHT_LIMITED 1
+
+#define DIEDBSFL_MULTIMICEKEYBOARDS 8192
+
+#define DIBUTTON_FOOTBALLQ_SELECT 352322561
+
+#define DIKEYBOARD_RBRACKET 2164261915
+
+#define DIBUTTON_DRIVINGR_DEVICE 16794878
+
+#define DIBUTTON_SOCCERD_GOALIECHARGE 520111115
+
+#define DIBUTTON_DRIVINGT_FIRE 50334721
+
+#define DIBUTTON_FOOTBALLO_SHOULDER 369116167
+
+#define DIENUM_CONTINUE 1
+
+#define DIAXIS_CADM_INOUT 637633027
+
+#define DIPROP_DEADZONE 5
+
+#define DIK_MAIL 236
+
+#define DIBUTTON_FLYINGM_FIRESECONDARY 83905545
+
+#define DIBUTTON_SPACESIM_FIRE 117441537
+
+#define DIAXIS_ANY_R_2 4278338050
+
+#define DIAXIS_ANY_R_1 4278338049
+
+#define DIEDBSFL_VALID 28944
+
+#define DIAXIS_FOOTBALLD_LATERAL 385909249
+
+#define DIBUTTON_FLYINGH_TARGET 100668419
+
+#define DIBUTTON_FLYINGC_SLOWER_LINK 67359976
+
+#define DIBUTTON_FOOTBALLO_ZOOM 369116170
+
+#define DIBUTTON_CADF_SPECIAL 620758019
+
+#define DIBUTTON_FOOTBALLQ_MOTION 352338952
+
+#define DIBUTTON_HOCKEYO_LEFT_LINK 419480804
+
+#define DIBUTTON_ARCADES_CARRY 553649154
+
+#define DIK_BACK 14
+
+#define DIVIRTUAL_FIGHTING_FPS 150994944
+
+#define DIK_LCONTROL 29
+
+#define DIBUTTON_DRIVINGC_BRAKE 33573896
+
+#define DIK_ADD 78
+
+#define DIBUTTON_HOCKEYG_PASS 452985857
+
+#define DIVIRTUAL_DRIVING_MECHA 687865856
+
+#define DIKEYBOARD_UP 2164262088
+
+#define DIERR_MAPFILEFAIL 2147746315
+
+#define DIBUTTON_TPS_FORWARD_LINK 167855328
+
+#define DIERR_NOTEXCLUSIVEACQUIRED 2147746309
+
+#define DIBUTTON_ARCADEP_JUMP 570426369
+
+#define DIK_UNDERLINE 147
+
+#define DIBUTTON_REMOTE_RECORD 654320647
+
+#define DIBUTTON_GOLF_ZOOM 402670599
+
+#define DIBUTTON_BIKINGM_ZOOM 469779462
+
+#define DIERR_ACQUIRED 2147942570
+
+#define DI_NOEFFECT 1
+
+#define DIPROPAXISMODE_REL 1
+
+#define DIBUTTON_MECHA_REVERSE 687866884
+
+#define DIDFT_AXIS 3
+
+#define DIK_WEBFORWARD 233
+
+#define DIBUTTON_HUNTING_CALL 218104837
+
+#define DIPROPAXISMODE_ABS 0
+
+#define DIAXIS_TPS_MOVE 167838210
+
+#define DIBUTTON_HOCKEYG_ZOOM 453002245
+
+#define DIK_NUMPADCOMMA 179
+
+#define DIBUTTON_HOCKEYG_FORWARD_LINK 453068000
+
+#define DIK_DOWN 208
+
+#define DIAXIS_FLYINGC_BRAKE 67398148
+
+#define DIVIRTUAL_BROWSER_CONTROL 671088640
+
+#define DIBUTTON_HOCKEYO_SHOOT 419431425
+
+#define DIK_SEMICOLON 39
+
+#define DIBUTTON_FOOTBALLQ_SNAP 352322562
+
+#define DIVOICE_TEAM 2197816329
+
+#define DIKEYBOARD_EQUALS 2164261901
+
+#define DIK_LWIN 219
+
+#define DIAXIS_ANY_Z_1 4278305281
+
+#define DIAXIS_ANY_Z_2 4278305282
+
+#define DIBUTTON_ARCADES_THROW 553649153
+
+#define DIKEYBOARD_WEBSTOP 2164262120
+
+#define DIFEF_MODIFYIFNEEDED 16
+
+#define DIBUTTON_DRIVINGR_PIT 16794633
+
+#define DIBUTTON_GOLF_DOWN 402654212
+
+#define DIDBAM_INITIALIZE 2
+
+#define DIBUTTON_CADF_MENU 620758269
+
+#define DIERR_NOTDOWNLOADED 2147746307
+
+#define DIBUTTON_FLYINGC_MENU 67110141
+
+#define DIBUTTON_SOCCERD_HEAD 520111113
+
+#define DIBUTTON_GOLF_TIMEOUT 402670600
+
+#define DIBUTTON_FOOTBALLD_RIP 385893386
+
+#define DIVIRTUAL_SPORTS_BASEBALL_BAT 251658240
+
+#define DIAXIS_RACQUET_MOVE 536936962
+
+#define DIBUTTON_FLYINGC_GLANCE_LEFT_LINK 67618020
+
+#define DISFFC_STOPALL 2
+
+#define DIBUTTON_BBALLO_PLAY 302007306
+
+#define DIVIRTUAL_SPORTS_BASKETBALL_DEFENSE 318767104
+
+#define DIGFFS_POWERON 64
+
+#define DIBUTTON_GOLF_SELECT 402654210
+
+#define DIAXIS_BASEBALLF_MOVE 285278722
+
+#define DIBUTTON_BROWSER_SELECT 671089665
+
+#define DIPH_BYID 2
+
+#define DI8DEVTYPE_GAMEPAD 21
+
+#define DIPROP_GETPORTDISPLAYNAME 16
+
+#define DIAXIS_MECHA_TORSO 687931906
+
+#define DIBUTTON_TPS_DODGE 167789577
+
+#define DIBUTTON_FPS_GLANCEL 151012362
+
+#define DIK_MYCOMPUTER 235
+
+#define DIBUTTON_FOOTBALLD_LEFT_LINK 385926372
+
+#define DISFFC_PAUSE 4
+
+#define DIHATSWITCH_DRIVINGC_GLANCE 33572353
+
+#define DIBUTTON_FLYINGM_VIEW 83911685
+
+#define DIBUTTON_FPS_FIRESECONDARY 151012364
+
+#define DIBUTTON_HOCKEYO_FAKE 419431429
+
+#define DIBUTTON_FPS_GLANCER 151012363
+
+#define DIVIRTUAL_SPORTS_FOOTBALL_OFFENSE 369098752
+
+#define DI_BUFFEROVERFLOW 1
+
+#define DIBUTTON_CADF_DEVICE 620774654
+
+#define DIDSAM_DEFAULT 0
+
+#define DI8DEVTYPEKEYBOARD_J3100 12
+
+#define DIBUTTON_SOCCERD_CLEAR 520111114
+
+#define DIDC_EMULATED 4
+
+#define DIHATSWITCH_SOCCERO_GLANCE 503334401
+
+#define DIBUTTON_GOLF_TERRAIN 402654213
+
+#define DIBUTTON_FLYINGM_FLAPSDOWN 83907592
+
+#define DIBUTTON_FOOTBALLO_RIGHT_LINK 369149164
+
+#define DIAXIS_TPS_TURN 167903745
+
+#define DIBUTTON_FOOTBALLD_BACK_LINK 385959144
+
+#define DIK_NUMPADENTER 156
+
+#define DI8DEVTYPEMOUSE_UNKNOWN 1
+
+#define DIAXIS_BASEBALLB_LATERAL 251691521
+
+#define DIBUTTON_REMOTE_DEVICE 654329086
+
+#define DIBUTTON_CADM_SELECT 637535233
+
+#define DIDBAM_PRESERVE 1
+
+#define DIBUTTON_FLYINGH_FIRESECONDARY 100682759
+
+#define DIHATSWITCH_CADM_HATSWITCH 637552129
+
+#define DICD_EDIT 1
+
+#define DIBUTTON_RACQUET_RIGHT_LINK 536921324
+
+#define DI_WRITEPROTECT 19
+
+#define DI_FFNOMINALMAX 10000
+
+#define DI8DEVTYPE_KEYBOARD 19
+
+#define DIBUTTON_FLYINGM_FASTER_LINK 84137184
+
+#define DIEDBSFL_NONGAMINGDEVICES 16384
+
+#define DIBUTTON_DRIVINGC_DEVICE 33572094
+
+#define DIKEYBOARD_BACKSLASH 2164261931
+
+#define DIBUTTON_RACQUET_BACKSWING 536871938
+
+#define DIAXIS_FPS_SIDESTEP 151142916
+
+#define DIBUTTON_FIGHTINGH_DEVICE 134235390
+
+#define DIEDFL_FORCEFEEDBACK 256
+
+#define DIBUTTON_ARCADEP_VIEW_UP_LINK 570934496
+
+#define DIBUTTON_TPS_USE 167773188
+
+#define DIPH_BYOFFSET 1
+
+#define DIKEYBOARD_MAIL 2164262124
+
+#define DIBUTTON_BASEBALLB_STEAL 251659269
+
+#define DIBUTTON_FOOTBALLQ_PAUSE 352339196
+
+#define DIBUTTON_BASEBALLB_CONTACT 251659272
+
+#define DIEDFL_INCLUDEHIDDEN 262144
+
+#define DIHATSWITCH_BIKINGM_SCROLL 469779969
+
+#define DIBUTTON_FLYINGH_GLANCE_LEFT_LINK 101172452
+
+#define DIKEYBOARD_UNDERLINE 2164262035
+
+#define DIBUTTON_HOCKEYO_TIMEOUT 419447816
+
+#define DI8DEVTYPEFLIGHT_YOKE 3
+
+#define DIBUTTON_GOLF_SUBSTITUTE 402670601
+
+#define DIAXIS_SOCCERO_LATERAL 503349761
+
+#define DIBUTTON_ARCADES_ATTACK 553649155
+
+#define DIBUTTON_BROWSER_STOP 671106052
+
+#define DIERR_NOTACQUIRED 2147942412
+
+#define DIDFT_ALIAS 134217728
+
+#define DIDFT_OUTPUT 268435456
+
+#define DIBUTTON_REMOTE_VCR 654334987
+
+#define DIRECTINPUT_HEADER_VERSION 2048
+
+#define DIBUTTON_HUNTING_DISPLAY 218121224
+
+#define DIBUTTON_FOOTBALLO_FORWARD_LINK 369181920
+
+#define DI8DEVTYPEKEYBOARD_PCAT 3
+
+#define DIBUTTON_STRATEGYR_SELECT 184550403
+
+#define DIDEVTYPE_HID 65536
+
+#define DIPROP_AXISMODE 2
+
+#define DIGFFS_POWEROFF 128
+
+#define DI8DEVTYPEKEYBOARD_PCENH 4
+
+#define DIDAL_BOTTOMALIGNED 8
+
+#define DIAXIS_FLYINGH_BANK 100698625
+
+#define DIBUTTON_STRATEGYR_GET 184550401
+
+#define DIBUTTON_SKIING_FASTER_LINK 486622432
+
+#define DIBUTTON_GOLF_SWING 402654209
+
+#define DIGFFS_ACTUATORSOFF 32
+
+#define DI8DEVTYPEDEVICECTRL_COMMSSELECTION_HARDWIRED 4
+
+#define DIBUTTON_TPS_TURN_LEFT_LINK 167920868
+
+#define DIKEYBOARD_INSERT 2164262098
+
+#define DIBUTTON_SPACESIM_FORWARD_LINK 117523680
+
+#define DIBUTTON_BASEBALLP_FAKE 268436485
+
+#define DIVIRTUAL_SPORTS_HOCKEY_OFFENSE 419430400
+
+#define DI_SETTINGSNOTSAVED 11
+
+#define DIKEYBOARD_VOLUMEDOWN 2164262062
+
+#define DIBUTTON_HOCKEYO_RIGHT_LINK 419480812
+
+#define DIBUTTON_FOOTBALLD_AUDIBLE 385893387
+
+#define DIEDBSFL_THISUSER 16
+
+#define DIBUTTON_FOOTBALLO_SPIN 369099781
+
+#define DIBUTTON_HOCKEYG_BACK_LINK 453068008
+
+#define DIBUTTON_HOCKEYD_MENU 436208893
+
+#define DI8DEVTYPESUPPLEMENTAL_2NDHANDCONTROLLER 3
+
+#define DIBUTTON_FISHING_BACK_LINK 234964200
+
+#define DIBUTTON_FLYINGH_DEVICE 100680958
+
+#define DIBUTTON_HOCKEYO_MENU 419431677
+
+#define DIEP_NODOWNLOAD 2147483648
+
+#define DIBUTTON_ARCADEP_VIEW_DOWN_LINK 570934504
+
+#define DIVIRTUAL_SPORTS_FOOTBALL_FIELD 335544320
+
+#define DIBUTTON_FOOTBALLD_JUMP 385876995
+
+#define DIEFF_OBJECTIDS 1
+
+#define DIBUTTON_HOCKEYO_SPECIAL 419431428
+
+#define DIBUTTON_BROWSER_REFRESH 671089666
+
+#define DIAXIS_CADF_LATERAL 620790273
+
+#define DIPROPRANGE_NOMAX 2147483647
+
+#define DI8DEVTYPE_DRIVING 22
+
+#define DIAXIS_FISHING_LATERAL 234914305
+
+#define DIBUTTON_FISHING_PAUSE 234898684
+
+#define DIBUTTON_BBALLO_SHOOT 301990913
+
+#define DIKEYBOARD_ABNT_C1 2164262003
+
+#define DIBUTTON_BBALLD_PAUSE 318784764
+
+#define DIBUTTON_FPS_FIRE 150995969
+
+#define DIKEYBOARD_ABNT_C2 2164262014
+
+#define DIBUTTON_TPS_JUMP 167773189
+
+#define DIAXIS_ANY_U_1 4278370817
+
+#define DI8DEVTYPEKEYBOARD_PCXT 1
+
+#define DIBUTTON_DRIVINGT_VIEW 50355204
+
+#define DIBUTTON_TPS_INVENTORY 167789578
+
+#define DIBUTTON_FIGHTINGH_DISPLAY 134235145
+
+#define DIHATSWITCH_GOLF_SCROLL 402671105
+
+#define DIPROPCALIBRATIONMODE_COOKED 0
+
+#define DIPOV_ANY_1 4278208001
+
+#define DIPOV_ANY_3 4278208003
+
+#define DIPOV_ANY_2 4278208002
+
+#define DIK_NOCONVERT 123
+
+#define DIK_UPARROW 200
+
+#define DIPOV_ANY_4 4278208004
+
+#define DIK_RSHIFT 54
+
+#define DIAXIS_STRATEGYR_LATERAL 184582657
+
+#define DIAXIS_ANY_U_2 4278370818
+
+#define DI8DEVCLASS_KEYBOARD 3
+
+#define DIAXIS_HUNTING_ROTATE 218251779
+
+#define DIK_CALCULATOR 161
+
+#define DIK_OEM_102 86
+
+#define DIKEYBOARD_STOP 2164262037
+
+#define DIAXIS_BBALLO_LATERAL 302023169
+
+#define DI8DEVTYPEDRIVING_DUALPEDALS 3
+
+#define DIAXIS_ARCADES_MOVE 553714178
+
+#define DIBUTTON_FLYINGM_GEAR 83911690
+
+#define DIEP_GAIN 4
+
+#define DIBUTTON_TPS_GLANCE_RIGHT_LINK 168281324
+
+#define DIK_PGDN 209
+
+#define DIEFT_ALL 0
+
+#define DIDC_FORCEFEEDBACK 256
+
+#define DIKEYBOARD_CONVERT 2164262009
+
+#define DIBUTTON_CADM_DEVICE 637551870
+
+#define DIK_DELETE 211
+
+#define DIAXIS_DRIVINGR_STEER 16812545
+
+#define DIBUTTON_ARCADEP_DEVICE 570443006
+
+#define DIDFT_TGLBUTTON 8
+
+#define DIBUTTON_FPS_STRAFE 150995975
+
+#define DIBUTTON_CADF_SELECT 620758017
+
+#define DIPROPRANGE_NOMIN 2147483648
+
+#define DIBUTTON_HOCKEYO_FORWARD_LINK 419513568
+
+#define DIBUTTON_FLYINGH_GLANCE_DOWN_LINK 101172456
+
+#define DIAXIS_STRATEGYR_MOVE 184615426
+
+#define DIBUTTON_DRIVINGT_GLANCE_LEFT_LINK 50840804
+
+#define DIERR_INPUTLOST 2147942430
+
+#define DISFFC_SETACTUATORSOFF 32
+
+#define DIBUTTON_HOCKEYD_STRATEGY 436225031
+
+#define DIKEYBOARD_MYCOMPUTER 2164262123
+
+#define DIBUTTON_DRIVINGT_BRAKE 50351110
+
+#define DIDFT_NODATA 128
+
+#define DIDC_ALIAS 65536
+
+#define DIHATSWITCH_HOCKEYD_SCROLL 436225537
+
+#define DIAXIS_FOOTBALLQ_MOVE 352387586
+
+#define DIBUTTON_MECHA_PAUSE 687883516
+
+#define DIBUTTON_STRATEGYR_CROUCH 184550406
+
+#define DIBUTTON_HOCKEYG_LEFT_LINK 453035236
+
+#define DIK_RBRACKET 27
+
+#define DIBUTTON_RACQUET_PAUSE 536888572
+
+#define DIBUTTON_RACQUET_SELECT 536871941
+
+#define DI_PROPNOEFFECT 1
+
+#define DICD_DEFAULT 0
+
+#define DIAXIS_MECHA_STEER 687899137
+
+#define DIHATSWITCH_SKIING_GLANCE 486557185
+
+#define DIBUTTON_REMOTE_MENU 654312701
+
+#define DIDOI_ASPECTVELOCITY 512
+
+#define DIBUTTON_SOCCERD_PLAYER 520094724
+
+#define DIPROP_FFGAIN 7
+
+#define DIBUTTON_SPACESIM_FASTER_LINK 117687520
+
+#define DIPROP_SCANCODE 23
+
+#define DIBUTTON_FPS_MENU 150996221
+
+#define DIBUTTON_REMOTE_REVIEW 654320645
+
+#define DIK_RETURN 28
+
+#define DIBUTTON_HOCKEYD_STEAL 436208642
+
+#define DIBUTTON_FOOTBALLD_SWIM 385893384
+
+#define DIAXIS_DRIVINGC_ACCEL_AND_BRAKE 33638916
+
+#define DIBUTTON_BBALLO_LEFT_LINK 302040292
+
+#define DIDOI_ASPECTMASK 3840
+
+#define DI8DEVCLASS_ALL 0
+
+#define DIBUTTON_FIGHTINGH_RIGHT_LINK 134268140
+
+#define DIVIRTUAL_DRIVING_TANK 50331648
+
+#define DIBUTTON_HUNTING_LEFT_LINK 218154212
+
+#define DIKEYBOARD_SEMICOLON 2164261927
+
+#define DIBUTTON_FOOTBALLQ_LEFT_LINK 352371940
+
+#define DIBUTTON_FISHING_BINOCULAR 234882051
+
+#define DIBUTTON_FISHING_ROTATE_RIGHT_LINK 235029740
+
+#define DIAXIS_ARCADEP_MOVE 570491394
+
+#define DIAXIS_BIKINGM_BRAKE 470041091
+
+#define DIBUTTON_FISHING_CROUCH 234898439
+
+#define DIBUTTON_REMOTE_SELECT 654312450
+
+#define DIBUTTON_FLYINGC_FLAPSUP 67134468
+
+#define DIBUTTON_TPS_BACKWARD_LINK 167855336
+
+#define DIBUTTON_FLYINGC_DISPLAY 67118082
+
+#define DIBUTTON_TPS_MENU 167773437
+
+#define DIEP_ENVELOPE 128
+
+#define DIK_UP 200
+
+#define DIBUTTON_HUNTING_BACK_LINK 218186984
+
+#define DIBUTTON_BBALLO_PAUSE 302007548
+
+#define DIVIRTUAL_SPORTS_FOOTBALL_DEFENSE 385875968
+
+#define DIBUTTON_STRATEGYT_MAP 201344007
+
+#define DIBUTTON_FOOTBALLQ_BACK_LINK 352404712
+
+#define DIBUTTON_DRIVINGR_GLANCE_LEFT_LINK 17286372
+
+#define DIBUTTON_BASEBALLP_BACK_LINK 268518632
+
+#define DIBUTTON_BBALLO_BACK_LINK 302073064
+
+#define DIHATSWITCH_BBALLD_GLANCE 318785025
+
+#define DI_NOTATTACHED 1
+
+#define DIK_PGUP 201
+
+#define DIBUTTON_BBALLO_PASS 301990915
+
+#define DIBUTTON_SPACESIM_GLANCE_DOWN_LINK 117949672
+
+#define DIBUTTON_HUNTING_SPECIAL 218104839
+
+#define DIBUTTON_SOCCERO_FAKE 503317507
+
+#define DIKEYBOARD_UNLABELED 2164262039
+
+#define DIBUTTON_BASEBALLF_AIM_RIGHT_LINK 285263084
+
+#define DI8DEVTYPESUPPLEMENTAL_COMBINEDPEDALS 10
+
+#define DIK_NUMLOCK 69
+
+#define DIEFF_CARTESIAN 16
+
+#define DIBUTTON_ARCADEP_VIEW_RIGHT_LINK 570934508
+
+#define DIVIRTUAL_FIGHTING_HAND2HAND 134217728
+
+#define DIAXIS_FLYINGC_FLAPS 67459590
+
+#define DIBUTTON_HOCKEYD_FAKE 436208645
+
+#define DIKEYBOARD_DIVIDE 2164262069
+
+#define DIBUTTON_SPACESIM_FIRESECONDARY 117457929
+
+#define DIKEYBOARD_PREVTRACK 2164262032
+
+#define DIBUTTON_BASEBALLP_LEFT_LINK 268485860
+
+#define DIBUTTON_FISHING_FORWARD_LINK 234964192
+
+#define DIAXIS_3DCONTROL_ROTATEZ 604127750
+
+#define DIAXIS_3DCONTROL_ROTATEY 604160517
+
+#define DIAXIS_3DCONTROL_ROTATEX 604193284
+
+#define DIBUTTON_FLYINGC_VIEW 67118081
+
+#define DIBUTTON_BASEBALLB_LEFT_LINK 251708644
+
+#define DIDSAM_FORCESAVE 2
+
+#define DIBUTTON_SPACESIM_GLANCE_RIGHT_LINK 117949676
+
+#define DIAXIS_FLYINGM_FLAPS 84234758
+
+#define DIDFT_BUTTON 12
+
+#define DIEDBS_RECENTDEVICE 16
+
+#define DIBUTTON_SPACESIM_GLANCE_UP_LINK 117949664
+
+#define DIBUTTON_SKIING_SPECIAL1 486540292
+
+#define DI8DEVTYPEDEVICECTRL_UNKNOWN 2
+
+#define DIBUTTON_SKIING_SPECIAL2 486540294
+
+#define DIAXIS_FISHING_ROTATE 235028995
+
+#define DIBUTTON_BROWSER_HISTORY 671106057
+
+#define DIAXIS_BIKINGM_PEDAL 469828098
+
+#define DIDC_FFATTACK 512
+
+#define DIK_COMMA 51
+
+#define DIBUTTON_ARCADES_BACK_LINK 553731304
+
+#define DIERR_EFFECTPLAYING 2147746312
+
+#define DIDC_ATTACHED 1
+
+#define DIKEYBOARD_MEDIASTOP 2164262052
+
+#define DIBUTTON_ARCADES_LEFT_LINK 553698532
+
+#define DIBUTTON_TPS_PAUSE 167789820
+
+#define DI8DEVTYPEGAMEPAD_STANDARD 2
+
+#define DIEFT_DEADBAND 16384
+
+#define DIBUTTON_MECHA_WEAPONS 687866882
+
+#define DIHATSWITCH_2DCONTROL_HATSWITCH 587220481
+
+#define DIERR_INSUFFICIENTPRIVS 2147746304
+
+#define DIBUTTON_BASEBALLB_BACK_LINK 251741416
+
+#define DIAXIS_DRIVINGC_BRAKE 33821187
+
+#define DIBUTTON_DRIVINGR_ACCELERATE_LINK 17028320
+
+#define DIBUTTON_2DCONTROL_SPECIAL 587203587
+
+#define DIBUTTON_BASEBALLF_THROW1 285213698
+
+#define DIBUTTON_DRIVINGC_SHIFTUP 33573892
+
+#define DIBUTTON_BASEBALLF_THROW2 285213699
+
+#define DIHATSWITCH_FPS_GLANCE 151012865
+
+#define DIK_NUMPADPLUS 78
+
+#define DIERR_INVALIDPARAM 2147942487
+
+#define DIK_PRIOR 201
+
+#define DIBUTTON_FIGHTINGH_MENU 134219005
+
+#define DIBUTTON_HOCKEYD_RIGHT_LINK 436258028
+
+#define DIBUTTON_BROWSER_PAUSE 671106300
+
+#define DIK_NUMPADPERIOD 83
+
+#define DIVIRTUAL_SPORTS_HOCKEY_DEFENSE 436207616
+
+#define DIAXIS_HOCKEYO_LATERAL 419463681
+
+#define DIBUTTON_BASEBALLP_MENU 268436733
+
+#define DIKEYBOARD_BACK 2164261902
+
+#define DIAXIS_ANY_C_1 4278501889
+
+#define DIAXIS_ANY_C_2 4278501890
+
+#define DI8DEVTYPE_SUPPLEMENTAL 28
+
+#define DIBUTTON_ARCADES_SPECIAL 553649156
+
+#define DIKEYBOARD_LMENU 2164261944
+
+#define DIBUTTON_BASEBALLF_BACK_LINK 285295848
+
+#define DIHATSWITCH_FLYINGM_GLANCE 83904001
+
+#define DIBUTTON_SOCCERD_MENU 520094973
+
+#define DIKEYBOARD_DOWN 2164262096
+
+#define DIBUTTON_GOLF_LEFT_LINK 402703588
+
+#define DIBUTTON_BROWSER_NEXT 671106055
+
+#define DIK_KANA 112
+
+#define DIEDBS_MAPPEDPRI2 2
+
+#define DIEDBS_MAPPEDPRI1 1
+
+#define DIA_APPNOMAP 4
+
+#define DIBUTTON_BASEBALLF_DEVICE 285230334
+
+#define DI8DEVTYPEMOUSE_TRADITIONAL 2
+
+#define DIKEYBOARD_CALCULATOR 2164262049
+
+#define DIAFTS_NEWDEVICEHIGH 4294967295
+
+#define DIBUTTON_HUNTING_CROUCH 218121225
+
+#define DIAXIS_GOLF_MOVE 402719234
+
+#define DIBUTTON_2DCONTROL_DISPLAY 587219973
+
+#define DIA_APPMAPPED 2
+
+#define DIBUTTON_SOCCERD_STEAL 520094722
+
+#define DIBUTTON_FPS_APPLY 150995971
+
+#define DIBUTTON_BBALLD_RIGHT_LINK 318817516
+
+#define DIBUTTON_SOCCERO_MENU 503317757
+
+#define DIK_NUMPADMINUS 74
+
+#define DI8DEVTYPESUPPLEMENTAL_HEADTRACKER 4
+
+#define DIAXIS_GOLF_LATERAL 402686465
+
+#define DIBUTTON_FIGHTINGH_SELECT 134235144
+
+#define DIBUTTON_FISHING_JUMP 234898440
+
+#define DIK_WEBSEARCH 229
+
+#define DIBUTTON_HUNTING_ROTATE_RIGHT_LINK 218252524
+
+#define DIK_WEBREFRESH 231
+
+#define DIBUTTON_MECHA_RIGHT_LINK 687916268
+
+#define DIBUTTON_BASEBALLB_BOX 251675658
+
+#define DIBUTTON_DRIVINGT_ACCELERATE_LINK 50582752
+
+#define DIEFT_POSNEGCOEFFICIENTS 4096
+
+#define DIPROP_CPOINTS 21
+
+#define DIAXIS_REMOTE_SLIDER 654639617
+
+#define DIKEYBOARD_LWIN 2164262107
+
+#define DIDFT_COLLECTION 64
+
+#define DIBUTTON_MECHA_CENTER 687883271
+
+#define DIBUTTON_FIGHTINGH_JUMP 134218757
+
+#define DIBUTTON_ARCADEP_VIEW_LEFT_LINK 570934500
+
+#define DIBUTTON_BASEBALLB_RIGHT_LINK 251708652
+
+#define DIKEYBOARD_YEN 2164262013
+
+#define DIAXIS_BROWSER_MOVE 671154690
+
+#define DI8DEVTYPESUPPLEMENTAL_RUDDERPEDALS 13
+
+#define DIPROP_TYPENAME 26
+
+#define DIBUTTON_HOCKEYO_STRATEGY 419447815
+
+#define DIAFTS_UNUSEDDEVICEHIGH 0
+
+#define DIDSAM_NOUSER 1
+
+#define DIK_LBRACKET 26
+
+#define DIEP_AXES 32
+
+#define DI8DEVTYPESUPPLEMENTAL_SPLITTHROTTLE 9
+
+#define DIEGES_PLAYING 1
+
+#define DIBUTTON_STRATEGYT_DISPLAY 201344008
+
+#define DIBUTTON_BBALLO_RIGHT_LINK 302040300
+
+#define DIBUTTON_BASEBALLB_MENU 251659517
+
+#define DIBUTTON_FLYINGM_MENU 83887357
+
+#define DIAXIS_BBALLD_LATERAL 318800385
+
+#define DIERR_MOREDATA 2147746306
+
+#define DIBUTTON_MECHA_ZOOM 687866885
+
+#define DIBUTTON_BBALLD_BURST 318768134
+
+#define DIBUTTON_FISHING_MENU 234882301
+
+#define DIBUTTON_SOCCERO_SHOOTLOW 503333896
+
+#define DIDFT_ANYINSTANCE 16776960
+
+#define DIBUTTON_CADM_PAUSE 637551868
+
+#define DIBUTTON_FLYINGC_BRAKE_LINK 67398880
+
+#define DIBUTTON_FOOTBALLQ_AUDIBLE 352338953
+
+#define DIBUTTON_FLYINGM_FIRE 83889153
+
+#define DIBUTTON_REMOTE_TUNER 654334988
+
+#define DISFFC_SETACTUATORSON 16
+
+#define DIBUTTON_3DCONTROL_DISPLAY 603997189
+
+#define DIBUTTON_FLYINGC_GLANCE_UP_LINK 67618016
+
+#define DIBUTTON_CADM_MENU 637535485
+
+#define DIAXIS_3DCONTROL_MOVE 604045826
+
+#define DIK_VOLUMEDOWN 174
+
+#define DIGFFS_ACTUATORSON 16
+
+#define DIK_KANJI 148
+
+#define DIEFT_SATURATION 2048
+
+#define DI8DEVTYPEGAMEPAD_TILT 3
+
+#define DIVIRTUAL_STRATEGY_TURN 201326592
+
+#define DIPROP_PHYSICALRANGE 18
+
+#define DIVIRTUAL_CAD_FLYBY 620756992
+
+#define DIKEYBOARD_GRAVE 2164261929
+
+#define DIKEYBOARD_LCONTROL 2164261917
+
+#define DIKEYBOARD_PERIOD 2164261940
+
+#define DIBUTTON_FOOTBALLO_LEFT_LINK 369149156
+
+#define DIEFT_PERIODIC 3
+
+#define DIK_SPACE 57
+
+#define DIBUTTON_FPS_DISPLAY 151012360
+
+#define DIBUTTON_SOCCERD_FAKE 520094723
+
+#define DI8DEVTYPEKEYBOARD_UNKNOWN 0
+
+#define DIK_MEDIASELECT 237
+
+#define DIERR_NOAGGREGATION 2147746064
+
+#define DIERR_BETADIRECTINPUTVERSION 2147943553
+
+#define DIBUTTON_BIKINGM_SPECIAL1 469763075
+
+#define DIAXIS_DRIVINGT_ROTATE 50463236
+
+#define DIBUTTON_BIKINGM_SPECIAL2 469763077
+
+#define DISFFC_CONTINUE 8
+
+#define DIHATSWITCH_FIGHTINGH_SLIDE 134235649
+
+#define DIBUTTON_DRIVINGT_PAUSE 50349308
+
+#define DIBUTTON_DRIVINGC_GLANCE_LEFT_LINK 34063588
+
+#define DIBUTTON_FOOTBALLO_RIGHTARM 369099779
+
+#define DIKEYBOARD_RIGHT 2164262093
+
+#define DIK_LSHIFT 42
+
+#define DIA_NORANGE 8
+
+#define DIBUTTON_STRATEGYT_APPLY 201327619
+
+#define DIBUTTON_BASEBALLF_MENU 285213949
+
+#define DIAXIS_ANY_1 4278206977
+
+#define DIAXIS_ANY_3 4278206979
+
+#define DIAXIS_ANY_2 4278206978
+
+#define DIBUTTON_STRATEGYT_FORWARD_LINK 201409760
+
+#define DIAXIS_ANY_4 4278206980
+
+#define DIBUTTON_SPACESIM_RAISE 117457926
+
+#define DIHATSWITCH_SOCCERD_GLANCE 520111617
+
+#define DIBUTTON_FOOTBALLO_DIVE 369116169
+
+#define DIBUTTON_HOCKEYO_SUBSTITUTE 419447817
+
+#define DIEB_NOTRIGGER 4294967295
+
+#define DIBUTTON_FIGHTINGH_KICK 134218754
+
+#define DIDFT_FFACTUATOR 16777216
+
+#define DIBUTTON_SPACESIM_PAUSE 117458172
+
+#define DIKEYBOARD_PLAYPAUSE 2164262050
+
+#define DIVIRTUAL_FLYING_CIVILIAN 67108864
+
+#define DIBUTTON_FLYINGM_DISPLAY 83911686
+
+#define DIKEYBOARD_VOLUMEUP 2164262064
+
+#define DI8DEVTYPEDRIVING_THREEPEDALS 4
+
+#define DISFFC_RESET 1
+
+#define DI8DEVTYPEDRIVING_COMBINEDPEDALS 2
+
+#define DIHATSWITCH_TPS_GLANCE 167790081
+
+#define DIBUTTON_BBALLO_BURST 301990919
+
+#define DIAXIS_STRATEGYT_LATERAL 201359873
+
+#define DIAXIS_FLYINGH_THROTTLE 100915717
+
+#define DIBUTTON_CADM_SPECIAL2 637535236
+
+#define DIBUTTON_CADM_SPECIAL1 637535234
+
+#define DIBUTTON_STRATEGYR_ATTACK 184550404
+
+#define DIKEYBOARD_SLASH 2164261941
+
+#define DIDOI_ASPECTFORCE 1024
+
+#define DIAXIS_SOCCERD_LATERAL 520126977
+
+#define DIBUTTON_STRATEGYR_BACK_LINK 184632552
+
+#define DI_POLLEDDEVICE 2
+
+#define DIAXIS_SPACESIM_THROTTLE 117670403
+
+#define DIAXIS_FLYINGC_THROTTLE 67342851
+
+#define DIEFT_CUSTOMFORCE 5
+
+#define DIVIRTUAL_SPORTS_BASEBALL_FIELD 285212672
+
+#define DIBUTTON_CADM_DISPLAY 637551621
+
+#define DIKEYBOARD_SUBTRACT 2164261962
+
+#define DISCL_FOREGROUND 4
+
+#define DIK_NUMPAD3 81
+
+#define DIK_NUMPAD2 80
+
+#define DIK_NUMPAD5 76
+
+#define DIK_NUMPAD4 75
+
+#define DIK_NUMPAD7 71
+
+#define DI8DEVTYPEDEVICECTRL_COMMSSELECTION 3
+
+#define DIK_NUMPAD6 77
+
+#define DIK_NUMPAD9 73
+
+#define DIK_NUMPAD8 72
+
+#define DIK_NUMPAD1 79
+
+#define DIK_NUMPAD0 82
+
+#define DIBUTTON_HUNTING_AIM 218104834
+
+#define DIBUTTON_HOCKEYG_MENU 452986109
+
+#define DIBUTTON_RACQUET_LEFT_LINK 536921316
+
+#define DIKEYBOARD_RWIN 2164262108
+
+#define DIK_COLON 146
+
+#define DIBUTTON_STRATEGYR_FORWARD_LINK 184632544
+
+#define DIBUTTON_STRATEGYT_TEAM 201327620
+
+#define DIDIFT_CONFIGURATION 1
+
+#define DIBUTTON_FLYINGC_GLANCE_DOWN_LINK 67618024
+
+#define JOY_HWS_ISHEADTRACKER 33554432
+
+#define DIBUTTON_SKIING_SLOWER_LINK 486622440
+
+#define DIBUTTON_3DCONTROL_SPECIAL2 603980804
+
+#define DIK_BACKSPACE 14
+
+#define DIBUTTON_FOOTBALLO_TURBO 369116168
+
+#define DIBUTTON_DRIVINGT_ROTATE_RIGHT_LINK 50480364
+
+#define DI8DEVTYPEMOUSE_FINGERSTICK 3
+
+#define DIBUTTON_BASEBALLF_AIM_LEFT_LINK 285263076
+
+#define DIBUTTON_BBALLO_FORWARD_LINK 302073056
+
+#define DIBUTTON_3DCONTROL_SPECIAL1 603980802
+
+#define DIBUTTON_SOCCERO_FORWARD_LINK 503399648
+
+#define DIK_WAKE 227
+
+#define DIAXIS_ARCADEP_LATERAL 570458625
+
+#define DIERR_OUTOFMEMORY 2147942414
+
+#define DIDAL_TOPALIGNED 4
+
+#define DIK_SLEEP 223
+
+#define DIPROP_CALIBRATION 11
+
+#define DIBUTTON_FOOTBALLP_MENU 335545597
+
+#define DIEP_START 536870912
+
+#define DIAXIS_TPS_STEP 167821827
+
+#define DIK_LALT 56
+
+#define DIBUTTON_REMOTE_CUE 654320644
+
+#define DIBUTTON_FIGHTINGH_SPECIAL1 134218758
+
+#define DIBUTTON_FIGHTINGH_SPECIAL2 134218759
+
+#define DIBUTTON_BASEBALLP_WALK 268452870
+
+#define DIEP_DURATION 1
+
+#define DIBUTTON_FOOTBALLD_RIGHT_LINK 385926380
+
+#define DIAXIS_2DCONTROL_MOVE 587268610
+
+#define DIBUTTON_SOCCERO_RIGHT_LINK 503366892
+
+#define DIERR_DEVICEFULL 2147746305
+
+#define DIAXIS_CADM_ROTATEZ 637682182
+
+#define DIAXIS_CADM_ROTATEX 637747716
+
+#define DIBUTTON_BIKINGM_BRAKE_BUTTON_LINK 470041832
+
+#define DIAXIS_CADM_ROTATEY 637714949
+
+#define DIFEF_INCLUDENONSTANDARD 1
+
+#define JOY_HWS_ISGAMEPORTBUS 2147483648
+
+#define DIBUTTON_BBALLO_DEVICE 302007550
+
+#define DIBUTTON_FISHING_DISPLAY 234898438
+
+#define DIHATSWITCH_ARCADEP_VIEW 570443265
+
+#define DIBUTTON_SOCCERO_PAUSE 503334140
+
+#define DIBUTTON_ARCADEP_SELECT 570426373
+
+#define DIKEYBOARD_WEBREFRESH 2164262119
+
+#define DI8DEVTYPEKEYBOARD_NOKIA9140 6
+
+#define DIBUTTON_FPS_DODGE 151012361
+
+#define DIDOI_GUIDISUSAGE 65536
+
+#define DIBUTTON_SOCCERD_SELECT 520094726
+
+#define DIEDBSFL_AVAILABLEDEVICES 4096
+
+#define DIBUTTON_MECHA_TARGET 687866883
+
+#define DIK_CAPITAL 58
+
+#define DIBUTTON_ARCADES_SELECT 553649157
+
+#define DIDC_STARTDELAY 32768
+
+#define DIBUTTON_FPS_ROTATE_LEFT_LINK 151045348
+
+#define DIBUTTON_2DCONTROL_DEVICE 587220222
+
+#define DIAXIS_FOOTBALLQ_LATERAL 352354817
+
+#define DIKEYBOARD_WEBHOME 2164262066
+
+#define DIBUTTON_FLYINGM_BRAKE_LINK 84174048
+
+#define DIKEYBOARD_LEFT 2164262091
+
+#define DIBUTTON_SOCCERD_SLIDE 520094727
+
+#define DIBUTTON_HUNTING_RIGHT_LINK 218154220
+
+#define DIBUTTON_HOCKEYG_POKE 452985858
+
+#define DIAXIS_DRIVINGT_BARREL 50397698
+
+#define DIGFFS_DEVICELOST 2147483648
+
+#define DIBUTTON_BROWSER_FAVORITES 671106054
+
+#define DIDAL_LEFTALIGNED 1
+
+#define DIBUTTON_SKIING_ZOOM 486556679
+
+#define DIDOI_ASPECTACCEL 768
+
+#define DIAXIS_SPACESIM_MOVE 117506562
+
+#define DIAXIS_FPS_LOOKUPDOWN 151093763
+
+#define DIBUTTON_BBALLO_JAB 302007307
+
+#define DIDBAM_DEFAULT 0
+
+#define DIAXIS_CADF_ROTATEZ 620904966
+
+#define DIAXIS_CADF_ROTATEY 620937733
+
+#define DIAXIS_CADF_ROTATEX 620970500
+
+#define DIAXIS_SKIING_SPEED 486605314
+
+#define DIVIRTUAL_SPORTS_BASEBALL_PITCH 268435456
+
+#define DIERR_NOTINITIALIZED 2147942421
+
+#define DIBUTTON_DRIVINGR_MAP 16794631
+
+#define DIA_APPFIXED 16
+
+#define DIBUTTON_FLYINGC_DEVICE 67126526
+
+#define DIBUTTON_HOCKEYO_DEVICE 419448062
+
+#define DIERR_NOTBUFFERED 2147746311
+
+#define DI8DEVTYPE_LIMITEDGAMESUBTYPE 1
+
+#define DIERR_INCOMPLETEEFFECT 2147746310
+
+#define DIBUTTON_BASEBALLB_DEVICE 251675902
+
+#define DIK_4 5
+
+#define DIK_3 4
+
+#define DIK_2 3
+
+#define DIK_1 2
+
+#define DIK_0 11
+
+#define DIEDFL_INCLUDEALIASES 65536
+
+#define DIK_9 10
+
+#define DIK_8 9
+
+#define DIK_7 8
+
+#define DIK_6 7
+
+#define DIK_5 6
+
+#define DIK_D 32
+
+#define DIK_C 46
+
+#define DIK_B 48
+
+#define DIK_A 30
+
+#define DIK_L 38
+
+#define DIK_K 37
+
+#define DIK_J 36
+
+#define DIK_I 23
+
+#define DIBUTTON_FOOTBALLQ_PASS 352322565
+
+#define DIBUTTON_STRATEGYR_MAP 184566792
+
+#define DIK_H 35
+
+#define DIK_G 34
+
+#define DIK_F 33
+
+#define DIK_E 18
+
+#define DIK_T 20
+
+#define DIK_S 31
+
+#define DIK_R 19
+
+#define DIK_Q 16
+
+#define DIBUTTON_FLYINGH_WEAPONS 100668418
+
+#define DIK_P 25
+
+#define DIVIRTUAL_ARCADE_SIDE2SIDE 553648128
+
+#define DIK_O 24
+
+#define DIK_N 49
+
+#define DIK_M 50
+
+#define DIK_Z 44
+
+#define DIK_Y 21
+
+#define DIK_X 45
+
+#define DIK_W 17
+
+#define DIK_V 47
+
+#define DIK_U 22
+
+#define DIBUTTON_SKIING_PAUSE 486556924
+
+#define DIBUTTON_SKIING_CROUCH 486540290
+
+#define DIBUTTON_RACQUET_DEVICE 536888574
+
+#define DIBUTTON_STRATEGYT_TURN 201327621
+
+#define DIBUTTON_TPS_VIEW 167789574
+
+#define DIERR_OLDDIRECTINPUTVERSION 2147943550
+
+#define DIBUTTON_DRIVINGR_BOOST 16794632
+
+#define DIAXIS_FLYINGM_RUDDER 84036100
+
+#define DIBUTTON_FPS_PAUSE 151012604
+
+#define DIEFF_SPHERICAL 64
+
+#define DIAXIS_ARCADES_LATERAL 553681409
+
+#define DIVIRTUAL_SPORTS_BASKETBALL_OFFENSE 301989888
+
+#define DIBUTTON_SPACESIM_SLOWER_LINK 117687528
+
+#define DIK_RMENU 184
+
+#define DIBUTTON_SOCCERO_SPECIAL1 503317509
+
+#define DIVIRTUAL_DRIVING_COMBAT 33554432
+
+#define MAXCPOINTSNUM 8
+
+#define DIVIRTUAL_SPORTS_GOLF 402653184
+
+#define DIBUTTON_STRATEGYR_DISPLAY 184566793
+
+#define DIAXIS_HOCKEYD_LATERAL 436240897
+
+#define DIBUTTON_SPACESIM_LOWER 117457927
+
+#define DIPROPAUTOCENTER_ON 1
+
+#define DIBUTTON_STRATEGYR_CAST 184550405
+
+#define DIBUTTON_STRATEGYT_INSTRUCT 201327618
+
+#define DIBUTTON_TPS_RUN 167773185
+
+#define DIBUTTON_BROWSER_PREVIOUS 671106056
+
+#define DI8DEVTYPEREMOTE_UNKNOWN 2
+
+#define DIBUTTON_DRIVINGR_DASHBOARD 16794629
+
+#define DIBUTTON_ARCADEP_LEFT_LINK 570475748
+
+#define DI8DEVTYPEJOYSTICK_STANDARD 2
+
+#define DIBUTTON_STRATEGYR_APPLY 184550402
+
+#define DIBUTTON_REMOTE_MUTE 654312449
+
+#define DIBUTTON_HOCKEYO_ZOOM 419447814
+
+#define DIKEYBOARD_RETURN 2164261916
+
+#define DIBUTTON_STRATEGYT_RIGHT_LINK 201377004
+
+#define DIHATSWITCH_HUNTING_GLANCE 218121729
+
+#define DIBUTTON_BASEBALLB_FORWARD_LINK 251741408
+
+#define DIK_SCROLL 70
+
+#define DIBUTTON_BBALLD_FORWARD_LINK 318850272
+
+#define DIKEYBOARD_PAUSE 2164262085
+
+#define DIK_EQUALS 13
+
+#define DIEFT_RAMPFORCE 2
+
+#define DIBUTTON_ARCADES_MENU 553649405
+
+#define DIBUTTON_FOOTBALLD_MENU 385877245
+
+#define DIBUTTON_HOCKEYD_TIMEOUT 436225032
+
+#define DIBUTTON_HOCKEYG_RIGHT_LINK 453035244
+
+#define DIBUTTON_HOCKEYD_LEFT_LINK 436258020
+
+#define DIBUTTON_HOCKEYD_BURST 436208643
+
+#define DIK_MULTIPLY 55
+
+#define DIK_ESCAPE 1
+
+#define DIHATSWITCH_DRIVINGR_GLANCE 16795137
+
+#define DIBUTTON_DRIVINGT_ROTATE_LEFT_LINK 50480356
+
+#define DIPROPCALIBRATIONMODE_RAW 1
+
+#define DIK_SYSRQ 183
+
+#define DIBUTTON_FOOTBALLO_THROW 369099780
+
+#define DI8DEVTYPEKEYBOARD_NOKIA1050 5
+
+#define DIBUTTON_ARCADES_RIGHT_LINK 553698540
+
+#define DIKEYBOARD_END 2164262095
+
+#define DIBUTTON_FPS_GLANCE_DOWN_LINK 151110888
+
+#define DIBUTTON_HOCKEYG_DEVICE 453002494
+
+#define DIBUTTON_DRIVINGR_VIEW 16784387
+
+#define DIAXIS_REMOTE_SLIDER2 654656002
+
+#define DIBUTTON_HOCKEYG_SUBSTITUTE 453002248
+
+#define DIBUTTON_FOOTBALLD_TACKLE 385876996
+
+#define DIAXIS_SPACESIM_LATERAL 117473793
+
+#define DIKEYBOARD_NUMPADCOMMA 2164262067
+
+#define DIKEYBOARD_APOSTROPHE 2164261928
+
+#define DIAXIS_3DCONTROL_LATERAL 604013057
+
+#define DIFEF_DEFAULT 0
+
+#define DIHATSWITCH_HOCKEYG_SCROLL 453002753
+
+#define DIKEYBOARD_F11 2164261975
+
+#define DIKEYBOARD_F10 2164261956
+
+#define DIK_WEBHOME 178
+
+#define DIKEYBOARD_F13 2164261988
+
+#define DIKEYBOARD_F12 2164261976
+
+#define DIKEYBOARD_F15 2164261990
+
+#define DIKEYBOARD_F14 2164261989
+
+#define DI8DEVTYPE1STPERSON_UNKNOWN 2
+
+#define DIES_NODOWNLOAD 2147483648
+
+#define DIBUTTON_BASEBALLB_SLIDE 251659271
+
+#define DIBUTTON_FISHING_LEFT_LINK 234931428
+
+#define DIAXIS_FLYINGC_BANK 67144193
+
+#define DIBUTTON_GOLF_FLYBY 402654214
+
+#define DIK_CIRCUMFLEX 144
+
+#define DIBUTTON_BIKINGM_SLOWER_LINK 469845224
+
+#define DIENUM_STOP 0
+
+#define DIK_MUTE 160
+
+#define DIBUTTON_DRIVINGC_ACCELERATE_LINK 33805536
+
+#define DIPROP_RANGE 4
+
+#define DI_TRUNCATED 8
+
+#define DIBUTTON_TPS_DEVICE 167789822
+
+#define DIAXIS_DRIVINGR_ACCEL_AND_BRAKE 16861700
+
+#define DIBUTTON_FISHING_TYPE 234882050
+
+#define DIBUTTON_STRATEGYT_PAUSE 201344252
+
+#define DIVIRTUAL_DRIVING_RACE 16777216
+
+#define DIBUTTON_SPACESIM_BACKWARD_LINK 117523688
+
+#define DIVOICE_RECORDMUTE 2197816331
+
+#define DIBUTTON_RACQUET_SPECIAL 536871940
+
+#define DIAXIS_MECHA_ROTATE 687997443
+
+#define DIBUTTON_REMOTE_DVD 654334989
+
+#define DIDC_FFFADE 1024
+
+#define DIBUTTON_FOOTBALLO_JUMP 369099777
+
+#define DIBUTTON_FOOTBALLD_SPIN 385893383
+
+#define DIKEYBOARD_NUMPAD3 2164261969
+
+#define DIKEYBOARD_NUMPAD2 2164261968
+
+#define DIKEYBOARD_NUMPAD1 2164261967
+
+#define DIKEYBOARD_NUMPAD0 2164261970
+
+#define DIKEYBOARD_NUMPAD7 2164261959
+
+#define DIBUTTON_HOCKEYD_DEVICE 436225278
+
+#define DIKEYBOARD_NUMPAD6 2164261965
+
+#define DIKEYBOARD_NUMPAD5 2164261964
+
+#define DIKEYBOARD_NUMPAD4 2164261963
+
+#define DIKEYBOARD_NUMPAD9 2164261961
+
+#define DIKEYBOARD_NUMPAD8 2164261960
+
+#define DIBUTTON_GOLF_FORWARD_LINK 402736352
+
+#define DIDFT_ABSAXIS 2
+
+#define DIBUTTON_FOOTBALLD_BULLRUSH 385893385
+
+#define DIBUTTON_BBALLO_DUNK 301990914
+
+#define JOY_HWS_GAMEPORTBUSBUSY 1
+
+#define DIBUTTON_BIKINGM_JUMP 469763073
+
+#define DI_TRUNCATEDANDRESTARTED 12
+
+#define DIBUTTON_STRATEGYT_ZOOM 201344006
+
+#define DIBUTTON_SPACESIM_TARGET 117441539
+
+#define DIKEYBOARD_KANA 2164262000
+
+#define DIGFFS_PAUSED 4
+
+#define DIAXIS_DRIVINGC_STEER 33589761
+
+#define DIAXIS_ANY_V_2 4278403586
+
+#define DIAXIS_ANY_V_1 4278403585
+
+#define DIBUTTON_BROWSER_SEARCH 671106051
+
+#define DIBUTTON_FLYINGM_SLOWER_LINK 84137192
+
+#define DI8DEVTYPESUPPLEMENTAL_UNKNOWN 2
+
+#define DIKEYBOARD_MINUS 2164261900
+
+#define DIK_HOME 199
+
+#define DIBUTTON_REMOTE_ADJUST 654334990
+
+#define DIEFT_FFFADE 1024
+
+#define DIBUTTON_ARCADEP_SPECIAL 570426372
+
+#define DIBUTTON_DRIVINGC_GLANCE_RIGHT_LINK 34063596
+
+#define DIGFFS_STOPPED 2
+
+#define DIK_END 207
+
+#define DIPROP_INSTANCENAME 13
+
+#define DI8DEVTYPEKEYBOARD_NEC98 7
+
+#define DIKEYBOARD_NEXTTRACK 2164262041
+
+#define DIBUTTON_REMOTE_CHANGE 654320646
+
+#define DIBUTTON_FLYINGC_FASTER_LINK 67359968
+
+#define DIBUTTON_FOOTBALLO_JUKE 369116166
+
+#define DIBUTTON_DRIVINGR_PAUSE 16794876
+
+#define DIK_NUMPADEQUALS 141
+
+#define DIBUTTON_SOCCERO_SELECT 503317510
+
+#define DI8DEVTYPESUPPLEMENTAL_SHIFTER 7
+
+#define DIBUTTON_GOLF_UP 402654211
+
+#define DIBUTTON_BBALLO_CALL 301990920
+
+#define DIK_F14 101
+
+#define DIBUTTON_FOOTBALLQ_DEVICE 352339198
+
+#define DIK_F15 102
+
+#define DIK_F12 88
+
+#define DIK_F13 100
+
+#define DIBUTTON_FOOTBALLD_FAKE 385876997
+
+#define DIK_F10 68
+
+#define DIK_F11 87
+
+#define DIEDFL_INCLUDEPHANTOMS 131072
+
+#define DIDBAM_HWDEFAULTS 4
+
+#define DI8DEVTYPEKEYBOARD_NEC98106 9
+
+#define DIBUTTON_HOCKEYO_BACK_LINK 419513576
+
+#define DIKEYBOARD_OEM_102 2164261974
+
+#define DIBUTTON_SKIING_LEFT_LINK 486589668
+
+#define DIEP_ALLPARAMS 1023
+
+#define DIDC_HIDDEN 262144
+
+#define DIBUTTON_CADF_SPECIAL2 620758020
+
+#define DI8DEVTYPEKEYBOARD_OLIVETTI 2
+
+#define DIAXIS_DRIVINGT_ACCEL_AND_BRAKE 50416134
+
+#define DIHATSWITCH_FLYINGH_GLANCE 100681217
+
+#define DIBUTTON_CADF_SPECIAL1 620758018
+
+#define DIBUTTON_SOCCERO_CONTROL 503333900
+
+#define DIVIRTUAL_SPORTS_SOCCER_DEFENSE 520093696
+
+#define DIBUTTON_BIKINGM_MENU 469763325
+
+#define DIBUTTON_GOLF_MENU 402654461
+
+#define DIBUTTON_FOOTBALLO_MENU 369100029
+
+#define DIBUTTON_ARCADES_VIEW_DOWN_LINK 554157288
+
+#define DIERR_UNPLUGGED 2147746313
+
+#define DIBUTTON_HOCKEYD_PAUSE 436225276
+
+#define DIBUTTON_GOLF_PAUSE 402670844
+
+#define DIK_NUMPADSLASH 181
+
+#define DIBUTTON_BASEBALLF_JUMP 285213701
+
+#define DIEDFL_ALLDEVICES 0
+
+#define DIAXIS_STRATEGYT_MOVE 201392642
+
+#define DIERR_ALREADYINITIALIZED 2147943647
+
+#define DIBUTTON_BROWSER_DEVICE 671106302
+
+#define DIBUTTON_BIKINGM_PAUSE 469779708
+
+#define DIAH_HWAPP 4
+
+#define DIBUTTON_STRATEGYR_ROTATE_LEFT_LINK 184698084
+
+#define DIBUTTON_STRATEGYR_PAUSE 184567036
+
+#define DIAXIS_CADF_INOUT 620855811
+
+#define DIBUTTON_SOCCERO_PLAYER 503317508
+
+#define DIBUTTON_GOLF_DEVICE 402670846
+
+#define DIKEYBOARD_CAPITAL 2164261946
+
+#define DIBUTTON_BASEBALLP_FORWARD_LINK 268518624
+
+#define DIBUTTON_BBALLD_SPECIAL 318768132
+
+#define DIHATSWITCH_SPACESIM_GLANCE 117458433
+
+#define DIERR_REPORTFULL 2147746314
+
+#define DI8DEVTYPEKEYBOARD_JAPAN106 10
+
+#define DIDFT_INSTANCEMASK 16776960
+
 #define D3DPTEXTURECAPS_POW2 2
 
 #define D3DSTENCILCAPS_REPLACE 4
@@ -23509,10 +28012,6 @@ typedef ulong ULONG_PTR;
 
 typedef ULONG_PTR DWORD_PTR;
 
-typedef char CHAR;
-
-typedef CHAR *LPCSTR;
-
 struct tagMCI_ANIM_WINDOW_PARMSA {
     DWORD_PTR dwCallback;
     HWND hWnd;
@@ -23574,8 +28073,6 @@ struct tagMIXERCONTROLA {
 
 typedef struct tagJOYCAPSW tagJOYCAPSW, *PtagJOYCAPSW;
 
-typedef wchar_t WCHAR;
-
 struct tagJOYCAPSW {
     WORD wMid;
     WORD wPid;
@@ -23606,8 +28103,6 @@ struct tagJOYCAPSW {
 typedef struct tagDRVCONFIGINFO tagDRVCONFIGINFO, *PtagDRVCONFIGINFO;
 
 typedef struct tagDRVCONFIGINFO *LPDRVCONFIGINFO;
-
-typedef WCHAR *LPCWSTR;
 
 struct tagDRVCONFIGINFO {
     DWORD dwDCISize;
@@ -23758,8 +28253,6 @@ typedef struct tagMCI_SYSINFO_PARMSA tagMCI_SYSINFO_PARMSA, *PtagMCI_SYSINFO_PAR
 typedef struct tagMCI_SYSINFO_PARMSA MCI_SYSINFO_PARMSA;
 
 typedef MCI_SYSINFO_PARMSA MCI_SYSINFO_PARMS;
-
-typedef CHAR *LPSTR;
 
 struct tagMCI_SYSINFO_PARMSA {
     DWORD_PTR dwCallback;
@@ -24055,8 +28548,6 @@ typedef struct tagWAVEOUTCAPS2A WAVEOUTCAPS2A;
 typedef WAVEOUTCAPS2A WAVEOUTCAPS2;
 
 typedef struct tagMCI_SYSINFO_PARMSW tagMCI_SYSINFO_PARMSW, *PtagMCI_SYSINFO_PARMSW;
-
-typedef WCHAR *LPWSTR;
 
 struct tagMCI_SYSINFO_PARMSW {
     DWORD_PTR dwCallback;
@@ -27871,18 +32362,9 @@ struct _PRINTER_DEFAULTSA {
 
 typedef struct _DRIVER_INFO_6W _DRIVER_INFO_6W, *P_DRIVER_INFO_6W;
 
-typedef struct _FILETIME _FILETIME, *P_FILETIME;
-
-typedef struct _FILETIME FILETIME;
-
 typedef double ULONGLONG;
 
 typedef ULONGLONG DWORDLONG;
-
-struct _FILETIME {
-    DWORD dwLowDateTime;
-    DWORD dwHighDateTime;
-};
 
 struct _DRIVER_INFO_6W {
     DWORD cVersion;
@@ -30723,8 +35205,6 @@ struct IEnumMoniker {
 typedef struct ISynchronizeHandleVtbl ISynchronizeHandleVtbl, *PISynchronizeHandleVtbl;
 
 typedef struct ISynchronizeHandle ISynchronizeHandle, *PISynchronizeHandle;
-
-typedef void *HANDLE;
 
 struct ISynchronizeHandle {
     struct ISynchronizeHandleVtbl *lpVtbl;
@@ -35110,17 +39590,9 @@ typedef int (*OLDFONTENUMPROCW)(LOGFONTW *, TEXTMETRICW *, DWORD, LPARAM);
 
 typedef CIEXYZ *LPCIEXYZ;
 
-typedef struct HINSTANCE__ HINSTANCE__, *PHINSTANCE__;
-
-typedef struct HINSTANCE__ *HINSTANCE;
-
 typedef HINSTANCE HMODULE;
 
 typedef UINT (*LPFNDEVMODE)(HWND, HMODULE, LPDEVMODE, LPSTR, LPSTR, LPDEVMODE, LPSTR, UINT);
-
-struct HINSTANCE__ {
-    int unused;
-};
 
 typedef struct tagEMRSELECTCLIPPATH EMRSETICMMODE;
 
@@ -52955,6 +57427,61 @@ typedef char *va_list;
 
 typedef uint uintptr_t;
 
+typedef struct astruct astruct, *Pastruct;
+
+struct astruct {
+    undefined field0_0x0;
+    undefined field1_0x1;
+    undefined field2_0x2;
+    undefined field3_0x3;
+    undefined field4_0x4;
+    undefined field5_0x5;
+    undefined field6_0x6;
+    undefined field7_0x7;
+    undefined field8_0x8;
+    undefined field9_0x9;
+    undefined field10_0xa;
+    undefined field11_0xb;
+    undefined field12_0xc;
+    undefined field13_0xd;
+    undefined field14_0xe;
+    undefined field15_0xf;
+    undefined field16_0x10;
+    undefined field17_0x11;
+    undefined field18_0x12;
+    undefined field19_0x13;
+    short *field20_0x14;
+    undefined field21_0x18;
+    undefined field22_0x19;
+    undefined field23_0x1a;
+    undefined field24_0x1b;
+    undefined field25_0x1c;
+    undefined field26_0x1d;
+    undefined field27_0x1e;
+    undefined field28_0x1f;
+    undefined field29_0x20;
+    undefined field30_0x21;
+    undefined field31_0x22;
+    undefined field32_0x23;
+    undefined field33_0x24;
+    undefined field34_0x25;
+    undefined field35_0x26;
+    undefined field36_0x27;
+    undefined field37_0x28;
+    undefined field38_0x29;
+    undefined field39_0x2a;
+    undefined field40_0x2b;
+    undefined field41_0x2c;
+    undefined field42_0x2d;
+    undefined field43_0x2e;
+    undefined field44_0x2f;
+    undefined field45_0x30;
+    undefined field46_0x31;
+    undefined field47_0x32;
+    undefined field48_0x33;
+    short *field49_0x34;
+};
+
 typedef struct ImageDecoder ImageDecoder, *PImageDecoder;
 
 struct ImageDecoder {
@@ -52979,13 +57506,13 @@ typedef struct ChainElem ChainElem, *PChainElem;
 
 struct ChainElem {
     undefined2 priority;
-    ushort field1_0x2;
+    ushort flags;
     undefined4 callback;
-    undefined4 field3_0x8;
-    undefined4 field4_0xc;
-    undefined4 field5_0x10;
-    undefined4 field6_0x14;
-    undefined2 *field7_0x18;
+    undefined4 added_callback;
+    undefined4 deleted_callback;
+    struct ChainElem *prev;
+    struct ChainElem *next;
+    undefined2 *priority_ptr?;
     void *arg;
 };
 
@@ -53544,8 +58071,6 @@ typedef ULONG_PTR *PSIZE_T;
 typedef ushort UHALF_PTR;
 
 typedef uint DWORD32;
-
-typedef uint UINT_PTR;
 
 typedef short HALF_PTR;
 
@@ -60900,8 +65425,6 @@ typedef struct _DSCBUFFERDESC1 *LPDSCBUFFERDESC1;
 
 typedef struct IDirectSound3DListener *LPDIRECTSOUND3DLISTENER8;
 
-typedef GUID *LPGUID;
-
 typedef BOOL (*LPDSENUMCALLBACKA)(LPGUID, LPCSTR, LPCSTR, LPVOID);
 
 typedef struct IDirectSoundCaptureFXAec *LPDIRECTSOUNDCAPTUREFXAEC;
@@ -64890,6 +69413,12 @@ typedef struct GameConfiguration GameConfiguration, *PGameConfiguration;
 
 typedef struct ControllerMapping ControllerMapping, *PControllerMapping;
 
+typedef enum MusicMode {
+    OFF=0,
+    WAV=1,
+    MIDI=2
+} MusicMode;
+
 struct ControllerMapping {
     short shootButton;
     short bombButton;
@@ -64910,8 +69439,8 @@ struct GameConfiguration {
     byte lifeCount;
     byte bombCount;
     byte colorMode16bit;
-    byte soundMode; /* 0 = off, 1 = wav, 2 = midi */
-    byte playSound; /* 0 = off, 1 = on */
+    enum MusicMode musicMode; /* 0 = off, 1 = wav, 2 = midi */
+    byte playSounds; /* 0 = off, 1 = on */
     byte defaultDifficulty;
     bool windowed;
     byte frameskip_config; /* 0 = fullspeed, 1 = 1/2 speed, 2 = 1/4 speed */
@@ -64956,153 +69485,114 @@ struct GameContext {
     HINSTANCE hInstance;
     struct IDirect3D8 *d3d_iface;
     struct IDirect3DDevice8 *d3d_device;
-    undefined field3_0xc;
-    undefined field4_0xd;
-    undefined field5_0xe;
-    undefined field6_0xf;
-    undefined field7_0x10;
-    undefined field8_0x11;
-    undefined field9_0x12;
-    undefined field10_0x13;
-    undefined field11_0x14;
-    undefined field12_0x15;
-    undefined field13_0x16;
-    undefined field14_0x17;
-    undefined field15_0x18;
-    undefined field16_0x19;
-    undefined field17_0x1a;
-    undefined field18_0x1b;
-    undefined field19_0x1c;
-    undefined field20_0x1d;
-    undefined field21_0x1e;
-    undefined field22_0x1f;
-    undefined field23_0x20;
-    undefined field24_0x21;
-    undefined field25_0x22;
-    undefined field26_0x23;
-    undefined field27_0x24;
-    undefined field28_0x25;
-    undefined field29_0x26;
-    undefined field30_0x27;
-    undefined field31_0x28;
-    undefined field32_0x29;
-    undefined field33_0x2a;
-    undefined field34_0x2b;
-    undefined field35_0x2c;
-    undefined field36_0x2d;
-    undefined field37_0x2e;
-    undefined field38_0x2f;
-    undefined field39_0x30;
-    undefined field40_0x31;
-    undefined field41_0x32;
-    undefined field42_0x33;
-    undefined field43_0x34;
-    undefined field44_0x35;
-    undefined field45_0x36;
-    undefined field46_0x37;
-    undefined field47_0x38;
-    undefined field48_0x39;
-    undefined field49_0x3a;
-    undefined field50_0x3b;
-    undefined field51_0x3c;
-    undefined field52_0x3d;
-    undefined field53_0x3e;
-    undefined field54_0x3f;
-    undefined field55_0x40;
-    undefined field56_0x41;
-    undefined field57_0x42;
-    undefined field58_0x43;
+    struct IDirectInput8A *directInput;
+    LPDIRECTINPUTDEVICE8A keyboard;
+    LPDIRECTINPUTDEVICE8A controller;
+    struct DIDEVCAPS controllerCaps;
     HWND hwndGameWindow;
     D3DMATRIX view_matrix; /* Created by retype action */
     D3DMATRIX projection_matrix;
     D3DVIEWPORT8 viewport;
-    D3DPRESENT_PARAMETERS present_parameters;
+    D3DPRESENT_PARAMETERS presentParameters;
     struct GameConfiguration cfg;
-    undefined field65_0x14c;
-    undefined field66_0x14d;
-    undefined field67_0x14e;
-    undefined field68_0x14f;
-    undefined field69_0x150;
-    undefined field70_0x151;
-    undefined field71_0x152;
-    undefined field72_0x153;
-    undefined field73_0x154;
-    undefined field74_0x155;
-    undefined field75_0x156;
-    undefined field76_0x157;
-    undefined field77_0x158;
-    undefined field78_0x159;
-    undefined field79_0x15a;
-    undefined field80_0x15b;
-    undefined field81_0x15c;
-    undefined field82_0x15d;
-    undefined field83_0x15e;
-    undefined field84_0x15f;
-    undefined field85_0x160;
-    undefined field86_0x161;
-    undefined field87_0x162;
-    undefined field88_0x163;
+    undefined field13_0x14c;
+    undefined field14_0x14d;
+    undefined field15_0x14e;
+    undefined field16_0x14f;
+    undefined field17_0x150;
+    undefined field18_0x151;
+    undefined field19_0x152;
+    undefined field20_0x153;
+    undefined field21_0x154;
+    undefined field22_0x155;
+    undefined field23_0x156;
+    undefined field24_0x157;
+    undefined field25_0x158;
+    undefined field26_0x159;
+    undefined field27_0x15a;
+    undefined field28_0x15b;
+    undefined field29_0x15c;
+    undefined field30_0x15d;
+    undefined field31_0x15e;
+    undefined field32_0x15f;
+    undefined field33_0x160;
+    undefined field34_0x161;
+    undefined field35_0x162;
+    undefined field36_0x163;
     byte lifeCount;
     byte bombCount;
-    undefined field91_0x166;
-    undefined field92_0x167;
-    undefined field93_0x168;
-    undefined field94_0x169;
-    undefined field95_0x16a;
-    undefined field96_0x16b;
-    undefined field97_0x16c;
-    undefined field98_0x16d;
-    undefined field99_0x16e;
-    undefined field100_0x16f;
-    undefined field101_0x170;
-    undefined field102_0x171;
-    undefined field103_0x172;
-    undefined field104_0x173;
-    undefined field105_0x174;
-    undefined field106_0x175;
-    undefined field107_0x176;
-    undefined field108_0x177;
-    undefined field109_0x178;
-    undefined field110_0x179;
-    undefined field111_0x17a;
-    undefined field112_0x17b;
-    undefined field113_0x17c;
-    undefined field114_0x17d;
-    undefined field115_0x17e;
-    undefined field116_0x17f;
-    undefined field117_0x180;
-    undefined field118_0x181;
-    undefined field119_0x182;
-    undefined field120_0x183;
-    undefined field121_0x184;
-    undefined field122_0x185;
-    undefined field123_0x186;
-    undefined field124_0x187;
-    undefined field125_0x188;
-    undefined field126_0x189;
-    undefined field127_0x18a;
-    undefined field128_0x18b;
-    undefined field129_0x18c;
-    undefined field130_0x18d;
-    undefined field131_0x18e;
-    undefined field132_0x18f;
-    undefined field133_0x190;
-    undefined field134_0x191;
-    undefined field135_0x192;
-    undefined field136_0x193;
-    undefined field137_0x194;
-    undefined field138_0x195;
-    undefined field139_0x196;
-    undefined field140_0x197;
-    undefined field141_0x198;
-    undefined field142_0x199;
-    undefined field143_0x19a;
-    undefined field144_0x19b;
-    undefined field145_0x19c;
-    undefined field146_0x19d;
-    undefined field147_0x19e;
-    undefined field148_0x19f;
-    int field149_0x1a0;
+    undefined field39_0x166;
+    undefined field40_0x167;
+    undefined field41_0x168;
+    undefined field42_0x169;
+    undefined field43_0x16a;
+    undefined field44_0x16b;
+    undefined field45_0x16c;
+    undefined field46_0x16d;
+    undefined field47_0x16e;
+    undefined field48_0x16f;
+    undefined field49_0x170;
+    undefined field50_0x171;
+    undefined field51_0x172;
+    undefined field52_0x173;
+    undefined field53_0x174;
+    undefined field54_0x175;
+    undefined field55_0x176;
+    undefined field56_0x177;
+    undefined field57_0x178;
+    undefined field58_0x179;
+    undefined field59_0x17a;
+    undefined field60_0x17b;
+    undefined field61_0x17c;
+    undefined field62_0x17d;
+    undefined field63_0x17e;
+    undefined field64_0x17f;
+    undefined field65_0x180;
+    undefined field66_0x181;
+    undefined field67_0x182;
+    undefined field68_0x183;
+    int unkInput3;
+    int unkInput1;
+    int unkInput2;
+    int unkInput4;
+    undefined field73_0x194;
+    undefined field74_0x195;
+    undefined field75_0x196;
+    undefined field76_0x197;
+    undefined field77_0x198;
+    undefined field78_0x199;
+    undefined field79_0x19a;
+    undefined field80_0x19b;
+    undefined field81_0x19c;
+    undefined field82_0x19d;
+    undefined field83_0x19e;
+    undefined field84_0x19f;
+    int field85_0x1a0;
+    undefined field86_0x1a4;
+    undefined field87_0x1a5;
+    undefined field88_0x1a6;
+    undefined field89_0x1a7;
+    undefined field90_0x1a8;
+    undefined field91_0x1a9;
+    undefined field92_0x1aa;
+    undefined field93_0x1ab;
+    undefined field94_0x1ac;
+    undefined field95_0x1ad;
+    undefined field96_0x1ae;
+    undefined field97_0x1af;
+    undefined field98_0x1b0;
+    undefined field99_0x1b1;
+    undefined field100_0x1b2;
+    undefined field101_0x1b3;
+    undefined field102_0x1b4;
+    undefined field103_0x1b5;
+    undefined field104_0x1b6;
+    undefined field105_0x1b7;
+    undefined field106_0x1b8;
+    undefined field107_0x1b9;
+    undefined field108_0x1ba;
+    undefined field109_0x1bb;
+    int field110_0x1bc[16];
 };
 
 typedef enum GameConfigurationRenderOpts {

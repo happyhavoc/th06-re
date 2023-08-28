@@ -247,20 +247,20 @@ switchD_004339dd_caseD_15:
     FUN_004241e5(1);
 LAB_00434338:
     if (NAN(param_1[3]) == (param_1[3] == 0.0)) {
-      fVar6 = (float10)FUN_0041e850(*param_1,DAT_006c6ec0 * param_1[3]);
+      fVar6 = (float10)FUN_0041e850(*param_1,(float)g_GameContext._424_4_ * param_1[3]);
       *param_1 = (float)fVar6;
     }
     if (NAN(param_1[4]) == (param_1[4] == 0.0)) {
-      fVar6 = (float10)FUN_0041e850(param_1[1],DAT_006c6ec0 * param_1[4]);
+      fVar6 = (float10)FUN_0041e850(param_1[1],(float)g_GameContext._424_4_ * param_1[4]);
       param_1[1] = (float)fVar6;
     }
     if (NAN(param_1[5]) == (param_1[5] == 0.0)) {
-      fVar6 = (float10)FUN_0041e850(param_1[2],DAT_006c6ec0 * param_1[5]);
+      fVar6 = (float10)FUN_0041e850(param_1[2],(float)g_GameContext._424_4_ * param_1[5]);
       param_1[2] = (float)fVar6;
     }
     if (*(short *)((int)param_1 + 0x86) < 1) {
-      param_1[6] = DAT_006c6ec0 * param_1[8] + param_1[6];
-      param_1[7] = DAT_006c6ec0 * param_1[9] + param_1[7];
+      param_1[6] = (float)g_GameContext._424_4_ * param_1[8] + param_1[6];
+      param_1[7] = (float)g_GameContext._424_4_ * param_1[9] + param_1[7];
     }
     else {
       param_1[0x29] = param_1[0x2b];

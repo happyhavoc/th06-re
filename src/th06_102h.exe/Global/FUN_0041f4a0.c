@@ -35,7 +35,7 @@ void FUN_0041f4a0(void)
   do {
     if (0x1ff < local_8) {
       if (bVar4) {
-        FUN_004311e0(0x15,0);
+        FUN_004311e0(0x15);
       }
       return;
     }
@@ -77,10 +77,11 @@ void FUN_0041f4a0(void)
           }
         }
 LAB_0041f7c5:
-        fVar2 = DAT_006c6ec0 * *(float *)(local_18 + 0x124);
-        fVar3 = DAT_006c6ec0 * *(float *)(local_18 + 0x120);
+        fVar2 = (float)g_GameContext._424_4_ * *(float *)(local_18 + 0x124);
+        fVar3 = (float)g_GameContext._424_4_ * *(float *)(local_18 + 0x120);
         *(float *)(local_18 + 0x110) =
-             DAT_006c6ec0 * *(float *)(local_18 + 0x11c) + *(float *)(local_18 + 0x110);
+             (float)g_GameContext._424_4_ * *(float *)(local_18 + 0x11c) +
+             *(float *)(local_18 + 0x110);
         *(float *)(local_18 + 0x114) = fVar3 + *(float *)(local_18 + 0x114);
         *(float *)(local_18 + 0x118) = fVar2 + *(float *)(local_18 + 0x118);
         if (VIEWPORT_HEIGHT + 16.0 < *(float *)(local_18 + 0x114) !=
@@ -93,7 +94,8 @@ LAB_0041f7c5:
           *(undefined4 *)(local_18 + 0x120) = 0x40400000;
         }
         else {
-          *(float *)(local_18 + 0x120) = DAT_006c6ec0 * 0.03 + *(float *)(local_18 + 0x120);
+          *(float *)(local_18 + 0x120) =
+               (float)g_GameContext._424_4_ * 0.03 + *(float *)(local_18 + 0x120);
         }
       }
       iVar5 = FUN_00426fd0(local_18 + 0x110,&DAT_0069e234);
@@ -127,7 +129,7 @@ LAB_0041f7c5:
             }
             else {
               FUN_00401940(local_18 + 0x110,0xffffffff,0xff80c0ff);
-              FUN_004311e0(0x1f,0);
+              FUN_004311e0(0x1f);
             }
           }
           else {
@@ -225,7 +227,7 @@ LAB_0041f7c5:
             }
             else {
               FUN_00401940(local_18 + 0x110,0xffffffff,0xff80c0ff);
-              FUN_004311e0(0x1f,0);
+              FUN_004311e0(0x1f);
             }
           }
           else {
@@ -249,7 +251,7 @@ LAB_0041f7c5:
           if (_DAT_0069d4b0 < 0x80) {
             FUN_00414340();
             FUN_004173d9(0);
-            FUN_004311e0(0x1f,0);
+            FUN_004311e0(0x1f);
             FUN_00401940(local_18 + 0x110,0xffffffff,0xff80c0ff);
           }
           _DAT_0069d4b0 = 0x80;
@@ -263,7 +265,7 @@ LAB_0041f7c5:
             DAT_0069bc30 = DAT_0069bc30 & 0xfffffffc | 2;
           }
           FUN_0041c57e(200);
-          FUN_004311e0(0x1c,0);
+          FUN_004311e0(0x1c);
           break;
         case 6:
           local_c = (DAT_0069bcb4 / 3) * 10 + 500;

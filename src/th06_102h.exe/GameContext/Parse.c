@@ -27,14 +27,14 @@ undefined4 __thiscall GameContext::Parse(GameContext *this,char *config_file_nam
     g_GameContext.cfg.padAxisY = 600;
     pFVar2 = fopen("bgm/th06_01.wav","rb");
     if (pFVar2 == (FILE *)0x0) {
-      g_GameContext.cfg.soundMode = 2;
+      g_GameContext.cfg.musicMode = MIDI;
       DebugPrint("wave データが無いので、midi にします\n");
     }
     else {
-      g_GameContext.cfg.soundMode = 1;
+      g_GameContext.cfg.musicMode = WAV;
       _fclose(pFVar2);
     }
-    g_GameContext.cfg.playSound = 1;
+    g_GameContext.cfg.playSounds = 1;
     g_GameContext.cfg.defaultDifficulty = 1;
     g_GameContext.cfg.windowed = false;
     g_GameContext.cfg.frameskip_config = 0;
@@ -63,8 +63,8 @@ undefined4 __thiscall GameContext::Parse(GameContext *this,char *config_file_nam
     }
     if ((((((4 < g_GameContext.cfg.lifeCount) || (3 < g_GameContext.cfg.bombCount)) ||
           (1 < g_GameContext.cfg.colorMode16bit)) ||
-         ((2 < g_GameContext.cfg.soundMode || (4 < g_GameContext.cfg.defaultDifficulty)))) ||
-        ((1 < g_GameContext.cfg.playSound ||
+         ((MIDI < g_GameContext.cfg.musicMode || (4 < g_GameContext.cfg.defaultDifficulty)))) ||
+        ((1 < g_GameContext.cfg.playSounds ||
          ((true < g_GameContext.cfg.windowed || (2 < g_GameContext.cfg.frameskip_config)))))) ||
        ((g_GameContext.cfg.version != 0x102 || (g_FileSize != 0x38)))) {
       g_GameContext.cfg.lifeCount = 2;
@@ -75,14 +75,14 @@ undefined4 __thiscall GameContext::Parse(GameContext *this,char *config_file_nam
       g_GameContext.cfg.padAxisY = 600;
       pFVar2 = fopen("bgm/th06_01.wav","rb");
       if (pFVar2 == (FILE *)0x0) {
-        g_GameContext.cfg.soundMode = 2;
+        g_GameContext.cfg.musicMode = MIDI;
         DebugPrint("wave データが無いので、midi にします\n");
       }
       else {
-        g_GameContext.cfg.soundMode = 1;
+        g_GameContext.cfg.musicMode = WAV;
         _fclose(pFVar2);
       }
-      g_GameContext.cfg.playSound = 1;
+      g_GameContext.cfg.playSounds = 1;
       g_GameContext.cfg.defaultDifficulty = 1;
       g_GameContext.cfg.windowed = false;
       g_GameContext.cfg.frameskip_config = 0;
@@ -137,7 +137,7 @@ undefined4 __thiscall GameContext::Parse(GameContext *this,char *config_file_nam
   }
   if (((uint)(this->cfg).render_opts >> 7 & 1) != 0) {
     GameErrorContextLog(&g_GameErrorContext,"６０フレーム強制モードにします\n");
-    this->field149_0x1a0 = 0;
+    this->field85_0x1a0 = 0;
   }
   if (((uint)(this->cfg).render_opts >> 8 & 1) != 0) {
     GameErrorContextLog(&g_GameErrorContext,"テクスチャの色合成を抑制しますn");

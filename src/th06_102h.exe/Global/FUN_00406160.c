@@ -72,7 +72,7 @@ void FUN_00406160(int param_1)
         FUN_004051b0(local_c,local_8 + 0x489);
         local_c = local_c + 0x110;
       }
-      FUN_004311e0(6,0);
+      FUN_004311e0(6);
       *(undefined4 *)(param_1 + 0x7624) = *(undefined4 *)(param_1 + 0x440);
       *(undefined4 *)(param_1 + 0x7628) = 0x43600000;
       *(undefined4 *)(param_1 + 0x762c) = 0x3ed70a3d;

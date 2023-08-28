@@ -33,34 +33,38 @@ undefined4 FUN_004149d0(int param_1)
       case 1:
         goto switchD_00414a97_caseD_1;
       case 2:
-        fVar2 = (float)local_24[0x15d] * 0.5 * DAT_006c6ec0;
-        fVar3 = (float)local_24[0x15c] * 0.5 * DAT_006c6ec0;
-        local_24[0x158] = (float)local_24[0x15b] * 0.5 * DAT_006c6ec0 + (float)local_24[0x158];
+        fVar2 = (float)local_24[0x15d] * 0.5 * (float)g_GameContext._424_4_;
+        fVar3 = (float)local_24[0x15c] * 0.5 * (float)g_GameContext._424_4_;
+        local_24[0x158] =
+             (float)local_24[0x15b] * 0.5 * (float)g_GameContext._424_4_ + (float)local_24[0x158];
         local_24[0x159] = fVar3 + (float)local_24[0x159];
         local_24[0x15a] = fVar2 + (float)local_24[0x15a];
         iVar4 = FUN_00433960();
         break;
       case 3:
-        fVar2 = (float)local_24[0x15d] * 0.4 * DAT_006c6ec0;
-        fVar3 = (float)local_24[0x15c] * 0.4 * DAT_006c6ec0;
-        local_24[0x158] = (float)local_24[0x15b] * 0.4 * DAT_006c6ec0 + (float)local_24[0x158];
+        fVar2 = (float)local_24[0x15d] * 0.4 * (float)g_GameContext._424_4_;
+        fVar3 = (float)local_24[0x15c] * 0.4 * (float)g_GameContext._424_4_;
+        local_24[0x158] =
+             (float)local_24[0x15b] * 0.4 * (float)g_GameContext._424_4_ + (float)local_24[0x158];
         local_24[0x159] = fVar3 + (float)local_24[0x159];
         local_24[0x15a] = fVar2 + (float)local_24[0x15a];
         iVar4 = FUN_00433960();
         break;
       case 4:
-        fVar2 = (float)local_24[0x15d] * 0.3333333 * DAT_006c6ec0;
-        fVar3 = (float)local_24[0x15c] * 0.3333333 * DAT_006c6ec0;
-        local_24[0x158] = (float)local_24[0x15b] * 0.3333333 * DAT_006c6ec0 + (float)local_24[0x158]
-        ;
+        fVar2 = (float)local_24[0x15d] * 0.3333333 * (float)g_GameContext._424_4_;
+        fVar3 = (float)local_24[0x15c] * 0.3333333 * (float)g_GameContext._424_4_;
+        local_24[0x158] =
+             (float)local_24[0x15b] * 0.3333333 * (float)g_GameContext._424_4_ +
+             (float)local_24[0x158];
         local_24[0x159] = fVar3 + (float)local_24[0x159];
         local_24[0x15a] = fVar2 + (float)local_24[0x15a];
         iVar4 = FUN_00433960();
         break;
       case 5:
-        fVar2 = (float)local_24[0x15d] * 0.5 * DAT_006c6ec0;
-        fVar3 = (float)local_24[0x15c] * 0.5 * DAT_006c6ec0;
-        local_24[0x158] = (float)local_24[0x15b] * 0.5 * DAT_006c6ec0 + (float)local_24[0x158];
+        fVar2 = (float)local_24[0x15d] * 0.5 * (float)g_GameContext._424_4_;
+        fVar3 = (float)local_24[0x15c] * 0.5 * (float)g_GameContext._424_4_;
+        local_24[0x158] =
+             (float)local_24[0x15b] * 0.5 * (float)g_GameContext._424_4_ + (float)local_24[0x158];
         local_24[0x159] = fVar3 + (float)local_24[0x159];
         local_24[0x15a] = fVar2 + (float)local_24[0x15a];
         iVar4 = FUN_00433960();
@@ -93,7 +97,9 @@ switchD_00414a97_caseD_1:
                 if ((int)local_24[0x169] < (int)local_24[0x16a]) {
                   fVar7 = (float10)FUN_0041e850(local_24[0x164]);
                   local_24[0x164] = (float)fVar7;
-                  local_24[0x161] = DAT_006c6ec0 * (float)local_24[0x162] + (float)local_24[0x161];
+                  local_24[0x161] =
+                       (float)g_GameContext._424_4_ * (float)local_24[0x162] +
+                       (float)local_24[0x161];
                   fVar7 = (float10)fcos((float10)(float)local_24[0x164]);
                   fVar6 = (float10)fsin((float10)(float)local_24[0x164]);
                   local_24[0x15b] = (float)(fVar7 * (float10)(float)local_24[0x161]);
@@ -105,9 +111,10 @@ switchD_00414a97_caseD_1:
               }
             }
             else if ((int)local_24[0x169] < (int)local_24[0x16a]) {
-              fVar2 = DAT_006c6ec0 * (float)local_24[0x160];
-              fVar3 = DAT_006c6ec0 * (float)local_24[0x15f];
-              local_24[0x15b] = DAT_006c6ec0 * (float)local_24[0x15e] + (float)local_24[0x15b];
+              fVar2 = (float)g_GameContext._424_4_ * (float)local_24[0x160];
+              fVar3 = (float)g_GameContext._424_4_ * (float)local_24[0x15f];
+              local_24[0x15b] =
+                   (float)g_GameContext._424_4_ * (float)local_24[0x15e] + (float)local_24[0x15b];
               local_24[0x15c] = fVar3 + (float)local_24[0x15c];
               local_24[0x15d] = fVar2 + (float)local_24[0x15d];
               fVar7 = (float10)FUN_0045be40((double)(float)local_24[0x15c],
@@ -252,9 +259,10 @@ switchD_00414a97_caseD_1:
             local_24[0x15c] = (float)(fVar6 * (float10)local_10);
           }
         }
-        fVar2 = DAT_006c6ec0 * (float)local_24[0x15d];
-        fVar3 = DAT_006c6ec0 * (float)local_24[0x15c];
-        local_24[0x158] = DAT_006c6ec0 * (float)local_24[0x15b] + (float)local_24[0x158];
+        fVar2 = (float)g_GameContext._424_4_ * (float)local_24[0x15d];
+        fVar3 = (float)g_GameContext._424_4_ * (float)local_24[0x15c];
+        local_24[0x158] =
+             (float)g_GameContext._424_4_ * (float)local_24[0x15b] + (float)local_24[0x158];
         local_24[0x159] = fVar3 + (float)local_24[0x159];
         local_24[0x15a] = fVar2 + (float)local_24[0x15a];
         iVar4 = FUN_0041b5e1(local_24[0x158],local_24[0x159],*(undefined4 *)(local_24[0x30] + 0x30),
@@ -310,7 +318,8 @@ LAB_00414a1a:
     for (local_c = 0; local_c < 0x40; local_c = local_c + 1) {
       if (*(int *)(local_2c + 600) != 0) {
         *(float *)(local_2c + 0x234) =
-             DAT_006c6ec0 * *(float *)(local_2c + 0x240) + *(float *)(local_2c + 0x234);
+             (float)g_GameContext._424_4_ * *(float *)(local_2c + 0x240) +
+             *(float *)(local_2c + 0x234);
         if (*(float *)(local_2c + 0x238) <
             *(float *)(local_2c + 0x234) - *(float *)(local_2c + 0x230)) {
           *(float *)(local_2c + 0x230) = *(float *)(local_2c + 0x234) - *(float *)(local_2c + 0x238)

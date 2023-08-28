@@ -1,18 +1,17 @@
 
-void FUN_004242f3(int param_1)
+void __thiscall FUN_004242f3(int param_1_00,int param_2)
 
 {
   void *_Memory;
-  int in_ECX;
   
-  if (*(int *)(in_ECX + 0x1bc + param_1 * 4) != 0) {
+  if (*(int *)(param_1_00 + 0x1bc + param_2 * 4) != 0) {
     FUN_0043c8d0();
-    _Memory = *(void **)(in_ECX + 0x1bc + param_1 * 4);
+    _Memory = *(void **)(param_1_00 + 0x1bc + param_2 * 4);
     if (_Memory != (void *)0x0) {
       thunk_FUN_0043c8d0();
       _free(_Memory);
     }
-    *(undefined4 *)(in_ECX + 0x1bc + param_1 * 4) = 0;
+    *(undefined4 *)(param_1_00 + 0x1bc + param_2 * 4) = 0;
   }
   return;
 }

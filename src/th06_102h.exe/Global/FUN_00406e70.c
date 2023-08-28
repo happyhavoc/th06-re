@@ -54,7 +54,7 @@ void FUN_00406e70(int param_1)
         puVar1[2] = *(undefined4 *)(param_1 + 0x448);
         local_c = local_c + 0x110;
       }
-      FUN_004311e0(0x13,0);
+      FUN_004311e0(0x13);
       *(undefined4 *)(param_1 + 0x9d4) = 0x3e99999a;
       *(undefined4 *)(param_1 + 0x9d0) = 0x3e99999a;
     }

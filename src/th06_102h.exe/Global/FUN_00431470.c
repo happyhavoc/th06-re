@@ -46,7 +46,7 @@ undefined4 * __fastcall FUN_00431470(VeryBigStruct *param_1)
   FLOAT_006d45e0 = 1.0;
   DAT_006d45f8 = 0x3f800000;
   DAT_006d45fc = 0x3f800000;
-  param_1->field19748_0x210c4 = 0;
+  param_1->vertex_buffer = (IDirect3DVertexBuffer8 *)0x0;
   param_1->field19739_0x210b8 = 0;
   param_1->field_0x210bc = 0;
   param_1->field_0x210bd = 0;

@@ -109,7 +109,7 @@ void FUN_0040c5b0(int param_1)
       FUN_004145c0();
       local_88 = local_88 + 0.1745329;
     }
-    FUN_004311e0(7,0);
+    FUN_004311e0(7);
   }
   *(int *)(param_1 + 0x9ac) = *(int *)(param_1 + 0x9ac) + 1;
   return;

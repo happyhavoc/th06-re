@@ -68,7 +68,7 @@ VeryBigStruct::LoadAnim(VeryBigStruct *this,int param_2,char *path,int param_4)
       local_40 = (float)local_10[2] + (float)local_10[4];
       local_38 = (float)anim_data->width;
       local_3c = (float)anim_data->height;
-      FUN_00432260(*local_10 + param_4,&local_50);
+      FUN_00432260(this,*local_10 + param_4,&local_50);
       local_18 = (Anm0 *)&local_18->num_scripts;
     }
     for (local_14 = 0; local_14 < anim_data->num_scripts; local_14 = local_14 + 1) {

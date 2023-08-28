@@ -12,7 +12,7 @@ void FUN_0041d680(void)
   undefined local_15c [48];
   undefined4 local_12c [57];
   uint local_48;
-  int local_44;
+  HRESULT local_44;
   uint local_40;
   uint local_3c;
   joyinfoex_tag local_38;
@@ -23,7 +23,7 @@ void FUN_0041d680(void)
     *puVar3 = 0;
     puVar3 = puVar3 + 1;
   }
-  if (g_GameContext._20_4_ == 0) {
+  if (g_GameContext.controller == (LPDIRECTINPUTDEVICE8A)0x0) {
     pjVar4 = &local_38;
     for (iVar2 = 0xd; iVar2 != 0; iVar2 = iVar2 + -1) {
       pjVar4->dwSize = 0;
@@ -43,20 +43,21 @@ void FUN_0041d680(void)
     }
   }
   else {
-    local_44 = (**(code **)(*(int *)g_GameContext._20_4_ + 100))(g_GameContext._20_4_);
+    local_44 = (*(g_GameContext.controller)->lpVtbl->Poll)(g_GameContext.controller);
     if (local_44 < 0) {
       local_160 = 0;
       DebugPrint2("error : DIERR_INPUTLOST\n");
-      local_44 = (**(code **)(*(int *)g_GameContext._20_4_ + 0x1c))(g_GameContext._20_4_);
+      local_44 = (*(g_GameContext.controller)->lpVtbl->Acquire)(g_GameContext.controller);
       do {
         if (local_44 != -0x7ff8ffe2) break;
-        local_44 = (**(code **)(*(int *)g_GameContext._20_4_ + 0x1c))(g_GameContext._20_4_);
+        local_44 = (*(g_GameContext.controller)->lpVtbl->Acquire)(g_GameContext.controller);
         DebugPrint2("error : DIERR_INPUTLOST %d\n",local_160);
         local_160 = local_160 + 1;
       } while (local_160 < 400);
     }
     else {
-      (**(code **)(*(int *)g_GameContext._20_4_ + 0x24))(g_GameContext._20_4_,0x110,local_15c);
+      (*(g_GameContext.controller)->lpVtbl->GetDeviceState)
+                (g_GameContext.controller,0x110,local_15c);
       if (-1 < local_44) {
         puVar3 = local_12c;
         puVar5 = &DAT_0069e1b0;

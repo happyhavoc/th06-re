@@ -88,7 +88,7 @@ void __fastcall FUN_004381ec(int param_1)
       }
       else {
         GameErrorContextLog(&g_GameErrorContext,"セレクト画面の読み込みに失敗\n");
-        g_GameContext._396_4_ = 4;
+        g_GameContext.unkInput2 = 4;
       }
     }
   }
@@ -109,7 +109,7 @@ void __fastcall FUN_004381ec(int param_1)
           *(undefined2 *)(local_8 + 0x8a) = 0x10;
           *(undefined4 *)(param_1 + 0x81f4) = 0;
           *(undefined4 *)(param_1 + 0x81a0) = 0;
-          FUN_004311e0(10,0);
+          FUN_004311e0(10);
           pbVar3 = OpenPath(param_1 + 0x823c + *(int *)(param_1 + 0x81e8) * 0x200,1);
           *(byte **)(param_1 + 0x10edc) = pbVar3;
           FUN_0042a140(*(undefined4 *)(param_1 + 0x10edc),g_FileSize);
@@ -136,7 +136,7 @@ LAB_0043877b:
         for (local_c = 0; local_c < 0x7a; local_c = local_c + 1) {
           *(undefined2 *)(param_1 + 0x8a + local_c * 0x110) = 4;
         }
-        FUN_004311e0(0xb,0);
+        FUN_004311e0(0xb);
         *(undefined4 *)(param_1 + 0x81a0) = 0;
       }
     }
@@ -179,7 +179,7 @@ LAB_0043877b:
         for (local_c = 0; local_c < 0x7a; local_c = local_c + 1) {
           *(undefined2 *)(param_1 + 0x8a + local_c * 0x110) = 4;
         }
-        FUN_004311e0(0xb,0);
+        FUN_004311e0(0xb);
         *(undefined4 *)(param_1 + 0x81f0) = 0xd;
         local_8 = param_1;
         for (local_c = 0; local_c < 0x7a; local_c = local_c + 1) {
@@ -191,7 +191,7 @@ LAB_0043877b:
     }
     else {
       _DAT_0069bcbc = 1;
-      DAT_006c6ec4 = 0x3f800000;
+      g_GameContext._428_4_ = 0x3f800000;
       _strcpy(&DAT_0069d4cc,(char *)(param_1 + 0x823c + *(int *)(param_1 + 0x81e8) * 0x200));
       CUR_RANK = (int)*(byte *)(*(int *)(param_1 + 0x10edc) + 7);
       DAT_0069d4bd = *(byte *)(*(int *)(param_1 + 0x10edc) + 6) / 2;
@@ -204,7 +204,7 @@ LAB_0043877b:
       _free(*(void **)(param_1 + 0x10edc));
       *(undefined4 *)(param_1 + 0x10edc) = 0;
       CUR_STAGE = *(undefined4 *)(param_1 + 0x81a0);
-      g_GameContext._396_4_ = 2;
+      g_GameContext.unkInput2 = 2;
     }
   }
 LAB_00438bb2:

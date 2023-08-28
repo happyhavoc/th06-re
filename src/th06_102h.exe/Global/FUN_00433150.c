@@ -97,7 +97,7 @@ undefined4 FUN_00433150(float *param_1)
     }
     else {
       (*(g_GameContext.d3d_device)->lpVtbl->DrawPrimitiveUP)
-                (g_GameContext.d3d_device,D3DPT_TRIANGLESTRIP,2,&DAT_006d4660,0x18);
+                (g_GameContext.d3d_device,D3DPT_TRIANGLESTRIP,2,VERTEX_BUFFER_CONTENTS,0x18);
     }
     uVar1 = 0;
   }

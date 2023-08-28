@@ -7,10 +7,10 @@ undefined4 __thiscall SoundPlayer::Release(SoundPlayer *this)
   
   if (this->directsound8_uninit != (DirectSound8Player *)0x0) {
     for (local_8 = 0; local_8 < 0x80; local_8 = local_8 + 1) {
-      if (this->duplicate_sound_buffer[local_8] != (LPDIRECTSOUNDBUFFER)0x0) {
-        (*this->duplicate_sound_buffer[local_8]->lpVtbl->Release)
-                  (this->duplicate_sound_buffer[local_8]);
-        this->duplicate_sound_buffer[local_8] = (LPDIRECTSOUNDBUFFER)0x0;
+      if (this->duplicateSoundBuffers[local_8] != (LPDIRECTSOUNDBUFFER)0x0) {
+        (*this->duplicateSoundBuffers[local_8]->lpVtbl->Release)
+                  (this->duplicateSoundBuffers[local_8]);
+        this->duplicateSoundBuffers[local_8] = (LPDIRECTSOUNDBUFFER)0x0;
       }
       if (this->sound_buffers[local_8] != (LPDIRECTSOUNDBUFFER)0x0) {
         (*this->sound_buffers[local_8]->lpVtbl->Release)(this->sound_buffers[local_8]);

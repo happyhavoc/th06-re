@@ -14,7 +14,7 @@ undefined4 FUN_0043753c(int param_1,int param_2)
     }
     else {
       *(int *)(param_1 + 0x81a0) = *(int *)(param_1 + 0x81a0) + 1;
-      FUN_004311e0(0xc,0);
+      FUN_004311e0(0xc);
       if (*(int *)(param_1 + 0x81a0) < 0) {
         *(int *)(param_1 + 0x81a0) = param_2 + -1;
       }
@@ -26,7 +26,7 @@ undefined4 FUN_0043753c(int param_1,int param_2)
   }
   else {
     *(int *)(param_1 + 0x81a0) = *(int *)(param_1 + 0x81a0) + -1;
-    FUN_004311e0(0xc,0);
+    FUN_004311e0(0xc);
     if (*(int *)(param_1 + 0x81a0) < 0) {
       *(int *)(param_1 + 0x81a0) = param_2 + -1;
     }

@@ -1,56 +1,57 @@
 
-undefined4 FUN_0042d773(void)
+/* WARNING: Inlined function: FUN_0045c3e0 */
+
+undefined4 FUN_0042d773(int param_1)
 
 {
   void *pvVar1;
-  undefined4 uVar2;
-  ChainElem *pCVar3;
-  int iVar4;
-  int unaff_EBP;
+  ChainElem *pCVar2;
+  int iVar3;
+  undefined4 uVar4;
+  void *pvStack_64;
+  void *pvStack_10;
+  undefined *puStack_c;
+  undefined4 uStack_8;
   
-  FUN_0045c3e0();
+  uStack_8 = 0xffffffff;
+  puStack_c = &LAB_0046924c;
+  pvStack_10 = ExceptionList;
+  ExceptionList = &pvStack_10;
   pvVar1 = operator_new(0x56b0);
-  *(void **)(unaff_EBP + -0x18) = pvVar1;
-  *(undefined4 *)(unaff_EBP + -4) = 0;
-  if (*(int *)(unaff_EBP + -0x18) == 0) {
-    *(undefined4 *)(unaff_EBP + -0x60) = 0;
+  uStack_8 = 0;
+  if (pvVar1 == (void *)0x0) {
+    pvStack_64 = (void *)0x0;
   }
   else {
-    uVar2 = FUN_0042d8a1();
-    *(undefined4 *)(unaff_EBP + -0x60) = uVar2;
+    pvStack_64 = FUN_0042d8a1(pvVar1);
   }
-  *(undefined4 *)(unaff_EBP + -0x14) = *(undefined4 *)(unaff_EBP + -0x60);
-  *(undefined4 *)(unaff_EBP + -4) = 0xffffffff;
-  *(undefined4 *)(unaff_EBP + -0x10) = *(undefined4 *)(unaff_EBP + -0x14);
+  uStack_8 = 0xffffffff;
   DebugPrint("counat = %d\n",DAT_0069d70c);
-  pCVar3 = CreateChainElem(&DAT_0069d918,FUN_0042d98e);
-  *(ChainElem **)(*(int *)(unaff_EBP + -0x10) + 0x51a8) = pCVar3;
-  *(code **)(*(int *)(*(int *)(unaff_EBP + -0x10) + 0x51a8) + 8) = FUN_0042f060;
-  *(code **)(*(int *)(*(int *)(unaff_EBP + -0x10) + 0x51a8) + 0xc) = FUN_0042f5bc;
-  *(undefined4 *)(*(int *)(*(int *)(unaff_EBP + -0x10) + 0x51a8) + 0x1c) =
-       *(undefined4 *)(unaff_EBP + -0x10);
-  if (*(int *)(unaff_EBP + 8) != 0) {
+  pCVar2 = AllocateChainElem(&CHAIN,FUN_0042d98e);
+  *(ChainElem **)((int)pvStack_64 + 0x51a8) = pCVar2;
+  *(code **)(*(int *)((int)pvStack_64 + 0x51a8) + 8) = FUN_0042f060;
+  *(code **)(*(int *)((int)pvStack_64 + 0x51a8) + 0xc) = FUN_0042f5bc;
+  *(void **)(*(int *)((int)pvStack_64 + 0x51a8) + 0x1c) = pvStack_64;
+  if (param_1 != 0) {
     if (DAT_0069d4c3 == '\0') {
-      *(undefined4 *)(*(int *)(unaff_EBP + -0x10) + 8) = 9;
+      *(undefined4 *)((int)pvStack_64 + 8) = 9;
     }
     else {
-      *(undefined4 *)(*(int *)(unaff_EBP + -0x10) + 8) = 0x11;
+      *(undefined4 *)((int)pvStack_64 + 8) = 0x11;
     }
   }
-  iVar4 = AddToCalcChain((short *)&DAT_0069d918,
-                         *(ChainElem **)(*(int *)(unaff_EBP + -0x10) + 0x51a8),0xd);
-  if (iVar4 == 0) {
-    pCVar3 = CreateChainElem(&DAT_0069d918,FUN_0042e446);
-    *(ChainElem **)(*(int *)(unaff_EBP + -0x10) + 0x51ac) = pCVar3;
-    *(undefined4 *)(*(int *)(*(int *)(unaff_EBP + -0x10) + 0x51ac) + 0x1c) =
-         *(undefined4 *)(unaff_EBP + -0x10);
-    AddToDrawChain(0x69d918,*(ChainElem **)(*(int *)(unaff_EBP + -0x10) + 0x51ac),0xc);
-    uVar2 = 0;
+  iVar3 = AddToCalcChain(&CHAIN,*(ChainElem **)((int)pvStack_64 + 0x51a8),0xd);
+  if (iVar3 == 0) {
+    pCVar2 = AllocateChainElem(&CHAIN,FUN_0042e446);
+    *(ChainElem **)((int)pvStack_64 + 0x51ac) = pCVar2;
+    *(void **)(*(int *)((int)pvStack_64 + 0x51ac) + 0x1c) = pvStack_64;
+    AddToDrawChain(&CHAIN,*(ChainElem **)((int)pvStack_64 + 0x51ac),0xc);
+    uVar4 = 0;
   }
   else {
-    uVar2 = 0xffffffff;
+    uVar4 = 0xffffffff;
   }
-  ExceptionList = *(void **)(unaff_EBP + -0xc);
-  return uVar2;
+  ExceptionList = pvStack_10;
+  return uVar4;
 }
 

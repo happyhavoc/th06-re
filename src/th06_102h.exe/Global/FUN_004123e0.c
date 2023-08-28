@@ -175,7 +175,7 @@ switchD_00412938_caseD_2:
     if ((int)uVar3 < 0) {
       uVar3 = (uVar3 - 1 | 0xfffffffe) + 1;
     }
-    FUN_004311e0(uVar3 + 2,0);
+    FUN_004311e0(uVar3 + 2);
     FUN_0040ef50(*(undefined *)(local_28 + 0xe3c),local_28 + 0xc6c,1,0xffffffff);
     FUN_0040ef50(*(byte *)(local_28 + 0xe3d) + 4,local_28 + 0xc6c,4,0xffffffff);
     if (-1 < *(int *)(local_28 + 0xc44)) {
@@ -196,7 +196,7 @@ LAB_00412ce2:
     }
     if (*(char *)(local_28 + 0xe41) == '\0') {
       if (*(int *)(local_28 + 0xce4) < iVar1) {
-        FUN_004311e0(0x14,0);
+        FUN_004311e0(0x14);
         *(uint *)(local_28 + 0x80) = *(uint *)(local_28 + 0x80) | 8;
         *(undefined *)(local_28 + 0xe41) = 4;
       }

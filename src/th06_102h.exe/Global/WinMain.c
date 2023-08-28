@@ -41,7 +41,7 @@ int WinMain(HINSTANCE hInstance,HINSTANCE hPrevInstance,LPSTR lpCmdLine,int nSho
             local_58 = (VeryBigStruct *)FUN_00431470(puVar1);
           }
           VERY_BIG_STRUCT = local_58;
-          retCode = FUN_0042386b();
+          retCode = AddInputChain();
           if (retCode == 0) {
             if (g_GameContext.cfg.windowed == false) {
               ShowCursor(0);
@@ -62,7 +62,7 @@ int WinMain(HINSTANCE hInstance,HINSTANCE hPrevInstance,LPSTR lpCmdLine,int nSho
                 if (local_c == -0x7789f797) {
                   FUN_004219d0(VERY_BIG_STRUCT);
                   HVar2 = (*(g_GameContext.d3d_device)->lpVtbl->Reset)
-                                    (g_GameContext.d3d_device,&g_GameContext.present_parameters);
+                                    (g_GameContext.d3d_device,&g_GameContext.presentParameters);
                   if (HVar2 != 0) goto LAB_0042055a;
                   InitD3dDevice();
                   g_GameContext._408_4_ = 3;

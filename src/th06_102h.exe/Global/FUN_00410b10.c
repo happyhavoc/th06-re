@@ -6,7 +6,7 @@ undefined4 FUN_00410b10(int param_1)
   
   DAT_0069d4c2 = 1;
   g_GameContext._412_4_ = 1;
-  FUN_00424375(5,&DAT_0046a6cc);
+  GameContext::FUN_00424375(&g_GameContext,5,&DAT_0046a6cc);
   VeryBigStruct::LoadAnim(VERY_BIG_STRUCT,0x2c,"data/staff01.anm",0x600);
   VeryBigStruct::LoadAnim(VERY_BIG_STRUCT,0x2d,"data/staff02.anm",0x607);
   VeryBigStruct::LoadAnim(VERY_BIG_STRUCT,0x2e,"data/staff03.anm",0x60e);

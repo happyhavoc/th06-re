@@ -8,7 +8,7 @@ undefined4 __thiscall GameWindow::Render(GameWindow *this)
   bool bVar2;
   DWORD DVar3;
   double local_34;
-  D3DVIEWPORT8 local_20;
+  D3DVIEWPORT8 viewport;
   int local_8;
   
   if (this->activeapp_param != 0) {
@@ -16,22 +16,22 @@ undefined4 __thiscall GameWindow::Render(GameWindow *this)
     do {
       while( true ) {
         if (g_GameContext.cfg.frameskip_config <= *(byte *)&this->field4_0x10) {
-          if (((uint)g_GameContext.cfg.render_opts >> 3 & 1 |
-              (uint)g_GameContext.cfg.render_opts >> 4 & 1) != 0) {
-            local_20.X = 0;
-            local_20.Y = 0;
-            local_20.Width = 0x280;
-            local_20.Height = 0x1e0;
-            local_20.MinZ = 0.0;
-            local_20.MaxZ = 1.0;
-            (*(g_GameContext.d3d_device)->lpVtbl->SetViewport)(g_GameContext.d3d_device,&local_20);
+          if (((uint)g_GameContext.cfg.render_opts >> CLEAR_BACKBUFFER_ON_REFRESH & 1 |
+              (uint)g_GameContext.cfg.render_opts >> DISPLAY_MINIMUM_GRAPHICS & 1) != 0) {
+            viewport.X = 0;
+            viewport.Y = 0;
+            viewport.Width = 0x280;
+            viewport.Height = 0x1e0;
+            viewport.MinZ = 0.0;
+            viewport.MaxZ = 1.0;
+            (*(g_GameContext.d3d_device)->lpVtbl->SetViewport)(g_GameContext.d3d_device,&viewport);
             (*(g_GameContext.d3d_device)->lpVtbl->Clear)
                       (g_GameContext.d3d_device,0,(D3DRECT *)0x0,3,DAT_00487b60,1.0,0);
             (*(g_GameContext.d3d_device)->lpVtbl->SetViewport)
                       (g_GameContext.d3d_device,&g_GameContext.viewport);
           }
           (*(g_GameContext.d3d_device)->lpVtbl->BeginScene)(g_GameContext.d3d_device);
-          UnkChain4((short *)&DAT_0069d918);
+          RunChain(&CHAIN);
           (*(g_GameContext.d3d_device)->lpVtbl->EndScene)(g_GameContext.d3d_device);
           (*(g_GameContext.d3d_device)->lpVtbl->SetTexture)
                     (g_GameContext.d3d_device,0,(IDirect3DBaseTexture8 *)0x0);
@@ -42,8 +42,8 @@ undefined4 __thiscall GameWindow::Render(GameWindow *this)
         g_GameContext.viewport.Height = 0x1e0;
         (*(g_GameContext.d3d_device)->lpVtbl->SetViewport)
                   (g_GameContext.d3d_device,&g_GameContext.viewport);
-        local_8 = UnkChain3((short *)&DAT_0069d918);
-        FUN_00431270(&SOUND_PLAYER);
+        local_8 = RunChain2(&CHAIN);
+        playSounds(&SOUND_PLAYER);
         if (local_8 == 0) {
           return 1;
         }
@@ -54,7 +54,7 @@ undefined4 __thiscall GameWindow::Render(GameWindow *this)
 LAB_00420894:
         if (g_GameContext.cfg.windowed != false) break;
         if ((((uint)g_GameContext.cfg.render_opts >> 7 & 1) == 0) ||
-           (g_GameContext.field149_0x1a0 == 0)) {
+           (g_GameContext.field85_0x1a0 == 0)) {
           bVar2 = false;
         }
         else {
@@ -66,7 +66,7 @@ LAB_004209ab:
           return 0;
         }
         if ((((uint)g_GameContext.cfg.render_opts >> 7 & 1) == 0) ||
-           (g_GameContext.field149_0x1a0 == 0)) {
+           (g_GameContext.field85_0x1a0 == 0)) {
           bVar2 = false;
         }
         else {
@@ -79,7 +79,7 @@ LAB_004209ab:
         FUN_00420b50();
       }
       if (*(char *)&this->field4_0x10 == '\0') goto LAB_004209ab;
-      DAT_006c6ec4 = 1.0;
+      g_GameContext._428_4_ = 0x3f800000;
       timeBeginPeriod(1);
       DVar3 = timeGetTime();
       dVar1 = (double)(ulonglong)DVar3;
@@ -96,29 +96,29 @@ LAB_004209ab:
     } while (*(byte *)&this->field4_0x10 <= g_GameContext.cfg.frameskip_config);
 LAB_00420a0b:
     FUN_00420b50();
-    if (NAN(DAT_006c6ec4) == (DAT_006c6ec4 == 0.0)) {
-      DAT_006c6ec0 = DAT_006c6ec4;
+    if (NAN((float)g_GameContext._428_4_) == ((float)g_GameContext._428_4_ == 0.0)) {
+      g_GameContext._424_4_ = g_GameContext._428_4_;
     }
     else if (1 < DAT_006c6bf4) {
       timeBeginPeriod(1);
       DVar3 = timeGetTime();
-      if (DVar3 < (uint)INT_006c6ebc) {
-        INT_006c6ebc = DVar3;
+      if (DVar3 < (uint)g_GameContext._420_4_) {
+        g_GameContext._420_4_ = DVar3;
       }
-      dVar1 = ((((double)(ulonglong)(DVar3 - INT_006c6ebc) * 60.0) / 2.0) / 1000.0) /
+      dVar1 = ((((double)(ulonglong)(DVar3 - g_GameContext._420_4_) * 60.0) / 2.0) / 1000.0) /
               (double)(g_GameContext.cfg.frameskip_config + 1);
       if (dVar1 < 0.865) {
         if (dVar1 < 0.6) {
-          DAT_006c6ec0 = 0.5;
+          g_GameContext._424_4_ = 0x3f000000;
         }
         else {
-          DAT_006c6ec0 = 0.8;
+          g_GameContext._424_4_ = 0x3f4ccccd;
         }
       }
       else {
-        DAT_006c6ec0 = 1.0;
+        g_GameContext._424_4_ = 0x3f800000;
       }
-      INT_006c6ebc = DVar3;
+      g_GameContext._420_4_ = DVar3;
       timeEndPeriod(1);
       DAT_006c6bf4 = 0;
     }

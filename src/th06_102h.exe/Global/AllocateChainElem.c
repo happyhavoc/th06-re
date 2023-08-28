@@ -1,5 +1,5 @@
 
-ChainElem * __thiscall CreateChainElem(void *this,undefined4 param_1)
+ChainElem * __thiscall AllocateChainElem(void *this,void *callback)
 
 {
   ChainElem *this_00;
@@ -20,10 +20,10 @@ ChainElem * __thiscall CreateChainElem(void *this,undefined4 param_1)
   else {
     local_24 = FUN_0041c720(this_00);
   }
-  local_24->callback = param_1;
-  local_24->field3_0x8 = 0;
-  local_24->field4_0xc = 0;
-  local_24->field1_0x2 = local_24->field1_0x2 | 1;
+  local_24->callback = callback;
+  local_24->added_callback = 0;
+  local_24->deleted_callback = 0;
+  local_24->flags = local_24->flags | 1;
   ExceptionList = local_10;
   return local_24;
 }

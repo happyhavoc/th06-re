@@ -91,7 +91,7 @@ LAB_0042508a:
   }
   if (((BUTTONS_PRESSED_CURFRAME & 10) != 0) &&
      ((BUTTONS_PRESSED_CURFRAME & 10) != (BUTTONS_PRESSED_PREVFRAME & 10))) {
-    g_GameContext._396_4_ = 1;
+    g_GameContext.unkInput2 = 1;
   }
   __security_check_cookie(local_10 ^ unaff_retaddr);
   return;

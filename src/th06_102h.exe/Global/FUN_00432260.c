@@ -1,31 +1,36 @@
 
-void FUN_00432260(int param_1,undefined4 *param_2)
+void __thiscall FUN_00432260(VeryBigStruct *this,int param_2,undefined4 *param_3)
 
 {
-  int in_ECX;
   int iVar1;
-  undefined4 *puVar2;
+  VeryBigStruct0tbl *pVVar2;
   
-  puVar2 = (undefined4 *)(in_ECX + param_1 * 0x38);
+  pVVar2 = this->field0_0x0 + param_2;
   for (iVar1 = 0xe; iVar1 != 0; iVar1 = iVar1 + -1) {
-    *puVar2 = *param_2;
-    param_2 = param_2 + 1;
-    puVar2 = puVar2 + 1;
+    pVVar2->field0_0x0 = *param_3;
+    param_3 = param_3 + 1;
+    pVVar2 = (VeryBigStruct0tbl *)&pVVar2->field_0x4;
   }
-  *(undefined4 *)(in_ECX + 0x34 + param_1 * 0x38) = *(undefined4 *)(in_ECX + 0x1c930);
-  *(int *)(in_ECX + 0x1c930) = *(int *)(in_ECX + 0x1c930) + 1;
-  *(float *)(in_ECX + 0x1c + param_1 * 0x38) =
-       *(float *)(in_ECX + 4 + param_1 * 0x38) / *(float *)(in_ECX + 0x18 + param_1 * 0x38);
-  *(float *)(in_ECX + 0x24 + param_1 * 0x38) =
-       *(float *)(in_ECX + 0xc + param_1 * 0x38) / *(float *)(in_ECX + 0x18 + param_1 * 0x38);
-  *(float *)(in_ECX + 0x20 + param_1 * 0x38) =
-       *(float *)(in_ECX + 8 + param_1 * 0x38) / *(float *)(in_ECX + 0x14 + param_1 * 0x38);
-  *(float *)(in_ECX + 0x28 + param_1 * 0x38) =
-       *(float *)(in_ECX + 0x10 + param_1 * 0x38) / *(float *)(in_ECX + 0x14 + param_1 * 0x38);
-  *(float *)(in_ECX + 0x30 + param_1 * 0x38) =
-       *(float *)(in_ECX + 0xc + param_1 * 0x38) - *(float *)(in_ECX + 4 + param_1 * 0x38);
-  *(float *)(in_ECX + 0x2c + param_1 * 0x38) =
-       *(float *)(in_ECX + 0x10 + param_1 * 0x38) - *(float *)(in_ECX + 8 + param_1 * 0x38);
+  *(int *)&this->field0_0x0[param_2].field_0x34 = this->field2080_0x1c930;
+  this->field2080_0x1c930 = this->field2080_0x1c930 + 1;
+  *(float *)&this->field0_0x0[param_2].field_0x1c =
+       *(float *)&this->field0_0x0[param_2].field_0x4 /
+       *(float *)&this->field0_0x0[param_2].field_0x18;
+  *(float *)&this->field0_0x0[param_2].field_0x24 =
+       *(float *)&this->field0_0x0[param_2].field_0xc /
+       *(float *)&this->field0_0x0[param_2].field_0x18;
+  *(float *)&this->field0_0x0[param_2].field_0x20 =
+       *(float *)&this->field0_0x0[param_2].field_0x8 /
+       *(float *)&this->field0_0x0[param_2].field_0x14;
+  *(float *)&this->field0_0x0[param_2].field_0x28 =
+       *(float *)&this->field0_0x0[param_2].field_0x10 /
+       *(float *)&this->field0_0x0[param_2].field_0x14;
+  *(float *)&this->field0_0x0[param_2].field_0x30 =
+       *(float *)&this->field0_0x0[param_2].field_0xc -
+       *(float *)&this->field0_0x0[param_2].field_0x4;
+  *(float *)&this->field0_0x0[param_2].field_0x2c =
+       *(float *)&this->field0_0x0[param_2].field_0x10 -
+       *(float *)&this->field0_0x0[param_2].field_0x8;
   return;
 }
 

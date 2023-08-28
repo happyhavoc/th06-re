@@ -1,6 +1,6 @@
 
-void FUN_00434b60(undefined4 param_1,int param_2,undefined4 param_3,undefined4 param_4,char *param_5
-                 )
+void FUN_00434b60(VeryBigStruct *param_1,int param_2,undefined4 param_3,undefined4 param_4,
+                 char *param_5)
 
 {
   long lVar1;

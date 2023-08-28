@@ -11,8 +11,8 @@ undefined4 FUN_0043a338(int param_1)
   UVar1 = (*(g_GameContext.d3d_device)->lpVtbl->GetAvailableTextureMem)(g_GameContext.d3d_device);
   DebugPrint("Debug : title 開始 VRAM = %d\n",UVar1);
   BYTE_ARRAY_006d46c0._33264_4_ = -(uint)(param_1 != 0) & 0xc;
-  DAT_006c6ec4 = 0;
-  BYTE_ARRAY_006d46c0._33332_4_ = CreateChainElem(&DAT_0069d918,FUN_0043579f);
+  g_GameContext._428_4_ = 0;
+  BYTE_ARRAY_006d46c0._33332_4_ = AllocateChainElem(&CHAIN,FUN_0043579f);
   *(byte **)(BYTE_ARRAY_006d46c0._33332_4_ + 0x1c) = BYTE_ARRAY_006d46c0;
   *(code **)(BYTE_ARRAY_006d46c0._33332_4_ + 8) = FUN_0043a464;
   *(code **)(BYTE_ARRAY_006d46c0._33332_4_ + 0xc) = FUN_0043a659;
@@ -20,11 +20,11 @@ undefined4 FUN_0043a338(int param_1)
   BYTE_ARRAY_006d46c0[33269] = 0;
   BYTE_ARRAY_006d46c0[33270] = 0;
   BYTE_ARRAY_006d46c0[33271] = 0;
-  iVar2 = AddToCalcChain((short *)&DAT_0069d918,(ChainElem *)BYTE_ARRAY_006d46c0._33332_4_,2);
+  iVar2 = AddToCalcChain(&CHAIN,(ChainElem *)BYTE_ARRAY_006d46c0._33332_4_,2);
   if (iVar2 == 0) {
-    BYTE_ARRAY_006d46c0._33336_4_ = CreateChainElem(&DAT_0069d918,FUN_00439ad6);
+    BYTE_ARRAY_006d46c0._33336_4_ = AllocateChainElem(&CHAIN,FUN_00439ad6);
     *(byte **)(BYTE_ARRAY_006d46c0._33336_4_ + 0x1c) = BYTE_ARRAY_006d46c0;
-    AddToDrawChain(0x69d918,(ChainElem *)BYTE_ARRAY_006d46c0._33336_4_,0);
+    AddToDrawChain(&CHAIN,(ChainElem *)BYTE_ARRAY_006d46c0._33336_4_,0);
     BYTE_ARRAY_006d46c0[69424] = 0;
     BYTE_ARRAY_006d46c0[69425] = 0;
     BYTE_ARRAY_006d46c0[69426] = 0;

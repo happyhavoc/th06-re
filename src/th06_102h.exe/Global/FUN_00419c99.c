@@ -154,7 +154,7 @@ void __fastcall FUN_00419c99(uint *param_1)
     }
     local_18 = local_1e8;
     if (((int)local_1e8 < 10) && (param_1[7] != param_1[6])) {
-      FUN_004311e0(0x1d,0);
+      FUN_004311e0(0x1d);
     }
     FUN_00401650(0x47b900,&local_28,"%.2d",local_18);
     _DAT_00481b24 = 0xffffffff;

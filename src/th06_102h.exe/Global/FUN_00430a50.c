@@ -28,7 +28,7 @@ undefined4 FUN_00430a50(LPSTR param_1)
     FUN_0043ba10(local_b0);
     uVar6 = 0xffffffff;
   }
-  else if (g_GameContext.cfg.playSound == 0) {
+  else if (g_GameContext.cfg.playSounds == 0) {
     local_8 = 0xffffffff;
     FUN_0043ba10(local_b0);
     uVar6 = 0xffffffff;

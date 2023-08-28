@@ -136,23 +136,23 @@ undefined4 FUN_004188c9(void)
         DAT_0069bca0 = DAT_0069bca4;
         if (DAT_0069d4c3 == '\0') {
           if ((CUR_STAGE < 5) || ((CUR_RANK != 0 && (CUR_STAGE == 5)))) {
-            g_GameContext._396_4_ = 3;
+            g_GameContext.unkInput2 = 3;
           }
           else if (_DAT_0069bcbc == 0) {
             if (CUR_RANK == 4) {
               DAT_0069d4c2 = 1;
-              g_GameContext._396_4_ = 7;
+              g_GameContext.unkInput2 = 7;
             }
             else {
-              g_GameContext._396_4_ = 10;
+              g_GameContext.unkInput2 = 10;
             }
           }
           else {
-            g_GameContext._396_4_ = 8;
+            g_GameContext.unkInput2 = 8;
           }
         }
         else {
-          g_GameContext._396_4_ = 7;
+          g_GameContext.unkInput2 = 7;
         }
         goto LAB_00418fe0;
       case 0xc:

@@ -12,19 +12,19 @@ undefined4 __fastcall FUN_00402870(int *param_1)
   if (DAT_0069d4c3 != '\0') {
     DAT_0069bca0 = DAT_0069bca4;
     DAT_0069d4c0 = 0;
-    g_GameContext._396_4_ = 7;
+    g_GameContext.unkInput2 = 7;
     return 1;
   }
   if (_DAT_0069bcbc != 0) {
     DAT_0069bca0 = DAT_0069bca4;
     DAT_0069d4c0 = 0;
-    g_GameContext._396_4_ = 8;
+    g_GameContext.unkInput2 = 8;
     return 1;
   }
   if ((2 < DAT_0069d4b8) || (3 < CUR_RANK)) {
     DAT_0069bca0 = DAT_0069bca4;
     DAT_0069d4c0 = 0;
-    g_GameContext._396_4_ = 7;
+    g_GameContext.unkInput2 = 7;
     return 1;
   }
   switch(*param_1) {
@@ -150,7 +150,7 @@ undefined4 __fastcall FUN_00402870(int *param_1)
       *param_1 = 0;
       param_1[1] = 0;
       DAT_0069d4c0 = 0;
-      g_GameContext._396_4_ = 7;
+      g_GameContext.unkInput2 = 7;
       for (local_8 = 0; local_8 < 4; local_8 = local_8 + 1) {
         param_1[local_8 * 0x44 + 0x22] = param_1[local_8 * 0x44 + 0x22] & 0xfffffffe;
       }

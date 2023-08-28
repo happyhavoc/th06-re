@@ -25,23 +25,23 @@ void FUN_00423f3f(void)
     _DAT_006c6d0c = local_8;
     FUN_0045c386(&DAT_006c6c08,"%.02ffps",(double)local_10);
     if (DAT_0069d4c1 != '\0') {
-      local_c = 60.0 / DAT_006c6ec4;
-      _DAT_006c6ed0 = _DAT_006c6ed0 + local_c;
+      local_c = 60.0 / (float)g_GameContext._428_4_;
+      g_GameContext._440_4_ = (float)g_GameContext._440_4_ + local_c;
       if (local_c * 0.9 < local_10 == (NAN(local_c * 0.9) || NAN(local_10))) {
         if (local_c * 0.7 < local_10 == (NAN(local_c * 0.7) || NAN(local_10))) {
           if (local_c * 0.5 < local_10 == (NAN(local_c * 0.5) || NAN(local_10))) {
-            _DAT_006c6ecc = local_c * 0.5 + _DAT_006c6ecc;
+            g_GameContext._436_4_ = local_c * 0.5 + (float)g_GameContext._436_4_;
           }
           else {
-            _DAT_006c6ecc = local_c * 0.6 + _DAT_006c6ecc;
+            g_GameContext._436_4_ = local_c * 0.6 + (float)g_GameContext._436_4_;
           }
         }
         else {
-          _DAT_006c6ecc = local_c * 0.8 + _DAT_006c6ecc;
+          g_GameContext._436_4_ = local_c * 0.8 + (float)g_GameContext._436_4_;
         }
       }
       else {
-        _DAT_006c6ecc = _DAT_006c6ecc + local_c;
+        g_GameContext._436_4_ = (float)g_GameContext._436_4_ + local_c;
       }
     }
   }

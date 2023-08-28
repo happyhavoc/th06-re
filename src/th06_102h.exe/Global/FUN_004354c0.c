@@ -20,13 +20,13 @@ void FUN_004354c0(int param_1,LONG param_2,LONG param_3,int param_4,int param_5,
       HVar1 = (*(g_GameContext.d3d_device)->lpVtbl->CreateRenderTarget)
                         (g_GameContext.d3d_device,*(UINT *)(in_ECX + 0x20e34 + param_1 * 0x14),
                          *(UINT *)(in_ECX + 0x20e38 + param_1 * 0x14),
-                         g_GameContext.present_parameters.BackBufferFormat,D3DMULTISAMPLE_NONE,1,
+                         g_GameContext.presentParameters.BackBufferFormat,D3DMULTISAMPLE_NONE,1,
                          (IDirect3DSurface8 **)(in_ECX + 0x20d34 + param_1 * 4));
       if ((HVar1 != 0) &&
          (HVar1 = (*(g_GameContext.d3d_device)->lpVtbl->CreateImageSurface)
                             (g_GameContext.d3d_device,*(UINT *)(in_ECX + 0x20e34 + param_1 * 0x14),
                              *(UINT *)(in_ECX + 0x20e38 + param_1 * 0x14),
-                             g_GameContext.present_parameters.BackBufferFormat,
+                             g_GameContext.presentParameters.BackBufferFormat,
                              (IDirect3DSurface8 **)(in_ECX + 0x20d34 + param_1 * 4)), HVar1 != 0)) {
         (*local_20->lpVtbl->Release)(local_20);
         return;

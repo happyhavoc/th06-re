@@ -10,7 +10,7 @@ undefined4 __thiscall SoundPlayer::FUN_00430e10(SoundPlayer *this,undefined4 par
   if (this->directsound8_uninit == (DirectSound8Player *)0x0) {
     uVar3 = 0xffffffff;
   }
-  else if (g_GameContext.cfg.playSound == 0) {
+  else if (g_GameContext.cfg.playSounds == 0) {
     uVar3 = 0xffffffff;
   }
   else if (*(int *)&this->field_0x62c == 0) {

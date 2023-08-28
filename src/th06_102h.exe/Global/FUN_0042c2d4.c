@@ -23,7 +23,7 @@ void FUN_0042c2d4(void)
   if (iVar1 == 10) {
     if (*(int *)(in_ECX + 4) == 0x3c) {
       if (DAT_0069d4b8 == '\0') {
-        if (DAT_006c6ec4 < 0.99 == NAN(DAT_006c6ec4)) {
+        if ((float)g_GameContext._428_4_ < 0.99 == NAN((float)g_GameContext._428_4_)) {
           local_c = 9;
         }
         else {
@@ -64,7 +64,7 @@ void FUN_0042c2d4(void)
       if (*(int *)(in_ECX + 0x10) == 0) goto LAB_0042c515;
     }
     *(undefined4 *)(in_ECX + 4) = 0;
-    FUN_004311e0(0xb,0);
+    FUN_004311e0(0xb);
     *(undefined4 *)(in_ECX + 8) = 2;
     local_8 = in_ECX + 0x40;
     for (local_10 = 0; local_10 < 0x26; local_10 = local_10 + 1) {
@@ -80,7 +80,7 @@ void FUN_0042c2d4(void)
           (((BUTTONS_PRESSED_CURFRAME & 10) != 0 &&
            ((BUTTONS_PRESSED_CURFRAME & 10) != (BUTTONS_PRESSED_PREVFRAME & 10))))))) {
         *(undefined4 *)(in_ECX + 4) = 0;
-        FUN_004311e0(0xb,0);
+        FUN_004311e0(0xb);
         *(undefined4 *)(in_ECX + 8) = 2;
         local_8 = in_ECX + 0x40;
         for (local_10 = 0; local_10 < 0x26; local_10 = local_10 + 1) {
@@ -102,7 +102,7 @@ void FUN_0042c2d4(void)
               *(int *)(in_ECX + 0x20) = *(int *)(in_ECX + 0x20) + 0x60;
             }
           } while (PTR_DAT_004784d4[*(int *)(in_ECX + 0x20)] == ' ');
-          FUN_004311e0(0xc,0);
+          FUN_004311e0(0xc);
         }
         if ((((BUTTONS_PRESSED_CURFRAME & 0x20) != 0) &&
             ((BUTTONS_PRESSED_CURFRAME & 0x20) != (BUTTONS_PRESSED_PREVFRAME & 0x20))) ||
@@ -113,7 +113,7 @@ void FUN_0042c2d4(void)
               *(int *)(in_ECX + 0x20) = *(int *)(in_ECX + 0x20) + -0x60;
             }
           } while (PTR_DAT_004784d4[*(int *)(in_ECX + 0x20)] == ' ');
-          FUN_004311e0(0xc,0);
+          FUN_004311e0(0xc);
         }
         if ((((BUTTONS_PRESSED_CURFRAME & 0x40) != 0) &&
             ((BUTTONS_PRESSED_CURFRAME & 0x40) != (BUTTONS_PRESSED_PREVFRAME & 0x40))) ||
@@ -127,7 +127,7 @@ void FUN_0042c2d4(void)
               *(undefined4 *)(in_ECX + 0x20) = 0xf;
             }
           } while (PTR_DAT_004784d4[*(int *)(in_ECX + 0x20)] == ' ');
-          FUN_004311e0(0xc,0);
+          FUN_004311e0(0xc);
         }
         if ((((BUTTONS_PRESSED_CURFRAME & 0x80) != 0) &&
             ((BUTTONS_PRESSED_CURFRAME & 0x80) != (BUTTONS_PRESSED_PREVFRAME & 0x80))) ||
@@ -138,7 +138,7 @@ void FUN_0042c2d4(void)
               *(int *)(in_ECX + 0x20) = *(int *)(in_ECX + 0x20) + -0x10;
             }
           } while (PTR_DAT_004784d4[*(int *)(in_ECX + 0x20)] == ' ');
-          FUN_004311e0(0xc,0);
+          FUN_004311e0(0xc);
         }
         if ((((BUTTONS_PRESSED_CURFRAME & 0x1001) != 0) &&
             ((BUTTONS_PRESSED_CURFRAME & 0x1001) != (BUTTONS_PRESSED_PREVFRAME & 0x1001))) ||
@@ -172,7 +172,7 @@ void FUN_0042c2d4(void)
           {
             *(undefined4 *)(in_ECX + 0x20) = 0x5f;
           }
-          FUN_004311e0(10,0);
+          FUN_004311e0(10);
         }
         if ((((BUTTONS_PRESSED_CURFRAME & 10) != 0) &&
             ((BUTTONS_PRESSED_CURFRAME & 10) != (BUTTONS_PRESSED_PREVFRAME & 10))) ||
@@ -187,7 +187,7 @@ void FUN_0042c2d4(void)
             *(int *)(in_ECX + 0x10) = *(int *)(in_ECX + 0x10) + -1;
             *(undefined *)(in_ECX + local_b8 + 0x34) = 0x20;
           }
-          FUN_004311e0(0xb,0);
+          FUN_004311e0(0xb);
         }
         if (((BUTTONS_PRESSED_CURFRAME & 8) == 0) ||
            ((BUTTONS_PRESSED_CURFRAME & 8) == (BUTTONS_PRESSED_PREVFRAME & 8))) goto LAB_0042d095;
@@ -227,7 +227,7 @@ void FUN_0042c2d4(void)
         }
       }
 LAB_0042c515:
-      FUN_004311e0(10,0);
+      FUN_004311e0(10);
       *(undefined4 *)(in_ECX + 8) = 0xc;
       local_8 = in_ECX + 0x40;
       for (local_10 = 0; local_10 < 0x26; local_10 = local_10 + 1) {
@@ -261,7 +261,7 @@ LAB_0042c515:
       *(undefined4 *)(in_ECX + 0x1c) = *(undefined4 *)(in_ECX + 0x10);
       if (((BUTTONS_PRESSED_CURFRAME & 0x1001) != 0) &&
          ((BUTTONS_PRESSED_CURFRAME & 0x1001) != (BUTTONS_PRESSED_PREVFRAME & 0x1001))) {
-        FUN_004311e0(10,0);
+        FUN_004311e0(10);
         *(undefined4 *)(in_ECX + 0x1c) = *(undefined4 *)(in_ECX + 0x10);
         *(undefined4 *)(in_ECX + 4) = 0;
         FUN_0045d414(in_ECX + 0x5670);
@@ -292,7 +292,7 @@ LAB_0042c515:
       }
       if (((BUTTONS_PRESSED_CURFRAME & 10) != 0) &&
          ((BUTTONS_PRESSED_CURFRAME & 10) != (BUTTONS_PRESSED_PREVFRAME & 10))) {
-        FUN_004311e0(0xb,0);
+        FUN_004311e0(0xb);
         *(undefined4 *)(in_ECX + 8) = 10;
         local_8 = in_ECX + 0x40;
         for (local_10 = 0; local_10 < 0x26; local_10 = local_10 + 1) {

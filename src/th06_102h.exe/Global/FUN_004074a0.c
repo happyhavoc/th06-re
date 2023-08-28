@@ -112,10 +112,10 @@ LAB_004074ce:
     bVar15 = *(byte *)(param_1 + 0xe50) & 3;
     if (bVar15 == 1) {
       fVar20 = (float10)FUN_0041e850(*(undefined4 *)(param_1 + 0xc90),
-                                     DAT_006c6ec0 * *(float *)(param_1 + 0xc94));
+                                     (float)g_GameContext._424_4_ * *(float *)(param_1 + 0xc94));
       *(float *)(param_1 + 0xc90) = (float)fVar20;
       *(float *)(param_1 + 0xc98) =
-           DAT_006c6ec0 * *(float *)(param_1 + 0xc9c) + *(float *)(param_1 + 0xc98);
+           (float)g_GameContext._424_4_ * *(float *)(param_1 + 0xc9c) + *(float *)(param_1 + 0xc98);
       fVar20 = (float10)fcos((float10)*(float *)(param_1 + 0xc90));
       fVar19 = (float10)fsin((float10)*(float *)(param_1 + 0xc90));
       *(float *)(param_1 + 0xc84) = (float)(fVar20 * (float10)*(float *)(param_1 + 0xc98));
@@ -1025,7 +1025,7 @@ switchD_00407544_caseD_2:
          *(byte *)(param_1 + 0xe51) & 0xef | (*(byte *)(local_20 + 3) & 1) << 4;
     break;
   case 0x6a:
-    FUN_004311e0(local_20[3],0);
+    FUN_004311e0(local_20[3]);
     break;
   case 0x6b:
     *(byte *)(param_1 + 0xe51) = *(byte *)(param_1 + 0xe51) & 0x1f | *(char *)(local_20 + 3) << 5;

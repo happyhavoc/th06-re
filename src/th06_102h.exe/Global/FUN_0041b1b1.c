@@ -6,7 +6,7 @@ undefined4 FUN_0041b1b1(int param_1)
   FUN_00432030(VERY_BIG_STRUCT,0x13);
   FUN_00432030(VERY_BIG_STRUCT,0x14);
   FUN_0041872a();
-  if (g_GameContext._396_4_ != 3) {
+  if (g_GameContext.unkInput2 != 3) {
     FUN_00432030(VERY_BIG_STRUCT,0xd);
     FUN_00432030(VERY_BIG_STRUCT,0xe);
     FUN_00432030(VERY_BIG_STRUCT,0xf);

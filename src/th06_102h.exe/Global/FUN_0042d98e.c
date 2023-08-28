@@ -39,7 +39,7 @@ undefined4 FUN_0042d98e(int param_1)
         }
         if (((BUTTONS_PRESSED_CURFRAME & 10) != 0) &&
            ((BUTTONS_PRESSED_CURFRAME & 10) != (BUTTONS_PRESSED_PREVFRAME & 10))) {
-          FUN_004311e0(0xb,0);
+          FUN_004311e0(0xb);
           *(undefined4 *)(param_1 + 8) = 0;
           *(undefined4 *)(param_1 + 4) = 1;
           local_c = param_1 + 0x40;
@@ -101,7 +101,7 @@ undefined4 FUN_0042d98e(int param_1)
       else if (iVar1 != 1) {
         if (iVar1 == 2) {
           if (0x3b < *(int *)(param_1 + 4)) {
-            g_GameContext._396_4_ = 1;
+            g_GameContext.unkInput2 = 1;
             return 0;
           }
         }
@@ -156,7 +156,7 @@ undefined4 FUN_0042d98e(int param_1)
                 }
               }
               *(undefined4 *)(param_1 + 0x30) = 0;
-              FUN_004311e0(0x1c,0);
+              FUN_004311e0(0x1c);
             }
           }
           if ((*(int *)(param_1 + 0x24) != *(int *)(param_1 + 0x10)) &&
@@ -179,7 +179,7 @@ undefined4 FUN_0042d98e(int param_1)
             }
             if (((BUTTONS_PRESSED_CURFRAME & 10) != 0) &&
                ((BUTTONS_PRESSED_CURFRAME & 10) != (BUTTONS_PRESSED_PREVFRAME & 10))) {
-              FUN_004311e0(0xb,0);
+              FUN_004311e0(0xb);
               *(undefined4 *)(param_1 + 8) = 0;
               *(undefined4 *)(param_1 + 4) = 1;
               local_c = param_1 + 0x40;
@@ -258,14 +258,14 @@ undefined4 FUN_0042d98e(int param_1)
               local_c = local_c + 0x110;
             }
             *(undefined4 *)(param_1 + 8) = 2;
-            FUN_004311e0(0xb,0);
+            FUN_004311e0(0xb);
           }
         }
       }
       if (((BUTTONS_PRESSED_CURFRAME & 10) != 0) &&
          ((BUTTONS_PRESSED_CURFRAME & 10) != (BUTTONS_PRESSED_PREVFRAME & 10))) {
         *(undefined4 *)(param_1 + 0x10) = 6;
-        FUN_004311e0(0xb,0);
+        FUN_004311e0(0xb);
       }
     }
   }
@@ -281,7 +281,7 @@ undefined4 FUN_0042d98e(int param_1)
         FUN_0042d292();
       }
       else if (iVar1 == 0x11) {
-        g_GameContext._396_4_ = 1;
+        g_GameContext.unkInput2 = 1;
         return 0;
       }
     }

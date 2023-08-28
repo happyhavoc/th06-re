@@ -86,10 +86,10 @@ void FUN_004291b0(int param_1)
         *(float *)(local_18 + 0x120) = *(float *)(local_18 + 0x114) + *(float *)(local_18 + 0x114);
       }
       pfVar6 = (float *)(local_18 + 0x110);
-      *pfVar6 = DAT_006c6ec0 * *(float *)(local_18 + 0x128) + *pfVar6;
+      *pfVar6 = (float)g_GameContext._424_4_ * *(float *)(local_18 + 0x128) + *pfVar6;
       *(float *)(local_18 + 0x90) = *pfVar6;
       pfVar6 = (float *)(local_18 + 0x114);
-      *pfVar6 = DAT_006c6ec0 * *(float *)(local_18 + 300) + *pfVar6;
+      *pfVar6 = (float)g_GameContext._424_4_ * *(float *)(local_18 + 300) + *pfVar6;
       *(float *)(local_18 + 0x94) = *pfVar6;
       *(undefined4 *)(local_18 + 0x98) = *(undefined4 *)(local_18 + 0x118);
       if ((*(short *)(local_18 + 0x150) != 3) &&

@@ -9,7 +9,7 @@ void FUN_00420b50(void)
   if (HVar1 < 0) {
     FUN_004219d0(VERY_BIG_STRUCT);
     (*(g_GameContext.d3d_device)->lpVtbl->Reset)
-              (g_GameContext.d3d_device,(D3DPRESENT_PARAMETERS *)0x6c6df8);
+              (g_GameContext.d3d_device,&g_GameContext.presentParameters);
     InitD3dDevice();
     g_GameContext._408_4_ = 2;
   }

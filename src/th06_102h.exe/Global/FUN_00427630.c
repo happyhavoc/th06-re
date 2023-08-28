@@ -24,7 +24,7 @@ void FUN_00427630(float *param_1)
   DAT_0069bca4 = DAT_0069bca4 + 500;
   FUN_0041c57e(6);
   DAT_0069bc30 = DAT_0069bc30 & 0xffffff3f | 0x80;
-  FUN_004311e0(0x1e,0);
+  FUN_004311e0(0x1e);
   return;
 }
 

@@ -17,10 +17,10 @@ void FUN_004066f0(int param_1)
        (*(int *)(param_1 + 0x75d8) != 0)) {
       for (local_8 = 0; local_8 < 8; local_8 = local_8 + 1) {
         pfVar2 = (float *)(param_1 + 0x7684 + local_8 * 0xc);
-        fVar5 = DAT_006c6ec0 * pfVar2[2];
-        fVar6 = DAT_006c6ec0 * pfVar2[1];
+        fVar5 = (float)g_GameContext._424_4_ * pfVar2[2];
+        fVar6 = (float)g_GameContext._424_4_ * pfVar2[1];
         pfVar3 = (float *)(param_1 + 0x7624 + local_8 * 0xc);
-        *pfVar3 = DAT_006c6ec0 * *pfVar2 + *pfVar3;
+        *pfVar3 = (float)g_GameContext._424_4_ * *pfVar2 + *pfVar3;
         pfVar3[1] = fVar6 + pfVar3[1];
         pfVar3[2] = fVar5 + pfVar3[2];
         if ((*(int *)(param_1 + 0x75d8) != *(int *)(param_1 + 0x75d0)) &&
@@ -64,7 +64,7 @@ void FUN_004066f0(int param_1)
         *(undefined4 *)(param_1 + 0x768c + local_8 * 0xc) = 0;
         local_c = local_c + 0x110;
       }
-      FUN_004311e0(6,0);
+      FUN_004311e0(6);
       FUN_0042fd30(1,0x78,4,1,0);
     }
     *(undefined *)(param_1 + 0x9e0) = 3;

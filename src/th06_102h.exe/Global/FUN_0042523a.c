@@ -1,44 +1,46 @@
 
+/* WARNING: Inlined function: FUN_0045c3e0 */
+
 undefined4 FUN_0042523a(void)
 
 {
-  ChainElem *pCVar1;
-  undefined4 uVar2;
-  int iVar3;
-  int unaff_EBP;
-  undefined4 *puVar4;
+  undefined4 uVar1;
+  int iVar2;
+  undefined4 *puVar3;
+  void *pvStack_10;
+  undefined *puStack_c;
+  undefined4 uStack_8;
   
-  FUN_0045c3e0();
+  puStack_c = &LAB_00469238;
+  pvStack_10 = ExceptionList;
+  ExceptionList = &pvStack_10;
   if ((DAT_006ca624 & 1) == 0) {
     DAT_006ca624 = DAT_006ca624 | 1;
-    *(undefined4 *)(unaff_EBP + -4) = 0;
+    uStack_8 = 0;
+    ExceptionList = &pvStack_10;
     FUN_00425318();
-    *(undefined4 *)(unaff_EBP + -4) = 0xffffffff;
   }
-  *(undefined4 **)(unaff_EBP + -0x10) = &DAT_006c71f0;
-  puVar4 = *(undefined4 **)(unaff_EBP + -0x10);
-  for (iVar3 = 0xd0d; iVar3 != 0; iVar3 = iVar3 + -1) {
-    *puVar4 = 0;
-    puVar4 = puVar4 + 1;
+  uStack_8 = 0xffffffff;
+  puVar3 = &DAT_006c71f0;
+  for (iVar2 = 0xd0d; iVar2 != 0; iVar2 = iVar2 + -1) {
+    *puVar3 = 0;
+    puVar3 = puVar3 + 1;
   }
-  pCVar1 = CreateChainElem(&DAT_0069d918,FUN_004253dd);
-  **(ChainElem ***)(unaff_EBP + -0x10) = pCVar1;
-  *(undefined4 *)(**(int **)(unaff_EBP + -0x10) + 0x1c) = *(undefined4 *)(unaff_EBP + -0x10);
-  *(code **)(**(int **)(unaff_EBP + -0x10) + 8) = FUN_0042564c;
-  *(code **)(**(int **)(unaff_EBP + -0x10) + 0xc) = FUN_00425d97;
-  iVar3 = AddToCalcChain((short *)&DAT_0069d918,**(ChainElem ***)(unaff_EBP + -0x10),2);
-  if (iVar3 == 0) {
-    pCVar1 = CreateChainElem(&DAT_0069d918,FUN_0042545a);
-    *(ChainElem **)(*(int *)(unaff_EBP + -0x10) + 4) = pCVar1;
-    *(undefined4 *)(*(int *)(*(int *)(unaff_EBP + -0x10) + 4) + 0x1c) =
-         *(undefined4 *)(unaff_EBP + -0x10);
-    AddToDrawChain(0x69d918,*(ChainElem **)(*(int *)(unaff_EBP + -0x10) + 4),0);
-    uVar2 = 0;
+  DAT_006c71f0 = AllocateChainElem(&CHAIN,FUN_004253dd);
+  DAT_006c71f0->arg = &DAT_006c71f0;
+  DAT_006c71f0->added_callback = FUN_0042564c;
+  DAT_006c71f0->deleted_callback = FUN_00425d97;
+  iVar2 = AddToCalcChain(&CHAIN,DAT_006c71f0,2);
+  if (iVar2 == 0) {
+    DAT_006c71f4 = AllocateChainElem(&CHAIN,FUN_0042545a);
+    DAT_006c71f4->arg = &DAT_006c71f0;
+    AddToDrawChain(&CHAIN,DAT_006c71f4,0);
+    uVar1 = 0;
   }
   else {
-    uVar2 = 0xffffffff;
+    uVar1 = 0xffffffff;
   }
-  ExceptionList = *(void **)(unaff_EBP + -0xc);
-  return uVar2;
+  ExceptionList = pvStack_10;
+  return uVar1;
 }
 

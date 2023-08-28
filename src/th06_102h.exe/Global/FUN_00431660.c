@@ -1,70 +1,66 @@
 
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
 
-void FUN_00431660(void)
+void __fastcall FUN_00431660(VeryBigStruct *param_1)
 
 {
-  int in_ECX;
   int iVar1;
-  undefined4 *puVar2;
+  byte *pbVar2;
   undefined4 *local_8;
   
-  *(undefined4 *)(in_ECX + 0x210f0) = 0xc3000000;
-  *(undefined4 *)(in_ECX + 0x210c8) = 0xc3000000;
-  *(undefined4 *)(in_ECX + 0x21104) = 0x43000000;
-  *(undefined4 *)(in_ECX + 0x210dc) = 0x43000000;
-  *(undefined4 *)(in_ECX + 0x210e0) = 0xc3000000;
-  *(undefined4 *)(in_ECX + 0x210cc) = 0xc3000000;
-  *(undefined4 *)(in_ECX + 0x21108) = 0x43000000;
-  *(undefined4 *)(in_ECX + 0x210f4) = 0x43000000;
-  *(undefined4 *)(in_ECX + 0x2110c) = 0;
-  *(undefined4 *)(in_ECX + 0x210f8) = 0;
-  *(undefined4 *)(in_ECX + 0x210e4) = 0;
-  *(undefined4 *)(in_ECX + 0x210d0) = 0;
-  *(undefined4 *)(in_ECX + 0x210fc) = 0;
-  *(undefined4 *)(in_ECX + 0x210d4) = 0;
-  *(undefined4 *)(in_ECX + 0x21110) = 0x3f800000;
-  *(undefined4 *)(in_ECX + 0x210e8) = 0x3f800000;
-  *(undefined4 *)(in_ECX + 0x210ec) = 0;
-  *(undefined4 *)(in_ECX + 0x210d8) = 0;
-  *(undefined4 *)(in_ECX + 0x21114) = 0x3f800000;
-  *(undefined4 *)(in_ECX + 0x21100) = 0x3f800000;
-  _DAT_006d4660 = *(undefined4 *)(in_ECX + 0x210c8);
-  _DAT_006d4664 = *(undefined4 *)(in_ECX + 0x210cc);
-  _DAT_006d4668 = *(undefined4 *)(in_ECX + 0x210d0);
-  _DAT_006d4678 = *(undefined4 *)(in_ECX + 0x210dc);
-  _DAT_006d467c = *(undefined4 *)(in_ECX + 0x210e0);
-  _DAT_006d4680 = *(undefined4 *)(in_ECX + 0x210e4);
-  _DAT_006d4690 = *(undefined4 *)(in_ECX + 0x210f0);
-  _DAT_006d4694 = *(undefined4 *)(in_ECX + 0x210f4);
-  _DAT_006d4698 = *(undefined4 *)(in_ECX + 0x210f8);
-  _DAT_006d46a8 = *(undefined4 *)(in_ECX + 0x21104);
-  _DAT_006d46ac = *(undefined4 *)(in_ECX + 0x21108);
-  _DAT_006d46b0 = *(undefined4 *)(in_ECX + 0x2110c);
-  _DAT_006d4670 = *(undefined4 *)(in_ECX + 0x210d4);
-  _DAT_006d4674 = *(undefined4 *)(in_ECX + 0x210d8);
-  _DAT_006d4688 = *(undefined4 *)(in_ECX + 0x210e8);
-  _DAT_006d468c = *(undefined4 *)(in_ECX + 0x210ec);
-  _DAT_006d46a0 = *(undefined4 *)(in_ECX + 0x210fc);
-  _DAT_006d46a4 = *(undefined4 *)(in_ECX + 0x21100);
-  _DAT_006d46b8 = *(undefined4 *)(in_ECX + 0x21110);
-  _DAT_006d46bc = *(undefined4 *)(in_ECX + 0x21114);
+  *(undefined4 *)(param_1->vertex_buffer_contents + 0x28) = 0xc3000000;
+  *(undefined4 *)param_1->vertex_buffer_contents = 0xc3000000;
+  *(undefined4 *)(param_1->vertex_buffer_contents + 0x3c) = 0x43000000;
+  *(undefined4 *)(param_1->vertex_buffer_contents + 0x14) = 0x43000000;
+  *(undefined4 *)(param_1->vertex_buffer_contents + 0x18) = 0xc3000000;
+  *(undefined4 *)(param_1->vertex_buffer_contents + 4) = 0xc3000000;
+  *(undefined4 *)(param_1->vertex_buffer_contents + 0x40) = 0x43000000;
+  *(undefined4 *)(param_1->vertex_buffer_contents + 0x2c) = 0x43000000;
+  *(undefined4 *)(param_1->vertex_buffer_contents + 0x44) = 0;
+  *(undefined4 *)(param_1->vertex_buffer_contents + 0x30) = 0;
+  *(undefined4 *)(param_1->vertex_buffer_contents + 0x1c) = 0;
+  *(undefined4 *)(param_1->vertex_buffer_contents + 8) = 0;
+  *(undefined4 *)(param_1->vertex_buffer_contents + 0x34) = 0;
+  *(undefined4 *)(param_1->vertex_buffer_contents + 0xc) = 0;
+  *(undefined4 *)(param_1->vertex_buffer_contents + 0x48) = 0x3f800000;
+  *(undefined4 *)(param_1->vertex_buffer_contents + 0x20) = 0x3f800000;
+  *(undefined4 *)(param_1->vertex_buffer_contents + 0x24) = 0;
+  *(undefined4 *)(param_1->vertex_buffer_contents + 0x10) = 0;
+  *(undefined4 *)(param_1->vertex_buffer_contents + 0x4c) = 0x3f800000;
+  *(undefined4 *)(param_1->vertex_buffer_contents + 0x38) = 0x3f800000;
+  VERTEX_BUFFER_CONTENTS._0_4_ = *(undefined4 *)param_1->vertex_buffer_contents;
+  VERTEX_BUFFER_CONTENTS._4_4_ = *(undefined4 *)(param_1->vertex_buffer_contents + 4);
+  VERTEX_BUFFER_CONTENTS._8_4_ = *(undefined4 *)(param_1->vertex_buffer_contents + 8);
+  VERTEX_BUFFER_CONTENTS._24_4_ = *(undefined4 *)(param_1->vertex_buffer_contents + 0x14);
+  VERTEX_BUFFER_CONTENTS._28_4_ = *(undefined4 *)(param_1->vertex_buffer_contents + 0x18);
+  VERTEX_BUFFER_CONTENTS._32_4_ = *(undefined4 *)(param_1->vertex_buffer_contents + 0x1c);
+  VERTEX_BUFFER_CONTENTS._48_4_ = *(undefined4 *)(param_1->vertex_buffer_contents + 0x28);
+  VERTEX_BUFFER_CONTENTS._52_4_ = *(undefined4 *)(param_1->vertex_buffer_contents + 0x2c);
+  VERTEX_BUFFER_CONTENTS._56_4_ = *(undefined4 *)(param_1->vertex_buffer_contents + 0x30);
+  VERTEX_BUFFER_CONTENTS._72_4_ = *(undefined4 *)(param_1->vertex_buffer_contents + 0x3c);
+  VERTEX_BUFFER_CONTENTS._76_4_ = *(undefined4 *)(param_1->vertex_buffer_contents + 0x40);
+  _DAT_006d46b0 = *(undefined4 *)(param_1->vertex_buffer_contents + 0x44);
+  VERTEX_BUFFER_CONTENTS._16_4_ = *(undefined4 *)(param_1->vertex_buffer_contents + 0xc);
+  VERTEX_BUFFER_CONTENTS._20_4_ = *(undefined4 *)(param_1->vertex_buffer_contents + 0x10);
+  VERTEX_BUFFER_CONTENTS._40_4_ = *(undefined4 *)(param_1->vertex_buffer_contents + 0x20);
+  VERTEX_BUFFER_CONTENTS._44_4_ = *(undefined4 *)(param_1->vertex_buffer_contents + 0x24);
+  VERTEX_BUFFER_CONTENTS._64_4_ = *(undefined4 *)(param_1->vertex_buffer_contents + 0x34);
+  VERTEX_BUFFER_CONTENTS._68_4_ = *(undefined4 *)(param_1->vertex_buffer_contents + 0x38);
+  _DAT_006d46b8 = *(undefined4 *)(param_1->vertex_buffer_contents + 0x48);
+  _DAT_006d46bc = *(undefined4 *)(param_1->vertex_buffer_contents + 0x4c);
   if (((uint)g_GameContext.cfg.render_opts >> 1 & 1) == 0) {
     (*(g_GameContext.d3d_device)->lpVtbl->CreateVertexBuffer)
-              (g_GameContext.d3d_device,0x50,0,0x102,D3DPOOL_MANAGED,
-               (IDirect3DVertexBuffer8 **)(in_ECX + 0x210c4));
-    (**(code **)(**(int **)(in_ECX + 0x210c4) + 0x2c))
-              (*(undefined4 *)(in_ECX + 0x210c4),0,0,&local_8,0);
-    puVar2 = (undefined4 *)(in_ECX + 0x210c8);
+              (g_GameContext.d3d_device,0x50,0,0x102,D3DPOOL_MANAGED,&param_1->vertex_buffer);
+    (*param_1->vertex_buffer->lpVtbl->Lock)(param_1->vertex_buffer,0,0,(BYTE **)&local_8,0);
+    pbVar2 = param_1->vertex_buffer_contents;
     for (iVar1 = 0x14; iVar1 != 0; iVar1 = iVar1 + -1) {
-      *local_8 = *puVar2;
-      puVar2 = puVar2 + 1;
+      *local_8 = *(undefined4 *)pbVar2;
+      pbVar2 = pbVar2 + 4;
       local_8 = local_8 + 1;
     }
-    (**(code **)(**(int **)(in_ECX + 0x210c4) + 0x30))(*(undefined4 *)(in_ECX + 0x210c4));
+    (*param_1->vertex_buffer->lpVtbl->Unlock)(param_1->vertex_buffer);
     (*(g_GameContext.d3d_device)->lpVtbl->SetStreamSource)
-              (g_GameContext.d3d_device,0,
-               (IDirect3DVertexBuffer8 *)VERY_BIG_STRUCT->field19748_0x210c4,0x14);
+              (g_GameContext.d3d_device,0,VERY_BIG_STRUCT->vertex_buffer,0x14);
   }
   return;
 }

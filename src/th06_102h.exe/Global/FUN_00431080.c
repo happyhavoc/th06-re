@@ -14,7 +14,7 @@ undefined4 __fastcall FUN_00431080(SoundPlayer *param_1)
   }
   else {
     for (idx = 0; (int)idx < 3; idx = idx + 1) {
-      *(undefined4 *)(&param_1->field_0x620 + idx * 4) = 0xffffffff;
+      param_1->soundBuffersToPlay[idx] = -1;
     }
     for (idx = 0; (int)idx < 0x1a; idx = idx + 1) {
       iVar2 = idx;
@@ -30,11 +30,11 @@ undefined4 __fastcall FUN_00431080(SoundPlayer *param_1)
       (*((param_1->directsound).directsound8)->lpVtbl->DuplicateSoundBuffer)
                 ((param_1->directsound).directsound8,
                  param_1->sound_buffers[SOUND_BUFFER_IDX_VOL[idx].buffer_idx],
-                 param_1->duplicate_sound_buffer + idx);
-      (*param_1->duplicate_sound_buffer[idx]->lpVtbl->SetCurrentPosition)
-                (param_1->duplicate_sound_buffer[idx],0);
-      (*param_1->duplicate_sound_buffer[idx]->lpVtbl->SetVolume)
-                (param_1->duplicate_sound_buffer[idx],(int)SOUND_BUFFER_IDX_VOL[idx].volume);
+                 param_1->duplicateSoundBuffers + idx);
+      (*param_1->duplicateSoundBuffers[idx]->lpVtbl->SetCurrentPosition)
+                (param_1->duplicateSoundBuffers[idx],0);
+      (*param_1->duplicateSoundBuffers[idx]->lpVtbl->SetVolume)
+                (param_1->duplicateSoundBuffers[idx],(int)SOUND_BUFFER_IDX_VOL[idx].volume);
     }
     uVar1 = 0;
   }

@@ -194,7 +194,7 @@ undefined4 __fastcall FUN_00401b80(int *param_1)
     if (0x13 < param_1[1]) {
       *param_1 = 0;
       DAT_0069d4bf = 0;
-      g_GameContext._396_4_ = 1;
+      g_GameContext.unkInput2 = 1;
       for (local_8 = 0; local_8 < 6; local_8 = local_8 + 1) {
         param_1[local_8 * 0x44 + 0x22] = param_1[local_8 * 0x44 + 0x22] & 0xfffffffe;
       }

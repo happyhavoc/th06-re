@@ -25,7 +25,7 @@ void __thiscall FUN_00417acd(int param_1_00,undefined4 param_2,char *param_3)
   *(float *)(param_1_00 + 8) =
        (float)(ulonglong)(uint)(((int)local_1c - (int)(param_3 + 1)) * 0xf) / 2.0 + 16.0;
   g_GameContext._408_4_ = 3;
-  FUN_004311e0(0xe,0);
+  FUN_004311e0(0xe);
   return;
 }
 

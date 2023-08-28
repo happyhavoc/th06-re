@@ -86,7 +86,7 @@ undefined4 InitD3dRendering(void)
   present_params.Flags = 1;
   DAT_006c7115 = 1;
   pDVar4 = &present_params;
-  pDVar5 = &g_GameContext.present_parameters;
+  pDVar5 = &g_GameContext.presentParameters;
   for (iVar3 = 0xd; iVar3 != 0; iVar3 = iVar3 + -1) {
     pDVar5->BackBufferWidth = pDVar4->BackBufferWidth;
     pDVar4 = (D3DPRESENT_PARAMETERS *)&pDVar4->BackBufferHeight;
@@ -146,7 +146,7 @@ LAB_004211ab:
         g_GameContext.cfg.render_opts = g_GameContext.cfg.render_opts | 1;
       }
       if ((((uint)g_GameContext.cfg.render_opts >> 7 & 1) == 0) ||
-         (g_GameContext.field149_0x1a0 == 0)) {
+         (g_GameContext.field85_0x1a0 == 0)) {
         bVar1 = false;
       }
       else {
@@ -176,8 +176,8 @@ LAB_004211ab:
       InitD3dDevice();
       SetViewport(0);
       GAME_WINDOW.is_app_closing = 0;
-      INT_006c6ebc = 0;
-      DAT_006c6ec4 = 0;
+      g_GameContext._420_4_ = 0;
+      g_GameContext._428_4_ = 0;
       return 0;
     }
 LAB_00421077:
@@ -191,12 +191,12 @@ LAB_00421077:
       local_5 = local_5 & 0xffffff00;
       goto LAB_00421190;
     }
-    if ((((uint)g_GameContext.cfg.render_opts >> 7 & 1) == 0) || (g_GameContext.field149_0x1a0 != 0)
-       ) {
+    if ((((uint)g_GameContext.cfg.render_opts >> 7 & 1) == 0) || (g_GameContext.field85_0x1a0 != 0))
+    {
       if (present_params.Flags != 1) {
         GameErrorContextFatal
                   (&g_GameErrorContext,
-                   "Direct3D の初期化に失敗、これではゲームは出来ません\n");
+                   "Direct3D の初期化に失敗、これ��はゲームは出来ません\n");
         if (g_GameContext.d3d_iface != (IDirect3D8 *)0x0) {
           (*(g_GameContext.d3d_iface)->lpVtbl->Release)(g_GameContext.d3d_iface);
           g_GameContext.d3d_iface = (IDirect3D8 *)0x0;
@@ -213,7 +213,7 @@ LAB_00421077:
                           "リフレッシュレートが変更できません、vsync 非同期に変更します\n"
                          );
       present_params.FullScreen_RefreshRateInHz = 0;
-      g_GameContext.field149_0x1a0 = 1;
+      g_GameContext.field85_0x1a0 = 1;
       present_params.FullScreen_PresentationInterval = 0x80000000;
     }
   } while( true );

@@ -14,7 +14,7 @@ undefined4 FUN_0041bb02(uint *param_1)
   
   bVar1 = false;
   (*(g_GameContext.d3d_device)->lpVtbl->ResourceManagerDiscardBytes)(g_GameContext.d3d_device,0);
-  if (g_GameContext._396_4_ == 3) {
+  if (g_GameContext.unkInput2 == 3) {
     *param_1 = param_1[1];
     param_1[2] = 0;
   }
@@ -106,8 +106,8 @@ undefined4 FUN_0041bb02(uint *param_1)
       *(undefined2 *)(param_1 + 0x604) = 0x80;
     }
   }
-  FUN_00424375(4,&DAT_0046af84);
-  FUN_00424375(2,&DAT_0046af74);
+  GameContext::FUN_00424375(&g_GameContext,4,&DAT_0046af84);
+  GameContext::FUN_00424375(&g_GameContext,2,&DAT_0046af74);
   if (_DAT_0069bcbc == 1) {
     iVar4 = FUN_0042a240(1,&DAT_0069d4cc);
     if (iVar4 != 0) {
@@ -145,16 +145,16 @@ undefined4 FUN_0041bb02(uint *param_1)
                 }
                 *(undefined *)(param_1 + 0x608) = 0;
                 *(undefined *)((int)param_1 + 0x1821) = 1;
-                if (g_GameContext._396_4_ != 3) {
-                  _DAT_006c6ecc = 0;
-                  _DAT_006c6ed0 = 0;
+                if (g_GameContext.unkInput2 != 3) {
+                  g_GameContext._436_4_ = 0;
+                  g_GameContext._440_4_ = 0;
                 }
                 *(undefined *)(param_1 + 0xb) = 0;
                 param_1[1] = 0;
                 *(undefined *)((int)param_1 + 0x1822) = 0;
                 FUN_00401410((undefined4 *)&DAT_0047b900);
                 if (bVar1) {
-                  g_GameContext._396_4_ = 1;
+                  g_GameContext.unkInput2 = 1;
                 }
                 g_GameContext._408_4_ = 3;
                 uVar3 = 0;

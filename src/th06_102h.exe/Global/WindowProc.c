@@ -32,8 +32,8 @@ LRESULT WindowProc(HWND hWnd,uint uMsg,WPARAM wParam,LPMIDIHDR lParam)
       GAME_WINDOW.is_app_active = (int)(wParam == 0);
     }
   }
-  else if ((uMsg == 0x3c9) && (DAT_006c6ec8 != 0)) {
-    FUN_00422560(DAT_006c6ec8,lParam);
+  else if ((uMsg == 0x3c9) && (g_GameContext._432_4_ != 0)) {
+    FUN_00422560(g_GameContext._432_4_,lParam);
   }
   LVar2 = DefWindowProcA(hWnd,uMsg,wParam,(LPARAM)lParam);
   return LVar2;

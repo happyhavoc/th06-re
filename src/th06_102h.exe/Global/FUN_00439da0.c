@@ -6,7 +6,7 @@ undefined4 FUN_00439da0(int param_1)
   undefined4 uVar2;
   int local_8;
   
-  FUN_00424375(3,&DAT_0046c570);
+  GameContext::FUN_00424375(&g_GameContext,3,&DAT_0046c570);
   for (local_8 = 0x1b; local_8 < 0x25; local_8 = local_8 + 1) {
     FUN_00432030(VERY_BIG_STRUCT,local_8);
   }

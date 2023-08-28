@@ -65,7 +65,7 @@ LAB_00426400:
   *(ushort *)(param_2 + 0x150) = (ushort)*(byte *)((int)psVar4 + 0x1f);
   *(short *)(param_2 + 0x14c) = psVar4[0xe];
   if (-1 < psVar4[0x11]) {
-    FUN_004311e0((int)psVar4[0x11],0);
+    FUN_004311e0((int)psVar4[0x11]);
   }
   return (uint)(*param_5 + -1 <= param_3);
 }

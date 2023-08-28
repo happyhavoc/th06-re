@@ -8,7 +8,7 @@ undefined4 FUN_00425d97(int param_1)
   FUN_00432030(VERY_BIG_STRUCT,0x29);
   FUN_00432030(VERY_BIG_STRUCT,0x2a);
   FUN_00432030(VERY_BIG_STRUCT,0x2b);
-  CutChain((short *)&DAT_0069d918,*(short **)(param_1 + 4));
+  CutChain(&CHAIN,*(ChainElem **)(param_1 + 4));
   *(undefined4 *)(param_1 + 4) = 0;
   return 0;
 }

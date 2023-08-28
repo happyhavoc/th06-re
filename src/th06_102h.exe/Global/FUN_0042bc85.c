@@ -58,7 +58,7 @@ undefined4 FUN_0042bc85(void)
         *(int *)(in_ECX + 0x20) = *(int *)(in_ECX + 0x20) + 0x60;
       }
     } while (PTR_DAT_004784d4[*(int *)(in_ECX + 0x20)] == ' ');
-    FUN_004311e0(0xc,0);
+    FUN_004311e0(0xc);
   }
   if ((((BUTTONS_PRESSED_CURFRAME & 0x20) != 0) &&
       ((BUTTONS_PRESSED_CURFRAME & 0x20) != (BUTTONS_PRESSED_PREVFRAME & 0x20))) ||
@@ -69,7 +69,7 @@ undefined4 FUN_0042bc85(void)
         *(int *)(in_ECX + 0x20) = *(int *)(in_ECX + 0x20) + -0x60;
       }
     } while (PTR_DAT_004784d4[*(int *)(in_ECX + 0x20)] == ' ');
-    FUN_004311e0(0xc,0);
+    FUN_004311e0(0xc);
   }
   if ((((BUTTONS_PRESSED_CURFRAME & 0x40) != 0) &&
       ((BUTTONS_PRESSED_CURFRAME & 0x40) != (BUTTONS_PRESSED_PREVFRAME & 0x40))) ||
@@ -83,7 +83,7 @@ undefined4 FUN_0042bc85(void)
         *(undefined4 *)(in_ECX + 0x20) = 0xf;
       }
     } while (PTR_DAT_004784d4[*(int *)(in_ECX + 0x20)] == ' ');
-    FUN_004311e0(0xc,0);
+    FUN_004311e0(0xc);
   }
   if ((((BUTTONS_PRESSED_CURFRAME & 0x80) != 0) &&
       ((BUTTONS_PRESSED_CURFRAME & 0x80) != (BUTTONS_PRESSED_PREVFRAME & 0x80))) ||
@@ -94,7 +94,7 @@ undefined4 FUN_0042bc85(void)
         *(int *)(in_ECX + 0x20) = *(int *)(in_ECX + 0x20) + -0x10;
       }
     } while (PTR_DAT_004784d4[*(int *)(in_ECX + 0x20)] == ' ');
-    FUN_004311e0(0xc,0);
+    FUN_004311e0(0xc);
   }
   if ((((BUTTONS_PRESSED_CURFRAME & 0x1001) == 0) ||
       ((BUTTONS_PRESSED_CURFRAME & 0x1001) == (BUTTONS_PRESSED_PREVFRAME & 0x1001))) &&
@@ -113,7 +113,7 @@ LAB_0042c1aa:
         *(int *)(in_ECX + 0x10) = *(int *)(in_ECX + 0x10) + -1;
         *(undefined *)(in_ECX + local_20 + 0x5193) = 0x20;
       }
-      FUN_004311e0(0xb,0);
+      FUN_004311e0(0xb);
     }
     if ((BUTTONS_PRESSED_CURFRAME & 8) == 0) {
       return 0;
@@ -136,7 +136,7 @@ LAB_0042c173:
          (*(int *)(in_ECX + 0x10) = *(int *)(in_ECX + 0x10) + 1, *(int *)(in_ECX + 0x10) == 8)) {
         *(undefined4 *)(in_ECX + 0x20) = 0x5f;
       }
-      FUN_004311e0(10,0);
+      FUN_004311e0(10);
       goto LAB_0042c1aa;
     }
     if (*(int *)(in_ECX + 0x20) == 0x5e) {
@@ -144,7 +144,7 @@ LAB_0042c173:
       goto LAB_0042c173;
     }
   }
-  FUN_004311e0(0xb,0);
+  FUN_004311e0(0xb);
 LAB_0042c273:
   *(undefined4 *)(in_ECX + 8) = 0xf;
   *(undefined4 *)(in_ECX + 4) = 0;

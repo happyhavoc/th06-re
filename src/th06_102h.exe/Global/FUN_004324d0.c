@@ -42,9 +42,9 @@ void FUN_004324d0(int param_1)
     _DAT_006d45bc = *(undefined4 *)(param_1 + 0x7c);
     _DAT_006d45d8 = *(undefined4 *)(param_1 + 0x7c);
     _DAT_006d45f4 = *(undefined4 *)(param_1 + 0x7c);
-    _DAT_006d466c = *(undefined4 *)(param_1 + 0x7c);
-    _DAT_006d4684 = *(undefined4 *)(param_1 + 0x7c);
-    _DAT_006d469c = *(undefined4 *)(param_1 + 0x7c);
+    VERTEX_BUFFER_CONTENTS._12_4_ = *(undefined4 *)(param_1 + 0x7c);
+    VERTEX_BUFFER_CONTENTS._36_4_ = *(undefined4 *)(param_1 + 0x7c);
+    VERTEX_BUFFER_CONTENTS._60_4_ = *(undefined4 *)(param_1 + 0x7c);
     _DAT_006d46b4 = *(undefined4 *)(param_1 + 0x7c);
   }
   if ((((uint)g_GameContext.cfg.render_opts >> 6 & 1) == 0) &&

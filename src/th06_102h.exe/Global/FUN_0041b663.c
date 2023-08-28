@@ -9,14 +9,14 @@ undefined4 FUN_0041b663(uint *param_1)
   if (*(char *)(param_1 + 0x609) != '\0') {
     if ((BUTTONS_PRESSED_CURFRAME != 0) && (BUTTONS_PRESSED_CURFRAME != BUTTONS_PRESSED_PREVFRAME))
     {
-      g_GameContext._396_4_ = 1;
+      g_GameContext.unkInput2 = 1;
     }
     param_1[0x60a] = param_1[0x60a] + 1;
     if (param_1[0x60a] == 0xe10) {
       FUN_0042fd30(2,0x78,0,0,0);
     }
     if (0xe87 < (int)param_1[0x60a]) {
-      g_GameContext._396_4_ = 1;
+      g_GameContext.unkInput2 = 1;
     }
   }
   if ((((*(char *)(param_1 + 0x608) == '\0') && (*(char *)((int)param_1 + 0x181f) == '\0')) &&
@@ -85,7 +85,7 @@ undefined4 FUN_0041b663(uint *param_1)
          (*(uint *)(&DAT_004764b0 + *(char *)(param_1 + 0x607) * 4) <= *param_1)) {
         if (*(char *)((int)param_1 + 0x181a) < '\b') {
           *(char *)((int)param_1 + 0x181a) = *(char *)((int)param_1 + 0x181a) + '\x01';
-          FUN_004311e0(0x1c,0);
+          FUN_004311e0(0x1c);
         }
         DAT_0069bc30 = DAT_0069bc30 & 0xfffffffc | 2;
         *(char *)(param_1 + 0x607) = *(char *)(param_1 + 0x607) + '\x01';

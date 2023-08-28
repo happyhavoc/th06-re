@@ -15,7 +15,7 @@ void FUN_00427770(void)
   *(undefined4 *)(in_ECX + 0x75bc) = 0;
   *(undefined4 *)(in_ECX + 0x75b8) = 0;
   *(undefined4 *)(in_ECX + 0x75b4) = 0xfffffc19;
-  FUN_004311e0(4,0);
+  FUN_004311e0(4);
   DAT_0069bcc0 = DAT_0069bcc0 + 1;
   for (local_8 = 0; local_8 < 2; local_8 = local_8 + 1) {
     puVar1 = (undefined4 *)(in_ECX + 0x9b8 + local_8 * 0xc);

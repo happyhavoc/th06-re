@@ -150,9 +150,11 @@ undefined4 FUN_00427860(void)
   *(float *)(in_ECX + 0xa10) = local_10;
   *(float *)(in_ECX + 0xa14) = local_c;
   *(float *)(in_ECX + 0x440) =
-       local_10 * *(float *)(in_ECX + 0x9d0) * DAT_006c6ec0 + *(float *)(in_ECX + 0x440);
+       local_10 * *(float *)(in_ECX + 0x9d0) * (float)g_GameContext._424_4_ +
+       *(float *)(in_ECX + 0x440);
   *(float *)(in_ECX + 0x444) =
-       local_c * *(float *)(in_ECX + 0x9d4) * DAT_006c6ec0 + *(float *)(in_ECX + 0x444);
+       local_c * *(float *)(in_ECX + 0x9d4) * (float)g_GameContext._424_4_ +
+       *(float *)(in_ECX + 0x444);
   if (*(float *)(in_ECX + 0x440) < DAT_0069d6ec ==
       (NAN(*(float *)(in_ECX + 0x440)) || NAN(DAT_0069d6ec))) {
     if (DAT_0069d6ec + DAT_0069d6f4 < *(float *)(in_ECX + 0x440) !=

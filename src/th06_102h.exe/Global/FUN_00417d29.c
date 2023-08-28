@@ -11,7 +11,7 @@ undefined4 FUN_00417d29(void)
   int local_8;
   
   pVVar2 = VERY_BIG_STRUCT;
-  if (g_GameContext._396_4_ == 3) {
+  if (g_GameContext.unkInput2 == 3) {
     uVar1 = in_ECX[1];
     *(undefined2 *)(uVar1 + 0x24d8) = 0x619;
     FUN_00432430(uVar1 + 0x2424,*(undefined4 *)&pVVar2->field_0x1e198);
@@ -163,7 +163,7 @@ undefined4 FUN_00417d29(void)
       return 0xffffffff;
     }
   }
-  if (g_GameContext._396_4_ != 3) {
+  if (g_GameContext.unkInput2 != 3) {
     for (local_8 = 0; pVVar2 = VERY_BIG_STRUCT, local_8 < 0x1a; local_8 = local_8 + 1) {
       local_14 = (short)local_8 + 0x600;
       iVar3 = local_8 * 0x110 + in_ECX[1];

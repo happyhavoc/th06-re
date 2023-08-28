@@ -40,13 +40,13 @@ undefined4 FUN_00437b41(void)
         *(undefined4 *)(in_ECX + 0x8200) = 0xff000000;
         *(undefined4 *)(in_ECX + 0x820c) = 0;
         *(undefined4 *)(in_ECX + 0x8210) = 0x3c;
-        FUN_004311e0(10,0);
+        FUN_004311e0(10);
         break;
       case 1:
         iVar1 = FUN_0043a736(0,0);
         if ((((iVar1 == 0) && (iVar1 = FUN_0043a736(0,1), iVar1 == 0)) &&
             (iVar1 = FUN_0043a736(1,0), iVar1 == 0)) && (iVar1 = FUN_0043a736(1,1), iVar1 == 0)) {
-          FUN_004311e0(0xb,0);
+          FUN_004311e0(0xb);
         }
         else {
           for (local_8 = 0; local_8 < 0x7a; local_8 = local_8 + 1) {
@@ -60,7 +60,7 @@ undefined4 FUN_00437b41(void)
           *(undefined4 *)(in_ECX + 0x8200) = 0xff000000;
           *(undefined4 *)(in_ECX + 0x820c) = 0;
           *(undefined4 *)(in_ECX + 0x8210) = 0x3c;
-          FUN_004311e0(10,0);
+          FUN_004311e0(10);
         }
         break;
       case 2:
@@ -80,7 +80,7 @@ undefined4 FUN_00437b41(void)
         *(undefined4 *)(in_ECX + 0x8200) = 0xff000000;
         *(undefined4 *)(in_ECX + 0x820c) = 0;
         *(undefined4 *)(in_ECX + 0x8210) = 0x3c;
-        FUN_004311e0(10,0);
+        FUN_004311e0(10);
         break;
       case 3:
         for (local_8 = 0; local_8 < 0x7a; local_8 = local_8 + 1) {
@@ -93,7 +93,7 @@ undefined4 FUN_00437b41(void)
         *(undefined4 *)(in_ECX + 0x8200) = 0xff000000;
         *(undefined4 *)(in_ECX + 0x820c) = 0;
         *(undefined4 *)(in_ECX + 0x8210) = 0x3c;
-        FUN_004311e0(10,0);
+        FUN_004311e0(10);
         break;
       case 4:
         for (local_8 = 0; local_8 < 0x7a; local_8 = local_8 + 1) {
@@ -105,7 +105,7 @@ undefined4 FUN_00437b41(void)
         *(undefined4 *)(in_ECX + 0x8200) = 0xff000000;
         *(undefined4 *)(in_ECX + 0x820c) = 0;
         *(undefined4 *)(in_ECX + 0x8210) = 0x3c;
-        FUN_004311e0(10,0);
+        FUN_004311e0(10);
         break;
       case 5:
         *(undefined4 *)(in_ECX + 0x81f0) = 0x10;
@@ -113,7 +113,7 @@ undefined4 FUN_00437b41(void)
         for (local_8 = 0; local_8 < 0x7a; local_8 = local_8 + 1) {
           *(undefined2 *)(in_ECX + 0x8a + local_8 * 0x110) = 4;
         }
-        FUN_004311e0(10,0);
+        FUN_004311e0(10);
         break;
       case 6:
         *(undefined4 *)(in_ECX + 0x81f0) = 3;
@@ -125,7 +125,7 @@ undefined4 FUN_00437b41(void)
         *(byte *)(in_ECX + 0x8230) = g_GameContext.cfg.colorMode16bit;
         *(bool *)(in_ECX + 0x8231) = g_GameContext.cfg.windowed;
         *(byte *)(in_ECX + 0x8232) = g_GameContext.cfg.frameskip_config;
-        FUN_004311e0(10,0);
+        FUN_004311e0(10);
         break;
       case 7:
         *(undefined4 *)(in_ECX + 0x81f0) = 4;
@@ -133,7 +133,7 @@ undefined4 FUN_00437b41(void)
         for (local_8 = 0; local_8 < 0x7a; local_8 = local_8 + 1) {
           *(undefined2 *)(in_ECX + 0x8a + local_8 * 0x110) = 4;
         }
-        FUN_004311e0(0xb,0);
+        FUN_004311e0(0xb);
       }
     }
     if (((BUTTONS_PRESSED_CURFRAME & 0x200) != 0) &&
@@ -143,12 +143,12 @@ undefined4 FUN_00437b41(void)
       for (local_8 = 0; local_8 < 0x7a; local_8 = local_8 + 1) {
         *(undefined2 *)(in_ECX + 0x8a + local_8 * 0x110) = 4;
       }
-      FUN_004311e0(0xb,0);
+      FUN_004311e0(0xb);
     }
     if (((BUTTONS_PRESSED_CURFRAME & 10) != 0) &&
        ((BUTTONS_PRESSED_CURFRAME & 10) != (BUTTONS_PRESSED_PREVFRAME & 10))) {
       *(undefined4 *)(in_ECX + 0x81a0) = 7;
-      FUN_004311e0(0xb,0);
+      FUN_004311e0(0xb);
     }
   }
   return 0;

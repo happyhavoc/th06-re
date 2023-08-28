@@ -22,14 +22,14 @@ ushort GetControllerInput(ushort buttons)
   int local_15c [12];
   undefined local_12c [224];
   uint local_4c;
-  int local_48;
+  HRESULT local_48;
   int local_44;
   int local_40;
   uint local_3c;
   joyinfoex_tag joyconPos;
   
   local_4c = __security_cookie ^ unaff_retaddr;
-  if (g_GameContext._20_4_ == 0) {
+  if (g_GameContext.controller == (LPDIRECTINPUTDEVICE8A)0x0) {
     pjVar6 = &joyconPos;
     for (iVar4 = 0xd; iVar4 != 0; iVar4 = iVar4 + -1) {
       pjVar6->dwSize = 0;
@@ -92,14 +92,14 @@ ushort GetControllerInput(ushort buttons)
     }
   }
   else {
-    local_48 = (**(code **)(*(int *)g_GameContext._20_4_ + 100))(g_GameContext._20_4_);
+    local_48 = (*(g_GameContext.controller)->lpVtbl->Poll)(g_GameContext.controller);
     if (local_48 < 0) {
       local_160 = 0;
       DebugPrint2("error : DIERR_INPUTLOST\n");
-      local_48 = (**(code **)(*(int *)g_GameContext._20_4_ + 0x1c))(g_GameContext._20_4_);
+      local_48 = (*(g_GameContext.controller)->lpVtbl->Acquire)(g_GameContext.controller);
       do {
         if (local_48 != -0x7ff8ffe2) break;
-        local_48 = (**(code **)(*(int *)g_GameContext._20_4_ + 0x1c))(g_GameContext._20_4_);
+        local_48 = (*(g_GameContext.controller)->lpVtbl->Acquire)(g_GameContext.controller);
         DebugPrint2("error : DIERR_INPUTLOST %d\n",local_160);
         local_160 = local_160 + 1;
       } while (local_160 < 400);
@@ -110,8 +110,8 @@ ushort GetControllerInput(ushort buttons)
         *piVar7 = 0;
         piVar7 = piVar7 + 1;
       }
-      local_48 = (**(code **)(*(int *)g_GameContext._20_4_ + 0x24))
-                           (g_GameContext._20_4_,0x110,local_15c);
+      local_48 = (*(g_GameContext.controller)->lpVtbl->GetDeviceState)
+                           (g_GameContext.controller,0x110,local_15c);
       if (-1 < local_48) {
         local_44 = FUN_0041d580(&buttons,g_GameContext.cfg.controllerMapping.shootButton,1,local_12c
                                );

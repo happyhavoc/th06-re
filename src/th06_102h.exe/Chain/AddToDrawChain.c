@@ -1,5 +1,5 @@
 
-undefined4 __thiscall AddToDrawChain(ChainElem *param_1_00,ChainElem *param_2,int param_3)
+undefined4 __thiscall Chain::AddToDrawChain(Chain *this,ChainElem *param_2,int param_3)
 
 {
   undefined4 uVar1;
@@ -7,7 +7,7 @@ undefined4 __thiscall AddToDrawChain(ChainElem *param_1_00,ChainElem *param_2,in
   
   DebugPrint2("add draw chain (pri = %d)\n",param_3);
   param_2->priority = (undefined2)param_3;
-  for (local_8 = param_1_00 + 1;
+  for (local_8 = &this->drawChain;
       (local_8->next != (ChainElem *)0x0 && ((short)local_8->priority <= param_3));
       local_8 = local_8->next) {
   }

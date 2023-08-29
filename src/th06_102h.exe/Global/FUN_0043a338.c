@@ -20,11 +20,11 @@ undefined4 FUN_0043a338(int param_1)
   BYTE_ARRAY_006d46c0[33269] = 0;
   BYTE_ARRAY_006d46c0[33270] = 0;
   BYTE_ARRAY_006d46c0[33271] = 0;
-  iVar2 = AddToCalcChain(&CHAIN,(ChainElem *)BYTE_ARRAY_006d46c0._33332_4_,2);
+  iVar2 = Chain::AddToCalcChain(&CHAIN,(ChainElem *)BYTE_ARRAY_006d46c0._33332_4_,2);
   if (iVar2 == 0) {
     BYTE_ARRAY_006d46c0._33336_4_ = AllocateChainElem(&CHAIN,FUN_00439ad6);
     *(byte **)(BYTE_ARRAY_006d46c0._33336_4_ + 0x1c) = BYTE_ARRAY_006d46c0;
-    AddToDrawChain(&CHAIN,(ChainElem *)BYTE_ARRAY_006d46c0._33336_4_,0);
+    Chain::AddToDrawChain(&CHAIN,(ChainElem *)BYTE_ARRAY_006d46c0._33336_4_,0);
     BYTE_ARRAY_006d46c0[69424] = 0;
     BYTE_ARRAY_006d46c0[69425] = 0;
     BYTE_ARRAY_006d46c0[69426] = 0;

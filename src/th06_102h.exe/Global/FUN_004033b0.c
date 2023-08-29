@@ -29,7 +29,7 @@ void __fastcall FUN_004033b0(int param_1)
         else {
           *(undefined4 *)(param_1 + 0x14c) = 0x3e400000;
           *(undefined4 *)(param_1 + 0x160) = 0x3d000000;
-          FUN_00432ad0(param_1 + 0x110);
+          FUN_00432ad0(VERY_BIG_STRUCT,param_1 + 0x110);
           *(undefined4 *)(param_1 + 0x14c) = 0x3d000000;
           *(undefined4 *)(param_1 + 0x160) = 0x3d000000;
         }

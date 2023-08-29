@@ -34,7 +34,7 @@ void __thiscall FUN_00432030(VeryBigStruct *this,int param_2)
     this->field_0x210bc = 0xff;
     this->field_0x210bd = 0xff;
     this->field_0x210be = 0xff;
-    this->field19739_0x210b8 = 0;
+    this->curTexture = 0;
   }
   return;
 }

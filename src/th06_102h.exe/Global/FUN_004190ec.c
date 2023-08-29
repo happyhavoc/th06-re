@@ -65,8 +65,8 @@ undefined4 FUN_004190ec(void)
     local_28 = 0x3f800000;
     local_3c = 0x3f800000;
     local_50 = 0x3f800000;
-    FUN_00432ad0(in_ECX + 0x2550);
-    FUN_00432ad0(in_ECX + 0x2660);
+    FUN_00432ad0(VERY_BIG_STRUCT,in_ECX + 0x2550);
+    FUN_00432ad0(VERY_BIG_STRUCT,in_ECX + 0x2660);
     if (((uint)g_GameContext.cfg.render_opts >> NO_COLOR_COMP & 1) == 0) {
       (*(g_GameContext.d3d_device)->lpVtbl->SetTextureStageState)
                 (g_GameContext.d3d_device,0,D3DTSS_ALPHAOP,2);
@@ -98,10 +98,10 @@ undefined4 FUN_004190ec(void)
               (g_GameContext.d3d_device,0,D3DTSS_ALPHAARG1,2);
     (*(g_GameContext.d3d_device)->lpVtbl->SetTextureStageState)
               (g_GameContext.d3d_device,0,D3DTSS_COLORARG1,2);
-    FUN_00432ad0(in_ECX + 0x2770);
-    FUN_00432ad0(in_ECX + 0x2880);
-    FUN_00432ad0(in_ECX + 0x2990);
-    FUN_00432ad0(in_ECX + 0x2aa0);
+    FUN_00432ad0(VERY_BIG_STRUCT,in_ECX + 0x2770);
+    FUN_00432ad0(VERY_BIG_STRUCT,in_ECX + 0x2880);
+    FUN_00432ad0(VERY_BIG_STRUCT,in_ECX + 0x2990);
+    FUN_00432ad0(VERY_BIG_STRUCT,in_ECX + 0x2aa0);
     uVar1 = 0;
   }
   return uVar1;

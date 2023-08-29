@@ -27,7 +27,7 @@ undefined4 FUN_0042a240(int param_1,undefined4 param_2)
         pCVar1 = AllocateChainElem(&CHAIN,FUN_0042a670);
         *(ChainElem **)((int)local_14 + 0x6c) = pCVar1;
         *(void **)(*(int *)((int)local_14 + 0x68) + 0x1c) = local_14;
-        iVar2 = AddToCalcChain(&CHAIN,*(ChainElem **)((int)local_14 + 0x68),0xf);
+        iVar2 = Chain::AddToCalcChain(&CHAIN,*(ChainElem **)((int)local_14 + 0x68),0xf);
         if (iVar2 != 0) {
           return 0xffffffff;
         }
@@ -41,17 +41,17 @@ undefined4 FUN_0042a240(int param_1,undefined4 param_2)
         pCVar1 = AllocateChainElem(&CHAIN,FUN_0042a670);
         *(ChainElem **)((int)local_14 + 0x6c) = pCVar1;
         *(void **)(*(int *)((int)local_14 + 0x68) + 0x1c) = local_14;
-        iVar2 = AddToCalcChain(&CHAIN,*(ChainElem **)((int)local_14 + 0x68),5);
+        iVar2 = Chain::AddToCalcChain(&CHAIN,*(ChainElem **)((int)local_14 + 0x68),5);
         if (iVar2 != 0) {
           return 0xffffffff;
         }
         pCVar1 = AllocateChainElem(&CHAIN,FUN_0042a510);
         *(ChainElem **)((int)local_14 + 0x70) = pCVar1;
         *(void **)(*(int *)((int)local_14 + 0x70) + 0x1c) = local_14;
-        AddToCalcChain(&CHAIN,*(ChainElem **)((int)local_14 + 0x70),0x10);
+        Chain::AddToCalcChain(&CHAIN,*(ChainElem **)((int)local_14 + 0x70),0x10);
       }
       *(void **)(*(int *)((int)local_14 + 0x6c) + 0x1c) = local_14;
-      AddToDrawChain(&CHAIN,*(ChainElem **)((int)local_14 + 0x6c),0xd);
+      Chain::AddToDrawChain(&CHAIN,*(ChainElem **)((int)local_14 + 0x6c),0xd);
     }
     else if (param_1 == 0) {
       FUN_0042a680(DAT_006d3f18);

@@ -1,11 +1,11 @@
 
-ChainElem * __fastcall FUN_0041c720(ChainElem *this)
+ChainElem * __fastcall ChainElem::Init(ChainElem *this)
 
 {
   this->prev = (ChainElem *)0x0;
   this->next = (ChainElem *)0x0;
   this->callback = 0;
-  this->priority_ptr_ = &this->priority;
+  this->unkPtr = this;
   this->added_callback = 0;
   this->deleted_callback = 0;
   this->priority = 0;

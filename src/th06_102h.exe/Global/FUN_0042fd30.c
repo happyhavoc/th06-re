@@ -54,11 +54,11 @@ int * FUN_0042fd30(int param_1,int param_2,int param_3,int param_4,int param_5)
     local_2c[6] = param_3;
     local_2c[7] = param_4;
     local_2c[8] = param_5;
-    iVar1 = AddToCalcChain(&CHAIN,local_14,0xe);
+    iVar1 = Chain::AddToCalcChain(&CHAIN,local_14,0xe);
     if (iVar1 == 0) {
       if (local_18 != (ChainElem *)0x0) {
         local_18->arg = local_2c;
-        AddToDrawChain(&CHAIN,local_18,0x10);
+        Chain::AddToDrawChain(&CHAIN,local_18,0x10);
       }
       local_2c[1] = (int)local_14;
       local_2c[2] = (int)local_18;

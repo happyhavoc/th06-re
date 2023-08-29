@@ -1,5 +1,5 @@
 
-undefined4 __thiscall AddToCalcChain(ChainElem *param_1_00,ChainElem *param_2,int priority)
+undefined4 __thiscall Chain::AddToCalcChain(Chain *this,ChainElem *param_2,int priority)
 
 {
   undefined4 uVar1;
@@ -7,8 +7,8 @@ undefined4 __thiscall AddToCalcChain(ChainElem *param_1_00,ChainElem *param_2,in
   
   DebugPrint2("add calc chain (pri = %d)\n",priority);
   param_2->priority = (undefined2)priority;
-  for (cur = param_1_00; (cur->next != (ChainElem *)0x0 && ((short)cur->priority <= priority));
-      cur = cur->next) {
+  for (cur = &this->calcChain; (cur->next != (ChainElem *)0x0 && ((short)cur->priority <= priority))
+      ; cur = cur->next) {
   }
   if (priority < (short)cur->priority) {
     param_2->next = cur;

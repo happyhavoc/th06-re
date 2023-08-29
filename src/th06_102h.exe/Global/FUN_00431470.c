@@ -24,12 +24,12 @@ undefined4 * __fastcall FUN_00431470(VeryBigStruct *param_1)
   }
   FLOAT_006d4654 = 1.0;
   FLOAT_006d463c = 1.0;
-  FLOAT_006d4624 = 1.0;
-  FLOAT_006d460c = 1.0;
-  FLOAT_006d4610 = 0.0;
-  FLOAT_006d4614 = 0.0;
-  FLOAT_006d4628 = 1.0;
-  DAT_006d462c = 0;
+  TRIANGLE_STRIP[3].x = 1.0;
+  TRIANGLE_STRIP[1].x = 1.0;
+  TRIANGLE_STRIP[1].y = 0.0;
+  TRIANGLE_STRIP[1].z = 0.0;
+  TRIANGLE_STRIP[3].y = 1.0;
+  TRIANGLE_STRIP[3].z = 0.0;
   DAT_006d4640 = 0;
   FLOAT_006d4644 = 1.0;
   FLOAT_006d4658 = 1.0;
@@ -47,7 +47,7 @@ undefined4 * __fastcall FUN_00431470(VeryBigStruct *param_1)
   DAT_006d45f8 = 0x3f800000;
   DAT_006d45fc = 0x3f800000;
   param_1->vertex_buffer = (IDirect3DVertexBuffer8 *)0x0;
-  param_1->field19739_0x210b8 = 0;
+  param_1->curTexture = 0;
   param_1->field_0x210bc = 0;
   param_1->field_0x210bd = 0;
   param_1->field19738_0x210b4 = 1;

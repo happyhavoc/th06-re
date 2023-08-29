@@ -40,13 +40,13 @@ undefined4 FUN_0041b252(void)
   _DAT_0069bc84 = FUN_0041b1a4;
   _DAT_0069bc88 = FUN_0041b1b1;
   _DAT_0069bc98 = &DAT_0069bc30;
-  iVar3 = AddToCalcChain(&CHAIN,(ChainElem *)&DAT_0069bc7c,0xc);
+  iVar3 = Chain::AddToCalcChain(&CHAIN,(ChainElem *)&DAT_0069bc7c,0xc);
   if (iVar3 == 0) {
     _DAT_0069bc60 = FUN_00417502;
     _DAT_0069bc64 = 0;
     _DAT_0069bc68 = 0;
     _DAT_0069bc78 = &DAT_0069bc30;
-    AddToDrawChain(&CHAIN,(ChainElem *)&DAT_0069bc5c,0xb);
+    Chain::AddToDrawChain(&CHAIN,(ChainElem *)&DAT_0069bc5c,0xb);
     uVar2 = 0;
   }
   else {

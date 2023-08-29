@@ -1,5 +1,5 @@
 
-int __fastcall RunChain(ChainElem *param_1)
+int __fastcall RunDrawChain(Chain *param_1)
 
 {
   ChainElem *pCVar1;
@@ -8,7 +8,7 @@ int __fastcall RunChain(ChainElem *param_1)
   ChainElem *local_8;
   
   local_c = 0;
-  local_8 = param_1 + 1;
+  local_8 = &param_1->drawChain;
 LAB_0041cae9:
   while( true ) {
     if (local_8 == (ChainElem *)0x0) {

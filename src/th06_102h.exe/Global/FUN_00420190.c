@@ -34,7 +34,7 @@ void FUN_00420190(void)
         }
         *(uint *)(local_10 + 0x7c) = *(uint *)(local_10 + 0x7c) & 0xffffff | local_8 << 0x18;
       }
-      FUN_00432ad0(local_10);
+      FUN_00432ad0(VERY_BIG_STRUCT,local_10);
     }
     local_10 = local_10 + 0x144;
   }

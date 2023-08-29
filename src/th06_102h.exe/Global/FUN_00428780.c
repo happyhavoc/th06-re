@@ -23,10 +23,10 @@ undefined4 FUN_00428780(undefined param_1)
   DAT_006d3f14->arg = &DAT_006ca628;
   DAT_006d3f0c->added_callback = FUN_00429c50;
   DAT_006d3f0c->deleted_callback = FUN_0042a0b0;
-  iVar2 = AddToCalcChain(&CHAIN,DAT_006d3f0c,7);
+  iVar2 = Chain::AddToCalcChain(&CHAIN,DAT_006d3f0c,7);
   if (iVar2 == 0) {
-    AddToDrawChain(&CHAIN,DAT_006d3f10,5);
-    AddToDrawChain(&CHAIN,DAT_006d3f14,7);
+    Chain::AddToDrawChain(&CHAIN,DAT_006d3f10,5);
+    Chain::AddToDrawChain(&CHAIN,DAT_006d3f14,7);
     uVar1 = 0;
   }
   else {

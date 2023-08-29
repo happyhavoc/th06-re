@@ -18,7 +18,7 @@ ChainElem * __thiscall AllocateChainElem(void *this,void *callback)
     local_24 = (ChainElem *)0x0;
   }
   else {
-    local_24 = FUN_0041c720(this_00);
+    local_24 = ChainElem::Init(this_00);
   }
   local_24->callback = callback;
   local_24->added_callback = 0;

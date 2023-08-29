@@ -10,6 +10,7 @@ undefined4 FUN_00432cc0(void *param_1)
   float fVar6;
   float fVar7;
   undefined4 uVar8;
+  VeryBigStruct *in_ECX;
   float10 fVar9;
   
   if (NAN(*(float *)((int)param_1 + 8)) == (*(float *)((int)param_1 + 8) == 0.0)) {
@@ -33,31 +34,31 @@ undefined4 FUN_00432cc0(void *param_1)
                     *(float *)((int)param_1 + 0x1c)) / 2.0);
       fVar7 = ROUND((*(float *)(*(int *)((int)param_1 + 0xc0) + 0x2c) *
                     *(float *)((int)param_1 + 0x18)) / 2.0);
-      FUN_00432c80(&FLOAT_006d4600,-fVar6 - 0.5,-fVar7 - 0.5,fVar2,fVar1,fVar4,fVar5);
-      FUN_00432c80(&FLOAT_006d4618,fVar6 - 0.5,-fVar7 - 0.5,fVar2,fVar1,fVar4,fVar5);
+      FUN_00432c80(TRIANGLE_STRIP,-fVar6 - 0.5,-fVar7 - 0.5,fVar2,fVar1,fVar4,fVar5);
+      FUN_00432c80(0x6d4618,fVar6 - 0.5,-fVar7 - 0.5,fVar2,fVar1,fVar4,fVar5);
       FUN_00432c80(&FLOAT_006d4630,-fVar6 - 0.5,fVar7 - 0.5,fVar2,fVar1,fVar4,fVar5);
       FUN_00432c80(&FLOAT_006d4648,fVar6 - 0.5,fVar7 - 0.5,fVar2,fVar1,fVar4,fVar5);
-      DAT_006d4608 = *(undefined4 *)((int)param_1 + 0x98);
+      TRIANGLE_STRIP[0].z = *(float *)((int)param_1 + 0x98);
       if ((*(uint *)((int)param_1 + 0x80) >> 8 & 1) != 0) {
-        FLOAT_006d4600 = FLOAT_006d4600 + fVar6;
-        FLOAT_006d4618 = FLOAT_006d4618 + fVar6;
+        TRIANGLE_STRIP[0].x = TRIANGLE_STRIP[0].x + fVar6;
+        TRIANGLE_STRIP[2].x = TRIANGLE_STRIP[2].x + fVar6;
         FLOAT_006d4630 = FLOAT_006d4630 + fVar6;
         FLOAT_006d4648 = FLOAT_006d4648 + fVar6;
       }
       if ((*(uint *)((int)param_1 + 0x80) >> 8 & 2) != 0) {
-        FLOAT_006d4604 = FLOAT_006d4604 + fVar7;
-        FLOAT_006d461c = FLOAT_006d461c + fVar7;
+        TRIANGLE_STRIP[0].y = TRIANGLE_STRIP[0].y + fVar7;
+        TRIANGLE_STRIP[2].y = TRIANGLE_STRIP[2].y + fVar7;
         FLOAT_006d4634 = FLOAT_006d4634 + fVar7;
         FLOAT_006d464c = FLOAT_006d464c + fVar7;
       }
-      DAT_006d4620 = DAT_006d4608;
-      DAT_006d4638 = DAT_006d4608;
-      DAT_006d4650 = DAT_006d4608;
-      uVar8 = FUN_00432730(param_1,0);
+      TRIANGLE_STRIP[2].z = TRIANGLE_STRIP[0].z;
+      DAT_006d4638 = TRIANGLE_STRIP[0].z;
+      DAT_006d4650 = TRIANGLE_STRIP[0].z;
+      uVar8 = FUN_00432730(in_ECX,(int)param_1,0);
     }
   }
   else {
-    uVar8 = FUN_00432ad0(param_1);
+    uVar8 = FUN_00432ad0(in_ECX,(int)param_1);
   }
   return uVar8;
 }

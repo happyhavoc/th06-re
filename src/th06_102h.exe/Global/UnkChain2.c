@@ -11,9 +11,9 @@ undefined2 * __fastcall UnkChain2(undefined2 *param_1)
   puStack_c = &LAB_00469148;
   local_10 = ExceptionList;
   ExceptionList = &local_10;
-  FUN_0041c720((ChainElem *)param_1);
+  ChainElem::Init((ChainElem *)param_1);
   local_8 = 0;
-  FUN_0041c720((ChainElem *)(param_1 + 0x10));
+  ChainElem::Init((ChainElem *)(param_1 + 0x10));
   UVar1 = midiOutGetNumDevs();
   *(UINT *)(param_1 + 0x20) = UVar1;
   *(undefined4 *)(param_1 + 0x22) = 0;

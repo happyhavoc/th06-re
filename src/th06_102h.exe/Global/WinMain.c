@@ -46,7 +46,7 @@ int WinMain(HINSTANCE hInstance,HINSTANCE hPrevInstance,LPSTR lpCmdLine,int nSho
             if (g_GameContext.cfg.windowed == false) {
               ShowCursor(0);
             }
-            GAME_WINDOW.field4_0x10._0_1_ = 0;
+            GAME_WINDOW.field4_0x10 = 0;
             do {
               while( true ) {
                 while( true ) {
@@ -72,7 +72,7 @@ int WinMain(HINSTANCE hInstance,HINSTANCE hPrevInstance,LPSTR lpCmdLine,int nSho
             } while (local_8 == 0);
           }
 LAB_0042055a:
-          FUN_0041cd10(0x69d918);
+          Chain::Release(&CHAIN);
           SoundPlayer::Release(&SOUND_PLAYER);
           _Memory = VERY_BIG_STRUCT;
           if (VERY_BIG_STRUCT != (VeryBigStruct *)0x0) {
@@ -103,7 +103,7 @@ LAB_0042055a:
           g_GameErrorContext.m_BufferEnd = g_GameErrorContext.m_Buffer;
           g_GameErrorContext.m_Buffer[0] = '\0';
           GameErrorContextLog(&g_GameErrorContext,
-                              "再起動を要するオプションが変更されたので再起動します\n"
+                              "再起動を要するオプショ��が変更されたので再起動します\n"
                              );
           if (g_GameContext.cfg.windowed == false) {
             ShowCursor(1);

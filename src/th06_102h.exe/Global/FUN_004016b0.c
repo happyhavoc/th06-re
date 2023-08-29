@@ -57,7 +57,7 @@ void __fastcall FUN_004016b0(int param_1)
           *(VeryBigStruct0tbl **)(param_1 + 0xc0) = VERY_BIG_STRUCT->field0_0x0 + *local_14 + 0x61;
           *(undefined4 *)(param_1 + 0x7c) = 0xffffffff;
         }
-        FUN_00432ad0(param_1);
+        FUN_00432ad0(VERY_BIG_STRUCT,param_1);
         *(float *)(param_1 + 0x90) = fVar1 * 14.0 + *(float *)(param_1 + 0x90);
       }
     }

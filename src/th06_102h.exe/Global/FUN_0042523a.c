@@ -30,11 +30,11 @@ undefined4 FUN_0042523a(void)
   DAT_006c71f0->arg = &DAT_006c71f0;
   DAT_006c71f0->added_callback = FUN_0042564c;
   DAT_006c71f0->deleted_callback = FUN_00425d97;
-  iVar2 = AddToCalcChain(&CHAIN,DAT_006c71f0,2);
+  iVar2 = Chain::AddToCalcChain(&CHAIN,DAT_006c71f0,2);
   if (iVar2 == 0) {
     DAT_006c71f4 = AllocateChainElem(&CHAIN,FUN_0042545a);
     DAT_006c71f4->arg = &DAT_006c71f0;
-    AddToDrawChain(&CHAIN,DAT_006c71f4,0);
+    Chain::AddToDrawChain(&CHAIN,DAT_006c71f4,0);
     uVar1 = 0;
   }
   else {

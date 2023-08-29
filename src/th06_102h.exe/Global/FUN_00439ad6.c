@@ -20,7 +20,7 @@ undefined4 FUN_00439ad6(void *param_1)
   local_10 = 0x44200000;
   local_c = 0x43f00000;
   if (*(int *)((int)param_1 + 0x81f0) != 0) {
-    VERY_BIG_STRUCT->field19739_0x210b8 = 0;
+    VERY_BIG_STRUCT->curTexture = 0;
     FUN_00435300(VERY_BIG_STRUCT,0,0,0,0,0);
     if (*(int *)((int)param_1 + 0x8210) == 0) {
       if (*(int *)((int)param_1 + 0x820c) != 0) {

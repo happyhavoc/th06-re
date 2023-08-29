@@ -13,11 +13,11 @@ undefined4 AddInputChain(void)
   pCVar1->arg = &g_GameContext;
   pCVar1->added_callback = InputChainAddedCallback;
   pCVar1->deleted_callback = InputChainRemovedCallback;
-  iVar2 = AddToCalcChain(&CHAIN,pCVar1,0);
+  iVar2 = Chain::AddToCalcChain(&CHAIN,pCVar1,0);
   if (iVar2 == 0) {
     pCVar1 = AllocateChainElem(&CHAIN,FUN_00423785);
     pCVar1->arg = &g_GameContext;
-    AddToDrawChain(&CHAIN,pCVar1,0xe);
+    Chain::AddToDrawChain(&CHAIN,pCVar1,0xe);
     uVar3 = 0;
   }
   else {

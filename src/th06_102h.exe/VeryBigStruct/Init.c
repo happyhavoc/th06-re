@@ -1,5 +1,5 @@
 
-undefined4 * __fastcall FUN_00431470(VeryBigStruct *param_1)
+undefined4 * __fastcall VeryBigStruct::Init(VeryBigStruct *param_1)
 
 {
   int iVar1;

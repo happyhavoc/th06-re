@@ -11,7 +11,7 @@ void __thiscall FUN_00417acd(int param_1_00,undefined4 param_2,char *param_3)
   iVar2 = *(int *)(param_1_00 + 4);
   *(undefined2 *)(iVar2 + 0x1e78) = 0x4a1;
   FUN_00432430(iVar2 + 0x1dc4,*(undefined4 *)&pVVar3->field_0x1dbb8);
-  FUN_004323a0(*(int *)(param_1_00 + 4) + 0x1dc4,param_2);
+  FUN_004323a0(VERY_BIG_STRUCT,(Unknown *)(*(int *)(param_1_00 + 4) + 0x1dc4),(short)param_2);
   pVVar3 = VERY_BIG_STRUCT;
   iVar2 = *(int *)(param_1_00 + 4);
   *(undefined2 *)(iVar2 + 0x2098) = 0x706;

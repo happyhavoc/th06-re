@@ -1,5 +1,5 @@
 
-undefined4 FUN_004013a0(undefined4 *param_1)
+undefined4 FUN_004013a0(InputChainArg *this)
 
 {
   int iVar1;
@@ -11,7 +11,7 @@ undefined4 FUN_004013a0(undefined4 *param_1)
     if (iVar1 == 0) {
       iVar1 = VeryBigStruct::LoadAnim(VERY_BIG_STRUCT,3,"data/capture.anm",0x718);
       if (iVar1 == 0) {
-        FUN_00401410(param_1);
+        FUN_00401410(this);
         uVar2 = 0;
       }
       else {

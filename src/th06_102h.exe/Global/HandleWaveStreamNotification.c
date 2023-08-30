@@ -118,7 +118,7 @@ int __thiscall HandleWaveStreamNotification(int param_1_00,int param_2)
       }
     }
     else {
-      local_20 = FUN_0043aea0(**(undefined4 **)(param_1_00 + 4),0);
+      local_20 = FUN_0043aea0(param_1_00,**(int ***)(param_1_00 + 4),0);
       if (local_20 < 0) {
         DebugPrint2("error : FillBufferWithSound in HandleWaveStreamNotification\n");
       }

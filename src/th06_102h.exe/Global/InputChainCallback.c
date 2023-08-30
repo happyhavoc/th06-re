@@ -6,8 +6,8 @@ undefined4 InputChainCallback(GameContext *param_1)
 {
   int iVar1;
   
-  if (SOUND_PLAYER._1580_4_ != 0) {
-    FUN_0043b4d0((void *)SOUND_PLAYER._1580_4_);
+  if (g_SoundPlayer._1580_4_ != 0) {
+    FUN_0043b4d0((void *)g_SoundPlayer._1580_4_);
   }
   BUTTONS_PRESSED_PREVFRAME = BUTTONS_PRESSED_CURFRAME;
   BUTTONS_PRESSED_CURFRAME = GetInput();

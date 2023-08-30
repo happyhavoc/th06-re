@@ -106,7 +106,7 @@ void FUN_00417502(uint *param_1)
     *(undefined4 *)(param_1[1] + 0x2c28) = 0x42a00000;
     FUN_00401650(0x47b900,(undefined4 *)(param_1[1] + 0x2c24),"Spell Card Bonus!");
     *(float *)(param_1[1] + 0x2c28) = *(float *)(param_1[1] + 0x2c28) + 16.0;
-    FUN_0045c386(&local_34,&PTR_DAT_0046a7f4,*(undefined4 *)(param_1[1] + 0x2c30));
+    sprintf(&local_34,(char *)&PTR_DAT_0046a7f4,*(undefined4 *)(param_1[1] + 0x2c30));
     local_40 = &local_34;
     do {
       cVar1 = *local_40;

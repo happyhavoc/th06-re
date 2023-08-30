@@ -13,10 +13,10 @@ void FUN_00421f50(void)
   ExceptionList = &local_10;
   *in_ECX = &PTR_FUN_0046b568;
   local_8 = 1;
-  FUN_004224e0();
+  FUN_004224e0(in_ECX);
   FUN_004220b0();
   for (local_14 = 0; local_14 < 0x20; local_14 = local_14 + 1) {
-    FUN_00422070(local_14);
+    FUN_00422070((int)in_ECX,local_14);
   }
   local_8 = local_8 & 0xffffff00;
   FUN_00421ad0();

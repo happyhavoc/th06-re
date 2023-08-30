@@ -9,9 +9,9 @@ void FUN_0042c2d4(void)
   uint unaff_retaddr;
   int local_b8;
   int local_b4;
-  undefined local_a4 [68];
+  char local_a4 [68];
   int local_60;
-  undefined local_5c [68];
+  char local_5c [68];
   uint local_18;
   undefined4 *local_14;
   int local_10;
@@ -157,7 +157,7 @@ void FUN_0042c2d4(void)
             *(undefined *)(in_ECX + local_b4 + 0x34) = 0x20;
           }
           else {
-            FUN_0045c386(local_a4,"./replay/th6_%.2d.rpy",*(int *)(in_ECX + 0x1c) + 1);
+            sprintf(local_a4,"./replay/th6_%.2d.rpy",*(int *)(in_ECX + 0x1c) + 1);
             FUN_0042ab30(local_a4,in_ECX + 0x34);
             *(undefined4 *)(in_ECX + 4) = 0;
             *(undefined4 *)(in_ECX + 8) = 2;
@@ -239,7 +239,7 @@ LAB_0042c515:
     if (*(int *)(in_ECX + 4) == 0) {
       FUN_0045d588("replay");
       for (local_10 = 0; local_10 < 0xf; local_10 = local_10 + 1) {
-        FUN_0045c386(local_5c,"./replay/th6_%.2d.rpy",local_10 + 1);
+        sprintf(local_5c,"./replay/th6_%.2d.rpy",local_10 + 1);
         local_14 = (undefined4 *)OpenPath(local_5c,1);
         if (local_14 != (undefined4 *)0x0) {
           iVar1 = FUN_0042a140(local_14,g_FileSize);

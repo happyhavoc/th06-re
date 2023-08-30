@@ -3,7 +3,7 @@ void FUN_00424b5d(char *param_1)
 
 {
   char cVar1;
-  undefined4 uVar2;
+  void *pvVar2;
   int iVar3;
   uint unaff_retaddr;
   char *local_22c;
@@ -15,13 +15,13 @@ void FUN_00424b5d(char *param_1)
   uint local_c;
   char *local_8;
   
-  uVar2 = g_GameContext._432_4_;
+  pvVar2 = g_GameContext.field98_0x1b0;
   local_c = __security_cookie ^ unaff_retaddr;
   if (g_GameContext.cfg.musicMode == MIDI) {
-    if (g_GameContext._432_4_ != 0) {
-      FUN_004224e0();
-      FUN_00422380(param_1);
-      FUN_00422490(uVar2);
+    if (g_GameContext.field98_0x1b0 != (void *)0x0) {
+      FUN_004224e0(g_GameContext.field98_0x1b0);
+      FUN_00422380((int)pvVar2,param_1);
+      FUN_00422490((int)pvVar2);
     }
   }
   else if (g_GameContext.cfg.musicMode == WAV) {
@@ -50,12 +50,12 @@ void FUN_00424b5d(char *param_1)
     local_8[2] = 'o';
     local_8[3] = 's';
     FUN_00430a50(local_20c);
-    iVar3 = SoundPlayer::FUN_00430e10(&SOUND_PLAYER,local_10c);
+    iVar3 = SoundPlayer::FUN_00430e10(&g_SoundPlayer,local_10c);
     if (iVar3 < 0) {
-      FUN_00430ec0(0x6d3f50,0);
+      SoundPlayer::playBGM(&g_SoundPlayer,0);
     }
     else {
-      FUN_00430ec0(0x6d3f50,1);
+      SoundPlayer::playBGM(&g_SoundPlayer,1);
     }
   }
   __security_check_cookie(local_c ^ unaff_retaddr);

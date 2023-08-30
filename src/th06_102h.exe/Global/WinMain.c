@@ -30,7 +30,7 @@ int WinMain(HINSTANCE hInstance,HINSTANCE hPrevInstance,LPSTR lpCmdLine,int nSho
           CreateGameWindow(hInstance);
           retCode = InitD3dRendering();
           if (retCode != 0) break;
-          SoundPlayer::InitSound(&SOUND_PLAYER,(HWND)GAME_WINDOW.window);
+          SoundPlayer::InitSound(&g_SoundPlayer,(HWND)g_GameWindow.window);
           GetJoystickCaps();
           ResetKeyboard();
           puVar1 = (VeryBigStruct *)operator_new(0x2112c);
@@ -38,7 +38,7 @@ int WinMain(HINSTANCE hInstance,HINSTANCE hPrevInstance,LPSTR lpCmdLine,int nSho
             local_58 = (VeryBigStruct *)0x0;
           }
           else {
-            local_58 = (VeryBigStruct *)FUN_00431470(puVar1);
+            local_58 = (VeryBigStruct *)VeryBigStruct::Init(puVar1);
           }
           VERY_BIG_STRUCT = local_58;
           retCode = AddInputChain();
@@ -46,11 +46,11 @@ int WinMain(HINSTANCE hInstance,HINSTANCE hPrevInstance,LPSTR lpCmdLine,int nSho
             if (g_GameContext.cfg.windowed == false) {
               ShowCursor(0);
             }
-            GAME_WINDOW.field4_0x10 = 0;
+            g_GameWindow.field4_0x10 = 0;
             do {
               while( true ) {
                 while( true ) {
-                  if (GAME_WINDOW.is_app_closing != 0) goto LAB_0042055a;
+                  if (g_GameWindow.is_app_closing != 0) goto LAB_0042055a;
                   BVar1 = PeekMessageA(&local_28,(HWND)0x0,0,0,1);
                   if (BVar1 == 0) break;
                   TranslateMessage(&local_28);
@@ -68,12 +68,12 @@ int WinMain(HINSTANCE hInstance,HINSTANCE hPrevInstance,LPSTR lpCmdLine,int nSho
                   g_GameContext._408_4_ = 3;
                 }
               }
-              local_8 = GameWindow::Render(&GAME_WINDOW);
+              local_8 = GameWindow::Render(&g_GameWindow);
             } while (local_8 == 0);
           }
 LAB_0042055a:
           Chain::Release(&CHAIN);
-          SoundPlayer::Release(&SOUND_PLAYER);
+          SoundPlayer::Release(&g_SoundPlayer);
           _Memory = VERY_BIG_STRUCT;
           if (VERY_BIG_STRUCT != (VeryBigStruct *)0x0) {
             FUN_00423330();
@@ -84,9 +84,9 @@ LAB_0042055a:
             (*(g_GameContext.d3d_device)->lpVtbl->Release)(g_GameContext.d3d_device);
             g_GameContext.d3d_device = (IDirect3DDevice8 *)0x0;
           }
-          ShowWindow((HWND)GAME_WINDOW.window,0);
-          MoveWindow((HWND)GAME_WINDOW.window,0,0,0,0,0);
-          DestroyWindow((HWND)GAME_WINDOW.window);
+          ShowWindow((HWND)g_GameWindow.window,0);
+          MoveWindow((HWND)g_GameWindow.window,0,0,0,0,0);
+          DestroyWindow((HWND)g_GameWindow.window);
           if (local_8 != 2) {
             WriteConfigToFile("東方紅魔郷.cfg",&g_GameContext.cfg,0x38);
             SystemParametersInfoA(0x11,g_SCREEN_SAVE_ACTIVE,(PVOID)0x0,2);
@@ -103,7 +103,7 @@ LAB_0042055a:
           g_GameErrorContext.m_BufferEnd = g_GameErrorContext.m_Buffer;
           g_GameErrorContext.m_Buffer[0] = '\0';
           GameErrorContextLog(&g_GameErrorContext,
-                              "再起動を要するオプショ��が変更されたので再起動します\n"
+                              "再起動を要するオプションが変更されたので再起動します\n"
                              );
           if (g_GameContext.cfg.windowed == false) {
             ShowCursor(1);

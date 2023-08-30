@@ -1,20 +1,18 @@
 
-undefined4 FUN_0043c8d0(void)
+undefined4 __fastcall FUN_0043c8d0(int **param_1)
 
 {
-  int **in_ECX;
-  
-  in_ECX[3] = (int *)0x0;
-  in_ECX[2] = (int *)0x0;
-  if (*in_ECX != (int *)0x0) {
-    (**(code **)(**in_ECX + 0x1c))(1);
-    *in_ECX = (int *)0x0;
+  param_1[3] = (int *)0x0;
+  param_1[2] = (int *)0x0;
+  if (*param_1 != (int *)0x0) {
+    (**(code **)(**param_1 + 0x1c))(1);
+    *param_1 = (int *)0x0;
   }
-  if (in_ECX[4] != (int *)0x0) {
-    _free(in_ECX[4]);
-    in_ECX[4] = (int *)0x0;
+  if (param_1[4] != (int *)0x0) {
+    _free(param_1[4]);
+    param_1[4] = (int *)0x0;
   }
-  _free(in_ECX[1]);
+  _free(param_1[1]);
   return 1;
 }
 

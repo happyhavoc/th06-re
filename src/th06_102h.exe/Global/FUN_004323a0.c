@@ -1,21 +1,21 @@
 
-undefined4 FUN_004323a0(int param_1,int param_2)
+undefined4 __thiscall FUN_004323a0(VeryBigStruct *this,Unknown *param_2,short idx)
 
 {
   undefined4 uVar1;
-  int in_ECX;
+  undefined2 in_stack_0000000a;
   
-  if (*(int *)(in_ECX + param_2 * 0x38) < 0) {
+  if (this->field0_0x0[_idx].field0_0x0 < 0) {
     uVar1 = 0xffffffff;
   }
   else {
-    *(undefined2 *)(param_1 + 0xb0) = (undefined2)param_2;
-    *(int *)(param_1 + 0xc0) = in_ECX + param_2 * 0x38;
-    FUN_00403670(param_1 + 0x3c);
-    *(float *)(param_1 + 0x3c) =
-         *(float *)(*(int *)(param_1 + 0xc0) + 0x30) / *(float *)(*(int *)(param_1 + 0xc0) + 0x18);
-    *(float *)(param_1 + 0x50) =
-         *(float *)(*(int *)(param_1 + 0xc0) + 0x2c) / *(float *)(*(int *)(param_1 + 0xc0) + 0x14);
+    param_2->field52_0xb0 = idx;
+    param_2->field67_0xc0 = this->field0_0x0 + _idx;
+    FUN_00403670(&param_2->field13_0x3c);
+    (param_2->field13_0x3c).field0_0x0 =
+         param_2->field67_0xc0->field36_0x30 / param_2->field67_0xc0->field18_0x18;
+    (param_2->field13_0x3c).field5_0x14 =
+         param_2->field67_0xc0->field35_0x2c / param_2->field67_0xc0->field17_0x14;
     uVar1 = 0;
   }
   return uVar1;

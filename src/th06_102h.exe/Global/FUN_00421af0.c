@@ -1,18 +1,17 @@
 
-bool FUN_00421af0(HMIDIOUT param_1)
+bool __thiscall FUN_00421af0(HMIDIOUT *param_1_00,HMIDIOUT param_2)
 
 {
   MMRESULT MVar1;
-  LPHMIDIOUT in_ECX;
   
-  if (*in_ECX != (HMIDIOUT)0x0) {
-    if (in_ECX[1] == param_1) {
+  if (*param_1_00 != (HMIDIOUT)0x0) {
+    if (param_1_00[1] == param_2) {
       return false;
     }
-    FUN_00421b50();
+    FUN_00421b50(param_1_00);
   }
-  in_ECX[1] = param_1;
-  MVar1 = midiOutOpen(in_ECX,(UINT)param_1,(DWORD_PTR)g_GameContext.hwndGameWindow,0,0x10000);
+  param_1_00[1] = param_2;
+  MVar1 = midiOutOpen(param_1_00,(UINT)param_2,(DWORD_PTR)g_GameContext.hwndGameWindow,0,0x10000);
   return MVar1 != 0;
 }
 

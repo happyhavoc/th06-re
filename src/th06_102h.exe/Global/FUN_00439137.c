@@ -72,12 +72,12 @@ undefined4 __fastcall FUN_00439137(int param_1)
       }
       else if (iVar1 == 3) {
         FUN_004311e0(0xc);
-        FUN_00424d38();
+        FUN_00424d38(&g_GameContext);
         if (g_GameContext.cfg.musicMode == OFF) {
           g_GameContext.cfg.musicMode = WAV|MIDI;
         }
         g_GameContext.cfg.musicMode = g_GameContext.cfg.musicMode + ~OFF;
-        FUN_00424b2f("bgm/th06_01.mid");
+        FUN_00424b2f();
         FUN_00424b5d("bgm/th06_01.mid");
       }
       else if (iVar1 == 4) {
@@ -127,12 +127,12 @@ undefined4 __fastcall FUN_00439137(int param_1)
       }
       else if (iVar1 == 3) {
         FUN_004311e0(0xc);
-        FUN_00424d38();
+        FUN_00424d38(&g_GameContext);
         g_GameContext.cfg.musicMode = g_GameContext.cfg.musicMode + WAV;
         if (MIDI < g_GameContext.cfg.musicMode) {
           g_GameContext.cfg.musicMode = OFF;
         }
-        FUN_00424b2f("bgm/th06_01.mid");
+        FUN_00424b2f();
         FUN_00424b5d("bgm/th06_01.mid");
       }
       else if (iVar1 == 4) {
@@ -154,7 +154,7 @@ undefined4 __fastcall FUN_00439137(int param_1)
        ((BUTTONS_PRESSED_CURFRAME & 0x1001) != (BUTTONS_PRESSED_PREVFRAME & 0x1001))) {
       iVar1 = *(int *)(param_1 + 0x81a0);
       if (iVar1 == 6) {
-        FUN_00424d38();
+        FUN_00424d38(&g_GameContext);
         g_GameContext.cfg.lifeCount = 2;
         g_GameContext.cfg.bombCount = 3;
         g_GameContext.cfg.musicMode = WAV;
@@ -162,7 +162,7 @@ undefined4 __fastcall FUN_00439137(int param_1)
         g_GameContext.cfg.defaultDifficulty = 1;
         g_GameContext.cfg.windowed = false;
         g_GameContext.cfg.frameskip_config = 0;
-        FUN_00424b2f("bgm/th06_01.mid");
+        FUN_00424b2f();
         FUN_00424b5d("bgm/th06_01.mid");
       }
       else if (iVar1 == 7) {

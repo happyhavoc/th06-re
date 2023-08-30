@@ -12,7 +12,7 @@ undefined4 FUN_00410d80(void *param_1)
   *(undefined4 *)((int)param_1 + 4) = 0;
   _free(param_1);
   g_GameContext._412_4_ = 0;
-  FUN_004242f3(0x6c6d18,5);
+  FUN_004242f3(&g_GameContext,5);
   return 0;
 }
 

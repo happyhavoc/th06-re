@@ -2,41 +2,43 @@
 void FUN_00420190(void)
 
 {
-  long lVar1;
-  int in_ECX;
-  int local_10;
+  float fVar1;
+  long lVar2;
+  Unknown *in_ECX;
+  Unknown *local_10;
   int local_c;
   int local_8;
   
   local_10 = in_ECX;
   for (local_c = 0; local_c < 0x200; local_c = local_c + 1) {
-    if (*(char *)(local_10 + 0x141) != '\0') {
-      *(float *)(local_10 + 0x90) = VIEWPORT_X + *(float *)(local_10 + 0x110);
-      *(float *)(local_10 + 0x94) = VIEWPORT_Y + *(float *)(local_10 + 0x114);
-      *(undefined4 *)(local_10 + 0x98) = 0x3c23d70a;
-      if (*(float *)(local_10 + 0x114) < -8.0 == NAN(*(float *)(local_10 + 0x114))) {
-        if (*(char *)(local_10 + 0x142) == '\0') {
-          FUN_004323a0(local_10,*(char *)(local_10 + 0x140) + 0x200);
-          *(undefined *)(local_10 + 0x142) = 1;
-          *(undefined4 *)(local_10 + 0x7c) = 0xffffffff;
+    if (*(char *)((int)&local_10[1].field14_0x7c + 1) != '\0') {
+      *(float *)&local_10->field_0x90 = VIEWPORT_X + (float)local_10[1].field13_0x3c.field4_0x10;
+      *(float *)&local_10->field_0x94 = VIEWPORT_Y + local_10[1].field13_0x3c.field5_0x14;
+      local_10->field31_0x98 = 0.01;
+      fVar1 = local_10[1].field13_0x3c.field5_0x14;
+      if (fVar1 < -8.0 == NAN(fVar1)) {
+        if (*(char *)((int)&local_10[1].field14_0x7c + 2) == '\0') {
+          FUN_004323a0(VERY_BIG_STRUCT,local_10,*(char *)&local_10[1].field14_0x7c + 0x200);
+          *(undefined *)((int)&local_10[1].field14_0x7c + 2) = 1;
+          local_10->field14_0x7c = -1;
         }
       }
       else {
-        *(float *)(local_10 + 0x94) = VIEWPORT_Y + 8.0;
-        if (*(char *)(local_10 + 0x142) != '\0') {
-          FUN_004323a0(local_10,*(char *)(local_10 + 0x140) + 0x207);
-          *(undefined *)(local_10 + 0x142) = 0;
+        *(float *)&local_10->field_0x94 = VIEWPORT_Y + 8.0;
+        if (*(char *)((int)&local_10[1].field14_0x7c + 2) != '\0') {
+          FUN_004323a0(VERY_BIG_STRUCT,local_10,*(char *)&local_10[1].field14_0x7c + 0x207);
+          *(undefined *)((int)&local_10[1].field14_0x7c + 2) = 0;
         }
-        lVar1 = __ftol2((double)(((8.0 - *(float *)(local_10 + 0x114)) * 255.0) / 128.0));
-        local_8 = 0xff - lVar1;
+        lVar2 = __ftol2((double)(((8.0 - local_10[1].field13_0x3c.field5_0x14) * 255.0) / 128.0));
+        local_8 = 0xff - lVar2;
         if (local_8 < 0x40) {
           local_8 = 0x40;
         }
-        *(uint *)(local_10 + 0x7c) = *(uint *)(local_10 + 0x7c) & 0xffffff | local_8 << 0x18;
+        local_10->field14_0x7c = local_10->field14_0x7c & 0xffffffU | local_8 << 0x18;
       }
-      FUN_00432ad0(VERY_BIG_STRUCT,local_10);
+      FUN_00432ad0(VERY_BIG_STRUCT,(int)local_10);
     }
-    local_10 = local_10 + 0x144;
+    local_10 = (Unknown *)&local_10[1].field15_0x80;
   }
   return;
 }

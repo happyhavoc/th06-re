@@ -1,14 +1,12 @@
 
-undefined4 FUN_00421d10(void)
+undefined4 __fastcall FUN_00421d10(int param_1)
 
 {
-  int in_ECX;
-  
-  if (*(int *)(in_ECX + 4) != 0) {
-    timeKillEvent(*(UINT *)(in_ECX + 4));
+  if (*(int *)(param_1 + 4) != 0) {
+    timeKillEvent(*(UINT *)(param_1 + 4));
   }
-  timeEndPeriod(*(UINT *)(in_ECX + 8));
-  *(undefined4 *)(in_ECX + 4) = 0;
+  timeEndPeriod(*(UINT *)(param_1 + 8));
+  *(undefined4 *)(param_1 + 4) = 0;
   return 1;
 }
 

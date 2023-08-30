@@ -9,19 +9,19 @@ undefined4 InputChainRemovedCallback(GameContext *param_1)
   
   FUN_004240f0(VERY_BIG_STRUCT);
   for (local_8 = 0; local_8 < 0x10; local_8 = local_8 + 1) {
-    FUN_004242f3((int)param_1,local_8);
+    FUN_004242f3(param_1,local_8);
   }
   FUN_00432030(VERY_BIG_STRUCT,0);
   FUN_00401500();
-  SoundPlayer::StopBGM(&SOUND_PLAYER);
-  if (*(int *)&param_1->field_0x1b0 != 0) {
-    FUN_004224e0();
-    _Memory = *(void **)&param_1->field_0x1b0;
+  SoundPlayer::StopBGM(&g_SoundPlayer);
+  if (param_1->field98_0x1b0 != (void *)0x0) {
+    FUN_004224e0(param_1->field98_0x1b0);
+    _Memory = param_1->field98_0x1b0;
     if (_Memory != (void *)0x0) {
       FUN_00421f50();
       _free(_Memory);
     }
-    *(undefined4 *)&param_1->field_0x1b0 = 0;
+    param_1->field98_0x1b0 = (void *)0x0;
   }
   FUN_0042ab30(0,0);
   FUN_0041f02b();

@@ -9,7 +9,7 @@ undefined4 FUN_0043a464(int param_1)
   int local_c;
   
   if (DAT_0069d4c4 == '\0') {
-    FUN_00424b2f("bgm/th06_01.mid");
+    FUN_00424b2f();
   }
   pVVar1 = VERY_BIG_STRUCT;
   for (local_c = 0; local_c < 0x7a; local_c = local_c + 1) {

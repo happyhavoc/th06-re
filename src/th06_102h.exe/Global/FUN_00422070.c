@@ -1,11 +1,9 @@
 
-void FUN_00422070(int param_1)
+void __thiscall FUN_00422070(int param_1_00,int param_2)
 
 {
-  int in_ECX;
-  
-  _free(*(void **)(in_ECX + 0x94 + param_1 * 4));
-  *(undefined4 *)(in_ECX + 0x94 + param_1 * 4) = 0;
+  _free(*(void **)(param_1_00 + 0x94 + param_2 * 4));
+  *(undefined4 *)(param_1_00 + 0x94 + param_2 * 4) = 0;
   return;
 }
 

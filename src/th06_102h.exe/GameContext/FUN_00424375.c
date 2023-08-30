@@ -5,6 +5,7 @@ void __thiscall GameContext::FUN_00424375(GameContext *this,int param_1,byte *pa
 
 {
   byte bVar1;
+  int **_Memory;
   void *pvVar2;
   int iVar3;
   bool bVar4;
@@ -15,9 +16,9 @@ void __thiscall GameContext::FUN_00424375(GameContext *this,int param_1,byte *pa
   int iStack_bc;
   byte *pbStack_b4;
   HINSTANCE *ppHStack_b0;
-  undefined auStack_98 [128];
+  byte abStack_98 [128];
   uint uStack_18;
-  int iStack_14;
+  uint uStack_14;
   void *pvStack_10;
   undefined *puStack_c;
   undefined4 uStack_8;
@@ -25,9 +26,9 @@ void __thiscall GameContext::FUN_00424375(GameContext *this,int param_1,byte *pa
   uStack_8 = 0xffffffff;
   puStack_c = &LAB_00469221;
   pvStack_10 = ExceptionList;
-  iStack_14 = 0x42437f;
+  uStack_14 = 0x42437f;
   uStack_18 = __security_cookie ^ unaff_retaddr;
-  if (this->field110_0x1bc[param_1] != 0) {
+  if (this->field107_0x1bc[param_1] != 0) {
     ppHStack_b0 = &this[1].hInstance + param_1 * 8;
     pbStack_b4 = param_2;
     do {
@@ -50,7 +51,7 @@ LAB_00424435:
     if (iStack_bc == 0) goto LAB_00424634;
   }
   ExceptionList = &pvStack_10;
-  FUN_004242f3((int)this,param_1);
+  FUN_004242f3(this,param_1);
   pvVar2 = operator_new(0x14);
   uStack_8 = 0;
   if (pvVar2 == (void *)0x0) {
@@ -60,17 +61,17 @@ LAB_00424435:
     iStack_c4 = FUN_0043c770();
   }
   uStack_8 = 0xffffffff;
-  this->field110_0x1bc[param_1] = iStack_c4;
+  this->field107_0x1bc[param_1] = iStack_c4;
   DebugPrint("%s open ...\n",param_2);
-  iVar3 = FUN_0043ca90(param_2);
+  iVar3 = FUN_0043ca90((int **)this->field107_0x1bc[param_1],param_2);
   if (iVar3 == 0) {
-    pvVar2 = (void *)this->field110_0x1bc[param_1];
-    if (pvVar2 != (void *)0x0) {
-      thunk_FUN_0043c8d0();
-      _free(pvVar2);
+    _Memory = (int **)this->field107_0x1bc[param_1];
+    if (_Memory != (int **)0x0) {
+      thunk_FUN_0043c8d0(_Memory);
+      _free(_Memory);
     }
-    this->field110_0x1bc[param_1] = 0;
-    this->field110_0x1bc[param_1] = 0;
+    this->field107_0x1bc[param_1] = 0;
+    this->field107_0x1bc[param_1] = 0;
   }
   else {
     pbStack_c8 = param_2;
@@ -81,9 +82,9 @@ LAB_00424435:
       pbStack_c8 = pbStack_c8 + 1;
       ppHStack_cc = (HINSTANCE *)((int)ppHStack_cc + 1);
     } while (bVar1 != 0);
-    FUN_0045c386(auStack_98,"ver%.4x.dat",0x102);
-    iStack_14 = FUN_0043c920(auStack_98);
-    if (iStack_14 < 0) {
+    sprintf((char *)abStack_98,"ver%.4x.dat",0x102);
+    uStack_14 = FUN_0043c920(this->field107_0x1bc[param_1],abStack_98);
+    if ((int)uStack_14 < 0) {
       GameErrorContextFatal
                 (&g_GameErrorContext,"error : データのバージョンが違います\n");
     }

@@ -1,46 +1,47 @@
 
-byte * OpenPath(char *file_path,int param_2)
+byte * OpenPath(byte *file_path,int param_2)
 
 {
   char *pcVar1;
   byte *_DstBuf;
   FILE *_File;
   size_t _Size;
-  int local_10;
-  char *local_c;
+  uint local_10;
+  byte *local_c;
   int local_8;
   
-  local_10 = -1;
+  local_10 = 0xffffffff;
   if (param_2 == 0) {
-    pcVar1 = _strrchr(file_path,L'\\');
+    pcVar1 = _strrchr((char *)file_path,L'\\');
     if (pcVar1 == (char *)0x0) {
       local_c = file_path;
     }
     else {
-      local_c = pcVar1 + 1;
+      local_c = (byte *)(pcVar1 + 1);
     }
-    pcVar1 = _strrchr(local_c,L'/');
+    pcVar1 = _strrchr((char *)local_c,L'/');
     if (pcVar1 == (char *)0x0) {
       local_c = file_path;
     }
     else {
-      local_c = pcVar1 + 1;
+      local_c = (byte *)(pcVar1 + 1);
     }
     if (DAT_0069d900 != 0) {
       local_8 = 0;
       while ((local_8 < 0x10 &&
              ((*(int *)(DAT_0069d900 + local_8 * 4) == 0 ||
-              (local_10 = FUN_0043c920(local_c), local_10 < 0))))) {
+              (local_10 = FUN_0043c920(*(int *)(DAT_0069d900 + local_8 * 4),local_c),
+              (int)local_10 < 0))))) {
         local_8 = local_8 + 1;
       }
     }
-    if (local_10 < 0) {
+    if ((int)local_10 < 0) {
       return (byte *)0x0;
     }
   }
-  if (local_10 < 0) {
+  if ((int)local_10 < 0) {
     DebugPrint2("%s Load ... \n",file_path);
-    _File = fopen(file_path,"rb");
+    _File = fopen((char *)file_path,"rb");
     if (_File == (FILE *)0x0) {
       DebugPrint2("error : %s is not found.\n",file_path);
       _DstBuf = (byte *)0x0;

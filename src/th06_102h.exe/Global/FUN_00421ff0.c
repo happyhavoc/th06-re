@@ -6,8 +6,8 @@ undefined4 __thiscall FUN_00421ff0(int param_1_00,int param_2,undefined4 param_3
   byte *pbVar2;
   
   if (g_GameContext.cfg.musicMode == MIDI) {
-    FUN_004224e0();
-    FUN_00422070(param_2);
+    FUN_004224e0((void *)param_1_00);
+    FUN_00422070(param_1_00,param_2);
     pbVar2 = OpenPath(param_3,0);
     *(byte **)(param_1_00 + 0x94 + param_2 * 4) = pbVar2;
     if (*(int *)(param_1_00 + 0x94 + param_2 * 4) == 0) {

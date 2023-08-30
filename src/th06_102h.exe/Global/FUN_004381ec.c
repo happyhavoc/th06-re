@@ -27,7 +27,7 @@ void __fastcall FUN_004381ec(int param_1)
       if (iVar1 == 0) {
         local_14 = 0;
         for (local_c = 0; local_c < 0xf; local_c = local_c + 1) {
-          FUN_0045c386(local_5c,"./replay/th6_%.2d.rpy",local_c + 1);
+          sprintf(local_5c,"./replay/th6_%.2d.rpy",local_c + 1);
           local_18 = (undefined4 *)OpenPath(local_5c,1);
           if (local_18 != (undefined4 *)0x0) {
             iVar1 = FUN_0042a140(local_18,g_FileSize);
@@ -40,7 +40,7 @@ void __fastcall FUN_004381ec(int param_1)
                 puVar5 = puVar5 + 1;
               }
               _strcpy((char *)(param_1 + 0x823c + local_14 * 0x200),local_5c);
-              FUN_0045c386(param_1 + 0xfa3c + local_14 * 8,"No.%.2d",local_c + 1);
+              sprintf((char *)(param_1 + 0xfa3c + local_14 * 8),"No.%.2d",local_c + 1);
               local_14 = local_14 + 1;
             }
             _free(local_18);
@@ -62,8 +62,9 @@ void __fastcall FUN_004381ec(int param_1)
                   puVar4 = puVar4 + 1;
                   puVar5 = puVar5 + 1;
                 }
-                FUN_0045c386(param_1 + 0x823c + local_14 * 0x200,"./replay/%s",local_19c.cFileName);
-                FUN_0045c386(param_1 + 0xfa3c + local_14 * 8,"User ");
+                sprintf((char *)(param_1 + 0x823c + local_14 * 0x200),"./replay/%s",
+                        local_19c.cFileName);
+                sprintf((char *)(param_1 + 0xfa3c + local_14 * 8),"User ");
                 local_14 = local_14 + 1;
               }
               _free(local_18);

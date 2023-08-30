@@ -41,7 +41,7 @@ undefined4 __thiscall GameWindow::Render(GameWindow *this)
         (*(g_GameContext.d3d_device)->lpVtbl->SetViewport)
                   (g_GameContext.d3d_device,&g_GameContext.viewport);
         local_8 = RunCalcChain(&CHAIN);
-        playSounds(&SOUND_PLAYER);
+        playSounds(&g_SoundPlayer);
         if (local_8 == 0) {
           return 1;
         }

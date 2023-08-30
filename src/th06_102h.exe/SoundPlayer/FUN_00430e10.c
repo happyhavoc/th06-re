@@ -1,5 +1,5 @@
 
-undefined4 __thiscall SoundPlayer::FUN_00430e10(SoundPlayer *this,undefined4 param_2)
+undefined4 __thiscall SoundPlayer::FUN_00430e10(SoundPlayer *this,char *filepath)
 
 {
   int iVar1;
@@ -17,7 +17,7 @@ undefined4 __thiscall SoundPlayer::FUN_00430e10(SoundPlayer *this,undefined4 par
     uVar3 = 0xffffffff;
   }
   else {
-    _Memory = (int *)OpenPath(param_2,0);
+    _Memory = (int *)OpenPath(filepath,0);
     if (_Memory == (int *)0x0) {
       uVar3 = 0xffffffff;
     }

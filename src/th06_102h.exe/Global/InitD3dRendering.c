@@ -95,7 +95,7 @@ undefined4 InitD3dRendering(void)
   do {
     if (((uint)g_GameContext.cfg.render_opts >> 9 & 1) == 0) {
       HVar2 = (*(g_GameContext.d3d_iface)->lpVtbl->CreateDevice)
-                        (g_GameContext.d3d_iface,0,D3DDEVTYPE_HAL,GAME_WINDOW.window,0x40,
+                        (g_GameContext.d3d_iface,0,D3DDEVTYPE_HAL,g_GameWindow.window,0x40,
                          &present_params,&g_GameContext.d3d_device);
       if (-1 < HVar2) {
         GameErrorContextLog(&g_GameErrorContext,"T&L HAL で動作しま〜す\n");
@@ -104,7 +104,7 @@ undefined4 InitD3dRendering(void)
       }
       GameErrorContextLog(&g_GameErrorContext,"T&L HAL は使用できないようです\n");
       iVar3 = (*(g_GameContext.d3d_iface)->lpVtbl->CreateDevice)
-                        (g_GameContext.d3d_iface,0,1,(HWND)GAME_WINDOW.window,0x20,
+                        (g_GameContext.d3d_iface,0,1,(HWND)g_GameWindow.window,0x20,
                          (int *)&present_params,&g_GameContext.d3d_device);
       if (iVar3 < 0) {
         GameErrorContextLog(&g_GameErrorContext,"HAL も使用できないようです\n");
@@ -175,14 +175,14 @@ LAB_004211ab:
       }
       InitD3dDevice();
       SetViewport(0);
-      GAME_WINDOW.is_app_closing = 0;
+      g_GameWindow.is_app_closing = 0;
       g_GameContext._420_4_ = 0;
       g_GameContext._428_4_ = 0;
       return 0;
     }
 LAB_00421077:
     HVar2 = (*(g_GameContext.d3d_iface)->lpVtbl->CreateDevice)
-                      (g_GameContext.d3d_iface,0,D3DDEVTYPE_REF,GAME_WINDOW.window,0x20,
+                      (g_GameContext.d3d_iface,0,D3DDEVTYPE_REF,g_GameWindow.window,0x20,
                        &present_params,&g_GameContext.d3d_device);
     if (-1 < HVar2) {
       GameErrorContextLog(&g_GameErrorContext,
@@ -196,7 +196,7 @@ LAB_00421077:
       if (present_params.Flags != 1) {
         GameErrorContextFatal
                   (&g_GameErrorContext,
-                   "Direct3D の初期化に失敗、これ��はゲームは出来ません\n");
+                   "Direct3D の初期化に失敗、こ���ではゲームは出来ません\n");
         if (g_GameContext.d3d_iface != (IDirect3D8 *)0x0) {
           (*(g_GameContext.d3d_iface)->lpVtbl->Release)(g_GameContext.d3d_iface);
           g_GameContext.d3d_iface = (IDirect3D8 *)0x0;
@@ -210,7 +210,7 @@ LAB_00421077:
     }
     else {
       GameErrorContextLog(&g_GameErrorContext,
-                          "リフレッシュレートが変更できません、vsync 非同期に変更します\n"
+                          "リフレッシュレートが変更できま��ん、vsync 非同期に変更します\n"
                          );
       present_params.FullScreen_RefreshRateInHz = 0;
       g_GameContext.field85_0x1a0 = 1;

@@ -15,7 +15,7 @@ undefined4 * FUN_0043ac90(int param_1,undefined4 param_2,uint param_3,undefined4
   in_ECX[2] = param_2;
   in_ECX[4] = param_3;
   in_ECX[3] = param_4;
-  FUN_0043aea0(*(undefined4 *)in_ECX[1],0);
+  FUN_0043aea0((int)in_ECX,*(int **)in_ECX[1],0);
   for (local_8 = 0; local_8 < param_3; local_8 = local_8 + 1) {
     (**(code **)(**(int **)(in_ECX[1] + local_8 * 4) + 0x34))
               (*(undefined4 *)(in_ECX[1] + local_8 * 4),0);

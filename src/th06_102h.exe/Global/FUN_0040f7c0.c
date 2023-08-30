@@ -3,7 +3,7 @@ void __fastcall FUN_0040f7c0(int param_1)
 
 {
   VeryBigStruct *pVVar1;
-  int iVar2;
+  short sVar2;
   int iVar3;
   undefined4 uVar4;
   int iVar5;
@@ -66,11 +66,11 @@ void __fastcall FUN_0040f7c0(int param_1)
         *(int *)(param_1 + 0x116c) = *(int *)(param_1 + 0x116c) + 2;
         pVVar1 = VERY_BIG_STRUCT;
         if (0x1f < local_38) {
-          iVar2 = *(int *)(param_1 + 0x1154);
-          local_ac = (short)local_8 + 0x708 + (short)iVar2 * 2;
+          iVar3 = *(int *)(param_1 + 0x1154);
+          local_ac = (short)local_8 + 0x708 + (short)iVar3 * 2;
           iVar5 = param_1 + 0x14 + (local_8 + *(int *)(param_1 + 0x1154) * 2) * 0x110;
           *(short *)(iVar5 + 0xb4) = local_ac;
-          FUN_00432430(iVar5,*(undefined4 *)(&pVVar1->field_0x1e554 + local_8 * 4 + iVar2 * 8));
+          FUN_00432430(iVar5,*(undefined4 *)(&pVVar1->field_0x1e554 + local_8 * 4 + iVar3 * 8));
           FUN_00434b60(VERY_BIG_STRUCT,
                        param_1 + 0x14 + (local_8 + *(int *)(param_1 + 0x1154) * 2) * 0x110,
                        *(undefined4 *)(param_1 + 0x1158),0xc0d0d0,&local_34);
@@ -147,16 +147,16 @@ switchD_0040fa93_caseD_52:
         case 0x56:
           *(int *)(param_1 + 0x116c) = *(int *)(param_1 + 0x116c) + 1;
           iVar5 = FUN_0040f4d0();
-          iVar2 = FUN_0040f4d0();
-          *(float *)(param_1 + 0x10) = (float)iVar5 / (float)iVar2;
+          iVar3 = FUN_0040f4d0();
+          *(float *)(param_1 + 0x10) = (float)iVar5 / (float)iVar3;
           break;
         case 0x61:
           *(int *)(param_1 + 0x116c) = *(int *)(param_1 + 0x116c) + 1;
           iVar5 = FUN_0040f4d0();
-          iVar2 = FUN_0040f4d0();
           iVar3 = FUN_0040f4d0();
-          FUN_004051b0(param_1 + 0x14 + iVar5 * 0x110,iVar2 + 0x600);
-          FUN_004323a0(param_1 + 0x14 + iVar5 * 0x110,iVar3 + 0x600);
+          sVar2 = FUN_0040f4d0();
+          FUN_004051b0(param_1 + 0x14 + iVar5 * 0x110,iVar3 + 0x600);
+          FUN_004323a0(VERY_BIG_STRUCT,(Unknown *)(param_1 + 0x14 + iVar5 * 0x110),sVar2 + 0x600);
           break;
         case 0x62:
           iVar5 = VeryBigStruct::LogoStuff
@@ -245,11 +245,11 @@ switchD_0040fa93_caseD_52:
   goto LAB_00410546;
 switchD_0040fa32_caseD_0:
   if (local_38 != 0) {
-    iVar2 = *(int *)(param_1 + 0x1154);
-    local_90 = (short)local_8 + 0x708 + (short)iVar2 * 2;
+    iVar3 = *(int *)(param_1 + 0x1154);
+    local_90 = (short)local_8 + 0x708 + (short)iVar3 * 2;
     iVar5 = param_1 + 0x14 + (local_8 + *(int *)(param_1 + 0x1154) * 2) * 0x110;
     *(short *)(iVar5 + 0xb4) = local_90;
-    FUN_00432430(iVar5,*(undefined4 *)(&pVVar1->field_0x1e554 + local_8 * 4 + iVar2 * 8));
+    FUN_00432430(iVar5,*(undefined4 *)(&pVVar1->field_0x1e554 + local_8 * 4 + iVar3 * 8));
     FUN_00434b60(VERY_BIG_STRUCT,param_1 + 0x14 + (local_8 + *(int *)(param_1 + 0x1154) * 2) * 0x110
                  ,*(undefined4 *)(param_1 + 0x1158),0xc0d0d0,&local_34);
   }

@@ -1,6 +1,4 @@
 
-/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
-
 undefined4 FUN_004044c0(undefined4 param_1)
 
 {
@@ -24,16 +22,16 @@ undefined4 FUN_004044c0(undefined4 param_1)
   ChainElem_00487e24.arg = &DAT_00487b10;
   iVar2 = Chain::AddToCalcChain(&CHAIN,&ChainElem_00487e24,6);
   if (iVar2 == 0) {
-    _DAT_00487af4 = FUN_004040d0;
-    _DAT_00487af8 = 0;
-    _DAT_00487afc = 0;
-    _DAT_00487b0c = &DAT_00487b10;
-    Chain::AddToDrawChain(&CHAIN,(ChainElem *)&DAT_00487af0,3);
-    _DAT_00487e08 = FUN_00404180;
-    _DAT_00487e0c = 0;
-    _DAT_00487e10 = 0;
-    _DAT_00487e20 = &DAT_00487b10;
-    Chain::AddToDrawChain(&CHAIN,(ChainElem *)&DAT_00487e04,4);
+    ChainElem_00487af0.callback = FUN_004040d0;
+    ChainElem_00487af0.added_callback = 0;
+    ChainElem_00487af0.deleted_callback = 0;
+    ChainElem_00487af0.arg = &DAT_00487b10;
+    Chain::AddToDrawChain(&CHAIN,&ChainElem_00487af0,3);
+    ChainElem_00487e04.callback = FUN_00404180;
+    ChainElem_00487e04.added_callback = 0;
+    ChainElem_00487e04.deleted_callback = 0;
+    ChainElem_00487e04.arg = &DAT_00487b10;
+    Chain::AddToDrawChain(&CHAIN,&ChainElem_00487e04,4);
     uVar1 = 0;
   }
   else {

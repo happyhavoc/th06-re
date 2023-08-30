@@ -1,9 +1,8 @@
 
-int FUN_0043aea0(int *param_1,int param_2)
+int __thiscall FUN_0043aea0(int param_1_00,int *param_2,int param_3)
 
 {
   char cVar1;
-  int in_ECX;
   uint uVar2;
   undefined4 *puVar3;
   uint local_18;
@@ -15,20 +14,20 @@ int FUN_0043aea0(int *param_1,int param_2)
   local_14 = (undefined4 *)0x0;
   local_8 = 0;
   local_c = 0;
-  if (param_1 == (int *)0x0) {
+  if (param_2 == (int *)0x0) {
     local_10 = -0x7ffbfe10;
   }
   else {
-    local_10 = FUN_0043b090(param_1,0);
+    local_10 = FUN_0043b090(param_2,0);
     if ((-1 < local_10) &&
-       (local_10 = (**(code **)(*param_1 + 0x2c))
-                             (param_1,0,*(undefined4 *)(in_ECX + 8),&local_14,&local_8,0,0,0),
+       (local_10 = (**(code **)(*param_2 + 0x2c))
+                             (param_2,0,*(undefined4 *)(param_1_00 + 8),&local_14,&local_8,0,0,0),
        -1 < local_10)) {
       FUN_0043be70(0);
       local_10 = FUN_0043c080(local_14,local_8,&local_c);
       if (-1 < local_10) {
         if (local_c == 0) {
-          cVar1 = (-(*(short *)(**(int **)(in_ECX + 0xc) + 0xe) != 8) & 0x80U) + 0x80;
+          cVar1 = (-(*(short *)(**(int **)(param_1_00 + 0xc) + 0xe) != 8) & 0x80U) + 0x80;
           puVar3 = local_14;
           for (uVar2 = local_8 >> 2; uVar2 != 0; uVar2 = uVar2 - 1) {
             *puVar3 = CONCAT22(CONCAT11(cVar1,cVar1),CONCAT11(cVar1,cVar1));
@@ -40,8 +39,8 @@ int FUN_0043aea0(int *param_1,int param_2)
           }
         }
         else if (local_c < local_8) {
-          if (param_2 == 0) {
-            cVar1 = (-(*(short *)(**(int **)(in_ECX + 0xc) + 0xe) != 8) & 0x80U) + 0x80;
+          if (param_3 == 0) {
+            cVar1 = (-(*(short *)(**(int **)(param_1_00 + 0xc) + 0xe) != 8) & 0x80U) + 0x80;
             puVar3 = (undefined4 *)((int)local_14 + local_c);
             for (uVar2 = local_8 - local_c >> 2; uVar2 != 0; uVar2 = uVar2 - 1) {
               *puVar3 = CONCAT22(CONCAT11(cVar1,cVar1),CONCAT11(cVar1,cVar1));
@@ -66,7 +65,7 @@ int FUN_0043aea0(int *param_1,int param_2)
             }
           }
         }
-        (**(code **)(*param_1 + 0x4c))(param_1,local_14,local_8,0,0);
+        (**(code **)(*param_2 + 0x4c))(param_2,local_14,local_8,0,0);
         local_10 = 0;
       }
     }

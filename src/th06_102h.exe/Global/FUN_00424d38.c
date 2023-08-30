@@ -1,17 +1,17 @@
 
-undefined4 FUN_00424d38(void)
+undefined4 __fastcall FUN_00424d38(GameContext *param_1)
 
 {
   if (g_GameContext.cfg.musicMode == MIDI) {
-    if (g_GameContext._432_4_ != 0) {
-      FUN_004224e0();
+    if (g_GameContext.field98_0x1b0 != (void *)0x0) {
+      FUN_004224e0(g_GameContext.field98_0x1b0);
     }
   }
   else {
     if (g_GameContext.cfg.musicMode != WAV) {
       return 0xffffffff;
     }
-    SoundPlayer::StopBGM(&SOUND_PLAYER);
+    SoundPlayer::StopBGM(&g_SoundPlayer);
   }
   return 0;
 }

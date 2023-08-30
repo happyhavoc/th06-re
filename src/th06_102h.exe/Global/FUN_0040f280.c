@@ -1,10 +1,10 @@
 
-undefined4 FUN_0040f280(void)
+undefined4 FUN_0040f280(undefined4 *param_1)
 
 {
   int iVar1;
   
-  FUN_0040e340();
+  FUN_0040e340(param_1);
   switch(CUR_STAGE) {
   case 0:
   case 1:

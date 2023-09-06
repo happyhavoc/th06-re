@@ -1,28 +1,30 @@
 
-uint SetButtonFromControllerInputs
-               (ushort *outButtons,short controllerButtonToTest,ushort touhouButton,
-               uint inputButtons)
+DWORD SetButtonFromControllerInputs
+                (WORD *outButtons,short controllerButtonToTest,DWORD touhouButton,DWORD inputButtons
+                )
 
 {
   uint mask;
-  uint local_10;
-  ushort tmpButton;
+  DWORD local_10;
+  ushort local_c;
   
   if (controllerButtonToTest < 0) {
     local_10 = 0;
   }
   else {
     mask = 1 << ((byte)controllerButtonToTest & 0x1f);
-    tmpButton = touhouButton;
     if ((inputButtons & mask) == 0) {
-      tmpButton = 0;
+      local_c = 0;
     }
-    *outButtons = *outButtons | tmpButton;
+    else {
+      local_c = (ushort)touhouButton;
+    }
+    *outButtons = *outButtons | local_c;
     if ((inputButtons & mask) == 0) {
       local_10 = 0;
     }
     else {
-      local_10 = (uint)touhouButton;
+      local_10 = touhouButton & 0xffff;
     }
   }
   return local_10;

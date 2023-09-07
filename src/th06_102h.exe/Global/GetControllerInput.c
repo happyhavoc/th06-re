@@ -2,32 +2,32 @@
 ushort GetControllerInput(ushort buttons)
 
 {
-  MMRESULT MVar1;
+  MMRESULT joyResult;
   DWORD shootState;
-  uint uVar2;
+  uint joystickXDistance;
   HRESULT stateHr;
-  int iVar3;
-  uint uVar4;
-  joyinfoex_tag *pjVar5;
-  DIJOYSTATE2 *pDVar6;
+  int iVar1;
+  uint joystickYDistance;
+  joyinfoex_tag *pjVar2;
+  DIJOYSTATE2 *pDVar3;
   uint unaff_retaddr;
-  int local_160;
+  int retry_count;
   DIJOYSTATE2 js;
-  uint local_4c;
+  uint stack_cookie;
   HRESULT hr;
   joyinfoex_tag pji;
   
-  local_4c = __security_cookie ^ unaff_retaddr;
+  stack_cookie = __security_cookie ^ unaff_retaddr;
   if (g_GameContext.controller == (LPDIRECTINPUTDEVICE8A)0x0) {
-    pjVar5 = &pji;
-    for (iVar3 = 0xd; iVar3 != 0; iVar3 = iVar3 + -1) {
-      pjVar5->dwSize = 0;
-      pjVar5 = (joyinfoex_tag *)&pjVar5->dwFlags;
+    pjVar2 = &pji;
+    for (iVar1 = 0xd; iVar1 != 0; iVar1 = iVar1 + -1) {
+      pjVar2->dwSize = 0;
+      pjVar2 = (joyinfoex_tag *)&pjVar2->dwFlags;
     }
     pji.dwSize = 0x34;
     pji.dwFlags = 0xff;
-    MVar1 = joyGetPosEx(0,&pji);
-    if (MVar1 == 0) {
+    joyResult = joyGetPosEx(0,&pji);
+    if (joyResult == 0) {
       shootState = SetButtonFromControllerInputs
                              (&buttons,g_ControllerMapping.shootButton,SHOOT,pji.dwButtons);
       if (g_ControllerMapping.shootButton == g_ControllerMapping.focusButton) {
@@ -65,35 +65,37 @@ ushort GetControllerInput(ushort buttons)
                 (&buttons,g_GameContext.cfg.controllerMapping.rightButton,RIGHT,pji.dwButtons);
       SetButtonFromControllerInputs
                 (&buttons,g_GameContext.cfg.controllerMapping.unkButton,0x100,pji.dwButtons);
-      uVar2 = g_JoystickCaps.wXmax - g_JoystickCaps.wXmin >> 2;
-      uVar4 = g_JoystickCaps.wYmax - g_JoystickCaps.wYmin >> 2;
-      buttons = buttons | -(ushort)((g_JoystickCaps.wXmin + g_JoystickCaps.wXmax >> 1) + uVar2 <
-                                   pji.dwXpos) & RIGHT |
-                -(ushort)(pji.dwXpos < (g_JoystickCaps.wXmin + g_JoystickCaps.wXmax >> 1) - uVar2) &
-                LEFT | -(ushort)((g_JoystickCaps.wYmin + g_JoystickCaps.wYmax >> 1) + uVar4 <
-                                pji.dwYpos) & DOWN |
-                -(ushort)(pji.dwYpos < (g_JoystickCaps.wYmin + g_JoystickCaps.wYmax >> 1) - uVar4) &
+      joystickXDistance = g_JoystickCaps.wXmax - g_JoystickCaps.wXmin >> 2;
+      joystickYDistance = g_JoystickCaps.wYmax - g_JoystickCaps.wYmin >> 2;
+      buttons = buttons | -(ushort)((g_JoystickCaps.wXmin + g_JoystickCaps.wXmax >> 1) +
+                                    joystickXDistance < pji.dwXpos) & RIGHT |
+                -(ushort)(pji.dwXpos <
+                         (g_JoystickCaps.wXmin + g_JoystickCaps.wXmax >> 1) - joystickXDistance) &
+                LEFT | -(ushort)((g_JoystickCaps.wYmin + g_JoystickCaps.wYmax >> 1) +
+                                 joystickYDistance < pji.dwYpos) & DOWN |
+                -(ushort)(pji.dwYpos <
+                         (g_JoystickCaps.wYmin + g_JoystickCaps.wYmax >> 1) - joystickYDistance) &
                 UP;
     }
   }
   else {
     stateHr = (*(g_GameContext.controller)->lpVtbl->Poll)(g_GameContext.controller);
     if (stateHr < 0) {
-      local_160 = 0;
+      retry_count = 0;
       DebugPrint2("error : DIERR_INPUTLOST\n");
       hr = (*(g_GameContext.controller)->lpVtbl->Acquire)(g_GameContext.controller);
       do {
         if (hr != -0x7ff8ffe2) break;
         hr = (*(g_GameContext.controller)->lpVtbl->Acquire)(g_GameContext.controller);
-        DebugPrint2("error : DIERR_INPUTLOST %d\n",local_160);
-        local_160 = local_160 + 1;
-      } while (local_160 < 400);
+        DebugPrint2("error : DIERR_INPUTLOST %d\n",retry_count);
+        retry_count = retry_count + 1;
+      } while (retry_count < 400);
     }
     else {
-      pDVar6 = &js;
-      for (iVar3 = 0x44; iVar3 != 0; iVar3 = iVar3 + -1) {
-        pDVar6->lX = 0;
-        pDVar6 = (DIJOYSTATE2 *)&pDVar6->lY;
+      pDVar3 = &js;
+      for (iVar1 = 0x44; iVar1 != 0; iVar1 = iVar1 + -1) {
+        pDVar3->lX = 0;
+        pDVar3 = (DIJOYSTATE2 *)&pDVar3->lY;
       }
       stateHr = (*(g_GameContext.controller)->lpVtbl->GetDeviceState)
                           (g_GameContext.controller,0x110,&js);
@@ -146,7 +148,7 @@ ushort GetControllerInput(ushort buttons)
       }
     }
   }
-  __security_check_cookie(local_4c ^ unaff_retaddr);
+  __security_check_cookie(stack_cookie ^ unaff_retaddr);
   return buttons;
 }
 

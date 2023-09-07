@@ -25,7 +25,7 @@ void FUN_00423f3f(void)
     _DAT_006c6d0c = local_8;
     sprintf(&DAT_006c6c08,"%.02ffps",(double)local_10);
     if (DAT_0069d4c1 != '\0') {
-      local_c = 60.0 / (float)g_GameContext._428_4_;
+      local_c = 60.0 / g_GameContext.field91_0x1ac;
       g_GameContext._440_4_ = (float)g_GameContext._440_4_ + local_c;
       if (local_c * 0.9 < local_10 == (NAN(local_c * 0.9) || NAN(local_10))) {
         if (local_c * 0.7 < local_10 == (NAN(local_c * 0.7) || NAN(local_10))) {

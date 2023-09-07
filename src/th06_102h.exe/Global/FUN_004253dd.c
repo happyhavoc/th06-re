@@ -7,8 +7,9 @@ undefined4 FUN_004253dd(int param_1)
   
   iVar1 = *(int *)(param_1 + 0xc);
   do {
-    if (*(int *)(param_1 + 0xc) != 0) {
-      if ((*(int *)(param_1 + 0xc) == 1) && (iVar2 = FUN_00424ead(), iVar2 != 0)) {
+    iVar2 = *(int *)(param_1 + 0xc);
+    if (iVar2 != 0) {
+      if ((iVar2 == 1) && (FUN_00424ead(param_1), iVar2 != 0)) {
         return 0;
       }
       break;

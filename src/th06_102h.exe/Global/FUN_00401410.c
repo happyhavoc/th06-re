@@ -15,10 +15,10 @@ void __fastcall FUN_00401410(InputChainArg *param_1)
   param_1->field24735_0x6228 = 1.0;
   param_1->field24736_0x622c = 1.0;
   (param_1->field77_0x110).field15_0x80 = (param_1->field77_0x110).field15_0x80 | 0x300;
-  pVVar1 = VERY_BIG_STRUCT;
+  pVVar1 = g_VeryBigStruct;
   FUN_00403580(&param_1->field77_0x110);
   FUN_004323a0(pVVar1,&param_1->field77_0x110,0);
-  pVVar1 = VERY_BIG_STRUCT;
+  pVVar1 = g_VeryBigStruct;
   FUN_00403580(&param_1->field0_0x0);
   FUN_004323a0(pVVar1,&param_1->field0_0x0,0x20);
   (param_1->field77_0x110).field31_0x98 = 0.1;

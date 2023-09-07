@@ -103,7 +103,7 @@ void FUN_004291b0(int param_1)
         *(undefined2 *)(local_18 + 0x14e) = 0;
       }
       *(undefined4 *)(local_18 + 0x140) = *(undefined4 *)(local_18 + 0x148);
-      FUN_00424285(local_18 + 0x148,local_18 + 0x144);
+      FUN_00424285(&g_GameContext,(int *)(local_18 + 0x148),(float *)(local_18 + 0x144));
     }
     local_18 = local_18 + 0x158;
   }

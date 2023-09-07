@@ -82,7 +82,7 @@ undefined4 FUN_004149d0(int param_1)
       if (iVar4 == 0) {
 switchD_00414a97_caseD_5:
         local_24[0x167] = local_24[0x169];
-        FUN_00424285(local_24 + 0x169,local_24 + 0x168);
+        FUN_00424285(&g_GameContext,local_24 + 0x169,(float *)(local_24 + 0x168));
       }
       else {
         *(undefined2 *)((int)local_24 + 0x5be) = 1;
@@ -426,14 +426,14 @@ LAB_00416422:
           *(undefined4 *)(local_2c + 600) = 0;
         }
         *(undefined4 *)(local_2c + 0x25c) = *(undefined4 *)(local_2c + 0x264);
-        FUN_00424285(local_2c + 0x264,local_2c + 0x260);
+        FUN_00424285(&g_GameContext,(int *)(local_2c + 0x264),(float *)(local_2c + 0x260));
         FUN_00433960();
       }
 LAB_00415e08:
       local_2c = local_2c + 0x270;
     }
     *(undefined4 *)(param_1 + 0xf5c08) = *(undefined4 *)(param_1 + 0xf5c10);
-    FUN_00424285(param_1 + 0xf5c10,param_1 + 0xf5c0c);
+    FUN_00424285(&g_GameContext,(int *)(param_1 + 0xf5c10),(float *)(param_1 + 0xf5c0c));
   }
   return 1;
 }

@@ -13,7 +13,7 @@ undefined4 FUN_0041bb02(uint *param_1)
   uint *local_c;
   
   bVar1 = false;
-  (*(g_GameContext.d3d_device)->lpVtbl->ResourceManagerDiscardBytes)(g_GameContext.d3d_device,0);
+  (*(g_GameContext.d3dDevice)->lpVtbl->ResourceManagerDiscardBytes)(g_GameContext.d3dDevice,0);
   if (g_GameContext.unkInput2 == 3) {
     *param_1 = param_1[1];
     param_1[2] = 0;
@@ -106,8 +106,8 @@ undefined4 FUN_0041bb02(uint *param_1)
       *(undefined2 *)(param_1 + 0x604) = 0x80;
     }
   }
-  GameContext::FUN_00424375(&g_GameContext,4,&DAT_0046af84);
-  GameContext::FUN_00424375(&g_GameContext,2,&DAT_0046af74);
+  GameContext::LoadPBG3(&g_GameContext,4,(byte *)s__g_CM_dat_0046af84);
+  GameContext::LoadPBG3(&g_GameContext,2,(byte *)s__g_ST_dat_0046af74);
   if (_DAT_0069bcbc == 1) {
     iVar4 = FUN_0042a240(1,&DAT_0069d4cc);
     if (iVar4 != 0) {
@@ -156,7 +156,7 @@ undefined4 FUN_0041bb02(uint *param_1)
                 if (bVar1) {
                   g_GameContext.unkInput2 = 1;
                 }
-                g_GameContext._408_4_ = 3;
+                g_GameContext.field77_0x198 = 3;
                 uVar3 = 0;
               }
               else {

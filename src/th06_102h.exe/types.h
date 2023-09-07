@@ -1652,10 +1652,10 @@ typedef struct GameWindow GameWindow, *PGameWindow;
 
 struct GameWindow {
     HWND window;
-    int is_app_closing;
+    int isAppClosing;
     int activeapp_param;
     int is_app_active;
-    byte field4_0x10;
+    byte curFrame;
     undefined field5_0x11;
     undefined field6_0x12;
     undefined field7_0x13;
@@ -22868,27 +22868,6 @@ struct _D3DRECT {
 
 struct IDirect3DTexture8 {
     struct IDirect3DTexture8Vtbl *lpVtbl;
-};
-
-typedef struct Chain Chain, *PChain;
-
-typedef struct ChainElem ChainElem, *PChainElem;
-
-struct ChainElem {
-    undefined2 priority;
-    ushort flags;
-    undefined4 callback;
-    undefined4 added_callback;
-    undefined4 deleted_callback;
-    struct ChainElem *prev;
-    struct ChainElem *next;
-    struct ChainElem *unkPtr;
-    void *arg;
-};
-
-struct Chain {
-    struct ChainElem calcChain;
-    struct ChainElem drawChain;
 };
 
 typedef struct SoundBufferIdxVolume SoundBufferIdxVolume, *PSoundBufferIdxVolume;
@@ -69509,7 +69488,75 @@ typedef struct IServiceProvider *LPSERVICEPROVIDER;
 
 #define RPC_C_PROFILE_MATCH_BY_IF 2
 
+typedef struct Pbg3File Pbg3File, *PPbg3File;
+
+typedef struct Pbg3FileStuff Pbg3FileStuff, *PPbg3FileStuff;
+
+typedef struct Pbg3FileAbstraction Pbg3FileAbstraction, *PPbg3FileAbstraction;
+
+typedef struct FileAbstraction FileAbstraction, *PFileAbstraction;
+
+typedef struct FileAbstractionVtable FileAbstractionVtable, *PFileAbstractionVtable;
+
+typedef void *LPCVOID;
+
+typedef HANDLE HLOCAL;
+
+struct FileAbstraction {
+    struct FileAbstractionVtable *vtbl;
+    HANDLE handle;
+    undefined4 field2_0x8;
+};
+
+struct Pbg3FileAbstraction {
+    struct FileAbstraction base;
+};
+
+struct Pbg3FileStuff {
+    undefined field0_0x0;
+    undefined field1_0x1;
+    undefined field2_0x2;
+    undefined field3_0x3;
+    undefined4 field4_0x4;
+    undefined4 field5_0x8;
+    undefined4 field6_0xc;
+    void *field7_0x10;
+    undefined4 field8_0x14;
+    struct Pbg3FileAbstraction fileAbstraction; /* Created by retype action */
+};
+
+struct FileAbstractionVtable {
+    int (*Open)(struct FileAbstraction *, LPCSTR, char *);
+    void (*Close)(struct FileAbstraction *);
+    BOOL (*Read)(struct FileAbstraction *, char *, DWORD, LPDWORD);
+    BOOL (*Write)(struct FileAbstraction *, LPCVOID, DWORD, LPDWORD);
+    byte (*ReadByte)(struct FileAbstraction *);
+    byte (*WriteByte)(struct FileAbstraction *, byte);
+    int (*Seek)(struct FileAbstraction *, long, DWORD);
+    DWORD (*Tell)(struct FileAbstraction *);
+    DWORD (*GetSize)(struct FileAbstraction *);
+    HLOCAL (*ReadRemaining)(struct FileAbstraction *, uint);
+};
+
+struct Pbg3File {
+    struct Pbg3FileStuff *inner;
+    int field1_0x4;
+    int field2_0x8;
+    int field3_0xc;
+    int field4_0x10;
+};
+
+typedef struct GameContext GameContext, *PGameContext;
+
+
+/* WARNING! conflicting data type names: /WinDef.h/HINSTANCE - /windef.h/HINSTANCE */
+
+
+/* WARNING! conflicting data type names: /WinDef.h/HWND - /windef.h/HWND */
+
 typedef struct GameConfiguration GameConfiguration, *PGameConfiguration;
+
+typedef struct Pbg3FileName Pbg3FileName, *PPbg3FileName;
 
 typedef struct ControllerMapping ControllerMapping, *PControllerMapping;
 
@@ -69565,12 +69612,137 @@ struct GameConfiguration {
     int render_opts;
 };
 
-typedef struct GameErrorContext GameErrorContext, *PGameErrorContext;
+struct Pbg3FileName {
+    byte filename[32];
+};
 
-struct GameErrorContext {
-    char m_Buffer[2048];
-    char *m_BufferEnd;
-    bool m_ShowMessageBox;
+struct GameContext {
+    HINSTANCE hInstance;
+    struct IDirect3D8 *d3dIface;
+    struct IDirect3DDevice8 *d3dDevice;
+    struct IDirectInput8A *directInput;
+    LPDIRECTINPUTDEVICE8A keyboard;
+    LPDIRECTINPUTDEVICE8A controller;
+    struct DIDEVCAPS controllerCaps;
+    HWND hwndGameWindow;
+    D3DMATRIX view_matrix; /* Created by retype action */
+    D3DMATRIX projection_matrix;
+    D3DVIEWPORT8 viewport;
+    D3DPRESENT_PARAMETERS presentParameters;
+    struct GameConfiguration cfg;
+    undefined field13_0x14c;
+    undefined field14_0x14d;
+    undefined field15_0x14e;
+    undefined field16_0x14f;
+    undefined field17_0x150;
+    undefined field18_0x151;
+    undefined field19_0x152;
+    undefined field20_0x153;
+    undefined field21_0x154;
+    undefined field22_0x155;
+    undefined field23_0x156;
+    undefined field24_0x157;
+    undefined field25_0x158;
+    undefined field26_0x159;
+    undefined field27_0x15a;
+    undefined field28_0x15b;
+    undefined field29_0x15c;
+    undefined field30_0x15d;
+    undefined field31_0x15e;
+    undefined field32_0x15f;
+    undefined field33_0x160;
+    undefined field34_0x161;
+    undefined field35_0x162;
+    undefined field36_0x163;
+    byte lifeCount;
+    byte bombCount;
+    undefined field39_0x166;
+    undefined field40_0x167;
+    undefined field41_0x168;
+    undefined field42_0x169;
+    undefined field43_0x16a;
+    undefined field44_0x16b;
+    undefined field45_0x16c;
+    undefined field46_0x16d;
+    undefined field47_0x16e;
+    undefined field48_0x16f;
+    undefined field49_0x170;
+    undefined field50_0x171;
+    undefined field51_0x172;
+    undefined field52_0x173;
+    undefined field53_0x174;
+    undefined field54_0x175;
+    undefined field55_0x176;
+    undefined field56_0x177;
+    undefined field57_0x178;
+    undefined field58_0x179;
+    undefined field59_0x17a;
+    undefined field60_0x17b;
+    undefined field61_0x17c;
+    undefined field62_0x17d;
+    undefined field63_0x17e;
+    undefined field64_0x17f;
+    undefined field65_0x180;
+    undefined field66_0x181;
+    undefined field67_0x182;
+    undefined field68_0x183;
+    int unkInput3;
+    int unkInput1;
+    int unkInput2;
+    int unkInput4;
+    undefined field73_0x194;
+    undefined field74_0x195;
+    undefined field75_0x196;
+    undefined field76_0x197;
+    int field77_0x198;
+    undefined field78_0x19c;
+    undefined field79_0x19d;
+    undefined field80_0x19e;
+    undefined field81_0x19f;
+    int field82_0x1a0;
+    undefined field83_0x1a4;
+    undefined field84_0x1a5;
+    undefined field85_0x1a6;
+    undefined field86_0x1a7;
+    undefined field87_0x1a8;
+    undefined field88_0x1a9;
+    undefined field89_0x1aa;
+    undefined field90_0x1ab;
+    float field91_0x1ac;
+    void *unknown_1b0;
+    undefined field93_0x1b4;
+    undefined field94_0x1b5;
+    undefined field95_0x1b6;
+    undefined field96_0x1b7;
+    undefined field97_0x1b8;
+    undefined field98_0x1b9;
+    undefined field99_0x1ba;
+    undefined field100_0x1bb;
+    struct Pbg3File *pbg3File[16];
+    struct Pbg3FileName pbg3FileName[16];
+};
+
+typedef struct ChainElem ChainElem, *PChainElem;
+
+struct ChainElem {
+    undefined2 priority;
+    ushort flags;
+    undefined4 callback;
+    undefined4 added_callback;
+    undefined4 deleted_callback;
+    struct ChainElem *prev;
+    struct ChainElem *next;
+    struct ChainElem *unkPtr;
+    void *arg;
+};
+
+typedef struct Pbg3FileStuff *test;
+
+typedef struct Chain Chain, *PChain;
+
+struct Chain {
+    struct ChainElem calcChain;
+    struct ChainElem drawChain;
 };
 
 typedef struct InputChainArg InputChainArg, *PInputChainArg;
@@ -118756,123 +118928,12 @@ struct InputChainArg {
     undefined field49177_0xc1ab;
 };
 
-typedef struct GameContext GameContext, *PGameContext;
+typedef struct GameErrorContext GameErrorContext, *PGameErrorContext;
 
-
-/* WARNING! conflicting data type names: /WinDef.h/HINSTANCE - /windef.h/HINSTANCE */
-
-
-/* WARNING! conflicting data type names: /WinDef.h/HWND - /windef.h/HWND */
-
-struct GameContext {
-    HINSTANCE hInstance;
-    struct IDirect3D8 *d3d_iface;
-    struct IDirect3DDevice8 *d3d_device;
-    struct IDirectInput8A *directInput;
-    LPDIRECTINPUTDEVICE8A keyboard;
-    LPDIRECTINPUTDEVICE8A controller;
-    struct DIDEVCAPS controllerCaps;
-    HWND hwndGameWindow;
-    D3DMATRIX view_matrix; /* Created by retype action */
-    D3DMATRIX projection_matrix;
-    D3DVIEWPORT8 viewport;
-    D3DPRESENT_PARAMETERS presentParameters;
-    struct GameConfiguration cfg;
-    undefined field13_0x14c;
-    undefined field14_0x14d;
-    undefined field15_0x14e;
-    undefined field16_0x14f;
-    undefined field17_0x150;
-    undefined field18_0x151;
-    undefined field19_0x152;
-    undefined field20_0x153;
-    undefined field21_0x154;
-    undefined field22_0x155;
-    undefined field23_0x156;
-    undefined field24_0x157;
-    undefined field25_0x158;
-    undefined field26_0x159;
-    undefined field27_0x15a;
-    undefined field28_0x15b;
-    undefined field29_0x15c;
-    undefined field30_0x15d;
-    undefined field31_0x15e;
-    undefined field32_0x15f;
-    undefined field33_0x160;
-    undefined field34_0x161;
-    undefined field35_0x162;
-    undefined field36_0x163;
-    byte lifeCount;
-    byte bombCount;
-    undefined field39_0x166;
-    undefined field40_0x167;
-    undefined field41_0x168;
-    undefined field42_0x169;
-    undefined field43_0x16a;
-    undefined field44_0x16b;
-    undefined field45_0x16c;
-    undefined field46_0x16d;
-    undefined field47_0x16e;
-    undefined field48_0x16f;
-    undefined field49_0x170;
-    undefined field50_0x171;
-    undefined field51_0x172;
-    undefined field52_0x173;
-    undefined field53_0x174;
-    undefined field54_0x175;
-    undefined field55_0x176;
-    undefined field56_0x177;
-    undefined field57_0x178;
-    undefined field58_0x179;
-    undefined field59_0x17a;
-    undefined field60_0x17b;
-    undefined field61_0x17c;
-    undefined field62_0x17d;
-    undefined field63_0x17e;
-    undefined field64_0x17f;
-    undefined field65_0x180;
-    undefined field66_0x181;
-    undefined field67_0x182;
-    undefined field68_0x183;
-    int unkInput3;
-    int unkInput1;
-    int unkInput2;
-    int unkInput4;
-    undefined field73_0x194;
-    undefined field74_0x195;
-    undefined field75_0x196;
-    undefined field76_0x197;
-    undefined field77_0x198;
-    undefined field78_0x199;
-    undefined field79_0x19a;
-    undefined field80_0x19b;
-    undefined field81_0x19c;
-    undefined field82_0x19d;
-    undefined field83_0x19e;
-    undefined field84_0x19f;
-    int field85_0x1a0;
-    undefined field86_0x1a4;
-    undefined field87_0x1a5;
-    undefined field88_0x1a6;
-    undefined field89_0x1a7;
-    undefined field90_0x1a8;
-    undefined field91_0x1a9;
-    undefined field92_0x1aa;
-    undefined field93_0x1ab;
-    undefined field94_0x1ac;
-    undefined field95_0x1ad;
-    undefined field96_0x1ae;
-    undefined field97_0x1af;
-    void *field98_0x1b0;
-    undefined field99_0x1b4;
-    undefined field100_0x1b5;
-    undefined field101_0x1b6;
-    undefined field102_0x1b7;
-    undefined field103_0x1b8;
-    undefined field104_0x1b9;
-    undefined field105_0x1ba;
-    undefined field106_0x1bb;
-    int field107_0x1bc[16];
+struct GameErrorContext {
+    char m_Buffer[2048];
+    char *m_BufferEnd;
+    bool m_ShowMessageBox;
 };
 
 typedef enum GameConfigurationRenderOpts {
@@ -140252,8 +140313,6 @@ typedef uint *PUINT;
 
 typedef SIZE *PSIZEL;
 
-typedef HANDLE HLOCAL;
-
 typedef int (*NEARPROC)(void);
 
 
@@ -140288,8 +140347,6 @@ typedef HANDLE *LPHANDLE;
 /* WARNING! conflicting data type names: /WinDef.h/HTASK - /windef.h/HTASK */
 
 typedef int HFILE;
-
-typedef void *LPCVOID;
 
 
 /* WARNING! conflicting data type names: /PE/IMAGE_OPTIONAL_HEADER32 - /winnt.h/IMAGE_OPTIONAL_HEADER32 */

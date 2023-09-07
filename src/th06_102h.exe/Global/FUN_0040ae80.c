@@ -8,7 +8,7 @@ void FUN_0040ae80(int param_1,int param_2)
   float10 fVar4;
   
   piVar2 = (int *)(param_2 + 0xc);
-  pfVar3 = (float *)FUN_0040b380(param_1,param_1 + 0xc90,0);
+  pfVar3 = FUN_0040b380(param_1,(float *)(param_1 + 0xc90),(undefined4 *)0x0);
   fVar1 = *pfVar3;
   fVar4 = (float10)FUN_0045bda4((double)fVar1);
   *(float *)(param_1 + 0xcac) = ((float)fVar4 * *(float *)(param_1 + 0xc98) * (float)*piVar2) / 2.0;

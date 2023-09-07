@@ -7,12 +7,12 @@ int WinMain(HINSTANCE hInstance,HINSTANCE hPrevInstance,LPSTR lpCmdLine,int nSho
   BOOL BVar1;
   HRESULT HVar2;
   int retCode;
-  VeryBigStruct *local_58;
-  tagMSG local_28;
-  HRESULT local_c;
-  int local_8;
+  VeryBigStruct *vbsPtr;
+  MSG msg;
+  uint testCoopLevelRet;
+  int renderRet;
   
-  local_8 = 0;
+  renderRet = 0;
   retCode = CheckForRunningGameInstance();
   if (retCode == 0) {
     g_GameContext.hInstance = hInstance;
@@ -30,71 +30,71 @@ int WinMain(HINSTANCE hInstance,HINSTANCE hPrevInstance,LPSTR lpCmdLine,int nSho
           CreateGameWindow(hInstance);
           retCode = InitD3dRendering();
           if (retCode != 0) break;
-          SoundPlayer::InitSound(&g_SoundPlayer,(HWND)g_GameWindow.window);
+          SoundPlayer::Init(&g_SoundPlayer,(HWND)g_GameWindow.window);
           GetJoystickCaps();
           ResetKeyboard();
           puVar1 = (VeryBigStruct *)operator_new(0x2112c);
           if (puVar1 == (VeryBigStruct *)0x0) {
-            local_58 = (VeryBigStruct *)0x0;
+            vbsPtr = (VeryBigStruct *)0x0;
           }
           else {
-            local_58 = (VeryBigStruct *)VeryBigStruct::Init(puVar1);
+            vbsPtr = (VeryBigStruct *)VeryBigStruct::VeryBigStruct(puVar1);
           }
-          VERY_BIG_STRUCT = local_58;
+          g_VeryBigStruct = vbsPtr;
           retCode = AddInputChain();
           if (retCode == 0) {
             if (g_GameContext.cfg.windowed == false) {
               ShowCursor(0);
             }
-            g_GameWindow.field4_0x10 = 0;
+            g_GameWindow.curFrame = 0;
             do {
               while( true ) {
                 while( true ) {
-                  if (g_GameWindow.is_app_closing != 0) goto LAB_0042055a;
-                  BVar1 = PeekMessageA(&local_28,(HWND)0x0,0,0,1);
+                  if (g_GameWindow.isAppClosing != 0) goto LAB_0042055a;
+                  BVar1 = PeekMessageA(&msg,(HWND)0x0,0,0,1);
                   if (BVar1 == 0) break;
-                  TranslateMessage(&local_28);
-                  DispatchMessageA(&local_28);
+                  TranslateMessage(&msg);
+                  DispatchMessageA(&msg);
                 }
-                local_c = (*(g_GameContext.d3d_device)->lpVtbl->TestCooperativeLevel)
-                                    (g_GameContext.d3d_device);
-                if (local_c == 0) break;
-                if (local_c == -0x7789f797) {
-                  FUN_004219d0(VERY_BIG_STRUCT);
-                  HVar2 = (*(g_GameContext.d3d_device)->lpVtbl->Reset)
-                                    (g_GameContext.d3d_device,&g_GameContext.presentParameters);
+                HVar2 = (*(g_GameContext.d3dDevice)->lpVtbl->TestCooperativeLevel)
+                                  (g_GameContext.d3dDevice);
+                if (HVar2 == 0) break;
+                if (HVar2 == D3DERR_DEVICENOTRESET) {
+                  VeryBigStruct::ReleaseD3dSurfaces(g_VeryBigStruct);
+                  HVar2 = (*(g_GameContext.d3dDevice)->lpVtbl->Reset)
+                                    (g_GameContext.d3dDevice,&g_GameContext.presentParameters);
                   if (HVar2 != 0) goto LAB_0042055a;
                   InitD3dDevice();
-                  g_GameContext._408_4_ = 3;
+                  g_GameContext.field77_0x198 = 3;
                 }
               }
-              local_8 = GameWindow::Render(&g_GameWindow);
-            } while (local_8 == 0);
+              renderRet = GameWindow::Render(&g_GameWindow);
+            } while (renderRet == 0);
           }
 LAB_0042055a:
-          Chain::Release(&CHAIN);
+          Chain::Release(&g_Chain);
           SoundPlayer::Release(&g_SoundPlayer);
-          _Memory = VERY_BIG_STRUCT;
-          if (VERY_BIG_STRUCT != (VeryBigStruct *)0x0) {
-            FUN_00423330();
+          _Memory = g_VeryBigStruct;
+          if (g_VeryBigStruct != (VeryBigStruct *)0x0) {
+            VeryBigStruct::~VeryBigStruct();
             _free(_Memory);
           }
-          VERY_BIG_STRUCT = (VeryBigStruct *)0x0;
-          if (g_GameContext.d3d_device != (IDirect3DDevice8 *)0x0) {
-            (*(g_GameContext.d3d_device)->lpVtbl->Release)(g_GameContext.d3d_device);
-            g_GameContext.d3d_device = (IDirect3DDevice8 *)0x0;
+          g_VeryBigStruct = (VeryBigStruct *)0x0;
+          if (g_GameContext.d3dDevice != (IDirect3DDevice8 *)0x0) {
+            (*(g_GameContext.d3dDevice)->lpVtbl->Release)(g_GameContext.d3dDevice);
+            g_GameContext.d3dDevice = (IDirect3DDevice8 *)0x0;
           }
           ShowWindow((HWND)g_GameWindow.window,0);
           MoveWindow((HWND)g_GameWindow.window,0,0,0,0,0);
           DestroyWindow((HWND)g_GameWindow.window);
-          if (local_8 != 2) {
+          if (renderRet != 2) {
             WriteConfigToFile("東方紅魔郷.cfg",&g_GameContext.cfg,0x38);
-            SystemParametersInfoA(0x11,g_SCREEN_SAVE_ACTIVE,(PVOID)0x0,2);
-            SystemParametersInfoA(0x55,g_LOW_POWER_ACTIVE,(PVOID)0x0,2);
-            SystemParametersInfoA(0x56,g_POWER_OFF_ACTIVE,(PVOID)0x0,2);
-            if (g_GameContext.d3d_iface != (IDirect3D8 *)0x0) {
-              (*(g_GameContext.d3d_iface)->lpVtbl->Release)(g_GameContext.d3d_iface);
-              g_GameContext.d3d_iface = (IDirect3D8 *)0x0;
+            SystemParametersInfoA(SPI_SETSCREENSAVEACTIVE,g_SCREEN_SAVE_ACTIVE,(PVOID)0x0,2);
+            SystemParametersInfoA(SPI_SETLOWPOWERACTIVE,g_LOW_POWER_ACTIVE,(PVOID)0x0,2);
+            SystemParametersInfoA(SPI_SETPOWEROFFACTIVE,g_POWER_OFF_ACTIVE,(PVOID)0x0,2);
+            if (g_GameContext.d3dIface != (IDirect3D8 *)0x0) {
+              (*(g_GameContext.d3dIface)->lpVtbl->Release)(g_GameContext.d3dIface);
+              g_GameContext.d3dIface = (IDirect3D8 *)0x0;
             }
             ShowCursor(1);
             GameErrorContext::Flush(&g_GameErrorContext);

@@ -17,12 +17,12 @@ undefined4 FUN_0042bc85(void)
       *(short *)(local_c + 0x8a) = (short)*(undefined4 *)(in_ECX + 0x2c) + 3;
       local_c = local_c + 0x110;
     }
-    FUN_00434e20(VERY_BIG_STRUCT,in_ECX + 0x28a0,0xffffff,0,
+    FUN_00434e20(g_VeryBigStruct,in_ECX + 0x28a0,0xffffff,0,
                  (&PTR_DAT_004784d8)[*(int *)(in_ECX + 0x24) * 2]);
     if (DAT_0069d4be != 0) {
       *(undefined4 *)(in_ECX + 0x291c) = 0x80ffffff;
     }
-    FUN_00434e20(VERY_BIG_STRUCT,in_ECX + 0x29b0,0xffffff,0,
+    FUN_00434e20(g_VeryBigStruct,in_ECX + 0x29b0,0xffffff,0,
                  (&PTR_DAT_004784dc)[*(int *)(in_ECX + 0x24) * 2]);
     if (DAT_0069d4be != 1) {
       *(undefined4 *)(in_ECX + 0x2a2c) = 0x80ffffff;

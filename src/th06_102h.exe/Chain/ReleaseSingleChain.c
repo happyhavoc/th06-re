@@ -17,7 +17,7 @@ void __thiscall Chain::ReleaseSingleChain(Chain *this,ChainElem *root)
   puStack_c = &LAB_0046917e;
   local_10 = ExceptionList;
   ExceptionList = &local_10;
-  ChainElem::Init(&newRootElem);
+  ChainElem::ChainElem(&newRootElem);
   local_8 = 0;
   allocatedChainElem = (ChainElem *)operator_new(0x20);
   local_8._0_1_ = 1;
@@ -25,7 +25,7 @@ void __thiscall Chain::ReleaseSingleChain(Chain *this,ChainElem *root)
     allocatedChainElem2 = (ChainElem *)0x0;
   }
   else {
-    allocatedChainElem2 = ChainElem::Init(allocatedChainElem);
+    allocatedChainElem2 = ChainElem::ChainElem(allocatedChainElem);
   }
   local_1c = allocatedChainElem2;
   newRootElem.next = allocatedChainElem2;
@@ -37,7 +37,7 @@ void __thiscall Chain::ReleaseSingleChain(Chain *this,ChainElem *root)
       local_60 = (ChainElem *)0x0;
     }
     else {
-      local_60 = ChainElem::Init(allocatedChainElem);
+      local_60 = ChainElem::ChainElem(allocatedChainElem);
     }
     local_1c->next = local_60;
     local_1c = local_1c->next;
@@ -49,13 +49,13 @@ void __thiscall Chain::ReleaseSingleChain(Chain *this,ChainElem *root)
   while (allocatedChainElem = local_1c, local_1c != (ChainElem *)0x0) {
     local_18 = local_1c->next;
     if (local_1c != (ChainElem *)0x0) {
-      ChainElem::drop(local_1c);
+      ChainElem::~ChainElem(local_1c);
       _free(allocatedChainElem);
     }
     local_1c = local_18;
   }
   local_8 = 0xffffffff;
-  ChainElem::drop(&newRootElem);
+  ChainElem::~ChainElem(&newRootElem);
   ExceptionList = local_10;
   return;
 }

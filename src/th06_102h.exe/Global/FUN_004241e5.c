@@ -4,7 +4,7 @@ void FUN_004241e5(int param_1)
 {
   undefined4 *in_ECX;
   
-  if ((float)g_GameContext._428_4_ <= 0.99) {
+  if (g_GameContext.field91_0x1ac <= 0.99) {
     if (param_1 < 0) {
       FUN_00424145(-param_1);
     }

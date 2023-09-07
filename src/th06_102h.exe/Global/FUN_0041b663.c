@@ -28,7 +28,7 @@ undefined4 FUN_0041b663(uint *param_1)
     VIEWPORT_Y = 16.0;
     VIEWPORT_WIDTH = 384.0;
     VIEWPORT_HEIGHT = 448.0;
-    g_GameContext._408_4_ = 3;
+    g_GameContext.field77_0x198 = 3;
   }
   if ((*(char *)(param_1 + 0x608) == '\0') && (*(char *)((int)param_1 + 0x181f) == '\0')) {
     local_c = 1;
@@ -44,10 +44,10 @@ undefined4 FUN_0041b663(uint *param_1)
   g_GameContext.viewport.MinZ = 0.5;
   g_GameContext.viewport.MaxZ = 1.0;
   FUN_0041c3f3(0);
-  (*(g_GameContext.d3d_device)->lpVtbl->SetViewport)
-            (g_GameContext.d3d_device,(D3DVIEWPORT8 *)0x6c6de0);
-  (*(g_GameContext.d3d_device)->lpVtbl->Clear)
-            (g_GameContext.d3d_device,0,(D3DRECT *)0x0,2,DAT_00487b60,1.0,0);
+  (*(g_GameContext.d3dDevice)->lpVtbl->SetViewport)
+            (g_GameContext.d3dDevice,(D3DVIEWPORT8 *)0x6c6de0);
+  (*(g_GameContext.d3dDevice)->lpVtbl->Clear)
+            (g_GameContext.d3dDevice,0,(D3DRECT *)0x0,2,DAT_00487b60,1.0,0);
   if (((*(char *)((int)param_1 + 0x181f) == '\x01') || (*(char *)((int)param_1 + 0x181f) == '\x02'))
      || (*(char *)(param_1 + 0x608) != '\0')) {
     uVar1 = 3;

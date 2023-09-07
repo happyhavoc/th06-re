@@ -24,8 +24,8 @@ undefined4 FUN_00431920(int param_1,undefined4 param_2,int param_3,undefined4 pa
       }
     }
     iVar3 = _D3DXCreateTextureFromFileInMemoryEx_60
-                      (g_GameContext.d3d_device,in_ECX->field1059_0x1c530[param_1],g_FileSize,0,0,0,
-                       0,*(undefined4 *)(&DAT_0046c220 + param_3 * 4),1,3,0xffffffff,param_4,0,0,
+                      (g_GameContext.d3dDevice,in_ECX->field1059_0x1c530[param_1],g_FileSize,0,0,0,0
+                       ,*(undefined4 *)(&DAT_0046c220 + param_3 * 4),1,3,0xffffffff,param_4,0,0,
                        in_ECX->texture_i_think + param_1);
     if (iVar3 == 0) {
       uVar2 = 0;

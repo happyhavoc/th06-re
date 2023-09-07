@@ -15,12 +15,12 @@ undefined4 FUN_0042f5bc(void **param_1)
       FUN_0042bc5b(local_8,local_c);
     }
   }
-  FUN_00432030(VERY_BIG_STRUCT,0x25);
-  FUN_00432030(VERY_BIG_STRUCT,0x26);
-  FUN_00432030(VERY_BIG_STRUCT,0x27);
-  FUN_00432030(VERY_BIG_STRUCT,0x28);
-  FUN_00435270(VERY_BIG_STRUCT,0);
-  CutChain(&CHAIN,(ChainElem *)param_1[0x146b]);
+  FUN_00432030(g_VeryBigStruct,0x25);
+  FUN_00432030(g_VeryBigStruct,0x26);
+  FUN_00432030(g_VeryBigStruct,0x27);
+  FUN_00432030(g_VeryBigStruct,0x28);
+  FUN_00435270(g_VeryBigStruct,0);
+  CutChain(&g_Chain,(ChainElem *)param_1[0x146b]);
   param_1[0x146b] = (void *)0x0;
   if (param_1 != (void **)0x0) {
     _free(*param_1);

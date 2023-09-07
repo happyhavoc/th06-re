@@ -4,8 +4,8 @@
 undefined4 FUN_004188c9(void)
 
 {
-  short sVar1;
-  int iVar2;
+  Unknown *pUVar1;
+  short sVar2;
   VeryBigStruct *pVVar3;
   undefined4 uVar4;
   uint uVar5;
@@ -28,7 +28,7 @@ undefined4 FUN_004188c9(void)
       *(undefined4 *)(in_ECX + 0x2544) = 0;
       *(undefined4 *)(in_ECX + 0x2540) = 0xfffffc19;
     }
-    while (pVVar3 = VERY_BIG_STRUCT,
+    while (pVVar3 = g_VeryBigStruct,
           (int)(uint)**(ushort **)(in_ECX + 0x2538) <= *(int *)(in_ECX + 0x2548)) {
       switch(*(undefined *)(*(int *)(in_ECX + 0x2538) + 2)) {
       case 0:
@@ -37,15 +37,15 @@ undefined4 FUN_004188c9(void)
       case 1:
         psVar6 = (short *)(*(int *)(in_ECX + 0x2538) + 4);
         uVar5 = -(uint)(*psVar6 != 0) & 2;
-        sVar1 = *(short *)(*(int *)(in_ECX + 0x2538) + 6);
-        local_14 = sVar1 + (short)uVar5 + 0x4a0;
-        iVar7 = in_ECX + 0x2550 + *psVar6 * 0x110;
-        *(short *)(iVar7 + 0xb4) = local_14;
-        FUN_00432430(iVar7,*(undefined4 *)(&pVVar3->field_0x1dbb4 + sVar1 * 4 + uVar5 * 4));
+        sVar2 = *(short *)(*(int *)(in_ECX + 0x2538) + 6);
+        local_14 = sVar2 + (short)uVar5 + 0x4a0;
+        pUVar1 = (Unknown *)(in_ECX + 0x2550 + *psVar6 * 0x110);
+        *(short *)&pUVar1->field_0xb4 = local_14;
+        FUN_00432430(pUVar1,*(int *)(&pVVar3->field_0x1dbb4 + sVar2 * 4 + uVar5 * 4));
         break;
       case 2:
         psVar6 = (short *)(*(int *)(in_ECX + 0x2538) + 4);
-        FUN_004323a0(VERY_BIG_STRUCT,(Unknown *)(in_ECX + 0x2550 + *psVar6 * 0x110),
+        FUN_004323a0(g_VeryBigStruct,(Unknown *)(in_ECX + 0x2550 + *psVar6 * 0x110),
                      *(short *)(*(int *)(in_ECX + 0x2538) + 6) +
                      (-(ushort)(*psVar6 != 0) & 8) + 0x4a0);
         break;
@@ -53,21 +53,21 @@ undefined4 FUN_004188c9(void)
         iVar7 = *(int *)(in_ECX + 0x2538);
         psVar6 = (short *)(iVar7 + 4);
         if ((*(short *)(iVar7 + 6) == 0) && (-1 < *(short *)(in_ECX + 0x2934))) {
-          FUN_00434b60(VERY_BIG_STRUCT,in_ECX + 0x2880,
+          FUN_00434b60(g_VeryBigStruct,in_ECX + 0x2880,
                        *(undefined4 *)(in_ECX + 0x2bb0 + *psVar6 * 4),
                        *(undefined4 *)(in_ECX + 0x2bc0 + *psVar6 * 4),&DAT_0046ac10);
         }
-        pVVar3 = VERY_BIG_STRUCT;
-        sVar1 = *(short *)(iVar7 + 6);
-        local_20 = sVar1 + 0x702;
-        iVar2 = in_ECX + 0x2770 + *(short *)(iVar7 + 6) * 0x110;
-        *(short *)(iVar2 + 0xb4) = local_20;
-        FUN_00432430(iVar2,*(undefined4 *)(&pVVar3->field_0x1e53c + sVar1 * 4));
+        pVVar3 = g_VeryBigStruct;
+        sVar2 = *(short *)(iVar7 + 6);
+        local_20 = sVar2 + 0x702;
+        pUVar1 = (Unknown *)(in_ECX + 0x2770 + *(short *)(iVar7 + 6) * 0x110);
+        *(short *)&pUVar1->field_0xb4 = local_20;
+        FUN_00432430(pUVar1,*(int *)(&pVVar3->field_0x1e53c + sVar2 * 4));
         *(undefined *)(in_ECX + 0x287d + *(short *)(iVar7 + 6) * 0x110) =
              *(undefined *)(in_ECX + 0x2bd0);
         *(undefined *)(in_ECX + 0x287c + *(short *)(iVar7 + 6) * 0x110) =
              *(undefined *)(in_ECX + 0x287d + *(short *)(iVar7 + 6) * 0x110);
-        FUN_00434b60(VERY_BIG_STRUCT,in_ECX + 0x2770 + *(short *)(iVar7 + 6) * 0x110,
+        FUN_00434b60(g_VeryBigStruct,in_ECX + 0x2770 + *(short *)(iVar7 + 6) * 0x110,
                      *(undefined4 *)(in_ECX + 0x2bb0 + *psVar6 * 4),
                      *(undefined4 *)(in_ECX + 0x2bc0 + *psVar6 * 4),iVar7 + 8);
         *(undefined4 *)(in_ECX + 0x254c) = 0;
@@ -97,10 +97,10 @@ undefined4 FUN_004188c9(void)
         break;
       case 7:
         *(undefined2 *)(in_ECX + 0x1d68) = 0x701;
-        FUN_00432430(in_ECX + 0x1cb4,*(undefined4 *)&pVVar3->field_0x1e538);
+        FUN_00432430((Unknown *)(in_ECX + 0x1cb4),*(int *)&pVVar3->field_0x1e538);
         *(undefined *)(in_ECX + 0x1dc0) = 0x10;
         *(undefined *)(in_ECX + 0x1dc1) = 0x10;
-        FUN_00434c40(VERY_BIG_STRUCT,in_ECX + 0x1cb4,0xe0ffff,0,&DAT_0046a98c,
+        FUN_00434c40(g_VeryBigStruct,in_ECX + 0x1cb4,0xe0ffff,0,&DAT_0046a98c,
                      DAT_00487b14 + 0x90 + *(int *)(*(int *)(in_ECX + 0x2538) + 4) * 0x80);
         iVar7 = FUN_00424ae4(*(undefined4 *)(*(int *)(in_ECX + 0x2538) + 4));
         if (iVar7 != 0) {
@@ -108,23 +108,23 @@ undefined4 FUN_004188c9(void)
         }
         break;
       case 8:
-        iVar2 = *(int *)(in_ECX + 0x2538);
-        sVar1 = *(short *)(iVar2 + 6);
-        local_34 = sVar1 + 0x704;
-        iVar7 = in_ECX + 0x2990 + *(short *)(iVar2 + 6) * 0x110;
-        *(short *)(iVar7 + 0xb4) = local_34;
-        FUN_00432430(iVar7,*(undefined4 *)(&pVVar3->field_0x1e544 + sVar1 * 4));
-        FUN_00434c40(VERY_BIG_STRUCT,in_ECX + 0x2990 + *(short *)(iVar2 + 6) * 0x110,
-                     *(undefined4 *)(in_ECX + 0x2bb0 + *(short *)(iVar2 + 4) * 4),
-                     *(undefined4 *)(in_ECX + 0x2bc0 + *(short *)(iVar2 + 4) * 4),iVar2 + 8);
+        iVar7 = *(int *)(in_ECX + 0x2538);
+        sVar2 = *(short *)(iVar7 + 6);
+        local_34 = sVar2 + 0x704;
+        pUVar1 = (Unknown *)(in_ECX + 0x2990 + *(short *)(iVar7 + 6) * 0x110);
+        *(short *)&pUVar1->field_0xb4 = local_34;
+        FUN_00432430(pUVar1,*(int *)(&pVVar3->field_0x1e544 + sVar2 * 4));
+        FUN_00434c40(g_VeryBigStruct,in_ECX + 0x2990 + *(short *)(iVar7 + 6) * 0x110,
+                     *(undefined4 *)(in_ECX + 0x2bb0 + *(short *)(iVar7 + 4) * 4),
+                     *(undefined4 *)(in_ECX + 0x2bc0 + *(short *)(iVar7 + 4) * 4),iVar7 + 8);
         *(undefined4 *)(in_ECX + 0x254c) = 0;
         break;
       case 9:
         *(undefined4 *)(in_ECX + 0x2bdc) = 1;
-        pVVar3 = VERY_BIG_STRUCT;
+        pVVar3 = g_VeryBigStruct;
         if (CUR_STAGE < 6) {
           *(undefined2 *)(in_ECX + 0x24d8) = 0x619;
-          FUN_00432430(in_ECX + 0x2424,*(undefined4 *)&pVVar3->field_0x1e198);
+          FUN_00432430((Unknown *)(in_ECX + 0x2424),*(int *)&pVVar3->field_0x1e198);
         }
         else {
           DAT_0069d4bc = 0xff;

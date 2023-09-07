@@ -49,41 +49,41 @@ void FUN_0042f8b0(undefined4 *param_1,undefined4 param_2)
   local_30 = param_2;
   local_44 = param_2;
   if (((uint)g_GameContext.cfg.render_opts >> 8 & 1) == 0) {
-    (*(g_GameContext.d3d_device)->lpVtbl->SetTextureStageState)
-              (g_GameContext.d3d_device,0,D3DTSS_ALPHAOP,2);
-    (*(g_GameContext.d3d_device)->lpVtbl->SetTextureStageState)
-              (g_GameContext.d3d_device,0,D3DTSS_COLOROP,2);
+    (*(g_GameContext.d3dDevice)->lpVtbl->SetTextureStageState)
+              (g_GameContext.d3dDevice,0,D3DTSS_ALPHAOP,2);
+    (*(g_GameContext.d3dDevice)->lpVtbl->SetTextureStageState)
+              (g_GameContext.d3dDevice,0,D3DTSS_COLOROP,2);
   }
-  (*(g_GameContext.d3d_device)->lpVtbl->SetTextureStageState)
-            (g_GameContext.d3d_device,0,D3DTSS_ALPHAARG1,0);
-  (*(g_GameContext.d3d_device)->lpVtbl->SetTextureStageState)
-            (g_GameContext.d3d_device,0,D3DTSS_COLORARG1,0);
+  (*(g_GameContext.d3dDevice)->lpVtbl->SetTextureStageState)
+            (g_GameContext.d3dDevice,0,D3DTSS_ALPHAARG1,0);
+  (*(g_GameContext.d3dDevice)->lpVtbl->SetTextureStageState)
+            (g_GameContext.d3dDevice,0,D3DTSS_COLORARG1,0);
   if (((uint)g_GameContext.cfg.render_opts >> 6 & 1) == 0) {
-    (*(g_GameContext.d3d_device)->lpVtbl->SetRenderState)(g_GameContext.d3d_device,D3DRS_ZFUNC,8);
-    (*(g_GameContext.d3d_device)->lpVtbl->SetRenderState)
-              (g_GameContext.d3d_device,D3DRS_ZWRITEENABLE,0);
+    (*(g_GameContext.d3dDevice)->lpVtbl->SetRenderState)(g_GameContext.d3dDevice,D3DRS_ZFUNC,8);
+    (*(g_GameContext.d3dDevice)->lpVtbl->SetRenderState)
+              (g_GameContext.d3dDevice,D3DRS_ZWRITEENABLE,0);
   }
-  (*(g_GameContext.d3d_device)->lpVtbl->SetRenderState)(g_GameContext.d3d_device,D3DRS_DESTBLEND,6);
-  (*(g_GameContext.d3d_device)->lpVtbl->SetVertexShader)(g_GameContext.d3d_device,0x44);
-  (*(g_GameContext.d3d_device)->lpVtbl->DrawPrimitiveUP)
-            (g_GameContext.d3d_device,D3DPT_TRIANGLESTRIP,2,&local_54,0x14);
-  VERY_BIG_STRUCT->field_0x210be = 0xff;
-  *(undefined4 *)&VERY_BIG_STRUCT->field_0x210c0 = 0;
-  VERY_BIG_STRUCT->curTexture = 0;
-  VERY_BIG_STRUCT->field_0x210bd = 0xff;
-  VERY_BIG_STRUCT->field_0x210bc = 0xff;
-  VERY_BIG_STRUCT->field_0x210bf = 0xff;
+  (*(g_GameContext.d3dDevice)->lpVtbl->SetRenderState)(g_GameContext.d3dDevice,D3DRS_DESTBLEND,6);
+  (*(g_GameContext.d3dDevice)->lpVtbl->SetVertexShader)(g_GameContext.d3dDevice,0x44);
+  (*(g_GameContext.d3dDevice)->lpVtbl->DrawPrimitiveUP)
+            (g_GameContext.d3dDevice,D3DPT_TRIANGLESTRIP,2,&local_54,0x14);
+  g_VeryBigStruct->field_0x210be = 0xff;
+  *(undefined4 *)&g_VeryBigStruct->field_0x210c0 = 0;
+  g_VeryBigStruct->curTexture = 0;
+  g_VeryBigStruct->field_0x210bd = 0xff;
+  g_VeryBigStruct->field_0x210bc = 0xff;
+  g_VeryBigStruct->field_0x210bf = 0xff;
   if (((uint)g_GameContext.cfg.render_opts >> 8 & 1) == 0) {
-    (*(g_GameContext.d3d_device)->lpVtbl->SetTextureStageState)
-              (g_GameContext.d3d_device,0,D3DTSS_ALPHAOP,4);
-    (*(g_GameContext.d3d_device)->lpVtbl->SetTextureStageState)
-              (g_GameContext.d3d_device,0,D3DTSS_COLOROP,4);
+    (*(g_GameContext.d3dDevice)->lpVtbl->SetTextureStageState)
+              (g_GameContext.d3dDevice,0,D3DTSS_ALPHAOP,4);
+    (*(g_GameContext.d3dDevice)->lpVtbl->SetTextureStageState)
+              (g_GameContext.d3dDevice,0,D3DTSS_COLOROP,4);
   }
-  (*(g_GameContext.d3d_device)->lpVtbl->SetTextureStageState)
-            (g_GameContext.d3d_device,0,D3DTSS_ALPHAARG1,2);
-  (*(g_GameContext.d3d_device)->lpVtbl->SetTextureStageState)
-            (g_GameContext.d3d_device,0,D3DTSS_COLORARG1,2);
-  (*(g_GameContext.d3d_device)->lpVtbl->SetRenderState)(g_GameContext.d3d_device,D3DRS_ZFUNC,4);
+  (*(g_GameContext.d3dDevice)->lpVtbl->SetTextureStageState)
+            (g_GameContext.d3dDevice,0,D3DTSS_ALPHAARG1,2);
+  (*(g_GameContext.d3dDevice)->lpVtbl->SetTextureStageState)
+            (g_GameContext.d3dDevice,0,D3DTSS_COLORARG1,2);
+  (*(g_GameContext.d3dDevice)->lpVtbl->SetRenderState)(g_GameContext.d3dDevice,D3DRS_ZFUNC,4);
   return;
 }
 

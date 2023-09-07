@@ -1,9 +1,9 @@
 
-void FUN_0043c4f0(void)
+void __fastcall FUN_0043c4f0(FileAbstraction *param_1)
 
 {
-  FUN_0043cf20();
-  FUN_0043c2f0();
+  FileAbstraction::Close(param_1);
+  Pbg3FileStuff::Init((Pbg3FileStuff *)(param_1 + -2));
   return;
 }
 

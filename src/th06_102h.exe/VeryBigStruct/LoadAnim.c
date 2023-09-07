@@ -48,7 +48,7 @@ VeryBigStruct::LoadAnim(VeryBigStruct *this,int param_2,char *path,int param_4)
     }
     if (anim_data->second_name_offset != 0) {
       local_c = (char *)((int)&anim_data->numSprites + anim_data->second_name_offset);
-      iVar2 = FUN_00431a10(anim_data->textureIdx,local_c,anim_data->format,anim_data->color_key);
+      iVar2 = Unknown(this,anim_data->textureIdx,local_c,anim_data->format,anim_data->color_key);
       if (iVar2 != 0) {
         GameErrorContextFatal
                   (&g_GameErrorContext,

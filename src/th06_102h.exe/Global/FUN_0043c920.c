@@ -1,5 +1,5 @@
 
-uint __thiscall FUN_0043c920(int param_1_00,byte *param_2)
+uint __thiscall FUN_0043c920(Pbg3File *this,byte *param_2)
 
 {
   byte bVar1;
@@ -11,8 +11,8 @@ uint __thiscall FUN_0043c920(int param_1_00,byte *param_2)
   bool bVar7;
   
   uVar4 = 0;
-  if (*(uint *)(param_1_00 + 8) != 0) {
-    pbVar5 = (byte *)(*(int *)(param_1_00 + 0x10) + 0x14);
+  if (this->field2_0x8 != 0) {
+    pbVar5 = (byte *)(this->field4_0x10 + 0x14);
     pbVar2 = param_2;
     pbVar6 = pbVar5;
 LAB_0043c939:
@@ -41,7 +41,7 @@ LAB_0043c95d:
       pbVar5 = pbVar6 + 0x114;
       pbVar2 = param_2;
       pbVar6 = pbVar5;
-    } while (uVar4 < *(uint *)(param_1_00 + 8));
+    } while (uVar4 < (uint)this->field2_0x8);
   }
   return 0xffffffff;
 }

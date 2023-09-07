@@ -30,7 +30,7 @@ void FUN_0040c180(int param_1,int param_2)
               (*(short *)((int)&local_18[7].field13_0x3c.field8_0x20 + 2) != 5)) &&
              (uVar3 = FUN_0041e780(&DAT_0069d8f8), (uVar3 & 3) == 0)))))) {
           *(undefined2 *)((int)&local_18[7].field13_0x3c.field8_0x20 + 2) = 5;
-          FUN_004323a0(VERY_BIG_STRUCT,local_18,
+          FUN_004323a0(g_VeryBigStruct,local_18,
                        *(short *)&local_18->field_0xb2 +
                        *(short *)((int)&local_18[7].field13_0x3c.field8_0x20 + 2));
           fVar1 = (float)local_18[7].field1_0x4 - DAT_006caa68;
@@ -68,7 +68,7 @@ void FUN_0040c180(int param_1,int param_2)
              (*(short *)((int)&local_18[7].field13_0x3c.field8_0x20 + 2) != 5)) &&
             (uVar3 = FUN_0041e780(&DAT_0069d8f8), (uVar3 & 3) == 0)))) {
           *(undefined2 *)((int)&local_18[7].field13_0x3c.field8_0x20 + 2) = 5;
-          FUN_004323a0(VERY_BIG_STRUCT,local_18,
+          FUN_004323a0(g_VeryBigStruct,local_18,
                        *(short *)&local_18->field_0xb2 +
                        *(short *)((int)&local_18[7].field13_0x3c.field8_0x20 + 2));
           fVar1 = (float)local_18[7].field1_0x4 - DAT_006caa68;

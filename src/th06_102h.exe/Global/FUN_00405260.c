@@ -158,7 +158,7 @@ void FUN_00405260(int param_1)
       }
     }
     *(undefined4 *)(param_1 + 0x75d0) = *(undefined4 *)(param_1 + 0x75d8);
-    FUN_00424285(param_1 + 0x75d8,param_1 + 0x75d4);
+    FUN_00424285(&g_GameContext,(int *)(param_1 + 0x75d8),(float *)(param_1 + 0x75d4));
   }
   else {
     FUN_00417314();

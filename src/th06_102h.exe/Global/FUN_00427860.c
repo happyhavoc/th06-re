@@ -5,9 +5,13 @@ undefined4 FUN_00427860(void)
 
 {
   float fVar1;
-  VeryBigStruct *pVVar2;
-  int iVar3;
-  int in_ECX;
+  float fVar2;
+  float fVar3;
+  float fVar4;
+  VeryBigStruct *pVVar5;
+  int iVar6;
+  Unknown *in_ECX;
+  int *piVar7;
   float local_18;
   float local_14;
   float local_10;
@@ -15,258 +19,275 @@ undefined4 FUN_00427860(void)
   
   local_10 = 0.0;
   local_c = 0.0;
-  *(undefined4 *)(in_ECX + 0xa0c) = 0;
+  in_ECX[0xd].field6_0x18 = 0.0;
   if ((BUTTONS_PRESSED_CURFRAME & 0x10) == 0) {
     if ((BUTTONS_PRESSED_CURFRAME & 0x20) == 0) {
       if ((BUTTONS_PRESSED_CURFRAME & 0x40) != 0) {
-        *(undefined4 *)(in_ECX + 0xa0c) = 3;
+        in_ECX[0xd].field6_0x18 = 4.203895e-45;
       }
       if ((BUTTONS_PRESSED_CURFRAME & 0x80) != 0) {
-        *(undefined4 *)(in_ECX + 0xa0c) = 4;
+        in_ECX[0xd].field6_0x18 = 5.605194e-45;
       }
     }
     else {
-      *(undefined4 *)(in_ECX + 0xa0c) = 2;
+      in_ECX[0xd].field6_0x18 = 2.802597e-45;
       if ((BUTTONS_PRESSED_CURFRAME & 0x40) != 0) {
-        *(undefined4 *)(in_ECX + 0xa0c) = 7;
+        in_ECX[0xd].field6_0x18 = 9.809089e-45;
       }
       if ((BUTTONS_PRESSED_CURFRAME & 0x80) != 0) {
-        *(undefined4 *)(in_ECX + 0xa0c) = 8;
+        in_ECX[0xd].field6_0x18 = 1.121039e-44;
       }
     }
   }
   else {
-    *(undefined4 *)(in_ECX + 0xa0c) = 1;
+    in_ECX[0xd].field6_0x18 = 1.401298e-45;
     if ((BUTTONS_PRESSED_CURFRAME & 0x40) != 0) {
-      *(undefined4 *)(in_ECX + 0xa0c) = 5;
+      in_ECX[0xd].field6_0x18 = 7.006492e-45;
     }
     if ((BUTTONS_PRESSED_CURFRAME & 0x80) != 0) {
-      *(undefined4 *)(in_ECX + 0xa0c) = 6;
+      in_ECX[0xd].field6_0x18 = 8.407791e-45;
     }
   }
   if ((BUTTONS_PRESSED_CURFRAME & 4) == 0) {
-    *(undefined *)(in_ECX + 0x9e3) = 0;
+    in_ECX[0xc].field_0xb3 = 0;
   }
   else {
-    *(undefined *)(in_ECX + 0x9e3) = 1;
+    in_ECX[0xc].field_0xb3 = 1;
   }
-  pVVar2 = VERY_BIG_STRUCT;
-  switch(*(undefined4 *)(in_ECX + 0xa0c)) {
-  case 1:
+  pVVar5 = g_VeryBigStruct;
+  switch(in_ECX[0xd].field6_0x18) {
+  case 1.401298e-45:
     if ((BUTTONS_PRESSED_CURFRAME & 4) == 0) {
-      local_c = *(float *)(in_ECX + 0x9f4);
+      local_c = (float)in_ECX[0xd].field0_0x0;
     }
     else {
-      local_c = *(float *)(in_ECX + 0x9f8);
+      local_c = (float)in_ECX[0xd].field1_0x4;
     }
     local_c = -local_c;
     break;
-  case 2:
+  case 2.802597e-45:
     if ((BUTTONS_PRESSED_CURFRAME & 4) == 0) {
-      local_c = *(float *)(in_ECX + 0x9f4);
+      local_c = (float)in_ECX[0xd].field0_0x0;
     }
     else {
-      local_c = *(float *)(in_ECX + 0x9f8);
+      local_c = (float)in_ECX[0xd].field1_0x4;
     }
     break;
-  case 3:
+  case 4.203895e-45:
     if ((BUTTONS_PRESSED_CURFRAME & 4) == 0) {
-      local_10 = *(float *)(in_ECX + 0x9f4);
+      local_10 = (float)in_ECX[0xd].field0_0x0;
     }
     else {
-      local_10 = *(float *)(in_ECX + 0x9f8);
+      local_10 = (float)in_ECX[0xd].field1_0x4;
     }
     local_10 = -local_10;
     break;
-  case 4:
+  case 5.605194e-45:
     if ((BUTTONS_PRESSED_CURFRAME & 4) == 0) {
-      local_10 = *(float *)(in_ECX + 0x9f4);
+      local_10 = (float)in_ECX[0xd].field0_0x0;
     }
     else {
-      local_10 = *(float *)(in_ECX + 0x9f8);
+      local_10 = (float)in_ECX[0xd].field1_0x4;
     }
     break;
-  case 5:
+  case 7.006492e-45:
     if ((BUTTONS_PRESSED_CURFRAME & 4) == 0) {
-      local_10 = *(float *)(in_ECX + 0x9fc);
+      local_10 = (float)in_ECX[0xd].field2_0x8;
     }
     else {
-      local_10 = *(float *)(in_ECX + 0xa00);
+      local_10 = (float)in_ECX[0xd].field3_0xc;
     }
     local_10 = -local_10;
     local_c = local_10;
     break;
-  case 6:
+  case 8.407791e-45:
     if ((BUTTONS_PRESSED_CURFRAME & 4) == 0) {
-      local_10 = *(float *)(in_ECX + 0x9fc);
+      local_10 = (float)in_ECX[0xd].field2_0x8;
     }
     else {
-      local_10 = *(float *)(in_ECX + 0xa00);
+      local_10 = (float)in_ECX[0xd].field3_0xc;
     }
     local_c = -local_10;
     break;
-  case 7:
+  case 9.809089e-45:
     if ((BUTTONS_PRESSED_CURFRAME & 4) == 0) {
-      local_10 = *(float *)(in_ECX + 0x9fc);
+      local_10 = (float)in_ECX[0xd].field2_0x8;
     }
     else {
-      local_10 = *(float *)(in_ECX + 0xa00);
+      local_10 = (float)in_ECX[0xd].field3_0xc;
     }
     local_10 = -local_10;
     local_c = -local_10;
     break;
-  case 8:
+  case 1.121039e-44:
     if ((BUTTONS_PRESSED_CURFRAME & 4) == 0) {
-      local_10 = *(float *)(in_ECX + 0x9fc);
+      local_10 = (float)in_ECX[0xd].field2_0x8;
     }
     else {
-      local_10 = *(float *)(in_ECX + 0xa00);
+      local_10 = (float)in_ECX[0xd].field3_0xc;
     }
     local_c = local_10;
   }
-  if ((local_10 < 0.0 == NAN(local_10)) || (*(float *)(in_ECX + 0xa10) < 0.0)) {
+  if ((local_10 < 0.0 == NAN(local_10)) || (in_ECX[0xd].field7_0x1c < 0.0)) {
     if ((NAN(local_10) != (local_10 == 0.0)) &&
-       (*(float *)(in_ECX + 0xa10) < 0.0 != NAN(*(float *)(in_ECX + 0xa10)))) {
-      *(undefined2 *)(in_ECX + 0xb4) = 0x402;
-      FUN_00432430(in_ECX,*(undefined4 *)&pVVar2->field_0x1d93c);
+       (in_ECX[0xd].field7_0x1c < 0.0 != NAN(in_ECX[0xd].field7_0x1c))) {
+      *(undefined2 *)&in_ECX->field_0xb4 = 0x402;
+      FUN_00432430(in_ECX,*(int *)&pVVar5->field_0x1d93c);
     }
   }
   else {
-    *(undefined2 *)(in_ECX + 0xb4) = 0x401;
-    FUN_00432430(in_ECX,*(undefined4 *)&pVVar2->field_0x1d938);
+    *(undefined2 *)&in_ECX->field_0xb4 = 0x401;
+    FUN_00432430(in_ECX,*(int *)&pVVar5->field_0x1d938);
   }
-  pVVar2 = VERY_BIG_STRUCT;
-  if ((local_10 <= 0.0) || (*(float *)(in_ECX + 0xa10) < 0.0 == (*(float *)(in_ECX + 0xa10) == 0.0))
-     ) {
-    if ((NAN(local_10) != (local_10 == 0.0)) && (0.0 < *(float *)(in_ECX + 0xa10))) {
-      *(undefined2 *)(in_ECX + 0xb4) = 0x404;
-      FUN_00432430(in_ECX,*(undefined4 *)&pVVar2->field_0x1d944);
+  pVVar5 = g_VeryBigStruct;
+  if ((local_10 <= 0.0) || (in_ECX[0xd].field7_0x1c < 0.0 == (in_ECX[0xd].field7_0x1c == 0.0))) {
+    if ((NAN(local_10) != (local_10 == 0.0)) && (0.0 < in_ECX[0xd].field7_0x1c)) {
+      *(undefined2 *)&in_ECX->field_0xb4 = 0x404;
+      FUN_00432430(in_ECX,*(int *)&pVVar5->field_0x1d944);
     }
   }
   else {
-    *(undefined2 *)(in_ECX + 0xb4) = 0x403;
-    FUN_00432430(in_ECX,*(undefined4 *)&pVVar2->field_0x1d940);
+    *(undefined2 *)&in_ECX->field_0xb4 = 0x403;
+    FUN_00432430(in_ECX,*(int *)&pVVar5->field_0x1d940);
   }
-  *(float *)(in_ECX + 0xa10) = local_10;
-  *(float *)(in_ECX + 0xa14) = local_c;
-  *(float *)(in_ECX + 0x440) =
-       local_10 * *(float *)(in_ECX + 0x9d0) * (float)g_GameContext._424_4_ +
-       *(float *)(in_ECX + 0x440);
-  *(float *)(in_ECX + 0x444) =
-       local_c * *(float *)(in_ECX + 0x9d4) * (float)g_GameContext._424_4_ +
-       *(float *)(in_ECX + 0x444);
-  if (*(float *)(in_ECX + 0x440) < DAT_0069d6ec ==
-      (NAN(*(float *)(in_ECX + 0x440)) || NAN(DAT_0069d6ec))) {
-    if (DAT_0069d6ec + DAT_0069d6f4 < *(float *)(in_ECX + 0x440) !=
-        (NAN(DAT_0069d6ec + DAT_0069d6f4) || NAN(*(float *)(in_ECX + 0x440)))) {
-      *(float *)(in_ECX + 0x440) = DAT_0069d6ec + DAT_0069d6f4;
+  in_ECX[0xd].field7_0x1c = local_10;
+  in_ECX[0xd].field8_0x20 = local_c;
+  piVar7 = &in_ECX[5].field13_0x3c.field12_0x30;
+  *piVar7 = (int)(local_10 * *(float *)&in_ECX[0xc].field_0xa0 * (float)g_GameContext._424_4_ +
+                 (float)*piVar7);
+  piVar7 = &in_ECX[5].field13_0x3c.field13_0x34;
+  *piVar7 = (int)(local_c * *(float *)&in_ECX[0xc].field_0xa4 * (float)g_GameContext._424_4_ +
+                 (float)*piVar7);
+  fVar1 = (float)in_ECX[5].field13_0x3c.field12_0x30;
+  if (fVar1 < DAT_0069d6ec == (NAN(fVar1) || NAN(DAT_0069d6ec))) {
+    fVar1 = (float)in_ECX[5].field13_0x3c.field12_0x30;
+    if (DAT_0069d6ec + DAT_0069d6f4 < fVar1 != (NAN(DAT_0069d6ec + DAT_0069d6f4) || NAN(fVar1))) {
+      in_ECX[5].field13_0x3c.field12_0x30 = (int)(DAT_0069d6ec + DAT_0069d6f4);
     }
   }
   else {
-    *(float *)(in_ECX + 0x440) = DAT_0069d6ec;
+    in_ECX[5].field13_0x3c.field12_0x30 = (int)DAT_0069d6ec;
   }
-  if (*(float *)(in_ECX + 0x444) < DAT_0069d6f0 ==
-      (NAN(*(float *)(in_ECX + 0x444)) || NAN(DAT_0069d6f0))) {
-    if (DAT_0069d6f0 + DAT_0069d6f8 < *(float *)(in_ECX + 0x444) !=
-        (NAN(DAT_0069d6f0 + DAT_0069d6f8) || NAN(*(float *)(in_ECX + 0x444)))) {
-      *(float *)(in_ECX + 0x444) = DAT_0069d6f0 + DAT_0069d6f8;
+  fVar1 = (float)in_ECX[5].field13_0x3c.field13_0x34;
+  if (fVar1 < DAT_0069d6f0 == (NAN(fVar1) || NAN(DAT_0069d6f0))) {
+    fVar1 = (float)in_ECX[5].field13_0x3c.field13_0x34;
+    if (DAT_0069d6f0 + DAT_0069d6f8 < fVar1 != (NAN(DAT_0069d6f0 + DAT_0069d6f8) || NAN(fVar1))) {
+      in_ECX[5].field13_0x3c.field13_0x34 = (int)(DAT_0069d6f0 + DAT_0069d6f8);
     }
   }
   else {
-    *(float *)(in_ECX + 0x444) = DAT_0069d6f0;
+    in_ECX[5].field13_0x3c.field13_0x34 = (int)DAT_0069d6f0;
   }
-  *(float *)(in_ECX + 0x458) = *(float *)(in_ECX + 0x440) - *(float *)(in_ECX + 0x488);
-  *(float *)(in_ECX + 0x45c) = *(float *)(in_ECX + 0x444) - *(float *)(in_ECX + 0x48c);
-  *(float *)(in_ECX + 0x460) = *(float *)(in_ECX + 0x448) - *(float *)(in_ECX + 0x490);
-  *(float *)(in_ECX + 0x464) = *(float *)(in_ECX + 0x440) + *(float *)(in_ECX + 0x488);
-  *(float *)(in_ECX + 0x468) = *(float *)(in_ECX + 0x444) + *(float *)(in_ECX + 0x48c);
-  *(float *)(in_ECX + 0x46c) = *(float *)(in_ECX + 0x448) + *(float *)(in_ECX + 0x490);
-  *(float *)(in_ECX + 0x470) = *(float *)(in_ECX + 0x440) - *(float *)(in_ECX + 0x494);
-  *(float *)(in_ECX + 0x474) = *(float *)(in_ECX + 0x444) - *(float *)(in_ECX + 0x498);
-  *(float *)(in_ECX + 0x478) = *(float *)(in_ECX + 0x448) - *(float *)(in_ECX + 0x49c);
-  *(float *)(in_ECX + 0x47c) = *(float *)(in_ECX + 0x440) + *(float *)(in_ECX + 0x494);
-  *(float *)(in_ECX + 0x480) = *(float *)(in_ECX + 0x444) + *(float *)(in_ECX + 0x498);
-  *(float *)(in_ECX + 0x484) = *(float *)(in_ECX + 0x448) + *(float *)(in_ECX + 0x49c);
-  *(undefined4 *)(in_ECX + 0x4a0) = *(undefined4 *)(in_ECX + 0x440);
-  *(undefined4 *)(in_ECX + 0x4a4) = *(undefined4 *)(in_ECX + 0x444);
-  *(undefined4 *)(in_ECX + 0x4a8) = *(undefined4 *)(in_ECX + 0x448);
-  *(undefined4 *)(in_ECX + 0x4ac) = *(undefined4 *)(in_ECX + 0x440);
-  *(undefined4 *)(in_ECX + 0x4b0) = *(undefined4 *)(in_ECX + 0x444);
-  *(undefined4 *)(in_ECX + 0x4b4) = *(undefined4 *)(in_ECX + 0x448);
+  fVar1 = (float)in_ECX[5].field13_0x3c.field14_0x38;
+  fVar2 = (float)in_ECX[5].field13_0x3c.field13_0x34;
+  *(float *)&in_ECX[5].field16_0x84 =
+       (float)in_ECX[5].field13_0x3c.field12_0x30 - *(float *)&in_ECX[5].field_0xb4;
+  *(float *)&in_ECX[5].field18_0x88 = fVar2 - *(float *)&in_ECX[5].field_0xb8;
+  *(float *)&in_ECX[5].field20_0x8c = fVar1 - *(float *)&in_ECX[5].field_0xbc;
+  fVar1 = (float)in_ECX[5].field13_0x3c.field14_0x38;
+  fVar2 = (float)in_ECX[5].field13_0x3c.field13_0x34;
+  *(float *)&in_ECX[5].field_0x90 =
+       (float)in_ECX[5].field13_0x3c.field12_0x30 + *(float *)&in_ECX[5].field_0xb4;
+  *(float *)&in_ECX[5].field_0x94 = fVar2 + *(float *)&in_ECX[5].field_0xb8;
+  in_ECX[5].field31_0x98 = fVar1 + *(float *)&in_ECX[5].field_0xbc;
+  fVar1 = (float)in_ECX[5].field13_0x3c.field14_0x38;
+  fVar2 = (float)in_ECX[6].field1_0x4;
+  fVar3 = (float)in_ECX[5].field13_0x3c.field13_0x34;
+  fVar4 = (float)in_ECX[6].field0_0x0;
+  *(float *)&in_ECX[5].field_0x9c =
+       (float)in_ECX[5].field13_0x3c.field12_0x30 - (float)in_ECX[5].field67_0xc0;
+  *(float *)&in_ECX[5].field_0xa0 = fVar3 - fVar4;
+  *(float *)&in_ECX[5].field_0xa4 = fVar1 - fVar2;
+  fVar1 = (float)in_ECX[5].field13_0x3c.field14_0x38;
+  fVar2 = (float)in_ECX[6].field1_0x4;
+  fVar3 = (float)in_ECX[5].field13_0x3c.field13_0x34;
+  fVar4 = (float)in_ECX[6].field0_0x0;
+  *(float *)&in_ECX[5].field_0xa8 =
+       (float)in_ECX[5].field13_0x3c.field12_0x30 + (float)in_ECX[5].field67_0xc0;
+  *(float *)&in_ECX[5].field_0xac = fVar3 + fVar4;
+  *(float *)&in_ECX[5].field52_0xb0 = fVar1 + fVar2;
+  in_ECX[6].field2_0x8 = in_ECX[5].field13_0x3c.field12_0x30;
+  in_ECX[6].field3_0xc = in_ECX[5].field13_0x3c.field13_0x34;
+  in_ECX[6].field4_0x10 = in_ECX[5].field13_0x3c.field14_0x38;
+  in_ECX[6].field5_0x14 = in_ECX[5].field13_0x3c.field12_0x30;
+  in_ECX[6].field6_0x18 = (float)in_ECX[5].field13_0x3c.field13_0x34;
+  in_ECX[6].field7_0x1c = (float)in_ECX[5].field13_0x3c.field14_0x38;
   local_14 = 0.0;
   local_18 = 0.0;
   if (_DAT_0069d4b0 < 8) {
-    *(undefined *)(in_ECX + 0x9e2) = 0;
+    in_ECX[0xc].field_0xb2 = 0;
   }
-  else if (*(char *)(in_ECX + 0x9e2) == '\0') {
-    *(undefined *)(in_ECX + 0x9e2) = 1;
+  else if (in_ECX[0xc].field_0xb2 == '\0') {
+    in_ECX[0xc].field_0xb2 = 1;
   }
-  switch(*(undefined *)(in_ECX + 0x9e2)) {
+  switch(in_ECX[0xc].field_0xb2) {
   case 0:
-    *(undefined4 *)(in_ECX + 0x9f0) = 0;
-    *(undefined4 *)(in_ECX + 0x9ec) = 0;
-    *(undefined4 *)(in_ECX + 0x9e8) = 0xfffffc19;
+    in_ECX[0xc].field67_0xc0 = (VeryBigStruct0tbl *)0x0;
+    *(undefined4 *)&in_ECX[0xc].field_0xbc = 0;
+    *(undefined4 *)&in_ECX[0xc].field_0xb8 = 0xfffffc19;
     break;
   case 1:
     local_18 = 24.0;
-    *(undefined4 *)(in_ECX + 0x9f0) = 0;
-    *(undefined4 *)(in_ECX + 0x9ec) = 0;
-    *(undefined4 *)(in_ECX + 0x9e8) = 0xfffffc19;
-    if (*(char *)(in_ECX + 0x9e3) == '\0') break;
-    *(undefined *)(in_ECX + 0x9e2) = 2;
+    in_ECX[0xc].field67_0xc0 = (VeryBigStruct0tbl *)0x0;
+    *(undefined4 *)&in_ECX[0xc].field_0xbc = 0;
+    *(undefined4 *)&in_ECX[0xc].field_0xb8 = 0xfffffc19;
+    if (in_ECX[0xc].field_0xb3 == '\0') break;
+    in_ECX[0xc].field_0xb2 = 2;
   case 2:
     while( true ) {
-      *(undefined4 *)(in_ECX + 0x9e8) = *(undefined4 *)(in_ECX + 0x9f0);
-      FUN_00424285(in_ECX + 0x9f0,in_ECX + 0x9ec);
-      fVar1 = ((float)*(int *)(in_ECX + 0x9f0) + *(float *)(in_ECX + 0x9ec)) / 8.0;
+      *(VeryBigStruct0tbl **)&in_ECX[0xc].field_0xb8 = in_ECX[0xc].field67_0xc0;
+      FUN_00424285(&g_GameContext,(int *)&in_ECX[0xc].field67_0xc0,(float *)&in_ECX[0xc].field_0xbc)
+      ;
+      fVar1 = ((float)(int)in_ECX[0xc].field67_0xc0 + *(float *)&in_ECX[0xc].field_0xbc) / 8.0;
       local_14 = (1.0 - fVar1) * 32.0 + -32.0;
       local_18 = fVar1 * fVar1 * -16.0 + 24.0;
-      if (7 < *(int *)(in_ECX + 0x9f0)) {
-        *(undefined *)(in_ECX + 0x9e2) = 3;
+      if (7 < (int)in_ECX[0xc].field67_0xc0) {
+        in_ECX[0xc].field_0xb2 = 3;
       }
-      if (*(char *)(in_ECX + 0x9e3) != '\0') break;
-      *(undefined *)(in_ECX + 0x9e2) = 4;
-      *(int *)(in_ECX + 0x9f0) = 8 - *(int *)(in_ECX + 0x9f0);
-      *(undefined4 *)(in_ECX + 0x9ec) = 0;
-      *(undefined4 *)(in_ECX + 0x9e8) = 0xfffffc19;
+      if (in_ECX[0xc].field_0xb3 != '\0') break;
+      in_ECX[0xc].field_0xb2 = 4;
+      in_ECX[0xc].field67_0xc0 = (VeryBigStruct0tbl *)(8 - (int)in_ECX[0xc].field67_0xc0);
+      *(undefined4 *)&in_ECX[0xc].field_0xbc = 0;
+      *(undefined4 *)&in_ECX[0xc].field_0xb8 = 0xfffffc19;
 switchD_004281aa_caseD_4:
-      *(undefined4 *)(in_ECX + 0x9e8) = *(undefined4 *)(in_ECX + 0x9f0);
-      FUN_00424285(in_ECX + 0x9f0,in_ECX + 0x9ec);
-      fVar1 = ((float)*(int *)(in_ECX + 0x9f0) + *(float *)(in_ECX + 0x9ec)) / 8.0;
+      *(VeryBigStruct0tbl **)&in_ECX[0xc].field_0xb8 = in_ECX[0xc].field67_0xc0;
+      FUN_00424285(&g_GameContext,(int *)&in_ECX[0xc].field67_0xc0,(float *)&in_ECX[0xc].field_0xbc)
+      ;
+      fVar1 = ((float)(int)in_ECX[0xc].field67_0xc0 + *(float *)&in_ECX[0xc].field_0xbc) / 8.0;
       local_14 = fVar1 * 32.0 + -32.0;
       local_18 = (1.0 - fVar1 * fVar1) * -16.0 + 24.0;
-      if (7 < *(int *)(in_ECX + 0x9f0)) {
-        *(undefined *)(in_ECX + 0x9e2) = 1;
+      if (7 < (int)in_ECX[0xc].field67_0xc0) {
+        in_ECX[0xc].field_0xb2 = 1;
       }
-      if (*(char *)(in_ECX + 0x9e3) == '\0') break;
-      *(undefined *)(in_ECX + 0x9e2) = 2;
-      *(int *)(in_ECX + 0x9f0) = 8 - *(int *)(in_ECX + 0x9f0);
-      *(undefined4 *)(in_ECX + 0x9ec) = 0;
-      *(undefined4 *)(in_ECX + 0x9e8) = 0xfffffc19;
+      if (in_ECX[0xc].field_0xb3 == '\0') break;
+      in_ECX[0xc].field_0xb2 = 2;
+      in_ECX[0xc].field67_0xc0 = (VeryBigStruct0tbl *)(8 - (int)in_ECX[0xc].field67_0xc0);
+      *(undefined4 *)&in_ECX[0xc].field_0xbc = 0;
+      *(undefined4 *)&in_ECX[0xc].field_0xb8 = 0xfffffc19;
     }
     break;
   case 3:
     local_18 = 8.0;
     local_14 = -32.0;
-    *(undefined4 *)(in_ECX + 0x9f0) = 0;
-    *(undefined4 *)(in_ECX + 0x9ec) = 0;
-    *(undefined4 *)(in_ECX + 0x9e8) = 0xfffffc19;
-    if (*(char *)(in_ECX + 0x9e3) == '\0') {
-      *(undefined *)(in_ECX + 0x9e2) = 4;
+    in_ECX[0xc].field67_0xc0 = (VeryBigStruct0tbl *)0x0;
+    *(undefined4 *)&in_ECX[0xc].field_0xbc = 0;
+    *(undefined4 *)&in_ECX[0xc].field_0xb8 = 0xfffffc19;
+    if (in_ECX[0xc].field_0xb3 == '\0') {
+      in_ECX[0xc].field_0xb2 = 4;
       goto switchD_004281aa_caseD_4;
     }
     break;
   case 4:
     goto switchD_004281aa_caseD_4;
   }
-  *(float *)(in_ECX + 0x4a0) = *(float *)(in_ECX + 0x4a0) - local_18;
-  *(float *)(in_ECX + 0x4ac) = local_18 + *(float *)(in_ECX + 0x4ac);
-  *(float *)(in_ECX + 0x4a4) = local_14 + *(float *)(in_ECX + 0x4a4);
-  *(float *)(in_ECX + 0x4b0) = local_14 + *(float *)(in_ECX + 0x4b0);
-  if (((BUTTONS_PRESSED_CURFRAME & 1) != 0) && (iVar3 = FUN_004195a2(), iVar3 == 0)) {
+  in_ECX[6].field2_0x8 = (float)in_ECX[6].field2_0x8 - local_18;
+  in_ECX[6].field5_0x14 = local_18 + (float)in_ECX[6].field5_0x14;
+  in_ECX[6].field3_0xc = local_14 + (float)in_ECX[6].field3_0xc;
+  in_ECX[6].field6_0x18 = local_14 + in_ECX[6].field6_0x18;
+  if (((BUTTONS_PRESSED_CURFRAME & 1) != 0) && (iVar6 = FUN_004195a2(), iVar6 == 0)) {
     FUN_00428630(in_ECX);
   }
-  *(ushort *)(in_ECX + 0xa18) = BUTTONS_PRESSED_CURFRAME;
+  *(ushort *)&in_ECX[0xd].field9_0x24 = BUTTONS_PRESSED_CURFRAME;
   return 0;
 }
 

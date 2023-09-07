@@ -276,7 +276,7 @@ LAB_00434338:
     }
     else {
       *(undefined4 *)&param_1->field_0xa4 = *(undefined4 *)&param_1->field_0xac;
-      FUN_00424285(&param_1->field_0xac,&param_1->field_0xa8);
+      FUN_00424285(&g_GameContext,(int *)&param_1->field_0xac,(float *)&param_1->field_0xa8);
       if (*(int *)&param_1->field_0xac < (int)(short)param_1->field17_0x86) {
         param_1->field7_0x1c =
              (((float)*(int *)&param_1->field_0xac + *(float *)&param_1->field_0xa8) *
@@ -303,7 +303,8 @@ LAB_00434338:
     }
     if (0 < (short)param_1->field16_0x84) {
       param_1[1].field13_0x3c.field0_0x0 = (float)param_1[1].field13_0x3c.field2_0x8;
-      FUN_00424285(&param_1[1].field13_0x3c.field2_0x8,&param_1[1].field13_0x3c.field1_0x4);
+      FUN_00424285(&g_GameContext,&param_1[1].field13_0x3c.field2_0x8,
+                   (float *)&param_1[1].field13_0x3c.field1_0x4);
       local_2c = param_1[1].field0_0x0;
       local_28 = param_1[1].field1_0x4;
       local_30 = ((float)param_1[1].field13_0x3c.field2_0x8 +
@@ -369,10 +370,12 @@ LAB_00434338:
         param_1->field20_0x8c = 0;
       }
       param_1[1].field11_0x2c = param_1[1].field12_0x30.field1_0x4;
-      FUN_00424285(&param_1[1].field12_0x30.field1_0x4,&param_1[1].field12_0x30);
+      FUN_00424285(&g_GameContext,&param_1[1].field12_0x30.field1_0x4,
+                   (float *)&param_1[1].field12_0x30);
     }
     (param_1->field12_0x30).field0_0x0 = (param_1->field12_0x30).field2_0x8;
-    FUN_00424285(&(param_1->field12_0x30).field2_0x8,&(param_1->field12_0x30).field1_0x4);
+    FUN_00424285(&g_GameContext,&(param_1->field12_0x30).field2_0x8,
+                 (float *)&(param_1->field12_0x30).field1_0x4);
     return 0;
   }
   goto LAB_00434098;

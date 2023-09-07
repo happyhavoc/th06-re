@@ -54,7 +54,7 @@ void FUN_0040de00(int param_1,undefined4 param_2)
           local_68[7].field8_0x20 = (float)(fVar6 * (float10)0.01);
           *(short *)((int)&local_68[7].field13_0x3c.field8_0x20 + 2) =
                *(short *)((int)&local_68[7].field13_0x3c.field8_0x20 + 2) + 1;
-          FUN_004323a0(VERY_BIG_STRUCT,local_68,
+          FUN_004323a0(g_VeryBigStruct,local_68,
                        *(short *)&local_68->field_0xb2 +
                        *(short *)((int)&local_68[7].field13_0x3c.field8_0x20 + 2));
         }

@@ -11,7 +11,7 @@ undefined4 FUN_0042ffc0(int param_1)
   
   if (DAT_0069bccc == '\0') {
     *(undefined4 *)(param_1 + 0x24) = *(undefined4 *)(param_1 + 0x2c);
-    FUN_00424285(param_1 + 0x2c,param_1 + 0x28);
+    FUN_00424285(&g_GameContext,(int *)(param_1 + 0x2c),(float *)(param_1 + 0x28));
     if (*(int *)(param_1 + 0x2c) < *(int *)(param_1 + 0x14)) {
       fVar1 = (((float)*(int *)(param_1 + 0x2c) + *(float *)(param_1 + 0x28)) *
               (float)(*(int *)(param_1 + 0x1c) - *(int *)(param_1 + 0x18))) /

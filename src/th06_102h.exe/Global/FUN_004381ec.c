@@ -192,7 +192,7 @@ LAB_0043877b:
     }
     else {
       _DAT_0069bcbc = 1;
-      g_GameContext._428_4_ = 0x3f800000;
+      g_GameContext.field91_0x1ac = 1.0;
       _strcpy(&DAT_0069d4cc,(char *)(param_1 + 0x823c + *(int *)(param_1 + 0x81e8) * 0x200));
       CUR_RANK = (int)*(byte *)(*(int *)(param_1 + 0x10edc) + 7);
       DAT_0069d4bd = *(byte *)(*(int *)(param_1 + 0x10edc) + 6) / 2;

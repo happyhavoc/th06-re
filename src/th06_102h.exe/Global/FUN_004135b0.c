@@ -144,21 +144,21 @@ undefined4 FUN_004135b0(short *param_1,uint param_2,int param_3,float param_4)
           if (fVar2 < 16.0 == (fVar2 == 16.0)) {
             fVar2 = local_10->field67_0xc0->field35_0x2c;
             if (fVar2 < 32.0 == (fVar2 == 32.0)) {
-              FUN_004323a0(VERY_BIG_STRUCT,(Unknown *)&local_10[4].field8_0x20,
+              FUN_004323a0(g_VeryBigStruct,(Unknown *)&local_10[4].field8_0x20,
                            *(short *)&local_10[5].field3_0xc + param_1[1]);
             }
             else if (*(short *)&local_10->field_0xb4 == 0x207) {
-              FUN_004323a0(VERY_BIG_STRUCT,(Unknown *)&local_10[4].field8_0x20,
+              FUN_004323a0(g_VeryBigStruct,(Unknown *)&local_10[4].field8_0x20,
                            *(short *)&local_10[5].field3_0xc + 1);
             }
             else {
-              FUN_004323a0(VERY_BIG_STRUCT,(Unknown *)&local_10[4].field8_0x20,
+              FUN_004323a0(g_VeryBigStruct,(Unknown *)&local_10[4].field8_0x20,
                            *(short *)&local_10[5].field3_0xc +
                            (short)*(undefined4 *)(&DAT_00476480 + param_1[1] * 4));
             }
           }
           else {
-            FUN_004323a0(VERY_BIG_STRUCT,(Unknown *)&local_10[4].field8_0x20,
+            FUN_004323a0(g_VeryBigStruct,(Unknown *)&local_10[4].field8_0x20,
                          *(short *)&local_10[5].field3_0xc +
                          (short)*(undefined4 *)(&DAT_00476440 + param_1[1] * 4));
           }
@@ -177,21 +177,21 @@ undefined4 FUN_004135b0(short *param_1,uint param_2,int param_3,float param_4)
         if (fVar2 < 16.0 == (fVar2 == 16.0)) {
           fVar2 = local_10->field67_0xc0->field35_0x2c;
           if (fVar2 < 32.0 == (fVar2 == 32.0)) {
-            FUN_004323a0(VERY_BIG_STRUCT,(Unknown *)&local_10[2].field31_0x98,
+            FUN_004323a0(g_VeryBigStruct,(Unknown *)&local_10[2].field31_0x98,
                          local_10[3].field16_0x84 + param_1[1]);
           }
           else if (*(short *)&local_10->field_0xb4 == 0x207) {
-            FUN_004323a0(VERY_BIG_STRUCT,(Unknown *)&local_10[2].field31_0x98,
+            FUN_004323a0(g_VeryBigStruct,(Unknown *)&local_10[2].field31_0x98,
                          local_10[3].field16_0x84 + 1);
           }
           else {
-            FUN_004323a0(VERY_BIG_STRUCT,(Unknown *)&local_10[2].field31_0x98,
+            FUN_004323a0(g_VeryBigStruct,(Unknown *)&local_10[2].field31_0x98,
                          local_10[3].field16_0x84 +
                          (short)*(undefined4 *)(&DAT_00476480 + param_1[1] * 4));
           }
         }
         else {
-          FUN_004323a0(VERY_BIG_STRUCT,(Unknown *)&local_10[2].field31_0x98,
+          FUN_004323a0(g_VeryBigStruct,(Unknown *)&local_10[2].field31_0x98,
                        local_10[3].field16_0x84 +
                        (short)*(undefined4 *)(&DAT_00476440 + param_1[1] * 4));
         }
@@ -210,46 +210,46 @@ undefined4 FUN_004135b0(short *param_1,uint param_2,int param_3,float param_4)
       if (fVar2 < 16.0 == (fVar2 == 16.0)) {
         fVar2 = local_10->field67_0xc0->field35_0x2c;
         if (fVar2 < 32.0 == (fVar2 == 32.0)) {
-          FUN_004323a0(VERY_BIG_STRUCT,(Unknown *)&local_10[1].field13_0x3c.field4_0x10,
+          FUN_004323a0(g_VeryBigStruct,(Unknown *)&local_10[1].field13_0x3c.field4_0x10,
                        *(short *)&local_10[2].field12_0x30.field2_0x8 + param_1[1]);
         }
         else if (*(short *)&local_10->field_0xb4 == 0x207) {
-          FUN_004323a0(VERY_BIG_STRUCT,(Unknown *)&local_10[1].field13_0x3c.field4_0x10,
+          FUN_004323a0(g_VeryBigStruct,(Unknown *)&local_10[1].field13_0x3c.field4_0x10,
                        *(short *)&local_10[2].field12_0x30.field2_0x8 + 1);
         }
         else {
-          FUN_004323a0(VERY_BIG_STRUCT,(Unknown *)&local_10[1].field13_0x3c.field4_0x10,
+          FUN_004323a0(g_VeryBigStruct,(Unknown *)&local_10[1].field13_0x3c.field4_0x10,
                        *(short *)&local_10[2].field12_0x30.field2_0x8 +
                        (short)*(undefined4 *)(&DAT_00476480 + param_1[1] * 4));
         }
       }
       else {
-        FUN_004323a0(VERY_BIG_STRUCT,(Unknown *)&local_10[1].field13_0x3c.field4_0x10,
+        FUN_004323a0(g_VeryBigStruct,(Unknown *)&local_10[1].field13_0x3c.field4_0x10,
                      *(short *)&local_10[2].field12_0x30.field2_0x8 +
                      (short)*(undefined4 *)(&DAT_00476440 + param_1[1] * 4));
       }
       *(undefined2 *)((int)&local_10[7].field13_0x3c.field9_0x24 + 2) = 2;
     }
-    FUN_004323a0(VERY_BIG_STRUCT,local_10,local_10->field52_0xb0 + param_1[1]);
+    FUN_004323a0(g_VeryBigStruct,local_10,local_10->field52_0xb0 + param_1[1]);
     fVar2 = local_10->field67_0xc0->field35_0x2c;
     if (fVar2 < 16.0 == (fVar2 == 16.0)) {
       fVar2 = local_10->field67_0xc0->field35_0x2c;
       if (fVar2 < 32.0 == (fVar2 == 32.0)) {
-        FUN_004323a0(VERY_BIG_STRUCT,(Unknown *)&local_10[5].field13_0x3c.field12_0x30,
+        FUN_004323a0(g_VeryBigStruct,(Unknown *)&local_10[5].field13_0x3c.field12_0x30,
                      *(short *)&local_10[6].field13_0x3c.field7_0x1c + param_1[1]);
       }
       else if (*(short *)&local_10->field_0xb4 == 0x207) {
-        FUN_004323a0(VERY_BIG_STRUCT,(Unknown *)&local_10[5].field13_0x3c.field12_0x30,
+        FUN_004323a0(g_VeryBigStruct,(Unknown *)&local_10[5].field13_0x3c.field12_0x30,
                      *(short *)&local_10[6].field13_0x3c.field7_0x1c + 1);
       }
       else {
-        FUN_004323a0(VERY_BIG_STRUCT,(Unknown *)&local_10[5].field13_0x3c.field12_0x30,
+        FUN_004323a0(g_VeryBigStruct,(Unknown *)&local_10[5].field13_0x3c.field12_0x30,
                      *(short *)&local_10[6].field13_0x3c.field7_0x1c +
                      (short)*(undefined4 *)(&DAT_00476480 + param_1[1] * 4));
       }
     }
     else {
-      FUN_004323a0(VERY_BIG_STRUCT,(Unknown *)&local_10[5].field13_0x3c.field12_0x30,
+      FUN_004323a0(g_VeryBigStruct,(Unknown *)&local_10[5].field13_0x3c.field12_0x30,
                    *(short *)&local_10[6].field13_0x3c.field7_0x1c +
                    (short)*(undefined4 *)(&DAT_00476440 + param_1[1] * 4));
     }

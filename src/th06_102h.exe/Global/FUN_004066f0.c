@@ -65,11 +65,11 @@ void FUN_004066f0(int param_1)
         local_c = local_c + 0x110;
       }
       FUN_004311e0(6);
-      FUN_0042fd30(1,0x78,4,1,0);
+      FUN_0042fd30(1,0x78,4,1);
     }
     *(undefined *)(param_1 + 0x9e0) = 3;
     *(undefined4 *)(param_1 + 0x75d0) = *(undefined4 *)(param_1 + 0x75d8);
-    FUN_00424285(param_1 + 0x75d8,param_1 + 0x75d4);
+    FUN_00424285(&g_GameContext,(int *)(param_1 + 0x75d8),(float *)(param_1 + 0x75d4));
   }
   else {
     FUN_00417314();

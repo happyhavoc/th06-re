@@ -9,9 +9,9 @@ void __thiscall FUN_00435670(VeryBigStruct *param_1_00,int param_2,int left,int 
   RECT rect;
   
   if ((param_1_00->texture_i_think[param_2] != (IDirect3DTexture8 *)0x0) &&
-     (HVar1 = (*(g_GameContext.d3d_device)->lpVtbl->GetBackBuffer)
-                        (g_GameContext.d3d_device,0,D3DBACKBUFFER_TYPE_MONO,&backbuffer), HVar1 == 0
-     )) {
+     (HVar1 = (*(g_GameContext.d3dDevice)->lpVtbl->GetBackBuffer)
+                        (g_GameContext.d3dDevice,0,D3DBACKBUFFER_TYPE_MONO,&backbuffer), HVar1 == 0)
+     ) {
     HVar1 = (*param_1_00->texture_i_think[param_2]->lpVtbl->GetSurfaceLevel)
                       (param_1_00->texture_i_think[param_2],0,&local_18);
     if (HVar1 == 0) {

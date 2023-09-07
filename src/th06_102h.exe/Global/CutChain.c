@@ -37,7 +37,7 @@ LAB_0041ce4c:
           if (to_delete == (ChainElem *)0x0) {
             return;
           }
-          ChainElem::drop(to_delete);
+          ChainElem::~ChainElem(to_delete);
           _free(to_delete);
           return;
         }

@@ -6,14 +6,14 @@ undefined4 FUN_00410b10(int param_1)
   
   DAT_0069d4c2 = 1;
   g_GameContext._412_4_ = 1;
-  GameContext::FUN_00424375(&g_GameContext,5,&DAT_0046a6cc);
-  VeryBigStruct::LoadAnim(VERY_BIG_STRUCT,0x2c,"data/staff01.anm",0x600);
-  VeryBigStruct::LoadAnim(VERY_BIG_STRUCT,0x2d,"data/staff02.anm",0x607);
-  VeryBigStruct::LoadAnim(VERY_BIG_STRUCT,0x2e,"data/staff03.anm",0x60e);
-  VERY_BIG_STRUCT->curTexture = 0;
-  *(undefined4 *)&VERY_BIG_STRUCT->field_0x210c0 = 0;
-  VERY_BIG_STRUCT->field_0x210bc = 0xff;
-  VERY_BIG_STRUCT->field_0x210be = 0xff;
+  GameContext::LoadPBG3(&g_GameContext,5,(byte *)"紅魔郷ED.dat");
+  VeryBigStruct::LoadAnim(g_VeryBigStruct,0x2c,"data/staff01.anm",0x600);
+  VeryBigStruct::LoadAnim(g_VeryBigStruct,0x2d,"data/staff02.anm",0x607);
+  VeryBigStruct::LoadAnim(g_VeryBigStruct,0x2e,"data/staff03.anm",0x60e);
+  g_VeryBigStruct->curTexture = 0;
+  *(undefined4 *)&g_VeryBigStruct->field_0x210c0 = 0;
+  g_VeryBigStruct->field_0x210bc = 0xff;
+  g_VeryBigStruct->field_0x210be = 0xff;
   iVar1 = (uint)DAT_0069d4be + (uint)DAT_0069d4bd * 2;
   *(undefined4 *)(param_1 + 0x1118) = 0;
   if (DAT_0069d4b8 == '\0') {

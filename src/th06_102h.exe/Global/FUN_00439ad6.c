@@ -20,8 +20,8 @@ undefined4 FUN_00439ad6(void *param_1)
   local_10 = 0x44200000;
   local_c = 0x43f00000;
   if (*(int *)((int)param_1 + 0x81f0) != 0) {
-    VERY_BIG_STRUCT->curTexture = 0;
-    FUN_00435300(VERY_BIG_STRUCT,0,0,0,0,0);
+    g_VeryBigStruct->curTexture = 0;
+    FUN_00435300(g_VeryBigStruct,0,0,0,0,0);
     if (*(int *)((int)param_1 + 0x8210) == 0) {
       if (*(int *)((int)param_1 + 0x820c) != 0) {
         *(int *)((int)param_1 + 0x820c) = *(int *)((int)param_1 + 0x820c) + -1;
@@ -52,7 +52,7 @@ undefined4 FUN_00439ad6(void *param_1)
         bVar4 = false;
       }
       else {
-        bVar4 = VERY_BIG_STRUCT->texture_i_think[**(int **)((int)local_20 + 0xc0)] !=
+        bVar4 = g_VeryBigStruct->texture_i_think[**(int **)((int)local_20 + 0xc0)] !=
                 (IDirect3DTexture8 *)0x0;
       }
       if (bVar4) {

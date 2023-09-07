@@ -137,7 +137,7 @@ undefined4 __thiscall GameContext::Parse(GameContext *this,char *config_file_nam
   }
   if (((uint)(this->cfg).render_opts >> 7 & 1) != 0) {
     GameErrorContextLog(&g_GameErrorContext,"６０フレーム強制モードにします\n");
-    this->field85_0x1a0 = 0;
+    this->field82_0x1a0 = 0;
   }
   if (((uint)(this->cfg).render_opts >> 8 & 1) != 0) {
     GameErrorContextLog(&g_GameErrorContext,"テクスチャの色合成を抑制しますn");

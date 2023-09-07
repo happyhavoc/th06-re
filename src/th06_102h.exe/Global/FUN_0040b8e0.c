@@ -15,7 +15,7 @@ void FUN_0040b8e0(int param_1,int param_2)
     if ((*(short *)((int)&local_c[7].field13_0x3c.field9_0x24 + 2) != 0) &&
        (*(short *)((int)&local_c[7].field13_0x3c.field9_0x24 + 2) != 5)) {
       *(undefined2 *)((int)&local_c[7].field13_0x3c.field8_0x20 + 2) = 0xf;
-      FUN_004323a0(VERY_BIG_STRUCT,local_c,
+      FUN_004323a0(g_VeryBigStruct,local_c,
                    *(short *)&local_c->field_0xb2 +
                    *(short *)((int)&local_c[7].field13_0x3c.field8_0x20 + 2));
       if (iVar1 == 0) {

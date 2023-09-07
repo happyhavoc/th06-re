@@ -15,7 +15,7 @@ undefined4 FUN_00410a70(int param_1)
   FUN_004354c0(0,0,0,lVar2,lVar1,uVar3,uVar4);
   for (local_8 = 0; local_8 < 0x10; local_8 = local_8 + 1) {
     if (*(short *)(param_1 + 200 + local_8 * 0x110) != 0) {
-      FUN_00432ad0(VERY_BIG_STRUCT,param_1 + 0x14 + local_8 * 0x110);
+      FUN_00432ad0(g_VeryBigStruct,param_1 + 0x14 + local_8 * 0x110);
     }
   }
   FUN_0040f550();

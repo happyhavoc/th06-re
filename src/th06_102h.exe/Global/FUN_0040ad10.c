@@ -7,11 +7,11 @@ void FUN_0040ad10(int param_1,int param_2)
   float fVar3;
   float *pfVar4;
   
-  pfVar4 = (float *)FUN_0040b380(param_1,param_2 + 0x10,0);
+  pfVar4 = FUN_0040b380(param_1,(float *)(param_2 + 0x10),(undefined4 *)0x0);
   fVar1 = *pfVar4;
-  pfVar4 = (float *)FUN_0040b380(param_1,param_2 + 0x14,0);
+  pfVar4 = FUN_0040b380(param_1,(float *)(param_2 + 0x14),(undefined4 *)0x0);
   fVar2 = *pfVar4;
-  pfVar4 = (float *)FUN_0040b380(param_1,param_2 + 0x18,0);
+  pfVar4 = FUN_0040b380(param_1,(float *)(param_2 + 0x18),(undefined4 *)0x0);
   fVar3 = *pfVar4;
   *(float *)(param_1 + 0xcac) = fVar1 - *(float *)(param_1 + 0xc6c);
   *(float *)(param_1 + 0xcb0) = fVar2 - *(float *)(param_1 + 0xc70);

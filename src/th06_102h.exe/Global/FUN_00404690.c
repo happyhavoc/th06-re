@@ -11,7 +11,7 @@ undefined4 FUN_00404690(char *param_1,undefined4 param_2)
   int local_c;
   int local_8;
   
-  iVar1 = VeryBigStruct::LoadAnim(VERY_BIG_STRUCT,4,param_1,0x300);
+  iVar1 = VeryBigStruct::LoadAnim(g_VeryBigStruct,4,param_1,0x300);
   if (iVar1 == 0) {
     pbVar3 = OpenPath(param_2,0);
     in_ECX[1] = pbVar3;

@@ -24,7 +24,7 @@ LRESULT WindowProc(HWND hWnd,uint uMsg,WPARAM wParam,LPMIDIHDR lParam)
       return 1;
     }
     if (uMsg == WM_CLOSE) {
-      g_GameWindow.is_app_closing = 1;
+      g_GameWindow.isAppClosing = 1;
       return 1;
     }
     if (uMsg == WM_ACTIVATEAPP) {
@@ -32,8 +32,8 @@ LRESULT WindowProc(HWND hWnd,uint uMsg,WPARAM wParam,LPMIDIHDR lParam)
       g_GameWindow.is_app_active = (int)(wParam == 0);
     }
   }
-  else if ((uMsg == 0x3c9) && (g_GameContext.field98_0x1b0 != (void *)0x0)) {
-    FUN_00422560((int)g_GameContext.field98_0x1b0,lParam);
+  else if ((uMsg == 0x3c9) && (g_GameContext.unknown_1b0 != (void *)0x0)) {
+    FUN_00422560((int)g_GameContext.unknown_1b0,lParam);
   }
   LVar2 = DefWindowProcA(hWnd,uMsg,wParam,(LPARAM)lParam);
   return LVar2;

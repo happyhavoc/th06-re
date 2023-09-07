@@ -2,7 +2,7 @@
 undefined4 FUN_0041c1f7(int param_1)
 
 {
-  (*(g_GameContext.d3d_device)->lpVtbl->ResourceManagerDiscardBytes)(g_GameContext.d3d_device,0);
+  (*(g_GameContext.d3dDevice)->lpVtbl->ResourceManagerDiscardBytes)(g_GameContext.d3dDevice,0);
   if (DAT_0069d4c4 == '\0') {
     FUN_00424d38(&g_GameContext);
   }

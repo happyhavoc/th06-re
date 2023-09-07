@@ -1,35 +1,43 @@
 
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
 
-void FUN_0040d930(int param_1,undefined4 param_2)
+void FUN_0040d930(Unknown *param_1,undefined4 param_2)
 
 {
-  VeryBigStruct *pVVar1;
+  int iVar1;
+  int iVar2;
+  VeryBigStruct *pVVar3;
   
-  if (0 < *(int *)(param_1 + 0xce4)) {
+  if (0 < *(int *)&param_1[0x10].field_0xa4) {
     FUN_0040caf0(param_1,param_2);
-    pVVar1 = VERY_BIG_STRUCT;
+    pVVar3 = g_VeryBigStruct;
     if (_DAT_006d1bf0 == 0) {
-      if ((0 < *(int *)(param_1 + 0xe4c)) &&
-         (FUN_004241e5(1), pVVar1 = VERY_BIG_STRUCT, *(int *)(param_1 + 0xe4c) == 0)) {
-        if (*(short *)(param_1 + 0xe5a) < 0) {
-          *(undefined2 *)(param_1 + 0xb4) = 0x1a0;
-          FUN_00432430(param_1,*(undefined4 *)&pVVar1->field_0x1cfb4);
-          *(undefined2 *)(param_1 + 0xe5a) = 0xa1;
+      iVar1._0_2_ = param_1[0x12].field16_0x84;
+      iVar1._2_2_ = param_1[0x12].field17_0x86;
+      if ((0 < iVar1) &&
+         (FUN_004241e5(1), pVVar3 = g_VeryBigStruct, iVar2._0_2_ = param_1[0x12].field16_0x84,
+         iVar2._2_2_ = param_1[0x12].field17_0x86, iVar2 == 0)) {
+        if (*(short *)&param_1[0x12].field_0x92 < 0) {
+          *(undefined2 *)&param_1->field_0xb4 = 0x1a0;
+          FUN_00432430(param_1,*(int *)&pVVar3->field_0x1cfb4);
+          *(undefined2 *)&param_1[0x12].field_0x92 = 0xa1;
         }
-        *(byte *)(param_1 + 0xe51) = *(byte *)(param_1 + 0xe51) | 1;
+        *(byte *)((int)&param_1[0x12].field18_0x88 + 1) =
+             *(byte *)((int)&param_1[0x12].field18_0x88 + 1) | 1;
       }
     }
     else {
-      if (-1 < *(short *)(param_1 + 0xe5a)) {
-        *(undefined2 *)(param_1 + 0xb4) = 0x1a5;
-        FUN_00432430(param_1,*(undefined4 *)&pVVar1->field_0x1cfc8);
-        *(undefined2 *)(param_1 + 0xe5a) = 0xffff;
+      if (-1 < *(short *)&param_1[0x12].field_0x92) {
+        *(undefined2 *)&param_1->field_0xb4 = 0x1a5;
+        FUN_00432430(param_1,*(int *)&pVVar3->field_0x1cfc8);
+        *(undefined2 *)&param_1[0x12].field_0x92 = 0xffff;
       }
-      *(byte *)(param_1 + 0xe51) = *(byte *)(param_1 + 0xe51) & 0xfe;
-      *(undefined4 *)(param_1 + 0xe4c) = 0x3c;
-      *(undefined4 *)(param_1 + 0xe48) = 0;
-      *(undefined4 *)(param_1 + 0xe44) = 0xfffffc19;
+      *(byte *)((int)&param_1[0x12].field18_0x88 + 1) =
+           *(byte *)((int)&param_1[0x12].field18_0x88 + 1) & 0xfe;
+      param_1[0x12].field16_0x84 = 0x3c;
+      param_1[0x12].field17_0x86 = 0;
+      param_1[0x12].field15_0x80 = 0;
+      param_1[0x12].field14_0x7c = -999;
     }
   }
   return;

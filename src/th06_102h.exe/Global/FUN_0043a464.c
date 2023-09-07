@@ -11,7 +11,7 @@ undefined4 FUN_0043a464(int param_1)
   if (DAT_0069d4c4 == '\0') {
     FUN_00424b2f();
   }
-  pVVar1 = VERY_BIG_STRUCT;
+  pVVar1 = g_VeryBigStruct;
   for (local_c = 0; local_c < 0x7a; local_c = local_c + 1) {
     *(undefined4 *)(&pVVar1->field_0x1cd34 + local_c * 4) = 0;
   }

@@ -10,14 +10,14 @@ void FUN_004195bf(void)
   int local_c;
   int local_8;
   
-  for (local_8 = 0; pVVar1 = VERY_BIG_STRUCT, local_8 < 0x1a; local_8 = local_8 + 1) {
+  for (local_8 = 0; pVVar1 = g_VeryBigStruct, local_8 < 0x1a; local_8 = local_8 + 1) {
     if ((local_8 == 0x13) && (*(int *)(*(int *)(in_ECX + 4) + 0x253c) < 0)) {
       if (*(char *)(in_ECX + 0x20) == '\0') {
         if (*(char *)(*(int *)(in_ECX + 4) + 0x1ba0) != '\0') {
           if (*(byte *)(*(int *)(in_ECX + 4) + 0x1ba0) < 3) {
             iVar2 = *(int *)(in_ECX + 4);
             *(undefined2 *)(iVar2 + 0x14e4) = 0x614;
-            FUN_00432430(iVar2 + 0x1430,*(undefined4 *)&pVVar1->field_0x1e184);
+            FUN_00432430((Unknown *)(iVar2 + 0x1430),*(int *)&pVVar1->field_0x1e184);
             *(undefined *)(*(int *)(in_ECX + 4) + 0x1ba0) = 3;
           }
           if (*(int *)(in_ECX + 0x10) == 0) {
@@ -37,7 +37,7 @@ void FUN_004195bf(void)
       else if (*(char *)(*(int *)(in_ECX + 4) + 0x1ba0) == '\0') {
         iVar2 = *(int *)(in_ECX + 4);
         *(undefined2 *)(iVar2 + 0x14e4) = 0x613;
-        FUN_00432430(iVar2 + 0x1430,*(undefined4 *)&pVVar1->field_0x1e180);
+        FUN_00432430((Unknown *)(iVar2 + 0x1430),*(int *)&pVVar1->field_0x1e180);
         *(undefined *)(*(int *)(in_ECX + 4) + 0x1ba0) = 1;
         *(undefined4 *)(in_ECX + 0x10) = 0;
       }

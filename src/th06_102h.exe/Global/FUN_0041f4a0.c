@@ -101,7 +101,7 @@ LAB_0041f7c5:
       iVar5 = FUN_00426fd0(local_18 + 0x110,&DAT_0069e234);
       if (iVar5 == 0) {
         *(undefined4 *)(local_18 + 0x134) = *(undefined4 *)(local_18 + 0x13c);
-        FUN_00424285(local_18 + 0x13c,local_18 + 0x138);
+        FUN_00424285(&g_GameContext,(int *)(local_18 + 0x13c),(float *)(local_18 + 0x138));
         FUN_00433960(local_18);
       }
       else {

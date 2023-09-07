@@ -1,14 +1,12 @@
 
-void FUN_0043d130(void)
+void __fastcall FUN_0043d130(FileAbstraction *param_1)
 
 {
-  undefined4 *in_ECX;
-  
-  *in_ECX = &PTR_FUN_0046cbe8;
-  if ((HANDLE)in_ECX[1] != (HANDLE)0xffffffff) {
-    CloseHandle((HANDLE)in_ECX[1]);
-    in_ECX[1] = 0xffffffff;
-    in_ECX[2] = 0;
+  param_1->vtbl = &FileAbstractionVtable_0046cbe8;
+  if (param_1->handle != (HANDLE)0xffffffff) {
+    CloseHandle(param_1->handle);
+    param_1->handle = (HANDLE)0xffffffff;
+    param_1->field2_0x8 = 0;
   }
   return;
 }

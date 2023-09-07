@@ -1,5 +1,5 @@
 
-int __fastcall FUN_0043575d(int param_1)
+int __fastcall FUN_0043575d(void *param_1)
 
 {
   VeryBigStruct1c000 *local_20;
@@ -11,6 +11,6 @@ int __fastcall FUN_0043575d(int param_1)
     FUN_00403720(local_20);
     local_20 = (VeryBigStruct1c000 *)&local_20[1].field_0x4;
   }
-  return param_1;
+  return (int)param_1;
 }
 

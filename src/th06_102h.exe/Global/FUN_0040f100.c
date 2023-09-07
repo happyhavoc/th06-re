@@ -20,7 +20,7 @@ undefined4 FUN_0040f100(int param_1)
         *(undefined *)(local_8 + 0x178) = 0;
       }
       *(undefined4 *)(local_8 + 0x164) = *(undefined4 *)(local_8 + 0x16c);
-      FUN_00424285(local_8 + 0x16c,local_8 + 0x168);
+      FUN_00424285(&g_GameContext,(int *)(local_8 + 0x16c),(float *)(local_8 + 0x168));
     }
     local_8 = local_8 + 0x17c;
   }

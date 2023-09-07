@@ -31,8 +31,8 @@ undefined4 InitD3dRendering(void)
     pDVar4->BackBufferWidth = 0;
     pDVar4 = (D3DPRESENT_PARAMETERS *)&pDVar4->BackBufferHeight;
   }
-  (*(g_GameContext.d3d_iface)->lpVtbl->GetAdapterDisplayMode)
-            (g_GameContext.d3d_iface,0,&display_mode);
+  (*(g_GameContext.d3dIface)->lpVtbl->GetAdapterDisplayMode)(g_GameContext.d3dIface,0,&display_mode)
+  ;
   if (g_GameContext.cfg.windowed == false) {
     if (((uint)g_GameContext.cfg.render_opts >> 2 & 1) == 1) {
       present_params.BackBufferFormat = D3DFMT_R5G6B5;
@@ -94,18 +94,18 @@ undefined4 InitD3dRendering(void)
   }
   do {
     if (((uint)g_GameContext.cfg.render_opts >> 9 & 1) == 0) {
-      HVar2 = (*(g_GameContext.d3d_iface)->lpVtbl->CreateDevice)
-                        (g_GameContext.d3d_iface,0,D3DDEVTYPE_HAL,g_GameWindow.window,0x40,
-                         &present_params,&g_GameContext.d3d_device);
+      HVar2 = (*(g_GameContext.d3dIface)->lpVtbl->CreateDevice)
+                        (g_GameContext.d3dIface,0,D3DDEVTYPE_HAL,g_GameWindow.window,0x40,
+                         &present_params,&g_GameContext.d3dDevice);
       if (-1 < HVar2) {
         GameErrorContextLog(&g_GameErrorContext,"T&L HAL で動作しま〜す\n");
         DAT_006c7114 = 1;
         goto LAB_004211ab;
       }
       GameErrorContextLog(&g_GameErrorContext,"T&L HAL は使用できないようです\n");
-      iVar3 = (*(g_GameContext.d3d_iface)->lpVtbl->CreateDevice)
-                        (g_GameContext.d3d_iface,0,1,(HWND)g_GameWindow.window,0x20,
-                         (int *)&present_params,&g_GameContext.d3d_device);
+      iVar3 = (*(g_GameContext.d3dIface)->lpVtbl->CreateDevice)
+                        (g_GameContext.d3dIface,0,1,(HWND)g_GameWindow.window,0x20,
+                         (int *)&present_params,&g_GameContext.d3dDevice);
       if (iVar3 < 0) {
         GameErrorContextLog(&g_GameErrorContext,"HAL も使用できないようです\n");
         goto LAB_00421077;
@@ -132,13 +132,13 @@ LAB_004211ab:
       _D3DXMatrixLookAtLH_16(&g_GameContext.view_matrix,&local_84,&local_78,&local_6c);
       _D3DXMatrixPerspectiveFovLH_20
                 ((float *)&g_GameContext.projection_matrix,local_60,local_5c,100.0,10000.0);
-      (*(g_GameContext.d3d_device)->lpVtbl->SetTransform)
-                (g_GameContext.d3d_device,D3DTS_VIEW,&g_GameContext.view_matrix);
-      (*(g_GameContext.d3d_device)->lpVtbl->SetTransform)
-                (g_GameContext.d3d_device,D3DTS_PROJECTION,&g_GameContext.projection_matrix);
-      (*(g_GameContext.d3d_device)->lpVtbl->GetViewport)
-                (g_GameContext.d3d_device,&g_GameContext.viewport);
-      (*(g_GameContext.d3d_device)->lpVtbl->GetDeviceCaps)(g_GameContext.d3d_device,&D3D_CAPS);
+      (*(g_GameContext.d3dDevice)->lpVtbl->SetTransform)
+                (g_GameContext.d3dDevice,D3DTS_VIEW,&g_GameContext.view_matrix);
+      (*(g_GameContext.d3dDevice)->lpVtbl->SetTransform)
+                (g_GameContext.d3dDevice,D3DTS_PROJECTION,&g_GameContext.projection_matrix);
+      (*(g_GameContext.d3dDevice)->lpVtbl->GetViewport)
+                (g_GameContext.d3dDevice,&g_GameContext.viewport);
+      (*(g_GameContext.d3dDevice)->lpVtbl->GetDeviceCaps)(g_GameContext.d3dDevice,&D3D_CAPS);
       if (((g_GameContext.cfg.render_opts & 1U) == 0) && ((D3D_CAPS.TextureOpCaps & 0x40) == 0)) {
         GameErrorContextLog(&g_GameErrorContext,
                             "D3DTEXOPCAPS_ADD をサポートしていません、色加算エミュレートモードで動作します\n"
@@ -146,7 +146,7 @@ LAB_004211ab:
         g_GameContext.cfg.render_opts = g_GameContext.cfg.render_opts | 1;
       }
       if ((((uint)g_GameContext.cfg.render_opts >> 7 & 1) == 0) ||
-         (g_GameContext.field85_0x1a0 == 0)) {
+         (g_GameContext.field82_0x1a0 == 0)) {
         bVar1 = false;
       }
       else {
@@ -159,9 +159,9 @@ LAB_004211ab:
         g_GameContext.cfg.render_opts = g_GameContext.cfg.render_opts & 0xffffff7f;
       }
       if ((((uint)g_GameContext.cfg.render_opts >> 2 & 1) == 0) && ((local_5 & 0xff) != 0)) {
-        HVar2 = (*(g_GameContext.d3d_iface)->lpVtbl->CheckDeviceFormat)
-                          (g_GameContext.d3d_iface,0,D3DDEVTYPE_HAL,present_params.BackBufferFormat,
-                           0,D3DRTYPE_TEXTURE,D3DFMT_A8R8G8B8);
+        HVar2 = (*(g_GameContext.d3dIface)->lpVtbl->CheckDeviceFormat)
+                          (g_GameContext.d3dIface,0,D3DDEVTYPE_HAL,present_params.BackBufferFormat,0
+                           ,D3DRTYPE_TEXTURE,D3DFMT_A8R8G8B8);
         if (HVar2 == 0) {
           DAT_006c7116 = 1;
         }
@@ -175,15 +175,15 @@ LAB_004211ab:
       }
       InitD3dDevice();
       SetViewport(0);
-      g_GameWindow.is_app_closing = 0;
+      g_GameWindow.isAppClosing = 0;
       g_GameContext._420_4_ = 0;
-      g_GameContext._428_4_ = 0;
+      g_GameContext.field91_0x1ac = 0.0;
       return 0;
     }
 LAB_00421077:
-    HVar2 = (*(g_GameContext.d3d_iface)->lpVtbl->CreateDevice)
-                      (g_GameContext.d3d_iface,0,D3DDEVTYPE_REF,g_GameWindow.window,0x20,
-                       &present_params,&g_GameContext.d3d_device);
+    HVar2 = (*(g_GameContext.d3dIface)->lpVtbl->CreateDevice)
+                      (g_GameContext.d3dIface,0,D3DDEVTYPE_REF,g_GameWindow.window,0x20,
+                       &present_params,&g_GameContext.d3dDevice);
     if (-1 < HVar2) {
       GameErrorContextLog(&g_GameErrorContext,
                           "REF で動作しますが、重すぎて恐らくゲームになりません...\n"
@@ -191,15 +191,15 @@ LAB_00421077:
       local_5 = local_5 & 0xffffff00;
       goto LAB_00421190;
     }
-    if ((((uint)g_GameContext.cfg.render_opts >> 7 & 1) == 0) || (g_GameContext.field85_0x1a0 != 0))
+    if ((((uint)g_GameContext.cfg.render_opts >> 7 & 1) == 0) || (g_GameContext.field82_0x1a0 != 0))
     {
       if (present_params.Flags != 1) {
         GameErrorContextFatal
                   (&g_GameErrorContext,
-                   "Direct3D の初期化に失敗、こ���ではゲームは出来ません\n");
-        if (g_GameContext.d3d_iface != (IDirect3D8 *)0x0) {
-          (*(g_GameContext.d3d_iface)->lpVtbl->Release)(g_GameContext.d3d_iface);
-          g_GameContext.d3d_iface = (IDirect3D8 *)0x0;
+                   "Direct3D の初期化に失��、これではゲームは出来ません\n");
+        if (g_GameContext.d3dIface != (IDirect3D8 *)0x0) {
+          (*(g_GameContext.d3dIface)->lpVtbl->Release)(g_GameContext.d3dIface);
+          g_GameContext.d3dIface = (IDirect3D8 *)0x0;
         }
         return 1;
       }
@@ -210,10 +210,10 @@ LAB_00421077:
     }
     else {
       GameErrorContextLog(&g_GameErrorContext,
-                          "リフレッシュレートが変更できま��ん、vsync 非同期に変更します\n"
+                          "リフレッシュレートが変更でき���せん、vsync 非同期に変更します\n"
                          );
       present_params.FullScreen_RefreshRateInHz = 0;
-      g_GameContext.field85_0x1a0 = 1;
+      g_GameContext.field82_0x1a0 = 1;
       present_params.FullScreen_PresentationInterval = 0x80000000;
     }
   } while( true );

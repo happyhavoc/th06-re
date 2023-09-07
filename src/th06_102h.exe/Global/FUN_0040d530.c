@@ -30,7 +30,7 @@ void FUN_0040d530(int param_1)
       *(ushort *)&local_68[7].field13_0x3c.field8_0x20 =
            *(ushort *)&local_68[7].field13_0x3c.field8_0x20 | 0x10;
       *(undefined2 *)((int)&local_68[7].field13_0x3c.field8_0x20 + 2) = 2;
-      FUN_004323a0(VERY_BIG_STRUCT,local_68,
+      FUN_004323a0(g_VeryBigStruct,local_68,
                    *(short *)&local_68->field_0xb2 +
                    *(short *)((int)&local_68[7].field13_0x3c.field8_0x20 + 2));
       local_68[7].field10_0x28 = 0x3c23d70a;

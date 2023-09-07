@@ -3,64 +3,63 @@ byte * OpenPath(byte *file_path,int param_2)
 
 {
   char *pcVar1;
-  byte *_DstBuf;
-  FILE *_File;
+  byte *buf;
+  FILE *f;
   size_t _Size;
-  uint local_10;
-  byte *local_c;
+  int local_10;
+  byte *filename;
   int local_8;
   
-  local_10 = 0xffffffff;
+  local_10 = -1;
   if (param_2 == 0) {
     pcVar1 = _strrchr((char *)file_path,L'\\');
     if (pcVar1 == (char *)0x0) {
-      local_c = file_path;
+      filename = file_path;
     }
     else {
-      local_c = (byte *)(pcVar1 + 1);
+      filename = (byte *)(pcVar1 + 1);
     }
-    pcVar1 = _strrchr((char *)local_c,L'/');
+    pcVar1 = _strrchr((char *)filename,L'/');
     if (pcVar1 == (char *)0x0) {
-      local_c = file_path;
+      filename = file_path;
     }
     else {
-      local_c = (byte *)(pcVar1 + 1);
+      filename = (byte *)(pcVar1 + 1);
     }
-    if (DAT_0069d900 != 0) {
+    if (PBG3_FILES != (Pbg3File **)0x0) {
       local_8 = 0;
       while ((local_8 < 0x10 &&
-             ((*(int *)(DAT_0069d900 + local_8 * 4) == 0 ||
-              (local_10 = FUN_0043c920(*(int *)(DAT_0069d900 + local_8 * 4),local_c),
-              (int)local_10 < 0))))) {
+             ((PBG3_FILES[local_8] == (Pbg3File *)0x0 ||
+              (local_10 = FUN_0043c920(PBG3_FILES[local_8],filename), local_10 < 0))))) {
         local_8 = local_8 + 1;
       }
     }
-    if ((int)local_10 < 0) {
+    if (local_10 < 0) {
       return (byte *)0x0;
     }
   }
-  if ((int)local_10 < 0) {
+  if (local_10 < 0) {
     DebugPrint2("%s Load ... \n",file_path);
-    _File = fopen((char *)file_path,"rb");
-    if (_File == (FILE *)0x0) {
+    f = fopen((char *)file_path,"rb");
+    if (f == (FILE *)0x0) {
       DebugPrint2("error : %s is not found.\n",file_path);
-      _DstBuf = (byte *)0x0;
+      buf = (byte *)0x0;
     }
     else {
-      _fseek(_File,0,2);
-      _Size = _ftell(_File);
+      _fseek(f,0,2);
+      _Size = _ftell(f);
       g_FileSize = _Size;
-      _fseek(_File,0,0);
-      _DstBuf = (byte *)_malloc(_Size);
-      _fread(_DstBuf,1,_Size,_File);
-      _fclose(_File);
+      _fseek(f,0,0);
+      buf = (byte *)_malloc(_Size);
+      _fread(buf,1,_Size,f);
+      _fclose(f);
     }
   }
   else {
-    DebugPrint2("%s Decode ... \n",local_c);
-    _DstBuf = (byte *)FUN_0043cb40(local_10,local_c);
+    DebugPrint2("%s Decode ... \n",filename);
+    buf = (byte *)FUN_0043cb40(local_10,filename);
     g_FileSize = FUN_0043c990(local_10);
   }
-  return _DstBuf;
+  return buf;
 }
 

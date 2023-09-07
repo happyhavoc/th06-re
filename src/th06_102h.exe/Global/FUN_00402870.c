@@ -30,30 +30,30 @@ undefined4 __fastcall FUN_00402870(int *param_1)
   switch(*param_1) {
   case 0:
     if (param_1[1] == 0) {
-      for (local_8 = 0; pVVar1 = VERY_BIG_STRUCT, local_8 < 4; local_8 = local_8 + 1) {
+      for (local_8 = 0; pVVar1 = g_VeryBigStruct, local_8 < 4; local_8 = local_8 + 1) {
         if (local_8 < 2) {
           local_3c = (short)local_8 + 8;
-          *(short *)(param_1 + local_8 * 0x44 + 2 + 0x2d) = local_3c;
-          FUN_00432430(param_1 + local_8 * 0x44 + 2,
-                       *(undefined4 *)(&pVVar1->field_0x1c954 + local_8 * 4));
+          *(short *)&((Unknown *)(param_1 + local_8 * 0x44 + 2))->field_0xb4 = local_3c;
+          FUN_00432430((Unknown *)(param_1 + local_8 * 0x44 + 2),
+                       *(int *)(&pVVar1->field_0x1c954 + local_8 * 4));
         }
         else {
           local_48 = (short)local_8 + 4;
-          *(short *)(param_1 + local_8 * 0x44 + 2 + 0x2d) = local_48;
-          FUN_00432430(param_1 + local_8 * 0x44 + 2,
-                       *(undefined4 *)(&pVVar1->field_0x1c944 + local_8 * 4));
+          *(short *)&((Unknown *)(param_1 + local_8 * 0x44 + 2))->field_0xb4 = local_48;
+          FUN_00432430((Unknown *)(param_1 + local_8 * 0x44 + 2),
+                       *(int *)(&pVVar1->field_0x1c944 + local_8 * 4));
         }
         *(undefined2 *)((int)param_1 + local_8 * 0x110 + 0x92) = 1;
       }
       if (DAT_006c7115 != '\0') {
-        VERY_BIG_STRUCT->idx = 3;
+        g_VeryBigStruct->idx = 3;
         pVVar1->left = 0x20;
         pVVar1->top = 0x10;
         pVVar1->x = 0x180;
         pVVar1->y = 0x1c0;
-        pVVar1 = VERY_BIG_STRUCT;
+        pVVar1 = g_VeryBigStruct;
         *(undefined2 *)(param_1 + 0x1c7) = 0x718;
-        FUN_00432430(param_1 + 0x19a,*(undefined4 *)&pVVar1->field_0x1e594);
+        FUN_00432430((Unknown *)(param_1 + 0x19a),*(int *)&pVVar1->field_0x1e594);
         param_1[0x1be] = 0x42000000;
         param_1[0x1bf] = 0x41800000;
         param_1[0x1c0] = 0;

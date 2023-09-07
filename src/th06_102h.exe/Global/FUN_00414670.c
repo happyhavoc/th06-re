@@ -12,7 +12,7 @@ Unknown * FUN_00414670(short *param_1)
   Unknown *local_c;
   int local_8;
   
-  pVVar3 = VERY_BIG_STRUCT;
+  pVVar3 = g_VeryBigStruct;
   local_c = (Unknown *)(in_ECX + 0xec000);
   local_8 = 0;
   while( true ) {
@@ -26,9 +26,9 @@ Unknown * FUN_00414670(short *param_1)
   sVar1 = *param_1;
   local_10 = sVar1 + 0x209;
   *(short *)&local_c->field_0xb4 = local_10;
-  FUN_00432430(local_c,*(undefined4 *)(&pVVar3->field_0x1d158 + sVar1 * 4));
-  FUN_004323a0(VERY_BIG_STRUCT,local_c,local_c->field52_0xb0 + param_1[1]);
-  pVVar3 = VERY_BIG_STRUCT;
+  FUN_00432430(local_c,*(int *)(&pVVar3->field_0x1d158 + sVar1 * 4));
+  FUN_004323a0(g_VeryBigStruct,local_c,local_c->field52_0xb0 + param_1[1]);
+  pVVar3 = g_VeryBigStruct;
   uVar2 = *(undefined4 *)(&DAT_00476440 + param_1[1] * 4);
   piVar4 = &local_c[1].field13_0x3c.field4_0x10;
   FUN_00403580((Unknown *)piVar4);

@@ -71,8 +71,7 @@ LAB_004235a0:
       FUN_0042ab30(0,0);
 LAB_00423454:
       param_1->unkInput2 = 1;
-      (*(g_GameContext.d3d_device)->lpVtbl->ResourceManagerDiscardBytes)(g_GameContext.d3d_device,0)
-      ;
+      (*(g_GameContext.d3dDevice)->lpVtbl->ResourceManagerDiscardBytes)(g_GameContext.d3dDevice,0);
       iVar1 = FUN_0043a338(0);
       if (iVar1 != 0) {
         return 4;
@@ -103,8 +102,8 @@ LAB_00423454:
         param_1->unkInput2 = 0;
         FUN_0042ab30(0,0);
         param_1->unkInput2 = 1;
-        (*(g_GameContext.d3d_device)->lpVtbl->ResourceManagerDiscardBytes)
-                  (g_GameContext.d3d_device,0);
+        (*(g_GameContext.d3dDevice)->lpVtbl->ResourceManagerDiscardBytes)(g_GameContext.d3dDevice,0)
+        ;
         iVar1 = FUN_0043a338(1);
         if (iVar1 != 0) {
           return 4;

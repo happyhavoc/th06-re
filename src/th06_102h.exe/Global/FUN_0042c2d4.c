@@ -23,7 +23,7 @@ void FUN_0042c2d4(void)
   if (iVar1 == 10) {
     if (*(int *)(in_ECX + 4) == 0x3c) {
       if (DAT_0069d4b8 == '\0') {
-        if ((float)g_GameContext._428_4_ < 0.99 == NAN((float)g_GameContext._428_4_)) {
+        if (g_GameContext.field91_0x1ac < 0.99 == NAN(g_GameContext.field91_0x1ac)) {
           local_c = 9;
         }
         else {

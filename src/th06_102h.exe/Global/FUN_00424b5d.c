@@ -15,11 +15,11 @@ void FUN_00424b5d(char *param_1)
   uint local_c;
   char *local_8;
   
-  pvVar2 = g_GameContext.field98_0x1b0;
+  pvVar2 = g_GameContext.unknown_1b0;
   local_c = __security_cookie ^ unaff_retaddr;
   if (g_GameContext.cfg.musicMode == MIDI) {
-    if (g_GameContext.field98_0x1b0 != (void *)0x0) {
-      FUN_004224e0(g_GameContext.field98_0x1b0);
+    if (g_GameContext.unknown_1b0 != (void *)0x0) {
+      FUN_004224e0(g_GameContext.unknown_1b0);
       FUN_00422380((int)pvVar2,param_1);
       FUN_00422490((int)pvVar2);
     }

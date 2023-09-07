@@ -29,27 +29,27 @@ undefined4 __fastcall FUN_00401b80(int *param_1)
   }
   switch(*param_1) {
   case 0:
-    for (local_8 = 0; pVVar1 = VERY_BIG_STRUCT, local_8 < 6; local_8 = local_8 + 1) {
+    for (local_8 = 0; pVVar1 = g_VeryBigStruct, local_8 < 6; local_8 = local_8 + 1) {
       local_6c = (short)local_8 + 2;
-      *(short *)(param_1 + local_8 * 0x44 + 2 + 0x2d) = local_6c;
-      FUN_00432430(param_1 + local_8 * 0x44 + 2,
-                   *(undefined4 *)(&pVVar1->field_0x1c93c + local_8 * 4));
+      *(short *)&((Unknown *)(param_1 + local_8 * 0x44 + 2))->field_0xb4 = local_6c;
+      FUN_00432430((Unknown *)(param_1 + local_8 * 0x44 + 2),
+                   *(int *)(&pVVar1->field_0x1c93c + local_8 * 4));
     }
     for (local_8 = 0; local_8 < 3; local_8 = local_8 + 1) {
       *(undefined2 *)((int)param_1 + local_8 * 0x110 + 0x92) = 1;
     }
     *param_1 = *param_1 + 1;
     param_1[1] = 0;
-    pVVar1 = VERY_BIG_STRUCT;
+    pVVar1 = g_VeryBigStruct;
     if (DAT_006c7115 != '\0') {
-      VERY_BIG_STRUCT->idx = 3;
+      g_VeryBigStruct->idx = 3;
       pVVar1->left = 0x20;
       pVVar1->top = 0x10;
       pVVar1->x = 0x180;
       pVVar1->y = 0x1c0;
-      pVVar1 = VERY_BIG_STRUCT;
+      pVVar1 = g_VeryBigStruct;
       *(undefined2 *)(param_1 + 0x1c7) = 0x718;
-      FUN_00432430(param_1 + 0x19a,*(undefined4 *)&pVVar1->field_0x1e594);
+      FUN_00432430((Unknown *)(param_1 + 0x19a),*(int *)&pVVar1->field_0x1e594);
       param_1[0x1be] = 0x42000000;
       param_1[0x1bf] = 0x41800000;
       param_1[0x1c0] = 0;
@@ -141,14 +141,14 @@ undefined4 __fastcall FUN_00401b80(int *param_1)
     param_1[400] = 0;
     param_1[0x191] = 0;
     if (3 < param_1[1]) {
-      if ((((BUTTONS_PRESSED_CURFRAME & 0x10) != 0) &&
-          ((BUTTONS_PRESSED_CURFRAME & 0x10) != (BUTTONS_PRESSED_PREVFRAME & 0x10))) ||
-         (((BUTTONS_PRESSED_CURFRAME & 0x20) != 0 &&
-          ((BUTTONS_PRESSED_CURFRAME & 0x20) != (BUTTONS_PRESSED_PREVFRAME & 0x20))))) {
+      if ((((BUTTONS_PRESSED_CURFRAME & UP) != 0) &&
+          ((BUTTONS_PRESSED_CURFRAME & UP) != (BUTTONS_PRESSED_PREVFRAME & 0x10))) ||
+         (((BUTTONS_PRESSED_CURFRAME & DOWN) != 0 &&
+          ((BUTTONS_PRESSED_CURFRAME & DOWN) != (BUTTONS_PRESSED_PREVFRAME & 0x20))))) {
         *param_1 = 5;
       }
-      if (((BUTTONS_PRESSED_CURFRAME & 1) != 0) &&
-         ((BUTTONS_PRESSED_CURFRAME & 1) != (BUTTONS_PRESSED_PREVFRAME & 1))) {
+      if (((BUTTONS_PRESSED_CURFRAME & SHOOT) != 0) &&
+         ((BUTTONS_PRESSED_CURFRAME & SHOOT) != (BUTTONS_PRESSED_PREVFRAME & 1))) {
         for (local_8 = 3; local_8 < 6; local_8 = local_8 + 1) {
           *(undefined2 *)((int)param_1 + local_8 * 0x110 + 0x92) = 2;
         }

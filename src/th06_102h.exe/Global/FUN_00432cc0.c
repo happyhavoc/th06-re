@@ -34,26 +34,26 @@ undefined4 FUN_00432cc0(void *param_1)
                     *(float *)((int)param_1 + 0x1c)) / 2.0);
       fVar7 = ROUND((*(float *)(*(int *)((int)param_1 + 0xc0) + 0x2c) *
                     *(float *)((int)param_1 + 0x18)) / 2.0);
-      FUN_00432c80(TRIANGLE_STRIP,-fVar6 - 0.5,-fVar7 - 0.5,fVar2,fVar1,fVar4,fVar5);
+      FUN_00432c80(g_TriangleStrip,-fVar6 - 0.5,-fVar7 - 0.5,fVar2,fVar1,fVar4,fVar5);
       FUN_00432c80(0x6d4618,fVar6 - 0.5,-fVar7 - 0.5,fVar2,fVar1,fVar4,fVar5);
       FUN_00432c80(&FLOAT_006d4630,-fVar6 - 0.5,fVar7 - 0.5,fVar2,fVar1,fVar4,fVar5);
       FUN_00432c80(&FLOAT_006d4648,fVar6 - 0.5,fVar7 - 0.5,fVar2,fVar1,fVar4,fVar5);
-      TRIANGLE_STRIP[0].z = *(float *)((int)param_1 + 0x98);
+      g_TriangleStrip[0].z = *(float *)((int)param_1 + 0x98);
       if ((*(uint *)((int)param_1 + 0x80) >> 8 & 1) != 0) {
-        TRIANGLE_STRIP[0].x = TRIANGLE_STRIP[0].x + fVar6;
-        TRIANGLE_STRIP[2].x = TRIANGLE_STRIP[2].x + fVar6;
+        g_TriangleStrip[0].x = g_TriangleStrip[0].x + fVar6;
+        g_TriangleStrip[2].x = g_TriangleStrip[2].x + fVar6;
         FLOAT_006d4630 = FLOAT_006d4630 + fVar6;
         FLOAT_006d4648 = FLOAT_006d4648 + fVar6;
       }
       if ((*(uint *)((int)param_1 + 0x80) >> 8 & 2) != 0) {
-        TRIANGLE_STRIP[0].y = TRIANGLE_STRIP[0].y + fVar7;
-        TRIANGLE_STRIP[2].y = TRIANGLE_STRIP[2].y + fVar7;
+        g_TriangleStrip[0].y = g_TriangleStrip[0].y + fVar7;
+        g_TriangleStrip[2].y = g_TriangleStrip[2].y + fVar7;
         FLOAT_006d4634 = FLOAT_006d4634 + fVar7;
         FLOAT_006d464c = FLOAT_006d464c + fVar7;
       }
-      TRIANGLE_STRIP[2].z = TRIANGLE_STRIP[0].z;
-      DAT_006d4638 = TRIANGLE_STRIP[0].z;
-      DAT_006d4650 = TRIANGLE_STRIP[0].z;
+      g_TriangleStrip[2].z = g_TriangleStrip[0].z;
+      DAT_006d4638 = g_TriangleStrip[0].z;
+      DAT_006d4650 = g_TriangleStrip[0].z;
       uVar8 = FUN_00432730(in_ECX,(int)param_1,0);
     }
   }

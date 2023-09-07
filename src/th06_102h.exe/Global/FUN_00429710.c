@@ -10,7 +10,7 @@ undefined4 FUN_00429710(int param_1)
       FUN_00429820(param_1,*(undefined4 *)(param_1 + 0x75b0));
     }
     *(undefined4 *)(param_1 + 0x75a8) = *(undefined4 *)(param_1 + 0x75b0);
-    FUN_00424285(param_1 + 0x75b0,param_1 + 0x75ac);
+    FUN_00424285(&g_GameContext,(int *)(param_1 + 0x75b0),(float *)(param_1 + 0x75ac));
     if (((0x1d < *(int *)(param_1 + 0x75b0)) || (*(char *)(param_1 + 0x9e0) == '\x02')) ||
        (*(char *)(param_1 + 0x9e0) == '\x01')) {
       *(undefined4 *)(param_1 + 0x75b0) = 0xffffffff;

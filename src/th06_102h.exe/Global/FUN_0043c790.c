@@ -1,71 +1,72 @@
 
-undefined4 FUN_0043c790(void)
+undefined4 __fastcall FUN_0043c790(Pbg3File *param_1)
 
 {
   int iVar1;
-  int *piVar2;
+  void *pvVar2;
   undefined4 uVar3;
   int iVar4;
-  int **in_ECX;
+  Pbg3FileStuff *pPVar5;
+  uint uVar6;
   
-  iVar1 = FUN_0043c380();
-  piVar2 = *in_ECX;
+  iVar1 = FUN_0043c380(param_1->inner);
+  pPVar5 = param_1->inner;
   if (iVar1 == 0x33474250) {
-    piVar2 = (int *)FUN_0043c310();
-    in_ECX[2] = piVar2;
-    piVar2 = (int *)FUN_0043c310();
-    in_ECX[3] = piVar2;
-    iVar1 = (**(code **)(**in_ECX + 0xc))(piVar2);
+    iVar1 = FUN_0043c310();
+    param_1->field2_0x8 = iVar1;
+    iVar1 = FUN_0043c310();
+    param_1->field3_0xc = iVar1;
+    iVar1 = (**(code **)(*(int *)param_1->inner + 0xc))(iVar1);
     if (iVar1 != 0) {
-      piVar2 = (int *)operator_new((int)in_ECX[2] * 0x114);
-      in_ECX[4] = piVar2;
-      if (piVar2 != (int *)0x0) {
-        piVar2 = (int *)0x0;
-        if (in_ECX[2] != (int *)0x0) {
+      pvVar2 = operator_new(param_1->field2_0x8 * 0x114);
+      param_1->field4_0x10 = (int)pvVar2;
+      if (pvVar2 != (void *)0x0) {
+        uVar6 = 0;
+        if (param_1->field2_0x8 != 0) {
           iVar1 = 0;
           do {
             uVar3 = FUN_0043c310();
-            *(undefined4 *)(iVar1 + 4 + (int)in_ECX[4]) = uVar3;
+            *(undefined4 *)(iVar1 + 4 + param_1->field4_0x10) = uVar3;
             uVar3 = FUN_0043c310();
-            *(undefined4 *)(iVar1 + (int)in_ECX[4]) = uVar3;
+            *(undefined4 *)(iVar1 + param_1->field4_0x10) = uVar3;
             uVar3 = FUN_0043c310();
-            *(undefined4 *)(iVar1 + 0x10 + (int)in_ECX[4]) = uVar3;
+            *(undefined4 *)(iVar1 + 0x10 + param_1->field4_0x10) = uVar3;
             uVar3 = FUN_0043c310();
-            *(undefined4 *)(iVar1 + 0xc + (int)in_ECX[4]) = uVar3;
+            *(undefined4 *)(iVar1 + 0xc + param_1->field4_0x10) = uVar3;
             uVar3 = FUN_0043c310();
-            *(undefined4 *)(iVar1 + 8 + (int)in_ECX[4]) = uVar3;
-            iVar4 = FUN_0043c3c0(iVar1 + 0x14 + (int)in_ECX[4],0x100);
+            *(undefined4 *)(iVar1 + 8 + param_1->field4_0x10) = uVar3;
+            iVar4 = FUN_0043c3c0(iVar1 + 0x14 + param_1->field4_0x10,0x100);
             if (iVar4 == 0) {
-              if (*in_ECX != (int *)0x0) {
-                (**(code **)(**in_ECX + 0x1c))(1);
-                *in_ECX = (int *)0x0;
+              if (param_1->inner != (Pbg3FileStuff *)0x0) {
+                (**(code **)(*(int *)param_1->inner + 0x1c))(1);
+                param_1->inner = (Pbg3FileStuff *)0x0;
               }
-              if (in_ECX[4] != (int *)0x0) {
-                _free(in_ECX[4]);
-                in_ECX[4] = (int *)0x0;
+              if ((void *)param_1->field4_0x10 != (void *)0x0) {
+                _free((void *)param_1->field4_0x10);
+                param_1->field4_0x10 = 0;
               }
               return 0;
             }
-            piVar2 = (int *)((int)piVar2 + 1);
+            uVar6 = uVar6 + 1;
             iVar1 = iVar1 + 0x114;
-          } while (piVar2 < in_ECX[2]);
+          } while (uVar6 < (uint)param_1->field2_0x8);
         }
         return 1;
       }
-      if (*in_ECX == (int *)0x0) {
+      if (param_1->inner == (Pbg3FileStuff *)0x0) {
         return 0;
       }
-      (**(code **)(**in_ECX + 0x1c))(1);
-      *in_ECX = (int *)0x0;
+      (**(code **)(*(int *)param_1->inner + 0x1c))(1);
+      param_1->inner = (Pbg3FileStuff *)0x0;
       return 0;
     }
-    piVar2 = *in_ECX;
+    pPVar5 = param_1->inner;
   }
-  if (piVar2 == (int *)0x0) {
+  if (pPVar5 == (Pbg3FileStuff *)0x0) {
     return 0;
   }
-  (**(code **)(*piVar2 + 0x1c))(1);
-  *in_ECX = (int *)0x0;
+  (**(code **)(*(int *)pPVar5 + 0x1c))(1);
+  param_1->inner = (Pbg3FileStuff *)0x0;
   return 0;
 }
 

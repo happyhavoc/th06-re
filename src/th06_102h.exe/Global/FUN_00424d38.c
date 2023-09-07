@@ -3,8 +3,8 @@ undefined4 __fastcall FUN_00424d38(GameContext *param_1)
 
 {
   if (g_GameContext.cfg.musicMode == MIDI) {
-    if (g_GameContext.field98_0x1b0 != (void *)0x0) {
-      FUN_004224e0(g_GameContext.field98_0x1b0);
+    if (g_GameContext.unknown_1b0 != (void *)0x0) {
+      FUN_004224e0(g_GameContext.unknown_1b0);
     }
   }
   else {

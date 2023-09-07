@@ -30,17 +30,17 @@ undefined4 FUN_00432fa0(int param_1)
     }
     FLOAT_006d4648 = fVar2 + fVar1;
     if ((*(uint *)(param_1 + 0x80) >> 8 & 2) == 0) {
-      TRIANGLE_STRIP[2].y = *(float *)(param_1 + 0x94) - fVar3;
+      g_TriangleStrip[2].y = *(float *)(param_1 + 0x94) - fVar3;
       fVar2 = *(float *)(param_1 + 0x94);
     }
     else {
-      TRIANGLE_STRIP[2].y = *(float *)(param_1 + 0x94);
+      g_TriangleStrip[2].y = *(float *)(param_1 + 0x94);
       fVar2 = fVar3 + *(float *)(param_1 + 0x94);
     }
     FLOAT_006d464c = fVar3 + fVar2;
-    TRIANGLE_STRIP[0].x = FLOAT_006d4630;
-    TRIANGLE_STRIP[0].y = TRIANGLE_STRIP[2].y;
-    TRIANGLE_STRIP[2].x = FLOAT_006d4648;
+    g_TriangleStrip[0].x = FLOAT_006d4630;
+    g_TriangleStrip[0].y = g_TriangleStrip[2].y;
+    g_TriangleStrip[2].x = FLOAT_006d4648;
     FLOAT_006d4634 = FLOAT_006d464c;
     uVar4 = FUN_00432730(in_ECX,param_1,0);
   }

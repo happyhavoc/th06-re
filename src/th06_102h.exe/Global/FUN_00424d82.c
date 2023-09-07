@@ -6,7 +6,7 @@ undefined4 FUN_00424d82(float param_1)
   int in_ECX;
   
   if (g_GameContext.cfg.musicMode == MIDI) {
-    if (g_GameContext.field98_0x1b0 != (void *)0x0) {
+    if (g_GameContext.unknown_1b0 != (void *)0x0) {
       lVar1 = __ftol2((double)(param_1 * 1000.0));
       FUN_00422630(lVar1);
     }

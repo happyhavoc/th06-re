@@ -36,15 +36,15 @@ int * FUN_0042fd30(int param_1,int param_2,int param_3,int param_4,int param_5)
       piVar2 = piVar2 + 1;
     }
     if (param_1 == 0) {
-      local_14 = AllocateChainElem(&CHAIN,FUN_0042f800);
-      local_18 = AllocateChainElem(&CHAIN,FUN_0042fee0);
+      local_14 = AllocateChainElem(&g_Chain,FUN_0042f800);
+      local_18 = AllocateChainElem(&g_Chain,FUN_0042fee0);
     }
     else if (param_1 == 1) {
-      local_14 = AllocateChainElem(&CHAIN,FUN_0042ffc0);
+      local_14 = AllocateChainElem(&g_Chain,FUN_0042ffc0);
     }
     else if (param_1 == 2) {
-      local_14 = AllocateChainElem(&CHAIN,FUN_0042fc80);
-      local_18 = AllocateChainElem(&CHAIN,FUN_0042ff70);
+      local_14 = AllocateChainElem(&g_Chain,FUN_0042fc80);
+      local_18 = AllocateChainElem(&g_Chain,FUN_0042ff70);
     }
     local_14->added_callback = FUN_004301f0;
     local_14->deleted_callback = FUN_00430220;
@@ -54,11 +54,11 @@ int * FUN_0042fd30(int param_1,int param_2,int param_3,int param_4,int param_5)
     local_2c[6] = param_3;
     local_2c[7] = param_4;
     local_2c[8] = param_5;
-    iVar1 = Chain::AddToCalcChain(&CHAIN,local_14,0xe);
+    iVar1 = Chain::AddToCalcChain(&g_Chain,local_14,0xe);
     if (iVar1 == 0) {
       if (local_18 != (ChainElem *)0x0) {
         local_18->arg = local_2c;
-        Chain::AddToDrawChain(&CHAIN,local_18,0x10);
+        Chain::AddToDrawChain(&g_Chain,local_18,0x10);
       }
       local_2c[1] = (int)local_14;
       local_2c[2] = (int)local_18;

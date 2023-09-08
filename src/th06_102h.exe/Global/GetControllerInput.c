@@ -64,7 +64,7 @@ ushort GetControllerInput(ushort buttons)
       SetButtonFromControllerInputs
                 (&buttons,g_GameContext.cfg.controllerMapping.rightButton,RIGHT,pji.dwButtons);
       SetButtonFromControllerInputs
-                (&buttons,g_GameContext.cfg.controllerMapping.unkButton,0x100,pji.dwButtons);
+                (&buttons,g_GameContext.cfg.controllerMapping.skipButton,0x100,pji.dwButtons);
       joystickXDistance = g_JoystickCaps.wXmax - g_JoystickCaps.wXmin >> 2;
       joystickYDistance = g_JoystickCaps.wYmax - g_JoystickCaps.wYmin >> 2;
       buttons = buttons | -(ushort)((g_JoystickCaps.wXmin + g_JoystickCaps.wXmax >> 1) +
@@ -138,7 +138,7 @@ ushort GetControllerInput(ushort buttons)
         SetButtonFromDirectInputJoystate
                   (&buttons,g_GameContext.cfg.controllerMapping.rightButton,0x80,js.rgbButtons);
         SetButtonFromDirectInputJoystate
-                  (&buttons,g_GameContext.cfg.controllerMapping.unkButton,0x100,js.rgbButtons);
+                  (&buttons,g_GameContext.cfg.controllerMapping.skipButton,0x100,js.rgbButtons);
         buttons = buttons | (js.lX <= (short)g_GameContext.cfg.padAxisX) - 1 & 0x80 |
                   (SBORROW4(js.lX,-(int)(short)g_GameContext.cfg.padAxisX) ==
                   js.lX + (short)g_GameContext.cfg.padAxisX < 0) - 1 & 0x40 |

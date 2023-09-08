@@ -69575,7 +69575,7 @@ struct ControllerMapping {
     short downButton;
     short leftButton;
     short rightButton;
-    short unkButton;
+    short skipButton;
 };
 
 struct GameConfiguration {

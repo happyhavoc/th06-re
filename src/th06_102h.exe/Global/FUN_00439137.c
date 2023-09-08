@@ -177,7 +177,7 @@ undefined4 __fastcall FUN_00439137(int param_1)
         *(undefined4 *)(param_1 + 0x8220) = g_ControllerMapping._4_4_;
         *(undefined4 *)(param_1 + 0x8224) = g_ControllerMapping._8_4_;
         *(undefined4 *)(param_1 + 0x8228) = g_ControllerMapping._12_4_;
-        *(short *)(param_1 + 0x822c) = g_ControllerMapping.unkButton;
+        *(short *)(param_1 + 0x822c) = g_ControllerMapping.skipButton;
         g_ControllerMapping.upButton = -1;
         g_ControllerMapping.downButton = -1;
       }

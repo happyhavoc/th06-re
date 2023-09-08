@@ -46,7 +46,7 @@ undefined4 __thiscall GameContext::Parse(GameContext *this,char *config_file_nam
     g_GameContext.cfg.controllerMapping.downButton = g_ControllerMapping.downButton;
     g_GameContext.cfg.controllerMapping.leftButton = g_ControllerMapping.leftButton;
     g_GameContext.cfg.controllerMapping.rightButton = g_ControllerMapping.rightButton;
-    g_GameContext.cfg.controllerMapping.unkButton = g_ControllerMapping.unkButton;
+    g_GameContext.cfg.controllerMapping.skipButton = g_ControllerMapping.skipButton;
     GameErrorContextLog(&g_GameErrorContext,
                         "コンフィグデータが見つからないので初期化しました\n"
                        );
@@ -94,10 +94,10 @@ undefined4 __thiscall GameContext::Parse(GameContext *this,char *config_file_nam
       g_GameContext.cfg.controllerMapping.downButton = g_ControllerMapping.downButton;
       g_GameContext.cfg.controllerMapping.leftButton = g_ControllerMapping.leftButton;
       g_GameContext.cfg.controllerMapping.rightButton = g_ControllerMapping.rightButton;
-      g_GameContext.cfg.controllerMapping.unkButton = g_ControllerMapping.unkButton;
+      g_GameContext.cfg.controllerMapping.skipButton = g_ControllerMapping.skipButton;
       g_GameContext.cfg.render_opts = 1;
       GameErrorContextLog(&g_GameErrorContext,
-                          "コンフィグデータが破壊されていたので再初期化しました\n"
+                          "コンフィグデータが破��されていたので再初期化しました\n"
                          );
     }
     g_ControllerMapping.shootButton = g_GameContext.cfg.controllerMapping.shootButton;
@@ -108,7 +108,7 @@ undefined4 __thiscall GameContext::Parse(GameContext *this,char *config_file_nam
     g_ControllerMapping.downButton = g_GameContext.cfg.controllerMapping.downButton;
     g_ControllerMapping.leftButton = g_GameContext.cfg.controllerMapping.leftButton;
     g_ControllerMapping.rightButton = g_GameContext.cfg.controllerMapping.rightButton;
-    g_ControllerMapping.unkButton = g_GameContext.cfg.controllerMapping.unkButton;
+    g_ControllerMapping.skipButton = g_GameContext.cfg.controllerMapping.skipButton;
     _free(_Memory);
   }
   if (((uint)(this->cfg).render_opts >> 1 & 1) != 0) {

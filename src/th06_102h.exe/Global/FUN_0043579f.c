@@ -200,12 +200,12 @@ switchD_004358f7_caseD_2:
           g_ControllerMapping._4_4_ = *(undefined4 *)(param_1 + 0x8220);
           g_ControllerMapping._8_4_ = *(undefined4 *)(param_1 + 0x8224);
           g_ControllerMapping._12_4_ = *(undefined4 *)(param_1 + 0x8228);
-          g_ControllerMapping.unkButton = *(short *)(param_1 + 0x822c);
+          g_ControllerMapping.skipButton = *(short *)(param_1 + 0x822c);
           g_GameContext.cfg.controllerMapping._0_4_ = *(undefined4 *)(param_1 + 0x821c);
           g_GameContext.cfg.controllerMapping._4_4_ = *(undefined4 *)(param_1 + 0x8220);
           g_GameContext.cfg.controllerMapping._8_4_ = *(undefined4 *)(param_1 + 0x8224);
           g_GameContext.cfg.controllerMapping._12_4_ = *(undefined4 *)(param_1 + 0x8228);
-          g_GameContext.cfg.controllerMapping.unkButton = *(short *)(param_1 + 0x822c);
+          g_GameContext.cfg.controllerMapping.skipButton = *(short *)(param_1 + 0x822c);
         }
       }
     }

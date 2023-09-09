@@ -1,5 +1,5 @@
 
-void __thiscall CutChain(Chain *this,ChainElem *to_delete)
+void __thiscall Chain::Cut(Chain *this,ChainElem *to_delete)
 
 {
   code *pcVar1;
@@ -17,10 +17,10 @@ void __thiscall CutChain(Chain *this,ChainElem *to_delete)
       if (cur_elem == to_delete) {
 LAB_0041ce4c:
         if (isDrawChain) {
-          DebugPrint2("draw cut Chain (Pri = %d)\n",(int)(short)to_delete->priority);
+          DebugPrint2("draw cut Chain (Pri = %d)\n",(int)to_delete->priority);
         }
         else {
-          DebugPrint2("calc cut Chain (Pri = %d)\n",(int)(short)to_delete->priority);
+          DebugPrint2("calc cut Chain (Pri = %d)\n",(int)to_delete->priority);
         }
         if (to_delete->prev == (ChainElem *)0x0) {
           return;

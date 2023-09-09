@@ -69725,7 +69725,7 @@ struct GameContext {
 typedef struct ChainElem ChainElem, *PChainElem;
 
 struct ChainElem {
-    undefined2 priority;
+    short priority;
     ushort flags;
     undefined4 callback;
     undefined4 added_callback;
@@ -69743,6 +69743,8 @@ typedef struct Chain Chain, *PChain;
 struct Chain {
     struct ChainElem calcChain;
     struct ChainElem drawChain;
+    DWORD midiOutputDeviceCount;
+    undefined4 unk;
 };
 
 typedef struct InputChainArg InputChainArg, *PInputChainArg;

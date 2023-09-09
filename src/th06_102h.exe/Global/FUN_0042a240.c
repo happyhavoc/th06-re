@@ -19,11 +19,11 @@ undefined4 FUN_0042a240(int param_1,undefined4 param_2)
       *(int *)((int)local_14 + 8) = param_1;
       *(undefined4 *)((int)local_14 + 0xc) = param_2;
       if (param_1 == 0) {
-        pCVar1 = AllocateChainElem(&g_Chain,FUN_0042a470);
+        pCVar1 = ChainElem::Allocate(FUN_0042a470);
         *(ChainElem **)((int)local_14 + 0x68) = pCVar1;
         *(code **)(*(int *)((int)local_14 + 0x68) + 8) = FUN_0042a680;
         *(code **)(*(int *)((int)local_14 + 0x68) + 0xc) = FUN_0042aa20;
-        pCVar1 = AllocateChainElem(&g_Chain,FUN_0042a670);
+        pCVar1 = ChainElem::Allocate(FUN_0042a670);
         *(ChainElem **)((int)local_14 + 0x6c) = pCVar1;
         *(void **)(*(int *)((int)local_14 + 0x68) + 0x1c) = local_14;
         iVar2 = Chain::AddToCalcChain(&g_Chain,*(ChainElem **)((int)local_14 + 0x68),0xf);
@@ -33,18 +33,18 @@ undefined4 FUN_0042a240(int param_1,undefined4 param_2)
         *(undefined4 *)((int)local_14 + 0x70) = 0;
       }
       else if (param_1 == 1) {
-        pCVar1 = AllocateChainElem(&g_Chain,FUN_0042a570);
+        pCVar1 = ChainElem::Allocate(FUN_0042a570);
         *(ChainElem **)((int)local_14 + 0x68) = pCVar1;
         *(code **)(*(int *)((int)local_14 + 0x68) + 8) = FUN_0042a840;
         *(code **)(*(int *)((int)local_14 + 0x68) + 0xc) = FUN_0042aa20;
-        pCVar1 = AllocateChainElem(&g_Chain,FUN_0042a670);
+        pCVar1 = ChainElem::Allocate(FUN_0042a670);
         *(ChainElem **)((int)local_14 + 0x6c) = pCVar1;
         *(void **)(*(int *)((int)local_14 + 0x68) + 0x1c) = local_14;
         iVar2 = Chain::AddToCalcChain(&g_Chain,*(ChainElem **)((int)local_14 + 0x68),5);
         if (iVar2 != 0) {
           return 0xffffffff;
         }
-        pCVar1 = AllocateChainElem(&g_Chain,FUN_0042a510);
+        pCVar1 = ChainElem::Allocate(FUN_0042a510);
         *(ChainElem **)((int)local_14 + 0x70) = pCVar1;
         *(void **)(*(int *)((int)local_14 + 0x70) + 0x1c) = local_14;
         Chain::AddToCalcChain(&g_Chain,*(ChainElem **)((int)local_14 + 0x70),0x10);

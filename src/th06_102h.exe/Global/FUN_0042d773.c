@@ -27,7 +27,7 @@ undefined4 FUN_0042d773(int param_1)
   }
   uStack_8 = 0xffffffff;
   DebugPrint("counat = %d\n",DAT_0069d70c);
-  pCVar2 = AllocateChainElem(&g_Chain,FUN_0042d98e);
+  pCVar2 = ChainElem::Allocate(FUN_0042d98e);
   *(ChainElem **)((int)pvStack_64 + 0x51a8) = pCVar2;
   *(code **)(*(int *)((int)pvStack_64 + 0x51a8) + 8) = FUN_0042f060;
   *(code **)(*(int *)((int)pvStack_64 + 0x51a8) + 0xc) = FUN_0042f5bc;
@@ -42,7 +42,7 @@ undefined4 FUN_0042d773(int param_1)
   }
   iVar3 = Chain::AddToCalcChain(&g_Chain,*(ChainElem **)((int)pvStack_64 + 0x51a8),0xd);
   if (iVar3 == 0) {
-    pCVar2 = AllocateChainElem(&g_Chain,FUN_0042e446);
+    pCVar2 = ChainElem::Allocate(FUN_0042e446);
     *(ChainElem **)((int)pvStack_64 + 0x51ac) = pCVar2;
     *(void **)(*(int *)((int)pvStack_64 + 0x51ac) + 0x1c) = pvStack_64;
     Chain::AddToDrawChain(&g_Chain,*(ChainElem **)((int)pvStack_64 + 0x51ac),0xc);

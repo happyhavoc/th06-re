@@ -12,7 +12,7 @@ undefined4 FUN_0043a338(int param_1)
   DebugPrint("Debug : title 開始 VRAM = %d\n",UVar1);
   BYTE_ARRAY_006d46c0._33264_4_ = -(uint)(param_1 != 0) & 0xc;
   g_GameContext.field91_0x1ac = 0.0;
-  BYTE_ARRAY_006d46c0._33332_4_ = AllocateChainElem(&g_Chain,FUN_0043579f);
+  BYTE_ARRAY_006d46c0._33332_4_ = ChainElem::Allocate(FUN_0043579f);
   *(byte **)(BYTE_ARRAY_006d46c0._33332_4_ + 0x1c) = BYTE_ARRAY_006d46c0;
   *(code **)(BYTE_ARRAY_006d46c0._33332_4_ + 8) = FUN_0043a464;
   *(code **)(BYTE_ARRAY_006d46c0._33332_4_ + 0xc) = FUN_0043a659;
@@ -22,7 +22,7 @@ undefined4 FUN_0043a338(int param_1)
   BYTE_ARRAY_006d46c0[33271] = 0;
   iVar2 = Chain::AddToCalcChain(&g_Chain,(ChainElem *)BYTE_ARRAY_006d46c0._33332_4_,2);
   if (iVar2 == 0) {
-    BYTE_ARRAY_006d46c0._33336_4_ = AllocateChainElem(&g_Chain,FUN_00439ad6);
+    BYTE_ARRAY_006d46c0._33336_4_ = ChainElem::Allocate(FUN_00439ad6);
     *(byte **)(BYTE_ARRAY_006d46c0._33336_4_ + 0x1c) = BYTE_ARRAY_006d46c0;
     Chain::AddToDrawChain(&g_Chain,(ChainElem *)BYTE_ARRAY_006d46c0._33336_4_,0);
     BYTE_ARRAY_006d46c0[69424] = 0;

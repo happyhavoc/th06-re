@@ -167,7 +167,7 @@ void FUN_0042ab30(char *param_1,char *param_2)
         }
       }
     }
-    CutChain(&g_Chain,*(ChainElem **)(DAT_006d3f18 + 0x68));
+    Chain::Cut(&g_Chain,*(ChainElem **)(DAT_006d3f18 + 0x68));
   }
   __security_check_cookie(local_14 ^ unaff_retaddr);
   return;

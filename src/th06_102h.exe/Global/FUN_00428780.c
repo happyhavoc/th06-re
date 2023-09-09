@@ -15,9 +15,9 @@ undefined4 FUN_00428780(undefined param_1)
   DAT_006d1be0 = 0;
   DAT_006d1bdc = 0xfffffc19;
   DAT_006cb009 = param_1;
-  DAT_006d3f0c = AllocateChainElem(&g_Chain,FUN_004288c0);
-  DAT_006d3f10 = AllocateChainElem(&g_Chain,FUN_00429930);
-  DAT_006d3f14 = AllocateChainElem(&g_Chain,FUN_00429b90);
+  DAT_006d3f0c = ChainElem::Allocate(FUN_004288c0);
+  DAT_006d3f10 = ChainElem::Allocate(FUN_00429930);
+  DAT_006d3f14 = ChainElem::Allocate(FUN_00429b90);
   DAT_006d3f0c->arg = &DAT_006ca628;
   DAT_006d3f10->arg = &DAT_006ca628;
   DAT_006d3f14->arg = &DAT_006ca628;

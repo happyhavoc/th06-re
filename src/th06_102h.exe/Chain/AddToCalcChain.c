@@ -1,34 +1,34 @@
 
-undefined4 __thiscall Chain::AddToCalcChain(Chain *this,ChainElem *param_2,int priority)
+undefined4 __thiscall Chain::AddToCalcChain(Chain *this,ChainElem *elem,int priority)
 
 {
   undefined4 uVar1;
   ChainElem *cur;
   
   DebugPrint2("add calc chain (pri = %d)\n",priority);
-  param_2->priority = (undefined2)priority;
-  for (cur = &this->calcChain; (cur->next != (ChainElem *)0x0 && ((short)cur->priority <= priority))
-      ; cur = cur->next) {
+  elem->priority = (short)priority;
+  for (cur = &this->calcChain; (cur->next != (ChainElem *)0x0 && (cur->priority <= priority));
+      cur = cur->next) {
   }
-  if (priority < (short)cur->priority) {
-    param_2->next = cur;
-    param_2->prev = cur->prev;
-    if (param_2->prev != (ChainElem *)0x0) {
-      param_2->prev->next = param_2;
+  if (priority < cur->priority) {
+    elem->next = cur;
+    elem->prev = cur->prev;
+    if (elem->prev != (ChainElem *)0x0) {
+      elem->prev->next = elem;
     }
-    cur->prev = param_2;
+    cur->prev = elem;
   }
   else {
-    param_2->next = (ChainElem *)0x0;
-    param_2->prev = cur;
-    cur->next = param_2;
+    elem->next = (ChainElem *)0x0;
+    elem->prev = cur;
+    cur->next = elem;
   }
-  if (param_2->added_callback == 0) {
+  if (elem->added_callback == 0) {
     uVar1 = 0;
   }
   else {
-    uVar1 = (*(code *)param_2->added_callback)(param_2->arg);
-    param_2->added_callback = 0;
+    uVar1 = (*(code *)elem->added_callback)(elem->arg);
+    elem->added_callback = 0;
   }
   return uVar1;
 }

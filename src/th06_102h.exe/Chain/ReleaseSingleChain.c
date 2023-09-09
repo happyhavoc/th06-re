@@ -2,61 +2,62 @@
 void __thiscall Chain::ReleaseSingleChain(Chain *this,ChainElem *root)
 
 {
-  ChainElem *allocatedChainElem;
-  ChainElem *local_60;
+  ChainElem *data_storage;
   ChainElem *allocatedChainElem2;
+  ChainElem *allocatedChainElem;
   ChainElem newRootElem;
-  ChainElem *local_1c;
-  ChainElem *local_18;
+  ChainElem *tmp;
+  ChainElem *tmp2;
   ChainElem *curElem;
-  void *local_10;
-  undefined *puStack_c;
-  undefined4 local_8;
+  void *exception_list_tmp;
+  undefined *exception_frame_handler;
+  undefined4 exception_mask;
   
-  local_8 = 0xffffffff;
-  puStack_c = &LAB_0046917e;
-  local_10 = ExceptionList;
-  ExceptionList = &local_10;
+  exception_mask = 0xffffffff;
+  exception_frame_handler = &LAB_0046917e;
+  exception_list_tmp = ExceptionList;
+  ExceptionList = &exception_list_tmp;
   ChainElem::ChainElem(&newRootElem);
-  local_8 = 0;
-  allocatedChainElem = (ChainElem *)operator_new(0x20);
-  local_8._0_1_ = 1;
-  if (allocatedChainElem == (ChainElem *)0x0) {
-    allocatedChainElem2 = (ChainElem *)0x0;
+  exception_mask = 0;
+  data_storage = (ChainElem *)operator_new(0x20);
+  exception_mask._0_1_ = 1;
+  if (data_storage == (ChainElem *)0x0) {
+    allocatedChainElem = (ChainElem *)0x0;
   }
   else {
-    allocatedChainElem2 = ChainElem::ChainElem(allocatedChainElem);
+    allocatedChainElem = ChainElem::ChainElem(data_storage);
   }
-  local_1c = allocatedChainElem2;
-  newRootElem.next = allocatedChainElem2;
-  for (curElem = root; local_8._0_1_ = 0, curElem != (ChainElem *)0x0; curElem = curElem->next) {
-    local_1c->unkPtr = curElem;
-    allocatedChainElem = (ChainElem *)operator_new(0x20);
-    local_8._0_1_ = 2;
-    if (allocatedChainElem == (ChainElem *)0x0) {
-      local_60 = (ChainElem *)0x0;
+  tmp = allocatedChainElem;
+  newRootElem.next = allocatedChainElem;
+  for (curElem = root; exception_mask._0_1_ = 0, curElem != (ChainElem *)0x0;
+      curElem = curElem->next) {
+    tmp->unkPtr = curElem;
+    data_storage = (ChainElem *)operator_new(0x20);
+    exception_mask._0_1_ = 2;
+    if (data_storage == (ChainElem *)0x0) {
+      allocatedChainElem2 = (ChainElem *)0x0;
     }
     else {
-      local_60 = ChainElem::ChainElem(allocatedChainElem);
+      allocatedChainElem2 = ChainElem::ChainElem(data_storage);
     }
-    local_1c->next = local_60;
-    local_1c = local_1c->next;
+    tmp->next = allocatedChainElem2;
+    tmp = tmp->next;
   }
   for (curElem = &newRootElem; curElem != (ChainElem *)0x0; curElem = curElem->next) {
-    CutChain(this,curElem->unkPtr);
+    Cut(this,curElem->unkPtr);
   }
-  local_1c = newRootElem.next;
-  while (allocatedChainElem = local_1c, local_1c != (ChainElem *)0x0) {
-    local_18 = local_1c->next;
-    if (local_1c != (ChainElem *)0x0) {
-      ChainElem::~ChainElem(local_1c);
-      _free(allocatedChainElem);
+  tmp = newRootElem.next;
+  while (data_storage = tmp, tmp != (ChainElem *)0x0) {
+    tmp2 = tmp->next;
+    if (tmp != (ChainElem *)0x0) {
+      ChainElem::~ChainElem(tmp);
+      _free(data_storage);
     }
-    local_1c = local_18;
+    tmp = tmp2;
   }
-  local_8 = 0xffffffff;
+  exception_mask = 0xffffffff;
   ChainElem::~ChainElem(&newRootElem);
-  ExceptionList = local_10;
+  ExceptionList = exception_list_tmp;
   return;
 }
 

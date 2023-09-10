@@ -1,5 +1,5 @@
 
-void __thiscall Chain::Cut(Chain *this,ChainElem *to_delete)
+void __thiscall Chain::Cut(Chain *this,ChainElem *to_remove)
 
 {
   code *pcVar1;
@@ -8,45 +8,45 @@ void __thiscall Chain::Cut(Chain *this,ChainElem *to_delete)
   
   isDrawChain = false;
   cur_elem = &this->calcChain;
-  if (to_delete != (ChainElem *)0x0) {
+  if (to_remove != (ChainElem *)0x0) {
     for (; cur_elem != (ChainElem *)0x0; cur_elem = cur_elem->next) {
-      if (cur_elem == to_delete) goto LAB_0041ce4c;
+      if (cur_elem == to_remove) goto destroy_elem;
     }
     isDrawChain = true;
     for (cur_elem = &this->drawChain; cur_elem != (ChainElem *)0x0; cur_elem = cur_elem->next) {
-      if (cur_elem == to_delete) {
-LAB_0041ce4c:
+      if (cur_elem == to_remove) {
+destroy_elem:
         if (isDrawChain) {
-          DebugPrint2("draw cut Chain (Pri = %d)\n",(int)to_delete->priority);
+          DebugPrint2("draw cut Chain (Pri = %d)\n",(int)to_remove->priority);
         }
         else {
-          DebugPrint2("calc cut Chain (Pri = %d)\n",(int)to_delete->priority);
+          DebugPrint2("calc cut Chain (Pri = %d)\n",(int)to_remove->priority);
         }
-        if (to_delete->prev == (ChainElem *)0x0) {
+        if (to_remove->prev == (ChainElem *)0x0) {
           return;
         }
-        to_delete->callback = 0;
-        to_delete->prev->next = to_delete->next;
-        if (to_delete->next != (ChainElem *)0x0) {
-          to_delete->next->prev = to_delete->prev;
+        to_remove->callback = 0;
+        to_remove->prev->next = to_remove->next;
+        if (to_remove->next != (ChainElem *)0x0) {
+          to_remove->next->prev = to_remove->prev;
         }
-        to_delete->prev = (ChainElem *)0x0;
-        to_delete->next = (ChainElem *)0x0;
+        to_remove->prev = (ChainElem *)0x0;
+        to_remove->next = (ChainElem *)0x0;
                     /* flags & IS_HEAP_ALLOCATED */
-        if ((to_delete->flags & 1) != 0) {
-          if (to_delete == (ChainElem *)0x0) {
+        if ((to_remove->flags & 1) != 0) {
+          if (to_remove == (ChainElem *)0x0) {
             return;
           }
-          ChainElem::~ChainElem(to_delete);
-          _free(to_delete);
+          ChainElem::~ChainElem(to_remove);
+          _free(to_remove);
           return;
         }
-        if (to_delete->deleted_callback == 0) {
+        if (to_remove->deleted_callback == 0) {
           return;
         }
-        pcVar1 = (code *)to_delete->deleted_callback;
-        to_delete->deleted_callback = 0;
-        (*pcVar1)(to_delete->arg);
+        pcVar1 = (code *)to_remove->deleted_callback;
+        to_remove->deleted_callback = 0;
+        (*pcVar1)(to_remove->arg);
         return;
       }
     }

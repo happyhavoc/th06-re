@@ -41,10 +41,10 @@ void __fastcall FUN_0041adf3(int param_1)
     FUN_00433590(*(int *)(param_1 + 4) + 0x1cb4);
   }
   if ((*(uint *)(*(int *)(param_1 + 4) + 0x1e44) & 1) != 0) {
-    FUN_00432ad0(g_AnmManager,*(int *)(param_1 + 4) + 0x1dc4);
+    AnmManager::FUN_00432ad0(g_AnmManager,(AnmVm *)(*(int *)(param_1 + 4) + 0x1dc4));
   }
   if ((*(uint *)(*(int *)(param_1 + 4) + 0x1f54) & 1) != 0) {
-    FUN_00432ad0(g_AnmManager,*(int *)(param_1 + 4) + 0x1ed4);
+    AnmManager::FUN_00432ad0(g_AnmManager,(AnmVm *)(*(int *)(param_1 + 4) + 0x1ed4));
   }
   if ((*(uint *)(*(int *)(param_1 + 4) + 0x2064) & 1) != 0) {
     iVar1 = *(int *)(param_1 + 4);
@@ -56,8 +56,8 @@ void __fastcall FUN_0041adf3(int param_1)
          ((((*(float *)(param_1 + 8) * 16.0) / 15.0) / 2.0 + -128.0) - 16.0) +
          *(float *)(*(int *)(param_1 + 4) + 0x2294);
     *(float *)(*(int *)(param_1 + 4) + 0x2220) = *(float *)(param_1 + 8) / 14.0;
-    FUN_00432ad0(g_AnmManager,*(int *)(param_1 + 4) + 0x2204);
-    FUN_00432ad0(g_AnmManager,*(int *)(param_1 + 4) + 0x1fe4);
+    AnmManager::FUN_00432ad0(g_AnmManager,(AnmVm *)(*(int *)(param_1 + 4) + 0x2204));
+    AnmManager::FUN_00432ad0(g_AnmManager,(AnmVm *)(*(int *)(param_1 + 4) + 0x1fe4));
   }
   if ((*(uint *)(*(int *)(param_1 + 4) + 0x2174) & 1) != 0) {
     iVar1 = *(int *)(param_1 + 4);
@@ -69,8 +69,8 @@ void __fastcall FUN_0041adf3(int param_1)
          (128.0 - ((*(float *)(param_1 + 0xc) * 16.0) / 15.0) / 2.0) +
          *(float *)(*(int *)(param_1 + 4) + 0x23a4);
     *(float *)(*(int *)(param_1 + 4) + 0x2330) = *(float *)(param_1 + 0xc) / 14.0;
-    FUN_00432ad0(g_AnmManager,*(int *)(param_1 + 4) + 0x2314);
-    FUN_00432ad0(g_AnmManager,*(int *)(param_1 + 4) + 0x20f4);
+    AnmManager::FUN_00432ad0(g_AnmManager,(AnmVm *)(*(int *)(param_1 + 4) + 0x2314));
+    AnmManager::FUN_00432ad0(g_AnmManager,(AnmVm *)(*(int *)(param_1 + 4) + 0x20f4));
   }
   if (-1 < *(short *)(*(int *)(param_1 + 4) + 0x24d4)) {
     g_GameContext.viewport.X = __ftol2((double)VIEWPORT_X);
@@ -79,7 +79,7 @@ void __fastcall FUN_0041adf3(int param_1)
     g_GameContext.viewport.Height = __ftol2((double)VIEWPORT_HEIGHT);
     (*(g_GameContext.d3dDevice)->lpVtbl->SetViewport)
               (g_GameContext.d3dDevice,(D3DVIEWPORT8 *)0x6c6de0);
-    FUN_00432ad0(g_AnmManager,*(int *)(param_1 + 4) + 0x2424);
+    AnmManager::FUN_00432ad0(g_AnmManager,(AnmVm *)(*(int *)(param_1 + 4) + 0x2424));
   }
   return;
 }

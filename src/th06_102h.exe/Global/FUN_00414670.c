@@ -1,68 +1,66 @@
 
-Unknown * FUN_00414670(short *param_1)
+AnmVm * FUN_00414670(short *param_1)
 
 {
   short sVar1;
-  undefined4 uVar2;
+  int iVar2;
   AnmManager *pAVar3;
-  int *piVar4;
   int in_ECX;
-  float10 fVar5;
+  float10 fVar4;
   short local_10;
-  Unknown *local_c;
+  AnmVm *local_c;
   int local_8;
   
   pAVar3 = g_AnmManager;
-  local_c = (Unknown *)(in_ECX + 0xec000);
+  local_c = (AnmVm *)(in_ECX + 0xec000);
   local_8 = 0;
   while( true ) {
     if (0x3f < local_8) {
       return local_c;
     }
-    if (local_c[3].field3_0xc == 0) break;
+    if (local_c[2].currentTimeInScript.current == 0) break;
     local_8 = local_8 + 1;
-    local_c = (Unknown *)&local_c[3].field9_0x24;
+    local_c = (AnmVm *)(local_c[2].matrix.field0_0x0.m[1] + 1);
   }
   sVar1 = *param_1;
   local_10 = sVar1 + 0x209;
-  *(short *)&local_c->field_0xb4 = local_10;
-  FUN_00432430(local_c,(int)pAVar3->scripts[sVar1 + 0x209]);
-  FUN_004323a0(g_AnmManager,local_c,local_c->field52_0xb0 + param_1[1]);
+  local_c->anmFileIndex = local_10;
+  FUN_00432430((Unknown *)local_c,(int)pAVar3->scripts[sVar1 + 0x209]);
+  AnmManager::FUN_004323a0(g_AnmManager,local_c,(int)local_c->spriteNumber + (int)param_1[1]);
   pAVar3 = g_AnmManager;
-  uVar2 = *(undefined4 *)(&DAT_00476440 + param_1[1] * 4);
-  piVar4 = &local_c[1].field13_0x3c.field4_0x10;
-  FUN_00403580((Unknown *)piVar4);
-  FUN_004323a0(pAVar3,(Unknown *)piVar4,(short)uVar2 + 0x28c);
-  local_c[2].field2_0x8 = local_c[2].field2_0x8 | 4;
-  local_c[2].field31_0x98 = *(float *)(param_1 + 2);
-  *(undefined4 *)&local_c[2].field_0x9c = *(undefined4 *)(param_1 + 4);
-  *(undefined4 *)&local_c[2].field_0xa0 = *(undefined4 *)(param_1 + 6);
-  *(short *)((int)&local_c[3].field7_0x1c + 2) = param_1[1];
-  local_c[3].field3_0xc = 1;
-  *(undefined4 *)&local_c[2].field_0xa4 = *(undefined4 *)(param_1 + 8);
+  iVar2 = *(int *)(&DAT_00476440 + param_1[1] * 4);
+  AnmVm::Initialize(local_c + 1);
+  AnmManager::FUN_004323a0(pAVar3,local_c + 1,iVar2 + 0x28c);
+  local_c[1].flags = local_c[1].flags | 4;
+  local_c[2].rotation.x = *(float *)(param_1 + 2);
+  local_c[2].rotation.y = *(float *)(param_1 + 4);
+  local_c[2].rotation.z = *(float *)(param_1 + 6);
+  *(short *)((int)&local_c[2].matrix.field0_0x0 + 0xe) = param_1[1];
+  local_c[2].currentTimeInScript.current = 1;
+  local_c[2].angleVel.x = *(float *)(param_1 + 8);
   if (param_1[0x24] == 0) {
-    fVar5 = (float10)FUN_00428700(param_1 + 2);
-    *(float *)&local_c[2].field_0xa4 = (float)(fVar5 + (float10)*(float *)&local_c[2].field_0xa4);
+    fVar4 = (float10)FUN_00428700(param_1 + 2);
+    local_c[2].angleVel.x = (float)(fVar4 + (float10)local_c[2].angleVel.x);
   }
-  *(short *)&local_c[3].field7_0x1c = param_1[0x26];
-  local_c[3].field6_0x18 = 0.0;
-  local_c[3].field5_0x14 = 0;
-  local_c[3].field4_0x10 = 0xfffffc19;
-  *(undefined4 *)&local_c[2].field_0xa8 = *(undefined4 *)(param_1 + 0x10);
-  *(undefined4 *)&local_c[2].field_0xac = *(undefined4 *)(param_1 + 0x12);
-  *(undefined4 *)&local_c[2].field52_0xb0 = *(undefined4 *)(param_1 + 0x14);
-  *(undefined4 *)&local_c[2].field_0xb4 = *(undefined4 *)(param_1 + 0x16);
-  *(undefined4 *)&local_c[2].field_0xb8 = *(undefined4 *)(param_1 + 0xc);
-  *(undefined4 *)&local_c[2].field_0xbc = *(undefined4 *)(param_1 + 0x18);
-  local_c[3].field0_0x0 = *(undefined4 *)(param_1 + 0x1a);
-  local_c[3].field1_0x4 = *(undefined4 *)(param_1 + 0x1c);
-  local_c[2].field67_0xc0 = *(AnmLoadedSprite **)(param_1 + 0x1e);
-  local_c[3].field2_0x8 = *(undefined4 *)(param_1 + 0x20);
-  if (*(int *)&local_c[2].field_0xbc == 0) {
-    *(undefined *)&local_c[3].field8_0x20 = 1;
+  *(short *)((int)&local_c[2].matrix.field0_0x0 + 0xc) = param_1[0x26];
+  local_c[2].matrix.field0_0x0.field0._13 = 0.0;
+  local_c[2].matrix.field0_0x0.field0._12 = 0.0;
+  local_c[2].matrix.field0_0x0.field0._11 = -NAN;
+  local_c[2].angleVel.y = *(float *)(param_1 + 0x10);
+  local_c[2].angleVel.z = *(float *)(param_1 + 0x12);
+  local_c[2].scaleX = *(float *)(param_1 + 0x14);
+  local_c[2].scaleY = *(float *)(param_1 + 0x16);
+  local_c[2].scaleInterpFinalY = *(float *)(param_1 + 0xc);
+  local_c[2].scaleInterpFinalX = *(float *)(param_1 + 0x18);
+  local_c[2].uvScrollPos.y = *(FLOAT *)(param_1 + 0x1a);
+  local_c[2].currentTimeInScript.previous = *(int *)(param_1 + 0x1c);
+  local_c[2].uvScrollPos.x = *(FLOAT *)(param_1 + 0x1e);
+  local_c[2].currentTimeInScript.subFrame = *(float *)(param_1 + 0x20);
+  if (local_c[2].scaleInterpFinalX == 0.0) {
+    *(undefined *)((int)&local_c[2].matrix.field0_0x0 + 0x10) = 1;
     return local_c;
   }
-  *(undefined *)&local_c[3].field8_0x20 = 0;
+  *(undefined *)((int)&local_c[2].matrix.field0_0x0 + 0x10) = 0;
   return local_c;
 }
 

@@ -7,30 +7,25 @@ undefined4 FUN_004135b0(short *param_1,uint param_2,int param_3,float param_4)
   undefined4 uVar3;
   int in_ECX;
   int iVar4;
-  int *piVar5;
-  float *pfVar6;
-  undefined4 *puVar7;
-  Unknown *pUVar8;
-  int *piVar9;
-  float *pfVar10;
-  undefined4 *puVar11;
-  float10 fVar12;
-  float10 fVar13;
+  float *pfVar5;
+  AnmVm *pAVar6;
+  float10 fVar7;
+  float10 fVar8;
   float local_14;
-  Unknown *local_10;
+  AnmVm *local_10;
   int local_c;
   float local_8;
   
-  local_10 = (Unknown *)(in_ECX + 0x5600 + *(int *)(in_ECX + 0xf5c00) * 0x5c4);
+  local_10 = (AnmVm *)(in_ECX + 0x5600 + *(int *)(in_ECX + 0xf5c00) * 0x5c4);
   for (local_c = 0; local_c < 0x280; local_c = local_c + 1) {
     *(int *)(in_ECX + 0xf5c00) = *(int *)(in_ECX + 0xf5c00) + 1;
     if (0x27f < *(int *)(in_ECX + 0xf5c00)) {
       *(undefined4 *)(in_ECX + 0xf5c00) = 0;
     }
-    if (*(short *)((int)&local_10[7].field13_0x3c.field9_0x24 + 2) == 0) break;
-    local_10 = (Unknown *)&local_10[7].field13_0x3c.field11_0x2c;
+    if (*(short *)((int)&local_10[5].matrix.field0_0x0 + 0x32) == 0) break;
+    local_10 = (AnmVm *)(local_10[5].matrix.field0_0x0.m[3] + 2);
     if (*(int *)(in_ECX + 0xf5c00) == 0) {
-      local_10 = (Unknown *)(in_ECX + 0x5600);
+      local_10 = (AnmVm *)(in_ECX + 0x5600);
     }
   }
   if (local_c < 0x280) {
@@ -72,238 +67,234 @@ undefined4 FUN_004135b0(short *param_1,uint param_2,int param_3,float param_4)
     case 6:
       fVar2 = *(float *)(param_1 + 8);
       fVar1 = *(float *)(param_1 + 10);
-      fVar12 = (float10)FUN_0041e820();
-      local_14 = (float)(fVar12 * (float10)(fVar2 - fVar1) + (float10)*(float *)(param_1 + 10));
+      fVar7 = (float10)FUN_0041e820();
+      local_14 = (float)(fVar7 * (float10)(fVar2 - fVar1) + (float10)*(float *)(param_1 + 10));
       break;
     case 7:
       fVar2 = *(float *)(param_1 + 0xc);
       fVar1 = *(float *)(param_1 + 0xe);
-      fVar12 = (float10)FUN_0041e820();
-      local_8 = (float)(fVar12 * (float10)(fVar2 - fVar1) + (float10)*(float *)(param_1 + 0xe));
+      fVar7 = (float10)FUN_0041e820();
+      local_8 = (float)(fVar7 * (float10)(fVar2 - fVar1) + (float10)*(float *)(param_1 + 0xe));
       local_14 = (float)param_3 * *(float *)(param_1 + 10) + *(float *)(param_1 + 8) +
                  ((float)param_2 * 6.283185) / (float)(int)param_1[0x22] + 0.0;
       break;
     case 8:
       fVar2 = *(float *)(param_1 + 8);
       fVar1 = *(float *)(param_1 + 10);
-      fVar12 = (float10)FUN_0041e820();
-      local_14 = (float)(fVar12 * (float10)(fVar2 - fVar1) + (float10)*(float *)(param_1 + 10));
+      fVar7 = (float10)FUN_0041e820();
+      local_14 = (float)(fVar7 * (float10)(fVar2 - fVar1) + (float10)*(float *)(param_1 + 10));
       fVar2 = *(float *)(param_1 + 0xc);
       fVar1 = *(float *)(param_1 + 0xe);
-      fVar12 = (float10)FUN_0041e820();
-      local_8 = (float)(fVar12 * (float10)(fVar2 - fVar1) + (float10)*(float *)(param_1 + 0xe));
+      fVar7 = (float10)FUN_0041e820();
+      local_8 = (float)(fVar7 * (float10)(fVar2 - fVar1) + (float10)*(float *)(param_1 + 0xe));
     }
-    *(undefined2 *)((int)&local_10[7].field13_0x3c.field9_0x24 + 2) = 1;
-    *(undefined *)((int)&local_10[7].field13_0x3c.field10_0x28 + 2) = 1;
-    local_10[7].field10_0x28 = local_8;
-    fVar12 = (float10)FUN_0041e850(local_14,0);
-    local_10[7].field12_0x30.subFrame = (float)fVar12;
-    local_10[7].field1_0x4 = *(undefined4 *)(param_1 + 2);
-    local_10[7].field2_0x8 = *(undefined4 *)(param_1 + 4);
-    local_10[7].field3_0xc = *(undefined4 *)(param_1 + 6);
-    local_10[7].field3_0xc = 0x3dcccccd;
-    fVar13 = (float10)local_10[7].field12_0x30.subFrame;
-    fVar12 = (float10)fcos(fVar13);
-    fVar13 = (float10)fsin(fVar13);
-    local_10[7].field4_0x10 = (float)(fVar12 * (float10)local_8);
-    local_10[7].field5_0x14 = (float)(fVar13 * (float10)local_8);
-    *(short *)&local_10[7].field13_0x3c.field8_0x20 = param_1[0x26];
-    *(short *)((int)&local_10[7].field13_0x3c.field8_0x20 + 2) = param_1[1];
-    puVar7 = (undefined4 *)(in_ECX + *param_1 * 0x560);
-    pUVar8 = local_10;
+    *(undefined2 *)((int)&local_10[5].matrix.field0_0x0 + 0x32) = 1;
+    *(undefined *)((int)&local_10[5].matrix.field0_0x0 + 0x36) = 1;
+    local_10[5].currentTimeInScript.subFrame = local_8;
+    fVar7 = (float10)FUN_0041e850(local_14,0);
+    local_10[5].matrix.field0_0x0.field0._12 = (float)fVar7;
+    local_10[5].angleVel.y = *(float *)(param_1 + 2);
+    local_10[5].angleVel.z = *(float *)(param_1 + 4);
+    local_10[5].scaleX = *(float *)(param_1 + 6);
+    local_10[5].scaleX = 0.1;
+    fVar8 = (float10)local_10[5].matrix.field0_0x0.field0._12;
+    fVar7 = (float10)fcos(fVar8);
+    fVar8 = (float10)fsin(fVar8);
+    local_10[5].scaleY = (float)(fVar7 * (float10)local_8);
+    local_10[5].scaleInterpFinalY = (float)(fVar8 * (float10)local_8);
+    *(short *)((int)&local_10[5].matrix.field0_0x0 + 0x2c) = param_1[0x26];
+    *(short *)((int)&local_10[5].matrix.field0_0x0 + 0x2e) = param_1[1];
+    pfVar5 = (float *)(in_ECX + *param_1 * 0x560);
+    pAVar6 = local_10;
     for (iVar4 = 0x44; iVar4 != 0; iVar4 = iVar4 + -1) {
-      pUVar8->field0_0x0 = *puVar7;
-      puVar7 = puVar7 + 1;
-      pUVar8 = (Unknown *)&pUVar8->field1_0x4;
+      (pAVar6->rotation).x = *pfVar5;
+      pfVar5 = pfVar5 + 1;
+      pAVar6 = (AnmVm *)&(pAVar6->rotation).y;
     }
-    piVar5 = (int *)(in_ECX + 0x440 + *param_1 * 0x560);
-    piVar9 = &local_10[5].field13_0x3c.field12_0x30;
+    pfVar5 = (float *)(in_ECX + 0x440 + *param_1 * 0x560);
+    pAVar6 = local_10 + 4;
     for (iVar4 = 0x44; iVar4 != 0; iVar4 = iVar4 + -1) {
-      *piVar9 = *piVar5;
-      piVar5 = piVar5 + 1;
-      piVar9 = piVar9 + 1;
+      (pAVar6->rotation).x = *pfVar5;
+      pfVar5 = pfVar5 + 1;
+      pAVar6 = (AnmVm *)&(pAVar6->rotation).y;
     }
-    puVar7 = (undefined4 *)(in_ECX + 0x550 + *param_1 * 0x560);
-    *(undefined4 *)&local_10[6].field_0xb8 = *puVar7;
-    *(undefined4 *)&local_10[6].field_0xbc = puVar7[1];
-    local_10[6].field67_0xc0 = (AnmLoadedSprite *)puVar7[2];
-    *(undefined *)&local_10[7].field0_0x0 = *(undefined *)(in_ECX + 0x55c + *param_1 * 0x560);
-    *(undefined *)((int)&local_10[7].field0_0x0 + 1) =
+    pfVar5 = (float *)(in_ECX + 0x550 + *param_1 * 0x560);
+    local_10[5].rotation.x = *pfVar5;
+    local_10[5].rotation.y = pfVar5[1];
+    local_10[5].rotation.z = pfVar5[2];
+    *(undefined *)&local_10[5].angleVel.x = *(undefined *)(in_ECX + 0x55c + *param_1 * 0x560);
+    *(undefined *)((int)&local_10[5].angleVel.x + 1) =
          *(undefined *)(in_ECX + 0x55d + *param_1 * 0x560);
-    if ((*(ushort *)&local_10[7].field13_0x3c.field8_0x20 & 2) == 0) {
-      if ((*(ushort *)&local_10[7].field13_0x3c.field8_0x20 & 4) == 0) {
-        if ((*(ushort *)&local_10[7].field13_0x3c.field8_0x20 & 8) != 0) {
-          puVar7 = (undefined4 *)(in_ECX + 0x330 + *param_1 * 0x560);
-          puVar11 = &local_10[4].field8_0x20;
+    if ((*(ushort *)((int)&local_10[5].matrix.field0_0x0 + 0x2c) & 2) == 0) {
+      if ((*(ushort *)((int)&local_10[5].matrix.field0_0x0 + 0x2c) & 4) == 0) {
+        if ((*(ushort *)((int)&local_10[5].matrix.field0_0x0 + 0x2c) & 8) != 0) {
+          pfVar5 = (float *)(in_ECX + 0x330 + *param_1 * 0x560);
+          pAVar6 = local_10 + 3;
           for (iVar4 = 0x44; iVar4 != 0; iVar4 = iVar4 + -1) {
-            *puVar11 = *puVar7;
-            puVar7 = puVar7 + 1;
-            puVar11 = puVar11 + 1;
+            (pAVar6->rotation).x = *pfVar5;
+            pfVar5 = pfVar5 + 1;
+            pAVar6 = (AnmVm *)&(pAVar6->rotation).y;
           }
-          fVar2 = local_10->field67_0xc0->heightPx;
+          fVar2 = local_10->sprite->heightPx;
           if (fVar2 < 16.0 == (fVar2 == 16.0)) {
-            fVar2 = local_10->field67_0xc0->heightPx;
+            fVar2 = local_10->sprite->heightPx;
             if (fVar2 < 32.0 == (fVar2 == 32.0)) {
-              FUN_004323a0(g_AnmManager,(Unknown *)&local_10[4].field8_0x20,
-                           *(short *)&local_10[5].field3_0xc + param_1[1]);
+              AnmManager::FUN_004323a0
+                        (g_AnmManager,local_10 + 3,(int)local_10[3].spriteNumber + (int)param_1[1]);
             }
-            else if (*(short *)&local_10->field_0xb4 == 0x207) {
-              FUN_004323a0(g_AnmManager,(Unknown *)&local_10[4].field8_0x20,
-                           *(short *)&local_10[5].field3_0xc + 1);
+            else if (local_10->anmFileIndex == 0x207) {
+              AnmManager::FUN_004323a0(g_AnmManager,local_10 + 3,local_10[3].spriteNumber + 1);
             }
             else {
-              FUN_004323a0(g_AnmManager,(Unknown *)&local_10[4].field8_0x20,
-                           *(short *)&local_10[5].field3_0xc +
-                           (short)*(undefined4 *)(&DAT_00476480 + param_1[1] * 4));
+              AnmManager::FUN_004323a0
+                        (g_AnmManager,local_10 + 3,
+                         (int)local_10[3].spriteNumber + *(int *)(&DAT_00476480 + param_1[1] * 4));
             }
           }
           else {
-            FUN_004323a0(g_AnmManager,(Unknown *)&local_10[4].field8_0x20,
-                         *(short *)&local_10[5].field3_0xc +
-                         (short)*(undefined4 *)(&DAT_00476440 + param_1[1] * 4));
+            AnmManager::FUN_004323a0
+                      (g_AnmManager,local_10 + 3,
+                       (int)local_10[3].spriteNumber + *(int *)(&DAT_00476440 + param_1[1] * 4));
           }
-          *(undefined2 *)((int)&local_10[7].field13_0x3c.field9_0x24 + 2) = 4;
+          *(undefined2 *)((int)&local_10[5].matrix.field0_0x0 + 0x32) = 4;
         }
       }
       else {
-        pfVar6 = (float *)(in_ECX + 0x220 + *param_1 * 0x560);
-        pfVar10 = &local_10[2].field31_0x98;
+        pfVar5 = (float *)(in_ECX + 0x220 + *param_1 * 0x560);
+        pAVar6 = local_10 + 2;
         for (iVar4 = 0x44; iVar4 != 0; iVar4 = iVar4 + -1) {
-          *pfVar10 = *pfVar6;
-          pfVar6 = pfVar6 + 1;
-          pfVar10 = pfVar10 + 1;
+          (pAVar6->rotation).x = *pfVar5;
+          pfVar5 = pfVar5 + 1;
+          pAVar6 = (AnmVm *)&(pAVar6->rotation).y;
         }
-        fVar2 = local_10->field67_0xc0->heightPx;
+        fVar2 = local_10->sprite->heightPx;
         if (fVar2 < 16.0 == (fVar2 == 16.0)) {
-          fVar2 = local_10->field67_0xc0->heightPx;
+          fVar2 = local_10->sprite->heightPx;
           if (fVar2 < 32.0 == (fVar2 == 32.0)) {
-            FUN_004323a0(g_AnmManager,(Unknown *)&local_10[2].field31_0x98,
-                         local_10[3].field16_0x84 + param_1[1]);
+            AnmManager::FUN_004323a0
+                      (g_AnmManager,local_10 + 2,(int)local_10[2].spriteNumber + (int)param_1[1]);
           }
-          else if (*(short *)&local_10->field_0xb4 == 0x207) {
-            FUN_004323a0(g_AnmManager,(Unknown *)&local_10[2].field31_0x98,
-                         local_10[3].field16_0x84 + 1);
+          else if (local_10->anmFileIndex == 0x207) {
+            AnmManager::FUN_004323a0(g_AnmManager,local_10 + 2,local_10[2].spriteNumber + 1);
           }
           else {
-            FUN_004323a0(g_AnmManager,(Unknown *)&local_10[2].field31_0x98,
-                         local_10[3].field16_0x84 +
-                         (short)*(undefined4 *)(&DAT_00476480 + param_1[1] * 4));
+            AnmManager::FUN_004323a0
+                      (g_AnmManager,local_10 + 2,
+                       (int)local_10[2].spriteNumber + *(int *)(&DAT_00476480 + param_1[1] * 4));
           }
         }
         else {
-          FUN_004323a0(g_AnmManager,(Unknown *)&local_10[2].field31_0x98,
-                       local_10[3].field16_0x84 +
-                       (short)*(undefined4 *)(&DAT_00476440 + param_1[1] * 4));
+          AnmManager::FUN_004323a0
+                    (g_AnmManager,local_10 + 2,
+                     (int)local_10[2].spriteNumber + *(int *)(&DAT_00476440 + param_1[1] * 4));
         }
-        *(undefined2 *)((int)&local_10[7].field13_0x3c.field9_0x24 + 2) = 3;
+        *(undefined2 *)((int)&local_10[5].matrix.field0_0x0 + 0x32) = 3;
       }
     }
     else {
-      piVar5 = (int *)(in_ECX + 0x110 + *param_1 * 0x560);
-      pfVar6 = (float *)&local_10[1].field13_0x3c.field4_0x10;
+      pfVar5 = (float *)(in_ECX + 0x110 + *param_1 * 0x560);
+      pAVar6 = local_10 + 1;
       for (iVar4 = 0x44; iVar4 != 0; iVar4 = iVar4 + -1) {
-        *pfVar6 = (float)*piVar5;
-        piVar5 = piVar5 + 1;
-        pfVar6 = pfVar6 + 1;
+        (pAVar6->rotation).x = *pfVar5;
+        pfVar5 = pfVar5 + 1;
+        pAVar6 = (AnmVm *)&(pAVar6->rotation).y;
       }
-      fVar2 = local_10->field67_0xc0->heightPx;
+      fVar2 = local_10->sprite->heightPx;
       if (fVar2 < 16.0 == (fVar2 == 16.0)) {
-        fVar2 = local_10->field67_0xc0->heightPx;
+        fVar2 = local_10->sprite->heightPx;
         if (fVar2 < 32.0 == (fVar2 == 32.0)) {
-          FUN_004323a0(g_AnmManager,(Unknown *)&local_10[1].field13_0x3c.field4_0x10,
-                       *(short *)&local_10[2].field12_0x30.current + param_1[1]);
+          AnmManager::FUN_004323a0
+                    (g_AnmManager,local_10 + 1,(int)local_10[1].spriteNumber + (int)param_1[1]);
         }
-        else if (*(short *)&local_10->field_0xb4 == 0x207) {
-          FUN_004323a0(g_AnmManager,(Unknown *)&local_10[1].field13_0x3c.field4_0x10,
-                       *(short *)&local_10[2].field12_0x30.current + 1);
+        else if (local_10->anmFileIndex == 0x207) {
+          AnmManager::FUN_004323a0(g_AnmManager,local_10 + 1,local_10[1].spriteNumber + 1);
         }
         else {
-          FUN_004323a0(g_AnmManager,(Unknown *)&local_10[1].field13_0x3c.field4_0x10,
-                       *(short *)&local_10[2].field12_0x30.current +
-                       (short)*(undefined4 *)(&DAT_00476480 + param_1[1] * 4));
+          AnmManager::FUN_004323a0
+                    (g_AnmManager,local_10 + 1,
+                     (int)local_10[1].spriteNumber + *(int *)(&DAT_00476480 + param_1[1] * 4));
         }
       }
       else {
-        FUN_004323a0(g_AnmManager,(Unknown *)&local_10[1].field13_0x3c.field4_0x10,
-                     *(short *)&local_10[2].field12_0x30.current +
-                     (short)*(undefined4 *)(&DAT_00476440 + param_1[1] * 4));
+        AnmManager::FUN_004323a0
+                  (g_AnmManager,local_10 + 1,
+                   (int)local_10[1].spriteNumber + *(int *)(&DAT_00476440 + param_1[1] * 4));
       }
-      *(undefined2 *)((int)&local_10[7].field13_0x3c.field9_0x24 + 2) = 2;
+      *(undefined2 *)((int)&local_10[5].matrix.field0_0x0 + 0x32) = 2;
     }
-    FUN_004323a0(g_AnmManager,local_10,local_10->field52_0xb0 + param_1[1]);
-    fVar2 = local_10->field67_0xc0->heightPx;
+    AnmManager::FUN_004323a0(g_AnmManager,local_10,(int)local_10->spriteNumber + (int)param_1[1]);
+    fVar2 = local_10->sprite->heightPx;
     if (fVar2 < 16.0 == (fVar2 == 16.0)) {
-      fVar2 = local_10->field67_0xc0->heightPx;
+      fVar2 = local_10->sprite->heightPx;
       if (fVar2 < 32.0 == (fVar2 == 32.0)) {
-        FUN_004323a0(g_AnmManager,(Unknown *)&local_10[5].field13_0x3c.field12_0x30,
-                     *(short *)&local_10[6].field13_0x3c.field7_0x1c + param_1[1]);
+        AnmManager::FUN_004323a0
+                  (g_AnmManager,local_10 + 4,(int)local_10[4].spriteNumber + (int)param_1[1]);
       }
-      else if (*(short *)&local_10->field_0xb4 == 0x207) {
-        FUN_004323a0(g_AnmManager,(Unknown *)&local_10[5].field13_0x3c.field12_0x30,
-                     *(short *)&local_10[6].field13_0x3c.field7_0x1c + 1);
+      else if (local_10->anmFileIndex == 0x207) {
+        AnmManager::FUN_004323a0(g_AnmManager,local_10 + 4,local_10[4].spriteNumber + 1);
       }
       else {
-        FUN_004323a0(g_AnmManager,(Unknown *)&local_10[5].field13_0x3c.field12_0x30,
-                     *(short *)&local_10[6].field13_0x3c.field7_0x1c +
-                     (short)*(undefined4 *)(&DAT_00476480 + param_1[1] * 4));
+        AnmManager::FUN_004323a0
+                  (g_AnmManager,local_10 + 4,
+                   (int)local_10[4].spriteNumber + *(int *)(&DAT_00476480 + param_1[1] * 4));
       }
     }
     else {
-      FUN_004323a0(g_AnmManager,(Unknown *)&local_10[5].field13_0x3c.field12_0x30,
-                   *(short *)&local_10[6].field13_0x3c.field7_0x1c +
-                   (short)*(undefined4 *)(&DAT_00476440 + param_1[1] * 4));
+      AnmManager::FUN_004323a0
+                (g_AnmManager,local_10 + 4,
+                 (int)local_10[4].spriteNumber + *(int *)(&DAT_00476440 + param_1[1] * 4));
     }
-    if ((*(ushort *)&local_10[7].field13_0x3c.field8_0x20 & 0x10) == 0) {
-      if ((*(ushort *)&local_10[7].field13_0x3c.field8_0x20 & 0x20) != 0) {
-        local_10[7].field11_0x2c = *(undefined4 *)(param_1 + 0x10);
-        local_10[7].field12_0x30.current = *(int *)(param_1 + 0x12);
-        local_10[7].field13_0x3c.field4_0x10 = *(int *)(param_1 + 0x18);
+    if ((*(ushort *)((int)&local_10[5].matrix.field0_0x0 + 0x2c) & 0x10) == 0) {
+      if ((*(ushort *)((int)&local_10[5].matrix.field0_0x0 + 0x2c) & 0x20) != 0) {
+        local_10[5].currentTimeInScript.current = *(int *)(param_1 + 0x10);
+        local_10[5].matrix.field0_0x0.field0._13 = *(float *)(param_1 + 0x12);
+        local_10[5].matrix.field0_0x0.field0._24 = *(float *)(param_1 + 0x18);
       }
     }
     else {
       if (*(float *)(param_1 + 0x12) < -999.0 == (*(float *)(param_1 + 0x12) == -999.0)) {
         fVar2 = *(float *)(param_1 + 0x10);
-        fVar12 = (float10)fcos((float10)*(float *)(param_1 + 0x12));
-        fVar13 = (float10)fsin((float10)*(float *)(param_1 + 0x12));
-        local_10[7].field7_0x1c = (float)(fVar12 * (float10)fVar2);
-        local_10[7].field8_0x20 = (float)(fVar13 * (float10)fVar2);
+        fVar7 = (float10)fcos((float10)*(float *)(param_1 + 0x12));
+        fVar8 = (float10)fsin((float10)*(float *)(param_1 + 0x12));
+        local_10[5].uvScrollPos.x = (float)(fVar7 * (float10)fVar2);
+        local_10[5].uvScrollPos.y = (float)(fVar8 * (float10)fVar2);
       }
       else {
         fVar2 = *(float *)(param_1 + 0x10);
-        fVar12 = (float10)fcos((float10)local_14);
-        fVar13 = (float10)fsin((float10)local_14);
-        local_10[7].field7_0x1c = (float)(fVar12 * (float10)fVar2);
-        local_10[7].field8_0x20 = (float)(fVar13 * (float10)fVar2);
+        fVar7 = (float10)fcos((float10)local_14);
+        fVar8 = (float10)fsin((float10)local_14);
+        local_10[5].uvScrollPos.x = (float)(fVar7 * (float10)fVar2);
+        local_10[5].uvScrollPos.y = (float)(fVar8 * (float10)fVar2);
       }
       if (*(int *)(param_1 + 0x18) < 1) {
-        local_10[7].field13_0x3c.field4_0x10 = 99999;
+        local_10[5].matrix.field0_0x0.field0._24 = 1.401284e-40;
       }
       else {
-        local_10[7].field13_0x3c.field4_0x10 = *(int *)(param_1 + 0x18);
+        local_10[5].matrix.field0_0x0.field0._24 = *(float *)(param_1 + 0x18);
       }
-      local_10[7].field9_0x24 = 0;
+      local_10[5].currentTimeInScript.previous = 0;
     }
-    if ((*(ushort *)&local_10[7].field13_0x3c.field8_0x20 & 0x1c0) != 0) {
-      local_10[7].field13_0x3c.field0_0x0 = *(float *)(param_1 + 0x10);
+    if ((*(ushort *)((int)&local_10[5].matrix.field0_0x0 + 0x2c) & 0x1c0) != 0) {
+      local_10[5].matrix.field0_0x0.field0._14 = *(float *)(param_1 + 0x10);
       if (*(float *)(param_1 + 0x12) < 0.0) {
-        local_10[7].field12_0x30.previous = (int)local_8;
+        local_10[5].matrix.field0_0x0.field0._11 = local_8;
       }
       else {
-        local_10[7].field12_0x30.previous = *(int *)(param_1 + 0x12);
+        local_10[5].matrix.field0_0x0.field0._11 = *(float *)(param_1 + 0x12);
       }
-      local_10[7].field13_0x3c.field5_0x14 = *(float *)(param_1 + 0x18);
-      local_10[7].field13_0x3c.field7_0x1c = *(int *)(param_1 + 0x1a);
-      local_10[7].field13_0x3c.field6_0x18 = 0;
+      local_10[5].matrix.field0_0x0.field0._31 = *(float *)(param_1 + 0x18);
+      local_10[5].matrix.field0_0x0.field0._33 = *(float *)(param_1 + 0x1a);
+      local_10[5].matrix.field0_0x0.field0._32 = 0.0;
     }
-    if ((*(ushort *)&local_10[7].field13_0x3c.field8_0x20 & 0xc00) != 0) {
+    if ((*(ushort *)((int)&local_10[5].matrix.field0_0x0 + 0x2c) & 0xc00) != 0) {
       if (*(float *)(param_1 + 0x10) < 0.0) {
-        local_10[7].field12_0x30.previous = (int)local_8;
+        local_10[5].matrix.field0_0x0.field0._11 = local_8;
       }
       else {
-        local_10[7].field12_0x30.previous = *(int *)(param_1 + 0x10);
+        local_10[5].matrix.field0_0x0.field0._11 = *(float *)(param_1 + 0x10);
       }
-      local_10[7].field13_0x3c.field7_0x1c = *(int *)(param_1 + 0x18);
-      local_10[7].field13_0x3c.field6_0x18 = 0;
+      local_10[5].matrix.field0_0x0.field0._33 = *(float *)(param_1 + 0x18);
+      local_10[5].matrix.field0_0x0.field0._32 = 0.0;
     }
     uVar3 = 0;
   }

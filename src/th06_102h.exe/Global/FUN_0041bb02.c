@@ -152,7 +152,7 @@ undefined4 FUN_0041bb02(uint *param_1)
                 *(undefined *)(param_1 + 0xb) = 0;
                 param_1[1] = 0;
                 *(undefined *)((int)param_1 + 0x1822) = 0;
-                FUN_00401410((InputChainArg *)&DAT_0047b900);
+                AsciiManager::Initialize((AsciiManager *)&g_AsciiManager);
                 if (bVar1) {
                   g_GameContext.unkInput2 = 1;
                 }

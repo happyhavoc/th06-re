@@ -8,7 +8,7 @@ undefined4 FUN_0042f060(undefined4 *param_1)
   short local_3c;
   int local_14;
   int local_10;
-  Unknown *local_c;
+  AnmVm *local_c;
   int local_8;
   
   if (param_1[2] != 0x11) {
@@ -32,31 +32,31 @@ undefined4 FUN_0042f060(undefined4 *param_1)
     if (iVar2 != 0) {
       return 0xffffffff;
     }
-    local_c = (Unknown *)(param_1 + 0x10);
+    local_c = (AnmVm *)(param_1 + 0x10);
     for (local_8 = 0; local_8 < 0x26; local_8 = local_8 + 1) {
-      *(undefined4 *)&local_c->field_0x90 = 0;
-      *(undefined4 *)&local_c->field_0x94 = 0;
-      local_c->field31_0x98 = 0.0;
-      local_c[1].field8_0x20 = 0;
-      local_c[1].field9_0x24 = 0;
-      local_c[1].field10_0x28 = 0;
+      (local_c->pos).x = 0;
+      *(undefined4 *)&local_c->pos = 0;
+      *(float *)&local_c->pos = 0.0;
+      ((Unknown *)((int)local_c + 0xc4))->field8_0x20 = 0;
+      ((Unknown *)((int)local_c + 0xc4))->field9_0x24 = 0;
+      ((Unknown *)((int)local_c + 0xc4))->field10_0x28 = 0;
       pAVar1 = g_AnmManager;
       local_3c = (short)local_8 + 0x100;
-      *(short *)&local_c->field_0xb4 = local_3c;
-      FUN_00432430(local_c,(int)pAVar1->scripts[local_8 + 0x100]);
-      local_c = (Unknown *)&local_c[1].field13_0x3c.field4_0x10;
+      local_c->anmFileIndex = local_3c;
+      FUN_00432430((Unknown *)local_c,(int)pAVar1->scripts[local_8 + 0x100]);
+      local_c = (AnmVm *)&(((Unknown *)((int)local_c + 0xc4))->field13_0x3c).field4_0x10;
     }
-    local_c = (Unknown *)(param_1 + 0xa28);
+    local_c = (AnmVm *)(param_1 + 0xa28);
     for (local_8 = 0; pAVar1 = g_AnmManager, local_8 < 0x10; local_8 = local_8 + 1) {
-      FUN_00403580(local_c);
-      FUN_004323a0(pAVar1,local_c,(short)local_8 + 0x708);
-      *(undefined4 *)&local_c->field_0x90 = 0;
-      *(undefined4 *)&local_c->field_0x94 = 0;
-      local_c->field31_0x98 = 0.0;
-      local_c->field15_0x80 = local_c->field15_0x80 | 0x300;
-      *(undefined *)&local_c[1].field13_0x3c.field3_0xc = 0xf;
-      *(undefined *)((int)&local_c[1].field13_0x3c.field3_0xc + 1) = 0xf;
-      local_c = (Unknown *)&local_c[1].field13_0x3c.field4_0x10;
+      AnmVm::Initialize(local_c);
+      AnmManager::FUN_004323a0(pAVar1,local_c,local_8 + 0x708);
+      (local_c->pos).x = 0.0;
+      (local_c->pos).y = 0.0;
+      (local_c->pos).z = 0.0;
+      local_c->flags = local_c->flags | 0x300;
+      local_c->fontWidth = '\x0f';
+      local_c->fontHeight = '\x0f';
+      local_c = local_c + 1;
     }
   }
   for (local_8 = 0; local_8 < 5; local_8 = local_8 + 1) {

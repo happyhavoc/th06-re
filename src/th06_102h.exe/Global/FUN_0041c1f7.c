@@ -15,7 +15,7 @@ undefined4 FUN_0041c1f7(int param_1)
   FUN_0041b58c();
   FUN_0042aab0();
   *(undefined *)(param_1 + 0x1821) = 0;
-  FUN_00401410((InputChainArg *)&DAT_0047b900);
+  AsciiManager::Initialize((AsciiManager *)&g_AsciiManager);
   return 0;
 }
 

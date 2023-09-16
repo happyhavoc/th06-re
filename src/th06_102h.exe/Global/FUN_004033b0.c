@@ -29,7 +29,7 @@ void __fastcall FUN_004033b0(int param_1)
         else {
           *(undefined4 *)(param_1 + 0x14c) = 0x3e400000;
           *(undefined4 *)(param_1 + 0x160) = 0x3d000000;
-          FUN_00432ad0(g_AnmManager,param_1 + 0x110);
+          AnmManager::FUN_00432ad0(g_AnmManager,(AnmVm *)(param_1 + 0x110));
           *(undefined4 *)(param_1 + 0x14c) = 0x3d000000;
           *(undefined4 *)(param_1 + 0x160) = 0x3d000000;
         }

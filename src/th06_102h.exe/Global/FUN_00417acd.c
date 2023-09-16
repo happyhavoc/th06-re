@@ -1,5 +1,5 @@
 
-void __thiscall FUN_00417acd(int param_1_00,undefined4 param_2,char *param_3)
+void __thiscall FUN_00417acd(int param_1_00,int param_2,char *param_3)
 
 {
   char cVar1;
@@ -11,7 +11,7 @@ void __thiscall FUN_00417acd(int param_1_00,undefined4 param_2,char *param_3)
   iVar2 = *(int *)(param_1_00 + 4);
   *(undefined2 *)(iVar2 + 0x1e78) = 0x4a1;
   FUN_00432430((Unknown *)(iVar2 + 0x1dc4),(int)pAVar3->scripts[0x4a1]);
-  FUN_004323a0(g_AnmManager,(Unknown *)(*(int *)(param_1_00 + 4) + 0x1dc4),(short)param_2);
+  AnmManager::FUN_004323a0(g_AnmManager,(AnmVm *)(*(int *)(param_1_00 + 4) + 0x1dc4),param_2);
   pAVar3 = g_AnmManager;
   iVar2 = *(int *)(param_1_00 + 4);
   *(undefined2 *)(iVar2 + 0x2098) = 0x706;

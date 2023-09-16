@@ -58,7 +58,7 @@ undefined4 FUN_00432cc0(void *param_1)
     }
   }
   else {
-    uVar8 = FUN_00432ad0(in_ECX,(int)param_1);
+    uVar8 = AnmManager::FUN_00432ad0(in_ECX,(AnmVm *)param_1);
   }
   return uVar8;
 }

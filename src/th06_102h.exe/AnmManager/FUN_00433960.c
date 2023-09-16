@@ -1,313 +1,306 @@
 
-undefined4 AnmManager::FUN_00433960(Unknown *param_1)
+undefined4 AnmManager::FUN_00433960(AnmVm *param_1)
 
 {
-  ushort uVar1;
-  undefined4 uVar2;
-  undefined4 uVar3;
-  float fVar4;
-  float fVar5;
-  ushort uVar6;
+  float fVar1;
+  ushort uVar2;
+  float fVar3;
+  ushort uVar4;
   AnmManager *in_ECX;
-  uint uVar7;
-  float10 fVar8;
+  uint uVar5;
+  float10 fVar6;
   undefined local_120;
-  short local_e0;
+  int local_e0;
   float local_3c;
   int local_38;
   long local_34;
   float local_30;
-  int local_2c;
-  undefined4 local_28;
-  short *local_24;
-  int *local_20;
-  short *local_1c;
-  undefined4 *local_18;
-  undefined4 *local_14;
-  undefined4 *local_10;
-  undefined4 *local_c;
-  short *local_8;
+  D3DCOLOR local_2c;
+  D3DCOLOR local_28;
+  AnmRawInstr *local_24;
+  uint *local_20;
+  uint *local_1c;
+  uint *local_18;
+  uint *local_14;
+  uint *local_10;
+  uint *local_c;
+  AnmRawInstr *local_8;
   
-  if (*(int *)&param_1->field_0xbc == 0) {
+  if (param_1->currentInstruction == (AnmRawInstr *)0x0) {
     return 1;
   }
-  if (param_1->field19_0x8a == 0) goto LAB_00433998;
+  if (param_1->pendingInterrupt == 0) goto LAB_00433998;
 LAB_00434098:
-  local_24 = (short *)0x0;
-  for (local_8 = *(short **)&param_1->field_0xb8;
-      (((*(char *)(local_8 + 1) != '\x16' ||
-        ((int)(short)param_1->field19_0x8a != *(int *)(local_8 + 2))) &&
-       (*(char *)(local_8 + 1) != '\0')) && (*(char *)(local_8 + 1) != '\x0f'));
-      local_8 = (short *)((int)local_8 + *(byte *)((int)local_8 + 3) + 4)) {
-    if ((*(char *)(local_8 + 1) == '\x16') && (*(int *)(local_8 + 2) == -1)) {
+  local_24 = (AnmRawInstr *)0x0;
+  for (local_8 = param_1->beginingOfScript;
+      (((local_8->opcode != '\x16' || ((int)param_1->pendingInterrupt != local_8->args[0])) &&
+       (local_8->opcode != '\0')) && (local_8->opcode != '\x0f'));
+      local_8 = (AnmRawInstr *)((int)local_8->args + (uint)local_8->argsCount)) {
+    if ((local_8->opcode == '\x16') && (local_8->args[0] == 0xffffffff)) {
       local_24 = local_8;
     }
   }
-  param_1->field19_0x8a = 0;
-  param_1->field15_0x80 = param_1->field15_0x80 & 0xffffdfff;
-  if (*(char *)(local_8 + 1) != '\x16') {
-    if (local_24 == (short *)0x0) {
+  param_1->pendingInterrupt = 0;
+  param_1->flags = param_1->flags & 0xffffdfff;
+  if (local_8->opcode != '\x16') {
+    if (local_24 == (AnmRawInstr *)0x0) {
       FUN_004241e5(1);
       goto LAB_00434338;
     }
     local_8 = local_24;
   }
-  *(uint *)&param_1->field_0xbc = (int)local_8 + *(byte *)((int)local_8 + 3) + 4;
-  (param_1->field12_0x30).current = (int)**(short **)&param_1->field_0xbc;
-  (param_1->field12_0x30).subFrame = 0.0;
-  (param_1->field12_0x30).previous = -999;
-  param_1->field15_0x80 = param_1->field15_0x80 | 1;
+  param_1->currentInstruction = (AnmRawInstr *)((int)local_8->args + (uint)local_8->argsCount);
+  (param_1->currentTimeInScript).current = (int)(short)param_1->currentInstruction->time;
+  (param_1->currentTimeInScript).subFrame = 0.0;
+  (param_1->currentTimeInScript).previous = -999;
+  param_1->flags = param_1->flags | 1;
 LAB_00433998:
-  local_8 = *(short **)&param_1->field_0xbc;
-  if ((param_1->field12_0x30).current < (int)*local_8) goto LAB_00434338;
-  switch(*(undefined *)(local_8 + 1)) {
-  case 0:
-    param_1->field15_0x80 = param_1->field15_0x80 & 0xfffffffe;
-  case 0xf:
-    *(undefined4 *)&param_1->field_0xbc = 0;
+  local_8 = param_1->currentInstruction;
+  if ((param_1->currentTimeInScript).current < (int)(short)local_8->time) goto LAB_00434338;
+  switch(local_8->opcode) {
+  case '\0':
+    param_1->flags = param_1->flags & 0xfffffffe;
+  case '\x0f':
+    param_1->currentInstruction = (AnmRawInstr *)0x0;
     return 1;
-  case 1:
-    param_1->field15_0x80 = param_1->field15_0x80 | 1;
-    FUN_004323a0(in_ECX,param_1,
-                 (short)*(undefined4 *)(local_8 + 2) +
-                 (short)in_ECX->spriteIndices[*(short *)&param_1->field_0xb4]);
-    param_1[1].field12_0x30.current = (param_1->field12_0x30).current;
+  case '\x01':
+    param_1->flags = param_1->flags | 1;
+    FUN_004323a0(in_ECX,param_1,local_8->args[0] + in_ECX->spriteIndices[param_1->anmFileIndex]);
+    param_1->timeOfLastSpriteSet = (param_1->currentTimeInScript).current;
     break;
-  case 2:
-    param_1->field7_0x1c = *(float *)(local_8 + 2);
-    param_1->field6_0x18 = *(float *)(local_8 + 4);
+  case '\x02':
+    param_1->scaleY = (float)local_8->args[0];
+    param_1->scaleX = (float)local_8->args[1];
     break;
-  case 3:
-    *(char *)((int)&param_1->field14_0x7c + 3) = (char)*(undefined4 *)(local_8 + 2);
+  case '\x03':
+    *(char *)((int)&param_1->color + 3) = (char)local_8->args[0];
     break;
-  case 4:
-    param_1->field14_0x7c = param_1->field14_0x7c & 0xff000000U | *(uint *)(local_8 + 2) & 0xffffff;
+  case '\x04':
+    param_1->color = param_1->color & 0xff000000 | local_8->args[0] & 0xffffff;
     break;
-  case 5:
+  case '\x05':
     goto switchD_004339dd_caseD_5;
-  case 7:
-    param_1->field15_0x80 =
-         param_1->field15_0x80 & 0xffffff3f | (param_1->field15_0x80 >> 6 & 3 ^ 1) << 6;
-    param_1->field7_0x1c = param_1->field7_0x1c * -1.0;
+  case '\a':
+    param_1->flags = param_1->flags & 0xffffff3f | (param_1->flags >> 6 & 3 ^ 1) << 6;
+    param_1->scaleY = param_1->scaleY * -1.0;
     break;
-  case 8:
-    param_1->field15_0x80 =
-         param_1->field15_0x80 & 0xffffff3f | (param_1->field15_0x80 >> 6 & 3 ^ 2) << 6;
-    param_1->field6_0x18 = param_1->field6_0x18 * -1.0;
+  case '\b':
+    param_1->flags = param_1->flags & 0xffffff3f | (param_1->flags >> 6 & 3 ^ 2) << 6;
+    param_1->scaleX = param_1->scaleX * -1.0;
     break;
-  case 9:
-    param_1->field0_0x0 = *(undefined4 *)(local_8 + 2);
-    param_1->field1_0x4 = *(undefined4 *)(local_8 + 4);
-    local_10 = (undefined4 *)(local_8 + 6);
-    param_1->field2_0x8 = *local_10;
+  case '\t':
+    (param_1->rotation).x = (float)local_8->args[0];
+    (param_1->rotation).y = (float)local_8->args[1];
+    local_10 = local_8->args + 2;
+    (param_1->rotation).z = (float)*local_10;
     break;
-  case 10:
-    param_1->field3_0xc = *(undefined4 *)(local_8 + 2);
-    param_1->field4_0x10 = *(undefined4 *)(local_8 + 4);
-    local_14 = (undefined4 *)(local_8 + 6);
-    param_1->field5_0x14 = *local_14;
+  case '\n':
+    (param_1->angleVel).x = (float)local_8->args[0];
+    (param_1->angleVel).y = (float)local_8->args[1];
+    local_14 = local_8->args + 2;
+    (param_1->angleVel).z = (float)*local_14;
     break;
-  case 0xb:
-    param_1->field9_0x24 = *(undefined4 *)(local_8 + 2);
-    local_18 = (undefined4 *)(local_8 + 4);
-    param_1->field8_0x20 = *local_18;
-    param_1->field17_0x86 = 0;
+  case '\v':
+    param_1->scaleInterpFinalX = (float)local_8->args[0];
+    local_18 = local_8->args + 1;
+    param_1->scaleInterpFinalY = (float)*local_18;
+    param_1->scaleInterpEndTime = 0;
     break;
-  case 0xc:
-    local_20 = (int *)(local_8 + 2);
-    param_1[1].field0_0x0 = param_1->field14_0x7c;
-    param_1[1].field1_0x4 = param_1->field14_0x7c & 0xffffffU | *local_20 << 0x18;
-    param_1->field16_0x84 = local_8[4];
-    param_1[1].field13_0x3c.field2_0x8 = 0;
-    param_1[1].field13_0x3c.field1_0x4 = 0;
-    param_1[1].field13_0x3c.field0_0x0 = -NAN;
+  case '\f':
+    local_20 = local_8->args;
+    param_1->alphaInterpInitial = param_1->color;
+    param_1->alphaInterpFinal = param_1->color & 0xffffff | *local_20 << 0x18;
+    param_1->alphaInterpEndTime = *(ushort *)(local_8->args + 1);
+    (param_1->alphaInterpTime).current = 0;
+    (param_1->alphaInterpTime).subFrame = 0.0;
+    (param_1->alphaInterpTime).previous = -999;
     break;
-  case 0xd:
-    param_1->field15_0x80 = param_1->field15_0x80 | 4;
+  case '\r':
+    param_1->flags = param_1->flags | 4;
     break;
-  case 0xe:
-    param_1->field15_0x80 = param_1->field15_0x80 & 0xfffffffb;
+  case '\x0e':
+    param_1->flags = param_1->flags & 0xfffffffb;
     break;
-  case 0x10:
-    param_1->field15_0x80 = param_1->field15_0x80 | 1;
-    local_c = (undefined4 *)(local_8 + 2);
-    uVar1 = local_8[4];
-    if (uVar1 == 0) {
+  case '\x10':
+    param_1->flags = param_1->flags | 1;
+    local_c = local_8->args;
+    uVar2 = *(ushort *)(local_8->args + 1);
+    if (uVar2 == 0) {
       local_e0 = 0;
     }
     else {
-      uVar6 = FUN_0041e780(&DAT_0069d8f8);
-      local_e0 = (short)((ulonglong)uVar6 % (ulonglong)(longlong)(int)(uint)uVar1);
+      uVar4 = FUN_0041e780(&DAT_0069d8f8);
+      local_e0 = (int)((ulonglong)uVar4 % (ulonglong)(longlong)(int)(uint)uVar2);
     }
-    FUN_004323a0(in_ECX,param_1,
-                 (short)*local_c + local_e0 +
-                 (short)in_ECX->spriteIndices[*(short *)&param_1->field_0xb4]);
-    param_1[1].field12_0x30.current = (param_1->field12_0x30).current;
+    FUN_004323a0(in_ECX,param_1,*local_c + local_e0 + in_ECX->spriteIndices[param_1->anmFileIndex]);
+    param_1->timeOfLastSpriteSet = (param_1->currentTimeInScript).current;
     break;
-  case 0x11:
-    if ((param_1->field15_0x80 >> 5 & 1) == 0) {
-      fVar4 = *(float *)(local_8 + 6);
-      uVar2 = *(undefined4 *)(local_8 + 4);
-      *(undefined4 *)&param_1->field_0x90 = *(undefined4 *)(local_8 + 2);
-      *(undefined4 *)&param_1->field_0x94 = uVar2;
-      param_1->field31_0x98 = fVar4;
+  case '\x11':
+    if ((param_1->flags >> 5 & 1) == 0) {
+      fVar1 = (float)local_8->args[2];
+      fVar3 = (float)local_8->args[1];
+      (param_1->pos).x = (float)local_8->args[0];
+      (param_1->pos).y = fVar3;
+      (param_1->pos).z = fVar1;
     }
     else {
-      uVar2 = *(undefined4 *)(local_8 + 6);
-      uVar3 = *(undefined4 *)(local_8 + 4);
-      param_1[1].field8_0x20 = *(undefined4 *)(local_8 + 2);
-      param_1[1].field9_0x24 = uVar3;
-      param_1[1].field10_0x28 = uVar2;
+      fVar1 = (float)local_8->args[2];
+      fVar3 = (float)local_8->args[1];
+      (param_1->pos2).x = (float)local_8->args[0];
+      (param_1->pos2).y = fVar3;
+      (param_1->pos2).z = fVar1;
     }
     break;
-  case 0x12:
-    param_1->field15_0x80 = param_1->field15_0x80 & 0xfffff3ff;
+  case '\x12':
+    param_1->flags = param_1->flags & 0xfffff3ff;
     goto LAB_00433f53;
-  case 0x13:
-    param_1->field15_0x80 = param_1->field15_0x80 & 0xfffff3ff | 0x400;
+  case '\x13':
+    param_1->flags = param_1->flags & 0xfffff3ff | 0x400;
     goto LAB_00433f53;
-  case 0x14:
-    param_1->field15_0x80 = param_1->field15_0x80 & 0xfffff3ff | 0x800;
+  case '\x14':
+    param_1->flags = param_1->flags & 0xfffff3ff | 0x800;
 LAB_00433f53:
-    if ((param_1->field15_0x80 >> 5 & 1) == 0) {
-      param_1[1].field2_0x8 = *(undefined4 *)&param_1->field_0x90;
-      param_1[1].field3_0xc = *(undefined4 *)&param_1->field_0x94;
-      param_1[1].field4_0x10 = param_1->field31_0x98;
+    if ((param_1->flags >> 5 & 1) == 0) {
+      (param_1->posInterpInitial).x = (param_1->pos).x;
+      (param_1->posInterpInitial).y = (param_1->pos).y;
+      (param_1->posInterpInitial).z = (param_1->pos).z;
     }
     else {
-      param_1[1].field2_0x8 = param_1[1].field8_0x20;
-      param_1[1].field3_0xc = param_1[1].field9_0x24;
-      param_1[1].field4_0x10 = param_1[1].field10_0x28;
+      (param_1->posInterpInitial).x = (param_1->pos2).x;
+      (param_1->posInterpInitial).y = (param_1->pos2).y;
+      (param_1->posInterpInitial).z = (param_1->pos2).z;
     }
-    fVar4 = *(float *)(local_8 + 6);
-    fVar5 = *(float *)(local_8 + 4);
-    param_1[1].field5_0x14 = *(undefined4 *)(local_8 + 2);
-    param_1[1].field6_0x18 = fVar5;
-    param_1[1].field7_0x1c = fVar4;
-    param_1->field20_0x8c = local_8[8];
-    param_1[1].field12_0x30.subFrame = 0.0;
-    param_1[1].field12_0x30.previous = 0;
-    param_1[1].field11_0x2c = 0xfffffc19;
+    fVar1 = (float)local_8->args[2];
+    fVar3 = (float)local_8->args[1];
+    (param_1->posInterpFinal).x = (float)local_8->args[0];
+    (param_1->posInterpFinal).y = fVar3;
+    (param_1->posInterpFinal).z = fVar1;
+    param_1->posInterpEndTime = *(ushort *)(local_8->args + 3);
+    (param_1->posInterpTime).current = 0;
+    (param_1->posInterpTime).subFrame = 0.0;
+    (param_1->posInterpTime).previous = -999;
     break;
-  case 0x15:
+  case '\x15':
     goto switchD_004339dd_caseD_15;
-  case 0x17:
-    param_1->field15_0x80 = param_1->field15_0x80 | 0x300;
+  case '\x17':
+    param_1->flags = param_1->flags | 0x300;
     break;
-  case 0x18:
+  case '\x18':
     goto switchD_004339dd_caseD_18;
-  case 0x19:
-    param_1->field15_0x80 = param_1->field15_0x80 & 0xffffffdf | (*(uint *)(local_8 + 2) & 1) << 5;
+  case '\x19':
+    param_1->flags = param_1->flags & 0xffffffdf | (local_8->args[0] & 1) << 5;
     break;
-  case 0x1a:
-    param_1->field18_0x88 = local_8[2];
+  case '\x1a':
+    param_1->autoRotate = *(ushort *)local_8->args;
     break;
-  case 0x1b:
-    param_1->field10_0x28 = (float)param_1->field10_0x28 + *(float *)(local_8 + 2);
-    if ((float)param_1->field10_0x28 < 1.0) {
-      if ((float)param_1->field10_0x28 < 0.0 != NAN((float)param_1->field10_0x28)) {
-        param_1->field10_0x28 = (float)param_1->field10_0x28 + 1.0;
+  case '\x1b':
+    (param_1->uvScrollPos).x = (param_1->uvScrollPos).x + (float)local_8->args[0];
+    if ((param_1->uvScrollPos).x < 1.0) {
+      fVar1 = (param_1->uvScrollPos).x;
+      if (fVar1 < 0.0 != NAN(fVar1)) {
+        (param_1->uvScrollPos).x = (param_1->uvScrollPos).x + 1.0;
       }
     }
     else {
-      param_1->field10_0x28 = (float)param_1->field10_0x28 - 1.0;
+      (param_1->uvScrollPos).x = (param_1->uvScrollPos).x - 1.0;
     }
     break;
-  case 0x1c:
-    param_1->field11_0x2c = (float)param_1->field11_0x2c + *(float *)(local_8 + 2);
-    if ((float)param_1->field11_0x2c < 1.0) {
-      if ((float)param_1->field11_0x2c < 0.0 != NAN((float)param_1->field11_0x2c)) {
-        param_1->field11_0x2c = (float)param_1->field11_0x2c + 1.0;
+  case '\x1c':
+    (param_1->uvScrollPos).y = (param_1->uvScrollPos).y + (float)local_8->args[0];
+    if ((param_1->uvScrollPos).y < 1.0) {
+      fVar1 = (param_1->uvScrollPos).y;
+      if (fVar1 < 0.0 != NAN(fVar1)) {
+        (param_1->uvScrollPos).y = (param_1->uvScrollPos).y + 1.0;
       }
     }
     else {
-      param_1->field11_0x2c = (float)param_1->field11_0x2c - 1.0;
+      (param_1->uvScrollPos).y = (param_1->uvScrollPos).y - 1.0;
     }
     break;
-  case 0x1d:
-    param_1->field15_0x80 = param_1->field15_0x80 & 0xfffffffe | *(uint *)(local_8 + 2) & 1;
+  case '\x1d':
+    param_1->flags = param_1->flags & 0xfffffffe | local_8->args[0] & 1;
     break;
-  case 0x1e:
-    param_1->field9_0x24 = *(undefined4 *)(local_8 + 2);
-    param_1->field8_0x20 = *(undefined4 *)(local_8 + 4);
-    local_1c = local_8 + 6;
-    param_1->field17_0x86 = *local_1c;
-    *(undefined4 *)&param_1->field_0xac = 0;
-    *(undefined4 *)&param_1->field_0xa8 = 0;
-    *(undefined4 *)&param_1->field_0xa4 = 0xfffffc19;
-    *(float *)&param_1->field_0xa0 = param_1->field7_0x1c;
-    *(float *)&param_1->field_0x9c = param_1->field6_0x18;
+  case '\x1e':
+    param_1->scaleInterpFinalX = (float)local_8->args[0];
+    param_1->scaleInterpFinalY = (float)local_8->args[1];
+    local_1c = local_8->args + 2;
+    param_1->scaleInterpEndTime = *(ushort *)local_1c;
+    (param_1->scaleInterpTime).current = 0;
+    (param_1->scaleInterpTime).subFrame = 0.0;
+    (param_1->scaleInterpTime).previous = -999;
+    param_1->scaleInterpInitialX = param_1->scaleY;
+    param_1->scaleInterpInitialY = param_1->scaleX;
     break;
-  case 0x1f:
-    param_1->field15_0x80 = param_1->field15_0x80 & 0xffffefff | (*(uint *)(local_8 + 2) & 1) << 0xc
-    ;
+  case '\x1f':
+    param_1->flags = param_1->flags & 0xffffefff | (local_8->args[0] & 1) << 0xc;
   }
-  *(uint *)&param_1->field_0xbc = (int)local_8 + *(byte *)((int)local_8 + 3) + 4;
+  param_1->currentInstruction = (AnmRawInstr *)((int)local_8->args + (uint)local_8->argsCount);
   goto LAB_00433998;
 switchD_004339dd_caseD_18:
-  param_1->field15_0x80 = param_1->field15_0x80 & 0xfffffffe;
+  param_1->flags = param_1->flags & 0xfffffffe;
 switchD_004339dd_caseD_15:
-  if (param_1->field19_0x8a == 0) {
-    param_1->field15_0x80 = param_1->field15_0x80 | 0x2000;
+  if (param_1->pendingInterrupt == 0) {
+    param_1->flags = param_1->flags | 0x2000;
     FUN_004241e5(1);
 LAB_00434338:
-    if (NAN((float)param_1->field3_0xc) == ((float)param_1->field3_0xc == 0.0)) {
-      fVar8 = (float10)FUN_0041e850(param_1->field0_0x0,
-                                    (float)g_GameContext._424_4_ * (float)param_1->field3_0xc);
-      param_1->field0_0x0 = (float)fVar8;
+    fVar1 = (param_1->angleVel).x;
+    if (NAN(fVar1) == (fVar1 == 0.0)) {
+      fVar6 = (float10)FUN_0041e850((param_1->rotation).x,
+                                    (float)g_GameContext._424_4_ * (param_1->angleVel).x);
+      (param_1->rotation).x = (float)fVar6;
     }
-    if (NAN((float)param_1->field4_0x10) == ((float)param_1->field4_0x10 == 0.0)) {
-      fVar8 = (float10)FUN_0041e850(param_1->field1_0x4,
-                                    (float)g_GameContext._424_4_ * (float)param_1->field4_0x10);
-      param_1->field1_0x4 = (float)fVar8;
+    fVar1 = (param_1->angleVel).y;
+    if (NAN(fVar1) == (fVar1 == 0.0)) {
+      fVar6 = (float10)FUN_0041e850((param_1->rotation).y,
+                                    (float)g_GameContext._424_4_ * (param_1->angleVel).y);
+      (param_1->rotation).y = (float)fVar6;
     }
-    if (NAN((float)param_1->field5_0x14) == ((float)param_1->field5_0x14 == 0.0)) {
-      fVar8 = (float10)FUN_0041e850(param_1->field2_0x8,
-                                    (float)g_GameContext._424_4_ * (float)param_1->field5_0x14);
-      param_1->field2_0x8 = (float)fVar8;
+    fVar1 = (param_1->angleVel).z;
+    if (NAN(fVar1) == (fVar1 == 0.0)) {
+      fVar6 = (float10)FUN_0041e850((param_1->rotation).z,
+                                    (float)g_GameContext._424_4_ * (param_1->angleVel).z);
+      (param_1->rotation).z = (float)fVar6;
     }
-    if ((short)param_1->field17_0x86 < 1) {
-      param_1->field6_0x18 =
-           (float)g_GameContext._424_4_ * (float)param_1->field8_0x20 + param_1->field6_0x18;
-      param_1->field7_0x1c =
-           (float)g_GameContext._424_4_ * (float)param_1->field9_0x24 + param_1->field7_0x1c;
+    if ((short)param_1->scaleInterpEndTime < 1) {
+      param_1->scaleX = (float)g_GameContext._424_4_ * param_1->scaleInterpFinalY + param_1->scaleX;
+      param_1->scaleY = (float)g_GameContext._424_4_ * param_1->scaleInterpFinalX + param_1->scaleY;
     }
     else {
-      *(undefined4 *)&param_1->field_0xa4 = *(undefined4 *)&param_1->field_0xac;
-      FUN_00424285(&g_GameContext,(int *)&param_1->field_0xac,(float *)&param_1->field_0xa8);
-      if (*(int *)&param_1->field_0xac < (int)(short)param_1->field17_0x86) {
-        param_1->field7_0x1c =
-             (((float)*(int *)&param_1->field_0xac + *(float *)&param_1->field_0xa8) *
-             ((float)param_1->field9_0x24 - *(float *)&param_1->field_0xa0)) /
-             (float)(int)(short)param_1->field17_0x86 + *(float *)&param_1->field_0xa0;
-        param_1->field6_0x18 =
-             (((float)*(int *)&param_1->field_0xac + *(float *)&param_1->field_0xa8) *
-             ((float)param_1->field8_0x20 - *(float *)&param_1->field_0x9c)) /
-             (float)(int)(short)param_1->field17_0x86 + *(float *)&param_1->field_0x9c;
+      (param_1->scaleInterpTime).previous = (param_1->scaleInterpTime).current;
+      FUN_00424285(&g_GameContext,&(param_1->scaleInterpTime).current,
+                   &(param_1->scaleInterpTime).subFrame);
+      if ((param_1->scaleInterpTime).current < (int)(short)param_1->scaleInterpEndTime) {
+        param_1->scaleY =
+             (((float)(param_1->scaleInterpTime).current + (param_1->scaleInterpTime).subFrame) *
+             (param_1->scaleInterpFinalX - param_1->scaleInterpInitialX)) /
+             (float)(int)(short)param_1->scaleInterpEndTime + param_1->scaleInterpInitialX;
+        param_1->scaleX =
+             (((float)(param_1->scaleInterpTime).current + (param_1->scaleInterpTime).subFrame) *
+             (param_1->scaleInterpFinalY - param_1->scaleInterpInitialY)) /
+             (float)(int)(short)param_1->scaleInterpEndTime + param_1->scaleInterpInitialY;
       }
       else {
-        param_1->field6_0x18 = (float)param_1->field8_0x20;
-        param_1->field7_0x1c = (float)param_1->field9_0x24;
-        param_1->field17_0x86 = 0;
-        param_1->field8_0x20 = 0;
-        param_1->field9_0x24 = 0;
+        param_1->scaleX = param_1->scaleInterpFinalY;
+        param_1->scaleY = param_1->scaleInterpFinalX;
+        param_1->scaleInterpEndTime = 0;
+        param_1->scaleInterpFinalY = 0.0;
+        param_1->scaleInterpFinalX = 0.0;
       }
-      if ((param_1->field15_0x80 >> 6 & 1) != 0) {
-        param_1->field7_0x1c = param_1->field7_0x1c * -1.0;
+      if ((param_1->flags >> 6 & 1) != 0) {
+        param_1->scaleY = param_1->scaleY * -1.0;
       }
-      if ((param_1->field15_0x80 >> 6 & 2) != 0) {
-        param_1->field6_0x18 = param_1->field6_0x18 * -1.0;
+      if ((param_1->flags >> 6 & 2) != 0) {
+        param_1->scaleX = param_1->scaleX * -1.0;
       }
     }
-    if (0 < (short)param_1->field16_0x84) {
-      param_1[1].field13_0x3c.field0_0x0 = (float)param_1[1].field13_0x3c.field2_0x8;
-      FUN_00424285(&g_GameContext,&param_1[1].field13_0x3c.field2_0x8,
-                   (float *)&param_1[1].field13_0x3c.field1_0x4);
-      local_2c = param_1[1].field0_0x0;
-      local_28 = param_1[1].field1_0x4;
-      local_30 = ((float)param_1[1].field13_0x3c.field2_0x8 +
-                 (float)param_1[1].field13_0x3c.field1_0x4) /
-                 (float)(int)(short)param_1->field16_0x84;
+    if (0 < (short)param_1->alphaInterpEndTime) {
+      (param_1->alphaInterpTime).previous = (param_1->alphaInterpTime).current;
+      FUN_00424285(&g_GameContext,&(param_1->alphaInterpTime).current,
+                   &(param_1->alphaInterpTime).subFrame);
+      local_2c = param_1->alphaInterpInitial;
+      local_28 = param_1->alphaInterpFinal;
+      local_30 = ((float)(param_1->alphaInterpTime).current + (param_1->alphaInterpTime).subFrame) /
+                 (float)(int)(short)param_1->alphaInterpEndTime;
       if (1.0 <= local_30) {
         local_30 = 1.0;
       }
@@ -326,59 +319,64 @@ LAB_00434338:
         }
         *(undefined *)((int)&local_2c + local_38) = local_120;
       }
-      param_1->field14_0x7c = local_2c;
-      if ((int)(short)param_1->field16_0x84 <= param_1[1].field13_0x3c.field2_0x8) {
-        param_1->field16_0x84 = 0;
+      param_1->color = local_2c;
+      if ((int)(short)param_1->alphaInterpEndTime <= (param_1->alphaInterpTime).current) {
+        param_1->alphaInterpEndTime = 0;
       }
     }
-    if (param_1->field20_0x8c != 0) {
-      local_3c = ((float)(int)param_1[1].field12_0x30.subFrame +
-                 (float)param_1[1].field12_0x30.previous) / (float)(int)(short)param_1->field20_0x8c
-      ;
+    if (param_1->posInterpEndTime != 0) {
+      local_3c = ((float)(param_1->posInterpTime).current + (param_1->posInterpTime).subFrame) /
+                 (float)(int)(short)param_1->posInterpEndTime;
       if (1.0 <= local_3c) {
         local_3c = 1.0;
       }
-      uVar7 = param_1->field15_0x80 >> 10 & 3;
-      if (uVar7 == 1) {
+      uVar5 = param_1->flags >> 10 & 3;
+      if (uVar5 == 1) {
         local_3c = 1.0 - (1.0 - local_3c) * (1.0 - local_3c);
       }
-      else if (uVar7 == 2) {
+      else if (uVar5 == 2) {
         local_3c = 1.0 - local_3c;
         local_3c = 1.0 - local_3c * local_3c * local_3c * local_3c;
       }
-      if ((param_1->field15_0x80 >> 5 & 1) == 0) {
-        *(float *)&param_1->field_0x90 =
-             (1.0 - local_3c) * (float)param_1[1].field2_0x8 +
-             local_3c * (float)param_1[1].field5_0x14;
-        *(float *)&param_1->field_0x94 =
-             (1.0 - local_3c) * (float)param_1[1].field3_0xc + local_3c * param_1[1].field6_0x18;
-        param_1->field31_0x98 =
-             (1.0 - local_3c) * (float)param_1[1].field4_0x10 + local_3c * param_1[1].field7_0x1c;
+      if ((param_1->flags >> 5 & 1) == 0) {
+        (param_1->pos).x =
+             (1.0 - local_3c) * (param_1->posInterpInitial).x +
+             local_3c * (param_1->posInterpFinal).x;
+        (param_1->pos).y =
+             (1.0 - local_3c) * (param_1->posInterpInitial).y +
+             local_3c * (param_1->posInterpFinal).y;
+        (param_1->pos).z =
+             (1.0 - local_3c) * (param_1->posInterpInitial).z +
+             local_3c * (param_1->posInterpFinal).z;
       }
       else {
-        param_1[1].field8_0x20 =
-             (1.0 - local_3c) * (float)param_1[1].field2_0x8 +
-             local_3c * (float)param_1[1].field5_0x14;
-        param_1[1].field9_0x24 =
-             (1.0 - local_3c) * (float)param_1[1].field3_0xc + local_3c * param_1[1].field6_0x18;
-        param_1[1].field10_0x28 =
-             (1.0 - local_3c) * (float)param_1[1].field4_0x10 + local_3c * param_1[1].field7_0x1c;
+        (param_1->pos2).x =
+             (1.0 - local_3c) * (param_1->posInterpInitial).x +
+             local_3c * (param_1->posInterpFinal).x;
+        (param_1->pos2).y =
+             (1.0 - local_3c) * (param_1->posInterpInitial).y +
+             local_3c * (param_1->posInterpFinal).y;
+        (param_1->pos2).z =
+             (1.0 - local_3c) * (param_1->posInterpInitial).z +
+             local_3c * (param_1->posInterpFinal).z;
       }
-      if ((int)(short)param_1->field20_0x8c <= (int)param_1[1].field12_0x30.subFrame) {
-        param_1->field20_0x8c = 0;
+      if ((int)(short)param_1->posInterpEndTime <= (param_1->posInterpTime).current) {
+        param_1->posInterpEndTime = 0;
       }
-      param_1[1].field11_0x2c = param_1[1].field12_0x30.subFrame;
-      FUN_00424285(&g_GameContext,(int *)&param_1[1].field12_0x30.subFrame,
-                   (float *)&param_1[1].field12_0x30);
+      (param_1->posInterpTime).previous = (param_1->posInterpTime).current;
+      FUN_00424285(&g_GameContext,&(param_1->posInterpTime).current,
+                   &(param_1->posInterpTime).subFrame);
     }
-    (param_1->field12_0x30).previous = (param_1->field12_0x30).current;
-    FUN_00424285(&g_GameContext,&(param_1->field12_0x30).current,&(param_1->field12_0x30).subFrame);
+    (param_1->currentTimeInScript).previous = (param_1->currentTimeInScript).current;
+    FUN_00424285(&g_GameContext,&(param_1->currentTimeInScript).current,
+                 &(param_1->currentTimeInScript).subFrame);
     return 0;
   }
   goto LAB_00434098;
 switchD_004339dd_caseD_5:
-  *(int *)&param_1->field_0xbc = *(int *)&param_1->field_0xb8 + *(int *)(local_8 + 2);
-  (param_1->field12_0x30).current = (int)**(short **)&param_1->field_0xbc;
+  param_1->currentInstruction =
+       (AnmRawInstr *)((int)param_1->beginingOfScript->args + (local_8->args[0] - 4));
+  (param_1->currentTimeInScript).current = (int)(short)param_1->currentInstruction->time;
   goto LAB_00433998;
 }
 

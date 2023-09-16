@@ -1,32 +1,37 @@
 
-undefined4 FUN_00429930(int param_1)
+undefined4 FUN_00429930(AnmVm *param_1)
 
 {
+  float *pfVar1;
+  
   FUN_00429b00(param_1);
-  if ((*(int *)(param_1 + 0x75c8) != 0) && (*(int *)(param_1 + 0x75e0) != 0)) {
-    (**(code **)(param_1 + 0x75e0))(param_1);
+  if ((param_1[0x6e].pos2.y != 0.0) && (param_1[0x6e].alphaInterpTime.previous != 0)) {
+    (*(code *)param_1[0x6e].alphaInterpTime.previous)(param_1);
   }
-  *(float *)(param_1 + 0x90) = VIEWPORT_X + *(float *)(param_1 + 0x440);
-  *(float *)(param_1 + 0x94) = VIEWPORT_Y + *(float *)(param_1 + 0x444);
-  *(undefined4 *)(param_1 + 0x98) = 0x3efae148;
+  (param_1->pos).x = VIEWPORT_X + param_1[4].rotation.x;
+  (param_1->pos).y = VIEWPORT_Y + param_1[4].rotation.y;
+  (param_1->pos).z = 0.49;
   if (DAT_0069d4c0 == '\0') {
-    FUN_00432ad0(g_AnmManager,param_1);
-    if ((*(char *)(param_1 + 0x9e2) != '\0') &&
-       ((*(char *)(param_1 + 0x9e0) == '\0' || (*(char *)(param_1 + 0x9e0) == '\x03')))) {
-      *(undefined4 *)(param_1 + 0x1a0) = *(undefined4 *)(param_1 + 0x4a0);
-      *(undefined4 *)(param_1 + 0x1a4) = *(undefined4 *)(param_1 + 0x4a4);
-      *(undefined4 *)(param_1 + 0x1a8) = *(undefined4 *)(param_1 + 0x4a8);
-      *(undefined4 *)(param_1 + 0x2b0) = *(undefined4 *)(param_1 + 0x4ac);
-      *(undefined4 *)(param_1 + 0x2b4) = *(undefined4 *)(param_1 + 0x4b0);
-      *(undefined4 *)(param_1 + 0x2b8) = *(undefined4 *)(param_1 + 0x4b4);
-      *(float *)(param_1 + 0x1a0) = VIEWPORT_X + *(float *)(param_1 + 0x1a0);
-      *(float *)(param_1 + 0x1a4) = VIEWPORT_Y + *(float *)(param_1 + 0x1a4);
-      *(float *)(param_1 + 0x2b0) = VIEWPORT_X + *(float *)(param_1 + 0x2b0);
-      *(float *)(param_1 + 0x2b4) = VIEWPORT_Y + *(float *)(param_1 + 0x2b4);
-      *(undefined4 *)(param_1 + 0x1a8) = 0x3efb645a;
-      *(undefined4 *)(param_1 + 0x2b8) = 0x3efb645a;
-      FUN_00432cc0((void *)(param_1 + 0x110));
-      FUN_00432cc0((void *)(param_1 + 0x220));
+    AnmManager::FUN_00432ad0(g_AnmManager,param_1);
+    if ((*(char *)((int)&param_1[9].matrix.field0_0x0 + 0x16) != '\0') &&
+       ((*(char *)((int)&param_1[9].matrix.field0_0x0 + 0x14) == '\0' ||
+        (*(char *)((int)&param_1[9].matrix.field0_0x0 + 0x14) == '\x03')))) {
+      param_1[1].pos.x = param_1[4].matrix.field0_0x0.field0._32;
+      param_1[1].pos.y = param_1[4].matrix.field0_0x0.field0._33;
+      param_1[1].pos.z = param_1[4].matrix.field0_0x0.field0._34;
+      param_1[2].pos.x = param_1[4].matrix.field0_0x0.field0._41;
+      param_1[2].pos.y = param_1[4].matrix.field0_0x0.field0._42;
+      param_1[2].pos.z = param_1[4].matrix.field0_0x0.field0._43;
+      param_1[1].pos.x = VIEWPORT_X + param_1[1].pos.x;
+      pfVar1 = &param_1[1].pos.y;
+      *pfVar1 = VIEWPORT_Y + *pfVar1;
+      param_1[2].pos.x = VIEWPORT_X + param_1[2].pos.x;
+      pfVar1 = &param_1[2].pos.y;
+      *pfVar1 = VIEWPORT_Y + *pfVar1;
+      param_1[1].pos.z = 0.491;
+      param_1[2].pos.z = 0.491;
+      FUN_00432cc0(param_1 + 1);
+      FUN_00432cc0(param_1 + 2);
     }
   }
   return 1;

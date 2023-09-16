@@ -2,7 +2,7 @@
 void FUN_0042564c(int param_1)
 
 {
-  Unknown *pUVar1;
+  AnmVm *pAVar1;
   char cVar2;
   AnmManager *pAVar3;
   int iVar4;
@@ -112,9 +112,9 @@ LAB_004259f3:
       *(int *)(param_1 + 0x1c) = local_8 + 1;
       for (local_8 = 0; pAVar3 = g_AnmManager, local_8 < *(int *)(param_1 + 0x1c);
           local_8 = local_8 + 1) {
-        pUVar1 = (Unknown *)(param_1 + 0x134 + local_8 * 0x110);
-        FUN_00403580(pUVar1);
-        FUN_004323a0(pAVar3,pUVar1,(short)local_8 + 0x101);
+        pAVar1 = (AnmVm *)(param_1 + 0x134 + local_8 * 0x110);
+        AnmVm::Initialize(pAVar1);
+        AnmManager::FUN_004323a0(pAVar3,pAVar1,local_8 + 0x101);
         FUN_00434b60(g_AnmManager,param_1 + 0x134 + local_8 * 0x110,0xc0e0ff,0x302080,
                      *(int *)(param_1 + 0x20) + 0x40 + local_8 * 0x272);
         *(undefined4 *)(param_1 + 0x1c4 + local_8 * 0x110) = 0x42ba0000;
@@ -125,9 +125,9 @@ LAB_004259f3:
              *(uint *)(param_1 + 0x1b4 + local_8 * 0x110) | 0x300;
       }
       for (local_8 = 0; pAVar3 = g_AnmManager, local_8 < 0x10; local_8 = local_8 + 1) {
-        pUVar1 = (Unknown *)(param_1 + 0x2334 + local_8 * 0x110);
-        FUN_00403580(pUVar1);
-        FUN_004323a0(pAVar3,pUVar1,(short)local_8 + 0x708);
+        pAVar1 = (AnmVm *)(param_1 + 0x2334 + local_8 * 0x110);
+        AnmVm::Initialize(pAVar1);
+        AnmManager::FUN_004323a0(pAVar3,pAVar1,local_8 + 0x708);
         puVar6 = local_5c;
         for (iVar4 = 0x10; iVar4 != 0; iVar4 = iVar4 + -1) {
           *puVar6 = 0;

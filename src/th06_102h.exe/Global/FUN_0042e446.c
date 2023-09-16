@@ -21,7 +21,7 @@ void FUN_0042e446(int param_1)
   int local_34;
   int local_30;
   int local_2c;
-  int local_28;
+  AnmVm *local_28;
   undefined4 local_24;
   undefined4 local_20;
   undefined local_1c;
@@ -32,7 +32,7 @@ void FUN_0042e446(int param_1)
   float fStack_8;
   
   local_18 = __security_cookie ^ unaff_retaddr;
-  local_28 = param_1 + 0x40;
+  local_28 = (AnmVm *)(param_1 + 0x40);
   g_GameContext.viewport.X = 0;
   g_GameContext.viewport.Y = 0;
   g_GameContext.viewport.Width = 0x280;
@@ -41,19 +41,19 @@ void FUN_0042e446(int param_1)
   ;
   FUN_00435300(g_AnmManager,0,0,0,0,0);
   for (local_14 = 0; local_14 < 0x26; local_14 = local_14 + 1) {
-    local_40 = *(float *)(local_28 + 0x90);
-    local_3c = *(float *)(local_28 + 0x94);
-    fStack_38 = *(float *)(local_28 + 0x98);
-    *(float *)(local_28 + 0x90) = *(float *)(local_28 + 0x90) + *(float *)(local_28 + 0xe4);
-    *(float *)(local_28 + 0x94) = *(float *)(local_28 + 0x94) + *(float *)(local_28 + 0xe8);
-    *(float *)(local_28 + 0x98) = *(float *)(local_28 + 0x98) + *(float *)(local_28 + 0xec);
-    FUN_00432ad0(g_AnmManager,local_28);
-    *(float *)(local_28 + 0x90) = local_40;
-    *(float *)(local_28 + 0x94) = local_3c;
-    *(float *)(local_28 + 0x98) = fStack_38;
-    local_28 = local_28 + 0x110;
+    local_40 = (local_28->pos).x;
+    local_3c = (local_28->pos).y;
+    fStack_38 = (local_28->pos).z;
+    (local_28->pos).x = (local_28->pos).x + (local_28->pos2).x;
+    (local_28->pos).y = (local_28->pos).y + (local_28->pos2).y;
+    (local_28->pos).z = (local_28->pos).z + (local_28->pos2).z;
+    AnmManager::FUN_00432ad0(g_AnmManager,local_28);
+    (local_28->pos).x = local_40;
+    (local_28->pos).y = local_3c;
+    (local_28->pos).z = fStack_38;
+    local_28 = local_28 + 1;
   }
-  local_28 = param_1 + 0xf20;
+  local_28 = (AnmVm *)(param_1 + 0xf20);
   if (*(float *)(param_1 + 0xfb0) < 640.0 != NAN(*(float *)(param_1 + 0xfb0))) {
     if (*(int *)(param_1 + 0xc) == 8) {
       local_40 = *(float *)(param_1 + 0xfb0);
@@ -78,7 +78,7 @@ void FUN_0042e446(int param_1)
         FUN_00401650(0x47b900,&local_40,"No.%.2d",local_44 + 1);
         pfVar1 = (float *)(param_1 + 0x2930 + local_14 * 0x110);
         *pfVar1 = *pfVar1 + 96.0;
-        FUN_00432ad0(g_AnmManager,param_1 + 0x28a0 + local_14 * 0x110);
+        AnmManager::FUN_00432ad0(g_AnmManager,(AnmVm *)(param_1 + 0x28a0 + local_14 * 0x110));
         local_40 = local_40 + 368.0;
         FUN_00401650(0x47b900,&local_40,"%3d/%3d",(uint)*(ushort *)(&DAT_0069bd0e + local_44 * 0x40)
                      ,(uint)*(ushort *)(&DAT_0069bd0c + local_44 * 0x40));
@@ -93,12 +93,12 @@ void FUN_0042e446(int param_1)
       *(float *)(param_1 + 0x2930) = local_40;
       *(float *)(param_1 + 0x2934) = local_3c;
       *(float *)(param_1 + 0x2938) = fStack_38;
-      FUN_00432ad0(g_AnmManager,param_1 + 0x28a0);
+      AnmManager::FUN_00432ad0(g_AnmManager,(AnmVm *)(param_1 + 0x28a0));
       local_40 = local_40 + 320.0;
       *(float *)(param_1 + 0x2a40) = local_40;
       *(float *)(param_1 + 0x2a44) = local_3c;
       *(float *)(param_1 + 0x2a48) = fStack_38;
-      FUN_00432ad0(g_AnmManager,param_1 + 0x29b0);
+      AnmManager::FUN_00432ad0(g_AnmManager,(AnmVm *)(param_1 + 0x29b0));
       local_40 = local_40 - 320.0;
       local_3c = local_3c + 18.0;
       local_2c = *(int *)(param_1 + *(int *)(param_1 + 0x2c) * 0x30 + 0x3ab4 +
@@ -242,21 +242,21 @@ void FUN_0042e446(int param_1)
   _DAT_00481b28 = 1.0;
   _DAT_00481b2c = 1.0;
   if ((9 < *(int *)(param_1 + 8)) && (*(int *)(param_1 + 8) < 0xf)) {
-    local_28 = param_1 + 0x1030;
+    local_28 = (AnmVm *)(param_1 + 0x1030);
     for (local_14 = 0; local_14 < 6; local_14 = local_14 + 1) {
-      FUN_00432ad0(g_AnmManager,local_28);
-      local_28 = local_28 + 0x110;
+      AnmManager::FUN_00432ad0(g_AnmManager,local_28);
+      local_28 = local_28 + 1;
     }
     local_40 = *(float *)(param_1 + 0x1720);
     local_3c = *(float *)(param_1 + 0x1724);
     fStack_38 = *(float *)(param_1 + 0x1728);
-    local_28 = param_1 + 0x17a0;
+    local_28 = (AnmVm *)(param_1 + 0x17a0);
     FUN_00401650(0x47b900,&local_40,"No.   Name     Date     Player Score");
     for (local_14 = 0; local_14 < 0xf; local_14 = local_14 + 1) {
-      local_40 = *(float *)(local_28 + 0x90);
-      local_3c = *(float *)(local_28 + 0x94);
-      fStack_38 = *(float *)(local_28 + 0x98);
-      local_28 = local_28 + 0x110;
+      local_40 = *(float *)((int)local_28 + 0x90);
+      local_3c = *(float *)((int)local_28 + 0x94);
+      fStack_38 = *(float *)((int)local_28 + 0x98);
+      local_28 = (AnmVm *)((int)local_28 + 0x110);
       if (local_14 == *(int *)(param_1 + 0x1c)) {
         _DAT_00481b24 = 0xffff8080;
       }

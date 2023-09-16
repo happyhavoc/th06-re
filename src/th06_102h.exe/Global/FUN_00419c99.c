@@ -101,23 +101,23 @@ void __fastcall FUN_00419c99(uint *param_1)
   undefined4 local_20;
   uint local_1c;
   uint local_18;
-  int local_14;
+  AnmVm *local_14;
   int local_10;
   float local_c;
   float local_8;
   
   if ((*(int *)(param_1[1] + 0x253c) < 0) &&
      ((uint)*(byte *)(param_1 + 8) + (uint)*(byte *)(param_1[1] + 0x1ba0) != 0)) {
-    local_14 = param_1[1] + 0x1430;
-    FUN_00432ad0(g_AnmManager,local_14);
+    local_14 = (AnmVm *)(param_1[1] + 0x1430);
+    AnmManager::FUN_00432ad0(g_AnmManager,local_14);
     uVar1 = param_1[1];
-    local_14 = uVar1 + 0x1650;
+    local_14 = (AnmVm *)(uVar1 + 0x1650);
     *(uint *)(uVar1 + 0x16d0) = *(uint *)(uVar1 + 0x16d0) | 0x300;
     *(float *)(uVar1 + 0x166c) = ((float)param_1[10] * 288.0) / 14.0;
     *(undefined4 *)(uVar1 + 0x16e0) = 0x42c00000;
     *(undefined4 *)(uVar1 + 0x16e4) = 0x41c00000;
     *(undefined4 *)(uVar1 + 0x16e8) = 0;
-    FUN_00432ad0(g_AnmManager,local_14);
+    AnmManager::FUN_00432ad0(g_AnmManager,local_14);
     local_28 = 0x42a00000;
     local_24 = 0x41800000;
     local_20 = 0;
@@ -166,7 +166,7 @@ void __fastcall FUN_00419c99(uint *param_1)
   g_GameContext.viewport.Height = 0x1e0;
   (*(g_GameContext.d3dDevice)->lpVtbl->SetViewport)(g_GameContext.d3dDevice,&g_GameContext.viewport)
   ;
-  local_14 = param_1[1] + 0x660;
+  local_14 = (AnmVm *)(param_1[1] + 0x660);
   if ((((uint)g_GameContext.cfg.render_opts >> DISPLAY_MINIMUM_GRAPHICS & 1) == 0) &&
      (((*(int *)(param_1[1] + 0x71c) != 0 || (g_GameContext.field77_0x198 != 0)) ||
       (((uint)g_GameContext.cfg.render_opts >> CLEAR_BACKBUFFER_ON_REFRESH & 1 |
@@ -175,41 +175,41 @@ void __fastcall FUN_00419c99(uint *param_1)
       local_a0 = 0;
       local_9c = local_8;
       local_98 = 0x3efae148;
-      *(undefined4 *)(local_14 + 0x90) = 0;
-      *(float *)(local_14 + 0x94) = local_8;
-      *(undefined4 *)(local_14 + 0x98) = 0x3efae148;
-      FUN_00432ad0(g_AnmManager,local_14);
+      (local_14->pos).x = 0.0;
+      (local_14->pos).y = local_8;
+      (local_14->pos).z = 0.49;
+      AnmManager::FUN_00432ad0(g_AnmManager,local_14);
     }
     for (local_c = 416.0; local_c < 624.0 != NAN(local_c); local_c = local_c + 32.0) {
       for (local_8 = 0.0; local_8 < 464.0 != NAN(local_8); local_8 = local_8 + 32.0) {
         local_ac = local_c;
         local_a8 = local_8;
         local_a4 = 0x3efae148;
-        *(float *)(local_14 + 0x90) = local_c;
-        *(float *)(local_14 + 0x94) = local_8;
-        *(undefined4 *)(local_14 + 0x98) = 0x3efae148;
-        FUN_00432ad0(g_AnmManager,local_14);
+        (local_14->pos).x = local_c;
+        (local_14->pos).y = local_8;
+        (local_14->pos).z = 0.49;
+        AnmManager::FUN_00432ad0(g_AnmManager,local_14);
       }
     }
-    local_14 = param_1[1] + 0x770;
+    local_14 = (AnmVm *)(param_1[1] + 0x770);
     for (local_c = 32.0; local_c < 416.0 != NAN(local_c); local_c = local_c + 32.0) {
       local_b8 = local_c;
       local_b4 = 0;
       local_b0 = 0x3efae148;
-      *(float *)(local_14 + 0x90) = local_c;
-      *(undefined4 *)(local_14 + 0x94) = 0;
-      *(undefined4 *)(local_14 + 0x98) = 0x3efae148;
-      FUN_00432ad0(g_AnmManager,local_14);
+      (local_14->pos).x = local_c;
+      (local_14->pos).y = 0.0;
+      (local_14->pos).z = 0.49;
+      AnmManager::FUN_00432ad0(g_AnmManager,local_14);
     }
-    local_14 = param_1[1] + 0x880;
+    local_14 = (AnmVm *)(param_1[1] + 0x880);
     for (local_c = 32.0; local_c < 416.0 != NAN(local_c); local_c = local_c + 32.0) {
       local_c4 = local_c;
       local_c0 = 0x43e80000;
       local_bc = 0x3efae148;
-      *(float *)(local_14 + 0x90) = local_c;
-      *(undefined4 *)(local_14 + 0x94) = 0x43e80000;
-      *(undefined4 *)(local_14 + 0x98) = 0x3efae148;
-      FUN_00432ad0(g_AnmManager,local_14);
+      (local_14->pos).x = local_c;
+      (local_14->pos).y = 464.0;
+      (local_14->pos).z = 0.49;
+      AnmManager::FUN_00432ad0(g_AnmManager,local_14);
     }
     FUN_00432cc0((void *)(param_1[1] + 0x550));
     FUN_00432cc0((void *)param_1[1]);
@@ -217,13 +217,13 @@ void __fastcall FUN_00419c99(uint *param_1)
     FUN_00432cc0((void *)(param_1[1] + 0x330));
     FUN_00432cc0((void *)(param_1[1] + 0x440));
     FUN_00432cc0((void *)(param_1[1] + 0x220));
-    FUN_00432ad0(g_AnmManager,param_1[1] + 0x990);
-    FUN_00432ad0(g_AnmManager,param_1[1] + 0xaa0);
-    FUN_00432ad0(g_AnmManager,param_1[1] + 0xbb0);
-    FUN_00432ad0(g_AnmManager,param_1[1] + 0xcc0);
-    FUN_00432ad0(g_AnmManager,param_1[1] + 0xdd0);
-    FUN_00432ad0(g_AnmManager,param_1[1] + 0xee0);
-    FUN_00432ad0(g_AnmManager,param_1[1] + 0xff0);
+    AnmManager::FUN_00432ad0(g_AnmManager,(AnmVm *)(param_1[1] + 0x990));
+    AnmManager::FUN_00432ad0(g_AnmManager,(AnmVm *)(param_1[1] + 0xaa0));
+    AnmManager::FUN_00432ad0(g_AnmManager,(AnmVm *)(param_1[1] + 0xbb0));
+    AnmManager::FUN_00432ad0(g_AnmManager,(AnmVm *)(param_1[1] + 0xcc0));
+    AnmManager::FUN_00432ad0(g_AnmManager,(AnmVm *)(param_1[1] + 0xdd0));
+    AnmManager::FUN_00432ad0(g_AnmManager,(AnmVm *)(param_1[1] + 0xee0));
+    AnmManager::FUN_00432ad0(g_AnmManager,(AnmVm *)(param_1[1] + 0xff0));
     *param_1 = *param_1 & 0xfffffffc | 2;
     *param_1 = *param_1 & 0xfffffff3 | 8;
     *param_1 = *param_1 & 0xffffff3f | 0x80;
@@ -232,7 +232,7 @@ void __fastcall FUN_00419c99(uint *param_1)
   }
   if (((uint)g_GameContext.cfg.render_opts >> 4 & 1) == 0) {
     uVar1 = param_1[1];
-    local_14 = uVar1 + 0x1760;
+    local_14 = (AnmVm *)(uVar1 + 0x1760);
     local_c = 496.0;
     local_d0 = 0x43f80000;
     local_cc = 0x42680000;
@@ -240,99 +240,99 @@ void __fastcall FUN_00419c99(uint *param_1)
     *(undefined4 *)(uVar1 + 0x17f0) = 0x43f80000;
     *(undefined4 *)(uVar1 + 0x17f4) = 0x42680000;
     *(undefined4 *)(uVar1 + 0x17f8) = 0x3efae148;
-    FUN_00432ad0(g_AnmManager,local_14);
+    AnmManager::FUN_00432ad0(g_AnmManager,local_14);
     local_dc = local_c;
     local_d8 = 0x42a40000;
     local_d4 = 0x3efae148;
-    *(float *)(local_14 + 0x90) = local_c;
-    *(undefined4 *)(local_14 + 0x94) = 0x42a40000;
-    *(undefined4 *)(local_14 + 0x98) = 0x3efae148;
-    FUN_00432ad0(g_AnmManager,local_14);
+    (local_14->pos).x = local_c;
+    (local_14->pos).y = 82.0;
+    (local_14->pos).z = 0.49;
+    AnmManager::FUN_00432ad0(g_AnmManager,local_14);
     if ((*param_1 & 3) != 0) {
       local_e8 = local_c;
       local_e4 = 0x42f40000;
       local_e0 = 0x3efae148;
-      *(float *)(local_14 + 0x90) = local_c;
-      *(undefined4 *)(local_14 + 0x94) = 0x42f40000;
-      *(undefined4 *)(local_14 + 0x98) = 0x3efae148;
-      FUN_00432ad0(g_AnmManager,local_14);
+      (local_14->pos).x = local_c;
+      (local_14->pos).y = 122.0;
+      (local_14->pos).z = 0.49;
+      AnmManager::FUN_00432ad0(g_AnmManager,local_14);
     }
     if ((*param_1 >> 2 & 3) != 0) {
       local_f4 = local_c;
       local_f0 = 0x43120000;
       local_ec = 0x3efae148;
-      *(float *)(local_14 + 0x90) = local_c;
-      *(undefined4 *)(local_14 + 0x94) = 0x43120000;
-      *(undefined4 *)(local_14 + 0x98) = 0x3efae148;
-      FUN_00432ad0(g_AnmManager,local_14);
+      (local_14->pos).x = local_c;
+      (local_14->pos).y = 146.0;
+      (local_14->pos).z = 0.49;
+      AnmManager::FUN_00432ad0(g_AnmManager,local_14);
     }
     if ((*param_1 >> 4 & 3) != 0) {
       local_100 = local_c;
       local_fc = 0x433a0000;
       local_f8 = 0x3efae148;
-      *(float *)(local_14 + 0x90) = local_c;
-      *(undefined4 *)(local_14 + 0x94) = 0x433a0000;
-      *(undefined4 *)(local_14 + 0x98) = 0x3efae148;
-      FUN_00432ad0(g_AnmManager,local_14);
+      (local_14->pos).x = local_c;
+      (local_14->pos).y = 186.0;
+      (local_14->pos).z = 0.49;
+      AnmManager::FUN_00432ad0(g_AnmManager,local_14);
     }
     if ((*param_1 >> 6 & 3) != 0) {
       local_10c = local_c;
       local_108 = 0x434e0000;
       local_104 = 0x3efae148;
-      *(float *)(local_14 + 0x90) = local_c;
-      *(undefined4 *)(local_14 + 0x94) = 0x434e0000;
-      *(undefined4 *)(local_14 + 0x98) = 0x3efae148;
-      FUN_00432ad0(g_AnmManager,local_14);
+      (local_14->pos).x = local_c;
+      (local_14->pos).y = 206.0;
+      (local_14->pos).z = 0.49;
+      AnmManager::FUN_00432ad0(g_AnmManager,local_14);
     }
     if ((*param_1 >> 8 & 3) != 0) {
       local_118 = local_c;
       local_114 = 0x43620000;
       local_110 = 0x3efae148;
-      *(float *)(local_14 + 0x90) = local_c;
-      *(undefined4 *)(local_14 + 0x94) = 0x43620000;
-      *(undefined4 *)(local_14 + 0x98) = 0x3efae148;
-      FUN_00432ad0(g_AnmManager,local_14);
+      (local_14->pos).x = local_c;
+      (local_14->pos).y = 226.0;
+      (local_14->pos).z = 0.49;
+      AnmManager::FUN_00432ad0(g_AnmManager,local_14);
     }
     local_124 = 0x43f40000;
     local_120 = 0x43e80000;
     local_11c = 0x3efae148;
-    *(undefined4 *)(local_14 + 0x90) = 0x43f40000;
-    *(undefined4 *)(local_14 + 0x94) = 0x43e80000;
-    *(undefined4 *)(local_14 + 0x98) = 0x3efae148;
-    FUN_00432ad0(g_AnmManager,local_14);
+    (local_14->pos).x = 488.0;
+    (local_14->pos).y = 464.0;
+    (local_14->pos).z = 0.49;
+    AnmManager::FUN_00432ad0(g_AnmManager,local_14);
     local_130 = 0;
     local_12c = 0x43e80000;
     local_128 = 0x3efae148;
-    *(undefined4 *)(local_14 + 0x90) = 0;
-    *(undefined4 *)(local_14 + 0x94) = 0x43e80000;
-    *(undefined4 *)(local_14 + 0x98) = 0x3efae148;
-    FUN_00432ad0(g_AnmManager,local_14);
+    (local_14->pos).x = 0.0;
+    (local_14->pos).y = 464.0;
+    (local_14->pos).z = 0.49;
+    AnmManager::FUN_00432ad0(g_AnmManager,local_14);
   }
   if (((*param_1 & 3) != 0) || (((uint)g_GameContext.cfg.render_opts >> 4 & 1) != 0)) {
-    local_14 = param_1[1] + 0x1100;
+    local_14 = (AnmVm *)(param_1[1] + 0x1100);
     local_c = 496.0;
     for (local_10 = 0; local_10 < LIFE_COUNT; local_10 = local_10 + 1) {
       local_13c = local_c;
       local_138 = 0x42f40000;
       local_134 = 0x3efae148;
-      *(float *)(local_14 + 0x90) = local_c;
-      *(undefined4 *)(local_14 + 0x94) = 0x42f40000;
-      *(undefined4 *)(local_14 + 0x98) = 0x3efae148;
-      FUN_00432ad0(g_AnmManager,local_14);
+      (local_14->pos).x = local_c;
+      (local_14->pos).y = 122.0;
+      (local_14->pos).z = 0.49;
+      AnmManager::FUN_00432ad0(g_AnmManager,local_14);
       local_c = local_c + 16.0;
     }
   }
   if (((*param_1 >> 2 & 3) != 0) || (((uint)g_GameContext.cfg.render_opts >> 4 & 1) != 0)) {
-    local_14 = param_1[1] + 0x1210;
+    local_14 = (AnmVm *)(param_1[1] + 0x1210);
     local_c = 496.0;
     for (local_10 = 0; local_10 < BOMB_COUNT; local_10 = local_10 + 1) {
       local_148 = local_c;
       local_144 = 0x43120000;
       local_140 = 0x3efae148;
-      *(float *)(local_14 + 0x90) = local_c;
-      *(undefined4 *)(local_14 + 0x94) = 0x43120000;
-      *(undefined4 *)(local_14 + 0x98) = 0x3efae148;
-      FUN_00432ad0(g_AnmManager,local_14);
+      (local_14->pos).x = local_c;
+      (local_14->pos).y = 146.0;
+      (local_14->pos).z = 0.49;
+      AnmManager::FUN_00432ad0(g_AnmManager,local_14);
       local_c = local_c + 16.0;
     }
   }
@@ -408,14 +408,14 @@ void __fastcall FUN_00419c99(uint *param_1)
                 (g_GameContext.d3dDevice,0,D3DTSS_COLORARG1,2);
       if (0x7f < _DAT_0069d4b0) {
         uVar1 = param_1[1];
-        local_14 = uVar1 + 0x1320;
+        local_14 = (AnmVm *)(uVar1 + 0x1320);
         local_184 = 0x43f80000;
         local_180 = 0x433a0000;
         local_17c = 0;
         *(undefined4 *)(uVar1 + 0x13b0) = 0x43f80000;
         *(undefined4 *)(uVar1 + 0x13b4) = 0x433a0000;
         *(undefined4 *)(uVar1 + 0x13b8) = 0;
-        FUN_00432ad0(g_AnmManager,local_14);
+        AnmManager::FUN_00432ad0(g_AnmManager,local_14);
       }
     }
     if (_DAT_0069d4b0 < 0x80) {

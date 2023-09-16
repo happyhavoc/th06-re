@@ -45,9 +45,10 @@ undefined4 FUN_004188c9(void)
         break;
       case 2:
         psVar6 = (short *)(*(int *)(in_ECX + 0x2538) + 4);
-        FUN_004323a0(g_AnmManager,(Unknown *)(in_ECX + 0x2550 + *psVar6 * 0x110),
-                     *(short *)(*(int *)(in_ECX + 0x2538) + 6) +
-                     (-(ushort)(*psVar6 != 0) & 8) + 0x4a0);
+        AnmManager::FUN_004323a0
+                  (g_AnmManager,(AnmVm *)(in_ECX + 0x2550 + *psVar6 * 0x110),
+                   (int)*(short *)(*(int *)(in_ECX + 0x2538) + 6) +
+                   (-(uint)(*psVar6 != 0) & 8) + 0x4a0);
         break;
       case 3:
         iVar7 = *(int *)(in_ECX + 0x2538);

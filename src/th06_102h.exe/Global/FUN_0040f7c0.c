@@ -4,7 +4,7 @@ void __fastcall FUN_0040f7c0(int param_1)
 {
   Unknown *pUVar1;
   AnmManager *pAVar2;
-  short sVar3;
+  int iVar3;
   int iVar4;
   undefined4 uVar5;
   int iVar6;
@@ -148,16 +148,17 @@ switchD_0040fa93_caseD_52:
         case 0x56:
           *(int *)(param_1 + 0x116c) = *(int *)(param_1 + 0x116c) + 1;
           iVar6 = FUN_0040f4d0();
-          iVar4 = FUN_0040f4d0();
-          *(float *)(param_1 + 0x10) = (float)iVar6 / (float)iVar4;
+          iVar3 = FUN_0040f4d0();
+          *(float *)(param_1 + 0x10) = (float)iVar6 / (float)iVar3;
           break;
         case 0x61:
           *(int *)(param_1 + 0x116c) = *(int *)(param_1 + 0x116c) + 1;
           iVar6 = FUN_0040f4d0();
+          iVar3 = FUN_0040f4d0();
           iVar4 = FUN_0040f4d0();
-          sVar3 = FUN_0040f4d0();
-          FUN_004051b0(param_1 + 0x14 + iVar6 * 0x110,iVar4 + 0x600);
-          FUN_004323a0(g_AnmManager,(Unknown *)(param_1 + 0x14 + iVar6 * 0x110),sVar3 + 0x600);
+          FUN_004051b0(param_1 + 0x14 + iVar6 * 0x110,iVar3 + 0x600);
+          AnmManager::FUN_004323a0
+                    (g_AnmManager,(AnmVm *)(param_1 + 0x14 + iVar6 * 0x110),iVar4 + 0x600);
           break;
         case 0x62:
           iVar6 = AnmManager::LogoStuff(g_AnmManager,0,(char *)(*(int *)(param_1 + 0x116c) + 1));

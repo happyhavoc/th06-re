@@ -10,7 +10,7 @@ void FUN_0040de00(int param_1,undefined4 param_2)
   float10 fVar6;
   int local_7c;
   undefined4 *local_74;
-  Unknown *local_68;
+  AnmVm *local_68;
   int local_64;
   int local_60;
   undefined4 local_5c [22];
@@ -27,38 +27,40 @@ void FUN_0040de00(int param_1,undefined4 param_2)
         (local_74[0x30] != 0)) && (30.0 <= *(float *)(local_74[0x30] + 0x2c))) {
       local_60 = local_60 + 1;
       fVar4 = (float10)FUN_0045be40((double)((float)local_74[0x159] - *(float *)(param_1 + 0xc70)));
-      local_68 = (Unknown *)&DAT_005ab5f8;
+      local_68 = (AnmVm *)&DAT_005ab5f8;
       for (local_7c = 0; local_7c < 0x280; local_7c = local_7c + 1) {
-        if ((((*(short *)((int)&local_68[7].field13_0x3c.field9_0x24 + 2) != 0) &&
-             (*(short *)((int)&local_68[7].field13_0x3c.field9_0x24 + 2) != 5)) &&
-            ((local_68->field67_0xc0 != (AnmLoadedSprite *)0x0 &&
-             ((fVar1 = local_68->field67_0xc0->heightPx, fVar1 < 30.0 != NAN(fVar1) &&
-              (NAN((float)local_68[7].field10_0x28) != ((float)local_68[7].field10_0x28 == 0.0))))))
-            ) && (fVar5 = (float10)FUN_0045bc34(), (float)fVar5 < 64.0 != NAN((float)fVar5))) {
-          *(ushort *)&local_68[7].field13_0x3c.field8_0x20 =
-               *(ushort *)&local_68[7].field13_0x3c.field8_0x20 | 0x10;
-          local_68[7].field10_0x28 = 0x3c23d70a;
-          local_68[7].field13_0x3c.field3_0xc = 0;
-          local_68[7].field13_0x3c.field2_0x8 = 0;
-          local_68[7].field13_0x3c.field1_0x4 = -999;
-          local_68[7].field13_0x3c.field4_0x10 = 0x78;
-          fVar5 = (float10)FUN_0045be40((double)((float)local_68[7].field2_0x8 -
+        if ((((*(short *)((int)&local_68[5].matrix.field0_0x0 + 0x32) != 0) &&
+             (*(short *)((int)&local_68[5].matrix.field0_0x0 + 0x32) != 5)) &&
+            ((local_68->sprite != (AnmLoadedSprite *)0x0 &&
+             ((fVar1 = local_68->sprite->heightPx, fVar1 < 30.0 != NAN(fVar1) &&
+              (fVar1 = local_68[5].currentTimeInScript.subFrame, NAN(fVar1) != (fVar1 == 0.0)))))))
+           && (fVar5 = (float10)FUN_0045bc34(), (float)fVar5 < 64.0 != NAN((float)fVar5))) {
+          *(ushort *)((int)&local_68[5].matrix.field0_0x0 + 0x2c) =
+               *(ushort *)((int)&local_68[5].matrix.field0_0x0 + 0x2c) | 0x10;
+          local_68[5].currentTimeInScript.subFrame = 0.01;
+          local_68[5].matrix.field0_0x0.field0._23 = 0.0;
+          local_68[5].matrix.field0_0x0.field0._22 = 0.0;
+          local_68[5].matrix.field0_0x0.field0._21 = -NAN;
+          local_68[5].matrix.field0_0x0.field0._24 = 1.681558e-43;
+          fVar5 = (float10)FUN_0045be40((double)(local_68[5].angleVel.z -
                                                 *(float *)(param_1 + 0xc70)),
-                                        (double)((float)local_68[7].field1_0x4 -
+                                        (double)(local_68[5].angleVel.y -
                                                 *(float *)(param_1 + 0xc6c)));
-          local_68[7].field12_0x30.subFrame = ((float)fVar5 - (float)fVar4) * 2.2 + (float)fVar4;
-          fVar6 = (float10)local_68[7].field12_0x30.subFrame;
+          local_68[5].matrix.field0_0x0.field0._12 =
+               ((float)fVar5 - (float)fVar4) * 2.2 + (float)fVar4;
+          fVar6 = (float10)local_68[5].matrix.field0_0x0.field0._12;
           fVar5 = (float10)fcos(fVar6);
           fVar6 = (float10)fsin(fVar6);
-          local_68[7].field7_0x1c = (float)(fVar5 * (float10)0.01);
-          local_68[7].field8_0x20 = (float)(fVar6 * (float10)0.01);
-          *(short *)((int)&local_68[7].field13_0x3c.field8_0x20 + 2) =
-               *(short *)((int)&local_68[7].field13_0x3c.field8_0x20 + 2) + 1;
-          FUN_004323a0(g_AnmManager,local_68,
-                       *(short *)&local_68->field_0xb2 +
-                       *(short *)((int)&local_68[7].field13_0x3c.field8_0x20 + 2));
+          local_68[5].uvScrollPos.x = (float)(fVar5 * (float10)0.01);
+          local_68[5].uvScrollPos.y = (float)(fVar6 * (float10)0.01);
+          *(short *)((int)&local_68[5].matrix.field0_0x0 + 0x2e) =
+               *(short *)((int)&local_68[5].matrix.field0_0x0 + 0x2e) + 1;
+          AnmManager::FUN_004323a0
+                    (g_AnmManager,local_68,
+                     (int)local_68->anotherSpriteNumber +
+                     (int)*(short *)((int)&local_68[5].matrix.field0_0x0 + 0x2e));
         }
-        local_68 = (Unknown *)&local_68[7].field13_0x3c.field11_0x2c;
+        local_68 = (AnmVm *)(local_68[5].matrix.field0_0x0.m[3] + 2);
       }
     }
     local_74 = local_74 + 0x171;

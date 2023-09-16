@@ -1,5 +1,5 @@
 
-void FUN_00417bfd(short param_1,char *param_2)
+void FUN_00417bfd(int param_1,char *param_2)
 
 {
   char cVar1;
@@ -12,7 +12,7 @@ void FUN_00417bfd(short param_1,char *param_2)
   iVar2 = *(int *)(in_ECX + 4);
   *(undefined2 *)(iVar2 + 0x1f88) = 0x4a3;
   FUN_00432430((Unknown *)(iVar2 + 0x1ed4),(int)pAVar3->scripts[0x4a3]);
-  FUN_004323a0(g_AnmManager,(Unknown *)(*(int *)(in_ECX + 4) + 0x1ed4),param_1 + 0x4a8);
+  AnmManager::FUN_004323a0(g_AnmManager,(AnmVm *)(*(int *)(in_ECX + 4) + 0x1ed4),param_1 + 0x4a8);
   pAVar3 = g_AnmManager;
   iVar2 = *(int *)(in_ECX + 4);
   *(undefined2 *)(iVar2 + 0x21a8) = 0x707;

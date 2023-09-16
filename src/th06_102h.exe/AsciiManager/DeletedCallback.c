@@ -1,5 +1,5 @@
 
-undefined4 FUN_004014d0(void)
+int AsciiManager::DeletedCallback(AsciiManager *arg)
 
 {
   FUN_00432030(g_AnmManager,1);

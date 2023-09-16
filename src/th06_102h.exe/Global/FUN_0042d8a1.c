@@ -12,16 +12,16 @@ void * __fastcall FUN_0042d8a1(void *param_1)
   local_18 = 0x26;
   local_20 = (AnmVm *)((int)param_1 + 0x40);
   while (local_18 = local_18 + -1, -1 < local_18) {
-    FUN_00403720(local_20);
+    AnmVm::AnmVm(local_20);
     local_20 = local_20 + 1;
   }
   local_34 = 0x10;
   local_3c = (AnmVm *)((int)param_1 + 0x28a0);
   while (local_34 = local_34 + -1, -1 < local_34) {
-    FUN_00403720(local_3c);
+    AnmVm::AnmVm(local_3c);
     local_3c = local_3c + 1;
   }
-  FUN_00403720((AnmVm *)((int)param_1 + 0x39a0));
+  AnmVm::AnmVm((AnmVm *)((int)param_1 + 0x39a0));
   local_50 = 0x14;
   local_58 = (undefined4 *)((int)param_1 + 0x3ab0);
   while (local_50 = local_50 + -1, -1 < local_50) {

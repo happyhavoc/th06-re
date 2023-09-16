@@ -38,7 +38,7 @@ int WinMain(HINSTANCE hInstance,HINSTANCE hPrevInstance,LPSTR lpCmdLine,int nSho
             vbsPtr = (AnmManager *)0x0;
           }
           else {
-            vbsPtr = (AnmManager *)AnmManager::AnmManager(puVar1);
+            vbsPtr = AnmManager::AnmManager(puVar1);
           }
           g_AnmManager = vbsPtr;
           retCode = AddInputChain();

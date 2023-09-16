@@ -8,7 +8,7 @@ int FUN_00426000(void)
   int local_18;
   int local_c;
   
-  FUN_00424127((AnmTimer *)(in_ECX + 8));
+  AnmTimer::AnmTimer((AnmTimer *)(in_ECX + 8));
   local_c = 8;
   do {
     local_c = local_c + -1;
@@ -20,7 +20,7 @@ int FUN_00426000(void)
   local_34 = 0x20;
   local_3c = (AnmVm *)(in_ECX + 0x11c);
   while (local_34 = local_34 + -1, -1 < local_34) {
-    FUN_00403720(local_3c);
+    AnmVm::AnmVm(local_3c);
     local_3c = local_3c + 1;
   }
   return in_ECX;

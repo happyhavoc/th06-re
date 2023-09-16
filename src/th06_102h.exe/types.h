@@ -49457,6 +49457,28 @@ struct AnmRawInstr {
     uint args[10];
 };
 
+typedef struct StdRawObject StdRawObject, *PStdRawObject;
+
+typedef struct StdRawQuadBasic StdRawQuadBasic, *PStdRawQuadBasic;
+
+struct StdRawQuadBasic {
+    short type;
+    short byteSize;
+    short anmScript;
+    short vmIndex;
+    D3DXVECTOR3 position;
+    struct D3DXVECTOR2 size;
+};
+
+struct StdRawObject {
+    ushort id;
+    uchar field1_0x2;
+    uchar flags;
+    D3DXVECTOR3 position;
+    D3DXVECTOR3 size;
+    struct StdRawQuadBasic firstQuad;
+};
+
 typedef struct MidiSample MidiSample, *PMidiSample;
 
 struct MidiSample {
@@ -50358,35 +50380,39 @@ struct Pbg3File {
     int field4_0x10;
 };
 
-typedef struct ChainElem ChainElem, *PChainElem;
-
-struct ChainElem {
-    short priority;
-    ushort flags;
-    undefined4 callback;
-    undefined4 addedCallback;
-    undefined4 deletedCallback;
-    struct ChainElem *prev;
-    struct ChainElem *next;
-    struct ChainElem *unkPtr;
-    void *arg;
-};
-
-typedef struct RenderVertexInfo RenderVertexInfo, *PRenderVertexInfo;
-
-struct RenderVertexInfo {
-    D3DXVECTOR3 position;
-    D3DCOLOR diffuseColor;
-    struct D3DXVECTOR2 textureUV;
-};
-
-typedef struct AnmManager AnmManager, *PAnmManager;
+typedef struct Stage Stage, *PStage;
 
 typedef struct AnmVm AnmVm, *PAnmVm;
 
-typedef struct AnmRawEntry AnmRawEntry, *PAnmRawEntry;
+typedef struct StdRawInstance StdRawInstance, *PStdRawInstance;
 
-typedef struct AnmRawSprite AnmRawSprite, *PAnmRawSprite;
+typedef struct StdRawInstr StdRawInstr, *PStdRawInstr;
+
+typedef struct StageCameraSky StageCameraSky, *PStageCameraSky;
+
+struct StdRawInstr {
+    int field0_0x0;
+    ushort field1_0x4;
+    ushort field2_0x6;
+    undefined field3_0x8;
+    undefined field4_0x9;
+    undefined field5_0xa;
+    undefined field6_0xb;
+    undefined field7_0xc;
+    undefined field8_0xd;
+    undefined field9_0xe;
+    undefined field10_0xf;
+    undefined field11_0x10;
+    undefined field12_0x11;
+    undefined field13_0x12;
+    undefined field14_0x13;
+};
+
+struct StageCameraSky {
+    float nearPlane;
+    float farPlane;
+    D3DCOLOR color;
+};
 
 struct AnmVm {
     D3DXVECTOR3 rotation;
@@ -50432,6 +50458,80 @@ struct AnmVm {
     undefined field40_0x10e;
     undefined field41_0x10f;
 };
+
+struct Stage {
+    struct AnmVm *quadVms;
+    undefined field1_0x4;
+    undefined field2_0x5;
+    undefined field3_0x6;
+    undefined field4_0x7;
+    int quadCount;
+    int objectsCount;
+    struct StdRawObject **objects;
+    struct StdRawInstance *objectInstances;
+    struct StdRawInstr *beginningOfScript;
+    struct AnmTimer scriptTime;
+    int instructionIndex;
+    struct AnmTimer field12_0x2c;
+    undefined4 field13_0x38;
+    D3DXVECTOR3 position;
+    struct StageCameraSky skyFog;
+    struct StageCameraSky skyFogInterpInitial;
+    struct StageCameraSky skyFogInterpFinal;
+    int skyFogInterpDuration;
+    struct AnmTimer skyFogInterpTimer;
+    undefined4 field20_0x7c;
+    int spellcardEclRelated0;
+    int spellcardEclRelated1;
+    struct AnmVm field23_0x88;
+    struct AnmVm field24_0x198;
+    uchar unpauseFlag;
+    undefined field26_0x2a9;
+    undefined field27_0x2aa;
+    undefined field28_0x2ab;
+    D3DXVECTOR3 facingDirInterpInitial;
+    D3DXVECTOR3 facingDirInterpFinal;
+    int facingDirInterpDuration;
+    struct AnmTimer facingDirInterpTimer;
+    D3DXVECTOR3 positionInterpFinal;
+    int positionInterpEndTime;
+    D3DXVECTOR3 positionInterpInitial;
+    int positionInterpStartTime;
+};
+
+struct StdRawInstance {
+    ushort id;
+    ushort field1_0x2;
+    D3DXVECTOR3 position;
+};
+
+typedef struct ChainElem ChainElem, *PChainElem;
+
+struct ChainElem {
+    short priority;
+    ushort flags;
+    undefined4 callback;
+    undefined4 addedCallback;
+    undefined4 deletedCallback;
+    struct ChainElem *prev;
+    struct ChainElem *next;
+    struct ChainElem *unkPtr;
+    void *arg;
+};
+
+typedef struct RenderVertexInfo RenderVertexInfo, *PRenderVertexInfo;
+
+struct RenderVertexInfo {
+    D3DXVECTOR3 position;
+    D3DCOLOR diffuseColor;
+    struct D3DXVECTOR2 textureUV;
+};
+
+typedef struct AnmManager AnmManager, *PAnmManager;
+
+typedef struct AnmRawEntry AnmRawEntry, *PAnmRawEntry;
+
+typedef struct AnmRawSprite AnmRawSprite, *PAnmRawSprite;
 
 struct AnmManager {
     struct AnmLoadedSprite sprites[2048];
@@ -50582,6 +50682,83 @@ struct MidiDevice {
     HMIDIOUT midiOutDev;
 };
 
+typedef struct StdRawHeader StdRawHeader, *PStdRawHeader;
+
+struct StdRawHeader {
+    ushort objectsCount;
+    ushort quadsCount;
+    uint offsetToInstances;
+    uint offsetToScript;
+    uint field4_0xc;
+    char stageName[128];
+    char bgmNames[4][128];
+    char bgmPaths[4][128];
+    undefined field8_0x490;
+    undefined field9_0x491;
+    undefined field10_0x492;
+    undefined field11_0x493;
+    undefined field12_0x494;
+    undefined field13_0x495;
+    undefined field14_0x496;
+    undefined field15_0x497;
+    undefined field16_0x498;
+    undefined field17_0x499;
+    undefined field18_0x49a;
+    undefined field19_0x49b;
+    undefined field20_0x49c;
+    undefined field21_0x49d;
+    undefined field22_0x49e;
+    undefined field23_0x49f;
+    undefined field24_0x4a0;
+    undefined field25_0x4a1;
+    undefined field26_0x4a2;
+    undefined field27_0x4a3;
+    undefined field28_0x4a4;
+    undefined field29_0x4a5;
+    undefined field30_0x4a6;
+    undefined field31_0x4a7;
+    undefined field32_0x4a8;
+    undefined field33_0x4a9;
+    undefined field34_0x4aa;
+    undefined field35_0x4ab;
+    undefined field36_0x4ac;
+    undefined field37_0x4ad;
+    undefined field38_0x4ae;
+    undefined field39_0x4af;
+    undefined field40_0x4b0;
+    undefined field41_0x4b1;
+    undefined field42_0x4b2;
+    undefined field43_0x4b3;
+    undefined field44_0x4b4;
+    undefined field45_0x4b5;
+    undefined field46_0x4b6;
+    undefined field47_0x4b7;
+    undefined field48_0x4b8;
+    undefined field49_0x4b9;
+    undefined field50_0x4ba;
+    undefined field51_0x4bb;
+    undefined field52_0x4bc;
+    undefined field53_0x4bd;
+    undefined field54_0x4be;
+    undefined field55_0x4bf;
+    undefined field56_0x4c0;
+    undefined field57_0x4c1;
+    undefined field58_0x4c2;
+    undefined field59_0x4c3;
+    undefined field60_0x4c4;
+    undefined field61_0x4c5;
+    undefined field62_0x4c6;
+    undefined field63_0x4c7;
+    undefined field64_0x4c8;
+    undefined field65_0x4c9;
+    undefined field66_0x4ca;
+    undefined field67_0x4cb;
+    undefined field68_0x4cc;
+    undefined field69_0x4cd;
+    undefined field70_0x4ce;
+    undefined field71_0x4cf;
+};
+
 typedef enum GameConfigurationRenderOpts {
     DONT_USE_VERTEX_BUF=1,
     FORCE_16BIT_COLOR_MODE=2,
@@ -50595,6 +50772,12 @@ typedef enum GameConfigurationRenderOpts {
     DONT_USE_FOG=10,
     NO_DIRECTINPUT_PAD=11
 } GameConfigurationRenderOpts;
+
+typedef struct StdRawInstrArgs StdRawInstrArgs, *PStdRawInstrArgs;
+
+struct StdRawInstrArgs {
+    int values[3];
+};
 
 typedef struct IViewObject2 IViewObject2, *PIViewObject2;
 

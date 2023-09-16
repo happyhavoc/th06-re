@@ -22,7 +22,7 @@ void __thiscall AnmVm::Initialize(AnmVm *this)
   this->autoRotate = 0;
   this->pendingInterrupt = 0;
   this->posInterpEndTime = 0;
-  FUN_00424127(&this->currentTimeInScript);
+  AnmTimer::AnmTimer(&this->currentTimeInScript);
   return;
 }
 

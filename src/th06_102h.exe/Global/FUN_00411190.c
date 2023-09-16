@@ -12,7 +12,7 @@ int __fastcall FUN_00411190(int param_1)
     FUN_00411240(local_94);
     local_94 = (AnmVm *)&local_94[0xd].posInterpTime.current;
   }
-  FUN_00424127((AnmTimer *)(param_1 + 0xee5e0));
+  AnmTimer::AnmTimer((AnmTimer *)(param_1 + 0xee5e0));
   FUN_00410e30((undefined4 *)param_1);
   return param_1;
 }

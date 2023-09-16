@@ -15,19 +15,19 @@ undefined4 * FUN_00425318(void)
   local_18 = 1;
   local_20 = (AnmVm *)(in_ECX + 9);
   while (local_18 = local_18 + -1, -1 < local_18) {
-    FUN_00403720(local_20);
+    AnmVm::AnmVm(local_20);
     local_20 = local_20 + 1;
   }
   local_34 = 0x20;
   local_3c = (AnmVm *)(in_ECX + 0x4d);
   while (local_34 = local_34 + -1, -1 < local_34) {
-    FUN_00403720(local_3c);
+    AnmVm::AnmVm(local_3c);
     local_3c = local_3c + 1;
   }
   local_50 = 0x10;
   local_58 = (AnmVm *)(in_ECX + 0x8cd);
   while (local_50 = local_50 + -1, -1 < local_50) {
-    FUN_00403720(local_58);
+    AnmVm::AnmVm(local_58);
     local_58 = local_58 + 1;
   }
   puVar2 = in_ECX;

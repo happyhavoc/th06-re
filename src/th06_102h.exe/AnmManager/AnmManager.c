@@ -1,7 +1,7 @@
 
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
 
-undefined4 * __thiscall AnmManager::AnmManager(AnmManager *this)
+AnmManager * __thiscall AnmManager::AnmManager(AnmManager *this)
 
 {
   int iVar1;
@@ -9,7 +9,7 @@ undefined4 * __thiscall AnmManager::AnmManager(AnmManager *this)
   int local_1c;
   int local_8;
   
-  FUN_00403720(&this->virtualMachine);
+  AnmVm::AnmVm(&this->virtualMachine);
   local_1c = 4;
   do {
     local_1c = local_1c + -1;
@@ -56,6 +56,6 @@ undefined4 * __thiscall AnmManager::AnmManager(AnmManager *this)
   this->field16_0x210be = '\0';
   this->currentZWriteDisable = '\0';
   this->vertexBufferContents[3].position.z = -NAN;
-  return (undefined4 *)this;
+  return this;
 }
 

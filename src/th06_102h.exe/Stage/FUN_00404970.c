@@ -38,31 +38,32 @@ undefined4 __thiscall Stage::FUN_00404970(Stage *this,int unk)
       local_54.field0_0x0.field0._43 =
            (((local_58->position).z + (local_14->position).z) - (this->position).z) +
            (local_58->size).z;
-      D3DXVec3Project(&local_70,&local_84,&g_GameContext.viewport,&g_GameContext.projectionMatrix,
-                      &g_GameContext.viewMatrix,&local_54);
+      _D3DXVec3Project_24(&local_70,&local_84,&g_GameContext.viewport,
+                          &g_GameContext.projectionMatrix,&g_GameContext.viewMatrix,&local_54);
       if ((local_70.y < (float)(ulonglong)g_GameContext.viewport.Y) ||
          (local_70.y < (float)(ulonglong)(g_GameContext.viewport.Y + g_GameContext.viewport.Height)
           == (local_70.y ==
              (float)(ulonglong)(g_GameContext.viewport.Y + g_GameContext.viewport.Height)))) {
         local_54.field0_0x0.field0._42 = local_54.field0_0x0.field0._42 - (local_58->size).y;
-        D3DXVec3Project(&local_70,&local_84,&g_GameContext.viewport,&g_GameContext.projectionMatrix,
-                        &g_GameContext.viewMatrix,&local_54);
+        _D3DXVec3Project_24(&local_70,&local_84,&g_GameContext.viewport,
+                            &g_GameContext.projectionMatrix,&g_GameContext.viewMatrix,&local_54);
         if ((local_70.y < (float)(ulonglong)g_GameContext.viewport.Y) ||
            (local_70.y <
             (float)(ulonglong)(g_GameContext.viewport.Y + g_GameContext.viewport.Height) ==
             (local_70.y ==
             (float)(ulonglong)(g_GameContext.viewport.Y + g_GameContext.viewport.Height)))) {
           local_54.field0_0x0.field0._43 = local_54.field0_0x0.field0._43 - (local_58->size).z;
-          D3DXVec3Project(&local_70,&local_84,&g_GameContext.viewport,
-                          &g_GameContext.projectionMatrix,&g_GameContext.viewMatrix,&local_54);
+          _D3DXVec3Project_24(&local_70,&local_84,&g_GameContext.viewport,
+                              &g_GameContext.projectionMatrix,&g_GameContext.viewMatrix,&local_54);
           if ((local_70.y < (float)(ulonglong)g_GameContext.viewport.Y) ||
              (local_70.y <
               (float)(ulonglong)(g_GameContext.viewport.Y + g_GameContext.viewport.Height) ==
               (local_70.y ==
               (float)(ulonglong)(g_GameContext.viewport.Y + g_GameContext.viewport.Height)))) {
             local_54.field0_0x0.field0._42 = local_54.field0_0x0.field0._42 + (local_58->size).y;
-            D3DXVec3Project(&local_70,&local_84,&g_GameContext.viewport,
-                            &g_GameContext.projectionMatrix,&g_GameContext.viewMatrix,&local_54);
+            _D3DXVec3Project_24(&local_70,&local_84,&g_GameContext.viewport,
+                                &g_GameContext.projectionMatrix,&g_GameContext.viewMatrix,&local_54)
+            ;
             if ((local_70.y < (float)(ulonglong)g_GameContext.viewport.Y) ||
                (local_70.y <
                 (float)(ulonglong)(g_GameContext.viewport.Y + g_GameContext.viewport.Height) ==
@@ -76,8 +77,9 @@ undefined4 __thiscall Stage::FUN_00404970(Stage *this,int unk)
               local_54.field0_0x0.field0._43 =
                    (((local_58->position).z + (local_14->position).z) - (this->position).z) +
                    (local_58->size).z;
-              D3DXVec3Project(&local_70,&local_84,&g_GameContext.viewport,
-                              &g_GameContext.projectionMatrix,&g_GameContext.viewMatrix,&local_54);
+              _D3DXVec3Project_24(&local_70,&local_84,&g_GameContext.viewport,
+                                  &g_GameContext.projectionMatrix,&g_GameContext.viewMatrix,
+                                  &local_54);
               if ((local_70.y < (float)(ulonglong)g_GameContext.viewport.Y) ||
                  (local_70.y <
                   (float)(ulonglong)(g_GameContext.viewport.Y + g_GameContext.viewport.Height) ==
@@ -85,9 +87,9 @@ undefined4 __thiscall Stage::FUN_00404970(Stage *this,int unk)
                   (float)(ulonglong)(g_GameContext.viewport.Y + g_GameContext.viewport.Height)))) {
                 local_54.field0_0x0.field0._42 = local_54.field0_0x0.field0._42 - (local_58->size).y
                 ;
-                D3DXVec3Project(&local_70,&local_84,&g_GameContext.viewport,
-                                &g_GameContext.projectionMatrix,&g_GameContext.viewMatrix,&local_54)
-                ;
+                _D3DXVec3Project_24(&local_70,&local_84,&g_GameContext.viewport,
+                                    &g_GameContext.projectionMatrix,&g_GameContext.viewMatrix,
+                                    &local_54);
                 if ((local_70.y < (float)(ulonglong)g_GameContext.viewport.Y) ||
                    (local_70.y <
                     (float)(ulonglong)(g_GameContext.viewport.Y + g_GameContext.viewport.Height) ==
@@ -96,9 +98,9 @@ undefined4 __thiscall Stage::FUN_00404970(Stage *this,int unk)
                 {
                   local_54.field0_0x0.field0._43 =
                        local_54.field0_0x0.field0._43 - (local_58->size).z;
-                  D3DXVec3Project(&local_70,&local_84,&g_GameContext.viewport,
-                                  &g_GameContext.projectionMatrix,&g_GameContext.viewMatrix,
-                                  &local_54);
+                  _D3DXVec3Project_24(&local_70,&local_84,&g_GameContext.viewport,
+                                      &g_GameContext.projectionMatrix,&g_GameContext.viewMatrix,
+                                      &local_54);
                   if ((local_70.y < (float)(ulonglong)g_GameContext.viewport.Y) ||
                      (local_70.y <
                       (float)(ulonglong)(g_GameContext.viewport.Y + g_GameContext.viewport.Height)
@@ -107,9 +109,9 @@ undefined4 __thiscall Stage::FUN_00404970(Stage *this,int unk)
                                 (g_GameContext.viewport.Y + g_GameContext.viewport.Height)))) {
                     local_54.field0_0x0.field0._42 =
                          local_54.field0_0x0.field0._42 + (local_58->size).y;
-                    D3DXVec3Project(&local_70,&local_84,&g_GameContext.viewport,
-                                    &g_GameContext.projectionMatrix,&g_GameContext.viewMatrix,
-                                    &local_54);
+                    _D3DXVec3Project_24(&local_70,&local_84,&g_GameContext.viewport,
+                                        &g_GameContext.projectionMatrix,&g_GameContext.viewMatrix,
+                                        &local_54);
                     if ((local_70.y < (float)(ulonglong)g_GameContext.viewport.Y) ||
                        (local_70.y <
                         (float)(ulonglong)(g_GameContext.viewport.Y + g_GameContext.viewport.Height)
@@ -151,12 +153,14 @@ undefined4 __thiscall Stage::FUN_00404970(Stage *this,int unk)
             local_54.field0_0x0.field0._41 = (local_c->pos).x;
             local_54.field0_0x0.field0._42 = -(local_c->pos).y;
             local_54.field0_0x0.field0._43 = (local_c->pos).z;
-            D3DXVec3Project(&local_70,&local_84,&g_GameContext.viewport,
-                            &g_GameContext.projectionMatrix,&g_GameContext.viewMatrix,&local_54);
+            _D3DXVec3Project_24(&local_70,&local_84,&g_GameContext.viewport,
+                                &g_GameContext.projectionMatrix,&g_GameContext.viewMatrix,&local_54)
+            ;
             local_54.field0_0x0.field0._41 =
                  local_88 * local_c->scaleY + local_54.field0_0x0.field0._41;
-            D3DXVec3Project(&local_64,&local_84,&g_GameContext.viewport,
-                            &g_GameContext.projectionMatrix,&g_GameContext.viewMatrix,&local_54);
+            _D3DXVec3Project_24(&local_64,&local_84,&g_GameContext.viewport,
+                                &g_GameContext.projectionMatrix,&g_GameContext.viewMatrix,&local_54)
+            ;
             local_c->scaleY = (local_64.x - local_70.x) / local_88;
             local_c->scaleX = local_c->scaleY;
             (local_c->pos).x = local_70.x;

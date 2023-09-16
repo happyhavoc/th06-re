@@ -49441,44 +49441,6 @@ typedef struct IServiceProvider *LPSERVICEPROVIDER;
 
 #define RPC_C_PROFILE_MATCH_BY_IF 2
 
-typedef struct AnmRawScript AnmRawScript, *PAnmRawScript;
-
-typedef struct AnmRawInstr AnmRawInstr, *PAnmRawInstr;
-
-struct AnmRawScript {
-    uint id;
-    struct AnmRawInstr *firstInstruction;
-};
-
-struct AnmRawInstr {
-    ushort time;
-    uchar opcode;
-    uchar argsCount;
-    uint args[10];
-};
-
-typedef struct StdRawObject StdRawObject, *PStdRawObject;
-
-typedef struct StdRawQuadBasic StdRawQuadBasic, *PStdRawQuadBasic;
-
-struct StdRawQuadBasic {
-    short type;
-    short byteSize;
-    short anmScript;
-    short vmIndex;
-    D3DXVECTOR3 position;
-    struct D3DXVECTOR2 size;
-};
-
-struct StdRawObject {
-    ushort id;
-    uchar field1_0x2;
-    uchar flags;
-    D3DXVECTOR3 position;
-    D3DXVECTOR3 size;
-    struct StdRawQuadBasic firstQuad;
-};
-
 typedef struct MidiSample MidiSample, *PMidiSample;
 
 struct MidiSample {
@@ -50380,38 +50342,58 @@ struct Pbg3File {
     int field4_0x10;
 };
 
-typedef struct Stage Stage, *PStage;
+typedef struct ChainElem ChainElem, *PChainElem;
+
+struct ChainElem {
+    short priority;
+    ushort flags;
+    undefined4 callback;
+    undefined4 addedCallback;
+    undefined4 deletedCallback;
+    struct ChainElem *prev;
+    struct ChainElem *next;
+    struct ChainElem *unkPtr;
+    void *arg;
+};
+
+typedef struct RenderVertexInfo RenderVertexInfo, *PRenderVertexInfo;
+
+struct RenderVertexInfo {
+    D3DXVECTOR3 position;
+    D3DCOLOR diffuseColor;
+    struct D3DXVECTOR2 textureUV;
+};
+
+typedef struct Chain Chain, *PChain;
+
+struct Chain {
+    struct ChainElem calcChain;
+    struct ChainElem drawChain;
+    DWORD midiOutputDeviceCount;
+    undefined4 unk;
+};
+
+typedef struct AsciiManager AsciiManager, *PAsciiManager;
 
 typedef struct AnmVm AnmVm, *PAnmVm;
 
-typedef struct StdRawInstance StdRawInstance, *PStdRawInstance;
+typedef struct AsciiManagerString AsciiManagerString, *PAsciiManagerString;
 
-typedef struct StdRawInstr StdRawInstr, *PStdRawInstr;
+typedef struct AsciiManagerProbablyStageRelated AsciiManagerProbablyStageRelated, *PAsciiManagerProbablyStageRelated;
 
-typedef struct StageCameraSky StageCameraSky, *PStageCameraSky;
+typedef struct AsciiManagerPopup AsciiManagerPopup, *PAsciiManagerPopup;
 
-struct StdRawInstr {
-    int field0_0x0;
-    ushort field1_0x4;
-    ushort field2_0x6;
-    undefined field3_0x8;
-    undefined field4_0x9;
-    undefined field5_0xa;
-    undefined field6_0xb;
-    undefined field7_0xc;
-    undefined field8_0xd;
-    undefined field9_0xe;
-    undefined field10_0xf;
-    undefined field11_0x10;
-    undefined field12_0x11;
-    undefined field13_0x12;
-    undefined field14_0x13;
-};
+typedef struct AnmRawInstr AnmRawInstr, *PAnmRawInstr;
 
-struct StageCameraSky {
-    float nearPlane;
-    float farPlane;
+struct AsciiManagerPopup {
+    char digits[8];
+    D3DXVECTOR3 position;
     D3DCOLOR color;
+    struct AnmTimer timer;
+    uchar inUse;
+    uchar characterCount;
+    undefined field6_0x26;
+    undefined field7_0x27;
 };
 
 struct AnmVm {
@@ -50459,76 +50441,114 @@ struct AnmVm {
     undefined field41_0x10f;
 };
 
-struct Stage {
-    struct AnmVm *quadVms;
+struct AsciiManagerProbablyStageRelated {
+    int field0_0x0;
+    int field1_0x4;
+    struct AnmVm vms0[6];
+    struct AnmVm vm1;
+};
+
+struct AsciiManagerString {
+    char text[64];
+    D3DXVECTOR3 position;
+    D3DCOLOR color;
+    struct D3DXVECTOR2 scale;
+    undefined field4_0x58;
+    undefined field5_0x59;
+    undefined field6_0x5a;
+    undefined field7_0x5b;
+    undefined field8_0x5c;
+    undefined field9_0x5d;
+    undefined field10_0x5e;
+    undefined field11_0x5f;
+};
+
+struct AsciiManager {
+    struct AnmVm vm0;
+    struct AnmVm vm1;
+    struct AsciiManagerString strings[256];
+    int numStrings;
+    D3DCOLOR color;
+    struct D3DXVECTOR2 scale;
+    undefined field6_0x6230;
+    undefined field7_0x6231;
+    undefined field8_0x6232;
+    undefined field9_0x6233;
+    undefined4 field10_0x6234;
+    int nextPopupIndex1;
+    int nextPopupIndex2;
+    undefined field13_0x6240;
+    undefined field14_0x6241;
+    undefined field15_0x6242;
+    undefined field16_0x6243;
+    struct AsciiManagerProbablyStageRelated field17_0x6244;
+    struct AsciiManagerProbablyStageRelated field18_0x69bc;
+    struct AsciiManagerPopup popups0[512];
+    struct AsciiManagerPopup popups1[3];
+};
+
+struct AnmRawInstr {
+    ushort time;
+    uchar opcode;
+    uchar argsCount;
+    uint args[10];
+};
+
+typedef struct GameErrorContext GameErrorContext, *PGameErrorContext;
+
+struct GameErrorContext {
+    char m_Buffer[2048];
+    char *m_BufferEnd;
+    bool m_ShowMessageBox;
+};
+
+typedef struct MidiUnk MidiUnk, *PMidiUnk;
+
+struct MidiUnk {
+    undefined4 field0_0x0;
     undefined4 field1_0x4;
-    int quadCount;
-    int objectsCount;
-    struct StdRawObject **objects;
-    struct StdRawInstance *objectInstances;
-    struct StdRawInstr *beginningOfScript;
-    struct AnmTimer scriptTime;
-    int instructionIndex;
-    struct AnmTimer field9_0x2c;
-    undefined4 field10_0x38;
-    D3DXVECTOR3 position;
-    struct StageCameraSky skyFog;
-    struct StageCameraSky skyFogInterpInitial;
-    struct StageCameraSky skyFogInterpFinal;
-    int skyFogInterpDuration;
-    struct AnmTimer skyFogInterpTimer;
-    undefined4 field17_0x7c;
-    int spellcardEclRelated0;
-    int spellcardEclRelated1;
-    struct AnmVm field20_0x88;
-    struct AnmVm field21_0x198;
-    uchar unpauseFlag;
-    undefined field23_0x2a9;
-    undefined field24_0x2aa;
-    undefined field25_0x2ab;
-    D3DXVECTOR3 facingDirInterpInitial;
-    D3DXVECTOR3 facingDirInterpFinal;
-    int facingDirInterpDuration;
-    struct AnmTimer facingDirInterpTimer;
-    D3DXVECTOR3 positionInterpFinal;
-    int positionInterpEndTime;
-    D3DXVECTOR3 positionInterpInitial;
-    int positionInterpStartTime;
 };
 
-struct StdRawInstance {
-    ushort id;
-    ushort field1_0x2;
-    D3DXVECTOR3 position;
+typedef struct Pbg3FileStuff *test;
+
+typedef struct MidiDevice MidiDevice, *PMidiDevice;
+
+struct MidiDevice {
+    HMIDIOUT midiOutDev;
 };
 
-typedef struct ChainElem ChainElem, *PChainElem;
+typedef enum GameConfigurationRenderOpts {
+    DONT_USE_VERTEX_BUF=1,
+    FORCE_16BIT_COLOR_MODE=2,
+    CLEAR_BACKBUFFER_ON_REFRESH=3,
+    DISPLAY_MINIMUM_GRAPHICS=4,
+    SUPPRESS_USE_OF_GOROUD_SHADING=5,
+    TURN_OFF_DEPTH_TEST=6,
+    FORCE_60FPS=7,
+    NO_COLOR_COMP=8,
+    REFERENCE_RASTERIZER_MODE=9,
+    DONT_USE_FOG=10,
+    NO_DIRECTINPUT_PAD=11
+} GameConfigurationRenderOpts;
 
-struct ChainElem {
-    short priority;
-    ushort flags;
-    undefined4 callback;
-    undefined4 addedCallback;
-    undefined4 deletedCallback;
-    struct ChainElem *prev;
-    struct ChainElem *next;
-    struct ChainElem *unkPtr;
-    void *arg;
+typedef struct AnmRawScript AnmRawScript, *PAnmRawScript;
+
+struct AnmRawScript {
+    uint id;
+    struct AnmRawInstr *firstInstruction;
 };
 
-typedef struct RenderVertexInfo RenderVertexInfo, *PRenderVertexInfo;
+typedef struct AnmRawSprite AnmRawSprite, *PAnmRawSprite;
 
-struct RenderVertexInfo {
-    D3DXVECTOR3 position;
-    D3DCOLOR diffuseColor;
-    struct D3DXVECTOR2 textureUV;
+struct AnmRawSprite {
+    uint id;
+    struct D3DXVECTOR2 offset;
+    struct D3DXVECTOR2 size;
 };
 
 typedef struct AnmManager AnmManager, *PAnmManager;
 
 typedef struct AnmRawEntry AnmRawEntry, *PAnmRawEntry;
-
-typedef struct AnmRawSprite AnmRawSprite, *PAnmRawSprite;
 
 struct AnmManager {
     struct AnmLoadedSprite sprites[2048];
@@ -50576,107 +50596,52 @@ struct AnmRawEntry {
     struct AnmRawScript scripts[10];
 };
 
-struct AnmRawSprite {
-    uint id;
-    struct D3DXVECTOR2 offset;
+typedef struct StdRawObject StdRawObject, *PStdRawObject;
+
+typedef struct StdRawQuadBasic StdRawQuadBasic, *PStdRawQuadBasic;
+
+struct StdRawQuadBasic {
+    short type;
+    short byteSize;
+    short anmScript;
+    short vmIndex;
+    D3DXVECTOR3 position;
     struct D3DXVECTOR2 size;
 };
 
-typedef struct Chain Chain, *PChain;
-
-struct Chain {
-    struct ChainElem calcChain;
-    struct ChainElem drawChain;
-    DWORD midiOutputDeviceCount;
-    undefined4 unk;
-};
-
-typedef struct AsciiManager AsciiManager, *PAsciiManager;
-
-typedef struct AsciiManagerString AsciiManagerString, *PAsciiManagerString;
-
-typedef struct AsciiManagerProbablyStageRelated AsciiManagerProbablyStageRelated, *PAsciiManagerProbablyStageRelated;
-
-typedef struct AsciiManagerPopup AsciiManagerPopup, *PAsciiManagerPopup;
-
-struct AsciiManagerPopup {
-    char digits[8];
+struct StdRawObject {
+    ushort id;
+    uchar field1_0x2;
+    uchar flags;
     D3DXVECTOR3 position;
-    D3DCOLOR color;
-    struct AnmTimer timer;
-    uchar inUse;
-    uchar characterCount;
-    undefined field6_0x26;
-    undefined field7_0x27;
+    D3DXVECTOR3 size;
+    struct StdRawQuadBasic firstQuad;
 };
 
-struct AsciiManagerString {
-    char text[64];
-    D3DXVECTOR3 position;
-    D3DCOLOR color;
-    struct D3DXVECTOR2 scale;
-    undefined field4_0x58;
-    undefined field5_0x59;
-    undefined field6_0x5a;
-    undefined field7_0x5b;
-    undefined field8_0x5c;
-    undefined field9_0x5d;
-    undefined field10_0x5e;
-    undefined field11_0x5f;
-};
+typedef struct StdRawInstr StdRawInstr, *PStdRawInstr;
 
-struct AsciiManagerProbablyStageRelated {
+struct StdRawInstr {
     int field0_0x0;
-    int field1_0x4;
-    struct AnmVm vms0[6];
-    struct AnmVm vm1;
+    ushort field1_0x4;
+    ushort field2_0x6;
+    undefined field3_0x8;
+    undefined field4_0x9;
+    undefined field5_0xa;
+    undefined field6_0xb;
+    undefined field7_0xc;
+    undefined field8_0xd;
+    undefined field9_0xe;
+    undefined field10_0xf;
+    undefined field11_0x10;
+    undefined field12_0x11;
+    undefined field13_0x12;
+    undefined field14_0x13;
 };
 
-struct AsciiManager {
-    struct AnmVm vm0;
-    struct AnmVm vm1;
-    struct AsciiManagerString strings[256];
-    int numStrings;
-    D3DCOLOR color;
-    struct D3DXVECTOR2 scale;
-    undefined field6_0x6230;
-    undefined field7_0x6231;
-    undefined field8_0x6232;
-    undefined field9_0x6233;
-    undefined4 field10_0x6234;
-    int nextPopupIndex1;
-    int nextPopupIndex2;
-    undefined field13_0x6240;
-    undefined field14_0x6241;
-    undefined field15_0x6242;
-    undefined field16_0x6243;
-    struct AsciiManagerProbablyStageRelated field17_0x6244;
-    struct AsciiManagerProbablyStageRelated field18_0x69bc;
-    struct AsciiManagerPopup popups0[512];
-    struct AsciiManagerPopup popups1[3];
-};
+typedef struct StdRawInstrArgs StdRawInstrArgs, *PStdRawInstrArgs;
 
-typedef struct GameErrorContext GameErrorContext, *PGameErrorContext;
-
-struct GameErrorContext {
-    char m_Buffer[2048];
-    char *m_BufferEnd;
-    bool m_ShowMessageBox;
-};
-
-typedef struct MidiUnk MidiUnk, *PMidiUnk;
-
-struct MidiUnk {
-    undefined4 field0_0x0;
-    undefined4 field1_0x4;
-};
-
-typedef struct Pbg3FileStuff *test;
-
-typedef struct MidiDevice MidiDevice, *PMidiDevice;
-
-struct MidiDevice {
-    HMIDIOUT midiOutDev;
+struct StdRawInstrArgs {
+    int values[3];
 };
 
 typedef struct StdRawHeader StdRawHeader, *PStdRawHeader;
@@ -50756,24 +50721,59 @@ struct StdRawHeader {
     undefined field71_0x4cf;
 };
 
-typedef enum GameConfigurationRenderOpts {
-    DONT_USE_VERTEX_BUF=1,
-    FORCE_16BIT_COLOR_MODE=2,
-    CLEAR_BACKBUFFER_ON_REFRESH=3,
-    DISPLAY_MINIMUM_GRAPHICS=4,
-    SUPPRESS_USE_OF_GOROUD_SHADING=5,
-    TURN_OFF_DEPTH_TEST=6,
-    FORCE_60FPS=7,
-    NO_COLOR_COMP=8,
-    REFERENCE_RASTERIZER_MODE=9,
-    DONT_USE_FOG=10,
-    NO_DIRECTINPUT_PAD=11
-} GameConfigurationRenderOpts;
+typedef struct Stage Stage, *PStage;
 
-typedef struct StdRawInstrArgs StdRawInstrArgs, *PStdRawInstrArgs;
+typedef struct StdRawInstance StdRawInstance, *PStdRawInstance;
 
-struct StdRawInstrArgs {
-    int values[3];
+typedef struct StageCameraSky StageCameraSky, *PStageCameraSky;
+
+struct StageCameraSky {
+    float nearPlane;
+    float farPlane;
+    D3DCOLOR color;
+};
+
+struct Stage {
+    struct AnmVm *quadVms;
+    undefined4 field1_0x4;
+    int quadCount;
+    int objectsCount;
+    struct StdRawObject **objects;
+    struct StdRawInstance *objectInstances;
+    struct StdRawInstr *beginningOfScript;
+    struct AnmTimer scriptTime;
+    int instructionIndex;
+    struct AnmTimer field9_0x2c;
+    undefined4 field10_0x38;
+    D3DXVECTOR3 position;
+    struct StageCameraSky skyFog;
+    struct StageCameraSky skyFogInterpInitial;
+    struct StageCameraSky skyFogInterpFinal;
+    int skyFogInterpDuration;
+    struct AnmTimer skyFogInterpTimer;
+    undefined4 field17_0x7c;
+    int spellcardEclRelated0;
+    int spellcardEclRelated1;
+    struct AnmVm field20_0x88;
+    struct AnmVm field21_0x198;
+    uchar unpauseFlag;
+    undefined field23_0x2a9;
+    undefined field24_0x2aa;
+    undefined field25_0x2ab;
+    D3DXVECTOR3 facingDirInterpInitial;
+    D3DXVECTOR3 facingDirInterpFinal;
+    int facingDirInterpDuration;
+    struct AnmTimer facingDirInterpTimer;
+    D3DXVECTOR3 positionInterpFinal;
+    int positionInterpEndTime;
+    D3DXVECTOR3 positionInterpInitial;
+    int positionInterpStartTime;
+};
+
+struct StdRawInstance {
+    ushort id;
+    ushort field1_0x2;
+    D3DXVECTOR3 position;
 };
 
 typedef struct IViewObject2 IViewObject2, *PIViewObject2;

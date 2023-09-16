@@ -1,20 +1,18 @@
 
-int __thiscall AnmManager::FUN_004323a0(AnmManager *this,AnmVm *param_1,int idx)
+int __thiscall AnmManager::FUN_004323a0(AnmManager *this,AnmVm *vm,int sprite_index)
 
 {
   int res;
   
-  if ((int)this->sprites[idx].sourceFileIndex < 0) {
+  if ((int)this->sprites[sprite_index].sourceFileIndex < 0) {
     res = -1;
   }
   else {
-    param_1->spriteNumber = (short)idx;
-    param_1->sprite = this->sprites + idx;
-    D3DXMatrixIdentity(&param_1->matrix);
-    (param_1->matrix).field0_0x0.field0._11 =
-         param_1->sprite->widthPx / param_1->sprite->textureWidth;
-    (param_1->matrix).field0_0x0.field0._22 =
-         param_1->sprite->heightPx / param_1->sprite->textureHeight;
+    vm->spriteNumber = (short)sprite_index;
+    vm->sprite = this->sprites + sprite_index;
+    D3DXMatrixIdentity(&vm->matrix);
+    (vm->matrix).field0_0x0.field0._11 = vm->sprite->widthPx / vm->sprite->textureWidth;
+    (vm->matrix).field0_0x0.field0._22 = vm->sprite->heightPx / vm->sprite->textureHeight;
     res = 0;
   }
   return res;

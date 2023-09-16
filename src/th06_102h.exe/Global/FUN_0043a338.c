@@ -17,11 +17,11 @@ undefined4 FUN_0043a338(int param_1)
   DAT_006dc8f4->addedCallback = FUN_0043a464;
   DAT_006dc8f4->deletedCallback = FUN_0043a659;
   DAT_006dc8b4 = 0;
-  iVar2 = Chain::AddToCalcChain(&Chain_0069d918,DAT_006dc8f4,2);
+  iVar2 = Chain::AddToCalcChain(&g_Chain,DAT_006dc8f4,2);
   if (iVar2 == 0) {
     DAT_006dc8f8 = ChainElem::Allocate(FUN_00439ad6);
     DAT_006dc8f8->arg = &DAT_006d46c0;
-    Chain::AddToDrawChain(&Chain_0069d918,DAT_006dc8f8,0);
+    Chain::AddToDrawChain(&g_Chain,DAT_006dc8f8,0);
     DAT_006e55f0 = 0;
     DAT_006dc8b4 = 0x3c;
     DAT_006e55ec = 0;

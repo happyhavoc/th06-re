@@ -20,7 +20,7 @@ undefined4 FUN_0042f5bc(void **param_1)
   FUN_00432030(g_AnmManager,0x27);
   FUN_00432030(g_AnmManager,0x28);
   AnmManager::FUN_00435270(g_AnmManager,0);
-  Chain::Cut(&Chain_0069d918,(ChainElem *)param_1[0x146b]);
+  Chain::Cut(&g_Chain,(ChainElem *)param_1[0x146b]);
   param_1[0x146b] = (void *)0x0;
   if (param_1 != (void **)0x0) {
     _free(*param_1);

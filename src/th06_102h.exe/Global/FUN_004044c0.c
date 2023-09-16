@@ -22,18 +22,18 @@ undefined4 FUN_004044c0(undefined4 param_1)
   _DAT_00487e2c = FUN_00404300;
   _DAT_00487e30 = FUN_004045e0;
   _DAT_00487e40 = &DAT_00487b10;
-  iVar2 = Chain::AddToCalcChain(&Chain_0069d918,(ChainElem *)&DAT_00487e24,6);
+  iVar2 = Chain::AddToCalcChain(&g_Chain,(ChainElem *)&DAT_00487e24,6);
   if (iVar2 == 0) {
     _DAT_00487af4 = FUN_004040d0;
     _DAT_00487af8 = 0;
     _DAT_00487afc = 0;
     _DAT_00487b0c = &DAT_00487b10;
-    Chain::AddToDrawChain(&Chain_0069d918,(ChainElem *)&DAT_00487af0,3);
+    Chain::AddToDrawChain(&g_Chain,(ChainElem *)&DAT_00487af0,3);
     _DAT_00487e08 = FUN_00404180;
     _DAT_00487e0c = 0;
     _DAT_00487e10 = 0;
     _DAT_00487e20 = &DAT_00487b10;
-    Chain::AddToDrawChain(&Chain_0069d918,(ChainElem *)&DAT_00487e04,4);
+    Chain::AddToDrawChain(&g_Chain,(ChainElem *)&DAT_00487e04,4);
     uVar1 = 0;
   }
   else {

@@ -11,7 +11,7 @@ undefined4 FUN_0043a659(int param_1)
   for (local_8 = 0x1b; local_8 < 0x25; local_8 = local_8 + 1) {
     ReleaseAnm(g_AnmManager,local_8);
   }
-  AnmManager::FUN_00435270(g_AnmManager,0);
+  AnmManager::ReleaseSurface(g_AnmManager,0);
   pAVar1 = g_AnmManager;
   for (local_c = 0; local_c < 0x7a; local_c = local_c + 1) {
     pAVar1->scripts[local_c + 0x100] = (AnmRawInstr *)0x0;

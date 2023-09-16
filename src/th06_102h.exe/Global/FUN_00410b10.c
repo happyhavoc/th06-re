@@ -9,9 +9,9 @@ undefined4 FUN_00410b10(int param_1)
   DAT_0069d4c2 = 1;
   g_GameContext._412_4_ = 1;
   GameContext::LoadPBG3(&g_GameContext,5,(byte *)"紅魔郷ED.dat");
-  AnmManager::LoadAnim(g_AnmManager,0x2c,"data/staff01.anm",0x600);
-  AnmManager::LoadAnim(g_AnmManager,0x2d,"data/staff02.anm",0x607);
-  AnmManager::LoadAnim(g_AnmManager,0x2e,"data/staff03.anm",0x60e);
+  AnmManager::LoadAnm(g_AnmManager,0x2c,"data/staff01.anm",0x600);
+  AnmManager::LoadAnm(g_AnmManager,0x2d,"data/staff02.anm",0x607);
+  AnmManager::LoadAnm(g_AnmManager,0x2e,"data/staff03.anm",0x60e);
   g_AnmManager->currentTexture = (IDirect3DTexture8 *)0x0;
   g_AnmManager->currentSprite = (AnmLoadedSprite *)0x0;
   g_AnmManager->currentBlendMode = 0xff;

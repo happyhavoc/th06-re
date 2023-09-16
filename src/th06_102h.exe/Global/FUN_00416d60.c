@@ -16,11 +16,11 @@ undefined4 FUN_00416d60(int param_1)
   uint local_8;
   
   if (g_GameContext.unkInput2 != 3) {
-    iVar3 = AnmManager::LoadAnim(g_AnmManager,6,"data/etama3.anm",0x200);
+    iVar3 = AnmManager::LoadAnm(g_AnmManager,6,"data/etama3.anm",0x200);
     if (iVar3 != 0) {
       return 0xffffffff;
     }
-    iVar3 = AnmManager::LoadAnim(g_AnmManager,7,"data/etama4.anm",0x29a);
+    iVar3 = AnmManager::LoadAnm(g_AnmManager,7,"data/etama4.anm",0x29a);
     if (iVar3 != 0) {
       return 0xffffffff;
     }

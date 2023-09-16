@@ -14,23 +14,23 @@ undefined4 FUN_0042f060(undefined4 *param_1)
   int local_8;
   
   if (param_1[2] != 0x11) {
-    iVar2 = AnmManager::LogoStuff(g_AnmManager,0,"data/result/result.jpg");
+    iVar2 = AnmManager::LoadSurface(g_AnmManager,0,"data/result/result.jpg");
     if (iVar2 != 0) {
       return 0xffffffff;
     }
-    iVar2 = AnmManager::LoadAnim(g_AnmManager,0x25,"data/result00.anm",0x100);
+    iVar2 = AnmManager::LoadAnm(g_AnmManager,0x25,"data/result00.anm",0x100);
     if (iVar2 != 0) {
       return 0xffffffff;
     }
-    iVar2 = AnmManager::LoadAnim(g_AnmManager,0x26,"data/result01.anm",0x108);
+    iVar2 = AnmManager::LoadAnm(g_AnmManager,0x26,"data/result01.anm",0x108);
     if (iVar2 != 0) {
       return 0xffffffff;
     }
-    iVar2 = AnmManager::LoadAnim(g_AnmManager,0x27,"data/result02.anm",0x10f);
+    iVar2 = AnmManager::LoadAnm(g_AnmManager,0x27,"data/result02.anm",0x10f);
     if (iVar2 != 0) {
       return 0xffffffff;
     }
-    iVar2 = AnmManager::LoadAnim(g_AnmManager,0x28,"data/result03.anm",0x125);
+    iVar2 = AnmManager::LoadAnm(g_AnmManager,0x28,"data/result03.anm",0x125);
     if (iVar2 != 0) {
       return 0xffffffff;
     }

@@ -10,9 +10,9 @@ undefined4 FUN_0043a1ec(int param_1)
   for (local_8 = 0x15; local_8 < 0x1b; local_8 = local_8 + 1) {
     ReleaseAnm(g_AnmManager,local_8);
   }
-  iVar1 = AnmManager::LogoStuff(g_AnmManager,0,"data/title/select00.jpg");
+  iVar1 = AnmManager::LoadSurface(g_AnmManager,0,"data/title/select00.jpg");
   if (iVar1 == 0) {
-    iVar1 = AnmManager::LoadAnim(g_AnmManager,0x24,"data/replay00.anm",0x160);
+    iVar1 = AnmManager::LoadAnm(g_AnmManager,0x24,"data/replay00.anm",0x160);
     if (iVar1 == 0) {
       local_c = param_1 + 0x6600;
       for (local_8 = 0x160; local_8 < 0x17a; local_8 = local_8 + 1) {

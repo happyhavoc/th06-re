@@ -60,7 +60,7 @@ int WinMain(HINSTANCE hInstance,HINSTANCE hPrevInstance,LPSTR lpCmdLine,int nSho
                                   (g_GameContext.d3dDevice);
                 if (HVar2 == 0) break;
                 if (HVar2 == D3DERR_DEVICENOTRESET) {
-                  AnmManager::ReleaseD3dSurfaces(g_AnmManager);
+                  AnmManager::ReleaseSurfaces(g_AnmManager);
                   HVar2 = (*(g_GameContext.d3dDevice)->lpVtbl->Reset)
                                     (g_GameContext.d3dDevice,&g_GameContext.presentParameters);
                   if (HVar2 != 0) goto LAB_0042055a;

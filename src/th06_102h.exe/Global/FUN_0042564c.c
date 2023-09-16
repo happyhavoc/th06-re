@@ -23,12 +23,12 @@ void FUN_0042564c(int param_1)
   int local_8;
   
   local_1c = __security_cookie ^ unaff_retaddr;
-  iVar4 = AnmManager::LogoStuff(g_AnmManager,0,"data/result/music.jpg");
+  iVar4 = AnmManager::LoadSurface(g_AnmManager,0,"data/result/music.jpg");
   if ((((iVar4 == 0) &&
-       (iVar4 = AnmManager::LoadAnim(g_AnmManager,0x29,"data/music00.anm",0x100), iVar4 == 0)) &&
-      (iVar4 = AnmManager::LoadAnim(g_AnmManager,0x2a,"data/music01.anm",0x101), iVar4 == 0)) &&
-     (iVar4 = AnmManager::LoadAnim(g_AnmManager,0x2b,"data/music02.anm",0x111),
-     pAVar3 = g_AnmManager, iVar4 == 0)) {
+       (iVar4 = AnmManager::LoadAnm(g_AnmManager,0x29,"data/music00.anm",0x100), iVar4 == 0)) &&
+      (iVar4 = AnmManager::LoadAnm(g_AnmManager,0x2a,"data/music01.anm",0x101), iVar4 == 0)) &&
+     (iVar4 = AnmManager::LoadAnm(g_AnmManager,0x2b,"data/music02.anm",0x111), pAVar3 = g_AnmManager
+     , iVar4 == 0)) {
     *(undefined2 *)(param_1 + 0xd8) = 0x100;
     AnmManager::SetBeginingOfScript(pAVar3,(AnmVm *)(param_1 + 0x24),pAVar3->scripts[0x100]);
     *(undefined4 *)(param_1 + 8) = 0;

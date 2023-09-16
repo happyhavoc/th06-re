@@ -28,7 +28,7 @@ undefined4 InputChainAddedCallback(GameContext *param_1)
   DAT_0069d900 = ppPVar1;
   GameContext::LoadPBG3(param_1,0,(byte *)"紅魔郷IN.dat");
   if (ppPVar1 == (Pbg3File **)0x0) {
-    AnmManager::LogoStuff(g_AnmManager,0,"data/title/th06logo.jpg");
+    AnmManager::LoadSurface(g_AnmManager,0,"data/title/th06logo.jpg");
     AnmManager::FUN_00435300(g_AnmManager,0,0,0,0,0);
     HVar3 = (*(g_GameContext.d3dDevice)->lpVtbl->Present)
                       (g_GameContext.d3dDevice,(RECT *)0x0,(RECT *)0x0,(HWND)0x0,(RGNDATA *)0x0);
@@ -43,7 +43,7 @@ undefined4 InputChainAddedCallback(GameContext *param_1)
       (*(g_GameContext.d3dDevice)->lpVtbl->Reset)
                 (g_GameContext.d3dDevice,&g_GameContext.presentParameters);
     }
-    AnmManager::FUN_00435270(g_AnmManager,0);
+    AnmManager::ReleaseSurface(g_AnmManager,0);
     DVar4 = timeGetTime();
     *(DWORD *)&param_1->field_0x400 = DVar4;
     FUN_00423b14(param_1);
@@ -61,7 +61,7 @@ undefined4 InputChainAddedCallback(GameContext *param_1)
     _DAT_0069d8fc = 0;
     DAT_0069d8f8 = (short)DVar4;
     SoundPlayer::FUN_00431080(&g_SoundPlayer);
-    iVar5 = AnmManager::LoadAnim(g_AnmManager,0,"data/text.anm",0x700);
+    iVar5 = AnmManager::LoadAnm(g_AnmManager,0,"data/text.anm",0x700);
     if (iVar5 == 0) {
       iVar5 = AsciiManager::RegisterChain();
       if (iVar5 == 0) {

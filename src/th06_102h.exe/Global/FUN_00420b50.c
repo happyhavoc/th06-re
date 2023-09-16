@@ -7,7 +7,7 @@ void FUN_00420b50(void)
   HVar1 = (*(g_GameContext.d3dDevice)->lpVtbl->Present)
                     (g_GameContext.d3dDevice,(RECT *)0x0,(RECT *)0x0,(HWND)0x0,(RGNDATA *)0x0);
   if (HVar1 < 0) {
-    AnmManager::ReleaseD3dSurfaces(g_AnmManager);
+    AnmManager::ReleaseSurfaces(g_AnmManager);
     (*(g_GameContext.d3dDevice)->lpVtbl->Reset)
               (g_GameContext.d3dDevice,&g_GameContext.presentParameters);
     InitD3dDevice();

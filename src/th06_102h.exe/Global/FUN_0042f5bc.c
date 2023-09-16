@@ -19,7 +19,7 @@ undefined4 FUN_0042f5bc(void **param_1)
   ReleaseAnm(g_AnmManager,0x26);
   ReleaseAnm(g_AnmManager,0x27);
   ReleaseAnm(g_AnmManager,0x28);
-  AnmManager::FUN_00435270(g_AnmManager,0);
+  AnmManager::ReleaseSurface(g_AnmManager,0);
   Chain::Cut(&g_Chain,(ChainElem *)param_1[0x146b]);
   param_1[0x146b] = (void *)0x0;
   if (param_1 != (void **)0x0) {

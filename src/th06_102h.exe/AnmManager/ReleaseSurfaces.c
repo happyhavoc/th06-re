@@ -1,5 +1,5 @@
 
-void __thiscall AnmManager::ReleaseD3dSurfaces(AnmManager *this)
+void __thiscall AnmManager::ReleaseSurfaces(AnmManager *this)
 
 {
   int idx;

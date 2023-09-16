@@ -15,7 +15,7 @@ undefined4 FUN_00429c50(AnmVm *param_1)
   
   if (DAT_0069d4bd == 0) {
     if ((g_GameContext.unkInput2 != 3) &&
-       (iVar3 = AnmManager::LoadAnim(g_AnmManager,5,"data/player00.anm",0x400), iVar3 != 0)) {
+       (iVar3 = AnmManager::LoadAnm(g_AnmManager,5,"data/player00.anm",0x400), iVar3 != 0)) {
       return 0xffffffff;
     }
     pAVar2 = g_AnmManager;
@@ -24,7 +24,7 @@ undefined4 FUN_00429c50(AnmVm *param_1)
   }
   else if (DAT_0069d4bd == 1) {
     if ((g_GameContext.unkInput2 != 3) &&
-       (iVar3 = AnmManager::LoadAnim(g_AnmManager,5,"data/player01.anm",0x400), iVar3 != 0)) {
+       (iVar3 = AnmManager::LoadAnm(g_AnmManager,5,"data/player01.anm",0x400), iVar3 != 0)) {
       return 0xffffffff;
     }
     pAVar2 = g_AnmManager;

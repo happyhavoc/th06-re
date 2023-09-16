@@ -161,7 +161,7 @@ switchD_0040fa93_caseD_52:
                     (g_AnmManager,(AnmVm *)(param_1 + 0x14 + lVar5 * 0x110),lVar4 + 0x600);
           break;
         case 0x62:
-          iVar6 = AnmManager::LogoStuff(g_AnmManager,0,(char *)(*(int *)(param_1 + 0x116c) + 1));
+          iVar6 = AnmManager::LoadSurface(g_AnmManager,0,(char *)(*(int *)(param_1 + 0x116c) + 1));
           if (iVar6 != 0) goto LAB_004105d3;
           break;
         case 99:

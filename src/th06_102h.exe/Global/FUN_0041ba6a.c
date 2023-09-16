@@ -12,13 +12,13 @@ undefined4 FUN_0041ba6a(void)
   _DAT_0069d72c = FUN_0041c1f7;
   _DAT_0069d73c = &DAT_0069bca0;
   DAT_0069d6d0 = 0;
-  iVar1 = Chain::AddToCalcChain((Chain *)&DAT_0069d918,(ChainElem *)&DAT_0069d720,4);
+  iVar1 = Chain::AddToCalcChain(&Chain_0069d918,(ChainElem *)&DAT_0069d720,4);
   if (iVar1 == 0) {
     _DAT_0069d744 = FUN_0041ba4a;
     _DAT_0069d748 = 0;
     _DAT_0069d74c = 0;
     _DAT_0069d75c = &DAT_0069bca0;
-    Chain::AddToDrawChain((Chain *)&DAT_0069d918,(ChainElem *)&DAT_0069d740,2);
+    Chain::AddToDrawChain(&Chain_0069d918,(ChainElem *)&DAT_0069d740,2);
     uVar2 = 0;
   }
   else {

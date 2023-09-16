@@ -72,7 +72,7 @@ int WinMain(HINSTANCE hInstance,HINSTANCE hPrevInstance,LPSTR lpCmdLine,int nSho
             } while (renderRet == 0);
           }
 LAB_0042055a:
-          Chain::Release((Chain *)&DAT_0069d918);
+          Chain::Release(&Chain_0069d918);
           SoundPlayer::Release(&g_SoundPlayer);
           _Memory = g_AnmManager;
           if (g_AnmManager != (AnmManager *)0x0) {

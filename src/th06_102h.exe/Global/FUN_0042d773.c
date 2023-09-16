@@ -40,13 +40,12 @@ undefined4 FUN_0042d773(int param_1)
       *(undefined4 *)((int)pvStack_64 + 8) = 0x11;
     }
   }
-  iVar3 = Chain::AddToCalcChain
-                    ((Chain *)&DAT_0069d918,*(ChainElem **)((int)pvStack_64 + 0x51a8),0xd);
+  iVar3 = Chain::AddToCalcChain(&Chain_0069d918,*(ChainElem **)((int)pvStack_64 + 0x51a8),0xd);
   if (iVar3 == 0) {
     pCVar2 = ChainElem::Allocate(FUN_0042e446);
     *(ChainElem **)((int)pvStack_64 + 0x51ac) = pCVar2;
     *(void **)(*(int *)((int)pvStack_64 + 0x51ac) + 0x1c) = pvStack_64;
-    Chain::AddToDrawChain((Chain *)&DAT_0069d918,*(ChainElem **)((int)pvStack_64 + 0x51ac),0xc);
+    Chain::AddToDrawChain(&Chain_0069d918,*(ChainElem **)((int)pvStack_64 + 0x51ac),0xc);
     uVar4 = 0;
   }
   else {

@@ -31,7 +31,7 @@ undefined4 __thiscall GameWindow::Render(GameWindow *this)
                       (g_GameContext.d3dDevice,&g_GameContext.viewport);
           }
           (*(g_GameContext.d3dDevice)->lpVtbl->BeginScene)(g_GameContext.d3dDevice);
-          Chain::RunDrawChain((Chain *)&DAT_0069d918);
+          Chain::RunDrawChain(&Chain_0069d918);
           (*(g_GameContext.d3dDevice)->lpVtbl->EndScene)(g_GameContext.d3dDevice);
           (*(g_GameContext.d3dDevice)->lpVtbl->SetTexture)
                     (g_GameContext.d3dDevice,0,(IDirect3DBaseTexture8 *)0x0);
@@ -42,7 +42,7 @@ undefined4 __thiscall GameWindow::Render(GameWindow *this)
         g_GameContext.viewport.Height = 480;
         (*(g_GameContext.d3dDevice)->lpVtbl->SetViewport)
                   (g_GameContext.d3dDevice,&g_GameContext.viewport);
-        local_8 = Chain::RunCalcChain((Chain *)&DAT_0069d918);
+        local_8 = Chain::RunCalcChain(&Chain_0069d918);
         SoundPlayer::PlaySounds(&g_SoundPlayer);
         if (local_8 == 0) {
           return 1;

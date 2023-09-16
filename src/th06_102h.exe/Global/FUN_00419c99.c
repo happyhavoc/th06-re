@@ -211,12 +211,12 @@ void __fastcall FUN_00419c99(uint *param_1)
       (local_14->pos).z = 0.49;
       AnmManager::FUN_00432ad0(g_AnmManager,local_14);
     }
-    FUN_00432cc0((void *)(param_1[1] + 0x550));
-    FUN_00432cc0((void *)param_1[1]);
-    FUN_00432cc0((void *)(param_1[1] + 0x110));
-    FUN_00432cc0((void *)(param_1[1] + 0x330));
-    FUN_00432cc0((void *)(param_1[1] + 0x440));
-    FUN_00432cc0((void *)(param_1[1] + 0x220));
+    AnmManager::FUN_00432cc0(g_AnmManager,(AnmVm *)(param_1[1] + 0x550));
+    AnmManager::FUN_00432cc0(g_AnmManager,(AnmVm *)param_1[1]);
+    AnmManager::FUN_00432cc0(g_AnmManager,(AnmVm *)(param_1[1] + 0x110));
+    AnmManager::FUN_00432cc0(g_AnmManager,(AnmVm *)(param_1[1] + 0x330));
+    AnmManager::FUN_00432cc0(g_AnmManager,(AnmVm *)(param_1[1] + 0x440));
+    AnmManager::FUN_00432cc0(g_AnmManager,(AnmVm *)(param_1[1] + 0x220));
     AnmManager::FUN_00432ad0(g_AnmManager,(AnmVm *)(param_1[1] + 0x990));
     AnmManager::FUN_00432ad0(g_AnmManager,(AnmVm *)(param_1[1] + 0xaa0));
     AnmManager::FUN_00432ad0(g_AnmManager,(AnmVm *)(param_1[1] + 0xbb0));

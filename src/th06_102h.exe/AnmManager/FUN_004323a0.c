@@ -10,7 +10,7 @@ int __thiscall AnmManager::FUN_004323a0(AnmManager *this,AnmVm *param_1,int idx)
   else {
     param_1->spriteNumber = (short)idx;
     param_1->sprite = this->sprites + idx;
-    InitializeMatrix(&param_1->matrix);
+    D3DXMatrixIdentity(&param_1->matrix);
     (param_1->matrix).field0_0x0.field0._11 =
          param_1->sprite->widthPx / param_1->sprite->textureWidth;
     (param_1->matrix).field0_0x0.field0._22 =

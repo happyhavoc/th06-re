@@ -1,5 +1,5 @@
 
-int __thiscall AnmManager::FUN_00432ad0(AnmManager *this,AnmVm *vm)
+int __thiscall AnmManager::FUN_00432fa0(AnmManager *this,AnmVm *vm)
 
 {
   float fVar1;
@@ -41,7 +41,7 @@ int __thiscall AnmManager::FUN_00432ad0(AnmManager *this,AnmVm *vm)
     DAT_006d4604 = DAT_006d461c;
     DAT_006d4618 = DAT_006d4648;
     DAT_006d4634 = DAT_006d464c;
-    iVar4 = FUN_00432730(this,vm,1);
+    iVar4 = FUN_00432730(this,vm,0);
   }
   return iVar4;
 }

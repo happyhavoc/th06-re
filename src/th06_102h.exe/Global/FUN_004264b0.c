@@ -9,10 +9,9 @@ int FUN_004264b0(float *param_1,float *param_2,undefined4 *param_3)
   float *pfVar2;
   float fVar3;
   short sVar4;
-  AnmManager *pAVar5;
-  int *piVar6;
+  AnmManager *this;
+  int iVar5;
   int in_ECX;
-  int *piVar7;
   int local_d4;
   short local_80;
   float local_40;
@@ -27,96 +26,92 @@ int FUN_004264b0(float *param_1,float *param_2,undefined4 *param_3)
   float local_18;
   float local_14;
   int local_c;
-  Unknown *local_8;
+  AnmVm *local_8;
   
   local_34 = 0;
   local_30 = *param_1 - *param_2 / 2.0;
   local_2c = param_1[1] - param_2[1] / 2.0;
   local_18 = *param_2 / 2.0 + *param_1;
   local_14 = param_2[1] / 2.0 + param_1[1];
-  local_8 = (Unknown *)(in_ECX + 0xa28);
+  local_8 = (AnmVm *)(in_ECX + 0xa28);
   if (param_3 != (undefined4 *)0x0) {
     *param_3 = 0;
   }
   for (local_c = 0; local_c < 0x50; local_c = local_c + 1) {
-    if ((local_8[1].field19_0x8a != 0) &&
-       ((local_8[1].field19_0x8a == 1 || (local_8[1].field20_0x8c == 2)))) {
-      piVar6 = &local_8[1].field13_0x3c.field7_0x1c;
-      piVar7 = &local_8[1].field13_0x3c.field4_0x10;
-      local_40 = (float)*piVar7 - (float)*piVar6 / 2.0;
-      local_3c = local_8[1].field13_0x3c.field5_0x14 -
-                 (float)local_8[1].field13_0x3c.field8_0x20 / 2.0;
-      local_24 = (float)*piVar6 / 2.0 + (float)*piVar7;
-      local_20 = (float)local_8[1].field13_0x3c.field8_0x20 / 2.0 +
-                 local_8[1].field13_0x3c.field5_0x14;
+    if ((*(short *)((int)&local_8[1].matrix.field0_0x0 + 2) != 0) &&
+       ((*(short *)((int)&local_8[1].matrix.field0_0x0 + 2) == 1 ||
+        (*(short *)((int)&local_8[1].matrix.field0_0x0 + 4) == 2)))) {
+      local_40 = local_8[1].rotation.x - local_8[1].angleVel.x / 2.0;
+      local_3c = local_8[1].rotation.y - local_8[1].angleVel.y / 2.0;
+      local_24 = local_8[1].angleVel.x / 2.0 + local_8[1].rotation.x;
+      local_20 = local_8[1].angleVel.y / 2.0 + local_8[1].rotation.y;
       if ((local_3c <= local_14) &&
          (((local_40 <= local_18 && (local_20 < local_2c == (NAN(local_20) || NAN(local_2c)))) &&
           (local_24 < local_30 == (NAN(local_24) || NAN(local_30)))))) {
         if (*(int *)(in_ECX + 0x75c8) == 0) {
-          local_d4 = (int)(short)local_8[1].field18_0x88;
+          local_d4 = (int)*(short *)&local_8[1].matrix.field0_0x0;
         }
-        else if ((int)(short)local_8[1].field18_0x88 / 3 == 0) {
+        else if ((int)*(short *)&local_8[1].matrix.field0_0x0 / 3 == 0) {
           local_d4 = 1;
         }
         else {
-          local_d4 = (int)(short)local_8[1].field18_0x88 / 3;
+          local_d4 = (int)*(short *)&local_8[1].matrix.field0_0x0 / 3;
         }
         local_34 = local_34 + local_d4;
-        if (local_8[1].field20_0x8c == 2) {
-          local_8[1].field18_0x88 =
-               (short)((int)((int)(short)local_8[1].field18_0x88 +
-                            ((int)(short)local_8[1].field18_0x88 >> 0x1f & 3U)) >> 2);
-          if (local_8[1].field18_0x88 == 0) {
-            local_8[1].field18_0x88 = 1;
+        if (*(short *)((int)&local_8[1].matrix.field0_0x0 + 4) == 2) {
+          iVar5 = (int)*(short *)&local_8[1].matrix.field0_0x0;
+          *(short *)&local_8[1].matrix.field0_0x0 =
+               (short)((int)(iVar5 + (iVar5 >> 0x1f & 3U)) >> 2);
+          if (*(short *)&local_8[1].matrix.field0_0x0 == 0) {
+            *(undefined2 *)&local_8[1].matrix.field0_0x0 = 1;
           }
-          switch(*(undefined2 *)&local_8->field_0xb4) {
+          switch(local_8->anmFileIndex) {
           case 0x441:
-            local_8[1].field13_0x3c.field7_0x1c = 0x42000000;
-            local_8[1].field13_0x3c.field8_0x20 = 0x42000000;
+            local_8[1].angleVel.x = 32.0;
+            local_8[1].angleVel.y = 32.0;
             break;
           case 0x442:
-            local_8[1].field13_0x3c.field7_0x1c = 0x42280000;
-            local_8[1].field13_0x3c.field8_0x20 = 0x42280000;
+            local_8[1].angleVel.x = 42.0;
+            local_8[1].angleVel.y = 42.0;
             break;
           case 0x443:
-            local_8[1].field13_0x3c.field7_0x1c = 0x42400000;
-            local_8[1].field13_0x3c.field8_0x20 = 0x42400000;
+            local_8[1].angleVel.x = 48.0;
+            local_8[1].angleVel.y = 48.0;
             break;
           case 0x444:
-            local_8[1].field13_0x3c.field7_0x1c = 0x42400000;
-            local_8[1].field13_0x3c.field8_0x20 = 0x42400000;
+            local_8[1].angleVel.x = 48.0;
+            local_8[1].angleVel.y = 48.0;
           }
-          if (*(int *)&local_8[1].field16_0x84 % 6 == 0) {
-            FUN_0040ef50(5,&local_8[1].field13_0x3c.field4_0x10,1,0xffffffff);
+          if (local_8[1].currentTimeInScript.current % 6 == 0) {
+            FUN_0040ef50(5,local_8 + 1,1,0xffffffff);
           }
         }
-        pAVar5 = g_AnmManager;
-        if (local_8[1].field20_0x8c == 3) {
+        this = g_AnmManager;
+        if (*(short *)((int)&local_8[1].matrix.field0_0x0 + 4) == 3) {
           *(char *)(in_ECX + 0x9e4) = *(char *)(in_ECX + 0x9e4) + '\x01';
           if ((*(byte *)(in_ECX + 0x9e4) & 7) == 0) {
             local_3c = param_1[1];
             local_38 = param_1[2];
-            local_40 = (float)local_8[1].field13_0x3c.field4_0x10;
+            local_40 = local_8[1].rotation.x;
             FUN_0040ef50(5,&local_40,1,0xffffffff);
           }
         }
         else {
-          if (local_8[1].field19_0x8a == 1) {
-            sVar4 = *(short *)&local_8->field_0xb4;
+          if (*(short *)((int)&local_8[1].matrix.field0_0x0 + 2) == 1) {
+            sVar4 = local_8->anmFileIndex;
             local_80 = sVar4 + 0x20;
-            *(short *)&local_8->field_0xb4 = local_80;
-            FUN_00432430(local_8,(int)pAVar5->scripts[sVar4 + 0x20]);
-            FUN_0040ef50(5,&local_8[1].field13_0x3c.field4_0x10,1,0xffffffff);
-            local_8[1].field13_0x3c.field6_0x18 = 0x3dcccccd;
+            local_8->anmFileIndex = local_80;
+            AnmManager::SetBeginingOfScript(this,local_8,this->scripts[sVar4 + 0x20]);
+            FUN_0040ef50(5,local_8 + 1,1,0xffffffff);
+            local_8[1].rotation.z = 0.1;
           }
-          local_8[1].field19_0x8a = 2;
-          local_8[1].field13_0x3c.field10_0x28 = local_8[1].field13_0x3c.field10_0x28 / 8.0;
-          local_8[1].field13_0x3c.field11_0x2c =
-               (int)((float)local_8[1].field13_0x3c.field11_0x2c / 8.0);
+          *(undefined2 *)((int)&local_8[1].matrix.field0_0x0 + 2) = 2;
+          local_8[1].scaleX = local_8[1].scaleX / 8.0;
+          local_8[1].scaleY = local_8[1].scaleY / 8.0;
         }
       }
     }
-    local_8 = (Unknown *)&local_8[1].field_0x94;
+    local_8 = (AnmVm *)(local_8[1].matrix.field0_0x0.m[0] + 3);
   }
   for (local_c = 0; local_c < 0x20; local_c = local_c + 1) {
     fVar3 = *(float *)(in_ECX + 0x638 + local_c * 0xc);

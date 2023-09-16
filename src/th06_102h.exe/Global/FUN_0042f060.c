@@ -36,17 +36,17 @@ undefined4 FUN_0042f060(undefined4 *param_1)
     }
     local_c = (AnmVm *)(param_1 + 0x10);
     for (local_8 = 0; local_8 < 0x26; local_8 = local_8 + 1) {
-      (local_c->pos).x = 0;
-      *(undefined4 *)&local_c->pos = 0;
-      *(float *)&local_c->pos = 0.0;
-      ((Unknown *)((int)local_c + 0xc4))->field8_0x20 = 0;
-      ((Unknown *)((int)local_c + 0xc4))->field9_0x24 = 0;
-      ((Unknown *)((int)local_c + 0xc4))->field10_0x28 = 0;
+      (local_c->pos).x = 0.0;
+      (local_c->pos).y = 0.0;
+      (local_c->pos).z = 0.0;
+      (local_c->pos2).x = 0.0;
+      (local_c->pos2).y = 0.0;
+      (local_c->pos2).z = 0.0;
       pAVar1 = g_AnmManager;
       local_3c = (short)local_8 + 0x100;
       local_c->anmFileIndex = local_3c;
-      FUN_00432430((Unknown *)local_c,(int)pAVar1->scripts[local_8 + 0x100]);
-      local_c = (AnmVm *)&(((Unknown *)((int)local_c + 0xc4))->field13_0x3c).field4_0x10;
+      AnmManager::SetBeginingOfScript(pAVar1,local_c,pAVar1->scripts[local_8 + 0x100]);
+      local_c = local_c + 1;
     }
     local_c = (AnmVm *)(param_1 + 0xa28);
     for (local_8 = 0; pAVar1 = g_AnmManager, local_8 < 0x10; local_8 = local_8 + 1) {

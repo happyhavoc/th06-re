@@ -1,5 +1,5 @@
 
-void __cdecl InitializeMatrix(D3DMATRIX *matrix)
+D3DMATRIX * __cdecl D3DXMatrixIdentity(D3DMATRIX *matrix)
 
 {
   (matrix->field0_0x0).field0._43 = 0.0;
@@ -18,6 +18,6 @@ void __cdecl InitializeMatrix(D3DMATRIX *matrix)
   (matrix->field0_0x0).field0._33 = 1.0;
   (matrix->field0_0x0).field0._22 = 1.0;
   (matrix->field0_0x0).field0._11 = 1.0;
-  return;
+  return matrix;
 }
 

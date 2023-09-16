@@ -6,13 +6,13 @@ undefined4 FUN_00416d60(int param_1)
   AnmManager *pAVar2;
   int iVar3;
   long lVar4;
-  Unknown *pUVar5;
+  AnmVm *pAVar5;
   undefined4 *puVar6;
-  undefined2 local_3c;
-  undefined2 local_30;
-  undefined2 local_24;
-  undefined2 local_18;
-  undefined2 local_c;
+  short local_3c;
+  short local_30;
+  short local_24;
+  short local_18;
+  short local_c;
   uint local_8;
   
   if (g_GameContext.unkInput2 != 3) {
@@ -27,34 +27,34 @@ undefined4 FUN_00416d60(int param_1)
   }
   for (local_8 = 0; pAVar2 = g_AnmManager, local_8 < 10; local_8 = local_8 + 1) {
     iVar3 = *(int *)(&DAT_0046a6e8 + local_8 * 0x14);
-    pUVar5 = (Unknown *)(param_1 + local_8 * 0x560);
-    local_c = (undefined2)iVar3;
-    *(undefined2 *)&pUVar5->field_0xb4 = local_c;
-    FUN_00432430(pUVar5,(int)pAVar2->scripts[iVar3]);
+    pAVar5 = (AnmVm *)(param_1 + local_8 * 0x560);
+    local_c = (short)iVar3;
+    pAVar5->anmFileIndex = local_c;
+    AnmManager::SetBeginingOfScript(pAVar2,pAVar5,pAVar2->scripts[iVar3]);
     pAVar2 = g_AnmManager;
     iVar3 = *(int *)(&DAT_0046a6ec + local_8 * 0x14);
-    pUVar5 = (Unknown *)(param_1 + 0x110 + local_8 * 0x560);
-    local_18 = (undefined2)iVar3;
-    *(undefined2 *)&pUVar5->field_0xb4 = local_18;
-    FUN_00432430(pUVar5,(int)pAVar2->scripts[iVar3]);
+    pAVar5 = (AnmVm *)(param_1 + 0x110 + local_8 * 0x560);
+    local_18 = (short)iVar3;
+    pAVar5->anmFileIndex = local_18;
+    AnmManager::SetBeginingOfScript(pAVar2,pAVar5,pAVar2->scripts[iVar3]);
     pAVar2 = g_AnmManager;
     iVar3 = *(int *)(&DAT_0046a6f0 + local_8 * 0x14);
-    pUVar5 = (Unknown *)(param_1 + 0x220 + local_8 * 0x560);
-    local_24 = (undefined2)iVar3;
-    *(undefined2 *)&pUVar5->field_0xb4 = local_24;
-    FUN_00432430(pUVar5,(int)pAVar2->scripts[iVar3]);
+    pAVar5 = (AnmVm *)(param_1 + 0x220 + local_8 * 0x560);
+    local_24 = (short)iVar3;
+    pAVar5->anmFileIndex = local_24;
+    AnmManager::SetBeginingOfScript(pAVar2,pAVar5,pAVar2->scripts[iVar3]);
     pAVar2 = g_AnmManager;
     iVar3 = *(int *)(&DAT_0046a6f4 + local_8 * 0x14);
-    pUVar5 = (Unknown *)(param_1 + 0x330 + local_8 * 0x560);
-    local_30 = (undefined2)iVar3;
-    *(undefined2 *)&pUVar5->field_0xb4 = local_30;
-    FUN_00432430(pUVar5,(int)pAVar2->scripts[iVar3]);
+    pAVar5 = (AnmVm *)(param_1 + 0x330 + local_8 * 0x560);
+    local_30 = (short)iVar3;
+    pAVar5->anmFileIndex = local_30;
+    AnmManager::SetBeginingOfScript(pAVar2,pAVar5,pAVar2->scripts[iVar3]);
     pAVar2 = g_AnmManager;
     iVar3 = *(int *)(&DAT_0046a6f8 + local_8 * 0x14);
-    pUVar5 = (Unknown *)(param_1 + 0x440 + local_8 * 0x560);
-    local_3c = (undefined2)iVar3;
-    *(undefined2 *)&pUVar5->field_0xb4 = local_3c;
-    FUN_00432430(pUVar5,(int)pAVar2->scripts[iVar3]);
+    pAVar5 = (AnmVm *)(param_1 + 0x440 + local_8 * 0x560);
+    local_3c = (short)iVar3;
+    pAVar5->anmFileIndex = local_3c;
+    AnmManager::SetBeginingOfScript(pAVar2,pAVar5,pAVar2->scripts[iVar3]);
     *(undefined2 *)(param_1 + 0xb2 + local_8 * 0x560) =
          *(undefined2 *)(param_1 + 0xb0 + local_8 * 0x560);
     lVar4 = __ftol2((double)*(float *)(*(int *)(param_1 + 0xc0 + local_8 * 0x560) + 0x2c));

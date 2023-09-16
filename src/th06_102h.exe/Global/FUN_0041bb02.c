@@ -121,7 +121,7 @@ undefined4 FUN_0041bb02(uint *param_1)
   }
   _DAT_0069d8fc = 0;
   *(undefined2 *)(param_1 + 0x68b) = DAT_0069d8f8;
-  iVar4 = FUN_004044c0(param_1[0x68d]);
+  iVar4 = Stage::RegisterChain(param_1[0x68d]);
   if (iVar4 == 0) {
     iVar4 = FUN_00428780(0);
     if (iVar4 == 0) {
@@ -140,8 +140,8 @@ undefined4 FUN_0041bb02(uint *param_1)
                   FUN_0042a240(0,"replay/th6_00.rpy");
                 }
                 if (DAT_0069d4c4 == '\0') {
-                  FUN_00424aac(1,DAT_00487b14 + 0x310);
-                  FUN_00424b5d((char *)(DAT_00487b14 + 0x290));
+                  FUN_00424aac(1,g_Stage.field1_0x4 + 0x310);
+                  FUN_00424b5d((char *)(g_Stage.field1_0x4 + 0x290));
                 }
                 *(undefined *)(param_1 + 0x608) = 0;
                 *(undefined *)((int)param_1 + 0x1821) = 1;

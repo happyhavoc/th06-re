@@ -18,7 +18,7 @@ undefined4 __thiscall AnmManager::LoadAnim(AnmManager *this,int param_2,char *pa
   char *local_c;
   AnmRawEntry *anim_data;
   
-  FUN_00432030(this,param_2);
+  ReleaseAnm(this,param_2);
   data = (AnmRawEntry *)OpenPath(path,0);
   this->anmFiles[param_2] = data;
   anim_data = this->anmFiles[param_2];

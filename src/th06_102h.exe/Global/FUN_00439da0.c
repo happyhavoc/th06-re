@@ -8,7 +8,7 @@ undefined4 FUN_00439da0(int param_1)
   
   GameContext::LoadPBG3(&g_GameContext,3,&DAT_0046c570);
   for (local_8 = 0x1b; local_8 < 0x25; local_8 = local_8 + 1) {
-    FUN_00432030(g_AnmManager,local_8);
+    ReleaseAnm(g_AnmManager,local_8);
   }
   iVar1 = AnmManager::LoadAnim(g_AnmManager,0x15,"data/title01.anm",0x100);
   if (iVar1 == 0) {

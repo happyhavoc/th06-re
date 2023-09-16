@@ -1,35 +1,35 @@
 
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
 
-void FUN_00416c50(void *param_1)
+void FUN_00416c50(AnmVm *param_1)
 
 {
-  void *local_8;
+  AnmVm *local_8;
   
-  switch(*(undefined2 *)((int)param_1 + 0x5be)) {
+  switch(*(undefined2 *)((int)&param_1[5].matrix.field0_0x0 + 0x32)) {
   case 2:
-    local_8 = (void *)((int)param_1 + 0x110);
+    local_8 = param_1 + 1;
     break;
   case 3:
-    local_8 = (void *)((int)param_1 + 0x220);
+    local_8 = param_1 + 2;
     break;
   case 4:
-    local_8 = (void *)((int)param_1 + 0x330);
+    local_8 = param_1 + 3;
     break;
   case 5:
-    local_8 = (void *)((int)param_1 + 0x440);
+    local_8 = param_1 + 4;
     break;
   default:
     local_8 = param_1;
   }
-  *(float *)((int)local_8 + 0x90) = _DAT_0069d6dc + *(float *)((int)param_1 + 0x560);
-  *(float *)((int)local_8 + 0x94) = _DAT_0069d6e0 + *(float *)((int)param_1 + 0x564);
-  *(undefined4 *)((int)local_8 + 0x98) = 0;
-  *(uint *)((int)local_8 + 0x7c) = *(uint *)((int)local_8 + 0x7c) & 0xff000000 | 0xffffff;
-  if (*(short *)((int)local_8 + 0x88) != 0) {
-    *(float *)((int)local_8 + 8) = 1.570796 - *(float *)((int)param_1 + 0x590);
+  (local_8->pos).x = _DAT_0069d6dc + param_1[5].angleVel.y;
+  (local_8->pos).y = _DAT_0069d6e0 + param_1[5].angleVel.z;
+  (local_8->pos).z = 0.0;
+  local_8->color = local_8->color & 0xff000000 | 0xffffff;
+  if (local_8->autoRotate != 0) {
+    (local_8->rotation).z = 1.570796 - param_1[5].matrix.field0_0x0.field0._12;
   }
-  FUN_00432cc0(local_8);
+  AnmManager::FUN_00432cc0(g_AnmManager,local_8);
   return;
 }
 

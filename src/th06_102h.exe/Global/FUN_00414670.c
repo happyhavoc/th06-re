@@ -25,7 +25,7 @@ AnmVm * FUN_00414670(short *param_1)
   sVar1 = *param_1;
   local_10 = sVar1 + 0x209;
   local_c->anmFileIndex = local_10;
-  FUN_00432430((Unknown *)local_c,(int)pAVar3->scripts[sVar1 + 0x209]);
+  AnmManager::SetBeginingOfScript(pAVar3,local_c,pAVar3->scripts[sVar1 + 0x209]);
   AnmManager::FUN_004323a0(g_AnmManager,local_c,(int)local_c->spriteNumber + (int)param_1[1]);
   pAVar3 = g_AnmManager;
   iVar2 = *(int *)(&DAT_00476440 + param_1[1] * 4);

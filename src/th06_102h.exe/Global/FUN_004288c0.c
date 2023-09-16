@@ -5,10 +5,10 @@ undefined4 FUN_004288c0(AnmVm *param_1)
 
 {
   float fVar1;
-  AnmManager *pAVar2;
-  int iVar3;
-  long lVar4;
-  uint uVar5;
+  AnmManager *this;
+  int iVar2;
+  long lVar3;
+  uint uVar4;
   int local_8;
   
   if (DAT_0069bccc != '\0') {
@@ -21,8 +21,8 @@ undefined4 FUN_004288c0(AnmVm *param_1)
     *(undefined4 *)((int)&param_1[8].matrix.field0_0x0 + local_8 * 0x10 + 4) = 0;
   }
   if (param_1[0x6e].pos2.y == 0.0) {
-    iVar3 = FUN_004195a2();
-    if (((((iVar3 == 0) && (param_1[9].matrix.field0_0x0.field0._14 != 0.0)) &&
+    iVar2 = FUN_004195a2();
+    if (((((iVar2 == 0) && (param_1[9].matrix.field0_0x0.field0._14 != 0.0)) &&
          ('\0' < (char)DAT_0069d4bb)) &&
         (((DAT_0069d904 & 2) != 0 && ((DAT_0069d904 & 2) != (DAT_0069d908 & 2))))) &&
        (param_1[0x6e].timeOfLastSpriteSet != 0)) {
@@ -80,9 +80,9 @@ undefined4 FUN_004288c0(AnmVm *param_1)
     fVar1 = ((float)(int)param_1[0x6e].posInterpFinal.y + param_1[0x6e].posInterpFinal.x) / 30.0;
     param_1->scaleX = fVar1 * 3.0 + 1.0;
     param_1->scaleY = 1.0 - fVar1 * 1.0;
-    lVar4 = __ftol2((double)(255.0 - (((float)(int)param_1[0x6e].posInterpFinal.y +
+    lVar3 = __ftol2((double)(255.0 - (((float)(int)param_1[0x6e].posInterpFinal.y +
                                       param_1[0x6e].posInterpFinal.x) * 255.0) / 30.0));
-    param_1->color = lVar4 << 0x18 | 0xffffff;
+    param_1->color = lVar3 << 0x18 | 0xffffff;
     param_1->flags = param_1->flags | 4;
     param_1[9].flags = 0;
     param_1[9].alphaInterpEndTime = 0;
@@ -97,9 +97,9 @@ undefined4 FUN_004288c0(AnmVm *param_1)
     param_1[0x6e].posInterpInitial.z = -NAN;
     param_1->scaleY = 3.0;
     param_1->scaleX = 3.0;
-    pAVar2 = g_AnmManager;
+    this = g_AnmManager;
     param_1->anmFileIndex = 0x400;
-    FUN_00432430((Unknown *)param_1,(int)pAVar2->scripts[0x400]);
+    AnmManager::SetBeginingOfScript(this,param_1,this->scripts[0x400]);
     if (DAT_0069d4ba < '\x01') {
       DAT_0069d4c0 = 1;
       goto LAB_00428fa8;
@@ -152,11 +152,11 @@ LAB_00428fa8:
       param_1->color = 0xffffffff;
     }
     else {
-      uVar5 = (uint)param_1[0x6e].posInterpFinal.y & 0x80000007;
-      if ((int)uVar5 < 0) {
-        uVar5 = (uVar5 - 1 | 0xfffffff8) + 1;
+      uVar4 = (uint)param_1[0x6e].posInterpFinal.y & 0x80000007;
+      if ((int)uVar4 < 0) {
+        uVar4 = (uVar4 - 1 | 0xfffffff8) + 1;
       }
-      if ((int)uVar5 < 2) {
+      if ((int)uVar4 < 2) {
         param_1->flags = param_1->flags | 8;
         param_1->color = 0xff404040;
       }

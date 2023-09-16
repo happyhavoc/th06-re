@@ -4,7 +4,7 @@
 undefined4 FUN_004188c9(void)
 
 {
-  Unknown *pUVar1;
+  AnmVm *pAVar1;
   short sVar2;
   AnmManager *pAVar3;
   undefined4 uVar4;
@@ -39,9 +39,9 @@ undefined4 FUN_004188c9(void)
         uVar5 = -(uint)(*psVar6 != 0) & 2;
         sVar2 = *(short *)(*(int *)(in_ECX + 0x2538) + 6);
         local_14 = sVar2 + (short)uVar5 + 0x4a0;
-        pUVar1 = (Unknown *)(in_ECX + 0x2550 + *psVar6 * 0x110);
-        *(short *)&pUVar1->field_0xb4 = local_14;
-        FUN_00432430(pUVar1,(int)pAVar3->scripts[uVar5 + sVar2 + 0x4a0]);
+        pAVar1 = (AnmVm *)(in_ECX + 0x2550 + *psVar6 * 0x110);
+        pAVar1->anmFileIndex = local_14;
+        AnmManager::SetBeginingOfScript(pAVar3,pAVar1,pAVar3->scripts[uVar5 + sVar2 + 0x4a0]);
         break;
       case 2:
         psVar6 = (short *)(*(int *)(in_ECX + 0x2538) + 4);
@@ -60,9 +60,9 @@ undefined4 FUN_004188c9(void)
         pAVar3 = g_AnmManager;
         sVar2 = *(short *)(iVar7 + 6);
         local_20 = sVar2 + 0x702;
-        pUVar1 = (Unknown *)(in_ECX + 0x2770 + *(short *)(iVar7 + 6) * 0x110);
-        *(short *)&pUVar1->field_0xb4 = local_20;
-        FUN_00432430(pUVar1,(int)pAVar3->scripts[sVar2 + 0x702]);
+        pAVar1 = (AnmVm *)(in_ECX + 0x2770 + *(short *)(iVar7 + 6) * 0x110);
+        pAVar1->anmFileIndex = local_20;
+        AnmManager::SetBeginingOfScript(pAVar3,pAVar1,pAVar3->scripts[sVar2 + 0x702]);
         *(undefined *)(in_ECX + 0x287d + *(short *)(iVar7 + 6) * 0x110) =
              *(undefined *)(in_ECX + 0x2bd0);
         *(undefined *)(in_ECX + 0x287c + *(short *)(iVar7 + 6) * 0x110) =
@@ -96,14 +96,14 @@ undefined4 FUN_004188c9(void)
         break;
       case 7:
         *(undefined2 *)(in_ECX + 0x1d68) = 0x701;
-        FUN_00432430((Unknown *)(in_ECX + 0x1cb4),(int)pAVar3->scripts[0x701]);
+        AnmManager::SetBeginingOfScript(pAVar3,(AnmVm *)(in_ECX + 0x1cb4),pAVar3->scripts[0x701]);
         *(undefined *)(in_ECX + 0x1dc0) = 0x10;
         *(undefined *)(in_ECX + 0x1dc1) = 0x10;
         FUN_00434c40(g_AnmManager,in_ECX + 0x1cb4,0xe0ffff,0,&DAT_0046a98c,
-                     DAT_00487b14 + 0x90 + *(int *)(*(int *)(in_ECX + 0x2538) + 4) * 0x80);
+                     g_Stage.field1_0x4 + 0x90 + *(int *)(*(int *)(in_ECX + 0x2538) + 4) * 0x80);
         iVar7 = FUN_00424ae4(*(undefined4 *)(*(int *)(in_ECX + 0x2538) + 4));
         if (iVar7 != 0) {
-          FUN_00424b5d((char *)(DAT_00487b14 + 0x290 +
+          FUN_00424b5d((char *)(g_Stage.field1_0x4 + 0x290 +
                                *(int *)(*(int *)(in_ECX + 0x2538) + 4) * 0x80));
         }
         break;
@@ -111,9 +111,9 @@ undefined4 FUN_004188c9(void)
         iVar7 = *(int *)(in_ECX + 0x2538);
         sVar2 = *(short *)(iVar7 + 6);
         local_34 = sVar2 + 0x704;
-        pUVar1 = (Unknown *)(in_ECX + 0x2990 + *(short *)(iVar7 + 6) * 0x110);
-        *(short *)&pUVar1->field_0xb4 = local_34;
-        FUN_00432430(pUVar1,(int)pAVar3->scripts[sVar2 + 0x704]);
+        pAVar1 = (AnmVm *)(in_ECX + 0x2990 + *(short *)(iVar7 + 6) * 0x110);
+        pAVar1->anmFileIndex = local_34;
+        AnmManager::SetBeginingOfScript(pAVar3,pAVar1,pAVar3->scripts[sVar2 + 0x704]);
         FUN_00434c40(g_AnmManager,in_ECX + 0x2990 + *(short *)(iVar7 + 6) * 0x110,
                      *(undefined4 *)(in_ECX + 0x2bb0 + *(short *)(iVar7 + 4) * 4),
                      *(undefined4 *)(in_ECX + 0x2bc0 + *(short *)(iVar7 + 4) * 4),iVar7 + 8);
@@ -124,7 +124,7 @@ undefined4 FUN_004188c9(void)
         pAVar3 = g_AnmManager;
         if (DAT_0069d6d4 < 6) {
           *(undefined2 *)(in_ECX + 0x24d8) = 0x619;
-          FUN_00432430((Unknown *)(in_ECX + 0x2424),(int)pAVar3->scripts[0x619]);
+          AnmManager::SetBeginingOfScript(pAVar3,(AnmVm *)(in_ECX + 0x2424),pAVar3->scripts[0x619]);
         }
         else {
           DAT_0069d4bc = 0xff;

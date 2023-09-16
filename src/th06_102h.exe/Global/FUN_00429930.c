@@ -32,8 +32,8 @@ undefined4 FUN_00429930(AnmVm *param_1)
       *pfVar1 = _DAT_0069d6e0 + *pfVar1;
       param_1[1].pos.z = 0.491;
       param_1[2].pos.z = 0.491;
-      FUN_00432cc0(param_1 + 1);
-      FUN_00432cc0(param_1 + 2);
+      AnmManager::FUN_00432cc0(g_AnmManager,param_1 + 1);
+      AnmManager::FUN_00432cc0(g_AnmManager,param_1 + 2);
     }
   }
   return 1;

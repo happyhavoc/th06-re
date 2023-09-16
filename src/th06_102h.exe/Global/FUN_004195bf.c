@@ -4,20 +4,20 @@
 void FUN_004195bf(void)
 
 {
-  AnmManager *pAVar1;
-  int iVar2;
+  AnmManager *this;
+  int iVar1;
   int in_ECX;
   int local_c;
   int local_8;
   
-  for (local_8 = 0; pAVar1 = g_AnmManager, local_8 < 0x1a; local_8 = local_8 + 1) {
+  for (local_8 = 0; this = g_AnmManager, local_8 < 0x1a; local_8 = local_8 + 1) {
     if ((local_8 == 0x13) && (*(int *)(*(int *)(in_ECX + 4) + 0x253c) < 0)) {
       if (*(char *)(in_ECX + 0x20) == '\0') {
         if (*(char *)(*(int *)(in_ECX + 4) + 0x1ba0) != '\0') {
           if (*(byte *)(*(int *)(in_ECX + 4) + 0x1ba0) < 3) {
-            iVar2 = *(int *)(in_ECX + 4);
-            *(undefined2 *)(iVar2 + 0x14e4) = 0x614;
-            FUN_00432430((Unknown *)(iVar2 + 0x1430),(int)pAVar1->scripts[0x614]);
+            iVar1 = *(int *)(in_ECX + 4);
+            *(undefined2 *)(iVar1 + 0x14e4) = 0x614;
+            AnmManager::SetBeginingOfScript(this,(AnmVm *)(iVar1 + 0x1430),this->scripts[0x614]);
             *(undefined *)(*(int *)(in_ECX + 4) + 0x1ba0) = 3;
           }
           if (*(int *)(in_ECX + 0x10) == 0) {
@@ -26,8 +26,8 @@ void FUN_004195bf(void)
           else {
             *(int *)(in_ECX + 0x10) = *(int *)(in_ECX + 0x10) + -4;
           }
-          iVar2 = AnmManager::FUN_00433960(g_AnmManager,(AnmVm *)(*(int *)(in_ECX + 4) + 0x1430));
-          if (iVar2 != 0) {
+          iVar1 = AnmManager::FUN_00433960(g_AnmManager,(AnmVm *)(*(int *)(in_ECX + 4) + 0x1430));
+          if (iVar1 != 0) {
             *(undefined *)(*(int *)(in_ECX + 4) + 0x1ba0) = 0;
             *(undefined4 *)(in_ECX + 0x28) = 0;
             *(undefined4 *)(in_ECX + 0x10) = 0;
@@ -35,15 +35,15 @@ void FUN_004195bf(void)
         }
       }
       else if (*(char *)(*(int *)(in_ECX + 4) + 0x1ba0) == '\0') {
-        iVar2 = *(int *)(in_ECX + 4);
-        *(undefined2 *)(iVar2 + 0x14e4) = 0x613;
-        FUN_00432430((Unknown *)(iVar2 + 0x1430),(int)pAVar1->scripts[0x613]);
+        iVar1 = *(int *)(in_ECX + 4);
+        *(undefined2 *)(iVar1 + 0x14e4) = 0x613;
+        AnmManager::SetBeginingOfScript(this,(AnmVm *)(iVar1 + 0x1430),this->scripts[0x613]);
         *(undefined *)(*(int *)(in_ECX + 4) + 0x1ba0) = 1;
         *(undefined4 *)(in_ECX + 0x10) = 0;
       }
       else {
-        iVar2 = AnmManager::FUN_00433960(g_AnmManager,(AnmVm *)(*(int *)(in_ECX + 4) + 0x1430));
-        if (iVar2 != 0) {
+        iVar1 = AnmManager::FUN_00433960(g_AnmManager,(AnmVm *)(*(int *)(in_ECX + 4) + 0x1430));
+        if (iVar1 != 0) {
           *(undefined *)(*(int *)(in_ECX + 4) + 0x1ba0) = 2;
         }
         if (*(uint *)(in_ECX + 0x10) < 0xfc) {
@@ -82,8 +82,8 @@ void FUN_004195bf(void)
   AnmManager::FUN_00433960(g_AnmManager,(AnmVm *)(*(int *)(in_ECX + 4) + 0x1ed4));
   AnmManager::FUN_00433960(g_AnmManager,(AnmVm *)(*(int *)(in_ECX + 4) + 0x20f4));
   if ((-1 < *(short *)(*(int *)(in_ECX + 4) + 0x24d4)) &&
-     (iVar2 = AnmManager::FUN_00433960(g_AnmManager,(AnmVm *)(*(int *)(in_ECX + 4) + 0x2424)),
-     iVar2 != 0)) {
+     (iVar1 = AnmManager::FUN_00433960(g_AnmManager,(AnmVm *)(*(int *)(in_ECX + 4) + 0x2424)),
+     iVar1 != 0)) {
     *(undefined2 *)(*(int *)(in_ECX + 4) + 0x24d4) = 0xffff;
   }
   if (*(int *)(*(int *)(in_ECX + 4) + 0x2bf4) != 0) {

@@ -30,7 +30,7 @@ void FUN_0042564c(int param_1)
      (iVar4 = AnmManager::LoadAnim(g_AnmManager,0x2b,"data/music02.anm",0x111),
      pAVar3 = g_AnmManager, iVar4 == 0)) {
     *(undefined2 *)(param_1 + 0xd8) = 0x100;
-    FUN_00432430((Unknown *)(param_1 + 0x24),(int)pAVar3->scripts[0x100]);
+    AnmManager::SetBeginingOfScript(pAVar3,(AnmVm *)(param_1 + 0x24),pAVar3->scripts[0x100]);
     *(undefined4 *)(param_1 + 8) = 0;
     local_18 = OpenPath("data/musiccmt.txt",0);
     local_10 = local_18;

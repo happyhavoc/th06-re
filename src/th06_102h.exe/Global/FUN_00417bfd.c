@@ -11,12 +11,12 @@ void FUN_00417bfd(int param_1,char *param_2)
   pAVar3 = g_AnmManager;
   iVar2 = *(int *)(in_ECX + 4);
   *(undefined2 *)(iVar2 + 0x1f88) = 0x4a3;
-  FUN_00432430((Unknown *)(iVar2 + 0x1ed4),(int)pAVar3->scripts[0x4a3]);
+  AnmManager::SetBeginingOfScript(pAVar3,(AnmVm *)(iVar2 + 0x1ed4),pAVar3->scripts[0x4a3]);
   AnmManager::FUN_004323a0(g_AnmManager,(AnmVm *)(*(int *)(in_ECX + 4) + 0x1ed4),param_1 + 0x4a8);
   pAVar3 = g_AnmManager;
   iVar2 = *(int *)(in_ECX + 4);
   *(undefined2 *)(iVar2 + 0x21a8) = 0x707;
-  FUN_00432430((Unknown *)(iVar2 + 0x20f4),(int)pAVar3->scripts[0x707]);
+  AnmManager::SetBeginingOfScript(pAVar3,(AnmVm *)(iVar2 + 0x20f4),pAVar3->scripts[0x707]);
   FUN_00434c40(g_AnmManager,*(int *)(in_ECX + 4) + 0x20f4,0xfff0f0,0,param_2);
   local_1c = param_2;
   do {

@@ -2,7 +2,7 @@
 void __fastcall FUN_0040f7c0(int param_1)
 
 {
-  Unknown *pUVar1;
+  AnmVm *pAVar1;
   AnmManager *pAVar2;
   long lVar3;
   long lVar4;
@@ -68,9 +68,10 @@ void __fastcall FUN_0040f7c0(int param_1)
         if (0x1f < local_38) {
           iVar6 = *(int *)(param_1 + 0x1154);
           local_ac = (short)local_8 + 0x708 + (short)iVar6 * 2;
-          pUVar1 = (Unknown *)(param_1 + 0x14 + (local_8 + *(int *)(param_1 + 0x1154) * 2) * 0x110);
-          *(short *)&pUVar1->field_0xb4 = local_ac;
-          FUN_00432430(pUVar1,(int)pAVar2->scripts[iVar6 * 2 + local_8 + 0x708]);
+          pAVar1 = (AnmVm *)(param_1 + 0x14 + (local_8 + *(int *)(param_1 + 0x1154) * 2) * 0x110);
+          pAVar1->anmFileIndex = local_ac;
+          AnmManager::SetBeginingOfScript
+                    (pAVar2,pAVar1,pAVar2->scripts[iVar6 * 2 + local_8 + 0x708]);
           FUN_00434b60(g_AnmManager,
                        param_1 + 0x14 + (local_8 + *(int *)(param_1 + 0x1154) * 2) * 0x110,
                        *(undefined4 *)(param_1 + 0x1158),0xc0d0d0,&local_34);
@@ -246,9 +247,9 @@ switchD_0040fa32_caseD_0:
   if (local_38 != 0) {
     iVar6 = *(int *)(param_1 + 0x1154);
     local_90 = (short)local_8 + 0x708 + (short)iVar6 * 2;
-    pUVar1 = (Unknown *)(param_1 + 0x14 + (local_8 + *(int *)(param_1 + 0x1154) * 2) * 0x110);
-    *(short *)&pUVar1->field_0xb4 = local_90;
-    FUN_00432430(pUVar1,(int)pAVar2->scripts[iVar6 * 2 + local_8 + 0x708]);
+    pAVar1 = (AnmVm *)(param_1 + 0x14 + (local_8 + *(int *)(param_1 + 0x1154) * 2) * 0x110);
+    pAVar1->anmFileIndex = local_90;
+    AnmManager::SetBeginingOfScript(pAVar2,pAVar1,pAVar2->scripts[iVar6 * 2 + local_8 + 0x708]);
     FUN_00434b60(g_AnmManager,param_1 + 0x14 + (local_8 + *(int *)(param_1 + 0x1154) * 2) * 0x110,
                  *(undefined4 *)(param_1 + 0x1158),0xc0d0d0,&local_34);
   }

@@ -7,7 +7,7 @@ undefined4 FUN_00431920(int param_1,undefined4 param_2,int param_3,undefined4 pa
   int iVar3;
   AnmManager *in_ECX;
   
-  FUN_004321e0(in_ECX,param_1);
+  ReleaseTexture(in_ECX,param_1);
   pbVar1 = OpenPath(param_2,0);
   in_ECX->imageDataArray[param_1] = pbVar1;
   if (in_ECX->imageDataArray[param_1] == (void *)0x0) {

@@ -1,43 +1,35 @@
 
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
 
-void FUN_0040d930(Unknown *param_1,undefined4 param_2)
+void FUN_0040d930(AnmVm *param_1,undefined4 param_2)
 
 {
-  int iVar1;
-  int iVar2;
-  AnmManager *pAVar3;
+  AnmManager *pAVar1;
   
-  if (0 < *(int *)&param_1[0x10].field_0xa4) {
+  if (0 < (int)param_1[0xc].scaleInterpFinalX) {
     FUN_0040caf0(param_1,param_2);
-    pAVar3 = g_AnmManager;
+    pAVar1 = g_AnmManager;
     if (_DAT_006d1bf0 == 0) {
-      iVar1._0_2_ = param_1[0x12].field16_0x84;
-      iVar1._2_2_ = param_1[0x12].field17_0x86;
-      if ((0 < iVar1) &&
-         (FUN_004241e5(1), pAVar3 = g_AnmManager, iVar2._0_2_ = param_1[0x12].field16_0x84,
-         iVar2._2_2_ = param_1[0x12].field17_0x86, iVar2 == 0)) {
-        if (*(short *)&param_1[0x12].field_0x92 < 0) {
-          *(undefined2 *)&param_1->field_0xb4 = 0x1a0;
-          FUN_00432430(param_1,(int)pAVar3->scripts[0x1a0]);
-          *(undefined2 *)&param_1[0x12].field_0x92 = 0xa1;
+      if ((0 < (int)param_1[0xd].color) &&
+         (FUN_004241e5(1), pAVar1 = g_AnmManager, param_1[0xd].color == 0)) {
+        if (param_1[0xd].pendingInterrupt < 0) {
+          param_1->anmFileIndex = 0x1a0;
+          AnmManager::SetBeginingOfScript(pAVar1,param_1,pAVar1->scripts[0x1a0]);
+          param_1[0xd].pendingInterrupt = 0xa1;
         }
-        *(byte *)((int)&param_1[0x12].field18_0x88 + 1) =
-             *(byte *)((int)&param_1[0x12].field18_0x88 + 1) | 1;
+        *(byte *)((int)&param_1[0xd].flags + 1) = *(byte *)((int)&param_1[0xd].flags + 1) | 1;
       }
     }
     else {
-      if (-1 < *(short *)&param_1[0x12].field_0x92) {
-        *(undefined2 *)&param_1->field_0xb4 = 0x1a5;
-        FUN_00432430(param_1,(int)pAVar3->scripts[0x1a5]);
-        *(undefined2 *)&param_1[0x12].field_0x92 = 0xffff;
+      if (-1 < param_1[0xd].pendingInterrupt) {
+        param_1->anmFileIndex = 0x1a5;
+        AnmManager::SetBeginingOfScript(pAVar1,param_1,pAVar1->scripts[0x1a5]);
+        param_1[0xd].pendingInterrupt = -1;
       }
-      *(byte *)((int)&param_1[0x12].field18_0x88 + 1) =
-           *(byte *)((int)&param_1[0x12].field18_0x88 + 1) & 0xfe;
-      param_1[0x12].field16_0x84 = 0x3c;
-      param_1[0x12].field17_0x86 = 0;
-      param_1[0x12].field15_0x80 = 0;
-      param_1[0x12].field14_0x7c = -999;
+      *(byte *)((int)&param_1[0xd].flags + 1) = *(byte *)((int)&param_1[0xd].flags + 1) & 0xfe;
+      param_1[0xd].color = 0x3c;
+      param_1[0xd].matrix.field0_0x0.field0._44 = 0.0;
+      param_1[0xd].matrix.field0_0x0.field0._43 = -NAN;
     }
   }
   return;

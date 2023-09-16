@@ -47,7 +47,7 @@ undefined4 FUN_0041b663(uint *param_1)
   (*(g_GameContext.d3dDevice)->lpVtbl->SetViewport)
             (g_GameContext.d3dDevice,(D3DVIEWPORT8 *)0x6c6de0);
   (*(g_GameContext.d3dDevice)->lpVtbl->Clear)
-            (g_GameContext.d3dDevice,0,(D3DRECT *)0x0,2,DAT_00487b60,1.0,0);
+            (g_GameContext.d3dDevice,0,(D3DRECT *)0x0,2,g_Stage.skyFog.color,1.0,0);
   if (((*(char *)((int)param_1 + 0x181f) == '\x01') || (*(char *)((int)param_1 + 0x181f) == '\x02'))
      || (*(char *)(param_1 + 0x608) != '\0')) {
     uVar1 = 3;

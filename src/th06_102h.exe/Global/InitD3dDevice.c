@@ -108,7 +108,7 @@ void InitD3dDevice(void)
     g_AnmManager->field16_0x210be = 0xff;
     g_AnmManager->currentTexture = (IDirect3DTexture8 *)0x0;
   }
-  DAT_00487b8c = 1;
+  g_Stage.field17_0x7c._0_1_ = 1;
   return;
 }
 

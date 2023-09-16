@@ -2,48 +2,46 @@
 undefined4 FUN_00416500(int param_1)
 
 {
-  float10 fVar1;
-  float fVar2;
+  float fVar1;
+  float10 fVar2;
   float10 fVar3;
   int local_20;
   int local_1c;
-  int local_10;
+  AnmVm *local_10;
   int local_8;
   
   (*(g_GameContext.d3dDevice)->lpVtbl->SetRenderState)(g_GameContext.d3dDevice,D3DRS_ZFUNC,8);
-  local_10 = param_1 + 0xec000;
+  local_10 = (AnmVm *)(param_1 + 0xec000);
   for (local_8 = 0; local_8 < 0x40; local_8 = local_8 + 1) {
-    if (*(int *)(local_10 + 600) != 0) {
-      fVar1 = (float10)fcos((float10)*(float *)(local_10 + 0x22c));
-      fVar3 = (float10)fsin((float10)*(float *)(local_10 + 0x22c));
-      fVar2 = (*(float *)(local_10 + 0x234) - *(float *)(local_10 + 0x230)) / 2.0 +
-              *(float *)(local_10 + 0x230);
-      *(float *)(local_10 + 0x90) = (float)fVar1 * fVar2 + *(float *)(local_10 + 0x220);
-      *(float *)(local_10 + 0x94) = (float)fVar3 * fVar2 + *(float *)(local_10 + 0x224);
-      *(undefined4 *)(local_10 + 0x98) = 0;
-      *(undefined2 *)(local_10 + 0x26a) = 0xffff;
-      FUN_00433150(local_10);
-      if ((*(float *)(local_10 + 0x230) < 16.0 != NAN(*(float *)(local_10 + 0x230))) ||
-         (NAN(*(float *)(local_10 + 0x240)) != (*(float *)(local_10 + 0x240) == 0.0))) {
-        *(float *)(local_10 + 0x1a0) =
-             (float)fVar1 * *(float *)(local_10 + 0x230) + *(float *)(local_10 + 0x220);
-        *(float *)(local_10 + 0x1a4) =
-             (float)fVar3 * *(float *)(local_10 + 0x230) + *(float *)(local_10 + 0x224);
-        *(undefined4 *)(local_10 + 0x1a8) = 0;
-        *(undefined4 *)(local_10 + 0x18c) = *(undefined4 *)(local_10 + 0x7c);
-        *(uint *)(local_10 + 400) = *(uint *)(local_10 + 400) | 8;
-        *(uint *)(local_10 + 0x18c) = *(uint *)(local_10 + 0x18c) & 0xffffff | 0xff000000;
-        *(float *)(local_10 + 300) =
-             ((16.0 - *(float *)(local_10 + 0x230)) / 16.0) * (*(float *)(local_10 + 0x23c) / 10.0);
-        *(undefined4 *)(local_10 + 0x128) = *(undefined4 *)(local_10 + 300);
-        if (*(float *)(local_10 + 0x128) < 0.0 != NAN(*(float *)(local_10 + 0x128))) {
-          *(float *)(local_10 + 300) = *(float *)(local_10 + 0x23c) / 10.0;
-          *(undefined4 *)(local_10 + 0x128) = *(undefined4 *)(local_10 + 300);
+    if (local_10[2].currentTimeInScript.current != 0) {
+      fVar3 = (float10)local_10[2].angleVel.x;
+      fVar2 = (float10)fcos(fVar3);
+      fVar3 = (float10)fsin(fVar3);
+      fVar1 = (local_10[2].angleVel.z - local_10[2].angleVel.y) / 2.0 + local_10[2].angleVel.y;
+      (local_10->pos).x = (float)fVar2 * fVar1 + local_10[2].rotation.x;
+      (local_10->pos).y = (float)fVar3 * fVar1 + local_10[2].rotation.y;
+      (local_10->pos).z = 0.0;
+      *(undefined2 *)((int)&local_10[2].matrix.field0_0x0 + 0xe) = 0xffff;
+      AnmManager::FUN_00433150(g_AnmManager,local_10);
+      fVar1 = local_10[2].angleVel.y;
+      if ((fVar1 < 16.0 != NAN(fVar1)) ||
+         (NAN(local_10[2].scaleInterpFinalY) != (local_10[2].scaleInterpFinalY == 0.0))) {
+        local_10[1].pos.x = (float)fVar2 * local_10[2].angleVel.y + local_10[2].rotation.x;
+        local_10[1].pos.y = (float)fVar3 * local_10[2].angleVel.y + local_10[2].rotation.y;
+        local_10[1].pos.z = 0.0;
+        local_10[1].color = local_10->color;
+        local_10[1].flags = local_10[1].flags | 8;
+        local_10[1].color = local_10[1].color & 0xffffff | 0xff000000;
+        local_10[1].scaleY = ((16.0 - local_10[2].angleVel.y) / 16.0) * (local_10[2].scaleY / 10.0);
+        local_10[1].scaleX = local_10[1].scaleY;
+        if (local_10[1].scaleX < 0.0 != NAN(local_10[1].scaleX)) {
+          local_10[1].scaleY = local_10[2].scaleY / 10.0;
+          local_10[1].scaleX = local_10[1].scaleY;
         }
-        FUN_00433150(local_10 + 0x110);
+        AnmManager::FUN_00433150(g_AnmManager,local_10 + 1);
       }
     }
-    local_10 = local_10 + 0x270;
+    local_10 = (AnmVm *)(local_10[2].matrix.field0_0x0.m[1] + 1);
   }
   FUN_00420190();
   if (g_GameContext.hasD3dHardwareVertexProcessing == 0) {

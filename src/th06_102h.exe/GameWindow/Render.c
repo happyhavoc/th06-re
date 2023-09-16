@@ -26,7 +26,7 @@ undefined4 __thiscall GameWindow::Render(GameWindow *this)
             viewport.MaxZ = 1.0;
             (*(g_GameContext.d3dDevice)->lpVtbl->SetViewport)(g_GameContext.d3dDevice,&viewport);
             (*(g_GameContext.d3dDevice)->lpVtbl->Clear)
-                      (g_GameContext.d3dDevice,0,(D3DRECT *)0x0,3,DAT_00487b60,1.0,0);
+                      (g_GameContext.d3dDevice,0,(D3DRECT *)0x0,3,g_Stage.skyFog.color,1.0,0);
             (*(g_GameContext.d3dDevice)->lpVtbl->SetViewport)
                       (g_GameContext.d3dDevice,&g_GameContext.viewport);
           }

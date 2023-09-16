@@ -1,7 +1,7 @@
 
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
 
-undefined4 __thiscall FUN_00432730(AnmManager *this,int param_2,int param_3)
+int __thiscall AnmManager::FUN_00432730(AnmManager *this,AnmVm *vm,int param_3)
 
 {
   if (param_3 != 0) {
@@ -14,22 +14,22 @@ undefined4 __thiscall FUN_00432730(AnmManager *this,int param_2,int param_3)
     DAT_006d4648 = DAT_006d4618;
     DAT_006d464c = DAT_006d4634;
   }
-  DAT_006d4608 = *(undefined4 *)(param_2 + 0x98);
+  DAT_006d4608 = (vm->pos).z;
   DAT_006d4620 = DAT_006d4608;
   DAT_006d4638 = DAT_006d4608;
   DAT_006d4650 = DAT_006d4608;
-  if (this->currentSprite != *(AnmLoadedSprite **)(param_2 + 0xc0)) {
-    this->currentSprite = *(AnmLoadedSprite **)(param_2 + 0xc0);
-    _DAT_006d4610 = *(float *)(*(int *)(param_2 + 0xc0) + 0x1c) + *(float *)(param_2 + 0x28);
-    _DAT_006d4628 = *(float *)(*(int *)(param_2 + 0xc0) + 0x24) + *(float *)(param_2 + 0x28);
-    _DAT_006d4614 = *(float *)(*(int *)(param_2 + 0xc0) + 0x20) + *(float *)(param_2 + 0x2c);
-    _DAT_006d4644 = *(float *)(*(int *)(param_2 + 0xc0) + 0x28) + *(float *)(param_2 + 0x2c);
+  if (this->currentSprite != vm->sprite) {
+    this->currentSprite = vm->sprite;
+    _DAT_006d4610 = (vm->sprite->uvStart).x + (vm->uvScrollPos).x;
+    _DAT_006d4628 = (vm->sprite->uvEnd).x + (vm->uvScrollPos).x;
+    _DAT_006d4614 = (vm->sprite->uvStart).y + (vm->uvScrollPos).y;
+    _DAT_006d4644 = (vm->sprite->uvEnd).y + (vm->uvScrollPos).y;
     DAT_006d462c = _DAT_006d4614;
     DAT_006d4640 = _DAT_006d4610;
     DAT_006d4658 = _DAT_006d4628;
     DAT_006d465c = _DAT_006d4644;
-    if (this->currentTexture != this->textures[**(int **)(param_2 + 0xc0)]) {
-      this->currentTexture = this->textures[**(int **)(param_2 + 0xc0)];
+    if (this->currentTexture != this->textures[vm->sprite->sourceFileIndex]) {
+      this->currentTexture = this->textures[vm->sprite->sourceFileIndex];
       (*(g_GameContext.d3dDevice)->lpVtbl->SetTexture)
                 (g_GameContext.d3dDevice,0,(IDirect3DBaseTexture8 *)this->currentTexture);
     }
@@ -43,7 +43,7 @@ undefined4 __thiscall FUN_00432730(AnmManager *this,int param_2,int param_3)
     }
     this->field16_0x210be = '\x02';
   }
-  FUN_004324d0(this,param_2);
+  FUN_004324d0(this,(int)vm);
   if ((g_GameContext.cfg.opts >> 1 & 1) == 0) {
     (*(g_GameContext.d3dDevice)->lpVtbl->DrawPrimitiveUP)
               (g_GameContext.d3dDevice,D3DPT_TRIANGLESTRIP,2,&DAT_006d4600,0x18);
@@ -61,10 +61,10 @@ undefined4 __thiscall FUN_00432730(AnmManager *this,int param_2,int param_3)
     _DAT_006d45e4 = DAT_006d4648;
     _DAT_006d45e8 = DAT_006d464c;
     _DAT_006d45ec = DAT_006d4650;
-    _DAT_006d45a4 = *(float *)(*(int *)(param_2 + 0xc0) + 0x1c) + *(float *)(param_2 + 0x28);
-    _DAT_006d45c0 = *(float *)(*(int *)(param_2 + 0xc0) + 0x24) + *(float *)(param_2 + 0x28);
-    _DAT_006d45a8 = *(float *)(*(int *)(param_2 + 0xc0) + 0x20) + *(float *)(param_2 + 0x2c);
-    _DAT_006d45e0 = *(float *)(*(int *)(param_2 + 0xc0) + 0x28) + *(float *)(param_2 + 0x2c);
+    _DAT_006d45a4 = (vm->sprite->uvStart).x + (vm->uvScrollPos).x;
+    _DAT_006d45c0 = (vm->sprite->uvEnd).x + (vm->uvScrollPos).x;
+    _DAT_006d45a8 = (vm->sprite->uvStart).y + (vm->uvScrollPos).y;
+    _DAT_006d45e0 = (vm->sprite->uvEnd).y + (vm->uvScrollPos).y;
     DAT_006d45c4 = _DAT_006d45a8;
     DAT_006d45dc = _DAT_006d45a4;
     DAT_006d45f8 = _DAT_006d45c0;

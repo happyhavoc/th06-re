@@ -50461,10 +50461,7 @@ struct AnmVm {
 
 struct Stage {
     struct AnmVm *quadVms;
-    undefined field1_0x4;
-    undefined field2_0x5;
-    undefined field3_0x6;
-    undefined field4_0x7;
+    undefined4 field1_0x4;
     int quadCount;
     int objectsCount;
     struct StdRawObject **objects;
@@ -50472,23 +50469,23 @@ struct Stage {
     struct StdRawInstr *beginningOfScript;
     struct AnmTimer scriptTime;
     int instructionIndex;
-    struct AnmTimer field12_0x2c;
-    undefined4 field13_0x38;
+    struct AnmTimer field9_0x2c;
+    undefined4 field10_0x38;
     D3DXVECTOR3 position;
     struct StageCameraSky skyFog;
     struct StageCameraSky skyFogInterpInitial;
     struct StageCameraSky skyFogInterpFinal;
     int skyFogInterpDuration;
     struct AnmTimer skyFogInterpTimer;
-    undefined4 field20_0x7c;
+    undefined4 field17_0x7c;
     int spellcardEclRelated0;
     int spellcardEclRelated1;
-    struct AnmVm field23_0x88;
-    struct AnmVm field24_0x198;
+    struct AnmVm field20_0x88;
+    struct AnmVm field21_0x198;
     uchar unpauseFlag;
-    undefined field26_0x2a9;
-    undefined field27_0x2aa;
-    undefined field28_0x2ab;
+    undefined field23_0x2a9;
+    undefined field24_0x2aa;
+    undefined field25_0x2ab;
     D3DXVECTOR3 facingDirInterpInitial;
     D3DXVECTOR3 facingDirInterpFinal;
     int facingDirInterpDuration;

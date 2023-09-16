@@ -11,7 +11,7 @@ undefined4 FUN_00418665(undefined4 param_1)
   pbVar1 = OpenPath(param_1,0);
   *(byte **)(*(int *)(in_ECX + 4) + 0x2534) = pbVar1;
   if (*(int *)(*(int *)(in_ECX + 4) + 0x2534) == 0) {
-    GameErrorContextLog((GameErrorContext *)&DAT_0069d998,
+    GameErrorContextLog(&g_GameErrorContext,
                         "error : メッセージファイル %s が読み込めませんでした\n"
                         ,param_1);
     uVar2 = 0xffffffff;

@@ -14,7 +14,7 @@ undefined4 FUN_00429930(AnmVm *param_1)
   (param_1->pos).y = _DAT_0069d6e0 + param_1[4].rotation.y;
   (param_1->pos).z = 0.49;
   if (DAT_0069d4c0 == '\0') {
-    AnmManager::FUN_00432ad0(DAT_006d4588,param_1);
+    AnmManager::FUN_00432ad0(g_AnmManager,param_1);
     if ((*(char *)((int)&param_1[9].matrix.field0_0x0 + 0x16) != '\0') &&
        ((*(char *)((int)&param_1[9].matrix.field0_0x0 + 0x14) == '\0' ||
         (*(char *)((int)&param_1[9].matrix.field0_0x0 + 0x14) == '\x03')))) {

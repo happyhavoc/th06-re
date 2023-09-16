@@ -9,11 +9,10 @@ int AsciiManager::FUN_00401140(AsciiManager *arg)
     local_c = arg->popups0;
     for (local_8 = 0; local_8 < 0x203; local_8 = local_8 + 1) {
       if (local_c->inUse != '\0') {
-        (local_c->position).y = (local_c->position).y - DAT_006c6ec0 * 0.5;
+        (local_c->position).y = (local_c->position).y - g_GameContext.field84_0x1a8 * 0.5;
         (local_c->timer).previous = (local_c->timer).current;
         GameContext::FUN_00424285
-                  ((GameContext *)&DAT_006c6d18,&(local_c->timer).current,&(local_c->timer).subFrame
-                  );
+                  (&g_GameContext,&(local_c->timer).current,&(local_c->timer).subFrame);
         if (0x3c < (local_c->timer).current) {
           local_c->inUse = '\0';
         }

@@ -140,20 +140,20 @@ undefined4 FUN_004135b0(short *param_1,uint param_2,int param_3,float param_4)
             fVar2 = local_10->sprite->heightPx;
             if (fVar2 < 32.0 == (fVar2 == 32.0)) {
               AnmManager::FUN_004323a0
-                        (DAT_006d4588,local_10 + 3,(int)local_10[3].spriteNumber + (int)param_1[1]);
+                        (g_AnmManager,local_10 + 3,(int)local_10[3].spriteNumber + (int)param_1[1]);
             }
             else if (local_10->anmFileIndex == 0x207) {
-              AnmManager::FUN_004323a0(DAT_006d4588,local_10 + 3,local_10[3].spriteNumber + 1);
+              AnmManager::FUN_004323a0(g_AnmManager,local_10 + 3,local_10[3].spriteNumber + 1);
             }
             else {
               AnmManager::FUN_004323a0
-                        (DAT_006d4588,local_10 + 3,
+                        (g_AnmManager,local_10 + 3,
                          (int)local_10[3].spriteNumber + *(int *)(&DAT_00476480 + param_1[1] * 4));
             }
           }
           else {
             AnmManager::FUN_004323a0
-                      (DAT_006d4588,local_10 + 3,
+                      (g_AnmManager,local_10 + 3,
                        (int)local_10[3].spriteNumber + *(int *)(&DAT_00476440 + param_1[1] * 4));
           }
           *(undefined2 *)((int)&local_10[5].matrix.field0_0x0 + 0x32) = 4;
@@ -172,20 +172,20 @@ undefined4 FUN_004135b0(short *param_1,uint param_2,int param_3,float param_4)
           fVar2 = local_10->sprite->heightPx;
           if (fVar2 < 32.0 == (fVar2 == 32.0)) {
             AnmManager::FUN_004323a0
-                      (DAT_006d4588,local_10 + 2,(int)local_10[2].spriteNumber + (int)param_1[1]);
+                      (g_AnmManager,local_10 + 2,(int)local_10[2].spriteNumber + (int)param_1[1]);
           }
           else if (local_10->anmFileIndex == 0x207) {
-            AnmManager::FUN_004323a0(DAT_006d4588,local_10 + 2,local_10[2].spriteNumber + 1);
+            AnmManager::FUN_004323a0(g_AnmManager,local_10 + 2,local_10[2].spriteNumber + 1);
           }
           else {
             AnmManager::FUN_004323a0
-                      (DAT_006d4588,local_10 + 2,
+                      (g_AnmManager,local_10 + 2,
                        (int)local_10[2].spriteNumber + *(int *)(&DAT_00476480 + param_1[1] * 4));
           }
         }
         else {
           AnmManager::FUN_004323a0
-                    (DAT_006d4588,local_10 + 2,
+                    (g_AnmManager,local_10 + 2,
                      (int)local_10[2].spriteNumber + *(int *)(&DAT_00476440 + param_1[1] * 4));
         }
         *(undefined2 *)((int)&local_10[5].matrix.field0_0x0 + 0x32) = 3;
@@ -204,44 +204,44 @@ undefined4 FUN_004135b0(short *param_1,uint param_2,int param_3,float param_4)
         fVar2 = local_10->sprite->heightPx;
         if (fVar2 < 32.0 == (fVar2 == 32.0)) {
           AnmManager::FUN_004323a0
-                    (DAT_006d4588,local_10 + 1,(int)local_10[1].spriteNumber + (int)param_1[1]);
+                    (g_AnmManager,local_10 + 1,(int)local_10[1].spriteNumber + (int)param_1[1]);
         }
         else if (local_10->anmFileIndex == 0x207) {
-          AnmManager::FUN_004323a0(DAT_006d4588,local_10 + 1,local_10[1].spriteNumber + 1);
+          AnmManager::FUN_004323a0(g_AnmManager,local_10 + 1,local_10[1].spriteNumber + 1);
         }
         else {
           AnmManager::FUN_004323a0
-                    (DAT_006d4588,local_10 + 1,
+                    (g_AnmManager,local_10 + 1,
                      (int)local_10[1].spriteNumber + *(int *)(&DAT_00476480 + param_1[1] * 4));
         }
       }
       else {
         AnmManager::FUN_004323a0
-                  (DAT_006d4588,local_10 + 1,
+                  (g_AnmManager,local_10 + 1,
                    (int)local_10[1].spriteNumber + *(int *)(&DAT_00476440 + param_1[1] * 4));
       }
       *(undefined2 *)((int)&local_10[5].matrix.field0_0x0 + 0x32) = 2;
     }
-    AnmManager::FUN_004323a0(DAT_006d4588,local_10,(int)local_10->spriteNumber + (int)param_1[1]);
+    AnmManager::FUN_004323a0(g_AnmManager,local_10,(int)local_10->spriteNumber + (int)param_1[1]);
     fVar2 = local_10->sprite->heightPx;
     if (fVar2 < 16.0 == (fVar2 == 16.0)) {
       fVar2 = local_10->sprite->heightPx;
       if (fVar2 < 32.0 == (fVar2 == 32.0)) {
         AnmManager::FUN_004323a0
-                  (DAT_006d4588,local_10 + 4,(int)local_10[4].spriteNumber + (int)param_1[1]);
+                  (g_AnmManager,local_10 + 4,(int)local_10[4].spriteNumber + (int)param_1[1]);
       }
       else if (local_10->anmFileIndex == 0x207) {
-        AnmManager::FUN_004323a0(DAT_006d4588,local_10 + 4,local_10[4].spriteNumber + 1);
+        AnmManager::FUN_004323a0(g_AnmManager,local_10 + 4,local_10[4].spriteNumber + 1);
       }
       else {
         AnmManager::FUN_004323a0
-                  (DAT_006d4588,local_10 + 4,
+                  (g_AnmManager,local_10 + 4,
                    (int)local_10[4].spriteNumber + *(int *)(&DAT_00476480 + param_1[1] * 4));
       }
     }
     else {
       AnmManager::FUN_004323a0
-                (DAT_006d4588,local_10 + 4,
+                (g_AnmManager,local_10 + 4,
                  (int)local_10[4].spriteNumber + *(int *)(&DAT_00476440 + param_1[1] * 4));
     }
     if ((*(ushort *)((int)&local_10[5].matrix.field0_0x0 + 0x2c) & 0x10) == 0) {

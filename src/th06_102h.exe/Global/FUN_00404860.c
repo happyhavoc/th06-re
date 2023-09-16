@@ -17,10 +17,10 @@ undefined4 FUN_00404860(void)
           local_1c = (short *)((int)local_1c + (int)local_1c[1])) {
         vm = (AnmVm *)(local_1c[3] * 0x110 + *in_ECX);
         if (*local_1c == 0) {
-          AnmManager::FUN_00433960(DAT_006d4588,vm);
+          AnmManager::FUN_00433960(g_AnmManager,vm);
         }
         else if (*local_1c == 1) {
-          AnmManager::FUN_00433960(DAT_006d4588,vm);
+          AnmManager::FUN_00433960(g_AnmManager,vm);
         }
         if (vm->currentInstruction != (AnmRawInstr *)0x0) {
           local_c = local_c + 1;

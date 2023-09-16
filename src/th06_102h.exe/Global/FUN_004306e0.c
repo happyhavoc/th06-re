@@ -40,8 +40,7 @@ void __thiscall FUN_004306e0(SoundPlayer *this,int idx,undefined4 param_3)
           local_8 = local_8 + 4;
           local_34 = (undefined4 *)FUN_004309f0(local_8,&DAT_0046c0ec,&local_38,iVar1 + -0xc);
           if (local_34 == (undefined4 *)0x0) {
-            GameErrorContextLog((GameErrorContext *)&DAT_0069d998,
-                                "Wav ファイルじゃない? %s\n",param_3);
+            GameErrorContextLog(&g_GameErrorContext,"Wav ファイルじゃない? %s\n",param_3);
             _free(local_4c);
           }
           else {
@@ -52,8 +51,7 @@ void __thiscall FUN_004306e0(SoundPlayer *this,int idx,undefined4 param_3)
             local_60.cbSize = *(WORD *)(local_34 + 4);
             local_34 = (undefined4 *)FUN_004309f0(local_8,&DAT_0046c0e4,&local_38,iVar1 + -0xc);
             if (local_34 == (undefined4 *)0x0) {
-              GameErrorContextLog((GameErrorContext *)&DAT_0069d998,
-                                  "Wav ファイルじゃない? %s\n",param_3);
+              GameErrorContextLog(&g_GameErrorContext,"Wav ファイルじゃない? %s\n",param_3);
               _free(local_4c);
             }
             else {
@@ -115,14 +113,12 @@ void __thiscall FUN_004306e0(SoundPlayer *this,int idx,undefined4 param_3)
           }
         }
         else {
-          GameErrorContextLog((GameErrorContext *)&DAT_0069d998,"Wav ファイルじゃない? %s\n"
-                              ,param_3);
+          GameErrorContextLog(&g_GameErrorContext,"Wav ファイルじゃない? %s\n",param_3);
           _free(local_4c);
         }
       }
       else {
-        GameErrorContextLog((GameErrorContext *)&DAT_0069d998,"Wav ファイルじゃない %s\n",
-                            param_3);
+        GameErrorContextLog(&g_GameErrorContext,"Wav ファイルじゃない %s\n",param_3);
         _free(local_4c);
       }
     }

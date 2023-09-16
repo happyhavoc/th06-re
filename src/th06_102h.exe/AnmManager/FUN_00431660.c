@@ -48,8 +48,9 @@ void __thiscall AnmManager::FUN_00431660(AnmManager *this)
   _DAT_006d46a4 = this->vertexBufferContents[2].position.z;
   _DAT_006d46b8 = this->vertexBufferContents[3].position.x;
   _DAT_006d46bc = this->vertexBufferContents[3].position.y;
-  if ((DAT_006c6e60 >> 1 & 1) == 0) {
-    (**(code **)(*DAT_006c6d20 + 0x5c))(DAT_006c6d20,0x50,0,0x102,1,&this->vertexBuffer);
+  if ((g_GameContext.cfg.opts >> 1 & 1) == 0) {
+    (*(g_GameContext.d3dDevice)->lpVtbl->CreateVertexBuffer)
+              (g_GameContext.d3dDevice,0x50,0,0x102,D3DPOOL_MANAGED,&this->vertexBuffer);
     (*this->vertexBuffer->lpVtbl->Lock)(this->vertexBuffer,0,0,(BYTE **)&local_8,0);
     pRVar2 = this->vertexBufferContents;
     for (iVar1 = 0x14; iVar1 != 0; iVar1 = iVar1 + -1) {
@@ -58,8 +59,8 @@ void __thiscall AnmManager::FUN_00431660(AnmManager *this)
       local_8 = local_8 + 1;
     }
     (*this->vertexBuffer->lpVtbl->Unlock)(this->vertexBuffer);
-    (**(code **)(*DAT_006c6d20 + 0x14c))
-              (DAT_006c6d20,0,*(undefined4 *)(DAT_006d4588 + 0x210c4),0x14);
+    (*(g_GameContext.d3dDevice)->lpVtbl->SetStreamSource)
+              (g_GameContext.d3dDevice,0,g_AnmManager->vertexBuffer,0x14);
   }
   return;
 }

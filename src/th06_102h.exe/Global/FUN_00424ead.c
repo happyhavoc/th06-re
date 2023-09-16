@@ -76,7 +76,7 @@ LAB_0042508a:
       else {
         *(uint *)(param_1 + 0x23b4 + local_c * 0x110) =
              *(uint *)(param_1 + 0x23b4 + local_c * 0x110) | 2;
-        FUN_00434b60(DAT_006d4588,param_1 + 0x2334 + local_c * 0x110,0xffe0c0,0x300000,local_54);
+        FUN_00434b60(g_AnmManager,param_1 + 0x2334 + local_c * 0x110,0xffe0c0,0x300000,local_54);
       }
       *(float *)(param_1 + 0x23c4 + local_c * 0x110) = (float)(local_c % 2) * 248.0 + 96.0;
       *(float *)(param_1 + 0x23c8 + local_c * 0x110) = (float)(local_c / 2 << 4) + 320.0;
@@ -86,7 +86,7 @@ LAB_0042508a:
     }
   }
   if (((DAT_0069d904 & 10) != 0) && ((DAT_0069d904 & 10) != (DAT_0069d908 & 10))) {
-    DAT_006c6ea4 = 1;
+    g_GameContext.unkInput2 = 1;
   }
   __security_check_cookie(local_10 ^ unaff_retaddr);
   return;

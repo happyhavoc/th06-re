@@ -28,7 +28,7 @@ void FUN_00405c10(int param_1)
       pfVar5 = &(local_8->pos).y;
       *pfVar5 = _DAT_0069d6e0 + *pfVar5;
       (local_8->pos).z = 0.0;
-      AnmManager::FUN_00432ad0(DAT_006d4588,local_8);
+      AnmManager::FUN_00432ad0(g_AnmManager,local_8);
       pfVar5 = (float *)(param_1 + 0x7624 + local_c * 0xc);
       fVar1 = pfVar5[2];
       fVar2 = local_8[1].pos2.z;
@@ -41,7 +41,7 @@ void FUN_00405c10(int param_1)
       pfVar5 = &local_8[1].pos.y;
       *pfVar5 = _DAT_0069d6e0 + *pfVar5;
       local_8[1].pos.z = 0.0;
-      AnmManager::FUN_00432ad0(DAT_006d4588,local_8 + 1);
+      AnmManager::FUN_00432ad0(g_AnmManager,local_8 + 1);
       pfVar5 = (float *)(param_1 + 0x7624 + local_c * 0xc);
       fVar1 = pfVar5[2];
       fVar2 = local_8[2].pos2.z;
@@ -54,7 +54,7 @@ void FUN_00405c10(int param_1)
       pfVar5 = &local_8[2].pos.y;
       *pfVar5 = _DAT_0069d6e0 + *pfVar5;
       local_8[2].pos.z = 0.0;
-      AnmManager::FUN_00432ad0(DAT_006d4588,local_8 + 2);
+      AnmManager::FUN_00432ad0(g_AnmManager,local_8 + 2);
       pfVar5 = (float *)(param_1 + 0x7624 + local_c * 0xc);
       fVar1 = pfVar5[2];
       fVar2 = local_8[3].pos2.z;
@@ -67,7 +67,7 @@ void FUN_00405c10(int param_1)
       pfVar5 = &local_8[3].pos.y;
       *pfVar5 = _DAT_0069d6e0 + *pfVar5;
       local_8[3].pos.z = 0.0;
-      AnmManager::FUN_00432ad0(DAT_006d4588,local_8 + 3);
+      AnmManager::FUN_00432ad0(g_AnmManager,local_8 + 3);
     }
     local_8 = local_8 + 4;
   }

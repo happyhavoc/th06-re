@@ -11,7 +11,7 @@ AnmVm * FUN_00414670(short *param_1)
   AnmVm *local_c;
   int local_8;
   
-  pAVar3 = DAT_006d4588;
+  pAVar3 = g_AnmManager;
   local_c = (AnmVm *)(in_ECX + 0xec000);
   local_8 = 0;
   while( true ) {
@@ -26,8 +26,8 @@ AnmVm * FUN_00414670(short *param_1)
   local_10 = sVar1 + 0x209;
   local_c->anmFileIndex = local_10;
   FUN_00432430((Unknown *)local_c,(int)pAVar3->scripts[sVar1 + 0x209]);
-  AnmManager::FUN_004323a0(DAT_006d4588,local_c,(int)local_c->spriteNumber + (int)param_1[1]);
-  pAVar3 = DAT_006d4588;
+  AnmManager::FUN_004323a0(g_AnmManager,local_c,(int)local_c->spriteNumber + (int)param_1[1]);
+  pAVar3 = g_AnmManager;
   iVar2 = *(int *)(&DAT_00476440 + param_1[1] * 4);
   AnmVm::Initialize(local_c + 1);
   AnmManager::FUN_004323a0(pAVar3,local_c + 1,iVar2 + 0x28c);

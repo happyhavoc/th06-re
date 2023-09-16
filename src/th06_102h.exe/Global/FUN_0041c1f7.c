@@ -2,9 +2,9 @@
 undefined4 FUN_0041c1f7(int param_1)
 
 {
-  (**(code **)(*DAT_006c6d20 + 0x14))(DAT_006c6d20,0);
+  (*(g_GameContext.d3dDevice)->lpVtbl->ResourceManagerDiscardBytes)(g_GameContext.d3dDevice,0);
   if (DAT_0069d4c4 == '\0') {
-    GameContext::FUN_00424d38((GameContext *)&DAT_006c6d18);
+    GameContext::FUN_00424d38(&g_GameContext);
   }
   FUN_00404650();
   FUN_004172b0();

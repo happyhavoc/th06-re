@@ -3,7 +3,6 @@
 /* WARNING: Removing unreachable block (ram,0x0042ad25) */
 /* WARNING: Removing unreachable block (ram,0x0042ad69) */
 /* WARNING: Removing unreachable block (ram,0x0042addf) */
-/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
 
 void FUN_0042ab30(char *param_1,char *param_2)
 
@@ -69,7 +68,7 @@ void FUN_0042ab30(char *param_1,char *param_2)
         }
         DebugPrint2("%s write ...\n",param_1);
         local_40 = DAT_0069bca0;
-        local_10 = _DAT_006c6ecc / _DAT_006c6ed0 - 0.5;
+        local_10 = (float)g_GameContext._436_4_ / (float)g_GameContext._440_4_ - 0.5;
         local_10 = local_10 + local_10;
         if (local_10 < 0.0 == NAN(local_10)) {
           if (1.0 <= local_10) {

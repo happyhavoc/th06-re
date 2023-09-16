@@ -12,9 +12,9 @@ undefined4 FUN_0042545a(int param_1)
   
   local_c = '\x7f';
   local_b = 0;
-  DAT_006d4588->currentTexture = (IDirect3DTexture8 *)0x0;
-  AnmManager::FUN_00435300(DAT_006d4588,0,0,0,0,0);
-  AnmManager::FUN_00432ad0(DAT_006d4588,(AnmVm *)(param_1 + 0x24));
+  g_AnmManager->currentTexture = (IDirect3DTexture8 *)0x0;
+  AnmManager::FUN_00435300(g_AnmManager,0,0,0,0,0);
+  AnmManager::FUN_00432ad0(g_AnmManager,(AnmVm *)(param_1 + 0x24));
   for (local_8 = *(int *)(param_1 + 0x18); local_8 < *(int *)(param_1 + 0x18) + 10;
       local_8 = local_8 + 1) {
     if (*(int *)(param_1 + 0x10) == local_8) {
@@ -29,7 +29,7 @@ undefined4 FUN_0042545a(int param_1)
     *(float *)(param_1 + 0x1c8 + local_8 * 0x110) =
          ((float)(((local_8 + 1) - *(int *)(param_1 + 0x18)) * 0x12) + 104.0) - 20.0;
     *(undefined4 *)(param_1 + 0x1cc + local_8 * 0x110) = 0;
-    AnmManager::FUN_00432ad0(DAT_006d4588,(AnmVm *)(param_1 + 0x134 + local_8 * 0x110));
+    AnmManager::FUN_00432ad0(g_AnmManager,(AnmVm *)(param_1 + 0x134 + local_8 * 0x110));
     pfVar1 = (float *)(param_1 + 0x1c4 + local_8 * 0x110);
     fStack_14 = pfVar1[1];
     fStack_10 = pfVar1[2];
@@ -41,7 +41,7 @@ undefined4 FUN_0042545a(int param_1)
     FUN_00401650(0x47b900,&local_18,"%2d.",local_8 + 1);
   }
   for (local_8 = 0; local_8 < 0x10; local_8 = local_8 + 1) {
-    AnmManager::FUN_00432ad0(DAT_006d4588,(AnmVm *)(param_1 + 0x2334 + local_8 * 0x110));
+    AnmManager::FUN_00432ad0(g_AnmManager,(AnmVm *)(param_1 + 0x2334 + local_8 * 0x110));
   }
   g_AsciiManager.color = 0xffffffff;
   return 1;

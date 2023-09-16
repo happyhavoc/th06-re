@@ -32,7 +32,7 @@ void FUN_0040c180(int param_1,int param_2)
              (uVar3 = FUN_0041e780(&DAT_0069d8f8), (uVar3 & 3) == 0)))))) {
           *(undefined2 *)((int)&local_18[5].matrix.field0_0x0 + 0x2e) = 5;
           AnmManager::FUN_004323a0
-                    (DAT_006d4588,local_18,
+                    (g_AnmManager,local_18,
                      (int)local_18->anotherSpriteNumber +
                      (int)*(short *)((int)&local_18[5].matrix.field0_0x0 + 0x2e));
           fVar1 = local_18[5].angleVel.y - DAT_006caa68;
@@ -72,7 +72,7 @@ void FUN_0040c180(int param_1,int param_2)
             (uVar3 = FUN_0041e780(&DAT_0069d8f8), (uVar3 & 3) == 0)))) {
           *(undefined2 *)((int)&local_18[5].matrix.field0_0x0 + 0x2e) = 5;
           AnmManager::FUN_004323a0
-                    (DAT_006d4588,local_18,
+                    (g_AnmManager,local_18,
                      (int)local_18->anotherSpriteNumber +
                      (int)*(short *)((int)&local_18[5].matrix.field0_0x0 + 0x2e));
           fVar1 = local_18[5].angleVel.y - DAT_006caa68;

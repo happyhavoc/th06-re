@@ -5,14 +5,14 @@ undefined4 FUN_00424d82(float param_1)
   long lVar1;
   int in_ECX;
   
-  if (DAT_006c6e47 == '\x02') {
-    if (DAT_006c6ec8 != 0) {
+  if (g_GameContext.cfg.musicMode == MIDI) {
+    if (g_GameContext.midiOutput != (MidiOutput *)0x0) {
       lVar1 = __ftol2((double)(param_1 * 1000.0));
       FUN_00422630(lVar1);
     }
   }
   else {
-    if (DAT_006c6e47 != '\x01') {
+    if (g_GameContext.cfg.musicMode != WAV) {
       return 0xffffffff;
     }
     if (NAN(*(float *)(in_ECX + 0x1a8)) == (*(float *)(in_ECX + 0x1a8) == 0.0)) {

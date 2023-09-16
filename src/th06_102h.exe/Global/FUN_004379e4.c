@@ -20,7 +20,7 @@ undefined4 FUN_004379e4(void)
     for (local_8 = 0; local_8 < 0x7a; local_8 = local_8 + 1) {
       *(undefined2 *)(in_ECX + 0x8a + local_8 * 0x110) = 2;
     }
-    if ((DAT_006c6e60 & 1) == 0) {
+    if ((g_GameContext.cfg.opts & 1) == 0) {
       *(undefined4 *)(in_ECX + 0x7c + *(int *)(in_ECX + 0x81a0) * 0x110) = 0xffff0000;
     }
     else {

@@ -6,10 +6,10 @@ int AsciiManager::RegisterChain(void)
 {
   int iVar1;
   
-  _DAT_00487ab0 = FUN_00401140;
-  _DAT_00487ab4 = AddedCallback;
-  _DAT_00487ab8 = DeletedCallback;
-  _DAT_00487ac8 = &g_AsciiManager;
+  g_AsciiManagerChain._0_4_ = FUN_00401140;
+  g_AsciiManagerChain.callback = AddedCallback;
+  g_AsciiManagerChain.addedCallback = DeletedCallback;
+  g_AsciiManagerChain.unkPtr = (ChainElem *)&g_AsciiManager;
   iVar1 = Chain::AddToCalcChain((Chain *)&DAT_0069d918,(ChainElem *)&DAT_00487aac,1);
   if (iVar1 == 0) {
     ChainElem_0047b8e0.callback = FUN_00401250;
@@ -21,7 +21,7 @@ int AsciiManager::RegisterChain(void)
     _DAT_00487ad4 = 0;
     _DAT_00487ad8 = 0;
     _DAT_00487ae8 = &g_AsciiManager;
-    Chain::AddToDrawChain((Chain *)&DAT_0069d918,(ChainElem *)&DAT_00487acc,10);
+    Chain::AddToDrawChain((Chain *)&DAT_0069d918,(ChainElem *)&g_AsciiManagerChain.arg,10);
     iVar1 = 0;
   }
   else {

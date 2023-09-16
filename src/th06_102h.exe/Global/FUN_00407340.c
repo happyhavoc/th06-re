@@ -10,7 +10,7 @@ undefined4 FUN_00407340(undefined4 param_1)
   psVar1 = (short *)OpenPath(param_1,0);
   *in_ECX = psVar1;
   if (*in_ECX == (short *)0x0) {
-    GameErrorContextLog((GameErrorContext *)&DAT_0069d998,
+    GameErrorContextLog(&g_GameErrorContext,
                         "敵データの読み込みに失敗しました、データが壊れてるか失われています\n"
                        );
     uVar2 = 0xffffffff;

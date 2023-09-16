@@ -8,9 +8,10 @@ undefined4 FUN_00427860(void)
   float fVar2;
   float fVar3;
   float fVar4;
-  int iVar5;
+  AnmManager *pAVar5;
+  int iVar6;
   Unknown *in_ECX;
-  int *piVar6;
+  int *piVar7;
   float local_18;
   float local_14;
   float local_10;
@@ -53,7 +54,7 @@ undefined4 FUN_00427860(void)
   else {
     in_ECX[0xc].field_0xb3 = 1;
   }
-  iVar5 = DAT_006d4588;
+  pAVar5 = g_AnmManager;
   switch(in_ECX[0xd].field6_0x18) {
   case 1.401298e-45:
     if ((DAT_0069d904 & 4) == 0) {
@@ -131,30 +132,32 @@ undefined4 FUN_00427860(void)
     if ((NAN(local_10) != (local_10 == 0.0)) &&
        (in_ECX[0xd].field7_0x1c < 0.0 != NAN(in_ECX[0xd].field7_0x1c))) {
       *(undefined2 *)&in_ECX->field_0xb4 = 0x402;
-      FUN_00432430(in_ECX,*(int *)(iVar5 + 0x1d93c));
+      FUN_00432430(in_ECX,(int)pAVar5->scripts[0x402]);
     }
   }
   else {
     *(undefined2 *)&in_ECX->field_0xb4 = 0x401;
-    FUN_00432430(in_ECX,*(int *)(iVar5 + 0x1d938));
+    FUN_00432430(in_ECX,(int)pAVar5->scripts[0x401]);
   }
-  iVar5 = DAT_006d4588;
+  pAVar5 = g_AnmManager;
   if ((local_10 <= 0.0) || (in_ECX[0xd].field7_0x1c < 0.0 == (in_ECX[0xd].field7_0x1c == 0.0))) {
     if ((NAN(local_10) != (local_10 == 0.0)) && (0.0 < in_ECX[0xd].field7_0x1c)) {
       *(undefined2 *)&in_ECX->field_0xb4 = 0x404;
-      FUN_00432430(in_ECX,*(int *)(iVar5 + 0x1d944));
+      FUN_00432430(in_ECX,(int)pAVar5->scripts[0x404]);
     }
   }
   else {
     *(undefined2 *)&in_ECX->field_0xb4 = 0x403;
-    FUN_00432430(in_ECX,*(int *)(iVar5 + 0x1d940));
+    FUN_00432430(in_ECX,(int)pAVar5->scripts[0x403]);
   }
   in_ECX[0xd].field7_0x1c = local_10;
   in_ECX[0xd].field8_0x20 = local_c;
-  piVar6 = &in_ECX[5].field13_0x3c.field12_0x30;
-  *piVar6 = (int)(local_10 * *(float *)&in_ECX[0xc].field_0xa0 * DAT_006c6ec0 + (float)*piVar6);
-  piVar6 = &in_ECX[5].field13_0x3c.field13_0x34;
-  *piVar6 = (int)(local_c * *(float *)&in_ECX[0xc].field_0xa4 * DAT_006c6ec0 + (float)*piVar6);
+  piVar7 = &in_ECX[5].field13_0x3c.field12_0x30;
+  *piVar7 = (int)(local_10 * *(float *)&in_ECX[0xc].field_0xa0 * g_GameContext.field84_0x1a8 +
+                 (float)*piVar7);
+  piVar7 = &in_ECX[5].field13_0x3c.field13_0x34;
+  *piVar7 = (int)(local_c * *(float *)&in_ECX[0xc].field_0xa4 * g_GameContext.field84_0x1a8 +
+                 (float)*piVar7);
   fVar1 = (float)in_ECX[5].field13_0x3c.field12_0x30;
   if (fVar1 < DAT_0069d6ec == (NAN(fVar1) || NAN(DAT_0069d6ec))) {
     fVar1 = (float)in_ECX[5].field13_0x3c.field12_0x30;
@@ -234,8 +237,7 @@ undefined4 FUN_00427860(void)
     while( true ) {
       *(AnmLoadedSprite **)&in_ECX[0xc].field_0xb8 = in_ECX[0xc].field67_0xc0;
       GameContext::FUN_00424285
-                ((GameContext *)&DAT_006c6d18,(int *)&in_ECX[0xc].field67_0xc0,
-                 (float *)&in_ECX[0xc].field_0xbc);
+                (&g_GameContext,(int *)&in_ECX[0xc].field67_0xc0,(float *)&in_ECX[0xc].field_0xbc);
       fVar1 = ((float)(int)in_ECX[0xc].field67_0xc0 + *(float *)&in_ECX[0xc].field_0xbc) / 8.0;
       local_14 = (1.0 - fVar1) * 32.0 + -32.0;
       local_18 = fVar1 * fVar1 * -16.0 + 24.0;
@@ -250,8 +252,7 @@ undefined4 FUN_00427860(void)
 switchD_004281aa_caseD_4:
       *(AnmLoadedSprite **)&in_ECX[0xc].field_0xb8 = in_ECX[0xc].field67_0xc0;
       GameContext::FUN_00424285
-                ((GameContext *)&DAT_006c6d18,(int *)&in_ECX[0xc].field67_0xc0,
-                 (float *)&in_ECX[0xc].field_0xbc);
+                (&g_GameContext,(int *)&in_ECX[0xc].field67_0xc0,(float *)&in_ECX[0xc].field_0xbc);
       fVar1 = ((float)(int)in_ECX[0xc].field67_0xc0 + *(float *)&in_ECX[0xc].field_0xbc) / 8.0;
       local_14 = fVar1 * 32.0 + -32.0;
       local_18 = (1.0 - fVar1 * fVar1) * -16.0 + 24.0;
@@ -283,7 +284,7 @@ switchD_004281aa_caseD_4:
   in_ECX[6].field5_0x14 = local_18 + (float)in_ECX[6].field5_0x14;
   in_ECX[6].field3_0xc = local_14 + (float)in_ECX[6].field3_0xc;
   in_ECX[6].field6_0x18 = local_14 + in_ECX[6].field6_0x18;
-  if (((DAT_0069d904 & 1) != 0) && (iVar5 = FUN_004195a2(), iVar5 == 0)) {
+  if (((DAT_0069d904 & 1) != 0) && (iVar6 = FUN_004195a2(), iVar6 == 0)) {
     FUN_00428630(in_ECX);
   }
   *(ushort *)&in_ECX[0xd].field9_0x24 = DAT_0069d904;

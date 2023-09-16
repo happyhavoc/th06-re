@@ -8,13 +8,13 @@ int FUN_004264b0(float *param_1,float *param_2,undefined4 *param_3)
   float *pfVar1;
   float *pfVar2;
   float fVar3;
-  int iVar4;
-  int *piVar5;
-  int in_ECX;
+  short sVar4;
+  AnmManager *pAVar5;
   int *piVar6;
-  int iVar7;
+  int in_ECX;
+  int *piVar7;
   int local_d4;
-  undefined2 local_80;
+  short local_80;
   float local_40;
   float local_3c;
   float local_38;
@@ -41,12 +41,12 @@ int FUN_004264b0(float *param_1,float *param_2,undefined4 *param_3)
   for (local_c = 0; local_c < 0x50; local_c = local_c + 1) {
     if ((local_8[1].field19_0x8a != 0) &&
        ((local_8[1].field19_0x8a == 1 || (local_8[1].field20_0x8c == 2)))) {
-      piVar5 = &local_8[1].field13_0x3c.field7_0x1c;
-      piVar6 = &local_8[1].field13_0x3c.field4_0x10;
-      local_40 = (float)*piVar6 - (float)*piVar5 / 2.0;
+      piVar6 = &local_8[1].field13_0x3c.field7_0x1c;
+      piVar7 = &local_8[1].field13_0x3c.field4_0x10;
+      local_40 = (float)*piVar7 - (float)*piVar6 / 2.0;
       local_3c = local_8[1].field13_0x3c.field5_0x14 -
                  (float)local_8[1].field13_0x3c.field8_0x20 / 2.0;
-      local_24 = (float)*piVar5 / 2.0 + (float)*piVar6;
+      local_24 = (float)*piVar6 / 2.0 + (float)*piVar7;
       local_20 = (float)local_8[1].field13_0x3c.field8_0x20 / 2.0 +
                  local_8[1].field13_0x3c.field5_0x14;
       if ((local_3c <= local_14) &&
@@ -90,7 +90,7 @@ int FUN_004264b0(float *param_1,float *param_2,undefined4 *param_3)
             FUN_0040ef50(5,&local_8[1].field13_0x3c.field4_0x10,1,0xffffffff);
           }
         }
-        iVar4 = DAT_006d4588;
+        pAVar5 = g_AnmManager;
         if (local_8[1].field20_0x8c == 3) {
           *(char *)(in_ECX + 0x9e4) = *(char *)(in_ECX + 0x9e4) + '\x01';
           if ((*(byte *)(in_ECX + 0x9e4) & 7) == 0) {
@@ -102,10 +102,10 @@ int FUN_004264b0(float *param_1,float *param_2,undefined4 *param_3)
         }
         else {
           if (local_8[1].field19_0x8a == 1) {
-            iVar7 = *(short *)&local_8->field_0xb4 + 0x20;
-            local_80 = (undefined2)iVar7;
-            *(undefined2 *)&local_8->field_0xb4 = local_80;
-            FUN_00432430(local_8,*(int *)(iVar4 + 0x1c934 + iVar7 * 4));
+            sVar4 = *(short *)&local_8->field_0xb4;
+            local_80 = sVar4 + 0x20;
+            *(short *)&local_8->field_0xb4 = local_80;
+            FUN_00432430(local_8,(int)pAVar5->scripts[sVar4 + 0x20]);
             FUN_0040ef50(5,&local_8[1].field13_0x3c.field4_0x10,1,0xffffffff);
             local_8[1].field13_0x3c.field6_0x18 = 0x3dcccccd;
           }

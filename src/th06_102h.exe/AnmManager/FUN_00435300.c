@@ -3,49 +3,50 @@ void __thiscall
 AnmManager::FUN_00435300(AnmManager *this,int surfaceIdx,LONG left,LONG top,LONG x,LONG y)
 
 {
-  int hres;
-  int *destSurface;
-  LONG sourceRect;
-  LONG LStack_18;
-  UINT UStack_14;
-  UINT UStack_10;
-  LONG destPoint;
-  LONG LStack_8;
+  HRESULT hres;
+  int ires;
+  IDirect3DSurface8 *destSurface;
+  RECT sourceRect;
+  POINT destPoint;
   
   if (this->surfacesBis[surfaceIdx] == (IDirect3DSurface8 *)0x0) {
     return;
   }
-  hres = (**(code **)(*DAT_006c6d20 + 0x40))(DAT_006c6d20,0,0,&destSurface);
+  hres = (*(g_GameContext.d3dDevice)->lpVtbl->GetBackBuffer)
+                   (g_GameContext.d3dDevice,0,D3DBACKBUFFER_TYPE_MONO,&destSurface);
   if (hres == 0) {
     if (this->surfaces[surfaceIdx] == (IDirect3DSurface8 *)0x0) {
-      hres = (**(code **)(*DAT_006c6d20 + 100))
-                       (DAT_006c6d20,this->surfaceSourceInfo[surfaceIdx].Width,
-                        this->surfaceSourceInfo[surfaceIdx].Height,DAT_006c6e00,0,1,
+      hres = (*(g_GameContext.d3dDevice)->lpVtbl->CreateRenderTarget)
+                       (g_GameContext.d3dDevice,this->surfaceSourceInfo[surfaceIdx].Width,
+                        this->surfaceSourceInfo[surfaceIdx].Height,
+                        g_GameContext.presentParameters.BackBufferFormat,D3DMULTISAMPLE_NONE,1,
                         this->surfaces + surfaceIdx);
       if ((hres != 0) &&
-         (hres = (**(code **)(*DAT_006c6d20 + 0x6c))
-                           (DAT_006c6d20,this->surfaceSourceInfo[surfaceIdx].Width,
-                            this->surfaceSourceInfo[surfaceIdx].Height,DAT_006c6e00,
+         (hres = (*(g_GameContext.d3dDevice)->lpVtbl->CreateImageSurface)
+                           (g_GameContext.d3dDevice,this->surfaceSourceInfo[surfaceIdx].Width,
+                            this->surfaceSourceInfo[surfaceIdx].Height,
+                            g_GameContext.presentParameters.BackBufferFormat,
                             this->surfaces + surfaceIdx), hres != 0)) {
-        (**(code **)(*destSurface + 8))(destSurface);
+        (*destSurface->lpVtbl->Release)(destSurface);
         return;
       }
-      hres = _D3DXLoadSurfaceFromSurface_32
+      ires = _D3DXLoadSurfaceFromSurface_32
                        (this->surfaces[surfaceIdx],0,0,this->surfacesBis[surfaceIdx],0,0,1,0);
-      if (hres != 0) {
-        (**(code **)(*destSurface + 8))(destSurface);
+      if (ires != 0) {
+        (*destSurface->lpVtbl->Release)(destSurface);
         return;
       }
     }
-    sourceRect = left;
-    LStack_18 = top;
-    UStack_14 = this->surfaceSourceInfo[surfaceIdx].Width;
-    UStack_10 = this->surfaceSourceInfo[surfaceIdx].Height;
-    destPoint = x;
-    LStack_8 = y;
-    (**(code **)(*DAT_006c6d20 + 0x70))
-              (DAT_006c6d20,this->surfaces[surfaceIdx],&sourceRect,1,destSurface,&destPoint);
-    (**(code **)(*destSurface + 8))(destSurface);
+    sourceRect.left = left;
+    sourceRect.top = top;
+    sourceRect.right = this->surfaceSourceInfo[surfaceIdx].Width;
+    sourceRect.bottom = this->surfaceSourceInfo[surfaceIdx].Height;
+    destPoint.x = x;
+    destPoint.y = y;
+    (*(g_GameContext.d3dDevice)->lpVtbl->CopyRects)
+              (g_GameContext.d3dDevice,this->surfaces[surfaceIdx],&sourceRect,1,destSurface,
+               &destPoint);
+    (*destSurface->lpVtbl->Release)(destSurface);
     return;
   }
   return;

@@ -1,5 +1,4 @@
 
-/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
 /* WARNING: Restarted to delay deadcode elimination for space: stack */
 
 void FUN_0042e446(int param_1)
@@ -33,12 +32,13 @@ void FUN_0042e446(int param_1)
   
   local_18 = __security_cookie ^ unaff_retaddr;
   local_28 = (AnmVm *)(param_1 + 0x40);
-  _DAT_006c6de0 = 0;
-  DAT_006c6de4 = 0;
-  DAT_006c6de8 = 0x280;
-  DAT_006c6dec = 0x1e0;
-  (**(code **)(*DAT_006c6d20 + 0xa0))(DAT_006c6d20,&DAT_006c6de0);
-  AnmManager::FUN_00435300(DAT_006d4588,0,0,0,0,0);
+  g_GameContext.viewport.X = 0;
+  g_GameContext.viewport.Y = 0;
+  g_GameContext.viewport.Width = 0x280;
+  g_GameContext.viewport.Height = 0x1e0;
+  (*(g_GameContext.d3dDevice)->lpVtbl->SetViewport)(g_GameContext.d3dDevice,&g_GameContext.viewport)
+  ;
+  AnmManager::FUN_00435300(g_AnmManager,0,0,0,0,0);
   for (local_14 = 0; local_14 < 0x26; local_14 = local_14 + 1) {
     local_40 = (local_28->pos).x;
     local_3c = (local_28->pos).y;
@@ -46,7 +46,7 @@ void FUN_0042e446(int param_1)
     (local_28->pos).x = (local_28->pos).x + (local_28->pos2).x;
     (local_28->pos).y = (local_28->pos).y + (local_28->pos2).y;
     (local_28->pos).z = (local_28->pos).z + (local_28->pos2).z;
-    AnmManager::FUN_00432ad0(DAT_006d4588,local_28);
+    AnmManager::FUN_00432ad0(g_AnmManager,local_28);
     (local_28->pos).x = local_40;
     (local_28->pos).y = local_3c;
     (local_28->pos).z = fStack_38;
@@ -77,7 +77,7 @@ void FUN_0042e446(int param_1)
         FUN_00401650(0x47b900,&local_40,"No.%.2d",local_44 + 1);
         pfVar1 = (float *)(param_1 + 0x2930 + local_14 * 0x110);
         *pfVar1 = *pfVar1 + 96.0;
-        AnmManager::FUN_00432ad0(DAT_006d4588,(AnmVm *)(param_1 + 0x28a0 + local_14 * 0x110));
+        AnmManager::FUN_00432ad0(g_AnmManager,(AnmVm *)(param_1 + 0x28a0 + local_14 * 0x110));
         local_40 = local_40 + 368.0;
         FUN_00401650(0x47b900,&local_40,"%3d/%3d",(uint)*(ushort *)(&DAT_0069bd0e + local_44 * 0x40)
                      ,(uint)*(ushort *)(&DAT_0069bd0c + local_44 * 0x40));
@@ -92,12 +92,12 @@ void FUN_0042e446(int param_1)
       *(float *)(param_1 + 0x2930) = local_40;
       *(float *)(param_1 + 0x2934) = local_3c;
       *(float *)(param_1 + 0x2938) = fStack_38;
-      AnmManager::FUN_00432ad0(DAT_006d4588,(AnmVm *)(param_1 + 0x28a0));
+      AnmManager::FUN_00432ad0(g_AnmManager,(AnmVm *)(param_1 + 0x28a0));
       local_40 = local_40 + 320.0;
       *(float *)(param_1 + 0x2a40) = local_40;
       *(float *)(param_1 + 0x2a44) = local_3c;
       *(float *)(param_1 + 0x2a48) = fStack_38;
-      AnmManager::FUN_00432ad0(DAT_006d4588,(AnmVm *)(param_1 + 0x29b0));
+      AnmManager::FUN_00432ad0(g_AnmManager,(AnmVm *)(param_1 + 0x29b0));
       local_40 = local_40 - 320.0;
       local_3c = local_3c + 18.0;
       local_2c = *(int *)(param_1 + *(int *)(param_1 + 0x2c) * 0x30 + 0x3ab4 +
@@ -243,7 +243,7 @@ void FUN_0042e446(int param_1)
   if ((9 < *(int *)(param_1 + 8)) && (*(int *)(param_1 + 8) < 0xf)) {
     local_28 = (AnmVm *)(param_1 + 0x1030);
     for (local_14 = 0; local_14 < 6; local_14 = local_14 + 1) {
-      AnmManager::FUN_00432ad0(DAT_006d4588,local_28);
+      AnmManager::FUN_00432ad0(g_AnmManager,local_28);
       local_28 = local_28 + 1;
     }
     local_40 = *(float *)(param_1 + 0x1720);

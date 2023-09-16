@@ -15,11 +15,11 @@ undefined4 FUN_0042f5bc(void **param_1)
       FUN_0042bc5b(local_8,local_c);
     }
   }
-  FUN_00432030(DAT_006d4588,0x25);
-  FUN_00432030(DAT_006d4588,0x26);
-  FUN_00432030(DAT_006d4588,0x27);
-  FUN_00432030(DAT_006d4588,0x28);
-  AnmManager::FUN_00435270(DAT_006d4588,0);
+  FUN_00432030(g_AnmManager,0x25);
+  FUN_00432030(g_AnmManager,0x26);
+  FUN_00432030(g_AnmManager,0x27);
+  FUN_00432030(g_AnmManager,0x28);
+  AnmManager::FUN_00435270(g_AnmManager,0);
   Chain::Cut((Chain *)&DAT_0069d918,(ChainElem *)param_1[0x146b]);
   param_1[0x146b] = (void *)0x0;
   if (param_1 != (void **)0x0) {

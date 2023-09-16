@@ -13,7 +13,7 @@ void FUN_00429b00(int param_1)
         fVar1 = (float10)FUN_0041e850(local_c[1].uvScrollPos.y,0x40490fdb);
         (local_c->rotation).z = (float)((float10)1.570796 - fVar1);
       }
-      AnmManager::FUN_00433590(DAT_006d4588,local_c);
+      AnmManager::FUN_00433590(g_AnmManager,local_c);
     }
     local_c = (AnmVm *)(local_c[1].matrix.field0_0x0.m[0] + 3);
   }

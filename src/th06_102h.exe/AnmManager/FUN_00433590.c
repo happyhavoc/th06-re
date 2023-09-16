@@ -5,15 +5,9 @@ int __thiscall AnmManager::FUN_00433590(AnmManager *this,AnmVm *vm)
   float fVar1;
   int iVar2;
   D3DMATRIX *pDVar3;
-  float *pfVar4;
-  float local_c4 [5];
-  float local_b0;
-  float local_94;
-  float local_90;
-  float local_8c;
-  float local_44 [8];
-  float local_24;
-  float local_20;
+  D3DMATRIX *pDVar4;
+  D3DMATRIX local_c4 [2];
+  D3DMATRIX local_44;
   
   if ((vm->flags & 1) == 0) {
     iVar2 = -1;
@@ -32,57 +26,64 @@ int __thiscall AnmManager::FUN_00433590(AnmManager *this,AnmVm *vm)
     }
     else {
       pDVar3 = &vm->matrix;
-      pfVar4 = local_c4;
+      pDVar4 = local_c4;
       for (iVar2 = 0x10; iVar2 != 0; iVar2 = iVar2 + -1) {
-        *pfVar4 = (pDVar3->field0_0x0).field0._11;
+        (pDVar4->field0_0x0).field0._11 = (pDVar3->field0_0x0).field0._11;
         pDVar3 = (D3DMATRIX *)((int)&pDVar3->field0_0x0 + 4);
-        pfVar4 = pfVar4 + 1;
+        pDVar4 = (D3DMATRIX *)((int)&pDVar4->field0_0x0 + 4);
       }
-      local_94 = ROUND((vm->pos).x) - 0.5;
-      local_90 = -ROUND((vm->pos).y) + 0.5;
+      local_c4[0].field0_0x0.field0._41 = ROUND((vm->pos).x) - 0.5;
+      local_c4[0].field0_0x0.field0._42 = -ROUND((vm->pos).y) + 0.5;
       if ((vm->flags >> 8 & 1) != 0) {
-        local_94 = (vm->sprite->widthPx * vm->scaleY) / 2.0 + local_94;
+        local_c4[0].field0_0x0.field0._41 =
+             (vm->sprite->widthPx * vm->scaleY) / 2.0 + local_c4[0].field0_0x0.field0._41;
       }
       if ((vm->flags >> 8 & 2) != 0) {
-        local_90 = local_90 - (vm->sprite->heightPx * vm->scaleX) / 2.0;
+        local_c4[0].field0_0x0.field0._42 =
+             local_c4[0].field0_0x0.field0._42 - (vm->sprite->heightPx * vm->scaleX) / 2.0;
       }
-      local_8c = (vm->pos).z;
-      local_c4[0] = local_c4[0] * vm->scaleY;
-      local_b0 = -vm->scaleX * local_b0;
-      (**(code **)(*DAT_006c6d20 + 0x94))(DAT_006c6d20,0x100,local_c4);
+      local_c4[0].field0_0x0.field0._43 = (vm->pos).z;
+      local_c4[0].field0_0x0.field0._11 = local_c4[0].field0_0x0.field0._11 * vm->scaleY;
+      local_c4[0].field0_0x0.field0._22 = -vm->scaleX * local_c4[0].field0_0x0.field0._22;
+      (*(g_GameContext.d3dDevice)->lpVtbl->SetTransform)(g_GameContext.d3dDevice,0x100,local_c4);
       if (this->currentSprite != vm->sprite) {
         this->currentSprite = vm->sprite;
         pDVar3 = &vm->matrix;
-        pfVar4 = local_44;
+        pDVar4 = &local_44;
         for (iVar2 = 0x10; iVar2 != 0; iVar2 = iVar2 + -1) {
-          *pfVar4 = (pDVar3->field0_0x0).field0._11;
+          (pDVar4->field0_0x0).field0._11 = (pDVar3->field0_0x0).field0._11;
           pDVar3 = (D3DMATRIX *)((int)&pDVar3->field0_0x0 + 4);
-          pfVar4 = pfVar4 + 1;
+          pDVar4 = (D3DMATRIX *)((int)&pDVar4->field0_0x0 + 4);
         }
-        local_24 = (vm->sprite->uvStart).x + (vm->uvScrollPos).x;
-        local_20 = (vm->sprite->uvStart).y + (vm->uvScrollPos).y;
-        (**(code **)(*DAT_006c6d20 + 0x94))(DAT_006c6d20,0x10,local_44);
+        local_44.field0_0x0.field0._31 = (vm->sprite->uvStart).x + (vm->uvScrollPos).x;
+        local_44.field0_0x0.field0._32 = (vm->sprite->uvStart).y + (vm->uvScrollPos).y;
+        (*(g_GameContext.d3dDevice)->lpVtbl->SetTransform)
+                  (g_GameContext.d3dDevice,D3DTS_TEXTURE0,&local_44);
         if (this->currentTexture != this->textures[vm->sprite->sourceFileIndex]) {
           this->currentTexture = this->textures[vm->sprite->sourceFileIndex];
-          (**(code **)(*DAT_006c6d20 + 0xf4))(DAT_006c6d20,0,this->currentTexture);
+          (*(g_GameContext.d3dDevice)->lpVtbl->SetTexture)
+                    (g_GameContext.d3dDevice,0,(IDirect3DBaseTexture8 *)this->currentTexture);
         }
         if (this->field16_0x210be != '\x03') {
-          if ((DAT_006c6e60 >> 1 & 1) == 0) {
-            (**(code **)(*DAT_006c6d20 + 0x130))(DAT_006c6d20,0x102);
-            (**(code **)(*DAT_006c6d20 + 0x14c))(DAT_006c6d20,0,this->vertexBuffer,0x14);
+          if ((g_GameContext.cfg.opts >> 1 & 1) == 0) {
+            (*(g_GameContext.d3dDevice)->lpVtbl->SetVertexShader)(g_GameContext.d3dDevice,0x102);
+            (*(g_GameContext.d3dDevice)->lpVtbl->SetStreamSource)
+                      (g_GameContext.d3dDevice,0,this->vertexBuffer,0x14);
           }
           else {
-            (**(code **)(*DAT_006c6d20 + 0x130))(DAT_006c6d20,0x142);
+            (*(g_GameContext.d3dDevice)->lpVtbl->SetVertexShader)(g_GameContext.d3dDevice,0x142);
           }
           this->field16_0x210be = '\x03';
         }
       }
       FUN_004324d0(this,(int)vm);
-      if ((DAT_006c6e60 >> 1 & 1) == 0) {
-        (**(code **)(*DAT_006c6d20 + 0x118))(DAT_006c6d20,5,0,2);
+      if ((g_GameContext.cfg.opts >> 1 & 1) == 0) {
+        (*(g_GameContext.d3dDevice)->lpVtbl->DrawPrimitive)
+                  (g_GameContext.d3dDevice,D3DPT_TRIANGLESTRIP,0,2);
       }
       else {
-        (**(code **)(*DAT_006c6d20 + 0x120))(DAT_006c6d20,5,2,&DAT_006d4660,0x18);
+        (*(g_GameContext.d3dDevice)->lpVtbl->DrawPrimitiveUP)
+                  (g_GameContext.d3dDevice,D3DPT_TRIANGLESTRIP,2,&DAT_006d4660,0x18);
       }
       iVar2 = 0;
     }

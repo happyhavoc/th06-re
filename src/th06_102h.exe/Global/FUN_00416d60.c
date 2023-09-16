@@ -15,41 +15,41 @@ undefined4 FUN_00416d60(int param_1)
   undefined2 local_c;
   uint local_8;
   
-  if (DAT_006c6ea4 != 3) {
-    iVar3 = AnmManager::LoadAnim(DAT_006d4588,6,"data/etama3.anm",0x200);
+  if (g_GameContext.unkInput2 != 3) {
+    iVar3 = AnmManager::LoadAnim(g_AnmManager,6,"data/etama3.anm",0x200);
     if (iVar3 != 0) {
       return 0xffffffff;
     }
-    iVar3 = AnmManager::LoadAnim(DAT_006d4588,7,"data/etama4.anm",0x29a);
+    iVar3 = AnmManager::LoadAnim(g_AnmManager,7,"data/etama4.anm",0x29a);
     if (iVar3 != 0) {
       return 0xffffffff;
     }
   }
-  for (local_8 = 0; pAVar2 = DAT_006d4588, local_8 < 10; local_8 = local_8 + 1) {
+  for (local_8 = 0; pAVar2 = g_AnmManager, local_8 < 10; local_8 = local_8 + 1) {
     iVar3 = *(int *)(&DAT_0046a6e8 + local_8 * 0x14);
     pUVar5 = (Unknown *)(param_1 + local_8 * 0x560);
     local_c = (undefined2)iVar3;
     *(undefined2 *)&pUVar5->field_0xb4 = local_c;
     FUN_00432430(pUVar5,(int)pAVar2->scripts[iVar3]);
-    pAVar2 = DAT_006d4588;
+    pAVar2 = g_AnmManager;
     iVar3 = *(int *)(&DAT_0046a6ec + local_8 * 0x14);
     pUVar5 = (Unknown *)(param_1 + 0x110 + local_8 * 0x560);
     local_18 = (undefined2)iVar3;
     *(undefined2 *)&pUVar5->field_0xb4 = local_18;
     FUN_00432430(pUVar5,(int)pAVar2->scripts[iVar3]);
-    pAVar2 = DAT_006d4588;
+    pAVar2 = g_AnmManager;
     iVar3 = *(int *)(&DAT_0046a6f0 + local_8 * 0x14);
     pUVar5 = (Unknown *)(param_1 + 0x220 + local_8 * 0x560);
     local_24 = (undefined2)iVar3;
     *(undefined2 *)&pUVar5->field_0xb4 = local_24;
     FUN_00432430(pUVar5,(int)pAVar2->scripts[iVar3]);
-    pAVar2 = DAT_006d4588;
+    pAVar2 = g_AnmManager;
     iVar3 = *(int *)(&DAT_0046a6f4 + local_8 * 0x14);
     pUVar5 = (Unknown *)(param_1 + 0x330 + local_8 * 0x560);
     local_30 = (undefined2)iVar3;
     *(undefined2 *)&pUVar5->field_0xb4 = local_30;
     FUN_00432430(pUVar5,(int)pAVar2->scripts[iVar3]);
-    pAVar2 = DAT_006d4588;
+    pAVar2 = g_AnmManager;
     iVar3 = *(int *)(&DAT_0046a6f8 + local_8 * 0x14);
     pUVar5 = (Unknown *)(param_1 + 0x440 + local_8 * 0x560);
     local_3c = (undefined2)iVar3;

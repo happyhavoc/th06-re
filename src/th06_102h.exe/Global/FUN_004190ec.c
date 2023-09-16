@@ -67,33 +67,43 @@ undefined4 FUN_004190ec(void)
     local_28 = 0x3f800000;
     local_3c = 0x3f800000;
     local_50 = 0x3f800000;
-    AnmManager::FUN_00432ad0(DAT_006d4588,(AnmVm *)(in_ECX + 0x2550));
-    AnmManager::FUN_00432ad0(DAT_006d4588,(AnmVm *)(in_ECX + 0x2660));
-    if ((DAT_006c6e60 >> NO_COLOR_COMP & 1) == 0) {
-      (**(code **)(*DAT_006c6d20 + 0xfc))(DAT_006c6d20,0,4,2);
-      (**(code **)(*DAT_006c6d20 + 0xfc))(DAT_006c6d20,0,1,2);
+    AnmManager::FUN_00432ad0(g_AnmManager,(AnmVm *)(in_ECX + 0x2550));
+    AnmManager::FUN_00432ad0(g_AnmManager,(AnmVm *)(in_ECX + 0x2660));
+    if ((g_GameContext.cfg.opts >> NO_COLOR_COMP & 1) == 0) {
+      (*(g_GameContext.d3dDevice)->lpVtbl->SetTextureStageState)
+                (g_GameContext.d3dDevice,0,D3DTSS_ALPHAOP,2);
+      (*(g_GameContext.d3dDevice)->lpVtbl->SetTextureStageState)
+                (g_GameContext.d3dDevice,0,D3DTSS_COLOROP,2);
     }
-    (**(code **)(*DAT_006c6d20 + 0xfc))(DAT_006c6d20,0,5,0);
-    (**(code **)(*DAT_006c6d20 + 0xfc))(DAT_006c6d20,0,2,0);
-    if ((DAT_006c6e60 >> TURN_OFF_DEPTH_TEST & 1) == 0) {
-      (**(code **)(*DAT_006c6d20 + 200))(DAT_006c6d20,0xe,0);
+    (*(g_GameContext.d3dDevice)->lpVtbl->SetTextureStageState)
+              (g_GameContext.d3dDevice,0,D3DTSS_ALPHAARG1,0);
+    (*(g_GameContext.d3dDevice)->lpVtbl->SetTextureStageState)
+              (g_GameContext.d3dDevice,0,D3DTSS_COLORARG1,0);
+    if ((g_GameContext.cfg.opts >> TURN_OFF_DEPTH_TEST & 1) == 0) {
+      (*(g_GameContext.d3dDevice)->lpVtbl->SetRenderState)
+                (g_GameContext.d3dDevice,D3DRS_ZWRITEENABLE,0);
     }
-    (**(code **)(*DAT_006c6d20 + 0x130))(DAT_006c6d20,0x44);
-    (**(code **)(*DAT_006c6d20 + 0x120))(DAT_006c6d20,5,2,&local_5c,0x14);
-    DAT_006d4588->field16_0x210be = 0xff;
-    DAT_006d4588->currentColorOp = 0xff;
-    DAT_006d4588->currentBlendMode = 0xff;
-    DAT_006d4588->currentZWriteDisable = 0xff;
-    if ((DAT_006c6e60 >> NO_COLOR_COMP & 1) == 0) {
-      (**(code **)(*DAT_006c6d20 + 0xfc))(DAT_006c6d20,0,4,4);
-      (**(code **)(*DAT_006c6d20 + 0xfc))(DAT_006c6d20,0,1,4);
+    (*(g_GameContext.d3dDevice)->lpVtbl->SetVertexShader)(g_GameContext.d3dDevice,0x44);
+    (*(g_GameContext.d3dDevice)->lpVtbl->DrawPrimitiveUP)
+              (g_GameContext.d3dDevice,D3DPT_TRIANGLESTRIP,2,&local_5c,0x14);
+    g_AnmManager->field16_0x210be = 0xff;
+    g_AnmManager->currentColorOp = 0xff;
+    g_AnmManager->currentBlendMode = 0xff;
+    g_AnmManager->currentZWriteDisable = 0xff;
+    if ((g_GameContext.cfg.opts >> NO_COLOR_COMP & 1) == 0) {
+      (*(g_GameContext.d3dDevice)->lpVtbl->SetTextureStageState)
+                (g_GameContext.d3dDevice,0,D3DTSS_ALPHAOP,4);
+      (*(g_GameContext.d3dDevice)->lpVtbl->SetTextureStageState)
+                (g_GameContext.d3dDevice,0,D3DTSS_COLOROP,4);
     }
-    (**(code **)(*DAT_006c6d20 + 0xfc))(DAT_006c6d20,0,5,2);
-    (**(code **)(*DAT_006c6d20 + 0xfc))(DAT_006c6d20,0,2,2);
-    AnmManager::FUN_00432ad0(DAT_006d4588,(AnmVm *)(in_ECX + 0x2770));
-    AnmManager::FUN_00432ad0(DAT_006d4588,(AnmVm *)(in_ECX + 0x2880));
-    AnmManager::FUN_00432ad0(DAT_006d4588,(AnmVm *)(in_ECX + 0x2990));
-    AnmManager::FUN_00432ad0(DAT_006d4588,(AnmVm *)(in_ECX + 0x2aa0));
+    (*(g_GameContext.d3dDevice)->lpVtbl->SetTextureStageState)
+              (g_GameContext.d3dDevice,0,D3DTSS_ALPHAARG1,2);
+    (*(g_GameContext.d3dDevice)->lpVtbl->SetTextureStageState)
+              (g_GameContext.d3dDevice,0,D3DTSS_COLORARG1,2);
+    AnmManager::FUN_00432ad0(g_AnmManager,(AnmVm *)(in_ECX + 0x2770));
+    AnmManager::FUN_00432ad0(g_AnmManager,(AnmVm *)(in_ECX + 0x2880));
+    AnmManager::FUN_00432ad0(g_AnmManager,(AnmVm *)(in_ECX + 0x2990));
+    AnmManager::FUN_00432ad0(g_AnmManager,(AnmVm *)(in_ECX + 0x2aa0));
     uVar1 = 0;
   }
   return uVar1;

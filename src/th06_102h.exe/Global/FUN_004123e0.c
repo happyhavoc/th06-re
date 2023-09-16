@@ -25,8 +25,7 @@ undefined4 FUN_004123e0(int param_1)
     if (0xff < (int)local_10) {
       *(undefined4 *)(param_1 + 0xee5e0) = *(undefined4 *)(param_1 + 0xee5e8);
       GameContext::FUN_00424285
-                ((GameContext *)&DAT_006c6d18,(int *)(param_1 + 0xee5e8),
-                 (float *)(param_1 + 0xee5e4));
+                (&g_GameContext,(int *)(param_1 + 0xee5e8),(float *)(param_1 + 0xee5e4));
       return 1;
     }
     if (-1 < *(char *)&local_28[0xd].flags) goto LAB_00412416;
@@ -59,11 +58,11 @@ undefined4 FUN_004123e0(int param_1)
     }
     FUN_00412240();
     local_28->color = (D3DCOLOR)local_28[0xc].matrix.field0_0x0.field0._11;
-    AnmManager::FUN_00433960(DAT_006d4588,local_28);
+    AnmManager::FUN_00433960(g_AnmManager,local_28);
     local_28[0xc].matrix.field0_0x0.field0._11 = (float)local_28->color;
     for (local_20 = 0; local_20 < 8; local_20 = local_20 + 1) {
       if ((-1 < local_28[local_20 + 1].anmFileIndex) &&
-         (iVar2 = AnmManager::FUN_00433960(DAT_006d4588,local_28 + local_20 + 1), iVar2 != 0)) {
+         (iVar2 = AnmManager::FUN_00433960(g_AnmManager,local_28 + local_20 + 1), iVar2 != 0)) {
         local_28[local_20 + 1].anmFileIndex = -1;
       }
     }
@@ -227,7 +226,7 @@ LAB_00412dbc:
     if (DAT_0069bccc == '\0') {
       local_28[0xc].currentTimeInScript.previous = local_28[0xc].currentTimeInScript.current;
       GameContext::FUN_00424285
-                ((GameContext *)&DAT_006c6d18,&local_28[0xc].currentTimeInScript.current,
+                (&g_GameContext,&local_28[0xc].currentTimeInScript.current,
                  &local_28[0xc].currentTimeInScript.subFrame);
     }
 LAB_00412416:

@@ -6,7 +6,7 @@ uint FUN_00426100(int param_1,Unknown *param_2,int param_3,int param_4,int *para
 {
   undefined4 *puVar1;
   short sVar2;
-  int iVar3;
+  AnmManager *pAVar3;
   short *psVar4;
   int *piVar5;
   float *pfVar6;
@@ -34,10 +34,10 @@ LAB_00426400:
     param_2[1].field13_0x3c.field13_0x34 = *(int *)(psVar4 + 4);
   }
   else if (param_4 % (int)*psVar4 != (int)psVar4[1]) goto LAB_00426400;
-  iVar3 = DAT_006d4588;
+  pAVar3 = g_AnmManager;
   sVar2 = psVar4[0x10];
   *(short *)&param_2->field_0xb4 = sVar2;
-  FUN_00432430(param_2,*(int *)(iVar3 + 0x1c934 + sVar2 * 4));
+  FUN_00432430(param_2,(int)pAVar3->scripts[sVar2]);
   if (*(char *)(psVar4 + 0xf) == '\0') {
     param_2[1].field13_0x3c.field4_0x10 = *(int *)(param_1 + 0x440);
     param_2[1].field13_0x3c.field5_0x14 = *(float *)(param_1 + 0x444);

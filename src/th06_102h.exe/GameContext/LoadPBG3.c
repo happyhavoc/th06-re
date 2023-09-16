@@ -85,8 +85,7 @@ LAB_00424435:
     uStack_14 = Pbg3File_conflict1::Unk23((Pbg3File_conflict1 *)this->pbg3File[param_1],abStack_98);
     if ((int)uStack_14 < 0) {
       GameErrorContextFatal
-                ((GameErrorContext *)&DAT_0069d998,
-                 "error : データのバージョンが違います\n");
+                (&g_GameErrorContext,"error : データのバージョンが違います\n");
     }
   }
 LAB_00424634:

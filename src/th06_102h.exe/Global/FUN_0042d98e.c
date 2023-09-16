@@ -18,11 +18,11 @@ undefined4 FUN_0042d98e(int param_1)
             (local_8 < *(int *)(param_1 + 0x28) * 10 + 10 && (local_8 < 0x40));
             local_8 = local_8 + 1) {
           if (*(short *)(&DAT_0069bd0c + local_8 * 0x40) == 0) {
-            FUN_00434b60(DAT_006d4588,param_1 + 0x28a0 + (local_8 % 10) * 0x110,0xffffff,0,
+            FUN_00434b60(g_AnmManager,param_1 + 0x28a0 + (local_8 % 10) * 0x110,0xffffff,0,
                          &DAT_0046bcdc);
           }
           else {
-            FUN_00434b60(DAT_006d4588,param_1 + 0x28a0 + (local_8 % 10) * 0x110,0xffffff,0,
+            FUN_00434b60(g_AnmManager,param_1 + 0x28a0 + (local_8 % 10) * 0x110,0xffffff,0,
                          &DAT_0069bce8 + local_8 * 0x40);
           }
         }
@@ -58,7 +58,7 @@ undefined4 FUN_0042d98e(int param_1)
           for (local_8 = 0; local_8 < 0x26; local_8 = local_8 + 1) {
             *(undefined2 *)((int)local_c + 0x8a) = 1;
             *(uint *)((int)local_c + 0x80) = *(uint *)((int)local_c + 0x80) | 8;
-            if ((DAT_006c6e60 & 1) == 0) {
+            if ((g_GameContext.cfg.opts & 1) == 0) {
               *(uint *)((int)local_c + 0x7c) = *(uint *)((int)local_c + 0x7c) & 0xff000000;
             }
             else {
@@ -69,7 +69,7 @@ undefined4 FUN_0042d98e(int param_1)
           local_c = (AnmVm *)(param_1 + 0x150);
           for (local_8 = 0; local_8 < 7; local_8 = local_8 + 1) {
             if (local_8 == *(int *)(param_1 + 0x10)) {
-              if ((DAT_006c6e60 & 1) == 0) {
+              if ((g_GameContext.cfg.opts & 1) == 0) {
                 *(undefined4 *)((int)local_c + 0x7c) = 0xff505050;
               }
               else {
@@ -80,7 +80,7 @@ undefined4 FUN_0042d98e(int param_1)
               *(undefined4 *)((int)local_c + 0xec) = 0;
             }
             else {
-              if ((DAT_006c6e60 & 1) == 0) {
+              if ((g_GameContext.cfg.opts & 1) == 0) {
                 *(undefined4 *)((int)local_c + 0x7c) = 0xb0000000;
               }
               else {
@@ -100,7 +100,7 @@ undefined4 FUN_0042d98e(int param_1)
       else if (iVar1 != 1) {
         if (iVar1 == 2) {
           if (0x3b < *(int *)(param_1 + 4)) {
-            DAT_006c6ea4 = 1;
+            g_GameContext.unkInput2 = 1;
             return 0;
           }
         }
@@ -160,9 +160,9 @@ undefined4 FUN_0042d98e(int param_1)
           if ((*(int *)(param_1 + 0x24) != *(int *)(param_1 + 0x10)) &&
              (*(int *)(param_1 + 4) == 0x14)) {
             *(undefined4 *)(param_1 + 0x24) = *(undefined4 *)(param_1 + 0x10);
-            FUN_00434e20(DAT_006d4588,param_1 + 0x28a0,0xffffff,0,
+            FUN_00434e20(g_AnmManager,param_1 + 0x28a0,0xffffff,0,
                          (&PTR_DAT_004784d8)[*(int *)(param_1 + 0x24) * 2]);
-            FUN_00434e20(DAT_006d4588,param_1 + 0x29b0,0xffffff,0,
+            FUN_00434e20(g_AnmManager,param_1 + 0x29b0,0xffffff,0,
                          (&PTR_DAT_004784dc)[*(int *)(param_1 + 0x24) * 2]);
           }
           if (0x1d < *(int *)(param_1 + 4)) {
@@ -195,7 +195,7 @@ undefined4 FUN_0042d98e(int param_1)
       local_c = (AnmVm *)(param_1 + 0x150);
       for (local_8 = 0; local_8 < 7; local_8 = local_8 + 1) {
         if (local_8 == *(int *)(param_1 + 0x10)) {
-          if ((DAT_006c6e60 & 1) == 0) {
+          if ((g_GameContext.cfg.opts & 1) == 0) {
             *(undefined4 *)((int)local_c + 0x7c) = 0xff505050;
           }
           else {
@@ -206,7 +206,7 @@ undefined4 FUN_0042d98e(int param_1)
           *(undefined4 *)((int)local_c + 0xec) = 0;
         }
         else {
-          if ((DAT_006c6e60 & 1) == 0) {
+          if ((g_GameContext.cfg.opts & 1) == 0) {
             *(undefined4 *)((int)local_c + 0x7c) = 0xb0000000;
           }
           else {
@@ -276,7 +276,7 @@ undefined4 FUN_0042d98e(int param_1)
         FUN_0042d292();
       }
       else if (iVar1 == 0x11) {
-        DAT_006c6ea4 = 1;
+        g_GameContext.unkInput2 = 1;
         return 0;
       }
     }
@@ -284,7 +284,7 @@ undefined4 FUN_0042d98e(int param_1)
 LAB_0042e3fb:
   local_c = (AnmVm *)(param_1 + 0x40);
   for (local_8 = 0; local_8 < 0x26; local_8 = local_8 + 1) {
-    AnmManager::FUN_00433960(DAT_006d4588,local_c);
+    AnmManager::FUN_00433960(g_AnmManager,local_c);
     local_c = local_c + 1;
   }
   *(int *)(param_1 + 4) = *(int *)(param_1 + 4) + 1;

@@ -25,18 +25,20 @@ void __thiscall AsciiManager::FUN_004016b0(AsciiManager *this)
     if (local_18 != *(int *)&local_10->field_0x5c) {
       local_18 = *(int *)&local_10->field_0x5c;
       if (local_18 == 0) {
-        _DAT_006c6de0 = 0;
-        DAT_006c6de4 = 0;
-        DAT_006c6de8 = 0x280;
-        DAT_006c6dec = 0x1e0;
-        (*DAT_006c6d20->lpVtbl->SetViewport)(DAT_006c6d20,(D3DVIEWPORT8 *)&DAT_006c6de0);
+        g_GameContext.viewport.X = 0;
+        g_GameContext.viewport.Y = 0;
+        g_GameContext.viewport.Width = 0x280;
+        g_GameContext.viewport.Height = 0x1e0;
+        (*(g_GameContext.d3dDevice)->lpVtbl->SetViewport)
+                  (g_GameContext.d3dDevice,&g_GameContext.viewport);
       }
       else {
-        _DAT_006c6de0 = __ftol2((double)_DAT_0069d6dc);
-        DAT_006c6de4 = __ftol2((double)_DAT_0069d6e0);
-        DAT_006c6de8 = __ftol2((double)_DAT_0069d6e4);
-        DAT_006c6dec = __ftol2((double)_DAT_0069d6e8);
-        (*DAT_006c6d20->lpVtbl->SetViewport)(DAT_006c6d20,(D3DVIEWPORT8 *)&DAT_006c6de0);
+        g_GameContext.viewport.X = __ftol2((double)_DAT_0069d6dc);
+        g_GameContext.viewport.Y = __ftol2((double)_DAT_0069d6e0);
+        g_GameContext.viewport.Width = __ftol2((double)_DAT_0069d6e4);
+        g_GameContext.viewport.Height = __ftol2((double)_DAT_0069d6e8);
+        (*(g_GameContext.d3dDevice)->lpVtbl->SetViewport)
+                  (g_GameContext.d3dDevice,&g_GameContext.viewport);
       }
     }
     for (; local_14->text[0] != '\0'; local_14 = (AsciiManagerString *)(local_14->text + 1)) {
@@ -50,14 +52,14 @@ void __thiscall AsciiManager::FUN_004016b0(AsciiManager *this)
       else {
         if (*(int *)&local_10->field_0x58 == 0) {
           (this->vm0).sprite =
-               (AnmLoadedSprite *)((int)DAT_006d4588 + ((byte)local_14->text[0] - 0x15) * 0x38);
+               (AnmLoadedSprite *)((int)g_AnmManager + ((byte)local_14->text[0] - 0x15) * 0x38);
           (this->vm0).color = local_10->color;
         }
         else {
-          (this->vm0).sprite = DAT_006d4588->sprites + (byte)local_14->text[0] + 0x61;
+          (this->vm0).sprite = g_AnmManager->sprites + (byte)local_14->text[0] + 0x61;
           (this->vm0).color = 0xffffffff;
         }
-        AnmManager::FUN_00432ad0(DAT_006d4588,&this->vm0);
+        AnmManager::FUN_00432ad0(g_AnmManager,&this->vm0);
         (this->vm0).pos.x = fVar1 + (this->vm0).pos.x;
       }
     }

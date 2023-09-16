@@ -23,7 +23,7 @@ void FUN_0042c2d4(void)
   if (iVar1 == 10) {
     if (*(int *)(in_ECX + 4) == 0x3c) {
       if (DAT_0069d4b8 == '\0') {
-        if (DAT_006c6ec4 < 0.99 == NAN(DAT_006c6ec4)) {
+        if (g_GameContext.framerateMultiplier < 0.99 == NAN(g_GameContext.framerateMultiplier)) {
           local_c = 9;
         }
         else {

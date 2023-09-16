@@ -31,7 +31,7 @@ void FUN_0040d530(int param_1)
            *(ushort *)((int)&local_68[5].matrix.field0_0x0 + 0x2c) | 0x10;
       *(undefined2 *)((int)&local_68[5].matrix.field0_0x0 + 0x2e) = 2;
       AnmManager::FUN_004323a0
-                (DAT_006d4588,local_68,
+                (g_AnmManager,local_68,
                  (int)local_68->anotherSpriteNumber +
                  (int)*(short *)((int)&local_68[5].matrix.field0_0x0 + 0x2e));
       local_68[5].currentTimeInScript.subFrame = 0.01;

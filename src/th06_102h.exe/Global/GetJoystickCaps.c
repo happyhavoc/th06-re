@@ -12,7 +12,7 @@ bool GetJoystickCaps(void)
     joyGetDevCapsA(0,(LPJOYCAPSA)&DAT_0069d760,0x194);
   }
   else {
-    GameErrorContextLog((GameErrorContext *)&DAT_0069d998,
+    GameErrorContextLog(&g_GameErrorContext,
                         "使えるパッドが存在しないようです、残念\n");
   }
   return MVar1 != 0;

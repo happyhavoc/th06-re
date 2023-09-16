@@ -30,21 +30,23 @@ undefined4 __thiscall FUN_00432730(AnmManager *this,int param_2,int param_3)
     DAT_006d465c = _DAT_006d4644;
     if (this->currentTexture != this->textures[**(int **)(param_2 + 0xc0)]) {
       this->currentTexture = this->textures[**(int **)(param_2 + 0xc0)];
-      (**(code **)(*DAT_006c6d20 + 0xf4))(DAT_006c6d20,0,this->currentTexture);
+      (*(g_GameContext.d3dDevice)->lpVtbl->SetTexture)
+                (g_GameContext.d3dDevice,0,(IDirect3DBaseTexture8 *)this->currentTexture);
     }
   }
   if (this->field16_0x210be != '\x02') {
-    if ((DAT_006c6e60 >> 1 & 1) == 0) {
-      (**(code **)(*DAT_006c6d20 + 0x130))(DAT_006c6d20,0x104);
+    if ((g_GameContext.cfg.opts >> 1 & 1) == 0) {
+      (*(g_GameContext.d3dDevice)->lpVtbl->SetVertexShader)(g_GameContext.d3dDevice,0x104);
     }
     else {
-      (**(code **)(*DAT_006c6d20 + 0x130))(DAT_006c6d20,0x144);
+      (*(g_GameContext.d3dDevice)->lpVtbl->SetVertexShader)(g_GameContext.d3dDevice,0x144);
     }
     this->field16_0x210be = '\x02';
   }
   FUN_004324d0(this,param_2);
-  if ((DAT_006c6e60 >> 1 & 1) == 0) {
-    (**(code **)(*DAT_006c6d20 + 0x120))(DAT_006c6d20,5,2,&DAT_006d4600,0x18);
+  if ((g_GameContext.cfg.opts >> 1 & 1) == 0) {
+    (*(g_GameContext.d3dDevice)->lpVtbl->DrawPrimitiveUP)
+              (g_GameContext.d3dDevice,D3DPT_TRIANGLESTRIP,2,&DAT_006d4600,0x18);
   }
   else {
     _DAT_006d4590 = DAT_006d4600;
@@ -67,7 +69,8 @@ undefined4 __thiscall FUN_00432730(AnmManager *this,int param_2,int param_3)
     DAT_006d45dc = _DAT_006d45a4;
     DAT_006d45f8 = _DAT_006d45c0;
     DAT_006d45fc = _DAT_006d45e0;
-    (**(code **)(*DAT_006c6d20 + 0x120))(DAT_006c6d20,5,2,&DAT_006d4590,0x1c);
+    (*(g_GameContext.d3dDevice)->lpVtbl->DrawPrimitiveUP)
+              (g_GameContext.d3dDevice,D3DPT_TRIANGLESTRIP,2,&DAT_006d4590,0x1c);
   }
   return 0;
 }

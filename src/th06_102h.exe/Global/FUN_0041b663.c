@@ -10,14 +10,14 @@ undefined4 FUN_0041b663(uint *param_1)
   
   if (*(char *)(param_1 + 0x609) != '\0') {
     if ((DAT_0069d904 != 0) && (DAT_0069d904 != DAT_0069d908)) {
-      DAT_006c6ea4 = 1;
+      g_GameContext.unkInput2 = 1;
     }
     param_1[0x60a] = param_1[0x60a] + 1;
     if (param_1[0x60a] == 0xe10) {
       FUN_0042fd30(2,0x78,0,0,0);
     }
     if (0xe87 < (int)param_1[0x60a]) {
-      DAT_006c6ea4 = 1;
+      g_GameContext.unkInput2 = 1;
     }
   }
   if ((((*(char *)(param_1 + 0x608) == '\0') && (*(char *)((int)param_1 + 0x181f) == '\0')) &&
@@ -28,7 +28,7 @@ undefined4 FUN_0041b663(uint *param_1)
     _DAT_0069d6e0 = 0x41800000;
     _DAT_0069d6e4 = 0x43c00000;
     _DAT_0069d6e8 = 0x43e00000;
-    DAT_006c6eb0 = 3;
+    g_GameContext.field77_0x198 = 3;
   }
   if ((*(char *)(param_1 + 0x608) == '\0') && (*(char *)((int)param_1 + 0x181f) == '\0')) {
     local_c = 1;
@@ -37,15 +37,17 @@ undefined4 FUN_0041b663(uint *param_1)
     local_c = 0;
   }
   *(undefined *)((int)param_1 + 0x1821) = local_c;
-  _DAT_006c6de0 = __ftol2((double)(float)param_1[0x68f]);
-  DAT_006c6de4 = __ftol2((double)(float)param_1[0x690]);
-  DAT_006c6de8 = __ftol2((double)(float)param_1[0x691]);
-  DAT_006c6dec = __ftol2((double)(float)param_1[0x692]);
-  _DAT_006c6df0 = 0x3f000000;
-  _DAT_006c6df4 = 0x3f800000;
+  g_GameContext.viewport.X = __ftol2((double)(float)param_1[0x68f]);
+  g_GameContext.viewport.Y = __ftol2((double)(float)param_1[0x690]);
+  g_GameContext.viewport.Width = __ftol2((double)(float)param_1[0x691]);
+  g_GameContext.viewport.Height = __ftol2((double)(float)param_1[0x692]);
+  g_GameContext.viewport.MinZ = 0.5;
+  g_GameContext.viewport.MaxZ = 1.0;
   FUN_0041c3f3(0);
-  (**(code **)(*DAT_006c6d20 + 0xa0))(DAT_006c6d20,&DAT_006c6de0);
-  (**(code **)(*DAT_006c6d20 + 0x90))(DAT_006c6d20,0,0,2,DAT_00487b60,0x3f800000,0);
+  (*(g_GameContext.d3dDevice)->lpVtbl->SetViewport)
+            (g_GameContext.d3dDevice,(D3DVIEWPORT8 *)0x6c6de0);
+  (*(g_GameContext.d3dDevice)->lpVtbl->Clear)
+            (g_GameContext.d3dDevice,0,(D3DRECT *)0x0,2,DAT_00487b60,1.0,0);
   if (((*(char *)((int)param_1 + 0x181f) == '\x01') || (*(char *)((int)param_1 + 0x181f) == '\x02'))
      || (*(char *)(param_1 + 0x608) != '\0')) {
     uVar1 = 3;

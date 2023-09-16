@@ -60,11 +60,11 @@ LAB_004359b3:
       _DAT_0069bcbc = 1;
       DAT_0069d4c4 = 1;
       _DAT_0069d4c8 = 0;
-      DAT_006c6ec4 = 1.0;
+      g_GameContext.framerateMultiplier = 1.0;
       _strcpy(&DAT_0069d4cc,"data/demo/demo00.rpy");
       _DAT_0069bcb0 = 3;
       DAT_0069d6d4 = 3;
-      DAT_006c6ea4 = 2;
+      g_GameContext.unkInput2 = 2;
       return 0;
     }
     iVar4 = FUN_004379e4();
@@ -89,7 +89,7 @@ switchD_004358f7_caseD_2:
     break;
   case 4:
     if (0x3b < *(int *)(param_1 + 0x81f4)) {
-      DAT_006c6ea4 = 4;
+      g_GameContext.unkInput2 = 4;
       return 0;
     }
     break;
@@ -120,10 +120,10 @@ switchD_004358f7_caseD_2:
         local_c->flags = local_c->flags | 2;
         sVar1 = *(short *)(param_1 + 0x821c + ((int)local_8 / 2) * 2);
         if ((int)local_8 % 2 == 0) {
-          AnmManager::FUN_004323a0(DAT_006d4588,local_c,(int)sVar1 / 10 + 0x100);
+          AnmManager::FUN_004323a0(g_AnmManager,local_c,(int)sVar1 / 10 + 0x100);
         }
         else {
-          AnmManager::FUN_004323a0(DAT_006d4588,local_c,(int)sVar1 % 10 + 0x100);
+          AnmManager::FUN_004323a0(g_AnmManager,local_c,(int)sVar1 % 10 + 0x100);
         }
         local_c->anotherSpriteNumber = local_c->spriteNumber;
         FUN_004377a3(local_c,(int)local_8 / 2,*(undefined4 *)(param_1 + 0x81a0),
@@ -200,11 +200,11 @@ switchD_004358f7_caseD_2:
           g_ControllerMapping._8_4_ = *(undefined4 *)(param_1 + 0x8224);
           g_ControllerMapping._12_4_ = *(undefined4 *)(param_1 + 0x8228);
           g_ControllerMapping.skipButton = *(short *)(param_1 + 0x822c);
-          DAT_006c6e2c = *(undefined4 *)(param_1 + 0x821c);
-          DAT_006c6e30 = *(undefined4 *)(param_1 + 0x8220);
-          DAT_006c6e34 = *(undefined4 *)(param_1 + 0x8224);
-          DAT_006c6e38 = *(undefined4 *)(param_1 + 0x8228);
-          DAT_006c6e3c = *(undefined2 *)(param_1 + 0x822c);
+          g_GameContext.cfg.controllerMapping._0_4_ = *(undefined4 *)(param_1 + 0x821c);
+          g_GameContext.cfg.controllerMapping._4_4_ = *(undefined4 *)(param_1 + 0x8220);
+          g_GameContext.cfg.controllerMapping._8_4_ = *(undefined4 *)(param_1 + 0x8224);
+          g_GameContext.cfg.controllerMapping._12_4_ = *(undefined4 *)(param_1 + 0x8228);
+          g_GameContext.cfg.controllerMapping.skipButton = *(short *)(param_1 + 0x822c);
         }
       }
     }
@@ -213,9 +213,8 @@ switchD_004358f7_caseD_2:
     if (*(int *)(param_1 + 0x81f4) != 0x3c) break;
     iVar4 = FUN_00439f88();
     if (iVar4 != 0) {
-      GameErrorContextLog((GameErrorContext *)&DAT_0069d998,
-                          "セレクト画面の読み込みに失敗\n");
-      DAT_006c6ea4 = 4;
+      GameErrorContextLog(&g_GameErrorContext,"セレクト画面の読み込みに失敗\n");
+      g_GameContext.unkInput2 = 4;
       return 0;
     }
     *(undefined4 *)(param_1 + 0x81f0) = 7;
@@ -226,7 +225,7 @@ switchD_004358f7_caseD_2:
       for (local_8 = 0; (int)local_8 < 0x7a; local_8 = local_8 + 1) {
         *(undefined2 *)(param_1 + 0x8a + local_8 * 0x110) = 6;
       }
-      *(uint *)(param_1 + 0x81a0) = (uint)DAT_006c6e49;
+      *(uint *)(param_1 + 0x81a0) = (uint)g_GameContext.cfg.defaultDifficulty;
     }
     else {
       for (local_8 = 0; (int)local_8 < 0x7a; local_8 = local_8 + 1) {
@@ -246,7 +245,7 @@ switchD_004358f7_caseD_2:
       FUN_0043753c(param_1);
       for (local_8 = 0; (int)local_8 < 4; local_8 = local_8 + 1) {
         if (local_8 == *(int *)(param_1 + 0x81a0)) {
-          if ((DAT_006c6e60 & 1) == 0) {
+          if ((g_GameContext.cfg.opts & 1) == 0) {
             *(undefined4 *)((int)local_c + 0x7c) = 0xff000000;
           }
           else {
@@ -257,7 +256,7 @@ switchD_004358f7_caseD_2:
           *(undefined4 *)((int)local_c + 0xec) = 0;
         }
         else {
-          if ((DAT_006c6e60 & 1) == 0) {
+          if ((g_GameContext.cfg.opts & 1) == 0) {
             *(undefined4 *)((int)local_c + 0x7c) = 0x60000000;
           }
           else {
@@ -278,7 +277,7 @@ switchD_004358f7_caseD_2:
         local_c = (AnmVm *)((int)local_c + 0x110);
       }
       for (local_8 = 4; (int)local_8 < 5; local_8 = local_8 + 1) {
-        if ((DAT_006c6e60 & 1) == 0) {
+        if ((g_GameContext.cfg.opts & 1) == 0) {
           *(undefined4 *)((int)local_c + 0x7c) = 0xff000000;
         }
         else {
@@ -314,7 +313,7 @@ switchD_004358f7_caseD_2:
             *(uint *)(param_1 + 0x81a0) = (uint)DAT_0069d4bd;
           }
         }
-        DAT_006c6e49 = DAT_0069bcb0;
+        g_GameContext.cfg.defaultDifficulty = DAT_0069bcb0;
         local_c = (AnmVm *)(param_1 + 0x5b60);
         for (local_8 = 0; (int)local_8 < 2; local_8 = local_8 + 1) {
           if (local_8 != *(int *)(param_1 + 0x81a0)) {
@@ -333,7 +332,7 @@ switchD_004358f7_caseD_2:
       }
       FUN_004311e0(0xb);
       if (_DAT_0069bcb0 < 4) {
-        DAT_006c6e49 = *(byte *)(param_1 + 0x81a0);
+        g_GameContext.cfg.defaultDifficulty = *(byte *)(param_1 + 0x81a0);
         if (DAT_0069d4c3 == '\0') {
           *(undefined4 *)(param_1 + 0x81a0) = 0;
         }
@@ -457,7 +456,7 @@ LAB_0043666d:
         for (local_8 = 0; (int)local_8 < 0x7a; local_8 = local_8 + 1) {
           *(undefined2 *)(param_1 + 0x8a + local_8 * 0x110) = 6;
         }
-        *(uint *)(param_1 + 0x81a0) = (uint)DAT_006c6e49;
+        *(uint *)(param_1 + 0x81a0) = (uint)g_GameContext.cfg.defaultDifficulty;
       }
       else {
         for (local_8 = 0; (int)local_8 < 0x7a; local_8 = local_8 + 1) {
@@ -470,7 +469,7 @@ LAB_0043666d:
     break;
   case 10:
     if (0x3b < *(int *)(param_1 + 0x81f4)) {
-      DAT_006c6ea4 = 6;
+      g_GameContext.unkInput2 = 6;
       return 0;
     }
     break;
@@ -490,7 +489,7 @@ LAB_0043666d:
       *(uint *)((int)local_c + 0x80) = *(uint *)((int)local_c + 0x80) | 8;
       *(uint *)((int)local_c + 0x80) = *(uint *)((int)local_c + 0x80) | 1;
       if (local_8 == *(int *)(param_1 + 0x81a0)) {
-        if ((DAT_006c6e60 & 1) == 0) {
+        if ((g_GameContext.cfg.opts & 1) == 0) {
           *(undefined4 *)((int)local_c + 0x7c) = 0xff202020;
         }
         else {
@@ -501,7 +500,7 @@ LAB_0043666d:
         *(undefined4 *)((int)local_c + 0xec) = 0;
       }
       else {
-        if ((DAT_006c6e60 & 1) == 0) {
+        if ((g_GameContext.cfg.opts & 1) == 0) {
           *(undefined4 *)((int)local_c + 0x7c) = 0xa0000000;
         }
         else {
@@ -608,7 +607,7 @@ LAB_0043666d:
     break;
   case 0x10:
     if (0x3b < *(int *)(param_1 + 0x81f4)) {
-      DAT_006c6ea4 = 9;
+      g_GameContext.unkInput2 = 9;
       return 0;
     }
     break;
@@ -621,13 +620,13 @@ LAB_0043666d:
           DAT_0069d6d4 = *(undefined4 *)(param_1 + 0x81a0);
           DAT_0069d6d8 = *(undefined4 *)(param_1 + 0x81a0);
 LAB_00436de7:
-          DAT_0069d4ba = DAT_006c6e44;
-          DAT_0069d4bb = DAT_006c6e45;
+          DAT_0069d4ba = g_GameContext.cfg.lifeCount;
+          DAT_0069d4bb = g_GameContext.cfg.bombCount;
           if ((_DAT_0069bcb0 == 4) || (DAT_0069d4c3 != '\0')) {
             DAT_0069d4ba = 2;
             DAT_0069d4bb = 3;
           }
-          DAT_006c6ea4 = 2;
+          g_GameContext.unkInput2 = 2;
           FUN_004311e0(10);
           _DAT_0069bcbc = 0;
           local_48 = 0.0;
@@ -687,8 +686,8 @@ LAB_00436de7:
             local_44 = 0.375;
           }
           DebugPrint("Reflesh Rate = %f\n",(double)(60.0 / local_44));
-          DAT_006c6ec4 = local_44;
-          GameContext::FUN_00424d38((GameContext *)&DAT_006c6d18);
+          g_GameContext.framerateMultiplier = local_44;
+          GameContext::FUN_00424d38(&g_GameContext);
           return 0;
         }
       }
@@ -730,10 +729,10 @@ LAB_00436de7:
       bVar5 = false;
     }
     else {
-      bVar5 = DAT_006d4588->textures[**(int **)(iVar4 + 0xc0)] != (IDirect3DTexture8 *)0x0;
+      bVar5 = g_AnmManager->textures[**(int **)(iVar4 + 0xc0)] != (IDirect3DTexture8 *)0x0;
     }
     if (bVar5) {
-      AnmManager::FUN_00433960(DAT_006d4588,(AnmVm *)(param_1 + local_8 * 0x110));
+      AnmManager::FUN_00433960(g_AnmManager,(AnmVm *)(param_1 + local_8 * 0x110));
     }
   }
   return 1;

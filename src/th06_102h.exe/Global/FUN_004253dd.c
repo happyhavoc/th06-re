@@ -22,7 +22,7 @@ undefined4 FUN_004253dd(int param_1)
   else {
     *(undefined4 *)(param_1 + 8) = 0;
   }
-  AnmManager::FUN_00433960(DAT_006d4588,(AnmVm *)(param_1 + 0x24));
+  AnmManager::FUN_00433960(g_AnmManager,(AnmVm *)(param_1 + 0x24));
   return 1;
 }
 

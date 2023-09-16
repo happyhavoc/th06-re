@@ -95,8 +95,7 @@ LAB_0040cc18:
   *(float *)(local_8 + 0x130) = -*(float *)(local_8 + 0x124) * 0.008333334;
 LAB_0040cffe:
   *(undefined4 *)(param_1 + 0xebc) = *(undefined4 *)(param_1 + 0xec4);
-  GameContext::FUN_00424285
-            ((GameContext *)&DAT_006c6d18,(int *)(param_1 + 0xec4),(float *)(param_1 + 0xec0));
+  GameContext::FUN_00424285(&g_GameContext,(int *)(param_1 + 0xec4),(float *)(param_1 + 0xec0));
   return;
 }
 

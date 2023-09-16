@@ -15,7 +15,7 @@ void __fastcall FUN_0041adf3(int param_1)
     local_c = 0x43460000;
     local_8 = 0;
     if (DAT_0069d4c4 == '\0') {
-      AnmManager::FUN_00433590(DAT_006d4588,(AnmVm *)(*(int *)(param_1 + 4) + 0x1ba4));
+      AnmManager::FUN_00433590(g_AnmManager,(AnmVm *)(*(int *)(param_1 + 4) + 0x1ba4));
       g_AsciiManager.color = *(uint *)(*(int *)(param_1 + 4) + 0x1c20) & 0xff000000 | 0xffff40;
       if (DAT_0069d6d4 < 6) {
         local_10 = 0x43280000;
@@ -38,13 +38,13 @@ void __fastcall FUN_0041adf3(int param_1)
     g_AsciiManager.color = 0xffffffff;
   }
   if (((*(uint *)(*(int *)(param_1 + 4) + 0x1d34) & 1) != 0) && (DAT_0069d4c4 == '\0')) {
-    AnmManager::FUN_00433590(DAT_006d4588,(AnmVm *)(*(int *)(param_1 + 4) + 0x1cb4));
+    AnmManager::FUN_00433590(g_AnmManager,(AnmVm *)(*(int *)(param_1 + 4) + 0x1cb4));
   }
   if ((*(uint *)(*(int *)(param_1 + 4) + 0x1e44) & 1) != 0) {
-    AnmManager::FUN_00432ad0(DAT_006d4588,(AnmVm *)(*(int *)(param_1 + 4) + 0x1dc4));
+    AnmManager::FUN_00432ad0(g_AnmManager,(AnmVm *)(*(int *)(param_1 + 4) + 0x1dc4));
   }
   if ((*(uint *)(*(int *)(param_1 + 4) + 0x1f54) & 1) != 0) {
-    AnmManager::FUN_00432ad0(DAT_006d4588,(AnmVm *)(*(int *)(param_1 + 4) + 0x1ed4));
+    AnmManager::FUN_00432ad0(g_AnmManager,(AnmVm *)(*(int *)(param_1 + 4) + 0x1ed4));
   }
   if ((*(uint *)(*(int *)(param_1 + 4) + 0x2064) & 1) != 0) {
     iVar1 = *(int *)(param_1 + 4);
@@ -56,8 +56,8 @@ void __fastcall FUN_0041adf3(int param_1)
          ((((*(float *)(param_1 + 8) * 16.0) / 15.0) / 2.0 + -128.0) - 16.0) +
          *(float *)(*(int *)(param_1 + 4) + 0x2294);
     *(float *)(*(int *)(param_1 + 4) + 0x2220) = *(float *)(param_1 + 8) / 14.0;
-    AnmManager::FUN_00432ad0(DAT_006d4588,(AnmVm *)(*(int *)(param_1 + 4) + 0x2204));
-    AnmManager::FUN_00432ad0(DAT_006d4588,(AnmVm *)(*(int *)(param_1 + 4) + 0x1fe4));
+    AnmManager::FUN_00432ad0(g_AnmManager,(AnmVm *)(*(int *)(param_1 + 4) + 0x2204));
+    AnmManager::FUN_00432ad0(g_AnmManager,(AnmVm *)(*(int *)(param_1 + 4) + 0x1fe4));
   }
   if ((*(uint *)(*(int *)(param_1 + 4) + 0x2174) & 1) != 0) {
     iVar1 = *(int *)(param_1 + 4);
@@ -69,16 +69,17 @@ void __fastcall FUN_0041adf3(int param_1)
          (128.0 - ((*(float *)(param_1 + 0xc) * 16.0) / 15.0) / 2.0) +
          *(float *)(*(int *)(param_1 + 4) + 0x23a4);
     *(float *)(*(int *)(param_1 + 4) + 0x2330) = *(float *)(param_1 + 0xc) / 14.0;
-    AnmManager::FUN_00432ad0(DAT_006d4588,(AnmVm *)(*(int *)(param_1 + 4) + 0x2314));
-    AnmManager::FUN_00432ad0(DAT_006d4588,(AnmVm *)(*(int *)(param_1 + 4) + 0x20f4));
+    AnmManager::FUN_00432ad0(g_AnmManager,(AnmVm *)(*(int *)(param_1 + 4) + 0x2314));
+    AnmManager::FUN_00432ad0(g_AnmManager,(AnmVm *)(*(int *)(param_1 + 4) + 0x20f4));
   }
   if (-1 < *(short *)(*(int *)(param_1 + 4) + 0x24d4)) {
-    _DAT_006c6de0 = __ftol2((double)_DAT_0069d6dc);
-    DAT_006c6de4 = __ftol2((double)_DAT_0069d6e0);
-    DAT_006c6de8 = __ftol2((double)_DAT_0069d6e4);
-    DAT_006c6dec = __ftol2((double)_DAT_0069d6e8);
-    (**(code **)(*DAT_006c6d20 + 0xa0))(DAT_006c6d20,&DAT_006c6de0);
-    AnmManager::FUN_00432ad0(DAT_006d4588,(AnmVm *)(*(int *)(param_1 + 4) + 0x2424));
+    g_GameContext.viewport.X = __ftol2((double)_DAT_0069d6dc);
+    g_GameContext.viewport.Y = __ftol2((double)_DAT_0069d6e0);
+    g_GameContext.viewport.Width = __ftol2((double)_DAT_0069d6e4);
+    g_GameContext.viewport.Height = __ftol2((double)_DAT_0069d6e8);
+    (*(g_GameContext.d3dDevice)->lpVtbl->SetViewport)
+              (g_GameContext.d3dDevice,(D3DVIEWPORT8 *)0x6c6de0);
+    AnmManager::FUN_00432ad0(g_AnmManager,(AnmVm *)(*(int *)(param_1 + 4) + 0x2424));
   }
   return;
 }

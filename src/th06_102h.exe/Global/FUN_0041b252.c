@@ -18,7 +18,7 @@ undefined4 FUN_0041b252(void)
   puStack_c = &LAB_0046912f;
   pvStack_10 = ExceptionList;
   ExceptionList = &pvStack_10;
-  if (DAT_006c6ea4 != 3) {
+  if (g_GameContext.unkInput2 != 3) {
     puVar4 = &DAT_0069bc30;
     ExceptionList = &pvStack_10;
     for (iVar3 = 0xb; iVar3 != 0; iVar3 = iVar3 + -1) {

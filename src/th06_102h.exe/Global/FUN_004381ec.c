@@ -88,9 +88,8 @@ void __fastcall FUN_004381ec(int param_1)
         *(undefined4 *)(param_1 + 0x81a0) = 0;
       }
       else {
-        GameErrorContextLog((GameErrorContext *)&DAT_0069d998,
-                            "セレクト画面の読み込みに失敗\n");
-        DAT_006c6ea4 = 4;
+        GameErrorContextLog(&g_GameErrorContext,"セレクト画面の読み込みに失敗\n");
+        g_GameContext.unkInput2 = 4;
       }
     }
   }
@@ -190,7 +189,7 @@ LAB_0043877b:
     }
     else {
       _DAT_0069bcbc = 1;
-      DAT_006c6ec4 = 0x3f800000;
+      g_GameContext.framerateMultiplier = 1.0;
       _strcpy(&DAT_0069d4cc,(char *)(param_1 + 0x823c + *(int *)(param_1 + 0x81e8) * 0x200));
       _DAT_0069bcb0 = (uint)*(byte *)(*(int *)(param_1 + 0x10edc) + 7);
       DAT_0069d4bd = *(byte *)(*(int *)(param_1 + 0x10edc) + 6) / 2;
@@ -204,7 +203,7 @@ LAB_0043877b:
       _free(*(void **)(param_1 + 0x10edc));
       *(undefined4 *)(param_1 + 0x10edc) = 0;
       DAT_0069d6d4 = *(undefined4 *)(param_1 + 0x81a0);
-      DAT_006c6ea4 = 2;
+      g_GameContext.unkInput2 = 2;
     }
   }
 LAB_00438bb2:

@@ -2,31 +2,31 @@
 undefined4 FUN_00429c50(Unknown *param_1)
 
 {
-  VeryBigStruct *pVVar1;
+  AnmManager *pAVar1;
   int iVar2;
   undefined4 *puVar3;
   Unknown *pUVar4;
   float10 fVar5;
-  undefined4 *local_c;
+  float *local_c;
   int local_8;
   
   if (DAT_0069d4bd == 0) {
     if ((g_GameContext.unkInput2 != 3) &&
-       (iVar2 = VeryBigStruct::LoadAnim(g_VeryBigStruct,5,"data/player00.anm",0x400), iVar2 != 0)) {
+       (iVar2 = AnmManager::LoadAnim(g_AnmManager,5,"data/player00.anm",0x400), iVar2 != 0)) {
       return 0xffffffff;
     }
-    pVVar1 = g_VeryBigStruct;
+    pAVar1 = g_AnmManager;
     *(undefined2 *)&param_1->field_0xb4 = 0x400;
-    FUN_00432430(param_1,*(int *)&pVVar1->field_0x1d934);
+    FUN_00432430(param_1,(int)pAVar1->scripts[0x400]);
   }
   else if (DAT_0069d4bd == 1) {
     if ((g_GameContext.unkInput2 != 3) &&
-       (iVar2 = VeryBigStruct::LoadAnim(g_VeryBigStruct,5,"data/player01.anm",0x400), iVar2 != 0)) {
+       (iVar2 = AnmManager::LoadAnim(g_AnmManager,5,"data/player01.anm",0x400), iVar2 != 0)) {
       return 0xffffffff;
     }
-    pVVar1 = g_VeryBigStruct;
+    pAVar1 = g_AnmManager;
     *(undefined2 *)&param_1->field_0xb4 = 0x400;
-    FUN_00432430(param_1,*(int *)&pVVar1->field_0x1d934);
+    FUN_00432430(param_1,(int)pAVar1->scripts[0x400]);
   }
   param_1[5].field13_0x3c.field12_0x30 = (int)(VIEWPORT_WIDTH / 2.0);
   param_1[5].field13_0x3c.field13_0x34 = (int)(VIEWPORT_HEIGHT - 64.0);
@@ -39,7 +39,7 @@ undefined4 FUN_00429c50(Unknown *param_1)
   *(undefined4 *)&param_1[5].field_0xb4 = 0x3fa00000;
   *(undefined4 *)&param_1[5].field_0xb8 = 0x3fa00000;
   *(undefined4 *)&param_1[5].field_0xbc = 0x40a00000;
-  param_1[5].field67_0xc0 = (VeryBigStruct0tbl *)0x41400000;
+  param_1[5].field67_0xc0 = (AnmLoadedSprite *)0x41400000;
   param_1[6].field0_0x0 = 0x41400000;
   param_1[6].field1_0x4 = 0x40a00000;
   param_1[0xd].field6_0x18 = 0.0;
@@ -61,13 +61,13 @@ undefined4 FUN_00429c50(Unknown *param_1)
   *(undefined4 *)&param_1[0x99].field_0x94 = 0;
   *(undefined4 *)&param_1[0x99].field_0x90 = 0xfffffc19;
   param_1[0xc].field_0xb2 = 0;
-  pVVar1 = g_VeryBigStruct;
+  pAVar1 = g_AnmManager;
   *(undefined2 *)&param_1[2].field13_0x3c.field0_0x0 = 0x480;
-  FUN_00432430((Unknown *)&param_1[1].field13_0x3c.field4_0x10,*(int *)&pVVar1->field_0x1db34);
-  pVVar1 = g_VeryBigStruct;
+  FUN_00432430((Unknown *)&param_1[1].field13_0x3c.field4_0x10,(int)pAVar1->scripts[0x480]);
+  pAVar1 = g_AnmManager;
   param_1[3].field18_0x88 = 0x481;
-  FUN_00432430((Unknown *)&param_1[2].field31_0x98,*(int *)&pVVar1->field_0x1db38);
-  local_c = &param_1[0xd].field12_0x30.field1_0x4;
+  FUN_00432430((Unknown *)&param_1[2].field31_0x98,(int)pAVar1->scripts[0x481]);
+  local_c = &param_1[0xd].field12_0x30.subFrame;
   for (local_8 = 0; local_8 < 0x50; local_8 = local_8 + 1) {
     *(undefined2 *)((int)local_c + 0x14e) = 0;
     local_c = local_c + 0x56;

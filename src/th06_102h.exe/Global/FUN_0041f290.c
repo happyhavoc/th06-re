@@ -2,7 +2,7 @@
 void FUN_0041f290(int *param_1,int param_2,int param_3)
 
 {
-  VeryBigStruct *pVVar1;
+  AnmManager *pAVar1;
   Unknown *in_ECX;
   float10 fVar2;
   short local_14;
@@ -51,10 +51,10 @@ void FUN_0041f290(int *param_1,int param_2,int param_3)
     local_c[1].field13_0x3c.field8_0x20 = (int)local_c[1].field13_0x3c.field5_0x14;
     local_c[1].field13_0x3c.field9_0x24 = local_c[1].field13_0x3c.field6_0x18;
   }
-  pVVar1 = g_VeryBigStruct;
+  pAVar1 = g_AnmManager;
   local_14 = (short)param_2 + 0x215;
   *(short *)&local_c->field_0xb4 = local_14;
-  FUN_00432430(local_c,*(int *)(&pVVar1->field_0x1d188 + param_2 * 4));
+  FUN_00432430(local_c,(int)pAVar1->scripts[param_2 + 0x215]);
   local_c->field14_0x7c = -1;
   *(undefined *)((int)&local_c[1].field14_0x7c + 2) = 1;
   return;

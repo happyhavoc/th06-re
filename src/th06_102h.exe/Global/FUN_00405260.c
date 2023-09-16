@@ -151,10 +151,10 @@ void FUN_00405260(int param_1)
         *(float *)(param_1 + 0x7628 + local_10 * 0xc) =
              (float)g_GameContext._424_4_ * *(float *)(param_1 + 0x7688 + local_10 * 0xc) +
              *(float *)(param_1 + 0x7628 + local_10 * 0xc);
-        FUN_00433960();
-        FUN_00433960();
-        FUN_00433960();
-        FUN_00433960();
+        AnmManager::FUN_00433960();
+        AnmManager::FUN_00433960();
+        AnmManager::FUN_00433960();
+        AnmManager::FUN_00433960();
       }
     }
     *(undefined4 *)(param_1 + 0x75d0) = *(undefined4 *)(param_1 + 0x75d8);

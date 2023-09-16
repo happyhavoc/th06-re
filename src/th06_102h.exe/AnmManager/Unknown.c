@@ -1,7 +1,7 @@
 
 undefined4 __thiscall
-VeryBigStruct::Unknown
-          (VeryBigStruct *this,int param_1,undefined4 param_2,undefined4 param_3,undefined4 param_4)
+AnmManager::Unknown(AnmManager *this,int param_1,undefined4 param_2,undefined4 param_3,
+                   undefined4 param_4)
 
 {
   int iVar1;
@@ -28,18 +28,16 @@ VeryBigStruct::Unknown
   local_3c = (int *)0x0;
   local_28 = OpenPath(param_2,0);
   if (local_28 != (byte *)0x0) {
-    (*this->texture_i_think[param_1]->lpVtbl->GetLevelDesc)
-              (this->texture_i_think[param_1],0,&local_24);
+    (*this->textures[param_1]->lpVtbl->GetLevelDesc)(this->textures[param_1],0,&local_24);
     if (((local_24.Format == D3DFMT_A8R8G8B8) || (local_24.Format == D3DFMT_A4R4G4B4)) ||
        (local_24.Format == D3DFMT_A1R5G5B5)) {
       iVar1 = _D3DXCreateTextureFromFileInMemoryEx_60
                         (g_GameContext.d3dDevice,local_28,g_FileSize,0,0,0,0,local_24.Format,2,3,
                          0xffffffff,param_4,0,0,&local_3c);
       if (((iVar1 == 0) &&
-          (HVar2 = (*this->texture_i_think[param_1]->lpVtbl->LockRect)
-                             (this->texture_i_think[param_1],0,&local_30,(RECT *)0x0,0), HVar2 == 0)
-          ) && (iVar1 = (**(code **)(*local_3c + 0x40))(local_3c,0,&local_38,0,0x8000), iVar1 == 0))
-      {
+          (HVar2 = (*this->textures[param_1]->lpVtbl->LockRect)
+                             (this->textures[param_1],0,&local_30,(RECT *)0x0,0), HVar2 == 0)) &&
+         (iVar1 = (**(code **)(*local_3c + 0x40))(local_3c,0,&local_38,0,0x8000), iVar1 == 0)) {
         if (local_24.Format == D3DFMT_A8R8G8B8) {
           for (local_48 = 0; local_48 < local_24.Height; local_48 = local_48 + 1) {
             local_40 = (void *)((int)local_30.pBits + local_48 * local_30.Pitch);
@@ -74,7 +72,7 @@ VeryBigStruct::Unknown
           }
         }
         (**(code **)(*local_3c + 0x44))(local_3c,0);
-        (*this->texture_i_think[param_1]->lpVtbl->UnlockRect)(this->texture_i_think[param_1],0);
+        (*this->textures[param_1]->lpVtbl->UnlockRect)(this->textures[param_1],0);
         if (local_3c != (int *)0x0) {
           (**(code **)(*local_3c + 8))(local_3c);
           local_3c = (int *)0x0;

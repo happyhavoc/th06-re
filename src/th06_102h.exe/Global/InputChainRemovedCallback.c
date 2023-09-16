@@ -7,11 +7,11 @@ undefined4 InputChainRemovedCallback(GameContext *param_1)
   void *_Memory;
   int local_8;
   
-  FUN_004240f0(g_VeryBigStruct);
+  FUN_004240f0(g_AnmManager);
   for (local_8 = 0; local_8 < 0x10; local_8 = local_8 + 1) {
     GameContext::RemovePbg3File(param_1,local_8);
   }
-  FUN_00432030(g_VeryBigStruct,0);
+  FUN_00432030(g_AnmManager,0);
   FUN_00401500();
   SoundPlayer::StopBGM(&g_SoundPlayer);
   if (param_1->unknown_1b0 != (void *)0x0) {

@@ -22,13 +22,13 @@ void FUN_0040d770(int param_1)
   for (local_60 = 0; local_60 < 0x280; local_60 = local_60 + 1) {
     if ((((*(short *)((int)&local_64[7].field13_0x3c.field9_0x24 + 2) != 0) &&
          (*(short *)((int)&local_64[7].field13_0x3c.field9_0x24 + 2) != 5)) &&
-        (local_64->field67_0xc0 != (VeryBigStruct0tbl *)0x0)) &&
-       ((fVar1 = local_64->field67_0xc0->field35_0x2c, fVar1 < 30.0 != NAN(fVar1) &&
+        (local_64->field67_0xc0 != (AnmLoadedSprite *)0x0)) &&
+       ((fVar1 = local_64->field67_0xc0->heightPx, fVar1 < 30.0 != NAN(fVar1) &&
         (NAN((float)local_64[7].field10_0x28) != ((float)local_64[7].field10_0x28 == 0.0))))) {
       *(ushort *)&local_64[7].field13_0x3c.field8_0x20 =
            *(ushort *)&local_64[7].field13_0x3c.field8_0x20 | 0x10;
       *(undefined2 *)((int)&local_64[7].field13_0x3c.field8_0x20 + 2) = 2;
-      FUN_004323a0(g_VeryBigStruct,local_64,
+      FUN_004323a0(g_AnmManager,local_64,
                    *(short *)&local_64->field_0xb2 +
                    *(short *)((int)&local_64[7].field13_0x3c.field8_0x20 + 2));
       local_64[7].field10_0x28 = 0x3c23d70a;

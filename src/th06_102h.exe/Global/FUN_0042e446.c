@@ -39,7 +39,7 @@ void FUN_0042e446(int param_1)
   g_GameContext.viewport.Height = 0x1e0;
   (*(g_GameContext.d3dDevice)->lpVtbl->SetViewport)(g_GameContext.d3dDevice,&g_GameContext.viewport)
   ;
-  FUN_00435300(g_VeryBigStruct,0,0,0,0,0);
+  FUN_00435300(g_AnmManager,0,0,0,0,0);
   for (local_14 = 0; local_14 < 0x26; local_14 = local_14 + 1) {
     local_40 = *(float *)(local_28 + 0x90);
     local_3c = *(float *)(local_28 + 0x94);
@@ -47,7 +47,7 @@ void FUN_0042e446(int param_1)
     *(float *)(local_28 + 0x90) = *(float *)(local_28 + 0x90) + *(float *)(local_28 + 0xe4);
     *(float *)(local_28 + 0x94) = *(float *)(local_28 + 0x94) + *(float *)(local_28 + 0xe8);
     *(float *)(local_28 + 0x98) = *(float *)(local_28 + 0x98) + *(float *)(local_28 + 0xec);
-    FUN_00432ad0(g_VeryBigStruct,local_28);
+    FUN_00432ad0(g_AnmManager,local_28);
     *(float *)(local_28 + 0x90) = local_40;
     *(float *)(local_28 + 0x94) = local_3c;
     *(float *)(local_28 + 0x98) = fStack_38;
@@ -78,7 +78,7 @@ void FUN_0042e446(int param_1)
         FUN_00401650(0x47b900,&local_40,"No.%.2d",local_44 + 1);
         pfVar1 = (float *)(param_1 + 0x2930 + local_14 * 0x110);
         *pfVar1 = *pfVar1 + 96.0;
-        FUN_00432ad0(g_VeryBigStruct,param_1 + 0x28a0 + local_14 * 0x110);
+        FUN_00432ad0(g_AnmManager,param_1 + 0x28a0 + local_14 * 0x110);
         local_40 = local_40 + 368.0;
         FUN_00401650(0x47b900,&local_40,"%3d/%3d",(uint)*(ushort *)(&DAT_0069bd0e + local_44 * 0x40)
                      ,(uint)*(ushort *)(&DAT_0069bd0c + local_44 * 0x40));
@@ -93,12 +93,12 @@ void FUN_0042e446(int param_1)
       *(float *)(param_1 + 0x2930) = local_40;
       *(float *)(param_1 + 0x2934) = local_3c;
       *(float *)(param_1 + 0x2938) = fStack_38;
-      FUN_00432ad0(g_VeryBigStruct,param_1 + 0x28a0);
+      FUN_00432ad0(g_AnmManager,param_1 + 0x28a0);
       local_40 = local_40 + 320.0;
       *(float *)(param_1 + 0x2a40) = local_40;
       *(float *)(param_1 + 0x2a44) = local_3c;
       *(float *)(param_1 + 0x2a48) = fStack_38;
-      FUN_00432ad0(g_VeryBigStruct,param_1 + 0x29b0);
+      FUN_00432ad0(g_AnmManager,param_1 + 0x29b0);
       local_40 = local_40 - 320.0;
       local_3c = local_3c + 18.0;
       local_2c = *(int *)(param_1 + *(int *)(param_1 + 0x2c) * 0x30 + 0x3ab4 +
@@ -244,7 +244,7 @@ void FUN_0042e446(int param_1)
   if ((9 < *(int *)(param_1 + 8)) && (*(int *)(param_1 + 8) < 0xf)) {
     local_28 = param_1 + 0x1030;
     for (local_14 = 0; local_14 < 6; local_14 = local_14 + 1) {
-      FUN_00432ad0(g_VeryBigStruct,local_28);
+      FUN_00432ad0(g_AnmManager,local_28);
       local_28 = local_28 + 0x110;
     }
     local_40 = *(float *)(param_1 + 0x1720);

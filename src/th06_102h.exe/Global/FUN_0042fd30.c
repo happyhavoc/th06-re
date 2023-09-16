@@ -23,7 +23,7 @@ int * FUN_0042fd30(int param_1,int param_2,int param_3,int param_4,int param_5)
     local_2c = (int *)0x0;
   }
   else {
-    FUN_00424127((Unk3field *)(local_2c + 9));
+    FUN_00424127((AnmTimer *)(local_2c + 9));
   }
   local_8 = 0xffffffff;
   if (local_2c == (int *)0x0) {

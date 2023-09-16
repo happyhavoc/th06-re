@@ -109,7 +109,7 @@ void __fastcall FUN_00419c99(uint *param_1)
   if ((*(int *)(param_1[1] + 0x253c) < 0) &&
      ((uint)*(byte *)(param_1 + 8) + (uint)*(byte *)(param_1[1] + 0x1ba0) != 0)) {
     local_14 = param_1[1] + 0x1430;
-    FUN_00432ad0(g_VeryBigStruct,local_14);
+    FUN_00432ad0(g_AnmManager,local_14);
     uVar1 = param_1[1];
     local_14 = uVar1 + 0x1650;
     *(uint *)(uVar1 + 0x16d0) = *(uint *)(uVar1 + 0x16d0) | 0x300;
@@ -117,7 +117,7 @@ void __fastcall FUN_00419c99(uint *param_1)
     *(undefined4 *)(uVar1 + 0x16e0) = 0x42c00000;
     *(undefined4 *)(uVar1 + 0x16e4) = 0x41c00000;
     *(undefined4 *)(uVar1 + 0x16e8) = 0;
-    FUN_00432ad0(g_VeryBigStruct,local_14);
+    FUN_00432ad0(g_AnmManager,local_14);
     local_28 = 0x42a00000;
     local_24 = 0x41800000;
     local_20 = 0;
@@ -178,7 +178,7 @@ void __fastcall FUN_00419c99(uint *param_1)
       *(undefined4 *)(local_14 + 0x90) = 0;
       *(float *)(local_14 + 0x94) = local_8;
       *(undefined4 *)(local_14 + 0x98) = 0x3efae148;
-      FUN_00432ad0(g_VeryBigStruct,local_14);
+      FUN_00432ad0(g_AnmManager,local_14);
     }
     for (local_c = 416.0; local_c < 624.0 != NAN(local_c); local_c = local_c + 32.0) {
       for (local_8 = 0.0; local_8 < 464.0 != NAN(local_8); local_8 = local_8 + 32.0) {
@@ -188,7 +188,7 @@ void __fastcall FUN_00419c99(uint *param_1)
         *(float *)(local_14 + 0x90) = local_c;
         *(float *)(local_14 + 0x94) = local_8;
         *(undefined4 *)(local_14 + 0x98) = 0x3efae148;
-        FUN_00432ad0(g_VeryBigStruct,local_14);
+        FUN_00432ad0(g_AnmManager,local_14);
       }
     }
     local_14 = param_1[1] + 0x770;
@@ -199,7 +199,7 @@ void __fastcall FUN_00419c99(uint *param_1)
       *(float *)(local_14 + 0x90) = local_c;
       *(undefined4 *)(local_14 + 0x94) = 0;
       *(undefined4 *)(local_14 + 0x98) = 0x3efae148;
-      FUN_00432ad0(g_VeryBigStruct,local_14);
+      FUN_00432ad0(g_AnmManager,local_14);
     }
     local_14 = param_1[1] + 0x880;
     for (local_c = 32.0; local_c < 416.0 != NAN(local_c); local_c = local_c + 32.0) {
@@ -209,7 +209,7 @@ void __fastcall FUN_00419c99(uint *param_1)
       *(float *)(local_14 + 0x90) = local_c;
       *(undefined4 *)(local_14 + 0x94) = 0x43e80000;
       *(undefined4 *)(local_14 + 0x98) = 0x3efae148;
-      FUN_00432ad0(g_VeryBigStruct,local_14);
+      FUN_00432ad0(g_AnmManager,local_14);
     }
     FUN_00432cc0((void *)(param_1[1] + 0x550));
     FUN_00432cc0((void *)param_1[1]);
@@ -217,13 +217,13 @@ void __fastcall FUN_00419c99(uint *param_1)
     FUN_00432cc0((void *)(param_1[1] + 0x330));
     FUN_00432cc0((void *)(param_1[1] + 0x440));
     FUN_00432cc0((void *)(param_1[1] + 0x220));
-    FUN_00432ad0(g_VeryBigStruct,param_1[1] + 0x990);
-    FUN_00432ad0(g_VeryBigStruct,param_1[1] + 0xaa0);
-    FUN_00432ad0(g_VeryBigStruct,param_1[1] + 0xbb0);
-    FUN_00432ad0(g_VeryBigStruct,param_1[1] + 0xcc0);
-    FUN_00432ad0(g_VeryBigStruct,param_1[1] + 0xdd0);
-    FUN_00432ad0(g_VeryBigStruct,param_1[1] + 0xee0);
-    FUN_00432ad0(g_VeryBigStruct,param_1[1] + 0xff0);
+    FUN_00432ad0(g_AnmManager,param_1[1] + 0x990);
+    FUN_00432ad0(g_AnmManager,param_1[1] + 0xaa0);
+    FUN_00432ad0(g_AnmManager,param_1[1] + 0xbb0);
+    FUN_00432ad0(g_AnmManager,param_1[1] + 0xcc0);
+    FUN_00432ad0(g_AnmManager,param_1[1] + 0xdd0);
+    FUN_00432ad0(g_AnmManager,param_1[1] + 0xee0);
+    FUN_00432ad0(g_AnmManager,param_1[1] + 0xff0);
     *param_1 = *param_1 & 0xfffffffc | 2;
     *param_1 = *param_1 & 0xfffffff3 | 8;
     *param_1 = *param_1 & 0xffffff3f | 0x80;
@@ -240,14 +240,14 @@ void __fastcall FUN_00419c99(uint *param_1)
     *(undefined4 *)(uVar1 + 0x17f0) = 0x43f80000;
     *(undefined4 *)(uVar1 + 0x17f4) = 0x42680000;
     *(undefined4 *)(uVar1 + 0x17f8) = 0x3efae148;
-    FUN_00432ad0(g_VeryBigStruct,local_14);
+    FUN_00432ad0(g_AnmManager,local_14);
     local_dc = local_c;
     local_d8 = 0x42a40000;
     local_d4 = 0x3efae148;
     *(float *)(local_14 + 0x90) = local_c;
     *(undefined4 *)(local_14 + 0x94) = 0x42a40000;
     *(undefined4 *)(local_14 + 0x98) = 0x3efae148;
-    FUN_00432ad0(g_VeryBigStruct,local_14);
+    FUN_00432ad0(g_AnmManager,local_14);
     if ((*param_1 & 3) != 0) {
       local_e8 = local_c;
       local_e4 = 0x42f40000;
@@ -255,7 +255,7 @@ void __fastcall FUN_00419c99(uint *param_1)
       *(float *)(local_14 + 0x90) = local_c;
       *(undefined4 *)(local_14 + 0x94) = 0x42f40000;
       *(undefined4 *)(local_14 + 0x98) = 0x3efae148;
-      FUN_00432ad0(g_VeryBigStruct,local_14);
+      FUN_00432ad0(g_AnmManager,local_14);
     }
     if ((*param_1 >> 2 & 3) != 0) {
       local_f4 = local_c;
@@ -264,7 +264,7 @@ void __fastcall FUN_00419c99(uint *param_1)
       *(float *)(local_14 + 0x90) = local_c;
       *(undefined4 *)(local_14 + 0x94) = 0x43120000;
       *(undefined4 *)(local_14 + 0x98) = 0x3efae148;
-      FUN_00432ad0(g_VeryBigStruct,local_14);
+      FUN_00432ad0(g_AnmManager,local_14);
     }
     if ((*param_1 >> 4 & 3) != 0) {
       local_100 = local_c;
@@ -273,7 +273,7 @@ void __fastcall FUN_00419c99(uint *param_1)
       *(float *)(local_14 + 0x90) = local_c;
       *(undefined4 *)(local_14 + 0x94) = 0x433a0000;
       *(undefined4 *)(local_14 + 0x98) = 0x3efae148;
-      FUN_00432ad0(g_VeryBigStruct,local_14);
+      FUN_00432ad0(g_AnmManager,local_14);
     }
     if ((*param_1 >> 6 & 3) != 0) {
       local_10c = local_c;
@@ -282,7 +282,7 @@ void __fastcall FUN_00419c99(uint *param_1)
       *(float *)(local_14 + 0x90) = local_c;
       *(undefined4 *)(local_14 + 0x94) = 0x434e0000;
       *(undefined4 *)(local_14 + 0x98) = 0x3efae148;
-      FUN_00432ad0(g_VeryBigStruct,local_14);
+      FUN_00432ad0(g_AnmManager,local_14);
     }
     if ((*param_1 >> 8 & 3) != 0) {
       local_118 = local_c;
@@ -291,7 +291,7 @@ void __fastcall FUN_00419c99(uint *param_1)
       *(float *)(local_14 + 0x90) = local_c;
       *(undefined4 *)(local_14 + 0x94) = 0x43620000;
       *(undefined4 *)(local_14 + 0x98) = 0x3efae148;
-      FUN_00432ad0(g_VeryBigStruct,local_14);
+      FUN_00432ad0(g_AnmManager,local_14);
     }
     local_124 = 0x43f40000;
     local_120 = 0x43e80000;
@@ -299,14 +299,14 @@ void __fastcall FUN_00419c99(uint *param_1)
     *(undefined4 *)(local_14 + 0x90) = 0x43f40000;
     *(undefined4 *)(local_14 + 0x94) = 0x43e80000;
     *(undefined4 *)(local_14 + 0x98) = 0x3efae148;
-    FUN_00432ad0(g_VeryBigStruct,local_14);
+    FUN_00432ad0(g_AnmManager,local_14);
     local_130 = 0;
     local_12c = 0x43e80000;
     local_128 = 0x3efae148;
     *(undefined4 *)(local_14 + 0x90) = 0;
     *(undefined4 *)(local_14 + 0x94) = 0x43e80000;
     *(undefined4 *)(local_14 + 0x98) = 0x3efae148;
-    FUN_00432ad0(g_VeryBigStruct,local_14);
+    FUN_00432ad0(g_AnmManager,local_14);
   }
   if (((*param_1 & 3) != 0) || (((uint)g_GameContext.cfg.render_opts >> 4 & 1) != 0)) {
     local_14 = param_1[1] + 0x1100;
@@ -318,7 +318,7 @@ void __fastcall FUN_00419c99(uint *param_1)
       *(float *)(local_14 + 0x90) = local_c;
       *(undefined4 *)(local_14 + 0x94) = 0x42f40000;
       *(undefined4 *)(local_14 + 0x98) = 0x3efae148;
-      FUN_00432ad0(g_VeryBigStruct,local_14);
+      FUN_00432ad0(g_AnmManager,local_14);
       local_c = local_c + 16.0;
     }
   }
@@ -332,7 +332,7 @@ void __fastcall FUN_00419c99(uint *param_1)
       *(float *)(local_14 + 0x90) = local_c;
       *(undefined4 *)(local_14 + 0x94) = 0x43120000;
       *(undefined4 *)(local_14 + 0x98) = 0x3efae148;
-      FUN_00432ad0(g_VeryBigStruct,local_14);
+      FUN_00432ad0(g_AnmManager,local_14);
       local_c = local_c + 16.0;
     }
   }
@@ -392,10 +392,10 @@ void __fastcall FUN_00419c99(uint *param_1)
       (*(g_GameContext.d3dDevice)->lpVtbl->SetVertexShader)(g_GameContext.d3dDevice,0x44);
       (*(g_GameContext.d3dDevice)->lpVtbl->DrawPrimitiveUP)
                 (g_GameContext.d3dDevice,D3DPT_TRIANGLESTRIP,2,&local_7c,0x14);
-      g_VeryBigStruct->field_0x210be = 0xff;
-      g_VeryBigStruct->field_0x210bd = 0xff;
-      g_VeryBigStruct->field_0x210bc = 0xff;
-      g_VeryBigStruct->field_0x210bf = 0xff;
+      g_AnmManager->field16_0x210be = 0xff;
+      g_AnmManager->currentColorOp = 0xff;
+      g_AnmManager->currentBlendMode = 0xff;
+      g_AnmManager->currentZWriteDisable = 0xff;
       if (((uint)g_GameContext.cfg.render_opts >> 8 & 1) == 0) {
         (*(g_GameContext.d3dDevice)->lpVtbl->SetTextureStageState)
                   (g_GameContext.d3dDevice,0,D3DTSS_ALPHAOP,4);
@@ -415,7 +415,7 @@ void __fastcall FUN_00419c99(uint *param_1)
         *(undefined4 *)(uVar1 + 0x13b0) = 0x43f80000;
         *(undefined4 *)(uVar1 + 0x13b4) = 0x433a0000;
         *(undefined4 *)(uVar1 + 0x13b8) = 0;
-        FUN_00432ad0(g_VeryBigStruct,local_14);
+        FUN_00432ad0(g_AnmManager,local_14);
       }
     }
     if (_DAT_0069d4b0 < 0x80) {

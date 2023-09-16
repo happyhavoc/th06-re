@@ -1,5 +1,5 @@
 
-void __thiscall VeryBigStruct::ReleaseD3dSurfaces(VeryBigStruct *this)
+void __thiscall AnmManager::ReleaseD3dSurfaces(AnmManager *this)
 
 {
   int idx;

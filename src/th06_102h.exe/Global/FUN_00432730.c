@@ -1,7 +1,7 @@
 
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
 
-undefined4 __thiscall FUN_00432730(VeryBigStruct *this,int param_2,int param_3)
+undefined4 __thiscall FUN_00432730(AnmManager *this,int param_2,int param_3)
 
 {
   if (param_3 != 0) {
@@ -18,8 +18,8 @@ undefined4 __thiscall FUN_00432730(VeryBigStruct *this,int param_2,int param_3)
   g_TriangleStrip[2].z = g_TriangleStrip[0].z;
   DAT_006d4638 = g_TriangleStrip[0].z;
   DAT_006d4650 = g_TriangleStrip[0].z;
-  if (*(int *)&this->field_0x210c0 != *(int *)(param_2 + 0xc0)) {
-    *(undefined4 *)&this->field_0x210c0 = *(undefined4 *)(param_2 + 0xc0);
+  if (this->currentSprite != *(AnmLoadedSprite **)(param_2 + 0xc0)) {
+    this->currentSprite = *(AnmLoadedSprite **)(param_2 + 0xc0);
     g_TriangleStrip[1].y = *(float *)(*(int *)(param_2 + 0xc0) + 0x1c) + *(float *)(param_2 + 0x28);
     g_TriangleStrip[3].y = *(float *)(*(int *)(param_2 + 0xc0) + 0x24) + *(float *)(param_2 + 0x28);
     g_TriangleStrip[1].z = *(float *)(*(int *)(param_2 + 0xc0) + 0x20) + *(float *)(param_2 + 0x2c);
@@ -28,21 +28,20 @@ undefined4 __thiscall FUN_00432730(VeryBigStruct *this,int param_2,int param_3)
     DAT_006d4640 = g_TriangleStrip[1].y;
     FLOAT_006d4658 = g_TriangleStrip[3].y;
     FLOAT_006d465c = FLOAT_006d4644;
-    if ((IDirect3DTexture8 *)this->curTexture != this->texture_i_think[**(int **)(param_2 + 0xc0)])
-    {
-      this->curTexture = (int)this->texture_i_think[**(int **)(param_2 + 0xc0)];
+    if (this->currentTexture != this->textures[**(int **)(param_2 + 0xc0)]) {
+      this->currentTexture = this->textures[**(int **)(param_2 + 0xc0)];
       (*(g_GameContext.d3dDevice)->lpVtbl->SetTexture)
-                (g_GameContext.d3dDevice,0,(IDirect3DBaseTexture8 *)this->curTexture);
+                (g_GameContext.d3dDevice,0,(IDirect3DBaseTexture8 *)this->currentTexture);
     }
   }
-  if (this->field_0x210be != '\x02') {
+  if (this->field16_0x210be != '\x02') {
     if (((uint)g_GameContext.cfg.render_opts >> 1 & 1) == 0) {
       (*(g_GameContext.d3dDevice)->lpVtbl->SetVertexShader)(g_GameContext.d3dDevice,0x104);
     }
     else {
       (*(g_GameContext.d3dDevice)->lpVtbl->SetVertexShader)(g_GameContext.d3dDevice,0x144);
     }
-    this->field_0x210be = 2;
+    this->field16_0x210be = '\x02';
   }
   FUN_004324d0(this,param_2);
   if (((uint)g_GameContext.cfg.render_opts >> 1 & 1) == 0) {

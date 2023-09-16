@@ -1,5 +1,5 @@
 
-undefined4 FUN_00433960(Unknown *param_1)
+undefined4 AnmManager::FUN_00433960(Unknown *param_1)
 
 {
   ushort uVar1;
@@ -8,7 +8,7 @@ undefined4 FUN_00433960(Unknown *param_1)
   float fVar4;
   float fVar5;
   ushort uVar6;
-  VeryBigStruct *in_ECX;
+  AnmManager *in_ECX;
   uint uVar7;
   float10 fVar8;
   undefined local_120;
@@ -53,13 +53,13 @@ LAB_00434098:
     local_8 = local_24;
   }
   *(uint *)&param_1->field_0xbc = (int)local_8 + *(byte *)((int)local_8 + 3) + 4;
-  (param_1->field12_0x30).field2_0x8 = (int)**(short **)&param_1->field_0xbc;
-  (param_1->field12_0x30).field1_0x4 = 0;
-  (param_1->field12_0x30).field0_0x0 = 0xfffffc19;
+  (param_1->field12_0x30).current = (int)**(short **)&param_1->field_0xbc;
+  (param_1->field12_0x30).subFrame = 0.0;
+  (param_1->field12_0x30).previous = -999;
   param_1->field15_0x80 = param_1->field15_0x80 | 1;
 LAB_00433998:
   local_8 = *(short **)&param_1->field_0xbc;
-  if ((int)(param_1->field12_0x30).field2_0x8 < (int)*local_8) goto LAB_00434338;
+  if ((param_1->field12_0x30).current < (int)*local_8) goto LAB_00434338;
   switch(*(undefined *)(local_8 + 1)) {
   case 0:
     param_1->field15_0x80 = param_1->field15_0x80 & 0xfffffffe;
@@ -70,9 +70,8 @@ LAB_00433998:
     param_1->field15_0x80 = param_1->field15_0x80 | 1;
     FUN_004323a0(in_ECX,param_1,
                  (short)*(undefined4 *)(local_8 + 2) +
-                 (short)*(undefined4 *)(&in_ECX->field_0x1e934 + *(short *)&param_1->field_0xb4 * 4)
-                );
-    param_1[1].field12_0x30.field2_0x8 = (param_1->field12_0x30).field2_0x8;
+                 (short)in_ECX->spriteIndices[*(short *)&param_1->field_0xb4]);
+    param_1[1].field12_0x30.current = (param_1->field12_0x30).current;
     break;
   case 2:
     param_1->field7_0x1c = *(float *)(local_8 + 2);
@@ -142,9 +141,8 @@ LAB_00433998:
     }
     FUN_004323a0(in_ECX,param_1,
                  (short)*local_c + local_e0 +
-                 (short)*(undefined4 *)(&in_ECX->field_0x1e934 + *(short *)&param_1->field_0xb4 * 4)
-                );
-    param_1[1].field12_0x30.field2_0x8 = (param_1->field12_0x30).field2_0x8;
+                 (short)in_ECX->spriteIndices[*(short *)&param_1->field_0xb4]);
+    param_1[1].field12_0x30.current = (param_1->field12_0x30).current;
     break;
   case 0x11:
     if ((param_1->field15_0x80 >> 5 & 1) == 0) {
@@ -187,8 +185,8 @@ LAB_00433f53:
     param_1[1].field6_0x18 = fVar5;
     param_1[1].field7_0x1c = fVar4;
     param_1->field20_0x8c = local_8[8];
-    param_1[1].field12_0x30.field1_0x4 = 0;
-    param_1[1].field12_0x30.field0_0x0 = 0;
+    param_1[1].field12_0x30.subFrame = 0.0;
+    param_1[1].field12_0x30.previous = 0;
     param_1[1].field11_0x2c = 0xfffffc19;
     break;
   case 0x15:
@@ -334,9 +332,9 @@ LAB_00434338:
       }
     }
     if (param_1->field20_0x8c != 0) {
-      local_3c = ((float)param_1[1].field12_0x30.field1_0x4 +
-                 (float)param_1[1].field12_0x30.field0_0x0) /
-                 (float)(int)(short)param_1->field20_0x8c;
+      local_3c = ((float)(int)param_1[1].field12_0x30.subFrame +
+                 (float)param_1[1].field12_0x30.previous) / (float)(int)(short)param_1->field20_0x8c
+      ;
       if (1.0 <= local_3c) {
         local_3c = 1.0;
       }
@@ -366,22 +364,21 @@ LAB_00434338:
         param_1[1].field10_0x28 =
              (1.0 - local_3c) * (float)param_1[1].field4_0x10 + local_3c * param_1[1].field7_0x1c;
       }
-      if ((int)(short)param_1->field20_0x8c <= (int)param_1[1].field12_0x30.field1_0x4) {
+      if ((int)(short)param_1->field20_0x8c <= (int)param_1[1].field12_0x30.subFrame) {
         param_1->field20_0x8c = 0;
       }
-      param_1[1].field11_0x2c = param_1[1].field12_0x30.field1_0x4;
-      FUN_00424285(&g_GameContext,&param_1[1].field12_0x30.field1_0x4,
+      param_1[1].field11_0x2c = param_1[1].field12_0x30.subFrame;
+      FUN_00424285(&g_GameContext,(int *)&param_1[1].field12_0x30.subFrame,
                    (float *)&param_1[1].field12_0x30);
     }
-    (param_1->field12_0x30).field0_0x0 = (param_1->field12_0x30).field2_0x8;
-    FUN_00424285(&g_GameContext,&(param_1->field12_0x30).field2_0x8,
-                 (float *)&(param_1->field12_0x30).field1_0x4);
+    (param_1->field12_0x30).previous = (param_1->field12_0x30).current;
+    FUN_00424285(&g_GameContext,&(param_1->field12_0x30).current,&(param_1->field12_0x30).subFrame);
     return 0;
   }
   goto LAB_00434098;
 switchD_004339dd_caseD_5:
   *(int *)&param_1->field_0xbc = *(int *)&param_1->field_0xb8 + *(int *)(local_8 + 2);
-  (param_1->field12_0x30).field2_0x8 = (int)**(short **)&param_1->field_0xbc;
+  (param_1->field12_0x30).current = (int)**(short **)&param_1->field_0xbc;
   goto LAB_00433998;
 }
 

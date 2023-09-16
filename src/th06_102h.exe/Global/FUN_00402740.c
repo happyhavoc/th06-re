@@ -25,11 +25,11 @@ void __fastcall FUN_00402740(int *param_1)
         piVar3 = piVar3 + 1;
       }
       local_9c = local_9c | 0x1000;
-      FUN_00432ad0(g_VeryBigStruct,(int)local_11c);
+      FUN_00432ad0(g_AnmManager,(int)local_11c);
     }
     for (local_8 = 0; local_8 < 6; local_8 = local_8 + 1) {
       if ((param_1[local_8 * 0x44 + 0x22] & 1U) != 0) {
-        FUN_00432ad0(g_VeryBigStruct,(int)(param_1 + local_8 * 0x44 + 2));
+        FUN_00432ad0(g_AnmManager,(int)(param_1 + local_8 * 0x44 + 2));
       }
     }
   }

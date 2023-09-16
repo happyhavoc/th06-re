@@ -10,7 +10,7 @@ undefined4 FUN_00429930(int param_1)
   *(float *)(param_1 + 0x94) = VIEWPORT_Y + *(float *)(param_1 + 0x444);
   *(undefined4 *)(param_1 + 0x98) = 0x3efae148;
   if (DAT_0069d4c0 == '\0') {
-    FUN_00432ad0(g_VeryBigStruct,param_1);
+    FUN_00432ad0(g_AnmManager,param_1);
     if ((*(char *)(param_1 + 0x9e2) != '\0') &&
        ((*(char *)(param_1 + 0x9e0) == '\0' || (*(char *)(param_1 + 0x9e0) == '\x03')))) {
       *(undefined4 *)(param_1 + 0x1a0) = *(undefined4 *)(param_1 + 0x4a0);

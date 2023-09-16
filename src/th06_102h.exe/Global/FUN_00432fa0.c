@@ -6,7 +6,7 @@ undefined4 FUN_00432fa0(int param_1)
   float fVar2;
   float fVar3;
   undefined4 uVar4;
-  VeryBigStruct *in_ECX;
+  AnmManager *in_ECX;
   
   if ((*(uint *)(param_1 + 0x80) & 1) == 0) {
     uVar4 = 0xffffffff;

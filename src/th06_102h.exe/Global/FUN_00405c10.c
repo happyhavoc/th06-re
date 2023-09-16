@@ -21,7 +21,7 @@ void FUN_00405c10(int param_1)
       *(float *)(local_8 + 0x90) = VIEWPORT_X + *(float *)(local_8 + 0x90);
       *(float *)(local_8 + 0x94) = VIEWPORT_Y + *(float *)(local_8 + 0x94);
       *(undefined4 *)(local_8 + 0x98) = 0;
-      FUN_00432ad0(g_VeryBigStruct,local_8);
+      FUN_00432ad0(g_AnmManager,local_8);
       pfVar1 = (float *)(param_1 + 0x7624 + local_c * 0xc);
       fVar2 = pfVar1[2];
       fVar3 = pfVar1[1];
@@ -31,7 +31,7 @@ void FUN_00405c10(int param_1)
       *(float *)(local_8 + 0x1a0) = VIEWPORT_X + *(float *)(local_8 + 0x1a0);
       *(float *)(local_8 + 0x1a4) = VIEWPORT_Y + *(float *)(local_8 + 0x1a4);
       *(undefined4 *)(local_8 + 0x1a8) = 0;
-      FUN_00432ad0(g_VeryBigStruct,local_8 + 0x110);
+      FUN_00432ad0(g_AnmManager,local_8 + 0x110);
       pfVar1 = (float *)(param_1 + 0x7624 + local_c * 0xc);
       fVar2 = pfVar1[2];
       fVar3 = pfVar1[1];
@@ -41,7 +41,7 @@ void FUN_00405c10(int param_1)
       *(float *)(local_8 + 0x2b0) = VIEWPORT_X + *(float *)(local_8 + 0x2b0);
       *(float *)(local_8 + 0x2b4) = VIEWPORT_Y + *(float *)(local_8 + 0x2b4);
       *(undefined4 *)(local_8 + 0x2b8) = 0;
-      FUN_00432ad0(g_VeryBigStruct,local_8 + 0x220);
+      FUN_00432ad0(g_AnmManager,local_8 + 0x220);
       pfVar1 = (float *)(param_1 + 0x7624 + local_c * 0xc);
       fVar2 = pfVar1[2];
       fVar3 = pfVar1[1];
@@ -51,7 +51,7 @@ void FUN_00405c10(int param_1)
       *(float *)(local_8 + 0x3c0) = VIEWPORT_X + *(float *)(local_8 + 0x3c0);
       *(float *)(local_8 + 0x3c4) = VIEWPORT_Y + *(float *)(local_8 + 0x3c4);
       *(undefined4 *)(local_8 + 0x3c8) = 0;
-      FUN_00432ad0(g_VeryBigStruct,local_8 + 0x330);
+      FUN_00432ad0(g_AnmManager,local_8 + 0x330);
     }
     local_8 = local_8 + 0x440;
   }

@@ -18,7 +18,7 @@ void FUN_00420190(void)
       fVar1 = local_10[1].field13_0x3c.field5_0x14;
       if (fVar1 < -8.0 == NAN(fVar1)) {
         if (*(char *)((int)&local_10[1].field14_0x7c + 2) == '\0') {
-          FUN_004323a0(g_VeryBigStruct,local_10,*(char *)&local_10[1].field14_0x7c + 0x200);
+          FUN_004323a0(g_AnmManager,local_10,*(char *)&local_10[1].field14_0x7c + 0x200);
           *(undefined *)((int)&local_10[1].field14_0x7c + 2) = 1;
           local_10->field14_0x7c = -1;
         }
@@ -26,7 +26,7 @@ void FUN_00420190(void)
       else {
         *(float *)&local_10->field_0x94 = VIEWPORT_Y + 8.0;
         if (*(char *)((int)&local_10[1].field14_0x7c + 2) != '\0') {
-          FUN_004323a0(g_VeryBigStruct,local_10,*(char *)&local_10[1].field14_0x7c + 0x207);
+          FUN_004323a0(g_AnmManager,local_10,*(char *)&local_10[1].field14_0x7c + 0x207);
           *(undefined *)((int)&local_10[1].field14_0x7c + 2) = 0;
         }
         lVar2 = __ftol2((double)(((8.0 - local_10[1].field13_0x3c.field5_0x14) * 255.0) / 128.0));
@@ -36,7 +36,7 @@ void FUN_00420190(void)
         }
         local_10->field14_0x7c = local_10->field14_0x7c & 0xffffffU | local_8 << 0x18;
       }
-      FUN_00432ad0(g_VeryBigStruct,(int)local_10);
+      FUN_00432ad0(g_AnmManager,(int)local_10);
     }
     local_10 = (Unknown *)&local_10[1].field15_0x80;
   }

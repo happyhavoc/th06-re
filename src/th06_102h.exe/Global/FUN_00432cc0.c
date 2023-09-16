@@ -10,7 +10,7 @@ undefined4 FUN_00432cc0(void *param_1)
   float fVar6;
   float fVar7;
   undefined4 uVar8;
-  VeryBigStruct *in_ECX;
+  AnmManager *in_ECX;
   float10 fVar9;
   
   if (NAN(*(float *)((int)param_1 + 8)) == (*(float *)((int)param_1 + 8) == 0.0)) {

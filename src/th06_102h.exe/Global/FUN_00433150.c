@@ -3,7 +3,7 @@ undefined4 FUN_00433150(float *param_1)
 
 {
   undefined4 uVar1;
-  VeryBigStruct *in_ECX;
+  AnmManager *in_ECX;
   int iVar2;
   float *pfVar3;
   D3DMATRIX *pDVar4;
@@ -59,8 +59,8 @@ undefined4 FUN_00433150(float *param_1)
     }
     local_c4.field0_0x0.field0._43 = param_1[0x26];
     (*(g_GameContext.d3dDevice)->lpVtbl->SetTransform)(g_GameContext.d3dDevice,0x100,&local_c4);
-    if (*(float *)&in_ECX->field_0x210c0 != param_1[0x30]) {
-      *(float *)&in_ECX->field_0x210c0 = param_1[0x30];
+    if (in_ECX->currentSprite != (AnmLoadedSprite *)param_1[0x30]) {
+      in_ECX->currentSprite = (AnmLoadedSprite *)param_1[0x30];
       pfVar3 = param_1 + 0xf;
       pDVar4 = &local_44;
       for (iVar2 = 0x10; iVar2 != 0; iVar2 = iVar2 + -1) {
@@ -72,23 +72,22 @@ undefined4 FUN_00433150(float *param_1)
       local_44.field0_0x0.field0._32 = *(float *)((int)param_1[0x30] + 0x20) + param_1[0xb];
       (*(g_GameContext.d3dDevice)->lpVtbl->SetTransform)
                 (g_GameContext.d3dDevice,D3DTS_TEXTURE0,&local_44);
-      if ((IDirect3DTexture8 *)in_ECX->curTexture != in_ECX->texture_i_think[*(int *)param_1[0x30]])
-      {
-        in_ECX->curTexture = (int)in_ECX->texture_i_think[*(int *)param_1[0x30]];
+      if (in_ECX->currentTexture != in_ECX->textures[*(int *)param_1[0x30]]) {
+        in_ECX->currentTexture = in_ECX->textures[*(int *)param_1[0x30]];
         (*(g_GameContext.d3dDevice)->lpVtbl->SetTexture)
-                  (g_GameContext.d3dDevice,0,(IDirect3DBaseTexture8 *)in_ECX->curTexture);
+                  (g_GameContext.d3dDevice,0,(IDirect3DBaseTexture8 *)in_ECX->currentTexture);
       }
     }
-    if (in_ECX->field_0x210be != '\x03') {
+    if (in_ECX->field16_0x210be != '\x03') {
       if (((uint)g_GameContext.cfg.render_opts >> 1 & 1) == 0) {
         (*(g_GameContext.d3dDevice)->lpVtbl->SetVertexShader)(g_GameContext.d3dDevice,0x102);
         (*(g_GameContext.d3dDevice)->lpVtbl->SetStreamSource)
-                  (g_GameContext.d3dDevice,0,in_ECX->vertex_buffer,0x14);
+                  (g_GameContext.d3dDevice,0,in_ECX->vertexBuffer,0x14);
       }
       else {
         (*(g_GameContext.d3dDevice)->lpVtbl->SetVertexShader)(g_GameContext.d3dDevice,0x142);
       }
-      in_ECX->field_0x210be = 3;
+      in_ECX->field16_0x210be = '\x03';
     }
     FUN_004324d0(in_ECX,(int)param_1);
     if (((uint)g_GameContext.cfg.render_opts >> 1 & 1) == 0) {

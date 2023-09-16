@@ -2,7 +2,7 @@
 undefined4 FUN_00404180(int param_1)
 
 {
-  VeryBigStruct *pVVar1;
+  AnmManager *pAVar1;
   int iVar2;
   undefined4 local_1c;
   undefined4 local_18;
@@ -26,11 +26,11 @@ undefined4 FUN_00404180(int param_1)
       }
     }
   }
-  pVVar1 = g_VeryBigStruct;
+  pAVar1 = g_AnmManager;
   if (0 < *(int *)(param_1 + 0x80)) {
     if (*(int *)(param_1 + 0x84) <= (int)(uint)g_GameContext.cfg.frameskip_config) {
       *(undefined2 *)(param_1 + 0x13c) = 0x2b3;
-      FUN_00432430((Unknown *)(param_1 + 0x88),*(int *)&pVVar1->field_0x1d400);
+      FUN_00432430((Unknown *)(param_1 + 0x88),(int)pAVar1->scripts[0x2b3]);
     }
     FUN_00432cc0((void *)(param_1 + 0x88));
   }

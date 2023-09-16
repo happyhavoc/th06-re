@@ -1,32 +1,30 @@
 
-void __thiscall FUN_00432260(VeryBigStruct *this,int param_2,undefined4 *param_3)
+void __thiscall FUN_00432260(AnmManager *this,int param_2,undefined4 *param_3)
 
 {
   int iVar1;
-  VeryBigStruct0tbl *pVVar2;
+  AnmLoadedSprite *pAVar2;
   
-  pVVar2 = this->field0_0x0 + param_2;
+  pAVar2 = this->sprites + param_2;
   for (iVar1 = 0xe; iVar1 != 0; iVar1 = iVar1 + -1) {
-    pVVar2->field0_0x0 = *param_3;
+    pAVar2->sourceFileIndex = *param_3;
     param_3 = param_3 + 1;
-    pVVar2 = (VeryBigStruct0tbl *)&pVVar2->field_0x4;
+    pAVar2 = (AnmLoadedSprite *)&pAVar2->startPixelInclusive;
   }
-  *(int *)&this->field0_0x0[param_2].field_0x34 = this->field2080_0x1c930;
-  this->field2080_0x1c930 = this->field2080_0x1c930 + 1;
-  *(float *)&this->field0_0x0[param_2].field_0x1c =
-       *(float *)&this->field0_0x0[param_2].field_0x4 / this->field0_0x0[param_2].field18_0x18;
-  *(float *)&this->field0_0x0[param_2].field_0x24 =
-       *(float *)&this->field0_0x0[param_2].field_0xc / this->field0_0x0[param_2].field18_0x18;
-  *(float *)&this->field0_0x0[param_2].field_0x20 =
-       *(float *)&this->field0_0x0[param_2].field_0x8 / this->field0_0x0[param_2].field17_0x14;
-  *(float *)&this->field0_0x0[param_2].field_0x28 =
-       *(float *)&this->field0_0x0[param_2].field_0x10 / this->field0_0x0[param_2].field17_0x14;
-  this->field0_0x0[param_2].field36_0x30 =
-       *(float *)&this->field0_0x0[param_2].field_0xc -
-       *(float *)&this->field0_0x0[param_2].field_0x4;
-  this->field0_0x0[param_2].field35_0x2c =
-       *(float *)&this->field0_0x0[param_2].field_0x10 -
-       *(float *)&this->field0_0x0[param_2].field_0x8;
+  this->sprites[param_2].spriteId = this->maybeLoadedSpriteCount;
+  this->maybeLoadedSpriteCount = this->maybeLoadedSpriteCount + 1;
+  this->sprites[param_2].uvStart.x =
+       this->sprites[param_2].startPixelInclusive.x / this->sprites[param_2].textureWidth;
+  this->sprites[param_2].uvEnd.x =
+       this->sprites[param_2].endPixelInclusive.x / this->sprites[param_2].textureWidth;
+  this->sprites[param_2].uvStart.y =
+       this->sprites[param_2].startPixelInclusive.y / this->sprites[param_2].textureHeight;
+  this->sprites[param_2].uvEnd.y =
+       this->sprites[param_2].endPixelInclusive.y / this->sprites[param_2].textureHeight;
+  this->sprites[param_2].widthPx =
+       this->sprites[param_2].endPixelInclusive.x - this->sprites[param_2].startPixelInclusive.x;
+  this->sprites[param_2].heightPx =
+       this->sprites[param_2].endPixelInclusive.y - this->sprites[param_2].startPixelInclusive.y;
   return;
 }
 

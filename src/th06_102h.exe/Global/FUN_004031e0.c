@@ -22,7 +22,7 @@ void __fastcall FUN_004031e0(int param_1)
       *(undefined4 *)(param_1 + 0x18c) = *(undefined4 *)(local_8 + 0x14);
       local_14 = (byte *)(local_8 + -1 + (uint)*(byte *)(local_8 + 0x25));
       for (local_c = (uint)*(byte *)(local_8 + 0x25); 0 < (int)local_c; local_c = local_c - 1) {
-        *(VeryBigStruct0tbl **)(param_1 + 0x1d0) = g_VeryBigStruct->field0_0x0 + *local_14;
+        *(AnmLoadedSprite **)(param_1 + 0x1d0) = g_AnmManager->sprites + *local_14;
         if (*local_14 < 10) {
           FUN_00433590(param_1 + 0x110);
         }

@@ -97,12 +97,12 @@ undefined4 FUN_004135b0(short *param_1,uint param_2,int param_3,float param_4)
     *(undefined *)((int)&local_10[7].field13_0x3c.field10_0x28 + 2) = 1;
     local_10[7].field10_0x28 = local_8;
     fVar12 = (float10)FUN_0041e850(local_14,0);
-    local_10[7].field12_0x30.field1_0x4 = (float)fVar12;
+    local_10[7].field12_0x30.subFrame = (float)fVar12;
     local_10[7].field1_0x4 = *(undefined4 *)(param_1 + 2);
     local_10[7].field2_0x8 = *(undefined4 *)(param_1 + 4);
     local_10[7].field3_0xc = *(undefined4 *)(param_1 + 6);
     local_10[7].field3_0xc = 0x3dcccccd;
-    fVar13 = (float10)(float)local_10[7].field12_0x30.field1_0x4;
+    fVar13 = (float10)local_10[7].field12_0x30.subFrame;
     fVar12 = (float10)fcos(fVar13);
     fVar13 = (float10)fsin(fVar13);
     local_10[7].field4_0x10 = (float)(fVar12 * (float10)local_8);
@@ -126,7 +126,7 @@ undefined4 FUN_004135b0(short *param_1,uint param_2,int param_3,float param_4)
     puVar7 = (undefined4 *)(in_ECX + 0x550 + *param_1 * 0x560);
     *(undefined4 *)&local_10[6].field_0xb8 = *puVar7;
     *(undefined4 *)&local_10[6].field_0xbc = puVar7[1];
-    local_10[6].field67_0xc0 = (VeryBigStruct0tbl *)puVar7[2];
+    local_10[6].field67_0xc0 = (AnmLoadedSprite *)puVar7[2];
     *(undefined *)&local_10[7].field0_0x0 = *(undefined *)(in_ECX + 0x55c + *param_1 * 0x560);
     *(undefined *)((int)&local_10[7].field0_0x0 + 1) =
          *(undefined *)(in_ECX + 0x55d + *param_1 * 0x560);
@@ -140,25 +140,25 @@ undefined4 FUN_004135b0(short *param_1,uint param_2,int param_3,float param_4)
             puVar7 = puVar7 + 1;
             puVar11 = puVar11 + 1;
           }
-          fVar2 = local_10->field67_0xc0->field35_0x2c;
+          fVar2 = local_10->field67_0xc0->heightPx;
           if (fVar2 < 16.0 == (fVar2 == 16.0)) {
-            fVar2 = local_10->field67_0xc0->field35_0x2c;
+            fVar2 = local_10->field67_0xc0->heightPx;
             if (fVar2 < 32.0 == (fVar2 == 32.0)) {
-              FUN_004323a0(g_VeryBigStruct,(Unknown *)&local_10[4].field8_0x20,
+              FUN_004323a0(g_AnmManager,(Unknown *)&local_10[4].field8_0x20,
                            *(short *)&local_10[5].field3_0xc + param_1[1]);
             }
             else if (*(short *)&local_10->field_0xb4 == 0x207) {
-              FUN_004323a0(g_VeryBigStruct,(Unknown *)&local_10[4].field8_0x20,
+              FUN_004323a0(g_AnmManager,(Unknown *)&local_10[4].field8_0x20,
                            *(short *)&local_10[5].field3_0xc + 1);
             }
             else {
-              FUN_004323a0(g_VeryBigStruct,(Unknown *)&local_10[4].field8_0x20,
+              FUN_004323a0(g_AnmManager,(Unknown *)&local_10[4].field8_0x20,
                            *(short *)&local_10[5].field3_0xc +
                            (short)*(undefined4 *)(&DAT_00476480 + param_1[1] * 4));
             }
           }
           else {
-            FUN_004323a0(g_VeryBigStruct,(Unknown *)&local_10[4].field8_0x20,
+            FUN_004323a0(g_AnmManager,(Unknown *)&local_10[4].field8_0x20,
                          *(short *)&local_10[5].field3_0xc +
                          (short)*(undefined4 *)(&DAT_00476440 + param_1[1] * 4));
           }
@@ -173,25 +173,25 @@ undefined4 FUN_004135b0(short *param_1,uint param_2,int param_3,float param_4)
           pfVar6 = pfVar6 + 1;
           pfVar10 = pfVar10 + 1;
         }
-        fVar2 = local_10->field67_0xc0->field35_0x2c;
+        fVar2 = local_10->field67_0xc0->heightPx;
         if (fVar2 < 16.0 == (fVar2 == 16.0)) {
-          fVar2 = local_10->field67_0xc0->field35_0x2c;
+          fVar2 = local_10->field67_0xc0->heightPx;
           if (fVar2 < 32.0 == (fVar2 == 32.0)) {
-            FUN_004323a0(g_VeryBigStruct,(Unknown *)&local_10[2].field31_0x98,
+            FUN_004323a0(g_AnmManager,(Unknown *)&local_10[2].field31_0x98,
                          local_10[3].field16_0x84 + param_1[1]);
           }
           else if (*(short *)&local_10->field_0xb4 == 0x207) {
-            FUN_004323a0(g_VeryBigStruct,(Unknown *)&local_10[2].field31_0x98,
+            FUN_004323a0(g_AnmManager,(Unknown *)&local_10[2].field31_0x98,
                          local_10[3].field16_0x84 + 1);
           }
           else {
-            FUN_004323a0(g_VeryBigStruct,(Unknown *)&local_10[2].field31_0x98,
+            FUN_004323a0(g_AnmManager,(Unknown *)&local_10[2].field31_0x98,
                          local_10[3].field16_0x84 +
                          (short)*(undefined4 *)(&DAT_00476480 + param_1[1] * 4));
           }
         }
         else {
-          FUN_004323a0(g_VeryBigStruct,(Unknown *)&local_10[2].field31_0x98,
+          FUN_004323a0(g_AnmManager,(Unknown *)&local_10[2].field31_0x98,
                        local_10[3].field16_0x84 +
                        (short)*(undefined4 *)(&DAT_00476440 + param_1[1] * 4));
         }
@@ -206,57 +206,57 @@ undefined4 FUN_004135b0(short *param_1,uint param_2,int param_3,float param_4)
         piVar5 = piVar5 + 1;
         pfVar6 = pfVar6 + 1;
       }
-      fVar2 = local_10->field67_0xc0->field35_0x2c;
+      fVar2 = local_10->field67_0xc0->heightPx;
       if (fVar2 < 16.0 == (fVar2 == 16.0)) {
-        fVar2 = local_10->field67_0xc0->field35_0x2c;
+        fVar2 = local_10->field67_0xc0->heightPx;
         if (fVar2 < 32.0 == (fVar2 == 32.0)) {
-          FUN_004323a0(g_VeryBigStruct,(Unknown *)&local_10[1].field13_0x3c.field4_0x10,
-                       *(short *)&local_10[2].field12_0x30.field2_0x8 + param_1[1]);
+          FUN_004323a0(g_AnmManager,(Unknown *)&local_10[1].field13_0x3c.field4_0x10,
+                       *(short *)&local_10[2].field12_0x30.current + param_1[1]);
         }
         else if (*(short *)&local_10->field_0xb4 == 0x207) {
-          FUN_004323a0(g_VeryBigStruct,(Unknown *)&local_10[1].field13_0x3c.field4_0x10,
-                       *(short *)&local_10[2].field12_0x30.field2_0x8 + 1);
+          FUN_004323a0(g_AnmManager,(Unknown *)&local_10[1].field13_0x3c.field4_0x10,
+                       *(short *)&local_10[2].field12_0x30.current + 1);
         }
         else {
-          FUN_004323a0(g_VeryBigStruct,(Unknown *)&local_10[1].field13_0x3c.field4_0x10,
-                       *(short *)&local_10[2].field12_0x30.field2_0x8 +
+          FUN_004323a0(g_AnmManager,(Unknown *)&local_10[1].field13_0x3c.field4_0x10,
+                       *(short *)&local_10[2].field12_0x30.current +
                        (short)*(undefined4 *)(&DAT_00476480 + param_1[1] * 4));
         }
       }
       else {
-        FUN_004323a0(g_VeryBigStruct,(Unknown *)&local_10[1].field13_0x3c.field4_0x10,
-                     *(short *)&local_10[2].field12_0x30.field2_0x8 +
+        FUN_004323a0(g_AnmManager,(Unknown *)&local_10[1].field13_0x3c.field4_0x10,
+                     *(short *)&local_10[2].field12_0x30.current +
                      (short)*(undefined4 *)(&DAT_00476440 + param_1[1] * 4));
       }
       *(undefined2 *)((int)&local_10[7].field13_0x3c.field9_0x24 + 2) = 2;
     }
-    FUN_004323a0(g_VeryBigStruct,local_10,local_10->field52_0xb0 + param_1[1]);
-    fVar2 = local_10->field67_0xc0->field35_0x2c;
+    FUN_004323a0(g_AnmManager,local_10,local_10->field52_0xb0 + param_1[1]);
+    fVar2 = local_10->field67_0xc0->heightPx;
     if (fVar2 < 16.0 == (fVar2 == 16.0)) {
-      fVar2 = local_10->field67_0xc0->field35_0x2c;
+      fVar2 = local_10->field67_0xc0->heightPx;
       if (fVar2 < 32.0 == (fVar2 == 32.0)) {
-        FUN_004323a0(g_VeryBigStruct,(Unknown *)&local_10[5].field13_0x3c.field12_0x30,
+        FUN_004323a0(g_AnmManager,(Unknown *)&local_10[5].field13_0x3c.field12_0x30,
                      *(short *)&local_10[6].field13_0x3c.field7_0x1c + param_1[1]);
       }
       else if (*(short *)&local_10->field_0xb4 == 0x207) {
-        FUN_004323a0(g_VeryBigStruct,(Unknown *)&local_10[5].field13_0x3c.field12_0x30,
+        FUN_004323a0(g_AnmManager,(Unknown *)&local_10[5].field13_0x3c.field12_0x30,
                      *(short *)&local_10[6].field13_0x3c.field7_0x1c + 1);
       }
       else {
-        FUN_004323a0(g_VeryBigStruct,(Unknown *)&local_10[5].field13_0x3c.field12_0x30,
+        FUN_004323a0(g_AnmManager,(Unknown *)&local_10[5].field13_0x3c.field12_0x30,
                      *(short *)&local_10[6].field13_0x3c.field7_0x1c +
                      (short)*(undefined4 *)(&DAT_00476480 + param_1[1] * 4));
       }
     }
     else {
-      FUN_004323a0(g_VeryBigStruct,(Unknown *)&local_10[5].field13_0x3c.field12_0x30,
+      FUN_004323a0(g_AnmManager,(Unknown *)&local_10[5].field13_0x3c.field12_0x30,
                    *(short *)&local_10[6].field13_0x3c.field7_0x1c +
                    (short)*(undefined4 *)(&DAT_00476440 + param_1[1] * 4));
     }
     if ((*(ushort *)&local_10[7].field13_0x3c.field8_0x20 & 0x10) == 0) {
       if ((*(ushort *)&local_10[7].field13_0x3c.field8_0x20 & 0x20) != 0) {
         local_10[7].field11_0x2c = *(undefined4 *)(param_1 + 0x10);
-        local_10[7].field12_0x30.field2_0x8 = *(undefined4 *)(param_1 + 0x12);
+        local_10[7].field12_0x30.current = *(int *)(param_1 + 0x12);
         local_10[7].field13_0x3c.field4_0x10 = *(int *)(param_1 + 0x18);
       }
     }
@@ -286,10 +286,10 @@ undefined4 FUN_004135b0(short *param_1,uint param_2,int param_3,float param_4)
     if ((*(ushort *)&local_10[7].field13_0x3c.field8_0x20 & 0x1c0) != 0) {
       local_10[7].field13_0x3c.field0_0x0 = *(float *)(param_1 + 0x10);
       if (*(float *)(param_1 + 0x12) < 0.0) {
-        local_10[7].field12_0x30.field0_0x0 = local_8;
+        local_10[7].field12_0x30.previous = (int)local_8;
       }
       else {
-        local_10[7].field12_0x30.field0_0x0 = *(undefined4 *)(param_1 + 0x12);
+        local_10[7].field12_0x30.previous = *(int *)(param_1 + 0x12);
       }
       local_10[7].field13_0x3c.field5_0x14 = *(float *)(param_1 + 0x18);
       local_10[7].field13_0x3c.field7_0x1c = *(int *)(param_1 + 0x1a);
@@ -297,10 +297,10 @@ undefined4 FUN_004135b0(short *param_1,uint param_2,int param_3,float param_4)
     }
     if ((*(ushort *)&local_10[7].field13_0x3c.field8_0x20 & 0xc00) != 0) {
       if (*(float *)(param_1 + 0x10) < 0.0) {
-        local_10[7].field12_0x30.field0_0x0 = local_8;
+        local_10[7].field12_0x30.previous = (int)local_8;
       }
       else {
-        local_10[7].field12_0x30.field0_0x0 = *(undefined4 *)(param_1 + 0x10);
+        local_10[7].field12_0x30.previous = *(int *)(param_1 + 0x10);
       }
       local_10[7].field13_0x3c.field7_0x1c = *(int *)(param_1 + 0x18);
       local_10[7].field13_0x3c.field6_0x18 = 0;

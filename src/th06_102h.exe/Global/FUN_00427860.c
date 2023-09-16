@@ -8,7 +8,7 @@ undefined4 FUN_00427860(void)
   float fVar2;
   float fVar3;
   float fVar4;
-  VeryBigStruct *pVVar5;
+  AnmManager *pAVar5;
   int iVar6;
   Unknown *in_ECX;
   int *piVar7;
@@ -54,7 +54,7 @@ undefined4 FUN_00427860(void)
   else {
     in_ECX[0xc].field_0xb3 = 1;
   }
-  pVVar5 = g_VeryBigStruct;
+  pAVar5 = g_AnmManager;
   switch(in_ECX[0xd].field6_0x18) {
   case 1.401298e-45:
     if ((BUTTONS_PRESSED_CURFRAME & 4) == 0) {
@@ -132,23 +132,23 @@ undefined4 FUN_00427860(void)
     if ((NAN(local_10) != (local_10 == 0.0)) &&
        (in_ECX[0xd].field7_0x1c < 0.0 != NAN(in_ECX[0xd].field7_0x1c))) {
       *(undefined2 *)&in_ECX->field_0xb4 = 0x402;
-      FUN_00432430(in_ECX,*(int *)&pVVar5->field_0x1d93c);
+      FUN_00432430(in_ECX,(int)pAVar5->scripts[0x402]);
     }
   }
   else {
     *(undefined2 *)&in_ECX->field_0xb4 = 0x401;
-    FUN_00432430(in_ECX,*(int *)&pVVar5->field_0x1d938);
+    FUN_00432430(in_ECX,(int)pAVar5->scripts[0x401]);
   }
-  pVVar5 = g_VeryBigStruct;
+  pAVar5 = g_AnmManager;
   if ((local_10 <= 0.0) || (in_ECX[0xd].field7_0x1c < 0.0 == (in_ECX[0xd].field7_0x1c == 0.0))) {
     if ((NAN(local_10) != (local_10 == 0.0)) && (0.0 < in_ECX[0xd].field7_0x1c)) {
       *(undefined2 *)&in_ECX->field_0xb4 = 0x404;
-      FUN_00432430(in_ECX,*(int *)&pVVar5->field_0x1d944);
+      FUN_00432430(in_ECX,(int)pAVar5->scripts[0x404]);
     }
   }
   else {
     *(undefined2 *)&in_ECX->field_0xb4 = 0x403;
-    FUN_00432430(in_ECX,*(int *)&pVVar5->field_0x1d940);
+    FUN_00432430(in_ECX,(int)pAVar5->scripts[0x403]);
   }
   in_ECX[0xd].field7_0x1c = local_10;
   in_ECX[0xd].field8_0x20 = local_c;
@@ -222,20 +222,20 @@ undefined4 FUN_00427860(void)
   }
   switch(in_ECX[0xc].field_0xb2) {
   case 0:
-    in_ECX[0xc].field67_0xc0 = (VeryBigStruct0tbl *)0x0;
+    in_ECX[0xc].field67_0xc0 = (AnmLoadedSprite *)0x0;
     *(undefined4 *)&in_ECX[0xc].field_0xbc = 0;
     *(undefined4 *)&in_ECX[0xc].field_0xb8 = 0xfffffc19;
     break;
   case 1:
     local_18 = 24.0;
-    in_ECX[0xc].field67_0xc0 = (VeryBigStruct0tbl *)0x0;
+    in_ECX[0xc].field67_0xc0 = (AnmLoadedSprite *)0x0;
     *(undefined4 *)&in_ECX[0xc].field_0xbc = 0;
     *(undefined4 *)&in_ECX[0xc].field_0xb8 = 0xfffffc19;
     if (in_ECX[0xc].field_0xb3 == '\0') break;
     in_ECX[0xc].field_0xb2 = 2;
   case 2:
     while( true ) {
-      *(VeryBigStruct0tbl **)&in_ECX[0xc].field_0xb8 = in_ECX[0xc].field67_0xc0;
+      *(AnmLoadedSprite **)&in_ECX[0xc].field_0xb8 = in_ECX[0xc].field67_0xc0;
       FUN_00424285(&g_GameContext,(int *)&in_ECX[0xc].field67_0xc0,(float *)&in_ECX[0xc].field_0xbc)
       ;
       fVar1 = ((float)(int)in_ECX[0xc].field67_0xc0 + *(float *)&in_ECX[0xc].field_0xbc) / 8.0;
@@ -246,11 +246,11 @@ undefined4 FUN_00427860(void)
       }
       if (in_ECX[0xc].field_0xb3 != '\0') break;
       in_ECX[0xc].field_0xb2 = 4;
-      in_ECX[0xc].field67_0xc0 = (VeryBigStruct0tbl *)(8 - (int)in_ECX[0xc].field67_0xc0);
+      in_ECX[0xc].field67_0xc0 = (AnmLoadedSprite *)(8 - (int)in_ECX[0xc].field67_0xc0);
       *(undefined4 *)&in_ECX[0xc].field_0xbc = 0;
       *(undefined4 *)&in_ECX[0xc].field_0xb8 = 0xfffffc19;
 switchD_004281aa_caseD_4:
-      *(VeryBigStruct0tbl **)&in_ECX[0xc].field_0xb8 = in_ECX[0xc].field67_0xc0;
+      *(AnmLoadedSprite **)&in_ECX[0xc].field_0xb8 = in_ECX[0xc].field67_0xc0;
       FUN_00424285(&g_GameContext,(int *)&in_ECX[0xc].field67_0xc0,(float *)&in_ECX[0xc].field_0xbc)
       ;
       fVar1 = ((float)(int)in_ECX[0xc].field67_0xc0 + *(float *)&in_ECX[0xc].field_0xbc) / 8.0;
@@ -261,7 +261,7 @@ switchD_004281aa_caseD_4:
       }
       if (in_ECX[0xc].field_0xb3 == '\0') break;
       in_ECX[0xc].field_0xb2 = 2;
-      in_ECX[0xc].field67_0xc0 = (VeryBigStruct0tbl *)(8 - (int)in_ECX[0xc].field67_0xc0);
+      in_ECX[0xc].field67_0xc0 = (AnmLoadedSprite *)(8 - (int)in_ECX[0xc].field67_0xc0);
       *(undefined4 *)&in_ECX[0xc].field_0xbc = 0;
       *(undefined4 *)&in_ECX[0xc].field_0xb8 = 0xfffffc19;
     }
@@ -269,7 +269,7 @@ switchD_004281aa_caseD_4:
   case 3:
     local_18 = 8.0;
     local_14 = -32.0;
-    in_ECX[0xc].field67_0xc0 = (VeryBigStruct0tbl *)0x0;
+    in_ECX[0xc].field67_0xc0 = (AnmLoadedSprite *)0x0;
     *(undefined4 *)&in_ECX[0xc].field_0xbc = 0;
     *(undefined4 *)&in_ECX[0xc].field_0xb8 = 0xfffffc19;
     if (in_ECX[0xc].field_0xb3 == '\0') {

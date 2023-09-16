@@ -4,16 +4,16 @@
 undefined4 FUN_0043a464(int param_1)
 
 {
-  VeryBigStruct *pVVar1;
+  AnmManager *pAVar1;
   undefined4 uVar2;
   int local_c;
   
   if (DAT_0069d4c4 == '\0') {
     FUN_00424b2f();
   }
-  pVVar1 = g_VeryBigStruct;
+  pAVar1 = g_AnmManager;
   for (local_c = 0; local_c < 0x7a; local_c = local_c + 1) {
-    *(undefined4 *)(&pVVar1->field_0x1cd34 + local_c * 4) = 0;
+    pAVar1->scripts[local_c + 0x100] = (AnmRawInstr *)0x0;
   }
   *(undefined4 *)(param_1 + 0x81e4) = 0;
   if (g_GameContext.unkInput4 < 2) {

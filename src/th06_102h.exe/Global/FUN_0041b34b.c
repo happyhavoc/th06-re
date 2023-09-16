@@ -1,30 +1,30 @@
 
-VeryBigStruct1c000 * FUN_0041b34b(void)
+AnmVm * FUN_0041b34b(void)
 
 {
-  VeryBigStruct1c000 *in_ECX;
-  VeryBigStruct1c000 *local_10;
+  AnmVm *in_ECX;
+  AnmVm *local_10;
   int local_8;
   
   local_8 = 0x1a;
   local_10 = in_ECX;
   while (local_8 = local_8 + -1, -1 < local_8) {
     FUN_00403720(local_10);
-    local_10 = (VeryBigStruct1c000 *)&local_10[1].field_0x4;
+    local_10 = local_10 + 1;
   }
-  FUN_00403720((VeryBigStruct1c000 *)&in_ECX[0x1a].field_0x6c);
-  FUN_00403720((VeryBigStruct1c000 *)&in_ECX[0x1b].field_0x70);
-  FUN_00403720((VeryBigStruct1c000 *)&in_ECX[0x1c].field_0x74);
-  FUN_00403720((VeryBigStruct1c000 *)&in_ECX[0x1d].field_0x78);
-  FUN_00403720((VeryBigStruct1c000 *)&in_ECX[0x1e].field_0x7c);
-  FUN_00403720((VeryBigStruct1c000 *)&in_ECX[0x1f].field_0x80);
-  FUN_00403720((VeryBigStruct1c000 *)&in_ECX[0x20].field_0x84);
-  FUN_00403720((VeryBigStruct1c000 *)&in_ECX[0x21].field_0x88);
-  FUN_00403720((VeryBigStruct1c000 *)&in_ECX[0x22].field_0x8c);
-  FUN_0041b4c4((int)&in_ECX[0x23].field_0x90);
-  FUN_00424127((Unk3field *)(in_ECX + 0x2a));
-  FUN_00424127((Unk3field *)&in_ECX[0x2a].field_0x20);
-  FUN_00424127((Unk3field *)&in_ECX[0x2a].field_0x40);
+  FUN_00403720((AnmVm *)&in_ECX[0x1a].rotation.y);
+  FUN_00403720((AnmVm *)&in_ECX[0x1b].rotation.y);
+  FUN_00403720((AnmVm *)&in_ECX[0x1c].rotation.y);
+  FUN_00403720((AnmVm *)&in_ECX[0x1d].rotation.y);
+  FUN_00403720((AnmVm *)&in_ECX[0x1e].rotation.y);
+  FUN_00403720((AnmVm *)&in_ECX[0x1f].rotation.y);
+  FUN_00403720((AnmVm *)&in_ECX[0x20].rotation.y);
+  FUN_00403720((AnmVm *)&in_ECX[0x21].rotation.y);
+  FUN_00403720((AnmVm *)&in_ECX[0x22].rotation.y);
+  FUN_0041b4c4((int)&in_ECX[0x23].rotation.y);
+  FUN_00424127((AnmTimer *)((int)&in_ECX[0x29].matrix.field0_0x0 + 0x2c));
+  FUN_00424127((AnmTimer *)&in_ECX[0x29].autoRotate);
+  FUN_00424127((AnmTimer *)&in_ECX[0x29].scaleInterpTime.subFrame);
   return in_ECX;
 }
 

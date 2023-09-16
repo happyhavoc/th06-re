@@ -5,7 +5,7 @@ undefined4 FUN_004288c0(Unknown *param_1)
 
 {
   float fVar1;
-  VeryBigStruct *pVVar2;
+  AnmManager *pAVar2;
   int iVar3;
   long lVar4;
   uint uVar5;
@@ -95,9 +95,9 @@ undefined4 FUN_004288c0(Unknown *param_1)
     *(undefined4 *)&param_1[0x99].field_0x90 = 0xfffffc19;
     param_1->field7_0x1c = 3.0;
     param_1->field6_0x18 = 3.0;
-    pVVar2 = g_VeryBigStruct;
+    pAVar2 = g_AnmManager;
     *(undefined2 *)&param_1->field_0xb4 = 0x400;
-    FUN_00432430(param_1,*(int *)&pVVar2->field_0x1d934);
+    FUN_00432430(param_1,(int)pAVar2->scripts[0x400]);
     if (LIFE_COUNT < '\x01') {
       DAT_0069d4c0 = 1;
       goto LAB_00428fa8;
@@ -172,15 +172,15 @@ LAB_00428fa8:
      (*(char *)&param_1[0xc].field52_0xb0 != '\x01')) {
     FUN_00427860();
   }
-  FUN_00433960(param_1);
+  AnmManager::FUN_00433960(param_1);
   FUN_004291b0(param_1);
   if (param_1[0xc].field_0xb2 != '\0') {
-    FUN_00433960(&param_1[1].field13_0x3c.field4_0x10);
-    FUN_00433960(&param_1[2].field31_0x98);
+    AnmManager::FUN_00433960(&param_1[1].field13_0x3c.field4_0x10);
+    AnmManager::FUN_00433960(&param_1[2].field31_0x98);
   }
   param_1[0xd].field10_0x28 = 0xc479c000;
   param_1[0xd].field11_0x2c = 0xc479c000;
-  param_1[0xd].field12_0x30.field0_0x0 = 0;
+  param_1[0xd].field12_0x30.previous = 0;
   FUN_00429710(param_1);
   return 1;
 }

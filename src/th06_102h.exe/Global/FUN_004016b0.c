@@ -50,14 +50,14 @@ void __fastcall FUN_004016b0(int param_1)
       }
       else {
         if (*(int *)(local_10 + 0x58) == 0) {
-          *(uint *)(param_1 + 0xc0) = (int)g_VeryBigStruct + (*local_14 - 0x15) * 0x38;
+          *(uint *)(param_1 + 0xc0) = (int)g_AnmManager + (*local_14 - 0x15) * 0x38;
           *(undefined4 *)(param_1 + 0x7c) = *(undefined4 *)(local_10 + 0x4c);
         }
         else {
-          *(VeryBigStruct0tbl **)(param_1 + 0xc0) = g_VeryBigStruct->field0_0x0 + *local_14 + 0x61;
+          *(AnmLoadedSprite **)(param_1 + 0xc0) = g_AnmManager->sprites + *local_14 + 0x61;
           *(undefined4 *)(param_1 + 0x7c) = 0xffffffff;
         }
-        FUN_00432ad0(g_VeryBigStruct,param_1);
+        FUN_00432ad0(g_AnmManager,param_1);
         *(float *)(param_1 + 0x90) = fVar1 * 14.0 + *(float *)(param_1 + 0x90);
       }
     }

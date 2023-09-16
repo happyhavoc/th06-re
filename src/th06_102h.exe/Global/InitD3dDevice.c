@@ -102,11 +102,11 @@ void InitD3dDevice(void)
             (g_GameContext.d3dDevice,0,D3DTSS_ADDRESSU,1);
   (*(g_GameContext.d3dDevice)->lpVtbl->SetTextureStageState)
             (g_GameContext.d3dDevice,0,D3DTSS_ADDRESSV,1);
-  if (g_VeryBigStruct != (VeryBigStruct *)0x0) {
-    g_VeryBigStruct->field_0x210bc = 0xff;
-    g_VeryBigStruct->field_0x210bd = 0xff;
-    g_VeryBigStruct->field_0x210be = 0xff;
-    g_VeryBigStruct->curTexture = 0;
+  if (g_AnmManager != (AnmManager *)0x0) {
+    g_AnmManager->currentBlendMode = 0xff;
+    g_AnmManager->currentColorOp = 0xff;
+    g_AnmManager->field16_0x210be = 0xff;
+    g_AnmManager->currentTexture = (IDirect3DTexture8 *)0x0;
   }
   DAT_00487b8c = 1;
   return;

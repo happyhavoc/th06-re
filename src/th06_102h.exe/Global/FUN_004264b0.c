@@ -9,7 +9,7 @@ int FUN_004264b0(float *param_1,float *param_2,undefined4 *param_3)
   float *pfVar2;
   float fVar3;
   short sVar4;
-  VeryBigStruct *pVVar5;
+  AnmManager *pAVar5;
   int *piVar6;
   int in_ECX;
   int *piVar7;
@@ -90,7 +90,7 @@ int FUN_004264b0(float *param_1,float *param_2,undefined4 *param_3)
             FUN_0040ef50(5,&local_8[1].field13_0x3c.field4_0x10,1,0xffffffff);
           }
         }
-        pVVar5 = g_VeryBigStruct;
+        pAVar5 = g_AnmManager;
         if (local_8[1].field20_0x8c == 3) {
           *(char *)(in_ECX + 0x9e4) = *(char *)(in_ECX + 0x9e4) + '\x01';
           if ((*(byte *)(in_ECX + 0x9e4) & 7) == 0) {
@@ -105,7 +105,7 @@ int FUN_004264b0(float *param_1,float *param_2,undefined4 *param_3)
             sVar4 = *(short *)&local_8->field_0xb4;
             local_80 = sVar4 + 0x20;
             *(short *)&local_8->field_0xb4 = local_80;
-            FUN_00432430(local_8,*(int *)(&pVVar5->field_0x1c9b4 + sVar4 * 4));
+            FUN_00432430(local_8,(int)pAVar5->scripts[sVar4 + 0x20]);
             FUN_0040ef50(5,&local_8[1].field13_0x3c.field4_0x10,1,0xffffffff);
             local_8[1].field13_0x3c.field6_0x18 = 0x3dcccccd;
           }

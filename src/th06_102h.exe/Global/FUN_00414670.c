@@ -4,7 +4,7 @@ Unknown * FUN_00414670(short *param_1)
 {
   short sVar1;
   undefined4 uVar2;
-  VeryBigStruct *pVVar3;
+  AnmManager *pAVar3;
   int *piVar4;
   int in_ECX;
   float10 fVar5;
@@ -12,7 +12,7 @@ Unknown * FUN_00414670(short *param_1)
   Unknown *local_c;
   int local_8;
   
-  pVVar3 = g_VeryBigStruct;
+  pAVar3 = g_AnmManager;
   local_c = (Unknown *)(in_ECX + 0xec000);
   local_8 = 0;
   while( true ) {
@@ -26,13 +26,13 @@ Unknown * FUN_00414670(short *param_1)
   sVar1 = *param_1;
   local_10 = sVar1 + 0x209;
   *(short *)&local_c->field_0xb4 = local_10;
-  FUN_00432430(local_c,*(int *)(&pVVar3->field_0x1d158 + sVar1 * 4));
-  FUN_004323a0(g_VeryBigStruct,local_c,local_c->field52_0xb0 + param_1[1]);
-  pVVar3 = g_VeryBigStruct;
+  FUN_00432430(local_c,(int)pAVar3->scripts[sVar1 + 0x209]);
+  FUN_004323a0(g_AnmManager,local_c,local_c->field52_0xb0 + param_1[1]);
+  pAVar3 = g_AnmManager;
   uVar2 = *(undefined4 *)(&DAT_00476440 + param_1[1] * 4);
   piVar4 = &local_c[1].field13_0x3c.field4_0x10;
   FUN_00403580((Unknown *)piVar4);
-  FUN_004323a0(pVVar3,(Unknown *)piVar4,(short)uVar2 + 0x28c);
+  FUN_004323a0(pAVar3,(Unknown *)piVar4,(short)uVar2 + 0x28c);
   local_c[2].field2_0x8 = local_c[2].field2_0x8 | 4;
   local_c[2].field31_0x98 = *(float *)(param_1 + 2);
   *(undefined4 *)&local_c[2].field_0x9c = *(undefined4 *)(param_1 + 4);
@@ -56,7 +56,7 @@ Unknown * FUN_00414670(short *param_1)
   *(undefined4 *)&local_c[2].field_0xbc = *(undefined4 *)(param_1 + 0x18);
   local_c[3].field0_0x0 = *(undefined4 *)(param_1 + 0x1a);
   local_c[3].field1_0x4 = *(undefined4 *)(param_1 + 0x1c);
-  local_c[2].field67_0xc0 = *(VeryBigStruct0tbl **)(param_1 + 0x1e);
+  local_c[2].field67_0xc0 = *(AnmLoadedSprite **)(param_1 + 0x1e);
   local_c[3].field2_0x8 = *(undefined4 *)(param_1 + 0x20);
   if (*(int *)&local_c[2].field_0xbc == 0) {
     *(undefined *)&local_c[3].field8_0x20 = 1;

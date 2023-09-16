@@ -102,7 +102,7 @@ LAB_0041f7c5:
       if (iVar5 == 0) {
         *(undefined4 *)(local_18 + 0x134) = *(undefined4 *)(local_18 + 0x13c);
         FUN_00424285(&g_GameContext,(int *)(local_18 + 0x13c),(float *)(local_18 + 0x138));
-        FUN_00433960(local_18);
+        AnmManager::FUN_00433960(local_18);
       }
       else {
         switch(*(undefined *)(local_18 + 0x140)) {

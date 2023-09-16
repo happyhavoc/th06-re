@@ -1,26 +1,26 @@
 
-undefined4 * __fastcall VeryBigStruct::VeryBigStruct(VeryBigStruct *param_1)
+undefined4 * __thiscall AnmManager::AnmManager(AnmManager *this)
 
 {
   int iVar1;
-  VeryBigStruct *pVVar2;
+  AnmManager *pAVar2;
   int local_1c;
   int local_8;
   
-  FUN_00403720(&param_1->unk2);
+  FUN_00403720(&this->virtualMachine);
   local_1c = 4;
   do {
     local_1c = local_1c + -1;
   } while (-1 < local_1c);
-  param_1->field2080_0x1c930 = 0;
-  pVVar2 = param_1;
+  this->maybeLoadedSpriteCount = 0;
+  pAVar2 = this;
                     /* memset(this, 0, sizeof(this)); */
   for (iVar1 = 0x844b; iVar1 != 0; iVar1 = iVar1 + -1) {
-    pVVar2->field0_0x0[0].field0_0x0 = 0;
-    pVVar2 = (VeryBigStruct *)&pVVar2->field0_0x0[0].field_0x4;
+    pAVar2->sprites[0].sourceFileIndex = 0;
+    pAVar2 = (AnmManager *)&pAVar2->sprites[0].startPixelInclusive;
   }
   for (local_8 = 0; local_8 < 0x800; local_8 = local_8 + 1) {
-    param_1->field0_0x0[local_8].field0_0x0 = -1;
+    this->sprites[local_8].sourceFileIndex = 0xffffffff;
   }
   FLOAT_006d4654 = 1.0;
   FLOAT_006d463c = 1.0;
@@ -46,14 +46,14 @@ undefined4 * __fastcall VeryBigStruct::VeryBigStruct(VeryBigStruct *param_1)
   FLOAT_006d45e0 = 1.0;
   DAT_006d45f8 = 0x3f800000;
   DAT_006d45fc = 0x3f800000;
-  param_1->vertex_buffer = (IDirect3DVertexBuffer8 *)0x0;
-  param_1->curTexture = 0;
-  param_1->field_0x210bc = 0;
-  param_1->field_0x210bd = 0;
-  param_1->field19738_0x210b4 = 1;
-  param_1->field_0x210be = 0;
-  param_1->field_0x210bf = 0;
-  param_1->idx = -1;
-  return (undefined4 *)param_1;
+  this->vertexBuffer = (IDirect3DVertexBuffer8 *)0x0;
+  this->currentTexture = (IDirect3DTexture8 *)0x0;
+  this->currentBlendMode = '\0';
+  this->currentColorOp = '\0';
+  this->currentTextureFactor = 1;
+  this->field16_0x210be = '\0';
+  this->currentZWriteDisable = '\0';
+  this->vertexBufferContents[3].position.z = -NAN;
+  return (undefined4 *)this;
 }
 

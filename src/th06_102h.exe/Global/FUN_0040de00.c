@@ -31,8 +31,8 @@ void FUN_0040de00(int param_1,undefined4 param_2)
       for (local_7c = 0; local_7c < 0x280; local_7c = local_7c + 1) {
         if ((((*(short *)((int)&local_68[7].field13_0x3c.field9_0x24 + 2) != 0) &&
              (*(short *)((int)&local_68[7].field13_0x3c.field9_0x24 + 2) != 5)) &&
-            ((local_68->field67_0xc0 != (VeryBigStruct0tbl *)0x0 &&
-             ((fVar1 = local_68->field67_0xc0->field35_0x2c, fVar1 < 30.0 != NAN(fVar1) &&
+            ((local_68->field67_0xc0 != (AnmLoadedSprite *)0x0 &&
+             ((fVar1 = local_68->field67_0xc0->heightPx, fVar1 < 30.0 != NAN(fVar1) &&
               (NAN((float)local_68[7].field10_0x28) != ((float)local_68[7].field10_0x28 == 0.0))))))
             ) && (fVar5 = (float10)FUN_0045bc34(), (float)fVar5 < 64.0 != NAN((float)fVar5))) {
           *(ushort *)&local_68[7].field13_0x3c.field8_0x20 =
@@ -46,15 +46,15 @@ void FUN_0040de00(int param_1,undefined4 param_2)
                                                 *(float *)(param_1 + 0xc70)),
                                         (double)((float)local_68[7].field1_0x4 -
                                                 *(float *)(param_1 + 0xc6c)));
-          local_68[7].field12_0x30.field1_0x4 = ((float)fVar5 - (float)fVar4) * 2.2 + (float)fVar4;
-          fVar6 = (float10)(float)local_68[7].field12_0x30.field1_0x4;
+          local_68[7].field12_0x30.subFrame = ((float)fVar5 - (float)fVar4) * 2.2 + (float)fVar4;
+          fVar6 = (float10)local_68[7].field12_0x30.subFrame;
           fVar5 = (float10)fcos(fVar6);
           fVar6 = (float10)fsin(fVar6);
           local_68[7].field7_0x1c = (float)(fVar5 * (float10)0.01);
           local_68[7].field8_0x20 = (float)(fVar6 * (float10)0.01);
           *(short *)((int)&local_68[7].field13_0x3c.field8_0x20 + 2) =
                *(short *)((int)&local_68[7].field13_0x3c.field8_0x20 + 2) + 1;
-          FUN_004323a0(g_VeryBigStruct,local_68,
+          FUN_004323a0(g_AnmManager,local_68,
                        *(short *)&local_68->field_0xb2 +
                        *(short *)((int)&local_68[7].field13_0x3c.field8_0x20 + 2));
         }

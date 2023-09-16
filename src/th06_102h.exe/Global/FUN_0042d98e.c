@@ -18,11 +18,11 @@ undefined4 FUN_0042d98e(int param_1)
             (local_8 < *(int *)(param_1 + 0x28) * 10 + 10 && (local_8 < 0x40));
             local_8 = local_8 + 1) {
           if (*(short *)(&DAT_0069bd0c + local_8 * 0x40) == 0) {
-            FUN_00434b60(g_VeryBigStruct,param_1 + 0x28a0 + (local_8 % 10) * 0x110,0xffffff,0,
+            FUN_00434b60(g_AnmManager,param_1 + 0x28a0 + (local_8 % 10) * 0x110,0xffffff,0,
                          &DAT_0046bcdc);
           }
           else {
-            FUN_00434b60(g_VeryBigStruct,param_1 + 0x28a0 + (local_8 % 10) * 0x110,0xffffff,0,
+            FUN_00434b60(g_AnmManager,param_1 + 0x28a0 + (local_8 % 10) * 0x110,0xffffff,0,
                          &DAT_0069bce8 + local_8 * 0x40);
           }
         }
@@ -162,9 +162,9 @@ undefined4 FUN_0042d98e(int param_1)
           if ((*(int *)(param_1 + 0x24) != *(int *)(param_1 + 0x10)) &&
              (*(int *)(param_1 + 4) == 0x14)) {
             *(undefined4 *)(param_1 + 0x24) = *(undefined4 *)(param_1 + 0x10);
-            FUN_00434e20(g_VeryBigStruct,param_1 + 0x28a0,0xffffff,0,
+            FUN_00434e20(g_AnmManager,param_1 + 0x28a0,0xffffff,0,
                          (&PTR_DAT_004784d8)[*(int *)(param_1 + 0x24) * 2]);
-            FUN_00434e20(g_VeryBigStruct,param_1 + 0x29b0,0xffffff,0,
+            FUN_00434e20(g_AnmManager,param_1 + 0x29b0,0xffffff,0,
                          (&PTR_DAT_004784dc)[*(int *)(param_1 + 0x24) * 2]);
           }
           if (0x1d < *(int *)(param_1 + 4)) {
@@ -289,7 +289,7 @@ undefined4 FUN_0042d98e(int param_1)
 LAB_0042e3fb:
   local_c = param_1 + 0x40;
   for (local_8 = 0; local_8 < 0x26; local_8 = local_8 + 1) {
-    FUN_00433960(local_c);
+    AnmManager::FUN_00433960(local_c);
     local_c = local_c + 0x110;
   }
   *(int *)(param_1 + 4) = *(int *)(param_1 + 4) + 1;

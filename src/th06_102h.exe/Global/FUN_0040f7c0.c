@@ -3,7 +3,7 @@ void __fastcall FUN_0040f7c0(int param_1)
 
 {
   Unknown *pUVar1;
-  VeryBigStruct *pVVar2;
+  AnmManager *pAVar2;
   short sVar3;
   int iVar4;
   undefined4 uVar5;
@@ -53,7 +53,7 @@ void __fastcall FUN_0040f7c0(int param_1)
   }
   if (*(int *)(param_1 + 0x1130) < 1) {
     do {
-      pVVar2 = g_VeryBigStruct;
+      pAVar2 = g_AnmManager;
       switch(**(undefined **)(param_1 + 0x116c)) {
       case 0:
       case 10:
@@ -65,14 +65,14 @@ void __fastcall FUN_0040f7c0(int param_1)
              *(undefined *)(*(int *)(param_1 + 0x116c) + 1);
         local_38 = local_38 + 2;
         *(int *)(param_1 + 0x116c) = *(int *)(param_1 + 0x116c) + 2;
-        pVVar2 = g_VeryBigStruct;
+        pAVar2 = g_AnmManager;
         if (0x1f < local_38) {
           iVar6 = *(int *)(param_1 + 0x1154);
           local_ac = (short)local_8 + 0x708 + (short)iVar6 * 2;
           pUVar1 = (Unknown *)(param_1 + 0x14 + (local_8 + *(int *)(param_1 + 0x1154) * 2) * 0x110);
           *(short *)&pUVar1->field_0xb4 = local_ac;
-          FUN_00432430(pUVar1,*(int *)(&pVVar2->field_0x1e554 + local_8 * 4 + iVar6 * 8));
-          FUN_00434b60(g_VeryBigStruct,
+          FUN_00432430(pUVar1,(int)pAVar2->scripts[iVar6 * 2 + local_8 + 0x708]);
+          FUN_00434b60(g_AnmManager,
                        param_1 + 0x14 + (local_8 + *(int *)(param_1 + 0x1154) * 2) * 0x110,
                        *(undefined4 *)(param_1 + 0x1158),0xc0d0d0,&local_34);
           if (local_8 != 0) goto LAB_00410546;
@@ -157,11 +157,10 @@ switchD_0040fa93_caseD_52:
           iVar4 = FUN_0040f4d0();
           sVar3 = FUN_0040f4d0();
           FUN_004051b0(param_1 + 0x14 + iVar6 * 0x110,iVar4 + 0x600);
-          FUN_004323a0(g_VeryBigStruct,(Unknown *)(param_1 + 0x14 + iVar6 * 0x110),sVar3 + 0x600);
+          FUN_004323a0(g_AnmManager,(Unknown *)(param_1 + 0x14 + iVar6 * 0x110),sVar3 + 0x600);
           break;
         case 0x62:
-          iVar6 = VeryBigStruct::LogoStuff
-                            (g_VeryBigStruct,0,(char *)(*(int *)(param_1 + 0x116c) + 1));
+          iVar6 = AnmManager::LogoStuff(g_AnmManager,0,(char *)(*(int *)(param_1 + 0x116c) + 1));
           if (iVar6 != 0) goto LAB_004105d3;
           break;
         case 99:
@@ -250,9 +249,9 @@ switchD_0040fa32_caseD_0:
     local_90 = (short)local_8 + 0x708 + (short)iVar6 * 2;
     pUVar1 = (Unknown *)(param_1 + 0x14 + (local_8 + *(int *)(param_1 + 0x1154) * 2) * 0x110);
     *(short *)&pUVar1->field_0xb4 = local_90;
-    FUN_00432430(pUVar1,*(int *)(&pVVar2->field_0x1e554 + local_8 * 4 + iVar6 * 8));
-    FUN_00434b60(g_VeryBigStruct,param_1 + 0x14 + (local_8 + *(int *)(param_1 + 0x1154) * 2) * 0x110
-                 ,*(undefined4 *)(param_1 + 0x1158),0xc0d0d0,&local_34);
+    FUN_00432430(pUVar1,(int)pAVar2->scripts[iVar6 * 2 + local_8 + 0x708]);
+    FUN_00434b60(g_AnmManager,param_1 + 0x14 + (local_8 + *(int *)(param_1 + 0x1154) * 2) * 0x110,
+                 *(undefined4 *)(param_1 + 0x1158),0xc0d0d0,&local_34);
   }
   while (((**(char **)(param_1 + 0x116c) == '\n' || (**(char **)(param_1 + 0x116c) == '\0')) ||
          (**(char **)(param_1 + 0x116c) == '\r'))) {

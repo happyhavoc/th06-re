@@ -67,12 +67,12 @@ void FUN_0042f8b0(undefined4 *param_1,undefined4 param_2)
   (*(g_GameContext.d3dDevice)->lpVtbl->SetVertexShader)(g_GameContext.d3dDevice,0x44);
   (*(g_GameContext.d3dDevice)->lpVtbl->DrawPrimitiveUP)
             (g_GameContext.d3dDevice,D3DPT_TRIANGLESTRIP,2,&local_54,0x14);
-  g_VeryBigStruct->field_0x210be = 0xff;
-  *(undefined4 *)&g_VeryBigStruct->field_0x210c0 = 0;
-  g_VeryBigStruct->curTexture = 0;
-  g_VeryBigStruct->field_0x210bd = 0xff;
-  g_VeryBigStruct->field_0x210bc = 0xff;
-  g_VeryBigStruct->field_0x210bf = 0xff;
+  g_AnmManager->field16_0x210be = 0xff;
+  g_AnmManager->currentSprite = (AnmLoadedSprite *)0x0;
+  g_AnmManager->currentTexture = (IDirect3DTexture8 *)0x0;
+  g_AnmManager->currentColorOp = 0xff;
+  g_AnmManager->currentBlendMode = 0xff;
+  g_AnmManager->currentZWriteDisable = 0xff;
   if (((uint)g_GameContext.cfg.render_opts >> 8 & 1) == 0) {
     (*(g_GameContext.d3dDevice)->lpVtbl->SetTextureStageState)
               (g_GameContext.d3dDevice,0,D3DTSS_ALPHAOP,4);

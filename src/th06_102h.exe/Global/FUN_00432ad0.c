@@ -1,5 +1,5 @@
 
-undefined4 __thiscall FUN_00432ad0(VeryBigStruct *param_1_00,int param_2)
+undefined4 __thiscall FUN_00432ad0(AnmManager *param_1_00,int param_2)
 
 {
   float fVar1;

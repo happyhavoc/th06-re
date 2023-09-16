@@ -59,11 +59,11 @@ undefined4 FUN_004123e0(int param_1)
     }
     FUN_00412240();
     *(undefined4 *)(local_28 + 0x7c) = *(undefined4 *)(local_28 + 0xcfc);
-    FUN_00433960(local_28);
+    AnmManager::FUN_00433960(local_28);
     *(undefined4 *)(local_28 + 0xcfc) = *(undefined4 *)(local_28 + 0x7c);
     for (local_20 = 0; local_20 < 8; local_20 = local_20 + 1) {
       if ((-1 < *(short *)(local_28 + 0x1c4 + local_20 * 0x110)) &&
-         (iVar1 = FUN_00433960(local_28 + 0x110 + local_20 * 0x110), iVar1 != 0)) {
+         (iVar1 = AnmManager::FUN_00433960(local_28 + 0x110 + local_20 * 0x110), iVar1 != 0)) {
         *(undefined2 *)(local_28 + 0x1c4 + local_20 * 0x110) = 0xffff;
       }
     }

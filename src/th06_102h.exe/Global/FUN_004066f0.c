@@ -40,7 +40,7 @@ void FUN_004066f0(int param_1)
           puVar4[2] = puVar1[2];
           *(undefined4 *)(param_1 + 0x7b8 + local_8 * 4) = 8;
         }
-        FUN_00433960();
+        AnmManager::FUN_00433960();
       }
     }
     else {

@@ -39,7 +39,7 @@ undefined4 FUN_004149d0(int param_1)
              (float)local_24[0x15b] * 0.5 * (float)g_GameContext._424_4_ + (float)local_24[0x158];
         local_24[0x159] = fVar3 + (float)local_24[0x159];
         local_24[0x15a] = fVar2 + (float)local_24[0x15a];
-        iVar4 = FUN_00433960();
+        iVar4 = AnmManager::FUN_00433960();
         break;
       case 3:
         fVar2 = (float)local_24[0x15d] * 0.4 * (float)g_GameContext._424_4_;
@@ -48,7 +48,7 @@ undefined4 FUN_004149d0(int param_1)
              (float)local_24[0x15b] * 0.4 * (float)g_GameContext._424_4_ + (float)local_24[0x158];
         local_24[0x159] = fVar3 + (float)local_24[0x159];
         local_24[0x15a] = fVar2 + (float)local_24[0x15a];
-        iVar4 = FUN_00433960();
+        iVar4 = AnmManager::FUN_00433960();
         break;
       case 4:
         fVar2 = (float)local_24[0x15d] * 0.3333333 * (float)g_GameContext._424_4_;
@@ -58,7 +58,7 @@ undefined4 FUN_004149d0(int param_1)
              (float)local_24[0x158];
         local_24[0x159] = fVar3 + (float)local_24[0x159];
         local_24[0x15a] = fVar2 + (float)local_24[0x15a];
-        iVar4 = FUN_00433960();
+        iVar4 = AnmManager::FUN_00433960();
         break;
       case 5:
         fVar2 = (float)local_24[0x15d] * 0.5 * (float)g_GameContext._424_4_;
@@ -67,7 +67,7 @@ undefined4 FUN_004149d0(int param_1)
              (float)local_24[0x15b] * 0.5 * (float)g_GameContext._424_4_ + (float)local_24[0x158];
         local_24[0x159] = fVar3 + (float)local_24[0x159];
         local_24[0x15a] = fVar2 + (float)local_24[0x15a];
-        iVar4 = FUN_00433960();
+        iVar4 = AnmManager::FUN_00433960();
         if (iVar4 != 0) {
           puVar5 = local_24;
           for (iVar4 = 0x171; iVar4 != 0; iVar4 = iVar4 + -1) {
@@ -286,7 +286,7 @@ LAB_00415be8:
             }
           }
           else if (*(char *)((int)local_24 + 0x5c3) == '\x01') goto LAB_00415be8;
-          FUN_00433960();
+          AnmManager::FUN_00433960();
           goto switchD_00414a97_caseD_5;
         }
         if ((((((*(ushort *)(local_24 + 0x16e) & 0x40) == 0) &&
@@ -427,7 +427,7 @@ LAB_00416422:
         }
         *(undefined4 *)(local_2c + 0x25c) = *(undefined4 *)(local_2c + 0x264);
         FUN_00424285(&g_GameContext,(int *)(local_2c + 0x264),(float *)(local_2c + 0x260));
-        FUN_00433960();
+        AnmManager::FUN_00433960();
       }
 LAB_00415e08:
       local_2c = local_2c + 0x270;

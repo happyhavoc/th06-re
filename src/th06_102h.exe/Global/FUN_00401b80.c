@@ -2,7 +2,7 @@
 undefined4 __fastcall FUN_00401b80(int *param_1)
 
 {
-  VeryBigStruct *pVVar1;
+  AnmManager *pAVar1;
   short local_6c;
   int local_8;
   
@@ -29,27 +29,26 @@ undefined4 __fastcall FUN_00401b80(int *param_1)
   }
   switch(*param_1) {
   case 0:
-    for (local_8 = 0; pVVar1 = g_VeryBigStruct, local_8 < 6; local_8 = local_8 + 1) {
+    for (local_8 = 0; pAVar1 = g_AnmManager, local_8 < 6; local_8 = local_8 + 1) {
       local_6c = (short)local_8 + 2;
       *(short *)&((Unknown *)(param_1 + local_8 * 0x44 + 2))->field_0xb4 = local_6c;
-      FUN_00432430((Unknown *)(param_1 + local_8 * 0x44 + 2),
-                   *(int *)(&pVVar1->field_0x1c93c + local_8 * 4));
+      FUN_00432430((Unknown *)(param_1 + local_8 * 0x44 + 2),(int)pAVar1->scripts[local_8 + 2]);
     }
     for (local_8 = 0; local_8 < 3; local_8 = local_8 + 1) {
       *(undefined2 *)((int)param_1 + local_8 * 0x110 + 0x92) = 1;
     }
     *param_1 = *param_1 + 1;
     param_1[1] = 0;
-    pVVar1 = g_VeryBigStruct;
+    pAVar1 = g_AnmManager;
     if (DAT_006c7115 != '\0') {
-      g_VeryBigStruct->idx = 3;
-      pVVar1->left = 0x20;
-      pVVar1->top = 0x10;
-      pVVar1->x = 0x180;
-      pVVar1->y = 0x1c0;
-      pVVar1 = g_VeryBigStruct;
+      g_AnmManager->vertexBufferContents[3].position.z = 4.203895e-45;
+      pAVar1->vertexBufferContents[3].diffuseColor = 0x20;
+      pAVar1->vertexBufferContents[3].textureUV.x = 2.242078e-44;
+      pAVar1->vertexBufferContents[3].textureUV.y = 5.380986e-43;
+      pAVar1->heightMaybe = 0x1c0;
+      pAVar1 = g_AnmManager;
       *(undefined2 *)(param_1 + 0x1c7) = 0x718;
-      FUN_00432430((Unknown *)(param_1 + 0x19a),*(int *)&pVVar1->field_0x1e594);
+      FUN_00432430((Unknown *)(param_1 + 0x19a),(int)pAVar1->scripts[0x718]);
       param_1[0x1be] = 0x42000000;
       param_1[0x1bf] = 0x41800000;
       param_1[0x1c0] = 0;
@@ -201,10 +200,10 @@ undefined4 __fastcall FUN_00401b80(int *param_1)
     }
   }
   for (local_8 = 0; local_8 < 6; local_8 = local_8 + 1) {
-    FUN_00433960(param_1 + local_8 * 0x44 + 2);
+    AnmManager::FUN_00433960(param_1 + local_8 * 0x44 + 2);
   }
   if (DAT_006c7115 != '\0') {
-    FUN_00433960(param_1 + 0x19a);
+    AnmManager::FUN_00433960(param_1 + 0x19a);
   }
   param_1[1] = param_1[1] + 1;
   return 0;

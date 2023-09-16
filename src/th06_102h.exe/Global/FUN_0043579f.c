@@ -120,10 +120,10 @@ switchD_004358f7_caseD_2:
         local_c->field15_0x80 = local_c->field15_0x80 | 2;
         sVar1 = *(short *)(param_1 + 0x821c + ((int)local_8 / 2) * 2);
         if ((int)local_8 % 2 == 0) {
-          FUN_004323a0(g_VeryBigStruct,local_c,sVar1 / 10 + 0x100);
+          FUN_004323a0(g_AnmManager,local_c,sVar1 / 10 + 0x100);
         }
         else {
-          FUN_004323a0(g_VeryBigStruct,local_c,sVar1 % 10 + 0x100);
+          FUN_004323a0(g_AnmManager,local_c,sVar1 % 10 + 0x100);
         }
         *(short *)&local_c->field_0xb2 = local_c->field52_0xb0;
         FUN_004377a3(local_c,(int)local_8 / 2,*(undefined4 *)(param_1 + 0x81a0),
@@ -738,11 +738,10 @@ LAB_00436de7:
       bVar5 = false;
     }
     else {
-      bVar5 = g_VeryBigStruct->texture_i_think[**(int **)(iVar4 + 0xc0)] != (IDirect3DTexture8 *)0x0
-      ;
+      bVar5 = g_AnmManager->textures[**(int **)(iVar4 + 0xc0)] != (IDirect3DTexture8 *)0x0;
     }
     if (bVar5) {
-      FUN_00433960();
+      AnmManager::FUN_00433960();
     }
   }
   return 1;

@@ -7,7 +7,7 @@ void FUN_004377a3(Unknown *param_1,int param_2,int param_3,uint param_4,uint par
       param_1->field14_0x7c = param_4;
     }
     else {
-      FUN_004323a0(g_VeryBigStruct,param_1,*(short *)&param_1->field_0xb2 + param_6);
+      FUN_004323a0(g_AnmManager,param_1,*(short *)&param_1->field_0xb2 + param_6);
       param_1->field14_0x7c = param_4 & 0xff000000 | 0xffffff;
     }
     param_1[1].field8_0x20 = 0xc0800000;
@@ -19,7 +19,7 @@ void FUN_004377a3(Unknown *param_1,int param_2,int param_3,uint param_4,uint par
       param_1->field14_0x7c = param_5;
     }
     else {
-      FUN_004323a0(g_VeryBigStruct,param_1,*(short *)&param_1->field_0xb2);
+      FUN_004323a0(g_AnmManager,param_1,*(short *)&param_1->field_0xb2);
       param_1->field14_0x7c = param_5 & 0xff000000 | 0xffffff;
     }
     param_1[1].field8_0x20 = 0;

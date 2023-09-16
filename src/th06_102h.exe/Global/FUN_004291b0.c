@@ -98,7 +98,7 @@ void FUN_004291b0(int param_1)
                                *(undefined4 *)(*(int *)(local_18 + 0xc0) + 0x2c)), iVar7 == 0)) {
         *(undefined2 *)(local_18 + 0x14e) = 0;
       }
-      iVar7 = FUN_00433960();
+      iVar7 = AnmManager::FUN_00433960();
       if (iVar7 != 0) {
         *(undefined2 *)(local_18 + 0x14e) = 0;
       }

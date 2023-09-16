@@ -25,12 +25,12 @@ void FUN_0040c180(int param_1,int param_2)
       for (local_14 = 0; local_14 < 0x280; local_14 = local_14 + 1) {
         if (((*(short *)((int)&local_18[7].field13_0x3c.field9_0x24 + 2) != 0) &&
             (*(short *)((int)&local_18[7].field13_0x3c.field9_0x24 + 2) != 5)) &&
-           ((local_18->field67_0xc0 != (VeryBigStruct0tbl *)0x0 &&
-            (((30.0 <= local_18->field67_0xc0->field35_0x2c &&
+           ((local_18->field67_0xc0 != (AnmLoadedSprite *)0x0 &&
+            (((30.0 <= local_18->field67_0xc0->heightPx &&
               (*(short *)((int)&local_18[7].field13_0x3c.field8_0x20 + 2) != 5)) &&
              (uVar3 = FUN_0041e780(&DAT_0069d8f8), (uVar3 & 3) == 0)))))) {
           *(undefined2 *)((int)&local_18[7].field13_0x3c.field8_0x20 + 2) = 5;
-          FUN_004323a0(g_VeryBigStruct,local_18,
+          FUN_004323a0(g_AnmManager,local_18,
                        *(short *)&local_18->field_0xb2 +
                        *(short *)((int)&local_18[7].field13_0x3c.field8_0x20 + 2));
           fVar1 = (float)local_18[7].field1_0x4 - DAT_006caa68;
@@ -39,15 +39,15 @@ void FUN_0040c180(int param_1,int param_2)
           if ((float)fVar4 <= 128.0) {
             fVar4 = (float10)FUN_0041e820();
             fVar5 = (float10)FUN_00428680();
-            local_18[7].field12_0x30.field1_0x4 =
+            local_18[7].field12_0x30.subFrame =
                  (float)(fVar5 + (float10)1.570796 + (float10)(float)(fVar4 * (float10)6.283185));
           }
           else {
             fVar4 = (float10)FUN_0041e820();
-            local_18[7].field12_0x30.field1_0x4 =
+            local_18[7].field12_0x30.subFrame =
                  (float)(fVar4 * (float10)2.356194 + (float10)0.7853982);
           }
-          fVar5 = (float10)(float)local_18[7].field12_0x30.field1_0x4;
+          fVar5 = (float10)local_18[7].field12_0x30.subFrame;
           fVar4 = (float10)fcos(fVar5);
           fVar5 = (float10)fsin(fVar5);
           local_18[7].field4_0x10 = (float)(fVar4 * (float10)(float)local_18[7].field10_0x28);
@@ -63,12 +63,12 @@ void FUN_0040c180(int param_1,int param_2)
       for (local_14 = 0; local_14 < 0x280; local_14 = local_14 + 1) {
         if ((((*(short *)((int)&local_18[7].field13_0x3c.field9_0x24 + 2) != 0) &&
              (*(short *)((int)&local_18[7].field13_0x3c.field9_0x24 + 2) != 5)) &&
-            (local_18->field67_0xc0 != (VeryBigStruct0tbl *)0x0)) &&
-           (((30.0 <= local_18->field67_0xc0->field35_0x2c &&
+            (local_18->field67_0xc0 != (AnmLoadedSprite *)0x0)) &&
+           (((30.0 <= local_18->field67_0xc0->heightPx &&
              (*(short *)((int)&local_18[7].field13_0x3c.field8_0x20 + 2) != 5)) &&
             (uVar3 = FUN_0041e780(&DAT_0069d8f8), (uVar3 & 3) == 0)))) {
           *(undefined2 *)((int)&local_18[7].field13_0x3c.field8_0x20 + 2) = 5;
-          FUN_004323a0(g_VeryBigStruct,local_18,
+          FUN_004323a0(g_AnmManager,local_18,
                        *(short *)&local_18->field_0xb2 +
                        *(short *)((int)&local_18[7].field13_0x3c.field8_0x20 + 2));
           fVar1 = (float)local_18[7].field1_0x4 - DAT_006caa68;
@@ -77,14 +77,14 @@ void FUN_0040c180(int param_1,int param_2)
           if ((float)fVar4 <= 128.0) {
             fVar4 = (float10)FUN_0041e820();
             fVar5 = (float10)FUN_00428680();
-            local_18[7].field12_0x30.field1_0x4 =
+            local_18[7].field12_0x30.subFrame =
                  (float)(fVar5 + (float10)1.570796 + (float10)(float)(fVar4 * (float10)6.283185));
           }
           else {
             fVar4 = (float10)FUN_0041e820();
-            local_18[7].field12_0x30.field1_0x4 = (float)(fVar4 * (float10)6.283185);
+            local_18[7].field12_0x30.subFrame = (float)(fVar4 * (float10)6.283185);
           }
-          fVar5 = (float10)(float)local_18[7].field12_0x30.field1_0x4;
+          fVar5 = (float10)local_18[7].field12_0x30.subFrame;
           fVar4 = (float10)fcos(fVar5);
           fVar5 = (float10)fsin(fVar5);
           local_18[7].field4_0x10 = (float)(fVar4 * (float10)(float)local_18[7].field10_0x28);

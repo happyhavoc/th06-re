@@ -65,8 +65,8 @@ undefined4 FUN_004190ec(void)
     local_28 = 0x3f800000;
     local_3c = 0x3f800000;
     local_50 = 0x3f800000;
-    FUN_00432ad0(g_VeryBigStruct,in_ECX + 0x2550);
-    FUN_00432ad0(g_VeryBigStruct,in_ECX + 0x2660);
+    FUN_00432ad0(g_AnmManager,in_ECX + 0x2550);
+    FUN_00432ad0(g_AnmManager,in_ECX + 0x2660);
     if (((uint)g_GameContext.cfg.render_opts >> NO_COLOR_COMP & 1) == 0) {
       (*(g_GameContext.d3dDevice)->lpVtbl->SetTextureStageState)
                 (g_GameContext.d3dDevice,0,D3DTSS_ALPHAOP,2);
@@ -84,10 +84,10 @@ undefined4 FUN_004190ec(void)
     (*(g_GameContext.d3dDevice)->lpVtbl->SetVertexShader)(g_GameContext.d3dDevice,0x44);
     (*(g_GameContext.d3dDevice)->lpVtbl->DrawPrimitiveUP)
               (g_GameContext.d3dDevice,D3DPT_TRIANGLESTRIP,2,&local_5c,0x14);
-    g_VeryBigStruct->field_0x210be = 0xff;
-    g_VeryBigStruct->field_0x210bd = 0xff;
-    g_VeryBigStruct->field_0x210bc = 0xff;
-    g_VeryBigStruct->field_0x210bf = 0xff;
+    g_AnmManager->field16_0x210be = 0xff;
+    g_AnmManager->currentColorOp = 0xff;
+    g_AnmManager->currentBlendMode = 0xff;
+    g_AnmManager->currentZWriteDisable = 0xff;
     if (((uint)g_GameContext.cfg.render_opts >> NO_COLOR_COMP & 1) == 0) {
       (*(g_GameContext.d3dDevice)->lpVtbl->SetTextureStageState)
                 (g_GameContext.d3dDevice,0,D3DTSS_ALPHAOP,4);
@@ -98,10 +98,10 @@ undefined4 FUN_004190ec(void)
               (g_GameContext.d3dDevice,0,D3DTSS_ALPHAARG1,2);
     (*(g_GameContext.d3dDevice)->lpVtbl->SetTextureStageState)
               (g_GameContext.d3dDevice,0,D3DTSS_COLORARG1,2);
-    FUN_00432ad0(g_VeryBigStruct,in_ECX + 0x2770);
-    FUN_00432ad0(g_VeryBigStruct,in_ECX + 0x2880);
-    FUN_00432ad0(g_VeryBigStruct,in_ECX + 0x2990);
-    FUN_00432ad0(g_VeryBigStruct,in_ECX + 0x2aa0);
+    FUN_00432ad0(g_AnmManager,in_ECX + 0x2770);
+    FUN_00432ad0(g_AnmManager,in_ECX + 0x2880);
+    FUN_00432ad0(g_AnmManager,in_ECX + 0x2990);
+    FUN_00432ad0(g_AnmManager,in_ECX + 0x2aa0);
     uVar1 = 0;
   }
   return uVar1;

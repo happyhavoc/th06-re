@@ -4,7 +4,7 @@ void FUN_0042564c(int param_1)
 {
   Unknown *pUVar1;
   char cVar2;
-  VeryBigStruct *pVVar3;
+  AnmManager *pAVar3;
   int iVar4;
   char *pcVar5;
   undefined4 *puVar6;
@@ -23,14 +23,14 @@ void FUN_0042564c(int param_1)
   int local_8;
   
   local_1c = __security_cookie ^ unaff_retaddr;
-  iVar4 = VeryBigStruct::LogoStuff(g_VeryBigStruct,0,"data/result/music.jpg");
+  iVar4 = AnmManager::LogoStuff(g_AnmManager,0,"data/result/music.jpg");
   if ((((iVar4 == 0) &&
-       (iVar4 = VeryBigStruct::LoadAnim(g_VeryBigStruct,0x29,"data/music00.anm",0x100), iVar4 == 0))
-      && (iVar4 = VeryBigStruct::LoadAnim(g_VeryBigStruct,0x2a,"data/music01.anm",0x101), iVar4 == 0
-         )) && (iVar4 = VeryBigStruct::LoadAnim(g_VeryBigStruct,0x2b,"data/music02.anm",0x111),
-               pVVar3 = g_VeryBigStruct, iVar4 == 0)) {
+       (iVar4 = AnmManager::LoadAnim(g_AnmManager,0x29,"data/music00.anm",0x100), iVar4 == 0)) &&
+      (iVar4 = AnmManager::LoadAnim(g_AnmManager,0x2a,"data/music01.anm",0x101), iVar4 == 0)) &&
+     (iVar4 = AnmManager::LoadAnim(g_AnmManager,0x2b,"data/music02.anm",0x111),
+     pAVar3 = g_AnmManager, iVar4 == 0)) {
     *(undefined2 *)(param_1 + 0xd8) = 0x100;
-    FUN_00432430((Unknown *)(param_1 + 0x24),*(int *)&pVVar3->field_0x1cd34);
+    FUN_00432430((Unknown *)(param_1 + 0x24),(int)pAVar3->scripts[0x100]);
     *(undefined4 *)(param_1 + 8) = 0;
     local_18 = OpenPath("data/musiccmt.txt",0);
     local_10 = local_18;
@@ -110,12 +110,12 @@ void FUN_0042564c(int param_1)
       }
 LAB_004259f3:
       *(int *)(param_1 + 0x1c) = local_8 + 1;
-      for (local_8 = 0; pVVar3 = g_VeryBigStruct, local_8 < *(int *)(param_1 + 0x1c);
+      for (local_8 = 0; pAVar3 = g_AnmManager, local_8 < *(int *)(param_1 + 0x1c);
           local_8 = local_8 + 1) {
         pUVar1 = (Unknown *)(param_1 + 0x134 + local_8 * 0x110);
         FUN_00403580(pUVar1);
-        FUN_004323a0(pVVar3,pUVar1,(short)local_8 + 0x101);
-        FUN_00434b60(g_VeryBigStruct,param_1 + 0x134 + local_8 * 0x110,0xc0e0ff,0x302080,
+        FUN_004323a0(pAVar3,pUVar1,(short)local_8 + 0x101);
+        FUN_00434b60(g_AnmManager,param_1 + 0x134 + local_8 * 0x110,0xc0e0ff,0x302080,
                      *(int *)(param_1 + 0x20) + 0x40 + local_8 * 0x272);
         *(undefined4 *)(param_1 + 0x1c4 + local_8 * 0x110) = 0x42ba0000;
         *(float *)(param_1 + 0x1c8 + local_8 * 0x110) =
@@ -124,10 +124,10 @@ LAB_004259f3:
         *(uint *)(param_1 + 0x1b4 + local_8 * 0x110) =
              *(uint *)(param_1 + 0x1b4 + local_8 * 0x110) | 0x300;
       }
-      for (local_8 = 0; pVVar3 = g_VeryBigStruct, local_8 < 0x10; local_8 = local_8 + 1) {
+      for (local_8 = 0; pAVar3 = g_AnmManager, local_8 < 0x10; local_8 = local_8 + 1) {
         pUVar1 = (Unknown *)(param_1 + 0x2334 + local_8 * 0x110);
         FUN_00403580(pUVar1);
-        FUN_004323a0(pVVar3,pUVar1,(short)local_8 + 0x708);
+        FUN_004323a0(pAVar3,pUVar1,(short)local_8 + 0x708);
         puVar6 = local_5c;
         for (iVar4 = 0x10; iVar4 != 0; iVar4 = iVar4 + -1) {
           *puVar6 = 0;
@@ -161,8 +161,7 @@ LAB_00425c09:
         else {
           *(uint *)(param_1 + 0x23b4 + local_8 * 0x110) =
                *(uint *)(param_1 + 0x23b4 + local_8 * 0x110) | 2;
-          FUN_00434b60(g_VeryBigStruct,param_1 + 0x2334 + local_8 * 0x110,0xffe0c0,0x300000,local_5c
-                      );
+          FUN_00434b60(g_AnmManager,param_1 + 0x2334 + local_8 * 0x110,0xffe0c0,0x300000,local_5c);
         }
         *(float *)(param_1 + 0x23c4 + local_8 * 0x110) = (float)(local_8 % 2) * 248.0 + 96.0;
         *(float *)(param_1 + 0x23c8 + local_8 * 0x110) = (float)(local_8 / 2 << 4) + 320.0;

@@ -29,22 +29,22 @@ undefined4 InputChainAddedCallback(GameContext *param_1)
   PBG3_FILES = ppPVar1;
   GameContext::LoadPBG3(param_1,0,&DAT_0046b63c);
   if (ppPVar1 == (Pbg3File **)0x0) {
-    VeryBigStruct::LogoStuff(g_VeryBigStruct,0,"data/title/th06logo.jpg");
-    FUN_00435300(g_VeryBigStruct,0,0,0,0,0);
+    AnmManager::LogoStuff(g_AnmManager,0,"data/title/th06logo.jpg");
+    FUN_00435300(g_AnmManager,0,0,0,0,0);
     HVar3 = (*(g_GameContext.d3dDevice)->lpVtbl->Present)
                       (g_GameContext.d3dDevice,(RECT *)0x0,(RECT *)0x0,(HWND)0x0,(RGNDATA *)0x0);
     if (HVar3 < 0) {
       (*(g_GameContext.d3dDevice)->lpVtbl->Reset)
                 (g_GameContext.d3dDevice,&g_GameContext.presentParameters);
     }
-    FUN_00435300(g_VeryBigStruct,0,0,0,0,0);
+    FUN_00435300(g_AnmManager,0,0,0,0,0);
     HVar3 = (*(g_GameContext.d3dDevice)->lpVtbl->Present)
                       (g_GameContext.d3dDevice,(RECT *)0x0,(RECT *)0x0,(HWND)0x0,(RGNDATA *)0x0);
     if (HVar3 < 0) {
       (*(g_GameContext.d3dDevice)->lpVtbl->Reset)
                 (g_GameContext.d3dDevice,&g_GameContext.presentParameters);
     }
-    FUN_00435270(g_VeryBigStruct,0);
+    FUN_00435270(g_AnmManager,0);
     pIVar4 = (IDirect3D8 *)timeGetTime();
     param_1[1].d3dIface = pIVar4;
     FUN_00423b14(param_1);
@@ -62,12 +62,12 @@ undefined4 InputChainAddedCallback(GameContext *param_1)
     _DAT_0069d8fc = 0;
     DAT_0069d8f8 = (short)DVar6;
     FUN_00431080(&g_SoundPlayer);
-    iVar7 = VeryBigStruct::LoadAnim(g_VeryBigStruct,0,"data/text.anm",0x700);
+    iVar7 = AnmManager::LoadAnim(g_AnmManager,0,"data/text.anm",0x700);
     if (iVar7 == 0) {
       iVar7 = FUN_004012c0();
       if (iVar7 == 0) {
         param_1->field77_0x198 = 0;
-        FUN_00431660(g_VeryBigStruct);
+        FUN_00431660(g_AnmManager);
         iVar7 = FUN_0041f008();
         GameContext::RemovePbg3File(param_1,0);
         GameContext::LoadPBG3(&g_GameContext,1,(byte *)"紅魔郷MD.dat");

@@ -2,12 +2,12 @@
 int WinMain(HINSTANCE hInstance,HINSTANCE hPrevInstance,LPSTR lpCmdLine,int nShowCmd)
 
 {
-  VeryBigStruct *_Memory;
-  VeryBigStruct *puVar1;
+  AnmManager *_Memory;
+  AnmManager *puVar1;
   BOOL BVar1;
   HRESULT HVar2;
   int retCode;
-  VeryBigStruct *vbsPtr;
+  AnmManager *vbsPtr;
   MSG msg;
   uint testCoopLevelRet;
   int renderRet;
@@ -33,14 +33,14 @@ int WinMain(HINSTANCE hInstance,HINSTANCE hPrevInstance,LPSTR lpCmdLine,int nSho
           SoundPlayer::Init(&g_SoundPlayer,(HWND)g_GameWindow.window);
           GetJoystickCaps();
           ResetKeyboard();
-          puVar1 = (VeryBigStruct *)operator_new(0x2112c);
-          if (puVar1 == (VeryBigStruct *)0x0) {
-            vbsPtr = (VeryBigStruct *)0x0;
+          puVar1 = (AnmManager *)operator_new(0x2112c);
+          if (puVar1 == (AnmManager *)0x0) {
+            vbsPtr = (AnmManager *)0x0;
           }
           else {
-            vbsPtr = (VeryBigStruct *)VeryBigStruct::VeryBigStruct(puVar1);
+            vbsPtr = (AnmManager *)AnmManager::AnmManager(puVar1);
           }
-          g_VeryBigStruct = vbsPtr;
+          g_AnmManager = vbsPtr;
           retCode = AddInputChain();
           if (retCode == 0) {
             if (g_GameContext.cfg.windowed == false) {
@@ -60,7 +60,7 @@ int WinMain(HINSTANCE hInstance,HINSTANCE hPrevInstance,LPSTR lpCmdLine,int nSho
                                   (g_GameContext.d3dDevice);
                 if (HVar2 == 0) break;
                 if (HVar2 == D3DERR_DEVICENOTRESET) {
-                  VeryBigStruct::ReleaseD3dSurfaces(g_VeryBigStruct);
+                  AnmManager::ReleaseD3dSurfaces(g_AnmManager);
                   HVar2 = (*(g_GameContext.d3dDevice)->lpVtbl->Reset)
                                     (g_GameContext.d3dDevice,&g_GameContext.presentParameters);
                   if (HVar2 != 0) goto LAB_0042055a;
@@ -74,12 +74,12 @@ int WinMain(HINSTANCE hInstance,HINSTANCE hPrevInstance,LPSTR lpCmdLine,int nSho
 LAB_0042055a:
           Chain::Release(&g_Chain);
           SoundPlayer::Release(&g_SoundPlayer);
-          _Memory = g_VeryBigStruct;
-          if (g_VeryBigStruct != (VeryBigStruct *)0x0) {
-            VeryBigStruct::~VeryBigStruct();
+          _Memory = g_AnmManager;
+          if (g_AnmManager != (AnmManager *)0x0) {
+            AnmManager::~AnmManager();
             _free(_Memory);
           }
-          g_VeryBigStruct = (VeryBigStruct *)0x0;
+          g_AnmManager = (AnmManager *)0x0;
           if (g_GameContext.d3dDevice != (IDirect3DDevice8 *)0x0) {
             (*(g_GameContext.d3dDevice)->lpVtbl->Release)(g_GameContext.d3dDevice);
             g_GameContext.d3dDevice = (IDirect3DDevice8 *)0x0;

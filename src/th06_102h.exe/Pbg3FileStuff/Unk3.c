@@ -1,13 +1,16 @@
 
-byte __thiscall Pbg3FileStuff::Unk3(Pbg3FileStuff *this)
+int __thiscall Pbg3FileStuff::Unk3(Pbg3FileStuff *this)
 
 {
-  byte bVar1;
+  int iVar1;
+  int iVar2;
+  int iVar3;
+  int iVar4;
   
-  if ((uint)this->field4_0x4 < (uint)this->field5_0x8) {
-    this->field4_0x4 = this->field4_0x4 + 1;
-  }
-  bVar1 = FileAbstraction::ReadByte(&(this->fileAbstraction).base);
-  return bVar1;
+  iVar1 = (*(code *)this->vtbl->ReadInt)(8);
+  iVar2 = (*(code *)this->vtbl->ReadInt)(8);
+  iVar3 = (*(code *)this->vtbl->ReadInt)(8);
+  iVar4 = (*(code *)this->vtbl->ReadInt)(8);
+  return iVar4 * 0x1000000 + iVar3 * 0x10000 + iVar2 * 0x100 + iVar1;
 }
 

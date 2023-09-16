@@ -60,7 +60,7 @@ LAB_004359b3:
       _DAT_0069bcbc = 1;
       DAT_0069d4c4 = 1;
       _DAT_0069d4c8 = 0;
-      g_GameContext.field91_0x1ac = 1.0;
+      g_GameContext.framerateMultiplier = 1.0;
       _strcpy(&DAT_0069d4cc,"data/demo/demo00.rpy");
       CUR_RANK = 3;
       CUR_STAGE = 3;
@@ -246,7 +246,7 @@ switchD_004358f7_caseD_2:
       FUN_0043753c(param_1);
       for (local_8 = 0; (int)local_8 < 4; local_8 = local_8 + 1) {
         if (local_8 == *(int *)(param_1 + 0x81a0)) {
-          if ((g_GameContext.cfg.render_opts & 1U) == 0) {
+          if ((g_GameContext.cfg.opts & 1) == 0) {
             *(undefined4 *)((int)local_c + 0x7c) = 0xff000000;
           }
           else {
@@ -257,7 +257,7 @@ switchD_004358f7_caseD_2:
           *(undefined4 *)((int)local_c + 0xec) = 0;
         }
         else {
-          if ((g_GameContext.cfg.render_opts & 1U) == 0) {
+          if ((g_GameContext.cfg.opts & 1) == 0) {
             *(undefined4 *)((int)local_c + 0x7c) = 0x60000000;
           }
           else {
@@ -278,7 +278,7 @@ switchD_004358f7_caseD_2:
         local_c = (AnmVm *)((int)local_c + 0x110);
       }
       for (local_8 = 4; (int)local_8 < 5; local_8 = local_8 + 1) {
-        if ((g_GameContext.cfg.render_opts & 1U) == 0) {
+        if ((g_GameContext.cfg.opts & 1) == 0) {
           *(undefined4 *)((int)local_c + 0x7c) = 0xff000000;
         }
         else {
@@ -496,7 +496,7 @@ LAB_0043666d:
       *(uint *)((int)local_c + 0x80) = *(uint *)((int)local_c + 0x80) | 8;
       *(uint *)((int)local_c + 0x80) = *(uint *)((int)local_c + 0x80) | 1;
       if (local_8 == *(int *)(param_1 + 0x81a0)) {
-        if ((g_GameContext.cfg.render_opts & 1U) == 0) {
+        if ((g_GameContext.cfg.opts & 1) == 0) {
           *(undefined4 *)((int)local_c + 0x7c) = 0xff202020;
         }
         else {
@@ -507,7 +507,7 @@ LAB_0043666d:
         *(undefined4 *)((int)local_c + 0xec) = 0;
       }
       else {
-        if ((g_GameContext.cfg.render_opts & 1U) == 0) {
+        if ((g_GameContext.cfg.opts & 1) == 0) {
           *(undefined4 *)((int)local_c + 0x7c) = 0xa0000000;
         }
         else {
@@ -695,8 +695,8 @@ LAB_00436de7:
             local_44 = 0.375;
           }
           DebugPrint("Reflesh Rate = %f\n",(double)(60.0 / local_44));
-          g_GameContext.field91_0x1ac = local_44;
-          FUN_00424d38(&g_GameContext);
+          g_GameContext.framerateMultiplier = local_44;
+          GameContext::FUN_00424d38(&g_GameContext);
           return 0;
         }
       }

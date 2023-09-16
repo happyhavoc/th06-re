@@ -124,7 +124,7 @@ undefined4 FUN_00437b41(void)
         *(undefined4 *)(in_ECX + 0x81a0) = 0;
         *(byte *)(in_ECX + 0x8230) = g_GameContext.cfg.colorMode16bit;
         *(bool *)(in_ECX + 0x8231) = g_GameContext.cfg.windowed;
-        *(byte *)(in_ECX + 0x8232) = g_GameContext.cfg.frameskip_config;
+        *(byte *)(in_ECX + 0x8232) = g_GameContext.cfg.frameskipConfig;
         FUN_004311e0(10);
         break;
       case 7:

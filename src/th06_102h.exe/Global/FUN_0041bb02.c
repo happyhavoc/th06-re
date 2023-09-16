@@ -141,7 +141,7 @@ undefined4 FUN_0041bb02(uint *param_1)
                 }
                 if (DAT_0069d4c4 == '\0') {
                   FUN_00424aac(1,DAT_00487b14 + 0x310);
-                  FUN_00424b5d(DAT_00487b14 + 0x290);
+                  FUN_00424b5d((char *)(DAT_00487b14 + 0x290));
                 }
                 *(undefined *)(param_1 + 0x608) = 0;
                 *(undefined *)((int)param_1 + 0x1821) = 1;
@@ -173,7 +173,7 @@ undefined4 FUN_0041bb02(uint *param_1)
           }
           else {
             GameErrorContextLog(&g_GameErrorContext,
-                                "error : 敵頭脳の初期化に失敗しました\n");
+                                "error : 敵頭脳の初���化に失敗しました\n");
             uVar3 = 0xffffffff;
           }
         }

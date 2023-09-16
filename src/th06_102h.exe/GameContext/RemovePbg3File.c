@@ -2,14 +2,14 @@
 void __thiscall GameContext::RemovePbg3File(GameContext *this,int idx)
 
 {
-  Pbg3File *_Memory;
+  Pbg3File *this_00;
   
   if (this->pbg3File[idx] != (Pbg3File *)0x0) {
-    FUN_0043c8d0(this->pbg3File[idx]);
-    _Memory = this->pbg3File[idx];
-    if (_Memory != (Pbg3File *)0x0) {
-      thunk_FUN_0043c8d0(_Memory);
-      _free(_Memory);
+    Pbg3File_conflict1::SomeKindOfDelete((Pbg3File_conflict1 *)this->pbg3File[idx]);
+    this_00 = this->pbg3File[idx];
+    if (this_00 != (Pbg3File *)0x0) {
+      Pbg3File_conflict1::SomeKindOfDelete((Pbg3File_conflict1 *)this_00);
+      _free(this_00);
     }
     this->pbg3File[idx] = (Pbg3File *)0x0;
   }

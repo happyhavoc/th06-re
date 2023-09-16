@@ -68,7 +68,8 @@ switchD_00403892_caseD_6:
           if (*(int *)(param_1 + 0x2c4) != 0) {
             if (*(int *)(param_1 + 0x2d0) < *(int *)(param_1 + 0x2c4)) {
               *(undefined4 *)(param_1 + 0x2c8) = *(undefined4 *)(param_1 + 0x2d0);
-              FUN_00424285(&g_GameContext,(int *)(param_1 + 0x2d0),(float *)(param_1 + 0x2cc));
+              GameContext::FUN_00424285
+                        (&g_GameContext,(int *)(param_1 + 0x2d0),(float *)(param_1 + 0x2cc));
             }
             else {
               *(undefined4 *)(param_1 + 0x2d0) = *(undefined4 *)(param_1 + 0x2c4);
@@ -89,7 +90,8 @@ switchD_00403892_caseD_6:
           }
           if (*(int *)(param_1 + 0x6c) != 0) {
             *(undefined4 *)(param_1 + 0x70) = *(undefined4 *)(param_1 + 0x78);
-            FUN_00424285(&g_GameContext,(int *)(param_1 + 0x78),(float *)(param_1 + 0x74));
+            GameContext::FUN_00424285
+                      (&g_GameContext,(int *)(param_1 + 0x78),(float *)(param_1 + 0x74));
             local_20 = ((float)*(int *)(param_1 + 0x78) + *(float *)(param_1 + 0x74)) /
                        (float)*(int *)(param_1 + 0x6c);
             if (1.0 <= local_20) {
@@ -119,7 +121,8 @@ switchD_00403892_caseD_6:
           }
           if (*(short *)(local_c + 1) != 5) {
             *(undefined4 *)(param_1 + 0x1c) = *(undefined4 *)(param_1 + 0x24);
-            FUN_00424285(&g_GameContext,(int *)(param_1 + 0x24),(float *)(param_1 + 0x20));
+            GameContext::FUN_00424285
+                      (&g_GameContext,(int *)(param_1 + 0x24),(float *)(param_1 + 0x20));
           }
           FUN_00404860();
           if (*(int *)(param_1 + 0x80) < 1) {

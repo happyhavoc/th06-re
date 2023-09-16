@@ -7,8 +7,9 @@ undefined4 FUN_0042a240(int param_1,undefined4 param_2)
   undefined4 uVar3;
   void *local_14;
   
-  if ((g_GameContext.field91_0x1ac < 0.99 == NAN(g_GameContext.field91_0x1ac)) || (param_1 != 0)) {
-    g_GameContext.field91_0x1ac = 1.0;
+  if ((g_GameContext.framerateMultiplier < 0.99 == NAN(g_GameContext.framerateMultiplier)) ||
+     (param_1 != 0)) {
+    g_GameContext.framerateMultiplier = 1.0;
     if (DAT_006d3f18 == (void *)0x0) {
       local_14 = operator_new(0x74);
       if (local_14 == (void *)0x0) {

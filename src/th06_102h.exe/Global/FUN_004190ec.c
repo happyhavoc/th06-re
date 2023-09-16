@@ -67,7 +67,7 @@ undefined4 FUN_004190ec(void)
     local_50 = 0x3f800000;
     AnmManager::FUN_00432ad0(g_AnmManager,(AnmVm *)(in_ECX + 0x2550));
     AnmManager::FUN_00432ad0(g_AnmManager,(AnmVm *)(in_ECX + 0x2660));
-    if (((uint)g_GameContext.cfg.render_opts >> NO_COLOR_COMP & 1) == 0) {
+    if ((g_GameContext.cfg.opts >> NO_COLOR_COMP & 1) == 0) {
       (*(g_GameContext.d3dDevice)->lpVtbl->SetTextureStageState)
                 (g_GameContext.d3dDevice,0,D3DTSS_ALPHAOP,2);
       (*(g_GameContext.d3dDevice)->lpVtbl->SetTextureStageState)
@@ -77,7 +77,7 @@ undefined4 FUN_004190ec(void)
               (g_GameContext.d3dDevice,0,D3DTSS_ALPHAARG1,0);
     (*(g_GameContext.d3dDevice)->lpVtbl->SetTextureStageState)
               (g_GameContext.d3dDevice,0,D3DTSS_COLORARG1,0);
-    if (((uint)g_GameContext.cfg.render_opts >> TURN_OFF_DEPTH_TEST & 1) == 0) {
+    if ((g_GameContext.cfg.opts >> TURN_OFF_DEPTH_TEST & 1) == 0) {
       (*(g_GameContext.d3dDevice)->lpVtbl->SetRenderState)
                 (g_GameContext.d3dDevice,D3DRS_ZWRITEENABLE,0);
     }
@@ -88,7 +88,7 @@ undefined4 FUN_004190ec(void)
     g_AnmManager->currentColorOp = 0xff;
     g_AnmManager->currentBlendMode = 0xff;
     g_AnmManager->currentZWriteDisable = 0xff;
-    if (((uint)g_GameContext.cfg.render_opts >> NO_COLOR_COMP & 1) == 0) {
+    if ((g_GameContext.cfg.opts >> NO_COLOR_COMP & 1) == 0) {
       (*(g_GameContext.d3dDevice)->lpVtbl->SetTextureStageState)
                 (g_GameContext.d3dDevice,0,D3DTSS_ALPHAOP,4);
       (*(g_GameContext.d3dDevice)->lpVtbl->SetTextureStageState)

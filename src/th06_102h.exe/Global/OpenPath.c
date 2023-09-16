@@ -30,7 +30,9 @@ byte * OpenPath(byte *file_path,int param_2)
       local_8 = 0;
       while ((local_8 < 0x10 &&
              ((PBG3_FILES[local_8] == (Pbg3File *)0x0 ||
-              (local_10 = FUN_0043c920(PBG3_FILES[local_8],filename), local_10 < 0))))) {
+              (local_10 = Pbg3File_conflict1::Unk23
+                                    ((Pbg3File_conflict1 *)PBG3_FILES[local_8],filename),
+              local_10 < 0))))) {
         local_8 = local_8 + 1;
       }
     }

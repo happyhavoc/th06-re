@@ -21,8 +21,8 @@ ChainElem * __cdecl ChainElem::Allocate(void *callback)
     local_24 = ChainElem(this);
   }
   local_24->callback = callback;
-  local_24->added_callback = 0;
-  local_24->deleted_callback = 0;
+  local_24->addedCallback = 0;
+  local_24->deletedCallback = 0;
   local_24->flags = local_24->flags | 1;
   ExceptionList = local_10;
   return local_24;

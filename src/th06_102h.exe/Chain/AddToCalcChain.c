@@ -23,12 +23,12 @@ undefined4 __thiscall Chain::AddToCalcChain(Chain *this,ChainElem *elem,int prio
     elem->prev = cur;
     cur->next = elem;
   }
-  if (elem->added_callback == 0) {
+  if (elem->addedCallback == 0) {
     uVar1 = 0;
   }
   else {
-    uVar1 = (*(code *)elem->added_callback)(elem->arg);
-    elem->added_callback = 0;
+    uVar1 = (*(code *)elem->addedCallback)(elem->arg);
+    elem->addedCallback = 0;
   }
   return uVar1;
 }

@@ -244,29 +244,30 @@ switchD_004339dd_caseD_15:
 LAB_00434338:
     fVar1 = (vm->angleVel).x;
     if (NAN(fVar1) == (fVar1 == 0.0)) {
-      fVar6 = (float10)FUN_0041e850((vm->rotation).x,(float)g_GameContext._424_4_ * (vm->angleVel).x
-                                   );
+      fVar6 = (float10)FUN_0041e850((vm->rotation).x,g_GameContext.field84_0x1a8 * (vm->angleVel).x)
+      ;
       (vm->rotation).x = (float)fVar6;
     }
     fVar1 = (vm->angleVel).y;
     if (NAN(fVar1) == (fVar1 == 0.0)) {
-      fVar6 = (float10)FUN_0041e850((vm->rotation).y,(float)g_GameContext._424_4_ * (vm->angleVel).y
-                                   );
+      fVar6 = (float10)FUN_0041e850((vm->rotation).y,g_GameContext.field84_0x1a8 * (vm->angleVel).y)
+      ;
       (vm->rotation).y = (float)fVar6;
     }
     fVar1 = (vm->angleVel).z;
     if (NAN(fVar1) == (fVar1 == 0.0)) {
-      fVar6 = (float10)FUN_0041e850((vm->rotation).z,(float)g_GameContext._424_4_ * (vm->angleVel).z
-                                   );
+      fVar6 = (float10)FUN_0041e850((vm->rotation).z,g_GameContext.field84_0x1a8 * (vm->angleVel).z)
+      ;
       (vm->rotation).z = (float)fVar6;
     }
     if ((short)vm->scaleInterpEndTime < 1) {
-      vm->scaleX = (float)g_GameContext._424_4_ * vm->scaleInterpFinalY + vm->scaleX;
-      vm->scaleY = (float)g_GameContext._424_4_ * vm->scaleInterpFinalX + vm->scaleY;
+      vm->scaleX = g_GameContext.field84_0x1a8 * vm->scaleInterpFinalY + vm->scaleX;
+      vm->scaleY = g_GameContext.field84_0x1a8 * vm->scaleInterpFinalX + vm->scaleY;
     }
     else {
       (vm->scaleInterpTime).previous = (vm->scaleInterpTime).current;
-      FUN_00424285(&g_GameContext,&(vm->scaleInterpTime).current,&(vm->scaleInterpTime).subFrame);
+      GameContext::FUN_00424285
+                (&g_GameContext,&(vm->scaleInterpTime).current,&(vm->scaleInterpTime).subFrame);
       if ((vm->scaleInterpTime).current < (int)(short)vm->scaleInterpEndTime) {
         vm->scaleY = (((float)(vm->scaleInterpTime).current + (vm->scaleInterpTime).subFrame) *
                      (vm->scaleInterpFinalX - vm->scaleInterpInitialX)) /
@@ -291,7 +292,8 @@ LAB_00434338:
     }
     if (0 < (short)vm->alphaInterpEndTime) {
       (vm->alphaInterpTime).previous = (vm->alphaInterpTime).current;
-      FUN_00424285(&g_GameContext,&(vm->alphaInterpTime).current,&(vm->alphaInterpTime).subFrame);
+      GameContext::FUN_00424285
+                (&g_GameContext,&(vm->alphaInterpTime).current,&(vm->alphaInterpTime).subFrame);
       local_2c = vm->alphaInterpInitial;
       local_28 = vm->alphaInterpFinal;
       local_30 = ((float)(vm->alphaInterpTime).current + (vm->alphaInterpTime).subFrame) /
@@ -353,11 +355,13 @@ LAB_00434338:
         vm->posInterpEndTime = 0;
       }
       (vm->posInterpTime).previous = (vm->posInterpTime).current;
-      FUN_00424285(&g_GameContext,&(vm->posInterpTime).current,&(vm->posInterpTime).subFrame);
+      GameContext::FUN_00424285
+                (&g_GameContext,&(vm->posInterpTime).current,&(vm->posInterpTime).subFrame);
     }
     (vm->currentTimeInScript).previous = (vm->currentTimeInScript).current;
-    FUN_00424285(&g_GameContext,&(vm->currentTimeInScript).current,
-                 &(vm->currentTimeInScript).subFrame);
+    GameContext::FUN_00424285
+              (&g_GameContext,&(vm->currentTimeInScript).current,&(vm->currentTimeInScript).subFrame
+              );
     return 0;
   }
   goto LAB_00434098;

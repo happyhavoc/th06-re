@@ -11,7 +11,7 @@ undefined4 FUN_0043a338(int param_1)
   UVar1 = (*(g_GameContext.d3dDevice)->lpVtbl->GetAvailableTextureMem)(g_GameContext.d3dDevice);
   DebugPrint("Debug : title 開始 VRAM = %d\n",UVar1);
   BYTE_ARRAY_006d46c0._33264_4_ = -(uint)(param_1 != 0) & 0xc;
-  g_GameContext.field91_0x1ac = 0.0;
+  g_GameContext.framerateMultiplier = 0.0;
   BYTE_ARRAY_006d46c0._33332_4_ = ChainElem::Allocate(FUN_0043579f);
   *(byte **)(BYTE_ARRAY_006d46c0._33332_4_ + 0x1c) = BYTE_ARRAY_006d46c0;
   *(code **)(BYTE_ARRAY_006d46c0._33332_4_ + 8) = FUN_0043a464;

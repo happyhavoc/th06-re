@@ -34,37 +34,37 @@ undefined4 FUN_004149d0(int param_1)
       case 1:
         goto switchD_00414a97_caseD_1;
       case 2:
-        fVar1 = local_24[5].scaleInterpFinalX * 0.5 * (float)g_GameContext._424_4_;
-        fVar3 = local_24[5].scaleInterpFinalY * 0.5 * (float)g_GameContext._424_4_;
+        fVar1 = local_24[5].scaleInterpFinalX * 0.5 * g_GameContext.field84_0x1a8;
+        fVar3 = local_24[5].scaleInterpFinalY * 0.5 * g_GameContext.field84_0x1a8;
         pfVar5 = &local_24[5].angleVel.y;
-        *pfVar5 = local_24[5].scaleY * 0.5 * (float)g_GameContext._424_4_ + *pfVar5;
+        *pfVar5 = local_24[5].scaleY * 0.5 * g_GameContext.field84_0x1a8 + *pfVar5;
         local_24[5].angleVel.z = fVar3 + local_24[5].angleVel.z;
         local_24[5].scaleX = fVar1 + local_24[5].scaleX;
         iVar4 = AnmManager::FUN_00433960(g_AnmManager,local_24 + 1);
         break;
       case 3:
-        fVar1 = local_24[5].scaleInterpFinalX * 0.4 * (float)g_GameContext._424_4_;
-        fVar3 = local_24[5].scaleInterpFinalY * 0.4 * (float)g_GameContext._424_4_;
+        fVar1 = local_24[5].scaleInterpFinalX * 0.4 * g_GameContext.field84_0x1a8;
+        fVar3 = local_24[5].scaleInterpFinalY * 0.4 * g_GameContext.field84_0x1a8;
         pfVar5 = &local_24[5].angleVel.y;
-        *pfVar5 = local_24[5].scaleY * 0.4 * (float)g_GameContext._424_4_ + *pfVar5;
+        *pfVar5 = local_24[5].scaleY * 0.4 * g_GameContext.field84_0x1a8 + *pfVar5;
         local_24[5].angleVel.z = fVar3 + local_24[5].angleVel.z;
         local_24[5].scaleX = fVar1 + local_24[5].scaleX;
         iVar4 = AnmManager::FUN_00433960(g_AnmManager,local_24 + 2);
         break;
       case 4:
-        fVar1 = local_24[5].scaleInterpFinalX * 0.3333333 * (float)g_GameContext._424_4_;
-        fVar3 = local_24[5].scaleInterpFinalY * 0.3333333 * (float)g_GameContext._424_4_;
+        fVar1 = local_24[5].scaleInterpFinalX * 0.3333333 * g_GameContext.field84_0x1a8;
+        fVar3 = local_24[5].scaleInterpFinalY * 0.3333333 * g_GameContext.field84_0x1a8;
         pfVar5 = &local_24[5].angleVel.y;
-        *pfVar5 = local_24[5].scaleY * 0.3333333 * (float)g_GameContext._424_4_ + *pfVar5;
+        *pfVar5 = local_24[5].scaleY * 0.3333333 * g_GameContext.field84_0x1a8 + *pfVar5;
         local_24[5].angleVel.z = fVar3 + local_24[5].angleVel.z;
         local_24[5].scaleX = fVar1 + local_24[5].scaleX;
         iVar4 = AnmManager::FUN_00433960(g_AnmManager,local_24 + 3);
         break;
       case 5:
-        fVar1 = local_24[5].scaleInterpFinalX * 0.5 * (float)g_GameContext._424_4_;
-        fVar3 = local_24[5].scaleInterpFinalY * 0.5 * (float)g_GameContext._424_4_;
+        fVar1 = local_24[5].scaleInterpFinalX * 0.5 * g_GameContext.field84_0x1a8;
+        fVar3 = local_24[5].scaleInterpFinalY * 0.5 * g_GameContext.field84_0x1a8;
         pfVar5 = &local_24[5].angleVel.y;
-        *pfVar5 = local_24[5].scaleY * 0.5 * (float)g_GameContext._424_4_ + *pfVar5;
+        *pfVar5 = local_24[5].scaleY * 0.5 * g_GameContext.field84_0x1a8 + *pfVar5;
         local_24[5].angleVel.z = fVar3 + local_24[5].angleVel.z;
         local_24[5].scaleX = fVar1 + local_24[5].scaleX;
         iVar4 = AnmManager::FUN_00433960(g_AnmManager,local_24 + 4);
@@ -82,8 +82,9 @@ undefined4 FUN_004149d0(int param_1)
       if (iVar4 == 0) {
 switchD_00414a97_caseD_5:
         local_24[5].matrix.field0_0x0.field0._21 = local_24[5].matrix.field0_0x0.field0._23;
-        FUN_00424285(&g_GameContext,(int *)&local_24[5].matrix.field0_0x0.field0._23,
-                     &local_24[5].matrix.field0_0x0.field0._22);
+        GameContext::FUN_00424285
+                  (&g_GameContext,(int *)&local_24[5].matrix.field0_0x0.field0._23,
+                   &local_24[5].matrix.field0_0x0.field0._22);
       }
       else {
         *(undefined2 *)((int)&local_24[5].matrix.field0_0x0 + 0x32) = 1;
@@ -100,7 +101,7 @@ switchD_00414a97_caseD_1:
                   fVar8 = (float10)FUN_0041e850(local_24[5].matrix.field0_0x0.field0._12);
                   local_24[5].matrix.field0_0x0.field0._12 = (float)fVar8;
                   local_24[5].currentTimeInScript.subFrame =
-                       (float)g_GameContext._424_4_ * (float)local_24[5].currentTimeInScript.current
+                       g_GameContext.field84_0x1a8 * (float)local_24[5].currentTimeInScript.current
                        + local_24[5].currentTimeInScript.subFrame;
                   fVar1 = local_24[5].currentTimeInScript.subFrame;
                   fVar7 = (float10)local_24[5].matrix.field0_0x0.field0._12;
@@ -117,11 +118,10 @@ switchD_00414a97_caseD_1:
             }
             else if ((int)local_24[5].matrix.field0_0x0.field0._23 <
                      (int)local_24[5].matrix.field0_0x0.field0._24) {
-              fVar1 = (float)g_GameContext._424_4_ * (float)local_24[5].currentTimeInScript.previous
-              ;
-              fVar3 = (float)g_GameContext._424_4_ * local_24[5].uvScrollPos.y;
+              fVar1 = g_GameContext.field84_0x1a8 * (float)local_24[5].currentTimeInScript.previous;
+              fVar3 = g_GameContext.field84_0x1a8 * local_24[5].uvScrollPos.y;
               local_24[5].scaleY =
-                   (float)g_GameContext._424_4_ * local_24[5].uvScrollPos.x + local_24[5].scaleY;
+                   g_GameContext.field84_0x1a8 * local_24[5].uvScrollPos.x + local_24[5].scaleY;
               local_24[5].scaleInterpFinalY = fVar3 + local_24[5].scaleInterpFinalY;
               local_24[5].scaleInterpFinalX = fVar1 + local_24[5].scaleInterpFinalX;
               fVar8 = (float10)FUN_0045be40((double)local_24[5].scaleInterpFinalY,
@@ -316,10 +316,10 @@ switchD_00414a97_caseD_1:
             local_24[5].scaleInterpFinalY = (float)(fVar7 * (float10)local_10);
           }
         }
-        fVar1 = (float)g_GameContext._424_4_ * local_24[5].scaleInterpFinalX;
-        fVar3 = (float)g_GameContext._424_4_ * local_24[5].scaleInterpFinalY;
+        fVar1 = g_GameContext.field84_0x1a8 * local_24[5].scaleInterpFinalX;
+        fVar3 = g_GameContext.field84_0x1a8 * local_24[5].scaleInterpFinalY;
         pfVar5 = &local_24[5].angleVel.y;
-        *pfVar5 = (float)g_GameContext._424_4_ * local_24[5].scaleY + *pfVar5;
+        *pfVar5 = g_GameContext.field84_0x1a8 * local_24[5].scaleY + *pfVar5;
         local_24[5].angleVel.z = fVar3 + local_24[5].angleVel.z;
         local_24[5].scaleX = fVar1 + local_24[5].scaleX;
         iVar4 = FUN_0041b5e1(local_24[5].angleVel.y,local_24[5].angleVel.z,local_24->sprite->widthPx
@@ -378,7 +378,7 @@ LAB_00414a1a:
     for (local_c = 0; local_c < 0x40; local_c = local_c + 1) {
       if (local_2c[2].currentTimeInScript.current != 0) {
         local_2c[2].angleVel.z =
-             (float)g_GameContext._424_4_ * local_2c[2].scaleInterpFinalY + local_2c[2].angleVel.z;
+             g_GameContext.field84_0x1a8 * local_2c[2].scaleInterpFinalY + local_2c[2].angleVel.z;
         if (local_2c[2].scaleX < local_2c[2].angleVel.z - local_2c[2].angleVel.y) {
           local_2c[2].angleVel.y = local_2c[2].angleVel.z - local_2c[2].scaleX;
         }
@@ -491,15 +491,17 @@ LAB_00416422:
           local_2c[2].currentTimeInScript.current = 0;
         }
         local_2c[2].matrix.field0_0x0.field0._11 = local_2c[2].matrix.field0_0x0.field0._13;
-        FUN_00424285(&g_GameContext,(int *)&local_2c[2].matrix.field0_0x0.field0._13,
-                     &local_2c[2].matrix.field0_0x0.field0._12);
+        GameContext::FUN_00424285
+                  (&g_GameContext,(int *)&local_2c[2].matrix.field0_0x0.field0._13,
+                   &local_2c[2].matrix.field0_0x0.field0._12);
         AnmManager::FUN_00433960(g_AnmManager,local_2c);
       }
 LAB_00415e08:
       local_2c = (AnmVm *)(local_2c[2].matrix.field0_0x0.m[1] + 1);
     }
     *(undefined4 *)(param_1 + 0xf5c08) = *(undefined4 *)(param_1 + 0xf5c10);
-    FUN_00424285(&g_GameContext,(int *)(param_1 + 0xf5c10),(float *)(param_1 + 0xf5c0c));
+    GameContext::FUN_00424285
+              (&g_GameContext,(int *)(param_1 + 0xf5c10),(float *)(param_1 + 0xf5c0c));
   }
   return 1;
 }

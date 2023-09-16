@@ -14,7 +14,7 @@ undefined4 FUN_00438bc1(void)
   local_8 = in_ECX + 0x6820;
   for (local_c = iVar1; (local_c < iVar1 + 0xf && (local_c < *(int *)(in_ECX + 0x81ec)));
       local_c = local_c + 1) {
-    if (((uint)g_GameContext.cfg.render_opts >> 8 & 1 | g_GameContext.cfg.render_opts & 1U) == 0) {
+    if ((g_GameContext.cfg.opts >> 8 & 1 | g_GameContext.cfg.opts & 1) == 0) {
       if (local_c == *(int *)(in_ECX + 0x81e8)) {
         _DAT_00481b24 = 0xffff8080;
       }
@@ -46,8 +46,7 @@ undefined4 FUN_00438bc1(void)
     FUN_00401650(0x47b900,(undefined4 *)(in_ECX + 0x79b0),"Stage  LastScore");
     local_8 = in_ECX + 0x7920;
     for (local_c = 0; local_c < 7; local_c = local_c + 1) {
-      if (((uint)g_GameContext.cfg.render_opts >> 8 & 1 | g_GameContext.cfg.render_opts & 1U) == 0)
-      {
+      if ((g_GameContext.cfg.opts >> 8 & 1 | g_GameContext.cfg.opts & 1) == 0) {
         if (local_c == *(int *)(in_ECX + 0x81a0)) {
           _DAT_00481b24 = 0xffff8080;
         }

@@ -1,4 +1,6 @@
 
+/* WARNING: This is an inlined function */
+
 undefined2 FUN_00421d70(undefined4 param_1)
 
 {

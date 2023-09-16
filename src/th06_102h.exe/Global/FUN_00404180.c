@@ -28,7 +28,7 @@ undefined4 FUN_00404180(int param_1)
   }
   pAVar1 = g_AnmManager;
   if (0 < *(int *)(param_1 + 0x80)) {
-    if (*(int *)(param_1 + 0x84) <= (int)(uint)g_GameContext.cfg.frameskip_config) {
+    if (*(int *)(param_1 + 0x84) <= (int)(uint)g_GameContext.cfg.frameskipConfig) {
       *(undefined2 *)(param_1 + 0x13c) = 0x2b3;
       FUN_00432430((Unknown *)(param_1 + 0x88),(int)pAVar1->scripts[0x2b3]);
     }

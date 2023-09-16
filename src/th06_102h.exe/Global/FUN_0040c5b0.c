@@ -12,7 +12,7 @@ void FUN_0040c5b0(int param_1)
   float local_90;
   float local_8c;
   float local_88;
-  vec3f local_84;
+  D3DXVECTOR3 local_84;
   float local_78;
   float local_74;
   float local_70;

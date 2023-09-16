@@ -24,11 +24,11 @@ undefined4 __thiscall Chain::AddToDrawChain(Chain *this,ChainElem *param_2,int p
     param_2->prev = local_8;
     local_8->next = param_2;
   }
-  if (param_2->added_callback == 0) {
+  if (param_2->addedCallback == 0) {
     uVar1 = 0;
   }
   else {
-    uVar1 = (*(code *)param_2->added_callback)(param_2->arg);
+    uVar1 = (*(code *)param_2->addedCallback)(param_2->arg);
   }
   return uVar1;
 }

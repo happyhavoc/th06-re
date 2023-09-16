@@ -59,7 +59,7 @@ undefined4 FUN_0042d98e(int param_1)
           for (local_8 = 0; local_8 < 0x26; local_8 = local_8 + 1) {
             *(undefined2 *)((int)local_c + 0x8a) = 1;
             *(uint *)((int)local_c + 0x80) = *(uint *)((int)local_c + 0x80) | 8;
-            if ((g_GameContext.cfg.render_opts & 1U) == 0) {
+            if ((g_GameContext.cfg.opts & 1) == 0) {
               *(uint *)((int)local_c + 0x7c) = *(uint *)((int)local_c + 0x7c) & 0xff000000;
             }
             else {
@@ -70,7 +70,7 @@ undefined4 FUN_0042d98e(int param_1)
           local_c = (AnmVm *)(param_1 + 0x150);
           for (local_8 = 0; local_8 < 7; local_8 = local_8 + 1) {
             if (local_8 == *(int *)(param_1 + 0x10)) {
-              if ((g_GameContext.cfg.render_opts & 1U) == 0) {
+              if ((g_GameContext.cfg.opts & 1) == 0) {
                 *(undefined4 *)((int)local_c + 0x7c) = 0xff505050;
               }
               else {
@@ -81,7 +81,7 @@ undefined4 FUN_0042d98e(int param_1)
               *(undefined4 *)((int)local_c + 0xec) = 0;
             }
             else {
-              if ((g_GameContext.cfg.render_opts & 1U) == 0) {
+              if ((g_GameContext.cfg.opts & 1) == 0) {
                 *(undefined4 *)((int)local_c + 0x7c) = 0xb0000000;
               }
               else {
@@ -198,7 +198,7 @@ undefined4 FUN_0042d98e(int param_1)
       local_c = (AnmVm *)(param_1 + 0x150);
       for (local_8 = 0; local_8 < 7; local_8 = local_8 + 1) {
         if (local_8 == *(int *)(param_1 + 0x10)) {
-          if ((g_GameContext.cfg.render_opts & 1U) == 0) {
+          if ((g_GameContext.cfg.opts & 1) == 0) {
             *(undefined4 *)((int)local_c + 0x7c) = 0xff505050;
           }
           else {
@@ -209,7 +209,7 @@ undefined4 FUN_0042d98e(int param_1)
           *(undefined4 *)((int)local_c + 0xec) = 0;
         }
         else {
-          if ((g_GameContext.cfg.render_opts & 1U) == 0) {
+          if ((g_GameContext.cfg.opts & 1) == 0) {
             *(undefined4 *)((int)local_c + 0x7c) = 0xb0000000;
           }
           else {

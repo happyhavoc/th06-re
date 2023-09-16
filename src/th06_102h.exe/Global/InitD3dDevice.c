@@ -2,7 +2,7 @@
 void InitD3dDevice(void)
 
 {
-  if (((uint)g_GameContext.cfg.render_opts >> 6 & 1) == 0) {
+  if ((g_GameContext.cfg.opts >> 6 & 1) == 0) {
     (*(g_GameContext.d3dDevice)->lpVtbl->SetRenderState)(g_GameContext.d3dDevice,D3DRS_ZENABLE,1);
   }
   else {
@@ -12,7 +12,7 @@ void InitD3dDevice(void)
   (*(g_GameContext.d3dDevice)->lpVtbl->SetRenderState)(g_GameContext.d3dDevice,D3DRS_CULLMODE,1);
   (*(g_GameContext.d3dDevice)->lpVtbl->SetRenderState)
             (g_GameContext.d3dDevice,D3DRS_ALPHABLENDENABLE,1);
-  if (((uint)g_GameContext.cfg.render_opts >> 5 & 1) == 0) {
+  if ((g_GameContext.cfg.opts >> 5 & 1) == 0) {
     (*(g_GameContext.d3dDevice)->lpVtbl->SetRenderState)
               (g_GameContext.d3dDevice,D3DRS_SHADEMODE,D3DSHADE_GOURAUD);
   }
@@ -24,7 +24,7 @@ void InitD3dDevice(void)
             (g_GameContext.d3dDevice,D3DRS_SRCBLEND,D3DBLEND_SRCALPHA);
   (*(g_GameContext.d3dDevice)->lpVtbl->SetRenderState)
             (g_GameContext.d3dDevice,D3DRS_DESTBLEND,D3DBLEND_INVSRCALPHA);
-  if (((uint)g_GameContext.cfg.render_opts >> 6 & 1) == 0) {
+  if ((g_GameContext.cfg.opts >> 6 & 1) == 0) {
     (*(g_GameContext.d3dDevice)->lpVtbl->SetRenderState)
               (g_GameContext.d3dDevice,D3DRS_ZFUNC,D3DCMP_LESSEQUAL);
   }
@@ -36,7 +36,7 @@ void InitD3dDevice(void)
             (g_GameContext.d3dDevice,D3DRS_ALPHATESTENABLE,1);
   (*(g_GameContext.d3dDevice)->lpVtbl->SetRenderState)(g_GameContext.d3dDevice,D3DRS_ALPHAREF,4);
   (*(g_GameContext.d3dDevice)->lpVtbl->SetRenderState)(g_GameContext.d3dDevice,D3DRS_ALPHAFUNC,7);
-  if (((uint)g_GameContext.cfg.render_opts >> 10 & 1) == 0) {
+  if ((g_GameContext.cfg.opts >> 10 & 1) == 0) {
     (*(g_GameContext.d3dDevice)->lpVtbl->SetRenderState)(g_GameContext.d3dDevice,D3DRS_FOGENABLE,1);
   }
   else {
@@ -52,7 +52,7 @@ void InitD3dDevice(void)
             (g_GameContext.d3dDevice,D3DRS_FOGSTART,0x447a0000);
   (*(g_GameContext.d3dDevice)->lpVtbl->SetRenderState)
             (g_GameContext.d3dDevice,D3DRS_FOGEND,0x459c4000);
-  if (((uint)g_GameContext.cfg.render_opts >> 8 & 1) == 0) {
+  if ((g_GameContext.cfg.opts >> 8 & 1) == 0) {
     (*(g_GameContext.d3dDevice)->lpVtbl->SetTextureStageState)
               (g_GameContext.d3dDevice,0,D3DTSS_ALPHAOP,4);
   }
@@ -62,7 +62,7 @@ void InitD3dDevice(void)
   }
   (*(g_GameContext.d3dDevice)->lpVtbl->SetTextureStageState)
             (g_GameContext.d3dDevice,0,D3DTSS_ALPHAARG1,2);
-  if (((uint)g_GameContext.cfg.render_opts >> 1 & 1) == 0) {
+  if ((g_GameContext.cfg.opts >> 1 & 1) == 0) {
     (*(g_GameContext.d3dDevice)->lpVtbl->SetTextureStageState)
               (g_GameContext.d3dDevice,0,D3DTSS_ALPHAARG2,3);
   }
@@ -70,7 +70,7 @@ void InitD3dDevice(void)
     (*(g_GameContext.d3dDevice)->lpVtbl->SetTextureStageState)
               (g_GameContext.d3dDevice,0,D3DTSS_ALPHAARG2,0);
   }
-  if (((uint)g_GameContext.cfg.render_opts >> 8 & 1) == 0) {
+  if ((g_GameContext.cfg.opts >> 8 & 1) == 0) {
     (*(g_GameContext.d3dDevice)->lpVtbl->SetTextureStageState)
               (g_GameContext.d3dDevice,0,D3DTSS_COLOROP,4);
   }
@@ -80,7 +80,7 @@ void InitD3dDevice(void)
   }
   (*(g_GameContext.d3dDevice)->lpVtbl->SetTextureStageState)
             (g_GameContext.d3dDevice,0,D3DTSS_COLORARG1,2);
-  if (((uint)g_GameContext.cfg.render_opts >> 1 & 1) == 0) {
+  if ((g_GameContext.cfg.opts >> 1 & 1) == 0) {
     (*(g_GameContext.d3dDevice)->lpVtbl->SetTextureStageState)
               (g_GameContext.d3dDevice,0,D3DTSS_COLORARG2,3);
   }

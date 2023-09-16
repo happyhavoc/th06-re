@@ -104,7 +104,8 @@ undefined4 FUN_004188c9(void)
                      DAT_00487b14 + 0x90 + *(int *)(*(int *)(in_ECX + 0x2538) + 4) * 0x80);
         iVar7 = FUN_00424ae4(*(undefined4 *)(*(int *)(in_ECX + 0x2538) + 4));
         if (iVar7 != 0) {
-          FUN_00424b5d(DAT_00487b14 + 0x290 + *(int *)(*(int *)(in_ECX + 0x2538) + 4) * 0x80);
+          FUN_00424b5d((char *)(DAT_00487b14 + 0x290 +
+                               *(int *)(*(int *)(in_ECX + 0x2538) + 4) * 0x80));
         }
         break;
       case 8:

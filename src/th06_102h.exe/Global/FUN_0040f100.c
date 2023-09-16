@@ -20,8 +20,9 @@ undefined4 FUN_0040f100(int param_1)
         *(undefined *)((int)&local_8[1].matrix.field0_0x0 + 0x2c) = 0;
       }
       local_8[1].matrix.field0_0x0.field0._23 = local_8[1].matrix.field0_0x0.field0._31;
-      FUN_00424285(&g_GameContext,(int *)&local_8[1].matrix.field0_0x0.field0._31,
-                   &local_8[1].matrix.field0_0x0.field0._24);
+      GameContext::FUN_00424285
+                (&g_GameContext,(int *)&local_8[1].matrix.field0_0x0.field0._31,
+                 &local_8[1].matrix.field0_0x0.field0._24);
     }
     local_8 = (AnmVm *)((int)&local_8[1].matrix.field0_0x0 + 0x30);
   }

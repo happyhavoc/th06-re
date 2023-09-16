@@ -122,7 +122,7 @@ LAB_004074ce:
       fVar22 = (float10)FUN_0041e850(param_1[0x10].field13_0x3c.field5_0x14);
       param_1[0x10].field13_0x3c.field5_0x14 = (float)fVar22;
       param_1[0x10].field13_0x3c.field7_0x1c =
-           (int)((float)g_GameContext._424_4_ * (float)param_1[0x10].field13_0x3c.field8_0x20 +
+           (int)(g_GameContext.field84_0x1a8 * (float)param_1[0x10].field13_0x3c.field8_0x20 +
                 (float)param_1[0x10].field13_0x3c.field7_0x1c);
       fVar4 = (float)param_1[0x10].field13_0x3c.field7_0x1c;
       fVar21 = (float10)param_1[0x10].field13_0x3c.field5_0x14;
@@ -188,8 +188,9 @@ LAB_004074ce:
     if (0 < *(int *)&param_1[0x10].field_0xa4) {
       if (0 < (int)param_1[0x11].field13_0x3c.field5_0x14) {
         param_1[0x11].field13_0x3c.field6_0x18 = param_1[0x11].field13_0x3c.field8_0x20;
-        FUN_00424285(&g_GameContext,&param_1[0x11].field13_0x3c.field8_0x20,
-                     (float *)&param_1[0x11].field13_0x3c.field7_0x1c);
+        GameContext::FUN_00424285
+                  (&g_GameContext,&param_1[0x11].field13_0x3c.field8_0x20,
+                   (float *)&param_1[0x11].field13_0x3c.field7_0x1c);
         if ((int)param_1[0x11].field13_0x3c.field5_0x14 <= param_1[0x11].field13_0x3c.field8_0x20) {
           fVar4 = param_1[0x10].field12_0x30.subFrame;
           fVar5 = (float)param_1[0x10].field13_0x3c.field11_0x2c;
@@ -259,8 +260,9 @@ LAB_004074ce:
     }
     param_1[0xc].field13_0x3c.field9_0x24 = (int)local_20;
     param_1[0xc].field13_0x3c.field10_0x28 = (float)param_1[0xc].field13_0x3c.field12_0x30;
-    FUN_00424285(&g_GameContext,&param_1[0xc].field13_0x3c.field12_0x30,
-                 (float *)&param_1[0xc].field13_0x3c.field11_0x2c);
+    GameContext::FUN_00424285
+              (&g_GameContext,&param_1[0xc].field13_0x3c.field12_0x30,
+               (float *)&param_1[0xc].field13_0x3c.field11_0x2c);
     return 0;
   }
   if (((uint)*(byte *)((int)local_20 + 9) & 1 << ((byte)CUR_RANK & 0x1f)) == 0)

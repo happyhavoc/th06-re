@@ -36,14 +36,14 @@ undefined4 FUN_0041b252(void)
   }
   uStack_8 = 0xffffffff;
   ChainElem_0069bc7c.callback = FUN_004174d7;
-  ChainElem_0069bc7c.added_callback = FUN_0041b1a4;
-  ChainElem_0069bc7c.deleted_callback = FUN_0041b1b1;
+  ChainElem_0069bc7c.addedCallback = FUN_0041b1a4;
+  ChainElem_0069bc7c.deletedCallback = FUN_0041b1b1;
   ChainElem_0069bc7c.arg = &DAT_0069bc30;
   iVar3 = Chain::AddToCalcChain(&g_Chain,&ChainElem_0069bc7c,0xc);
   if (iVar3 == 0) {
     ChainElem_0069bc5c.callback = FUN_00417502;
-    ChainElem_0069bc5c.added_callback = 0;
-    ChainElem_0069bc5c.deleted_callback = 0;
+    ChainElem_0069bc5c.addedCallback = 0;
+    ChainElem_0069bc5c.deletedCallback = 0;
     ChainElem_0069bc5c.arg = &DAT_0069bc30;
     Chain::AddToDrawChain(&g_Chain,&ChainElem_0069bc5c,0xb);
     uVar2 = 0;

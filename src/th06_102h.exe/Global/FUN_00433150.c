@@ -79,7 +79,7 @@ undefined4 FUN_00433150(float *param_1)
       }
     }
     if (in_ECX->field16_0x210be != '\x03') {
-      if (((uint)g_GameContext.cfg.render_opts >> 1 & 1) == 0) {
+      if ((g_GameContext.cfg.opts >> 1 & 1) == 0) {
         (*(g_GameContext.d3dDevice)->lpVtbl->SetVertexShader)(g_GameContext.d3dDevice,0x102);
         (*(g_GameContext.d3dDevice)->lpVtbl->SetStreamSource)
                   (g_GameContext.d3dDevice,0,in_ECX->vertexBuffer,0x14);
@@ -90,7 +90,7 @@ undefined4 FUN_00433150(float *param_1)
       in_ECX->field16_0x210be = '\x03';
     }
     FUN_004324d0(in_ECX,(int)param_1);
-    if (((uint)g_GameContext.cfg.render_opts >> 1 & 1) == 0) {
+    if ((g_GameContext.cfg.opts >> 1 & 1) == 0) {
       (*(g_GameContext.d3dDevice)->lpVtbl->DrawPrimitive)
                 (g_GameContext.d3dDevice,D3DPT_TRIANGLESTRIP,0,2);
     }

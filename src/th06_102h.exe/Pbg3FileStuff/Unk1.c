@@ -1,31 +1,18 @@
 
-bool __thiscall Pbg3FileStuff::Unk1(Pbg3FileStuff *this)
+undefined4 __thiscall Pbg3FileStuff::Unk1(Pbg3FileStuff *this,char *param_1)
 
 {
-  byte bVar1;
-  undefined3 extraout_var;
-  byte bVar3;
-  int iVar2;
+  int iVar1;
+  DWORD DVar2;
   
-  if ((this->fileAbstraction).base.handle == (HANDLE)0x0) {
-    return false;
+  (*((this->fileAbstraction).base.vtbl)->Close)(&(this->fileAbstraction).base);
+  Init(this);
+  iVar1 = FileAbstraction::Open(&(this->fileAbstraction).base,param_1,"r");
+  if (iVar1 == 0) {
+    return 0;
   }
-  if (*(char *)&this->field7_0x10 == -0x80) {
-    bVar1 = FileAbstraction::ReadByte(&(this->fileAbstraction).base);
-    iVar2 = CONCAT31(extraout_var,bVar1);
-    this->field6_0xc = iVar2;
-    if (iVar2 == -1) {
-      return false;
-    }
-    this->field4_0x4 = this->field4_0x4 + 1;
-    this->field8_0x14 = this->field8_0x14 + iVar2;
-  }
-  bVar1 = *(byte *)&this->field7_0x10;
-  bVar3 = bVar1 >> 1;
-  *(byte *)&this->field7_0x10 = bVar3;
-  if (bVar3 == 0) {
-    *(undefined *)&this->field7_0x10 = 0x80;
-  }
-  return (this->field6_0xc & (uint)bVar1) != 0;
+  DVar2 = GetFileSize((this->fileAbstraction).base.handle,(LPDWORD)0x0);
+  this->fileSize = DVar2;
+  return 1;
 }
 

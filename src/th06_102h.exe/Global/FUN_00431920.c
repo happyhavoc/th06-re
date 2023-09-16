@@ -14,7 +14,7 @@ undefined4 FUN_00431920(int param_1,undefined4 param_2,int param_3,undefined4 pa
     uVar2 = 0xffffffff;
   }
   else {
-    if (((uint)g_GameContext.cfg.render_opts >> 2 & 1) != 0) {
+    if ((g_GameContext.cfg.opts >> 2 & 1) != 0) {
       if ((*(int *)(&DAT_0046c220 + param_3 * 4) == 0x15) ||
          (*(int *)(&DAT_0046c220 + param_3 * 4) == 0)) {
         param_3 = 5;

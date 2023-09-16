@@ -3,7 +3,7 @@ void FUN_004377a3(AnmVm *param_1,int param_2,int param_3,uint param_4,uint param
 
 {
   if (param_2 == param_3) {
-    if (((uint)g_GameContext.cfg.render_opts >> 8 & 1 | g_GameContext.cfg.render_opts & 1U) == 0) {
+    if ((g_GameContext.cfg.opts >> 8 & 1 | g_GameContext.cfg.opts & 1) == 0) {
       param_1->color = param_4;
     }
     else {
@@ -15,7 +15,7 @@ void FUN_004377a3(AnmVm *param_1,int param_2,int param_3,uint param_4,uint param
     (param_1->pos2).z = 0.0;
   }
   else {
-    if (((uint)g_GameContext.cfg.render_opts >> 8 & 1 | g_GameContext.cfg.render_opts & 1U) == 0) {
+    if ((g_GameContext.cfg.opts >> 8 & 1 | g_GameContext.cfg.opts & 1) == 0) {
       param_1->color = param_5;
     }
     else {

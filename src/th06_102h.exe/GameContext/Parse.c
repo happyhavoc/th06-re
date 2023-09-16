@@ -16,7 +16,7 @@ undefined4 __thiscall GameContext::Parse(GameContext *this,char *config_file_nam
     (pGVar6->controllerMapping).bombButton = 0;
     pGVar6 = (GameConfiguration *)&(pGVar6->controllerMapping).focusButton;
   }
-  g_GameContext.cfg.render_opts = g_GameContext.cfg.render_opts | 1;
+  g_GameContext.cfg.opts = g_GameContext.cfg.opts | 1;
   _Memory = (undefined4 *)OpenPath(config_file_name,1);
   if (_Memory == (undefined4 *)0x0) {
     g_GameContext.cfg.lifeCount = 2;
@@ -37,7 +37,7 @@ undefined4 __thiscall GameContext::Parse(GameContext *this,char *config_file_nam
     g_GameContext.cfg.playSounds = 1;
     g_GameContext.cfg.defaultDifficulty = 1;
     g_GameContext.cfg.windowed = false;
-    g_GameContext.cfg.frameskip_config = 0;
+    g_GameContext.cfg.frameskipConfig = 0;
     g_GameContext.cfg.controllerMapping.shootButton = g_ControllerMapping.shootButton;
     g_GameContext.cfg.controllerMapping.bombButton = g_ControllerMapping.bombButton;
     g_GameContext.cfg.controllerMapping.focusButton = g_ControllerMapping.focusButton;
@@ -65,7 +65,7 @@ undefined4 __thiscall GameContext::Parse(GameContext *this,char *config_file_nam
           (1 < g_GameContext.cfg.colorMode16bit)) ||
          ((MIDI < g_GameContext.cfg.musicMode || (4 < g_GameContext.cfg.defaultDifficulty)))) ||
         ((1 < g_GameContext.cfg.playSounds ||
-         ((true < g_GameContext.cfg.windowed || (2 < g_GameContext.cfg.frameskip_config)))))) ||
+         ((true < g_GameContext.cfg.windowed || (2 < g_GameContext.cfg.frameskipConfig)))))) ||
        ((g_GameContext.cfg.version != 0x102 || (g_FileSize != 0x38)))) {
       g_GameContext.cfg.lifeCount = 2;
       g_GameContext.cfg.bombCount = 3;
@@ -76,7 +76,7 @@ undefined4 __thiscall GameContext::Parse(GameContext *this,char *config_file_nam
       pFVar2 = fopen("bgm/th06_01.wav","rb");
       if (pFVar2 == (FILE *)0x0) {
         g_GameContext.cfg.musicMode = MIDI;
-        DebugPrint("wave データが無いので、midi にします\n");
+        DebugPrint("wave ���ータが無いので、midi にします\n");
       }
       else {
         g_GameContext.cfg.musicMode = WAV;
@@ -85,7 +85,7 @@ undefined4 __thiscall GameContext::Parse(GameContext *this,char *config_file_nam
       g_GameContext.cfg.playSounds = 1;
       g_GameContext.cfg.defaultDifficulty = 1;
       g_GameContext.cfg.windowed = false;
-      g_GameContext.cfg.frameskip_config = 0;
+      g_GameContext.cfg.frameskipConfig = 0;
       g_GameContext.cfg.controllerMapping.shootButton = g_ControllerMapping.shootButton;
       g_GameContext.cfg.controllerMapping.bombButton = g_ControllerMapping.bombButton;
       g_GameContext.cfg.controllerMapping.focusButton = g_ControllerMapping.focusButton;
@@ -95,9 +95,9 @@ undefined4 __thiscall GameContext::Parse(GameContext *this,char *config_file_nam
       g_GameContext.cfg.controllerMapping.leftButton = g_ControllerMapping.leftButton;
       g_GameContext.cfg.controllerMapping.rightButton = g_ControllerMapping.rightButton;
       g_GameContext.cfg.controllerMapping.skipButton = g_ControllerMapping.skipButton;
-      g_GameContext.cfg.render_opts = 1;
+      g_GameContext.cfg.opts = 1;
       GameErrorContextLog(&g_GameErrorContext,
-                          "コンフィグデータが破��されていたので再初期化しました\n"
+                          "コンフィグデータが破壊されていたので再初期化しました\n"
                          );
     }
     g_ControllerMapping.shootButton = g_GameContext.cfg.controllerMapping.shootButton;
@@ -111,45 +111,45 @@ undefined4 __thiscall GameContext::Parse(GameContext *this,char *config_file_nam
     g_ControllerMapping.skipButton = g_GameContext.cfg.controllerMapping.skipButton;
     _free(_Memory);
   }
-  if (((uint)(this->cfg).render_opts >> 1 & 1) != 0) {
+  if (((this->cfg).opts >> 1 & 1) != 0) {
     GameErrorContextLog(&g_GameErrorContext,"頂点バッファの使用を抑制します\n");
   }
-  if (((uint)(this->cfg).render_opts >> 10 & 1) != 0) {
+  if (((this->cfg).opts >> 10 & 1) != 0) {
     GameErrorContextLog(&g_GameErrorContext,"フォグの使用を抑制します\n");
   }
-  if (((uint)(this->cfg).render_opts >> 2 & 1) != 0) {
+  if (((this->cfg).opts >> 2 & 1) != 0) {
     GameErrorContextLog(&g_GameErrorContext,"16Bit のテクスチャの使用を強制します\n")
     ;
   }
-  if (((uint)(this->cfg).render_opts >> 3 & 1 | (uint)(this->cfg).render_opts >> 4 & 1) != 0) {
+  if (((this->cfg).opts >> 3 & 1 | (this->cfg).opts >> 4 & 1) != 0) {
     GameErrorContextLog(&g_GameErrorContext,"バックバッファの消去を強制します\n");
   }
-  if (((uint)(this->cfg).render_opts >> 4 & 1) != 0) {
+  if (((this->cfg).opts >> 4 & 1) != 0) {
     GameErrorContextLog(&g_GameErrorContext,
                         "ゲーム周りのアイテムの描画を抑制します\n");
   }
-  if (((uint)(this->cfg).render_opts >> 5 & 1) != 0) {
+  if (((this->cfg).opts >> 5 & 1) != 0) {
     GameErrorContextLog(&g_GameErrorContext,"グーローシェーディングを抑制します\n")
     ;
   }
-  if (((uint)(this->cfg).render_opts >> 6 & 1) != 0) {
+  if (((this->cfg).opts >> 6 & 1) != 0) {
     GameErrorContextLog(&g_GameErrorContext,"デプステストを抑制します\n");
   }
-  if (((uint)(this->cfg).render_opts >> 7 & 1) != 0) {
+  if (((this->cfg).opts >> 7 & 1) != 0) {
     GameErrorContextLog(&g_GameErrorContext,"６０フレーム強制モードにします\n");
-    this->field82_0x1a0 = 0;
+    this->vsyncEnabled = 0;
   }
-  if (((uint)(this->cfg).render_opts >> 8 & 1) != 0) {
+  if (((this->cfg).opts >> 8 & 1) != 0) {
     GameErrorContextLog(&g_GameErrorContext,"テクスチャの色合成を抑制しますn");
   }
-  if (((uint)(this->cfg).render_opts >> 8 & 1) != 0) {
+  if (((this->cfg).opts >> 8 & 1) != 0) {
     GameErrorContextLog(&g_GameErrorContext,"ウィンドウモードで起動します\n");
   }
-  if (((uint)(this->cfg).render_opts >> 9 & 1) != 0) {
+  if (((this->cfg).opts >> 9 & 1) != 0) {
     GameErrorContextLog(&g_GameErrorContext,
                         "リファレンスラスタライザを強制します\n");
   }
-  if (((uint)(this->cfg).render_opts >> 0xb & 1) != 0) {
+  if (((this->cfg).opts >> 0xb & 1) != 0) {
     GameErrorContextLog(&g_GameErrorContext,
                         "パッド、キーボードの入力に DirectInput を使用しません\n"
                        );

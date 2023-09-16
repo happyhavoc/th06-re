@@ -44,7 +44,7 @@ AsciiManagerProbablyStageRelated::FUN_00402870(AsciiManagerProbablyStageRelated 
         }
         this->vms0[local_8].pendingInterrupt = 1;
       }
-      if (DAT_006c7115 != '\0') {
+      if (g_GameContext.lockableBackbuffer != 0) {
         g_AnmManager->vertexBufferContents[3].position.z = 4.203895e-45;
         pAVar1->vertexBufferContents[3].diffuseColor = 0x20;
         pAVar1->vertexBufferContents[3].textureUV.x = 2.242078e-44;
@@ -160,7 +160,7 @@ AsciiManagerProbablyStageRelated::FUN_00402870(AsciiManagerProbablyStageRelated 
   for (local_8 = 0; local_8 < 4; local_8 = local_8 + 1) {
     AnmManager::FUN_00433960(g_AnmManager,this->vms0 + local_8);
   }
-  if (DAT_006c7115 != '\0') {
+  if (g_GameContext.lockableBackbuffer != 0) {
     AnmManager::FUN_00433960(g_AnmManager,&this->vm1);
   }
   this->field1_0x4 = this->field1_0x4 + 1;

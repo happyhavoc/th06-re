@@ -4,9 +4,9 @@ void __fastcall FUN_0040f7c0(int param_1)
 {
   Unknown *pUVar1;
   AnmManager *pAVar2;
-  int iVar3;
-  int iVar4;
-  undefined4 uVar5;
+  long lVar3;
+  long lVar4;
+  long lVar5;
   int iVar6;
   undefined4 *puVar7;
   uint unaff_retaddr;
@@ -93,29 +93,29 @@ void __fastcall FUN_0040f7c0(int param_1)
           *(int *)(param_1 + 0x116c) = *(int *)(param_1 + 0x116c) + 1;
           *(undefined4 *)(param_1 + 0x1168) = 1;
           *(undefined4 *)(param_1 + 0x1160) = 0;
-          uVar5 = FUN_0040f4d0();
-          *(undefined4 *)(param_1 + 0x1164) = uVar5;
+          lVar5 = FUN_0040f4d0(param_1);
+          *(long *)(param_1 + 0x1164) = lVar5;
           break;
         case 0x31:
           *(int *)(param_1 + 0x116c) = *(int *)(param_1 + 0x116c) + 1;
           *(undefined4 *)(param_1 + 0x1168) = 2;
           *(undefined4 *)(param_1 + 0x1160) = 0;
-          uVar5 = FUN_0040f4d0();
-          *(undefined4 *)(param_1 + 0x1164) = uVar5;
+          lVar5 = FUN_0040f4d0(param_1);
+          *(long *)(param_1 + 0x1164) = lVar5;
           break;
         case 0x32:
           *(int *)(param_1 + 0x116c) = *(int *)(param_1 + 0x116c) + 1;
           *(undefined4 *)(param_1 + 0x1168) = 3;
           *(undefined4 *)(param_1 + 0x1160) = 0;
-          uVar5 = FUN_0040f4d0();
-          *(undefined4 *)(param_1 + 0x1164) = uVar5;
+          lVar5 = FUN_0040f4d0(param_1);
+          *(long *)(param_1 + 0x1164) = lVar5;
           break;
         case 0x33:
           *(int *)(param_1 + 0x116c) = *(int *)(param_1 + 0x116c) + 1;
           *(undefined4 *)(param_1 + 0x1168) = 4;
           *(undefined4 *)(param_1 + 0x1160) = 0;
-          uVar5 = FUN_0040f4d0();
-          *(undefined4 *)(param_1 + 0x1164) = uVar5;
+          lVar5 = FUN_0040f4d0(param_1);
+          *(long *)(param_1 + 0x1164) = lVar5;
           break;
         case 0x46:
           iVar6 = FUN_004106d0(*(int *)(param_1 + 0x116c) + 1);
@@ -136,8 +136,8 @@ void __fastcall FUN_0040f7c0(int param_1)
           goto LAB_004105d3;
         case 0x4d:
           *(int *)(param_1 + 0x116c) = *(int *)(param_1 + 0x116c) + 1;
-          iVar6 = FUN_0040f4d0();
-          FUN_00424d82((float)iVar6);
+          lVar5 = FUN_0040f4d0(param_1);
+          FUN_00424d82((float)lVar5);
           break;
         case 0x52:
 switchD_0040fa93_caseD_52:
@@ -147,18 +147,18 @@ switchD_0040fa93_caseD_52:
           break;
         case 0x56:
           *(int *)(param_1 + 0x116c) = *(int *)(param_1 + 0x116c) + 1;
-          iVar6 = FUN_0040f4d0();
-          iVar3 = FUN_0040f4d0();
-          *(float *)(param_1 + 0x10) = (float)iVar6 / (float)iVar3;
+          lVar5 = FUN_0040f4d0(param_1);
+          lVar3 = FUN_0040f4d0(param_1);
+          *(float *)(param_1 + 0x10) = (float)lVar5 / (float)lVar3;
           break;
         case 0x61:
           *(int *)(param_1 + 0x116c) = *(int *)(param_1 + 0x116c) + 1;
-          iVar6 = FUN_0040f4d0();
-          iVar3 = FUN_0040f4d0();
-          iVar4 = FUN_0040f4d0();
-          FUN_004051b0(param_1 + 0x14 + iVar6 * 0x110,iVar3 + 0x600);
+          lVar5 = FUN_0040f4d0(param_1);
+          lVar3 = FUN_0040f4d0(param_1);
+          lVar4 = FUN_0040f4d0(param_1);
+          FUN_004051b0(param_1 + 0x14 + lVar5 * 0x110,lVar3 + 0x600);
           AnmManager::FUN_004323a0
-                    (g_AnmManager,(AnmVm *)(param_1 + 0x14 + iVar6 * 0x110),iVar4 + 0x600);
+                    (g_AnmManager,(AnmVm *)(param_1 + 0x14 + lVar5 * 0x110),lVar4 + 0x600);
           break;
         case 0x62:
           iVar6 = AnmManager::LogoStuff(g_AnmManager,0,(char *)(*(int *)(param_1 + 0x116c) + 1));
@@ -166,20 +166,20 @@ switchD_0040fa93_caseD_52:
           break;
         case 99:
           *(int *)(param_1 + 0x116c) = *(int *)(param_1 + 0x116c) + 1;
-          uVar5 = FUN_0040f4d0();
-          *(undefined4 *)(param_1 + 0x1158) = uVar5;
+          lVar5 = FUN_0040f4d0(param_1);
+          *(long *)(param_1 + 0x1158) = lVar5;
           break;
         case 0x6d:
-          FUN_00424b5d(*(int *)(param_1 + 0x116c) + 1);
+          FUN_00424b5d((char *)(*(int *)(param_1 + 0x116c) + 1));
           break;
         case 0x72:
           *(int *)(param_1 + 0x116c) = *(int *)(param_1 + 0x116c) + 1;
-          uVar5 = FUN_0040f4d0();
-          *(undefined4 *)(param_1 + 0x113c) = uVar5;
+          lVar5 = FUN_0040f4d0(param_1);
+          *(long *)(param_1 + 0x113c) = lVar5;
           *(undefined4 *)(param_1 + 0x1138) = 0;
           *(undefined4 *)(param_1 + 0x1134) = 0xfffffc19;
-          uVar5 = FUN_0040f4d0();
-          *(undefined4 *)(param_1 + 0x1140) = uVar5;
+          lVar5 = FUN_0040f4d0(param_1);
+          *(long *)(param_1 + 0x1140) = lVar5;
           while ((**(char **)(param_1 + 0x116c) != '\n' && (**(char **)(param_1 + 0x116c) != '\r')))
           {
             *(int *)(param_1 + 0x116c) = *(int *)(param_1 + 0x116c) + 1;
@@ -191,24 +191,24 @@ switchD_0040fa93_caseD_52:
           goto LAB_00410546;
         case 0x73:
           *(int *)(param_1 + 0x116c) = *(int *)(param_1 + 0x116c) + 1;
-          uVar5 = FUN_0040f4d0();
-          *(undefined4 *)(param_1 + 0x1148) = uVar5;
-          uVar5 = FUN_0040f4d0();
-          *(undefined4 *)(param_1 + 0x114c) = uVar5;
+          lVar5 = FUN_0040f4d0(param_1);
+          *(long *)(param_1 + 0x1148) = lVar5;
+          lVar5 = FUN_0040f4d0(param_1);
+          *(long *)(param_1 + 0x114c) = lVar5;
           break;
         case 0x76:
           *(int *)(param_1 + 0x116c) = *(int *)(param_1 + 0x116c) + 1;
-          iVar6 = FUN_0040f4d0();
-          *(float *)(param_1 + 0xc) = (float)iVar6;
+          lVar5 = FUN_0040f4d0(param_1);
+          *(float *)(param_1 + 0xc) = (float)lVar5;
           break;
         case 0x77:
           *(int *)(param_1 + 0x116c) = *(int *)(param_1 + 0x116c) + 1;
-          uVar5 = FUN_0040f4d0();
-          *(undefined4 *)(param_1 + 0x1130) = uVar5;
+          lVar5 = FUN_0040f4d0(param_1);
+          *(long *)(param_1 + 0x1130) = lVar5;
           *(undefined4 *)(param_1 + 0x112c) = 0;
           *(undefined4 *)(param_1 + 0x1128) = 0xfffffc19;
-          uVar5 = FUN_0040f4d0();
-          *(undefined4 *)(param_1 + 0x1144) = uVar5;
+          lVar5 = FUN_0040f4d0(param_1);
+          *(long *)(param_1 + 0x1144) = lVar5;
           while ((**(char **)(param_1 + 0x116c) != '\n' && (**(char **)(param_1 + 0x116c) != '\r')))
           {
             *(int *)(param_1 + 0x116c) = *(int *)(param_1 + 0x116c) + 1;
@@ -273,7 +273,7 @@ switchD_0040fa32_caseD_0:
   *(int *)(param_1 + 0x1154) = *(int *)(param_1 + 0x1154) + 1;
 LAB_00410546:
   *(undefined4 *)(param_1 + 0x111c) = *(undefined4 *)(param_1 + 0x1124);
-  FUN_00424285(&g_GameContext,(int *)(param_1 + 0x1124),(float *)(param_1 + 0x1120));
+  GameContext::FUN_00424285(&g_GameContext,(int *)(param_1 + 0x1124),(float *)(param_1 + 0x1120));
   *(float *)(param_1 + 0xc) = *(float *)(param_1 + 0xc) - *(float *)(param_1 + 0x10);
   if (*(float *)(param_1 + 0xc) < 0.0 != (*(float *)(param_1 + 0xc) == 0.0)) {
     *(undefined4 *)(param_1 + 0xc) = 0;

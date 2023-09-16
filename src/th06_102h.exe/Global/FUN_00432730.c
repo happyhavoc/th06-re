@@ -35,7 +35,7 @@ undefined4 __thiscall FUN_00432730(AnmManager *this,int param_2,int param_3)
     }
   }
   if (this->field16_0x210be != '\x02') {
-    if (((uint)g_GameContext.cfg.render_opts >> 1 & 1) == 0) {
+    if ((g_GameContext.cfg.opts >> 1 & 1) == 0) {
       (*(g_GameContext.d3dDevice)->lpVtbl->SetVertexShader)(g_GameContext.d3dDevice,0x104);
     }
     else {
@@ -44,7 +44,7 @@ undefined4 __thiscall FUN_00432730(AnmManager *this,int param_2,int param_3)
     this->field16_0x210be = '\x02';
   }
   FUN_004324d0(this,param_2);
-  if (((uint)g_GameContext.cfg.render_opts >> 1 & 1) == 0) {
+  if ((g_GameContext.cfg.opts >> 1 & 1) == 0) {
     (*(g_GameContext.d3dDevice)->lpVtbl->DrawPrimitiveUP)
               (g_GameContext.d3dDevice,D3DPT_TRIANGLESTRIP,2,g_TriangleStrip,0x18);
   }

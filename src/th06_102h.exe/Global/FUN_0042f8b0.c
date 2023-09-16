@@ -48,7 +48,7 @@ void FUN_0042f8b0(undefined4 *param_1,undefined4 param_2)
   local_1c = param_2;
   local_30 = param_2;
   local_44 = param_2;
-  if (((uint)g_GameContext.cfg.render_opts >> 8 & 1) == 0) {
+  if ((g_GameContext.cfg.opts >> 8 & 1) == 0) {
     (*(g_GameContext.d3dDevice)->lpVtbl->SetTextureStageState)
               (g_GameContext.d3dDevice,0,D3DTSS_ALPHAOP,2);
     (*(g_GameContext.d3dDevice)->lpVtbl->SetTextureStageState)
@@ -58,7 +58,7 @@ void FUN_0042f8b0(undefined4 *param_1,undefined4 param_2)
             (g_GameContext.d3dDevice,0,D3DTSS_ALPHAARG1,0);
   (*(g_GameContext.d3dDevice)->lpVtbl->SetTextureStageState)
             (g_GameContext.d3dDevice,0,D3DTSS_COLORARG1,0);
-  if (((uint)g_GameContext.cfg.render_opts >> 6 & 1) == 0) {
+  if ((g_GameContext.cfg.opts >> 6 & 1) == 0) {
     (*(g_GameContext.d3dDevice)->lpVtbl->SetRenderState)(g_GameContext.d3dDevice,D3DRS_ZFUNC,8);
     (*(g_GameContext.d3dDevice)->lpVtbl->SetRenderState)
               (g_GameContext.d3dDevice,D3DRS_ZWRITEENABLE,0);
@@ -73,7 +73,7 @@ void FUN_0042f8b0(undefined4 *param_1,undefined4 param_2)
   g_AnmManager->currentColorOp = 0xff;
   g_AnmManager->currentBlendMode = 0xff;
   g_AnmManager->currentZWriteDisable = 0xff;
-  if (((uint)g_GameContext.cfg.render_opts >> 8 & 1) == 0) {
+  if ((g_GameContext.cfg.opts >> 8 & 1) == 0) {
     (*(g_GameContext.d3dDevice)->lpVtbl->SetTextureStageState)
               (g_GameContext.d3dDevice,0,D3DTSS_ALPHAOP,4);
     (*(g_GameContext.d3dDevice)->lpVtbl->SetTextureStageState)

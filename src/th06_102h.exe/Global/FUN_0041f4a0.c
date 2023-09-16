@@ -83,10 +83,10 @@ void FUN_0041f4a0(void)
           }
         }
 LAB_0041f7c5:
-        fVar1 = (float)g_GameContext._424_4_ * local_18[1].angleVel.z;
-        fVar2 = (float)g_GameContext._424_4_ * local_18[1].angleVel.y;
+        fVar1 = g_GameContext.field84_0x1a8 * local_18[1].angleVel.z;
+        fVar2 = g_GameContext.field84_0x1a8 * local_18[1].angleVel.y;
         local_18[1].rotation.x =
-             (float)g_GameContext._424_4_ * local_18[1].angleVel.x + local_18[1].rotation.x;
+             g_GameContext.field84_0x1a8 * local_18[1].angleVel.x + local_18[1].rotation.x;
         local_18[1].rotation.y = fVar2 + local_18[1].rotation.y;
         local_18[1].rotation.z = fVar1 + local_18[1].rotation.z;
         fVar1 = local_18[1].rotation.y;
@@ -100,13 +100,14 @@ LAB_0041f7c5:
           local_18[1].angleVel.y = 3.0;
         }
         else {
-          local_18[1].angleVel.y = (float)g_GameContext._424_4_ * 0.03 + local_18[1].angleVel.y;
+          local_18[1].angleVel.y = g_GameContext.field84_0x1a8 * 0.03 + local_18[1].angleVel.y;
         }
       }
       iVar9 = FUN_00426fd0(local_18 + 1,&DAT_0069e234);
       if (iVar9 == 0) {
         local_18[1].scaleInterpFinalX = local_18[1].uvScrollPos.y;
-        FUN_00424285(&g_GameContext,(int *)&local_18[1].uvScrollPos.y,&local_18[1].uvScrollPos.x);
+        GameContext::FUN_00424285
+                  (&g_GameContext,(int *)&local_18[1].uvScrollPos.y,&local_18[1].uvScrollPos.x);
         AnmManager::FUN_00433960(g_AnmManager,local_18);
       }
       else {

@@ -28,8 +28,8 @@ undefined4 FUN_0042523a(void)
   }
   DAT_006c71f0 = ChainElem::Allocate(FUN_004253dd);
   DAT_006c71f0->arg = &DAT_006c71f0;
-  DAT_006c71f0->added_callback = FUN_0042564c;
-  DAT_006c71f0->deleted_callback = FUN_00425d97;
+  DAT_006c71f0->addedCallback = FUN_0042564c;
+  DAT_006c71f0->deletedCallback = FUN_00425d97;
   iVar2 = Chain::AddToCalcChain(&g_Chain,DAT_006c71f0,2);
   if (iVar2 == 0) {
     DAT_006c71f4 = ChainElem::Allocate(FUN_0042545a);

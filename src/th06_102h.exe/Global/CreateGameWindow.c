@@ -18,8 +18,8 @@ void CreateGameWindow(HINSTANCE param_1)
   base_class.hCursor = (HCURSOR)LoadCursorA((HINSTANCE)0x0,(LPCSTR)0x7f00);
   base_class.hInstance = (HINSTANCE)param_1;
   base_class.lpfnWndProc = WindowProc;
-  g_GameWindow.activeapp_param = 0;
-  g_GameWindow.is_app_active = 0;
+  g_GameWindow.lastActiveAppValue = 0;
+  g_GameWindow.isAppActive = 0;
   base_class.lpszClassName = "BASE";
   RegisterClassA(&base_class);
   if (g_GameContext.cfg.windowed == false) {

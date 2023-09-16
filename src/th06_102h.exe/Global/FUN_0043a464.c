@@ -41,7 +41,7 @@ LAB_0043a520:
     *(undefined4 *)(param_1 + 0x81a0) = 2;
   }
   DAT_0069d4c3 = 0;
-  if ((g_GameContext.cfg.render_opts & 1U) == 0) {
+  if ((g_GameContext.cfg.opts & 1) == 0) {
     *(undefined4 *)(param_1 + 0x8208) = 0x80004000;
     *(undefined4 *)(param_1 + 0x8204) = 0xff008000;
   }
@@ -60,7 +60,7 @@ LAB_0043a520:
   FUN_0042b65e(uVar2,&DAT_0069cd30);
   FUN_0042b7dc(uVar2);
   if (DAT_0069d4c4 == '\0') {
-    if (_DAT_006c7118 == 0) {
+    if (g_GameContext._1024_4_ == 0) {
       FUN_00424b5d("bgm/th06_01.mid");
       FUN_0042fd30(0,0x78,0xffffff,0,0);
     }

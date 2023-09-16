@@ -5,7 +5,7 @@ FUN_00421c90(DWORD_PTR param_1_00,UINT param_2,LPTIMECALLBACK param_3,DWORD_PTR 
 {
   MMRESULT MVar1;
   
-  FUN_00421d10(param_1_00);
+  MidiOutput::StopTimer((MidiOutput *)param_1_00);
   timeBeginPeriod(*(UINT *)(param_1_00 + 8));
   if (param_3 == (LPTIMECALLBACK)0x0) {
     MVar1 = timeSetEvent(param_2,*(UINT *)(param_1_00 + 8),FUN_00421d50,param_1_00,1);

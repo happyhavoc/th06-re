@@ -41,11 +41,11 @@ destroy_elem:
           _free(to_remove);
           return;
         }
-        if (to_remove->deleted_callback == 0) {
+        if (to_remove->deletedCallback == 0) {
           return;
         }
-        pcVar1 = (code *)to_remove->deleted_callback;
-        to_remove->deleted_callback = 0;
+        pcVar1 = (code *)to_remove->deletedCallback;
+        to_remove->deletedCallback = 0;
         (*pcVar1)(to_remove->arg);
         return;
       }

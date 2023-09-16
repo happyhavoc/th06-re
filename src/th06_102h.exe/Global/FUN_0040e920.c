@@ -6,11 +6,11 @@ undefined4 FUN_0040e920(int param_1)
   uint uVar2;
   long lVar3;
   float10 fVar4;
-  vec3f local_64;
+  D3DXVECTOR3 local_64;
   float local_58;
   undefined local_54 [64];
   float local_14;
-  vec3f local_10;
+  D3DXVECTOR3 local_10;
   
   _D3DXVec3Normalize_8(&local_64,param_1 + 0x140);
   fVar4 = (float10)FUN_0045bcf4((double)*(float *)(param_1 + 0x160));

@@ -9,13 +9,13 @@ undefined4 __thiscall GameWindow::Render(GameWindow *this)
   D3DVIEWPORT8 viewport;
   int local_8;
   
-  if (this->activeapp_param != 0) {
+  if (this->lastActiveAppValue != 0) {
     if (this->curFrame != 0) goto LAB_00420894;
     do {
       while( true ) {
-        if (g_GameContext.cfg.frameskip_config <= this->curFrame) {
-          if (((uint)g_GameContext.cfg.render_opts >> CLEAR_BACKBUFFER_ON_REFRESH & 1 |
-              (uint)g_GameContext.cfg.render_opts >> DISPLAY_MINIMUM_GRAPHICS & 1) != 0) {
+        if (g_GameContext.cfg.frameskipConfig <= this->curFrame) {
+          if ((g_GameContext.cfg.opts >> CLEAR_BACKBUFFER_ON_REFRESH & 1 |
+              g_GameContext.cfg.opts >> DISPLAY_MINIMUM_GRAPHICS & 1) != 0) {
             viewport.X = 0;
             viewport.Y = 0;
             viewport.Width = 640;
@@ -51,8 +51,7 @@ undefined4 __thiscall GameWindow::Render(GameWindow *this)
         this->curFrame = this->curFrame + 1;
 LAB_00420894:
         if (g_GameContext.cfg.windowed != false) break;
-        if ((((uint)g_GameContext.cfg.render_opts >> 7 & 1) == 0) ||
-           (g_GameContext.field82_0x1a0 == 0)) {
+        if (((g_GameContext.cfg.opts >> 7 & 1) == 0) || (g_GameContext.vsyncEnabled == 0)) {
           bVar2 = false;
         }
         else {
@@ -63,8 +62,7 @@ LAB_004209ab:
         if (g_GameContext.cfg.windowed != false) {
           return 0;
         }
-        if ((((uint)g_GameContext.cfg.render_opts >> 7 & 1) == 0) ||
-           (g_GameContext.field82_0x1a0 == 0)) {
+        if (((g_GameContext.cfg.opts >> 7 & 1) == 0) || (g_GameContext.vsyncEnabled == 0)) {
           bVar2 = false;
         }
         else {
@@ -73,11 +71,11 @@ LAB_004209ab:
         if (bVar2) {
           return 0;
         }
-        if (g_GameContext.cfg.frameskip_config < this->curFrame) goto LAB_00420a0b;
+        if (g_GameContext.cfg.frameskipConfig < this->curFrame) goto LAB_00420a0b;
         FUN_00420b50();
       }
       if (this->curFrame == 0) goto LAB_004209ab;
-      g_GameContext.field91_0x1ac = 1.0;
+      g_GameContext.framerateMultiplier = 1.0;
       timeBeginPeriod(1);
       DVar3 = timeGetTime();
       dVar1 = (double)(ulonglong)DVar3;
@@ -91,32 +89,32 @@ LAB_004209ab:
         LAST_FRAME_TIME = LAST_FRAME_TIME + 16.66666666666667;
         local_34 = local_34 - 16.66666666666667;
       } while (16.66666666666667 <= local_34);
-    } while (this->curFrame <= g_GameContext.cfg.frameskip_config);
+    } while (this->curFrame <= g_GameContext.cfg.frameskipConfig);
 LAB_00420a0b:
     FUN_00420b50();
-    if (NAN(g_GameContext.field91_0x1ac) == (g_GameContext.field91_0x1ac == 0.0)) {
-      g_GameContext._424_4_ = g_GameContext.field91_0x1ac;
+    if (NAN(g_GameContext.framerateMultiplier) == (g_GameContext.framerateMultiplier == 0.0)) {
+      g_GameContext.field84_0x1a8 = g_GameContext.framerateMultiplier;
     }
     else if (1 < DAT_006c6bf4) {
       timeBeginPeriod(1);
       DVar3 = timeGetTime();
-      if (DVar3 < (uint)g_GameContext._420_4_) {
-        g_GameContext._420_4_ = DVar3;
+      if (DVar3 < (uint)g_GameContext.lastFrameTime) {
+        g_GameContext.lastFrameTime = DVar3;
       }
-      dVar1 = ((((double)(ulonglong)(DVar3 - g_GameContext._420_4_) * 60.0) / 2.0) / 1000.0) /
-              (double)(g_GameContext.cfg.frameskip_config + 1);
+      dVar1 = ((((double)(ulonglong)(DVar3 - g_GameContext.lastFrameTime) * 60.0) / 2.0) / 1000.0) /
+              (double)(g_GameContext.cfg.frameskipConfig + 1);
       if (dVar1 < 0.865) {
         if (dVar1 < 0.6) {
-          g_GameContext._424_4_ = 0x3f000000;
+          g_GameContext.field84_0x1a8 = 0.5;
         }
         else {
-          g_GameContext._424_4_ = 0x3f4ccccd;
+          g_GameContext.field84_0x1a8 = 0.8;
         }
       }
       else {
-        g_GameContext._424_4_ = 0x3f800000;
+        g_GameContext.field84_0x1a8 = 1.0;
       }
-      g_GameContext._420_4_ = DVar3;
+      g_GameContext.lastFrameTime = DVar3;
       timeEndPeriod(1);
       DAT_006c6bf4 = 0;
     }

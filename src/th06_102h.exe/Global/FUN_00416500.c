@@ -46,7 +46,7 @@ undefined4 FUN_00416500(int param_1)
     local_10 = local_10 + 0x270;
   }
   FUN_00420190();
-  if (DAT_006c7114 == '\0') {
+  if (g_GameContext.hasD3dHardwareVertexProcessing == 0) {
     local_20 = param_1 + 0x5600;
     for (local_8 = 0; local_8 < 0x280; local_8 = local_8 + 1) {
       if ((*(short *)(local_20 + 0x5be) != 0) && (0x10 < *(byte *)(local_20 + 0x55d))) {

@@ -11,8 +11,8 @@ undefined4 AddInputChain(void)
   g_GameContext.unkInput3 = 0;
   pCVar1 = ChainElem::Allocate(InputChainCallback);
   pCVar1->arg = &g_GameContext;
-  pCVar1->added_callback = InputChainAddedCallback;
-  pCVar1->deleted_callback = InputChainRemovedCallback;
+  pCVar1->addedCallback = InputChainAddedCallback;
+  pCVar1->deletedCallback = InputChainRemovedCallback;
   iVar2 = Chain::AddToCalcChain(&g_Chain,pCVar1,0);
   if (iVar2 == 0) {
     pCVar1 = ChainElem::Allocate(FUN_00423785);

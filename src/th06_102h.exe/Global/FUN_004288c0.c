@@ -169,8 +169,9 @@ LAB_00428fa8:
   }
   else {
     param_1[0x6e].posInterpInitial.z = param_1[0x6e].posInterpFinal.y;
-    FUN_00424285(&g_GameContext,(int *)&param_1[0x6e].posInterpFinal.y,
-                 &param_1[0x6e].posInterpFinal.x);
+    GameContext::FUN_00424285
+              (&g_GameContext,(int *)&param_1[0x6e].posInterpFinal.y,&param_1[0x6e].posInterpFinal.x
+              );
   }
   if ((*(char *)((int)&param_1[9].matrix.field0_0x0 + 0x14) != '\x02') &&
      (*(char *)((int)&param_1[9].matrix.field0_0x0 + 0x14) != '\x01')) {

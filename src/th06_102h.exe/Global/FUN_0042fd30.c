@@ -46,8 +46,8 @@ int * FUN_0042fd30(int param_1,int param_2,int param_3,int param_4,int param_5)
       local_14 = ChainElem::Allocate(FUN_0042fc80);
       local_18 = ChainElem::Allocate(FUN_0042ff70);
     }
-    local_14->added_callback = FUN_004301f0;
-    local_14->deleted_callback = FUN_00430220;
+    local_14->addedCallback = FUN_004301f0;
+    local_14->deletedCallback = FUN_00430220;
     local_14->arg = local_2c;
     *local_2c = param_1;
     local_2c[5] = param_2;

@@ -8,7 +8,7 @@ undefined4 FUN_00423b14(GameContext *param_1)
   HRESULT HVar4;
   
   LVar1 = GetWindowLongA(param_1->hwndGameWindow,-6);
-  if (((uint)(param_1->cfg).render_opts >> 0xb & 1) == 0) {
+  if (((param_1->cfg).opts >> 0xb & 1) == 0) {
     iVar3 = DirectInput8Create(LVar1,0x800,&IID_IDirectInput8A,&param_1->directInput,0);
     if (iVar3 < 0) {
       param_1->directInput = (IDirectInput8A *)0x0;
@@ -23,7 +23,7 @@ undefined4 FUN_00423b14(GameContext *param_1)
           (*param_1->directInput->lpVtbl->Release)(param_1->directInput);
           param_1->directInput = (IDirectInput8A *)0x0;
         }
-        GameErrorContextLog(&g_GameErrorContext,"DirectInput が使用できません\n");
+        GameErrorContextLog(&g_GameErrorContext,"DirectInput が��用できません\n");
         uVar2 = 0xffffffff;
       }
       else {

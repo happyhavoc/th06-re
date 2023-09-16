@@ -15,7 +15,8 @@ AsciiManagerProbablyStageRelated::FUN_00403060(AsciiManagerProbablyStageRelated 
     g_GameContext.viewport.Height = __ftol2((double)VIEWPORT_HEIGHT);
     (*(g_GameContext.d3dDevice)->lpVtbl->SetViewport)
               (g_GameContext.d3dDevice,(D3DVIEWPORT8 *)0x6c6de0);
-    if ((DAT_006c7115 != '\0') && ((this->field0_0x0 != 0 || (2 < this->field1_0x4)))) {
+    if ((g_GameContext.lockableBackbuffer != 0) &&
+       ((this->field0_0x0 != 0 || (2 < this->field1_0x4)))) {
       AnmManager::FUN_00432ad0(g_AnmManager,&this->vm1);
     }
     if ((this->field0_0x0 == 1) || (this->field0_0x0 == 2)) {

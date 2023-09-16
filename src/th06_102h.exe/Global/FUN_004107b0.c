@@ -27,8 +27,8 @@ undefined4 FUN_004107b0(void)
   pCVar2 = ChainElem::Allocate(FUN_004109c0);
   *local_40 = pCVar2;
   (*local_40)->arg = local_40;
-  (*local_40)->added_callback = FUN_00410b10;
-  (*local_40)->deleted_callback = FUN_00410d80;
+  (*local_40)->addedCallback = FUN_00410b10;
+  (*local_40)->deletedCallback = FUN_00410d80;
   iVar3 = Chain::AddToCalcChain(&g_Chain,*local_40,3);
   if (iVar3 == 0) {
     pCVar2 = ChainElem::Allocate(FUN_00410a70);

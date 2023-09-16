@@ -65,7 +65,7 @@ int __thiscall AnmManager::FUN_00433590(AnmManager *this,AnmVm *vm)
                     (g_GameContext.d3dDevice,0,(IDirect3DBaseTexture8 *)this->currentTexture);
         }
         if (this->field16_0x210be != '\x03') {
-          if (((uint)g_GameContext.cfg.render_opts >> 1 & 1) == 0) {
+          if ((g_GameContext.cfg.opts >> 1 & 1) == 0) {
             (*(g_GameContext.d3dDevice)->lpVtbl->SetVertexShader)(g_GameContext.d3dDevice,0x102);
             (*(g_GameContext.d3dDevice)->lpVtbl->SetStreamSource)
                       (g_GameContext.d3dDevice,0,this->vertexBuffer,0x14);
@@ -77,7 +77,7 @@ int __thiscall AnmManager::FUN_00433590(AnmManager *this,AnmVm *vm)
         }
       }
       FUN_004324d0(this,(int)vm);
-      if (((uint)g_GameContext.cfg.render_opts >> 1 & 1) == 0) {
+      if ((g_GameContext.cfg.opts >> 1 & 1) == 0) {
         (*(g_GameContext.d3dDevice)->lpVtbl->DrawPrimitive)
                   (g_GameContext.d3dDevice,D3DPT_TRIANGLESTRIP,0,2);
       }

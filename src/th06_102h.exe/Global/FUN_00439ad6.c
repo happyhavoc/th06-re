@@ -21,7 +21,7 @@ undefined4 FUN_00439ad6(void *param_1)
   local_c = 0x43f00000;
   if (*(int *)((int)param_1 + 0x81f0) != 0) {
     g_AnmManager->currentTexture = (IDirect3DTexture8 *)0x0;
-    FUN_00435300(g_AnmManager,0,0,0,0,0);
+    AnmManager::FUN_00435300(g_AnmManager,0,0,0,0,0);
     if (*(int *)((int)param_1 + 0x8210) == 0) {
       if (*(int *)((int)param_1 + 0x820c) != 0) {
         *(int *)((int)param_1 + 0x820c) = *(int *)((int)param_1 + 0x820c) + -1;

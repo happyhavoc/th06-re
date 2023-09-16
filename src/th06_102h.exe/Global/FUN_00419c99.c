@@ -167,10 +167,10 @@ void __fastcall FUN_00419c99(uint *param_1)
   (*(g_GameContext.d3dDevice)->lpVtbl->SetViewport)(g_GameContext.d3dDevice,&g_GameContext.viewport)
   ;
   local_14 = (AnmVm *)(param_1[1] + 0x660);
-  if ((((uint)g_GameContext.cfg.render_opts >> DISPLAY_MINIMUM_GRAPHICS & 1) == 0) &&
+  if (((g_GameContext.cfg.opts >> DISPLAY_MINIMUM_GRAPHICS & 1) == 0) &&
      (((*(int *)(param_1[1] + 0x71c) != 0 || (g_GameContext.field77_0x198 != 0)) ||
-      (((uint)g_GameContext.cfg.render_opts >> CLEAR_BACKBUFFER_ON_REFRESH & 1 |
-       (uint)g_GameContext.cfg.render_opts >> DISPLAY_MINIMUM_GRAPHICS & 1) != 0)))) {
+      ((g_GameContext.cfg.opts >> CLEAR_BACKBUFFER_ON_REFRESH & 1 |
+       g_GameContext.cfg.opts >> DISPLAY_MINIMUM_GRAPHICS & 1) != 0)))) {
     for (local_8 = 0.0; local_8 < 464.0 != NAN(local_8); local_8 = local_8 + 32.0) {
       local_a0 = 0;
       local_9c = local_8;
@@ -230,7 +230,7 @@ void __fastcall FUN_00419c99(uint *param_1)
     *param_1 = *param_1 & 0xfffffcff | 0x200;
     *param_1 = *param_1 & 0xffffffcf | 0x20;
   }
-  if (((uint)g_GameContext.cfg.render_opts >> 4 & 1) == 0) {
+  if ((g_GameContext.cfg.opts >> 4 & 1) == 0) {
     uVar1 = param_1[1];
     local_14 = (AnmVm *)(uVar1 + 0x1760);
     local_c = 496.0;
@@ -308,7 +308,7 @@ void __fastcall FUN_00419c99(uint *param_1)
     (local_14->pos).z = 0.49;
     AnmManager::FUN_00432ad0(g_AnmManager,local_14);
   }
-  if (((*param_1 & 3) != 0) || (((uint)g_GameContext.cfg.render_opts >> 4 & 1) != 0)) {
+  if (((*param_1 & 3) != 0) || ((g_GameContext.cfg.opts >> 4 & 1) != 0)) {
     local_14 = (AnmVm *)(param_1[1] + 0x1100);
     local_c = 496.0;
     for (local_10 = 0; local_10 < LIFE_COUNT; local_10 = local_10 + 1) {
@@ -322,7 +322,7 @@ void __fastcall FUN_00419c99(uint *param_1)
       local_c = local_c + 16.0;
     }
   }
-  if (((*param_1 >> 2 & 3) != 0) || (((uint)g_GameContext.cfg.render_opts >> 4 & 1) != 0)) {
+  if (((*param_1 >> 2 & 3) != 0) || ((g_GameContext.cfg.opts >> 4 & 1) != 0)) {
     local_14 = (AnmVm *)(param_1[1] + 0x1210);
     local_c = 496.0;
     for (local_10 = 0; local_10 < BOMB_COUNT; local_10 = local_10 + 1) {
@@ -336,7 +336,7 @@ void __fastcall FUN_00419c99(uint *param_1)
       local_c = local_c + 16.0;
     }
   }
-  if (((*param_1 >> 4 & 3) != 0) || (((uint)g_GameContext.cfg.render_opts >> 4 & 1) != 0)) {
+  if (((*param_1 >> 4 & 3) != 0) || ((g_GameContext.cfg.opts >> 4 & 1) != 0)) {
     local_1c0 = 4;
     do {
       local_1c0 = local_1c0 + -1;
@@ -374,7 +374,7 @@ void __fastcall FUN_00419c99(uint *param_1)
       local_70 = 0x3f800000;
       local_68 = local_160;
       local_40 = local_178;
-      if (((uint)g_GameContext.cfg.render_opts >> 8 & 1) == 0) {
+      if ((g_GameContext.cfg.opts >> 8 & 1) == 0) {
         (*(g_GameContext.d3dDevice)->lpVtbl->SetTextureStageState)
                   (g_GameContext.d3dDevice,0,D3DTSS_ALPHAOP,2);
         (*(g_GameContext.d3dDevice)->lpVtbl->SetTextureStageState)
@@ -384,7 +384,7 @@ void __fastcall FUN_00419c99(uint *param_1)
                 (g_GameContext.d3dDevice,0,D3DTSS_ALPHAARG1,0);
       (*(g_GameContext.d3dDevice)->lpVtbl->SetTextureStageState)
                 (g_GameContext.d3dDevice,0,D3DTSS_COLORARG1,0);
-      if (((uint)g_GameContext.cfg.render_opts >> 6 & 1) == 0) {
+      if ((g_GameContext.cfg.opts >> 6 & 1) == 0) {
         (*(g_GameContext.d3dDevice)->lpVtbl->SetRenderState)(g_GameContext.d3dDevice,D3DRS_ZFUNC,8);
         (*(g_GameContext.d3dDevice)->lpVtbl->SetRenderState)
                   (g_GameContext.d3dDevice,D3DRS_ZWRITEENABLE,0);
@@ -396,7 +396,7 @@ void __fastcall FUN_00419c99(uint *param_1)
       g_AnmManager->currentColorOp = 0xff;
       g_AnmManager->currentBlendMode = 0xff;
       g_AnmManager->currentZWriteDisable = 0xff;
-      if (((uint)g_GameContext.cfg.render_opts >> 8 & 1) == 0) {
+      if ((g_GameContext.cfg.opts >> 8 & 1) == 0) {
         (*(g_GameContext.d3dDevice)->lpVtbl->SetTextureStageState)
                   (g_GameContext.d3dDevice,0,D3DTSS_ALPHAOP,4);
         (*(g_GameContext.d3dDevice)->lpVtbl->SetTextureStageState)
@@ -433,13 +433,13 @@ void __fastcall FUN_00419c99(uint *param_1)
   local_84 = 0x42680000;
   local_80 = 0;
   FUN_00401650(0x47b900,&local_88,"%.9d",DAT_0069bcac);
-  if (((*param_1 >> 6 & 3) != 0) || (((uint)g_GameContext.cfg.render_opts >> 4 & 1) != 0)) {
+  if (((*param_1 >> 6 & 3) != 0) || ((g_GameContext.cfg.opts >> 4 & 1) != 0)) {
     local_88 = 0x43f80000;
     local_84 = 0x434e0000;
     local_80 = 0;
     FUN_00401650(0x47b900,&local_88,"%d",DAT_0069bcb4);
   }
-  if (((*param_1 >> 8 & 3) != 0) || (((uint)g_GameContext.cfg.render_opts >> 4 & 1) != 0)) {
+  if (((*param_1 >> 8 & 3) != 0) || ((g_GameContext.cfg.opts >> 4 & 1) != 0)) {
     local_88 = 0x43f80000;
     local_84 = 0x43620000;
     local_80 = 0;

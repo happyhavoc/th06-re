@@ -153,10 +153,10 @@ undefined4 FUN_00427860(void)
   in_ECX[0xd].field7_0x1c = local_10;
   in_ECX[0xd].field8_0x20 = local_c;
   piVar7 = &in_ECX[5].field13_0x3c.field12_0x30;
-  *piVar7 = (int)(local_10 * *(float *)&in_ECX[0xc].field_0xa0 * (float)g_GameContext._424_4_ +
+  *piVar7 = (int)(local_10 * *(float *)&in_ECX[0xc].field_0xa0 * g_GameContext.field84_0x1a8 +
                  (float)*piVar7);
   piVar7 = &in_ECX[5].field13_0x3c.field13_0x34;
-  *piVar7 = (int)(local_c * *(float *)&in_ECX[0xc].field_0xa4 * (float)g_GameContext._424_4_ +
+  *piVar7 = (int)(local_c * *(float *)&in_ECX[0xc].field_0xa4 * g_GameContext.field84_0x1a8 +
                  (float)*piVar7);
   fVar1 = (float)in_ECX[5].field13_0x3c.field12_0x30;
   if (fVar1 < DAT_0069d6ec == (NAN(fVar1) || NAN(DAT_0069d6ec))) {
@@ -236,8 +236,8 @@ undefined4 FUN_00427860(void)
   case 2:
     while( true ) {
       *(AnmLoadedSprite **)&in_ECX[0xc].field_0xb8 = in_ECX[0xc].field67_0xc0;
-      FUN_00424285(&g_GameContext,(int *)&in_ECX[0xc].field67_0xc0,(float *)&in_ECX[0xc].field_0xbc)
-      ;
+      GameContext::FUN_00424285
+                (&g_GameContext,(int *)&in_ECX[0xc].field67_0xc0,(float *)&in_ECX[0xc].field_0xbc);
       fVar1 = ((float)(int)in_ECX[0xc].field67_0xc0 + *(float *)&in_ECX[0xc].field_0xbc) / 8.0;
       local_14 = (1.0 - fVar1) * 32.0 + -32.0;
       local_18 = fVar1 * fVar1 * -16.0 + 24.0;
@@ -251,8 +251,8 @@ undefined4 FUN_00427860(void)
       *(undefined4 *)&in_ECX[0xc].field_0xb8 = 0xfffffc19;
 switchD_004281aa_caseD_4:
       *(AnmLoadedSprite **)&in_ECX[0xc].field_0xb8 = in_ECX[0xc].field67_0xc0;
-      FUN_00424285(&g_GameContext,(int *)&in_ECX[0xc].field67_0xc0,(float *)&in_ECX[0xc].field_0xbc)
-      ;
+      GameContext::FUN_00424285
+                (&g_GameContext,(int *)&in_ECX[0xc].field67_0xc0,(float *)&in_ECX[0xc].field_0xbc);
       fVar1 = ((float)(int)in_ECX[0xc].field67_0xc0 + *(float *)&in_ECX[0xc].field_0xbc) / 8.0;
       local_14 = fVar1 * 32.0 + -32.0;
       local_18 = (1.0 - fVar1 * fVar1) * -16.0 + 24.0;

@@ -43,7 +43,7 @@ void __fastcall FUN_00424ead(int param_1)
   if (((BUTTONS_PRESSED_CURFRAME & 0x1001) != 0) &&
      ((BUTTONS_PRESSED_CURFRAME & 0x1001) != (BUTTONS_PRESSED_PREVFRAME & 0x1001))) {
     *(undefined4 *)(param_1 + 0x14) = *(undefined4 *)(param_1 + 0x10);
-    FUN_00424b5d(*(int *)(param_1 + 0x14) * 0x272 + *(int *)(param_1 + 0x20));
+    FUN_00424b5d((char *)(*(int *)(param_1 + 0x14) * 0x272 + *(int *)(param_1 + 0x20)));
     for (local_c = 0; local_c < 0x10; local_c = local_c + 1) {
       puVar4 = local_54;
       for (iVar3 = 0x10; iVar3 != 0; iVar3 = iVar3 + -1) {

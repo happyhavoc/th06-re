@@ -2,11 +2,11 @@
 void FUN_00421c60(void)
 
 {
-  undefined4 *in_ECX;
+  MidiOutput *in_ECX;
   
-  *in_ECX = &PTR__AnmManager_0046b564;
-  FUN_00421d10((int)in_ECX);
-  timeEndPeriod(in_ECX[2]);
+  in_ECX->vtbl = (MidiOutputVtbl *)&PTR__AnmManager_0046b564;
+  MidiOutput::StopTimer(in_ECX);
+  timeEndPeriod((in_ECX->timeCaps).wPeriodMin);
   return;
 }
 

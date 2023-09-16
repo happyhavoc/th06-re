@@ -10,7 +10,7 @@ void FUN_004195bf(void)
   int local_c;
   int local_8;
   
-  for (local_8 = 0; pAVar1 = g_AnmManager, local_8 < 0x1a; local_8 = local_8 + 1) {
+  for (local_8 = 0; pAVar1 = DAT_006d4588, local_8 < 0x1a; local_8 = local_8 + 1) {
     if ((local_8 == 0x13) && (*(int *)(*(int *)(in_ECX + 4) + 0x253c) < 0)) {
       if (*(char *)(in_ECX + 0x20) == '\0') {
         if (*(char *)(*(int *)(in_ECX + 4) + 0x1ba0) != '\0') {
@@ -26,7 +26,7 @@ void FUN_004195bf(void)
           else {
             *(int *)(in_ECX + 0x10) = *(int *)(in_ECX + 0x10) + -4;
           }
-          iVar2 = AnmManager::FUN_00433960(g_AnmManager,(AnmVm *)(*(int *)(in_ECX + 4) + 0x1430));
+          iVar2 = AnmManager::FUN_00433960(DAT_006d4588,(AnmVm *)(*(int *)(in_ECX + 4) + 0x1430));
           if (iVar2 != 0) {
             *(undefined *)(*(int *)(in_ECX + 4) + 0x1ba0) = 0;
             *(undefined4 *)(in_ECX + 0x28) = 0;
@@ -42,7 +42,7 @@ void FUN_004195bf(void)
         *(undefined4 *)(in_ECX + 0x10) = 0;
       }
       else {
-        iVar2 = AnmManager::FUN_00433960(g_AnmManager,(AnmVm *)(*(int *)(in_ECX + 4) + 0x1430));
+        iVar2 = AnmManager::FUN_00433960(DAT_006d4588,(AnmVm *)(*(int *)(in_ECX + 4) + 0x1430));
         if (iVar2 != 0) {
           *(undefined *)(*(int *)(in_ECX + 4) + 0x1ba0) = 2;
         }
@@ -72,17 +72,17 @@ void FUN_004195bf(void)
       }
     }
     else {
-      AnmManager::FUN_00433960(g_AnmManager,(AnmVm *)(local_8 * 0x110 + *(int *)(in_ECX + 4)));
+      AnmManager::FUN_00433960(DAT_006d4588,(AnmVm *)(local_8 * 0x110 + *(int *)(in_ECX + 4)));
     }
   }
-  AnmManager::FUN_00433960(g_AnmManager,(AnmVm *)(*(int *)(in_ECX + 4) + 0x1ba4));
-  AnmManager::FUN_00433960(g_AnmManager,(AnmVm *)(*(int *)(in_ECX + 4) + 0x1cb4));
-  AnmManager::FUN_00433960(g_AnmManager,(AnmVm *)(*(int *)(in_ECX + 4) + 0x1dc4));
-  AnmManager::FUN_00433960(g_AnmManager,(AnmVm *)(*(int *)(in_ECX + 4) + 0x1fe4));
-  AnmManager::FUN_00433960(g_AnmManager,(AnmVm *)(*(int *)(in_ECX + 4) + 0x1ed4));
-  AnmManager::FUN_00433960(g_AnmManager,(AnmVm *)(*(int *)(in_ECX + 4) + 0x20f4));
+  AnmManager::FUN_00433960(DAT_006d4588,(AnmVm *)(*(int *)(in_ECX + 4) + 0x1ba4));
+  AnmManager::FUN_00433960(DAT_006d4588,(AnmVm *)(*(int *)(in_ECX + 4) + 0x1cb4));
+  AnmManager::FUN_00433960(DAT_006d4588,(AnmVm *)(*(int *)(in_ECX + 4) + 0x1dc4));
+  AnmManager::FUN_00433960(DAT_006d4588,(AnmVm *)(*(int *)(in_ECX + 4) + 0x1fe4));
+  AnmManager::FUN_00433960(DAT_006d4588,(AnmVm *)(*(int *)(in_ECX + 4) + 0x1ed4));
+  AnmManager::FUN_00433960(DAT_006d4588,(AnmVm *)(*(int *)(in_ECX + 4) + 0x20f4));
   if ((-1 < *(short *)(*(int *)(in_ECX + 4) + 0x24d4)) &&
-     (iVar2 = AnmManager::FUN_00433960(g_AnmManager,(AnmVm *)(*(int *)(in_ECX + 4) + 0x2424)),
+     (iVar2 = AnmManager::FUN_00433960(DAT_006d4588,(AnmVm *)(*(int *)(in_ECX + 4) + 0x2424)),
      iVar2 != 0)) {
     *(undefined2 *)(*(int *)(in_ECX + 4) + 0x24d4) = 0xffff;
   }
@@ -121,30 +121,30 @@ void FUN_004195bf(void)
     FUN_0041b5af();
   }
   if (*(int *)(*(int *)(in_ECX + 4) + 0x2bdc) == 1) {
-    local_c = (CUR_STAGE * 1000 + DAT_0069bcb4 * 10 + (uint)_DAT_0069d4b0 * 100) *
+    local_c = (DAT_0069d6d4 * 1000 + DAT_0069bcb4 * 10 + (uint)_DAT_0069d4b0 * 100) *
               (uint)DAT_0069d4b4;
-    if (5 < CUR_STAGE) {
-      local_c = local_c + LIFE_COUNT * 3000000 + BOMB_COUNT * 1000000;
+    if (5 < DAT_0069d6d4) {
+      local_c = local_c + DAT_0069d4ba * 3000000 + DAT_0069d4bb * 1000000;
     }
-    if (CUR_RANK == 0) {
+    if (_DAT_0069bcb0 == 0) {
       local_c = local_c / 2 - (local_c / 2) % 10;
     }
-    else if (CUR_RANK == 2) {
+    else if (_DAT_0069bcb0 == 2) {
       local_c = (local_c * 0xc) / 10;
       local_c = local_c - local_c % 10;
     }
-    else if (CUR_RANK == 3) {
+    else if (_DAT_0069bcb0 == 3) {
       local_c = (local_c * 0xf) / 10;
       local_c = local_c - local_c % 10;
     }
-    else if (CUR_RANK == 4) {
+    else if (_DAT_0069bcb0 == 4) {
       local_c = local_c * 2 - (local_c * 2) % 10;
     }
-    if (g_GameContext.lifeCount == 3) {
+    if (DAT_006c6e7c == '\x03') {
       local_c = (local_c * 5) / 10;
       local_c = local_c - local_c % 10;
     }
-    else if (g_GameContext.lifeCount == 4) {
+    else if (DAT_006c6e7c == '\x04') {
       local_c = (local_c << 1) / 10;
       local_c = local_c - local_c % 10;
     }

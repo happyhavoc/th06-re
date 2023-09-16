@@ -11,8 +11,8 @@ undefined4 FUN_004106d0(undefined4 param_1)
   pbVar1 = OpenPath(param_1,0);
   *(byte **)(in_ECX + 0x1114) = pbVar1;
   if (*(int *)(in_ECX + 0x1114) == 0) {
-    GameErrorContextLog(&g_GameErrorContext,
-                        "error : エンディングファイルが読み込めない、ファイルが破壊されています\n"
+    GameErrorContextLog((GameErrorContext *)&DAT_0069d998,
+                        "error : エンディング��ァイルが読み込めない、ファイルが破壊されています\n"
                        );
     uVar2 = 0xffffffff;
   }

@@ -1,4 +1,6 @@
 
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
 undefined4 FUN_00423b14(GameContext *param_1)
 
 {
@@ -12,7 +14,8 @@ undefined4 FUN_00423b14(GameContext *param_1)
     iVar3 = DirectInput8Create(LVar1,0x800,&IID_IDirectInput8A,&param_1->directInput,0);
     if (iVar3 < 0) {
       param_1->directInput = (IDirectInput8A *)0x0;
-      GameErrorContextLog(&g_GameErrorContext,"DirectInput が使用できません\n");
+      GameErrorContextLog((GameErrorContext *)&DAT_0069d998,"DirectInput が使用できません\n"
+                         );
       uVar2 = 0xffffffff;
     }
     else {
@@ -23,7 +26,8 @@ undefined4 FUN_00423b14(GameContext *param_1)
           (*param_1->directInput->lpVtbl->Release)(param_1->directInput);
           param_1->directInput = (IDirectInput8A *)0x0;
         }
-        GameErrorContextLog(&g_GameErrorContext,"DirectInput が��用できません\n");
+        GameErrorContextLog((GameErrorContext *)&DAT_0069d998,
+                            "DirectInput が使用できません\n");
         uVar2 = 0xffffffff;
       }
       else {
@@ -37,7 +41,7 @@ undefined4 FUN_00423b14(GameContext *param_1)
             (*param_1->directInput->lpVtbl->Release)(param_1->directInput);
             param_1->directInput = (IDirectInput8A *)0x0;
           }
-          GameErrorContextLog(&g_GameErrorContext,
+          GameErrorContextLog((GameErrorContext *)&DAT_0069d998,
                               "DirectInput SetDataFormat が使用できません\n");
           uVar2 = 0xffffffff;
         }
@@ -53,13 +57,13 @@ undefined4 FUN_00423b14(GameContext *param_1)
               (*param_1->directInput->lpVtbl->Release)(param_1->directInput);
               param_1->directInput = (IDirectInput8A *)0x0;
             }
-            GameErrorContextLog(&g_GameErrorContext,
+            GameErrorContextLog((GameErrorContext *)&DAT_0069d998,
                                 "DirectInput SetCooperativeLevel が使用できません\n");
             uVar2 = 0xffffffff;
           }
           else {
             (*param_1->keyboard->lpVtbl->Acquire)(param_1->keyboard);
-            GameErrorContextLog(&g_GameErrorContext,
+            GameErrorContextLog((GameErrorContext *)&DAT_0069d998,
                                 "DirectInput は正常に初期化されました\n");
             (*param_1->directInput->lpVtbl->EnumDevices)
                       (param_1->directInput,DI8DEVCLASS_GAMECTRL,EnumGameControllersCb,(LPVOID)0x0,1
@@ -69,12 +73,13 @@ undefined4 FUN_00423b14(GameContext *param_1)
                         (param_1->controller,(LPCDIDATAFORMAT)&DAT_0046cdfc);
               (*param_1->controller->lpVtbl->SetCooperativeLevel)
                         (param_1->controller,(HWND)param_1->hwndGameWindow,5);
-              g_GameContext.controllerCaps.dwSize = 0x2c;
+              _DAT_006c6d30 = 0x2c;
               (*param_1->controller->lpVtbl->GetCapabilities)
-                        (param_1->controller,&g_GameContext.controllerCaps);
+                        (param_1->controller,(LPDIDEVCAPS)&DAT_006c6d30);
               (*param_1->controller->lpVtbl->EnumObjects)
                         (param_1->controller,FUN_00423801,(LPVOID)0x0,0);
-              GameErrorContextLog(&g_GameErrorContext,"有効なパッドを発見しました\n");
+              GameErrorContextLog((GameErrorContext *)&DAT_0069d998,
+                                  "有効なパッドを発見しました\n");
             }
             uVar2 = 0;
           }

@@ -37,7 +37,7 @@ void __thiscall SoundPlayer::Init(SoundPlayer *this,HWND game_window)
   this->directsound8_uninit = local_78;
   iVar2 = DirectSound8Player::Init(this->directsound8_uninit,game_window,2,2,0xac44,0x10);
   if (iVar2 < 0) {
-    GameErrorContextLog(&g_GameErrorContext,
+    GameErrorContextLog((GameErrorContext *)&DAT_0069d998,
                         "DirectSound オブジェクトの初期化が失敗したよ\n");
     if (this->directsound8_uninit != (DirectSound8Player *)0x0) {
       this_00 = this->directsound8_uninit;
@@ -84,7 +84,8 @@ void __thiscall SoundPlayer::Init(SoundPlayer *this,HWND game_window)
                     /* 4 times per second */
       SetTimer(game_window,0,0xfa,(TIMERPROC)0x0);
       this->game_window = (HWND)game_window;
-      GameErrorContextLog(&g_GameErrorContext,"DirectSound は正常に初期化されました\n");
+      GameErrorContextLog((GameErrorContext *)&DAT_0069d998,
+                          "DirectSound は正常に初期化されました\n");
     }
   }
   ExceptionList = local_10;

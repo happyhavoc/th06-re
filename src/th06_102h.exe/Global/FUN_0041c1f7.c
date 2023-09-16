@@ -2,9 +2,9 @@
 undefined4 FUN_0041c1f7(int param_1)
 
 {
-  (*(g_GameContext.d3dDevice)->lpVtbl->ResourceManagerDiscardBytes)(g_GameContext.d3dDevice,0);
+  (**(code **)(*DAT_006c6d20 + 0x14))(DAT_006c6d20,0);
   if (DAT_0069d4c4 == '\0') {
-    GameContext::FUN_00424d38(&g_GameContext);
+    GameContext::FUN_00424d38((GameContext *)&DAT_006c6d18);
   }
   FUN_00404650();
   FUN_004172b0();
@@ -15,7 +15,7 @@ undefined4 FUN_0041c1f7(int param_1)
   FUN_0041b58c();
   FUN_0042aab0();
   *(undefined *)(param_1 + 0x1821) = 0;
-  AsciiManager::Initialize((AsciiManager *)&g_AsciiManager);
+  AsciiManager::Initialize(&g_AsciiManager);
   return 0;
 }
 

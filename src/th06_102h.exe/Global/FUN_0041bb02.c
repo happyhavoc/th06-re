@@ -13,14 +13,14 @@ undefined4 FUN_0041bb02(uint *param_1)
   uint *local_c;
   
   bVar1 = false;
-  (*(g_GameContext.d3dDevice)->lpVtbl->ResourceManagerDiscardBytes)(g_GameContext.d3dDevice,0);
-  if (g_GameContext.unkInput2 == 3) {
+  (**(code **)(*DAT_006c6d20 + 0x14))(DAT_006c6d20,0);
+  if (DAT_006c6ea4 == 3) {
     *param_1 = param_1[1];
     param_1[2] = 0;
   }
   else {
-    g_GameContext.bombCount = BOMB_COUNT;
-    g_GameContext.lifeCount = LIFE_COUNT;
+    DAT_006c6e7d = DAT_0069d4bb;
+    DAT_006c6e7c = DAT_0069d4ba;
     param_1[0x68f] = 0x42000000;
     param_1[0x690] = 0x41800000;
     param_1[0x691] = 0x43c00000;
@@ -65,18 +65,18 @@ undefined4 FUN_0041bb02(uint *param_1)
       local_c = local_c + 0x10;
     }
     uVar3 = FUN_0042b0d9("score.dat");
-    DAT_0069bcac = FUN_0042b280(uVar3,0,(uint)DAT_0069d4be + (uint)DAT_0069d4bd * 2,CUR_RANK);
+    DAT_0069bcac = FUN_0042b280(uVar3,0,(uint)DAT_0069d4be + (uint)DAT_0069d4bd * 2,_DAT_0069bcb0);
     FUN_0042b466(uVar3,param_1 + 0xc);
     FUN_0042b502(uVar3,param_1 + 0x40c);
     FUN_0042b65e(uVar3,param_1 + 0x424);
     if (*(char *)((int)param_1 + 0x1823) != '\0') {
       DAT_0069bcac = param_1[((uint)DAT_0069d4be + (uint)DAT_0069d4bd * 2) * 0x78 +
-                             CUR_STAGE * 0x14 + CUR_RANK * 5 + 0x427];
+                             DAT_0069d6d4 * 0x14 + _DAT_0069bcb0 * 5 + 0x427];
     }
     FUN_0042b7dc(uVar3);
-    param_1[0x69c] = *(uint *)(&DAT_00476564 + CUR_RANK * 0xc);
-    param_1[0x69e] = *(uint *)(&DAT_00476568 + CUR_RANK * 0xc);
-    param_1[0x69d] = *(uint *)(&DAT_0047656c + CUR_RANK * 0xc);
+    param_1[0x69c] = *(uint *)(&DAT_00476564 + _DAT_0069bcb0 * 0xc);
+    param_1[0x69e] = *(uint *)(&DAT_00476568 + _DAT_0069bcb0 * 0xc);
+    param_1[0x69d] = *(uint *)(&DAT_0047656c + _DAT_0069bcb0 * 0xc);
     param_1[8] = 0;
     param_1[9] = 0;
     param_1[10] = 0;
@@ -89,13 +89,13 @@ undefined4 FUN_0041bb02(uint *param_1)
   if (_DAT_0069bcbc == 0) {
     iVar4 = (uint)DAT_0069d4be + (uint)DAT_0069d4bd * 2;
     if ((*(char *)(param_1 + 0x606) == '\0') &&
-       ((int)(uint)*(byte *)((int)param_1 + CUR_RANK + iVar4 * 0x18 + 0x103c) <
+       ((int)(uint)*(byte *)((int)param_1 + _DAT_0069bcb0 + iVar4 * 0x18 + 0x103c) <
         (int)(param_1[0x68d] - 1))) {
-      *(char *)((int)param_1 + CUR_RANK + iVar4 * 0x18 + 0x103c) = (char)param_1[0x68d] + -1;
+      *(char *)((int)param_1 + _DAT_0069bcb0 + iVar4 * 0x18 + 0x103c) = (char)param_1[0x68d] + -1;
     }
-    if ((int)(uint)*(byte *)((int)param_1 + CUR_RANK + iVar4 * 0x18 + 0x1041) <
+    if ((int)(uint)*(byte *)((int)param_1 + _DAT_0069bcb0 + iVar4 * 0x18 + 0x1041) <
         (int)(param_1[0x68d] - 1)) {
-      *(char *)((int)param_1 + CUR_RANK + iVar4 * 0x18 + 0x1041) = (char)param_1[0x68d] + -1;
+      *(char *)((int)param_1 + _DAT_0069bcb0 + iVar4 * 0x18 + 0x1041) = (char)param_1[0x68d] + -1;
     }
   }
   if ((*(char *)((int)param_1 + 0x1823) != '\0') && (param_1[0x68d] != 1)) {
@@ -106,8 +106,8 @@ undefined4 FUN_0041bb02(uint *param_1)
       *(undefined2 *)(param_1 + 0x604) = 0x80;
     }
   }
-  GameContext::LoadPBG3(&g_GameContext,4,(byte *)s__g_CM_dat_0046af84);
-  GameContext::LoadPBG3(&g_GameContext,2,(byte *)s__g_ST_dat_0046af74);
+  GameContext::LoadPBG3((GameContext *)&DAT_006c6d18,4,(byte *)s__g_CM_dat_0046af84);
+  GameContext::LoadPBG3((GameContext *)&DAT_006c6d18,2,(byte *)s__g_ST_dat_0046af74);
   if (_DAT_0069bcbc == 1) {
     iVar4 = FUN_0042a240(1,&DAT_0069d4cc);
     if (iVar4 != 0) {
@@ -116,8 +116,8 @@ undefined4 FUN_0041bb02(uint *param_1)
     while (*(uint *)(&DAT_004764b0 + *(char *)(param_1 + 0x607) * 4) <= *param_1) {
       *(char *)(param_1 + 0x607) = *(char *)(param_1 + 0x607) + '\x01';
     }
-    param_1[0x69e] = *(uint *)(&DAT_0047652c + CUR_RANK * 0xc);
-    param_1[0x69d] = *(uint *)(&DAT_00476530 + CUR_RANK * 0xc);
+    param_1[0x69e] = *(uint *)(&DAT_0047652c + _DAT_0069bcb0 * 0xc);
+    param_1[0x69d] = *(uint *)(&DAT_00476530 + _DAT_0069bcb0 * 0xc);
   }
   _DAT_0069d8fc = 0;
   *(undefined2 *)(param_1 + 0x68b) = DAT_0069d8f8;
@@ -145,57 +145,58 @@ undefined4 FUN_0041bb02(uint *param_1)
                 }
                 *(undefined *)(param_1 + 0x608) = 0;
                 *(undefined *)((int)param_1 + 0x1821) = 1;
-                if (g_GameContext.unkInput2 != 3) {
-                  g_GameContext._436_4_ = 0;
-                  g_GameContext._440_4_ = 0;
+                if (DAT_006c6ea4 != 3) {
+                  _DAT_006c6ecc = 0;
+                  _DAT_006c6ed0 = 0;
                 }
                 *(undefined *)(param_1 + 0xb) = 0;
                 param_1[1] = 0;
                 *(undefined *)((int)param_1 + 0x1822) = 0;
-                AsciiManager::Initialize((AsciiManager *)&g_AsciiManager);
+                AsciiManager::Initialize(&g_AsciiManager);
                 if (bVar1) {
-                  g_GameContext.unkInput2 = 1;
+                  DAT_006c6ea4 = 1;
                 }
-                g_GameContext.field77_0x198 = 3;
+                DAT_006c6eb0 = 3;
                 uVar3 = 0;
               }
               else {
-                GameErrorContextLog(&g_GameErrorContext,
+                GameErrorContextLog((GameErrorContext *)&DAT_0069d998,
                                     "error : 2D表示の初期化に失敗しました\n");
                 uVar3 = 0xffffffff;
               }
             }
             else {
-              GameErrorContextLog(&g_GameErrorContext,
+              GameErrorContextLog((GameErrorContext *)&DAT_0069d998,
                                   "error : エフェクトの初期化に失敗しました\n");
               uVar3 = 0xffffffff;
             }
           }
           else {
-            GameErrorContextLog(&g_GameErrorContext,
-                                "error : 敵頭脳の初���化に失敗しました\n");
+            GameErrorContextLog((GameErrorContext *)&DAT_0069d998,
+                                "error : 敵頭脳の初期化に失敗しました\n");
             uVar3 = 0xffffffff;
           }
         }
         else {
-          GameErrorContextLog(&g_GameErrorContext,"error : 敵の初期化に失敗しました\n");
+          GameErrorContextLog((GameErrorContext *)&DAT_0069d998,
+                              "error : 敵���初期化に失敗しました\n");
           uVar3 = 0xffffffff;
         }
       }
       else {
-        GameErrorContextLog(&g_GameErrorContext,"error : 敵弾の初期化に失敗しました\n")
-        ;
+        GameErrorContextLog((GameErrorContext *)&DAT_0069d998,
+                            "error : 敵弾の初期化に失敗しました\n");
         uVar3 = 0xffffffff;
       }
     }
     else {
-      GameErrorContextLog(&g_GameErrorContext,
-                          "error : プレイヤーの初期化に失敗しました\n");
+      GameErrorContextLog((GameErrorContext *)&DAT_0069d998,
+                          "error : プレイヤーの初期化に失敗し��した\n");
       uVar3 = 0xffffffff;
     }
   }
   else {
-    GameErrorContextLog(&g_GameErrorContext,
+    GameErrorContextLog((GameErrorContext *)&DAT_0069d998,
                         "error : 背景データの初期化に失敗しました\n");
     uVar3 = 0xffffffff;
   }

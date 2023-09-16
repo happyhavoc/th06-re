@@ -3,25 +3,25 @@ void __thiscall FUN_00438ef8(int param_1_00,int param_2,int param_3,int param_4,
 
 {
   if (param_4 == param_5) {
-    if ((g_GameContext.cfg.opts >> 8 & 1 | g_GameContext.cfg.opts & 1) == 0) {
+    if ((DAT_006c6e60 >> 8 & 1 | DAT_006c6e60 & 1) == 0) {
       *(undefined4 *)(param_2 + 0x7c) = 0x800000ff;
     }
     else if (*(short *)(param_2 + 0xb2) < 0x122) {
-      AnmManager::FUN_004323a0(g_AnmManager,(AnmVm *)param_2,*(short *)(param_2 + 0xb2) + 0x7a);
+      AnmManager::FUN_004323a0(DAT_006d4588,(AnmVm *)param_2,*(short *)(param_2 + 0xb2) + 0x7a);
     }
     else {
-      AnmManager::FUN_004323a0(g_AnmManager,(AnmVm *)param_2,*(short *)(param_2 + 0xb2) + 0x73);
+      AnmManager::FUN_004323a0(DAT_006d4588,(AnmVm *)param_2,*(short *)(param_2 + 0xb2) + 0x73);
     }
     *(undefined4 *)(param_2 + 0xe4) = 0xc0000000;
     *(undefined4 *)(param_2 + 0xe8) = 0xc0000000;
     *(undefined4 *)(param_2 + 0xec) = 0;
   }
   else {
-    if ((g_GameContext.cfg.opts >> 8 & 1 | g_GameContext.cfg.opts & 1) == 0) {
+    if ((DAT_006c6e60 >> 8 & 1 | DAT_006c6e60 & 1) == 0) {
       *(undefined4 *)(param_2 + 0x7c) = 0x80202050;
     }
     else {
-      AnmManager::FUN_004323a0(g_AnmManager,(AnmVm *)param_2,(int)*(short *)(param_2 + 0xb2));
+      AnmManager::FUN_004323a0(DAT_006d4588,(AnmVm *)param_2,(int)*(short *)(param_2 + 0xb2));
     }
     *(undefined4 *)(param_2 + 0x1c) = 0x3f800000;
     *(undefined4 *)(param_2 + 0x18) = 0x3f800000;
@@ -30,7 +30,7 @@ void __thiscall FUN_00438ef8(int param_1_00,int param_2,int param_3,int param_4,
     *(undefined4 *)(param_2 + 0xec) = 0;
   }
   if (param_3 == *(int *)(param_1_00 + 0x81a0)) {
-    if ((g_GameContext.cfg.opts & 1) == 0) {
+    if ((DAT_006c6e60 & 1) == 0) {
       *(uint *)(param_2 + 0x7c) = *(uint *)(param_2 + 0x7c) & 0xffffff | 0xff000000;
     }
     else {
@@ -41,7 +41,7 @@ void __thiscall FUN_00438ef8(int param_1_00,int param_2,int param_3,int param_4,
     *(float *)(param_2 + 0xec) = *(float *)(param_2 + 0xec) + 0.0;
   }
   else {
-    if ((g_GameContext.cfg.opts & 1) == 0) {
+    if ((DAT_006c6e60 & 1) == 0) {
       *(uint *)(param_2 + 0x7c) = *(uint *)(param_2 + 0x7c) & 0xffffff | 0x80000000;
     }
     else {

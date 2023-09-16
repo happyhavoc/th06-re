@@ -1,4 +1,6 @@
 
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
 LRESULT WindowProc(HWND hWnd,uint uMsg,WPARAM wParam,LPMIDIHDR lParam)
 
 {
@@ -7,14 +9,16 @@ LRESULT WindowProc(HWND hWnd,uint uMsg,WPARAM wParam,LPMIDIHDR lParam)
   
   if (uMsg < 0x21) {
     if (uMsg == WM_SETCURSOR) {
-      if (g_GameContext.cfg.windowed) {
-        pHVar1 = LoadCursorA((HINSTANCE)0x0,(LPCSTR)0x7f00);
-        SetCursor(pHVar1);
-        ShowCursor(1);
-      }
-      else if (g_GameWindow.isAppActive == 0) {
-        ShowCursor(0);
-        SetCursor((HCURSOR)0x0);
+      if (DAT_006c6e4a == '\0') {
+        if (_DAT_006c6be0 == 0) {
+          ShowCursor(0);
+          SetCursor((HCURSOR)0x0);
+        }
+        else {
+          pHVar1 = LoadCursorA((HINSTANCE)0x0,(LPCSTR)0x7f00);
+          SetCursor(pHVar1);
+          ShowCursor(1);
+        }
       }
       else {
         pHVar1 = LoadCursorA((HINSTANCE)0x0,(LPCSTR)0x7f00);
@@ -24,16 +28,16 @@ LRESULT WindowProc(HWND hWnd,uint uMsg,WPARAM wParam,LPMIDIHDR lParam)
       return 1;
     }
     if (uMsg == WM_CLOSE) {
-      g_GameWindow.isAppClosing = 1;
+      _DAT_006c6bd8 = 1;
       return 1;
     }
     if (uMsg == WM_ACTIVATEAPP) {
-      g_GameWindow.lastActiveAppValue = wParam;
-      g_GameWindow.isAppActive = (int)(wParam == 0);
+      _DAT_006c6bdc = wParam;
+      _DAT_006c6be0 = (uint)(wParam == 0);
     }
   }
-  else if ((uMsg == 0x3c9) && (g_GameContext.midiOutput != (MidiOutput *)0x0)) {
-    MidiOutput::UnprepareHeader(g_GameContext.midiOutput,lParam);
+  else if ((uMsg == 0x3c9) && (DAT_006c6ec8 != (MidiOutput *)0x0)) {
+    MidiOutput::UnprepareHeader(DAT_006c6ec8,lParam);
   }
   LVar2 = DefWindowProcA(hWnd,uMsg,wParam,(LPARAM)lParam);
   return LVar2;

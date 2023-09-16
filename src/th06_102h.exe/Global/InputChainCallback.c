@@ -6,13 +6,13 @@ undefined4 InputChainCallback(GameContext *param_1)
 {
   int iVar1;
   
-  if (g_SoundPlayer._1580_4_ != 0) {
-    FUN_0043b4d0((void *)g_SoundPlayer._1580_4_);
+  if (DAT_006d457c != (void *)0x0) {
+    FUN_0043b4d0(DAT_006d457c);
   }
-  BUTTONS_PRESSED_PREVFRAME = BUTTONS_PRESSED_CURFRAME;
-  BUTTONS_PRESSED_CURFRAME = GetInput();
+  DAT_0069d908 = DAT_0069d904;
+  DAT_0069d904 = GetInput();
   DAT_0069d90c = 0;
-  if (BUTTONS_PRESSED_PREVFRAME == BUTTONS_PRESSED_CURFRAME) {
+  if (DAT_0069d908 == DAT_0069d904) {
     if ((0x1d < DAT_0069d910) &&
        (DAT_0069d90c = (ushort)((uint)DAT_0069d910 % 8 == 0), 0x25 < DAT_0069d910)) {
       DAT_0069d910 = 0x1e;
@@ -71,7 +71,7 @@ LAB_004235a0:
       FUN_0042ab30(0,0);
 LAB_00423454:
       param_1->unkInput2 = 1;
-      (*(g_GameContext.d3dDevice)->lpVtbl->ResourceManagerDiscardBytes)(g_GameContext.d3dDevice,0);
+      (**(code **)(*DAT_006c6d20 + 0x14))(DAT_006c6d20,0);
       iVar1 = FUN_0043a338(0);
       if (iVar1 != 0) {
         return 4;
@@ -102,8 +102,7 @@ LAB_00423454:
         param_1->unkInput2 = 0;
         FUN_0042ab30(0,0);
         param_1->unkInput2 = 1;
-        (*(g_GameContext.d3dDevice)->lpVtbl->ResourceManagerDiscardBytes)(g_GameContext.d3dDevice,0)
-        ;
+        (**(code **)(*DAT_006c6d20 + 0x14))(DAT_006c6d20,0);
         iVar1 = FUN_0043a338(1);
         if (iVar1 != 0) {
           return 4;
@@ -161,8 +160,8 @@ LAB_00423454:
     }
   }
   DAT_0069d90c = 0;
-  BUTTONS_PRESSED_PREVFRAME = 0;
-  BUTTONS_PRESSED_CURFRAME = 0;
+  DAT_0069d908 = 0;
+  DAT_0069d904 = 0;
 LAB_0042375b:
   param_1->unkInput1 = param_1->unkInput2;
   param_1->unkInput3 = param_1->unkInput3 + 1;

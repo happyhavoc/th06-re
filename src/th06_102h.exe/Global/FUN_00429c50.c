@@ -1,4 +1,6 @@
 
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
 undefined4 FUN_00429c50(Unknown *param_1)
 
 {
@@ -11,25 +13,25 @@ undefined4 FUN_00429c50(Unknown *param_1)
   int local_8;
   
   if (DAT_0069d4bd == 0) {
-    if ((g_GameContext.unkInput2 != 3) &&
-       (iVar2 = AnmManager::LoadAnim(g_AnmManager,5,"data/player00.anm",0x400), iVar2 != 0)) {
+    if ((DAT_006c6ea4 != 3) &&
+       (iVar2 = AnmManager::LoadAnim(DAT_006d4588,5,"data/player00.anm",0x400), iVar2 != 0)) {
       return 0xffffffff;
     }
-    pAVar1 = g_AnmManager;
+    pAVar1 = DAT_006d4588;
     *(undefined2 *)&param_1->field_0xb4 = 0x400;
     FUN_00432430(param_1,(int)pAVar1->scripts[0x400]);
   }
   else if (DAT_0069d4bd == 1) {
-    if ((g_GameContext.unkInput2 != 3) &&
-       (iVar2 = AnmManager::LoadAnim(g_AnmManager,5,"data/player01.anm",0x400), iVar2 != 0)) {
+    if ((DAT_006c6ea4 != 3) &&
+       (iVar2 = AnmManager::LoadAnim(DAT_006d4588,5,"data/player01.anm",0x400), iVar2 != 0)) {
       return 0xffffffff;
     }
-    pAVar1 = g_AnmManager;
+    pAVar1 = DAT_006d4588;
     *(undefined2 *)&param_1->field_0xb4 = 0x400;
     FUN_00432430(param_1,(int)pAVar1->scripts[0x400]);
   }
-  param_1[5].field13_0x3c.field12_0x30 = (int)(VIEWPORT_WIDTH / 2.0);
-  param_1[5].field13_0x3c.field13_0x34 = (int)(VIEWPORT_HEIGHT - 64.0);
+  param_1[5].field13_0x3c.field12_0x30 = (int)(_DAT_0069d6e4 / 2.0);
+  param_1[5].field13_0x3c.field13_0x34 = (int)(_DAT_0069d6e8 - 64.0);
   param_1[5].field13_0x3c.field14_0x38 = 0x3efae148;
   param_1[6].field4_0x10 = 0x3efae148;
   param_1[6].field7_0x1c = 0.49;
@@ -61,10 +63,10 @@ undefined4 FUN_00429c50(Unknown *param_1)
   *(undefined4 *)&param_1[0x99].field_0x94 = 0;
   *(undefined4 *)&param_1[0x99].field_0x90 = 0xfffffc19;
   param_1[0xc].field_0xb2 = 0;
-  pAVar1 = g_AnmManager;
+  pAVar1 = DAT_006d4588;
   *(undefined2 *)&param_1[2].field13_0x3c.field0_0x0 = 0x480;
   FUN_00432430((Unknown *)&param_1[1].field13_0x3c.field4_0x10,(int)pAVar1->scripts[0x480]);
-  pAVar1 = g_AnmManager;
+  pAVar1 = DAT_006d4588;
   param_1[3].field18_0x88 = 0x481;
   FUN_00432430((Unknown *)&param_1[2].field31_0x98,(int)pAVar1->scripts[0x481]);
   local_c = &param_1[0xd].field12_0x30.subFrame;

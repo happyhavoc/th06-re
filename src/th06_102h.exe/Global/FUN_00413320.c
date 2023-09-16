@@ -2,8 +2,8 @@
 undefined4 FUN_00413320(void)
 
 {
-  FUN_00432030(g_AnmManager,9);
-  FUN_00432030(g_AnmManager,8);
+  FUN_00432030(DAT_006d4588,9);
+  FUN_00432030(DAT_006d4588,8);
   return 0;
 }
 

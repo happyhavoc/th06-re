@@ -95,11 +95,10 @@ void FUN_004291b0(int param_1)
         local_18[1].angleVel.y = fVar2 + fVar2;
       }
       pAVar6 = local_18 + 1;
-      (pAVar6->rotation).x = g_GameContext.field84_0x1a8 * local_18[1].scaleX + (pAVar6->rotation).x
-      ;
+      (pAVar6->rotation).x = DAT_006c6ec0 * local_18[1].scaleX + (pAVar6->rotation).x;
       (local_18->pos).x = (pAVar6->rotation).x;
       pfVar8 = &local_18[1].rotation.y;
-      *pfVar8 = g_GameContext.field84_0x1a8 * local_18[1].scaleY + *pfVar8;
+      *pfVar8 = DAT_006c6ec0 * local_18[1].scaleY + *pfVar8;
       (local_18->pos).y = *pfVar8;
       (local_18->pos).z = local_18[1].rotation.z;
       if ((*(short *)((int)&local_18[1].matrix.field0_0x0 + 4) != 3) &&
@@ -107,13 +106,13 @@ void FUN_004291b0(int param_1)
                                local_18->sprite->widthPx,local_18->sprite->heightPx), iVar7 == 0)) {
         *(undefined2 *)((int)&local_18[1].matrix.field0_0x0 + 2) = 0;
       }
-      iVar7 = AnmManager::FUN_00433960(g_AnmManager,local_18);
+      iVar7 = AnmManager::FUN_00433960(DAT_006d4588,local_18);
       if (iVar7 != 0) {
         *(undefined2 *)((int)&local_18[1].matrix.field0_0x0 + 2) = 0;
       }
       local_18[1].currentTimeInScript.previous = local_18[1].currentTimeInScript.current;
       GameContext::FUN_00424285
-                (&g_GameContext,&local_18[1].currentTimeInScript.current,
+                ((GameContext *)&DAT_006c6d18,&local_18[1].currentTimeInScript.current,
                  &local_18[1].currentTimeInScript.subFrame);
     }
     local_18 = (AnmVm *)(local_18[1].matrix.field0_0x0.m[0] + 3);

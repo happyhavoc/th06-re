@@ -15,10 +15,10 @@ void __thiscall AsciiManager::Initialize(AsciiManager *this)
   (this->scale).x = 1.0;
   (this->scale).y = 1.0;
   (this->vm1).flags = (this->vm1).flags | 0x300;
-  pAVar1 = g_AnmManager;
+  pAVar1 = DAT_006d4588;
   AnmVm::Initialize(&this->vm1);
   AnmManager::FUN_004323a0(pAVar1,&this->vm1,0);
-  pAVar1 = g_AnmManager;
+  pAVar1 = DAT_006d4588;
   AnmVm::Initialize(&this->vm0);
   AnmManager::FUN_004323a0(pAVar1,&this->vm0,0x20);
   (this->vm1).pos.z = 0.1;

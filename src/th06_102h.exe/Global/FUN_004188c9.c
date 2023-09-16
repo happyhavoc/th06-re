@@ -23,12 +23,12 @@ undefined4 FUN_004188c9(void)
     if (*(int *)(in_ECX + 0x2bd4) != 0) {
       *(int *)(in_ECX + 0x2bd4) = *(int *)(in_ECX + 0x2bd4) + -1;
     }
-    if ((*(char *)(in_ECX + 0x2bd8) != '\0') && ((BUTTONS_PRESSED_CURFRAME & 0x100) != 0)) {
+    if ((*(char *)(in_ECX + 0x2bd8) != '\0') && ((DAT_0069d904 & 0x100) != 0)) {
       *(uint *)(in_ECX + 0x2548) = (uint)**(ushort **)(in_ECX + 0x2538);
       *(undefined4 *)(in_ECX + 0x2544) = 0;
       *(undefined4 *)(in_ECX + 0x2540) = 0xfffffc19;
     }
-    while (pAVar3 = g_AnmManager,
+    while (pAVar3 = DAT_006d4588,
           (int)(uint)**(ushort **)(in_ECX + 0x2538) <= *(int *)(in_ECX + 0x2548)) {
       switch(*(undefined *)(*(int *)(in_ECX + 0x2538) + 2)) {
       case 0:
@@ -46,7 +46,7 @@ undefined4 FUN_004188c9(void)
       case 2:
         psVar6 = (short *)(*(int *)(in_ECX + 0x2538) + 4);
         AnmManager::FUN_004323a0
-                  (g_AnmManager,(AnmVm *)(in_ECX + 0x2550 + *psVar6 * 0x110),
+                  (DAT_006d4588,(AnmVm *)(in_ECX + 0x2550 + *psVar6 * 0x110),
                    (int)*(short *)(*(int *)(in_ECX + 0x2538) + 6) +
                    (-(uint)(*psVar6 != 0) & 8) + 0x4a0);
         break;
@@ -54,10 +54,10 @@ undefined4 FUN_004188c9(void)
         iVar7 = *(int *)(in_ECX + 0x2538);
         psVar6 = (short *)(iVar7 + 4);
         if ((*(short *)(iVar7 + 6) == 0) && (-1 < *(short *)(in_ECX + 0x2934))) {
-          FUN_00434b60(g_AnmManager,in_ECX + 0x2880,*(undefined4 *)(in_ECX + 0x2bb0 + *psVar6 * 4),
+          FUN_00434b60(DAT_006d4588,in_ECX + 0x2880,*(undefined4 *)(in_ECX + 0x2bb0 + *psVar6 * 4),
                        *(undefined4 *)(in_ECX + 0x2bc0 + *psVar6 * 4),&DAT_0046ac10);
         }
-        pAVar3 = g_AnmManager;
+        pAVar3 = DAT_006d4588;
         sVar2 = *(short *)(iVar7 + 6);
         local_20 = sVar2 + 0x702;
         pUVar1 = (Unknown *)(in_ECX + 0x2770 + *(short *)(iVar7 + 6) * 0x110);
@@ -67,16 +67,15 @@ undefined4 FUN_004188c9(void)
              *(undefined *)(in_ECX + 0x2bd0);
         *(undefined *)(in_ECX + 0x287c + *(short *)(iVar7 + 6) * 0x110) =
              *(undefined *)(in_ECX + 0x287d + *(short *)(iVar7 + 6) * 0x110);
-        FUN_00434b60(g_AnmManager,in_ECX + 0x2770 + *(short *)(iVar7 + 6) * 0x110,
+        FUN_00434b60(DAT_006d4588,in_ECX + 0x2770 + *(short *)(iVar7 + 6) * 0x110,
                      *(undefined4 *)(in_ECX + 0x2bb0 + *psVar6 * 4),
                      *(undefined4 *)(in_ECX + 0x2bc0 + *psVar6 * 4),iVar7 + 8);
         *(undefined4 *)(in_ECX + 0x254c) = 0;
         break;
       case 4:
-        if ((((*(char *)(in_ECX + 0x2bd8) == '\0') || ((BUTTONS_PRESSED_CURFRAME & 0x100) == 0)) &&
-            (((BUTTONS_PRESSED_CURFRAME & 1) == 0 ||
-             (((BUTTONS_PRESSED_CURFRAME & 1) == (BUTTONS_PRESSED_PREVFRAME & 1) ||
-              (*(int *)(in_ECX + 0x254c) < 8)))))) &&
+        if ((((*(char *)(in_ECX + 0x2bd8) == '\0') || ((DAT_0069d904 & 0x100) == 0)) &&
+            (((DAT_0069d904 & 1) == 0 ||
+             (((DAT_0069d904 & 1) == (DAT_0069d908 & 1) || (*(int *)(in_ECX + 0x254c) < 8)))))) &&
            (*(int *)(in_ECX + 0x254c) < *(int *)(*(int *)(in_ECX + 0x2538) + 4))) {
           *(int *)(in_ECX + 0x254c) = *(int *)(in_ECX + 0x254c) + 1;
           goto LAB_00418fe0;
@@ -100,7 +99,7 @@ undefined4 FUN_004188c9(void)
         FUN_00432430((Unknown *)(in_ECX + 0x1cb4),(int)pAVar3->scripts[0x701]);
         *(undefined *)(in_ECX + 0x1dc0) = 0x10;
         *(undefined *)(in_ECX + 0x1dc1) = 0x10;
-        FUN_00434c40(g_AnmManager,in_ECX + 0x1cb4,0xe0ffff,0,&DAT_0046a98c,
+        FUN_00434c40(DAT_006d4588,in_ECX + 0x1cb4,0xe0ffff,0,&DAT_0046a98c,
                      DAT_00487b14 + 0x90 + *(int *)(*(int *)(in_ECX + 0x2538) + 4) * 0x80);
         iVar7 = FUN_00424ae4(*(undefined4 *)(*(int *)(in_ECX + 0x2538) + 4));
         if (iVar7 != 0) {
@@ -115,15 +114,15 @@ undefined4 FUN_004188c9(void)
         pUVar1 = (Unknown *)(in_ECX + 0x2990 + *(short *)(iVar7 + 6) * 0x110);
         *(short *)&pUVar1->field_0xb4 = local_34;
         FUN_00432430(pUVar1,(int)pAVar3->scripts[sVar2 + 0x704]);
-        FUN_00434c40(g_AnmManager,in_ECX + 0x2990 + *(short *)(iVar7 + 6) * 0x110,
+        FUN_00434c40(DAT_006d4588,in_ECX + 0x2990 + *(short *)(iVar7 + 6) * 0x110,
                      *(undefined4 *)(in_ECX + 0x2bb0 + *(short *)(iVar7 + 4) * 4),
                      *(undefined4 *)(in_ECX + 0x2bc0 + *(short *)(iVar7 + 4) * 4),iVar7 + 8);
         *(undefined4 *)(in_ECX + 0x254c) = 0;
         break;
       case 9:
         *(undefined4 *)(in_ECX + 0x2bdc) = 1;
-        pAVar3 = g_AnmManager;
-        if (CUR_STAGE < 6) {
+        pAVar3 = DAT_006d4588;
+        if (DAT_0069d6d4 < 6) {
           *(undefined2 *)(in_ECX + 0x24d8) = 0x619;
           FUN_00432430((Unknown *)(in_ECX + 0x2424),(int)pAVar3->scripts[0x619]);
         }
@@ -136,24 +135,24 @@ undefined4 FUN_004188c9(void)
       case 0xb:
         DAT_0069bca0 = DAT_0069bca4;
         if (DAT_0069d4c3 == '\0') {
-          if ((CUR_STAGE < 5) || ((CUR_RANK != 0 && (CUR_STAGE == 5)))) {
-            g_GameContext.unkInput2 = 3;
+          if ((DAT_0069d6d4 < 5) || ((_DAT_0069bcb0 != 0 && (DAT_0069d6d4 == 5)))) {
+            DAT_006c6ea4 = 3;
           }
           else if (_DAT_0069bcbc == 0) {
-            if (CUR_RANK == 4) {
+            if (_DAT_0069bcb0 == 4) {
               DAT_0069d4c2 = 1;
-              g_GameContext.unkInput2 = 7;
+              DAT_006c6ea4 = 7;
             }
             else {
-              g_GameContext.unkInput2 = 10;
+              DAT_006c6ea4 = 10;
             }
           }
           else {
-            g_GameContext.unkInput2 = 8;
+            DAT_006c6ea4 = 8;
           }
         }
         else {
-          g_GameContext.unkInput2 = 7;
+          DAT_006c6ea4 = 7;
         }
         goto LAB_00418fe0;
       case 0xc:
@@ -167,14 +166,14 @@ undefined4 FUN_004188c9(void)
     }
     FUN_0041b5af();
 LAB_00418fe0:
-    AnmManager::FUN_00433960(g_AnmManager,(AnmVm *)(in_ECX + 0x2550));
-    AnmManager::FUN_00433960(g_AnmManager,(AnmVm *)(in_ECX + 0x2660));
-    AnmManager::FUN_00433960(g_AnmManager,(AnmVm *)(in_ECX + 0x2770));
-    AnmManager::FUN_00433960(g_AnmManager,(AnmVm *)(in_ECX + 0x2880));
-    AnmManager::FUN_00433960(g_AnmManager,(AnmVm *)(in_ECX + 0x2990));
-    AnmManager::FUN_00433960(g_AnmManager,(AnmVm *)(in_ECX + 0x2aa0));
+    AnmManager::FUN_00433960(DAT_006d4588,(AnmVm *)(in_ECX + 0x2550));
+    AnmManager::FUN_00433960(DAT_006d4588,(AnmVm *)(in_ECX + 0x2660));
+    AnmManager::FUN_00433960(DAT_006d4588,(AnmVm *)(in_ECX + 0x2770));
+    AnmManager::FUN_00433960(DAT_006d4588,(AnmVm *)(in_ECX + 0x2880));
+    AnmManager::FUN_00433960(DAT_006d4588,(AnmVm *)(in_ECX + 0x2990));
+    AnmManager::FUN_00433960(DAT_006d4588,(AnmVm *)(in_ECX + 0x2aa0));
     if (((*(int *)(in_ECX + 0x2548) < 0x3c) && (*(char *)(in_ECX + 0x2bd8) != '\0')) &&
-       ((BUTTONS_PRESSED_CURFRAME & 0x100) != 0)) {
+       ((DAT_0069d904 & 0x100) != 0)) {
       *(undefined4 *)(in_ECX + 0x2548) = 0x3c;
       *(undefined4 *)(in_ECX + 0x2544) = 0;
       *(undefined4 *)(in_ECX + 0x2540) = 0xfffffc19;

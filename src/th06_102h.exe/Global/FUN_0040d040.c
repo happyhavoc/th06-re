@@ -1,4 +1,6 @@
 
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
 void FUN_0040d040(int param_1,int param_2)
 
 {
@@ -87,7 +89,7 @@ void FUN_0040d040(int param_1,int param_2)
         local_50 = local_dc[local_60 * 3 + 2];
         local_5c = 1;
         if (local_68 == 0) {
-          if (CUR_RANK < 2) {
+          if (_DAT_0069bcb0 < 2) {
             local_5a = 2;
           }
           else {
@@ -96,7 +98,7 @@ void FUN_0040d040(int param_1,int param_2)
           local_4c = local_78;
           local_44 = 0;
           local_3c = 0;
-          if (CUR_RANK < 2) {
+          if (_DAT_0069bcb0 < 2) {
             local_30 = 0x41e00000;
             local_38 = local_64;
           }

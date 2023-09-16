@@ -14,8 +14,8 @@ undefined4 FUN_00404300(int param_1)
   *(undefined4 *)(param_1 + 0x44) = 0;
   *(undefined4 *)(param_1 + 0x80) = 0;
   *(undefined4 *)(param_1 + 0x6c) = 0;
-  iVar1 = FUN_00404690((&PTR_s_dummy_004760e0)[CUR_STAGE * 2],(&PTR_s_dummy_004760e4)[CUR_STAGE * 2]
-                      );
+  iVar1 = FUN_00404690((&PTR_s_dummy_004760e0)[DAT_0069d6d4 * 2],
+                       (&PTR_s_dummy_004760e4)[DAT_0069d6d4 * 2]);
   if (iVar1 == 0) {
     *(undefined4 *)(param_1 + 0x50) = 0xff000000;
     *(undefined4 *)(param_1 + 0x48) = 0x43480000;
@@ -31,12 +31,9 @@ undefined4 FUN_00404300(int param_1)
     *(undefined4 *)(param_1 + 0x2cc) = 0;
     *(undefined4 *)(param_1 + 0x2c8) = 0xfffffc19;
     *(undefined *)(param_1 + 0x2a8) = 0;
-    (*(g_GameContext.d3dDevice)->lpVtbl->SetRenderState)
-              (g_GameContext.d3dDevice,D3DRS_FOGCOLOR,*(DWORD *)(param_1 + 0x50));
-    (*(g_GameContext.d3dDevice)->lpVtbl->SetRenderState)
-              (g_GameContext.d3dDevice,D3DRS_FOGSTART,*(DWORD *)(param_1 + 0x48));
-    (*(g_GameContext.d3dDevice)->lpVtbl->SetRenderState)
-              (g_GameContext.d3dDevice,D3DRS_FOGEND,*(DWORD *)(param_1 + 0x4c));
+    (**(code **)(*DAT_006c6d20 + 200))(DAT_006c6d20,0x22,*(undefined4 *)(param_1 + 0x50));
+    (**(code **)(*DAT_006c6d20 + 200))(DAT_006c6d20,0x24,*(undefined4 *)(param_1 + 0x48));
+    (**(code **)(*DAT_006c6d20 + 200))(DAT_006c6d20,0x25,*(undefined4 *)(param_1 + 0x4c));
     uVar2 = 0;
   }
   else {

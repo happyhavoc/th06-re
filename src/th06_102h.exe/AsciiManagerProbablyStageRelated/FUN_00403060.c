@@ -1,4 +1,6 @@
 
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
 void __fastcall
 AsciiManagerProbablyStageRelated::FUN_00403060(AsciiManagerProbablyStageRelated *this)
 
@@ -9,15 +11,13 @@ AsciiManagerProbablyStageRelated::FUN_00403060(AsciiManagerProbablyStageRelated 
   int local_8;
   
   if (DAT_0069d4c0 != '\0') {
-    g_GameContext.viewport.X = __ftol2((double)VIEWPORT_X);
-    g_GameContext.viewport.Y = __ftol2((double)VIEWPORT_Y);
-    g_GameContext.viewport.Width = __ftol2((double)VIEWPORT_WIDTH);
-    g_GameContext.viewport.Height = __ftol2((double)VIEWPORT_HEIGHT);
-    (*(g_GameContext.d3dDevice)->lpVtbl->SetViewport)
-              (g_GameContext.d3dDevice,(D3DVIEWPORT8 *)0x6c6de0);
-    if ((g_GameContext.lockableBackbuffer != 0) &&
-       ((this->field0_0x0 != 0 || (2 < this->field1_0x4)))) {
-      AnmManager::FUN_00432ad0(g_AnmManager,&this->vm1);
+    _DAT_006c6de0 = __ftol2((double)_DAT_0069d6dc);
+    DAT_006c6de4 = __ftol2((double)_DAT_0069d6e0);
+    DAT_006c6de8 = __ftol2((double)_DAT_0069d6e4);
+    DAT_006c6dec = __ftol2((double)_DAT_0069d6e8);
+    (**(code **)(*DAT_006c6d20 + 0xa0))(DAT_006c6d20,&DAT_006c6de0);
+    if ((DAT_006c7115 != '\0') && ((this->field0_0x0 != 0 || (2 < this->field1_0x4)))) {
+      AnmManager::FUN_00432ad0(DAT_006d4588,&this->vm1);
     }
     if ((this->field0_0x0 == 1) || (this->field0_0x0 == 2)) {
       pAVar2 = this->vms0 + 1;
@@ -29,12 +29,12 @@ AsciiManagerProbablyStageRelated::FUN_00403060(AsciiManagerProbablyStageRelated 
       }
       this->vms0[4].pos.x = this->vms0[4].scaleY * 8.0 + this->vms0[4].pos.x;
       this->vms0[4].sprite =
-           (AnmLoadedSprite *)((int)g_AnmManager + (0x1e - (uint)DAT_0069d4b8) * 0x38);
-      AnmManager::FUN_00432ad0(g_AnmManager,this->vms0 + 4);
+           (AnmLoadedSprite *)((int)DAT_006d4588 + (0x1e - (uint)DAT_0069d4b8) * 0x38);
+      AnmManager::FUN_00432ad0(DAT_006d4588,this->vms0 + 4);
     }
     for (local_8 = 0; local_8 < 4; local_8 = local_8 + 1) {
       if ((this->vms0[local_8].flags & 1) != 0) {
-        AnmManager::FUN_00432ad0(g_AnmManager,this->vms0 + local_8);
+        AnmManager::FUN_00432ad0(DAT_006d4588,this->vms0 + local_8);
       }
     }
   }

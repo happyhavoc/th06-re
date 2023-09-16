@@ -1,4 +1,6 @@
 
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
 undefined4 FUN_0042f060(undefined4 *param_1)
 
 {
@@ -12,23 +14,23 @@ undefined4 FUN_0042f060(undefined4 *param_1)
   int local_8;
   
   if (param_1[2] != 0x11) {
-    iVar2 = AnmManager::LogoStuff(g_AnmManager,0,"data/result/result.jpg");
+    iVar2 = AnmManager::LogoStuff(DAT_006d4588,0,"data/result/result.jpg");
     if (iVar2 != 0) {
       return 0xffffffff;
     }
-    iVar2 = AnmManager::LoadAnim(g_AnmManager,0x25,"data/result00.anm",0x100);
+    iVar2 = AnmManager::LoadAnim(DAT_006d4588,0x25,"data/result00.anm",0x100);
     if (iVar2 != 0) {
       return 0xffffffff;
     }
-    iVar2 = AnmManager::LoadAnim(g_AnmManager,0x26,"data/result01.anm",0x108);
+    iVar2 = AnmManager::LoadAnim(DAT_006d4588,0x26,"data/result01.anm",0x108);
     if (iVar2 != 0) {
       return 0xffffffff;
     }
-    iVar2 = AnmManager::LoadAnim(g_AnmManager,0x27,"data/result02.anm",0x10f);
+    iVar2 = AnmManager::LoadAnim(DAT_006d4588,0x27,"data/result02.anm",0x10f);
     if (iVar2 != 0) {
       return 0xffffffff;
     }
-    iVar2 = AnmManager::LoadAnim(g_AnmManager,0x28,"data/result03.anm",0x125);
+    iVar2 = AnmManager::LoadAnim(DAT_006d4588,0x28,"data/result03.anm",0x125);
     if (iVar2 != 0) {
       return 0xffffffff;
     }
@@ -40,14 +42,14 @@ undefined4 FUN_0042f060(undefined4 *param_1)
       ((Unknown *)((int)local_c + 0xc4))->field8_0x20 = 0;
       ((Unknown *)((int)local_c + 0xc4))->field9_0x24 = 0;
       ((Unknown *)((int)local_c + 0xc4))->field10_0x28 = 0;
-      pAVar1 = g_AnmManager;
+      pAVar1 = DAT_006d4588;
       local_3c = (short)local_8 + 0x100;
       local_c->anmFileIndex = local_3c;
       FUN_00432430((Unknown *)local_c,(int)pAVar1->scripts[local_8 + 0x100]);
       local_c = (AnmVm *)&(((Unknown *)((int)local_c + 0xc4))->field13_0x3c).field4_0x10;
     }
     local_c = (AnmVm *)(param_1 + 0xa28);
-    for (local_8 = 0; pAVar1 = g_AnmManager, local_8 < 0x10; local_8 = local_8 + 1) {
+    for (local_8 = 0; pAVar1 = DAT_006d4588, local_8 < 0x10; local_8 = local_8 + 1) {
       AnmVm::Initialize(local_c);
       AnmManager::FUN_004323a0(pAVar1,local_c,local_8 + 0x708);
       (local_c->pos).x = 0.0;
@@ -97,11 +99,12 @@ undefined4 FUN_0042f060(undefined4 *param_1)
   }
   if ((param_1[2] == 0x11) &&
      ((uint)(&DAT_0069cd3c)
-            [(CUR_STAGE + -1) * 0x14 +
-             ((uint)DAT_0069d4be + (uint)DAT_0069d4bd * 2) * 0x78 + CUR_RANK * 5] < DAT_0069bca4)) {
+            [(DAT_0069d6d4 + -1) * 0x14 +
+             ((uint)DAT_0069d4be + (uint)DAT_0069d4bd * 2) * 0x78 + _DAT_0069bcb0 * 5] <
+      DAT_0069bca4)) {
     (&DAT_0069cd3c)
-    [(CUR_STAGE + -1) * 0x14 + ((uint)DAT_0069d4be + (uint)DAT_0069d4bd * 2) * 0x78 + CUR_RANK * 5]
-         = DAT_0069bca4;
+    [(DAT_0069d6d4 + -1) * 0x14 +
+     ((uint)DAT_0069d4be + (uint)DAT_0069d4bd * 2) * 0x78 + _DAT_0069bcb0 * 5] = DAT_0069bca4;
   }
   *(undefined2 *)(param_1 + 0xe94) = 0xffff;
   return 0;

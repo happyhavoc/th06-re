@@ -15,7 +15,7 @@ byte * FUN_0042b0d9(undefined4 param_1)
   
   local_8 = OpenPath(param_1,1);
   if (local_8 != (byte *)0x0) {
-    if (g_FileSize < 0x14) {
+    if (DAT_0069d914 < 0x14) {
       _free(local_8);
     }
     else {
@@ -23,8 +23,8 @@ byte * FUN_0042b0d9(undefined4 param_1)
       local_d = 0;
       local_c = 0;
       pbVar1 = local_8;
-      for (local_1c = g_FileSize - 2; local_18 = pbVar1 + 1, 0 < local_1c; local_1c = local_1c + -1)
-      {
+      for (local_1c = DAT_0069d914 - 2; local_18 = pbVar1 + 1, 0 < local_1c;
+          local_1c = local_1c + -1) {
         local_d = (byte)((int)((byte)(local_d + *local_18) & 0xe0) >> 5) |
                   (byte)(((byte)(local_d + *local_18) & 0x1f) << 3);
         pbVar1[2] = pbVar1[2] ^ local_d;

@@ -23,12 +23,12 @@ void FUN_0042564c(int param_1)
   int local_8;
   
   local_1c = __security_cookie ^ unaff_retaddr;
-  iVar4 = AnmManager::LogoStuff(g_AnmManager,0,"data/result/music.jpg");
+  iVar4 = AnmManager::LogoStuff(DAT_006d4588,0,"data/result/music.jpg");
   if ((((iVar4 == 0) &&
-       (iVar4 = AnmManager::LoadAnim(g_AnmManager,0x29,"data/music00.anm",0x100), iVar4 == 0)) &&
-      (iVar4 = AnmManager::LoadAnim(g_AnmManager,0x2a,"data/music01.anm",0x101), iVar4 == 0)) &&
-     (iVar4 = AnmManager::LoadAnim(g_AnmManager,0x2b,"data/music02.anm",0x111),
-     pAVar3 = g_AnmManager, iVar4 == 0)) {
+       (iVar4 = AnmManager::LoadAnim(DAT_006d4588,0x29,"data/music00.anm",0x100), iVar4 == 0)) &&
+      (iVar4 = AnmManager::LoadAnim(DAT_006d4588,0x2a,"data/music01.anm",0x101), iVar4 == 0)) &&
+     (iVar4 = AnmManager::LoadAnim(DAT_006d4588,0x2b,"data/music02.anm",0x111),
+     pAVar3 = DAT_006d4588, iVar4 == 0)) {
     *(undefined2 *)(param_1 + 0xd8) = 0x100;
     FUN_00432430((Unknown *)(param_1 + 0x24),(int)pAVar3->scripts[0x100]);
     *(undefined4 *)(param_1 + 8) = 0;
@@ -54,7 +54,7 @@ void FUN_0042564c(int param_1)
       }
       *(undefined4 **)(param_1 + 0x20) = local_8c;
       local_8 = -1;
-      while ((int)local_10 - (int)local_18 < g_FileSize) {
+      while ((int)local_10 - (int)local_18 < DAT_0069d914) {
         if (*local_10 == 0x40) {
           local_10 = local_10 + 1;
           local_8 = local_8 + 1;
@@ -63,22 +63,22 @@ void FUN_0042564c(int param_1)
             *(byte *)(local_8 * 0x272 + *(int *)(param_1 + 0x20) + local_14) = *local_10;
             local_10 = local_10 + 1;
             local_14 = local_14 + 1;
-            if (g_FileSize <= (int)local_10 - (int)local_18) goto LAB_004259f3;
+            if (DAT_0069d914 <= (int)local_10 - (int)local_18) goto LAB_004259f3;
           }
           while ((*local_10 == 10 || (*local_10 == 0xd))) {
             local_10 = local_10 + 1;
-            if (g_FileSize <= (int)local_10 - (int)local_18) goto LAB_004259f3;
+            if (DAT_0069d914 <= (int)local_10 - (int)local_18) goto LAB_004259f3;
           }
           local_14 = 0;
           while ((*local_10 != 10 && (*local_10 != 0xd))) {
             *(byte *)(local_8 * 0x272 + *(int *)(param_1 + 0x20) + 0x40 + local_14) = *local_10;
             local_10 = local_10 + 1;
             local_14 = local_14 + 1;
-            if (g_FileSize <= (int)local_10 - (int)local_18) goto LAB_004259f3;
+            if (DAT_0069d914 <= (int)local_10 - (int)local_18) goto LAB_004259f3;
           }
           while ((*local_10 == 10 && (*local_10 == 0xd))) {
             local_10 = local_10 + 1;
-            if (g_FileSize <= (int)local_10 - (int)local_18) goto LAB_004259f3;
+            if (DAT_0069d914 <= (int)local_10 - (int)local_18) goto LAB_004259f3;
           }
           local_c = 0;
           while ((local_c < 8 && (*local_10 != 0x40))) {
@@ -95,11 +95,11 @@ void FUN_0042564c(int param_1)
                        local_14 + *(int *)(param_1 + 0x20) + local_8 * 0x272) = *local_10;
               local_10 = local_10 + 1;
               local_14 = local_14 + 1;
-              if (g_FileSize <= (int)local_10 - (int)local_18) goto LAB_004259f3;
+              if (DAT_0069d914 <= (int)local_10 - (int)local_18) goto LAB_004259f3;
             }
             while ((*local_10 == 10 || (*local_10 == 0xd))) {
               local_10 = local_10 + 1;
-              if (g_FileSize <= (int)local_10 - (int)local_18) goto LAB_004259f3;
+              if (DAT_0069d914 <= (int)local_10 - (int)local_18) goto LAB_004259f3;
             }
             local_c = local_c + 1;
           }
@@ -110,12 +110,12 @@ void FUN_0042564c(int param_1)
       }
 LAB_004259f3:
       *(int *)(param_1 + 0x1c) = local_8 + 1;
-      for (local_8 = 0; pAVar3 = g_AnmManager, local_8 < *(int *)(param_1 + 0x1c);
+      for (local_8 = 0; pAVar3 = DAT_006d4588, local_8 < *(int *)(param_1 + 0x1c);
           local_8 = local_8 + 1) {
         pAVar1 = (AnmVm *)(param_1 + 0x134 + local_8 * 0x110);
         AnmVm::Initialize(pAVar1);
         AnmManager::FUN_004323a0(pAVar3,pAVar1,local_8 + 0x101);
-        FUN_00434b60(g_AnmManager,param_1 + 0x134 + local_8 * 0x110,0xc0e0ff,0x302080,
+        FUN_00434b60(DAT_006d4588,param_1 + 0x134 + local_8 * 0x110,0xc0e0ff,0x302080,
                      *(int *)(param_1 + 0x20) + 0x40 + local_8 * 0x272);
         *(undefined4 *)(param_1 + 0x1c4 + local_8 * 0x110) = 0x42ba0000;
         *(float *)(param_1 + 0x1c8 + local_8 * 0x110) =
@@ -124,7 +124,7 @@ LAB_004259f3:
         *(uint *)(param_1 + 0x1b4 + local_8 * 0x110) =
              *(uint *)(param_1 + 0x1b4 + local_8 * 0x110) | 0x300;
       }
-      for (local_8 = 0; pAVar3 = g_AnmManager, local_8 < 0x10; local_8 = local_8 + 1) {
+      for (local_8 = 0; pAVar3 = DAT_006d4588, local_8 < 0x10; local_8 = local_8 + 1) {
         pAVar1 = (AnmVm *)(param_1 + 0x2334 + local_8 * 0x110);
         AnmVm::Initialize(pAVar1);
         AnmManager::FUN_004323a0(pAVar3,pAVar1,local_8 + 0x708);
@@ -161,7 +161,7 @@ LAB_00425c09:
         else {
           *(uint *)(param_1 + 0x23b4 + local_8 * 0x110) =
                *(uint *)(param_1 + 0x23b4 + local_8 * 0x110) | 2;
-          FUN_00434b60(g_AnmManager,param_1 + 0x2334 + local_8 * 0x110,0xffe0c0,0x300000,local_5c);
+          FUN_00434b60(DAT_006d4588,param_1 + 0x2334 + local_8 * 0x110,0xffe0c0,0x300000,local_5c);
         }
         *(float *)(param_1 + 0x23c4 + local_8 * 0x110) = (float)(local_8 % 2) * 248.0 + 96.0;
         *(float *)(param_1 + 0x23c8 + local_8 * 0x110) = (float)(local_8 / 2 << 4) + 320.0;

@@ -15,13 +15,13 @@ undefined4 FUN_0040f100(int param_1)
          (iVar1 = (*(code *)local_8[1].matrix.field0_0x0.field0._33)(local_8), iVar1 != 1)) {
         *(undefined *)((int)&local_8[1].matrix.field0_0x0 + 0x2c) = 0;
       }
-      iVar1 = AnmManager::FUN_00433960(g_AnmManager,local_8);
+      iVar1 = AnmManager::FUN_00433960(DAT_006d4588,local_8);
       if (iVar1 != 0) {
         *(undefined *)((int)&local_8[1].matrix.field0_0x0 + 0x2c) = 0;
       }
       local_8[1].matrix.field0_0x0.field0._23 = local_8[1].matrix.field0_0x0.field0._31;
       GameContext::FUN_00424285
-                (&g_GameContext,(int *)&local_8[1].matrix.field0_0x0.field0._31,
+                ((GameContext *)&DAT_006c6d18,(int *)&local_8[1].matrix.field0_0x0.field0._31,
                  &local_8[1].matrix.field0_0x0.field0._24);
     }
     local_8 = (AnmVm *)((int)&local_8[1].matrix.field0_0x0 + 0x30);

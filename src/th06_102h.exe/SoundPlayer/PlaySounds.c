@@ -5,8 +5,7 @@ void __thiscall SoundPlayer::PlaySounds(SoundPlayer *this)
   int iVar1;
   int idx;
   
-  if ((this->directsound8_uninit != (DirectSound8Player *)0x0) &&
-     (g_GameContext.cfg.playSounds != 0)) {
+  if ((this->directsound8_uninit != (DirectSound8Player *)0x0) && (DAT_006c6e48 != '\0')) {
     for (idx = 0; (idx < 3 && (-1 < this->soundBuffersToPlay[idx])); idx = idx + 1) {
       iVar1 = this->soundBuffersToPlay[idx];
       this->soundBuffersToPlay[idx] = -1;

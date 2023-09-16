@@ -109,7 +109,7 @@ void __fastcall FUN_00419c99(uint *param_1)
   if ((*(int *)(param_1[1] + 0x253c) < 0) &&
      ((uint)*(byte *)(param_1 + 8) + (uint)*(byte *)(param_1[1] + 0x1ba0) != 0)) {
     local_14 = (AnmVm *)(param_1[1] + 0x1430);
-    AnmManager::FUN_00432ad0(g_AnmManager,local_14);
+    AnmManager::FUN_00432ad0(DAT_006d4588,local_14);
     uVar1 = param_1[1];
     local_14 = (AnmVm *)(uVar1 + 0x1650);
     *(uint *)(uVar1 + 0x16d0) = *(uint *)(uVar1 + 0x16d0) | 0x300;
@@ -117,11 +117,11 @@ void __fastcall FUN_00419c99(uint *param_1)
     *(undefined4 *)(uVar1 + 0x16e0) = 0x42c00000;
     *(undefined4 *)(uVar1 + 0x16e4) = 0x41c00000;
     *(undefined4 *)(uVar1 + 0x16e8) = 0;
-    AnmManager::FUN_00432ad0(g_AnmManager,local_14);
+    AnmManager::FUN_00432ad0(DAT_006d4588,local_14);
     local_28 = 0x42a00000;
     local_24 = 0x41800000;
     local_20 = 0;
-    _DAT_00481b24 = param_1[4] << 0x18 | 0xffff80;
+    g_AsciiManager.color = param_1[4] << 0x18 | 0xffff80;
     FUN_00401650(0x47b900,&local_28,"%d",param_1[5]);
     local_94 = 0x43c00000;
     local_90 = 0x41800000;
@@ -145,7 +145,7 @@ void __fastcall FUN_00419c99(uint *param_1)
     else {
       local_1c = DAT_004764a0;
     }
-    _DAT_00481b24 = param_1[4] << 0x18 | local_1c;
+    g_AsciiManager.color = param_1[4] << 0x18 | local_1c;
     if ((int)param_1[6] < 100) {
       local_1e8 = param_1[6];
     }
@@ -157,20 +157,19 @@ void __fastcall FUN_00419c99(uint *param_1)
       FUN_004311e0(0x1d);
     }
     FUN_00401650(0x47b900,&local_28,"%.2d",local_18);
-    _DAT_00481b24 = 0xffffffff;
+    g_AsciiManager.color = 0xffffffff;
     param_1[7] = param_1[6];
   }
-  g_GameContext.viewport.X = 0;
-  g_GameContext.viewport.Y = 0;
-  g_GameContext.viewport.Width = 0x280;
-  g_GameContext.viewport.Height = 0x1e0;
-  (*(g_GameContext.d3dDevice)->lpVtbl->SetViewport)(g_GameContext.d3dDevice,&g_GameContext.viewport)
-  ;
+  _DAT_006c6de0 = 0;
+  DAT_006c6de4 = 0;
+  DAT_006c6de8 = 0x280;
+  DAT_006c6dec = 0x1e0;
+  (*DAT_006c6d20->lpVtbl->SetViewport)(DAT_006c6d20,(D3DVIEWPORT8 *)&DAT_006c6de0);
   local_14 = (AnmVm *)(param_1[1] + 0x660);
-  if (((g_GameContext.cfg.opts >> DISPLAY_MINIMUM_GRAPHICS & 1) == 0) &&
-     (((*(int *)(param_1[1] + 0x71c) != 0 || (g_GameContext.field77_0x198 != 0)) ||
-      ((g_GameContext.cfg.opts >> CLEAR_BACKBUFFER_ON_REFRESH & 1 |
-       g_GameContext.cfg.opts >> DISPLAY_MINIMUM_GRAPHICS & 1) != 0)))) {
+  if (((DAT_006c6e60 >> DISPLAY_MINIMUM_GRAPHICS & 1) == 0) &&
+     (((*(int *)(param_1[1] + 0x71c) != 0 || (DAT_006c6eb0 != 0)) ||
+      ((DAT_006c6e60 >> CLEAR_BACKBUFFER_ON_REFRESH & 1 |
+       DAT_006c6e60 >> DISPLAY_MINIMUM_GRAPHICS & 1) != 0)))) {
     for (local_8 = 0.0; local_8 < 464.0 != NAN(local_8); local_8 = local_8 + 32.0) {
       local_a0 = 0;
       local_9c = local_8;
@@ -178,7 +177,7 @@ void __fastcall FUN_00419c99(uint *param_1)
       (local_14->pos).x = 0.0;
       (local_14->pos).y = local_8;
       (local_14->pos).z = 0.49;
-      AnmManager::FUN_00432ad0(g_AnmManager,local_14);
+      AnmManager::FUN_00432ad0(DAT_006d4588,local_14);
     }
     for (local_c = 416.0; local_c < 624.0 != NAN(local_c); local_c = local_c + 32.0) {
       for (local_8 = 0.0; local_8 < 464.0 != NAN(local_8); local_8 = local_8 + 32.0) {
@@ -188,7 +187,7 @@ void __fastcall FUN_00419c99(uint *param_1)
         (local_14->pos).x = local_c;
         (local_14->pos).y = local_8;
         (local_14->pos).z = 0.49;
-        AnmManager::FUN_00432ad0(g_AnmManager,local_14);
+        AnmManager::FUN_00432ad0(DAT_006d4588,local_14);
       }
     }
     local_14 = (AnmVm *)(param_1[1] + 0x770);
@@ -199,7 +198,7 @@ void __fastcall FUN_00419c99(uint *param_1)
       (local_14->pos).x = local_c;
       (local_14->pos).y = 0.0;
       (local_14->pos).z = 0.49;
-      AnmManager::FUN_00432ad0(g_AnmManager,local_14);
+      AnmManager::FUN_00432ad0(DAT_006d4588,local_14);
     }
     local_14 = (AnmVm *)(param_1[1] + 0x880);
     for (local_c = 32.0; local_c < 416.0 != NAN(local_c); local_c = local_c + 32.0) {
@@ -209,7 +208,7 @@ void __fastcall FUN_00419c99(uint *param_1)
       (local_14->pos).x = local_c;
       (local_14->pos).y = 464.0;
       (local_14->pos).z = 0.49;
-      AnmManager::FUN_00432ad0(g_AnmManager,local_14);
+      AnmManager::FUN_00432ad0(DAT_006d4588,local_14);
     }
     FUN_00432cc0((void *)(param_1[1] + 0x550));
     FUN_00432cc0((void *)param_1[1]);
@@ -217,20 +216,20 @@ void __fastcall FUN_00419c99(uint *param_1)
     FUN_00432cc0((void *)(param_1[1] + 0x330));
     FUN_00432cc0((void *)(param_1[1] + 0x440));
     FUN_00432cc0((void *)(param_1[1] + 0x220));
-    AnmManager::FUN_00432ad0(g_AnmManager,(AnmVm *)(param_1[1] + 0x990));
-    AnmManager::FUN_00432ad0(g_AnmManager,(AnmVm *)(param_1[1] + 0xaa0));
-    AnmManager::FUN_00432ad0(g_AnmManager,(AnmVm *)(param_1[1] + 0xbb0));
-    AnmManager::FUN_00432ad0(g_AnmManager,(AnmVm *)(param_1[1] + 0xcc0));
-    AnmManager::FUN_00432ad0(g_AnmManager,(AnmVm *)(param_1[1] + 0xdd0));
-    AnmManager::FUN_00432ad0(g_AnmManager,(AnmVm *)(param_1[1] + 0xee0));
-    AnmManager::FUN_00432ad0(g_AnmManager,(AnmVm *)(param_1[1] + 0xff0));
+    AnmManager::FUN_00432ad0(DAT_006d4588,(AnmVm *)(param_1[1] + 0x990));
+    AnmManager::FUN_00432ad0(DAT_006d4588,(AnmVm *)(param_1[1] + 0xaa0));
+    AnmManager::FUN_00432ad0(DAT_006d4588,(AnmVm *)(param_1[1] + 0xbb0));
+    AnmManager::FUN_00432ad0(DAT_006d4588,(AnmVm *)(param_1[1] + 0xcc0));
+    AnmManager::FUN_00432ad0(DAT_006d4588,(AnmVm *)(param_1[1] + 0xdd0));
+    AnmManager::FUN_00432ad0(DAT_006d4588,(AnmVm *)(param_1[1] + 0xee0));
+    AnmManager::FUN_00432ad0(DAT_006d4588,(AnmVm *)(param_1[1] + 0xff0));
     *param_1 = *param_1 & 0xfffffffc | 2;
     *param_1 = *param_1 & 0xfffffff3 | 8;
     *param_1 = *param_1 & 0xffffff3f | 0x80;
     *param_1 = *param_1 & 0xfffffcff | 0x200;
     *param_1 = *param_1 & 0xffffffcf | 0x20;
   }
-  if ((g_GameContext.cfg.opts >> 4 & 1) == 0) {
+  if ((DAT_006c6e60 >> 4 & 1) == 0) {
     uVar1 = param_1[1];
     local_14 = (AnmVm *)(uVar1 + 0x1760);
     local_c = 496.0;
@@ -240,14 +239,14 @@ void __fastcall FUN_00419c99(uint *param_1)
     *(undefined4 *)(uVar1 + 0x17f0) = 0x43f80000;
     *(undefined4 *)(uVar1 + 0x17f4) = 0x42680000;
     *(undefined4 *)(uVar1 + 0x17f8) = 0x3efae148;
-    AnmManager::FUN_00432ad0(g_AnmManager,local_14);
+    AnmManager::FUN_00432ad0(DAT_006d4588,local_14);
     local_dc = local_c;
     local_d8 = 0x42a40000;
     local_d4 = 0x3efae148;
     (local_14->pos).x = local_c;
     (local_14->pos).y = 82.0;
     (local_14->pos).z = 0.49;
-    AnmManager::FUN_00432ad0(g_AnmManager,local_14);
+    AnmManager::FUN_00432ad0(DAT_006d4588,local_14);
     if ((*param_1 & 3) != 0) {
       local_e8 = local_c;
       local_e4 = 0x42f40000;
@@ -255,7 +254,7 @@ void __fastcall FUN_00419c99(uint *param_1)
       (local_14->pos).x = local_c;
       (local_14->pos).y = 122.0;
       (local_14->pos).z = 0.49;
-      AnmManager::FUN_00432ad0(g_AnmManager,local_14);
+      AnmManager::FUN_00432ad0(DAT_006d4588,local_14);
     }
     if ((*param_1 >> 2 & 3) != 0) {
       local_f4 = local_c;
@@ -264,7 +263,7 @@ void __fastcall FUN_00419c99(uint *param_1)
       (local_14->pos).x = local_c;
       (local_14->pos).y = 146.0;
       (local_14->pos).z = 0.49;
-      AnmManager::FUN_00432ad0(g_AnmManager,local_14);
+      AnmManager::FUN_00432ad0(DAT_006d4588,local_14);
     }
     if ((*param_1 >> 4 & 3) != 0) {
       local_100 = local_c;
@@ -273,7 +272,7 @@ void __fastcall FUN_00419c99(uint *param_1)
       (local_14->pos).x = local_c;
       (local_14->pos).y = 186.0;
       (local_14->pos).z = 0.49;
-      AnmManager::FUN_00432ad0(g_AnmManager,local_14);
+      AnmManager::FUN_00432ad0(DAT_006d4588,local_14);
     }
     if ((*param_1 >> 6 & 3) != 0) {
       local_10c = local_c;
@@ -282,7 +281,7 @@ void __fastcall FUN_00419c99(uint *param_1)
       (local_14->pos).x = local_c;
       (local_14->pos).y = 206.0;
       (local_14->pos).z = 0.49;
-      AnmManager::FUN_00432ad0(g_AnmManager,local_14);
+      AnmManager::FUN_00432ad0(DAT_006d4588,local_14);
     }
     if ((*param_1 >> 8 & 3) != 0) {
       local_118 = local_c;
@@ -291,7 +290,7 @@ void __fastcall FUN_00419c99(uint *param_1)
       (local_14->pos).x = local_c;
       (local_14->pos).y = 226.0;
       (local_14->pos).z = 0.49;
-      AnmManager::FUN_00432ad0(g_AnmManager,local_14);
+      AnmManager::FUN_00432ad0(DAT_006d4588,local_14);
     }
     local_124 = 0x43f40000;
     local_120 = 0x43e80000;
@@ -299,44 +298,44 @@ void __fastcall FUN_00419c99(uint *param_1)
     (local_14->pos).x = 488.0;
     (local_14->pos).y = 464.0;
     (local_14->pos).z = 0.49;
-    AnmManager::FUN_00432ad0(g_AnmManager,local_14);
+    AnmManager::FUN_00432ad0(DAT_006d4588,local_14);
     local_130 = 0;
     local_12c = 0x43e80000;
     local_128 = 0x3efae148;
     (local_14->pos).x = 0.0;
     (local_14->pos).y = 464.0;
     (local_14->pos).z = 0.49;
-    AnmManager::FUN_00432ad0(g_AnmManager,local_14);
+    AnmManager::FUN_00432ad0(DAT_006d4588,local_14);
   }
-  if (((*param_1 & 3) != 0) || ((g_GameContext.cfg.opts >> 4 & 1) != 0)) {
+  if (((*param_1 & 3) != 0) || ((DAT_006c6e60 >> 4 & 1) != 0)) {
     local_14 = (AnmVm *)(param_1[1] + 0x1100);
     local_c = 496.0;
-    for (local_10 = 0; local_10 < LIFE_COUNT; local_10 = local_10 + 1) {
+    for (local_10 = 0; local_10 < DAT_0069d4ba; local_10 = local_10 + 1) {
       local_13c = local_c;
       local_138 = 0x42f40000;
       local_134 = 0x3efae148;
       (local_14->pos).x = local_c;
       (local_14->pos).y = 122.0;
       (local_14->pos).z = 0.49;
-      AnmManager::FUN_00432ad0(g_AnmManager,local_14);
+      AnmManager::FUN_00432ad0(DAT_006d4588,local_14);
       local_c = local_c + 16.0;
     }
   }
-  if (((*param_1 >> 2 & 3) != 0) || ((g_GameContext.cfg.opts >> 4 & 1) != 0)) {
+  if (((*param_1 >> 2 & 3) != 0) || ((DAT_006c6e60 >> 4 & 1) != 0)) {
     local_14 = (AnmVm *)(param_1[1] + 0x1210);
     local_c = 496.0;
-    for (local_10 = 0; local_10 < BOMB_COUNT; local_10 = local_10 + 1) {
+    for (local_10 = 0; local_10 < DAT_0069d4bb; local_10 = local_10 + 1) {
       local_148 = local_c;
       local_144 = 0x43120000;
       local_140 = 0x3efae148;
       (local_14->pos).x = local_c;
       (local_14->pos).y = 146.0;
       (local_14->pos).z = 0.49;
-      AnmManager::FUN_00432ad0(g_AnmManager,local_14);
+      AnmManager::FUN_00432ad0(DAT_006d4588,local_14);
       local_c = local_c + 16.0;
     }
   }
-  if (((*param_1 >> 4 & 3) != 0) || ((g_GameContext.cfg.opts >> 4 & 1) != 0)) {
+  if (((*param_1 >> 4 & 3) != 0) || ((DAT_006c6e60 >> 4 & 1) != 0)) {
     local_1c0 = 4;
     do {
       local_1c0 = local_1c0 + -1;
@@ -374,38 +373,28 @@ void __fastcall FUN_00419c99(uint *param_1)
       local_70 = 0x3f800000;
       local_68 = local_160;
       local_40 = local_178;
-      if ((g_GameContext.cfg.opts >> 8 & 1) == 0) {
-        (*(g_GameContext.d3dDevice)->lpVtbl->SetTextureStageState)
-                  (g_GameContext.d3dDevice,0,D3DTSS_ALPHAOP,2);
-        (*(g_GameContext.d3dDevice)->lpVtbl->SetTextureStageState)
-                  (g_GameContext.d3dDevice,0,D3DTSS_COLOROP,2);
+      if ((DAT_006c6e60 >> 8 & 1) == 0) {
+        (*DAT_006c6d20->lpVtbl->SetTextureStageState)(DAT_006c6d20,0,D3DTSS_ALPHAOP,2);
+        (*DAT_006c6d20->lpVtbl->SetTextureStageState)(DAT_006c6d20,0,D3DTSS_COLOROP,2);
       }
-      (*(g_GameContext.d3dDevice)->lpVtbl->SetTextureStageState)
-                (g_GameContext.d3dDevice,0,D3DTSS_ALPHAARG1,0);
-      (*(g_GameContext.d3dDevice)->lpVtbl->SetTextureStageState)
-                (g_GameContext.d3dDevice,0,D3DTSS_COLORARG1,0);
-      if ((g_GameContext.cfg.opts >> 6 & 1) == 0) {
-        (*(g_GameContext.d3dDevice)->lpVtbl->SetRenderState)(g_GameContext.d3dDevice,D3DRS_ZFUNC,8);
-        (*(g_GameContext.d3dDevice)->lpVtbl->SetRenderState)
-                  (g_GameContext.d3dDevice,D3DRS_ZWRITEENABLE,0);
+      (*DAT_006c6d20->lpVtbl->SetTextureStageState)(DAT_006c6d20,0,D3DTSS_ALPHAARG1,0);
+      (*DAT_006c6d20->lpVtbl->SetTextureStageState)(DAT_006c6d20,0,D3DTSS_COLORARG1,0);
+      if ((DAT_006c6e60 >> 6 & 1) == 0) {
+        (*DAT_006c6d20->lpVtbl->SetRenderState)(DAT_006c6d20,D3DRS_ZFUNC,8);
+        (*DAT_006c6d20->lpVtbl->SetRenderState)(DAT_006c6d20,D3DRS_ZWRITEENABLE,0);
       }
-      (*(g_GameContext.d3dDevice)->lpVtbl->SetVertexShader)(g_GameContext.d3dDevice,0x44);
-      (*(g_GameContext.d3dDevice)->lpVtbl->DrawPrimitiveUP)
-                (g_GameContext.d3dDevice,D3DPT_TRIANGLESTRIP,2,&local_7c,0x14);
-      g_AnmManager->field16_0x210be = 0xff;
-      g_AnmManager->currentColorOp = 0xff;
-      g_AnmManager->currentBlendMode = 0xff;
-      g_AnmManager->currentZWriteDisable = 0xff;
-      if ((g_GameContext.cfg.opts >> 8 & 1) == 0) {
-        (*(g_GameContext.d3dDevice)->lpVtbl->SetTextureStageState)
-                  (g_GameContext.d3dDevice,0,D3DTSS_ALPHAOP,4);
-        (*(g_GameContext.d3dDevice)->lpVtbl->SetTextureStageState)
-                  (g_GameContext.d3dDevice,0,D3DTSS_COLOROP,4);
+      (*DAT_006c6d20->lpVtbl->SetVertexShader)(DAT_006c6d20,0x44);
+      (*DAT_006c6d20->lpVtbl->DrawPrimitiveUP)(DAT_006c6d20,D3DPT_TRIANGLESTRIP,2,&local_7c,0x14);
+      DAT_006d4588->field16_0x210be = 0xff;
+      DAT_006d4588->currentColorOp = 0xff;
+      DAT_006d4588->currentBlendMode = 0xff;
+      DAT_006d4588->currentZWriteDisable = 0xff;
+      if ((DAT_006c6e60 >> 8 & 1) == 0) {
+        (*DAT_006c6d20->lpVtbl->SetTextureStageState)(DAT_006c6d20,0,D3DTSS_ALPHAOP,4);
+        (*DAT_006c6d20->lpVtbl->SetTextureStageState)(DAT_006c6d20,0,D3DTSS_COLOROP,4);
       }
-      (*(g_GameContext.d3dDevice)->lpVtbl->SetTextureStageState)
-                (g_GameContext.d3dDevice,0,D3DTSS_ALPHAARG1,2);
-      (*(g_GameContext.d3dDevice)->lpVtbl->SetTextureStageState)
-                (g_GameContext.d3dDevice,0,D3DTSS_COLORARG1,2);
+      (*DAT_006c6d20->lpVtbl->SetTextureStageState)(DAT_006c6d20,0,D3DTSS_ALPHAARG1,2);
+      (*DAT_006c6d20->lpVtbl->SetTextureStageState)(DAT_006c6d20,0,D3DTSS_COLORARG1,2);
       if (0x7f < _DAT_0069d4b0) {
         uVar1 = param_1[1];
         local_14 = (AnmVm *)(uVar1 + 0x1320);
@@ -415,7 +404,7 @@ void __fastcall FUN_00419c99(uint *param_1)
         *(undefined4 *)(uVar1 + 0x13b0) = 0x43f80000;
         *(undefined4 *)(uVar1 + 0x13b4) = 0x433a0000;
         *(undefined4 *)(uVar1 + 0x13b8) = 0;
-        AnmManager::FUN_00432ad0(g_AnmManager,local_14);
+        AnmManager::FUN_00432ad0(DAT_006d4588,local_14);
       }
     }
     if (_DAT_0069d4b0 < 0x80) {
@@ -433,13 +422,13 @@ void __fastcall FUN_00419c99(uint *param_1)
   local_84 = 0x42680000;
   local_80 = 0;
   FUN_00401650(0x47b900,&local_88,"%.9d",DAT_0069bcac);
-  if (((*param_1 >> 6 & 3) != 0) || ((g_GameContext.cfg.opts >> 4 & 1) != 0)) {
+  if (((*param_1 >> 6 & 3) != 0) || ((DAT_006c6e60 >> 4 & 1) != 0)) {
     local_88 = 0x43f80000;
     local_84 = 0x434e0000;
     local_80 = 0;
     FUN_00401650(0x47b900,&local_88,"%d",DAT_0069bcb4);
   }
-  if (((*param_1 >> 8 & 3) != 0) || ((g_GameContext.cfg.opts >> 4 & 1) != 0)) {
+  if (((*param_1 >> 8 & 3) != 0) || ((DAT_006c6e60 >> 4 & 1) != 0)) {
     local_88 = 0x43f80000;
     local_84 = 0x43620000;
     local_80 = 0;

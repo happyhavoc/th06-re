@@ -32,8 +32,8 @@ AnmManager::Unknown(AnmManager *this,int param_1,undefined4 param_2,undefined4 p
     if (((local_24.Format == D3DFMT_A8R8G8B8) || (local_24.Format == D3DFMT_A4R4G4B4)) ||
        (local_24.Format == D3DFMT_A1R5G5B5)) {
       iVar1 = _D3DXCreateTextureFromFileInMemoryEx_60
-                        (g_GameContext.d3dDevice,local_28,g_FileSize,0,0,0,0,local_24.Format,2,3,
-                         0xffffffff,param_4,0,0,&local_3c);
+                        (DAT_006c6d20,local_28,DAT_0069d914,0,0,0,0,local_24.Format,2,3,0xffffffff,
+                         param_4,0,0,&local_3c);
       if (((iVar1 == 0) &&
           (HVar2 = (*this->textures[param_1]->lpVtbl->LockRect)
                              (this->textures[param_1],0,&local_30,(RECT *)0x0,0), HVar2 == 0)) &&
@@ -83,7 +83,8 @@ AnmManager::Unknown(AnmManager *this,int param_1,undefined4 param_2,undefined4 p
     }
     else {
       GameErrorContextFatal
-                (&g_GameErrorContext,"error : イメージがαを持っていません\n");
+                ((GameErrorContext *)&DAT_0069d998,
+                 "error : イメージがαを持っていません\n");
     }
     if (local_3c != (int *)0x0) {
       (**(code **)(*local_3c + 8))(local_3c);

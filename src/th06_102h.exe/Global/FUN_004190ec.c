@@ -1,4 +1,6 @@
 
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
 undefined4 FUN_004190ec(void)
 
 {
@@ -30,7 +32,7 @@ undefined4 FUN_004190ec(void)
   if (*(int *)(in_ECX + 0x253c) < 0) {
     uVar1 = 0xffffffff;
   }
-  else if ((CUR_STAGE == 6) &&
+  else if ((DAT_0069d6d4 == 6) &&
           ((*(int *)(in_ECX + 0x253c) == 1 || (*(int *)(in_ECX + 0x253c) == 0xb)))) {
     uVar1 = 0;
   }
@@ -45,16 +47,16 @@ undefined4 FUN_004190ec(void)
     do {
       local_94 = local_94 + -1;
     } while (-1 < local_94);
-    local_5c = ((VIEWPORT_WIDTH - 256.0) / 2.0 + VIEWPORT_X) - 16.0;
+    local_5c = ((_DAT_0069d6e4 - 256.0) / 2.0 + _DAT_0069d6dc) - 16.0;
     uStack_58 = 0x43c00000;
     uStack_54 = 0;
-    local_48 = (VIEWPORT_WIDTH - 256.0) / 2.0 + VIEWPORT_X + 256.0 + 16.0;
+    local_48 = (_DAT_0069d6e4 - 256.0) / 2.0 + _DAT_0069d6dc + 256.0 + 16.0;
     uStack_44 = 0x43c00000;
     uStack_40 = 0;
-    local_34 = ((VIEWPORT_WIDTH - 256.0) / 2.0 + VIEWPORT_X) - 16.0;
+    local_34 = ((_DAT_0069d6e4 - 256.0) / 2.0 + _DAT_0069d6dc) - 16.0;
     fStack_30 = local_8 + 384.0;
     uStack_2c = 0;
-    local_20 = (VIEWPORT_WIDTH - 256.0) / 2.0 + VIEWPORT_X + 256.0 + 16.0;
+    local_20 = (_DAT_0069d6e4 - 256.0) / 2.0 + _DAT_0069d6dc + 256.0 + 16.0;
     fStack_1c = local_8 + 384.0;
     uStack_18 = 0;
     local_38 = 0xd0000000;
@@ -65,43 +67,33 @@ undefined4 FUN_004190ec(void)
     local_28 = 0x3f800000;
     local_3c = 0x3f800000;
     local_50 = 0x3f800000;
-    AnmManager::FUN_00432ad0(g_AnmManager,(AnmVm *)(in_ECX + 0x2550));
-    AnmManager::FUN_00432ad0(g_AnmManager,(AnmVm *)(in_ECX + 0x2660));
-    if ((g_GameContext.cfg.opts >> NO_COLOR_COMP & 1) == 0) {
-      (*(g_GameContext.d3dDevice)->lpVtbl->SetTextureStageState)
-                (g_GameContext.d3dDevice,0,D3DTSS_ALPHAOP,2);
-      (*(g_GameContext.d3dDevice)->lpVtbl->SetTextureStageState)
-                (g_GameContext.d3dDevice,0,D3DTSS_COLOROP,2);
+    AnmManager::FUN_00432ad0(DAT_006d4588,(AnmVm *)(in_ECX + 0x2550));
+    AnmManager::FUN_00432ad0(DAT_006d4588,(AnmVm *)(in_ECX + 0x2660));
+    if ((DAT_006c6e60 >> NO_COLOR_COMP & 1) == 0) {
+      (**(code **)(*DAT_006c6d20 + 0xfc))(DAT_006c6d20,0,4,2);
+      (**(code **)(*DAT_006c6d20 + 0xfc))(DAT_006c6d20,0,1,2);
     }
-    (*(g_GameContext.d3dDevice)->lpVtbl->SetTextureStageState)
-              (g_GameContext.d3dDevice,0,D3DTSS_ALPHAARG1,0);
-    (*(g_GameContext.d3dDevice)->lpVtbl->SetTextureStageState)
-              (g_GameContext.d3dDevice,0,D3DTSS_COLORARG1,0);
-    if ((g_GameContext.cfg.opts >> TURN_OFF_DEPTH_TEST & 1) == 0) {
-      (*(g_GameContext.d3dDevice)->lpVtbl->SetRenderState)
-                (g_GameContext.d3dDevice,D3DRS_ZWRITEENABLE,0);
+    (**(code **)(*DAT_006c6d20 + 0xfc))(DAT_006c6d20,0,5,0);
+    (**(code **)(*DAT_006c6d20 + 0xfc))(DAT_006c6d20,0,2,0);
+    if ((DAT_006c6e60 >> TURN_OFF_DEPTH_TEST & 1) == 0) {
+      (**(code **)(*DAT_006c6d20 + 200))(DAT_006c6d20,0xe,0);
     }
-    (*(g_GameContext.d3dDevice)->lpVtbl->SetVertexShader)(g_GameContext.d3dDevice,0x44);
-    (*(g_GameContext.d3dDevice)->lpVtbl->DrawPrimitiveUP)
-              (g_GameContext.d3dDevice,D3DPT_TRIANGLESTRIP,2,&local_5c,0x14);
-    g_AnmManager->field16_0x210be = 0xff;
-    g_AnmManager->currentColorOp = 0xff;
-    g_AnmManager->currentBlendMode = 0xff;
-    g_AnmManager->currentZWriteDisable = 0xff;
-    if ((g_GameContext.cfg.opts >> NO_COLOR_COMP & 1) == 0) {
-      (*(g_GameContext.d3dDevice)->lpVtbl->SetTextureStageState)
-                (g_GameContext.d3dDevice,0,D3DTSS_ALPHAOP,4);
-      (*(g_GameContext.d3dDevice)->lpVtbl->SetTextureStageState)
-                (g_GameContext.d3dDevice,0,D3DTSS_COLOROP,4);
+    (**(code **)(*DAT_006c6d20 + 0x130))(DAT_006c6d20,0x44);
+    (**(code **)(*DAT_006c6d20 + 0x120))(DAT_006c6d20,5,2,&local_5c,0x14);
+    DAT_006d4588->field16_0x210be = 0xff;
+    DAT_006d4588->currentColorOp = 0xff;
+    DAT_006d4588->currentBlendMode = 0xff;
+    DAT_006d4588->currentZWriteDisable = 0xff;
+    if ((DAT_006c6e60 >> NO_COLOR_COMP & 1) == 0) {
+      (**(code **)(*DAT_006c6d20 + 0xfc))(DAT_006c6d20,0,4,4);
+      (**(code **)(*DAT_006c6d20 + 0xfc))(DAT_006c6d20,0,1,4);
     }
-    (*(g_GameContext.d3dDevice)->lpVtbl->SetTextureStageState)
-              (g_GameContext.d3dDevice,0,D3DTSS_ALPHAARG1,2);
-    (*(g_GameContext.d3dDevice)->lpVtbl->SetTextureStageState)
-              (g_GameContext.d3dDevice,0,D3DTSS_COLORARG1,2);
-    AnmManager::FUN_00432ad0(g_AnmManager,(AnmVm *)(in_ECX + 0x2770));
-    AnmManager::FUN_00432ad0(g_AnmManager,(AnmVm *)(in_ECX + 0x2880));
-    AnmManager::FUN_00432ad0(g_AnmManager,(AnmVm *)(in_ECX + 0x2990));
-    AnmManager::FUN_00432ad0(g_AnmManager,(AnmVm *)(in_ECX + 0x2aa0));
+    (**(code **)(*DAT_006c6d20 + 0xfc))(DAT_006c6d20,0,5,2);
+    (**(code **)(*DAT_006c6d20 + 0xfc))(DAT_006c6d20,0,2,2);
+    AnmManager::FUN_00432ad0(DAT_006d4588,(AnmVm *)(in_ECX + 0x2770));
+    AnmManager::FUN_00432ad0(DAT_006d4588,(AnmVm *)(in_ECX + 0x2880));
+    AnmManager::FUN_00432ad0(DAT_006d4588,(AnmVm *)(in_ECX + 0x2990));
+    AnmManager::FUN_00432ad0(DAT_006d4588,(AnmVm *)(in_ECX + 0x2aa0));
     uVar1 = 0;
   }
   return uVar1;

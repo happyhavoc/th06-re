@@ -4,11 +4,11 @@ ushort GetInput(void)
 {
   DWORD_PTR cookie;
   ushort buttons;
-  HRESULT res;
+  int res;
   char keyboardState [256];
   
   cookie = __security_cookie;
-  if (g_GameContext.keyboard == (LPDIRECTINPUTDEVICE8A)0x0) {
+  if (DAT_006c6d28 == (int *)0x0) {
     GetKeyboardState((PBYTE)keyboardState);
                     /* This sets a bitfield of which buttons are pressed.
                        
@@ -44,10 +44,9 @@ ushort GetInput(void)
               -(ushort)((keyboardState._13_4_ & 0x80) != 0) & 0x1000;
   }
   else {
-    res = (*(g_GameContext.keyboard)->lpVtbl->GetDeviceState)
-                    (g_GameContext.keyboard,0x100,keyboardState);
+    res = (**(code **)(*DAT_006c6d28 + 0x24))(DAT_006c6d28,0x100,keyboardState);
     if (res == -0x7ff8ffe2) {
-      (*(g_GameContext.keyboard)->lpVtbl->Acquire)(g_GameContext.keyboard);
+      (**(code **)(*DAT_006c6d28 + 0x1c))(DAT_006c6d28);
       buttons = GetControllerInput(0);
       goto LAB_0041e0a5;
     }

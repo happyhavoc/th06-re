@@ -2,46 +2,33 @@
 undefined4 FUN_0043a338(int param_1)
 
 {
-  UINT UVar1;
+  undefined4 uVar1;
   int iVar2;
-  undefined4 uVar3;
   
-  _memset(BYTE_ARRAY_006d46c0,0,0x10f34);
+  _memset(&DAT_006d46c0,0,0x10f34);
   DAT_0069d4bf = 0;
-  UVar1 = (*(g_GameContext.d3dDevice)->lpVtbl->GetAvailableTextureMem)(g_GameContext.d3dDevice);
-  DebugPrint("Debug : title 開始 VRAM = %d\n",UVar1);
-  BYTE_ARRAY_006d46c0._33264_4_ = -(uint)(param_1 != 0) & 0xc;
-  g_GameContext.framerateMultiplier = 0.0;
-  BYTE_ARRAY_006d46c0._33332_4_ = ChainElem::Allocate(FUN_0043579f);
-  *(byte **)(BYTE_ARRAY_006d46c0._33332_4_ + 0x1c) = BYTE_ARRAY_006d46c0;
-  *(code **)(BYTE_ARRAY_006d46c0._33332_4_ + 8) = FUN_0043a464;
-  *(code **)(BYTE_ARRAY_006d46c0._33332_4_ + 0xc) = FUN_0043a659;
-  BYTE_ARRAY_006d46c0[33268] = 0;
-  BYTE_ARRAY_006d46c0[33269] = 0;
-  BYTE_ARRAY_006d46c0[33270] = 0;
-  BYTE_ARRAY_006d46c0[33271] = 0;
-  iVar2 = Chain::AddToCalcChain(&g_Chain,(ChainElem *)BYTE_ARRAY_006d46c0._33332_4_,2);
+  uVar1 = (**(code **)(*DAT_006c6d20 + 0x10))(DAT_006c6d20);
+  DebugPrint("Debug : title 開始 VRAM = %d\n",uVar1);
+  DAT_006dc8b0 = -(uint)(param_1 != 0) & 0xc;
+  DAT_006c6ec4 = 0;
+  DAT_006dc8f4 = ChainElem::Allocate(FUN_0043579f);
+  DAT_006dc8f4->arg = &DAT_006d46c0;
+  DAT_006dc8f4->addedCallback = FUN_0043a464;
+  DAT_006dc8f4->deletedCallback = FUN_0043a659;
+  DAT_006dc8b4 = 0;
+  iVar2 = Chain::AddToCalcChain((Chain *)&DAT_0069d918,DAT_006dc8f4,2);
   if (iVar2 == 0) {
-    BYTE_ARRAY_006d46c0._33336_4_ = ChainElem::Allocate(FUN_00439ad6);
-    *(byte **)(BYTE_ARRAY_006d46c0._33336_4_ + 0x1c) = BYTE_ARRAY_006d46c0;
-    Chain::AddToDrawChain(&g_Chain,(ChainElem *)BYTE_ARRAY_006d46c0._33336_4_,0);
-    BYTE_ARRAY_006d46c0[69424] = 0;
-    BYTE_ARRAY_006d46c0[69425] = 0;
-    BYTE_ARRAY_006d46c0[69426] = 0;
-    BYTE_ARRAY_006d46c0[69427] = 0;
-    BYTE_ARRAY_006d46c0[33268] = 0x3c;
-    BYTE_ARRAY_006d46c0[33269] = 0;
-    BYTE_ARRAY_006d46c0[33270] = 0;
-    BYTE_ARRAY_006d46c0[33271] = 0;
-    BYTE_ARRAY_006d46c0[69420] = 0;
-    BYTE_ARRAY_006d46c0[69421] = 0;
-    BYTE_ARRAY_006d46c0[69422] = 0;
-    BYTE_ARRAY_006d46c0[69423] = 0;
-    uVar3 = 0;
+    DAT_006dc8f8 = ChainElem::Allocate(FUN_00439ad6);
+    DAT_006dc8f8->arg = &DAT_006d46c0;
+    Chain::AddToDrawChain((Chain *)&DAT_0069d918,DAT_006dc8f8,0);
+    DAT_006e55f0 = 0;
+    DAT_006dc8b4 = 0x3c;
+    DAT_006e55ec = 0;
+    uVar1 = 0;
   }
   else {
-    uVar3 = 0xffffffff;
+    uVar1 = 0xffffffff;
   }
-  return uVar3;
+  return uVar1;
 }
 

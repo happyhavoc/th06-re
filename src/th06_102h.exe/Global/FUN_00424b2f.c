@@ -4,7 +4,7 @@ undefined4 FUN_00424b2f(void)
 {
   undefined4 uVar1;
   
-  if ((g_GameContext.cfg.musicMode == MIDI) || (g_GameContext.cfg.musicMode == WAV)) {
+  if ((DAT_006c6e47 == '\x02') || (DAT_006c6e47 == '\x01')) {
     uVar1 = 0;
   }
   else {

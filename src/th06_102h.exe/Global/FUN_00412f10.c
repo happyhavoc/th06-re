@@ -30,7 +30,7 @@ undefined4 FUN_00412f10(int param_1)
           pAVar5[1].pos.y = (float)pAVar3 + fVar4;
           pAVar5[1].pos.z = fVar1 + fVar2;
           pAVar5[1].pos.z = 0.495;
-          AnmManager::FUN_00433590(g_AnmManager,local_c);
+          AnmManager::FUN_00433590(DAT_006d4588,local_c);
         }
         pAVar5 = local_c;
       }
@@ -45,7 +45,7 @@ undefined4 FUN_00412f10(int param_1)
       (local_14->pos).y = (float)pAVar3 + fVar4;
       (local_14->pos).z = fVar1 + fVar2;
       (local_14->pos).z = 0.494;
-      AnmManager::FUN_00433590(g_AnmManager,local_14);
+      AnmManager::FUN_00433590(DAT_006d4588,local_14);
       for (local_10 = 4; local_10 < 8; local_10 = local_10 + 1) {
         if (-1 < local_c->anmFileIndex) {
           if (local_c->autoRotate != 0) {
@@ -59,7 +59,7 @@ undefined4 FUN_00412f10(int param_1)
           (local_c->pos).y = (float)pAVar3 + fVar4;
           (local_c->pos).z = fVar1 + fVar2;
           (local_c->pos).z = 0.495;
-          AnmManager::FUN_00433590(g_AnmManager,local_c);
+          AnmManager::FUN_00433590(DAT_006d4588,local_c);
         }
         local_c = local_c + 1;
       }

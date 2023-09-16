@@ -32,9 +32,8 @@ void __fastcall FUN_0040f7c0(int param_1)
   if (0 < *(int *)(param_1 + 0x113c)) {
     FUN_004241e5(1);
     if (*(int *)(param_1 + 0x1140) == 0) {
-      if ((((BUTTONS_PRESSED_CURFRAME & 0x1001) != 0) &&
-          ((BUTTONS_PRESSED_CURFRAME & 0x1001) != (BUTTONS_PRESSED_PREVFRAME & 0x1001))) ||
-         ((*(int *)(param_1 + 0x1118) != 0 && ((BUTTONS_PRESSED_CURFRAME & 0x100) != 0)))) {
+      if ((((DAT_0069d904 & 0x1001) != 0) && ((DAT_0069d904 & 0x1001) != (DAT_0069d908 & 0x1001)))
+         || ((*(int *)(param_1 + 0x1118) != 0 && ((DAT_0069d904 & 0x100) != 0)))) {
         *(undefined4 *)(param_1 + 0x113c) = 0;
         *(undefined4 *)(param_1 + 0x1138) = 0;
         *(undefined4 *)(param_1 + 0x1134) = 0xfffffc19;
@@ -53,7 +52,7 @@ void __fastcall FUN_0040f7c0(int param_1)
   }
   if (*(int *)(param_1 + 0x1130) < 1) {
     do {
-      pAVar2 = g_AnmManager;
+      pAVar2 = DAT_006d4588;
       switch(**(undefined **)(param_1 + 0x116c)) {
       case 0:
       case 10:
@@ -65,14 +64,14 @@ void __fastcall FUN_0040f7c0(int param_1)
              *(undefined *)(*(int *)(param_1 + 0x116c) + 1);
         local_38 = local_38 + 2;
         *(int *)(param_1 + 0x116c) = *(int *)(param_1 + 0x116c) + 2;
-        pAVar2 = g_AnmManager;
+        pAVar2 = DAT_006d4588;
         if (0x1f < local_38) {
           iVar6 = *(int *)(param_1 + 0x1154);
           local_ac = (short)local_8 + 0x708 + (short)iVar6 * 2;
           pUVar1 = (Unknown *)(param_1 + 0x14 + (local_8 + *(int *)(param_1 + 0x1154) * 2) * 0x110);
           *(short *)&pUVar1->field_0xb4 = local_ac;
           FUN_00432430(pUVar1,(int)pAVar2->scripts[iVar6 * 2 + local_8 + 0x708]);
-          FUN_00434b60(g_AnmManager,
+          FUN_00434b60(DAT_006d4588,
                        param_1 + 0x14 + (local_8 + *(int *)(param_1 + 0x1154) * 2) * 0x110,
                        *(undefined4 *)(param_1 + 0x1158),0xc0d0d0,&local_34);
           if (local_8 != 0) goto LAB_00410546;
@@ -158,10 +157,10 @@ switchD_0040fa93_caseD_52:
           lVar4 = FUN_0040f4d0(param_1);
           FUN_004051b0(param_1 + 0x14 + lVar5 * 0x110,lVar3 + 0x600);
           AnmManager::FUN_004323a0
-                    (g_AnmManager,(AnmVm *)(param_1 + 0x14 + lVar5 * 0x110),lVar4 + 0x600);
+                    (DAT_006d4588,(AnmVm *)(param_1 + 0x14 + lVar5 * 0x110),lVar4 + 0x600);
           break;
         case 0x62:
-          iVar6 = AnmManager::LogoStuff(g_AnmManager,0,(char *)(*(int *)(param_1 + 0x116c) + 1));
+          iVar6 = AnmManager::LogoStuff(DAT_006d4588,0,(char *)(*(int *)(param_1 + 0x116c) + 1));
           if (iVar6 != 0) goto LAB_004105d3;
           break;
         case 99:
@@ -232,9 +231,8 @@ switchD_0040fa93_caseD_52:
   }
   FUN_004241e5(1);
   if (*(int *)(param_1 + 0x1144) == 0) {
-    if ((((BUTTONS_PRESSED_CURFRAME & 0x1001) != 0) &&
-        ((BUTTONS_PRESSED_CURFRAME & 0x1001) != (BUTTONS_PRESSED_PREVFRAME & 0x1001))) ||
-       ((*(int *)(param_1 + 0x1118) != 0 && ((BUTTONS_PRESSED_CURFRAME & 0x100) != 0)))) {
+    if ((((DAT_0069d904 & 0x1001) != 0) && ((DAT_0069d904 & 0x1001) != (DAT_0069d908 & 0x1001))) ||
+       ((*(int *)(param_1 + 0x1118) != 0 && ((DAT_0069d904 & 0x100) != 0)))) {
       *(undefined4 *)(param_1 + 0x1130) = 0;
       *(undefined4 *)(param_1 + 0x112c) = 0;
       *(undefined4 *)(param_1 + 0x1128) = 0xfffffc19;
@@ -251,14 +249,14 @@ switchD_0040fa32_caseD_0:
     pUVar1 = (Unknown *)(param_1 + 0x14 + (local_8 + *(int *)(param_1 + 0x1154) * 2) * 0x110);
     *(short *)&pUVar1->field_0xb4 = local_90;
     FUN_00432430(pUVar1,(int)pAVar2->scripts[iVar6 * 2 + local_8 + 0x708]);
-    FUN_00434b60(g_AnmManager,param_1 + 0x14 + (local_8 + *(int *)(param_1 + 0x1154) * 2) * 0x110,
+    FUN_00434b60(DAT_006d4588,param_1 + 0x14 + (local_8 + *(int *)(param_1 + 0x1154) * 2) * 0x110,
                  *(undefined4 *)(param_1 + 0x1158),0xc0d0d0,&local_34);
   }
   while (((**(char **)(param_1 + 0x116c) == '\n' || (**(char **)(param_1 + 0x116c) == '\0')) ||
          (**(char **)(param_1 + 0x116c) == '\r'))) {
     *(int *)(param_1 + 0x116c) = *(int *)(param_1 + 0x116c) + 1;
   }
-  if ((BUTTONS_PRESSED_CURFRAME & 0x1001) == 0) {
+  if ((DAT_0069d904 & 0x1001) == 0) {
     *(undefined4 *)(param_1 + 0x1130) = *(undefined4 *)(param_1 + 0x1148);
     *(undefined4 *)(param_1 + 0x112c) = 0;
     *(undefined4 *)(param_1 + 0x1128) = 0xfffffc19;
@@ -273,7 +271,8 @@ switchD_0040fa32_caseD_0:
   *(int *)(param_1 + 0x1154) = *(int *)(param_1 + 0x1154) + 1;
 LAB_00410546:
   *(undefined4 *)(param_1 + 0x111c) = *(undefined4 *)(param_1 + 0x1124);
-  GameContext::FUN_00424285(&g_GameContext,(int *)(param_1 + 0x1124),(float *)(param_1 + 0x1120));
+  GameContext::FUN_00424285
+            ((GameContext *)&DAT_006c6d18,(int *)(param_1 + 0x1124),(float *)(param_1 + 0x1120));
   *(float *)(param_1 + 0xc) = *(float *)(param_1 + 0xc) - *(float *)(param_1 + 0x10);
   if (*(float *)(param_1 + 0xc) < 0.0 != (*(float *)(param_1 + 0xc) == 0.0)) {
     *(undefined4 *)(param_1 + 0xc) = 0;

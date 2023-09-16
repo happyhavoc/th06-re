@@ -4,12 +4,10 @@ undefined4 FUN_0042d18f(int param_1,int param_2)
 {
   undefined4 uVar1;
   
-  if ((((BUTTONS_PRESSED_CURFRAME & 0x40) == 0) ||
-      ((BUTTONS_PRESSED_CURFRAME & 0x40) == (BUTTONS_PRESSED_PREVFRAME & 0x40))) &&
-     (((BUTTONS_PRESSED_CURFRAME & 0x40) == 0 || (DAT_0069d90c == 0)))) {
-    if ((((BUTTONS_PRESSED_CURFRAME & 0x80) == 0) ||
-        ((BUTTONS_PRESSED_CURFRAME & 0x80) == (BUTTONS_PRESSED_PREVFRAME & 0x80))) &&
-       (((BUTTONS_PRESSED_CURFRAME & 0x80) == 0 || (DAT_0069d90c == 0)))) {
+  if ((((DAT_0069d904 & 0x40) == 0) || ((DAT_0069d904 & 0x40) == (DAT_0069d908 & 0x40))) &&
+     (((DAT_0069d904 & 0x40) == 0 || (DAT_0069d90c == 0)))) {
+    if ((((DAT_0069d904 & 0x80) == 0) || ((DAT_0069d904 & 0x80) == (DAT_0069d908 & 0x80))) &&
+       (((DAT_0069d904 & 0x80) == 0 || (DAT_0069d90c == 0)))) {
       uVar1 = 0;
     }
     else {

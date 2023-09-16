@@ -20,8 +20,8 @@ undefined4 FUN_00439ad6(void *param_1)
   local_10 = 0x44200000;
   local_c = 0x43f00000;
   if (*(int *)((int)param_1 + 0x81f0) != 0) {
-    g_AnmManager->currentTexture = (IDirect3DTexture8 *)0x0;
-    AnmManager::FUN_00435300(g_AnmManager,0,0,0,0,0);
+    DAT_006d4588->currentTexture = (IDirect3DTexture8 *)0x0;
+    AnmManager::FUN_00435300(DAT_006d4588,0,0,0,0,0);
     if (*(int *)((int)param_1 + 0x8210) == 0) {
       if (*(int *)((int)param_1 + 0x820c) != 0) {
         *(int *)((int)param_1 + 0x820c) = *(int *)((int)param_1 + 0x820c) + -1;
@@ -52,7 +52,7 @@ undefined4 FUN_00439ad6(void *param_1)
         bVar4 = false;
       }
       else {
-        bVar4 = g_AnmManager->textures[**(int **)((int)local_20 + 0xc0)] != (IDirect3DTexture8 *)0x0
+        bVar4 = DAT_006d4588->textures[**(int **)((int)local_20 + 0xc0)] != (IDirect3DTexture8 *)0x0
         ;
       }
       if (bVar4) {

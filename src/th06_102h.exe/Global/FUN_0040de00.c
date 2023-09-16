@@ -56,7 +56,7 @@ void FUN_0040de00(int param_1,undefined4 param_2)
           *(short *)((int)&local_68[5].matrix.field0_0x0 + 0x2e) =
                *(short *)((int)&local_68[5].matrix.field0_0x0 + 0x2e) + 1;
           AnmManager::FUN_004323a0
-                    (g_AnmManager,local_68,
+                    (DAT_006d4588,local_68,
                      (int)local_68->anotherSpriteNumber +
                      (int)*(short *)((int)&local_68[5].matrix.field0_0x0 + 0x2e));
         }

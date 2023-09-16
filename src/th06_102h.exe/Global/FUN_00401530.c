@@ -25,7 +25,7 @@ void __thiscall FUN_00401530(int param_1_00,undefined4 *param_2,char *param_3)
     *(undefined4 *)(pcVar1 + 0x50) = *(undefined4 *)(param_1_00 + 0x6228);
     *(undefined4 *)(pcVar1 + 0x54) = *(undefined4 *)(param_1_00 + 0x622c);
     *(undefined4 *)(pcVar1 + 0x5c) = *(undefined4 *)(param_1_00 + 0x6230);
-    if ((g_GameContext.cfg.opts >> NO_COLOR_COMP & 1 | g_GameContext.cfg.opts & 1) == 0) {
+    if ((DAT_006c6e60 >> NO_COLOR_COMP & 1 | DAT_006c6e60 & 1) == 0) {
       *(undefined4 *)(pcVar1 + 0x58) = 0;
     }
     else {

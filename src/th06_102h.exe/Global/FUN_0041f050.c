@@ -32,7 +32,7 @@ void FUN_0041f050(int param_1,int param_2,int param_3,undefined4 param_4,int par
   pHStack_18 = CreateFontA(param_5 << 1,0,0,0,700,0,0,0,0x80,0,0,4,0x11,&DAT_0046b0ac);
   FUN_0041e945();
   uStack_8 = 0;
-  (*D3D_IMAGE_SURFACE->lpVtbl->GetDesc)(D3D_IMAGE_SURFACE,&DStack_38);
+  (*DAT_0069e230->lpVtbl->GetDesc)(DAT_0069e230,&DStack_38);
   FUN_0041ea04(DStack_38.Width,DStack_38.Height,DStack_38.Format);
   pHStack_14 = pHStack_4c;
   pvStack_3c = SelectObject(pHStack_4c,pHStack_18);
@@ -48,7 +48,7 @@ void FUN_0041f050(int param_1,int param_2,int param_3,undefined4 param_4,int par
   TextOutA(pHStack_14,param_1 << 1,0,param_9,sVar1);
   SelectObject(pHStack_14,pvStack_3c);
   FUN_0041ec72(0,0,param_3 << 1,param_5 * 2 + 6);
-  FUN_0041ef11(D3D_IMAGE_SURFACE);
+  FUN_0041ef11(DAT_0069e230);
   SelectObject(pHStack_14,pvStack_3c);
   DeleteObject(pHStack_18);
   uStack_80 = 0;
@@ -60,7 +60,7 @@ void FUN_0041f050(int param_1,int param_2,int param_3,undefined4 param_4,int par
   iStack_68 = param_3 * 2 + -2;
   iStack_64 = param_5 * 2 + -2;
   (**(code **)(*param_10 + 0x3c))(param_10,0,&piStack_84);
-  _D3DXLoadSurfaceFromSurface_32(piStack_84,0,&uStack_80,D3D_IMAGE_SURFACE,0,&uStack_70,4,0);
+  _D3DXLoadSurfaceFromSurface_32(piStack_84,0,&uStack_80,DAT_0069e230,0,&uStack_70,4,0);
   if (piStack_84 != (int *)0x0) {
     (**(code **)(*piStack_84 + 8))(piStack_84);
     piStack_84 = (int *)0x0;

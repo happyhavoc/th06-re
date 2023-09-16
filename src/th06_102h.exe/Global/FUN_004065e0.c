@@ -1,4 +1,6 @@
 
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
 void FUN_004065e0(int param_1)
 
 {
@@ -17,8 +19,8 @@ void FUN_004065e0(int param_1)
     *(float *)((int)local_8 + 0x90) = *pfVar1 + *(float *)((int)local_8 + 0xe4);
     *(float *)((int)local_8 + 0x94) = fVar3 + *(float *)((int)local_8 + 0xe8);
     *(float *)((int)local_8 + 0x98) = fVar2 + *(float *)((int)local_8 + 0xec);
-    *(float *)((int)local_8 + 0x90) = VIEWPORT_X + *(float *)((int)local_8 + 0x90);
-    *(float *)((int)local_8 + 0x94) = VIEWPORT_Y + *(float *)((int)local_8 + 0x94);
+    *(float *)((int)local_8 + 0x90) = _DAT_0069d6dc + *(float *)((int)local_8 + 0x90);
+    *(float *)((int)local_8 + 0x94) = _DAT_0069d6e0 + *(float *)((int)local_8 + 0x94);
     *(undefined4 *)((int)local_8 + 0x98) = 0;
     FUN_00432cc0(local_8);
     local_8 = (void *)((int)local_8 + 0x110);

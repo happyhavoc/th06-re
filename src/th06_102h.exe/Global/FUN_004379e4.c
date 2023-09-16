@@ -10,9 +10,8 @@ undefined4 FUN_004379e4(void)
   if (*(int *)(in_ECX + 0x81f4) < 0x1e) {
     uVar2 = 1;
   }
-  else if ((((BUTTONS_PRESSED_CURFRAME & 0x160b) == 0) ||
-           ((BUTTONS_PRESSED_CURFRAME & 0x160b) == (BUTTONS_PRESSED_PREVFRAME & 0x160b))) &&
-          (((BUTTONS_PRESSED_CURFRAME & 0x160b) == 0 || (DAT_0069d90c == 0)))) {
+  else if ((((DAT_0069d904 & 0x160b) == 0) || ((DAT_0069d904 & 0x160b) == (DAT_0069d908 & 0x160b)))
+          && (((DAT_0069d904 & 0x160b) == 0 || (DAT_0069d90c == 0)))) {
     uVar2 = 1;
   }
   else {
@@ -21,7 +20,7 @@ undefined4 FUN_004379e4(void)
     for (local_8 = 0; local_8 < 0x7a; local_8 = local_8 + 1) {
       *(undefined2 *)(in_ECX + 0x8a + local_8 * 0x110) = 2;
     }
-    if ((g_GameContext.cfg.opts & 1) == 0) {
+    if ((DAT_006c6e60 & 1) == 0) {
       *(undefined4 *)(in_ECX + 0x7c + *(int *)(in_ECX + 0x81a0) * 0x110) = 0xffff0000;
     }
     else {

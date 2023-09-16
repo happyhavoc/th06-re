@@ -33,10 +33,10 @@ void FUN_00406e70(int param_1)
           *(undefined4 *)(param_1 + 0x7b8) = 0xc;
         }
       }
-      AnmManager::FUN_00433960(g_AnmManager,(AnmVm *)(param_1 + 0x76e4));
-      AnmManager::FUN_00433960(g_AnmManager,(AnmVm *)(param_1 + 0x77f4));
-      AnmManager::FUN_00433960(g_AnmManager,(AnmVm *)(param_1 + 0x7904));
-      AnmManager::FUN_00433960(g_AnmManager,(AnmVm *)(param_1 + 0x7a14));
+      AnmManager::FUN_00433960(DAT_006d4588,(AnmVm *)(param_1 + 0x76e4));
+      AnmManager::FUN_00433960(DAT_006d4588,(AnmVm *)(param_1 + 0x77f4));
+      AnmManager::FUN_00433960(DAT_006d4588,(AnmVm *)(param_1 + 0x7904));
+      AnmManager::FUN_00433960(DAT_006d4588,(AnmVm *)(param_1 + 0x7a14));
     }
     else {
       FUN_00420130();
@@ -60,7 +60,8 @@ void FUN_00406e70(int param_1)
     }
     *(undefined *)(param_1 + 0x9e0) = 3;
     *(undefined4 *)(param_1 + 0x75d0) = *(undefined4 *)(param_1 + 0x75d8);
-    GameContext::FUN_00424285(&g_GameContext,(int *)(param_1 + 0x75d8),(float *)(param_1 + 0x75d4));
+    GameContext::FUN_00424285
+              ((GameContext *)&DAT_006c6d18,(int *)(param_1 + 0x75d8),(float *)(param_1 + 0x75d4));
   }
   else {
     FUN_00417314();

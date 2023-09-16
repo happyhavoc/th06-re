@@ -27,7 +27,7 @@ void FUN_00416b50(AnmVm *param_1)
   if (local_8->autoRotate != 0) {
     (local_8->rotation).z = 1.570796 - param_1[5].matrix.field0_0x0.field0._12;
   }
-  AnmManager::FUN_00433590(g_AnmManager,local_8);
+  AnmManager::FUN_00433590(DAT_006d4588,local_8);
   return;
 }
 

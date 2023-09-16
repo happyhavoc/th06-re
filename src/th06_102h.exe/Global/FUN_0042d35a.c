@@ -14,8 +14,8 @@ undefined4 FUN_0042d35a(void)
   
   if ((0xe < *(int *)(in_ECX + 8)) && (*(int *)(in_ECX + 8) < 0x11)) {
     local_8 = in_ECX + 0x2790;
-    _DAT_00481b24 = *(undefined4 *)(in_ECX + 0x280c);
-    if (CUR_RANK < 4) {
+    g_AsciiManager.color = *(D3DCOLOR *)(in_ECX + 0x280c);
+    if (_DAT_0069bcb0 < 4) {
       local_34 = (float)DAT_0069d70c / 89500.0;
     }
     else {
@@ -26,9 +26,9 @@ undefined4 FUN_0042d35a(void)
     local_10 = *(float *)(in_ECX + 0x2824) + 32.0;
     FUN_00401650(0x47b900,&local_14,(char *)&PTR_DAT_0046bcc0);
     local_10 = local_10 + 22.0;
-    FUN_00401530(0x47b900,&local_14,(&PTR_s__Easy_00478504)[CUR_RANK]);
+    FUN_00401530(0x47b900,&local_14,(&PTR_s__Easy_00478504)[_DAT_0069bcb0]);
     local_10 = local_10 + 22.0;
-    if ((CUR_RANK == 0) || (DAT_0069d4c2 == '\0')) {
+    if ((_DAT_0069bcb0 == 0) || (DAT_0069d4c2 == '\0')) {
       FUN_00401650(0x47b900,&local_14,"    %3.2f%%",(double)(local_34 * 100.0));
     }
     else {
@@ -42,7 +42,7 @@ undefined4 FUN_0042d35a(void)
     FUN_00401650(0x47b900,&local_14,(char *)&PTR_DAT_0046bcc0);
     local_10 = local_10 + 22.0;
     FUN_00401650(0x47b900,&local_14,(char *)&PTR_DAT_0046bcc0);
-    local_20 = (float)g_GameContext._436_4_ / (float)g_GameContext._440_4_ - 0.5;
+    local_20 = _DAT_006c6ecc / _DAT_006c6ed0 - 0.5;
     local_20 = local_20 + local_20;
     if (local_20 < 0.0 == NAN(local_20)) {
       if (1.0 <= local_20) {
@@ -54,7 +54,7 @@ undefined4 FUN_0042d35a(void)
     }
     local_10 = local_10 + 22.0;
     FUN_00401650(0x47b900,&local_14,"    %3.2f%%",(double)((1.0 - local_20) * 100.0));
-    _DAT_00481b24 = 0xffffffff;
+    g_AsciiManager.color = 0xffffffff;
   }
   return 0;
 }

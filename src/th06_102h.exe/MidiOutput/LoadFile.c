@@ -5,13 +5,14 @@ undefined4 __thiscall MidiOutput::LoadFile(MidiOutput *this,int param_1,char *pa
   undefined4 uVar1;
   byte *pbVar2;
   
-  if (g_GameContext.cfg.musicMode == MIDI) {
+  if (DAT_006c6e47 == '\x02') {
     ~MidiOutput(this);
     UnloadFile(this,param_1);
     pbVar2 = OpenPath(path,0);
     this->midiFileData[param_1] = (int)pbVar2;
     if (this->midiFileData[param_1] == 0) {
-      GameErrorContextLog(&g_GameErrorContext,"error : MIDI File が読み込めない %s \n",path);
+      GameErrorContextLog((GameErrorContext *)&DAT_0069d998,
+                          "error : MIDI File が読み込めない %s \n",path);
       uVar1 = 0xffffffff;
     }
     else {

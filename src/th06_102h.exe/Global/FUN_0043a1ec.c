@@ -8,18 +8,18 @@ undefined4 FUN_0043a1ec(int param_1)
   int local_8;
   
   for (local_8 = 0x15; local_8 < 0x1b; local_8 = local_8 + 1) {
-    FUN_00432030(g_AnmManager,local_8);
+    FUN_00432030(DAT_006d4588,local_8);
   }
-  iVar1 = AnmManager::LogoStuff(g_AnmManager,0,"data/title/select00.jpg");
+  iVar1 = AnmManager::LogoStuff(DAT_006d4588,0,"data/title/select00.jpg");
   if (iVar1 == 0) {
-    iVar1 = AnmManager::LoadAnim(g_AnmManager,0x24,"data/replay00.anm",0x160);
+    iVar1 = AnmManager::LoadAnim(DAT_006d4588,0x24,"data/replay00.anm",0x160);
     if (iVar1 == 0) {
       local_c = param_1 + 0x6600;
       for (local_8 = 0x160; local_8 < 0x17a; local_8 = local_8 + 1) {
         FUN_004051b0(local_c,local_8);
         *(uint *)(local_c + 0x80) = *(uint *)(local_c + 0x80) & 0xfffffffe;
         *(uint *)(local_c + 0x80) = *(uint *)(local_c + 0x80) | 8;
-        if ((g_GameContext.cfg.opts & 1) == 0) {
+        if ((DAT_006c6e60 & 1) == 0) {
           *(undefined4 *)(local_c + 0x7c) = 0xff000000;
         }
         else {

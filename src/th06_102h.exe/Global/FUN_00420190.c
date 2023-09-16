@@ -1,4 +1,6 @@
 
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
 void FUN_00420190(void)
 
 {
@@ -12,24 +14,24 @@ void FUN_00420190(void)
   local_10 = in_ECX;
   for (local_c = 0; local_c < 0x200; local_c = local_c + 1) {
     if (*(char *)((int)&local_10[1].currentTimeInScript.previous + 1) != '\0') {
-      (local_10->pos).x = VIEWPORT_X + local_10[1].rotation.x;
-      (local_10->pos).y = VIEWPORT_Y + local_10[1].rotation.y;
+      (local_10->pos).x = _DAT_0069d6dc + local_10[1].rotation.x;
+      (local_10->pos).y = _DAT_0069d6e0 + local_10[1].rotation.y;
       (local_10->pos).z = 0.01;
       fVar1 = local_10[1].rotation.y;
       if (fVar1 < -8.0 == NAN(fVar1)) {
         if (*(char *)((int)&local_10[1].currentTimeInScript.previous + 2) == '\0') {
           AnmManager::FUN_004323a0
-                    (g_AnmManager,local_10,
+                    (DAT_006d4588,local_10,
                      *(char *)&local_10[1].currentTimeInScript.previous + 0x200);
           *(undefined *)((int)&local_10[1].currentTimeInScript.previous + 2) = 1;
           local_10->color = 0xffffffff;
         }
       }
       else {
-        (local_10->pos).y = VIEWPORT_Y + 8.0;
+        (local_10->pos).y = _DAT_0069d6e0 + 8.0;
         if (*(char *)((int)&local_10[1].currentTimeInScript.previous + 2) != '\0') {
           AnmManager::FUN_004323a0
-                    (g_AnmManager,local_10,
+                    (DAT_006d4588,local_10,
                      *(char *)&local_10[1].currentTimeInScript.previous + 0x207);
           *(undefined *)((int)&local_10[1].currentTimeInScript.previous + 2) = 0;
         }
@@ -40,7 +42,7 @@ void FUN_00420190(void)
         }
         local_10->color = local_10->color & 0xffffff | local_8 << 0x18;
       }
-      AnmManager::FUN_00432ad0(g_AnmManager,local_10);
+      AnmManager::FUN_00432ad0(DAT_006d4588,local_10);
     }
     local_10 = (AnmVm *)&local_10[1].currentTimeInScript.subFrame;
   }

@@ -19,24 +19,24 @@ undefined4 __fastcall FUN_00439137(int param_1)
     }
   }
   for (local_8 = 0; local_8 < 5; local_8 = local_8 + 1) {
-    FUN_00438ef8(param_1,local_c,0,local_8,(uint)g_GameContext.cfg.lifeCount);
+    FUN_00438ef8(param_1,local_c,0,local_8,(uint)DAT_006c6e44);
     local_c = local_c + 0x110;
   }
   for (local_8 = 0; local_8 < 4; local_8 = local_8 + 1) {
-    FUN_00438ef8(param_1,local_c,1,local_8,(uint)g_GameContext.cfg.bombCount);
+    FUN_00438ef8(param_1,local_c,1,local_8,(uint)DAT_006c6e45);
     local_c = local_c + 0x110;
   }
   for (local_8 = 0; local_8 < 2; local_8 = local_8 + 1) {
-    FUN_00438ef8(param_1,local_c,2,local_8,(uint)g_GameContext.cfg.colorMode16bit);
+    FUN_00438ef8(param_1,local_c,2,local_8,(uint)DAT_006c6e46);
     local_c = local_c + 0x110;
   }
   for (local_8 = 0; local_8 < 2; local_8 = local_8 + 1) {
-    FUN_00438ef8(param_1,local_c,4,local_8,(uint)g_GameContext.cfg.playSounds);
+    FUN_00438ef8(param_1,local_c,4,local_8,(uint)DAT_006c6e48);
     local_c = local_c + 0x110;
   }
   local_c = param_1 + 0x51d0;
   for (local_8 = 0; local_8 < 3; local_8 = local_8 + 1) {
-    FUN_00438ef8(param_1,local_c,3,local_8,(uint)g_GameContext.cfg.musicMode);
+    FUN_00438ef8(param_1,local_c,3,local_8,(uint)DAT_006c6e47);
     local_c = local_c + 0x110;
   }
   local_c = param_1 + 0x4fb0;
@@ -45,47 +45,46 @@ undefined4 __fastcall FUN_00439137(int param_1)
     local_c = local_c + 0x110;
   }
   if (0x1f < *(int *)(param_1 + 0x81f4)) {
-    if ((((BUTTONS_PRESSED_CURFRAME & 0x40) != 0) &&
-        ((BUTTONS_PRESSED_CURFRAME & 0x40) != (BUTTONS_PRESSED_PREVFRAME & 0x40))) ||
-       (((BUTTONS_PRESSED_CURFRAME & 0x40) != 0 && (DAT_0069d90c != 0)))) {
+    if ((((DAT_0069d904 & 0x40) != 0) && ((DAT_0069d904 & 0x40) != (DAT_0069d908 & 0x40))) ||
+       (((DAT_0069d904 & 0x40) != 0 && (DAT_0069d90c != 0)))) {
       iVar1 = *(int *)(param_1 + 0x81a0);
       if (iVar1 == 0) {
         FUN_004311e0(0xc);
-        if (g_GameContext.cfg.lifeCount == 0) {
-          g_GameContext.cfg.lifeCount = 5;
+        if (DAT_006c6e44 == 0) {
+          DAT_006c6e44 = 5;
         }
-        g_GameContext.cfg.lifeCount = g_GameContext.cfg.lifeCount - 1;
+        DAT_006c6e44 = DAT_006c6e44 - 1;
       }
       else if (iVar1 == 1) {
         FUN_004311e0(0xc);
-        if (g_GameContext.cfg.bombCount == 0) {
-          g_GameContext.cfg.bombCount = 4;
+        if (DAT_006c6e45 == 0) {
+          DAT_006c6e45 = 4;
         }
-        g_GameContext.cfg.bombCount = g_GameContext.cfg.bombCount - 1;
+        DAT_006c6e45 = DAT_006c6e45 - 1;
       }
       else if (iVar1 == 2) {
         FUN_004311e0(0xc);
-        if (g_GameContext.cfg.colorMode16bit == 0) {
-          g_GameContext.cfg.colorMode16bit = 2;
+        if (DAT_006c6e46 == 0) {
+          DAT_006c6e46 = 2;
         }
-        g_GameContext.cfg.colorMode16bit = g_GameContext.cfg.colorMode16bit - 1;
+        DAT_006c6e46 = DAT_006c6e46 - 1;
       }
       else if (iVar1 == 3) {
         FUN_004311e0(0xc);
-        GameContext::FUN_00424d38(&g_GameContext);
-        if (g_GameContext.cfg.musicMode == OFF) {
-          g_GameContext.cfg.musicMode = WAV|MIDI;
+        GameContext::FUN_00424d38((GameContext *)&DAT_006c6d18);
+        if (DAT_006c6e47 == 0) {
+          DAT_006c6e47 = 3;
         }
-        g_GameContext.cfg.musicMode = g_GameContext.cfg.musicMode + ~OFF;
+        DAT_006c6e47 = DAT_006c6e47 - 1;
         FUN_00424b2f();
         FUN_00424b5d("bgm/th06_01.mid");
       }
       else if (iVar1 == 4) {
         FUN_004311e0(0xc);
-        if (g_GameContext.cfg.playSounds == 0) {
-          g_GameContext.cfg.playSounds = 2;
+        if (DAT_006c6e48 == 0) {
+          DAT_006c6e48 = 2;
         }
-        g_GameContext.cfg.playSounds = g_GameContext.cfg.playSounds - 1;
+        DAT_006c6e48 = DAT_006c6e48 - 1;
       }
       else if (iVar1 == 5) {
         FUN_004311e0(0xc);
@@ -95,51 +94,49 @@ undefined4 __fastcall FUN_00439137(int param_1)
         *(char *)(param_1 + 0x8231) = *(char *)(param_1 + 0x8231) + -1;
       }
     }
-    if (((BUTTONS_PRESSED_CURFRAME & 10) != 0) &&
-       ((BUTTONS_PRESSED_CURFRAME & 10) != (BUTTONS_PRESSED_PREVFRAME & 10))) {
+    if (((DAT_0069d904 & 10) != 0) && ((DAT_0069d904 & 10) != (DAT_0069d908 & 10))) {
       *(undefined4 *)(param_1 + 0x81a0) = 8;
       FUN_004311e0(0xb);
     }
-    if ((((BUTTONS_PRESSED_CURFRAME & 0x80) != 0) &&
-        ((BUTTONS_PRESSED_CURFRAME & 0x80) != (BUTTONS_PRESSED_PREVFRAME & 0x80))) ||
-       (((BUTTONS_PRESSED_CURFRAME & 0x80) != 0 && (DAT_0069d90c != 0)))) {
+    if ((((DAT_0069d904 & 0x80) != 0) && ((DAT_0069d904 & 0x80) != (DAT_0069d908 & 0x80))) ||
+       (((DAT_0069d904 & 0x80) != 0 && (DAT_0069d90c != 0)))) {
       iVar1 = *(int *)(param_1 + 0x81a0);
       if (iVar1 == 0) {
         FUN_004311e0(0xc);
-        g_GameContext.cfg.lifeCount = g_GameContext.cfg.lifeCount + 1;
-        if (4 < g_GameContext.cfg.lifeCount) {
-          g_GameContext.cfg.lifeCount = 0;
+        DAT_006c6e44 = DAT_006c6e44 + 1;
+        if (4 < DAT_006c6e44) {
+          DAT_006c6e44 = 0;
         }
       }
       else if (iVar1 == 1) {
         FUN_004311e0(0xc);
-        g_GameContext.cfg.bombCount = g_GameContext.cfg.bombCount + 1;
-        if (3 < g_GameContext.cfg.bombCount) {
-          g_GameContext.cfg.bombCount = 0;
+        DAT_006c6e45 = DAT_006c6e45 + 1;
+        if (3 < DAT_006c6e45) {
+          DAT_006c6e45 = 0;
         }
       }
       else if (iVar1 == 2) {
         FUN_004311e0(0xc);
-        g_GameContext.cfg.colorMode16bit = g_GameContext.cfg.colorMode16bit + 1;
-        if (1 < g_GameContext.cfg.colorMode16bit) {
-          g_GameContext.cfg.colorMode16bit = 0;
+        DAT_006c6e46 = DAT_006c6e46 + 1;
+        if (1 < DAT_006c6e46) {
+          DAT_006c6e46 = 0;
         }
       }
       else if (iVar1 == 3) {
         FUN_004311e0(0xc);
-        GameContext::FUN_00424d38(&g_GameContext);
-        g_GameContext.cfg.musicMode = g_GameContext.cfg.musicMode + WAV;
-        if (MIDI < g_GameContext.cfg.musicMode) {
-          g_GameContext.cfg.musicMode = OFF;
+        GameContext::FUN_00424d38((GameContext *)&DAT_006c6d18);
+        DAT_006c6e47 = DAT_006c6e47 + 1;
+        if (2 < DAT_006c6e47) {
+          DAT_006c6e47 = 0;
         }
         FUN_00424b2f();
         FUN_00424b5d("bgm/th06_01.mid");
       }
       else if (iVar1 == 4) {
         FUN_004311e0(0xc);
-        g_GameContext.cfg.playSounds = g_GameContext.cfg.playSounds + 1;
-        if (1 < g_GameContext.cfg.playSounds) {
-          g_GameContext.cfg.playSounds = 0;
+        DAT_006c6e48 = DAT_006c6e48 + 1;
+        if (1 < DAT_006c6e48) {
+          DAT_006c6e48 = 0;
         }
       }
       else if (iVar1 == 5) {
@@ -150,18 +147,17 @@ undefined4 __fastcall FUN_00439137(int param_1)
         }
       }
     }
-    if (((BUTTONS_PRESSED_CURFRAME & 0x1001) != 0) &&
-       ((BUTTONS_PRESSED_CURFRAME & 0x1001) != (BUTTONS_PRESSED_PREVFRAME & 0x1001))) {
+    if (((DAT_0069d904 & 0x1001) != 0) && ((DAT_0069d904 & 0x1001) != (DAT_0069d908 & 0x1001))) {
       iVar1 = *(int *)(param_1 + 0x81a0);
       if (iVar1 == 6) {
-        GameContext::FUN_00424d38(&g_GameContext);
-        g_GameContext.cfg.lifeCount = 2;
-        g_GameContext.cfg.bombCount = 3;
-        g_GameContext.cfg.musicMode = WAV;
-        g_GameContext.cfg.playSounds = 1;
-        g_GameContext.cfg.defaultDifficulty = 1;
-        g_GameContext.cfg.windowed = false;
-        g_GameContext.cfg.frameskipConfig = 0;
+        GameContext::FUN_00424d38((GameContext *)&DAT_006c6d18);
+        DAT_006c6e44 = 2;
+        DAT_006c6e45 = 3;
+        DAT_006c6e47 = 1;
+        DAT_006c6e48 = 1;
+        DAT_006c6e49 = 1;
+        DAT_006c6e4a = '\0';
+        DAT_006c6e4b = '\0';
         FUN_00424b2f();
         FUN_00424b5d("bgm/th06_01.mid");
       }
@@ -189,12 +185,12 @@ undefined4 __fastcall FUN_00439137(int param_1)
         }
         *(undefined4 *)(param_1 + 0x81a0) = 6;
         FUN_004311e0(0xb);
-        if (((*(byte *)(param_1 + 0x8230) != g_GameContext.cfg.colorMode16bit) ||
-            ((bool)*(char *)(param_1 + 0x8231) != g_GameContext.cfg.windowed)) ||
-           (*(byte *)(param_1 + 0x8232) != g_GameContext.cfg.frameskipConfig)) {
-          g_GameContext.cfg.windowed = (bool)*(undefined *)(param_1 + 0x8231);
-          g_GameContext.cfg.frameskipConfig = *(byte *)(param_1 + 0x8232);
-          g_GameContext.unkInput2 = 5;
+        if (((*(byte *)(param_1 + 0x8230) != DAT_006c6e46) ||
+            (*(char *)(param_1 + 0x8231) != DAT_006c6e4a)) ||
+           (*(char *)(param_1 + 0x8232) != DAT_006c6e4b)) {
+          DAT_006c6e4a = *(undefined *)(param_1 + 0x8231);
+          DAT_006c6e4b = *(undefined *)(param_1 + 0x8232);
+          DAT_006c6ea4 = 5;
           return 1;
         }
       }

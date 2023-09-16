@@ -10,7 +10,8 @@ undefined4 FUN_00429710(int param_1)
       FUN_00429820(param_1,*(undefined4 *)(param_1 + 0x75b0));
     }
     *(undefined4 *)(param_1 + 0x75a8) = *(undefined4 *)(param_1 + 0x75b0);
-    GameContext::FUN_00424285(&g_GameContext,(int *)(param_1 + 0x75b0),(float *)(param_1 + 0x75ac));
+    GameContext::FUN_00424285
+              ((GameContext *)&DAT_006c6d18,(int *)(param_1 + 0x75b0),(float *)(param_1 + 0x75ac));
     if (((0x1d < *(int *)(param_1 + 0x75b0)) || (*(char *)(param_1 + 0x9e0) == '\x02')) ||
        (*(char *)(param_1 + 0x9e0) == '\x01')) {
       *(undefined4 *)(param_1 + 0x75b0) = 0xffffffff;

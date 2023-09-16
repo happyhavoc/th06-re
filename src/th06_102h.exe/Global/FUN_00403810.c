@@ -69,7 +69,8 @@ switchD_00403892_caseD_6:
             if (*(int *)(param_1 + 0x2d0) < *(int *)(param_1 + 0x2c4)) {
               *(undefined4 *)(param_1 + 0x2c8) = *(undefined4 *)(param_1 + 0x2d0);
               GameContext::FUN_00424285
-                        (&g_GameContext,(int *)(param_1 + 0x2d0),(float *)(param_1 + 0x2cc));
+                        ((GameContext *)&DAT_006c6d18,(int *)(param_1 + 0x2d0),
+                         (float *)(param_1 + 0x2cc));
             }
             else {
               *(undefined4 *)(param_1 + 0x2d0) = *(undefined4 *)(param_1 + 0x2c4);
@@ -91,7 +92,8 @@ switchD_00403892_caseD_6:
           if (*(int *)(param_1 + 0x6c) != 0) {
             *(undefined4 *)(param_1 + 0x70) = *(undefined4 *)(param_1 + 0x78);
             GameContext::FUN_00424285
-                      (&g_GameContext,(int *)(param_1 + 0x78),(float *)(param_1 + 0x74));
+                      ((GameContext *)&DAT_006c6d18,(int *)(param_1 + 0x78),
+                       (float *)(param_1 + 0x74));
             local_20 = ((float)*(int *)(param_1 + 0x78) + *(float *)(param_1 + 0x74)) /
                        (float)*(int *)(param_1 + 0x6c);
             if (1.0 <= local_20) {
@@ -109,12 +111,9 @@ switchD_00403892_caseD_6:
             *(float *)(param_1 + 0x4c) =
                  (*(float *)(param_1 + 100) - *(float *)(param_1 + 0x58)) * local_20 +
                  *(float *)(param_1 + 0x58);
-            (*(g_GameContext.d3dDevice)->lpVtbl->SetRenderState)
-                      (g_GameContext.d3dDevice,D3DRS_FOGCOLOR,*(DWORD *)(param_1 + 0x50));
-            (*(g_GameContext.d3dDevice)->lpVtbl->SetRenderState)
-                      (g_GameContext.d3dDevice,D3DRS_FOGSTART,*(DWORD *)(param_1 + 0x48));
-            (*(g_GameContext.d3dDevice)->lpVtbl->SetRenderState)
-                      (g_GameContext.d3dDevice,D3DRS_FOGEND,*(DWORD *)(param_1 + 0x4c));
+            (**(code **)(*DAT_006c6d20 + 200))(DAT_006c6d20,0x22,*(undefined4 *)(param_1 + 0x50));
+            (**(code **)(*DAT_006c6d20 + 200))(DAT_006c6d20,0x24,*(undefined4 *)(param_1 + 0x48));
+            (**(code **)(*DAT_006c6d20 + 200))(DAT_006c6d20,0x25,*(undefined4 *)(param_1 + 0x4c));
             if (*(int *)(param_1 + 0x6c) <= *(int *)(param_1 + 0x78)) {
               *(undefined4 *)(param_1 + 0x6c) = 0;
             }
@@ -122,7 +121,8 @@ switchD_00403892_caseD_6:
           if (*(short *)(local_c + 1) != 5) {
             *(undefined4 *)(param_1 + 0x1c) = *(undefined4 *)(param_1 + 0x24);
             GameContext::FUN_00424285
-                      (&g_GameContext,(int *)(param_1 + 0x24),(float *)(param_1 + 0x20));
+                      ((GameContext *)&DAT_006c6d18,(int *)(param_1 + 0x24),
+                       (float *)(param_1 + 0x20));
           }
           FUN_00404860();
           if (*(int *)(param_1 + 0x80) < 1) {
@@ -132,7 +132,7 @@ switchD_00403892_caseD_6:
             *(int *)(param_1 + 0x80) = *(int *)(param_1 + 0x80) + 1;
           }
           *(int *)(param_1 + 0x84) = *(int *)(param_1 + 0x84) + 1;
-          AnmManager::FUN_00433960(g_AnmManager,(AnmVm *)(param_1 + 0x88));
+          AnmManager::FUN_00433960(DAT_006d4588,(AnmVm *)(param_1 + 0x88));
           return 1;
         case 1:
           if (*(int *)(param_1 + 0x24) < *local_c) goto switchD_00403892_caseD_6;
@@ -140,12 +140,9 @@ switchD_00403892_caseD_6:
           *(int *)(param_1 + 0x48) = local_c[3];
           *(int *)(param_1 + 0x4c) = local_c[4];
           if (*(int *)(param_1 + 0x6c) == 0) {
-            (*(g_GameContext.d3dDevice)->lpVtbl->SetRenderState)
-                      (g_GameContext.d3dDevice,D3DRS_FOGCOLOR,*(DWORD *)(param_1 + 0x50));
-            (*(g_GameContext.d3dDevice)->lpVtbl->SetRenderState)
-                      (g_GameContext.d3dDevice,D3DRS_FOGSTART,*(DWORD *)(param_1 + 0x48));
-            (*(g_GameContext.d3dDevice)->lpVtbl->SetRenderState)
-                      (g_GameContext.d3dDevice,D3DRS_FOGEND,*(DWORD *)(param_1 + 0x4c));
+            (**(code **)(*DAT_006c6d20 + 200))(DAT_006c6d20,0x22,*(undefined4 *)(param_1 + 0x50));
+            (**(code **)(*DAT_006c6d20 + 200))(DAT_006c6d20,0x24,*(undefined4 *)(param_1 + 0x48));
+            (**(code **)(*DAT_006c6d20 + 200))(DAT_006c6d20,0x25,*(undefined4 *)(param_1 + 0x4c));
           }
           *(int *)(param_1 + 0x28) = *(int *)(param_1 + 0x28) + 1;
           *(undefined4 *)(param_1 + 0x60) = *(undefined4 *)(param_1 + 0x48);

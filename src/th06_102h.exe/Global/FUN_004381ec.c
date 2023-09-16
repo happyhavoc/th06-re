@@ -30,7 +30,7 @@ void __fastcall FUN_004381ec(int param_1)
           sprintf(local_5c,"./replay/th6_%.2d.rpy",local_c + 1);
           local_18 = (undefined4 *)OpenPath(local_5c,1);
           if (local_18 != (undefined4 *)0x0) {
-            iVar1 = FUN_0042a140(local_18,g_FileSize);
+            iVar1 = FUN_0042a140(local_18,DAT_0069d914);
             if (iVar1 == 0) {
               puVar4 = local_18;
               puVar5 = (undefined4 *)(param_1 + 0xfc1c + local_14 * 0x50);
@@ -53,7 +53,7 @@ void __fastcall FUN_004381ec(int param_1)
           for (local_c = 0; local_c < 0x2d; local_c = local_c + 1) {
             local_18 = (undefined4 *)OpenPath(local_19c.cFileName,1);
             if (local_18 != (undefined4 *)0x0) {
-              iVar1 = FUN_0042a140(local_18,g_FileSize);
+              iVar1 = FUN_0042a140(local_18,DAT_0069d914);
               if (iVar1 == 0) {
                 puVar4 = local_18;
                 puVar5 = (undefined4 *)(param_1 + 0xfc1c + local_14 * 0x50);
@@ -88,8 +88,9 @@ void __fastcall FUN_004381ec(int param_1)
         *(undefined4 *)(param_1 + 0x81a0) = 0;
       }
       else {
-        GameErrorContextLog(&g_GameErrorContext,"セレクト画面の読み込みに失敗\n");
-        g_GameContext.unkInput2 = 4;
+        GameErrorContextLog((GameErrorContext *)&DAT_0069d998,
+                            "セレクト画面の読み込みに失敗\n");
+        DAT_006c6ea4 = 4;
       }
     }
   }
@@ -98,8 +99,8 @@ void __fastcall FUN_004381ec(int param_1)
       if (*(int *)(param_1 + 0x81ec) != 0) {
         FUN_0043753c(param_1,*(undefined4 *)(param_1 + 0x81ec));
         *(undefined4 *)(param_1 + 0x81e8) = *(undefined4 *)(param_1 + 0x81a0);
-        if (((BUTTONS_PRESSED_CURFRAME & 0x1001) != 0) &&
-           ((BUTTONS_PRESSED_CURFRAME & 0x1001) != (BUTTONS_PRESSED_PREVFRAME & 0x1001))) {
+        if (((DAT_0069d904 & 0x1001) != 0) && ((DAT_0069d904 & 0x1001) != (DAT_0069d908 & 0x1001)))
+        {
           *(undefined4 *)(param_1 + 0x81f0) = 0xf;
           local_8 = param_1 + 0x6710;
           for (local_c = 0; local_c < 0x19; local_c = local_c + 1) {
@@ -113,7 +114,7 @@ void __fastcall FUN_004381ec(int param_1)
           FUN_004311e0(10);
           pbVar3 = OpenPath(param_1 + 0x823c + *(int *)(param_1 + 0x81e8) * 0x200,1);
           *(byte **)(param_1 + 0x10edc) = pbVar3;
-          FUN_0042a140(*(undefined4 *)(param_1 + 0x10edc),g_FileSize);
+          FUN_0042a140(*(undefined4 *)(param_1 + 0x10edc),DAT_0069d914);
           for (local_c = 0; local_c < 7; local_c = local_c + 1) {
             if (*(int *)(*(int *)(param_1 + 0x10edc) + 0x34 + local_c * 4) != 0) {
               *(int *)(*(int *)(param_1 + 0x10edc) + 0x34 + local_c * 4) =
@@ -130,8 +131,7 @@ void __fastcall FUN_004381ec(int param_1)
         }
       }
 LAB_0043877b:
-      if (((BUTTONS_PRESSED_CURFRAME & 10) != 0) &&
-         ((BUTTONS_PRESSED_CURFRAME & 10) != (BUTTONS_PRESSED_PREVFRAME & 10))) {
+      if (((DAT_0069d904 & 10) != 0) && ((DAT_0069d904 & 10) != (DAT_0069d908 & 10))) {
         *(undefined4 *)(param_1 + 0x81f0) = 0xe;
         *(undefined4 *)(param_1 + 0x81f4) = 0;
         for (local_c = 0; local_c < 0x7a; local_c = local_c + 1) {
@@ -168,11 +168,9 @@ LAB_0043877b:
         }
       }
     }
-    if ((((BUTTONS_PRESSED_CURFRAME & 0x1001) == 0) ||
-        ((BUTTONS_PRESSED_CURFRAME & 0x1001) == (BUTTONS_PRESSED_PREVFRAME & 0x1001))) ||
+    if ((((DAT_0069d904 & 0x1001) == 0) || ((DAT_0069d904 & 0x1001) == (DAT_0069d908 & 0x1001))) ||
        (*(int *)(param_1 + 0x10edc) + 0x34 + *(int *)(param_1 + 0x81a0) * 0x50 == 0)) {
-      if (((BUTTONS_PRESSED_CURFRAME & 10) != 0) &&
-         ((BUTTONS_PRESSED_CURFRAME & 10) != (BUTTONS_PRESSED_PREVFRAME & 10))) {
+      if (((DAT_0069d904 & 10) != 0) && ((DAT_0069d904 & 10) != (DAT_0069d908 & 10))) {
         _free(*(void **)(param_1 + 0x10edc));
         *(undefined4 *)(param_1 + 0x10edc) = 0;
         *(undefined4 *)(param_1 + 0x81f0) = 0xd;
@@ -192,20 +190,21 @@ LAB_0043877b:
     }
     else {
       _DAT_0069bcbc = 1;
-      g_GameContext.framerateMultiplier = 1.0;
+      DAT_006c6ec4 = 0x3f800000;
       _strcpy(&DAT_0069d4cc,(char *)(param_1 + 0x823c + *(int *)(param_1 + 0x81e8) * 0x200));
-      CUR_RANK = (int)*(byte *)(*(int *)(param_1 + 0x10edc) + 7);
+      _DAT_0069bcb0 = (uint)*(byte *)(*(int *)(param_1 + 0x10edc) + 7);
       DAT_0069d4bd = *(byte *)(*(int *)(param_1 + 0x10edc) + 6) / 2;
       DAT_0069d4be = *(byte *)(*(int *)(param_1 + 0x10edc) + 6) % 2;
       for (local_c = 0; *(int *)(*(int *)(param_1 + 0x10edc) + 0x34 + local_c * 4) == 0;
           local_c = local_c + 1) {
       }
-      LIFE_COUNT = *(undefined *)(*(int *)(*(int *)(param_1 + 0x10edc) + 0x34 + local_c * 4) + 9);
-      BOMB_COUNT = *(undefined *)(*(int *)(*(int *)(param_1 + 0x10edc) + 0x34 + local_c * 4) + 10);
+      DAT_0069d4ba = *(undefined *)(*(int *)(*(int *)(param_1 + 0x10edc) + 0x34 + local_c * 4) + 9);
+      DAT_0069d4bb = *(undefined *)(*(int *)(*(int *)(param_1 + 0x10edc) + 0x34 + local_c * 4) + 10)
+      ;
       _free(*(void **)(param_1 + 0x10edc));
       *(undefined4 *)(param_1 + 0x10edc) = 0;
-      CUR_STAGE = *(undefined4 *)(param_1 + 0x81a0);
-      g_GameContext.unkInput2 = 2;
+      DAT_0069d6d4 = *(undefined4 *)(param_1 + 0x81a0);
+      DAT_006c6ea4 = 2;
     }
   }
 LAB_00438bb2:

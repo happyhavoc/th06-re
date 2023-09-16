@@ -33,13 +33,12 @@ void FUN_0042e446(int param_1)
   
   local_18 = __security_cookie ^ unaff_retaddr;
   local_28 = (AnmVm *)(param_1 + 0x40);
-  g_GameContext.viewport.X = 0;
-  g_GameContext.viewport.Y = 0;
-  g_GameContext.viewport.Width = 0x280;
-  g_GameContext.viewport.Height = 0x1e0;
-  (*(g_GameContext.d3dDevice)->lpVtbl->SetViewport)(g_GameContext.d3dDevice,&g_GameContext.viewport)
-  ;
-  AnmManager::FUN_00435300(g_AnmManager,0,0,0,0,0);
+  _DAT_006c6de0 = 0;
+  DAT_006c6de4 = 0;
+  DAT_006c6de8 = 0x280;
+  DAT_006c6dec = 0x1e0;
+  (**(code **)(*DAT_006c6d20 + 0xa0))(DAT_006c6d20,&DAT_006c6de0);
+  AnmManager::FUN_00435300(DAT_006d4588,0,0,0,0,0);
   for (local_14 = 0; local_14 < 0x26; local_14 = local_14 + 1) {
     local_40 = (local_28->pos).x;
     local_3c = (local_28->pos).y;
@@ -47,7 +46,7 @@ void FUN_0042e446(int param_1)
     (local_28->pos).x = (local_28->pos).x + (local_28->pos2).x;
     (local_28->pos).y = (local_28->pos).y + (local_28->pos2).y;
     (local_28->pos).z = (local_28->pos).z + (local_28->pos2).z;
-    AnmManager::FUN_00432ad0(g_AnmManager,local_28);
+    AnmManager::FUN_00432ad0(DAT_006d4588,local_28);
     (local_28->pos).x = local_40;
     (local_28->pos).y = local_3c;
     (local_28->pos).z = fStack_38;
@@ -67,18 +66,18 @@ void FUN_0042e446(int param_1)
         pfVar1[1] = local_3c;
         pfVar1[2] = fStack_38;
         if (*(short *)(&DAT_0069bd0c + local_44 * 0x40) == 0) {
-          _DAT_00481b24 = -0x7f3f3f01;
+          g_AsciiManager.color = 0x80c0c0ff;
         }
         else if (*(short *)(&DAT_0069bd0e + local_44 * 0x40) == 0) {
-          _DAT_00481b24 = -0x3f5f60;
+          g_AsciiManager.color = 0xffc0a0a0;
         }
         else {
-          _DAT_00481b24 = local_14 * -0x80800 + -0xf0f01;
+          g_AsciiManager.color = local_14 * -0x80800 - 0xf0f01;
         }
         FUN_00401650(0x47b900,&local_40,"No.%.2d",local_44 + 1);
         pfVar1 = (float *)(param_1 + 0x2930 + local_14 * 0x110);
         *pfVar1 = *pfVar1 + 96.0;
-        AnmManager::FUN_00432ad0(g_AnmManager,(AnmVm *)(param_1 + 0x28a0 + local_14 * 0x110));
+        AnmManager::FUN_00432ad0(DAT_006d4588,(AnmVm *)(param_1 + 0x28a0 + local_14 * 0x110));
         local_40 = local_40 + 368.0;
         FUN_00401650(0x47b900,&local_40,"%3d/%3d",(uint)*(ushort *)(&DAT_0069bd0e + local_44 * 0x40)
                      ,(uint)*(ushort *)(&DAT_0069bd0c + local_44 * 0x40));
@@ -93,12 +92,12 @@ void FUN_0042e446(int param_1)
       *(float *)(param_1 + 0x2930) = local_40;
       *(float *)(param_1 + 0x2934) = local_3c;
       *(float *)(param_1 + 0x2938) = fStack_38;
-      AnmManager::FUN_00432ad0(g_AnmManager,(AnmVm *)(param_1 + 0x28a0));
+      AnmManager::FUN_00432ad0(DAT_006d4588,(AnmVm *)(param_1 + 0x28a0));
       local_40 = local_40 + 320.0;
       *(float *)(param_1 + 0x2a40) = local_40;
       *(float *)(param_1 + 0x2a44) = local_3c;
       *(float *)(param_1 + 0x2a48) = fStack_38;
-      AnmManager::FUN_00432ad0(g_AnmManager,(AnmVm *)(param_1 + 0x29b0));
+      AnmManager::FUN_00432ad0(DAT_006d4588,(AnmVm *)(param_1 + 0x29b0));
       local_40 = local_40 - 320.0;
       local_3c = local_3c + 18.0;
       local_2c = *(int *)(param_1 + *(int *)(param_1 + 0x2c) * 0x30 + 0x3ab4 +
@@ -109,10 +108,10 @@ void FUN_0042e446(int param_1)
         if (*(int *)(param_1 + 8) == 9) {
           if (DAT_0069d4be == 0) {
             if (*(char *)(*(int *)(local_2c + 8) + 9) == '\0') {
-              _DAT_00481b24 = 0x80ffffc0;
+              g_AsciiManager.color = 0x80ffffc0;
             }
             else {
-              _DAT_00481b24 = 0xfff0f0ff;
+              g_AsciiManager.color = 0xfff0f0ff;
               local_24 = 0x20202020;
               local_20 = 0x20202020;
               local_1c = 0;
@@ -127,11 +126,11 @@ void FUN_0042e446(int param_1)
             }
           }
           else {
-            _DAT_00481b24 = 0x80ffc0c0;
+            g_AsciiManager.color = 0x80ffc0c0;
           }
         }
         else {
-          _DAT_00481b24 = 0xffffc0c0;
+          g_AsciiManager.color = 0xffffc0c0;
         }
         FUN_00401650(0x47b900,&local_40,(char *)&PTR_DAT_0046bdd0,local_14 + 1);
         local_40 = local_40 + 36.0;
@@ -152,10 +151,10 @@ void FUN_0042e446(int param_1)
         if (*(int *)(param_1 + 8) == 9) {
           if (DAT_0069d4be == 1) {
             if (*(char *)(*(int *)(local_34 + 8) + 9) == '\0') {
-              _DAT_00481b24 = -0x3f3f3f01;
+              g_AsciiManager.color = 0xc0c0c0ff;
             }
             else {
-              _DAT_00481b24 = -0xf10;
+              g_AsciiManager.color = 0xfffff0f0;
               local_24 = 0x20202020;
               local_20 = 0x20202020;
               local_1c = 0;
@@ -170,11 +169,11 @@ void FUN_0042e446(int param_1)
             }
           }
           else {
-            _DAT_00481b24 = -0x7f3f3f01;
+            g_AsciiManager.color = 0x80c0c0ff;
           }
         }
         else {
-          _DAT_00481b24 = -0x3f3f01;
+          g_AsciiManager.color = 0xffc0c0ff;
         }
         if (*(byte *)(*(int *)(local_34 + 8) + 0x12) < 7) {
           FUN_00401650(0x47b900,&local_40,"%8s %9d(%d)",*(int *)(local_34 + 8) + 0x13,
@@ -203,19 +202,19 @@ void FUN_0042e446(int param_1)
       for (local_30 = 0; local_30 < 0x10; local_30 = local_30 + 1) {
         local_48 = 0.0;
         if (*(int *)(param_1 + 0x20) == local_14 * 0x10 + local_30) {
-          _DAT_00481b24 = -0x40;
+          g_AsciiManager.color = 0xffffffc0;
           if (*(int *)(param_1 + 4) % 0x40 < 0x20) {
             local_48 = ((float)(*(int *)(param_1 + 4) % 0x20) * 0.8) / 32.0 + 1.2;
           }
           else {
             local_48 = 2.0 - ((float)(*(int *)(param_1 + 4) % 0x20) * 0.8) / 32.0;
           }
-          _DAT_00481b2c = local_48;
+          g_AsciiManager.scale.y = local_48;
           local_48 = -(local_48 - 1.0) * 8.0;
         }
         else {
-          _DAT_00481b24 = 0x60c0c0c0;
-          _DAT_00481b2c = 1.0;
+          g_AsciiManager.color = 0x60c0c0c0;
+          g_AsciiManager.scale.y = 1.0;
         }
         fStack_8 = fStack_38;
         local_10 = local_40 + local_48;
@@ -230,7 +229,7 @@ void FUN_0042e446(int param_1)
             local_5c = -0x7f;
           }
         }
-        _DAT_00481b28 = _DAT_00481b2c;
+        g_AsciiManager.scale.x = g_AsciiManager.scale.y;
         local_4c = local_48;
         FUN_00401530(0x47b900,&local_10,&local_5c);
         local_40 = local_40 + 20.0;
@@ -239,12 +238,12 @@ void FUN_0042e446(int param_1)
       local_3c = local_3c + 18.0;
     }
   }
-  _DAT_00481b28 = 1.0;
-  _DAT_00481b2c = 1.0;
+  g_AsciiManager.scale.x = 1.0;
+  g_AsciiManager.scale.y = 1.0;
   if ((9 < *(int *)(param_1 + 8)) && (*(int *)(param_1 + 8) < 0xf)) {
     local_28 = (AnmVm *)(param_1 + 0x1030);
     for (local_14 = 0; local_14 < 6; local_14 = local_14 + 1) {
-      AnmManager::FUN_00432ad0(g_AnmManager,local_28);
+      AnmManager::FUN_00432ad0(DAT_006d4588,local_28);
       local_28 = local_28 + 1;
     }
     local_40 = *(float *)(param_1 + 0x1720);
@@ -258,17 +257,17 @@ void FUN_0042e446(int param_1)
       fStack_38 = *(float *)((int)local_28 + 0x98);
       local_28 = (AnmVm *)((int)local_28 + 0x110);
       if (local_14 == *(int *)(param_1 + 0x1c)) {
-        _DAT_00481b24 = 0xffff8080;
+        g_AsciiManager.color = 0xffff8080;
       }
       else {
-        _DAT_00481b24 = 0xff808080;
+        g_AsciiManager.color = 0xff808080;
       }
       if (*(int *)(param_1 + 8) == 0xd) {
         FUN_00401650(0x47b900,&local_40,"No.%.2d %8s %8s %7s %9d",local_14 + 1,param_1 + 0x34,
                      param_1 + 0x5670,
                      (&PTR_s_ReimuA_00478518)[(uint)DAT_0069d4be + (uint)DAT_0069d4bd * 2],
                      *(undefined4 *)(param_1 + 0x5684));
-        _DAT_00481b24 = 0xfff0f0ff;
+        g_AsciiManager.color = 0xfff0f0ff;
         local_24 = 0x20202020;
         local_20 = 0x20202020;
         local_1c = 0;
@@ -293,7 +292,7 @@ void FUN_0042e446(int param_1)
       }
     }
   }
-  _DAT_00481b24 = 0xffffffff;
+  g_AsciiManager.color = 0xffffffff;
   FUN_0042d35a();
   __security_check_cookie(local_18 ^ unaff_retaddr);
   return;

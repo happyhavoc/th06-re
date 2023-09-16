@@ -1,4 +1,6 @@
 
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
 undefined4 FUN_00437b41(void)
 
 {
@@ -20,8 +22,7 @@ undefined4 FUN_00437b41(void)
     local_c = local_c + 0x110;
   }
   if (0x13 < *(int *)(in_ECX + 0x81f4)) {
-    if (((BUTTONS_PRESSED_CURFRAME & 0x1001) != 0) &&
-       ((BUTTONS_PRESSED_CURFRAME & 0x1001) != (BUTTONS_PRESSED_PREVFRAME & 0x1001))) {
+    if (((DAT_0069d904 & 0x1001) != 0) && ((DAT_0069d904 & 0x1001) != (DAT_0069d908 & 0x1001))) {
       switch(*(undefined4 *)(in_ECX + 0x81a0)) {
       case 0:
         for (local_8 = 0; local_8 < 0x7a; local_8 = local_8 + 1) {
@@ -29,11 +30,11 @@ undefined4 FUN_00437b41(void)
         }
         *(undefined4 *)(in_ECX + 0x81f0) = 6;
         DAT_0069d4c3 = 0;
-        if (3 < CUR_RANK) {
-          CUR_RANK = 1;
+        if (3 < _DAT_0069bcb0) {
+          _DAT_0069bcb0 = 1;
         }
-        if (3 < g_GameContext.cfg.defaultDifficulty) {
-          g_GameContext.cfg.defaultDifficulty = 1;
+        if (3 < DAT_006c6e49) {
+          DAT_006c6e49 = 1;
         }
         *(undefined4 *)(in_ECX + 0x81f4) = 0;
         *(undefined4 *)(in_ECX + 0x81fc) = 0x40000000;
@@ -54,7 +55,7 @@ undefined4 FUN_00437b41(void)
           }
           *(undefined4 *)(in_ECX + 0x81f0) = 6;
           DAT_0069d4c3 = 0;
-          CUR_RANK = 4;
+          _DAT_0069bcb0 = 4;
           *(undefined4 *)(in_ECX + 0x81f4) = 0;
           *(undefined4 *)(in_ECX + 0x81fc) = 0x40000000;
           *(undefined4 *)(in_ECX + 0x8200) = 0xff000000;
@@ -69,11 +70,11 @@ undefined4 FUN_00437b41(void)
           *(undefined2 *)(in_ECX + 0x8a + local_8 * 0x110) = 4;
         }
         *(undefined4 *)(in_ECX + 0x81f0) = 6;
-        if (3 < CUR_RANK) {
-          CUR_RANK = 1;
+        if (3 < _DAT_0069bcb0) {
+          _DAT_0069bcb0 = 1;
         }
-        if (3 < g_GameContext.cfg.defaultDifficulty) {
-          g_GameContext.cfg.defaultDifficulty = 1;
+        if (3 < DAT_006c6e49) {
+          DAT_006c6e49 = 1;
         }
         *(undefined4 *)(in_ECX + 0x81f4) = 0;
         *(undefined4 *)(in_ECX + 0x81fc) = 0x40000000;
@@ -122,9 +123,9 @@ undefined4 FUN_00437b41(void)
           *(undefined2 *)(in_ECX + 0x8a + local_8 * 0x110) = 3;
         }
         *(undefined4 *)(in_ECX + 0x81a0) = 0;
-        *(byte *)(in_ECX + 0x8230) = g_GameContext.cfg.colorMode16bit;
-        *(bool *)(in_ECX + 0x8231) = g_GameContext.cfg.windowed;
-        *(byte *)(in_ECX + 0x8232) = g_GameContext.cfg.frameskipConfig;
+        *(undefined *)(in_ECX + 0x8230) = DAT_006c6e46;
+        *(undefined *)(in_ECX + 0x8231) = DAT_006c6e4a;
+        *(undefined *)(in_ECX + 0x8232) = DAT_006c6e4b;
         FUN_004311e0(10);
         break;
       case 7:
@@ -136,8 +137,7 @@ undefined4 FUN_00437b41(void)
         FUN_004311e0(0xb);
       }
     }
-    if (((BUTTONS_PRESSED_CURFRAME & 0x200) != 0) &&
-       ((BUTTONS_PRESSED_CURFRAME & 0x200) != (BUTTONS_PRESSED_PREVFRAME & 0x200))) {
+    if (((DAT_0069d904 & 0x200) != 0) && ((DAT_0069d904 & 0x200) != (DAT_0069d908 & 0x200))) {
       *(undefined4 *)(in_ECX + 0x81f0) = 4;
       *(undefined4 *)(in_ECX + 0x81f4) = 0;
       for (local_8 = 0; local_8 < 0x7a; local_8 = local_8 + 1) {
@@ -145,8 +145,7 @@ undefined4 FUN_00437b41(void)
       }
       FUN_004311e0(0xb);
     }
-    if (((BUTTONS_PRESSED_CURFRAME & 10) != 0) &&
-       ((BUTTONS_PRESSED_CURFRAME & 10) != (BUTTONS_PRESSED_PREVFRAME & 10))) {
+    if (((DAT_0069d904 & 10) != 0) && ((DAT_0069d904 & 10) != (DAT_0069d908 & 10))) {
       *(undefined4 *)(in_ECX + 0x81a0) = 7;
       FUN_004311e0(0xb);
     }

@@ -1,6 +1,7 @@
 
 /* WARNING: Removing unreachable block (ram,0x0040c27a) */
 /* WARNING: Removing unreachable block (ram,0x0040c464) */
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
 
 void FUN_0040c180(int param_1,int param_2)
 
@@ -21,7 +22,7 @@ void FUN_0040c180(int param_1,int param_2)
   else {
     local_10 = 0xe;
     local_18 = (AnmVm *)&DAT_005ab5f8;
-    if (CUR_RANK < 2) {
+    if (_DAT_0069bcb0 < 2) {
       for (local_14 = 0; local_14 < 0x280; local_14 = local_14 + 1) {
         if (((*(short *)((int)&local_18[5].matrix.field0_0x0 + 0x32) != 0) &&
             (*(short *)((int)&local_18[5].matrix.field0_0x0 + 0x32) != 5)) &&
@@ -31,7 +32,7 @@ void FUN_0040c180(int param_1,int param_2)
              (uVar3 = FUN_0041e780(&DAT_0069d8f8), (uVar3 & 3) == 0)))))) {
           *(undefined2 *)((int)&local_18[5].matrix.field0_0x0 + 0x2e) = 5;
           AnmManager::FUN_004323a0
-                    (g_AnmManager,local_18,
+                    (DAT_006d4588,local_18,
                      (int)local_18->anotherSpriteNumber +
                      (int)*(short *)((int)&local_18[5].matrix.field0_0x0 + 0x2e));
           fVar1 = local_18[5].angleVel.y - DAT_006caa68;
@@ -71,7 +72,7 @@ void FUN_0040c180(int param_1,int param_2)
             (uVar3 = FUN_0041e780(&DAT_0069d8f8), (uVar3 & 3) == 0)))) {
           *(undefined2 *)((int)&local_18[5].matrix.field0_0x0 + 0x2e) = 5;
           AnmManager::FUN_004323a0
-                    (g_AnmManager,local_18,
+                    (DAT_006d4588,local_18,
                      (int)local_18->anotherSpriteNumber +
                      (int)*(short *)((int)&local_18[5].matrix.field0_0x0 + 0x2e));
           fVar1 = local_18[5].angleVel.y - DAT_006caa68;

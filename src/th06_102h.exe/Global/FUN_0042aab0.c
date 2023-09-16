@@ -12,7 +12,7 @@ void FUN_0042aab0(void)
     puVar1[0x12] = puVar1[0x12] + 8;
     *(undefined4 *)puVar1[0x12] = 9999999;
     *(undefined2 *)(puVar1[0x12] + 4) = 0;
-    puVar1[CUR_STAGE + 0x12] = puVar1[0x12] + 8;
+    puVar1[DAT_0069d6d4 + 0x12] = puVar1[0x12] + 8;
   }
   return;
 }

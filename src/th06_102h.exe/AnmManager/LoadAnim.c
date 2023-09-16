@@ -24,7 +24,7 @@ undefined4 __thiscall AnmManager::LoadAnim(AnmManager *this,int param_2,char *pa
   anim_data = this->anmFiles[param_2];
   if (anim_data == (AnmRawEntry *)0x0) {
     GameErrorContextFatal
-              (&g_GameErrorContext,
+              ((GameErrorContext *)&DAT_0069d998,
                "スプライトアニメ %s が読み込めません。データが失われてるか壊れています\n"
                ,path);
     uVar1 = 0xffffffff;
@@ -39,7 +39,7 @@ undefined4 __thiscall AnmManager::LoadAnim(AnmManager *this,int param_2,char *pa
       iVar2 = FUN_00431920(anim_data->textureIdx,local_c,anim_data->format,anim_data->color_key);
       if (iVar2 != 0) {
         GameErrorContextFatal
-                  (&g_GameErrorContext,
+                  ((GameErrorContext *)&DAT_0069d998,
                    "テクスチャ %s が読み込めません。データが失われてるか壊れています\n"
                    ,local_c);
         return 0xffffffff;
@@ -50,8 +50,8 @@ undefined4 __thiscall AnmManager::LoadAnim(AnmManager *this,int param_2,char *pa
       iVar2 = Unknown(this,anim_data->textureIdx,local_c,anim_data->format,anim_data->color_key);
       if (iVar2 != 0) {
         GameErrorContextFatal
-                  (&g_GameErrorContext,
-                   "テクスチャ %s が読み込めません。データが失われてるか壊れています\n"
+                  ((GameErrorContext *)&DAT_0069d998,
+                   "テクスチャ %s が読み込���ません。データが失われてるか壊れています\n"
                    ,local_c);
         return 0xffffffff;
       }

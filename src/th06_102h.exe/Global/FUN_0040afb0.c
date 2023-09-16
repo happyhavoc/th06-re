@@ -97,7 +97,7 @@ int * FUN_0040afb0(int param_1,int *param_2,undefined4 *param_3)
     if (param_3 != (undefined4 *)0x0) {
       *param_3 = 2;
     }
-    param_2 = &CUR_RANK;
+    param_2 = (int *)&DAT_0069bcb0;
     break;
   case -0x271c:
     if (param_3 != (undefined4 *)0x0) {

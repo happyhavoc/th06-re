@@ -16,7 +16,8 @@ bool FUN_0042f800(int param_1)
   bVar1 = *(int *)(param_1 + 0x2c) < *(int *)(param_1 + 0x14);
   if (bVar1) {
     *(undefined4 *)(param_1 + 0x24) = *(undefined4 *)(param_1 + 0x2c);
-    GameContext::FUN_00424285(&g_GameContext,(int *)(param_1 + 0x2c),(float *)(param_1 + 0x28));
+    GameContext::FUN_00424285
+              ((GameContext *)&DAT_006c6d18,(int *)(param_1 + 0x2c),(float *)(param_1 + 0x28));
   }
   return bVar1;
 }

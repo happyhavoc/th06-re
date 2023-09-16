@@ -16,8 +16,7 @@ void __fastcall FUN_00424ead(int param_1)
   
   local_10 = __security_cookie ^ unaff_retaddr;
   local_8 = *(undefined4 *)(param_1 + 0x18);
-  if (((BUTTONS_PRESSED_CURFRAME & 0x10) != 0) &&
-     ((BUTTONS_PRESSED_CURFRAME & 0x10) != (BUTTONS_PRESSED_PREVFRAME & 0x10))) {
+  if (((DAT_0069d904 & 0x10) != 0) && ((DAT_0069d904 & 0x10) != (DAT_0069d908 & 0x10))) {
     *(int *)(param_1 + 0x10) = *(int *)(param_1 + 0x10) + -1;
     if (*(int *)(param_1 + 0x10) < 0) {
       *(int *)(param_1 + 0x10) = *(int *)(param_1 + 0x1c) + -1;
@@ -27,8 +26,7 @@ void __fastcall FUN_00424ead(int param_1)
       *(undefined4 *)(param_1 + 0x18) = *(undefined4 *)(param_1 + 0x10);
     }
   }
-  if (((BUTTONS_PRESSED_CURFRAME & 0x20) != 0) &&
-     ((BUTTONS_PRESSED_CURFRAME & 0x20) != (BUTTONS_PRESSED_PREVFRAME & 0x20))) {
+  if (((DAT_0069d904 & 0x20) != 0) && ((DAT_0069d904 & 0x20) != (DAT_0069d908 & 0x20))) {
     *(int *)(param_1 + 0x10) = *(int *)(param_1 + 0x10) + 1;
     if (*(int *)(param_1 + 0x10) < *(int *)(param_1 + 0x1c)) {
       if (*(int *)(param_1 + 0x18) <= *(int *)(param_1 + 0x10) + -10) {
@@ -40,8 +38,7 @@ void __fastcall FUN_00424ead(int param_1)
       *(undefined4 *)(param_1 + 0x18) = 0;
     }
   }
-  if (((BUTTONS_PRESSED_CURFRAME & 0x1001) != 0) &&
-     ((BUTTONS_PRESSED_CURFRAME & 0x1001) != (BUTTONS_PRESSED_PREVFRAME & 0x1001))) {
+  if (((DAT_0069d904 & 0x1001) != 0) && ((DAT_0069d904 & 0x1001) != (DAT_0069d908 & 0x1001))) {
     *(undefined4 *)(param_1 + 0x14) = *(undefined4 *)(param_1 + 0x10);
     FUN_00424b5d((char *)(*(int *)(param_1 + 0x14) * 0x272 + *(int *)(param_1 + 0x20)));
     for (local_c = 0; local_c < 0x10; local_c = local_c + 1) {
@@ -79,7 +76,7 @@ LAB_0042508a:
       else {
         *(uint *)(param_1 + 0x23b4 + local_c * 0x110) =
              *(uint *)(param_1 + 0x23b4 + local_c * 0x110) | 2;
-        FUN_00434b60(g_AnmManager,param_1 + 0x2334 + local_c * 0x110,0xffe0c0,0x300000,local_54);
+        FUN_00434b60(DAT_006d4588,param_1 + 0x2334 + local_c * 0x110,0xffe0c0,0x300000,local_54);
       }
       *(float *)(param_1 + 0x23c4 + local_c * 0x110) = (float)(local_c % 2) * 248.0 + 96.0;
       *(float *)(param_1 + 0x23c8 + local_c * 0x110) = (float)(local_c / 2 << 4) + 320.0;
@@ -88,9 +85,8 @@ LAB_0042508a:
            *(uint *)(param_1 + 0x23b4 + local_c * 0x110) | 0x300;
     }
   }
-  if (((BUTTONS_PRESSED_CURFRAME & 10) != 0) &&
-     ((BUTTONS_PRESSED_CURFRAME & 10) != (BUTTONS_PRESSED_PREVFRAME & 10))) {
-    g_GameContext.unkInput2 = 1;
+  if (((DAT_0069d904 & 10) != 0) && ((DAT_0069d904 & 10) != (DAT_0069d908 & 10))) {
+    DAT_006c6ea4 = 1;
   }
   __security_check_cookie(local_10 ^ unaff_retaddr);
   return;

@@ -2,10 +2,10 @@
 undefined4 FUN_0042aa20(int param_1)
 
 {
-  Chain::Cut(&g_Chain,*(ChainElem **)(param_1 + 0x6c));
+  Chain::Cut((Chain *)&DAT_0069d918,*(ChainElem **)(param_1 + 0x6c));
   *(undefined4 *)(param_1 + 0x6c) = 0;
   if (*(int *)(param_1 + 0x70) != 0) {
-    Chain::Cut(&g_Chain,*(ChainElem **)(param_1 + 0x70));
+    Chain::Cut((Chain *)&DAT_0069d918,*(ChainElem **)(param_1 + 0x70));
     *(undefined4 *)(param_1 + 0x70) = 0;
   }
   _free(*(void **)((int)DAT_006d3f18 + 4));

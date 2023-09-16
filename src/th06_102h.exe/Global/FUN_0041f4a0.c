@@ -83,14 +83,13 @@ void FUN_0041f4a0(void)
           }
         }
 LAB_0041f7c5:
-        fVar1 = g_GameContext.field84_0x1a8 * local_18[1].angleVel.z;
-        fVar2 = g_GameContext.field84_0x1a8 * local_18[1].angleVel.y;
-        local_18[1].rotation.x =
-             g_GameContext.field84_0x1a8 * local_18[1].angleVel.x + local_18[1].rotation.x;
+        fVar1 = DAT_006c6ec0 * local_18[1].angleVel.z;
+        fVar2 = DAT_006c6ec0 * local_18[1].angleVel.y;
+        local_18[1].rotation.x = DAT_006c6ec0 * local_18[1].angleVel.x + local_18[1].rotation.x;
         local_18[1].rotation.y = fVar2 + local_18[1].rotation.y;
         local_18[1].rotation.z = fVar1 + local_18[1].rotation.z;
         fVar1 = local_18[1].rotation.y;
-        if (VIEWPORT_HEIGHT + 16.0 < fVar1 != (VIEWPORT_HEIGHT + 16.0 == fVar1)) {
+        if (_DAT_0069d6e8 + 16.0 < fVar1 != (_DAT_0069d6e8 + 16.0 == fVar1)) {
           *(undefined *)((int)&local_18[1].currentTimeInScript.previous + 1) = 0;
           FUN_0041c5fa(3);
           goto LAB_0041f512;
@@ -100,15 +99,16 @@ LAB_0041f7c5:
           local_18[1].angleVel.y = 3.0;
         }
         else {
-          local_18[1].angleVel.y = g_GameContext.field84_0x1a8 * 0.03 + local_18[1].angleVel.y;
+          local_18[1].angleVel.y = DAT_006c6ec0 * 0.03 + local_18[1].angleVel.y;
         }
       }
       iVar9 = FUN_00426fd0(local_18 + 1,&DAT_0069e234);
       if (iVar9 == 0) {
         local_18[1].scaleInterpFinalX = local_18[1].uvScrollPos.y;
         GameContext::FUN_00424285
-                  (&g_GameContext,(int *)&local_18[1].uvScrollPos.y,&local_18[1].uvScrollPos.x);
-        AnmManager::FUN_00433960(g_AnmManager,local_18);
+                  ((GameContext *)&DAT_006c6d18,(int *)&local_18[1].uvScrollPos.y,
+                   &local_18[1].uvScrollPos.x);
+        AnmManager::FUN_00433960(DAT_006d4588,local_18);
       }
       else {
         switch(*(undefined *)&local_18[1].currentTimeInScript.previous) {
@@ -150,7 +150,7 @@ LAB_0041f7c5:
           FUN_0041c57e(1);
           break;
         case 1:
-          switch(CUR_RANK) {
+          switch(_DAT_0069bcb0) {
           case 0:
           case 1:
             lVar10 = __ftol2((double)local_18[1].rotation.y);
@@ -248,8 +248,8 @@ LAB_0041f7c5:
           }
           break;
         case 3:
-          if (BOMB_COUNT < '\b') {
-            BOMB_COUNT = BOMB_COUNT + '\x01';
+          if (DAT_0069d4bb < '\b') {
+            DAT_0069d4bb = DAT_0069d4bb + '\x01';
             DAT_0069bc30 = DAT_0069bc30 & 0xfffffff3 | 8;
           }
           FUN_0041c57e(5);
@@ -267,8 +267,8 @@ LAB_0041f7c5:
           DAT_0069bc30 = DAT_0069bc30 & 0xffffffcf | 0x20;
           break;
         case 5:
-          if (LIFE_COUNT < '\b') {
-            LIFE_COUNT = LIFE_COUNT + '\x01';
+          if (DAT_0069d4ba < '\b') {
+            DAT_0069d4ba = DAT_0069d4ba + '\x01';
             DAT_0069bc30 = DAT_0069bc30 & 0xfffffffc | 2;
           }
           FUN_0041c57e(200);

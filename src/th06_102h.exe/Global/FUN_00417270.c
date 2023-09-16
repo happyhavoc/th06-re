@@ -2,9 +2,9 @@
 undefined4 FUN_00417270(void)
 
 {
-  if (g_GameContext.unkInput2 != 3) {
-    FUN_00432030(g_AnmManager,6);
-    FUN_00432030(g_AnmManager,7);
+  if (DAT_006c6ea4 != 3) {
+    FUN_00432030(DAT_006d4588,6);
+    FUN_00432030(DAT_006d4588,7);
   }
   return 0;
 }

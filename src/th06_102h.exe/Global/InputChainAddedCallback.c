@@ -25,25 +25,23 @@ undefined4 InputChainAddedCallback(GameContext *param_1)
     param_1->pbg3File[iStack_14] = (Pbg3File *)0x0;
   }
   ppPVar1 = param_1->pbg3File;
-  PBG3_FILES = ppPVar1;
+  DAT_0069d900 = ppPVar1;
   GameContext::LoadPBG3(param_1,0,(byte *)"紅魔郷IN.dat");
   if (ppPVar1 == (Pbg3File **)0x0) {
-    AnmManager::LogoStuff(g_AnmManager,0,"data/title/th06logo.jpg");
-    AnmManager::FUN_00435300(g_AnmManager,0,0,0,0,0);
-    HVar3 = (*(g_GameContext.d3dDevice)->lpVtbl->Present)
-                      (g_GameContext.d3dDevice,(RECT *)0x0,(RECT *)0x0,(HWND)0x0,(RGNDATA *)0x0);
+    AnmManager::LogoStuff(DAT_006d4588,0,"data/title/th06logo.jpg");
+    AnmManager::FUN_00435300(DAT_006d4588,0,0,0,0,0);
+    HVar3 = (*DAT_006c6d20->lpVtbl->Present)
+                      (DAT_006c6d20,(RECT *)0x0,(RECT *)0x0,(HWND)0x0,(RGNDATA *)0x0);
     if (HVar3 < 0) {
-      (*(g_GameContext.d3dDevice)->lpVtbl->Reset)
-                (g_GameContext.d3dDevice,&g_GameContext.presentParameters);
+      (*DAT_006c6d20->lpVtbl->Reset)(DAT_006c6d20,(D3DPRESENT_PARAMETERS *)&DAT_006c6df8);
     }
-    AnmManager::FUN_00435300(g_AnmManager,0,0,0,0,0);
-    HVar3 = (*(g_GameContext.d3dDevice)->lpVtbl->Present)
-                      (g_GameContext.d3dDevice,(RECT *)0x0,(RECT *)0x0,(HWND)0x0,(RGNDATA *)0x0);
+    AnmManager::FUN_00435300(DAT_006d4588,0,0,0,0,0);
+    HVar3 = (*DAT_006c6d20->lpVtbl->Present)
+                      (DAT_006c6d20,(RECT *)0x0,(RECT *)0x0,(HWND)0x0,(RGNDATA *)0x0);
     if (HVar3 < 0) {
-      (*(g_GameContext.d3dDevice)->lpVtbl->Reset)
-                (g_GameContext.d3dDevice,&g_GameContext.presentParameters);
+      (*DAT_006c6d20->lpVtbl->Reset)(DAT_006c6d20,(D3DPRESENT_PARAMETERS *)&DAT_006c6df8);
     }
-    AnmManager::FUN_00435270(g_AnmManager,0);
+    AnmManager::FUN_00435270(DAT_006d4588,0);
     DVar4 = timeGetTime();
     *(DWORD *)&param_1->field_0x400 = DVar4;
     FUN_00423b14(param_1);
@@ -60,16 +58,16 @@ undefined4 InputChainAddedCallback(GameContext *param_1)
     DVar4 = timeGetTime();
     _DAT_0069d8fc = 0;
     DAT_0069d8f8 = (short)DVar4;
-    SoundPlayer::FUN_00431080(&g_SoundPlayer);
-    iVar5 = AnmManager::LoadAnim(g_AnmManager,0,"data/text.anm",0x700);
+    SoundPlayer::FUN_00431080((SoundPlayer *)&DAT_006d3f50);
+    iVar5 = AnmManager::LoadAnim(DAT_006d4588,0,"data/text.anm",0x700);
     if (iVar5 == 0) {
       iVar5 = AsciiManager::RegisterChain();
       if (iVar5 == 0) {
         param_1->field77_0x198 = 0;
-        AnmManager::FUN_00431660(g_AnmManager);
+        AnmManager::FUN_00431660(DAT_006d4588);
         iVar5 = FUN_0041f008();
         GameContext::RemovePbg3File(param_1,0);
-        GameContext::LoadPBG3(&g_GameContext,1,(byte *)"紅魔郷MD.dat");
+        GameContext::LoadPBG3((GameContext *)&DAT_006c6d18,1,(byte *)"紅魔郷MD.dat");
         if (iVar5 == 0) {
           uVar2 = 0;
         }
@@ -78,8 +76,8 @@ undefined4 InputChainAddedCallback(GameContext *param_1)
         }
       }
       else {
-        GameErrorContextLog(&g_GameErrorContext,"error : 文字の初期化に失敗しました\n")
-        ;
+        GameErrorContextLog((GameErrorContext *)&DAT_0069d998,
+                            "error : 文字の初期化に失敗しました\n");
         uVar2 = 0xffffffff;
       }
     }

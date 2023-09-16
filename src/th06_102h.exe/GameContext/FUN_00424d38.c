@@ -2,16 +2,16 @@
 undefined4 __thiscall GameContext::FUN_00424d38(GameContext *this)
 
 {
-  if (g_GameContext.cfg.musicMode == MIDI) {
-    if (g_GameContext.midiOutput != (MidiOutput *)0x0) {
-      MidiOutput::~MidiOutput(g_GameContext.midiOutput);
+  if (DAT_006c6e47 == '\x02') {
+    if (DAT_006c6ec8 != (MidiOutput *)0x0) {
+      MidiOutput::~MidiOutput(DAT_006c6ec8);
     }
   }
   else {
-    if (g_GameContext.cfg.musicMode != WAV) {
+    if (DAT_006c6e47 != '\x01') {
       return 0xffffffff;
     }
-    SoundPlayer::StopBGM(&g_SoundPlayer);
+    SoundPlayer::StopBGM((SoundPlayer *)&DAT_006d3f50);
   }
   return 0;
 }

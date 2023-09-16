@@ -23,12 +23,11 @@ undefined4 FUN_004288c0(AnmVm *param_1)
   if (param_1[0x6e].pos2.y == 0.0) {
     iVar3 = FUN_004195a2();
     if (((((iVar3 == 0) && (param_1[9].matrix.field0_0x0.field0._14 != 0.0)) &&
-         ('\0' < (char)BOMB_COUNT)) &&
-        (((BUTTONS_PRESSED_CURFRAME & 2) != 0 &&
-         ((BUTTONS_PRESSED_CURFRAME & 2) != (BUTTONS_PRESSED_PREVFRAME & 2))))) &&
+         ('\0' < DAT_0069d4bb)) &&
+        (((DAT_0069d904 & 2) != 0 && ((DAT_0069d904 & 2) != (DAT_0069d908 & 2))))) &&
        (param_1[0x6e].timeOfLastSpriteSet != 0)) {
       DAT_0069bcc4 = DAT_0069bcc4 + 1;
-      BOMB_COUNT = BOMB_COUNT - 1;
+      DAT_0069d4bb = DAT_0069d4bb + -1;
       DAT_0069bc30 = DAT_0069bc30 & 0xfffffff3 | 8;
       param_1[0x6e].pos2.y = 1.401298e-45;
       param_1[0x6e].posInterpTime.current = 0;
@@ -50,7 +49,7 @@ undefined4 FUN_004288c0(AnmVm *param_1)
            (float)((int)param_1[9].matrix.field0_0x0.field0._14 + -1);
       if (param_1[9].matrix.field0_0x0.field0._14 == 0.0) {
         DAT_0069d4b9 = 0;
-        if (LIFE_COUNT < '\x01') {
+        if (DAT_0069d4ba < '\x01') {
           FUN_0041f290(param_1 + 4,4,2);
           FUN_0041f290(param_1 + 4,4,2);
           FUN_0041f290(param_1 + 4,4,2);
@@ -90,27 +89,27 @@ undefined4 FUN_004288c0(AnmVm *param_1)
     param_1[9].scaleInterpEndTime = 0;
     if ((int)param_1[0x6e].posInterpFinal.y < 0x1e) goto LAB_00428fa8;
     *(undefined *)((int)&param_1[9].matrix.field0_0x0 + 0x14) = 1;
-    param_1[4].rotation.x = VIEWPORT_WIDTH / 2.0;
-    param_1[4].rotation.y = VIEWPORT_HEIGHT - 64.0;
+    param_1[4].rotation.x = _DAT_0069d6e4 / 2.0;
+    param_1[4].rotation.y = _DAT_0069d6e8 - 64.0;
     param_1[4].rotation.z = 0.2;
     param_1[0x6e].posInterpFinal.y = 0.0;
     param_1[0x6e].posInterpFinal.x = 0.0;
     param_1[0x6e].posInterpInitial.z = -NAN;
     param_1->scaleY = 3.0;
     param_1->scaleX = 3.0;
-    pAVar2 = g_AnmManager;
+    pAVar2 = DAT_006d4588;
     param_1->anmFileIndex = 0x400;
     FUN_00432430((Unknown *)param_1,(int)pAVar2->scripts[0x400]);
-    if (LIFE_COUNT < '\x01') {
+    if (DAT_0069d4ba < '\x01') {
       DAT_0069d4c0 = 1;
       goto LAB_00428fa8;
     }
-    LIFE_COUNT = LIFE_COUNT + -1;
-    if ((CUR_RANK < 4) && (DAT_0069d4c3 == '\0')) {
-      BOMB_COUNT = g_GameContext.bombCount;
+    DAT_0069d4ba = DAT_0069d4ba + -1;
+    if ((_DAT_0069bcb0 < 4) && (DAT_0069d4c3 == '\0')) {
+      DAT_0069d4bb = DAT_006c6e7d;
     }
     else {
-      BOMB_COUNT = 3;
+      DAT_0069d4bb = '\x03';
     }
     DAT_0069bc30 = DAT_0069bc30 & 0xfffffff0 | 10;
   }
@@ -170,18 +169,18 @@ LAB_00428fa8:
   else {
     param_1[0x6e].posInterpInitial.z = param_1[0x6e].posInterpFinal.y;
     GameContext::FUN_00424285
-              (&g_GameContext,(int *)&param_1[0x6e].posInterpFinal.y,&param_1[0x6e].posInterpFinal.x
-              );
+              ((GameContext *)&DAT_006c6d18,(int *)&param_1[0x6e].posInterpFinal.y,
+               &param_1[0x6e].posInterpFinal.x);
   }
   if ((*(char *)((int)&param_1[9].matrix.field0_0x0 + 0x14) != '\x02') &&
      (*(char *)((int)&param_1[9].matrix.field0_0x0 + 0x14) != '\x01')) {
     FUN_00427860();
   }
-  AnmManager::FUN_00433960(g_AnmManager,param_1);
+  AnmManager::FUN_00433960(DAT_006d4588,param_1);
   FUN_004291b0(param_1);
   if (*(char *)((int)&param_1[9].matrix.field0_0x0 + 0x16) != '\0') {
-    AnmManager::FUN_00433960(g_AnmManager,param_1 + 1);
-    AnmManager::FUN_00433960(g_AnmManager,param_1 + 2);
+    AnmManager::FUN_00433960(DAT_006d4588,param_1 + 1);
+    AnmManager::FUN_00433960(DAT_006d4588,param_1 + 2);
   }
   *(undefined4 *)&param_1[9].posInterpEndTime = 0xc479c000;
   param_1[9].pos.x = -999.0;

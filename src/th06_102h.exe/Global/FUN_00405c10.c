@@ -1,4 +1,6 @@
 
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
 void FUN_00405c10(int param_1)
 
 {
@@ -22,11 +24,11 @@ void FUN_00405c10(int param_1)
       (local_8->pos).x = *pfVar5 + (local_8->pos2).x;
       (local_8->pos).y = fVar3 + fVar4;
       (local_8->pos).z = fVar1 + fVar2;
-      (local_8->pos).x = VIEWPORT_X + (local_8->pos).x;
+      (local_8->pos).x = _DAT_0069d6dc + (local_8->pos).x;
       pfVar5 = &(local_8->pos).y;
-      *pfVar5 = VIEWPORT_Y + *pfVar5;
+      *pfVar5 = _DAT_0069d6e0 + *pfVar5;
       (local_8->pos).z = 0.0;
-      AnmManager::FUN_00432ad0(g_AnmManager,local_8);
+      AnmManager::FUN_00432ad0(DAT_006d4588,local_8);
       pfVar5 = (float *)(param_1 + 0x7624 + local_c * 0xc);
       fVar1 = pfVar5[2];
       fVar2 = local_8[1].pos2.z;
@@ -35,11 +37,11 @@ void FUN_00405c10(int param_1)
       local_8[1].pos.x = *pfVar5 + local_8[1].pos2.x;
       local_8[1].pos.y = fVar3 + fVar4;
       local_8[1].pos.z = fVar1 + fVar2;
-      local_8[1].pos.x = VIEWPORT_X + local_8[1].pos.x;
+      local_8[1].pos.x = _DAT_0069d6dc + local_8[1].pos.x;
       pfVar5 = &local_8[1].pos.y;
-      *pfVar5 = VIEWPORT_Y + *pfVar5;
+      *pfVar5 = _DAT_0069d6e0 + *pfVar5;
       local_8[1].pos.z = 0.0;
-      AnmManager::FUN_00432ad0(g_AnmManager,local_8 + 1);
+      AnmManager::FUN_00432ad0(DAT_006d4588,local_8 + 1);
       pfVar5 = (float *)(param_1 + 0x7624 + local_c * 0xc);
       fVar1 = pfVar5[2];
       fVar2 = local_8[2].pos2.z;
@@ -48,11 +50,11 @@ void FUN_00405c10(int param_1)
       local_8[2].pos.x = *pfVar5 + local_8[2].pos2.x;
       local_8[2].pos.y = fVar3 + fVar4;
       local_8[2].pos.z = fVar1 + fVar2;
-      local_8[2].pos.x = VIEWPORT_X + local_8[2].pos.x;
+      local_8[2].pos.x = _DAT_0069d6dc + local_8[2].pos.x;
       pfVar5 = &local_8[2].pos.y;
-      *pfVar5 = VIEWPORT_Y + *pfVar5;
+      *pfVar5 = _DAT_0069d6e0 + *pfVar5;
       local_8[2].pos.z = 0.0;
-      AnmManager::FUN_00432ad0(g_AnmManager,local_8 + 2);
+      AnmManager::FUN_00432ad0(DAT_006d4588,local_8 + 2);
       pfVar5 = (float *)(param_1 + 0x7624 + local_c * 0xc);
       fVar1 = pfVar5[2];
       fVar2 = local_8[3].pos2.z;
@@ -61,11 +63,11 @@ void FUN_00405c10(int param_1)
       local_8[3].pos.x = *pfVar5 + local_8[3].pos2.x;
       local_8[3].pos.y = fVar3 + fVar4;
       local_8[3].pos.z = fVar1 + fVar2;
-      local_8[3].pos.x = VIEWPORT_X + local_8[3].pos.x;
+      local_8[3].pos.x = _DAT_0069d6dc + local_8[3].pos.x;
       pfVar5 = &local_8[3].pos.y;
-      *pfVar5 = VIEWPORT_Y + *pfVar5;
+      *pfVar5 = _DAT_0069d6e0 + *pfVar5;
       local_8[3].pos.z = 0.0;
-      AnmManager::FUN_00432ad0(g_AnmManager,local_8 + 3);
+      AnmManager::FUN_00432ad0(DAT_006d4588,local_8 + 3);
     }
     local_8 = local_8 + 4;
   }

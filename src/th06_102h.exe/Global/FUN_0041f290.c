@@ -2,10 +2,10 @@
 void FUN_0041f290(int *param_1,int param_2,int param_3)
 
 {
-  AnmManager *pAVar1;
+  int iVar1;
   Unknown *in_ECX;
   float10 fVar2;
-  short local_14;
+  undefined2 local_14;
   Unknown *local_c;
   int local_8;
   
@@ -51,10 +51,10 @@ void FUN_0041f290(int *param_1,int param_2,int param_3)
     local_c[1].field13_0x3c.field8_0x20 = (int)local_c[1].field13_0x3c.field5_0x14;
     local_c[1].field13_0x3c.field9_0x24 = local_c[1].field13_0x3c.field6_0x18;
   }
-  pAVar1 = g_AnmManager;
-  local_14 = (short)param_2 + 0x215;
-  *(short *)&local_c->field_0xb4 = local_14;
-  FUN_00432430(local_c,(int)pAVar1->scripts[param_2 + 0x215]);
+  iVar1 = DAT_006d4588;
+  local_14 = (undefined2)(param_2 + 0x215);
+  *(undefined2 *)&local_c->field_0xb4 = local_14;
+  FUN_00432430(local_c,*(int *)(iVar1 + 0x1c934 + (param_2 + 0x215) * 4));
   local_c->field14_0x7c = -1;
   *(undefined *)((int)&local_c[1].field14_0x7c + 2) = 1;
   return;

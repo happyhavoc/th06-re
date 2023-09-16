@@ -7,13 +7,13 @@ undefined4 InputChainRemovedCallback(GameContext *param_1)
   MidiOutput *_Memory;
   int local_8;
   
-  FUN_004240f0(g_AnmManager);
+  FUN_004240f0(DAT_006d4588);
   for (local_8 = 0; local_8 < 0x10; local_8 = local_8 + 1) {
     GameContext::RemovePbg3File(param_1,local_8);
   }
-  FUN_00432030(g_AnmManager,0);
+  FUN_00432030(DAT_006d4588,0);
   FUN_00401500();
-  SoundPlayer::StopBGM(&g_SoundPlayer);
+  SoundPlayer::StopBGM((SoundPlayer *)&DAT_006d3f50);
   if (param_1->midiOutput != (MidiOutput *)0x0) {
     MidiOutput::~MidiOutput(param_1->midiOutput);
     _Memory = param_1->midiOutput;

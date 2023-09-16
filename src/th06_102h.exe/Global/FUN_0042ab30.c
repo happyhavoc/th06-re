@@ -3,6 +3,7 @@
 /* WARNING: Removing unreachable block (ram,0x0042ad25) */
 /* WARNING: Removing unreachable block (ram,0x0042ad69) */
 /* WARNING: Removing unreachable block (ram,0x0042addf) */
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
 
 void FUN_0042ab30(char *param_1,char *param_2)
 
@@ -68,7 +69,7 @@ void FUN_0042ab30(char *param_1,char *param_2)
         }
         DebugPrint2("%s write ...\n",param_1);
         local_40 = DAT_0069bca0;
-        local_10 = (float)g_GameContext._436_4_ / (float)g_GameContext._440_4_ - 0.5;
+        local_10 = _DAT_006c6ecc / _DAT_006c6ed0 - 0.5;
         local_10 = local_10 + local_10;
         if (local_10 < 0.0 == NAN(local_10)) {
           if (1.0 <= local_10) {
@@ -81,7 +82,7 @@ void FUN_0042ab30(char *param_1,char *param_2)
         local_38 = (1.0 - local_10) * 100.0;
         local_3c = local_38 + 1.12;
         local_34 = local_38 + 2.34;
-        **(undefined4 **)(*(int *)(local_c + 4) + 0x30 + CUR_STAGE * 4) = DAT_0069bca4;
+        **(undefined4 **)(*(int *)(local_c + 4) + 0x30 + DAT_0069d6d4 * 4) = DAT_0069bca4;
         local_90 = param_2;
         local_94 = local_4b;
         do {
@@ -167,7 +168,7 @@ void FUN_0042ab30(char *param_1,char *param_2)
         }
       }
     }
-    Chain::Cut(&g_Chain,*(ChainElem **)(DAT_006d3f18 + 0x68));
+    Chain::Cut((Chain *)&DAT_0069d918,*(ChainElem **)(DAT_006d3f18 + 0x68));
   }
   __security_check_cookie(local_14 ^ unaff_retaddr);
   return;

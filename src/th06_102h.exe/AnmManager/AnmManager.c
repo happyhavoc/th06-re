@@ -1,4 +1,6 @@
 
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
 undefined4 * __thiscall AnmManager::AnmManager(AnmManager *this)
 
 {
@@ -22,28 +24,28 @@ undefined4 * __thiscall AnmManager::AnmManager(AnmManager *this)
   for (local_8 = 0; local_8 < 0x800; local_8 = local_8 + 1) {
     this->sprites[local_8].sourceFileIndex = 0xffffffff;
   }
-  FLOAT_006d4654 = 1.0;
-  FLOAT_006d463c = 1.0;
-  g_TriangleStrip[3].x = 1.0;
-  g_TriangleStrip[1].x = 1.0;
-  g_TriangleStrip[1].y = 0.0;
-  g_TriangleStrip[1].z = 0.0;
-  g_TriangleStrip[3].y = 1.0;
-  g_TriangleStrip[3].z = 0.0;
+  DAT_006d4654 = 0x3f800000;
+  DAT_006d463c = 0x3f800000;
+  DAT_006d4624 = 0x3f800000;
+  _DAT_006d460c = 0x3f800000;
+  _DAT_006d4610 = 0;
+  _DAT_006d4614 = 0;
+  _DAT_006d4628 = 0x3f800000;
+  DAT_006d462c = 0;
   DAT_006d4640 = 0;
-  FLOAT_006d4644 = 1.0;
-  FLOAT_006d4658 = 1.0;
-  FLOAT_006d465c = 1.0;
-  FLOAT_006d45f0 = 1.0;
-  FLOAT_006d45d4 = 1.0;
-  FLOAT_006d45b8 = 1.0;
-  FLOAT_006d459c = 1.0;
-  UINT_006d45a4 = 0;
-  UINT_006d45a8 = 0;
-  FLOAT_006d45c0 = 1.0;
+  _DAT_006d4644 = 0x3f800000;
+  DAT_006d4658 = 0x3f800000;
+  DAT_006d465c = 0x3f800000;
+  DAT_006d45f0 = 0x3f800000;
+  DAT_006d45d4 = 0x3f800000;
+  DAT_006d45b8 = 0x3f800000;
+  _DAT_006d459c = 0x3f800000;
+  _DAT_006d45a4 = 0;
+  _DAT_006d45a8 = 0;
+  _DAT_006d45c0 = 0x3f800000;
   DAT_006d45c4 = 0;
   DAT_006d45dc = 0;
-  FLOAT_006d45e0 = 1.0;
+  _DAT_006d45e0 = 0x3f800000;
   DAT_006d45f8 = 0x3f800000;
   DAT_006d45fc = 0x3f800000;
   this->vertexBuffer = (IDirect3DVertexBuffer8 *)0x0;

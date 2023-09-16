@@ -20,7 +20,7 @@ undefined4 __fastcall SoundPlayer::FUN_00431080(SoundPlayer *this)
       iVar2 = idx;
       FUN_004306e0(this,idx,(&PTR_s_data_wav_plst00_wav_00478628)[idx]);
       if (iVar2 != 0) {
-        GameErrorContextLog(&g_GameErrorContext,
+        GameErrorContextLog((GameErrorContext *)&DAT_0069d998,
                             "error : Sound ファイルが読み込めない データを確認 %s\n"
                             ,(&PTR_s_data_wav_plst00_wav_00478628)[idx]);
         return 0xffffffff;

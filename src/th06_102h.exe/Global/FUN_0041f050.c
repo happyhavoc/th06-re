@@ -6,15 +6,9 @@ void FUN_0041f050(int param_1,int param_2,int param_3,undefined4 param_4,int par
 
 {
   size_t sVar1;
-  int *piStack_84;
-  undefined4 uStack_80;
-  int iStack_7c;
-  int iStack_78;
-  int iStack_74;
-  undefined4 uStack_70;
-  undefined4 uStack_6c;
-  int iStack_68;
-  int iStack_64;
+  LPDIRECT3DSURFACE8 pIStack_84;
+  RECT RStack_80;
+  RECT aRStack_70 [2];
   HDC pHStack_4c;
   HGDIOBJ pvStack_3c;
   D3DSURFACE_DESC DStack_38;
@@ -51,19 +45,21 @@ void FUN_0041f050(int param_1,int param_2,int param_3,undefined4 param_4,int par
   FUN_0041ef11(DAT_0069e230);
   SelectObject(pHStack_14,pvStack_3c);
   DeleteObject(pHStack_18);
-  uStack_80 = 0;
-  iStack_7c = param_2;
-  iStack_78 = param_3;
-  iStack_74 = param_2 + 0x10;
-  uStack_70 = 0;
-  uStack_6c = 0;
-  iStack_68 = param_3 * 2 + -2;
-  iStack_64 = param_5 * 2 + -2;
-  (**(code **)(*param_10 + 0x3c))(param_10,0,&piStack_84);
-  _D3DXLoadSurfaceFromSurface_32(piStack_84,0,&uStack_80,DAT_0069e230,0,&uStack_70,4,0);
-  if (piStack_84 != (int *)0x0) {
-    (**(code **)(*piStack_84 + 8))(piStack_84);
-    piStack_84 = (int *)0x0;
+  RStack_80.left = 0;
+  RStack_80.top = param_2;
+  RStack_80.right = param_3;
+  RStack_80.bottom = param_2 + 0x10;
+  aRStack_70[0].left = 0;
+  aRStack_70[0].top = 0;
+  aRStack_70[0].right = param_3 * 2 + -2;
+  aRStack_70[0].bottom = param_5 * 2 + -2;
+  (**(code **)(*param_10 + 0x3c))(param_10,0,&pIStack_84);
+  _D3DXLoadSurfaceFromSurface_32
+            (pIStack_84,(PALETTEENTRY *)0x0,&RStack_80,DAT_0069e230,(PALETTEENTRY *)0x0,aRStack_70,4
+             ,0);
+  if (pIStack_84 != (IDirect3DSurface8 *)0x0) {
+    (*pIStack_84->lpVtbl->Release)(pIStack_84);
+    pIStack_84 = (IDirect3DSurface8 *)0x0;
   }
   uStack_8 = 0xffffffff;
   FUN_0041e981();

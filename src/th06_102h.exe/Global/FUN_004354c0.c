@@ -4,7 +4,6 @@ void FUN_004354c0(int param_1,LONG param_2,LONG param_3,int param_4,int param_5,
 
 {
   HRESULT HVar1;
-  int iVar2;
   int in_ECX;
   IDirect3DSurface8 *local_20;
   RECT local_1c;
@@ -31,10 +30,11 @@ void FUN_004354c0(int param_1,LONG param_2,LONG param_3,int param_4,int param_5,
         (*local_20->lpVtbl->Release)(local_20);
         return;
       }
-      iVar2 = _D3DXLoadSurfaceFromSurface_32
-                        (*(undefined4 *)(in_ECX + 0x20d34 + param_1 * 4),0,0,
-                         *(IDirect3DSurface8 **)(in_ECX + 0x20db4 + param_1 * 4),0,0,1,0);
-      if (iVar2 != 0) {
+      HVar1 = _D3DXLoadSurfaceFromSurface_32
+                        (*(LPDIRECT3DSURFACE8 *)(in_ECX + 0x20d34 + param_1 * 4),(PALETTEENTRY *)0x0
+                         ,(RECT *)0x0,*(LPDIRECT3DSURFACE8 *)(in_ECX + 0x20db4 + param_1 * 4),
+                         (PALETTEENTRY *)0x0,(RECT *)0x0,1,0);
+      if (HVar1 != 0) {
         (*local_20->lpVtbl->Release)(local_20);
         return;
       }

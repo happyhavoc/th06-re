@@ -4,7 +4,6 @@ AnmManager::FUN_00435300(AnmManager *this,int surfaceIdx,LONG left,LONG top,LONG
 
 {
   HRESULT hres;
-  int ires;
   IDirect3DSurface8 *destSurface;
   RECT sourceRect;
   POINT destPoint;
@@ -30,9 +29,10 @@ AnmManager::FUN_00435300(AnmManager *this,int surfaceIdx,LONG left,LONG top,LONG
         (*destSurface->lpVtbl->Release)(destSurface);
         return;
       }
-      ires = _D3DXLoadSurfaceFromSurface_32
-                       (this->surfaces[surfaceIdx],0,0,this->surfacesBis[surfaceIdx],0,0,1,0);
-      if (ires != 0) {
+      hres = _D3DXLoadSurfaceFromSurface_32
+                       (this->surfaces[surfaceIdx],(PALETTEENTRY *)0x0,(RECT *)0x0,
+                        this->surfacesBis[surfaceIdx],(PALETTEENTRY *)0x0,(RECT *)0x0,1,0);
+      if (hres != 0) {
         (*destSurface->lpVtbl->Release)(destSurface);
         return;
       }

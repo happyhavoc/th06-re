@@ -3,9 +3,8 @@ void __thiscall FUN_00435670(AnmManager *param_1_00,int param_2,int left,int top
 
 {
   HRESULT HVar1;
-  int iVar2;
-  IDirect3DSurface8 *backbuffer;
-  IDirect3DSurface8 *local_18;
+  LPDIRECT3DSURFACE8 backbuffer;
+  LPDIRECT3DSURFACE8 local_18;
   RECT rect;
   
   if ((param_1_00->textures[param_2] != (IDirect3DTexture8 *)0x0) &&
@@ -19,8 +18,10 @@ void __thiscall FUN_00435670(AnmManager *param_1_00,int param_2,int left,int top
       rect.top = top;
       rect.right = left + x;
       rect.bottom = top + y;
-      iVar2 = _D3DXLoadSurfaceFromSurface_32(local_18,0,0,backbuffer,0,&rect,0xffffffff,0);
-      if (iVar2 == 0) {
+      HVar1 = _D3DXLoadSurfaceFromSurface_32
+                        (local_18,(PALETTEENTRY *)0x0,(RECT *)0x0,backbuffer,(PALETTEENTRY *)0x0,
+                         &rect,0xffffffff,0);
+      if (HVar1 == 0) {
         (*local_18->lpVtbl->Release)(local_18);
         (*backbuffer->lpVtbl->Release)(backbuffer);
       }

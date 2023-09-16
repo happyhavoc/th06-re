@@ -38,7 +38,7 @@ undefined4 InitD3dRendering(void)
         present_params.BackBufferFormat = D3DFMT_X8R8G8B8;
         g_GameContext.cfg.colorMode16bit = 0;
         GameErrorContextLog(&g_GameErrorContext,
-                            "初回起動、画面を 32Bits で初期化しました\n");
+                            "初回起動、画面を 32Bits で��期化しました\n");
       }
       else {
         present_params.BackBufferFormat = D3DFMT_R5G6B5;
@@ -124,7 +124,7 @@ LAB_004211ab:
       pEye.z = -(240.0 / (float)(float10)CONCAT28(extraout_ST0h,dVar6));
       _D3DXMatrixLookAtLH_16(&g_GameContext.viewMatrix,&pEye,&pAt,&pUp);
       _D3DXMatrixPerspectiveFovLH_20
-                ((float *)&g_GameContext.projectionMatrix,0.5235988,1.333333,100.0,10000.0);
+                (&g_GameContext.projectionMatrix,0.5235988,1.333333,100.0,10000.0);
       (*(g_GameContext.d3dDevice)->lpVtbl->SetTransform)
                 (g_GameContext.d3dDevice,D3DTS_VIEW,&g_GameContext.viewMatrix);
       (*(g_GameContext.d3dDevice)->lpVtbl->SetTransform)

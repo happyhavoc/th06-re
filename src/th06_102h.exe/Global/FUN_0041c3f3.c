@@ -35,7 +35,7 @@ void FUN_0041c3f3(float param_1)
   dVar1 = _fabs((double)local_8);
   _DAT_0069d6fc = (float)dVar1;
   _D3DXMatrixPerspectiveFovLH_20
-            ((float *)&g_GameContext.projectionMatrix,local_18,local_14,100.0,param_1 + 10000.0);
+            (&g_GameContext.projectionMatrix,local_18,local_14,100.0,param_1 + 10000.0);
   (*(g_GameContext.d3dDevice)->lpVtbl->SetTransform)
             (g_GameContext.d3dDevice,D3DTS_VIEW,&g_GameContext.viewMatrix);
   (*(g_GameContext.d3dDevice)->lpVtbl->SetTransform)

@@ -8,9 +8,7 @@ void FUN_0040c5b0(int param_1)
   int iVar2;
   undefined4 *puVar3;
   float10 fVar4;
-  float local_9c;
-  float local_98;
-  float local_94;
+  D3DXVECTOR3 local_9c;
   float local_90;
   float local_8c;
   float local_88;
@@ -56,9 +54,9 @@ void FUN_0040c5b0(int param_1)
     local_1a = 0;
     local_18 = 0;
     local_78 = 0.5 - ((float)local_8 * 0.5) / 9.0;
-    local_94 = DAT_006caa70 - *(float *)(param_1 + 0xc74);
-    local_98 = DAT_006caa6c - *(float *)(param_1 + 0xc70);
-    local_9c = DAT_006caa68 - *(float *)(param_1 + 0xc6c);
+    local_9c.z = DAT_006caa70 - *(float *)(param_1 + 0xc74);
+    local_9c.y = DAT_006caa6c - *(float *)(param_1 + 0xc70);
+    local_9c.x = DAT_006caa68 - *(float *)(param_1 + 0xc6c);
     _D3DXVec3Normalize_8(&local_84,&local_9c);
     if ((local_8 & 1) == 0) {
       local_90 = 256.0;
@@ -66,12 +64,12 @@ void FUN_0040c5b0(int param_1)
     else {
       local_90 = -256.0;
     }
-    local_9c = local_9c * local_78;
-    local_98 = local_98 * local_78;
-    local_94 = local_94 * local_78;
-    local_6c = local_94 + local_84.z * local_90;
-    local_70 = local_98 + local_84.y * local_90;
-    local_74 = local_9c + local_84.x * local_90;
+    local_9c.x = local_9c.x * local_78;
+    local_9c.y = local_9c.y * local_78;
+    local_9c.z = local_9c.z * local_78;
+    local_6c = local_9c.z + local_84.z * local_90;
+    local_70 = local_9c.y + local_84.y * local_90;
+    local_74 = local_9c.x + local_84.x * local_90;
     local_84.z = -(local_84.z * local_90);
     local_84.y = -(local_84.y * local_90);
     local_84.x = -(local_84.x * local_90);
@@ -80,9 +78,9 @@ void FUN_0040c5b0(int param_1)
     local_8c = (float)fVar4;
     fVar4 = (float10)FUN_0045bcf4((double)local_78);
     local_68 = (float)fVar4;
-    local_9c = local_84.x;
-    local_98 = local_84.y;
-    local_94 = local_84.z;
+    local_9c.x = local_84.x;
+    local_9c.y = local_84.y;
+    local_9c.z = local_84.z;
     fVar1 = local_84.y * local_68;
     local_84.y = local_84.y * local_8c + -local_84.x * local_68;
     local_78 = -0.1745329;
@@ -94,9 +92,9 @@ void FUN_0040c5b0(int param_1)
     local_54 = 0.0;
     local_88 = -0.7853982;
     for (local_c = 0; local_c < 9; local_c = local_c + 1) {
-      local_9c = local_84.x;
-      local_98 = local_84.y;
-      local_94 = local_84.z;
+      local_9c.x = local_84.x;
+      local_9c.y = local_84.y;
+      local_9c.z = local_84.z;
       fVar1 = local_84.y * local_68 + local_84.x * local_8c;
       local_84.y = local_84.y * local_8c + -local_84.x * local_68;
       local_58 = local_84.z + *(float *)(param_1 + 0xc74) + local_6c;

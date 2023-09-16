@@ -1,7 +1,7 @@
 
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
 
-undefined4 FUN_004288c0(Unknown *param_1)
+undefined4 FUN_004288c0(AnmVm *param_1)
 
 {
   float fVar1;
@@ -15,55 +15,57 @@ undefined4 FUN_004288c0(Unknown *param_1)
     return 1;
   }
   for (local_8 = 0; local_8 < 0x20; local_8 = local_8 + 1) {
-    (&param_1[8].field6_0x18)[local_8 * 3] = 0.0;
+    (&param_1[5].pos2)[local_8].y = 0.0;
   }
   for (local_8 = 0; local_8 < 0x10; local_8 = local_8 + 1) {
-    (&param_1[0xb].field13_0x3c.field6_0x18)[local_8 * 4] = 0;
+    *(undefined4 *)((int)&param_1[8].matrix.field0_0x0 + local_8 * 0x10 + 4) = 0;
   }
-  if (*(int *)&param_1[0x99].field_0xa4 == 0) {
+  if (param_1[0x6e].pos2.y == 0.0) {
     iVar3 = FUN_004195a2();
-    if (((((iVar3 == 0) && (*(int *)&param_1[0xc].field_0xa8 != 0)) && ('\0' < (char)BOMB_COUNT)) &&
+    if (((((iVar3 == 0) && (param_1[9].matrix.field0_0x0.field0._14 != 0.0)) &&
+         ('\0' < (char)BOMB_COUNT)) &&
         (((BUTTONS_PRESSED_CURFRAME & 2) != 0 &&
          ((BUTTONS_PRESSED_CURFRAME & 2) != (BUTTONS_PRESSED_PREVFRAME & 2))))) &&
-       (*(int *)&param_1[0x99].field_0xb8 != 0)) {
+       (param_1[0x6e].timeOfLastSpriteSet != 0)) {
       DAT_0069bcc4 = DAT_0069bcc4 + 1;
       BOMB_COUNT = BOMB_COUNT - 1;
       DAT_0069bc30 = DAT_0069bc30 & 0xfffffff3 | 8;
-      *(undefined4 *)&param_1[0x99].field_0xa4 = 1;
-      *(undefined4 *)&param_1[0x99].field_0xb4 = 0;
-      *(undefined4 *)&param_1[0x99].field52_0xb0 = 0;
-      *(undefined4 *)&param_1[0x99].field_0xac = 0xfffffc19;
-      *(undefined4 *)&param_1[0x99].field_0xa8 = 999;
-      (**(code **)&param_1[0x99].field_0xb8)(param_1);
+      param_1[0x6e].pos2.y = 1.401298e-45;
+      param_1[0x6e].posInterpTime.current = 0;
+      param_1[0x6e].posInterpTime.subFrame = 0.0;
+      param_1[0x6e].posInterpTime.previous = -999;
+      param_1[0x6e].pos2.z = 1.399897e-42;
+      (*(code *)param_1[0x6e].timeOfLastSpriteSet)(param_1);
       _DAT_005a5f8c = 0;
       FUN_0041c5fa(200);
       _DAT_005a5f9c = DAT_005a5f90;
     }
   }
   else {
-    (**(code **)&param_1[0x99].field_0xb8)(param_1);
+    (*(code *)param_1[0x6e].timeOfLastSpriteSet)(param_1);
   }
-  if (*(char *)&param_1[0xc].field52_0xb0 == '\x02') {
-    if (*(int *)&param_1[0xc].field_0xa8 != 0) {
-      *(int *)&param_1[0xc].field_0xa8 = *(int *)&param_1[0xc].field_0xa8 + -1;
-      if (*(int *)&param_1[0xc].field_0xa8 == 0) {
+  if (*(char *)((int)&param_1[9].matrix.field0_0x0 + 0x14) == '\x02') {
+    if (param_1[9].matrix.field0_0x0.field0._14 != 0.0) {
+      param_1[9].matrix.field0_0x0.field0._14 =
+           (float)((int)param_1[9].matrix.field0_0x0.field0._14 + -1);
+      if (param_1[9].matrix.field0_0x0.field0._14 == 0.0) {
         DAT_0069d4b9 = 0;
         if (LIFE_COUNT < '\x01') {
-          FUN_0041f290(&param_1[5].field13_0x3c.field12_0x30,4,2);
-          FUN_0041f290(&param_1[5].field13_0x3c.field12_0x30,4,2);
-          FUN_0041f290(&param_1[5].field13_0x3c.field12_0x30,4,2);
-          FUN_0041f290(&param_1[5].field13_0x3c.field12_0x30,4,2);
-          FUN_0041f290(&param_1[5].field13_0x3c.field12_0x30,4,2);
+          FUN_0041f290(param_1 + 4,4,2);
+          FUN_0041f290(param_1 + 4,4,2);
+          FUN_0041f290(param_1 + 4,4,2);
+          FUN_0041f290(param_1 + 4,4,2);
+          FUN_0041f290(param_1 + 4,4,2);
           _DAT_0069d4b0 = 0;
           DAT_0069d4bc = 0xff;
         }
         else {
-          FUN_0041f290(&param_1[5].field13_0x3c.field12_0x30,2,2);
-          FUN_0041f290(&param_1[5].field13_0x3c.field12_0x30,0,2);
-          FUN_0041f290(&param_1[5].field13_0x3c.field12_0x30,0,2);
-          FUN_0041f290(&param_1[5].field13_0x3c.field12_0x30,0,2);
-          FUN_0041f290(&param_1[5].field13_0x3c.field12_0x30,0,2);
-          FUN_0041f290(&param_1[5].field13_0x3c.field12_0x30,0,2);
+          FUN_0041f290(param_1 + 4,2,2);
+          FUN_0041f290(param_1 + 4,0,2);
+          FUN_0041f290(param_1 + 4,0,2);
+          FUN_0041f290(param_1 + 4,0,2);
+          FUN_0041f290(param_1 + 4,0,2);
+          FUN_0041f290(param_1 + 4,0,2);
           if (_DAT_0069d4b0 < 0x11) {
             _DAT_0069d4b0 = 0;
           }
@@ -76,28 +78,29 @@ undefined4 FUN_004288c0(Unknown *param_1)
       }
       goto LAB_00428fa8;
     }
-    fVar1 = ((float)(int)param_1[0x99].field31_0x98 + *(float *)&param_1[0x99].field_0x94) / 30.0;
-    param_1->field6_0x18 = fVar1 * 3.0 + 1.0;
-    param_1->field7_0x1c = 1.0 - fVar1 * 1.0;
-    lVar4 = __ftol2((double)(255.0 - (((float)(int)param_1[0x99].field31_0x98 +
-                                      *(float *)&param_1[0x99].field_0x94) * 255.0) / 30.0));
-    param_1->field14_0x7c = lVar4 << 0x18 | 0xffffff;
-    param_1->field15_0x80 = param_1->field15_0x80 | 4;
-    param_1[0xd].field7_0x1c = 0.0;
-    param_1[0xd].field8_0x20 = 0;
-    if ((int)param_1[0x99].field31_0x98 < 0x1e) goto LAB_00428fa8;
-    *(undefined *)&param_1[0xc].field52_0xb0 = 1;
-    param_1[5].field13_0x3c.field12_0x30 = (int)(VIEWPORT_WIDTH / 2.0);
-    param_1[5].field13_0x3c.field13_0x34 = (int)(VIEWPORT_HEIGHT - 64.0);
-    param_1[5].field13_0x3c.field14_0x38 = 0x3e4ccccd;
-    param_1[0x99].field31_0x98 = 0.0;
-    *(undefined4 *)&param_1[0x99].field_0x94 = 0;
-    *(undefined4 *)&param_1[0x99].field_0x90 = 0xfffffc19;
-    param_1->field7_0x1c = 3.0;
-    param_1->field6_0x18 = 3.0;
+    fVar1 = ((float)(int)param_1[0x6e].posInterpFinal.y + param_1[0x6e].posInterpFinal.x) / 30.0;
+    param_1->scaleX = fVar1 * 3.0 + 1.0;
+    param_1->scaleY = 1.0 - fVar1 * 1.0;
+    lVar4 = __ftol2((double)(255.0 - (((float)(int)param_1[0x6e].posInterpFinal.y +
+                                      param_1[0x6e].posInterpFinal.x) * 255.0) / 30.0));
+    param_1->color = lVar4 << 0x18 | 0xffffff;
+    param_1->flags = param_1->flags | 4;
+    param_1[9].flags = 0;
+    param_1[9].alphaInterpEndTime = 0;
+    param_1[9].scaleInterpEndTime = 0;
+    if ((int)param_1[0x6e].posInterpFinal.y < 0x1e) goto LAB_00428fa8;
+    *(undefined *)((int)&param_1[9].matrix.field0_0x0 + 0x14) = 1;
+    param_1[4].rotation.x = VIEWPORT_WIDTH / 2.0;
+    param_1[4].rotation.y = VIEWPORT_HEIGHT - 64.0;
+    param_1[4].rotation.z = 0.2;
+    param_1[0x6e].posInterpFinal.y = 0.0;
+    param_1[0x6e].posInterpFinal.x = 0.0;
+    param_1[0x6e].posInterpInitial.z = -NAN;
+    param_1->scaleY = 3.0;
+    param_1->scaleX = 3.0;
     pAVar2 = g_AnmManager;
-    *(undefined2 *)&param_1->field_0xb4 = 0x400;
-    FUN_00432430(param_1,(int)pAVar2->scripts[0x400]);
+    param_1->anmFileIndex = 0x400;
+    FUN_00432430((Unknown *)param_1,(int)pAVar2->scripts[0x400]);
     if (LIFE_COUNT < '\x01') {
       DAT_0069d4c0 = 1;
       goto LAB_00428fa8;
@@ -111,76 +114,77 @@ undefined4 FUN_004288c0(Unknown *param_1)
     }
     DAT_0069bc30 = DAT_0069bc30 & 0xfffffff0 | 10;
   }
-  else if (*(char *)&param_1[0xc].field52_0xb0 != '\x01') goto LAB_00428fa8;
-  *(undefined4 *)&param_1[0xc].field_0xac = 0x5a;
-  fVar1 = 1.0 - ((float)(int)param_1[0x99].field31_0x98 + *(float *)&param_1[0x99].field_0x94) /
-                30.0;
-  param_1->field6_0x18 = fVar1 * 2.0 + 1.0;
-  param_1->field7_0x1c = 1.0 - fVar1 * 1.0;
-  param_1->field15_0x80 = param_1->field15_0x80 | 4;
-  *(undefined4 *)&param_1[0xc].field_0xa4 = 0x3f800000;
-  *(undefined4 *)&param_1[0xc].field_0xa0 = 0x3f800000;
-  param_1->field14_0x7c = ((int)param_1[0x99].field31_0x98 * 0xff) / 0x1e << 0x18 | 0xffffff;
-  *(undefined4 *)&param_1[0xc].field_0xa8 = 0;
-  if (0x1d < (int)param_1[0x99].field31_0x98) {
-    *(undefined *)&param_1[0xc].field52_0xb0 = 3;
-    param_1->field7_0x1c = 1.0;
-    param_1->field6_0x18 = 1.0;
-    param_1->field14_0x7c = -1;
-    param_1->field15_0x80 = param_1->field15_0x80 & 0xfffffffb;
-    param_1[0x99].field31_0x98 = 3.363116e-43;
-    *(undefined4 *)&param_1[0x99].field_0x94 = 0;
-    *(undefined4 *)&param_1[0x99].field_0x90 = 0xfffffc19;
-    *(undefined4 *)&param_1[0xc].field_0xa8 = 6;
+  else if (*(char *)((int)&param_1[9].matrix.field0_0x0 + 0x14) != '\x01') goto LAB_00428fa8;
+  param_1[9].matrix.field0_0x0.field0._21 = 1.261169e-43;
+  fVar1 = 1.0 - ((float)(int)param_1[0x6e].posInterpFinal.y + param_1[0x6e].posInterpFinal.x) / 30.0
+  ;
+  param_1->scaleX = fVar1 * 2.0 + 1.0;
+  param_1->scaleY = 1.0 - fVar1 * 1.0;
+  param_1->flags = param_1->flags | 4;
+  param_1[9].matrix.field0_0x0.field0._13 = 1.0;
+  param_1[9].matrix.field0_0x0.field0._12 = 1.0;
+  param_1->color = ((int)param_1[0x6e].posInterpFinal.y * 0xff) / 0x1e << 0x18 | 0xffffff;
+  param_1[9].matrix.field0_0x0.field0._14 = 0.0;
+  if (0x1d < (int)param_1[0x6e].posInterpFinal.y) {
+    *(undefined *)((int)&param_1[9].matrix.field0_0x0 + 0x14) = 3;
+    param_1->scaleY = 1.0;
+    param_1->scaleX = 1.0;
+    param_1->color = 0xffffffff;
+    param_1->flags = param_1->flags & 0xfffffffb;
+    param_1[0x6e].posInterpFinal.y = 3.363116e-43;
+    param_1[0x6e].posInterpFinal.x = 0.0;
+    param_1[0x6e].posInterpInitial.z = -NAN;
+    param_1[9].matrix.field0_0x0.field0._14 = 8.407791e-45;
   }
 LAB_00428fa8:
-  if (*(int *)&param_1[0xc].field_0xac != 0) {
-    *(int *)&param_1[0xc].field_0xac = *(int *)&param_1[0xc].field_0xac + -1;
+  if (param_1[9].matrix.field0_0x0.field0._21 != 0.0) {
+    param_1[9].matrix.field0_0x0.field0._21 =
+         (float)((int)param_1[9].matrix.field0_0x0.field0._21 + -1);
     FUN_00414160(0);
   }
-  if (*(char *)&param_1[0xc].field52_0xb0 == '\x03') {
+  if (*(char *)((int)&param_1[9].matrix.field0_0x0 + 0x14) == '\x03') {
     FUN_004241e5(1);
-    if ((int)param_1[0x99].field31_0x98 < 1) {
-      *(undefined *)&param_1[0xc].field52_0xb0 = 0;
-      param_1[0x99].field31_0x98 = 0.0;
-      *(undefined4 *)&param_1[0x99].field_0x94 = 0;
-      *(undefined4 *)&param_1[0x99].field_0x90 = 0xfffffc19;
-      param_1->field15_0x80 = param_1->field15_0x80 & 0xfffffff7;
-      param_1->field14_0x7c = -1;
+    if ((int)param_1[0x6e].posInterpFinal.y < 1) {
+      *(undefined *)((int)&param_1[9].matrix.field0_0x0 + 0x14) = 0;
+      param_1[0x6e].posInterpFinal.y = 0.0;
+      param_1[0x6e].posInterpFinal.x = 0.0;
+      param_1[0x6e].posInterpInitial.z = -NAN;
+      param_1->flags = param_1->flags & 0xfffffff7;
+      param_1->color = 0xffffffff;
     }
     else {
-      uVar5 = (uint)param_1[0x99].field31_0x98 & 0x80000007;
+      uVar5 = (uint)param_1[0x6e].posInterpFinal.y & 0x80000007;
       if ((int)uVar5 < 0) {
         uVar5 = (uVar5 - 1 | 0xfffffff8) + 1;
       }
       if ((int)uVar5 < 2) {
-        param_1->field15_0x80 = param_1->field15_0x80 | 8;
-        param_1->field14_0x7c = -0xbfbfc0;
+        param_1->flags = param_1->flags | 8;
+        param_1->color = 0xff404040;
       }
       else {
-        param_1->field15_0x80 = param_1->field15_0x80 & 0xfffffff7;
-        param_1->field14_0x7c = -1;
+        param_1->flags = param_1->flags & 0xfffffff7;
+        param_1->color = 0xffffffff;
       }
     }
   }
   else {
-    *(float *)&param_1[0x99].field_0x90 = param_1[0x99].field31_0x98;
-    FUN_00424285(&g_GameContext,(int *)&param_1[0x99].field31_0x98,
-                 (float *)&param_1[0x99].field_0x94);
+    param_1[0x6e].posInterpInitial.z = param_1[0x6e].posInterpFinal.y;
+    FUN_00424285(&g_GameContext,(int *)&param_1[0x6e].posInterpFinal.y,
+                 &param_1[0x6e].posInterpFinal.x);
   }
-  if ((*(char *)&param_1[0xc].field52_0xb0 != '\x02') &&
-     (*(char *)&param_1[0xc].field52_0xb0 != '\x01')) {
+  if ((*(char *)((int)&param_1[9].matrix.field0_0x0 + 0x14) != '\x02') &&
+     (*(char *)((int)&param_1[9].matrix.field0_0x0 + 0x14) != '\x01')) {
     FUN_00427860();
   }
-  AnmManager::FUN_00433960(param_1);
+  AnmManager::FUN_00433960(g_AnmManager,param_1);
   FUN_004291b0(param_1);
-  if (param_1[0xc].field_0xb2 != '\0') {
-    AnmManager::FUN_00433960(&param_1[1].field13_0x3c.field4_0x10);
-    AnmManager::FUN_00433960(&param_1[2].field31_0x98);
+  if (*(char *)((int)&param_1[9].matrix.field0_0x0 + 0x16) != '\0') {
+    AnmManager::FUN_00433960(g_AnmManager,param_1 + 1);
+    AnmManager::FUN_00433960(g_AnmManager,param_1 + 2);
   }
-  param_1[0xd].field10_0x28 = 0xc479c000;
-  param_1[0xd].field11_0x2c = 0xc479c000;
-  param_1[0xd].field12_0x30.previous = 0;
+  *(undefined4 *)&param_1[9].posInterpEndTime = 0xc479c000;
+  param_1[9].pos.x = -999.0;
+  param_1[9].pos.y = 0.0;
   FUN_00429710(param_1);
   return 1;
 }

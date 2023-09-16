@@ -741,7 +741,7 @@ LAB_00436de7:
       bVar5 = g_AnmManager->textures[**(int **)(iVar4 + 0xc0)] != (IDirect3DTexture8 *)0x0;
     }
     if (bVar5) {
-      AnmManager::FUN_00433960();
+      AnmManager::FUN_00433960(g_AnmManager,(AnmVm *)(param_1 + local_8 * 0x110));
     }
   }
   return 1;

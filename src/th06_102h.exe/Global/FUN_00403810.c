@@ -129,7 +129,7 @@ switchD_00403892_caseD_6:
             *(int *)(param_1 + 0x80) = *(int *)(param_1 + 0x80) + 1;
           }
           *(int *)(param_1 + 0x84) = *(int *)(param_1 + 0x84) + 1;
-          AnmManager::FUN_00433960(param_1 + 0x88);
+          AnmManager::FUN_00433960(g_AnmManager,(AnmVm *)(param_1 + 0x88));
           return 1;
         case 1:
           if (*(int *)(param_1 + 0x24) < *local_c) goto switchD_00403892_caseD_6;

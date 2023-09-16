@@ -20,10 +20,10 @@ int AsciiManager::FUN_00401140(AsciiManager *arg)
     }
   }
   else if (DAT_0069d4bf != '\0') {
-    FUN_00401b80(&(arg->field17_0x6244).field0_0x0);
+    AsciiManagerProbablyStageRelated::FUN_00401b80(&arg->field17_0x6244);
   }
   if (DAT_0069d4c0 != '\0') {
-    FUN_00402870(&(arg->field18_0x69bc).field0_0x0);
+    AsciiManagerProbablyStageRelated::FUN_00402870(&arg->field18_0x69bc);
   }
   return 1;
 }

@@ -166,12 +166,12 @@ undefined4 FUN_004188c9(void)
     }
     FUN_0041b5af();
 LAB_00418fe0:
-    AnmManager::FUN_00433960(in_ECX + 0x2550);
-    AnmManager::FUN_00433960(in_ECX + 0x2660);
-    AnmManager::FUN_00433960(in_ECX + 0x2770);
-    AnmManager::FUN_00433960(in_ECX + 0x2880);
-    AnmManager::FUN_00433960(in_ECX + 0x2990);
-    AnmManager::FUN_00433960(in_ECX + 0x2aa0);
+    AnmManager::FUN_00433960(g_AnmManager,(AnmVm *)(in_ECX + 0x2550));
+    AnmManager::FUN_00433960(g_AnmManager,(AnmVm *)(in_ECX + 0x2660));
+    AnmManager::FUN_00433960(g_AnmManager,(AnmVm *)(in_ECX + 0x2770));
+    AnmManager::FUN_00433960(g_AnmManager,(AnmVm *)(in_ECX + 0x2880));
+    AnmManager::FUN_00433960(g_AnmManager,(AnmVm *)(in_ECX + 0x2990));
+    AnmManager::FUN_00433960(g_AnmManager,(AnmVm *)(in_ECX + 0x2aa0));
     if (((*(int *)(in_ECX + 0x2548) < 0x3c) && (*(char *)(in_ECX + 0x2bd8) != '\0')) &&
        ((BUTTONS_PRESSED_CURFRAME & 0x100) != 0)) {
       *(undefined4 *)(in_ECX + 0x2548) = 0x3c;

@@ -2,19 +2,20 @@
 undefined4 FUN_004149d0(int param_1)
 
 {
-  char cVar1;
-  float fVar2;
+  float fVar1;
+  char cVar2;
   float fVar3;
   int iVar4;
-  undefined4 *puVar5;
-  float10 fVar6;
+  float *pfVar5;
+  AnmVm *pAVar6;
   float10 fVar7;
-  int local_260;
+  float10 fVar8;
+  float local_260;
   float local_38;
-  undefined4 local_34;
-  int local_2c;
+  float local_34;
+  AnmVm *local_2c;
   int local_28;
-  undefined4 *local_24;
+  AnmVm *local_24;
   float local_20;
   float local_1c;
   float local_14;
@@ -22,57 +23,56 @@ undefined4 FUN_004149d0(int param_1)
   int local_c;
   int local_8;
   
-  local_24 = (undefined4 *)(param_1 + 0x5600);
+  local_24 = (AnmVm *)(param_1 + 0x5600);
   if (DAT_0069bccc == '\0') {
     FUN_0041f4a0();
     *(undefined4 *)(param_1 + 0xf5c04) = 0;
     for (local_c = 0; local_c < 0x280; local_c = local_c + 1) {
-      if (*(short *)((int)local_24 + 0x5be) == 0) goto LAB_00414a1a;
+      if (*(short *)((int)&local_24[5].matrix.field0_0x0 + 0x32) == 0) goto LAB_00414a1a;
       *(int *)(param_1 + 0xf5c04) = *(int *)(param_1 + 0xf5c04) + 1;
-      switch(*(undefined2 *)((int)local_24 + 0x5be)) {
+      switch(*(undefined2 *)((int)&local_24[5].matrix.field0_0x0 + 0x32)) {
       case 1:
         goto switchD_00414a97_caseD_1;
       case 2:
-        fVar2 = (float)local_24[0x15d] * 0.5 * (float)g_GameContext._424_4_;
-        fVar3 = (float)local_24[0x15c] * 0.5 * (float)g_GameContext._424_4_;
-        local_24[0x158] =
-             (float)local_24[0x15b] * 0.5 * (float)g_GameContext._424_4_ + (float)local_24[0x158];
-        local_24[0x159] = fVar3 + (float)local_24[0x159];
-        local_24[0x15a] = fVar2 + (float)local_24[0x15a];
-        iVar4 = AnmManager::FUN_00433960();
+        fVar1 = local_24[5].scaleInterpFinalX * 0.5 * (float)g_GameContext._424_4_;
+        fVar3 = local_24[5].scaleInterpFinalY * 0.5 * (float)g_GameContext._424_4_;
+        pfVar5 = &local_24[5].angleVel.y;
+        *pfVar5 = local_24[5].scaleY * 0.5 * (float)g_GameContext._424_4_ + *pfVar5;
+        local_24[5].angleVel.z = fVar3 + local_24[5].angleVel.z;
+        local_24[5].scaleX = fVar1 + local_24[5].scaleX;
+        iVar4 = AnmManager::FUN_00433960(g_AnmManager,local_24 + 1);
         break;
       case 3:
-        fVar2 = (float)local_24[0x15d] * 0.4 * (float)g_GameContext._424_4_;
-        fVar3 = (float)local_24[0x15c] * 0.4 * (float)g_GameContext._424_4_;
-        local_24[0x158] =
-             (float)local_24[0x15b] * 0.4 * (float)g_GameContext._424_4_ + (float)local_24[0x158];
-        local_24[0x159] = fVar3 + (float)local_24[0x159];
-        local_24[0x15a] = fVar2 + (float)local_24[0x15a];
-        iVar4 = AnmManager::FUN_00433960();
+        fVar1 = local_24[5].scaleInterpFinalX * 0.4 * (float)g_GameContext._424_4_;
+        fVar3 = local_24[5].scaleInterpFinalY * 0.4 * (float)g_GameContext._424_4_;
+        pfVar5 = &local_24[5].angleVel.y;
+        *pfVar5 = local_24[5].scaleY * 0.4 * (float)g_GameContext._424_4_ + *pfVar5;
+        local_24[5].angleVel.z = fVar3 + local_24[5].angleVel.z;
+        local_24[5].scaleX = fVar1 + local_24[5].scaleX;
+        iVar4 = AnmManager::FUN_00433960(g_AnmManager,local_24 + 2);
         break;
       case 4:
-        fVar2 = (float)local_24[0x15d] * 0.3333333 * (float)g_GameContext._424_4_;
-        fVar3 = (float)local_24[0x15c] * 0.3333333 * (float)g_GameContext._424_4_;
-        local_24[0x158] =
-             (float)local_24[0x15b] * 0.3333333 * (float)g_GameContext._424_4_ +
-             (float)local_24[0x158];
-        local_24[0x159] = fVar3 + (float)local_24[0x159];
-        local_24[0x15a] = fVar2 + (float)local_24[0x15a];
-        iVar4 = AnmManager::FUN_00433960();
+        fVar1 = local_24[5].scaleInterpFinalX * 0.3333333 * (float)g_GameContext._424_4_;
+        fVar3 = local_24[5].scaleInterpFinalY * 0.3333333 * (float)g_GameContext._424_4_;
+        pfVar5 = &local_24[5].angleVel.y;
+        *pfVar5 = local_24[5].scaleY * 0.3333333 * (float)g_GameContext._424_4_ + *pfVar5;
+        local_24[5].angleVel.z = fVar3 + local_24[5].angleVel.z;
+        local_24[5].scaleX = fVar1 + local_24[5].scaleX;
+        iVar4 = AnmManager::FUN_00433960(g_AnmManager,local_24 + 3);
         break;
       case 5:
-        fVar2 = (float)local_24[0x15d] * 0.5 * (float)g_GameContext._424_4_;
-        fVar3 = (float)local_24[0x15c] * 0.5 * (float)g_GameContext._424_4_;
-        local_24[0x158] =
-             (float)local_24[0x15b] * 0.5 * (float)g_GameContext._424_4_ + (float)local_24[0x158];
-        local_24[0x159] = fVar3 + (float)local_24[0x159];
-        local_24[0x15a] = fVar2 + (float)local_24[0x15a];
-        iVar4 = AnmManager::FUN_00433960();
+        fVar1 = local_24[5].scaleInterpFinalX * 0.5 * (float)g_GameContext._424_4_;
+        fVar3 = local_24[5].scaleInterpFinalY * 0.5 * (float)g_GameContext._424_4_;
+        pfVar5 = &local_24[5].angleVel.y;
+        *pfVar5 = local_24[5].scaleY * 0.5 * (float)g_GameContext._424_4_ + *pfVar5;
+        local_24[5].angleVel.z = fVar3 + local_24[5].angleVel.z;
+        local_24[5].scaleX = fVar1 + local_24[5].scaleX;
+        iVar4 = AnmManager::FUN_00433960(g_AnmManager,local_24 + 4);
         if (iVar4 != 0) {
-          puVar5 = local_24;
+          pAVar6 = local_24;
           for (iVar4 = 0x171; iVar4 != 0; iVar4 = iVar4 + -1) {
-            *puVar5 = 0;
-            puVar5 = puVar5 + 1;
+            (pAVar6->rotation).x = 0.0;
+            pAVar6 = (AnmVm *)&(pAVar6->rotation).y;
           }
           goto LAB_00414a1a;
         }
@@ -81,356 +81,422 @@ undefined4 FUN_004149d0(int param_1)
       }
       if (iVar4 == 0) {
 switchD_00414a97_caseD_5:
-        local_24[0x167] = local_24[0x169];
-        FUN_00424285(&g_GameContext,local_24 + 0x169,(float *)(local_24 + 0x168));
+        local_24[5].matrix.field0_0x0.field0._21 = local_24[5].matrix.field0_0x0.field0._23;
+        FUN_00424285(&g_GameContext,(int *)&local_24[5].matrix.field0_0x0.field0._23,
+                     &local_24[5].matrix.field0_0x0.field0._22);
       }
       else {
-        *(undefined2 *)((int)local_24 + 0x5be) = 1;
-        local_24[0x169] = 0;
-        local_24[0x168] = 0;
-        local_24[0x167] = 0xfffffc19;
+        *(undefined2 *)((int)&local_24[5].matrix.field0_0x0 + 0x32) = 1;
+        local_24[5].matrix.field0_0x0.field0._23 = 0.0;
+        local_24[5].matrix.field0_0x0.field0._22 = 0.0;
+        local_24[5].matrix.field0_0x0.field0._21 = -NAN;
 switchD_00414a97_caseD_1:
-        if (*(short *)(local_24 + 0x16e) != 0) {
-          if ((*(ushort *)(local_24 + 0x16e) & 1) == 0) {
-            if ((*(ushort *)(local_24 + 0x16e) & 0x10) == 0) {
-              if ((*(ushort *)(local_24 + 0x16e) & 0x20) != 0) {
-                if ((int)local_24[0x169] < (int)local_24[0x16a]) {
-                  fVar7 = (float10)FUN_0041e850(local_24[0x164]);
-                  local_24[0x164] = (float)fVar7;
-                  local_24[0x161] =
-                       (float)g_GameContext._424_4_ * (float)local_24[0x162] +
-                       (float)local_24[0x161];
-                  fVar7 = (float10)fcos((float10)(float)local_24[0x164]);
-                  fVar6 = (float10)fsin((float10)(float)local_24[0x164]);
-                  local_24[0x15b] = (float)(fVar7 * (float10)(float)local_24[0x161]);
-                  local_24[0x15c] = (float)(fVar6 * (float10)(float)local_24[0x161]);
+        if (*(short *)((int)&local_24[5].matrix.field0_0x0 + 0x2c) != 0) {
+          if ((*(ushort *)((int)&local_24[5].matrix.field0_0x0 + 0x2c) & 1) == 0) {
+            if ((*(ushort *)((int)&local_24[5].matrix.field0_0x0 + 0x2c) & 0x10) == 0) {
+              if ((*(ushort *)((int)&local_24[5].matrix.field0_0x0 + 0x2c) & 0x20) != 0) {
+                if ((int)local_24[5].matrix.field0_0x0.field0._23 <
+                    (int)local_24[5].matrix.field0_0x0.field0._24) {
+                  fVar8 = (float10)FUN_0041e850(local_24[5].matrix.field0_0x0.field0._12);
+                  local_24[5].matrix.field0_0x0.field0._12 = (float)fVar8;
+                  local_24[5].currentTimeInScript.subFrame =
+                       (float)g_GameContext._424_4_ * (float)local_24[5].currentTimeInScript.current
+                       + local_24[5].currentTimeInScript.subFrame;
+                  fVar1 = local_24[5].currentTimeInScript.subFrame;
+                  fVar7 = (float10)local_24[5].matrix.field0_0x0.field0._12;
+                  fVar8 = (float10)fcos(fVar7);
+                  fVar7 = (float10)fsin(fVar7);
+                  local_24[5].scaleY = (float)(fVar8 * (float10)fVar1);
+                  local_24[5].scaleInterpFinalY = (float)(fVar7 * (float10)fVar1);
                 }
                 else {
-                  *(ushort *)(local_24 + 0x16e) = *(ushort *)(local_24 + 0x16e) & 0xffdf;
+                  *(ushort *)((int)&local_24[5].matrix.field0_0x0 + 0x2c) =
+                       *(ushort *)((int)&local_24[5].matrix.field0_0x0 + 0x2c) & 0xffdf;
                 }
               }
             }
-            else if ((int)local_24[0x169] < (int)local_24[0x16a]) {
-              fVar2 = (float)g_GameContext._424_4_ * (float)local_24[0x160];
-              fVar3 = (float)g_GameContext._424_4_ * (float)local_24[0x15f];
-              local_24[0x15b] =
-                   (float)g_GameContext._424_4_ * (float)local_24[0x15e] + (float)local_24[0x15b];
-              local_24[0x15c] = fVar3 + (float)local_24[0x15c];
-              local_24[0x15d] = fVar2 + (float)local_24[0x15d];
-              fVar7 = (float10)FUN_0045be40((double)(float)local_24[0x15c],
-                                            (double)(float)local_24[0x15b]);
-              local_24[0x164] = (float)fVar7;
+            else if ((int)local_24[5].matrix.field0_0x0.field0._23 <
+                     (int)local_24[5].matrix.field0_0x0.field0._24) {
+              fVar1 = (float)g_GameContext._424_4_ * (float)local_24[5].currentTimeInScript.previous
+              ;
+              fVar3 = (float)g_GameContext._424_4_ * local_24[5].uvScrollPos.y;
+              local_24[5].scaleY =
+                   (float)g_GameContext._424_4_ * local_24[5].uvScrollPos.x + local_24[5].scaleY;
+              local_24[5].scaleInterpFinalY = fVar3 + local_24[5].scaleInterpFinalY;
+              local_24[5].scaleInterpFinalX = fVar1 + local_24[5].scaleInterpFinalX;
+              fVar8 = (float10)FUN_0045be40((double)local_24[5].scaleInterpFinalY,
+                                            (double)local_24[5].scaleY);
+              local_24[5].matrix.field0_0x0.field0._12 = (float)fVar8;
             }
             else {
-              *(ushort *)(local_24 + 0x16e) = *(ushort *)(local_24 + 0x16e) & 0xffef;
+              *(ushort *)((int)&local_24[5].matrix.field0_0x0 + 0x2c) =
+                   *(ushort *)((int)&local_24[5].matrix.field0_0x0 + 0x2c) & 0xffef;
             }
           }
-          else if ((int)local_24[0x169] < 0x11) {
-            local_10 = 5.0 - (((float)local_24[0x169] + (float)local_24[0x168]) * 5.0) / 16.0;
-            fVar7 = (float10)fcos((float10)(float)local_24[0x164]);
-            fVar6 = (float10)fsin((float10)(float)local_24[0x164]);
-            local_24[0x15b] = (float)(fVar7 * (float10)(local_10 + (float)local_24[0x161]));
-            local_24[0x15c] = (float)(fVar6 * (float10)(local_10 + (float)local_24[0x161]));
+          else if ((int)local_24[5].matrix.field0_0x0.field0._23 < 0x11) {
+            local_10 = 5.0 - (((float)*(int *)((int)&local_24[5].matrix.field0_0x0 + 0x18) +
+                              local_24[5].matrix.field0_0x0.field0._22) * 5.0) / 16.0;
+            fVar1 = local_10 + local_24[5].currentTimeInScript.subFrame;
+            fVar7 = (float10)local_24[5].matrix.field0_0x0.field0._12;
+            fVar8 = (float10)fcos(fVar7);
+            fVar7 = (float10)fsin(fVar7);
+            local_24[5].scaleY = (float)(fVar8 * (float10)fVar1);
+            local_24[5].scaleInterpFinalY = (float)(fVar7 * (float10)fVar1);
           }
           else {
-            *(ushort *)(local_24 + 0x16e) = *(ushort *)(local_24 + 0x16e) ^ 1;
+            *(ushort *)((int)&local_24[5].matrix.field0_0x0 + 0x2c) =
+                 *(ushort *)((int)&local_24[5].matrix.field0_0x0 + 0x2c) ^ 1;
           }
-          if ((*(ushort *)(local_24 + 0x16e) & 0x40) == 0) {
-            if ((*(ushort *)(local_24 + 0x16e) & 0x100) == 0) {
-              if ((*(ushort *)(local_24 + 0x16e) & 0x80) == 0) {
-                if ((*(ushort *)(local_24 + 0x16e) & 0x400) == 0) {
-                  if (((*(ushort *)(local_24 + 0x16e) & 0x800) != 0) &&
-                     (iVar4 = FUN_0041b5e1(local_24[0x158],local_24[0x159],
-                                           *(undefined4 *)(local_24[0x30] + 0x30),
-                                           *(undefined4 *)(local_24[0x30] + 0x2c)), iVar4 == 0)) {
-                    if (((float)local_24[0x158] < 0.0 != NAN((float)local_24[0x158])) ||
-                       (384.0 <= (float)local_24[0x158])) {
-                      local_24[0x164] = -(float)local_24[0x164] - 3.141593;
-                      fVar7 = (float10)FUN_0041e850(local_24[0x164]);
-                      local_24[0x164] = (float)fVar7;
+          if ((*(ushort *)((int)&local_24[5].matrix.field0_0x0 + 0x2c) & 0x40) == 0) {
+            if ((*(ushort *)((int)&local_24[5].matrix.field0_0x0 + 0x2c) & 0x100) == 0) {
+              if ((*(ushort *)((int)&local_24[5].matrix.field0_0x0 + 0x2c) & 0x80) == 0) {
+                if ((*(ushort *)((int)&local_24[5].matrix.field0_0x0 + 0x2c) & 0x400) == 0) {
+                  if (((*(ushort *)((int)&local_24[5].matrix.field0_0x0 + 0x2c) & 0x800) != 0) &&
+                     (iVar4 = FUN_0041b5e1(local_24[5].angleVel.y,local_24[5].angleVel.z,
+                                           local_24->sprite->widthPx,local_24->sprite->heightPx),
+                     iVar4 == 0)) {
+                    fVar1 = local_24[5].angleVel.y;
+                    if ((fVar1 < 0.0 != NAN(fVar1)) || (384.0 <= local_24[5].angleVel.y)) {
+                      local_24[5].matrix.field0_0x0.field0._12 =
+                           -local_24[5].matrix.field0_0x0.field0._12 - 3.141593;
+                      fVar8 = (float10)FUN_0041e850(local_24[5].matrix.field0_0x0.field0._12);
+                      local_24[5].matrix.field0_0x0.field0._12 = (float)fVar8;
                     }
-                    if ((float)local_24[0x159] < 0.0 != NAN((float)local_24[0x159])) {
-                      local_24[0x164] = -(float)local_24[0x164];
+                    fVar1 = local_24[5].angleVel.z;
+                    if (fVar1 < 0.0 != NAN(fVar1)) {
+                      local_24[5].matrix.field0_0x0.field0._12 =
+                           -local_24[5].matrix.field0_0x0.field0._12;
                     }
-                    local_24[0x161] = local_24[0x163];
-                    local_10 = (float)local_24[0x161];
-                    fVar7 = (float10)fcos((float10)(float)local_24[0x164]);
-                    fVar6 = (float10)fsin((float10)(float)local_24[0x164]);
-                    local_24[0x15b] = (float)(fVar7 * (float10)local_10);
-                    local_24[0x15c] = (float)(fVar6 * (float10)local_10);
-                    local_24[0x16c] = local_24[0x16c] + 1;
-                    if ((int)local_24[0x16d] <= (int)local_24[0x16c]) {
-                      *(ushort *)(local_24 + 0x16e) = *(ushort *)(local_24 + 0x16e) & 0xf7ff;
+                    local_24[5].currentTimeInScript.subFrame =
+                         local_24[5].matrix.field0_0x0.field0._11;
+                    local_10 = local_24[5].currentTimeInScript.subFrame;
+                    fVar7 = (float10)local_24[5].matrix.field0_0x0.field0._12;
+                    fVar8 = (float10)fcos(fVar7);
+                    fVar7 = (float10)fsin(fVar7);
+                    local_24[5].scaleY = (float)(fVar8 * (float10)local_10);
+                    local_24[5].scaleInterpFinalY = (float)(fVar7 * (float10)local_10);
+                    local_24[5].matrix.field0_0x0.field0._32 =
+                         (float)((int)local_24[5].matrix.field0_0x0.field0._32 + 1);
+                    if ((int)local_24[5].matrix.field0_0x0.field0._33 <=
+                        (int)local_24[5].matrix.field0_0x0.field0._32) {
+                      *(ushort *)((int)&local_24[5].matrix.field0_0x0 + 0x2c) =
+                           *(ushort *)((int)&local_24[5].matrix.field0_0x0 + 0x2c) & 0xf7ff;
                     }
                   }
                 }
                 else {
-                  iVar4 = FUN_0041b5e1(local_24[0x158],local_24[0x159],
-                                       *(undefined4 *)(local_24[0x30] + 0x30),
-                                       *(undefined4 *)(local_24[0x30] + 0x2c));
+                  iVar4 = FUN_0041b5e1(local_24[5].angleVel.y,local_24[5].angleVel.z,
+                                       local_24->sprite->widthPx,local_24->sprite->heightPx);
                   if (iVar4 == 0) {
-                    if (((float)local_24[0x158] < 0.0 != NAN((float)local_24[0x158])) ||
-                       (384.0 <= (float)local_24[0x158])) {
-                      local_24[0x164] = -(float)local_24[0x164] - 3.141593;
-                      fVar7 = (float10)FUN_0041e850(local_24[0x164]);
-                      local_24[0x164] = (float)fVar7;
+                    fVar1 = local_24[5].angleVel.y;
+                    if ((fVar1 < 0.0 != NAN(fVar1)) || (384.0 <= local_24[5].angleVel.y)) {
+                      local_24[5].matrix.field0_0x0.field0._12 =
+                           -local_24[5].matrix.field0_0x0.field0._12 - 3.141593;
+                      fVar8 = (float10)FUN_0041e850(local_24[5].matrix.field0_0x0.field0._12);
+                      local_24[5].matrix.field0_0x0.field0._12 = (float)fVar8;
                     }
-                    if (((float)local_24[0x159] < 0.0 != NAN((float)local_24[0x159])) ||
-                       (448.0 <= (float)local_24[0x159])) {
-                      local_24[0x164] = -(float)local_24[0x164];
+                    fVar1 = local_24[5].angleVel.z;
+                    if ((fVar1 < 0.0 != NAN(fVar1)) || (448.0 <= local_24[5].angleVel.z)) {
+                      local_24[5].matrix.field0_0x0.field0._12 =
+                           -local_24[5].matrix.field0_0x0.field0._12;
                     }
-                    local_24[0x161] = local_24[0x163];
-                    local_10 = (float)local_24[0x161];
-                    fVar7 = (float10)fcos((float10)(float)local_24[0x164]);
-                    fVar6 = (float10)fsin((float10)(float)local_24[0x164]);
-                    local_24[0x15b] = (float)(fVar7 * (float10)local_10);
-                    local_24[0x15c] = (float)(fVar6 * (float10)local_10);
-                    local_24[0x16c] = local_24[0x16c] + 1;
-                    if ((int)local_24[0x16d] <= (int)local_24[0x16c]) {
-                      *(ushort *)(local_24 + 0x16e) = *(ushort *)(local_24 + 0x16e) & 0xfbff;
+                    local_24[5].currentTimeInScript.subFrame =
+                         local_24[5].matrix.field0_0x0.field0._11;
+                    local_10 = local_24[5].currentTimeInScript.subFrame;
+                    fVar7 = (float10)local_24[5].matrix.field0_0x0.field0._12;
+                    fVar8 = (float10)fcos(fVar7);
+                    fVar7 = (float10)fsin(fVar7);
+                    local_24[5].scaleY = (float)(fVar8 * (float10)local_10);
+                    local_24[5].scaleInterpFinalY = (float)(fVar7 * (float10)local_10);
+                    local_24[5].matrix.field0_0x0.field0._32 =
+                         (float)((int)local_24[5].matrix.field0_0x0.field0._32 + 1);
+                    if ((int)local_24[5].matrix.field0_0x0.field0._33 <=
+                        (int)local_24[5].matrix.field0_0x0.field0._32) {
+                      *(ushort *)((int)&local_24[5].matrix.field0_0x0 + 0x2c) =
+                           *(ushort *)((int)&local_24[5].matrix.field0_0x0 + 0x2c) & 0xfbff;
                     }
                   }
                 }
               }
               else {
-                if ((int)local_24[0x169] < local_24[0x16b] * (local_24[0x16c] + 1)) {
-                  local_10 = (float)local_24[0x161] -
-                             ((((float)local_24[0x169] + (float)local_24[0x168]) -
-                              (float)(local_24[0x16b] * local_24[0x16c])) * (float)local_24[0x161])
-                             / (float)local_24[0x16b];
+                if ((int)local_24[5].matrix.field0_0x0.field0._23 <
+                    *(int *)((int)&local_24[5].matrix.field0_0x0 + 0x20) *
+                    ((int)local_24[5].matrix.field0_0x0.field0._32 + 1)) {
+                  local_10 = local_24[5].currentTimeInScript.subFrame -
+                             ((((float)*(int *)((int)&local_24[5].matrix.field0_0x0 + 0x18) +
+                               local_24[5].matrix.field0_0x0.field0._22) -
+                              (float)(*(int *)((int)&local_24[5].matrix.field0_0x0 + 0x20) *
+                                     *(int *)((int)&local_24[5].matrix.field0_0x0 + 0x24))) *
+                             local_24[5].currentTimeInScript.subFrame) /
+                             (float)*(int *)((int)&local_24[5].matrix.field0_0x0 + 0x20);
                 }
                 else {
-                  local_24[0x16c] = local_24[0x16c] + 1;
-                  if ((int)local_24[0x16d] <= (int)local_24[0x16c]) {
-                    *(ushort *)(local_24 + 0x16e) = *(ushort *)(local_24 + 0x16e) & 0xff7f;
+                  local_24[5].matrix.field0_0x0.field0._32 =
+                       (float)((int)local_24[5].matrix.field0_0x0.field0._32 + 1);
+                  if ((int)local_24[5].matrix.field0_0x0.field0._33 <=
+                      (int)local_24[5].matrix.field0_0x0.field0._32) {
+                    *(ushort *)((int)&local_24[5].matrix.field0_0x0 + 0x2c) =
+                         *(ushort *)((int)&local_24[5].matrix.field0_0x0 + 0x2c) & 0xff7f;
                   }
-                  fVar7 = (float10)FUN_00428700();
-                  local_24[0x164] = (float)(fVar7 + (float10)(float)local_24[0x166]);
-                  local_24[0x161] = local_24[0x163];
-                  local_10 = (float)local_24[0x161];
+                  fVar8 = (float10)FUN_00428700();
+                  local_24[5].matrix.field0_0x0.field0._12 =
+                       (float)(fVar8 + (float10)local_24[5].matrix.field0_0x0.field0._14);
+                  local_24[5].currentTimeInScript.subFrame =
+                       local_24[5].matrix.field0_0x0.field0._11;
+                  local_10 = local_24[5].currentTimeInScript.subFrame;
                 }
-                fVar7 = (float10)fcos((float10)(float)local_24[0x164]);
-                fVar6 = (float10)fsin((float10)(float)local_24[0x164]);
-                local_24[0x15b] = (float)(fVar7 * (float10)local_10);
-                local_24[0x15c] = (float)(fVar6 * (float10)local_10);
+                fVar7 = (float10)local_24[5].matrix.field0_0x0.field0._12;
+                fVar8 = (float10)fcos(fVar7);
+                fVar7 = (float10)fsin(fVar7);
+                local_24[5].scaleY = (float)(fVar8 * (float10)local_10);
+                local_24[5].scaleInterpFinalY = (float)(fVar7 * (float10)local_10);
               }
             }
             else {
-              if ((int)local_24[0x169] < local_24[0x16b] * (local_24[0x16c] + 1)) {
-                local_10 = (float)local_24[0x161] -
-                           ((((float)local_24[0x169] + (float)local_24[0x168]) -
-                            (float)(local_24[0x16b] * local_24[0x16c])) * (float)local_24[0x161]) /
-                           (float)local_24[0x16b];
+              if ((int)local_24[5].matrix.field0_0x0.field0._23 <
+                  *(int *)((int)&local_24[5].matrix.field0_0x0 + 0x20) *
+                  ((int)local_24[5].matrix.field0_0x0.field0._32 + 1)) {
+                local_10 = local_24[5].currentTimeInScript.subFrame -
+                           ((((float)*(int *)((int)&local_24[5].matrix.field0_0x0 + 0x18) +
+                             local_24[5].matrix.field0_0x0.field0._22) -
+                            (float)(*(int *)((int)&local_24[5].matrix.field0_0x0 + 0x20) *
+                                   *(int *)((int)&local_24[5].matrix.field0_0x0 + 0x24))) *
+                           local_24[5].currentTimeInScript.subFrame) /
+                           (float)*(int *)((int)&local_24[5].matrix.field0_0x0 + 0x20);
               }
               else {
-                local_24[0x16c] = local_24[0x16c] + 1;
-                if ((int)local_24[0x16d] <= (int)local_24[0x16c]) {
-                  *(ushort *)(local_24 + 0x16e) = *(ushort *)(local_24 + 0x16e) & 0xfeff;
+                local_24[5].matrix.field0_0x0.field0._32 =
+                     (float)((int)local_24[5].matrix.field0_0x0.field0._32 + 1);
+                if ((int)local_24[5].matrix.field0_0x0.field0._33 <=
+                    (int)local_24[5].matrix.field0_0x0.field0._32) {
+                  *(ushort *)((int)&local_24[5].matrix.field0_0x0 + 0x2c) =
+                       *(ushort *)((int)&local_24[5].matrix.field0_0x0 + 0x2c) & 0xfeff;
                 }
-                local_24[0x164] = local_24[0x166];
-                local_24[0x161] = local_24[0x163];
-                local_10 = (float)local_24[0x161];
+                local_24[5].matrix.field0_0x0.field0._12 = local_24[5].matrix.field0_0x0.field0._14;
+                local_24[5].currentTimeInScript.subFrame = local_24[5].matrix.field0_0x0.field0._11;
+                local_10 = local_24[5].currentTimeInScript.subFrame;
               }
-              fVar7 = (float10)fcos((float10)(float)local_24[0x164]);
-              fVar6 = (float10)fsin((float10)(float)local_24[0x164]);
-              local_24[0x15b] = (float)(fVar7 * (float10)local_10);
-              local_24[0x15c] = (float)(fVar6 * (float10)local_10);
+              fVar7 = (float10)local_24[5].matrix.field0_0x0.field0._12;
+              fVar8 = (float10)fcos(fVar7);
+              fVar7 = (float10)fsin(fVar7);
+              local_24[5].scaleY = (float)(fVar8 * (float10)local_10);
+              local_24[5].scaleInterpFinalY = (float)(fVar7 * (float10)local_10);
             }
           }
           else {
-            if ((int)local_24[0x169] < local_24[0x16b] * (local_24[0x16c] + 1)) {
-              local_10 = (float)local_24[0x161] -
-                         ((((float)local_24[0x169] + (float)local_24[0x168]) -
-                          (float)(local_24[0x16b] * local_24[0x16c])) * (float)local_24[0x161]) /
-                         (float)local_24[0x16b];
+            if ((int)local_24[5].matrix.field0_0x0.field0._23 <
+                *(int *)((int)&local_24[5].matrix.field0_0x0 + 0x20) *
+                ((int)local_24[5].matrix.field0_0x0.field0._32 + 1)) {
+              local_10 = local_24[5].currentTimeInScript.subFrame -
+                         ((((float)*(int *)((int)&local_24[5].matrix.field0_0x0 + 0x18) +
+                           local_24[5].matrix.field0_0x0.field0._22) -
+                          (float)(*(int *)((int)&local_24[5].matrix.field0_0x0 + 0x20) *
+                                 *(int *)((int)&local_24[5].matrix.field0_0x0 + 0x24))) *
+                         local_24[5].currentTimeInScript.subFrame) /
+                         (float)*(int *)((int)&local_24[5].matrix.field0_0x0 + 0x20);
             }
             else {
-              local_24[0x16c] = local_24[0x16c] + 1;
-              if ((int)local_24[0x16d] <= (int)local_24[0x16c]) {
-                *(ushort *)(local_24 + 0x16e) = *(ushort *)(local_24 + 0x16e) & 0xffbf;
+              local_24[5].matrix.field0_0x0.field0._32 =
+                   (float)((int)local_24[5].matrix.field0_0x0.field0._32 + 1);
+              if ((int)local_24[5].matrix.field0_0x0.field0._33 <=
+                  (int)local_24[5].matrix.field0_0x0.field0._32) {
+                *(ushort *)((int)&local_24[5].matrix.field0_0x0 + 0x2c) =
+                     *(ushort *)((int)&local_24[5].matrix.field0_0x0 + 0x2c) & 0xffbf;
               }
-              local_24[0x164] = (float)local_24[0x164] + (float)local_24[0x166];
-              local_24[0x161] = local_24[0x163];
-              local_10 = (float)local_24[0x161];
+              local_24[5].matrix.field0_0x0.field0._12 =
+                   local_24[5].matrix.field0_0x0.field0._12 +
+                   local_24[5].matrix.field0_0x0.field0._14;
+              local_24[5].currentTimeInScript.subFrame = local_24[5].matrix.field0_0x0.field0._11;
+              local_10 = local_24[5].currentTimeInScript.subFrame;
             }
-            fVar7 = (float10)fcos((float10)(float)local_24[0x164]);
-            fVar6 = (float10)fsin((float10)(float)local_24[0x164]);
-            local_24[0x15b] = (float)(fVar7 * (float10)local_10);
-            local_24[0x15c] = (float)(fVar6 * (float10)local_10);
+            fVar7 = (float10)local_24[5].matrix.field0_0x0.field0._12;
+            fVar8 = (float10)fcos(fVar7);
+            fVar7 = (float10)fsin(fVar7);
+            local_24[5].scaleY = (float)(fVar8 * (float10)local_10);
+            local_24[5].scaleInterpFinalY = (float)(fVar7 * (float10)local_10);
           }
         }
-        fVar2 = (float)g_GameContext._424_4_ * (float)local_24[0x15d];
-        fVar3 = (float)g_GameContext._424_4_ * (float)local_24[0x15c];
-        local_24[0x158] =
-             (float)g_GameContext._424_4_ * (float)local_24[0x15b] + (float)local_24[0x158];
-        local_24[0x159] = fVar3 + (float)local_24[0x159];
-        local_24[0x15a] = fVar2 + (float)local_24[0x15a];
-        iVar4 = FUN_0041b5e1(local_24[0x158],local_24[0x159],*(undefined4 *)(local_24[0x30] + 0x30),
-                             *(undefined4 *)(local_24[0x30] + 0x2c));
+        fVar1 = (float)g_GameContext._424_4_ * local_24[5].scaleInterpFinalX;
+        fVar3 = (float)g_GameContext._424_4_ * local_24[5].scaleInterpFinalY;
+        pfVar5 = &local_24[5].angleVel.y;
+        *pfVar5 = (float)g_GameContext._424_4_ * local_24[5].scaleY + *pfVar5;
+        local_24[5].angleVel.z = fVar3 + local_24[5].angleVel.z;
+        local_24[5].scaleX = fVar1 + local_24[5].scaleX;
+        iVar4 = FUN_0041b5e1(local_24[5].angleVel.y,local_24[5].angleVel.z,local_24->sprite->widthPx
+                             ,local_24->sprite->heightPx);
         if (iVar4 != 0) {
-          *(undefined2 *)(local_24 + 0x170) = 0;
+          *(undefined2 *)((int)&local_24[5].matrix.field0_0x0 + 0x34) = 0;
 LAB_00415b6c:
-          if (*(char *)((int)local_24 + 0x5c3) == '\0') {
-            local_8 = FUN_00426df0(local_24 + 0x158,local_24 + 0x154);
+          if (*(char *)((int)&local_24[5].matrix.field0_0x0 + 0x37) == '\0') {
+            local_8 = FUN_00426df0(&local_24[5].angleVel.y,local_24 + 5);
             if (local_8 == 1) {
-              *(undefined *)((int)local_24 + 0x5c3) = 1;
+              *(undefined *)((int)&local_24[5].matrix.field0_0x0 + 0x37) = 1;
 LAB_00415be8:
-              local_8 = FUN_00426c40(local_24 + 0x158,local_24 + 0x154);
-              if ((local_8 != 0) && (*(undefined2 *)((int)local_24 + 0x5be) = 5, local_8 == 2)) {
+              local_8 = FUN_00426c40(&local_24[5].angleVel.y,local_24 + 5);
+              if ((local_8 != 0) &&
+                 (*(undefined2 *)((int)&local_24[5].matrix.field0_0x0 + 0x32) = 5, local_8 == 2)) {
                 FUN_0041f290();
               }
             }
             else if (local_8 == 2) {
-              *(undefined2 *)((int)local_24 + 0x5be) = 5;
+              *(undefined2 *)((int)&local_24[5].matrix.field0_0x0 + 0x32) = 5;
               FUN_0041f290();
             }
           }
-          else if (*(char *)((int)local_24 + 0x5c3) == '\x01') goto LAB_00415be8;
-          AnmManager::FUN_00433960();
+          else if (*(char *)((int)&local_24[5].matrix.field0_0x0 + 0x37) == '\x01')
+          goto LAB_00415be8;
+          AnmManager::FUN_00433960(g_AnmManager,local_24);
           goto switchD_00414a97_caseD_5;
         }
-        if ((((((*(ushort *)(local_24 + 0x16e) & 0x40) == 0) &&
-              ((*(ushort *)(local_24 + 0x16e) & 0x100) == 0)) &&
-             ((*(ushort *)(local_24 + 0x16e) & 0x80) == 0)) &&
-            (((*(ushort *)(local_24 + 0x16e) & 0x400) == 0 &&
-             ((*(ushort *)(local_24 + 0x16e) & 0x800) == 0)))) &&
-           (*(short *)(local_24 + 0x170) == 0)) {
-          puVar5 = local_24;
+        if ((((((*(ushort *)((int)&local_24[5].matrix.field0_0x0 + 0x2c) & 0x40) == 0) &&
+              ((*(ushort *)((int)&local_24[5].matrix.field0_0x0 + 0x2c) & 0x100) == 0)) &&
+             ((*(ushort *)((int)&local_24[5].matrix.field0_0x0 + 0x2c) & 0x80) == 0)) &&
+            (((*(ushort *)((int)&local_24[5].matrix.field0_0x0 + 0x2c) & 0x400) == 0 &&
+             ((*(ushort *)((int)&local_24[5].matrix.field0_0x0 + 0x2c) & 0x800) == 0)))) &&
+           (*(short *)((int)&local_24[5].matrix.field0_0x0 + 0x34) == 0)) {
+          pAVar6 = local_24;
           for (iVar4 = 0x171; iVar4 != 0; iVar4 = iVar4 + -1) {
-            *puVar5 = 0;
-            puVar5 = puVar5 + 1;
+            (pAVar6->rotation).x = 0.0;
+            pAVar6 = (AnmVm *)&(pAVar6->rotation).y;
           }
         }
         else {
-          *(short *)(local_24 + 0x170) = *(short *)(local_24 + 0x170) + 1;
-          if (*(ushort *)(local_24 + 0x170) < 0x100) goto LAB_00415b6c;
-          puVar5 = local_24;
+          *(short *)((int)&local_24[5].matrix.field0_0x0 + 0x34) =
+               *(short *)((int)&local_24[5].matrix.field0_0x0 + 0x34) + 1;
+          if (*(ushort *)((int)&local_24[5].matrix.field0_0x0 + 0x34) < 0x100) goto LAB_00415b6c;
+          pAVar6 = local_24;
           for (iVar4 = 0x171; iVar4 != 0; iVar4 = iVar4 + -1) {
-            *puVar5 = 0;
-            puVar5 = puVar5 + 1;
+            (pAVar6->rotation).x = 0.0;
+            pAVar6 = (AnmVm *)&(pAVar6->rotation).y;
           }
         }
       }
 LAB_00414a1a:
-      local_24 = local_24 + 0x171;
+      local_24 = (AnmVm *)((int)&local_24[5].matrix.field0_0x0 + 0x38);
     }
-    local_2c = param_1 + 0xec000;
+    local_2c = (AnmVm *)(param_1 + 0xec000);
     for (local_c = 0; local_c < 0x40; local_c = local_c + 1) {
-      if (*(int *)(local_2c + 600) != 0) {
-        *(float *)(local_2c + 0x234) =
-             (float)g_GameContext._424_4_ * *(float *)(local_2c + 0x240) +
-             *(float *)(local_2c + 0x234);
-        if (*(float *)(local_2c + 0x238) <
-            *(float *)(local_2c + 0x234) - *(float *)(local_2c + 0x230)) {
-          *(float *)(local_2c + 0x230) = *(float *)(local_2c + 0x234) - *(float *)(local_2c + 0x238)
-          ;
+      if (local_2c[2].currentTimeInScript.current != 0) {
+        local_2c[2].angleVel.z =
+             (float)g_GameContext._424_4_ * local_2c[2].scaleInterpFinalY + local_2c[2].angleVel.z;
+        if (local_2c[2].scaleX < local_2c[2].angleVel.z - local_2c[2].angleVel.y) {
+          local_2c[2].angleVel.y = local_2c[2].angleVel.z - local_2c[2].scaleX;
         }
-        if (*(float *)(local_2c + 0x230) < 0.0 != NAN(*(float *)(local_2c + 0x230))) {
-          *(undefined4 *)(local_2c + 0x230) = 0;
+        fVar1 = local_2c[2].angleVel.y;
+        if (fVar1 < 0.0 != NAN(fVar1)) {
+          local_2c[2].angleVel.y = 0.0;
         }
-        local_1c = *(float *)(local_2c + 0x23c) / 2.0;
-        local_20 = *(float *)(local_2c + 0x234) - *(float *)(local_2c + 0x230);
-        local_38 = (*(float *)(local_2c + 0x234) - *(float *)(local_2c + 0x230)) / 2.0 +
-                   *(float *)(local_2c + 0x230) + *(float *)(local_2c + 0x220);
-        local_34 = *(undefined4 *)(local_2c + 0x224);
-        *(float *)(local_2c + 0x1c) =
-             *(float *)(local_2c + 0x23c) / *(float *)(*(int *)(local_2c + 0xc0) + 0x30);
-        local_14 = *(float *)(local_2c + 0x234) - *(float *)(local_2c + 0x230);
-        *(float *)(local_2c + 0x18) = local_14 / *(float *)(*(int *)(local_2c + 0xc0) + 0x2c);
-        *(float *)(local_2c + 8) = 1.570796 - *(float *)(local_2c + 0x22c);
-        cVar1 = *(char *)(local_2c + 0x26c);
-        if (cVar1 == '\0') {
-          if ((*(ushort *)(local_2c + 0x268) & 1) == 0) {
-            if (*(int *)(local_2c + 0x244) < 0x1f) {
-              local_260 = *(int *)(local_2c + 0x244);
+        local_1c = local_2c[2].scaleY / 2.0;
+        local_20 = local_2c[2].angleVel.z - local_2c[2].angleVel.y;
+        local_38 = (local_2c[2].angleVel.z - local_2c[2].angleVel.y) / 2.0 + local_2c[2].angleVel.y
+                   + local_2c[2].rotation.x;
+        local_34 = local_2c[2].rotation.y;
+        local_2c->scaleY = local_2c[2].scaleY / local_2c->sprite->widthPx;
+        local_14 = local_2c[2].angleVel.z - local_2c[2].angleVel.y;
+        local_2c->scaleX = local_14 / local_2c->sprite->heightPx;
+        (local_2c->rotation).z = 1.570796 - local_2c[2].angleVel.x;
+        cVar2 = *(char *)((int)&local_2c[2].matrix.field0_0x0 + 0x10);
+        if (cVar2 == '\0') {
+          if ((*(ushort *)((int)&local_2c[2].matrix.field0_0x0 + 0xc) & 1) == 0) {
+            if ((int)local_2c[2].scaleInterpFinalX < 0x1f) {
+              local_260 = local_2c[2].scaleInterpFinalX;
             }
             else {
-              local_260 = 0x1e;
+              local_260 = 4.203895e-44;
             }
-            if (*(int *)(local_2c + 0x244) - local_260 < *(int *)(local_2c + 0x264)) {
-              local_14 = (((float)*(int *)(local_2c + 0x264) + *(float *)(local_2c + 0x260)) *
-                         *(float *)(local_2c + 0x23c)) / (float)*(int *)(local_2c + 0x244);
+            if ((int)local_2c[2].scaleInterpFinalX - (int)local_260 <
+                (int)local_2c[2].matrix.field0_0x0.field0._13) {
+              local_14 = (((float)*(int *)((int)&local_2c[2].matrix.field0_0x0 + 8) +
+                          local_2c[2].matrix.field0_0x0.field0._12) * local_2c[2].scaleY) /
+                         (float)(int)local_2c[2].scaleInterpFinalX;
             }
             else {
               local_14 = 1.2;
             }
-            *(float *)(local_2c + 0x1c) = local_14 / 16.0;
+            local_2c->scaleY = local_14 / 16.0;
             local_20 = local_14 / 2.0;
           }
           else {
-            local_28 = __ftol2((double)((((float)*(int *)(local_2c + 0x264) +
-                                         *(float *)(local_2c + 0x260)) * 255.0) /
-                                       (float)*(int *)(local_2c + 0x244)));
+            local_28 = __ftol2((double)((((float)*(int *)((int)&local_2c[2].matrix.field0_0x0 + 8) +
+                                         local_2c[2].matrix.field0_0x0.field0._12) * 255.0) /
+                                       (float)(int)local_2c[2].scaleInterpFinalX));
             if (0xff < local_28) {
               local_28 = 0xff;
             }
-            *(int *)(local_2c + 0x7c) = local_28 << 0x18;
+            local_2c->color = local_28 << 0x18;
           }
-          if (*(int *)(local_2c + 0x248) <= *(int *)(local_2c + 0x264)) {
-            FUN_00427190(&local_38,&local_20,local_2c + 0x220,*(undefined4 *)(local_2c + 0x22c),
-                         *(int *)(local_2c + 0x264) % 0xc == 0);
+          if ((int)local_2c[2].uvScrollPos.x <= (int)local_2c[2].matrix.field0_0x0.field0._13) {
+            FUN_00427190(&local_38,&local_20,local_2c + 2,local_2c[2].angleVel.x,
+                         *(int *)((int)&local_2c[2].matrix.field0_0x0 + 8) % 0xc == 0);
           }
-          if (*(int *)(local_2c + 0x244) <= *(int *)(local_2c + 0x264)) {
-            *(undefined4 *)(local_2c + 0x264) = 0;
-            *(undefined4 *)(local_2c + 0x260) = 0;
-            *(undefined4 *)(local_2c + 0x25c) = 0xfffffc19;
-            *(char *)(local_2c + 0x26c) = *(char *)(local_2c + 0x26c) + '\x01';
+          if ((int)local_2c[2].scaleInterpFinalX <= (int)local_2c[2].matrix.field0_0x0.field0._13) {
+            local_2c[2].matrix.field0_0x0.field0._13 = 0.0;
+            local_2c[2].matrix.field0_0x0.field0._12 = 0.0;
+            local_2c[2].matrix.field0_0x0.field0._11 = -NAN;
+            *(char *)((int)&local_2c[2].matrix.field0_0x0 + 0x10) =
+                 *(char *)((int)&local_2c[2].matrix.field0_0x0 + 0x10) + '\x01';
             goto LAB_004161bf;
           }
         }
         else {
-          if (cVar1 == '\x01') {
+          if (cVar2 == '\x01') {
 LAB_004161bf:
-            FUN_00427190(&local_38,&local_20,local_2c + 0x220,*(undefined4 *)(local_2c + 0x22c),
-                         *(int *)(local_2c + 0x264) % 0xc == 0);
-            if (*(int *)(local_2c + 0x264) < *(int *)(local_2c + 0x24c)) goto LAB_00416422;
-            *(undefined4 *)(local_2c + 0x264) = 0;
-            *(undefined4 *)(local_2c + 0x260) = 0;
-            *(undefined4 *)(local_2c + 0x25c) = 0xfffffc19;
-            *(char *)(local_2c + 0x26c) = *(char *)(local_2c + 0x26c) + '\x01';
-            if (*(int *)(local_2c + 0x250) == 0) {
-              *(undefined4 *)(local_2c + 600) = 0;
+            FUN_00427190(&local_38,&local_20,local_2c + 2,local_2c[2].angleVel.x,
+                         *(int *)((int)&local_2c[2].matrix.field0_0x0 + 8) % 0xc == 0);
+            if ((int)local_2c[2].matrix.field0_0x0.field0._13 < (int)local_2c[2].uvScrollPos.y)
+            goto LAB_00416422;
+            local_2c[2].matrix.field0_0x0.field0._13 = 0.0;
+            local_2c[2].matrix.field0_0x0.field0._12 = 0.0;
+            local_2c[2].matrix.field0_0x0.field0._11 = -NAN;
+            *(char *)((int)&local_2c[2].matrix.field0_0x0 + 0x10) =
+                 *(char *)((int)&local_2c[2].matrix.field0_0x0 + 0x10) + '\x01';
+            if (local_2c[2].currentTimeInScript.previous == 0) {
+              local_2c[2].currentTimeInScript.current = 0;
               goto LAB_00415e08;
             }
           }
-          else if (cVar1 != '\x02') goto LAB_00416422;
-          if ((*(ushort *)(local_2c + 0x268) & 1) == 0) {
-            if (0 < *(int *)(local_2c + 0x250)) {
-              local_14 = *(float *)(local_2c + 0x23c) -
-                         (((float)*(int *)(local_2c + 0x264) + *(float *)(local_2c + 0x260)) *
-                         *(float *)(local_2c + 0x23c)) / (float)*(int *)(local_2c + 0x250);
-              *(float *)(local_2c + 0x1c) = local_14 / 16.0;
+          else if (cVar2 != '\x02') goto LAB_00416422;
+          if ((*(ushort *)((int)&local_2c[2].matrix.field0_0x0 + 0xc) & 1) == 0) {
+            if (0 < local_2c[2].currentTimeInScript.previous) {
+              local_14 = local_2c[2].scaleY -
+                         (((float)*(int *)((int)&local_2c[2].matrix.field0_0x0 + 8) +
+                          local_2c[2].matrix.field0_0x0.field0._12) * local_2c[2].scaleY) /
+                         (float)local_2c[2].currentTimeInScript.previous;
+              local_2c->scaleY = local_14 / 16.0;
               local_20 = local_14 / 2.0;
             }
           }
           else {
-            local_28 = __ftol2((double)((((float)*(int *)(local_2c + 0x264) +
-                                         *(float *)(local_2c + 0x260)) * 255.0) /
-                                       (float)*(int *)(local_2c + 0x244)));
+            local_28 = __ftol2((double)((((float)*(int *)((int)&local_2c[2].matrix.field0_0x0 + 8) +
+                                         local_2c[2].matrix.field0_0x0.field0._12) * 255.0) /
+                                       (float)(int)local_2c[2].scaleInterpFinalX));
             if (0xff < local_28) {
               local_28 = 0xff;
             }
-            *(int *)(local_2c + 0x7c) = local_28 << 0x18;
+            local_2c->color = local_28 << 0x18;
           }
-          if (*(int *)(local_2c + 0x264) < *(int *)(local_2c + 0x254)) {
-            FUN_00427190(&local_38,&local_20,local_2c + 0x220,*(undefined4 *)(local_2c + 0x22c),
-                         *(int *)(local_2c + 0x264) % 0xc == 0);
+          if ((int)local_2c[2].matrix.field0_0x0.field0._13 <
+              (int)local_2c[2].currentTimeInScript.subFrame) {
+            FUN_00427190(&local_38,&local_20,local_2c + 2,local_2c[2].angleVel.x,
+                         *(int *)((int)&local_2c[2].matrix.field0_0x0 + 8) % 0xc == 0);
           }
-          if (*(int *)(local_2c + 0x250) <= *(int *)(local_2c + 0x264)) {
-            *(undefined4 *)(local_2c + 600) = 0;
+          if (local_2c[2].currentTimeInScript.previous <=
+              (int)local_2c[2].matrix.field0_0x0.field0._13) {
+            local_2c[2].currentTimeInScript.current = 0;
             goto LAB_00415e08;
           }
         }
 LAB_00416422:
-        if (640.0 <= *(float *)(local_2c + 0x230)) {
-          *(undefined4 *)(local_2c + 600) = 0;
+        if (640.0 <= local_2c[2].angleVel.y) {
+          local_2c[2].currentTimeInScript.current = 0;
         }
-        *(undefined4 *)(local_2c + 0x25c) = *(undefined4 *)(local_2c + 0x264);
-        FUN_00424285(&g_GameContext,(int *)(local_2c + 0x264),(float *)(local_2c + 0x260));
-        AnmManager::FUN_00433960();
+        local_2c[2].matrix.field0_0x0.field0._11 = local_2c[2].matrix.field0_0x0.field0._13;
+        FUN_00424285(&g_GameContext,(int *)&local_2c[2].matrix.field0_0x0.field0._13,
+                     &local_2c[2].matrix.field0_0x0.field0._12);
+        AnmManager::FUN_00433960(g_AnmManager,local_2c);
       }
 LAB_00415e08:
-      local_2c = local_2c + 0x270;
+      local_2c = (AnmVm *)(local_2c[2].matrix.field0_0x0.m[1] + 1);
     }
     *(undefined4 *)(param_1 + 0xf5c08) = *(undefined4 *)(param_1 + 0xf5c10);
     FUN_00424285(&g_GameContext,(int *)(param_1 + 0xf5c10),(float *)(param_1 + 0xf5c0c));

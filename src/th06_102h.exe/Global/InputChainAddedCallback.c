@@ -64,7 +64,7 @@ undefined4 InputChainAddedCallback(GameContext *param_1)
     FUN_00431080(&g_SoundPlayer);
     iVar7 = AnmManager::LoadAnim(g_AnmManager,0,"data/text.anm",0x700);
     if (iVar7 == 0) {
-      iVar7 = FUN_004012c0();
+      iVar7 = AsciiManager::RegisterChain();
       if (iVar7 == 0) {
         param_1->field77_0x198 = 0;
         FUN_00431660(g_AnmManager);

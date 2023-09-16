@@ -4,7 +4,7 @@ undefined4 FUN_00404860(void)
 {
   int iVar1;
   int *in_ECX;
-  int iVar2;
+  AnmVm *vm;
   short *local_1c;
   int local_10;
   int local_c;
@@ -15,14 +15,14 @@ undefined4 FUN_00404860(void)
       local_c = 0;
       for (local_1c = (short *)(iVar1 + 0x1c); -1 < *local_1c;
           local_1c = (short *)((int)local_1c + (int)local_1c[1])) {
-        iVar2 = local_1c[3] * 0x110 + *in_ECX;
+        vm = (AnmVm *)(local_1c[3] * 0x110 + *in_ECX);
         if (*local_1c == 0) {
-          AnmManager::FUN_00433960(iVar2);
+          AnmManager::FUN_00433960(g_AnmManager,vm);
         }
         else if (*local_1c == 1) {
-          AnmManager::FUN_00433960(iVar2);
+          AnmManager::FUN_00433960(g_AnmManager,vm);
         }
-        if (*(int *)(iVar2 + 0xbc) != 0) {
+        if (vm->currentInstruction != (AnmRawInstr *)0x0) {
           local_c = local_c + 1;
         }
       }

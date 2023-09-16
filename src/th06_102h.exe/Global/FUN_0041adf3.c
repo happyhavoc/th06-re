@@ -15,7 +15,7 @@ void __fastcall FUN_0041adf3(int param_1)
     local_c = 0x43460000;
     local_8 = 0;
     if (DAT_0069d4c4 == '\0') {
-      FUN_00433590(*(int *)(param_1 + 4) + 0x1ba4);
+      AnmManager::FUN_00433590(g_AnmManager,(AnmVm *)(*(int *)(param_1 + 4) + 0x1ba4));
       _DAT_00481b24 = *(uint *)(*(int *)(param_1 + 4) + 0x1c20) & 0xff000000 | 0xffff40;
       if (CUR_STAGE < 6) {
         local_10 = 0x43280000;
@@ -38,7 +38,7 @@ void __fastcall FUN_0041adf3(int param_1)
     _DAT_00481b24 = 0xffffffff;
   }
   if (((*(uint *)(*(int *)(param_1 + 4) + 0x1d34) & 1) != 0) && (DAT_0069d4c4 == '\0')) {
-    FUN_00433590(*(int *)(param_1 + 4) + 0x1cb4);
+    AnmManager::FUN_00433590(g_AnmManager,(AnmVm *)(*(int *)(param_1 + 4) + 0x1cb4));
   }
   if ((*(uint *)(*(int *)(param_1 + 4) + 0x1e44) & 1) != 0) {
     AnmManager::FUN_00432ad0(g_AnmManager,(AnmVm *)(*(int *)(param_1 + 4) + 0x1dc4));

@@ -1,33 +1,33 @@
 
-void FUN_00416b50(int param_1)
+void FUN_00416b50(AnmVm *param_1)
 
 {
-  int local_8;
+  AnmVm *local_8;
   
-  switch(*(undefined2 *)(param_1 + 0x5be)) {
+  switch(*(undefined2 *)((int)&param_1[5].matrix.field0_0x0 + 0x32)) {
   case 2:
-    local_8 = param_1 + 0x110;
+    local_8 = param_1 + 1;
     break;
   case 3:
-    local_8 = param_1 + 0x220;
+    local_8 = param_1 + 2;
     break;
   case 4:
-    local_8 = param_1 + 0x330;
+    local_8 = param_1 + 3;
     break;
   case 5:
-    local_8 = param_1 + 0x440;
+    local_8 = param_1 + 4;
     break;
   default:
     local_8 = param_1;
   }
-  *(undefined4 *)(local_8 + 0x90) = *(undefined4 *)(param_1 + 0x560);
-  *(undefined4 *)(local_8 + 0x94) = *(undefined4 *)(param_1 + 0x564);
-  *(undefined4 *)(local_8 + 0x98) = 0;
-  *(uint *)(local_8 + 0x7c) = *(uint *)(local_8 + 0x7c) & 0xff000000 | 0xffffff;
-  if (*(short *)(local_8 + 0x88) != 0) {
-    *(float *)(local_8 + 8) = 1.570796 - *(float *)(param_1 + 0x590);
+  (local_8->pos).x = param_1[5].angleVel.y;
+  (local_8->pos).y = param_1[5].angleVel.z;
+  (local_8->pos).z = 0.0;
+  local_8->color = local_8->color & 0xff000000 | 0xffffff;
+  if (local_8->autoRotate != 0) {
+    (local_8->rotation).z = 1.570796 - param_1[5].matrix.field0_0x0.field0._12;
   }
-  FUN_00433590(local_8);
+  AnmManager::FUN_00433590(g_AnmManager,local_8);
   return;
 }
 

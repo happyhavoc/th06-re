@@ -14,7 +14,7 @@ undefined4 FUN_0042a840(undefined4 *param_1)
   if (param_1[1] == 0) {
     pbVar1 = OpenPath(param_1[3],(uint)(DAT_0069d4c4 == '\0'));
     param_1[1] = pbVar1;
-    iVar2 = FUN_0042a140(param_1[1],DAT_0069d914);
+    iVar2 = FUN_0042a140(param_1[1],g_LastFileSize);
     if (iVar2 != 0) {
       return 0xffffffff;
     }

@@ -50,7 +50,7 @@ undefined4 FUN_00430a50(LPSTR param_1)
       uVar6 = 0xffffffff;
     }
     else {
-      iVar1 = FUN_0043be50();
+      iVar1 = FUN_0043be50(local_b0);
       if (iVar1 == 0) {
         FUN_0043c2c0((int)local_b0);
         local_8 = 0xffffffff;
@@ -71,7 +71,7 @@ undefined4 FUN_00430a50(LPSTR param_1)
         pvVar5 = CreateThread((LPSECURITY_ATTRIBUTES)0x0,0,FUN_00431370,g_GameContext.hwndGameWindow
                               ,0,(LPDWORD)&in_ECX->field_0x614);
         in_ECX->field1318_0x618 = (int)pvVar5;
-        iVar1 = FUN_0043a9c0(&in_ECX->field_0x62c,param_1,0x10100,0,0,0,0,4,local_14,
+        iVar1 = FUN_0043a9c0(&in_ECX->streamingSound,param_1,0x10100,0,0,0,0,4,local_14,
                              in_ECX[1].directsound.directsound8);
         if (iVar1 < 0) {
           DebugPrint2(&DAT_0046c148);

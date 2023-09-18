@@ -29,7 +29,7 @@ undefined4 InitD3dRendering(void)
   (*(g_GameContext.d3dIface)->lpVtbl->GetAdapterDisplayMode)(g_GameContext.d3dIface,0,&display_mode)
   ;
   if (g_GameContext.cfg.windowed == false) {
-    if ((g_GameContext.cfg.opts >> 2 & 1) == 1) {
+    if ((g_GameContext.cfg.opts >> FORCE_16BIT_COLOR_MODE & 1) == 1) {
       present_params.BackBufferFormat = D3DFMT_R5G6B5;
       g_GameContext.cfg.colorMode16bit = 1;
     }
@@ -38,7 +38,7 @@ undefined4 InitD3dRendering(void)
         present_params.BackBufferFormat = D3DFMT_X8R8G8B8;
         g_GameContext.cfg.colorMode16bit = 0;
         GameErrorContextLog(&g_GameErrorContext,
-                            "初回起動、画面を 32Bits で��期化しました\n");
+                            "初回起動、画面を 32Bits で初期化しました\n");
       }
       else {
         present_params.BackBufferFormat = D3DFMT_R5G6B5;
@@ -53,7 +53,7 @@ undefined4 InitD3dRendering(void)
     else {
       present_params.BackBufferFormat = D3DFMT_R5G6B5;
     }
-    if ((g_GameContext.cfg.opts >> 7 & 1) == 0) {
+    if ((g_GameContext.cfg.opts >> FORCE_60FPS & 1) == 0) {
       present_params.FullScreen_PresentationInterval = D3DPRESENT_INTERVAL_ONE;
     }
     else {

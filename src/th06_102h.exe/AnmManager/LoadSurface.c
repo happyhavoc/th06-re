@@ -21,8 +21,8 @@ int __thiscall AnmManager::LoadSurface(AnmManager *this,int surface_index,char *
                        g_GameContext.presentParameters.BackBufferFormat,&surface);
     if (HVar2 == 0) {
       HVar2 = _D3DXLoadSurfaceFromFileInMemory_36
-                        (surface,(PALETTEENTRY *)0x0,(RECT *)0x0,data,DAT_0069d914,(RECT *)0x0,1,0,
-                         this->surfaceSourceInfo + surface_index);
+                        (surface,(PALETTEENTRY *)0x0,(RECT *)0x0,data,g_LastFileSize,(RECT *)0x0,1,0
+                         ,this->surfaceSourceInfo + surface_index);
       if (((HVar2 == 0) &&
           (((HVar2 = (*(g_GameContext.d3dDevice)->lpVtbl->CreateRenderTarget)
                                (g_GameContext.d3dDevice,this->surfaceSourceInfo[surface_index].Width

@@ -25,7 +25,7 @@ undefined4 InputChainAddedCallback(GameContext *param_1)
     param_1->pbg3File[iStack_14] = (Pbg3File *)0x0;
   }
   ppPVar1 = param_1->pbg3File;
-  DAT_0069d900 = ppPVar1;
+  g_Pbg3Files = ppPVar1;
   GameContext::LoadPBG3(param_1,0,(byte *)"紅魔郷IN.dat");
   if (ppPVar1 == (Pbg3File **)0x0) {
     AnmManager::LoadSurface(g_AnmManager,0,"data/title/th06logo.jpg");

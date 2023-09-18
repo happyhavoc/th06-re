@@ -66,7 +66,7 @@ undefined4 __thiscall GameContext::Parse(GameContext *this,char *config_file_nam
          ((MIDI < g_GameContext.cfg.musicMode || (4 < g_GameContext.cfg.defaultDifficulty)))) ||
         ((1 < g_GameContext.cfg.playSounds ||
          ((true < g_GameContext.cfg.windowed || (2 < g_GameContext.cfg.frameskipConfig)))))) ||
-       ((g_GameContext.cfg.version != 0x102 || (DAT_0069d914 != 0x38)))) {
+       ((g_GameContext.cfg.version != 0x102 || (g_LastFileSize != 0x38)))) {
       g_GameContext.cfg.lifeCount = 2;
       g_GameContext.cfg.bombCount = 3;
       g_GameContext.cfg.colorMode16bit = 0xff;

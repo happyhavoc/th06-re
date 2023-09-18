@@ -54,7 +54,7 @@ void FUN_0042564c(int param_1)
       }
       *(undefined4 **)(param_1 + 0x20) = local_8c;
       local_8 = -1;
-      while ((int)local_10 - (int)local_18 < DAT_0069d914) {
+      while ((int)local_10 - (int)local_18 < g_LastFileSize) {
         if (*local_10 == 0x40) {
           local_10 = local_10 + 1;
           local_8 = local_8 + 1;
@@ -63,22 +63,22 @@ void FUN_0042564c(int param_1)
             *(byte *)(local_8 * 0x272 + *(int *)(param_1 + 0x20) + local_14) = *local_10;
             local_10 = local_10 + 1;
             local_14 = local_14 + 1;
-            if (DAT_0069d914 <= (int)local_10 - (int)local_18) goto LAB_004259f3;
+            if (g_LastFileSize <= (int)local_10 - (int)local_18) goto LAB_004259f3;
           }
           while ((*local_10 == 10 || (*local_10 == 0xd))) {
             local_10 = local_10 + 1;
-            if (DAT_0069d914 <= (int)local_10 - (int)local_18) goto LAB_004259f3;
+            if (g_LastFileSize <= (int)local_10 - (int)local_18) goto LAB_004259f3;
           }
           local_14 = 0;
           while ((*local_10 != 10 && (*local_10 != 0xd))) {
             *(byte *)(local_8 * 0x272 + *(int *)(param_1 + 0x20) + 0x40 + local_14) = *local_10;
             local_10 = local_10 + 1;
             local_14 = local_14 + 1;
-            if (DAT_0069d914 <= (int)local_10 - (int)local_18) goto LAB_004259f3;
+            if (g_LastFileSize <= (int)local_10 - (int)local_18) goto LAB_004259f3;
           }
           while ((*local_10 == 10 && (*local_10 == 0xd))) {
             local_10 = local_10 + 1;
-            if (DAT_0069d914 <= (int)local_10 - (int)local_18) goto LAB_004259f3;
+            if (g_LastFileSize <= (int)local_10 - (int)local_18) goto LAB_004259f3;
           }
           local_c = 0;
           while ((local_c < 8 && (*local_10 != 0x40))) {
@@ -95,11 +95,11 @@ void FUN_0042564c(int param_1)
                        local_14 + *(int *)(param_1 + 0x20) + local_8 * 0x272) = *local_10;
               local_10 = local_10 + 1;
               local_14 = local_14 + 1;
-              if (DAT_0069d914 <= (int)local_10 - (int)local_18) goto LAB_004259f3;
+              if (g_LastFileSize <= (int)local_10 - (int)local_18) goto LAB_004259f3;
             }
             while ((*local_10 == 10 || (*local_10 == 0xd))) {
               local_10 = local_10 + 1;
-              if (DAT_0069d914 <= (int)local_10 - (int)local_18) goto LAB_004259f3;
+              if (g_LastFileSize <= (int)local_10 - (int)local_18) goto LAB_004259f3;
             }
             local_c = local_c + 1;
           }

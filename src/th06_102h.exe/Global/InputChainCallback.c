@@ -6,8 +6,8 @@ undefined4 InputChainCallback(GameContext *param_1)
 {
   int iVar1;
   
-  if (g_SoundPlayer._1580_4_ != 0) {
-    FUN_0043b4d0((void *)g_SoundPlayer._1580_4_);
+  if (g_SoundPlayer.streamingSound != (CStreamingSound *)0x0) {
+    FUN_0043b4d0(g_SoundPlayer.streamingSound);
   }
   DAT_0069d908 = DAT_0069d904;
   DAT_0069d904 = GetInput();

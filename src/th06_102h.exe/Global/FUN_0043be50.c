@@ -1,9 +1,7 @@
 
-undefined4 FUN_0043be50(void)
+undefined4 __thiscall FUN_0043be50(void *this)
 
 {
-  int in_ECX;
-  
-  return *(undefined4 *)(in_ECX + 0x30);
+  return *(undefined4 *)((int)this + 0x30);
 }
 

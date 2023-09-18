@@ -1,19 +1,22 @@
 
-uint __thiscall Pbg3FileStuff::Unk20(Pbg3FileStuff *this)
+uint __thiscall Pbg3FileStuff::ReadVarInt(Pbg3FileStuff *this)
 
 {
-  int iVar1;
+  bool bVar1;
+  undefined3 extraout_var;
+  undefined3 extraout_var_00;
+  undefined3 extraout_var_01;
   uint uVar2;
   uint uVar3;
   
   uVar2 = 0;
   uVar3 = 0;
-  iVar1 = (*(code *)this->vtbl->ReadBit)();
-  if (iVar1 != 0) {
+  bVar1 = (*this->vtbl->ReadBit)(this);
+  if (CONCAT31(extraout_var,bVar1) != 0) {
     uVar3 = 2;
   }
-  iVar1 = (*(code *)this->vtbl->ReadBit)();
-  if (iVar1 != 0) {
+  bVar1 = (*this->vtbl->ReadBit)(this);
+  if (CONCAT31(extraout_var_00,bVar1) != 0) {
     uVar3 = uVar3 | 1;
   }
   switch(uVar3) {
@@ -33,8 +36,8 @@ uint __thiscall Pbg3FileStuff::Unk20(Pbg3FileStuff *this)
     goto switchD_0043c338_caseD_4;
   }
   do {
-    iVar1 = (*(code *)this->vtbl->ReadBit)();
-    if (iVar1 != 0) {
+    bVar1 = (*this->vtbl->ReadBit)(this);
+    if (CONCAT31(extraout_var_01,bVar1) != 0) {
       uVar2 = uVar2 | uVar3;
     }
     uVar3 = uVar3 >> 1;

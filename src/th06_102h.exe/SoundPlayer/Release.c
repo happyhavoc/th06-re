@@ -25,11 +25,12 @@ undefined4 __thiscall SoundPlayer::Release(SoundPlayer *this)
       (*this->soundbuffer->lpVtbl->Release)(this->soundbuffer);
       this->soundbuffer = (LPDIRECTSOUNDBUFFER)0x0;
     }
-    if (*(int *)&this->field_0x62c != 0) {
-      if (*(undefined4 **)&this->field_0x62c != (undefined4 *)0x0) {
-        (**(code **)**(undefined4 **)&this->field_0x62c)(1);
+    if (this->streamingSound != (CStreamingSound *)0x0) {
+      if (this->streamingSound != (CStreamingSound *)0x0) {
+                    /* WARNING: Load size is inaccurate */
+        (**this->streamingSound->unk)(1);
       }
-      *(undefined4 *)&this->field_0x62c = 0;
+      this->streamingSound = (CStreamingSound *)0x0;
     }
     if (this->directsound8_uninit != (DirectSound8Player *)0x0) {
       this_00 = this->directsound8_uninit;

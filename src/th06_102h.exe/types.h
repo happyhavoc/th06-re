@@ -103,6 +103,8 @@ typedef struct HWND__ HWND__, *PHWND__;
 
 typedef struct HWND__ *HWND;
 
+typedef struct CStreamingSound CStreamingSound, *PCStreamingSound;
+
 typedef struct IDirectSound8 IDirectSound8, *PIDirectSound8;
 
 typedef struct IDirectSound8 *LPDIRECTSOUND8;
@@ -176,6 +178,13 @@ struct tWAVEFORMATEX {
     WORD nBlockAlign;
     WORD wBitsPerSample;
     WORD cbSize;
+};
+
+struct CStreamingSound {
+    void *unk;
+    void *m_apDSBuffer;
+    void *field2_0x8;
+    void *m_pWaveFile;
 };
 
 struct IDirectSound {
@@ -1538,10 +1547,7 @@ struct SoundPlayer {
     undefined field1321_0x61e;
     undefined field1322_0x61f;
     int soundBuffersToPlay[3]; /* Created by retype action */
-    undefined field1324_0x62c;
-    undefined field1325_0x62d;
-    undefined field1326_0x62e;
-    undefined field1327_0x62f;
+    struct CStreamingSound *streamingSound;
 };
 
 struct IDirectSoundBufferVtbl {
@@ -1800,11 +1806,6 @@ typedef struct CLIENT_ID CLIENT_ID, *PCLIENT_ID;
 struct CLIENT_ID {
     void *UniqueProcess;
     void *UniqueThread;
-};
-
-typedef struct Pbg3File_conflict1 Pbg3File_conflict1, *PPbg3File_conflict1;
-
-struct Pbg3File_conflict1 { /* PlaceHolder Class Structure */
 };
 
 typedef struct _s_FuncInfo FuncInfo;
@@ -49441,6 +49442,17 @@ typedef struct IServiceProvider *LPSERVICEPROVIDER;
 
 #define RPC_C_PROFILE_MATCH_BY_IF 2
 
+typedef struct Pbg3Entry Pbg3Entry, *PPbg3Entry;
+
+struct Pbg3Entry {
+    uint unk1; /* Created by retype action */
+    uint unk2; /* Created by retype action */
+    uint uncompressedSize; /* Created by retype action */
+    uint dataOffset; /* Created by retype action */
+    uint checksum; /* Created by retype action */
+    char filename[256];
+};
+
 typedef struct MidiSample MidiSample, *PMidiSample;
 
 struct MidiSample {
@@ -50305,7 +50317,7 @@ struct MidiOutput {
 };
 
 struct Pbg3FileStuffVtbl {
-    void *ReadBit;
+    bool (*ReadBit)(struct Pbg3FileStuff *);
     void *ReadInt;
     void *ReadByteAssumeAligned;
     void *SeekToOffset;
@@ -50337,9 +50349,9 @@ struct Pbg3FileStuff {
 struct Pbg3File {
     struct Pbg3FileStuff *inner;
     int field1_0x4;
-    int field2_0x8;
-    int field3_0xc;
-    int field4_0x10;
+    int numOfEntries;
+    int fileTableOffset;
+    struct Pbg3Entry *entries;
 };
 
 typedef struct ChainElem ChainElem, *PChainElem;

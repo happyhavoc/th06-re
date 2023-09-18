@@ -1,48 +1,46 @@
 
-byte * OpenPath(byte *file_path,int param_2)
+byte * OpenPath(char *file_path,int param_2)
 
 {
-  char *pcVar1;
+  char *slashPos;
   byte *buf;
   FILE *f;
   size_t _Size;
-  int local_10;
-  byte *filename;
-  int local_8;
+  int entryIdx;
+  char *filename;
+  int pbg3Idx;
   
-  local_10 = -1;
+  entryIdx = -1;
   if (param_2 == 0) {
-    pcVar1 = _strrchr((char *)file_path,L'\\');
-    if (pcVar1 == (char *)0x0) {
+    slashPos = _strrchr(file_path,L'\\');
+    if (slashPos == (char *)0x0) {
       filename = file_path;
     }
     else {
-      filename = (byte *)(pcVar1 + 1);
+      filename = slashPos + 1;
     }
-    pcVar1 = _strrchr((char *)filename,L'/');
-    if (pcVar1 == (char *)0x0) {
+    slashPos = _strrchr(filename,L'/');
+    if (slashPos == (char *)0x0) {
       filename = file_path;
     }
     else {
-      filename = (byte *)(pcVar1 + 1);
+      filename = slashPos + 1;
     }
-    if (DAT_0069d900 != 0) {
-      local_8 = 0;
-      while ((local_8 < 0x10 &&
-             ((*(int *)(DAT_0069d900 + local_8 * 4) == 0 ||
-              (local_10 = Pbg3File_conflict1::Unk23
-                                    (*(Pbg3File_conflict1 **)(DAT_0069d900 + local_8 * 4),filename),
-              local_10 < 0))))) {
-        local_8 = local_8 + 1;
+    if (g_Pbg3Files != (Pbg3File **)0x0) {
+      pbg3Idx = 0;
+      while ((pbg3Idx < 0x10 &&
+             ((g_Pbg3Files[pbg3Idx] == (Pbg3File *)0x0 ||
+              (entryIdx = Pbg3File::FindEntry(g_Pbg3Files[pbg3Idx],filename), entryIdx < 0))))) {
+        pbg3Idx = pbg3Idx + 1;
       }
     }
-    if (local_10 < 0) {
+    if (entryIdx < 0) {
       return (byte *)0x0;
     }
   }
-  if (local_10 < 0) {
+  if (entryIdx < 0) {
     DebugPrint2("%s Load ... \n",file_path);
-    f = fopen((char *)file_path,"rb");
+    f = fopen(file_path,"rb");
     if (f == (FILE *)0x0) {
       DebugPrint2("error : %s is not found.\n",file_path);
       buf = (byte *)0x0;
@@ -50,7 +48,7 @@ byte * OpenPath(byte *file_path,int param_2)
     else {
       _fseek(f,0,2);
       _Size = _ftell(f);
-      DAT_0069d914 = _Size;
+      g_LastFileSize = _Size;
       _fseek(f,0,0);
       buf = (byte *)_malloc(_Size);
       _fread(buf,1,_Size,f);
@@ -59,8 +57,8 @@ byte * OpenPath(byte *file_path,int param_2)
   }
   else {
     DebugPrint2("%s Decode ... \n",filename);
-    buf = (byte *)FUN_0043cb40(local_10,filename);
-    DAT_0069d914 = FUN_0043c990(local_10);
+    buf = (byte *)Pbg3File::ValidateEntry(g_Pbg3Files[pbg3Idx],entryIdx,filename);
+    g_LastFileSize = Pbg3File::GetEntrySize(g_Pbg3Files[pbg3Idx],entryIdx);
   }
   return buf;
 }

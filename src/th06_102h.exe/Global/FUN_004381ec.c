@@ -30,7 +30,7 @@ void __fastcall FUN_004381ec(int param_1)
           sprintf(local_5c,"./replay/th6_%.2d.rpy",local_c + 1);
           local_18 = (undefined4 *)OpenPath(local_5c,1);
           if (local_18 != (undefined4 *)0x0) {
-            iVar1 = FUN_0042a140(local_18,DAT_0069d914);
+            iVar1 = FUN_0042a140(local_18,g_LastFileSize);
             if (iVar1 == 0) {
               puVar4 = local_18;
               puVar5 = (undefined4 *)(param_1 + 0xfc1c + local_14 * 0x50);
@@ -53,7 +53,7 @@ void __fastcall FUN_004381ec(int param_1)
           for (local_c = 0; local_c < 0x2d; local_c = local_c + 1) {
             local_18 = (undefined4 *)OpenPath(local_19c.cFileName,1);
             if (local_18 != (undefined4 *)0x0) {
-              iVar1 = FUN_0042a140(local_18,DAT_0069d914);
+              iVar1 = FUN_0042a140(local_18,g_LastFileSize);
               if (iVar1 == 0) {
                 puVar4 = local_18;
                 puVar5 = (undefined4 *)(param_1 + 0xfc1c + local_14 * 0x50);
@@ -113,7 +113,7 @@ void __fastcall FUN_004381ec(int param_1)
           FUN_004311e0(10);
           pbVar3 = OpenPath(param_1 + 0x823c + *(int *)(param_1 + 0x81e8) * 0x200,1);
           *(byte **)(param_1 + 0x10edc) = pbVar3;
-          FUN_0042a140(*(undefined4 *)(param_1 + 0x10edc),DAT_0069d914);
+          FUN_0042a140(*(undefined4 *)(param_1 + 0x10edc),g_LastFileSize);
           for (local_c = 0; local_c < 7; local_c = local_c + 1) {
             if (*(int *)(*(int *)(param_1 + 0x10edc) + 0x34 + local_c * 4) != 0) {
               *(int *)(*(int *)(param_1 + 0x10edc) + 0x34 + local_c * 4) =

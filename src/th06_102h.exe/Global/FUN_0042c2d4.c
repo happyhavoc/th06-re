@@ -228,7 +228,7 @@ LAB_0042c515:
         sprintf(local_5c,"./replay/th6_%.2d.rpy",local_10 + 1);
         local_14 = (undefined4 *)OpenPath(local_5c,1);
         if (local_14 != (undefined4 *)0x0) {
-          iVar1 = FUN_0042a140(local_14,DAT_0069d914);
+          iVar1 = FUN_0042a140(local_14,g_LastFileSize);
           if (iVar1 == 0) {
             puVar2 = local_14;
             puVar3 = (undefined4 *)(in_ECX + 0x51b0 + local_10 * 0x50);

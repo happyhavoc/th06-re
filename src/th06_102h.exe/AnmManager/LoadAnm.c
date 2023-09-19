@@ -35,7 +35,8 @@ int __thiscall AnmManager::LoadAnm(AnmManager *this,int anm_index,char *path,int
       FUN_00431d70(anim_data->textureIdx,anim_data->width,anim_data->height,anim_data->format);
     }
     else {
-      iVar1 = FUN_00431920(anim_data->textureIdx,local_c,anim_data->format,anim_data->color_key);
+      iVar1 = LoadTexture(this,anim_data->textureIdx,local_c,anim_data->format,anim_data->color_key)
+      ;
       if (iVar1 != 0) {
         GameErrorContextFatal
                   (&g_GameErrorContext,
@@ -50,7 +51,7 @@ int __thiscall AnmManager::LoadAnm(AnmManager *this,int anm_index,char *path,int
       if (iVar1 != 0) {
         GameErrorContextFatal
                   (&g_GameErrorContext,
-                   "��クスチャ %s が読み込めません。データが失われてるか壊れています\n"
+                   "テクスチャ %s が読み込めません。データが失われてるか壊れています\n"
                    ,local_c);
         return -1;
       }

@@ -10,7 +10,7 @@ int __thiscall AnmManager::LoadSurface(AnmManager *this,int surface_index,char *
   if (this->surfaces[surface_index] != (IDirect3DSurface8 *)0x0) {
     ReleaseSurface(this,surface_index);
   }
-  data = OpenPath(path,0);
+  data = FileSystem::OpenPath(path,0);
   if (data == (byte *)0x0) {
     GameErrorContextFatal(&g_GameErrorContext,"%sが読み込めないです。\n",path);
     iVar1 = -1;

@@ -45,8 +45,8 @@ undefined4 __fastcall FUN_00439137(int param_1)
     local_c = local_c + 0x110;
   }
   if (0x1f < *(int *)(param_1 + 0x81f4)) {
-    if ((((DAT_0069d904 & 0x40) != 0) && ((DAT_0069d904 & 0x40) != (DAT_0069d908 & 0x40))) ||
-       (((DAT_0069d904 & 0x40) != 0 && (DAT_0069d90c != 0)))) {
+    if ((((g_CurFrameInput & 0x40) != 0) && ((g_CurFrameInput & 0x40) != (g_LastFrameInput & 0x40)))
+       || (((g_CurFrameInput & 0x40) != 0 && (DAT_0069d90c != 0)))) {
       iVar1 = *(int *)(param_1 + 0x81a0);
       if (iVar1 == 0) {
         FUN_004311e0(0xc);
@@ -94,12 +94,12 @@ undefined4 __fastcall FUN_00439137(int param_1)
         *(char *)(param_1 + 0x8231) = *(char *)(param_1 + 0x8231) + -1;
       }
     }
-    if (((DAT_0069d904 & 10) != 0) && ((DAT_0069d904 & 10) != (DAT_0069d908 & 10))) {
+    if (((g_CurFrameInput & 10) != 0) && ((g_CurFrameInput & 10) != (g_LastFrameInput & 10))) {
       *(undefined4 *)(param_1 + 0x81a0) = 8;
       FUN_004311e0(0xb);
     }
-    if ((((DAT_0069d904 & 0x80) != 0) && ((DAT_0069d904 & 0x80) != (DAT_0069d908 & 0x80))) ||
-       (((DAT_0069d904 & 0x80) != 0 && (DAT_0069d90c != 0)))) {
+    if ((((g_CurFrameInput & 0x80) != 0) && ((g_CurFrameInput & 0x80) != (g_LastFrameInput & 0x80)))
+       || (((g_CurFrameInput & 0x80) != 0 && (DAT_0069d90c != 0)))) {
       iVar1 = *(int *)(param_1 + 0x81a0);
       if (iVar1 == 0) {
         FUN_004311e0(0xc);
@@ -147,7 +147,8 @@ undefined4 __fastcall FUN_00439137(int param_1)
         }
       }
     }
-    if (((DAT_0069d904 & 0x1001) != 0) && ((DAT_0069d904 & 0x1001) != (DAT_0069d908 & 0x1001))) {
+    if (((g_CurFrameInput & 0x1001) != 0) &&
+       ((g_CurFrameInput & 0x1001) != (g_LastFrameInput & 0x1001))) {
       iVar1 = *(int *)(param_1 + 0x81a0);
       if (iVar1 == 6) {
         GameContext::FUN_00424d38(&g_GameContext);

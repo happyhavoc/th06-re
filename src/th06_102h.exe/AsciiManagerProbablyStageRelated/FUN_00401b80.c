@@ -7,7 +7,7 @@ AsciiManagerProbablyStageRelated::FUN_00401b80(AsciiManagerProbablyStageRelated 
   short local_6c;
   int local_8;
   
-  if (((DAT_0069d904 & MENU) != 0) && ((DAT_0069d904 & 8) != (DAT_0069d908 & 8))) {
+  if (((g_CurFrameInput & MENU) != 0) && ((g_CurFrameInput & 8) != (g_LastFrameInput & 8))) {
     this->field0_0x0 = 3;
     for (local_8 = 0; local_8 < 6; local_8 = local_8 + 1) {
       if ((this->vms0[local_8].flags & 1) != 0) {
@@ -17,7 +17,8 @@ AsciiManagerProbablyStageRelated::FUN_00401b80(AsciiManagerProbablyStageRelated 
     this->field1_0x4 = 0;
     (this->vm1).pendingInterrupt = 1;
   }
-  if (((DAT_0069d904 & 0x200) != 0) && ((DAT_0069d904 & 0x200) != (DAT_0069d908 & 0x200))) {
+  if (((g_CurFrameInput & 0x200) != 0) && ((g_CurFrameInput & 0x200) != (g_LastFrameInput & 0x200)))
+  {
     this->field0_0x0 = 6;
     for (local_8 = 0; local_8 < 6; local_8 = local_8 + 1) {
       if ((this->vms0[local_8].flags & 1) != 0) {
@@ -66,11 +67,13 @@ AsciiManagerProbablyStageRelated::FUN_00401b80(AsciiManagerProbablyStageRelated 
     this->vms0[2].pos2.y = 0.0;
     this->vms0[2].pos2.z = 0.0;
     if (3 < this->field1_0x4) {
-      if ((((DAT_0069d904 & 0x10) != 0) && ((DAT_0069d904 & 0x10) != (DAT_0069d908 & 0x10))) ||
-         (((DAT_0069d904 & 0x20) != 0 && ((DAT_0069d904 & 0x20) != (DAT_0069d908 & 0x20))))) {
+      if ((((g_CurFrameInput & 0x10) != 0) &&
+          ((g_CurFrameInput & 0x10) != (g_LastFrameInput & 0x10))) ||
+         (((g_CurFrameInput & 0x20) != 0 && ((g_CurFrameInput & 0x20) != (g_LastFrameInput & 0x20)))
+         )) {
         this->field0_0x0 = 2;
       }
-      if (((DAT_0069d904 & 1) != 0) && ((DAT_0069d904 & 1) != (DAT_0069d908 & 1))) {
+      if (((g_CurFrameInput & 1) != 0) && ((g_CurFrameInput & 1) != (g_LastFrameInput & 1))) {
         for (local_8 = 0; local_8 < 3; local_8 = local_8 + 1) {
           this->vms0[local_8].pendingInterrupt = 2;
         }
@@ -94,11 +97,13 @@ AsciiManagerProbablyStageRelated::FUN_00401b80(AsciiManagerProbablyStageRelated 
     this->vms0[2].pos2.y = -4.0;
     this->vms0[2].pos2.z = 0.0;
     if (3 < this->field1_0x4) {
-      if ((((DAT_0069d904 & 0x10) != 0) && ((DAT_0069d904 & 0x10) != (DAT_0069d908 & 0x10))) ||
-         (((DAT_0069d904 & 0x20) != 0 && ((DAT_0069d904 & 0x20) != (DAT_0069d908 & 0x20))))) {
+      if ((((g_CurFrameInput & 0x10) != 0) &&
+          ((g_CurFrameInput & 0x10) != (g_LastFrameInput & 0x10))) ||
+         (((g_CurFrameInput & 0x20) != 0 && ((g_CurFrameInput & 0x20) != (g_LastFrameInput & 0x20)))
+         )) {
         this->field0_0x0 = 1;
       }
-      if (((DAT_0069d904 & 1) != 0) && ((DAT_0069d904 & 1) != (DAT_0069d908 & 1))) {
+      if (((g_CurFrameInput & 1) != 0) && ((g_CurFrameInput & 1) != (g_LastFrameInput & 1))) {
         for (local_8 = 0; local_8 < 3; local_8 = local_8 + 1) {
           this->vms0[local_8].pendingInterrupt = 2;
         }
@@ -133,11 +138,13 @@ AsciiManagerProbablyStageRelated::FUN_00401b80(AsciiManagerProbablyStageRelated 
     this->vms0[5].pos2.y = 0.0;
     this->vms0[5].pos2.z = 0.0;
     if (3 < this->field1_0x4) {
-      if ((((DAT_0069d904 & UP) != 0) && ((DAT_0069d904 & UP) != (DAT_0069d908 & 0x10))) ||
-         (((DAT_0069d904 & DOWN) != 0 && ((DAT_0069d904 & DOWN) != (DAT_0069d908 & 0x20))))) {
+      if ((((g_CurFrameInput & UP) != 0) && ((g_CurFrameInput & UP) != (g_LastFrameInput & 0x10)))
+         || (((g_CurFrameInput & DOWN) != 0 &&
+             ((g_CurFrameInput & DOWN) != (g_LastFrameInput & 0x20))))) {
         this->field0_0x0 = 5;
       }
-      if (((DAT_0069d904 & SHOOT) != 0) && ((DAT_0069d904 & SHOOT) != (DAT_0069d908 & 1))) {
+      if (((g_CurFrameInput & SHOOT) != 0) && ((g_CurFrameInput & SHOOT) != (g_LastFrameInput & 1)))
+      {
         for (local_8 = 3; local_8 < 6; local_8 = local_8 + 1) {
           this->vms0[local_8].pendingInterrupt = 2;
         }
@@ -160,11 +167,13 @@ AsciiManagerProbablyStageRelated::FUN_00401b80(AsciiManagerProbablyStageRelated 
     this->vms0[5].pos2.y = -4.0;
     this->vms0[5].pos2.z = 0.0;
     if (3 < this->field1_0x4) {
-      if ((((DAT_0069d904 & 0x10) != 0) && ((DAT_0069d904 & 0x10) != (DAT_0069d908 & 0x10))) ||
-         (((DAT_0069d904 & 0x20) != 0 && ((DAT_0069d904 & 0x20) != (DAT_0069d908 & 0x20))))) {
+      if ((((g_CurFrameInput & 0x10) != 0) &&
+          ((g_CurFrameInput & 0x10) != (g_LastFrameInput & 0x10))) ||
+         (((g_CurFrameInput & 0x20) != 0 && ((g_CurFrameInput & 0x20) != (g_LastFrameInput & 0x20)))
+         )) {
         this->field0_0x0 = 4;
       }
-      if (((DAT_0069d904 & 1) != 0) && ((DAT_0069d904 & 1) != (DAT_0069d908 & 1))) {
+      if (((g_CurFrameInput & 1) != 0) && ((g_CurFrameInput & 1) != (g_LastFrameInput & 1))) {
         for (local_8 = 0; local_8 < 3; local_8 = local_8 + 1) {
           this->vms0[local_8].pendingInterrupt = 1;
         }

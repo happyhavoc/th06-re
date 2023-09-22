@@ -49,7 +49,7 @@ void FUN_00424b5d(char *param_1)
     local_8[1] = 'p';
     local_8[2] = 'o';
     local_8[3] = 's';
-    FUN_00430a50(local_20c);
+    SoundPlayer::FUN_00430a50(&g_SoundPlayer,local_20c);
     iVar2 = SoundPlayer::FUN_00430e10(&g_SoundPlayer,local_10c);
     if (iVar2 < 0) {
       SoundPlayer::playBGM(&g_SoundPlayer,0);

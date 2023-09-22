@@ -19,21 +19,21 @@ void __fastcall FUN_0041adf3(int param_1)
       g_AsciiManager.color = *(uint *)(*(int *)(param_1 + 4) + 0x1c20) & 0xff000000 | 0xffff40;
       if (DAT_0069d6d4 < 6) {
         local_10 = 0x43280000;
-        FUN_00401650(0x47b900,&local_10,"STAGE %d",DAT_0069d6d4);
+        AsciiManager::FUN_00401650(&g_AsciiManager,&local_10,"STAGE %d",DAT_0069d6d4);
       }
       else if (DAT_0069d6d4 == 6) {
         local_10 = 0x43080000;
-        FUN_00401650(0x47b900,&local_10,"FINAL STAGE");
+        AsciiManager::FUN_00401650(&g_AsciiManager,&local_10,"FINAL STAGE");
       }
       else {
         local_10 = 0x43080000;
-        FUN_00401650(0x47b900,&local_10,"EXTRA STAGE");
+        AsciiManager::FUN_00401650(&g_AsciiManager,&local_10,"EXTRA STAGE");
       }
     }
     else {
       g_AsciiManager.color = *(uint *)(*(int *)(param_1 + 4) + 0x1c20) & 0xff000000 | 0xffff40;
       local_10 = 0x43080000;
-      FUN_00401650(0x47b900,&local_10," DEMO PLAY");
+      AsciiManager::FUN_00401650(&g_AsciiManager,&local_10," DEMO PLAY");
     }
     g_AsciiManager.color = 0xffffffff;
   }

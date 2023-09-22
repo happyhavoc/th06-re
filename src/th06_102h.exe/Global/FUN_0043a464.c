@@ -5,7 +5,7 @@ undefined4 FUN_0043a464(int param_1)
 
 {
   AnmManager *pAVar1;
-  undefined4 uVar2;
+  byte *pbVar2;
   int local_c;
   
   if (DAT_0069d4c4 == '\0') {
@@ -55,10 +55,10 @@ LAB_0043a520:
   *(undefined4 *)(param_1 + 0x8210) = 0;
   *(undefined4 *)(param_1 + 0x10f28) = 0x10;
   *(undefined4 *)(param_1 + 0x10edc) = 0;
-  uVar2 = FUN_0042b0d9("score.dat");
-  FUN_0042b502(uVar2,&DAT_0069ccd0);
-  FUN_0042b65e(uVar2,&DAT_0069cd30);
-  FUN_0042b7dc(uVar2);
+  pbVar2 = FUN_0042b0d9("score.dat");
+  FUN_0042b502(pbVar2,&DAT_0069ccd0);
+  FUN_0042b65e(pbVar2,&DAT_0069cd30);
+  FUN_0042b7dc(pbVar2);
   if (DAT_0069d4c4 == '\0') {
     if (g_GameContext._1024_4_ == 0) {
       FUN_00424b5d("bgm/th06_01.mid");

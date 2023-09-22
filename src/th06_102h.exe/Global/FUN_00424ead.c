@@ -16,7 +16,7 @@ void __fastcall FUN_00424ead(int param_1)
   
   local_10 = __security_cookie ^ unaff_retaddr;
   local_8 = *(undefined4 *)(param_1 + 0x18);
-  if (((DAT_0069d904 & 0x10) != 0) && ((DAT_0069d904 & 0x10) != (DAT_0069d908 & 0x10))) {
+  if (((g_CurFrameInput & 0x10) != 0) && ((g_CurFrameInput & 0x10) != (g_LastFrameInput & 0x10))) {
     *(int *)(param_1 + 0x10) = *(int *)(param_1 + 0x10) + -1;
     if (*(int *)(param_1 + 0x10) < 0) {
       *(int *)(param_1 + 0x10) = *(int *)(param_1 + 0x1c) + -1;
@@ -26,7 +26,7 @@ void __fastcall FUN_00424ead(int param_1)
       *(undefined4 *)(param_1 + 0x18) = *(undefined4 *)(param_1 + 0x10);
     }
   }
-  if (((DAT_0069d904 & 0x20) != 0) && ((DAT_0069d904 & 0x20) != (DAT_0069d908 & 0x20))) {
+  if (((g_CurFrameInput & 0x20) != 0) && ((g_CurFrameInput & 0x20) != (g_LastFrameInput & 0x20))) {
     *(int *)(param_1 + 0x10) = *(int *)(param_1 + 0x10) + 1;
     if (*(int *)(param_1 + 0x10) < *(int *)(param_1 + 0x1c)) {
       if (*(int *)(param_1 + 0x18) <= *(int *)(param_1 + 0x10) + -10) {
@@ -38,7 +38,8 @@ void __fastcall FUN_00424ead(int param_1)
       *(undefined4 *)(param_1 + 0x18) = 0;
     }
   }
-  if (((DAT_0069d904 & 0x1001) != 0) && ((DAT_0069d904 & 0x1001) != (DAT_0069d908 & 0x1001))) {
+  if (((g_CurFrameInput & 0x1001) != 0) &&
+     ((g_CurFrameInput & 0x1001) != (g_LastFrameInput & 0x1001))) {
     *(undefined4 *)(param_1 + 0x14) = *(undefined4 *)(param_1 + 0x10);
     FUN_00424b5d((char *)(*(int *)(param_1 + 0x14) * 0x272 + *(int *)(param_1 + 0x20)));
     for (local_c = 0; local_c < 0x10; local_c = local_c + 1) {
@@ -85,7 +86,7 @@ LAB_0042508a:
            *(uint *)(param_1 + 0x23b4 + local_c * 0x110) | 0x300;
     }
   }
-  if (((DAT_0069d904 & 10) != 0) && ((DAT_0069d904 & 10) != (DAT_0069d908 & 10))) {
+  if (((g_CurFrameInput & 10) != 0) && ((g_CurFrameInput & 10) != (g_LastFrameInput & 10))) {
     g_GameContext.unkInput2 = 1;
   }
   __security_check_cookie(local_10 ^ unaff_retaddr);

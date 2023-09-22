@@ -22,7 +22,8 @@ undefined4 FUN_00437b41(void)
     local_c = local_c + 0x110;
   }
   if (0x13 < *(int *)(in_ECX + 0x81f4)) {
-    if (((DAT_0069d904 & 0x1001) != 0) && ((DAT_0069d904 & 0x1001) != (DAT_0069d908 & 0x1001))) {
+    if (((g_CurFrameInput & 0x1001) != 0) &&
+       ((g_CurFrameInput & 0x1001) != (g_LastFrameInput & 0x1001))) {
       switch(*(undefined4 *)(in_ECX + 0x81a0)) {
       case 0:
         for (local_8 = 0; local_8 < 0x7a; local_8 = local_8 + 1) {
@@ -137,7 +138,8 @@ undefined4 FUN_00437b41(void)
         FUN_004311e0(0xb);
       }
     }
-    if (((DAT_0069d904 & 0x200) != 0) && ((DAT_0069d904 & 0x200) != (DAT_0069d908 & 0x200))) {
+    if (((g_CurFrameInput & 0x200) != 0) &&
+       ((g_CurFrameInput & 0x200) != (g_LastFrameInput & 0x200))) {
       *(undefined4 *)(in_ECX + 0x81f0) = 4;
       *(undefined4 *)(in_ECX + 0x81f4) = 0;
       for (local_8 = 0; local_8 < 0x7a; local_8 = local_8 + 1) {
@@ -145,7 +147,7 @@ undefined4 FUN_00437b41(void)
       }
       FUN_004311e0(0xb);
     }
-    if (((DAT_0069d904 & 10) != 0) && ((DAT_0069d904 & 10) != (DAT_0069d908 & 10))) {
+    if (((g_CurFrameInput & 10) != 0) && ((g_CurFrameInput & 10) != (g_LastFrameInput & 10))) {
       *(undefined4 *)(in_ECX + 0x81a0) = 7;
       FUN_004311e0(0xb);
     }

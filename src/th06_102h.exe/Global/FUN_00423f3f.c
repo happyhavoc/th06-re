@@ -49,7 +49,7 @@ void FUN_00423f3f(void)
     local_20 = 0x44000000;
     local_1c = 0x43e80000;
     local_18 = 0;
-    FUN_00401530(0x47b900,&local_20,&DAT_006c6c08);
+    AsciiManager::FUN_00401530(&g_AsciiManager,&local_20,&DAT_006c6c08);
   }
   return;
 }

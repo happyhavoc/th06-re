@@ -8,7 +8,7 @@ undefined4 FUN_00418665(undefined4 param_1)
   int local_8;
   
   FUN_0041872a();
-  pbVar1 = OpenPath(param_1,0);
+  pbVar1 = FileSystem::OpenPath(param_1,0);
   *(byte **)(*(int *)(in_ECX + 4) + 0x2534) = pbVar1;
   if (*(int *)(*(int *)(in_ECX + 4) + 0x2534) == 0) {
     GameErrorContextLog(&g_GameErrorContext,

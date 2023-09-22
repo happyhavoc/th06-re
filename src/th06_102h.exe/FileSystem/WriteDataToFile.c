@@ -1,26 +1,26 @@
 
-undefined4 WriteConfigToFile(char *path,void *data,size_t size)
+int FileSystem::WriteDataToFile(char *path,void *data,size_t size)
 
 {
   FILE *_File;
-  undefined4 uVar1;
+  int iVar1;
   size_t sVar2;
   
   _File = fopen(path,"wb");
   if (_File == (FILE *)0x0) {
-    uVar1 = 0xffffffff;
+    iVar1 = -1;
   }
   else {
     sVar2 = _fwrite(data,1,size,_File);
     if (sVar2 == size) {
       _fclose(_File);
-      uVar1 = 0;
+      iVar1 = 0;
     }
     else {
       _fclose(_File);
-      uVar1 = 0xfffffffe;
+      iVar1 = -2;
     }
   }
-  return uVar1;
+  return iVar1;
 }
 

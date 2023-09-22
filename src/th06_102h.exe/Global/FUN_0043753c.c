@@ -4,10 +4,10 @@ undefined4 FUN_0043753c(int param_1,int param_2)
 {
   undefined4 uVar1;
   
-  if ((((DAT_0069d904 & 0x10) == 0) || ((DAT_0069d904 & 0x10) == (DAT_0069d908 & 0x10))) &&
-     (((DAT_0069d904 & 0x10) == 0 || (DAT_0069d90c == 0)))) {
-    if ((((DAT_0069d904 & 0x20) == 0) || ((DAT_0069d904 & 0x20) == (DAT_0069d908 & 0x20))) &&
-       (((DAT_0069d904 & 0x20) == 0 || (DAT_0069d90c == 0)))) {
+  if ((((g_CurFrameInput & 0x10) == 0) || ((g_CurFrameInput & 0x10) == (g_LastFrameInput & 0x10)))
+     && (((g_CurFrameInput & 0x10) == 0 || (DAT_0069d90c == 0)))) {
+    if ((((g_CurFrameInput & 0x20) == 0) || ((g_CurFrameInput & 0x20) == (g_LastFrameInput & 0x20)))
+       && (((g_CurFrameInput & 0x20) == 0 || (DAT_0069d90c == 0)))) {
       uVar1 = 0;
     }
     else {

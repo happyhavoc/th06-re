@@ -24,7 +24,7 @@ undefined4 FUN_004288c0(AnmVm *param_1)
     iVar2 = FUN_004195a2();
     if (((((iVar2 == 0) && (param_1[9].matrix.field0_0x0.field0._14 != 0.0)) &&
          ('\0' < (char)DAT_0069d4bb)) &&
-        (((DAT_0069d904 & 2) != 0 && ((DAT_0069d904 & 2) != (DAT_0069d908 & 2))))) &&
+        (((g_CurFrameInput & 2) != 0 && ((g_CurFrameInput & 2) != (g_LastFrameInput & 2))))) &&
        (param_1[0x6e].timeOfLastSpriteSet != 0)) {
       DAT_0069bcc4 = DAT_0069bcc4 + 1;
       DAT_0069d4bb = DAT_0069d4bb - 1;

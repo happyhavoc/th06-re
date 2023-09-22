@@ -8,7 +8,7 @@ undefined4 FUN_004106d0(undefined4 param_1)
   int in_ECX;
   
   _Memory = *(void **)(in_ECX + 0x1114);
-  pbVar1 = OpenPath(param_1,0);
+  pbVar1 = FileSystem::OpenPath(param_1,0);
   *(byte **)(in_ECX + 0x1114) = pbVar1;
   if (*(int *)(in_ECX + 0x1114) == 0) {
     GameErrorContextLog(&g_GameErrorContext,

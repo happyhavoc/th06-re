@@ -18,7 +18,7 @@ int __thiscall AnmManager::LoadAnm(AnmManager *this,int anm_index,char *path,int
   AnmRawEntry *anim_data;
   
   ReleaseAnm(this,anm_index);
-  data = (AnmRawEntry *)OpenPath(path,0);
+  data = (AnmRawEntry *)FileSystem::OpenPath(path,0);
   this->anmFiles[anm_index] = data;
   anim_data = this->anmFiles[anm_index];
   if (anim_data == (AnmRawEntry *)0x0) {

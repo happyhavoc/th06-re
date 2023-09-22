@@ -10,7 +10,7 @@ AnmManager::LoadTexture
   HRESULT directx_res;
   
   ReleaseTexture(this,texture_index);
-  image_data = OpenPath(texture_path,0);
+  image_data = FileSystem::OpenPath(texture_path,0);
   this->imageDataArray[texture_index] = image_data;
   if (this->imageDataArray[texture_index] == (void *)0x0) {
     res = -1;

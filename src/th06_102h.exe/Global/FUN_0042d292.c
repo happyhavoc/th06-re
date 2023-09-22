@@ -8,8 +8,8 @@ undefined4 FUN_0042d292(void)
     if (*(int *)(in_ECX + 4) < 0x1f) {
       *(undefined2 *)(in_ECX + 0x281a) = 0x10;
     }
-    if (((0x59 < *(int *)(in_ECX + 4)) && ((DAT_0069d904 & 0x1001) != 0)) &&
-       ((DAT_0069d904 & 0x1001) != (DAT_0069d908 & 0x1001))) {
+    if (((0x59 < *(int *)(in_ECX + 4)) && ((g_CurFrameInput & 0x1001) != 0)) &&
+       ((g_CurFrameInput & 0x1001) != (g_LastFrameInput & 0x1001))) {
       *(undefined2 *)(in_ECX + 0x281a) = 2;
       *(undefined4 *)(in_ECX + 4) = 0;
       *(undefined4 *)(in_ECX + 8) = 0x10;

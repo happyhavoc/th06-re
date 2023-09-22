@@ -3,7 +3,7 @@ undefined4 __thiscall GameContext::Parse(GameContext *this,char *config_file_nam
 
 {
   undefined2 uVar1;
-  undefined4 *_Memory;
+  byte *_Memory;
   FILE *pFVar2;
   undefined4 uVar3;
   int iVar4;
@@ -17,8 +17,8 @@ undefined4 __thiscall GameContext::Parse(GameContext *this,char *config_file_nam
     pGVar6 = (GameConfiguration *)&(pGVar6->controllerMapping).focusButton;
   }
   g_GameContext.cfg.opts = g_GameContext.cfg.opts | 1;
-  _Memory = (undefined4 *)OpenPath(config_file_name,1);
-  if (_Memory == (undefined4 *)0x0) {
+  _Memory = FileSystem::OpenPath(config_file_name,1);
+  if (_Memory == (byte *)0x0) {
     g_GameContext.cfg.lifeCount = 2;
     g_GameContext.cfg.bombCount = 3;
     g_GameContext.cfg.colorMode16bit = 0xff;
@@ -52,8 +52,9 @@ undefined4 __thiscall GameContext::Parse(GameContext *this,char *config_file_nam
                        );
   }
   else {
-    puVar5 = _Memory;
+    puVar5 = (undefined4 *)_Memory;
     pGVar6 = &g_GameContext.cfg;
+                    /* memcpy */
     for (iVar4 = 0xe; iVar4 != 0; iVar4 = iVar4 + -1) {
       uVar1 = *(undefined2 *)((int)puVar5 + 2);
       (pGVar6->controllerMapping).shootButton = *(undefined2 *)puVar5;
@@ -129,7 +130,7 @@ undefined4 __thiscall GameContext::Parse(GameContext *this,char *config_file_nam
                         "ゲーム周りのアイテムの描画を抑制します\n");
   }
   if (((this->cfg).opts >> 5 & 1) != 0) {
-    GameErrorContextLog(&g_GameErrorContext,"グーローシェーディングを抑制します\n")
+    GameErrorContextLog(&g_GameErrorContext,"グーローシェーディング���抑制します\n")
     ;
   }
   if (((this->cfg).opts >> 6 & 1) != 0) {
@@ -154,7 +155,7 @@ undefined4 __thiscall GameContext::Parse(GameContext *this,char *config_file_nam
                         "パッド、キーボードの入力に DirectInput を使用しません\n"
                        );
   }
-  iVar4 = WriteConfigToFile(config_file_name,&g_GameContext.cfg,0x38);
+  iVar4 = FileSystem::WriteDataToFile(config_file_name,&g_GameContext.cfg,0x38);
   if (iVar4 == 0) {
     uVar3 = 0;
   }

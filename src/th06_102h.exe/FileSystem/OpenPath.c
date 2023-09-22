@@ -1,5 +1,5 @@
 
-byte * OpenPath(char *file_path,int param_2)
+byte * FileSystem::OpenPath(char *file_path,int param_2)
 
 {
   char *slashPos;

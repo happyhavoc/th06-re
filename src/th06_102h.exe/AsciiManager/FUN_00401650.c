@@ -1,5 +1,5 @@
 
-void FUN_00401650(int param_1,undefined4 *param_2,char *param_3,...)
+void AsciiManager::FUN_00401650(AsciiManager *param_1,undefined4 *param_2,char *param_3,...)
 
 {
   uint unaff_retaddr;

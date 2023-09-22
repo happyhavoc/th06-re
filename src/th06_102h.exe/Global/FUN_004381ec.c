@@ -28,7 +28,7 @@ void __fastcall FUN_004381ec(int param_1)
         local_14 = 0;
         for (local_c = 0; local_c < 0xf; local_c = local_c + 1) {
           sprintf(local_5c,"./replay/th6_%.2d.rpy",local_c + 1);
-          local_18 = (undefined4 *)OpenPath(local_5c,1);
+          local_18 = (undefined4 *)FileSystem::OpenPath(local_5c,1);
           if (local_18 != (undefined4 *)0x0) {
             iVar1 = FUN_0042a140(local_18,g_LastFileSize);
             if (iVar1 == 0) {
@@ -51,7 +51,7 @@ void __fastcall FUN_004381ec(int param_1)
         local_10 = FindFirstFileA("th6_ud????.rpy",&local_19c);
         if (local_10 != (HANDLE)0xffffffff) {
           for (local_c = 0; local_c < 0x2d; local_c = local_c + 1) {
-            local_18 = (undefined4 *)OpenPath(local_19c.cFileName,1);
+            local_18 = (undefined4 *)FileSystem::OpenPath(local_19c.cFileName,1);
             if (local_18 != (undefined4 *)0x0) {
               iVar1 = FUN_0042a140(local_18,g_LastFileSize);
               if (iVar1 == 0) {
@@ -98,8 +98,8 @@ void __fastcall FUN_004381ec(int param_1)
       if (*(int *)(param_1 + 0x81ec) != 0) {
         FUN_0043753c(param_1,*(undefined4 *)(param_1 + 0x81ec));
         *(undefined4 *)(param_1 + 0x81e8) = *(undefined4 *)(param_1 + 0x81a0);
-        if (((DAT_0069d904 & 0x1001) != 0) && ((DAT_0069d904 & 0x1001) != (DAT_0069d908 & 0x1001)))
-        {
+        if (((g_CurFrameInput & 0x1001) != 0) &&
+           ((g_CurFrameInput & 0x1001) != (g_LastFrameInput & 0x1001))) {
           *(undefined4 *)(param_1 + 0x81f0) = 0xf;
           local_8 = param_1 + 0x6710;
           for (local_c = 0; local_c < 0x19; local_c = local_c + 1) {
@@ -111,7 +111,7 @@ void __fastcall FUN_004381ec(int param_1)
           *(undefined4 *)(param_1 + 0x81f4) = 0;
           *(undefined4 *)(param_1 + 0x81a0) = 0;
           FUN_004311e0(10);
-          pbVar3 = OpenPath(param_1 + 0x823c + *(int *)(param_1 + 0x81e8) * 0x200,1);
+          pbVar3 = FileSystem::OpenPath(param_1 + 0x823c + *(int *)(param_1 + 0x81e8) * 0x200,1);
           *(byte **)(param_1 + 0x10edc) = pbVar3;
           FUN_0042a140(*(undefined4 *)(param_1 + 0x10edc),g_LastFileSize);
           for (local_c = 0; local_c < 7; local_c = local_c + 1) {
@@ -130,7 +130,7 @@ void __fastcall FUN_004381ec(int param_1)
         }
       }
 LAB_0043877b:
-      if (((DAT_0069d904 & 10) != 0) && ((DAT_0069d904 & 10) != (DAT_0069d908 & 10))) {
+      if (((g_CurFrameInput & 10) != 0) && ((g_CurFrameInput & 10) != (g_LastFrameInput & 10))) {
         *(undefined4 *)(param_1 + 0x81f0) = 0xe;
         *(undefined4 *)(param_1 + 0x81f4) = 0;
         for (local_c = 0; local_c < 0x7a; local_c = local_c + 1) {
@@ -167,9 +167,10 @@ LAB_0043877b:
         }
       }
     }
-    if ((((DAT_0069d904 & 0x1001) == 0) || ((DAT_0069d904 & 0x1001) == (DAT_0069d908 & 0x1001))) ||
+    if ((((g_CurFrameInput & 0x1001) == 0) ||
+        ((g_CurFrameInput & 0x1001) == (g_LastFrameInput & 0x1001))) ||
        (*(int *)(param_1 + 0x10edc) + 0x34 + *(int *)(param_1 + 0x81a0) * 0x50 == 0)) {
-      if (((DAT_0069d904 & 10) != 0) && ((DAT_0069d904 & 10) != (DAT_0069d908 & 10))) {
+      if (((g_CurFrameInput & 10) != 0) && ((g_CurFrameInput & 10) != (g_LastFrameInput & 10))) {
         _free(*(void **)(param_1 + 0x10edc));
         *(undefined4 *)(param_1 + 0x10edc) = 0;
         *(undefined4 *)(param_1 + 0x81f0) = 0xd;

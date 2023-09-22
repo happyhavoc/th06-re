@@ -24,7 +24,7 @@ AnmManager::Unknown(AnmManager *this,int param_1,undefined4 param_2,undefined4 p
   D3DSURFACE_DESC local_24;
   
   local_3c = (IDirect3DTexture8 *)0x0;
-  local_28 = OpenPath(param_2,0);
+  local_28 = FileSystem::OpenPath(param_2,0);
   if (local_28 != (byte *)0x0) {
     (*this->textures[param_1]->lpVtbl->GetLevelDesc)(this->textures[param_1],0,&local_24);
     if (((local_24.Format == D3DFMT_A8R8G8B8) || (local_24.Format == D3DFMT_A4R4G4B4)) ||

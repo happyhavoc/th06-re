@@ -74,13 +74,15 @@ void FUN_0042e446(int param_1)
         else {
           g_AsciiManager.color = local_14 * -0x80800 - 0xf0f01;
         }
-        FUN_00401650(0x47b900,&local_40,"No.%.2d",local_44 + 1);
+        AsciiManager::FUN_00401650(&g_AsciiManager,&local_40,"No.%.2d",local_44 + 1);
         pfVar1 = (float *)(param_1 + 0x2930 + local_14 * 0x110);
         *pfVar1 = *pfVar1 + 96.0;
         AnmManager::FUN_00432ad0(g_AnmManager,(AnmVm *)(param_1 + 0x28a0 + local_14 * 0x110));
         local_40 = local_40 + 368.0;
-        FUN_00401650(0x47b900,&local_40,"%3d/%3d",(uint)*(ushort *)(&DAT_0069bd0e + local_44 * 0x40)
-                     ,(uint)*(ushort *)(&DAT_0069bd0c + local_44 * 0x40));
+        AsciiManager::FUN_00401650
+                  (&g_AsciiManager,&local_40,"%3d/%3d",
+                   (uint)*(ushort *)(&DAT_0069bd0e + local_44 * 0x40),
+                   (uint)*(ushort *)(&DAT_0069bd0c + local_44 * 0x40));
         local_40 = local_40 - 368.0;
         local_3c = local_3c + 30.0;
       }
@@ -122,7 +124,7 @@ void FUN_0042e446(int param_1)
                 local_84 = 7;
               }
               *(undefined *)((int)&local_24 + local_84) = 0x5f;
-              FUN_00401650(0x47b900,&local_40,"   %8s",&local_24);
+              AsciiManager::FUN_00401650(&g_AsciiManager,&local_40,"   %8s",&local_24);
             }
           }
           else {
@@ -132,20 +134,24 @@ void FUN_0042e446(int param_1)
         else {
           g_AsciiManager.color = 0xffffc0c0;
         }
-        FUN_00401650(0x47b900,&local_40,(char *)&PTR_DAT_0046bdd0,local_14 + 1);
+        AsciiManager::FUN_00401650(&g_AsciiManager,&local_40,(char *)&PTR_DAT_0046bdd0,local_14 + 1)
+        ;
         local_40 = local_40 + 36.0;
         if (*(byte *)(*(int *)(local_2c + 8) + 0x12) < 7) {
-          FUN_00401650(0x47b900,&local_40,"%8s %9d(%d)",*(int *)(local_2c + 8) + 0x13,
-                       *(undefined4 *)(*(int *)(local_2c + 8) + 0xc),
-                       (uint)*(byte *)(*(int *)(local_2c + 8) + 0x12));
+          AsciiManager::FUN_00401650
+                    (&g_AsciiManager,&local_40,"%8s %9d(%d)",*(int *)(local_2c + 8) + 0x13,
+                     *(undefined4 *)(*(int *)(local_2c + 8) + 0xc),
+                     (uint)*(byte *)(*(int *)(local_2c + 8) + 0x12));
         }
         else if (*(char *)(*(int *)(local_2c + 8) + 0x12) == '\a') {
-          FUN_00401650(0x47b900,&local_40,"%8s %9d(1)",*(int *)(local_2c + 8) + 0x13,
-                       *(undefined4 *)(*(int *)(local_2c + 8) + 0xc));
+          AsciiManager::FUN_00401650
+                    (&g_AsciiManager,&local_40,"%8s %9d(1)",*(int *)(local_2c + 8) + 0x13,
+                     *(undefined4 *)(*(int *)(local_2c + 8) + 0xc));
         }
         else {
-          FUN_00401650(0x47b900,&local_40,"%8s %9d(C)",*(int *)(local_2c + 8) + 0x13,
-                       *(undefined4 *)(*(int *)(local_2c + 8) + 0xc));
+          AsciiManager::FUN_00401650
+                    (&g_AsciiManager,&local_40,"%8s %9d(C)",*(int *)(local_2c + 8) + 0x13,
+                     *(undefined4 *)(*(int *)(local_2c + 8) + 0xc));
         }
         local_40 = local_40 + 300.0;
         if (*(int *)(param_1 + 8) == 9) {
@@ -165,7 +171,7 @@ void FUN_0042e446(int param_1)
                 local_8c = 7;
               }
               *(undefined *)((int)&local_24 + local_8c) = 0x5f;
-              FUN_00401650(0x47b900,&local_40,"%8s",&local_24);
+              AsciiManager::FUN_00401650(&g_AsciiManager,&local_40,"%8s",&local_24);
             }
           }
           else {
@@ -176,17 +182,20 @@ void FUN_0042e446(int param_1)
           g_AsciiManager.color = 0xffc0c0ff;
         }
         if (*(byte *)(*(int *)(local_34 + 8) + 0x12) < 7) {
-          FUN_00401650(0x47b900,&local_40,"%8s %9d(%d)",*(int *)(local_34 + 8) + 0x13,
-                       *(undefined4 *)(*(int *)(local_34 + 8) + 0xc),
-                       (uint)*(byte *)(*(int *)(local_34 + 8) + 0x12));
+          AsciiManager::FUN_00401650
+                    (&g_AsciiManager,&local_40,"%8s %9d(%d)",*(int *)(local_34 + 8) + 0x13,
+                     *(undefined4 *)(*(int *)(local_34 + 8) + 0xc),
+                     (uint)*(byte *)(*(int *)(local_34 + 8) + 0x12));
         }
         else if (*(char *)(*(int *)(local_34 + 8) + 0x12) == '\a') {
-          FUN_00401650(0x47b900,&local_40,"%8s %9d(1)",*(int *)(local_34 + 8) + 0x13,
-                       *(undefined4 *)(*(int *)(local_34 + 8) + 0xc));
+          AsciiManager::FUN_00401650
+                    (&g_AsciiManager,&local_40,"%8s %9d(1)",*(int *)(local_34 + 8) + 0x13,
+                     *(undefined4 *)(*(int *)(local_34 + 8) + 0xc));
         }
         else {
-          FUN_00401650(0x47b900,&local_40,"%8s %9d(C)",*(int *)(local_34 + 8) + 0x13,
-                       *(undefined4 *)(*(int *)(local_34 + 8) + 0xc));
+          AsciiManager::FUN_00401650
+                    (&g_AsciiManager,&local_40,"%8s %9d(C)",*(int *)(local_34 + 8) + 0x13,
+                     *(undefined4 *)(*(int *)(local_34 + 8) + 0xc));
         }
         local_40 = local_40 - 336.0;
         local_2c = *(int *)(local_2c + 4);
@@ -231,7 +240,7 @@ void FUN_0042e446(int param_1)
         }
         g_AsciiManager.scale.x = g_AsciiManager.scale.y;
         local_4c = local_48;
-        FUN_00401530(0x47b900,&local_10,&local_5c);
+        AsciiManager::FUN_00401530(&g_AsciiManager,&local_10,&local_5c);
         local_40 = local_40 + 20.0;
       }
       local_40 = local_40 - (float)(local_30 * 0x14);
@@ -250,7 +259,7 @@ void FUN_0042e446(int param_1)
     local_3c = *(float *)(param_1 + 0x1724);
     fStack_38 = *(float *)(param_1 + 0x1728);
     local_28 = (AnmVm *)(param_1 + 0x17a0);
-    FUN_00401650(0x47b900,&local_40,"No.   Name     Date     Player Score");
+    AsciiManager::FUN_00401650(&g_AsciiManager,&local_40,"No.   Name     Date     Player Score");
     for (local_14 = 0; local_14 < 0xf; local_14 = local_14 + 1) {
       local_40 = *(float *)((int)local_28 + 0x90);
       local_3c = *(float *)((int)local_28 + 0x94);
@@ -263,10 +272,11 @@ void FUN_0042e446(int param_1)
         g_AsciiManager.color = 0xff808080;
       }
       if (*(int *)(param_1 + 8) == 0xd) {
-        FUN_00401650(0x47b900,&local_40,"No.%.2d %8s %8s %7s %9d",local_14 + 1,param_1 + 0x34,
-                     param_1 + 0x5670,
-                     (&PTR_s_ReimuA_00478518)[(uint)DAT_0069d4be + (uint)DAT_0069d4bd * 2],
-                     *(undefined4 *)(param_1 + 0x5684));
+        AsciiManager::FUN_00401650
+                  (&g_AsciiManager,&local_40,"No.%.2d %8s %8s %7s %9d",local_14 + 1,param_1 + 0x34,
+                   param_1 + 0x5670,
+                   (&PTR_s_ReimuA_00478518)[(uint)DAT_0069d4be + (uint)DAT_0069d4bd * 2],
+                   *(undefined4 *)(param_1 + 0x5684));
         g_AsciiManager.color = 0xfff0f0ff;
         local_24 = 0x20202020;
         local_20 = 0x20202020;
@@ -278,17 +288,20 @@ void FUN_0042e446(int param_1)
           local_d0 = 7;
         }
         *(undefined *)((int)&local_24 + local_d0) = 0x5f;
-        FUN_00401650(0x47b900,&local_40,"      %8s",&local_24);
+        AsciiManager::FUN_00401650(&g_AsciiManager,&local_40,"      %8s",&local_24);
       }
       else if ((*(int *)(param_1 + 0x51b0 + local_14 * 0x50) == 0x50523654) &&
               (*(short *)(param_1 + 0x51b4 + local_14 * 0x50) == 0x102)) {
-        FUN_00401650(0x47b900,&local_40,"No.%.2d %8s %8s %7s %9d",local_14 + 1,
-                     param_1 + 0x51c9 + local_14 * 0x50,param_1 + 0x51c0 + local_14 * 0x50,
-                     (&PTR_s_ReimuA_00478518)[*(byte *)(param_1 + 0x51b6 + local_14 * 0x50)],
-                     *(undefined4 *)(param_1 + 0x51d4 + local_14 * 0x50));
+        AsciiManager::FUN_00401650
+                  (&g_AsciiManager,&local_40,"No.%.2d %8s %8s %7s %9d",local_14 + 1,
+                   param_1 + 0x51c9 + local_14 * 0x50,param_1 + 0x51c0 + local_14 * 0x50,
+                   (&PTR_s_ReimuA_00478518)[*(byte *)(param_1 + 0x51b6 + local_14 * 0x50)],
+                   *(undefined4 *)(param_1 + 0x51d4 + local_14 * 0x50));
       }
       else {
-        FUN_00401650(0x47b900,&local_40,"No.%.2d -------- --/--/-- -------         0",local_14 + 1);
+        AsciiManager::FUN_00401650
+                  (&g_AsciiManager,&local_40,"No.%.2d -------- --/--/-- -------         0",
+                   local_14 + 1);
       }
     }
   }

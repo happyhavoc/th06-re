@@ -9,18 +9,19 @@ undefined4 InputChainCallback(GameContext *param_1)
   if (g_SoundPlayer.streamingSound != (CStreamingSound *)0x0) {
     FUN_0043b4d0(g_SoundPlayer.streamingSound);
   }
-  DAT_0069d908 = DAT_0069d904;
-  DAT_0069d904 = GetInput();
+  g_LastFrameInput = g_CurFrameInput;
+  g_CurFrameInput = GetInput();
   DAT_0069d90c = 0;
-  if (DAT_0069d908 == DAT_0069d904) {
-    if ((0x1d < DAT_0069d910) &&
-       (DAT_0069d90c = (ushort)((uint)DAT_0069d910 % 8 == 0), 0x25 < DAT_0069d910)) {
-      DAT_0069d910 = 0x1e;
+  if (g_LastFrameInput == g_CurFrameInput) {
+    if ((0x1d < g_NumOfFramesInputsWereHeld) &&
+       (DAT_0069d90c = (ushort)((uint)g_NumOfFramesInputsWereHeld % 8 == 0),
+       0x25 < g_NumOfFramesInputsWereHeld)) {
+      g_NumOfFramesInputsWereHeld = 0x1e;
     }
-    DAT_0069d910 = DAT_0069d910 + 1;
+    g_NumOfFramesInputsWereHeld = g_NumOfFramesInputsWereHeld + 1;
   }
   else {
-    DAT_0069d910 = 0;
+    g_NumOfFramesInputsWereHeld = 0;
   }
   if (param_1->unkInput1 == param_1->unkInput2) goto LAB_0042375b;
   param_1->unkInput4 = param_1->unkInput1;
@@ -161,8 +162,8 @@ LAB_00423454:
     }
   }
   DAT_0069d90c = 0;
-  DAT_0069d908 = 0;
-  DAT_0069d904 = 0;
+  g_LastFrameInput = 0;
+  g_CurFrameInput = 0;
 LAB_0042375b:
   param_1->unkInput1 = param_1->unkInput2;
   param_1->unkInput3 = param_1->unkInput3 + 1;

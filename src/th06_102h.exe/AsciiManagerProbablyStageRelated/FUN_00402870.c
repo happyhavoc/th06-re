@@ -75,11 +75,13 @@ AsciiManagerProbablyStageRelated::FUN_00402870(AsciiManagerProbablyStageRelated 
     this->vms0[3].pos2.y = 0.0;
     this->vms0[3].pos2.z = 0.0;
     if (3 < this->field1_0x4) {
-      if ((((DAT_0069d904 & 0x10) != 0) && ((DAT_0069d904 & 0x10) != (DAT_0069d908 & 0x10))) ||
-         (((DAT_0069d904 & 0x20) != 0 && ((DAT_0069d904 & 0x20) != (DAT_0069d908 & 0x20))))) {
+      if ((((g_CurFrameInput & 0x10) != 0) &&
+          ((g_CurFrameInput & 0x10) != (g_LastFrameInput & 0x10))) ||
+         (((g_CurFrameInput & 0x20) != 0 && ((g_CurFrameInput & 0x20) != (g_LastFrameInput & 0x20)))
+         )) {
         this->field0_0x0 = 2;
       }
-      if (((DAT_0069d904 & 1) != 0) && ((DAT_0069d904 & 1) != (DAT_0069d908 & 1))) {
+      if (((g_CurFrameInput & 1) != 0) && ((g_CurFrameInput & 1) != (g_LastFrameInput & 1))) {
         for (local_8 = 0; local_8 < 4; local_8 = local_8 + 1) {
           this->vms0[local_8].pendingInterrupt = 2;
         }
@@ -103,11 +105,13 @@ AsciiManagerProbablyStageRelated::FUN_00402870(AsciiManagerProbablyStageRelated 
     this->vms0[2].pos2.y = 0.0;
     this->vms0[2].pos2.z = 0.0;
     if (0x1d < this->field1_0x4) {
-      if ((((DAT_0069d904 & 0x10) != 0) && ((DAT_0069d904 & 0x10) != (DAT_0069d908 & 0x10))) ||
-         (((DAT_0069d904 & 0x20) != 0 && ((DAT_0069d904 & 0x20) != (DAT_0069d908 & 0x20))))) {
+      if ((((g_CurFrameInput & 0x10) != 0) &&
+          ((g_CurFrameInput & 0x10) != (g_LastFrameInput & 0x10))) ||
+         (((g_CurFrameInput & 0x20) != 0 && ((g_CurFrameInput & 0x20) != (g_LastFrameInput & 0x20)))
+         )) {
         this->field0_0x0 = 1;
       }
-      if (((DAT_0069d904 & 1) != 0) && ((DAT_0069d904 & 1) != (DAT_0069d908 & 1))) {
+      if (((g_CurFrameInput & 1) != 0) && ((g_CurFrameInput & 1) != (g_LastFrameInput & 1))) {
         for (local_8 = 0; local_8 < 4; local_8 = local_8 + 1) {
           this->vms0[local_8].pendingInterrupt = 2;
         }

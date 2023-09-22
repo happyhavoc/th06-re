@@ -8,7 +8,7 @@ undefined4 __thiscall MidiOutput::LoadFile(MidiOutput *this,int param_1,char *pa
   if (g_GameContext.cfg.musicMode == MIDI) {
     ~MidiOutput(this);
     UnloadFile(this,param_1);
-    pbVar2 = OpenPath(path,0);
+    pbVar2 = FileSystem::OpenPath(path,0);
     this->midiFileData[param_1] = (int)pbVar2;
     if (this->midiFileData[param_1] == 0) {
       GameErrorContextLog(&g_GameErrorContext,"error : MIDI File が読み込めない %s \n",path);

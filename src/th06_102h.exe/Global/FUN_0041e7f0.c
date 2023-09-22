@@ -1,13 +1,12 @@
 
-undefined4 FUN_0041e7f0(void)
+undefined4 __fastcall FUN_0041e7f0(ushort *param_1)
 
 {
   ushort uVar1;
   ushort uVar2;
-  ushort *in_ECX;
   
-  uVar1 = FUN_0041e780(in_ECX);
-  uVar2 = FUN_0041e780(in_ECX);
+  uVar1 = FUN_0041e780(param_1);
+  uVar2 = FUN_0041e780(param_1);
   return CONCAT22(uVar1,uVar2);
 }
 

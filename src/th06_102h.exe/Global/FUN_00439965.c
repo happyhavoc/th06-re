@@ -44,8 +44,9 @@ undefined4 FUN_00439965(void)
       else {
         g_AsciiManager.color = (local_c >> 1) << 0x18 | 0x80c0c0;
       }
-      FUN_00401650(0x47b900,&local_20,"STAGE %d  %.9d",local_8 + 1,
-                   (&DAT_0069cd3c)[local_8 * 0x14 + local_10 * 0x78 + _DAT_0069bcb0 * 5]);
+      AsciiManager::FUN_00401650
+                (&g_AsciiManager,&local_20,"STAGE %d  %.9d",local_8 + 1,
+                 (&DAT_0069cd3c)[local_8 * 0x14 + local_10 * 0x78 + _DAT_0069bcb0 * 5]);
       local_1c = local_1c + 24.0;
     }
     g_AsciiManager.color = 0xffffffff;

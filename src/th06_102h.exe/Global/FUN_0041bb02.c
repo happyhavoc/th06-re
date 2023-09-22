@@ -6,8 +6,9 @@ undefined4 FUN_0041bb02(uint *param_1)
 {
   bool bVar1;
   ushort uVar2;
-  undefined4 uVar3;
+  byte *pbVar3;
   int iVar4;
+  undefined4 uVar5;
   uint local_14;
   int local_10;
   uint *local_c;
@@ -64,16 +65,16 @@ undefined4 FUN_0041bb02(uint *param_1)
       *(undefined2 *)((int)local_c + 0x3e) = 0;
       local_c = local_c + 0x10;
     }
-    uVar3 = FUN_0042b0d9("score.dat");
-    DAT_0069bcac = FUN_0042b280(uVar3,0,(uint)DAT_0069d4be + (uint)DAT_0069d4bd * 2,_DAT_0069bcb0);
-    FUN_0042b466(uVar3,param_1 + 0xc);
-    FUN_0042b502(uVar3,param_1 + 0x40c);
-    FUN_0042b65e(uVar3,param_1 + 0x424);
+    pbVar3 = FUN_0042b0d9("score.dat");
+    DAT_0069bcac = FUN_0042b280(pbVar3,0,(uint)DAT_0069d4be + (uint)DAT_0069d4bd * 2,_DAT_0069bcb0);
+    FUN_0042b466(pbVar3,param_1 + 0xc);
+    FUN_0042b502(pbVar3,param_1 + 0x40c);
+    FUN_0042b65e(pbVar3,param_1 + 0x424);
     if (*(char *)((int)param_1 + 0x1823) != '\0') {
       DAT_0069bcac = param_1[((uint)DAT_0069d4be + (uint)DAT_0069d4bd * 2) * 0x78 +
                              DAT_0069d6d4 * 0x14 + _DAT_0069bcb0 * 5 + 0x427];
     }
-    FUN_0042b7dc(uVar3);
+    FUN_0042b7dc(pbVar3);
     param_1[0x69c] = *(uint *)(&DAT_00476564 + _DAT_0069bcb0 * 0xc);
     param_1[0x69e] = *(uint *)(&DAT_00476568 + _DAT_0069bcb0 * 0xc);
     param_1[0x69d] = *(uint *)(&DAT_0047656c + _DAT_0069bcb0 * 0xc);
@@ -157,48 +158,48 @@ undefined4 FUN_0041bb02(uint *param_1)
                   g_GameContext.unkInput2 = 1;
                 }
                 g_GameContext.field77_0x198 = 3;
-                uVar3 = 0;
+                uVar5 = 0;
               }
               else {
                 GameErrorContextLog(&g_GameErrorContext,
                                     "error : 2D表示の初期化に失敗しました\n");
-                uVar3 = 0xffffffff;
+                uVar5 = 0xffffffff;
               }
             }
             else {
               GameErrorContextLog(&g_GameErrorContext,
                                   "error : エフェクトの初期化に失敗しました\n");
-              uVar3 = 0xffffffff;
+              uVar5 = 0xffffffff;
             }
           }
           else {
             GameErrorContextLog(&g_GameErrorContext,
                                 "error : 敵頭脳の初期化に失敗しました\n");
-            uVar3 = 0xffffffff;
+            uVar5 = 0xffffffff;
           }
         }
         else {
           GameErrorContextLog(&g_GameErrorContext,"error : 敵の初期化に失敗しました\n");
-          uVar3 = 0xffffffff;
+          uVar5 = 0xffffffff;
         }
       }
       else {
         GameErrorContextLog(&g_GameErrorContext,"error : 敵弾の初期化に失敗しました\n")
         ;
-        uVar3 = 0xffffffff;
+        uVar5 = 0xffffffff;
       }
     }
     else {
       GameErrorContextLog(&g_GameErrorContext,
                           "error : プレイヤーの初期化に失敗しました\n");
-      uVar3 = 0xffffffff;
+      uVar5 = 0xffffffff;
     }
   }
   else {
     GameErrorContextLog(&g_GameErrorContext,
                         "error : 背景データの初期化に失敗しました\n");
-    uVar3 = 0xffffffff;
+    uVar5 = 0xffffffff;
   }
-  return uVar3;
+  return uVar5;
 }
 

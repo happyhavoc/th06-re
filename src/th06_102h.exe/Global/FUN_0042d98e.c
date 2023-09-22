@@ -37,7 +37,7 @@ undefined4 FUN_0042d98e(int param_1)
             local_c = (AnmVm *)((int)local_c + 0x110);
           }
         }
-        if (((DAT_0069d904 & 10) != 0) && ((DAT_0069d904 & 10) != (DAT_0069d908 & 10))) {
+        if (((g_CurFrameInput & 10) != 0) && ((g_CurFrameInput & 10) != (g_LastFrameInput & 10))) {
           FUN_004311e0(0xb);
           *(undefined4 *)(param_1 + 8) = 0;
           *(undefined4 *)(param_1 + 4) = 1;
@@ -107,14 +107,14 @@ undefined4 FUN_0042d98e(int param_1)
         else if (2 < iVar1) {
           if (6 < iVar1) {
             if (iVar1 != 7) goto LAB_0042e3fb;
-            if (((DAT_0069d904 & 4) == 0) && ((DAT_0069d904 & 0x100) == 0)) {
+            if (((g_CurFrameInput & 4) == 0) && ((g_CurFrameInput & 0x100) == 0)) {
               *(undefined4 *)(param_1 + 0x30) = 0;
             }
             else if (*(int *)(param_1 + 0x30) < 5) {
-              if (((DAT_0069d904 & 0x800) == 0) ||
-                 ((DAT_0069d904 & 0x800) == (DAT_0069d908 & 0x800))) {
-                if (((DAT_0069d904 & 0x160b) != 0) &&
-                   ((DAT_0069d904 & 0x160b) != (DAT_0069d908 & 0x160b))) {
+              if (((g_CurFrameInput & 0x800) == 0) ||
+                 ((g_CurFrameInput & 0x800) == (g_LastFrameInput & 0x800))) {
+                if (((g_CurFrameInput & 0x160b) != 0) &&
+                   ((g_CurFrameInput & 0x160b) != (g_LastFrameInput & 0x160b))) {
                   *(undefined4 *)(param_1 + 0x30) = 0;
                 }
               }
@@ -123,10 +123,10 @@ undefined4 FUN_0042d98e(int param_1)
               }
             }
             else if (*(int *)(param_1 + 0x30) < 7) {
-              if (((DAT_0069d904 & 0x200) == 0) ||
-                 ((DAT_0069d904 & 0x200) == (DAT_0069d908 & 0x200))) {
-                if (((DAT_0069d904 & 0x160b) != 0) &&
-                   ((DAT_0069d904 & 0x160b) != (DAT_0069d908 & 0x160b))) {
+              if (((g_CurFrameInput & 0x200) == 0) ||
+                 ((g_CurFrameInput & 0x200) == (g_LastFrameInput & 0x200))) {
+                if (((g_CurFrameInput & 0x160b) != 0) &&
+                   ((g_CurFrameInput & 0x160b) != (g_LastFrameInput & 0x160b))) {
                   *(undefined4 *)(param_1 + 0x30) = 0;
                 }
               }
@@ -135,10 +135,10 @@ undefined4 FUN_0042d98e(int param_1)
               }
             }
             else if (*(int *)(param_1 + 0x30) < 10) {
-              if (((DAT_0069d904 & 0x400) == 0) ||
-                 ((DAT_0069d904 & 0x400) == (DAT_0069d908 & 0x400))) {
-                if (((DAT_0069d904 & 0x160b) != 0) &&
-                   ((DAT_0069d904 & 0x160b) != (DAT_0069d908 & 0x160b))) {
+              if (((g_CurFrameInput & 0x400) == 0) ||
+                 ((g_CurFrameInput & 0x400) == (g_LastFrameInput & 0x400))) {
+                if (((g_CurFrameInput & 0x160b) != 0) &&
+                   ((g_CurFrameInput & 0x160b) != (g_LastFrameInput & 0x160b))) {
                   *(undefined4 *)(param_1 + 0x30) = 0;
                 }
               }
@@ -175,7 +175,8 @@ undefined4 FUN_0042d98e(int param_1)
                 local_c = (AnmVm *)((int)local_c + 0x110);
               }
             }
-            if (((DAT_0069d904 & 10) != 0) && ((DAT_0069d904 & 10) != (DAT_0069d908 & 10))) {
+            if (((g_CurFrameInput & 10) != 0) && ((g_CurFrameInput & 10) != (g_LastFrameInput & 10))
+               ) {
               FUN_004311e0(0xb);
               *(undefined4 *)(param_1 + 8) = 0;
               *(undefined4 *)(param_1 + 4) = 1;
@@ -218,7 +219,8 @@ undefined4 FUN_0042d98e(int param_1)
         }
         local_c = (AnmVm *)((int)local_c + 0x110);
       }
-      if (((DAT_0069d904 & 0x1001) != 0) && ((DAT_0069d904 & 0x1001) != (DAT_0069d908 & 0x1001))) {
+      if (((g_CurFrameInput & 0x1001) != 0) &&
+         ((g_CurFrameInput & 0x1001) != (g_LastFrameInput & 0x1001))) {
         local_c = (AnmVm *)(param_1 + 0x40);
         iVar1 = *(int *)(param_1 + 0x10);
         if (-1 < iVar1) {
@@ -258,14 +260,14 @@ undefined4 FUN_0042d98e(int param_1)
           }
         }
       }
-      if (((DAT_0069d904 & 10) != 0) && ((DAT_0069d904 & 10) != (DAT_0069d908 & 10))) {
+      if (((g_CurFrameInput & 10) != 0) && ((g_CurFrameInput & 10) != (g_LastFrameInput & 10))) {
         *(undefined4 *)(param_1 + 0x10) = 6;
         FUN_004311e0(0xb);
       }
     }
   }
   else if (iVar1 == 9) {
-    FUN_0042bc85();
+    FUN_0042bc85(param_1);
   }
   else if (9 < iVar1) {
     if (iVar1 < 0xf) {

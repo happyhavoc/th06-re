@@ -92,7 +92,7 @@ void FUN_0042b809(void **param_1)
         local_39 = local_39 + bVar1;
         local_40 = local_40 + 1;
       }
-      WriteConfigToFile("score.dat",_Dst,local_14);
+      FileSystem::WriteDataToFile("score.dat",_Dst,local_14);
       _free(_Dst);
       return;
     }

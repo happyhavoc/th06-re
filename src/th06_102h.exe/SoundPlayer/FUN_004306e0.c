@@ -1,5 +1,5 @@
 
-void __thiscall FUN_004306e0(SoundPlayer *this,int idx,undefined4 param_3)
+void __thiscall SoundPlayer::FUN_004306e0(SoundPlayer *this,int idx,undefined4 param_2)
 
 {
   int iVar1;
@@ -28,7 +28,7 @@ void __thiscall FUN_004306e0(SoundPlayer *this,int idx,undefined4 param_3)
       (*this->sound_buffers[idx]->lpVtbl->Release)(this->sound_buffers[idx]);
       this->sound_buffers[idx] = (LPDIRECTSOUNDBUFFER)0x0;
     }
-    local_4c = OpenPath(param_3,0);
+    local_4c = FileSystem::OpenPath(param_2,0);
     local_8 = local_4c;
     if (local_4c != (byte *)0x0) {
       iVar1 = _strncmp((char *)local_4c,"RIFF",4);
@@ -40,7 +40,7 @@ void __thiscall FUN_004306e0(SoundPlayer *this,int idx,undefined4 param_3)
           local_8 = local_8 + 4;
           local_34 = (undefined4 *)FUN_004309f0(local_8,&DAT_0046c0ec,&local_38,iVar1 + -0xc);
           if (local_34 == (undefined4 *)0x0) {
-            GameErrorContextLog(&g_GameErrorContext,"Wav ファイルじゃない? %s\n",param_3);
+            GameErrorContextLog(&g_GameErrorContext,"Wav ファイルじゃない? %s\n",param_2);
             _free(local_4c);
           }
           else {
@@ -51,7 +51,7 @@ void __thiscall FUN_004306e0(SoundPlayer *this,int idx,undefined4 param_3)
             local_60.cbSize = *(WORD *)(local_34 + 4);
             local_34 = (undefined4 *)FUN_004309f0(local_8,&DAT_0046c0e4,&local_38,iVar1 + -0xc);
             if (local_34 == (undefined4 *)0x0) {
-              GameErrorContextLog(&g_GameErrorContext,"Wav ファイルじゃない? %s\n",param_3);
+              GameErrorContextLog(&g_GameErrorContext,"Wav ファイルじゃない? %s\n",param_2);
               _free(local_4c);
             }
             else {
@@ -113,12 +113,12 @@ void __thiscall FUN_004306e0(SoundPlayer *this,int idx,undefined4 param_3)
           }
         }
         else {
-          GameErrorContextLog(&g_GameErrorContext,"Wav ファイルじゃない? %s\n",param_3);
+          GameErrorContextLog(&g_GameErrorContext,"Wav ファイルじゃない? %s\n",param_2);
           _free(local_4c);
         }
       }
       else {
-        GameErrorContextLog(&g_GameErrorContext,"Wav ファイルじゃない %s\n",param_3);
+        GameErrorContextLog(&g_GameErrorContext,"Wav ファイルじゃない %s\n",param_2);
         _free(local_4c);
       }
     }

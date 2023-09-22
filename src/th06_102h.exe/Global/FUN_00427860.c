@@ -20,35 +20,35 @@ undefined4 FUN_00427860(void)
   local_10 = 0.0;
   local_c = 0.0;
   in_ECX[9].color = 0;
-  if ((DAT_0069d904 & 0x10) == 0) {
-    if ((DAT_0069d904 & 0x20) == 0) {
-      if ((DAT_0069d904 & 0x40) != 0) {
+  if ((g_CurFrameInput & 0x10) == 0) {
+    if ((g_CurFrameInput & 0x20) == 0) {
+      if ((g_CurFrameInput & 0x40) != 0) {
         in_ECX[9].color = 3;
       }
-      if ((DAT_0069d904 & 0x80) != 0) {
+      if ((g_CurFrameInput & 0x80) != 0) {
         in_ECX[9].color = 4;
       }
     }
     else {
       in_ECX[9].color = 2;
-      if ((DAT_0069d904 & 0x40) != 0) {
+      if ((g_CurFrameInput & 0x40) != 0) {
         in_ECX[9].color = 7;
       }
-      if ((DAT_0069d904 & 0x80) != 0) {
+      if ((g_CurFrameInput & 0x80) != 0) {
         in_ECX[9].color = 8;
       }
     }
   }
   else {
     in_ECX[9].color = 1;
-    if ((DAT_0069d904 & 0x40) != 0) {
+    if ((g_CurFrameInput & 0x40) != 0) {
       in_ECX[9].color = 5;
     }
-    if ((DAT_0069d904 & 0x80) != 0) {
+    if ((g_CurFrameInput & 0x80) != 0) {
       in_ECX[9].color = 6;
     }
   }
-  if ((DAT_0069d904 & 4) == 0) {
+  if ((g_CurFrameInput & 4) == 0) {
     *(undefined *)((int)&in_ECX[9].matrix.field0_0x0 + 0x17) = 0;
   }
   else {
@@ -57,7 +57,7 @@ undefined4 FUN_00427860(void)
   pAVar5 = g_AnmManager;
   switch(in_ECX[9].color) {
   case 1:
-    if ((DAT_0069d904 & 4) == 0) {
+    if ((g_CurFrameInput & 4) == 0) {
       local_c = in_ECX[9].matrix.field0_0x0.field0._33;
     }
     else {
@@ -66,7 +66,7 @@ undefined4 FUN_00427860(void)
     local_c = -local_c;
     break;
   case 2:
-    if ((DAT_0069d904 & 4) == 0) {
+    if ((g_CurFrameInput & 4) == 0) {
       local_c = in_ECX[9].matrix.field0_0x0.field0._33;
     }
     else {
@@ -74,7 +74,7 @@ undefined4 FUN_00427860(void)
     }
     break;
   case 3:
-    if ((DAT_0069d904 & 4) == 0) {
+    if ((g_CurFrameInput & 4) == 0) {
       local_10 = in_ECX[9].matrix.field0_0x0.field0._33;
     }
     else {
@@ -83,7 +83,7 @@ undefined4 FUN_00427860(void)
     local_10 = -local_10;
     break;
   case 4:
-    if ((DAT_0069d904 & 4) == 0) {
+    if ((g_CurFrameInput & 4) == 0) {
       local_10 = in_ECX[9].matrix.field0_0x0.field0._33;
     }
     else {
@@ -91,7 +91,7 @@ undefined4 FUN_00427860(void)
     }
     break;
   case 5:
-    if ((DAT_0069d904 & 4) == 0) {
+    if ((g_CurFrameInput & 4) == 0) {
       local_10 = in_ECX[9].matrix.field0_0x0.field0._41;
     }
     else {
@@ -101,7 +101,7 @@ undefined4 FUN_00427860(void)
     local_c = local_10;
     break;
   case 6:
-    if ((DAT_0069d904 & 4) == 0) {
+    if ((g_CurFrameInput & 4) == 0) {
       local_10 = in_ECX[9].matrix.field0_0x0.field0._41;
     }
     else {
@@ -110,7 +110,7 @@ undefined4 FUN_00427860(void)
     local_c = -local_10;
     break;
   case 7:
-    if ((DAT_0069d904 & 4) == 0) {
+    if ((g_CurFrameInput & 4) == 0) {
       local_10 = in_ECX[9].matrix.field0_0x0.field0._41;
     }
     else {
@@ -120,7 +120,7 @@ undefined4 FUN_00427860(void)
     local_c = -local_10;
     break;
   case 8:
-    if ((DAT_0069d904 & 4) == 0) {
+    if ((g_CurFrameInput & 4) == 0) {
       local_10 = in_ECX[9].matrix.field0_0x0.field0._41;
     }
     else {
@@ -292,10 +292,10 @@ switchD_004281aa_caseD_4:
   in_ECX[4].matrix.field0_0x0.field0._41 = local_18 + in_ECX[4].matrix.field0_0x0.field0._41;
   in_ECX[4].matrix.field0_0x0.field0._33 = local_14 + in_ECX[4].matrix.field0_0x0.field0._33;
   in_ECX[4].matrix.field0_0x0.field0._42 = local_14 + in_ECX[4].matrix.field0_0x0.field0._42;
-  if (((DAT_0069d904 & 1) != 0) && (iVar7 = FUN_004195a2(), iVar7 == 0)) {
+  if (((g_CurFrameInput & 1) != 0) && (iVar7 = FUN_004195a2(), iVar7 == 0)) {
     FUN_00428630(in_ECX);
   }
-  in_ECX[9].autoRotate = DAT_0069d904;
+  in_ECX[9].autoRotate = g_CurFrameInput;
   return 0;
 }
 

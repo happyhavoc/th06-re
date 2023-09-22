@@ -9,7 +9,7 @@ undefined4 FUN_0041b663(uint *param_1)
   uint local_8;
   
   if (*(char *)(param_1 + 0x609) != '\0') {
-    if ((DAT_0069d904 != 0) && (DAT_0069d904 != DAT_0069d908)) {
+    if ((g_CurFrameInput != 0) && (g_CurFrameInput != g_LastFrameInput)) {
       g_GameContext.unkInput2 = 1;
     }
     param_1[0x60a] = param_1[0x60a] + 1;
@@ -22,7 +22,7 @@ undefined4 FUN_0041b663(uint *param_1)
   }
   if ((((*(char *)(param_1 + 0x608) == '\0') && (*(char *)((int)param_1 + 0x181f) == '\0')) &&
       (*(char *)(param_1 + 0x609) == '\0')) &&
-     (((DAT_0069d904 & 8) != 0 && ((DAT_0069d904 & 8) != (DAT_0069d908 & 8))))) {
+     (((g_CurFrameInput & 8) != 0 && ((g_CurFrameInput & 8) != (g_LastFrameInput & 8))))) {
     *(undefined *)((int)param_1 + 0x181f) = 1;
     _DAT_0069d6dc = 0x42000000;
     _DAT_0069d6e0 = 0x41800000;

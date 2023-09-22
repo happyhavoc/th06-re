@@ -17,7 +17,7 @@ undefined4 __thiscall SoundPlayer::FUN_00430e10(SoundPlayer *this,char *filepath
     uVar3 = 0xffffffff;
   }
   else {
-    _Memory = (int *)OpenPath(filepath,0);
+    _Memory = (int *)FileSystem::OpenPath(filepath,0);
     if (_Memory == (int *)0x0) {
       uVar3 = 0xffffffff;
     }

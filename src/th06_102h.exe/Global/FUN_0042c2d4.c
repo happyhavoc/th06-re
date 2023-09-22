@@ -54,10 +54,10 @@ void FUN_0042c2d4(void)
     }
     if (*(int *)(in_ECX + 4) < 0x50) goto LAB_0042d095;
     FUN_0042d18f(in_ECX,2);
-    if ((((DAT_0069d904 & 10) == 0) || ((DAT_0069d904 & 10) == (DAT_0069d908 & 10))) &&
-       (((DAT_0069d904 & 8) == 0 || ((DAT_0069d904 & 8) == (DAT_0069d908 & 8))))) {
-      if (((DAT_0069d904 & 0x1001) == 0) || ((DAT_0069d904 & 0x1001) == (DAT_0069d908 & 0x1001)))
-      goto LAB_0042d095;
+    if ((((g_CurFrameInput & 10) == 0) || ((g_CurFrameInput & 10) == (g_LastFrameInput & 10))) &&
+       (((g_CurFrameInput & 8) == 0 || ((g_CurFrameInput & 8) == (g_LastFrameInput & 8))))) {
+      if (((g_CurFrameInput & 0x1001) == 0) ||
+         ((g_CurFrameInput & 0x1001) == (g_LastFrameInput & 0x1001))) goto LAB_0042d095;
       if (*(int *)(in_ECX + 0x10) == 0) goto LAB_0042c515;
     }
     *(undefined4 *)(in_ECX + 4) = 0;
@@ -72,8 +72,10 @@ void FUN_0042c2d4(void)
   else {
     if (iVar1 == 0xb) {
       if ((0x13 < *(int *)(in_ECX + 4)) &&
-         ((((DAT_0069d904 & 0x1001) != 0 && ((DAT_0069d904 & 0x1001) != (DAT_0069d908 & 0x1001))) ||
-          (((DAT_0069d904 & 10) != 0 && ((DAT_0069d904 & 10) != (DAT_0069d908 & 10))))))) {
+         ((((g_CurFrameInput & 0x1001) != 0 &&
+           ((g_CurFrameInput & 0x1001) != (g_LastFrameInput & 0x1001))) ||
+          (((g_CurFrameInput & 10) != 0 && ((g_CurFrameInput & 10) != (g_LastFrameInput & 10)))))))
+      {
         *(undefined4 *)(in_ECX + 4) = 0;
         FUN_004311e0(0xb);
         *(undefined4 *)(in_ECX + 8) = 2;
@@ -88,8 +90,9 @@ void FUN_0042c2d4(void)
     if (iVar1 != 0xc) {
       if (iVar1 == 0xd) {
         if (*(int *)(in_ECX + 4) < 0x1e) goto LAB_0042d095;
-        if ((((DAT_0069d904 & 0x10) != 0) && ((DAT_0069d904 & 0x10) != (DAT_0069d908 & 0x10))) ||
-           (((DAT_0069d904 & 0x10) != 0 && (DAT_0069d90c != 0)))) {
+        if ((((g_CurFrameInput & 0x10) != 0) &&
+            ((g_CurFrameInput & 0x10) != (g_LastFrameInput & 0x10))) ||
+           (((g_CurFrameInput & 0x10) != 0 && (DAT_0069d90c != 0)))) {
           do {
             *(int *)(in_ECX + 0x20) = *(int *)(in_ECX + 0x20) + -0x10;
             if (*(int *)(in_ECX + 0x20) < 0) {
@@ -98,8 +101,9 @@ void FUN_0042c2d4(void)
           } while (PTR_DAT_004784d4[*(int *)(in_ECX + 0x20)] == ' ');
           FUN_004311e0(0xc);
         }
-        if ((((DAT_0069d904 & 0x20) != 0) && ((DAT_0069d904 & 0x20) != (DAT_0069d908 & 0x20))) ||
-           (((DAT_0069d904 & 0x20) != 0 && (DAT_0069d90c != 0)))) {
+        if ((((g_CurFrameInput & 0x20) != 0) &&
+            ((g_CurFrameInput & 0x20) != (g_LastFrameInput & 0x20))) ||
+           (((g_CurFrameInput & 0x20) != 0 && (DAT_0069d90c != 0)))) {
           do {
             *(int *)(in_ECX + 0x20) = *(int *)(in_ECX + 0x20) + 0x10;
             if (0x5f < *(int *)(in_ECX + 0x20)) {
@@ -108,8 +112,9 @@ void FUN_0042c2d4(void)
           } while (PTR_DAT_004784d4[*(int *)(in_ECX + 0x20)] == ' ');
           FUN_004311e0(0xc);
         }
-        if ((((DAT_0069d904 & 0x40) != 0) && ((DAT_0069d904 & 0x40) != (DAT_0069d908 & 0x40))) ||
-           (((DAT_0069d904 & 0x40) != 0 && (DAT_0069d90c != 0)))) {
+        if ((((g_CurFrameInput & 0x40) != 0) &&
+            ((g_CurFrameInput & 0x40) != (g_LastFrameInput & 0x40))) ||
+           (((g_CurFrameInput & 0x40) != 0 && (DAT_0069d90c != 0)))) {
           do {
             *(int *)(in_ECX + 0x20) = *(int *)(in_ECX + 0x20) + -1;
             if (*(int *)(in_ECX + 0x20) % 0x10 == 0xf) {
@@ -121,8 +126,9 @@ void FUN_0042c2d4(void)
           } while (PTR_DAT_004784d4[*(int *)(in_ECX + 0x20)] == ' ');
           FUN_004311e0(0xc);
         }
-        if ((((DAT_0069d904 & 0x80) != 0) && ((DAT_0069d904 & 0x80) != (DAT_0069d908 & 0x80))) ||
-           (((DAT_0069d904 & 0x80) != 0 && (DAT_0069d90c != 0)))) {
+        if ((((g_CurFrameInput & 0x80) != 0) &&
+            ((g_CurFrameInput & 0x80) != (g_LastFrameInput & 0x80))) ||
+           (((g_CurFrameInput & 0x80) != 0 && (DAT_0069d90c != 0)))) {
           do {
             *(int *)(in_ECX + 0x20) = *(int *)(in_ECX + 0x20) + 1;
             if (*(int *)(in_ECX + 0x20) % 0x10 == 0) {
@@ -131,8 +137,9 @@ void FUN_0042c2d4(void)
           } while (PTR_DAT_004784d4[*(int *)(in_ECX + 0x20)] == ' ');
           FUN_004311e0(0xc);
         }
-        if ((((DAT_0069d904 & 0x1001) != 0) && ((DAT_0069d904 & 0x1001) != (DAT_0069d908 & 0x1001)))
-           || (((DAT_0069d904 & 0x1001) != 0 && (DAT_0069d90c != 0)))) {
+        if ((((g_CurFrameInput & 0x1001) != 0) &&
+            ((g_CurFrameInput & 0x1001) != (g_LastFrameInput & 0x1001))) ||
+           (((g_CurFrameInput & 0x1001) != 0 && (DAT_0069d90c != 0)))) {
           if (*(int *)(in_ECX + 0x10) < 8) {
             local_b4 = *(int *)(in_ECX + 0x10);
           }
@@ -164,8 +171,8 @@ void FUN_0042c2d4(void)
           }
           FUN_004311e0(10);
         }
-        if ((((DAT_0069d904 & 10) != 0) && ((DAT_0069d904 & 10) != (DAT_0069d908 & 10))) ||
-           (((DAT_0069d904 & 10) != 0 && (DAT_0069d90c != 0)))) {
+        if ((((g_CurFrameInput & 10) != 0) && ((g_CurFrameInput & 10) != (g_LastFrameInput & 10)))
+           || (((g_CurFrameInput & 10) != 0 && (DAT_0069d90c != 0)))) {
           if (*(int *)(in_ECX + 0x10) < 8) {
             local_b8 = *(int *)(in_ECX + 0x10);
           }
@@ -178,7 +185,7 @@ void FUN_0042c2d4(void)
           }
           FUN_004311e0(0xb);
         }
-        if (((DAT_0069d904 & 8) == 0) || ((DAT_0069d904 & 8) == (DAT_0069d908 & 8)))
+        if (((g_CurFrameInput & 8) == 0) || ((g_CurFrameInput & 8) == (g_LastFrameInput & 8)))
         goto LAB_0042d095;
       }
       else {
@@ -194,10 +201,10 @@ void FUN_0042c2d4(void)
         }
         if (*(int *)(in_ECX + 4) < 0x14) goto LAB_0042d095;
         FUN_0042d18f(in_ECX,2);
-        if ((((DAT_0069d904 & 10) == 0) || ((DAT_0069d904 & 10) == (DAT_0069d908 & 10))) &&
-           (((DAT_0069d904 & 8) == 0 || ((DAT_0069d904 & 8) == (DAT_0069d908 & 8))))) {
-          if (((DAT_0069d904 & 0x1001) == 0) || ((DAT_0069d904 & 0x1001) == (DAT_0069d908 & 0x1001))
-             ) goto LAB_0042d095;
+        if ((((g_CurFrameInput & 10) == 0) || ((g_CurFrameInput & 10) == (g_LastFrameInput & 10)))
+           && (((g_CurFrameInput & 8) == 0 || ((g_CurFrameInput & 8) == (g_LastFrameInput & 8))))) {
+          if (((g_CurFrameInput & 0x1001) == 0) ||
+             ((g_CurFrameInput & 0x1001) == (g_LastFrameInput & 0x1001))) goto LAB_0042d095;
           *(undefined4 *)(in_ECX + 4) = 0;
           if (*(int *)(in_ECX + 0x10) == 0) {
             local_8 = in_ECX + 0x40;
@@ -226,7 +233,7 @@ LAB_0042c515:
       FUN_0045d588("replay");
       for (local_10 = 0; local_10 < 0xf; local_10 = local_10 + 1) {
         sprintf(local_5c,"./replay/th6_%.2d.rpy",local_10 + 1);
-        local_14 = (undefined4 *)OpenPath(local_5c,1);
+        local_14 = (undefined4 *)FileSystem::OpenPath(local_5c,1);
         if (local_14 != (undefined4 *)0x0) {
           iVar1 = FUN_0042a140(local_14,g_LastFileSize);
           if (iVar1 == 0) {
@@ -245,7 +252,8 @@ LAB_0042c515:
     if (0x13 < *(int *)(in_ECX + 4)) {
       FUN_0042d0a4(in_ECX,0xf);
       *(undefined4 *)(in_ECX + 0x1c) = *(undefined4 *)(in_ECX + 0x10);
-      if (((DAT_0069d904 & 0x1001) != 0) && ((DAT_0069d904 & 0x1001) != (DAT_0069d908 & 0x1001))) {
+      if (((g_CurFrameInput & 0x1001) != 0) &&
+         ((g_CurFrameInput & 0x1001) != (g_LastFrameInput & 0x1001))) {
         FUN_004311e0(10);
         *(undefined4 *)(in_ECX + 0x1c) = *(undefined4 *)(in_ECX + 0x10);
         *(undefined4 *)(in_ECX + 4) = 0;
@@ -275,7 +283,7 @@ LAB_0042c515:
         *(undefined4 *)(in_ECX + 0x10) = 0;
         *(undefined4 *)(in_ECX + 0x20) = 0;
       }
-      if (((DAT_0069d904 & 10) != 0) && ((DAT_0069d904 & 10) != (DAT_0069d908 & 10))) {
+      if (((g_CurFrameInput & 10) != 0) && ((g_CurFrameInput & 10) != (g_LastFrameInput & 10))) {
         FUN_004311e0(0xb);
         *(undefined4 *)(in_ECX + 8) = 10;
         local_8 = in_ECX + 0x40;

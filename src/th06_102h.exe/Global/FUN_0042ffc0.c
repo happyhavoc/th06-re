@@ -17,7 +17,7 @@ undefined4 FUN_0042ffc0(int param_1)
       fVar1 = (((float)*(int *)(param_1 + 0x2c) + *(float *)(param_1 + 0x28)) *
               (float)(*(int *)(param_1 + 0x1c) - *(int *)(param_1 + 0x18))) /
               (float)*(int *)(param_1 + 0x14) + (float)*(int *)(param_1 + 0x18);
-      uVar3 = FUN_0041e7f0();
+      uVar3 = FUN_0041e7f0(&DAT_0069d8f8);
       uVar3 = uVar3 % 3;
       if (uVar3 == 0) {
         _DAT_0069d6dc = 32.0;
@@ -31,7 +31,7 @@ undefined4 FUN_0042ffc0(int param_1)
         _DAT_0069d6dc = 32.0;
         _DAT_0069d6e4 = 384.0 - fVar1;
       }
-      uVar3 = FUN_0041e7f0();
+      uVar3 = FUN_0041e7f0(&DAT_0069d8f8);
       uVar3 = uVar3 % 3;
       if (uVar3 == 0) {
         _DAT_0069d6e0 = 16.0;

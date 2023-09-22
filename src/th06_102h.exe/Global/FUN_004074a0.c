@@ -285,7 +285,7 @@ LAB_004074ce:
       local_29c = 0.0;
     }
     else {
-      uVar15 = FUN_0041e7f0();
+      uVar15 = FUN_0041e7f0(&DAT_0069d8f8);
       local_29c = (float)(uVar15 % local_24);
     }
     local_14 = local_29c;
@@ -300,7 +300,7 @@ LAB_004074ce:
       local_2a0 = 0;
     }
     else {
-      local_2a0 = FUN_0041e7f0();
+      local_2a0 = FUN_0041e7f0(&DAT_0069d8f8);
       local_2a0 = local_2a0 % local_28;
     }
     local_14 = (float)(local_2a0 + local_2c);
@@ -741,7 +741,7 @@ switchD_00407544_caseD_2:
         local_184 = 0.0;
       }
       else {
-        uVar15 = FUN_0041e7f0();
+        uVar15 = FUN_0041e7f0(&DAT_0069d8f8);
         local_184 = (float)(uVar15 % (uint)local_184);
       }
       param_1[0xc].scaleInterpInitialX = local_184;

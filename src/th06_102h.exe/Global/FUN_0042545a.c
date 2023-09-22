@@ -35,10 +35,10 @@ undefined4 FUN_0042545a(int param_1)
     fStack_10 = pfVar1[2];
     local_18 = *pfVar1 - 60.0;
     if (*(int *)(param_1 + 0x10) == local_8) {
-      FUN_00401530(0x47b900,&local_18,&local_c);
+      AsciiManager::FUN_00401530(&g_AsciiManager,&local_18,&local_c);
     }
     local_18 = local_18 + 15.0;
-    FUN_00401650(0x47b900,&local_18,"%2d.",local_8 + 1);
+    AsciiManager::FUN_00401650(&g_AsciiManager,&local_18,"%2d.",local_8 + 1);
   }
   for (local_8 = 0; local_8 < 0x10; local_8 = local_8 + 1) {
     AnmManager::FUN_00432ad0(g_AnmManager,(AnmVm *)(param_1 + 0x2334 + local_8 * 0x110));

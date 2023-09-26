@@ -27,8 +27,8 @@ LAB_00426400:
     puVar1[2] = (int)*psVar3;
     puVar1[1] = 0;
     *puVar1 = 0xfffffc19;
-    *(short *)((int)&param_2[1].matrix.field0_0x0 + 6) = sVar2;
-    *(ushort *)((int)&param_2[1].matrix.field0_0x0 + 8) = (ushort)*(byte *)(psVar3 + 0xf);
+    *(short *)((int)param_2[1].matrix.m[0] + 6) = sVar2;
+    *(ushort *)(param_2[1].matrix.m[0] + 2) = (ushort)*(byte *)(psVar3 + 0xf);
     param_2[1].scaleInterpFinalY = *(float *)(psVar3 + 2);
     param_2[1].scaleInterpFinalX = *(float *)(psVar3 + 4);
   }
@@ -64,8 +64,8 @@ LAB_00426400:
   param_2[1].currentTimeInScript.current = 0;
   param_2[1].currentTimeInScript.subFrame = 0.0;
   param_2[1].currentTimeInScript.previous = -999;
-  *(ushort *)((int)&param_2[1].matrix.field0_0x0 + 4) = (ushort)*(byte *)((int)psVar3 + 0x1f);
-  *(short *)&param_2[1].matrix.field0_0x0 = psVar3[0xe];
+  *(ushort *)(param_2[1].matrix.m[0] + 1) = (ushort)*(byte *)((int)psVar3 + 0x1f);
+  *(short *)param_2[1].matrix.m[0] = psVar3[0xe];
   if (-1 < psVar3[0x11]) {
     FUN_004311e0((int)psVar3[0x11]);
   }

@@ -2,22 +2,22 @@
 D3DMATRIX * __cdecl D3DXMatrixIdentity(D3DMATRIX *matrix)
 
 {
-  (matrix->field0_0x0).field0._43 = 0.0;
-  (matrix->field0_0x0).field0._42 = 0.0;
-  (matrix->field0_0x0).field0._41 = 0.0;
-  (matrix->field0_0x0).field0._34 = 0.0;
-  (matrix->field0_0x0).field0._32 = 0.0;
-  (matrix->field0_0x0).field0._31 = 0.0;
-  (matrix->field0_0x0).field0._24 = 0.0;
-  (matrix->field0_0x0).field0._23 = 0.0;
-  (matrix->field0_0x0).field0._21 = 0.0;
-  (matrix->field0_0x0).field0._14 = 0.0;
-  (matrix->field0_0x0).field0._13 = 0.0;
-  (matrix->field0_0x0).field0._12 = 0.0;
-  (matrix->field0_0x0).field0._44 = 1.0;
-  (matrix->field0_0x0).field0._33 = 1.0;
-  (matrix->field0_0x0).field0._22 = 1.0;
-  (matrix->field0_0x0).field0._11 = 1.0;
+  matrix->m[3][2] = 0.0;
+  matrix->m[3][1] = 0.0;
+  matrix->m[3][0] = 0.0;
+  matrix->m[2][3] = 0.0;
+  matrix->m[2][1] = 0.0;
+  matrix->m[2][0] = 0.0;
+  matrix->m[1][3] = 0.0;
+  matrix->m[1][2] = 0.0;
+  matrix->m[1][0] = 0.0;
+  matrix->m[0][3] = 0.0;
+  matrix->m[0][2] = 0.0;
+  matrix->m[0][1] = 0.0;
+  matrix->m[3][3] = 1.0;
+  matrix->m[2][2] = 1.0;
+  matrix->m[1][1] = 1.0;
+  matrix->m[0][0] = 1.0;
   return matrix;
 }
 

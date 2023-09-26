@@ -13,7 +13,7 @@ undefined4 FUN_0042545a(int param_1)
   local_c = '\x7f';
   local_b = 0;
   g_AnmManager->currentTexture = (IDirect3DTexture8 *)0x0;
-  AnmManager::FUN_00435300(g_AnmManager,0,0,0,0,0);
+  AnmManager::CopySurfaceToBackBuffer(g_AnmManager,0,0,0,0,0);
   AnmManager::FUN_00432ad0(g_AnmManager,(AnmVm *)(param_1 + 0x24));
   for (local_8 = *(int *)(param_1 + 0x18); local_8 < *(int *)(param_1 + 0x18) + 10;
       local_8 = local_8 + 1) {

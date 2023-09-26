@@ -38,7 +38,7 @@ void FUN_0042e446(int param_1)
   g_GameContext.viewport.Height = 0x1e0;
   (*(g_GameContext.d3dDevice)->lpVtbl->SetViewport)(g_GameContext.d3dDevice,&g_GameContext.viewport)
   ;
-  AnmManager::FUN_00435300(g_AnmManager,0,0,0,0,0);
+  AnmManager::CopySurfaceToBackBuffer(g_AnmManager,0,0,0,0,0);
   for (local_14 = 0; local_14 < 0x26; local_14 = local_14 + 1) {
     local_40 = (local_28->pos).x;
     local_3c = (local_28->pos).y;

@@ -6,7 +6,7 @@ void FUN_00416c50(AnmVm *param_1)
 {
   AnmVm *local_8;
   
-  switch(*(undefined2 *)((int)&param_1[5].matrix.field0_0x0 + 0x32)) {
+  switch(*(undefined2 *)((int)param_1[5].matrix.m[3] + 2)) {
   case 2:
     local_8 = param_1 + 1;
     break;
@@ -27,7 +27,7 @@ void FUN_00416c50(AnmVm *param_1)
   (local_8->pos).z = 0.0;
   local_8->color = local_8->color & 0xff000000 | 0xffffff;
   if (local_8->autoRotate != 0) {
-    (local_8->rotation).z = 1.570796 - param_1[5].matrix.field0_0x0.field0._12;
+    (local_8->rotation).z = 1.570796 - param_1[5].matrix.m[0][1];
   }
   AnmManager::FUN_00432cc0(g_AnmManager,local_8);
   return;

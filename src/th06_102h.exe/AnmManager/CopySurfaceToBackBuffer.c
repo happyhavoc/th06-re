@@ -1,6 +1,7 @@
 
 void __thiscall
-AnmManager::FUN_00435300(AnmManager *this,int surfaceIdx,LONG left,LONG top,LONG x,LONG y)
+AnmManager::CopySurfaceToBackBuffer
+          (AnmManager *this,int surfaceIdx,LONG left,LONG top,LONG x,LONG y)
 
 {
   HRESULT hres;

@@ -19,8 +19,8 @@ AnmVm * __fastcall FUN_00413450(AnmVm *param_1)
   local_30 = (AnmVm *)&param_1[0x50].alphaInterpTime;
   while (local_28 = local_28 + -1, -1 < local_28) {
     FUN_00413560(local_30);
-    AnmTimer::AnmTimer((AnmTimer *)((int)&local_30[5].matrix.field0_0x0 + 0x10));
-    local_30 = (AnmVm *)((int)&local_30[5].matrix.field0_0x0 + 0x38);
+    AnmTimer::AnmTimer((AnmTimer *)(local_30[5].matrix.m + 1));
+    local_30 = (AnmVm *)(local_30[5].matrix.m[3] + 2);
   }
   local_58 = 0x40;
   local_60 = (AnmVm *)&param_1[0xde1].posInterpTime;
@@ -28,7 +28,7 @@ AnmVm * __fastcall FUN_00413450(AnmVm *param_1)
     AnmVm::AnmVm(local_60);
     AnmVm::AnmVm(local_60 + 1);
     AnmTimer::AnmTimer((AnmTimer *)&local_60[2].matrix);
-    local_60 = (AnmVm *)((int)&local_60[2].matrix.field0_0x0 + 0x14);
+    local_60 = (AnmVm *)(local_60[2].matrix.m[1] + 1);
   }
   AnmTimer::AnmTimer((AnmTimer *)&param_1[0xe74].alphaInterpFinal);
   FUN_00413430((undefined4 *)param_1);

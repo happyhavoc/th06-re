@@ -28,11 +28,11 @@ void __thiscall AsciiManager::FUN_004033b0(AsciiManager *this)
           AnmManager::FUN_00433590(g_AnmManager,&this->vm1);
         }
         else {
-          (this->vm1).matrix.field0_0x0.field0._11 = 0.1875;
-          (this->vm1).matrix.field0_0x0.field0._22 = 0.03125;
+          (this->vm1).matrix.m[0][0] = 0.1875;
+          (this->vm1).matrix.m[1][1] = 0.03125;
           AnmManager::FUN_00432ad0(g_AnmManager,&this->vm1);
-          (this->vm1).matrix.field0_0x0.field0._11 = 0.03125;
-          (this->vm1).matrix.field0_0x0.field0._22 = 0.03125;
+          (this->vm1).matrix.m[0][0] = 0.03125;
+          (this->vm1).matrix.m[1][1] = 0.03125;
         }
         (this->vm1).pos.x = (this->vm1).pos.x + 8.0;
         local_14 = local_14 + -1;

@@ -38,9 +38,9 @@ int FUN_004264b0(float *param_1,float *param_2,undefined4 *param_3)
     *param_3 = 0;
   }
   for (local_c = 0; local_c < 0x50; local_c = local_c + 1) {
-    if ((*(short *)((int)&local_8[1].matrix.field0_0x0 + 2) != 0) &&
-       ((*(short *)((int)&local_8[1].matrix.field0_0x0 + 2) == 1 ||
-        (*(short *)((int)&local_8[1].matrix.field0_0x0 + 4) == 2)))) {
+    if ((*(short *)((int)local_8[1].matrix.m[0] + 2) != 0) &&
+       ((*(short *)((int)local_8[1].matrix.m[0] + 2) == 1 ||
+        (*(short *)(local_8[1].matrix.m[0] + 1) == 2)))) {
       local_40 = local_8[1].rotation.x - local_8[1].angleVel.x / 2.0;
       local_3c = local_8[1].rotation.y - local_8[1].angleVel.y / 2.0;
       local_24 = local_8[1].angleVel.x / 2.0 + local_8[1].rotation.x;
@@ -49,21 +49,20 @@ int FUN_004264b0(float *param_1,float *param_2,undefined4 *param_3)
          (((local_40 <= local_18 && (local_20 < local_2c == (NAN(local_20) || NAN(local_2c)))) &&
           (local_24 < local_30 == (NAN(local_24) || NAN(local_30)))))) {
         if (*(int *)(in_ECX + 0x75c8) == 0) {
-          local_d4 = (int)*(short *)&local_8[1].matrix.field0_0x0;
+          local_d4 = (int)*(short *)local_8[1].matrix.m[0];
         }
-        else if ((int)*(short *)&local_8[1].matrix.field0_0x0 / 3 == 0) {
+        else if ((int)*(short *)local_8[1].matrix.m[0] / 3 == 0) {
           local_d4 = 1;
         }
         else {
-          local_d4 = (int)*(short *)&local_8[1].matrix.field0_0x0 / 3;
+          local_d4 = (int)*(short *)local_8[1].matrix.m[0] / 3;
         }
         local_34 = local_34 + local_d4;
-        if (*(short *)((int)&local_8[1].matrix.field0_0x0 + 4) == 2) {
-          iVar5 = (int)*(short *)&local_8[1].matrix.field0_0x0;
-          *(short *)&local_8[1].matrix.field0_0x0 =
-               (short)((int)(iVar5 + (iVar5 >> 0x1f & 3U)) >> 2);
-          if (*(short *)&local_8[1].matrix.field0_0x0 == 0) {
-            *(undefined2 *)&local_8[1].matrix.field0_0x0 = 1;
+        if (*(short *)(local_8[1].matrix.m[0] + 1) == 2) {
+          iVar5 = (int)*(short *)local_8[1].matrix.m[0];
+          *(short *)local_8[1].matrix.m[0] = (short)((int)(iVar5 + (iVar5 >> 0x1f & 3U)) >> 2);
+          if (*(short *)local_8[1].matrix.m[0] == 0) {
+            *(undefined2 *)local_8[1].matrix.m[0] = 1;
           }
           switch(local_8->anmFileIndex) {
           case 0x441:
@@ -87,7 +86,7 @@ int FUN_004264b0(float *param_1,float *param_2,undefined4 *param_3)
           }
         }
         this = g_AnmManager;
-        if (*(short *)((int)&local_8[1].matrix.field0_0x0 + 4) == 3) {
+        if (*(short *)(local_8[1].matrix.m[0] + 1) == 3) {
           *(char *)(in_ECX + 0x9e4) = *(char *)(in_ECX + 0x9e4) + '\x01';
           if ((*(byte *)(in_ECX + 0x9e4) & 7) == 0) {
             local_3c = param_1[1];
@@ -97,7 +96,7 @@ int FUN_004264b0(float *param_1,float *param_2,undefined4 *param_3)
           }
         }
         else {
-          if (*(short *)((int)&local_8[1].matrix.field0_0x0 + 2) == 1) {
+          if (*(short *)((int)local_8[1].matrix.m[0] + 2) == 1) {
             sVar4 = local_8->anmFileIndex;
             local_80 = sVar4 + 0x20;
             local_8->anmFileIndex = local_80;
@@ -105,13 +104,13 @@ int FUN_004264b0(float *param_1,float *param_2,undefined4 *param_3)
             FUN_0040ef50(5,local_8 + 1,1,0xffffffff);
             local_8[1].rotation.z = 0.1;
           }
-          *(undefined2 *)((int)&local_8[1].matrix.field0_0x0 + 2) = 2;
+          *(undefined2 *)((int)local_8[1].matrix.m[0] + 2) = 2;
           local_8[1].scaleX = local_8[1].scaleX / 8.0;
           local_8[1].scaleY = local_8[1].scaleY / 8.0;
         }
       }
     }
-    local_8 = (AnmVm *)(local_8[1].matrix.field0_0x0.m[0] + 3);
+    local_8 = (AnmVm *)(local_8[1].matrix.m[0] + 3);
   }
   for (local_c = 0; local_c < 0x20; local_c = local_c + 1) {
     fVar3 = *(float *)(in_ECX + 0x638 + local_c * 0xc);

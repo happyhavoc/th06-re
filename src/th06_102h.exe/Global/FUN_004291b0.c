@@ -23,10 +23,10 @@ void FUN_004291b0(int param_1)
   }
   local_18 = (AnmVm *)(param_1 + 0xa28);
   for (local_10 = 0; local_10 < 0x50; local_10 = local_10 + 1) {
-    if (*(short *)((int)&local_18[1].matrix.field0_0x0 + 2) != 0) {
-      sVar3 = *(short *)((int)&local_18[1].matrix.field0_0x0 + 4);
+    if (*(short *)((int)local_18[1].matrix.m[0] + 2) != 0) {
+      sVar3 = *(short *)(local_18[1].matrix.m[0] + 1);
       if (sVar3 == 1) {
-        if (*(short *)((int)&local_18[1].matrix.field0_0x0 + 2) == 1) {
+        if (*(short *)((int)local_18[1].matrix.m[0] + 2) == 1) {
           if (((*(float *)(param_1 + 0xa1c) <= -100.0) ||
               (0x27 < local_18[1].currentTimeInScript.current)) ||
              (local_18[1].currentTimeInScript.current == local_18[1].currentTimeInScript.previous))
@@ -68,21 +68,20 @@ void FUN_004291b0(int param_1)
         }
       }
       else if (sVar3 == 2) {
-        if (*(short *)((int)&local_18[1].matrix.field0_0x0 + 2) == 1) {
+        if (*(short *)((int)local_18[1].matrix.m[0] + 2) == 1) {
           local_18[1].scaleY = local_18[1].scaleY - 0.3;
         }
       }
       else if (sVar3 == 3) {
-        if (*(int *)(param_1 + 0x9c0 + *(short *)((int)&local_18[1].matrix.field0_0x0 + 6) * 0xc) ==
-            0x46) {
+        if (*(int *)(param_1 + 0x9c0 + *(short *)((int)local_18[1].matrix.m[0] + 6) * 0xc) == 0x46)
+        {
           local_18->pendingInterrupt = 1;
         }
-        else if (*(int *)(param_1 + 0x9c0 +
-                         *(short *)((int)&local_18[1].matrix.field0_0x0 + 6) * 0xc) == 1) {
+        else if (*(int *)(param_1 + 0x9c0 + *(short *)((int)local_18[1].matrix.m[0] + 6) * 0xc) == 1
+                ) {
           local_18->pendingInterrupt = 1;
         }
-        pfVar8 = (float *)(param_1 + 0x4a0 +
-                          (*(short *)((int)&local_18[1].matrix.field0_0x0 + 8) + -1) * 0xc);
+        pfVar8 = (float *)(param_1 + 0x4a0 + (*(short *)(local_18[1].matrix.m[0] + 2) + -1) * 0xc);
         local_18[1].rotation.x = *pfVar8;
         local_18[1].rotation.y = pfVar8[1];
         local_18[1].rotation.z = pfVar8[2];
@@ -102,21 +101,21 @@ void FUN_004291b0(int param_1)
       *pfVar8 = g_GameContext.field84_0x1a8 * local_18[1].scaleY + *pfVar8;
       (local_18->pos).y = *pfVar8;
       (local_18->pos).z = local_18[1].rotation.z;
-      if ((*(short *)((int)&local_18[1].matrix.field0_0x0 + 4) != 3) &&
+      if ((*(short *)(local_18[1].matrix.m[0] + 1) != 3) &&
          (iVar7 = FUN_0041b5e1(local_18[1].rotation.x,local_18[1].rotation.y,
                                local_18->sprite->widthPx,local_18->sprite->heightPx), iVar7 == 0)) {
-        *(undefined2 *)((int)&local_18[1].matrix.field0_0x0 + 2) = 0;
+        *(undefined2 *)((int)local_18[1].matrix.m[0] + 2) = 0;
       }
       iVar7 = AnmManager::FUN_00433960(g_AnmManager,local_18);
       if (iVar7 != 0) {
-        *(undefined2 *)((int)&local_18[1].matrix.field0_0x0 + 2) = 0;
+        *(undefined2 *)((int)local_18[1].matrix.m[0] + 2) = 0;
       }
       local_18[1].currentTimeInScript.previous = local_18[1].currentTimeInScript.current;
       GameContext::FUN_00424285
                 (&g_GameContext,&local_18[1].currentTimeInScript.current,
                  &local_18[1].currentTimeInScript.subFrame);
     }
-    local_18 = (AnmVm *)(local_18[1].matrix.field0_0x0.m[0] + 3);
+    local_18 = (AnmVm *)(local_18[1].matrix.m[0] + 3);
   }
   return;
 }

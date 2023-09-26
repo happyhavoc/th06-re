@@ -16145,8 +16145,6 @@ typedef struct _D3DINDEXBUFFER_DESC D3DINDEXBUFFER_DESC;
 
 typedef struct IDirect3DBaseTexture8Vtbl IDirect3DBaseTexture8Vtbl, *PIDirect3DBaseTexture8Vtbl;
 
-typedef union _union_2533 _union_2533, *P_union_2533;
-
 typedef struct _D3DCOLORVALUE _D3DCOLORVALUE, *P_D3DCOLORVALUE;
 
 typedef struct _D3DCOLORVALUE D3DCOLORVALUE;
@@ -16181,8 +16179,6 @@ typedef enum _D3DORDERTYPE {
 } _D3DORDERTYPE;
 
 typedef enum _D3DORDERTYPE D3DORDERTYPE;
-
-typedef struct _struct_2534 _struct_2534, *P_struct_2534;
 
 struct ID3DXRenderToEnvMap {
     struct ID3DXRenderToEnvMapVtbl *lpVtbl;
@@ -16414,32 +16410,8 @@ struct IDirect3DVolume8Vtbl {
     HRESULT (*UnlockBox)(struct IDirect3DVolume8 *);
 };
 
-struct _struct_2534 {
-    float _11;
-    float _12;
-    float _13;
-    float _14;
-    float _21;
-    float _22;
-    float _23;
-    float _24;
-    float _31;
-    float _32;
-    float _33;
-    float _34;
-    float _41;
-    float _42;
-    float _43;
-    float _44;
-};
-
-union _union_2533 {
-    struct _struct_2534 field0;
-    float m[4][4];
-};
-
 struct _D3DMATRIX {
-    union _union_2533 field0_0x0;
+    float m[4][4];
 };
 
 struct IDirect3DSurface8Vtbl {
@@ -41929,6 +41901,34 @@ typedef enum _D3DBLENDOP {
 } _D3DBLENDOP;
 
 typedef enum _D3DBLEND D3DBLEND;
+
+typedef union _union_2533 _union_2533, *P_union_2533;
+
+typedef struct _struct_2534 _struct_2534, *P_struct_2534;
+
+struct _struct_2534 {
+    float _11;
+    float _12;
+    float _13;
+    float _14;
+    float _21;
+    float _22;
+    float _23;
+    float _24;
+    float _31;
+    float _32;
+    float _33;
+    float _34;
+    float _41;
+    float _42;
+    float _43;
+    float _44;
+};
+
+union _union_2533 {
+    struct _struct_2534 field0;
+    float m[4][4];
+};
 
 typedef enum _D3DZBUFFERTYPE {
     D3DZB_FALSE=0,

@@ -29,14 +29,14 @@ undefined4 InputChainAddedCallback(GameContext *param_1)
   GameContext::LoadPBG3(param_1,0,(byte *)"紅魔郷IN.dat");
   if (ppPVar1 == (Pbg3File **)0x0) {
     AnmManager::LoadSurface(g_AnmManager,0,"data/title/th06logo.jpg");
-    AnmManager::FUN_00435300(g_AnmManager,0,0,0,0,0);
+    AnmManager::CopySurfaceToBackBuffer(g_AnmManager,0,0,0,0,0);
     HVar3 = (*(g_GameContext.d3dDevice)->lpVtbl->Present)
                       (g_GameContext.d3dDevice,(RECT *)0x0,(RECT *)0x0,(HWND)0x0,(RGNDATA *)0x0);
     if (HVar3 < 0) {
       (*(g_GameContext.d3dDevice)->lpVtbl->Reset)
                 (g_GameContext.d3dDevice,&g_GameContext.presentParameters);
     }
-    AnmManager::FUN_00435300(g_AnmManager,0,0,0,0,0);
+    AnmManager::CopySurfaceToBackBuffer(g_AnmManager,0,0,0,0,0);
     HVar3 = (*(g_GameContext.d3dDevice)->lpVtbl->Present)
                       (g_GameContext.d3dDevice,(RECT *)0x0,(RECT *)0x0,(HWND)0x0,(RGNDATA *)0x0);
     if (HVar3 < 0) {

@@ -18,12 +18,11 @@ undefined4 FUN_004288c0(AnmVm *param_1)
     (&param_1[5].pos2)[local_8].y = 0.0;
   }
   for (local_8 = 0; local_8 < 0x10; local_8 = local_8 + 1) {
-    *(undefined4 *)((int)&param_1[8].matrix.field0_0x0 + local_8 * 0x10 + 4) = 0;
+    param_1[8].matrix.m[local_8][1] = 0.0;
   }
   if (param_1[0x6e].pos2.y == 0.0) {
     iVar2 = FUN_004195a2();
-    if (((((iVar2 == 0) && (param_1[9].matrix.field0_0x0.field0._14 != 0.0)) &&
-         ('\0' < (char)DAT_0069d4bb)) &&
+    if (((((iVar2 == 0) && (param_1[9].matrix.m[0][3] != 0.0)) && ('\0' < (char)DAT_0069d4bb)) &&
         (((g_CurFrameInput & 2) != 0 && ((g_CurFrameInput & 2) != (g_LastFrameInput & 2))))) &&
        (param_1[0x6e].timeOfLastSpriteSet != 0)) {
       DAT_0069bcc4 = DAT_0069bcc4 + 1;
@@ -43,11 +42,10 @@ undefined4 FUN_004288c0(AnmVm *param_1)
   else {
     (*(code *)param_1[0x6e].timeOfLastSpriteSet)(param_1);
   }
-  if (*(char *)((int)&param_1[9].matrix.field0_0x0 + 0x14) == '\x02') {
-    if (param_1[9].matrix.field0_0x0.field0._14 != 0.0) {
-      param_1[9].matrix.field0_0x0.field0._14 =
-           (float)((int)param_1[9].matrix.field0_0x0.field0._14 + -1);
-      if (param_1[9].matrix.field0_0x0.field0._14 == 0.0) {
+  if (*(char *)(param_1[9].matrix.m[1] + 1) == '\x02') {
+    if (param_1[9].matrix.m[0][3] != 0.0) {
+      param_1[9].matrix.m[0][3] = (float)((int)param_1[9].matrix.m[0][3] + -1);
+      if (param_1[9].matrix.m[0][3] == 0.0) {
         DAT_0069d4b9 = 0;
         if (DAT_0069d4ba < '\x01') {
           FUN_0041f290(param_1 + 4,4,2);
@@ -88,7 +86,7 @@ undefined4 FUN_004288c0(AnmVm *param_1)
     param_1[9].alphaInterpEndTime = 0;
     param_1[9].scaleInterpEndTime = 0;
     if ((int)param_1[0x6e].posInterpFinal.y < 0x1e) goto LAB_00428fa8;
-    *(undefined *)((int)&param_1[9].matrix.field0_0x0 + 0x14) = 1;
+    *(undefined *)(param_1[9].matrix.m[1] + 1) = 1;
     param_1[4].rotation.x = _DAT_0069d6e4 / 2.0;
     param_1[4].rotation.y = _DAT_0069d6e8 - 64.0;
     param_1[4].rotation.z = 0.2;
@@ -113,19 +111,19 @@ undefined4 FUN_004288c0(AnmVm *param_1)
     }
     DAT_0069bc30 = DAT_0069bc30 & 0xfffffff0 | 10;
   }
-  else if (*(char *)((int)&param_1[9].matrix.field0_0x0 + 0x14) != '\x01') goto LAB_00428fa8;
-  param_1[9].matrix.field0_0x0.field0._21 = 1.261169e-43;
+  else if (*(char *)(param_1[9].matrix.m[1] + 1) != '\x01') goto LAB_00428fa8;
+  param_1[9].matrix.m[1][0] = 1.261169e-43;
   fVar1 = 1.0 - ((float)(int)param_1[0x6e].posInterpFinal.y + param_1[0x6e].posInterpFinal.x) / 30.0
   ;
   param_1->scaleX = fVar1 * 2.0 + 1.0;
   param_1->scaleY = 1.0 - fVar1 * 1.0;
   param_1->flags = param_1->flags | 4;
-  param_1[9].matrix.field0_0x0.field0._13 = 1.0;
-  param_1[9].matrix.field0_0x0.field0._12 = 1.0;
+  param_1[9].matrix.m[0][2] = 1.0;
+  param_1[9].matrix.m[0][1] = 1.0;
   param_1->color = ((int)param_1[0x6e].posInterpFinal.y * 0xff) / 0x1e << 0x18 | 0xffffff;
-  param_1[9].matrix.field0_0x0.field0._14 = 0.0;
+  param_1[9].matrix.m[0][3] = 0.0;
   if (0x1d < (int)param_1[0x6e].posInterpFinal.y) {
-    *(undefined *)((int)&param_1[9].matrix.field0_0x0 + 0x14) = 3;
+    *(undefined *)(param_1[9].matrix.m[1] + 1) = 3;
     param_1->scaleY = 1.0;
     param_1->scaleX = 1.0;
     param_1->color = 0xffffffff;
@@ -133,18 +131,17 @@ undefined4 FUN_004288c0(AnmVm *param_1)
     param_1[0x6e].posInterpFinal.y = 3.363116e-43;
     param_1[0x6e].posInterpFinal.x = 0.0;
     param_1[0x6e].posInterpInitial.z = -NAN;
-    param_1[9].matrix.field0_0x0.field0._14 = 8.407791e-45;
+    param_1[9].matrix.m[0][3] = 8.407791e-45;
   }
 LAB_00428fa8:
-  if (param_1[9].matrix.field0_0x0.field0._21 != 0.0) {
-    param_1[9].matrix.field0_0x0.field0._21 =
-         (float)((int)param_1[9].matrix.field0_0x0.field0._21 + -1);
+  if (param_1[9].matrix.m[1][0] != 0.0) {
+    param_1[9].matrix.m[1][0] = (float)((int)param_1[9].matrix.m[1][0] + -1);
     FUN_00414160(0);
   }
-  if (*(char *)((int)&param_1[9].matrix.field0_0x0 + 0x14) == '\x03') {
+  if (*(char *)(param_1[9].matrix.m[1] + 1) == '\x03') {
     FUN_004241e5(1);
     if ((int)param_1[0x6e].posInterpFinal.y < 1) {
-      *(undefined *)((int)&param_1[9].matrix.field0_0x0 + 0x14) = 0;
+      *(undefined *)(param_1[9].matrix.m[1] + 1) = 0;
       param_1[0x6e].posInterpFinal.y = 0.0;
       param_1[0x6e].posInterpFinal.x = 0.0;
       param_1[0x6e].posInterpInitial.z = -NAN;
@@ -172,13 +169,13 @@ LAB_00428fa8:
               (&g_GameContext,(int *)&param_1[0x6e].posInterpFinal.y,&param_1[0x6e].posInterpFinal.x
               );
   }
-  if ((*(char *)((int)&param_1[9].matrix.field0_0x0 + 0x14) != '\x02') &&
-     (*(char *)((int)&param_1[9].matrix.field0_0x0 + 0x14) != '\x01')) {
+  if ((*(char *)(param_1[9].matrix.m[1] + 1) != '\x02') &&
+     (*(char *)(param_1[9].matrix.m[1] + 1) != '\x01')) {
     FUN_00427860();
   }
   AnmManager::FUN_00433960(g_AnmManager,param_1);
   FUN_004291b0(param_1);
-  if (*(char *)((int)&param_1[9].matrix.field0_0x0 + 0x16) != '\0') {
+  if (*(char *)((int)param_1[9].matrix.m[1] + 6) != '\0') {
     AnmManager::FUN_00433960(g_AnmManager,param_1 + 1);
     AnmManager::FUN_00433960(g_AnmManager,param_1 + 2);
   }

@@ -49,82 +49,82 @@ undefined4 FUN_00427860(void)
     }
   }
   if ((g_CurFrameInput & 4) == 0) {
-    *(undefined *)((int)&in_ECX[9].matrix.field0_0x0 + 0x17) = 0;
+    *(undefined *)((int)in_ECX[9].matrix.m[1] + 7) = 0;
   }
   else {
-    *(undefined *)((int)&in_ECX[9].matrix.field0_0x0 + 0x17) = 1;
+    *(undefined *)((int)in_ECX[9].matrix.m[1] + 7) = 1;
   }
   pAVar5 = g_AnmManager;
   switch(in_ECX[9].color) {
   case 1:
     if ((g_CurFrameInput & 4) == 0) {
-      local_c = in_ECX[9].matrix.field0_0x0.field0._33;
+      local_c = in_ECX[9].matrix.m[2][2];
     }
     else {
-      local_c = in_ECX[9].matrix.field0_0x0.field0._34;
+      local_c = in_ECX[9].matrix.m[2][3];
     }
     local_c = -local_c;
     break;
   case 2:
     if ((g_CurFrameInput & 4) == 0) {
-      local_c = in_ECX[9].matrix.field0_0x0.field0._33;
+      local_c = in_ECX[9].matrix.m[2][2];
     }
     else {
-      local_c = in_ECX[9].matrix.field0_0x0.field0._34;
+      local_c = in_ECX[9].matrix.m[2][3];
     }
     break;
   case 3:
     if ((g_CurFrameInput & 4) == 0) {
-      local_10 = in_ECX[9].matrix.field0_0x0.field0._33;
+      local_10 = in_ECX[9].matrix.m[2][2];
     }
     else {
-      local_10 = in_ECX[9].matrix.field0_0x0.field0._34;
+      local_10 = in_ECX[9].matrix.m[2][3];
     }
     local_10 = -local_10;
     break;
   case 4:
     if ((g_CurFrameInput & 4) == 0) {
-      local_10 = in_ECX[9].matrix.field0_0x0.field0._33;
+      local_10 = in_ECX[9].matrix.m[2][2];
     }
     else {
-      local_10 = in_ECX[9].matrix.field0_0x0.field0._34;
+      local_10 = in_ECX[9].matrix.m[2][3];
     }
     break;
   case 5:
     if ((g_CurFrameInput & 4) == 0) {
-      local_10 = in_ECX[9].matrix.field0_0x0.field0._41;
+      local_10 = in_ECX[9].matrix.m[3][0];
     }
     else {
-      local_10 = in_ECX[9].matrix.field0_0x0.field0._42;
+      local_10 = in_ECX[9].matrix.m[3][1];
     }
     local_10 = -local_10;
     local_c = local_10;
     break;
   case 6:
     if ((g_CurFrameInput & 4) == 0) {
-      local_10 = in_ECX[9].matrix.field0_0x0.field0._41;
+      local_10 = in_ECX[9].matrix.m[3][0];
     }
     else {
-      local_10 = in_ECX[9].matrix.field0_0x0.field0._42;
+      local_10 = in_ECX[9].matrix.m[3][1];
     }
     local_c = -local_10;
     break;
   case 7:
     if ((g_CurFrameInput & 4) == 0) {
-      local_10 = in_ECX[9].matrix.field0_0x0.field0._41;
+      local_10 = in_ECX[9].matrix.m[3][0];
     }
     else {
-      local_10 = in_ECX[9].matrix.field0_0x0.field0._42;
+      local_10 = in_ECX[9].matrix.m[3][1];
     }
     local_10 = -local_10;
     local_c = -local_10;
     break;
   case 8:
     if ((g_CurFrameInput & 4) == 0) {
-      local_10 = in_ECX[9].matrix.field0_0x0.field0._41;
+      local_10 = in_ECX[9].matrix.m[3][0];
     }
     else {
-      local_10 = in_ECX[9].matrix.field0_0x0.field0._42;
+      local_10 = in_ECX[9].matrix.m[3][1];
     }
     local_c = local_10;
   }
@@ -153,11 +153,9 @@ undefined4 FUN_00427860(void)
   in_ECX[9].flags = (uint)local_10;
   *(float *)&in_ECX[9].alphaInterpEndTime = local_c;
   in_ECX[4].rotation.x =
-       local_10 * in_ECX[9].matrix.field0_0x0.field0._12 * g_GameContext.field84_0x1a8 +
-       in_ECX[4].rotation.x;
+       local_10 * in_ECX[9].matrix.m[0][1] * g_GameContext.field84_0x1a8 + in_ECX[4].rotation.x;
   pfVar6 = &in_ECX[4].rotation.y;
-  *pfVar6 = local_c * in_ECX[9].matrix.field0_0x0.field0._13 * g_GameContext.field84_0x1a8 + *pfVar6
-  ;
+  *pfVar6 = local_c * in_ECX[9].matrix.m[0][2] * g_GameContext.field84_0x1a8 + *pfVar6;
   fVar1 = in_ECX[4].rotation.x;
   if (fVar1 < DAT_0069d6ec == (NAN(fVar1) || NAN(DAT_0069d6ec))) {
     fVar1 = in_ECX[4].rotation.x;
@@ -179,119 +177,111 @@ undefined4 FUN_00427860(void)
     in_ECX[4].rotation.y = DAT_0069d6f0;
   }
   fVar1 = in_ECX[4].rotation.z;
-  fVar2 = in_ECX[4].matrix.field0_0x0.field0._22;
+  fVar2 = in_ECX[4].matrix.m[1][1];
   fVar3 = in_ECX[4].rotation.y;
-  fVar4 = in_ECX[4].matrix.field0_0x0.field0._21;
-  in_ECX[4].scaleX = in_ECX[4].rotation.x - in_ECX[4].matrix.field0_0x0.field0._14;
+  fVar4 = in_ECX[4].matrix.m[1][0];
+  in_ECX[4].scaleX = in_ECX[4].rotation.x - in_ECX[4].matrix.m[0][3];
   in_ECX[4].scaleY = fVar3 - fVar4;
   in_ECX[4].scaleInterpFinalY = fVar1 - fVar2;
   fVar1 = in_ECX[4].rotation.z;
-  fVar2 = in_ECX[4].matrix.field0_0x0.field0._22;
+  fVar2 = in_ECX[4].matrix.m[1][1];
   fVar3 = in_ECX[4].rotation.y;
-  fVar4 = in_ECX[4].matrix.field0_0x0.field0._21;
-  in_ECX[4].scaleInterpFinalX = in_ECX[4].rotation.x + in_ECX[4].matrix.field0_0x0.field0._14;
+  fVar4 = in_ECX[4].matrix.m[1][0];
+  in_ECX[4].scaleInterpFinalX = in_ECX[4].rotation.x + in_ECX[4].matrix.m[0][3];
   in_ECX[4].uvScrollPos.x = fVar3 + fVar4;
   in_ECX[4].uvScrollPos.y = fVar1 + fVar2;
   fVar1 = in_ECX[4].rotation.z;
-  fVar2 = in_ECX[4].matrix.field0_0x0.field0._31;
+  fVar2 = in_ECX[4].matrix.m[2][0];
   fVar3 = in_ECX[4].rotation.y;
-  fVar4 = in_ECX[4].matrix.field0_0x0.field0._24;
-  in_ECX[4].currentTimeInScript.previous =
-       (int)(in_ECX[4].rotation.x - in_ECX[4].matrix.field0_0x0.field0._23);
+  fVar4 = in_ECX[4].matrix.m[1][3];
+  in_ECX[4].currentTimeInScript.previous = (int)(in_ECX[4].rotation.x - in_ECX[4].matrix.m[1][2]);
   in_ECX[4].currentTimeInScript.subFrame = fVar3 - fVar4;
   in_ECX[4].currentTimeInScript.current = (int)(fVar1 - fVar2);
   fVar1 = in_ECX[4].rotation.z;
-  fVar2 = in_ECX[4].matrix.field0_0x0.field0._31;
+  fVar2 = in_ECX[4].matrix.m[2][0];
   fVar3 = in_ECX[4].rotation.y;
-  fVar4 = in_ECX[4].matrix.field0_0x0.field0._24;
-  in_ECX[4].matrix.field0_0x0.field0._11 =
-       in_ECX[4].rotation.x + in_ECX[4].matrix.field0_0x0.field0._23;
-  in_ECX[4].matrix.field0_0x0.field0._12 = fVar3 + fVar4;
-  in_ECX[4].matrix.field0_0x0.field0._13 = fVar1 + fVar2;
-  in_ECX[4].matrix.field0_0x0.field0._32 = in_ECX[4].rotation.x;
-  in_ECX[4].matrix.field0_0x0.field0._33 = in_ECX[4].rotation.y;
-  in_ECX[4].matrix.field0_0x0.field0._34 = in_ECX[4].rotation.z;
-  in_ECX[4].matrix.field0_0x0.field0._41 = in_ECX[4].rotation.x;
-  in_ECX[4].matrix.field0_0x0.field0._42 = in_ECX[4].rotation.y;
-  in_ECX[4].matrix.field0_0x0.field0._43 = in_ECX[4].rotation.z;
+  fVar4 = in_ECX[4].matrix.m[1][3];
+  in_ECX[4].matrix.m[0][0] = in_ECX[4].rotation.x + in_ECX[4].matrix.m[1][2];
+  in_ECX[4].matrix.m[0][1] = fVar3 + fVar4;
+  in_ECX[4].matrix.m[0][2] = fVar1 + fVar2;
+  in_ECX[4].matrix.m[2][1] = in_ECX[4].rotation.x;
+  in_ECX[4].matrix.m[2][2] = in_ECX[4].rotation.y;
+  in_ECX[4].matrix.m[2][3] = in_ECX[4].rotation.z;
+  in_ECX[4].matrix.m[3][0] = in_ECX[4].rotation.x;
+  in_ECX[4].matrix.m[3][1] = in_ECX[4].rotation.y;
+  in_ECX[4].matrix.m[3][2] = in_ECX[4].rotation.z;
   local_14 = 0.0;
   local_18 = 0.0;
   if (_DAT_0069d4b0 < 8) {
-    *(undefined *)((int)&in_ECX[9].matrix.field0_0x0 + 0x16) = 0;
+    *(undefined *)((int)in_ECX[9].matrix.m[1] + 6) = 0;
   }
-  else if (*(char *)((int)&in_ECX[9].matrix.field0_0x0 + 0x16) == '\0') {
-    *(undefined *)((int)&in_ECX[9].matrix.field0_0x0 + 0x16) = 1;
+  else if (*(char *)((int)in_ECX[9].matrix.m[1] + 6) == '\0') {
+    *(undefined *)((int)in_ECX[9].matrix.m[1] + 6) = 1;
   }
-  switch(*(undefined *)((int)&in_ECX[9].matrix.field0_0x0 + 0x16)) {
+  switch(*(undefined *)((int)in_ECX[9].matrix.m[1] + 6)) {
   case 0:
-    in_ECX[9].matrix.field0_0x0.field0._32 = 0.0;
-    in_ECX[9].matrix.field0_0x0.field0._31 = 0.0;
-    in_ECX[9].matrix.field0_0x0.field0._24 = -NAN;
+    in_ECX[9].matrix.m[2][1] = 0.0;
+    in_ECX[9].matrix.m[2][0] = 0.0;
+    in_ECX[9].matrix.m[1][3] = -NAN;
     break;
   case 1:
     local_18 = 24.0;
-    in_ECX[9].matrix.field0_0x0.field0._32 = 0.0;
-    in_ECX[9].matrix.field0_0x0.field0._31 = 0.0;
-    in_ECX[9].matrix.field0_0x0.field0._24 = -NAN;
-    if (*(char *)((int)&in_ECX[9].matrix.field0_0x0 + 0x17) == '\0') break;
-    *(undefined *)((int)&in_ECX[9].matrix.field0_0x0 + 0x16) = 2;
+    in_ECX[9].matrix.m[2][1] = 0.0;
+    in_ECX[9].matrix.m[2][0] = 0.0;
+    in_ECX[9].matrix.m[1][3] = -NAN;
+    if (*(char *)((int)in_ECX[9].matrix.m[1] + 7) == '\0') break;
+    *(undefined *)((int)in_ECX[9].matrix.m[1] + 6) = 2;
   case 2:
     while( true ) {
-      in_ECX[9].matrix.field0_0x0.field0._24 = in_ECX[9].matrix.field0_0x0.field0._32;
+      in_ECX[9].matrix.m[1][3] = in_ECX[9].matrix.m[2][1];
       GameContext::FUN_00424285
-                (&g_GameContext,(int *)&in_ECX[9].matrix.field0_0x0.field0._32,
-                 &in_ECX[9].matrix.field0_0x0.field0._31);
-      fVar1 = ((float)*(int *)((int)&in_ECX[9].matrix.field0_0x0 + 0x24) +
-              in_ECX[9].matrix.field0_0x0.field0._31) / 8.0;
+                (&g_GameContext,(int *)(in_ECX[9].matrix.m[2] + 1),in_ECX[9].matrix.m[2]);
+      fVar1 = ((float)(int)in_ECX[9].matrix.m[2][1] + in_ECX[9].matrix.m[2][0]) / 8.0;
       local_14 = (1.0 - fVar1) * 32.0 + -32.0;
       local_18 = fVar1 * fVar1 * -16.0 + 24.0;
-      if (7 < (int)in_ECX[9].matrix.field0_0x0.field0._32) {
-        *(undefined *)((int)&in_ECX[9].matrix.field0_0x0 + 0x16) = 3;
+      if (7 < (int)in_ECX[9].matrix.m[2][1]) {
+        *(undefined *)((int)in_ECX[9].matrix.m[1] + 6) = 3;
       }
-      if (*(char *)((int)&in_ECX[9].matrix.field0_0x0 + 0x17) != '\0') break;
-      *(undefined *)((int)&in_ECX[9].matrix.field0_0x0 + 0x16) = 4;
-      in_ECX[9].matrix.field0_0x0.field0._32 =
-           (float)(8 - *(int *)((int)&in_ECX[9].matrix.field0_0x0 + 0x24));
-      in_ECX[9].matrix.field0_0x0.field0._31 = 0.0;
-      in_ECX[9].matrix.field0_0x0.field0._24 = -NAN;
+      if (*(char *)((int)in_ECX[9].matrix.m[1] + 7) != '\0') break;
+      *(undefined *)((int)in_ECX[9].matrix.m[1] + 6) = 4;
+      in_ECX[9].matrix.m[2][1] = (float)(8 - (int)in_ECX[9].matrix.m[2][1]);
+      in_ECX[9].matrix.m[2][0] = 0.0;
+      in_ECX[9].matrix.m[1][3] = -NAN;
 switchD_004281aa_caseD_4:
-      in_ECX[9].matrix.field0_0x0.field0._24 = in_ECX[9].matrix.field0_0x0.field0._32;
+      in_ECX[9].matrix.m[1][3] = in_ECX[9].matrix.m[2][1];
       GameContext::FUN_00424285
-                (&g_GameContext,(int *)&in_ECX[9].matrix.field0_0x0.field0._32,
-                 &in_ECX[9].matrix.field0_0x0.field0._31);
-      fVar1 = ((float)*(int *)((int)&in_ECX[9].matrix.field0_0x0 + 0x24) +
-              in_ECX[9].matrix.field0_0x0.field0._31) / 8.0;
+                (&g_GameContext,(int *)(in_ECX[9].matrix.m[2] + 1),in_ECX[9].matrix.m[2]);
+      fVar1 = ((float)(int)in_ECX[9].matrix.m[2][1] + in_ECX[9].matrix.m[2][0]) / 8.0;
       local_14 = fVar1 * 32.0 + -32.0;
       local_18 = (1.0 - fVar1 * fVar1) * -16.0 + 24.0;
-      if (7 < (int)in_ECX[9].matrix.field0_0x0.field0._32) {
-        *(undefined *)((int)&in_ECX[9].matrix.field0_0x0 + 0x16) = 1;
+      if (7 < (int)in_ECX[9].matrix.m[2][1]) {
+        *(undefined *)((int)in_ECX[9].matrix.m[1] + 6) = 1;
       }
-      if (*(char *)((int)&in_ECX[9].matrix.field0_0x0 + 0x17) == '\0') break;
-      *(undefined *)((int)&in_ECX[9].matrix.field0_0x0 + 0x16) = 2;
-      in_ECX[9].matrix.field0_0x0.field0._32 =
-           (float)(8 - *(int *)((int)&in_ECX[9].matrix.field0_0x0 + 0x24));
-      in_ECX[9].matrix.field0_0x0.field0._31 = 0.0;
-      in_ECX[9].matrix.field0_0x0.field0._24 = -NAN;
+      if (*(char *)((int)in_ECX[9].matrix.m[1] + 7) == '\0') break;
+      *(undefined *)((int)in_ECX[9].matrix.m[1] + 6) = 2;
+      in_ECX[9].matrix.m[2][1] = (float)(8 - (int)in_ECX[9].matrix.m[2][1]);
+      in_ECX[9].matrix.m[2][0] = 0.0;
+      in_ECX[9].matrix.m[1][3] = -NAN;
     }
     break;
   case 3:
     local_18 = 8.0;
     local_14 = -32.0;
-    in_ECX[9].matrix.field0_0x0.field0._32 = 0.0;
-    in_ECX[9].matrix.field0_0x0.field0._31 = 0.0;
-    in_ECX[9].matrix.field0_0x0.field0._24 = -NAN;
-    if (*(char *)((int)&in_ECX[9].matrix.field0_0x0 + 0x17) == '\0') {
-      *(undefined *)((int)&in_ECX[9].matrix.field0_0x0 + 0x16) = 4;
+    in_ECX[9].matrix.m[2][1] = 0.0;
+    in_ECX[9].matrix.m[2][0] = 0.0;
+    in_ECX[9].matrix.m[1][3] = -NAN;
+    if (*(char *)((int)in_ECX[9].matrix.m[1] + 7) == '\0') {
+      *(undefined *)((int)in_ECX[9].matrix.m[1] + 6) = 4;
       goto switchD_004281aa_caseD_4;
     }
     break;
   case 4:
     goto switchD_004281aa_caseD_4;
   }
-  in_ECX[4].matrix.field0_0x0.field0._32 = in_ECX[4].matrix.field0_0x0.field0._32 - local_18;
-  in_ECX[4].matrix.field0_0x0.field0._41 = local_18 + in_ECX[4].matrix.field0_0x0.field0._41;
-  in_ECX[4].matrix.field0_0x0.field0._33 = local_14 + in_ECX[4].matrix.field0_0x0.field0._33;
-  in_ECX[4].matrix.field0_0x0.field0._42 = local_14 + in_ECX[4].matrix.field0_0x0.field0._42;
+  in_ECX[4].matrix.m[2][1] = in_ECX[4].matrix.m[2][1] - local_18;
+  in_ECX[4].matrix.m[3][0] = local_18 + in_ECX[4].matrix.m[3][0];
+  in_ECX[4].matrix.m[2][2] = local_14 + in_ECX[4].matrix.m[2][2];
+  in_ECX[4].matrix.m[3][1] = local_14 + in_ECX[4].matrix.m[3][1];
   if (((g_CurFrameInput & 1) != 0) && (iVar7 = FUN_004195a2(), iVar7 == 0)) {
     FUN_00428630(in_ECX);
   }

@@ -11,8 +11,8 @@ int __thiscall AnmManager::FUN_004323a0(AnmManager *this,AnmVm *vm,int sprite_in
     vm->spriteNumber = (short)sprite_index;
     vm->sprite = this->sprites + sprite_index;
     D3DXMatrixIdentity(&vm->matrix);
-    (vm->matrix).field0_0x0.field0._11 = vm->sprite->widthPx / vm->sprite->textureWidth;
-    (vm->matrix).field0_0x0.field0._22 = vm->sprite->heightPx / vm->sprite->textureHeight;
+    (vm->matrix).m[0][0] = vm->sprite->widthPx / vm->sprite->textureWidth;
+    (vm->matrix).m[1][1] = vm->sprite->heightPx / vm->sprite->textureHeight;
     res = 0;
   }
   return res;

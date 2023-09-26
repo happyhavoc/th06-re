@@ -43,7 +43,7 @@ int __fastcall FUN_00425e10(int param_1)
   while (local_5c = local_5c + -1, -1 < local_5c) {
     AnmVm::AnmVm(local_64);
     AnmTimer::AnmTimer(&local_64[1].currentTimeInScript);
-    local_64 = (AnmVm *)((int)&local_64[1].matrix.field0_0x0 + 0xc);
+    local_64 = (AnmVm *)(local_64[1].matrix.m[0] + 3);
   }
   AnmTimer::AnmTimer((AnmTimer *)(param_1 + 0x75a8));
   AnmTimer::AnmTimer((AnmTimer *)(param_1 + 0x75b4));

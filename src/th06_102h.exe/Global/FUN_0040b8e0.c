@@ -12,13 +12,13 @@ void FUN_0040b8e0(int param_1,int param_2)
   iVar1 = *(int *)(param_2 + 0x10);
   FUN_0040ef50(0xc,param_1 + 0xc6c,1,0xffffffff);
   for (local_8 = 0; local_8 < 0x280; local_8 = local_8 + 1) {
-    if ((*(short *)((int)&local_c[5].matrix.field0_0x0 + 0x32) != 0) &&
-       (*(short *)((int)&local_c[5].matrix.field0_0x0 + 0x32) != 5)) {
-      *(undefined2 *)((int)&local_c[5].matrix.field0_0x0 + 0x2e) = 0xf;
+    if ((*(short *)((int)local_c[5].matrix.m[3] + 2) != 0) &&
+       (*(short *)((int)local_c[5].matrix.m[3] + 2) != 5)) {
+      *(undefined2 *)((int)local_c[5].matrix.m[2] + 0xe) = 0xf;
       AnmManager::FUN_004323a0
                 (g_AnmManager,local_c,
                  (int)local_c->anotherSpriteNumber +
-                 (int)*(short *)((int)&local_c[5].matrix.field0_0x0 + 0x2e));
+                 (int)*(short *)((int)local_c[5].matrix.m[2] + 0xe));
       if (iVar1 == 0) {
         local_c[5].currentTimeInScript.subFrame = 0.0;
         local_c[5].scaleY = 0.0;
@@ -26,12 +26,11 @@ void FUN_0040b8e0(int param_1,int param_2)
         local_c[5].scaleInterpFinalX = 0.0;
       }
       else if (iVar1 == 1) {
-        *(ushort *)((int)&local_c[5].matrix.field0_0x0 + 0x2c) =
-             *(ushort *)((int)&local_c[5].matrix.field0_0x0 + 0x2c) | 0x10;
-        local_c[5].matrix.field0_0x0.field0._24 = 3.082857e-43;
-        local_c[5].matrix.field0_0x0.field0._23 = 0.0;
-        local_c[5].matrix.field0_0x0.field0._22 = 0.0;
-        local_c[5].matrix.field0_0x0.field0._21 = -NAN;
+        *(ushort *)(local_c[5].matrix.m[2] + 3) = *(ushort *)(local_c[5].matrix.m[2] + 3) | 0x10;
+        local_c[5].matrix.m[1][3] = 3.082857e-43;
+        local_c[5].matrix.m[1][2] = 0.0;
+        local_c[5].matrix.m[1][1] = 0.0;
+        local_c[5].matrix.m[1][0] = -NAN;
         fVar2 = (float10)FUN_0041e820();
         fVar3 = (float10)(float)(fVar2 * (float10)6.283185 - (float10)3.141593);
         fVar2 = (float10)fcos(fVar3);
@@ -40,7 +39,7 @@ void FUN_0040b8e0(int param_1,int param_2)
         local_c[5].uvScrollPos.y = (float)(fVar3 * (float10)0.01);
       }
     }
-    local_c = (AnmVm *)((int)&local_c[5].matrix.field0_0x0 + 0x38);
+    local_c = (AnmVm *)(local_c[5].matrix.m[3] + 2);
   }
   return;
 }

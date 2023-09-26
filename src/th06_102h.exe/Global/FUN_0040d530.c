@@ -22,23 +22,22 @@ void FUN_0040d530(int param_1)
   fVar4 = (float10)FUN_0041e820();
   FUN_0040ef50(0xc,param_1 + 0xc6c,1,0xffffffff);
   for (local_60 = 0; local_60 < 0x280; local_60 = local_60 + 1) {
-    if ((((*(short *)((int)&local_68[5].matrix.field0_0x0 + 0x32) != 0) &&
-         (*(short *)((int)&local_68[5].matrix.field0_0x0 + 0x32) != 5)) &&
+    if ((((*(short *)((int)local_68[5].matrix.m[3] + 2) != 0) &&
+         (*(short *)((int)local_68[5].matrix.m[3] + 2) != 5)) &&
         (local_68->sprite != (AnmLoadedSprite *)0x0)) &&
        ((fVar1 = local_68->sprite->heightPx, fVar1 < 30.0 != NAN(fVar1) &&
         (fVar1 = local_68[5].currentTimeInScript.subFrame, NAN(fVar1) != (fVar1 == 0.0))))) {
-      *(ushort *)((int)&local_68[5].matrix.field0_0x0 + 0x2c) =
-           *(ushort *)((int)&local_68[5].matrix.field0_0x0 + 0x2c) | 0x10;
-      *(undefined2 *)((int)&local_68[5].matrix.field0_0x0 + 0x2e) = 2;
+      *(ushort *)(local_68[5].matrix.m[2] + 3) = *(ushort *)(local_68[5].matrix.m[2] + 3) | 0x10;
+      *(undefined2 *)((int)local_68[5].matrix.m[2] + 0xe) = 2;
       AnmManager::FUN_004323a0
                 (g_AnmManager,local_68,
                  (int)local_68->anotherSpriteNumber +
-                 (int)*(short *)((int)&local_68[5].matrix.field0_0x0 + 0x2e));
+                 (int)*(short *)((int)local_68[5].matrix.m[2] + 0xe));
       local_68[5].currentTimeInScript.subFrame = 0.01;
-      local_68[5].matrix.field0_0x0.field0._23 = 0.0;
-      local_68[5].matrix.field0_0x0.field0._22 = 0.0;
-      local_68[5].matrix.field0_0x0.field0._21 = -NAN;
-      local_68[5].matrix.field0_0x0.field0._24 = 1.681558e-43;
+      local_68[5].matrix.m[1][2] = 0.0;
+      local_68[5].matrix.m[1][1] = 0.0;
+      local_68[5].matrix.m[1][0] = -NAN;
+      local_68[5].matrix.m[1][3] = 1.681558e-43;
       fVar1 = (*(float *)(param_1 + 0xc70) - local_68[5].angleVel.z) *
               (*(float *)(param_1 + 0xc70) - local_68[5].angleVel.z) +
               (*(float *)(param_1 + 0xc6c) - local_68[5].angleVel.y) *
@@ -57,7 +56,7 @@ void FUN_0040d530(int param_1)
       local_68[5].uvScrollPos.x = (float)(fVar5 * (float10)0.01);
       local_68[5].uvScrollPos.y = (float)(fVar6 * (float10)0.01);
     }
-    local_68 = (AnmVm *)(local_68[5].matrix.field0_0x0.m[3] + 2);
+    local_68 = (AnmVm *)(local_68[5].matrix.m[3] + 2);
   }
   return;
 }

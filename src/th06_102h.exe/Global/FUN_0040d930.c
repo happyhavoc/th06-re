@@ -28,8 +28,8 @@ void FUN_0040d930(AnmVm *param_1,undefined4 param_2)
       }
       *(byte *)((int)&param_1[0xd].flags + 1) = *(byte *)((int)&param_1[0xd].flags + 1) & 0xfe;
       param_1[0xd].color = 0x3c;
-      param_1[0xd].matrix.field0_0x0.field0._44 = 0.0;
-      param_1[0xd].matrix.field0_0x0.field0._43 = -NAN;
+      param_1[0xd].matrix.m[3][3] = 0.0;
+      param_1[0xd].matrix.m[3][2] = -NAN;
     }
   }
   return;

@@ -34,36 +34,36 @@ undefined4 FUN_00429c50(AnmVm *param_1)
   param_1[4].rotation.x = _DAT_0069d6e4 / 2.0;
   param_1[4].rotation.y = _DAT_0069d6e8 - 64.0;
   param_1[4].rotation.z = 0.49;
-  param_1[4].matrix.field0_0x0.field0._34 = 0.49;
-  param_1[4].matrix.field0_0x0.field0._43 = 0.49;
+  param_1[4].matrix.m[2][3] = 0.49;
+  param_1[4].matrix.m[3][2] = 0.49;
   for (local_8 = 0; local_8 < 0x20; local_8 = local_8 + 1) {
     (&param_1[5].pos2)[local_8].y = 0.0;
   }
-  param_1[4].matrix.field0_0x0.field0._14 = 1.25;
-  param_1[4].matrix.field0_0x0.field0._21 = 1.25;
-  param_1[4].matrix.field0_0x0.field0._22 = 5.0;
-  param_1[4].matrix.field0_0x0.field0._23 = 12.0;
-  param_1[4].matrix.field0_0x0.field0._24 = 12.0;
-  param_1[4].matrix.field0_0x0.field0._31 = 5.0;
+  param_1[4].matrix.m[0][3] = 1.25;
+  param_1[4].matrix.m[1][0] = 1.25;
+  param_1[4].matrix.m[1][1] = 5.0;
+  param_1[4].matrix.m[1][2] = 12.0;
+  param_1[4].matrix.m[1][3] = 12.0;
+  param_1[4].matrix.m[2][0] = 5.0;
   param_1[9].color = 0;
   pfVar4 = (float *)(&DAT_00476728 + ((uint)DAT_0069d4be + (uint)DAT_0069d4bd * 2) * 0x18);
-  pfVar5 = &param_1[9].matrix.field0_0x0.field0._33;
+  pfVar5 = param_1[9].matrix.m[2] + 2;
   for (iVar3 = 6; iVar3 != 0; iVar3 = iVar3 + -1) {
     *pfVar5 = *pfVar4;
     pfVar4 = pfVar4 + 1;
     pfVar5 = pfVar5 + 1;
   }
   fVar6 = (float10)FUN_0045bc34(0x4000000000000000);
-  param_1[9].matrix.field0_0x0.field0._41 = param_1[9].matrix.field0_0x0.field0._33 / (float)fVar6;
+  param_1[9].matrix.m[3][0] = param_1[9].matrix.m[2][2] / (float)fVar6;
   fVar6 = (float10)FUN_0045bc34(0x4000000000000000);
-  param_1[9].matrix.field0_0x0.field0._42 = param_1[9].matrix.field0_0x0.field0._34 / (float)fVar6;
-  param_1[0x6e].posInterpFinal.z = param_1[9].matrix.field0_0x0.field0._43;
-  param_1[0x6e].pos2.x = param_1[9].matrix.field0_0x0.field0._44;
-  *(undefined *)((int)&param_1[9].matrix.field0_0x0 + 0x14) = 1;
+  param_1[9].matrix.m[3][1] = param_1[9].matrix.m[2][3] / (float)fVar6;
+  param_1[0x6e].posInterpFinal.z = param_1[9].matrix.m[3][2];
+  param_1[0x6e].pos2.x = param_1[9].matrix.m[3][3];
+  *(undefined *)(param_1[9].matrix.m[1] + 1) = 1;
   param_1[0x6e].posInterpFinal.y = 1.681558e-43;
   param_1[0x6e].posInterpFinal.x = 0.0;
   param_1[0x6e].posInterpInitial.z = -NAN;
-  *(undefined *)((int)&param_1[9].matrix.field0_0x0 + 0x16) = 0;
+  *(undefined *)((int)param_1[9].matrix.m[1] + 6) = 0;
   pAVar2 = g_AnmManager;
   param_1[1].anmFileIndex = 0x480;
   AnmManager::SetBeginingOfScript(pAVar2,param_1 + 1,pAVar2->scripts[0x480]);
@@ -89,9 +89,9 @@ undefined4 FUN_00429c50(AnmVm *param_1)
     puVar1[1] = 0;
     *puVar1 = 0xfffffc19;
   }
-  param_1[9].matrix.field0_0x0.field0._13 = 1.0;
-  param_1[9].matrix.field0_0x0.field0._12 = 1.0;
-  param_1[9].matrix.field0_0x0.field0._14 = 1.121039e-44;
+  param_1[9].matrix.m[0][2] = 1.0;
+  param_1[9].matrix.m[0][1] = 1.0;
+  param_1[9].matrix.m[0][3] = 1.121039e-44;
   return 0;
 }
 

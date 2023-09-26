@@ -43,7 +43,7 @@ int __thiscall AnmManager::FUN_00432730(AnmManager *this,AnmVm *vm,int param_3)
     }
     this->field16_0x210be = '\x02';
   }
-  FUN_004324d0(this,(int)vm);
+  FUN_004324d0(this,vm);
   if ((g_GameContext.cfg.opts >> 1 & 1) == 0) {
     (*(g_GameContext.d3dDevice)->lpVtbl->DrawPrimitiveUP)
               (g_GameContext.d3dDevice,D3DPT_TRIANGLESTRIP,2,&DAT_006d4600,0x18);

@@ -29,38 +29,37 @@ void FUN_0040de00(int param_1,undefined4 param_2)
       fVar4 = (float10)FUN_0045be40((double)((float)local_74[0x159] - *(float *)(param_1 + 0xc70)));
       local_68 = (AnmVm *)&DAT_005ab5f8;
       for (local_7c = 0; local_7c < 0x280; local_7c = local_7c + 1) {
-        if ((((*(short *)((int)&local_68[5].matrix.field0_0x0 + 0x32) != 0) &&
-             (*(short *)((int)&local_68[5].matrix.field0_0x0 + 0x32) != 5)) &&
+        if ((((*(short *)((int)local_68[5].matrix.m[3] + 2) != 0) &&
+             (*(short *)((int)local_68[5].matrix.m[3] + 2) != 5)) &&
             ((local_68->sprite != (AnmLoadedSprite *)0x0 &&
              ((fVar1 = local_68->sprite->heightPx, fVar1 < 30.0 != NAN(fVar1) &&
               (fVar1 = local_68[5].currentTimeInScript.subFrame, NAN(fVar1) != (fVar1 == 0.0)))))))
            && (fVar5 = (float10)FUN_0045bc34(), (float)fVar5 < 64.0 != NAN((float)fVar5))) {
-          *(ushort *)((int)&local_68[5].matrix.field0_0x0 + 0x2c) =
-               *(ushort *)((int)&local_68[5].matrix.field0_0x0 + 0x2c) | 0x10;
+          *(ushort *)(local_68[5].matrix.m[2] + 3) = *(ushort *)(local_68[5].matrix.m[2] + 3) | 0x10
+          ;
           local_68[5].currentTimeInScript.subFrame = 0.01;
-          local_68[5].matrix.field0_0x0.field0._23 = 0.0;
-          local_68[5].matrix.field0_0x0.field0._22 = 0.0;
-          local_68[5].matrix.field0_0x0.field0._21 = -NAN;
-          local_68[5].matrix.field0_0x0.field0._24 = 1.681558e-43;
+          local_68[5].matrix.m[1][2] = 0.0;
+          local_68[5].matrix.m[1][1] = 0.0;
+          local_68[5].matrix.m[1][0] = -NAN;
+          local_68[5].matrix.m[1][3] = 1.681558e-43;
           fVar5 = (float10)FUN_0045be40((double)(local_68[5].angleVel.z -
                                                 *(float *)(param_1 + 0xc70)),
                                         (double)(local_68[5].angleVel.y -
                                                 *(float *)(param_1 + 0xc6c)));
-          local_68[5].matrix.field0_0x0.field0._12 =
-               ((float)fVar5 - (float)fVar4) * 2.2 + (float)fVar4;
-          fVar6 = (float10)local_68[5].matrix.field0_0x0.field0._12;
+          local_68[5].matrix.m[0][1] = ((float)fVar5 - (float)fVar4) * 2.2 + (float)fVar4;
+          fVar6 = (float10)local_68[5].matrix.m[0][1];
           fVar5 = (float10)fcos(fVar6);
           fVar6 = (float10)fsin(fVar6);
           local_68[5].uvScrollPos.x = (float)(fVar5 * (float10)0.01);
           local_68[5].uvScrollPos.y = (float)(fVar6 * (float10)0.01);
-          *(short *)((int)&local_68[5].matrix.field0_0x0 + 0x2e) =
-               *(short *)((int)&local_68[5].matrix.field0_0x0 + 0x2e) + 1;
+          *(short *)((int)local_68[5].matrix.m[2] + 0xe) =
+               *(short *)((int)local_68[5].matrix.m[2] + 0xe) + 1;
           AnmManager::FUN_004323a0
                     (g_AnmManager,local_68,
                      (int)local_68->anotherSpriteNumber +
-                     (int)*(short *)((int)&local_68[5].matrix.field0_0x0 + 0x2e));
+                     (int)*(short *)((int)local_68[5].matrix.m[2] + 0xe));
         }
-        local_68 = (AnmVm *)(local_68[5].matrix.field0_0x0.m[3] + 2);
+        local_68 = (AnmVm *)(local_68[5].matrix.m[3] + 2);
       }
     }
     local_74 = local_74 + 0x171;

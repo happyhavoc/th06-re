@@ -21,7 +21,7 @@ undefined4 FUN_00416500(int param_1)
       (local_10->pos).x = (float)fVar2 * fVar1 + local_10[2].rotation.x;
       (local_10->pos).y = (float)fVar3 * fVar1 + local_10[2].rotation.y;
       (local_10->pos).z = 0.0;
-      *(undefined2 *)((int)&local_10[2].matrix.field0_0x0 + 0xe) = 0xffff;
+      *(undefined2 *)((int)local_10[2].matrix.m[0] + 0xe) = 0xffff;
       AnmManager::FUN_00433150(g_AnmManager,local_10);
       fVar1 = local_10[2].angleVel.y;
       if ((fVar1 < 16.0 != NAN(fVar1)) ||
@@ -41,7 +41,7 @@ undefined4 FUN_00416500(int param_1)
         AnmManager::FUN_00433150(g_AnmManager,local_10 + 1);
       }
     }
-    local_10 = (AnmVm *)(local_10[2].matrix.field0_0x0.m[1] + 1);
+    local_10 = (AnmVm *)(local_10[2].matrix.m[1] + 1);
   }
   FUN_00420190();
   if (g_GameContext.hasD3dHardwareVertexProcessing == 0) {

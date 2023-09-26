@@ -8,27 +8,28 @@ undefined4 FUN_004074a0(AnmVm *param_1)
   float fVar1;
   float fVar2;
   float fVar3;
-  AnmLoadedSprite *pAVar4;
-  float fVar5;
-  char cVar6;
-  short sVar7;
-  ushort uVar8;
-  AnmManager *pAVar9;
-  uint *puVar10;
-  AnmLoadedSprite **ppAVar11;
-  int *piVar12;
-  D3DCOLOR *pDVar13;
-  int iVar14;
-  uint uVar15;
-  AnmRawInstr **ppAVar16;
-  float fVar17;
-  float *pfVar18;
-  byte bVar19;
-  int iVar20;
-  AnmVm *pAVar21;
-  float *pfVar22;
-  float10 fVar23;
+  float fVar4;
+  AnmLoadedSprite *pAVar5;
+  float fVar6;
+  char cVar7;
+  short sVar8;
+  ushort uVar9;
+  AnmManager *pAVar10;
+  uint *puVar11;
+  AnmLoadedSprite **ppAVar12;
+  int *piVar13;
+  D3DCOLOR *pDVar14;
+  int iVar15;
+  uint uVar16;
+  AnmRawInstr **ppAVar17;
+  D3DCOLOR DVar18;
+  float *pfVar19;
+  byte bVar20;
+  int iVar21;
+  AnmVm *pAVar22;
+  float *pfVar23;
   float10 fVar24;
+  float10 fVar25;
   int local_2dc;
   char *local_2cc;
   char *local_2c0;
@@ -69,7 +70,7 @@ undefined4 FUN_004074a0(AnmVm *param_1)
   float *local_64;
   AnmTimer *local_60;
   float *local_5c;
-  undefined2 *local_58;
+  float *local_58;
   float *local_54;
   float local_50;
   float local_4c;
@@ -96,39 +97,41 @@ LAB_004074b1:
 LAB_0040954d:
     param_1[9].rotation.x = (float)((int)local_20 + (int)*(short *)((int)local_20 + 6));
     if ((*(byte *)((int)&param_1[0xd].flags + 2) >> 2 & 1) == 0) {
-      pAVar21 = param_1 + 9;
-      pfVar18 = (float *)((int)&param_1[9].matrix +
+      pAVar22 = param_1 + 9;
+      pfVar19 = (float *)((int)&param_1[9].matrix +
                          *(int *)&param_1[0xb].posInterpEndTime * 0x4c + 0x10);
-      for (iVar20 = 0x13; iVar20 != 0; iVar20 = iVar20 + -1) {
-        *pfVar18 = (pAVar21->rotation).x;
-        pAVar21 = (AnmVm *)&(pAVar21->rotation).y;
-        pfVar18 = pfVar18 + 1;
+      for (iVar21 = 0x13; iVar21 != 0; iVar21 = iVar21 + -1) {
+        *pfVar19 = (pAVar22->rotation).x;
+        pAVar22 = (AnmVm *)&(pAVar22->rotation).y;
+        pfVar19 = pfVar19 + 1;
       }
     }
     FUN_00407440(param_1 + 9,
-                 *(undefined2 *)(&param_1[0xb].pos.z + (int)param_1[0xb].beginingOfScript));
+                 *(undefined2 *)
+                  ((int)(&param_1[0xb].matrix + 1) +
+                  (undefined *)((int)(param_1[0xb].beginingOfScript)->args + 3) * 4));
     if (*(int *)&param_1[0xb].posInterpEndTime < 7) {
       *(int *)&param_1[0xb].posInterpEndTime = *(int *)&param_1[0xb].posInterpEndTime + 1;
     }
     param_1[0xb].beginingOfScript = (AnmRawInstr *)0xffffffff;
   }
 LAB_004074ce:
-  pAVar9 = g_AnmManager;
+  pAVar10 = g_AnmManager;
   if (param_1[9].angleVel.x != *local_20) {
-    bVar19 = *(byte *)&param_1[0xd].flags & 3;
-    if (bVar19 == 1) {
-      fVar24 = (float10)FUN_0041e850(param_1[0xb].posInterpFinal.z);
-      param_1[0xb].posInterpFinal.z = (float)fVar24;
+    bVar20 = *(byte *)&param_1[0xd].flags & 3;
+    if (bVar20 == 1) {
+      fVar25 = (float10)FUN_0041e850(param_1[0xb].posInterpFinal.z);
+      param_1[0xb].posInterpFinal.z = (float)fVar25;
       param_1[0xb].pos2.y = g_GameContext.field84_0x1a8 * param_1[0xb].pos2.z + param_1[0xb].pos2.y;
-      fVar17 = param_1[0xb].pos2.y;
-      fVar23 = (float10)param_1[0xb].posInterpFinal.z;
-      fVar24 = (float10)fcos(fVar23);
-      fVar23 = (float10)fsin(fVar23);
-      param_1[0xb].posInterpInitial.z = (float)(fVar24 * (float10)fVar17);
-      param_1[0xb].posInterpFinal.x = (float)(fVar23 * (float10)fVar17);
+      fVar3 = param_1[0xb].pos2.y;
+      fVar24 = (float10)param_1[0xb].posInterpFinal.z;
+      fVar25 = (float10)fcos(fVar24);
+      fVar24 = (float10)fsin(fVar24);
+      param_1[0xb].posInterpInitial.z = (float)(fVar25 * (float10)fVar3);
+      param_1[0xb].posInterpFinal.x = (float)(fVar24 * (float10)fVar3);
       param_1[0xb].posInterpFinal.y = 0.0;
     }
-    else if (bVar19 == 2) {
+    else if (bVar20 == 2) {
       FUN_004241e5();
       local_bc = ((float)(int)param_1[0xc].angleVel.x + param_1[0xc].rotation.z) /
                  (float)(int)param_1[0xc].angleVel.y;
@@ -152,31 +155,31 @@ LAB_004074ce:
         local_bc = 1.0 - local_bc;
         local_bc = local_bc * local_bc * local_bc * local_bc;
       }
-      fVar17 = param_1[0xb].alphaInterpTime.subFrame;
-      fVar3 = (float)param_1[0xb].alphaInterpTime.previous;
-      fVar5 = param_1[0xc].rotation.x;
+      fVar3 = param_1[0xb].alphaInterpTime.subFrame;
+      fVar4 = (float)param_1[0xb].alphaInterpTime.previous;
+      fVar6 = param_1[0xc].rotation.x;
       fVar1 = *(float *)&param_1[0xb].fontWidth;
       fVar2 = (float)param_1[0xb].alphaInterpInitial;
-      pAVar4 = param_1[0xb].sprite;
+      pAVar5 = param_1[0xb].sprite;
       param_1[0xb].posInterpInitial.z =
            (local_bc * (float)param_1[0xb].timeOfLastSpriteSet +
            (float)param_1[0xb].alphaInterpTime.current) - (float)param_1[0xb].currentInstruction;
-      param_1[0xb].posInterpFinal.x = (local_bc * fVar3 + fVar1) - (float)pAVar4;
-      param_1[0xb].posInterpFinal.y = (local_bc * fVar17 + fVar5) - fVar2;
-      fVar24 = (float10)FUN_0045be40((double)param_1[0xb].posInterpFinal.x,
+      param_1[0xb].posInterpFinal.x = (local_bc * fVar4 + fVar1) - (float)pAVar5;
+      param_1[0xb].posInterpFinal.y = (local_bc * fVar3 + fVar6) - fVar2;
+      fVar25 = (float10)FUN_0045be40((double)param_1[0xb].posInterpFinal.x,
                                      (double)param_1[0xb].posInterpInitial.z);
-      param_1[0xb].posInterpFinal.z = (float)fVar24;
+      param_1[0xb].posInterpFinal.z = (float)fVar25;
       if ((int)param_1[0xc].angleVel.x < 1) {
         *(byte *)&param_1[0xd].flags = *(byte *)&param_1[0xd].flags & 0xfc;
-        fVar17 = param_1[0xc].rotation.x;
-        fVar3 = param_1[0xb].alphaInterpTime.subFrame;
-        fVar5 = (float)param_1[0xb].alphaInterpTime.previous;
+        fVar3 = param_1[0xc].rotation.x;
+        fVar4 = param_1[0xb].alphaInterpTime.subFrame;
+        fVar6 = (float)param_1[0xb].alphaInterpTime.previous;
         param_1[0xb].currentInstruction =
              (AnmRawInstr *)
              ((float)param_1[0xb].alphaInterpTime.current + (float)param_1[0xb].timeOfLastSpriteSet)
         ;
-        param_1[0xb].sprite = (AnmLoadedSprite *)(*(float *)&param_1[0xb].fontWidth + fVar5);
-        param_1[0xb].alphaInterpInitial = (D3DCOLOR)(fVar17 + fVar3);
+        param_1[0xb].sprite = (AnmLoadedSprite *)(*(float *)&param_1[0xb].fontWidth + fVar6);
+        param_1[0xb].alphaInterpInitial = (D3DCOLOR)(fVar3 + fVar4);
         param_1[0xb].posInterpInitial.z = 0.0;
         param_1[0xb].posInterpFinal.x = 0.0;
         param_1[0xb].posInterpFinal.y = 0.0;
@@ -189,66 +192,69 @@ LAB_004074ce:
                   (&g_GameContext,(int *)&param_1[0xc].scaleInterpInitialX,
                    &param_1[0xc].scaleInterpInitialY);
         if ((int)param_1[0xc].pos.y <= (int)param_1[0xc].scaleInterpInitialX) {
-          fVar17 = (float)param_1[0xb].alphaInterpInitial;
-          fVar3 = (float)param_1[0xb].posInterpTime.current;
-          pAVar4 = param_1[0xb].sprite;
-          fVar5 = param_1[0xb].posInterpTime.subFrame;
-          param_1[0xc].matrix.field0_0x0.field0._13 =
+          fVar3 = (float)param_1[0xb].alphaInterpInitial;
+          fVar4 = (float)param_1[0xb].posInterpTime.current;
+          pAVar5 = param_1[0xb].sprite;
+          fVar6 = param_1[0xb].posInterpTime.subFrame;
+          param_1[0xc].matrix.m[0][2] =
                (float)param_1[0xb].currentInstruction + (float)param_1[0xb].posInterpTime.previous;
-          param_1[0xc].matrix.field0_0x0.field0._14 = (float)pAVar4 + fVar5;
-          param_1[0xc].matrix.field0_0x0.field0._21 = fVar17 + fVar3;
+          param_1[0xc].matrix.m[0][3] = (float)pAVar5 + fVar6;
+          param_1[0xc].matrix.m[1][0] = fVar3 + fVar4;
           FUN_004145c0();
           param_1[0xc].scaleInterpInitialX = 0.0;
           param_1[0xc].scaleInterpInitialY = 0.0;
           param_1[0xc].pos.z = -NAN;
         }
       }
-      pAVar9 = g_AnmManager;
+      pAVar10 = g_AnmManager;
       if (-1 < param_1[0xd].pendingInterrupt) {
-        cVar6 = '\0';
-        fVar17 = param_1[0xb].posInterpInitial.z;
-        if (fVar17 < 0.0 == NAN(fVar17)) {
+        cVar7 = '\0';
+        fVar3 = param_1[0xb].posInterpInitial.z;
+        if (fVar3 < 0.0 == NAN(fVar3)) {
           if (0.0 < param_1[0xb].posInterpInitial.z) {
-            cVar6 = '\x02';
+            cVar7 = '\x02';
           }
         }
         else {
-          cVar6 = '\x01';
+          cVar7 = '\x01';
         }
-        if (*(char *)((int)&param_1[0xd].flags + 3) != cVar6) {
-          if (cVar6 == '\0') {
+        if (*(char *)((int)&param_1[0xd].flags + 3) != cVar7) {
+          if (cVar7 == '\0') {
             if (*(char *)((int)&param_1[0xd].flags + 3) == -1) {
-              uVar8 = param_1[0xd].alphaInterpEndTime;
-              local_268 = uVar8 + 0x100;
+              uVar9 = param_1[0xd].alphaInterpEndTime;
+              local_268 = uVar9 + 0x100;
               param_1->anmFileIndex = local_268;
-              AnmManager::SetBeginingOfScript(pAVar9,param_1,pAVar9->scripts[(short)uVar8 + 0x100]);
+              AnmManager::SetBeginingOfScript
+                        (pAVar10,param_1,pAVar10->scripts[(short)uVar9 + 0x100]);
             }
             else if (*(char *)((int)&param_1[0xd].flags + 3) == '\x01') {
-              uVar8 = param_1[0xd].scaleInterpEndTime;
-              local_270 = uVar8 + 0x100;
+              uVar9 = param_1[0xd].scaleInterpEndTime;
+              local_270 = uVar9 + 0x100;
               param_1->anmFileIndex = local_270;
-              AnmManager::SetBeginingOfScript(pAVar9,param_1,pAVar9->scripts[(short)uVar8 + 0x100]);
+              AnmManager::SetBeginingOfScript
+                        (pAVar10,param_1,pAVar10->scripts[(short)uVar9 + 0x100]);
             }
             else {
-              uVar8 = param_1[0xd].autoRotate;
-              local_278 = uVar8 + 0x100;
+              uVar9 = param_1[0xd].autoRotate;
+              local_278 = uVar9 + 0x100;
               param_1->anmFileIndex = local_278;
-              AnmManager::SetBeginingOfScript(pAVar9,param_1,pAVar9->scripts[(short)uVar8 + 0x100]);
+              AnmManager::SetBeginingOfScript
+                        (pAVar10,param_1,pAVar10->scripts[(short)uVar9 + 0x100]);
             }
           }
-          else if (cVar6 == '\x01') {
-            sVar7 = param_1[0xd].pendingInterrupt;
-            local_280 = sVar7 + 0x100;
+          else if (cVar7 == '\x01') {
+            sVar8 = param_1[0xd].pendingInterrupt;
+            local_280 = sVar8 + 0x100;
             param_1->anmFileIndex = local_280;
-            AnmManager::SetBeginingOfScript(pAVar9,param_1,pAVar9->scripts[sVar7 + 0x100]);
+            AnmManager::SetBeginingOfScript(pAVar10,param_1,pAVar10->scripts[sVar8 + 0x100]);
           }
-          else if (cVar6 == '\x02') {
-            uVar8 = param_1[0xd].posInterpEndTime;
-            local_288 = uVar8 + 0x100;
+          else if (cVar7 == '\x02') {
+            uVar9 = param_1[0xd].posInterpEndTime;
+            local_288 = uVar9 + 0x100;
             param_1->anmFileIndex = local_288;
-            AnmManager::SetBeginingOfScript(pAVar9,param_1,pAVar9->scripts[(short)uVar8 + 0x100]);
+            AnmManager::SetBeginingOfScript(pAVar10,param_1,pAVar10->scripts[(short)uVar9 + 0x100]);
           }
-          *(char *)((int)&param_1[0xd].flags + 3) = cVar6;
+          *(char *)((int)&param_1[0xd].flags + 3) = cVar7;
         }
       }
       if (param_1[9].angleVel.y != 0.0) {
@@ -269,33 +275,33 @@ LAB_004074ce:
   case 2:
     goto switchD_00407544_caseD_2;
   case 3:
-    piVar12 = FUN_0040afb0((int)param_1,(int *)(local_20 + 5),(undefined4 *)0x0);
-    local_14 = (float)(*piVar12 - 1);
+    piVar13 = FUN_0040afb0((int)param_1,(int *)(local_20 + 5),(undefined4 *)0x0);
+    local_14 = (float)(*piVar13 - 1);
     FUN_0040b3c0();
-    fVar17 = local_14;
+    fVar3 = local_14;
     goto joined_r0x00407ab4;
   case 4:
   case 5:
     FUN_0040b3c0();
     break;
   case 6:
-    puVar10 = (uint *)FUN_0040afb0((int)param_1,(int *)(local_20 + 4),(undefined4 *)0x0);
-    local_24 = *puVar10;
+    puVar11 = (uint *)FUN_0040afb0((int)param_1,(int *)(local_20 + 4),(undefined4 *)0x0);
+    local_24 = *puVar11;
     if (local_24 == 0) {
       local_29c = 0.0;
     }
     else {
-      uVar15 = FUN_0041e7f0(&DAT_0069d8f8);
-      local_29c = (float)(uVar15 % local_24);
+      uVar16 = FUN_0041e7f0(&DAT_0069d8f8);
+      local_29c = (float)(uVar16 % local_24);
     }
     local_14 = local_29c;
     FUN_0040b3c0();
     break;
   case 7:
-    puVar10 = (uint *)FUN_0040afb0((int)param_1,(int *)(local_20 + 4),(undefined4 *)0x0);
-    local_28 = *puVar10;
-    piVar12 = FUN_0040afb0((int)param_1,(int *)(local_1c + 2),(undefined4 *)0x0);
-    local_2c = *piVar12;
+    puVar11 = (uint *)FUN_0040afb0((int)param_1,(int *)(local_20 + 4),(undefined4 *)0x0);
+    local_28 = *puVar11;
+    piVar13 = FUN_0040afb0((int)param_1,(int *)(local_1c + 2),(undefined4 *)0x0);
+    local_2c = *piVar13;
     if (local_28 == 0) {
       local_2a0 = 0;
     }
@@ -307,19 +313,19 @@ LAB_004074ce:
     FUN_0040b3c0();
     break;
   case 8:
-    pfVar18 = FUN_0040b380((int)param_1,local_20 + 4,(undefined4 *)0x0);
-    local_30 = *pfVar18;
-    fVar24 = (float10)FUN_0041e820();
-    local_18 = (float)(fVar24 * (float10)local_30);
+    pfVar19 = FUN_0040b380((int)param_1,local_20 + 4,(undefined4 *)0x0);
+    local_30 = *pfVar19;
+    fVar25 = (float10)FUN_0041e820();
+    local_18 = (float)(fVar25 * (float10)local_30);
     FUN_0040b3c0();
     break;
   case 9:
-    pfVar18 = FUN_0040b380((int)param_1,local_20 + 4,(undefined4 *)0x0);
-    local_34 = *pfVar18;
-    pfVar18 = FUN_0040b380((int)param_1,local_1c + 2,(undefined4 *)0x0);
-    local_38 = *pfVar18;
-    fVar24 = (float10)FUN_0041e820();
-    local_18 = (float)(fVar24 * (float10)local_34) + local_38;
+    pfVar19 = FUN_0040b380((int)param_1,local_20 + 4,(undefined4 *)0x0);
+    local_34 = *pfVar19;
+    pfVar19 = FUN_0040b380((int)param_1,local_1c + 2,(undefined4 *)0x0);
+    local_38 = *pfVar19;
+    fVar25 = (float10)FUN_0041e820();
+    local_18 = (float)(fVar25 * (float10)local_34) + local_38;
     FUN_0040b3c0();
     break;
   case 10:
@@ -363,30 +369,30 @@ LAB_004074ce:
     FUN_0040b7d0(param_1,local_20[3]);
     break;
   case 0x1a:
-    piVar12 = FUN_0040afb0((int)param_1,(int *)(local_20 + 3),(undefined4 *)0x0);
-    local_18 = (float)*piVar12;
-    fVar24 = (float10)FUN_0041e850(local_18);
-    local_18 = (float)fVar24;
+    piVar13 = FUN_0040afb0((int)param_1,(int *)(local_20 + 3),(undefined4 *)0x0);
+    local_18 = (float)*piVar13;
+    fVar25 = (float10)FUN_0041e850(local_18);
+    local_18 = (float)fVar25;
     FUN_0040b3c0();
     break;
   case 0x1b:
-    piVar12 = FUN_0040afb0((int)param_1,(int *)(local_20 + 3),(undefined4 *)0x0);
-    local_48 = *piVar12;
-    piVar12 = FUN_0040afb0((int)param_1,(int *)(local_20 + 4),(undefined4 *)0x0);
-    local_44 = *piVar12;
+    piVar13 = FUN_0040afb0((int)param_1,(int *)(local_20 + 3),(undefined4 *)0x0);
+    local_48 = *piVar13;
+    piVar13 = FUN_0040afb0((int)param_1,(int *)(local_20 + 4),(undefined4 *)0x0);
+    local_44 = *piVar13;
     if (local_48 == local_44) {
       local_2a4 = 0.0;
     }
     else {
       local_2a4 = (float)((uint)(local_44 <= local_48) * 2 + -1);
     }
-    param_1[9].matrix.field0_0x0.field0._13 = local_2a4;
+    param_1[9].matrix.m[0][2] = local_2a4;
     break;
   case 0x1c:
-    pfVar18 = FUN_0040b380((int)param_1,local_20 + 3,(undefined4 *)0x0);
-    local_4c = *pfVar18;
-    pfVar18 = FUN_0040b380((int)param_1,local_20 + 4,(undefined4 *)0x0);
-    local_50 = *pfVar18;
+    pfVar19 = FUN_0040b380((int)param_1,local_20 + 3,(undefined4 *)0x0);
+    local_4c = *pfVar19;
+    pfVar19 = FUN_0040b380((int)param_1,local_20 + 4,(undefined4 *)0x0);
+    local_50 = *pfVar19;
     if ((NAN(local_4c) || NAN(local_50)) == (local_4c == local_50)) {
       if (local_4c < local_50 == (NAN(local_4c) || NAN(local_50))) {
         local_2ac = 1.401298e-45;
@@ -399,27 +405,27 @@ LAB_004074ce:
     else {
       local_2a8 = 0.0;
     }
-    param_1[9].matrix.field0_0x0.field0._13 = local_2a8;
+    param_1[9].matrix.m[0][2] = local_2a8;
     break;
   case 0x1d:
-    if (-1 < (int)param_1[9].matrix.field0_0x0.field0._13) break;
+    if (-1 < (int)param_1[9].matrix.m[0][2]) break;
     goto switchD_00407544_caseD_2;
   case 0x1e:
-    if (0 < (int)param_1[9].matrix.field0_0x0.field0._13) break;
+    if (0 < (int)param_1[9].matrix.m[0][2]) break;
     goto switchD_00407544_caseD_2;
   case 0x1f:
-    if (param_1[9].matrix.field0_0x0.field0._13 != 0.0) break;
+    if (param_1[9].matrix.m[0][2] != 0.0) break;
     goto switchD_00407544_caseD_2;
   case 0x20:
-    fVar17 = param_1[9].matrix.field0_0x0.field0._13;
+    fVar3 = param_1[9].matrix.m[0][2];
 joined_r0x00407ab4:
-    if ((int)fVar17 < 1) break;
+    if ((int)fVar3 < 1) break;
     goto switchD_00407544_caseD_2;
   case 0x21:
-    if ((int)param_1[9].matrix.field0_0x0.field0._13 < 0) break;
+    if ((int)param_1[9].matrix.m[0][2] < 0) break;
     goto switchD_00407544_caseD_2;
   case 0x22:
-    if (param_1[9].matrix.field0_0x0.field0._13 == 0.0) break;
+    if (param_1[9].matrix.m[0][2] == 0.0) break;
 switchD_00407544_caseD_2:
     param_1[9].angleVel.x = local_20[3];
     local_20 = (float *)((int)local_20 + (int)local_1c[1]);
@@ -429,116 +435,116 @@ switchD_00407544_caseD_2:
   case 0x24:
     goto switchD_00407544_caseD_24;
   case 0x25:
-    pfVar18 = (float *)FUN_0040afb0((int)param_1,(int *)(local_20 + 6),(undefined4 *)0x0);
-    local_14 = *pfVar18;
+    pfVar19 = (float *)FUN_0040afb0((int)param_1,(int *)(local_20 + 6),(undefined4 *)0x0);
+    local_14 = *pfVar19;
     if ((int)local_14 < (int)local_1c[4]) goto switchD_00407544_caseD_23;
     break;
   case 0x26:
-    pfVar18 = (float *)FUN_0040afb0((int)param_1,(int *)(local_20 + 6),(undefined4 *)0x0);
-    local_14 = *pfVar18;
+    pfVar19 = (float *)FUN_0040afb0((int)param_1,(int *)(local_20 + 6),(undefined4 *)0x0);
+    local_14 = *pfVar19;
     if ((int)local_14 <= (int)local_1c[4]) goto switchD_00407544_caseD_23;
     break;
   case 0x27:
-    pfVar18 = (float *)FUN_0040afb0((int)param_1,(int *)(local_20 + 6),(undefined4 *)0x0);
-    local_14 = *pfVar18;
+    pfVar19 = (float *)FUN_0040afb0((int)param_1,(int *)(local_20 + 6),(undefined4 *)0x0);
+    local_14 = *pfVar19;
     if (local_14 == local_1c[4]) goto switchD_00407544_caseD_23;
     break;
   case 0x28:
-    pfVar18 = (float *)FUN_0040afb0((int)param_1,(int *)(local_20 + 6),(undefined4 *)0x0);
-    local_14 = *pfVar18;
+    pfVar19 = (float *)FUN_0040afb0((int)param_1,(int *)(local_20 + 6),(undefined4 *)0x0);
+    local_14 = *pfVar19;
     if ((int)local_1c[4] < (int)local_14) goto switchD_00407544_caseD_23;
     break;
   case 0x29:
-    pfVar18 = (float *)FUN_0040afb0((int)param_1,(int *)(local_20 + 6),(undefined4 *)0x0);
-    local_14 = *pfVar18;
+    pfVar19 = (float *)FUN_0040afb0((int)param_1,(int *)(local_20 + 6),(undefined4 *)0x0);
+    local_14 = *pfVar19;
     if ((int)local_1c[4] <= (int)local_14) goto switchD_00407544_caseD_23;
     break;
   case 0x2a:
-    pfVar18 = (float *)FUN_0040afb0((int)param_1,(int *)(local_20 + 6),(undefined4 *)0x0);
-    local_14 = *pfVar18;
+    pfVar19 = (float *)FUN_0040afb0((int)param_1,(int *)(local_20 + 6),(undefined4 *)0x0);
+    local_14 = *pfVar19;
     if (local_14 != local_1c[4]) goto switchD_00407544_caseD_23;
     break;
   case 0x2b:
     param_1[0xb].currentInstruction = (AnmRawInstr *)local_20[3];
     param_1[0xb].sprite = (AnmLoadedSprite *)local_20[4];
     param_1[0xb].alphaInterpInitial = (D3DCOLOR)local_20[5];
-    ppAVar16 = (AnmRawInstr **)
+    ppAVar17 = (AnmRawInstr **)
                FUN_0040b380((int)param_1,(float *)&param_1[0xb].currentInstruction,(undefined4 *)0x0
                            );
-    param_1[0xb].currentInstruction = *ppAVar16;
-    ppAVar11 = (AnmLoadedSprite **)
+    param_1[0xb].currentInstruction = *ppAVar17;
+    ppAVar12 = (AnmLoadedSprite **)
                FUN_0040b380((int)param_1,(float *)&param_1[0xb].sprite,(undefined4 *)0x0);
-    param_1[0xb].sprite = *ppAVar11;
-    pfVar18 = FUN_0040b380((int)param_1,(float *)&param_1[0xb].alphaInterpInitial,(undefined4 *)0x0)
+    param_1[0xb].sprite = *ppAVar12;
+    pfVar19 = FUN_0040b380((int)param_1,(float *)&param_1[0xb].alphaInterpInitial,(undefined4 *)0x0)
     ;
-    param_1[0xb].alphaInterpInitial = (D3DCOLOR)*pfVar18;
+    param_1[0xb].alphaInterpInitial = (D3DCOLOR)*pfVar19;
     FUN_00412240();
     break;
   case 0x2c:
     param_1[0xb].posInterpInitial.z = local_20[3];
     param_1[0xb].posInterpFinal.x = local_20[4];
     param_1[0xb].posInterpFinal.y = local_20[5];
-    pfVar18 = FUN_0040b380((int)param_1,&param_1[0xb].posInterpInitial.z,(undefined4 *)0x0);
-    param_1[0xb].posInterpInitial.z = *pfVar18;
-    pfVar18 = FUN_0040b380((int)param_1,&param_1[0xb].posInterpFinal.x,(undefined4 *)0x0);
-    param_1[0xb].posInterpFinal.x = *pfVar18;
-    pfVar18 = FUN_0040b380((int)param_1,&param_1[0xb].posInterpFinal.y,(undefined4 *)0x0);
-    param_1[0xb].posInterpFinal.y = *pfVar18;
+    pfVar19 = FUN_0040b380((int)param_1,&param_1[0xb].posInterpInitial.z,(undefined4 *)0x0);
+    param_1[0xb].posInterpInitial.z = *pfVar19;
+    pfVar19 = FUN_0040b380((int)param_1,&param_1[0xb].posInterpFinal.x,(undefined4 *)0x0);
+    param_1[0xb].posInterpFinal.x = *pfVar19;
+    pfVar19 = FUN_0040b380((int)param_1,&param_1[0xb].posInterpFinal.y,(undefined4 *)0x0);
+    param_1[0xb].posInterpFinal.y = *pfVar19;
     *(byte *)&param_1[0xd].flags = *(byte *)&param_1[0xd].flags & 0xfc;
     break;
   case 0x2d:
     local_10 = local_20[3];
     local_c = local_20[4];
     local_8 = local_20[5];
-    pfVar18 = FUN_0040b380((int)param_1,&local_10,(undefined4 *)0x0);
-    param_1[0xb].posInterpFinal.z = *pfVar18;
-    pfVar18 = FUN_0040b380((int)param_1,&local_c,(undefined4 *)0x0);
-    param_1[0xb].pos2.y = *pfVar18;
+    pfVar19 = FUN_0040b380((int)param_1,&local_10,(undefined4 *)0x0);
+    param_1[0xb].posInterpFinal.z = *pfVar19;
+    pfVar19 = FUN_0040b380((int)param_1,&local_c,(undefined4 *)0x0);
+    param_1[0xb].pos2.y = *pfVar19;
     *(byte *)&param_1[0xd].flags = *(byte *)&param_1[0xd].flags & 0xfc | 1;
     break;
   case 0x2e:
     local_10 = local_20[3];
     local_c = local_20[4];
     local_8 = local_20[5];
-    pfVar18 = FUN_0040b380((int)param_1,&local_10,(undefined4 *)0x0);
-    param_1[0xb].pos2.x = *pfVar18;
+    pfVar19 = FUN_0040b380((int)param_1,&local_10,(undefined4 *)0x0);
+    param_1[0xb].pos2.x = *pfVar19;
     *(byte *)&param_1[0xd].flags = *(byte *)&param_1[0xd].flags & 0xfc | 1;
     break;
   case 0x2f:
     local_10 = local_20[3];
     local_c = local_20[4];
     local_8 = local_20[5];
-    pfVar18 = FUN_0040b380((int)param_1,&local_10,(undefined4 *)0x0);
-    param_1[0xb].pos2.y = *pfVar18;
+    pfVar19 = FUN_0040b380((int)param_1,&local_10,(undefined4 *)0x0);
+    param_1[0xb].pos2.y = *pfVar19;
     *(byte *)&param_1[0xd].flags = *(byte *)&param_1[0xd].flags & 0xfc | 1;
     break;
   case 0x30:
     local_10 = local_20[3];
     local_c = local_20[4];
     local_8 = local_20[5];
-    pfVar18 = FUN_0040b380((int)param_1,&local_10,(undefined4 *)0x0);
-    param_1[0xb].pos2.z = *pfVar18;
+    pfVar19 = FUN_0040b380((int)param_1,&local_10,(undefined4 *)0x0);
+    param_1[0xb].pos2.z = *pfVar19;
     *(byte *)&param_1[0xd].flags = *(byte *)&param_1[0xd].flags & 0xfc | 1;
     break;
   case 0x31:
     local_10 = local_20[3];
     local_c = local_20[4];
     local_8 = local_20[5];
-    fVar17 = local_c - local_10;
-    fVar24 = (float10)FUN_0041e820();
-    param_1[0xb].posInterpFinal.z = (float)(fVar24 * (float10)fVar17 + (float10)local_10);
+    fVar3 = local_c - local_10;
+    fVar25 = (float10)FUN_0041e820();
+    param_1[0xb].posInterpFinal.z = (float)(fVar25 * (float10)fVar3 + (float10)local_10);
     break;
   case 0x32:
     local_10 = local_20[3];
     local_c = local_20[4];
     local_8 = local_20[5];
-    fVar17 = local_c - local_10;
-    fVar24 = (float10)FUN_0041e820();
-    param_1[0xb].posInterpFinal.z = (float)(fVar24 * (float10)fVar17 + (float10)local_10);
+    fVar3 = local_c - local_10;
+    fVar25 = (float10)FUN_0041e820();
+    param_1[0xb].posInterpFinal.z = (float)(fVar25 * (float10)fVar3 + (float10)local_10);
     if ((float)param_1[0xb].currentInstruction < param_1[0xd].pos.x + 96.0) {
       if (param_1[0xb].posInterpFinal.z <= 1.570796) {
-        fVar17 = param_1[0xb].posInterpFinal.z;
-        if (fVar17 < -1.570796 != NAN(fVar17)) {
+        fVar3 = param_1[0xb].posInterpFinal.z;
+        if (fVar3 < -1.570796 != NAN(fVar3)) {
           param_1[0xb].posInterpFinal.z = -3.141593 - param_1[0xb].posInterpFinal.z;
         }
       }
@@ -546,13 +552,13 @@ switchD_00407544_caseD_2:
         param_1[0xb].posInterpFinal.z = 3.141593 - param_1[0xb].posInterpFinal.z;
       }
     }
-    fVar17 = param_1[0xd].pos.z - 96.0;
-    if (fVar17 < (float)param_1[0xb].currentInstruction !=
-        (NAN(fVar17) || NAN((float)param_1[0xb].currentInstruction))) {
-      fVar17 = param_1[0xb].posInterpFinal.z;
-      if ((fVar17 < 1.570796 == NAN(fVar17)) || (param_1[0xb].posInterpFinal.z < 0.0)) {
+    fVar3 = param_1[0xd].pos.z - 96.0;
+    if (fVar3 < (float)param_1[0xb].currentInstruction !=
+        (NAN(fVar3) || NAN((float)param_1[0xb].currentInstruction))) {
+      fVar3 = param_1[0xb].posInterpFinal.z;
+      if ((fVar3 < 1.570796 == NAN(fVar3)) || (param_1[0xb].posInterpFinal.z < 0.0)) {
         if ((-1.570796 < param_1[0xb].posInterpFinal.z) &&
-           (fVar17 = param_1[0xb].posInterpFinal.z, fVar17 < 0.0 != (fVar17 == 0.0))) {
+           (fVar3 = param_1[0xb].posInterpFinal.z, fVar3 < 0.0 != (fVar3 == 0.0))) {
           param_1[0xb].posInterpFinal.z = -3.141593 - param_1[0xb].posInterpFinal.z;
         }
       }
@@ -561,11 +567,11 @@ switchD_00407544_caseD_2:
       }
     }
     if (((float)param_1[0xb].sprite < param_1[0xd].pos.y + 48.0) &&
-       (fVar17 = param_1[0xb].posInterpFinal.z, fVar17 < 0.0 != NAN(fVar17))) {
+       (fVar3 = param_1[0xb].posInterpFinal.z, fVar3 < 0.0 != NAN(fVar3))) {
       param_1[0xb].posInterpFinal.z = -param_1[0xb].posInterpFinal.z;
     }
-    fVar17 = param_1[0xd].scaleInterpInitialY - 48.0;
-    if ((fVar17 < (float)param_1[0xb].sprite != (NAN(fVar17) || NAN((float)param_1[0xb].sprite))) &&
+    fVar3 = param_1[0xd].scaleInterpInitialY - 48.0;
+    if ((fVar3 < (float)param_1[0xb].sprite != (NAN(fVar3) || NAN((float)param_1[0xb].sprite))) &&
        (0.0 < param_1[0xb].posInterpFinal.z)) {
       param_1[0xb].posInterpFinal.z = -param_1[0xb].posInterpFinal.z;
     }
@@ -574,10 +580,10 @@ switchD_00407544_caseD_2:
     local_10 = local_20[3];
     local_c = local_20[4];
     local_8 = local_20[5];
-    fVar24 = (float10)FUN_00428700();
-    param_1[0xb].posInterpFinal.z = (float)(fVar24 + (float10)local_10);
-    pfVar18 = FUN_0040b380((int)param_1,&local_c,(undefined4 *)0x0);
-    param_1[0xb].pos2.y = *pfVar18;
+    fVar25 = (float10)FUN_00428700();
+    param_1[0xb].posInterpFinal.z = (float)(fVar25 + (float10)local_10);
+    pfVar19 = FUN_0040b380((int)param_1,&local_c,(undefined4 *)0x0);
+    param_1[0xb].pos2.y = *pfVar19;
     *(byte *)&param_1[0xd].flags = *(byte *)&param_1[0xd].flags & 0xfc | 1;
     break;
   case 0x34:
@@ -652,77 +658,74 @@ switchD_00407544_caseD_2:
   case 0x4a:
   case 0x4b:
     local_54 = local_20 + 3;
-    local_58 = (undefined2 *)((int)&param_1[0xc].matrix.field0_0x0 + 4);
-    *local_58 = *(undefined2 *)local_54;
+    local_58 = param_1[0xc].matrix.m[0] + 1;
+    *(undefined2 *)local_58 = *(undefined2 *)local_54;
     param_1[0xc].autoRotate = *(short *)(local_20 + 1) - 0x43;
-    piVar12 = FUN_0040afb0((int)param_1,(int *)(local_20 + 4),(undefined4 *)0x0);
-    local_58[0x22] = *(undefined2 *)piVar12;
-    iVar20 = ((int)*(short *)((int)&param_1[0xc].scaleY + 2) - (int)*(short *)&param_1[0xc].scaleY)
+    piVar13 = FUN_0040afb0((int)param_1,(int *)(local_20 + 4),(undefined4 *)0x0);
+    *(undefined2 *)(local_58 + 0x11) = *(undefined2 *)piVar13;
+    iVar21 = ((int)*(short *)((int)&param_1[0xc].scaleY + 2) - (int)*(short *)&param_1[0xc].scaleY)
              * _DAT_0069d710;
-    local_58[0x22] =
-         (short)((int)(iVar20 + (iVar20 >> 0x1f & 0x1fU)) >> 5) +
-         local_58[0x22] + *(short *)&param_1[0xc].scaleY;
-    if ((short)local_58[0x22] < 1) {
-      local_58[0x22] = 1;
+    *(short *)(local_58 + 0x11) =
+         (short)((int)(iVar21 + (iVar21 >> 0x1f & 0x1fU)) >> 5) +
+         *(short *)(local_58 + 0x11) + *(short *)&param_1[0xc].scaleY;
+    if (*(short *)(local_58 + 0x11) < 1) {
+      *(undefined2 *)(local_58 + 0x11) = 1;
     }
-    piVar12 = FUN_0040afb0((int)param_1,(int *)(local_54 + 2),(undefined4 *)0x0);
-    local_58[0x23] = *(undefined2 *)piVar12;
-    iVar20 = ((int)*(short *)((int)&param_1[0xc].scaleInterpFinalY + 2) -
+    piVar13 = FUN_0040afb0((int)param_1,(int *)(local_54 + 2),(undefined4 *)0x0);
+    *(undefined2 *)((int)local_58 + 0x46) = *(undefined2 *)piVar13;
+    iVar21 = ((int)*(short *)((int)&param_1[0xc].scaleInterpFinalY + 2) -
              (int)*(short *)&param_1[0xc].scaleInterpFinalY) * _DAT_0069d710;
-    local_58[0x23] =
-         (short)((int)(iVar20 + (iVar20 >> 0x1f & 0x1fU)) >> 5) +
-         local_58[0x23] + *(short *)&param_1[0xc].scaleInterpFinalY;
-    if ((short)local_58[0x23] < 1) {
-      local_58[0x23] = 1;
+    *(short *)((int)local_58 + 0x46) =
+         (short)((int)(iVar21 + (iVar21 >> 0x1f & 0x1fU)) >> 5) +
+         *(short *)((int)local_58 + 0x46) + *(short *)&param_1[0xc].scaleInterpFinalY;
+    if (*(short *)((int)local_58 + 0x46) < 1) {
+      *(undefined2 *)((int)local_58 + 0x46) = 1;
     }
-    fVar17 = (float)param_1[0xb].alphaInterpInitial;
-    fVar3 = (float)param_1[0xb].posInterpTime.current;
-    pAVar4 = param_1[0xb].sprite;
-    fVar5 = param_1[0xb].posInterpTime.subFrame;
-    *(float *)(local_58 + 2) =
-         (float)param_1[0xb].currentInstruction + (float)param_1[0xb].posInterpTime.previous;
-    *(float *)(local_58 + 4) = (float)pAVar4 + fVar5;
-    *(float *)(local_58 + 6) = fVar17 + fVar3;
-    pfVar18 = FUN_0040b380((int)param_1,local_54 + 5,(undefined4 *)0x0);
-    *(float *)(local_58 + 8) = *pfVar18;
-    fVar24 = (float10)FUN_0041e850(*(undefined4 *)(local_58 + 8));
-    *(float *)(local_58 + 8) = (float)fVar24;
-    pfVar18 = FUN_0040b380((int)param_1,local_54 + 3,(undefined4 *)0x0);
-    *(float *)(local_58 + 0xc) = *pfVar18;
-    if ((NAN(*(float *)(local_58 + 0xc)) == (*(float *)(local_58 + 0xc) == 0.0)) &&
-       (fVar17 = param_1[0xc].angleVel.z,
-       *(float *)(local_58 + 0xc) =
-            ((param_1[0xc].scaleX - fVar17) * (float)_DAT_0069d710) / 32.0 + fVar17 +
-            *(float *)(local_58 + 0xc),
-       *(float *)(local_58 + 0xc) < 0.3 != NAN(*(float *)(local_58 + 0xc)))) {
-      *(undefined4 *)(local_58 + 0xc) = 0x3e99999a;
+    fVar3 = (float)param_1[0xb].alphaInterpInitial;
+    fVar4 = (float)param_1[0xb].posInterpTime.current;
+    pAVar5 = param_1[0xb].sprite;
+    fVar6 = param_1[0xb].posInterpTime.subFrame;
+    local_58[1] = (float)param_1[0xb].currentInstruction +
+                  (float)param_1[0xb].posInterpTime.previous;
+    local_58[2] = (float)pAVar5 + fVar6;
+    local_58[3] = fVar3 + fVar4;
+    pfVar19 = FUN_0040b380((int)param_1,local_54 + 5,(undefined4 *)0x0);
+    local_58[4] = *pfVar19;
+    fVar25 = (float10)FUN_0041e850(local_58[4]);
+    local_58[4] = (float)fVar25;
+    pfVar19 = FUN_0040b380((int)param_1,local_54 + 3,(undefined4 *)0x0);
+    local_58[6] = *pfVar19;
+    if ((NAN(local_58[6]) == (local_58[6] == 0.0)) &&
+       (fVar3 = param_1[0xc].angleVel.z,
+       local_58[6] = ((param_1[0xc].scaleX - fVar3) * (float)_DAT_0069d710) / 32.0 + fVar3 +
+                     local_58[6], local_58[6] < 0.3 != NAN(local_58[6]))) {
+      local_58[6] = 0.3;
     }
-    pfVar18 = FUN_0040b380((int)param_1,local_54 + 6,(undefined4 *)0x0);
-    *(float *)(local_58 + 10) = *pfVar18;
-    pfVar18 = FUN_0040b380((int)param_1,local_54 + 4,(undefined4 *)0x0);
-    *(float *)(local_58 + 0xe) = *pfVar18;
-    fVar17 = param_1[0xc].angleVel.z;
-    *(float *)(local_58 + 0xe) =
-         (((param_1[0xc].scaleX - fVar17) * (float)_DAT_0069d710) / 32.0 + fVar17) / 2.0 +
-         *(float *)(local_58 + 0xe);
-    if (*(float *)(local_58 + 0xe) < 0.3 != NAN(*(float *)(local_58 + 0xe))) {
-      *(undefined4 *)(local_58 + 0xe) = 0x3e99999a;
+    pfVar19 = FUN_0040b380((int)param_1,local_54 + 6,(undefined4 *)0x0);
+    local_58[5] = *pfVar19;
+    pfVar19 = FUN_0040b380((int)param_1,local_54 + 4,(undefined4 *)0x0);
+    local_58[7] = *pfVar19;
+    fVar3 = param_1[0xc].angleVel.z;
+    local_58[7] = (((param_1[0xc].scaleX - fVar3) * (float)_DAT_0069d710) / 32.0 + fVar3) / 2.0 +
+                  local_58[7];
+    if (local_58[7] < 0.3 != NAN(local_58[7])) {
+      local_58[7] = 0.3;
     }
-    local_58[0x25] = 0;
-    *(float *)(local_58 + 0x26) = local_54[7];
+    *(undefined2 *)((int)local_58 + 0x4a) = 0;
+    local_58[0x13] = local_54[7];
     local_14 = (float)(int)*(short *)((int)local_54 + 2);
-    piVar12 = FUN_0040afb0((int)param_1,(int *)&local_14,(undefined4 *)0x0);
-    local_58[1] = *(undefined2 *)piVar12;
+    piVar13 = FUN_0040afb0((int)param_1,(int *)&local_14,(undefined4 *)0x0);
+    *(undefined2 *)((int)local_58 + 2) = *(undefined2 *)piVar13;
     if ((*(byte *)&param_1[0xd].flags >> 5 & 1) == 0) {
       FUN_004145c0();
     }
     break;
   case 0x4c:
     param_1[0xc].pos.y = local_20[3];
-    iVar20 = (int)param_1[0xc].pos.y / 5;
-    iVar14 = (-(int)param_1[0xc].pos.y / 5 - iVar20) * _DAT_0069d710;
+    iVar21 = (int)param_1[0xc].pos.y / 5;
+    iVar15 = (-(int)param_1[0xc].pos.y / 5 - iVar21) * _DAT_0069d710;
     param_1[0xc].pos.y =
-         (float)(((int)(iVar14 + (iVar14 >> 0x1f & 0x1fU)) >> 5) + iVar20 + (int)param_1[0xc].pos.y)
+         (float)(((int)(iVar15 + (iVar15 >> 0x1f & 0x1fU)) >> 5) + iVar21 + (int)param_1[0xc].pos.y)
     ;
     param_1[0xc].scaleInterpInitialX = 0.0;
     param_1[0xc].scaleInterpInitialY = 0.0;
@@ -730,10 +733,10 @@ switchD_00407544_caseD_2:
     break;
   case 0x4d:
     param_1[0xc].pos.y = local_20[3];
-    iVar20 = (int)param_1[0xc].pos.y / 5;
-    iVar14 = (-(int)param_1[0xc].pos.y / 5 - iVar20) * _DAT_0069d710;
+    iVar21 = (int)param_1[0xc].pos.y / 5;
+    iVar15 = (-(int)param_1[0xc].pos.y / 5 - iVar21) * _DAT_0069d710;
     param_1[0xc].pos.y =
-         (float)(((int)(iVar14 + (iVar14 >> 0x1f & 0x1fU)) >> 5) + iVar20 + (int)param_1[0xc].pos.y)
+         (float)(((int)(iVar15 + (iVar15 >> 0x1f & 0x1fU)) >> 5) + iVar21 + (int)param_1[0xc].pos.y)
     ;
     if (param_1[0xc].pos.y != 0.0) {
       local_184 = param_1[0xc].pos.y;
@@ -741,8 +744,8 @@ switchD_00407544_caseD_2:
         local_184 = 0.0;
       }
       else {
-        uVar15 = FUN_0041e7f0(&DAT_0069d8f8);
-        local_184 = (float)(uVar15 % (uint)local_184);
+        uVar16 = FUN_0041e7f0(&DAT_0069d8f8);
+        local_184 = (float)(uVar16 % (uint)local_184);
       }
       param_1[0xc].scaleInterpInitialX = local_184;
       param_1[0xc].scaleInterpInitialY = 0.0;
@@ -756,41 +759,41 @@ switchD_00407544_caseD_2:
     *(byte *)&param_1[0xd].flags = *(byte *)&param_1[0xd].flags & 0xdf;
     break;
   case 0x50:
-    fVar17 = (float)param_1[0xb].alphaInterpInitial;
-    fVar3 = (float)param_1[0xb].posInterpTime.current;
-    pAVar4 = param_1[0xb].sprite;
-    fVar5 = param_1[0xb].posInterpTime.subFrame;
-    param_1[0xc].matrix.field0_0x0.field0._13 =
+    fVar3 = (float)param_1[0xb].alphaInterpInitial;
+    fVar4 = (float)param_1[0xb].posInterpTime.current;
+    pAVar5 = param_1[0xb].sprite;
+    fVar6 = param_1[0xb].posInterpTime.subFrame;
+    param_1[0xc].matrix.m[0][2] =
          (float)param_1[0xb].currentInstruction + (float)param_1[0xb].posInterpTime.previous;
-    param_1[0xc].matrix.field0_0x0.field0._14 = (float)pAVar4 + fVar5;
-    param_1[0xc].matrix.field0_0x0.field0._21 = fVar17 + fVar3;
+    param_1[0xc].matrix.m[0][3] = (float)pAVar5 + fVar6;
+    param_1[0xc].matrix.m[1][0] = fVar3 + fVar4;
     FUN_004145c0();
     break;
   case 0x51:
-    pfVar18 = FUN_0040b380((int)param_1,local_1c,(undefined4 *)0x0);
-    param_1[0xb].posInterpTime.previous = (int)*pfVar18;
-    pfVar18 = FUN_0040b380((int)param_1,local_1c + 1,(undefined4 *)0x0);
-    param_1[0xb].posInterpTime.subFrame = *pfVar18;
-    pfVar18 = FUN_0040b380((int)param_1,local_1c + 2,(undefined4 *)0x0);
-    param_1[0xb].posInterpTime.current = (int)*pfVar18;
+    pfVar19 = FUN_0040b380((int)param_1,local_1c,(undefined4 *)0x0);
+    param_1[0xb].posInterpTime.previous = (int)*pfVar19;
+    pfVar19 = FUN_0040b380((int)param_1,local_1c + 1,(undefined4 *)0x0);
+    param_1[0xb].posInterpTime.subFrame = *pfVar19;
+    pfVar19 = FUN_0040b380((int)param_1,local_1c + 2,(undefined4 *)0x0);
+    param_1[0xb].posInterpTime.current = (int)*pfVar19;
     break;
   case 0x52:
-    pfVar18 = (float *)FUN_0040afb0((int)param_1,(int *)local_1c,(undefined4 *)0x0);
-    param_1[0xc].matrix.field0_0x0.field0._42 = *pfVar18;
-    pfVar18 = (float *)FUN_0040afb0((int)param_1,(int *)(local_1c + 1),(undefined4 *)0x0);
-    param_1[0xc].matrix.field0_0x0.field0._43 = *pfVar18;
-    pfVar18 = (float *)FUN_0040afb0((int)param_1,(int *)(local_1c + 2),(undefined4 *)0x0);
-    param_1[0xc].matrix.field0_0x0.field0._44 = *pfVar18;
-    pDVar13 = (D3DCOLOR *)FUN_0040afb0((int)param_1,(int *)(local_1c + 3),(undefined4 *)0x0);
-    param_1[0xc].color = *pDVar13;
-    pfVar18 = FUN_0040b380((int)param_1,local_1c + 4,(undefined4 *)0x0);
-    param_1[0xc].matrix.field0_0x0.field0._32 = *pfVar18;
-    pfVar18 = FUN_0040b380((int)param_1,local_1c + 5,(undefined4 *)0x0);
-    param_1[0xc].matrix.field0_0x0.field0._33 = *pfVar18;
-    pfVar18 = FUN_0040b380((int)param_1,local_1c + 6,(undefined4 *)0x0);
-    param_1[0xc].matrix.field0_0x0.field0._34 = *pfVar18;
-    pfVar18 = FUN_0040b380((int)param_1,local_1c + 7,(undefined4 *)0x0);
-    param_1[0xc].matrix.field0_0x0.field0._41 = *pfVar18;
+    pfVar19 = (float *)FUN_0040afb0((int)param_1,(int *)local_1c,(undefined4 *)0x0);
+    param_1[0xc].matrix.m[3][1] = *pfVar19;
+    pfVar19 = (float *)FUN_0040afb0((int)param_1,(int *)(local_1c + 1),(undefined4 *)0x0);
+    param_1[0xc].matrix.m[3][2] = *pfVar19;
+    pfVar19 = (float *)FUN_0040afb0((int)param_1,(int *)(local_1c + 2),(undefined4 *)0x0);
+    param_1[0xc].matrix.m[3][3] = *pfVar19;
+    pDVar14 = (D3DCOLOR *)FUN_0040afb0((int)param_1,(int *)(local_1c + 3),(undefined4 *)0x0);
+    param_1[0xc].color = *pDVar14;
+    pfVar19 = FUN_0040b380((int)param_1,local_1c + 4,(undefined4 *)0x0);
+    param_1[0xc].matrix.m[2][1] = *pfVar19;
+    pfVar19 = FUN_0040b380((int)param_1,local_1c + 5,(undefined4 *)0x0);
+    param_1[0xc].matrix.m[2][2] = *pfVar19;
+    pfVar19 = FUN_0040b380((int)param_1,local_1c + 6,(undefined4 *)0x0);
+    param_1[0xc].matrix.m[2][3] = *pfVar19;
+    pfVar19 = FUN_0040b380((int)param_1,local_1c + 7,(undefined4 *)0x0);
+    param_1[0xc].matrix.m[3][0] = *pfVar19;
     break;
   case 0x53:
     FUN_00414340();
@@ -809,27 +812,27 @@ switchD_00407544_caseD_2:
   case 0x56:
     local_64 = local_20 + 3;
     local_60 = &param_1[0xc].scaleInterpTime;
-    fVar17 = (float)param_1[0xb].alphaInterpInitial;
-    fVar3 = (float)param_1[0xb].posInterpTime.current;
-    pAVar4 = param_1[0xb].sprite;
-    fVar5 = param_1[0xb].posInterpTime.subFrame;
+    fVar3 = (float)param_1[0xb].alphaInterpInitial;
+    fVar4 = (float)param_1[0xb].posInterpTime.current;
+    pAVar5 = param_1[0xb].sprite;
+    fVar6 = param_1[0xb].posInterpTime.subFrame;
     param_1[0xc].scaleInterpTime.subFrame =
          (float)param_1[0xb].currentInstruction + (float)param_1[0xb].posInterpTime.previous;
-    param_1[0xc].scaleInterpTime.current = (int)((float)pAVar4 + fVar5);
-    *(float *)&param_1[0xc].spriteNumber = fVar17 + fVar3;
+    param_1[0xc].scaleInterpTime.current = (int)((float)pAVar5 + fVar6);
+    *(float *)&param_1[0xc].spriteNumber = fVar3 + fVar4;
     *(undefined2 *)&local_60->previous = *(undefined2 *)local_64;
     *(undefined2 *)((int)&param_1[0xc].scaleInterpTime.previous + 2) =
          *(undefined2 *)((int)local_20 + 0xe);
-    pfVar18 = FUN_0040b380((int)param_1,local_20 + 4,(undefined4 *)0x0);
-    *(float *)((int)(local_60 + 1) + 4) = *pfVar18;
-    ppAVar16 = (AnmRawInstr **)FUN_0040b380((int)param_1,local_64 + 2,(undefined4 *)0x0);
-    *(AnmRawInstr **)(local_60 + 2) = *ppAVar16;
-    pfVar18 = FUN_0040b380((int)param_1,local_64 + 3,(undefined4 *)0x0);
-    *(float *)((int)(local_60 + 2) + 8) = *pfVar18;
-    pfVar18 = FUN_0040b380((int)param_1,local_64 + 4,(undefined4 *)0x0);
-    *(float *)(local_60 + 3) = *pfVar18;
-    pfVar18 = FUN_0040b380((int)param_1,local_64 + 5,(undefined4 *)0x0);
-    ((D3DXVECTOR3 *)((int)(local_60 + 3) + 4))->x = *pfVar18;
+    pfVar19 = FUN_0040b380((int)param_1,local_20 + 4,(undefined4 *)0x0);
+    *(float *)((int)(local_60 + 1) + 4) = *pfVar19;
+    ppAVar17 = (AnmRawInstr **)FUN_0040b380((int)param_1,local_64 + 2,(undefined4 *)0x0);
+    *(AnmRawInstr **)(local_60 + 2) = *ppAVar17;
+    pfVar19 = FUN_0040b380((int)param_1,local_64 + 3,(undefined4 *)0x0);
+    *(float *)((int)(local_60 + 2) + 8) = *pfVar19;
+    pfVar19 = FUN_0040b380((int)param_1,local_64 + 4,(undefined4 *)0x0);
+    *(float *)(local_60 + 3) = *pfVar19;
+    pfVar19 = FUN_0040b380((int)param_1,local_64 + 5,(undefined4 *)0x0);
+    ((D3DXVECTOR3 *)((int)(local_60 + 3) + 4))->x = *pfVar19;
     *(float *)((int)(local_60 + 3) + 8) = local_64[6];
     *(float *)(local_60 + 4) = local_64[7];
     *(float *)((int)(local_60 + 4) + 4) = local_64[8];
@@ -843,49 +846,48 @@ switchD_00407544_caseD_2:
     else {
       *(undefined2 *)(local_60 + 6) = 1;
     }
-    iVar20 = FUN_00414670();
-    (&param_1[0xc].posInterpTime.current)[*(int *)((int)&param_1[0xd].matrix.field0_0x0 + 0x2c)] =
-         iVar20;
+    iVar21 = FUN_00414670();
+    (&param_1[0xc].posInterpTime.current)[(int)param_1[0xd].matrix.m[2][3]] = iVar21;
     break;
   case 0x57:
-    pfVar18 = (float *)FUN_0040afb0((int)param_1,(int *)(local_20 + 3),(undefined4 *)0x0);
-    param_1[0xd].matrix.field0_0x0.field0._34 = *pfVar18;
+    pfVar19 = (float *)FUN_0040afb0((int)param_1,(int *)(local_20 + 3),(undefined4 *)0x0);
+    param_1[0xd].matrix.m[2][3] = *pfVar19;
     break;
   case 0x58:
     if ((&param_1[0xc].posInterpTime.current)[(int)local_20[3]] != 0) {
-      iVar20 = (&param_1[0xc].posInterpTime.current)[(int)local_20[3]];
-      pfVar18 = FUN_0040b380((int)param_1,local_20 + 4,(undefined4 *)0x0);
+      iVar21 = (&param_1[0xc].posInterpTime.current)[(int)local_20[3]];
+      pfVar19 = FUN_0040b380((int)param_1,local_20 + 4,(undefined4 *)0x0);
       *(float *)((&param_1[0xc].posInterpTime.current)[(int)local_20[3]] + 0x22c) =
-           *(float *)(iVar20 + 0x22c) + *pfVar18;
+           *(float *)(iVar21 + 0x22c) + *pfVar19;
     }
     break;
   case 0x59:
     if ((&param_1[0xc].posInterpTime.current)[(int)local_20[3]] != 0) {
-      fVar24 = (float10)FUN_00428700();
-      pfVar18 = FUN_0040b380((int)param_1,local_20 + 4,(undefined4 *)0x0);
+      fVar25 = (float10)FUN_00428700();
+      pfVar19 = FUN_0040b380((int)param_1,local_20 + 4,(undefined4 *)0x0);
       *(float *)((&param_1[0xc].posInterpTime.current)[(int)local_20[3]] + 0x22c) =
-           (float)fVar24 + *pfVar18;
+           (float)fVar25 + *pfVar19;
     }
     break;
   case 0x5a:
     if ((&param_1[0xc].posInterpTime.current)[(int)local_20[3]] != 0) {
-      fVar17 = (float)param_1[0xb].alphaInterpInitial;
-      fVar3 = local_20[6];
-      pAVar4 = param_1[0xb].sprite;
-      fVar5 = local_20[5];
-      iVar20 = (&param_1[0xc].posInterpTime.current)[(int)local_20[3]];
-      *(float *)(iVar20 + 0x220) = (float)param_1[0xb].currentInstruction + local_20[4];
-      *(float *)(iVar20 + 0x224) = (float)pAVar4 + fVar5;
-      *(float *)(iVar20 + 0x228) = fVar17 + fVar3;
+      fVar3 = (float)param_1[0xb].alphaInterpInitial;
+      fVar4 = local_20[6];
+      pAVar5 = param_1[0xb].sprite;
+      fVar6 = local_20[5];
+      iVar21 = (&param_1[0xc].posInterpTime.current)[(int)local_20[3]];
+      *(float *)(iVar21 + 0x220) = (float)param_1[0xb].currentInstruction + local_20[4];
+      *(float *)(iVar21 + 0x224) = (float)pAVar5 + fVar6;
+      *(float *)(iVar21 + 0x228) = fVar3 + fVar4;
     }
     break;
   case 0x5b:
     if (((&param_1[0xc].posInterpTime.current)[(int)local_20[3]] == 0) ||
        (*(int *)((&param_1[0xc].posInterpTime.current)[(int)local_20[3]] + 600) == 0)) {
-      param_1[9].matrix.field0_0x0.field0._13 = 1.401298e-45;
+      param_1[9].matrix.m[0][2] = 1.401298e-45;
     }
     else {
-      param_1[9].matrix.field0_0x0.field0._13 = 0.0;
+      param_1[9].matrix.m[0][2] = 0.0;
     }
     break;
   case 0x5c:
@@ -893,10 +895,10 @@ switchD_00407544_caseD_2:
         (*(int *)((&param_1[0xc].posInterpTime.current)[(int)local_20[3]] + 600) != 0)) &&
        (*(byte *)((&param_1[0xc].posInterpTime.current)[(int)local_20[3]] + 0x26c) < 2)) {
       *(undefined *)((&param_1[0xc].posInterpTime.current)[(int)local_20[3]] + 0x26c) = 2;
-      iVar20 = (&param_1[0xc].posInterpTime.current)[(int)local_20[3]];
-      *(undefined4 *)(iVar20 + 0x264) = 0;
-      *(undefined4 *)(iVar20 + 0x260) = 0;
-      *(undefined4 *)(iVar20 + 0x25c) = 0xfffffc19;
+      iVar21 = (&param_1[0xc].posInterpTime.current)[(int)local_20[3]];
+      *(undefined4 *)(iVar21 + 0x264) = 0;
+      *(undefined4 *)(iVar21 + 0x260) = 0;
+      *(undefined4 *)(iVar21 + 0x25c) = 0xfffffc19;
     }
     break;
   case 0x5d:
@@ -914,35 +916,35 @@ switchD_00407544_caseD_2:
     *(undefined2 *)((int)&param_1[0xc].scaleY + 2) = 0;
     *(undefined2 *)&param_1[0xc].scaleInterpFinalY = 0;
     *(undefined2 *)((int)&param_1[0xc].scaleInterpFinalY + 2) = 0;
-    iVar20 = DAT_005a5f98 * 0x40;
+    iVar21 = DAT_005a5f98 * 0x40;
     local_70 = &DAT_0069bcd0 + DAT_005a5f98 * 0x10;
     local_78 = 0;
     if (_DAT_0069bcbc == 0) {
       local_2bc = local_20 + 4;
-      local_2c0 = &DAT_0069bce8 + iVar20;
+      local_2c0 = &DAT_0069bce8 + iVar21;
       do {
-        cVar6 = *(char *)local_2bc;
-        *local_2c0 = cVar6;
+        cVar7 = *(char *)local_2bc;
+        *local_2c0 = cVar7;
         local_2bc = (float *)((int)local_2bc + 1);
         local_2c0 = local_2c0 + 1;
-      } while (cVar6 != '\0');
-      local_2cc = &DAT_0069bce8 + iVar20;
+      } while (cVar7 != '\0');
+      local_2cc = &DAT_0069bce8 + iVar21;
       do {
-        cVar6 = *local_2cc;
+        cVar7 = *local_2cc;
         local_2cc = local_2cc + 1;
-      } while (cVar6 != '\0');
-      for (local_74 = (int)local_2cc - (int)(&DAT_0069bce9 + iVar20); 0 < local_74;
+      } while (cVar7 != '\0');
+      for (local_74 = (int)local_2cc - (int)(&DAT_0069bce9 + iVar21); 0 < local_74;
           local_74 = local_74 + -1) {
         local_78 = local_78 + (int)*(char *)((int)local_70 + local_74 + 0x17);
       }
-      if ((uint)(byte)(&DAT_0069bce2)[iVar20] != (local_78 & 0xff)) {
-        *(undefined2 *)(&DAT_0069bd0e + iVar20) = 0;
-        *(undefined2 *)(&DAT_0069bd0c + iVar20) = 0;
-        (&DAT_0069bce2)[iVar20] = (undefined)local_78;
+      if ((uint)(byte)(&DAT_0069bce2)[iVar21] != (local_78 & 0xff)) {
+        *(undefined2 *)(&DAT_0069bd0e + iVar21) = 0;
+        *(undefined2 *)(&DAT_0069bd0c + iVar21) = 0;
+        (&DAT_0069bce2)[iVar21] = (undefined)local_78;
       }
-      *(int *)(&DAT_0069bcdc + iVar20) = DAT_005a5f94;
-      if (*(ushort *)(&DAT_0069bd0c + iVar20) < 9999) {
-        *(short *)(&DAT_0069bd0c + iVar20) = *(short *)(&DAT_0069bd0c + iVar20) + 1;
+      *(int *)(&DAT_0069bcdc + iVar21) = DAT_005a5f94;
+      if (*(ushort *)(&DAT_0069bd0c + iVar21) < 9999) {
+        *(short *)(&DAT_0069bd0c + iVar21) = *(short *)(&DAT_0069bd0c + iVar21) + 1;
       }
     }
     break;
@@ -976,19 +978,19 @@ switchD_00407544_caseD_2:
     g_Stage.spellcardEclRelated0 = 0;
     break;
   case 0x5f:
-    pfVar18 = local_20 + 3;
-    pfVar22 = local_b0;
-    for (iVar20 = 6; iVar20 != 0; iVar20 = iVar20 + -1) {
-      *pfVar22 = *pfVar18;
-      pfVar18 = pfVar18 + 1;
-      pfVar22 = pfVar22 + 1;
+    pfVar19 = local_20 + 3;
+    pfVar23 = local_b0;
+    for (iVar21 = 6; iVar21 != 0; iVar21 = iVar21 + -1) {
+      *pfVar23 = *pfVar19;
+      pfVar19 = pfVar19 + 1;
+      pfVar23 = pfVar23 + 1;
     }
-    pfVar18 = FUN_0040b380((int)param_1,local_b0 + 1,(undefined4 *)0x0);
-    local_b0[1] = *pfVar18;
-    pfVar18 = FUN_0040b380((int)param_1,local_b0 + 2,(undefined4 *)0x0);
-    local_b0[2] = *pfVar18;
-    pfVar18 = FUN_0040b380((int)param_1,local_b0 + 3,(undefined4 *)0x0);
-    local_b0[3] = *pfVar18;
+    pfVar19 = FUN_0040b380((int)param_1,local_b0 + 1,(undefined4 *)0x0);
+    local_b0[1] = *pfVar19;
+    pfVar19 = FUN_0040b380((int)param_1,local_b0 + 2,(undefined4 *)0x0);
+    local_b0[2] = *pfVar19;
+    pfVar19 = FUN_0040b380((int)param_1,local_b0 + 3,(undefined4 *)0x0);
+    local_b0[3] = *pfVar19;
     FUN_00411390(local_b0[0],local_b0 + 1,CONCAT22((short)((uint)local_b0[3] >> 0x10),local_a0),
                  local_9e,local_9c);
     break;
@@ -1005,10 +1007,10 @@ switchD_00407544_caseD_2:
     }
     break;
   case 0x61:
-    fVar17 = local_20[3];
-    local_13c = SUB42(fVar17,0) + 0x100;
+    fVar3 = local_20[3];
+    local_13c = SUB42(fVar3,0) + 0x100;
     param_1->anmFileIndex = local_13c;
-    AnmManager::SetBeginingOfScript(pAVar9,param_1,pAVar9->scripts[(int)fVar17 + 0x100]);
+    AnmManager::SetBeginingOfScript(pAVar10,param_1,pAVar10->scripts[(int)fVar3 + 0x100]);
     break;
   case 0x62:
     param_1[0xd].alphaInterpEndTime = *(ushort *)(local_20 + 3);
@@ -1022,27 +1024,24 @@ switchD_00407544_caseD_2:
     if (7 < (int)local_20[3]) {
       DebugPrint2("error : sub anim overflow\n");
     }
-    pAVar9 = g_AnmManager;
-    fVar17 = local_1c[1];
-    local_144 = SUB42(fVar17,0) + 0x100;
-    fVar3 = local_20[3];
-    param_1[(int)fVar3 + 1].anmFileIndex = local_144;
+    pAVar10 = g_AnmManager;
+    fVar3 = local_1c[1];
+    local_144 = SUB42(fVar3,0) + 0x100;
+    fVar4 = local_20[3];
+    param_1[(int)fVar4 + 1].anmFileIndex = local_144;
     AnmManager::SetBeginingOfScript
-              (pAVar9,param_1 + (int)fVar3 + 1,pAVar9->scripts[(int)fVar17 + 0x100]);
+              (pAVar10,param_1 + (int)fVar4 + 1,pAVar10->scripts[(int)fVar3 + 0x100]);
     break;
   case 100:
     local_5c = local_20 + 3;
-    *(undefined *)((int)&param_1[0xd].matrix.field0_0x0 + 0x30) = *(undefined *)local_5c;
-    *(undefined *)((int)&param_1[0xd].matrix.field0_0x0 + 0x31) =
-         *(undefined *)((int)local_20 + 0xd);
-    *(undefined *)((int)&param_1[0xd].matrix.field0_0x0 + 0x32) =
-         *(undefined *)((int)local_20 + 0xe);
+    *(undefined *)param_1[0xd].matrix.m[3] = *(undefined *)local_5c;
+    *(undefined *)((int)param_1[0xd].matrix.m[3] + 1) = *(undefined *)((int)local_20 + 0xd);
+    *(undefined *)((int)param_1[0xd].matrix.m[3] + 2) = *(undefined *)((int)local_20 + 0xe);
     break;
   case 0x65:
     if ((int)local_20[3] < 0) {
       DAT_0069bc50 = 0;
-      *(undefined4 *)
-       (&DAT_005a5f60 + (uint)*(byte *)((int)&param_1[0xd].matrix.field0_0x0 + 0x34) * 4) = 0;
+      *(undefined4 *)(&DAT_005a5f60 + (uint)*(byte *)(param_1[0xd].matrix.m[3] + 1) * 4) = 0;
       *(byte *)((int)&param_1[0xd].flags + 1) = *(byte *)((int)&param_1[0xd].flags + 1) & 0xf7;
     }
     else {
@@ -1050,18 +1049,20 @@ switchD_00407544_caseD_2:
       DAT_0069bc50 = 1;
       _DAT_0069bc54 = 0x3f800000;
       *(byte *)((int)&param_1[0xd].flags + 1) = *(byte *)((int)&param_1[0xd].flags + 1) | 8;
-      *(undefined *)((int)&param_1[0xd].matrix.field0_0x0 + 0x34) = *(undefined *)(local_20 + 3);
+      *(undefined *)(param_1[0xd].matrix.m[3] + 1) = *(undefined *)(local_20 + 3);
     }
     break;
   case 0x66:
     local_6c = local_20 + 3;
-    fVar17 = (float)FUN_0040ef50(0xd,&param_1[0xb].currentInstruction,1,
-                                 *(undefined4 *)(PTR_DAT_00476438 + (int)*local_6c * 4));
-    (&param_1[0xd].scaleInterpInitialX)[(int)param_1[0xd].posInterpInitial.y] = fVar17;
-    fVar17 = (&param_1[0xd].scaleInterpInitialX)[(int)param_1[0xd].posInterpInitial.y];
-    *(float *)((int)fVar17 + 0x140) = local_6c[1];
-    *(float *)((int)fVar17 + 0x144) = local_6c[2];
-    *(float *)((int)fVar17 + 0x148) = local_6c[3];
+    DVar18 = FUN_0040ef50(0xd,&param_1[0xb].currentInstruction,1,
+                          *(undefined4 *)(PTR_DAT_00476438 + (int)*local_6c * 4));
+    *(D3DCOLOR *)((int)(&param_1[0xd].matrix + 1) + ((int)param_1[0xd].posInterpInitial.y + 9) * 4)
+         = DVar18;
+    DVar18 = *(D3DCOLOR *)
+              ((int)(&param_1[0xd].matrix + 1) + ((int)param_1[0xd].posInterpInitial.y + 9) * 4);
+    *(float *)(DVar18 + 0x140) = local_6c[1];
+    *(float *)(DVar18 + 0x144) = local_6c[2];
+    *(float *)(DVar18 + 0x148) = local_6c[3];
     param_1[0xd].posInterpInitial.z = local_6c[4];
     param_1[0xd].posInterpInitial.y = (float)((int)param_1[0xd].posInterpInitial.y + 1);
     break;
@@ -1089,7 +1090,7 @@ switchD_00407544_caseD_2:
     param_1[0xb].pos.y = local_20[3];
     break;
   case 0x6d:
-    (&param_1[0xb].pos.z)[(int)local_20[4]] = *local_1c;
+    *(float *)((int)(&param_1[0xb].matrix + 1) + ((int)local_20[4] + 7) * 4) = *local_1c;
     break;
   case 0x6e:
     param_1[0xb].beginingOfScript = (AnmRawInstr *)local_20[3];
@@ -1130,12 +1131,12 @@ switchD_00407544_caseD_2:
       local_98 = param_1[0xb].currentInstruction;
       local_94 = param_1[0xb].sprite;
       local_90 = param_1[0xb].alphaInterpInitial;
-      fVar24 = (float10)FUN_0041e820();
+      fVar25 = (float10)FUN_0041e820();
       local_98 = (AnmRawInstr *)
-                 (float)((fVar24 * (float10)144.0 - (float10)72.0) + (float10)(float)local_98);
-      fVar24 = (float10)FUN_0041e820();
+                 (float)((fVar25 * (float10)144.0 - (float10)72.0) + (float10)(float)local_98);
+      fVar25 = (float10)FUN_0041e820();
       local_94 = (AnmLoadedSprite *)
-                 (float)((fVar24 * (float10)144.0 - (float10)72.0) + (float10)(float)local_94);
+                 (float)((fVar25 * (float10)144.0 - (float10)72.0) + (float10)(float)local_94);
       if (_DAT_0069d4b0 < 0x80) {
         FUN_0041f290();
       }
@@ -1218,26 +1219,26 @@ switchD_00407544_caseD_24:
     DebugPrint2("error : no Stack Ret\n");
   }
   *(int *)&param_1[0xb].posInterpEndTime = *(int *)&param_1[0xb].posInterpEndTime + -1;
-  pfVar18 = (float *)((int)&param_1[9].matrix + *(int *)&param_1[0xb].posInterpEndTime * 0x4c + 0x10
+  pfVar19 = (float *)((int)&param_1[9].matrix + *(int *)&param_1[0xb].posInterpEndTime * 0x4c + 0x10
                      );
-  pAVar21 = param_1 + 9;
-  for (iVar20 = 0x13; iVar20 != 0; iVar20 = iVar20 + -1) {
-    (pAVar21->rotation).x = *pfVar18;
-    pfVar18 = pfVar18 + 1;
-    pAVar21 = (AnmVm *)&(pAVar21->rotation).y;
+  pAVar22 = param_1 + 9;
+  for (iVar21 = 0x13; iVar21 != 0; iVar21 = iVar21 + -1) {
+    (pAVar22->rotation).x = *pfVar19;
+    pfVar19 = pfVar19 + 1;
+    pAVar22 = (AnmVm *)&(pAVar22->rotation).y;
   }
   goto LAB_004074b1;
 switchD_00407544_caseD_23:
   local_14 = local_20[3];
   param_1[9].rotation.x = (float)((int)local_20 + (int)*(short *)((int)local_20 + 6));
   if ((*(byte *)((int)&param_1[0xd].flags + 2) >> 2 & 1) == 0) {
-    pAVar21 = param_1 + 9;
-    pfVar18 = (float *)((int)&param_1[9].matrix +
+    pAVar22 = param_1 + 9;
+    pfVar19 = (float *)((int)&param_1[9].matrix +
                        *(int *)&param_1[0xb].posInterpEndTime * 0x4c + 0x10);
-    for (iVar20 = 0x13; iVar20 != 0; iVar20 = iVar20 + -1) {
-      *pfVar18 = (pAVar21->rotation).x;
-      pAVar21 = (AnmVm *)&(pAVar21->rotation).y;
-      pfVar18 = pfVar18 + 1;
+    for (iVar21 = 0x13; iVar21 != 0; iVar21 = iVar21 + -1) {
+      *pfVar19 = (pAVar22->rotation).x;
+      pAVar22 = (AnmVm *)&(pAVar22->rotation).y;
+      pfVar19 = pfVar19 + 1;
     }
   }
   FUN_00407440(param_1 + 9,(uint)local_14 & 0xffff);

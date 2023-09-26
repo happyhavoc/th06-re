@@ -57,9 +57,9 @@ undefined4 FUN_004123e0(int param_1)
       goto LAB_00412416;
     }
     FUN_00412240();
-    local_28->color = (D3DCOLOR)local_28[0xc].matrix.field0_0x0.field0._11;
+    local_28->color = (D3DCOLOR)local_28[0xc].matrix.m[0][0];
     AnmManager::FUN_00433960(g_AnmManager,local_28);
-    local_28[0xc].matrix.field0_0x0.field0._11 = (float)local_28->color;
+    local_28[0xc].matrix.m[0][0] = (float)local_28->color;
     for (local_20 = 0; local_20 < 8; local_20 = local_20 + 1) {
       if ((-1 < local_28[local_20 + 1].anmFileIndex) &&
          (iVar2 = AnmManager::FUN_00433960(g_AnmManager,local_28 + local_20 + 1), iVar2 != 0)) {
@@ -139,10 +139,10 @@ LAB_00412a4d:
         FUN_004114c0(local_28);
       }
 switchD_00412938_caseD_2:
-      if (*(char *)((int)&local_28[0xd].matrix.field0_0x0 + 0x33) < '\0') {
-        if (*(char *)((int)&local_28[0xd].matrix.field0_0x0 + 0x33) == -1) {
+      if (*(char *)((int)local_28[0xd].matrix.m[3] + 3) < '\0') {
+        if (*(char *)((int)local_28[0xd].matrix.m[3] + 3) == -1) {
           if ((uint)*(ushort *)(param_1 + 0xee5b8) % 3 == 0) {
-            FUN_0040ef50(*(byte *)((int)&local_28[0xd].matrix.field0_0x0 + 0x31) + 4,
+            FUN_0040ef50(*(byte *)((int)local_28[0xd].matrix.m[3] + 1) + 4,
                          &local_28[0xb].currentInstruction,6,0xffffffff);
             FUN_0041f290(&local_28[0xb].currentInstruction,
                          (&DAT_00476338)[*(ushort *)(param_1 + 0xee5ba)],local_8);
@@ -155,10 +155,10 @@ switchD_00412938_caseD_2:
         }
       }
       else {
-        FUN_0040ef50(*(byte *)((int)&local_28[0xd].matrix.field0_0x0 + 0x31) + 4,
+        FUN_0040ef50(*(byte *)((int)local_28[0xd].matrix.m[3] + 1) + 4,
                      &local_28[0xb].currentInstruction,3,0xffffffff);
         FUN_0041f290(&local_28[0xb].currentInstruction,
-                     (int)*(char *)((int)&local_28[0xd].matrix.field0_0x0 + 0x33),local_8);
+                     (int)*(char *)((int)local_28[0xd].matrix.m[3] + 3),local_8);
       }
       if (((*(byte *)((int)&local_28[0xd].flags + 1) >> 3 & 1) != 0) && (DAT_005a5f90 == 0)) {
         FUN_00414360(0x3200,0);
@@ -172,22 +172,22 @@ switchD_00412938_caseD_2:
       *(byte *)((int)&local_28[0xd].flags + 1) = *(byte *)((int)&local_28[0xd].flags + 1) & 0xef;
       *(byte *)((int)&local_28[0xd].flags + 1) = *(byte *)((int)&local_28[0xd].flags + 1) & 0x1f;
       DAT_0069bc50 = 0;
-      FUN_0040ef50(*(undefined *)((int)&local_28[0xd].matrix.field0_0x0 + 0x30),
-                   &local_28[0xb].currentInstruction,1,0xffffffff);
-      FUN_0040ef50(*(undefined *)((int)&local_28[0xd].matrix.field0_0x0 + 0x30),
-                   &local_28[0xb].currentInstruction,1,0xffffffff);
-      FUN_0040ef50(*(undefined *)((int)&local_28[0xd].matrix.field0_0x0 + 0x30),
-                   &local_28[0xb].currentInstruction,1,0xffffffff);
+      FUN_0040ef50(*(undefined *)local_28[0xd].matrix.m[3],&local_28[0xb].currentInstruction,1,
+                   0xffffffff);
+      FUN_0040ef50(*(undefined *)local_28[0xd].matrix.m[3],&local_28[0xb].currentInstruction,1,
+                   0xffffffff);
+      FUN_0040ef50(*(undefined *)local_28[0xd].matrix.m[3],&local_28[0xb].currentInstruction,1,
+                   0xffffffff);
     }
     uVar3 = local_10 & 0x80000001;
     if ((int)uVar3 < 0) {
       uVar3 = (uVar3 - 1 | 0xfffffffe) + 1;
     }
     FUN_004311e0(uVar3 + 2);
-    FUN_0040ef50(*(undefined *)((int)&local_28[0xd].matrix.field0_0x0 + 0x30),
-                 &local_28[0xb].currentInstruction,1,0xffffffff);
-    FUN_0040ef50(*(byte *)((int)&local_28[0xd].matrix.field0_0x0 + 0x31) + 4,
-                 &local_28[0xb].currentInstruction,4,0xffffffff);
+    FUN_0040ef50(*(undefined *)local_28[0xd].matrix.m[3],&local_28[0xb].currentInstruction,1,
+                 0xffffffff);
+    FUN_0040ef50(*(byte *)((int)local_28[0xd].matrix.m[3] + 1) + 4,&local_28[0xb].currentInstruction
+                 ,4,0xffffffff);
     if (-1 < (int)local_28[0xb].pos.y) {
       local_28[0xc].angleVel.z = -0.5;
       local_28[0xc].scaleX = 0.5;
@@ -206,19 +206,19 @@ LAB_00412ce2:
       _DAT_0069bc54 =
            (float)(int)local_28[0xc].scaleInterpFinalX / (float)(int)local_28[0xc].uvScrollPos.x;
     }
-    if (*(char *)((int)&local_28[0xd].matrix.field0_0x0 + 0x35) == '\0') {
+    if (*(char *)((int)local_28[0xd].matrix.m[3] + 5) == '\0') {
       if ((int)local_28[0xc].scaleInterpFinalX < (int)fVar1) {
         FUN_004311e0(0x14);
         local_28->flags = local_28->flags | 8;
-        *(undefined *)((int)&local_28[0xd].matrix.field0_0x0 + 0x35) = 4;
+        *(undefined *)((int)local_28[0xd].matrix.m[3] + 5) = 4;
       }
       else {
         local_28->flags = local_28->flags & 0xfffffff7;
       }
     }
     else {
-      *(char *)((int)&local_28[0xd].matrix.field0_0x0 + 0x35) =
-           *(char *)((int)&local_28[0xd].matrix.field0_0x0 + 0x35) + -1;
+      *(char *)((int)local_28[0xd].matrix.m[3] + 5) =
+           *(char *)((int)local_28[0xd].matrix.m[3] + 5) + -1;
       local_28->flags = local_28->flags & 0xfffffff7;
     }
 LAB_00412dbc:

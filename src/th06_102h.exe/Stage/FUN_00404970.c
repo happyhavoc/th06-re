@@ -31,11 +31,9 @@ undefined4 __thiscall Stage::FUN_00404970(Stage *this,int unk)
     if ((char)local_58->field1_0x2 == unk) {
       local_74 = &local_58->firstQuad;
       local_8 = 0;
-      local_54.field0_0x0.field0._41 =
-           ((local_58->position).x + (local_14->position).x) - (this->position).x;
-      local_54.field0_0x0.field0._42 =
-           -(((local_58->position).y + (local_14->position).y) - (this->position).y);
-      local_54.field0_0x0.field0._43 =
+      local_54.m[3][0] = ((local_58->position).x + (local_14->position).x) - (this->position).x;
+      local_54.m[3][1] = -(((local_58->position).y + (local_14->position).y) - (this->position).y);
+      local_54.m[3][2] =
            (((local_58->position).z + (local_14->position).z) - (this->position).z) +
            (local_58->size).z;
       _D3DXVec3Project_24(&local_70,&local_84,&g_GameContext.viewport,
@@ -44,7 +42,7 @@ undefined4 __thiscall Stage::FUN_00404970(Stage *this,int unk)
          (local_70.y < (float)(ulonglong)(g_GameContext.viewport.Y + g_GameContext.viewport.Height)
           == (local_70.y ==
              (float)(ulonglong)(g_GameContext.viewport.Y + g_GameContext.viewport.Height)))) {
-        local_54.field0_0x0.field0._42 = local_54.field0_0x0.field0._42 - (local_58->size).y;
+        local_54.m[3][1] = local_54.m[3][1] - (local_58->size).y;
         _D3DXVec3Project_24(&local_70,&local_84,&g_GameContext.viewport,
                             &g_GameContext.projectionMatrix,&g_GameContext.viewMatrix,&local_54);
         if ((local_70.y < (float)(ulonglong)g_GameContext.viewport.Y) ||
@@ -52,7 +50,7 @@ undefined4 __thiscall Stage::FUN_00404970(Stage *this,int unk)
             (float)(ulonglong)(g_GameContext.viewport.Y + g_GameContext.viewport.Height) ==
             (local_70.y ==
             (float)(ulonglong)(g_GameContext.viewport.Y + g_GameContext.viewport.Height)))) {
-          local_54.field0_0x0.field0._43 = local_54.field0_0x0.field0._43 - (local_58->size).z;
+          local_54.m[3][2] = local_54.m[3][2] - (local_58->size).z;
           _D3DXVec3Project_24(&local_70,&local_84,&g_GameContext.viewport,
                               &g_GameContext.projectionMatrix,&g_GameContext.viewMatrix,&local_54);
           if ((local_70.y < (float)(ulonglong)g_GameContext.viewport.Y) ||
@@ -60,7 +58,7 @@ undefined4 __thiscall Stage::FUN_00404970(Stage *this,int unk)
               (float)(ulonglong)(g_GameContext.viewport.Y + g_GameContext.viewport.Height) ==
               (local_70.y ==
               (float)(ulonglong)(g_GameContext.viewport.Y + g_GameContext.viewport.Height)))) {
-            local_54.field0_0x0.field0._42 = local_54.field0_0x0.field0._42 + (local_58->size).y;
+            local_54.m[3][1] = local_54.m[3][1] + (local_58->size).y;
             _D3DXVec3Project_24(&local_70,&local_84,&g_GameContext.viewport,
                                 &g_GameContext.projectionMatrix,&g_GameContext.viewMatrix,&local_54)
             ;
@@ -69,12 +67,12 @@ undefined4 __thiscall Stage::FUN_00404970(Stage *this,int unk)
                 (float)(ulonglong)(g_GameContext.viewport.Y + g_GameContext.viewport.Height) ==
                 (local_70.y ==
                 (float)(ulonglong)(g_GameContext.viewport.Y + g_GameContext.viewport.Height)))) {
-              local_54.field0_0x0.field0._41 =
+              local_54.m[3][0] =
                    (((local_58->position).x + (local_14->position).x) - (this->position).x) +
                    (local_58->size).x;
-              local_54.field0_0x0.field0._42 =
+              local_54.m[3][1] =
                    -(((local_58->position).y + (local_14->position).y) - (this->position).y);
-              local_54.field0_0x0.field0._43 =
+              local_54.m[3][2] =
                    (((local_58->position).z + (local_14->position).z) - (this->position).z) +
                    (local_58->size).z;
               _D3DXVec3Project_24(&local_70,&local_84,&g_GameContext.viewport,
@@ -85,8 +83,7 @@ undefined4 __thiscall Stage::FUN_00404970(Stage *this,int unk)
                   (float)(ulonglong)(g_GameContext.viewport.Y + g_GameContext.viewport.Height) ==
                   (local_70.y ==
                   (float)(ulonglong)(g_GameContext.viewport.Y + g_GameContext.viewport.Height)))) {
-                local_54.field0_0x0.field0._42 = local_54.field0_0x0.field0._42 - (local_58->size).y
-                ;
+                local_54.m[3][1] = local_54.m[3][1] - (local_58->size).y;
                 _D3DXVec3Project_24(&local_70,&local_84,&g_GameContext.viewport,
                                     &g_GameContext.projectionMatrix,&g_GameContext.viewMatrix,
                                     &local_54);
@@ -96,8 +93,7 @@ undefined4 __thiscall Stage::FUN_00404970(Stage *this,int unk)
                     (local_70.y ==
                     (float)(ulonglong)(g_GameContext.viewport.Y + g_GameContext.viewport.Height))))
                 {
-                  local_54.field0_0x0.field0._43 =
-                       local_54.field0_0x0.field0._43 - (local_58->size).z;
+                  local_54.m[3][2] = local_54.m[3][2] - (local_58->size).z;
                   _D3DXVec3Project_24(&local_70,&local_84,&g_GameContext.viewport,
                                       &g_GameContext.projectionMatrix,&g_GameContext.viewMatrix,
                                       &local_54);
@@ -107,8 +103,7 @@ undefined4 __thiscall Stage::FUN_00404970(Stage *this,int unk)
                       == (local_70.y ==
                          (float)(ulonglong)
                                 (g_GameContext.viewport.Y + g_GameContext.viewport.Height)))) {
-                    local_54.field0_0x0.field0._42 =
-                         local_54.field0_0x0.field0._42 + (local_58->size).y;
+                    local_54.m[3][1] = local_54.m[3][1] + (local_58->size).y;
                     _D3DXVec3Project_24(&local_70,&local_84,&g_GameContext.viewport,
                                         &g_GameContext.projectionMatrix,&g_GameContext.viewMatrix,
                                         &local_54);
@@ -150,14 +145,13 @@ undefined4 __thiscall Stage::FUN_00404970(Stage *this,int unk)
             else {
               local_88 = local_c->sprite->widthPx;
             }
-            local_54.field0_0x0.field0._41 = (local_c->pos).x;
-            local_54.field0_0x0.field0._42 = -(local_c->pos).y;
-            local_54.field0_0x0.field0._43 = (local_c->pos).z;
+            local_54.m[3][0] = (local_c->pos).x;
+            local_54.m[3][1] = -(local_c->pos).y;
+            local_54.m[3][2] = (local_c->pos).z;
             _D3DXVec3Project_24(&local_70,&local_84,&g_GameContext.viewport,
                                 &g_GameContext.projectionMatrix,&g_GameContext.viewMatrix,&local_54)
             ;
-            local_54.field0_0x0.field0._41 =
-                 local_88 * local_c->scaleY + local_54.field0_0x0.field0._41;
+            local_54.m[3][0] = local_88 * local_c->scaleY + local_54.m[3][0];
             _D3DXVec3Project_24(&local_64,&local_84,&g_GameContext.viewport,
                                 &g_GameContext.projectionMatrix,&g_GameContext.viewMatrix,&local_54)
             ;

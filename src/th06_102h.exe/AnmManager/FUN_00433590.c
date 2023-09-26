@@ -5,7 +5,7 @@ int __thiscall AnmManager::FUN_00433590(AnmManager *this,AnmVm *vm)
   float fVar1;
   int iVar2;
   D3DMATRIX *pDVar3;
-  D3DMATRIX *pDVar4;
+  float *pfVar4;
   D3DMATRIX local_c4 [2];
   D3DMATRIX local_44;
   
@@ -26,37 +26,35 @@ int __thiscall AnmManager::FUN_00433590(AnmManager *this,AnmVm *vm)
     }
     else {
       pDVar3 = &vm->matrix;
-      pDVar4 = local_c4;
+      pfVar4 = (float *)local_c4;
       for (iVar2 = 0x10; iVar2 != 0; iVar2 = iVar2 + -1) {
-        (pDVar4->field0_0x0).field0._11 = (pDVar3->field0_0x0).field0._11;
-        pDVar3 = (D3DMATRIX *)((int)&pDVar3->field0_0x0 + 4);
-        pDVar4 = (D3DMATRIX *)((int)&pDVar4->field0_0x0 + 4);
+        *pfVar4 = pDVar3->m[0][0];
+        pDVar3 = (D3DMATRIX *)(pDVar3->m[0] + 1);
+        pfVar4 = pfVar4 + 1;
       }
-      local_c4[0].field0_0x0.field0._41 = ROUND((vm->pos).x) - 0.5;
-      local_c4[0].field0_0x0.field0._42 = -ROUND((vm->pos).y) + 0.5;
+      local_c4[0].m[3][0] = ROUND((vm->pos).x) - 0.5;
+      local_c4[0].m[3][1] = -ROUND((vm->pos).y) + 0.5;
       if ((vm->flags >> 8 & 1) != 0) {
-        local_c4[0].field0_0x0.field0._41 =
-             (vm->sprite->widthPx * vm->scaleY) / 2.0 + local_c4[0].field0_0x0.field0._41;
+        local_c4[0].m[3][0] = (vm->sprite->widthPx * vm->scaleY) / 2.0 + local_c4[0].m[3][0];
       }
       if ((vm->flags >> 8 & 2) != 0) {
-        local_c4[0].field0_0x0.field0._42 =
-             local_c4[0].field0_0x0.field0._42 - (vm->sprite->heightPx * vm->scaleX) / 2.0;
+        local_c4[0].m[3][1] = local_c4[0].m[3][1] - (vm->sprite->heightPx * vm->scaleX) / 2.0;
       }
-      local_c4[0].field0_0x0.field0._43 = (vm->pos).z;
-      local_c4[0].field0_0x0.field0._11 = local_c4[0].field0_0x0.field0._11 * vm->scaleY;
-      local_c4[0].field0_0x0.field0._22 = -vm->scaleX * local_c4[0].field0_0x0.field0._22;
+      local_c4[0].m[3][2] = (vm->pos).z;
+      local_c4[0].m[0][0] = local_c4[0].m[0][0] * vm->scaleY;
+      local_c4[0].m[1][1] = -vm->scaleX * local_c4[0].m[1][1];
       (*(g_GameContext.d3dDevice)->lpVtbl->SetTransform)(g_GameContext.d3dDevice,0x100,local_c4);
       if (this->currentSprite != vm->sprite) {
         this->currentSprite = vm->sprite;
         pDVar3 = &vm->matrix;
-        pDVar4 = &local_44;
+        pfVar4 = (float *)&local_44;
         for (iVar2 = 0x10; iVar2 != 0; iVar2 = iVar2 + -1) {
-          (pDVar4->field0_0x0).field0._11 = (pDVar3->field0_0x0).field0._11;
-          pDVar3 = (D3DMATRIX *)((int)&pDVar3->field0_0x0 + 4);
-          pDVar4 = (D3DMATRIX *)((int)&pDVar4->field0_0x0 + 4);
+          *pfVar4 = pDVar3->m[0][0];
+          pDVar3 = (D3DMATRIX *)(pDVar3->m[0] + 1);
+          pfVar4 = pfVar4 + 1;
         }
-        local_44.field0_0x0.field0._31 = (vm->sprite->uvStart).x + (vm->uvScrollPos).x;
-        local_44.field0_0x0.field0._32 = (vm->sprite->uvStart).y + (vm->uvScrollPos).y;
+        local_44.m[2][0] = (vm->sprite->uvStart).x + (vm->uvScrollPos).x;
+        local_44.m[2][1] = (vm->sprite->uvStart).y + (vm->uvScrollPos).y;
         (*(g_GameContext.d3dDevice)->lpVtbl->SetTransform)
                   (g_GameContext.d3dDevice,D3DTS_TEXTURE0,&local_44);
         if (this->currentTexture != this->textures[vm->sprite->sourceFileIndex]) {
@@ -76,7 +74,7 @@ int __thiscall AnmManager::FUN_00433590(AnmManager *this,AnmVm *vm)
           this->field16_0x210be = '\x03';
         }
       }
-      FUN_004324d0(this,(int)vm);
+      FUN_004324d0(this,vm);
       if ((g_GameContext.cfg.opts >> 1 & 1) == 0) {
         (*(g_GameContext.d3dDevice)->lpVtbl->DrawPrimitive)
                   (g_GameContext.d3dDevice,D3DPT_TRIANGLESTRIP,0,2);

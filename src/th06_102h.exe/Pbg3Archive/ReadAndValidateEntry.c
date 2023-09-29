@@ -1,9 +1,7 @@
 
 /* WARNING: Function: __chkstk replaced with injection: alloca_probe */
 
-void * __thiscall
-Pbg3Archive_conflict1::ReadAndValidateEntry
-          (Pbg3Archive_conflict1 *this,uint entryIdx,char *filename)
+void * __thiscall Pbg3Archive::ReadAndValidateEntry(Pbg3Archive *this,uint entryIdx,char *filename)
 
 {
   undefined uVar1;
@@ -18,7 +16,7 @@ Pbg3Archive_conflict1::ReadAndValidateEntry
   uint uVar10;
   uint unaff_retaddr;
   uint local_2038;
-  int checksum;
+  uint checksum;
   uint local_2030;
   uint local_202c;
   uint expected_csum;
@@ -26,19 +24,19 @@ Pbg3Archive_conflict1::ReadAndValidateEntry
   size_t size;
   undefined *local_201c;
   undefined *local_2018;
-  Pbg3Archive_conflict1 *local_2014;
+  Pbg3Archive *local_2014;
   undefined4 local_2010 [2049];
   uint local_c;
   
   local_c = __security_cookie ^ unaff_retaddr;
   local_2014 = this;
-  if ((entryIdx < *(uint *)(this + 8)) && (*(int *)this != 0)) {
-    size = *(size_t *)(*(int *)(this + 0x10) + 8 + entryIdx * 0x114);
+  if ((entryIdx < (uint)this->numOfEntries) && (this->inner != (Pbg3Parser *)0x0)) {
+    size = this->entries[entryIdx].uncompressedSize;
     puVar2 = (undefined *)_malloc(size);
     local_2018 = puVar2;
     if (puVar2 != (undefined *)0x0) {
       local_201c = puVar2;
-      data = ReadEntry((Pbg3Archive_conflict1 *)this,(int *)&size,(int *)&expected_csum,entryIdx);
+      data = ReadEntry(this,(int *)&size,(int *)&expected_csum,entryIdx);
       if (data != (byte *)0x0) {
         bVar6 = 0x80;
         local_2038 = 0x80;
@@ -181,8 +179,7 @@ joined_r0x0043cdcd:
   }
   _free(data);
   puVar2 = local_2018;
-  if (*(int *)(*(int *)(local_2014 + 0x10) + 0x10 + entryIdx * 0x114) == checksum)
-  goto LAB_0043ce19;
+  if (local_2014->entries[entryIdx].checksum == checksum) goto LAB_0043ce19;
   _free(local_2018);
 LAB_0043ce11:
   puVar2 = (undefined *)0x0;

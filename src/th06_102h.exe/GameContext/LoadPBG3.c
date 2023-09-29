@@ -57,13 +57,12 @@ LAB_00424435:
     f = (Pbg3Archive *)0x0;
   }
   else {
-    Pbg3Archive_conflict1::Pbg3Archive((Pbg3Archive_conflict1 *)f);
+    Pbg3Archive::Pbg3Archive(f);
   }
   uStack_8 = 0xffffffff;
   this->pbg3File[pbg3FileIdx] = f;
   DebugPrint("%s open ...\n",filename);
-  iVar2 = Pbg3Archive_conflict1::Load
-                    ((Pbg3Archive_conflict1 *)this->pbg3File[pbg3FileIdx],(char *)filename);
+  iVar2 = Pbg3Archive::Load(this->pbg3File[pbg3FileIdx],(char *)filename);
   if (iVar2 == 0) {
     _Memory = this->pbg3File[pbg3FileIdx];
     if (_Memory != (Pbg3Archive *)0x0) {
@@ -83,8 +82,7 @@ LAB_00424435:
       pPStack_cc = (Pbg3FileName *)(pPStack_cc->filename + 1);
     } while (bVar1 != 0);
     sprintf(acStack_98,"ver%.4x.dat",0x102);
-    uStack_14 = Pbg3Archive_conflict1::FindEntry
-                          ((Pbg3Archive_conflict1 *)this->pbg3File[pbg3FileIdx],acStack_98);
+    uStack_14 = Pbg3Archive::FindEntry(this->pbg3File[pbg3FileIdx],acStack_98);
     if ((int)uStack_14 < 0) {
       GameErrorContextFatal
                 (&g_GameErrorContext,"error : データのバージョンが違います\n");

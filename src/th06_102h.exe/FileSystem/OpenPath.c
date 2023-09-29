@@ -30,9 +30,7 @@ byte * FileSystem::OpenPath(char *file_path,int param_2)
       pbg3Idx = 0;
       while ((pbg3Idx < 0x10 &&
              ((g_Pbg3Files[pbg3Idx] == (Pbg3Archive *)0x0 ||
-              (entryIdx = Pbg3Archive_conflict1::FindEntry
-                                    ((Pbg3Archive_conflict1 *)g_Pbg3Files[pbg3Idx],filename),
-              entryIdx < 0))))) {
+              (entryIdx = Pbg3Archive::FindEntry(g_Pbg3Files[pbg3Idx],filename), entryIdx < 0))))) {
         pbg3Idx = pbg3Idx + 1;
       }
     }
@@ -59,11 +57,8 @@ byte * FileSystem::OpenPath(char *file_path,int param_2)
   }
   else {
     DebugPrint2("%s Decode ... \n",filename);
-    buf = (byte *)Pbg3Archive_conflict1::ReadAndValidateEntry
-                            ((Pbg3Archive_conflict1 *)g_Pbg3Files[pbg3Idx],entryIdx,filename);
-    g_LastFileSize =
-         Pbg3Archive_conflict1::GetEntrySize((Pbg3Archive_conflict1 *)g_Pbg3Files[pbg3Idx],entryIdx)
-    ;
+    buf = (byte *)Pbg3Archive::ReadAndValidateEntry(g_Pbg3Files[pbg3Idx],entryIdx,filename);
+    g_LastFileSize = Pbg3Archive::GetEntrySize(g_Pbg3Files[pbg3Idx],entryIdx);
   }
   return buf;
 }

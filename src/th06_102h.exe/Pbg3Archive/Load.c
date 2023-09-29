@@ -1,5 +1,5 @@
 
-undefined4 __thiscall Pbg3Archive_conflict1::Load(Pbg3Archive_conflict1 *this,char *param_1)
+undefined4 __thiscall Pbg3Archive::Load(Pbg3Archive *this,char *param_1)
 
 {
   int iVar1;
@@ -13,7 +13,7 @@ undefined4 __thiscall Pbg3Archive_conflict1::Load(Pbg3Archive_conflict1 *this,ch
   puStack_8 = &LAB_0046934b;
   pvStack_c = ExceptionList;
   ExceptionList = &pvStack_c;
-  iVar1 = dtor((Pbg3Archive_conflict1 *)this);
+  iVar1 = dtor(this);
   if (iVar1 != 0) {
     pPVar2 = (Pbg3Parser *)operator_new(0x24);
     uStack_4 = 0;
@@ -24,17 +24,17 @@ undefined4 __thiscall Pbg3Archive_conflict1::Load(Pbg3Archive_conflict1 *this,ch
       pPVar2 = (Pbg3Parser *)Pbg3Parser::Init2(pPVar2);
     }
     uStack_4 = 0xffffffff;
-    *(Pbg3Parser **)this = pPVar2;
+    this->inner = pPVar2;
     if (pPVar2 != (Pbg3Parser *)0x0) {
       iVar1 = Pbg3Parser::Open(pPVar2,param_1);
       if (iVar1 != 0) {
-        uVar3 = ParseHeader((Pbg3Archive_conflict1 *)this);
+        uVar3 = ParseHeader(this);
         ExceptionList = pvStack_c;
         return uVar3;
       }
-      if (*(int **)this != (int *)0x0) {
-        (**(code **)(**(int **)this + 0x1c))(1);
-        *(undefined4 *)this = 0;
+      if (this->inner != (Pbg3Parser *)0x0) {
+        (*(code *)this->inner->vtbl->dtor)(1);
+        this->inner = (Pbg3Parser *)0x0;
       }
     }
   }

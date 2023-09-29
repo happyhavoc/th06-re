@@ -1,5 +1,5 @@
 
-uint __thiscall Pbg3FileStuff::ReadVarInt(Pbg3FileStuff *this)
+uint __thiscall Pbg3Parser::ReadVarInt(Pbg3Parser *this)
 
 {
   bool bVar1;

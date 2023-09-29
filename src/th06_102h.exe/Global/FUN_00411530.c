@@ -176,7 +176,7 @@ void __fastcall FUN_00411530(int param_1)
         }
         break;
       case 8:
-        if (((_DAT_0069bcb0 == 0) && (DAT_0069d6d4 == 5)) &&
+        if (((DAT_0069bcb0 == 0) && (DAT_0069d6d4 == 5)) &&
            (*(short *)(*(int *)(param_1 + 0xee5dc) + 2) == 1)) {
           FUN_00418768((uint)DAT_0069d4bd * 10 + 3);
         }

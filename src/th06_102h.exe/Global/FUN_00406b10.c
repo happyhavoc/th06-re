@@ -1,6 +1,4 @@
 
-/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
-
 void FUN_00406b10(int param_1)
 
 {
@@ -17,8 +15,8 @@ void FUN_00406b10(int param_1)
     (local_8->pos).x = *pfVar1;
     (local_8->pos).y = pfVar1[1];
     (local_8->pos).z = pfVar1[2];
-    (local_8->pos).x = _DAT_0069d6dc + (local_8->pos).x;
-    (local_8->pos).y = _DAT_0069d6e0 + (local_8->pos).y;
+    (local_8->pos).x = VIEWPORT_X + (local_8->pos).x;
+    (local_8->pos).y = VIEWPORT_Y + (local_8->pos).y;
     (local_8->pos).z = 0.0;
     local_8->scaleY = 3.2;
     local_8->scaleX = 3.2;

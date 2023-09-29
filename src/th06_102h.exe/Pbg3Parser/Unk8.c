@@ -1,5 +1,5 @@
 
-Pbg3FileStuff * __thiscall Pbg3FileStuff::Unk8(Pbg3FileStuff *param_1_00,byte param_2)
+Pbg3Parser * __thiscall Pbg3Parser::Unk8(Pbg3Parser *param_1_00,byte param_2)
 
 {
   Unk9(param_1_00);

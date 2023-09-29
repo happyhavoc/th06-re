@@ -1,5 +1,5 @@
 
-uint __thiscall Pbg3FileStuff::ReadInt(Pbg3FileStuff *this,char numBitsAsPowerOf2)
+uint __thiscall Pbg3Parser::ReadInt(Pbg3Parser *this,char numBitsAsPowerOf2)
 
 {
   byte bVar1;

@@ -1,5 +1,5 @@
 
-void __fastcall Pbg3FileStuff::Init(Pbg3FileStuff *param_1)
+void __fastcall Pbg3Parser::Init(Pbg3Parser *param_1)
 
 {
   param_1->bitIdxInCurByte = 0x80;

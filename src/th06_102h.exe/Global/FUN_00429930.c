@@ -1,6 +1,4 @@
 
-/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
-
 undefined4 FUN_00429930(AnmVm *param_1)
 
 {
@@ -10,8 +8,8 @@ undefined4 FUN_00429930(AnmVm *param_1)
   if ((param_1[0x6e].pos2.y != 0.0) && (param_1[0x6e].alphaInterpTime.previous != 0)) {
     (*(code *)param_1[0x6e].alphaInterpTime.previous)(param_1);
   }
-  (param_1->pos).x = _DAT_0069d6dc + param_1[4].rotation.x;
-  (param_1->pos).y = _DAT_0069d6e0 + param_1[4].rotation.y;
+  (param_1->pos).x = VIEWPORT_X + param_1[4].rotation.x;
+  (param_1->pos).y = VIEWPORT_Y + param_1[4].rotation.y;
   (param_1->pos).z = 0.49;
   if (DAT_0069d4c0 == '\0') {
     AnmManager::FUN_00432ad0(g_AnmManager,param_1);
@@ -24,12 +22,12 @@ undefined4 FUN_00429930(AnmVm *param_1)
       param_1[2].pos.x = param_1[4].matrix.m[3][0];
       param_1[2].pos.y = param_1[4].matrix.m[3][1];
       param_1[2].pos.z = param_1[4].matrix.m[3][2];
-      param_1[1].pos.x = _DAT_0069d6dc + param_1[1].pos.x;
+      param_1[1].pos.x = VIEWPORT_X + param_1[1].pos.x;
       pfVar1 = &param_1[1].pos.y;
-      *pfVar1 = _DAT_0069d6e0 + *pfVar1;
-      param_1[2].pos.x = _DAT_0069d6dc + param_1[2].pos.x;
+      *pfVar1 = VIEWPORT_Y + *pfVar1;
+      param_1[2].pos.x = VIEWPORT_X + param_1[2].pos.x;
       pfVar1 = &param_1[2].pos.y;
-      *pfVar1 = _DAT_0069d6e0 + *pfVar1;
+      *pfVar1 = VIEWPORT_Y + *pfVar1;
       param_1[1].pos.z = 0.491;
       param_1[2].pos.z = 0.491;
       AnmManager::FUN_00432cc0(g_AnmManager,param_1 + 1);

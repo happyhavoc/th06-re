@@ -52,28 +52,28 @@ void FUN_00417502(uint *param_1)
                 (&g_AsciiManager,&local_10,"Bomb      = %8d\n",DAT_0069d4bb * 1000000);
     }
     local_c = local_c + 32.0;
-    if (_DAT_0069bcb0 == 0) {
+    if (DAT_0069bcb0 == 0) {
       g_AsciiManager.color = 0xffff8080;
       AsciiManager::FUN_00401650(&g_AsciiManager,&local_10,"Easy Rank      * 0.5\n");
     }
-    else if (_DAT_0069bcb0 == 1) {
+    else if (DAT_0069bcb0 == 1) {
       g_AsciiManager.color = 0xffff8080;
       AsciiManager::FUN_00401650(&g_AsciiManager,&local_10,"Normal Rank    * 1.0\n");
     }
-    else if (_DAT_0069bcb0 == 2) {
+    else if (DAT_0069bcb0 == 2) {
       g_AsciiManager.color = 0xffff8080;
       AsciiManager::FUN_00401650(&g_AsciiManager,&local_10,"Hard Rank      * 1.2\n");
     }
-    else if (_DAT_0069bcb0 == 3) {
+    else if (DAT_0069bcb0 == 3) {
       g_AsciiManager.color = 0xffff8080;
       AsciiManager::FUN_00401650(&g_AsciiManager,&local_10,"Lunatic Rank   * 1.5\n");
     }
-    else if (_DAT_0069bcb0 == 4) {
+    else if (DAT_0069bcb0 == 4) {
       g_AsciiManager.color = 0xffff8080;
       AsciiManager::FUN_00401650(&g_AsciiManager,&local_10,"Extra Rank     * 2.0\n");
     }
     local_c = local_c + 16.0;
-    if ((_DAT_0069bcb0 < 4) && (DAT_0069d4c3 == '\0')) {
+    if ((DAT_0069bcb0 < 4) && (DAT_0069d4c3 == '\0')) {
       if (g_GameContext.lifeCount == 3) {
         g_AsciiManager.color = 0xffff8080;
         AsciiManager::FUN_00401650(&g_AsciiManager,&local_10,"Player Penalty * 0.5\n");

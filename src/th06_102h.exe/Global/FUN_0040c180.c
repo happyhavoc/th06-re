@@ -1,7 +1,6 @@
 
 /* WARNING: Removing unreachable block (ram,0x0040c27a) */
 /* WARNING: Removing unreachable block (ram,0x0040c464) */
-/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
 
 void FUN_0040c180(int param_1,int param_2)
 
@@ -22,7 +21,7 @@ void FUN_0040c180(int param_1,int param_2)
   else {
     local_10 = 0xe;
     local_18 = (AnmVm *)&DAT_005ab5f8;
-    if (_DAT_0069bcb0 < 2) {
+    if (DAT_0069bcb0 < 2) {
       for (local_14 = 0; local_14 < 0x280; local_14 = local_14 + 1) {
         if (((*(short *)((int)local_18[5].matrix.m[3] + 2) != 0) &&
             (*(short *)((int)local_18[5].matrix.m[3] + 2) != 5)) &&

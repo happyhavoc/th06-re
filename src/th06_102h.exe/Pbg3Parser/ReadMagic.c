@@ -1,5 +1,5 @@
 
-int __thiscall Pbg3FileStuff::ReadMagic(Pbg3FileStuff *this)
+int __thiscall Pbg3Parser::ReadMagic(Pbg3Parser *this)
 
 {
   int iVar1;

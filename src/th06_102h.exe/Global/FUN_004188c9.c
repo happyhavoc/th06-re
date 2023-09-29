@@ -1,6 +1,4 @@
 
-/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
-
 undefined4 FUN_004188c9(void)
 
 {
@@ -135,11 +133,11 @@ undefined4 FUN_004188c9(void)
       case 0xb:
         DAT_0069bca0 = DAT_0069bca4;
         if (DAT_0069d4c3 == '\0') {
-          if ((DAT_0069d6d4 < 5) || ((_DAT_0069bcb0 != 0 && (DAT_0069d6d4 == 5)))) {
+          if ((DAT_0069d6d4 < 5) || ((DAT_0069bcb0 != 0 && (DAT_0069d6d4 == 5)))) {
             g_GameContext.unkInput2 = 3;
           }
-          else if (_DAT_0069bcbc == 0) {
-            if (_DAT_0069bcb0 == 4) {
+          else if (DAT_0069bcbc == 0) {
+            if (DAT_0069bcb0 == 4) {
               DAT_0069d4c2 = 1;
               g_GameContext.unkInput2 = 7;
             }

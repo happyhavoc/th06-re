@@ -1,6 +1,4 @@
 
-/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
-
 undefined4 FUN_00437b41(void)
 
 {
@@ -31,8 +29,8 @@ undefined4 FUN_00437b41(void)
         }
         *(undefined4 *)(in_ECX + 0x81f0) = 6;
         DAT_0069d4c3 = 0;
-        if (3 < _DAT_0069bcb0) {
-          _DAT_0069bcb0 = 1;
+        if (3 < DAT_0069bcb0) {
+          DAT_0069bcb0 = 1;
         }
         if (3 < g_GameContext.cfg.defaultDifficulty) {
           g_GameContext.cfg.defaultDifficulty = 1;
@@ -56,7 +54,7 @@ undefined4 FUN_00437b41(void)
           }
           *(undefined4 *)(in_ECX + 0x81f0) = 6;
           DAT_0069d4c3 = 0;
-          _DAT_0069bcb0 = 4;
+          DAT_0069bcb0 = 4;
           *(undefined4 *)(in_ECX + 0x81f4) = 0;
           *(undefined4 *)(in_ECX + 0x81fc) = 0x40000000;
           *(undefined4 *)(in_ECX + 0x8200) = 0xff000000;
@@ -71,8 +69,8 @@ undefined4 FUN_00437b41(void)
           *(undefined2 *)(in_ECX + 0x8a + local_8 * 0x110) = 4;
         }
         *(undefined4 *)(in_ECX + 0x81f0) = 6;
-        if (3 < _DAT_0069bcb0) {
-          _DAT_0069bcb0 = 1;
+        if (3 < DAT_0069bcb0) {
+          DAT_0069bcb0 = 1;
         }
         if (3 < g_GameContext.cfg.defaultDifficulty) {
           g_GameContext.cfg.defaultDifficulty = 1;

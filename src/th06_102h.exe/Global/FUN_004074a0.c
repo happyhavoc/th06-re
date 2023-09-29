@@ -266,7 +266,7 @@ LAB_004074ce:
     GameContext::FUN_00424285(&g_GameContext,(int *)&param_1[9].angleVel,&param_1[9].rotation.z);
     return 0;
   }
-  if (((uint)*(byte *)((int)local_20 + 9) & 1 << ((byte)_DAT_0069bcb0 & 0x1f)) == 0)
+  if (((uint)*(byte *)((int)local_20 + 9) & 1 << ((byte)DAT_0069bcb0 & 0x1f)) == 0)
   goto switchD_00407544_caseD_7f;
   local_1c = local_20 + 3;
   switch(*(undefined2 *)(local_20 + 1)) {
@@ -919,7 +919,7 @@ switchD_00407544_caseD_2:
     iVar21 = DAT_005a5f98 * 0x40;
     local_70 = &DAT_0069bcd0 + DAT_005a5f98 * 0x10;
     local_78 = 0;
-    if (_DAT_0069bcbc == 0) {
+    if (DAT_0069bcbc == 0) {
       local_2bc = local_20 + 4;
       local_2c0 = &DAT_0069bce8 + iVar21;
       do {
@@ -963,7 +963,7 @@ switchD_00407544_caseD_2:
         local_7c = DAT_005a5f94 + (DAT_005a5f94 * DAT_0069bc48) / 10;
         FUN_00417458();
         DAT_0069bca4 = DAT_0069bca4 + local_7c;
-        if (_DAT_0069bcbc == 0) {
+        if (DAT_0069bcbc == 0) {
           *(short *)((int)local_80 + 0x3e) = *(short *)((int)local_80 + 0x3e) + 1;
           for (local_84 = 4; 0 < local_84; local_84 = local_84 + -1) {
             *(undefined *)((int)local_80 + local_84 + 0x13) =

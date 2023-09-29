@@ -1,6 +1,4 @@
 
-/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
-
 void FUN_004071b0(void *param_1)
 
 {
@@ -24,8 +22,8 @@ void FUN_004071b0(void *param_1)
          ((float)fVar2 * local_8->sprite->heightPx * local_8->scaleX) / 2.0 + (local_8->pos).y;
     fVar2 = (float10)FUN_0041e850(1.570796 - fVar1);
     (local_8->rotation).z = (float)fVar2;
-    (local_8->pos).x = _DAT_0069d6dc + (local_8->pos).x;
-    (local_8->pos).y = _DAT_0069d6e0 + (local_8->pos).y;
+    (local_8->pos).x = VIEWPORT_X + (local_8->pos).x;
+    (local_8->pos).y = VIEWPORT_Y + (local_8->pos).y;
     (local_8->pos).z = 0.0;
     AnmManager::FUN_00432cc0(g_AnmManager,local_8);
     local_8 = local_8 + 1;

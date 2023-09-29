@@ -87,8 +87,8 @@ undefined4 FUN_004288c0(AnmVm *param_1)
     param_1[9].scaleInterpEndTime = 0;
     if ((int)param_1[0x6e].posInterpFinal.y < 0x1e) goto LAB_00428fa8;
     *(undefined *)(param_1[9].matrix.m[1] + 1) = 1;
-    param_1[4].rotation.x = _DAT_0069d6e4 / 2.0;
-    param_1[4].rotation.y = _DAT_0069d6e8 - 64.0;
+    param_1[4].rotation.x = VIEWPORT_WIDTH / 2.0;
+    param_1[4].rotation.y = VIEWPORT_HEIGHT - 64.0;
     param_1[4].rotation.z = 0.2;
     param_1[0x6e].posInterpFinal.y = 0.0;
     param_1[0x6e].posInterpFinal.x = 0.0;
@@ -103,7 +103,7 @@ undefined4 FUN_004288c0(AnmVm *param_1)
       goto LAB_00428fa8;
     }
     DAT_0069d4ba = DAT_0069d4ba + -1;
-    if ((_DAT_0069bcb0 < 4) && (DAT_0069d4c3 == '\0')) {
+    if ((DAT_0069bcb0 < 4) && (DAT_0069d4c3 == '\0')) {
       DAT_0069d4bb = g_GameContext.bombCount;
     }
     else {

@@ -4,22 +4,22 @@ int AsciiManager::RegisterChain(void)
 {
   int iVar1;
   
-  ChainElem_00487aac.callback = FUN_00401140;
-  ChainElem_00487aac.addedCallback = AddedCallback;
-  ChainElem_00487aac.deletedCallback = DeletedCallback;
-  ChainElem_00487aac.arg = &g_AsciiManager;
-  iVar1 = Chain::AddToCalcChain(&g_Chain,&ChainElem_00487aac,1);
+  g_AsciiManagerCalcChain.callback = OnUpdate;
+  g_AsciiManagerCalcChain.addedCallback = AddedCallback;
+  g_AsciiManagerCalcChain.deletedCallback = DeletedCallback;
+  g_AsciiManagerCalcChain.arg = &g_AsciiManager;
+  iVar1 = Chain::AddToCalcChain(&g_Chain,&g_AsciiManagerCalcChain,1);
   if (iVar1 == 0) {
-    ChainElem_0047b8e0.callback = FUN_00401250;
-    ChainElem_0047b8e0.addedCallback = 0;
-    ChainElem_0047b8e0.deletedCallback = 0;
-    ChainElem_0047b8e0.arg = &g_AsciiManager;
-    Chain::AddToDrawChain(&g_Chain,&ChainElem_0047b8e0,0xf);
-    ChainElem_00487acc.callback = FUN_00401290;
-    ChainElem_00487acc.addedCallback = 0;
-    ChainElem_00487acc.deletedCallback = 0;
-    ChainElem_00487acc.arg = &g_AsciiManager;
-    Chain::AddToDrawChain(&g_Chain,&ChainElem_00487acc,10);
+    g_AsciiManagerDrawLowPrioChain.callback = OnDrawLowPrio;
+    g_AsciiManagerDrawLowPrioChain.addedCallback = 0;
+    g_AsciiManagerDrawLowPrioChain.deletedCallback = 0;
+    g_AsciiManagerDrawLowPrioChain.arg = &g_AsciiManager;
+    Chain::AddToDrawChain(&g_Chain,&g_AsciiManagerDrawLowPrioChain,0xf);
+    g_AsciiManagerOnDrawHighPrioChain.callback = OnDrawHighPrio;
+    g_AsciiManagerOnDrawHighPrioChain.addedCallback = 0;
+    g_AsciiManagerOnDrawHighPrioChain.deletedCallback = 0;
+    g_AsciiManagerOnDrawHighPrioChain.arg = &g_AsciiManager;
+    Chain::AddToDrawChain(&g_Chain,&g_AsciiManagerOnDrawHighPrioChain,10);
     iVar1 = 0;
   }
   else {

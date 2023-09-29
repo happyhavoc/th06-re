@@ -1,5 +1,5 @@
 
-int __thiscall Pbg3FileStuff::ReadBit(Pbg3FileStuff *this)
+int __thiscall Pbg3Parser::ReadBit(Pbg3Parser *this)
 
 {
   byte bVar1;

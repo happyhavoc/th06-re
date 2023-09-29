@@ -34,7 +34,7 @@ LAB_0043a516:
         goto LAB_0043a516;
       }
     }
-    *(uint *)(param_1 + 0x81a0) = (uint)(_DAT_0069bcb0 == 4);
+    *(uint *)(param_1 + 0x81a0) = (uint)(DAT_0069bcb0 == 4);
   }
 LAB_0043a520:
   if (DAT_0069d4c3 != '\0') {

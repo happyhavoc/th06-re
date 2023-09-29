@@ -16,13 +16,13 @@ AsciiManagerProbablyStageRelated::FUN_00402870(AsciiManagerProbablyStageRelated 
     g_GameContext.unkInput2 = 7;
     return 1;
   }
-  if (_DAT_0069bcbc != 0) {
+  if (DAT_0069bcbc != 0) {
     DAT_0069bca0 = DAT_0069bca4;
     DAT_0069d4c0 = 0;
     g_GameContext.unkInput2 = 8;
     return 1;
   }
-  if ((2 < DAT_0069d4b8) || (3 < _DAT_0069bcb0)) {
+  if ((2 < DAT_0069d4b8) || (3 < DAT_0069bcb0)) {
     DAT_0069bca0 = DAT_0069bca4;
     DAT_0069d4c0 = 0;
     g_GameContext.unkInput2 = 7;

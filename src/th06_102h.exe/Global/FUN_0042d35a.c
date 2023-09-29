@@ -1,6 +1,4 @@
 
-/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
-
 undefined4 FUN_0042d35a(void)
 
 {
@@ -15,7 +13,7 @@ undefined4 FUN_0042d35a(void)
   if ((0xe < *(int *)(in_ECX + 8)) && (*(int *)(in_ECX + 8) < 0x11)) {
     local_8 = in_ECX + 0x2790;
     g_AsciiManager.color = *(D3DCOLOR *)(in_ECX + 0x280c);
-    if (_DAT_0069bcb0 < 4) {
+    if (DAT_0069bcb0 < 4) {
       local_34 = (float)DAT_0069d70c / 89500.0;
     }
     else {
@@ -26,9 +24,9 @@ undefined4 FUN_0042d35a(void)
     local_10 = *(float *)(in_ECX + 0x2824) + 32.0;
     AsciiManager::FUN_00401650(&g_AsciiManager,&local_14,(char *)&PTR_DAT_0046bcc0);
     local_10 = local_10 + 22.0;
-    AsciiManager::FUN_00401530(&g_AsciiManager,&local_14,(&PTR_s__Easy_00478504)[_DAT_0069bcb0]);
+    AsciiManager::FUN_00401530(&g_AsciiManager,&local_14,(&PTR_s__Easy_00478504)[DAT_0069bcb0]);
     local_10 = local_10 + 22.0;
-    if ((_DAT_0069bcb0 == 0) || (DAT_0069d4c2 == '\0')) {
+    if ((DAT_0069bcb0 == 0) || (DAT_0069d4c2 == '\0')) {
       AsciiManager::FUN_00401650(&g_AsciiManager,&local_14,"    %3.2f%%",(double)(local_34 * 100.0))
       ;
     }

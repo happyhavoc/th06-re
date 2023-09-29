@@ -1,5 +1,5 @@
 
-int AsciiManager::FUN_00401250(AsciiManager *arg)
+int AsciiManager::OnDrawLowPrio(AsciiManager *arg)
 
 {
   FUN_004016b0(arg);

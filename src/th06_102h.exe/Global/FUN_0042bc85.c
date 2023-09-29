@@ -1,6 +1,4 @@
 
-/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
-
 undefined4 __fastcall FUN_0042bc85(int param_1)
 
 {
@@ -12,7 +10,7 @@ undefined4 __fastcall FUN_0042bc85(int param_1)
   
   if (*(int *)(param_1 + 4) == 0) {
     *(uint *)(param_1 + 0x24) = (uint)DAT_0069d4bd;
-    *(undefined4 *)(param_1 + 0x2c) = _DAT_0069bcb0;
+    *(undefined4 *)(param_1 + 0x2c) = DAT_0069bcb0;
     local_c = param_1 + 0x40;
     for (local_8 = 0; local_8 < 0x26; local_8 = local_8 + 1) {
       *(short *)(local_c + 0x8a) = (short)*(undefined4 *)(param_1 + 0x2c) + 3;

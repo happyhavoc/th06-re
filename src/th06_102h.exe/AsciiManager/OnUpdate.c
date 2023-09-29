@@ -1,5 +1,5 @@
 
-int AsciiManager::FUN_00401140(AsciiManager *arg)
+int AsciiManager::OnUpdate(AsciiManager *arg)
 
 {
   AsciiManagerPopup *local_c;

@@ -271,7 +271,7 @@ undefined4 FUN_0042d98e(int param_1)
   }
   else if (9 < iVar1) {
     if (iVar1 < 0xf) {
-      FUN_0042c2d4();
+      FUN_0042c2d4(param_1);
     }
     else if (0xe < iVar1) {
       if (iVar1 < 0x11) {

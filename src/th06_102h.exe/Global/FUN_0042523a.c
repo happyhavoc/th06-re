@@ -6,7 +6,7 @@ undefined4 FUN_0042523a(void)
 {
   undefined4 uVar1;
   int iVar2;
-  undefined4 *puVar3;
+  ChainElem **ppCVar3;
   void *pvStack_10;
   undefined *puStack_c;
   undefined4 uStack_8;
@@ -18,23 +18,23 @@ undefined4 FUN_0042523a(void)
     DAT_006ca624 = DAT_006ca624 | 1;
     uStack_8 = 0;
     ExceptionList = &pvStack_10;
-    FUN_00425318();
+    FUN_00425318(&PTR_006c71f0);
   }
   uStack_8 = 0xffffffff;
-  puVar3 = &DAT_006c71f0;
+  ppCVar3 = &PTR_006c71f0;
   for (iVar2 = 0xd0d; iVar2 != 0; iVar2 = iVar2 + -1) {
-    *puVar3 = 0;
-    puVar3 = puVar3 + 1;
+    *ppCVar3 = (ChainElem *)0x0;
+    ppCVar3 = ppCVar3 + 1;
   }
-  DAT_006c71f0 = ChainElem::Allocate(FUN_004253dd);
-  DAT_006c71f0->arg = &DAT_006c71f0;
-  DAT_006c71f0->addedCallback = FUN_0042564c;
-  DAT_006c71f0->deletedCallback = FUN_00425d97;
-  iVar2 = Chain::AddToCalcChain(&g_Chain,DAT_006c71f0,2);
+  PTR_006c71f0 = ChainElem::Allocate(FUN_004253dd);
+  PTR_006c71f0->arg = &PTR_006c71f0;
+  PTR_006c71f0->addedCallback = FUN_0042564c;
+  PTR_006c71f0->deletedCallback = FUN_00425d97;
+  iVar2 = Chain::AddToCalcChain(&g_Chain,PTR_006c71f0,2);
   if (iVar2 == 0) {
-    DAT_006c71f4 = ChainElem::Allocate(FUN_0042545a);
-    DAT_006c71f4->arg = &DAT_006c71f0;
-    Chain::AddToDrawChain(&g_Chain,DAT_006c71f4,0);
+    PTR_006c71f4 = ChainElem::Allocate(FUN_0042545a);
+    PTR_006c71f4->arg = &PTR_006c71f0;
+    Chain::AddToDrawChain(&g_Chain,PTR_006c71f4,0);
     uVar1 = 0;
   }
   else {

@@ -1,5 +1,5 @@
 
-undefined4 __thiscall Pbg3FileStuff::SeekToOffset(Pbg3FileStuff *this,uint fileOffset)
+undefined4 __thiscall Pbg3Parser::SeekToOffset(Pbg3Parser *this,uint fileOffset)
 
 {
   int iVar1;

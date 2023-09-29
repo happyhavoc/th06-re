@@ -5,7 +5,7 @@
 undefined4 InputChainAddedCallback(GameContext *param_1)
 
 {
-  Pbg3File **ppPVar1;
+  Pbg3Archive **ppPVar1;
   undefined4 uVar2;
   HRESULT HVar3;
   DWORD DVar4;
@@ -22,12 +22,12 @@ undefined4 InputChainAddedCallback(GameContext *param_1)
   pvStack_10 = ExceptionList;
   ExceptionList = &pvStack_10;
   for (iStack_14 = 0; iStack_14 < 0x10; iStack_14 = iStack_14 + 1) {
-    param_1->pbg3File[iStack_14] = (Pbg3File *)0x0;
+    param_1->pbg3File[iStack_14] = (Pbg3Archive *)0x0;
   }
   ppPVar1 = param_1->pbg3File;
   g_Pbg3Files = ppPVar1;
   GameContext::LoadPBG3(param_1,0,(byte *)"紅魔郷IN.dat");
-  if (ppPVar1 == (Pbg3File **)0x0) {
+  if (ppPVar1 == (Pbg3Archive **)0x0) {
     AnmManager::LoadSurface(g_AnmManager,0,"data/title/th06logo.jpg");
     AnmManager::CopySurfaceToBackBuffer(g_AnmManager,0,0,0,0,0);
     HVar3 = (*(g_GameContext.d3dDevice)->lpVtbl->Present)

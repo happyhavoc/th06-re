@@ -1,6 +1,4 @@
 
-/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
-
 void FUN_00416c50(AnmVm *param_1)
 
 {
@@ -22,8 +20,8 @@ void FUN_00416c50(AnmVm *param_1)
   default:
     local_8 = param_1;
   }
-  (local_8->pos).x = _DAT_0069d6dc + param_1[5].angleVel.y;
-  (local_8->pos).y = _DAT_0069d6e0 + param_1[5].angleVel.z;
+  (local_8->pos).x = VIEWPORT_X + param_1[5].angleVel.y;
+  (local_8->pos).y = VIEWPORT_Y + param_1[5].angleVel.z;
   (local_8->pos).z = 0.0;
   local_8->color = local_8->color & 0xff000000 | 0xffffff;
   if (local_8->autoRotate != 0) {

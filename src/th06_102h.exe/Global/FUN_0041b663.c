@@ -1,6 +1,4 @@
 
-/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
-
 undefined4 FUN_0041b663(uint *param_1)
 
 {
@@ -24,10 +22,10 @@ undefined4 FUN_0041b663(uint *param_1)
       (*(char *)(param_1 + 0x609) == '\0')) &&
      (((g_CurFrameInput & 8) != 0 && ((g_CurFrameInput & 8) != (g_LastFrameInput & 8))))) {
     *(undefined *)((int)param_1 + 0x181f) = 1;
-    _DAT_0069d6dc = 0x42000000;
-    _DAT_0069d6e0 = 0x41800000;
-    _DAT_0069d6e4 = 0x43c00000;
-    _DAT_0069d6e8 = 0x43e00000;
+    VIEWPORT_X = 32.0;
+    VIEWPORT_Y = 16.0;
+    VIEWPORT_WIDTH = 384.0;
+    VIEWPORT_HEIGHT = 448.0;
     g_GameContext.field77_0x198 = 3;
   }
   if ((*(char *)(param_1 + 0x608) == '\0') && (*(char *)((int)param_1 + 0x181f) == '\0')) {

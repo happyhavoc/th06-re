@@ -1,5 +1,5 @@
 
-void __thiscall Pbg3FileStuff::Unk9(Pbg3FileStuff *this)
+void __thiscall Pbg3Parser::Unk9(Pbg3Parser *this)
 
 {
   Pbg3FileAbstraction *this_00;
@@ -11,14 +11,14 @@ void __thiscall Pbg3FileStuff::Unk9(Pbg3FileStuff *this)
   local_c = ExceptionList;
   this_00 = &this->fileAbstraction;
   ExceptionList = &local_c;
-  this->vtbl = &Pbg3FileStuffVtbl_0046cb9c;
+  this->vtbl = &Pbg3ParserVtbl_0046cb9c;
   (this_00->base).vtbl = &FileAbstractionVtable_0046cbbc;
   local_4 = 1;
   FileAbstraction::Close(&this_00->base);
   Init(this);
   local_4 = local_4 & 0xffffff00;
   FileAbstraction::UnkDeinit(&this_00->base);
-  this->vtbl = &Pbg3FileStuffVtbl_0046cb7c;
+  this->vtbl = &Pbg3ParserVtbl_0046cb7c;
   ExceptionList = local_c;
   return;
 }

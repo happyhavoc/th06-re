@@ -24,10 +24,10 @@ undefined4 * __fastcall FUN_004108b0(undefined4 *param_1)
   param_1[0x452] = 8;
   param_1[0x44c] = 0;
   param_1[1099] = 0;
-  param_1[0x44a] = 0xfffffc19;
+  param_1[0x44a] = 4294966297;
   param_1[0x449] = 0;
   param_1[0x448] = 0;
-  param_1[0x447] = 0xfffffc19;
+  param_1[0x447] = 4294966297;
   param_1[2] = 0;
   param_1[3] = 0;
   param_1[4] = 0;

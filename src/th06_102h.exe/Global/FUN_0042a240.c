@@ -1,5 +1,5 @@
 
-undefined4 FUN_0042a240(int param_1,undefined4 param_2)
+undefined4 FUN_0042a240(int param_1,char *param_2)
 
 {
   ChainElem *pCVar1;
@@ -18,7 +18,7 @@ undefined4 FUN_0042a240(int param_1,undefined4 param_2)
       DAT_006d3f18 = local_14;
       *(undefined4 *)((int)local_14 + 4) = 0;
       *(int *)((int)local_14 + 8) = param_1;
-      *(undefined4 *)((int)local_14 + 0xc) = param_2;
+      *(char **)((int)local_14 + 0xc) = param_2;
       if (param_1 == 0) {
         pCVar1 = ChainElem::Allocate(FUN_0042a470);
         *(ChainElem **)((int)local_14 + 0x68) = pCVar1;

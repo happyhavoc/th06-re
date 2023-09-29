@@ -1,5 +1,5 @@
 
-byte __thiscall Pbg3FileStuff::ReadByteAssumeAligned(Pbg3FileStuff *this)
+byte __thiscall Pbg3Parser::ReadByteAssumeAligned(Pbg3Parser *this)
 
 {
   byte bVar1;

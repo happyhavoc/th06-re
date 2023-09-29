@@ -57,12 +57,12 @@ undefined4 FUN_0043579f(int param_1)
     }
     if (0x2cf < *(int *)(param_1 + 0x81f8)) {
 LAB_004359b3:
-      _DAT_0069bcbc = 1;
+      DAT_0069bcbc = 1;
       DAT_0069d4c4 = 1;
       _DAT_0069d4c8 = 0;
       g_GameContext.framerateMultiplier = 1.0;
-      _strcpy(&DAT_0069d4cc,"data/demo/demo00.rpy");
-      _DAT_0069bcb0 = 3;
+      _strcpy(RPY_UNKNOWN,"data/demo/demo00.rpy");
+      DAT_0069bcb0 = 3;
       DAT_0069d6d4 = 3;
       g_GameContext.unkInput2 = 2;
       return 0;
@@ -222,7 +222,7 @@ switchD_004358f7_caseD_2:
     *(undefined4 *)(param_1 + 0x81fc) = 0;
     *(undefined4 *)(param_1 + 0x8214) = *(undefined4 *)(param_1 + 0x8210);
     *(undefined4 *)(param_1 + 0x8210) = 0;
-    if (_DAT_0069bcb0 < 4) {
+    if (DAT_0069bcb0 < 4) {
       for (local_8 = 0; (int)local_8 < 0x7a; local_8 = local_8 + 1) {
         *(undefined2 *)(param_1 + 0x8a + local_8 * 0x110) = 6;
       }
@@ -242,7 +242,7 @@ switchD_004358f7_caseD_2:
     break;
   case 7:
     local_c = (AnmVm *)(param_1 + 0x5610);
-    if (_DAT_0069bcb0 < 4) {
+    if (DAT_0069bcb0 < 4) {
       FUN_0043753c(param_1);
       for (local_8 = 0; (int)local_8 < 4; local_8 = local_8 + 1) {
         if (local_8 == *(int *)(param_1 + 0x81a0)) {
@@ -299,14 +299,14 @@ switchD_004358f7_caseD_2:
           *(undefined2 *)(param_1 + 0x8a + local_8 * 0x110) = 7;
         }
         FUN_004311e0(10);
-        if (_DAT_0069bcb0 < 4) {
+        if (DAT_0069bcb0 < 4) {
           *(undefined2 *)(param_1 + (*(int *)(param_1 + 0x81a0) + 0x51) * 0x110 + 0x8a) = 8;
-          _DAT_0069bcb0 = *(int *)(param_1 + 0x81a0);
+          DAT_0069bcb0 = *(int *)(param_1 + 0x81a0);
           *(uint *)(param_1 + 0x81a0) = (uint)DAT_0069d4bd;
         }
         else {
           *(undefined2 *)(param_1 + 0x5ada) = 8;
-          _DAT_0069bcb0 = 4;
+          DAT_0069bcb0 = 4;
           iVar4 = FUN_0043a736(DAT_0069d4bd,0);
           if ((iVar4 == 0) && (iVar4 = FUN_0043a736(DAT_0069d4bd,1), iVar4 == 0)) {
             *(uint *)(param_1 + 0x81a0) = 1 - (uint)DAT_0069d4bd;
@@ -315,7 +315,7 @@ switchD_004358f7_caseD_2:
             *(uint *)(param_1 + 0x81a0) = (uint)DAT_0069d4bd;
           }
         }
-        g_GameContext.cfg.defaultDifficulty = DAT_0069bcb0;
+        g_GameContext.cfg.defaultDifficulty = (byte)DAT_0069bcb0;
         local_c = (AnmVm *)(param_1 + 0x5b60);
         for (local_8 = 0; (int)local_8 < 2; local_8 = local_8 + 1) {
           if (local_8 != *(int *)(param_1 + 0x81a0)) {
@@ -333,7 +333,7 @@ switchD_004358f7_caseD_2:
         *(undefined2 *)(param_1 + 0x8a + local_8 * 0x110) = 4;
       }
       FUN_004311e0(0xb);
-      if (_DAT_0069bcb0 < 4) {
+      if (DAT_0069bcb0 < 4) {
         g_GameContext.cfg.defaultDifficulty = *(byte *)(param_1 + 0x81a0);
         if (DAT_0069d4c3 == '\0') {
           *(undefined4 *)(param_1 + 0x81a0) = 0;
@@ -359,7 +359,7 @@ LAB_0043666d:
         if (*(int *)(param_1 + 0x81a0) < 0) {
           *(int *)(param_1 + 0x81a0) = *(int *)(param_1 + 0x81a0) + 2;
         }
-        if (((_DAT_0069bcb0 == 4) &&
+        if (((DAT_0069bcb0 == 4) &&
             (iVar4 = FUN_0043a736(*(undefined4 *)(param_1 + 0x81a0),0), iVar4 == 0)) &&
            (iVar4 = FUN_0043a736(*(undefined4 *)(param_1 + 0x81a0),1), iVar4 == 0)) {
           *(int *)(param_1 + 0x81a0) = *(int *)(param_1 + 0x81a0) + 1;
@@ -389,7 +389,7 @@ LAB_0043666d:
       if (1 < *(int *)(param_1 + 0x81a0)) {
         *(int *)(param_1 + 0x81a0) = *(int *)(param_1 + 0x81a0) + -2;
       }
-      if (((_DAT_0069bcb0 != 4) ||
+      if (((DAT_0069bcb0 != 4) ||
           (iVar4 = FUN_0043a736(*(undefined4 *)(param_1 + 0x81a0),0), iVar4 != 0)) ||
          (iVar4 = FUN_0043a736(*(undefined4 *)(param_1 + 0x81a0),1), iVar4 != 0)) {
         FUN_004311e0(0xc);
@@ -420,7 +420,7 @@ LAB_0043666d:
         for (local_8 = 0; (int)local_8 < 0x7a; local_8 = local_8 + 1) {
           *(undefined2 *)(param_1 + 0x8a + local_8 * 0x110) = 0xd;
         }
-        *(undefined2 *)(param_1 + (_DAT_0069bcb0 + 0x51) * 0x110 + 0x8a) = 0;
+        *(undefined2 *)(param_1 + (DAT_0069bcb0 + 0x51) * 0x110 + 0x8a) = 0;
         local_c = (AnmVm *)(param_1 + 0x5b60);
         for (local_8 = 0; (int)local_8 < 2; local_8 = local_8 + 1) {
           if (local_8 != *(int *)(param_1 + 0x81a0)) {
@@ -438,7 +438,7 @@ LAB_0043666d:
           local_c = (AnmVm *)((int)local_c + 0x220);
         }
         DAT_0069d4bd = *(byte *)(param_1 + 0x81a0);
-        if (_DAT_0069bcb0 < 4) {
+        if (DAT_0069bcb0 < 4) {
           *(uint *)(param_1 + 0x81a0) = (uint)DAT_0069d4be;
         }
         else {
@@ -456,7 +456,7 @@ LAB_0043666d:
     else {
       *(undefined4 *)(param_1 + 0x81f0) = 7;
       *(undefined4 *)(param_1 + 0x81f4) = 0;
-      if (_DAT_0069bcb0 < 4) {
+      if (DAT_0069bcb0 < 4) {
         for (local_8 = 0; (int)local_8 < 0x7a; local_8 = local_8 + 1) {
           *(undefined2 *)(param_1 + 0x8a + local_8 * 0x110) = 6;
         }
@@ -479,7 +479,7 @@ LAB_0043666d:
     break;
   case 0xb:
     FUN_0043753c(param_1);
-    if ((_DAT_0069bcb0 == 4) &&
+    if ((DAT_0069bcb0 == 4) &&
        (iVar4 = FUN_0043a736(DAT_0069d4bd,*(undefined4 *)(param_1 + 0x81a0)), iVar4 == 0)) {
       *(int *)(param_1 + 0x81a0) = 1 - *(int *)(param_1 + 0x81a0);
     }
@@ -522,7 +522,7 @@ LAB_0043666d:
            ((g_CurFrameInput & 0x1001) != (g_LastFrameInput & 0x1001))) {
           DAT_0069d4be = *(byte *)(param_1 + 0x81a0);
           if (DAT_0069d4c3 == '\0') {
-            if (_DAT_0069bcb0 < 4) {
+            if (DAT_0069bcb0 < 4) {
               DAT_0069d6d4 = 0;
             }
             else {
@@ -535,7 +535,7 @@ LAB_0043666d:
           for (local_8 = 0; (int)local_8 < 0x7a; local_8 = local_8 + 1) {
             *(undefined2 *)(param_1 + 0x8a + local_8 * 0x110) = 0x13;
           }
-          *(undefined2 *)(param_1 + (_DAT_0069bcb0 + 0x51) * 0x110 + 0x8a) = 0;
+          *(undefined2 *)(param_1 + (DAT_0069bcb0 + 0x51) * 0x110 + 0x8a) = 0;
           local_c = (AnmVm *)(param_1 + 0x5b60);
           for (local_8 = 0; (int)local_8 < 2; local_8 = local_8 + 1) {
             if (local_8 != DAT_0069d4bd) {
@@ -554,16 +554,16 @@ LAB_0043666d:
           }
           *(undefined4 *)(param_1 + 0x81a0) = DAT_0069d6d8;
           if ((byte)(&DAT_0069cce1)
-                    [_DAT_0069bcb0 + ((uint)DAT_0069d4be + (uint)DAT_0069d4bd * 2) * 0x18] < 7) {
+                    [DAT_0069bcb0 + ((uint)DAT_0069d4be + (uint)DAT_0069d4bd * 2) * 0x18] < 7) {
             local_b4 = (uint)(byte)(&DAT_0069cce1)
-                                   [_DAT_0069bcb0 +
+                                   [DAT_0069bcb0 +
                                     ((uint)DAT_0069d4be + (uint)DAT_0069d4bd * 2) * 0x18];
           }
           else {
             local_b4 = 6;
           }
           local_4c = local_b4;
-          if ((_DAT_0069bcb0 == 0) && (local_b4 == 6)) {
+          if ((DAT_0069bcb0 == 0) && (local_b4 == 6)) {
             local_4c = 5;
           }
           if ((int)local_4c <= *(int *)(param_1 + 0x81a0)) {
@@ -585,7 +585,7 @@ LAB_0043666d:
           }
           local_c = (AnmVm *)((int)local_c + 0x220);
         }
-        *(undefined2 *)(param_1 + (_DAT_0069bcb0 + 0x51) * 0x110 + 0x8a) = 0;
+        *(undefined2 *)(param_1 + (DAT_0069bcb0 + 0x51) * 0x110 + 0x8a) = 0;
         FUN_004311e0(0xb);
         DAT_0069d4be = *(byte *)(param_1 + 0x81a0);
         *(uint *)(param_1 + 0x81a0) = (uint)DAT_0069d4bd;
@@ -626,13 +626,13 @@ LAB_0043666d:
 LAB_00436de7:
           DAT_0069d4ba = g_GameContext.cfg.lifeCount;
           DAT_0069d4bb = g_GameContext.cfg.bombCount;
-          if ((_DAT_0069bcb0 == 4) || (DAT_0069d4c3 != '\0')) {
+          if ((DAT_0069bcb0 == 4) || (DAT_0069d4c3 != '\0')) {
             DAT_0069d4ba = 2;
             DAT_0069d4bb = 3;
           }
           g_GameContext.unkInput2 = 2;
           FUN_004311e0(10);
-          _DAT_0069bcbc = 0;
+          DAT_0069bcbc = 0;
           local_48 = 0.0;
           if (*(int *)(param_1 + 0x10ee0) < 2) {
             local_48 = 60.0;
@@ -701,7 +701,7 @@ LAB_00436de7:
         for (local_8 = 0; (int)local_8 < 0x7a; local_8 = local_8 + 1) {
           *(undefined2 *)(param_1 + 0x8a + local_8 * 0x110) = 0xd;
         }
-        *(undefined2 *)(param_1 + (_DAT_0069bcb0 + 0x51) * 0x110 + 0x8a) = 0;
+        *(undefined2 *)(param_1 + (DAT_0069bcb0 + 0x51) * 0x110 + 0x8a) = 0;
         local_c = (AnmVm *)(param_1 + 0x5b60);
         for (local_8 = 0; (int)local_8 < 2; local_8 = local_8 + 1) {
           if (local_8 != DAT_0069d4bd) {

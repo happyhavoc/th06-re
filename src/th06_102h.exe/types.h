@@ -1648,6 +1648,14 @@ struct DirectSound8PlayerUninit {
     LPDIRECTSOUND8 directsound;
 };
 
+typedef struct test test, *Ptest;
+
+struct test {
+    void *field0_0x0;
+    int field1_0x4;
+    int field2_0x8;
+};
+
 typedef struct GameWindow GameWindow, *PGameWindow;
 
 struct GameWindow {
@@ -1791,6 +1799,11 @@ struct struct_1 {
     void *field57_0xec;
     void *field58_0xf0;
     void *field59_0xf4;
+};
+
+typedef struct Pbg3File Pbg3File, *PPbg3File;
+
+struct Pbg3File { /* PlaceHolder Class Structure */
 };
 
 typedef struct PointF32 PointF32, *PPointF32;
@@ -49487,6 +49500,12 @@ struct MidiSample {
     undefined field28_0x1f;
 };
 
+typedef struct Pbg3Archive Pbg3Archive, *PPbg3Archive;
+
+typedef struct Pbg3Parser Pbg3Parser, *PPbg3Parser;
+
+typedef struct Pbg3ParserVtbl Pbg3ParserVtbl, *PPbg3ParserVtbl;
+
 typedef struct Pbg3FileAbstraction Pbg3FileAbstraction, *PPbg3FileAbstraction;
 
 typedef struct FileAbstraction FileAbstraction, *PFileAbstraction;
@@ -49507,6 +49526,30 @@ struct Pbg3FileAbstraction {
     struct FileAbstraction base;
 };
 
+struct Pbg3Archive {
+    struct Pbg3Parser *inner;
+    int field1_0x4;
+    int numOfEntries;
+    int fileTableOffset;
+    struct Pbg3Entry *entries;
+};
+
+struct Pbg3Parser {
+    struct Pbg3ParserVtbl *vtbl;
+    uint offsetInFile;
+    uint fileSize;
+    byte curByte;
+    undefined field4_0xd;
+    undefined field5_0xe;
+    undefined field6_0xf;
+    byte bitIdxInCurByte;
+    undefined field8_0x11;
+    undefined field9_0x12;
+    undefined field10_0x13;
+    uint someKindOfCrc;
+    struct Pbg3FileAbstraction fileAbstraction; /* Created by retype action */
+};
+
 struct FileAbstractionVtable {
     int (*Open)(struct FileAbstraction *, LPCSTR, char *);
     void (*Close)(struct FileAbstraction *);
@@ -49518,6 +49561,17 @@ struct FileAbstractionVtable {
     DWORD (*Tell)(struct FileAbstraction *);
     DWORD (*GetSize)(struct FileAbstraction *);
     HLOCAL (*ReadRemaining)(struct FileAbstraction *, uint);
+};
+
+struct Pbg3ParserVtbl {
+    bool (*ReadBit)(struct Pbg3Parser *);
+    void *ReadInt;
+    void *ReadByteAssumeAligned;
+    void *SeekToOffset;
+    void *SeekToByteAligned;
+    void *ReadByteAlignedData;
+    void *GetLastWriteTime;
+    void *dtor;
 };
 
 typedef struct GameContext GameContext, *PGameContext;
@@ -49532,8 +49586,6 @@ typedef struct GameConfiguration GameConfiguration, *PGameConfiguration;
 
 typedef struct MidiOutput MidiOutput, *PMidiOutput;
 
-typedef struct Pbg3File Pbg3File, *PPbg3File;
-
 typedef struct Pbg3FileName Pbg3FileName, *PPbg3FileName;
 
 typedef struct ControllerMapping ControllerMapping, *PControllerMapping;
@@ -49545,10 +49597,6 @@ typedef enum MusicMode {
 } MusicMode;
 
 typedef struct MidiOutputVtbl MidiOutputVtbl, *PMidiOutputVtbl;
-
-typedef struct Pbg3FileStuff Pbg3FileStuff, *PPbg3FileStuff;
-
-typedef struct Pbg3FileStuffVtbl Pbg3FileStuffVtbl, *PPbg3FileStuffVtbl;
 
 struct Pbg3FileName {
     byte filename[32];
@@ -49696,7 +49744,7 @@ struct GameContext {
     undefined field92_0x1b9;
     undefined field93_0x1ba;
     undefined field94_0x1bb;
-    struct Pbg3File *pbg3File[16];
+    struct Pbg3Archive *pbg3File[16];
     struct Pbg3FileName pbg3FileName[16];
     byte hasD3dHardwareVertexProcessing;
     byte lockableBackbuffer;
@@ -50316,42 +50364,7 @@ struct MidiOutput {
     undefined field603_0x2ff;
 };
 
-struct Pbg3FileStuffVtbl {
-    bool (*ReadBit)(struct Pbg3FileStuff *);
-    void *ReadInt;
-    void *ReadByteAssumeAligned;
-    void *SeekToOffset;
-    void *SeekToByteAligned;
-    void *ReadByteAlignedData;
-    void *GetLastWriteTime;
-    void *dtor;
-};
-
 struct MidiOutputVtbl {
-};
-
-struct Pbg3FileStuff {
-    struct Pbg3FileStuffVtbl *vtbl;
-    uint offsetInFile;
-    uint fileSize;
-    byte curByte;
-    undefined field4_0xd;
-    undefined field5_0xe;
-    undefined field6_0xf;
-    byte bitIdxInCurByte;
-    undefined field8_0x11;
-    undefined field9_0x12;
-    undefined field10_0x13;
-    uint someKindOfCrc;
-    struct Pbg3FileAbstraction fileAbstraction; /* Created by retype action */
-};
-
-struct Pbg3File {
-    struct Pbg3FileStuff *inner;
-    int field1_0x4;
-    int numOfEntries;
-    int fileTableOffset;
-    struct Pbg3Entry *entries;
 };
 
 typedef struct ChainElem ChainElem, *PChainElem;
@@ -50521,7 +50534,8 @@ struct MidiUnk {
     undefined4 field1_0x4;
 };
 
-typedef struct Pbg3FileStuff *test;
+
+/* WARNING! conflicting data type names: /th06/test - /test */
 
 typedef struct MidiDevice MidiDevice, *PMidiDevice;
 

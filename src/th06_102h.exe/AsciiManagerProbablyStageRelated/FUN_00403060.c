@@ -1,6 +1,4 @@
 
-/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
-
 void __fastcall
 AsciiManagerProbablyStageRelated::FUN_00403060(AsciiManagerProbablyStageRelated *this)
 
@@ -11,10 +9,10 @@ AsciiManagerProbablyStageRelated::FUN_00403060(AsciiManagerProbablyStageRelated 
   int local_8;
   
   if (DAT_0069d4c0 != '\0') {
-    g_GameContext.viewport.X = __ftol2((double)_DAT_0069d6dc);
-    g_GameContext.viewport.Y = __ftol2((double)_DAT_0069d6e0);
-    g_GameContext.viewport.Width = __ftol2((double)_DAT_0069d6e4);
-    g_GameContext.viewport.Height = __ftol2((double)_DAT_0069d6e8);
+    g_GameContext.viewport.X = __ftol2((double)VIEWPORT_X);
+    g_GameContext.viewport.Y = __ftol2((double)VIEWPORT_Y);
+    g_GameContext.viewport.Width = __ftol2((double)VIEWPORT_WIDTH);
+    g_GameContext.viewport.Height = __ftol2((double)VIEWPORT_HEIGHT);
     (*(g_GameContext.d3dDevice)->lpVtbl->SetViewport)
               (g_GameContext.d3dDevice,(D3DVIEWPORT8 *)0x6c6de0);
     if ((g_GameContext.lockableBackbuffer != 0) &&

@@ -66,18 +66,18 @@ undefined4 FUN_0041bb02(uint *param_1)
       local_c = local_c + 0x10;
     }
     pbVar3 = FUN_0042b0d9("score.dat");
-    DAT_0069bcac = FUN_0042b280(pbVar3,0,(uint)DAT_0069d4be + (uint)DAT_0069d4bd * 2,_DAT_0069bcb0);
+    DAT_0069bcac = FUN_0042b280(pbVar3,0,(uint)DAT_0069d4be + (uint)DAT_0069d4bd * 2,DAT_0069bcb0);
     FUN_0042b466(pbVar3,param_1 + 0xc);
     FUN_0042b502(pbVar3,param_1 + 0x40c);
     FUN_0042b65e(pbVar3,param_1 + 0x424);
     if (*(char *)((int)param_1 + 0x1823) != '\0') {
       DAT_0069bcac = param_1[((uint)DAT_0069d4be + (uint)DAT_0069d4bd * 2) * 0x78 +
-                             DAT_0069d6d4 * 0x14 + _DAT_0069bcb0 * 5 + 0x427];
+                             DAT_0069d6d4 * 0x14 + DAT_0069bcb0 * 5 + 0x427];
     }
     FUN_0042b7dc(pbVar3);
-    param_1[0x69c] = *(uint *)(&DAT_00476564 + _DAT_0069bcb0 * 0xc);
-    param_1[0x69e] = *(uint *)(&DAT_00476568 + _DAT_0069bcb0 * 0xc);
-    param_1[0x69d] = *(uint *)(&DAT_0047656c + _DAT_0069bcb0 * 0xc);
+    param_1[0x69c] = *(uint *)(&DAT_00476564 + DAT_0069bcb0 * 0xc);
+    param_1[0x69e] = *(uint *)(&DAT_00476568 + DAT_0069bcb0 * 0xc);
+    param_1[0x69d] = *(uint *)(&DAT_0047656c + DAT_0069bcb0 * 0xc);
     param_1[8] = 0;
     param_1[9] = 0;
     param_1[10] = 0;
@@ -87,16 +87,16 @@ undefined4 FUN_0041bb02(uint *param_1)
   param_1[5] = 0;
   *(undefined *)((int)param_1 + 0x181f) = 0;
   param_1[0x68d] = param_1[0x68d] + 1;
-  if (_DAT_0069bcbc == 0) {
+  if (DAT_0069bcbc == 0) {
     iVar4 = (uint)DAT_0069d4be + (uint)DAT_0069d4bd * 2;
     if ((*(char *)(param_1 + 0x606) == '\0') &&
-       ((int)(uint)*(byte *)((int)param_1 + _DAT_0069bcb0 + iVar4 * 0x18 + 0x103c) <
+       ((int)(uint)*(byte *)((int)param_1 + DAT_0069bcb0 + iVar4 * 0x18 + 0x103c) <
         (int)(param_1[0x68d] - 1))) {
-      *(char *)((int)param_1 + _DAT_0069bcb0 + iVar4 * 0x18 + 0x103c) = (char)param_1[0x68d] + -1;
+      *(char *)((int)param_1 + DAT_0069bcb0 + iVar4 * 0x18 + 0x103c) = (char)param_1[0x68d] + -1;
     }
-    if ((int)(uint)*(byte *)((int)param_1 + _DAT_0069bcb0 + iVar4 * 0x18 + 0x1041) <
+    if ((int)(uint)*(byte *)((int)param_1 + DAT_0069bcb0 + iVar4 * 0x18 + 0x1041) <
         (int)(param_1[0x68d] - 1)) {
-      *(char *)((int)param_1 + _DAT_0069bcb0 + iVar4 * 0x18 + 0x1041) = (char)param_1[0x68d] + -1;
+      *(char *)((int)param_1 + DAT_0069bcb0 + iVar4 * 0x18 + 0x1041) = (char)param_1[0x68d] + -1;
     }
   }
   if ((*(char *)((int)param_1 + 0x1823) != '\0') && (param_1[0x68d] != 1)) {
@@ -109,16 +109,16 @@ undefined4 FUN_0041bb02(uint *param_1)
   }
   GameContext::LoadPBG3(&g_GameContext,4,(byte *)s__g_CM_dat_0046af84);
   GameContext::LoadPBG3(&g_GameContext,2,(byte *)s__g_ST_dat_0046af74);
-  if (_DAT_0069bcbc == 1) {
-    iVar4 = FUN_0042a240(1,&DAT_0069d4cc);
+  if (DAT_0069bcbc == 1) {
+    iVar4 = FUN_0042a240(1,RPY_UNKNOWN);
     if (iVar4 != 0) {
       bVar1 = true;
     }
     while (*(uint *)(&DAT_004764b0 + *(char *)(param_1 + 0x607) * 4) <= *param_1) {
       *(char *)(param_1 + 0x607) = *(char *)(param_1 + 0x607) + '\x01';
     }
-    param_1[0x69e] = *(uint *)(&DAT_0047652c + _DAT_0069bcb0 * 0xc);
-    param_1[0x69d] = *(uint *)(&DAT_00476530 + _DAT_0069bcb0 * 0xc);
+    param_1[0x69e] = *(uint *)(&DAT_0047652c + DAT_0069bcb0 * 0xc);
+    param_1[0x69d] = *(uint *)(&DAT_00476530 + DAT_0069bcb0 * 0xc);
   }
   _DAT_0069d8fc = 0;
   *(undefined2 *)(param_1 + 0x68b) = DAT_0069d8f8;
@@ -137,7 +137,7 @@ undefined4 FUN_0041bb02(uint *param_1)
             if (iVar4 == 0) {
               iVar4 = FUN_0041b252();
               if (iVar4 == 0) {
-                if (_DAT_0069bcbc == 0) {
+                if (DAT_0069bcbc == 0) {
                   FUN_0042a240(0,"replay/th6_00.rpy");
                 }
                 if (DAT_0069d4c4 == '\0') {
@@ -184,7 +184,7 @@ undefined4 FUN_0041bb02(uint *param_1)
         }
       }
       else {
-        GameErrorContextLog(&g_GameErrorContext,"error : 敵弾の初期化に失敗しました\n")
+        GameErrorContextLog(&g_GameErrorContext,"error : 敵弾の初期化に失���しました\n")
         ;
         uVar5 = 0xffffffff;
       }

@@ -1,6 +1,4 @@
 
-/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
-
 undefined4 FUN_00439965(void)
 
 {
@@ -27,14 +25,14 @@ undefined4 FUN_00439965(void)
     }
     local_c = local_28;
     local_10 = (uint)DAT_0069d4be + (uint)DAT_0069d4bd * 2;
-    if ((byte)(&DAT_0069cce1)[_DAT_0069bcb0 + local_10 * 0x18] < 7) {
-      local_2c = (uint)(byte)(&DAT_0069cce1)[_DAT_0069bcb0 + local_10 * 0x18];
+    if ((byte)(&DAT_0069cce1)[DAT_0069bcb0 + local_10 * 0x18] < 7) {
+      local_2c = (uint)(byte)(&DAT_0069cce1)[DAT_0069bcb0 + local_10 * 0x18];
     }
     else {
       local_2c = 6;
     }
     local_14 = local_2c;
-    if ((_DAT_0069bcb0 == 0) && (local_2c == 6)) {
+    if ((DAT_0069bcb0 == 0) && (local_2c == 6)) {
       local_14 = 5;
     }
     for (local_8 = 0; local_8 < (int)local_14; local_8 = local_8 + 1) {
@@ -46,7 +44,7 @@ undefined4 FUN_00439965(void)
       }
       AsciiManager::FUN_00401650
                 (&g_AsciiManager,&local_20,"STAGE %d  %.9d",local_8 + 1,
-                 (&DAT_0069cd3c)[local_8 * 0x14 + local_10 * 0x78 + _DAT_0069bcb0 * 5]);
+                 (&DAT_0069cd3c)[local_8 * 0x14 + local_10 * 0x78 + DAT_0069bcb0 * 5]);
       local_1c = local_1c + 24.0;
     }
     g_AsciiManager.color = 0xffffffff;

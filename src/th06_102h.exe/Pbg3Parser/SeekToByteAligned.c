@@ -1,5 +1,5 @@
 
-undefined4 __thiscall Pbg3FileStuff::SeekToByteAligned(Pbg3FileStuff *this)
+undefined4 __thiscall Pbg3Parser::SeekToByteAligned(Pbg3Parser *this)
 
 {
   byte bVar1;

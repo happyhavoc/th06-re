@@ -1,6 +1,4 @@
 
-/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
-
 undefined4 FUN_004190ec(void)
 
 {
@@ -47,16 +45,16 @@ undefined4 FUN_004190ec(void)
     do {
       local_94 = local_94 + -1;
     } while (-1 < local_94);
-    local_5c = ((_DAT_0069d6e4 - 256.0) / 2.0 + _DAT_0069d6dc) - 16.0;
+    local_5c = ((VIEWPORT_WIDTH - 256.0) / 2.0 + VIEWPORT_X) - 16.0;
     uStack_58 = 0x43c00000;
     uStack_54 = 0;
-    local_48 = (_DAT_0069d6e4 - 256.0) / 2.0 + _DAT_0069d6dc + 256.0 + 16.0;
+    local_48 = (VIEWPORT_WIDTH - 256.0) / 2.0 + VIEWPORT_X + 256.0 + 16.0;
     uStack_44 = 0x43c00000;
     uStack_40 = 0;
-    local_34 = ((_DAT_0069d6e4 - 256.0) / 2.0 + _DAT_0069d6dc) - 16.0;
+    local_34 = ((VIEWPORT_WIDTH - 256.0) / 2.0 + VIEWPORT_X) - 16.0;
     fStack_30 = local_8 + 384.0;
     uStack_2c = 0;
-    local_20 = (_DAT_0069d6e4 - 256.0) / 2.0 + _DAT_0069d6dc + 256.0 + 16.0;
+    local_20 = (VIEWPORT_WIDTH - 256.0) / 2.0 + VIEWPORT_X + 256.0 + 16.0;
     fStack_1c = local_8 + 384.0;
     uStack_18 = 0;
     local_38 = 0xd0000000;

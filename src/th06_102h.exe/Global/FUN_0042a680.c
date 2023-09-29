@@ -14,7 +14,7 @@ undefined4 FUN_0042a680(undefined4 *param_1)
     *(undefined4 *)param_1[1] = 0x50523654;
     *(char *)(param_1[1] + 6) = DAT_0069d4be + DAT_0069d4bd * '\x02';
     *(undefined2 *)(param_1[1] + 4) = 0x102;
-    *(undefined *)(param_1[1] + 7) = DAT_0069bcb0;
+    *(undefined *)(param_1[1] + 7) = (undefined)DAT_0069bcb0;
     *(undefined4 *)(param_1[1] + 0x19) = 0x4e204f4e;
     for (local_c = 0; local_c < 7; local_c = local_c + 1) {
       *(undefined4 *)(param_1[1] + 0x34 + local_c * 4) = 0;

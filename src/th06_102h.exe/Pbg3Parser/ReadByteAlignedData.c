@@ -1,5 +1,5 @@
 
-void __thiscall Pbg3FileStuff::ReadByteAlignedData(Pbg3FileStuff *this,byte *data,DWORD bytesToRead)
+void __thiscall Pbg3Parser::ReadByteAlignedData(Pbg3Parser *this,byte *data,DWORD bytesToRead)
 
 {
   DWORD numBytesRead;

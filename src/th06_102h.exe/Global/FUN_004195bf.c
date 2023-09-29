@@ -126,18 +126,18 @@ void FUN_004195bf(void)
     if (5 < DAT_0069d6d4) {
       local_c = local_c + DAT_0069d4ba * 3000000 + DAT_0069d4bb * 1000000;
     }
-    if (_DAT_0069bcb0 == 0) {
+    if (DAT_0069bcb0 == 0) {
       local_c = local_c / 2 - (local_c / 2) % 10;
     }
-    else if (_DAT_0069bcb0 == 2) {
+    else if (DAT_0069bcb0 == 2) {
       local_c = (local_c * 0xc) / 10;
       local_c = local_c - local_c % 10;
     }
-    else if (_DAT_0069bcb0 == 3) {
+    else if (DAT_0069bcb0 == 3) {
       local_c = (local_c * 0xf) / 10;
       local_c = local_c - local_c % 10;
     }
-    else if (_DAT_0069bcb0 == 4) {
+    else if (DAT_0069bcb0 == 4) {
       local_c = local_c * 2 - (local_c * 2) % 10;
     }
     if (g_GameContext.lifeCount == 3) {

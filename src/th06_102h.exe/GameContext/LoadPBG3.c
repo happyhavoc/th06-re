@@ -5,13 +5,13 @@ void __thiscall GameContext::LoadPBG3(GameContext *this,int pbg3FileIdx,byte *fi
 
 {
   byte bVar1;
-  Pbg3File *_Memory;
+  Pbg3Archive *_Memory;
   int iVar2;
   bool bVar3;
   uint unaff_retaddr;
   Pbg3FileName *pPStack_cc;
   byte *pbStack_c8;
-  Pbg3File *f;
+  Pbg3Archive *f;
   int iStack_bc;
   byte *pbStack_b4;
   Pbg3FileName *pPStack_b0;
@@ -27,7 +27,7 @@ void __thiscall GameContext::LoadPBG3(GameContext *this,int pbg3FileIdx,byte *fi
   pvStack_10 = ExceptionList;
   uStack_14 = 0x42437f;
   uStack_18 = __security_cookie ^ unaff_retaddr;
-  if (this->pbg3File[pbg3FileIdx] != (Pbg3File *)0x0) {
+  if (this->pbg3File[pbg3FileIdx] != (Pbg3Archive *)0x0) {
     pPStack_b0 = this->pbg3FileName + pbg3FileIdx;
     pbStack_b4 = filename;
     do {
@@ -51,26 +51,27 @@ LAB_00424435:
   }
   ExceptionList = &pvStack_10;
   RemovePbg3File(this,pbg3FileIdx);
-  f = (Pbg3File *)operator_new(0x14);
+  f = (Pbg3Archive *)operator_new(0x14);
   uStack_8 = 0;
-  if (f == (Pbg3File *)0x0) {
-    f = (Pbg3File *)0x0;
+  if (f == (Pbg3Archive *)0x0) {
+    f = (Pbg3Archive *)0x0;
   }
   else {
-    Pbg3File::Pbg3File(f);
+    Pbg3Archive_conflict1::Pbg3Archive((Pbg3Archive_conflict1 *)f);
   }
   uStack_8 = 0xffffffff;
   this->pbg3File[pbg3FileIdx] = f;
   DebugPrint("%s open ...\n",filename);
-  iVar2 = Pbg3File::Load(this->pbg3File[pbg3FileIdx],(char *)filename);
+  iVar2 = Pbg3Archive_conflict1::Load
+                    ((Pbg3Archive_conflict1 *)this->pbg3File[pbg3FileIdx],(char *)filename);
   if (iVar2 == 0) {
     _Memory = this->pbg3File[pbg3FileIdx];
-    if (_Memory != (Pbg3File *)0x0) {
+    if (_Memory != (Pbg3Archive *)0x0) {
       func_0x0043ca80();
       _free(_Memory);
     }
-    this->pbg3File[pbg3FileIdx] = (Pbg3File *)0x0;
-    this->pbg3File[pbg3FileIdx] = (Pbg3File *)0x0;
+    this->pbg3File[pbg3FileIdx] = (Pbg3Archive *)0x0;
+    this->pbg3File[pbg3FileIdx] = (Pbg3Archive *)0x0;
   }
   else {
     pbStack_c8 = filename;
@@ -82,7 +83,8 @@ LAB_00424435:
       pPStack_cc = (Pbg3FileName *)(pPStack_cc->filename + 1);
     } while (bVar1 != 0);
     sprintf(acStack_98,"ver%.4x.dat",0x102);
-    uStack_14 = Pbg3File::FindEntry(this->pbg3File[pbg3FileIdx],acStack_98);
+    uStack_14 = Pbg3Archive_conflict1::FindEntry
+                          ((Pbg3Archive_conflict1 *)this->pbg3File[pbg3FileIdx],acStack_98);
     if ((int)uStack_14 < 0) {
       GameErrorContextFatal
                 (&g_GameErrorContext,"error : データのバージョンが違います\n");

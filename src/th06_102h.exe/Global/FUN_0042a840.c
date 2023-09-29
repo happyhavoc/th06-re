@@ -32,7 +32,7 @@ undefined4 FUN_0042a840(undefined4 *param_1)
     iVar2 = *(int *)(param_1[1] + 0x30 + DAT_0069d6d4 * 4);
     DAT_0069d4bd = (undefined)((int)(uint)*(byte *)(param_1[1] + 6) >> 1);
     DAT_0069d4be = *(byte *)(param_1[1] + 6) & 1;
-    _DAT_0069bcb0 = (uint)*(byte *)(param_1[1] + 7);
+    DAT_0069bcb0 = (uint)*(byte *)(param_1[1] + 7);
     DAT_0069d4b6 = *(undefined2 *)(iVar2 + 6);
     DAT_0069d8f8 = *(undefined2 *)(iVar2 + 4);
     _DAT_0069d8fc = 0;

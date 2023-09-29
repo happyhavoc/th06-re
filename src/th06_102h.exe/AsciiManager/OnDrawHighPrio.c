@@ -1,5 +1,5 @@
 
-int AsciiManager::FUN_00401290(AsciiManager *arg)
+int AsciiManager::OnDrawHighPrio(AsciiManager *arg)
 
 {
   if (g_GameContext.hasD3dHardwareVertexProcessing == 0) {

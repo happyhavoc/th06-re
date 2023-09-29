@@ -1,5 +1,5 @@
 
-undefined4 __thiscall Pbg3FileStuff::ReadString(Pbg3FileStuff *this,char *out,uint maxSize)
+undefined4 __thiscall Pbg3Parser::ReadString(Pbg3Parser *this,char *out,uint maxSize)
 
 {
   char cVar1;

@@ -1,6 +1,5 @@
 
 /* WARNING: Inlined function: FUN_0045c3e0 */
-/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
 
 undefined4 FUN_0041b252(void)
 
@@ -36,17 +35,17 @@ undefined4 FUN_0041b252(void)
     DAT_0069bc34 = uStack_20;
   }
   uStack_8 = 0xffffffff;
-  _DAT_0069bc80 = FUN_004174d7;
-  _DAT_0069bc84 = FUN_0041b1a4;
-  _DAT_0069bc88 = FUN_0041b1b1;
-  _DAT_0069bc98 = &DAT_0069bc30;
-  iVar3 = Chain::AddToCalcChain(&g_Chain,(ChainElem *)&DAT_0069bc7c,0xc);
+  ChainElem_0069bc7c.callback = FUN_004174d7;
+  ChainElem_0069bc7c.addedCallback = FUN_0041b1a4;
+  ChainElem_0069bc7c.deletedCallback = FUN_0041b1b1;
+  ChainElem_0069bc7c.arg = &DAT_0069bc30;
+  iVar3 = Chain::AddToCalcChain(&g_Chain,&ChainElem_0069bc7c,0xc);
   if (iVar3 == 0) {
-    _DAT_0069bc60 = FUN_00417502;
-    _DAT_0069bc64 = 0;
-    _DAT_0069bc68 = 0;
-    _DAT_0069bc78 = &DAT_0069bc30;
-    Chain::AddToDrawChain(&g_Chain,(ChainElem *)&DAT_0069bc5c,0xb);
+    ChainElem_0069bc5c.callback = FUN_00417502;
+    ChainElem_0069bc5c.addedCallback = 0;
+    ChainElem_0069bc5c.deletedCallback = 0;
+    ChainElem_0069bc5c.arg = &DAT_0069bc30;
+    Chain::AddToDrawChain(&g_Chain,&ChainElem_0069bc5c,0xb);
     uVar2 = 0;
   }
   else {

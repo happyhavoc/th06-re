@@ -1,6 +1,4 @@
 
-/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
-
 undefined4 FUN_00429c50(AnmVm *param_1)
 
 {
@@ -31,8 +29,8 @@ undefined4 FUN_00429c50(AnmVm *param_1)
     param_1->anmFileIndex = 0x400;
     AnmManager::SetBeginingOfScript(pAVar2,param_1,pAVar2->scripts[0x400]);
   }
-  param_1[4].rotation.x = _DAT_0069d6e4 / 2.0;
-  param_1[4].rotation.y = _DAT_0069d6e8 - 64.0;
+  param_1[4].rotation.x = VIEWPORT_WIDTH / 2.0;
+  param_1[4].rotation.y = VIEWPORT_HEIGHT - 64.0;
   param_1[4].rotation.z = 0.49;
   param_1[4].matrix.m[2][3] = 0.49;
   param_1[4].matrix.m[3][2] = 0.49;

@@ -90,7 +90,7 @@ LAB_0041f7c5:
         local_18[1].rotation.y = fVar2 + local_18[1].rotation.y;
         local_18[1].rotation.z = fVar1 + local_18[1].rotation.z;
         fVar1 = local_18[1].rotation.y;
-        if (_DAT_0069d6e8 + 16.0 < fVar1 != (_DAT_0069d6e8 + 16.0 == fVar1)) {
+        if (VIEWPORT_HEIGHT + 16.0 < fVar1 != (VIEWPORT_HEIGHT + 16.0 == fVar1)) {
           *(undefined *)((int)&local_18[1].currentTimeInScript.previous + 1) = 0;
           FUN_0041c5fa(3);
           goto LAB_0041f512;
@@ -150,7 +150,7 @@ LAB_0041f7c5:
           FUN_0041c57e(1);
           break;
         case 1:
-          switch(_DAT_0069bcb0) {
+          switch(DAT_0069bcb0) {
           case 0:
           case 1:
             lVar10 = __ftol2((double)local_18[1].rotation.y);

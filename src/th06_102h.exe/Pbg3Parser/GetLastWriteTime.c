@@ -1,5 +1,5 @@
 
-BOOL __thiscall Pbg3FileStuff::GetLastWriteTime(Pbg3FileStuff *this,LPFILETIME lastWriteTime)
+BOOL __thiscall Pbg3Parser::GetLastWriteTime(Pbg3Parser *this,LPFILETIME lastWriteTime)
 
 {
   HANDLE hFile;

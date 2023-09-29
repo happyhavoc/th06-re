@@ -1,6 +1,4 @@
 
-/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
-
 undefined4 FUN_00410b10(int param_1)
 
 {
@@ -19,16 +17,16 @@ undefined4 FUN_00410b10(int param_1)
   iVar1 = (uint)DAT_0069d4be + (uint)DAT_0069d4bd * 2;
   *(undefined4 *)(param_1 + 0x1118) = 0;
   if (DAT_0069d4b8 == '\0') {
-    if ((&DAT_0069ccdc)[_DAT_0069bcb0 + iVar1 * 0x18] == 'c') {
+    if ((&DAT_0069ccdc)[DAT_0069bcb0 + iVar1 * 0x18] == 'c') {
       *(undefined4 *)(param_1 + 0x1118) = 1;
     }
-    (&DAT_0069ccdc)[_DAT_0069bcb0 + iVar1 * 0x18] = 99;
+    (&DAT_0069ccdc)[DAT_0069bcb0 + iVar1 * 0x18] = 99;
   }
-  else if ((&DAT_0069cce1)[_DAT_0069bcb0 + iVar1 * 0x18] == 'c') {
+  else if ((&DAT_0069cce1)[DAT_0069bcb0 + iVar1 * 0x18] == 'c') {
     *(undefined4 *)(param_1 + 0x1118) = 1;
   }
-  (&DAT_0069cce1)[_DAT_0069bcb0 + iVar1 * 0x18] = 99;
-  if ((_DAT_0069bcb0 == 0) || (DAT_0069d4b8 != '\0')) {
+  (&DAT_0069cce1)[DAT_0069bcb0 + iVar1 * 0x18] = 99;
+  if ((DAT_0069bcb0 == 0) || (DAT_0069d4b8 != '\0')) {
     if (DAT_0069d4bd == 0) {
       iVar1 = FUN_004106d0("data/end00b.end");
       if (iVar1 != 0) {

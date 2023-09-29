@@ -1,6 +1,4 @@
 
-/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
-
 void __fastcall FUN_004381ec(int param_1)
 
 {
@@ -189,10 +187,10 @@ LAB_0043877b:
       }
     }
     else {
-      _DAT_0069bcbc = 1;
+      DAT_0069bcbc = 1;
       g_GameContext.framerateMultiplier = 1.0;
-      _strcpy(&DAT_0069d4cc,(char *)(param_1 + 0x823c + *(int *)(param_1 + 0x81e8) * 0x200));
-      _DAT_0069bcb0 = (uint)*(byte *)(*(int *)(param_1 + 0x10edc) + 7);
+      _strcpy(RPY_UNKNOWN,(char *)(param_1 + 0x823c + *(int *)(param_1 + 0x81e8) * 0x200));
+      DAT_0069bcb0 = (uint)*(byte *)(*(int *)(param_1 + 0x10edc) + 7);
       DAT_0069d4bd = *(byte *)(*(int *)(param_1 + 0x10edc) + 6) / 2;
       DAT_0069d4be = *(byte *)(*(int *)(param_1 + 0x10edc) + 6) % 2;
       for (local_c = 0; *(int *)(*(int *)(param_1 + 0x10edc) + 0x34 + local_c * 4) == 0;

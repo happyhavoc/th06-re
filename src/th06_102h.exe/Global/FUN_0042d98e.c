@@ -286,7 +286,7 @@ undefined4 FUN_0042d98e(int param_1)
 LAB_0042e3fb:
   local_c = (AnmVm *)(param_1 + 0x40);
   for (local_8 = 0; local_8 < 0x26; local_8 = local_8 + 1) {
-    AnmManager::FUN_00433960(g_AnmManager,local_c);
+    AnmManager::ExecuteScript(g_AnmManager,local_c);
     local_c = local_c + 1;
   }
   *(int *)(param_1 + 4) = *(int *)(param_1 + 4) + 1;

@@ -32,11 +32,11 @@ undefined4 FUN_00416500(int param_1)
         local_10[1].color = local_10->color;
         local_10[1].flags = local_10[1].flags | 8;
         local_10[1].color = local_10[1].color & 0xffffff | 0xff000000;
-        local_10[1].scaleY = ((16.0 - local_10[2].angleVel.y) / 16.0) * (local_10[2].scaleY / 10.0);
-        local_10[1].scaleX = local_10[1].scaleY;
-        if (local_10[1].scaleX < 0.0 != NAN(local_10[1].scaleX)) {
-          local_10[1].scaleY = local_10[2].scaleY / 10.0;
-          local_10[1].scaleX = local_10[1].scaleY;
+        local_10[1].scaleX = ((16.0 - local_10[2].angleVel.y) / 16.0) * (local_10[2].scaleX / 10.0);
+        local_10[1].scaleY = local_10[1].scaleX;
+        if (local_10[1].scaleY < 0.0 != NAN(local_10[1].scaleY)) {
+          local_10[1].scaleX = local_10[2].scaleX / 10.0;
+          local_10[1].scaleY = local_10[1].scaleX;
         }
         AnmManager::FUN_00433150(g_AnmManager,local_10 + 1);
       }

@@ -58,9 +58,9 @@ LAB_00426400:
   param_2[1].uvScrollPos.y = *(FLOAT *)(psVar3 + 10);
   param_2[1].uvScrollPos.x = *(FLOAT *)(psVar3 + 0xc);
   fVar5 = (float10)FUN_0045bda4((double)*(float *)(psVar3 + 10));
-  param_2[1].scaleX = (float)fVar5 * *(float *)(psVar3 + 0xc);
-  fVar5 = (float10)FUN_0045bcf4((double)*(float *)(psVar3 + 10));
   param_2[1].scaleY = (float)fVar5 * *(float *)(psVar3 + 0xc);
+  fVar5 = (float10)FUN_0045bcf4((double)*(float *)(psVar3 + 10));
+  param_2[1].scaleX = (float)fVar5 * *(float *)(psVar3 + 0xc);
   param_2[1].currentTimeInScript.current = 0;
   param_2[1].currentTimeInScript.subFrame = 0.0;
   param_2[1].currentTimeInScript.previous = -999;

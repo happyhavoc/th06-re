@@ -105,8 +105,8 @@ int FUN_004264b0(float *param_1,float *param_2,undefined4 *param_3)
             local_8[1].rotation.z = 0.1;
           }
           *(undefined2 *)((int)local_8[1].matrix.m[0] + 2) = 2;
-          local_8[1].scaleX = local_8[1].scaleX / 8.0;
           local_8[1].scaleY = local_8[1].scaleY / 8.0;
+          local_8[1].scaleX = local_8[1].scaleX / 8.0;
         }
       }
     }

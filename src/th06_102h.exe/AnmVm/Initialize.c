@@ -12,8 +12,8 @@ void __thiscall AnmVm::Initialize(AnmVm *this)
   (this->rotation).z = 0.0;
   (this->rotation).y = 0.0;
   (this->rotation).x = 0.0;
-  this->scaleY = 1.0;
   this->scaleX = 1.0;
+  this->scaleY = 1.0;
   this->scaleInterpEndTime = 0;
   this->alphaInterpEndTime = 0;
   this->color = 0xffffffff;

@@ -37,37 +37,37 @@ undefined4 FUN_004149d0(int param_1)
         fVar1 = local_24[5].scaleInterpFinalX * 0.5 * g_GameContext.field84_0x1a8;
         fVar3 = local_24[5].scaleInterpFinalY * 0.5 * g_GameContext.field84_0x1a8;
         pfVar5 = &local_24[5].angleVel.y;
-        *pfVar5 = local_24[5].scaleY * 0.5 * g_GameContext.field84_0x1a8 + *pfVar5;
+        *pfVar5 = local_24[5].scaleX * 0.5 * g_GameContext.field84_0x1a8 + *pfVar5;
         local_24[5].angleVel.z = fVar3 + local_24[5].angleVel.z;
-        local_24[5].scaleX = fVar1 + local_24[5].scaleX;
-        iVar4 = AnmManager::FUN_00433960(g_AnmManager,local_24 + 1);
+        local_24[5].scaleY = fVar1 + local_24[5].scaleY;
+        iVar4 = AnmManager::ExecuteScript(g_AnmManager,local_24 + 1);
         break;
       case 3:
         fVar1 = local_24[5].scaleInterpFinalX * 0.4 * g_GameContext.field84_0x1a8;
         fVar3 = local_24[5].scaleInterpFinalY * 0.4 * g_GameContext.field84_0x1a8;
         pfVar5 = &local_24[5].angleVel.y;
-        *pfVar5 = local_24[5].scaleY * 0.4 * g_GameContext.field84_0x1a8 + *pfVar5;
+        *pfVar5 = local_24[5].scaleX * 0.4 * g_GameContext.field84_0x1a8 + *pfVar5;
         local_24[5].angleVel.z = fVar3 + local_24[5].angleVel.z;
-        local_24[5].scaleX = fVar1 + local_24[5].scaleX;
-        iVar4 = AnmManager::FUN_00433960(g_AnmManager,local_24 + 2);
+        local_24[5].scaleY = fVar1 + local_24[5].scaleY;
+        iVar4 = AnmManager::ExecuteScript(g_AnmManager,local_24 + 2);
         break;
       case 4:
         fVar1 = local_24[5].scaleInterpFinalX * 0.3333333 * g_GameContext.field84_0x1a8;
         fVar3 = local_24[5].scaleInterpFinalY * 0.3333333 * g_GameContext.field84_0x1a8;
         pfVar5 = &local_24[5].angleVel.y;
-        *pfVar5 = local_24[5].scaleY * 0.3333333 * g_GameContext.field84_0x1a8 + *pfVar5;
+        *pfVar5 = local_24[5].scaleX * 0.3333333 * g_GameContext.field84_0x1a8 + *pfVar5;
         local_24[5].angleVel.z = fVar3 + local_24[5].angleVel.z;
-        local_24[5].scaleX = fVar1 + local_24[5].scaleX;
-        iVar4 = AnmManager::FUN_00433960(g_AnmManager,local_24 + 3);
+        local_24[5].scaleY = fVar1 + local_24[5].scaleY;
+        iVar4 = AnmManager::ExecuteScript(g_AnmManager,local_24 + 3);
         break;
       case 5:
         fVar1 = local_24[5].scaleInterpFinalX * 0.5 * g_GameContext.field84_0x1a8;
         fVar3 = local_24[5].scaleInterpFinalY * 0.5 * g_GameContext.field84_0x1a8;
         pfVar5 = &local_24[5].angleVel.y;
-        *pfVar5 = local_24[5].scaleY * 0.5 * g_GameContext.field84_0x1a8 + *pfVar5;
+        *pfVar5 = local_24[5].scaleX * 0.5 * g_GameContext.field84_0x1a8 + *pfVar5;
         local_24[5].angleVel.z = fVar3 + local_24[5].angleVel.z;
-        local_24[5].scaleX = fVar1 + local_24[5].scaleX;
-        iVar4 = AnmManager::FUN_00433960(g_AnmManager,local_24 + 4);
+        local_24[5].scaleY = fVar1 + local_24[5].scaleY;
+        iVar4 = AnmManager::ExecuteScript(g_AnmManager,local_24 + 4);
         if (iVar4 != 0) {
           pAVar6 = local_24;
           for (iVar4 = 0x171; iVar4 != 0; iVar4 = iVar4 + -1) {
@@ -105,7 +105,7 @@ switchD_00414a97_caseD_1:
                   fVar7 = (float10)local_24[5].matrix.m[0][1];
                   fVar8 = (float10)fcos(fVar7);
                   fVar7 = (float10)fsin(fVar7);
-                  local_24[5].scaleY = (float)(fVar8 * (float10)fVar1);
+                  local_24[5].scaleX = (float)(fVar8 * (float10)fVar1);
                   local_24[5].scaleInterpFinalY = (float)(fVar7 * (float10)fVar1);
                 }
                 else {
@@ -117,12 +117,12 @@ switchD_00414a97_caseD_1:
             else if ((int)local_24[5].matrix.m[1][2] < (int)local_24[5].matrix.m[1][3]) {
               fVar1 = g_GameContext.field84_0x1a8 * (float)local_24[5].currentTimeInScript.previous;
               fVar3 = g_GameContext.field84_0x1a8 * local_24[5].uvScrollPos.y;
-              local_24[5].scaleY =
-                   g_GameContext.field84_0x1a8 * local_24[5].uvScrollPos.x + local_24[5].scaleY;
+              local_24[5].scaleX =
+                   g_GameContext.field84_0x1a8 * local_24[5].uvScrollPos.x + local_24[5].scaleX;
               local_24[5].scaleInterpFinalY = fVar3 + local_24[5].scaleInterpFinalY;
               local_24[5].scaleInterpFinalX = fVar1 + local_24[5].scaleInterpFinalX;
               fVar8 = (float10)FUN_0045be40((double)local_24[5].scaleInterpFinalY,
-                                            (double)local_24[5].scaleY);
+                                            (double)local_24[5].scaleX);
               local_24[5].matrix.m[0][1] = (float)fVar8;
             }
             else {
@@ -137,7 +137,7 @@ switchD_00414a97_caseD_1:
             fVar7 = (float10)local_24[5].matrix.m[0][1];
             fVar8 = (float10)fcos(fVar7);
             fVar7 = (float10)fsin(fVar7);
-            local_24[5].scaleY = (float)(fVar8 * (float10)fVar1);
+            local_24[5].scaleX = (float)(fVar8 * (float10)fVar1);
             local_24[5].scaleInterpFinalY = (float)(fVar7 * (float10)fVar1);
           }
           else {
@@ -166,7 +166,7 @@ switchD_00414a97_caseD_1:
                     fVar7 = (float10)local_24[5].matrix.m[0][1];
                     fVar8 = (float10)fcos(fVar7);
                     fVar7 = (float10)fsin(fVar7);
-                    local_24[5].scaleY = (float)(fVar8 * (float10)local_10);
+                    local_24[5].scaleX = (float)(fVar8 * (float10)local_10);
                     local_24[5].scaleInterpFinalY = (float)(fVar7 * (float10)local_10);
                     local_24[5].matrix.m[2][1] = (float)((int)local_24[5].matrix.m[2][1] + 1);
                     if ((int)local_24[5].matrix.m[2][2] <= (int)local_24[5].matrix.m[2][1]) {
@@ -194,7 +194,7 @@ switchD_00414a97_caseD_1:
                     fVar7 = (float10)local_24[5].matrix.m[0][1];
                     fVar8 = (float10)fcos(fVar7);
                     fVar7 = (float10)fsin(fVar7);
-                    local_24[5].scaleY = (float)(fVar8 * (float10)local_10);
+                    local_24[5].scaleX = (float)(fVar8 * (float10)local_10);
                     local_24[5].scaleInterpFinalY = (float)(fVar7 * (float10)local_10);
                     local_24[5].matrix.m[2][1] = (float)((int)local_24[5].matrix.m[2][1] + 1);
                     if ((int)local_24[5].matrix.m[2][2] <= (int)local_24[5].matrix.m[2][1]) {
@@ -228,7 +228,7 @@ switchD_00414a97_caseD_1:
                 fVar7 = (float10)local_24[5].matrix.m[0][1];
                 fVar8 = (float10)fcos(fVar7);
                 fVar7 = (float10)fsin(fVar7);
-                local_24[5].scaleY = (float)(fVar8 * (float10)local_10);
+                local_24[5].scaleX = (float)(fVar8 * (float10)local_10);
                 local_24[5].scaleInterpFinalY = (float)(fVar7 * (float10)local_10);
               }
             }
@@ -255,7 +255,7 @@ switchD_00414a97_caseD_1:
               fVar7 = (float10)local_24[5].matrix.m[0][1];
               fVar8 = (float10)fcos(fVar7);
               fVar7 = (float10)fsin(fVar7);
-              local_24[5].scaleY = (float)(fVar8 * (float10)local_10);
+              local_24[5].scaleX = (float)(fVar8 * (float10)local_10);
               local_24[5].scaleInterpFinalY = (float)(fVar7 * (float10)local_10);
             }
           }
@@ -281,16 +281,16 @@ switchD_00414a97_caseD_1:
             fVar7 = (float10)local_24[5].matrix.m[0][1];
             fVar8 = (float10)fcos(fVar7);
             fVar7 = (float10)fsin(fVar7);
-            local_24[5].scaleY = (float)(fVar8 * (float10)local_10);
+            local_24[5].scaleX = (float)(fVar8 * (float10)local_10);
             local_24[5].scaleInterpFinalY = (float)(fVar7 * (float10)local_10);
           }
         }
         fVar1 = g_GameContext.field84_0x1a8 * local_24[5].scaleInterpFinalX;
         fVar3 = g_GameContext.field84_0x1a8 * local_24[5].scaleInterpFinalY;
         pfVar5 = &local_24[5].angleVel.y;
-        *pfVar5 = g_GameContext.field84_0x1a8 * local_24[5].scaleY + *pfVar5;
+        *pfVar5 = g_GameContext.field84_0x1a8 * local_24[5].scaleX + *pfVar5;
         local_24[5].angleVel.z = fVar3 + local_24[5].angleVel.z;
-        local_24[5].scaleX = fVar1 + local_24[5].scaleX;
+        local_24[5].scaleY = fVar1 + local_24[5].scaleY;
         iVar4 = FUN_0041b5e1(local_24[5].angleVel.y,local_24[5].angleVel.z,local_24->sprite->widthPx
                              ,local_24->sprite->heightPx);
         if (iVar4 != 0) {
@@ -313,7 +313,7 @@ LAB_00415be8:
             }
           }
           else if (*(char *)((int)local_24[5].matrix.m[3] + 7) == '\x01') goto LAB_00415be8;
-          AnmManager::FUN_00433960(g_AnmManager,local_24);
+          AnmManager::ExecuteScript(g_AnmManager,local_24);
           goto switchD_00414a97_caseD_5;
         }
         if ((((((*(ushort *)(local_24[5].matrix.m[2] + 3) & 0x40) == 0) &&
@@ -346,21 +346,21 @@ LAB_00414a1a:
       if (local_2c[2].currentTimeInScript.current != 0) {
         local_2c[2].angleVel.z =
              g_GameContext.field84_0x1a8 * local_2c[2].scaleInterpFinalY + local_2c[2].angleVel.z;
-        if (local_2c[2].scaleX < local_2c[2].angleVel.z - local_2c[2].angleVel.y) {
-          local_2c[2].angleVel.y = local_2c[2].angleVel.z - local_2c[2].scaleX;
+        if (local_2c[2].scaleY < local_2c[2].angleVel.z - local_2c[2].angleVel.y) {
+          local_2c[2].angleVel.y = local_2c[2].angleVel.z - local_2c[2].scaleY;
         }
         fVar1 = local_2c[2].angleVel.y;
         if (fVar1 < 0.0 != NAN(fVar1)) {
           local_2c[2].angleVel.y = 0.0;
         }
-        local_1c = local_2c[2].scaleY / 2.0;
+        local_1c = local_2c[2].scaleX / 2.0;
         local_20 = local_2c[2].angleVel.z - local_2c[2].angleVel.y;
         local_38 = (local_2c[2].angleVel.z - local_2c[2].angleVel.y) / 2.0 + local_2c[2].angleVel.y
                    + local_2c[2].rotation.x;
         local_34 = local_2c[2].rotation.y;
-        local_2c->scaleY = local_2c[2].scaleY / local_2c->sprite->widthPx;
+        local_2c->scaleX = local_2c[2].scaleX / local_2c->sprite->widthPx;
         local_14 = local_2c[2].angleVel.z - local_2c[2].angleVel.y;
-        local_2c->scaleX = local_14 / local_2c->sprite->heightPx;
+        local_2c->scaleY = local_14 / local_2c->sprite->heightPx;
         (local_2c->rotation).z = 1.570796 - local_2c[2].angleVel.x;
         cVar2 = *(char *)local_2c[2].matrix.m[1];
         if (cVar2 == '\0') {
@@ -374,12 +374,12 @@ LAB_00414a1a:
             if ((int)local_2c[2].scaleInterpFinalX - (int)local_260 <
                 (int)local_2c[2].matrix.m[0][2]) {
               local_14 = (((float)(int)local_2c[2].matrix.m[0][2] + local_2c[2].matrix.m[0][1]) *
-                         local_2c[2].scaleY) / (float)(int)local_2c[2].scaleInterpFinalX;
+                         local_2c[2].scaleX) / (float)(int)local_2c[2].scaleInterpFinalX;
             }
             else {
               local_14 = 1.2;
             }
-            local_2c->scaleY = local_14 / 16.0;
+            local_2c->scaleX = local_14 / 16.0;
             local_20 = local_14 / 2.0;
           }
           else {
@@ -421,10 +421,10 @@ LAB_004161bf:
           else if (cVar2 != '\x02') goto LAB_00416422;
           if ((*(ushort *)(local_2c[2].matrix.m[0] + 3) & 1) == 0) {
             if (0 < local_2c[2].currentTimeInScript.previous) {
-              local_14 = local_2c[2].scaleY -
+              local_14 = local_2c[2].scaleX -
                          (((float)(int)local_2c[2].matrix.m[0][2] + local_2c[2].matrix.m[0][1]) *
-                         local_2c[2].scaleY) / (float)local_2c[2].currentTimeInScript.previous;
-              local_2c->scaleY = local_14 / 16.0;
+                         local_2c[2].scaleX) / (float)local_2c[2].currentTimeInScript.previous;
+              local_2c->scaleX = local_14 / 16.0;
               local_20 = local_14 / 2.0;
             }
           }
@@ -453,7 +453,7 @@ LAB_00416422:
         local_2c[2].matrix.m[0][0] = local_2c[2].matrix.m[0][2];
         GameContext::FUN_00424285
                   (&g_GameContext,(int *)(local_2c[2].matrix.m[0] + 2),local_2c[2].matrix.m[0] + 1);
-        AnmManager::FUN_00433960(g_AnmManager,local_2c);
+        AnmManager::ExecuteScript(g_AnmManager,local_2c);
       }
 LAB_00415e08:
       local_2c = (AnmVm *)(local_2c[2].matrix.m[1] + 1);

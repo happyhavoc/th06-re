@@ -17,8 +17,8 @@ void __thiscall AsciiManager::FUN_004016b0(AsciiManager *this)
     (this->vm0).pos.y = (local_10->position).y;
     (this->vm0).pos.z = (local_10->position).z;
     local_14 = local_10;
-    (this->vm0).scaleY = (local_10->scale).x;
-    (this->vm0).scaleX = (local_10->scale).y;
+    (this->vm0).scaleX = (local_10->scale).x;
+    (this->vm0).scaleY = (local_10->scale).y;
     fVar1 = (local_10->scale).x * 14.0;
     if (local_18 != *(int *)&local_10->field_0x5c) {
       local_18 = *(int *)&local_10->field_0x5c;

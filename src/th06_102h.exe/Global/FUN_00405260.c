@@ -151,12 +151,12 @@ void FUN_00405260(int param_1)
         *(float *)(param_1 + 0x7628 + local_10 * 0xc) =
              g_GameContext.field84_0x1a8 * *(float *)(param_1 + 0x7688 + local_10 * 0xc) +
              *(float *)(param_1 + 0x7628 + local_10 * 0xc);
-        AnmManager::FUN_00433960(g_AnmManager,(AnmVm *)(param_1 + 0x76e4 + local_10 * 0x440));
-        AnmManager::FUN_00433960
+        AnmManager::ExecuteScript(g_AnmManager,(AnmVm *)(param_1 + 0x76e4 + local_10 * 0x440));
+        AnmManager::ExecuteScript
                   (g_AnmManager,(AnmVm *)(param_1 + 0x76e4 + (local_10 * 4 + 1) * 0x110));
-        AnmManager::FUN_00433960
+        AnmManager::ExecuteScript
                   (g_AnmManager,(AnmVm *)(param_1 + 0x76e4 + (local_10 * 4 + 2) * 0x110));
-        AnmManager::FUN_00433960
+        AnmManager::ExecuteScript
                   (g_AnmManager,(AnmVm *)(param_1 + 0x76e4 + (local_10 * 4 + 3) * 0x110));
       }
     }

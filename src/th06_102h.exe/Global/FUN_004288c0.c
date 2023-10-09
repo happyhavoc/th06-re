@@ -76,8 +76,8 @@ undefined4 FUN_004288c0(AnmVm *param_1)
       goto LAB_00428fa8;
     }
     fVar1 = ((float)(int)param_1[0x6e].posInterpFinal.y + param_1[0x6e].posInterpFinal.x) / 30.0;
-    param_1->scaleX = fVar1 * 3.0 + 1.0;
-    param_1->scaleY = 1.0 - fVar1 * 1.0;
+    param_1->scaleY = fVar1 * 3.0 + 1.0;
+    param_1->scaleX = 1.0 - fVar1 * 1.0;
     lVar3 = __ftol2((double)(255.0 - (((float)(int)param_1[0x6e].posInterpFinal.y +
                                       param_1[0x6e].posInterpFinal.x) * 255.0) / 30.0));
     param_1->color = lVar3 << 0x18 | 0xffffff;
@@ -93,8 +93,8 @@ undefined4 FUN_004288c0(AnmVm *param_1)
     param_1[0x6e].posInterpFinal.y = 0.0;
     param_1[0x6e].posInterpFinal.x = 0.0;
     param_1[0x6e].posInterpInitial.z = -NAN;
-    param_1->scaleY = 3.0;
     param_1->scaleX = 3.0;
+    param_1->scaleY = 3.0;
     this = g_AnmManager;
     param_1->anmFileIndex = 0x400;
     AnmManager::SetBeginingOfScript(this,param_1,this->scripts[0x400]);
@@ -115,8 +115,8 @@ undefined4 FUN_004288c0(AnmVm *param_1)
   param_1[9].matrix.m[1][0] = 1.261169e-43;
   fVar1 = 1.0 - ((float)(int)param_1[0x6e].posInterpFinal.y + param_1[0x6e].posInterpFinal.x) / 30.0
   ;
-  param_1->scaleX = fVar1 * 2.0 + 1.0;
-  param_1->scaleY = 1.0 - fVar1 * 1.0;
+  param_1->scaleY = fVar1 * 2.0 + 1.0;
+  param_1->scaleX = 1.0 - fVar1 * 1.0;
   param_1->flags = param_1->flags | 4;
   param_1[9].matrix.m[0][2] = 1.0;
   param_1[9].matrix.m[0][1] = 1.0;
@@ -124,8 +124,8 @@ undefined4 FUN_004288c0(AnmVm *param_1)
   param_1[9].matrix.m[0][3] = 0.0;
   if (0x1d < (int)param_1[0x6e].posInterpFinal.y) {
     *(undefined *)(param_1[9].matrix.m[1] + 1) = 3;
-    param_1->scaleY = 1.0;
     param_1->scaleX = 1.0;
+    param_1->scaleY = 1.0;
     param_1->color = 0xffffffff;
     param_1->flags = param_1->flags & 0xfffffffb;
     param_1[0x6e].posInterpFinal.y = 3.363116e-43;
@@ -173,11 +173,11 @@ LAB_00428fa8:
      (*(char *)(param_1[9].matrix.m[1] + 1) != '\x01')) {
     FUN_00427860();
   }
-  AnmManager::FUN_00433960(g_AnmManager,param_1);
+  AnmManager::ExecuteScript(g_AnmManager,param_1);
   FUN_004291b0(param_1);
   if (*(char *)((int)param_1[9].matrix.m[1] + 6) != '\0') {
-    AnmManager::FUN_00433960(g_AnmManager,param_1 + 1);
-    AnmManager::FUN_00433960(g_AnmManager,param_1 + 2);
+    AnmManager::ExecuteScript(g_AnmManager,param_1 + 1);
+    AnmManager::ExecuteScript(g_AnmManager,param_1 + 2);
   }
   *(undefined4 *)&param_1[9].posInterpEndTime = 0xc479c000;
   param_1[9].pos.x = -999.0;

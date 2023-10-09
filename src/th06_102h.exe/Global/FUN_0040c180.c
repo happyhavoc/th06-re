@@ -51,7 +51,7 @@ void FUN_0040c180(int param_1,int param_2)
           fVar5 = (float10)local_18[5].matrix.m[0][1];
           fVar4 = (float10)fcos(fVar5);
           fVar5 = (float10)fsin(fVar5);
-          local_18[5].scaleY = (float)(fVar4 * (float10)fVar1);
+          local_18[5].scaleX = (float)(fVar4 * (float10)fVar1);
           local_18[5].scaleInterpFinalY = (float)(fVar5 * (float10)fVar1);
           local_10 = local_10 + -1;
           if (local_10 == 0) break;
@@ -90,7 +90,7 @@ void FUN_0040c180(int param_1,int param_2)
           fVar5 = (float10)local_18[5].matrix.m[0][1];
           fVar4 = (float10)fcos(fVar5);
           fVar5 = (float10)fsin(fVar5);
-          local_18[5].scaleY = (float)(fVar4 * (float10)fVar1);
+          local_18[5].scaleX = (float)(fVar4 * (float10)fVar1);
           local_18[5].scaleInterpFinalY = (float)(fVar5 * (float10)fVar1);
           local_10 = local_10 + -1;
           if (local_10 == 0) break;

@@ -28,8 +28,8 @@ int __thiscall AnmManager::FUN_00433150(AnmManager *this,AnmVm *vm)
       pDVar3 = (D3DMATRIX *)(pDVar3->m[0] + 1);
       pfVar4 = pfVar4 + 1;
     }
-    local_c4.m[0][0] = local_c4.m[0][0] * vm->scaleY;
-    local_c4.m[1][1] = -vm->scaleX * local_c4.m[1][1];
+    local_c4.m[0][0] = local_c4.m[0][0] * vm->scaleX;
+    local_c4.m[1][1] = -vm->scaleY * local_c4.m[1][1];
     fVar1 = (vm->rotation).x;
     if (NAN(fVar1) == (fVar1 == 0.0)) {
       _D3DXMatrixRotationX_8(&local_84,(vm->rotation).x);
@@ -49,14 +49,14 @@ int __thiscall AnmManager::FUN_00433150(AnmManager *this,AnmVm *vm)
       local_c4.m[3][0] = (vm->pos).x;
     }
     else {
-      dVar5 = _fabs((double)((vm->sprite->widthPx * vm->scaleY) / 2.0));
+      dVar5 = _fabs((double)((vm->sprite->widthPx * vm->scaleX) / 2.0));
       local_c4.m[3][0] = (float)dVar5 + (vm->pos).x;
     }
     if ((vm->flags >> 8 & 2) == 0) {
       local_c4.m[3][1] = -(vm->pos).y;
     }
     else {
-      dVar5 = _fabs((double)((vm->sprite->heightPx * vm->scaleX) / 2.0));
+      dVar5 = _fabs((double)((vm->sprite->heightPx * vm->scaleY) / 2.0));
       local_c4.m[3][1] = -(vm->pos).y - (float)dVar5;
     }
     local_c4.m[3][2] = (vm->pos).z;

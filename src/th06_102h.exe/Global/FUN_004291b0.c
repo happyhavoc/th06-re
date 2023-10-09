@@ -34,11 +34,11 @@ void FUN_004291b0(int param_1)
             fVar2 = local_18[1].uvScrollPos.x;
             if (fVar2 < 10.0 != NAN(fVar2)) {
               local_18[1].uvScrollPos.x = local_18[1].uvScrollPos.x + 0.3333333;
-              fVar2 = local_18[1].scaleX;
-              fVar4 = local_18[1].scaleY;
+              fVar2 = local_18[1].scaleY;
+              fVar4 = local_18[1].scaleX;
               fVar9 = (float10)FUN_0045bc34((double)(fVar2 * fVar2 + fVar4 * fVar4));
-              local_18[1].scaleX = (fVar2 * local_18[1].uvScrollPos.x) / (float)fVar9;
-              local_18[1].scaleY = (fVar4 * local_18[1].uvScrollPos.x) / (float)fVar9;
+              local_18[1].scaleY = (fVar2 * local_18[1].uvScrollPos.x) / (float)fVar9;
+              local_18[1].scaleX = (fVar4 * local_18[1].uvScrollPos.x) / (float)fVar9;
             }
           }
           else {
@@ -49,8 +49,8 @@ void FUN_004291b0(int param_1)
             if (local_14 < 1.0 != NAN(local_14)) {
               local_14 = 1.0;
             }
-            fVar5 = fVar2 / local_14 + local_18[1].scaleX;
-            fVar4 = fVar4 / local_14 + local_18[1].scaleY;
+            fVar5 = fVar2 / local_14 + local_18[1].scaleY;
+            fVar4 = fVar4 / local_14 + local_18[1].scaleX;
             fVar9 = (float10)FUN_0045bc34((double)(fVar5 * fVar5 + fVar4 * fVar4));
             fVar2 = (float)fVar9;
             local_38 = fVar2;
@@ -62,14 +62,14 @@ void FUN_004291b0(int param_1)
             if (fVar1 < 1.0 != NAN(fVar1)) {
               local_18[1].uvScrollPos.x = 1.0;
             }
-            local_18[1].scaleX = (fVar5 * local_18[1].uvScrollPos.x) / fVar2;
-            local_18[1].scaleY = (fVar4 * local_18[1].uvScrollPos.x) / fVar2;
+            local_18[1].scaleY = (fVar5 * local_18[1].uvScrollPos.x) / fVar2;
+            local_18[1].scaleX = (fVar4 * local_18[1].uvScrollPos.x) / fVar2;
           }
         }
       }
       else if (sVar3 == 2) {
         if (*(short *)((int)local_18[1].matrix.m[0] + 2) == 1) {
-          local_18[1].scaleY = local_18[1].scaleY - 0.3;
+          local_18[1].scaleX = local_18[1].scaleX - 0.3;
         }
       }
       else if (sVar3 == 3) {
@@ -89,16 +89,16 @@ void FUN_004291b0(int param_1)
         local_18[1].rotation.y = local_18[1].rotation.y / 2.0;
         local_18[1].rotation.z = 0.44;
         fVar2 = local_18[1].rotation.y;
-        local_18->scaleX = (fVar2 + fVar2) / 14.0;
+        local_18->scaleY = (fVar2 + fVar2) / 14.0;
         fVar2 = local_18[1].rotation.y;
         local_18[1].angleVel.y = fVar2 + fVar2;
       }
       pAVar6 = local_18 + 1;
-      (pAVar6->rotation).x = g_GameContext.field84_0x1a8 * local_18[1].scaleX + (pAVar6->rotation).x
+      (pAVar6->rotation).x = g_GameContext.field84_0x1a8 * local_18[1].scaleY + (pAVar6->rotation).x
       ;
       (local_18->pos).x = (pAVar6->rotation).x;
       pfVar8 = &local_18[1].rotation.y;
-      *pfVar8 = g_GameContext.field84_0x1a8 * local_18[1].scaleY + *pfVar8;
+      *pfVar8 = g_GameContext.field84_0x1a8 * local_18[1].scaleX + *pfVar8;
       (local_18->pos).y = *pfVar8;
       (local_18->pos).z = local_18[1].rotation.z;
       if ((*(short *)(local_18[1].matrix.m[0] + 1) != 3) &&
@@ -106,7 +106,7 @@ void FUN_004291b0(int param_1)
                                local_18->sprite->widthPx,local_18->sprite->heightPx), iVar7 == 0)) {
         *(undefined2 *)((int)local_18[1].matrix.m[0] + 2) = 0;
       }
-      iVar7 = AnmManager::FUN_00433960(g_AnmManager,local_18);
+      iVar7 = AnmManager::ExecuteScript(g_AnmManager,local_18);
       if (iVar7 != 0) {
         *(undefined2 *)((int)local_18[1].matrix.m[0] + 2) = 0;
       }

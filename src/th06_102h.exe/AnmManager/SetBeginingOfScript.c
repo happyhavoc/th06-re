@@ -12,7 +12,7 @@ AnmManager::SetBeginingOfScript(AnmManager *this,AnmVm *vm,AnmRawInstr *begining
   (vm->currentTimeInScript).previous = -999;
   vm->flags = vm->flags & 0xfffffffe;
   if (beginingOfScript != (AnmRawInstr *)0x0) {
-    FUN_00433960(this,vm);
+    ExecuteScript(this,vm);
   }
   return;
 }

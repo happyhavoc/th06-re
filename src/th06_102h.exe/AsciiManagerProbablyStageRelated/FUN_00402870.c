@@ -64,10 +64,10 @@ AsciiManagerProbablyStageRelated::FUN_00402870(AsciiManagerProbablyStageRelated 
   case 1:
     this->vms0[2].color = 0xffff8080;
     this->vms0[3].color = 0x80808080;
-    this->vms0[2].scaleX = 1.7;
     this->vms0[2].scaleY = 1.7;
-    this->vms0[3].scaleX = 1.5;
+    this->vms0[2].scaleX = 1.7;
     this->vms0[3].scaleY = 1.5;
+    this->vms0[3].scaleX = 1.5;
     this->vms0[2].pos2.x = -4.0;
     this->vms0[2].pos2.y = -4.0;
     this->vms0[2].pos2.z = 0.0;
@@ -94,10 +94,10 @@ AsciiManagerProbablyStageRelated::FUN_00402870(AsciiManagerProbablyStageRelated 
   case 2:
     this->vms0[3].color = 0xffff8080;
     this->vms0[2].color = 0x80808080;
-    this->vms0[2].scaleX = 1.5;
     this->vms0[2].scaleY = 1.5;
-    this->vms0[3].scaleX = 1.7;
+    this->vms0[2].scaleX = 1.5;
     this->vms0[3].scaleY = 1.7;
+    this->vms0[3].scaleX = 1.7;
     this->vms0[3].pos2.x = -4.0;
     this->vms0[3].pos2.y = -4.0;
     this->vms0[3].pos2.z = 0.0;
@@ -156,10 +156,10 @@ AsciiManagerProbablyStageRelated::FUN_00402870(AsciiManagerProbablyStageRelated 
     }
   }
   for (local_8 = 0; local_8 < 4; local_8 = local_8 + 1) {
-    AnmManager::FUN_00433960(g_AnmManager,this->vms0 + local_8);
+    AnmManager::ExecuteScript(g_AnmManager,this->vms0 + local_8);
   }
   if (g_GameContext.lockableBackbuffer != 0) {
-    AnmManager::FUN_00433960(g_AnmManager,&this->vm1);
+    AnmManager::ExecuteScript(g_AnmManager,&this->vm1);
   }
   this->field1_0x4 = this->field1_0x4 + 1;
   return 0;

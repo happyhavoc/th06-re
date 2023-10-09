@@ -33,7 +33,7 @@ void FUN_0041f4a0(void)
     _DAT_0069e23c = 0x41800000;
   }
   bVar8 = false;
-  in_ECX[0x263].scaleX = 0.0;
+  in_ECX[0x263].scaleY = 0.0;
   local_8 = 0;
   local_18 = in_ECX;
   do {
@@ -44,7 +44,7 @@ void FUN_0041f4a0(void)
       return;
     }
     if (*(char *)((int)&local_18[1].currentTimeInScript.previous + 1) != '\0') {
-      in_ECX[0x263].scaleX = (float)((int)in_ECX[0x263].scaleX + 1);
+      in_ECX[0x263].scaleY = (float)((int)in_ECX[0x263].scaleY + 1);
       if (*(char *)((int)&local_18[1].currentTimeInScript.previous + 3) == '\x02') {
         if (0x3b < (int)local_18[1].uvScrollPos.y) {
           if (local_18[1].uvScrollPos.y == 8.407791e-44) {
@@ -59,8 +59,8 @@ void FUN_0041f4a0(void)
         fVar1 = local_18[1].angleVel.z;
         fVar2 = local_18[1].angleVel.y;
         fVar3 = local_18[1].scaleInterpFinalY;
-        fVar4 = local_18[1].scaleY;
-        local_18[1].rotation.x = fVar6 * local_18[1].scaleX + fVar7 * local_18[1].angleVel.x;
+        fVar4 = local_18[1].scaleX;
+        local_18[1].rotation.x = fVar6 * local_18[1].scaleY + fVar7 * local_18[1].angleVel.x;
         local_18[1].rotation.y = fVar6 * fVar4 + fVar7 * fVar2;
         local_18[1].rotation.z = fVar6 * fVar3 + fVar7 * fVar1;
       }
@@ -108,7 +108,7 @@ LAB_0041f7c5:
         local_18[1].scaleInterpFinalX = local_18[1].uvScrollPos.y;
         GameContext::FUN_00424285
                   (&g_GameContext,(int *)&local_18[1].uvScrollPos.y,&local_18[1].uvScrollPos.x);
-        AnmManager::FUN_00433960(g_AnmManager,local_18);
+        AnmManager::ExecuteScript(g_AnmManager,local_18);
       }
       else {
         switch(*(undefined *)&local_18[1].currentTimeInScript.previous) {

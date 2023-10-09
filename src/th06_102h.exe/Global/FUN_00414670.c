@@ -48,8 +48,8 @@ AnmVm * FUN_00414670(short *param_1)
   local_c[2].matrix.m[0][0] = -NAN;
   local_c[2].angleVel.y = *(float *)(param_1 + 0x10);
   local_c[2].angleVel.z = *(float *)(param_1 + 0x12);
-  local_c[2].scaleX = *(float *)(param_1 + 0x14);
-  local_c[2].scaleY = *(float *)(param_1 + 0x16);
+  local_c[2].scaleY = *(float *)(param_1 + 0x14);
+  local_c[2].scaleX = *(float *)(param_1 + 0x16);
   local_c[2].scaleInterpFinalY = *(float *)(param_1 + 0xc);
   local_c[2].scaleInterpFinalX = *(float *)(param_1 + 0x18);
   local_c[2].uvScrollPos.y = *(FLOAT *)(param_1 + 0x1a);

@@ -131,11 +131,11 @@ undefined4 __thiscall Stage::FUN_00404970(Stage *this,int unk)
           (local_c->pos).z = ((local_74->position).z + (local_14->position).z) - (this->position).z;
           fVar1 = (local_74->size).x;
           if (NAN(fVar1) == (fVar1 == 0.0)) {
-            local_c->scaleY = (local_74->size).x / local_c->sprite->widthPx;
+            local_c->scaleX = (local_74->size).x / local_c->sprite->widthPx;
           }
           fVar1 = (local_74->size).y;
           if (NAN(fVar1) == (fVar1 == 0.0)) {
-            local_c->scaleX = (local_74->size).y / local_c->sprite->heightPx;
+            local_c->scaleY = (local_74->size).y / local_c->sprite->heightPx;
           }
           if (local_c->autoRotate == 2) {
             fVar1 = (local_74->size).x;
@@ -151,12 +151,12 @@ undefined4 __thiscall Stage::FUN_00404970(Stage *this,int unk)
             _D3DXVec3Project_24(&local_70,&local_84,&g_GameContext.viewport,
                                 &g_GameContext.projectionMatrix,&g_GameContext.viewMatrix,&local_54)
             ;
-            local_54.m[3][0] = local_88 * local_c->scaleY + local_54.m[3][0];
+            local_54.m[3][0] = local_88 * local_c->scaleX + local_54.m[3][0];
             _D3DXVec3Project_24(&local_64,&local_84,&g_GameContext.viewport,
                                 &g_GameContext.projectionMatrix,&g_GameContext.viewMatrix,&local_54)
             ;
-            local_c->scaleY = (local_64.x - local_70.x) / local_88;
-            local_c->scaleX = local_c->scaleY;
+            local_c->scaleX = (local_64.x - local_70.x) / local_88;
+            local_c->scaleY = local_c->scaleX;
             (local_c->pos).x = local_70.x;
             (local_c->pos).y = local_70.y;
             (local_c->pos).z = local_70.z;

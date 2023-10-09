@@ -18,8 +18,8 @@ void FUN_00406b10(int param_1)
     (local_8->pos).x = VIEWPORT_X + (local_8->pos).x;
     (local_8->pos).y = VIEWPORT_Y + (local_8->pos).y;
     (local_8->pos).z = 0.0;
-    local_8->scaleY = 3.2;
     local_8->scaleX = 3.2;
+    local_8->scaleY = 3.2;
     AnmManager::FUN_00432cc0(g_AnmManager,local_8);
     pfVar1 = (float *)(param_1 + 0x7684 + local_c * 0xc);
     fVar2 = pfVar1[2];
@@ -30,8 +30,8 @@ void FUN_00406b10(int param_1)
     (local_8->pos).x = (local_8->pos).x + -32.0;
     (local_8->pos).y = (local_8->pos).y + -32.0;
     (local_8->pos).z = 0.0;
-    local_8->scaleY = 2.2;
     local_8->scaleX = 2.2;
+    local_8->scaleY = 2.2;
     AnmManager::FUN_00432cc0(g_AnmManager,local_8);
     pfVar1 = (float *)(param_1 + 0x7684 + local_c * 0xc);
     fVar2 = pfVar1[2];
@@ -51,8 +51,8 @@ void FUN_00406b10(int param_1)
     (local_8->pos).x = (local_8->pos).x + -32.0;
     (local_8->pos).y = (local_8->pos).y + -32.0;
     (local_8->pos).z = 0.0;
-    local_8->scaleY = 1.0;
     local_8->scaleX = 1.0;
+    local_8->scaleY = 1.0;
     AnmManager::FUN_00432cc0(g_AnmManager,local_8);
     local_8 = local_8 + 1;
   }

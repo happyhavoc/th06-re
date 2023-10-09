@@ -43,9 +43,9 @@ void FUN_0041f290(float *param_1,int param_2,int param_3)
   local_c[1].scaleInterpFinalX = -NAN;
   if (param_3 == 2) {
     fVar1 = (float10)FUN_0041e820();
-    local_c[1].scaleX = (float)(fVar1 * (float10)288.0 + (float10)48.0);
+    local_c[1].scaleY = (float)(fVar1 * (float10)288.0 + (float10)48.0);
     fVar1 = (float10)FUN_0041e820();
-    local_c[1].scaleY = (float)(fVar1 * (float10)192.0 - (float10)64.0);
+    local_c[1].scaleX = (float)(fVar1 * (float10)192.0 - (float10)64.0);
     local_c[1].scaleInterpFinalY = 0.0;
     local_c[1].angleVel.x = local_c[1].rotation.x;
     local_c[1].angleVel.y = local_c[1].rotation.y;

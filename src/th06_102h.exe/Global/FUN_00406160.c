@@ -28,7 +28,7 @@ void FUN_00406160(int param_1)
       *(undefined4 *)(param_1 + 0x8f0) = 0x43c00000;
       *(undefined4 *)(param_1 + 0x8f4) = 0x42780000;
       for (local_8 = 0; local_8 < 4; local_8 = local_8 + 1) {
-        AnmManager::FUN_00433960(g_AnmManager,(AnmVm *)(param_1 + 0x76e4 + local_8 * 0x110));
+        AnmManager::ExecuteScript(g_AnmManager,(AnmVm *)(param_1 + 0x76e4 + local_8 * 0x110));
         if (*(int *)(param_1 + 0x75d8) != *(int *)(param_1 + 0x75d0)) {
           uVar8 = *(uint *)(param_1 + 0x75d8) & 0x80000001;
           if ((int)uVar8 < 0) {

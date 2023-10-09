@@ -50410,6 +50410,41 @@ typedef struct AsciiManagerPopup AsciiManagerPopup, *PAsciiManagerPopup;
 
 typedef struct AnmRawInstr AnmRawInstr, *PAnmRawInstr;
 
+typedef enum AnmOpcode {
+    AnmOpcode_Exit=0,
+    AnmOpcode_1=1,
+    AnmOpcode_SetScale=2,
+    AnmOpcode_SetAlpha=3,
+    AnmOpcode_SetColor=4,
+    AnmOpcode_5=5,
+    AnmOpcode_6=6,
+    AnmOpcode_FlipX=7,
+    AnmOpcode_FlipY=8,
+    AnmOpcode_SetRotation=9,
+    AnmOpcode_10=10,
+    AnmOpcode_11=11,
+    AnmOpcode_12=12,
+    AnmOpcode_13=13,
+    AnmOpcode_14=14,
+    AnmOpcode_ExitHide=15,
+    AnmOpcode_16=16,
+    AnmOpcode_17=17,
+    AnmOpcode_18=18,
+    AnmOpcode_19=19,
+    AnmOpcode_20=20,
+    AnmOpcode_Stop=21,
+    AnmOpcode_22=22,
+    AnmOpcode_23=23,
+    AnmOpcode_StopHide=24,
+    AnmOpcode_25=25,
+    AnmOpcode_26=26,
+    AnmOpcode_27=27,
+    AnmOpcode_28=28,
+    AnmOpcode_29=29,
+    AnmOpcode_30=30,
+    AnmOpcode_31=31
+} AnmOpcode;
+
 struct AsciiManagerPopup {
     char digits[8];
     D3DXVECTOR3 position;
@@ -50424,8 +50459,8 @@ struct AsciiManagerPopup {
 struct AnmVm {
     D3DXVECTOR3 rotation;
     D3DXVECTOR3 angleVel;
-    float scaleX;
     float scaleY;
+    float scaleX;
     float scaleInterpFinalY;
     float scaleInterpFinalX;
     struct D3DXVECTOR2 uvScrollPos;
@@ -50514,7 +50549,7 @@ struct AsciiManager {
 
 struct AnmRawInstr {
     ushort time;
-    uchar opcode;
+    enum AnmOpcode opcode;
     uchar argsCount;
     uint args[10];
 };

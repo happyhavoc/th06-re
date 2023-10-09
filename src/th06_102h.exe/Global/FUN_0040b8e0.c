@@ -21,7 +21,7 @@ void FUN_0040b8e0(int param_1,int param_2)
                  (int)*(short *)((int)local_c[5].matrix.m[2] + 0xe));
       if (iVar1 == 0) {
         local_c[5].currentTimeInScript.subFrame = 0.0;
-        local_c[5].scaleY = 0.0;
+        local_c[5].scaleX = 0.0;
         local_c[5].scaleInterpFinalY = 0.0;
         local_c[5].scaleInterpFinalX = 0.0;
       }

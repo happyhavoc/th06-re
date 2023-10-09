@@ -27,7 +27,7 @@ AsciiManagerProbablyStageRelated::FUN_00403060(AsciiManagerProbablyStageRelated 
         pAVar2 = (AnmVm *)&(pAVar2->rotation).y;
         pAVar3 = (AnmVm *)&(pAVar3->rotation).y;
       }
-      this->vms0[4].pos.x = this->vms0[4].scaleY * 8.0 + this->vms0[4].pos.x;
+      this->vms0[4].pos.x = this->vms0[4].scaleX * 8.0 + this->vms0[4].pos.x;
       this->vms0[4].sprite =
            (AnmLoadedSprite *)((int)g_AnmManager + (0x1e - (uint)DAT_0069d4b8) * 0x38);
       AnmManager::FUN_00432ad0(g_AnmManager,this->vms0 + 4);

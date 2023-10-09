@@ -35,14 +35,14 @@ int __thiscall AnmManager::FUN_00433590(AnmManager *this,AnmVm *vm)
       local_c4[0].m[3][0] = ROUND((vm->pos).x) - 0.5;
       local_c4[0].m[3][1] = -ROUND((vm->pos).y) + 0.5;
       if ((vm->flags >> 8 & 1) != 0) {
-        local_c4[0].m[3][0] = (vm->sprite->widthPx * vm->scaleY) / 2.0 + local_c4[0].m[3][0];
+        local_c4[0].m[3][0] = (vm->sprite->widthPx * vm->scaleX) / 2.0 + local_c4[0].m[3][0];
       }
       if ((vm->flags >> 8 & 2) != 0) {
-        local_c4[0].m[3][1] = local_c4[0].m[3][1] - (vm->sprite->heightPx * vm->scaleX) / 2.0;
+        local_c4[0].m[3][1] = local_c4[0].m[3][1] - (vm->sprite->heightPx * vm->scaleY) / 2.0;
       }
       local_c4[0].m[3][2] = (vm->pos).z;
-      local_c4[0].m[0][0] = local_c4[0].m[0][0] * vm->scaleY;
-      local_c4[0].m[1][1] = -vm->scaleX * local_c4[0].m[1][1];
+      local_c4[0].m[0][0] = local_c4[0].m[0][0] * vm->scaleX;
+      local_c4[0].m[1][1] = -vm->scaleY * local_c4[0].m[1][1];
       (*(g_GameContext.d3dDevice)->lpVtbl->SetTransform)(g_GameContext.d3dDevice,0x100,local_c4);
       if (this->currentSprite != vm->sprite) {
         this->currentSprite = vm->sprite;

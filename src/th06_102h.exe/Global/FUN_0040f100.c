@@ -15,7 +15,7 @@ undefined4 FUN_0040f100(int param_1)
          (iVar1 = (*(code *)local_8[1].matrix.m[2][2])(local_8), iVar1 != 1)) {
         *(undefined *)(local_8[1].matrix.m[2] + 3) = 0;
       }
-      iVar1 = AnmManager::FUN_00433960(g_AnmManager,local_8);
+      iVar1 = AnmManager::ExecuteScript(g_AnmManager,local_8);
       if (iVar1 != 0) {
         *(undefined *)(local_8[1].matrix.m[2] + 3) = 0;
       }

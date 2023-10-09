@@ -58,11 +58,11 @@ undefined4 FUN_004123e0(int param_1)
     }
     FUN_00412240();
     local_28->color = (D3DCOLOR)local_28[0xc].matrix.m[0][0];
-    AnmManager::FUN_00433960(g_AnmManager,local_28);
+    AnmManager::ExecuteScript(g_AnmManager,local_28);
     local_28[0xc].matrix.m[0][0] = (float)local_28->color;
     for (local_20 = 0; local_20 < 8; local_20 = local_20 + 1) {
       if ((-1 < local_28[local_20 + 1].anmFileIndex) &&
-         (iVar2 = AnmManager::FUN_00433960(g_AnmManager,local_28 + local_20 + 1), iVar2 != 0)) {
+         (iVar2 = AnmManager::ExecuteScript(g_AnmManager,local_28 + local_20 + 1), iVar2 != 0)) {
         local_28[local_20 + 1].anmFileIndex = -1;
       }
     }
@@ -190,9 +190,9 @@ switchD_00412938_caseD_2:
                  ,4,0xffffffff);
     if (-1 < (int)local_28[0xb].pos.y) {
       local_28[0xc].angleVel.z = -0.5;
-      local_28[0xc].scaleX = 0.5;
-      *(undefined2 *)&local_28[0xc].scaleY = 0;
-      *(undefined2 *)((int)&local_28[0xc].scaleY + 2) = 0;
+      local_28[0xc].scaleY = 0.5;
+      *(undefined2 *)&local_28[0xc].scaleX = 0;
+      *(undefined2 *)((int)&local_28[0xc].scaleX + 2) = 0;
       *(undefined2 *)&local_28[0xc].scaleInterpFinalY = 0;
       *(undefined2 *)((int)&local_28[0xc].scaleInterpFinalY + 2) = 0;
       *(undefined4 *)&local_28[0xb].posInterpEndTime = 0;

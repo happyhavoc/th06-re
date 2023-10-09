@@ -136,7 +136,7 @@ switchD_00403892_caseD_6:
             arg->spellcardEclRelated0 = arg->spellcardEclRelated0 + 1;
           }
           arg->spellcardEclRelated1 = arg->spellcardEclRelated1 + 1;
-          AnmManager::FUN_00433960(g_AnmManager,&arg->field20_0x88);
+          AnmManager::ExecuteScript(g_AnmManager,&arg->field20_0x88);
           return 1;
         case 1:
           if ((arg->scriptTime).current < local_c->field0_0x0) goto switchD_00403892_caseD_6;

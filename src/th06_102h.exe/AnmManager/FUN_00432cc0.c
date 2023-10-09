@@ -31,8 +31,8 @@ int __thiscall AnmManager::FUN_00432cc0(AnmManager *this,AnmVm *vm)
       fVar2 = (float)fVar9;
       fVar4 = ROUND((vm->pos).x);
       fVar5 = ROUND((vm->pos).y);
-      fVar6 = ROUND((vm->sprite->widthPx * vm->scaleY) / 2.0);
-      fVar7 = ROUND((vm->sprite->heightPx * vm->scaleX) / 2.0);
+      fVar6 = ROUND((vm->sprite->widthPx * vm->scaleX) / 2.0);
+      fVar7 = ROUND((vm->sprite->heightPx * vm->scaleY) / 2.0);
       FUN_00432c80(&DAT_006d4600,-fVar6 - 0.5,-fVar7 - 0.5,fVar2,fVar1,fVar4,fVar5);
       FUN_00432c80(&DAT_006d4618,fVar6 - 0.5,-fVar7 - 0.5,fVar2,fVar1,fVar4,fVar5);
       FUN_00432c80(&DAT_006d4630,-fVar6 - 0.5,fVar7 - 0.5,fVar2,fVar1,fVar4,fVar5);

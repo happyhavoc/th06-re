@@ -33,10 +33,10 @@ void FUN_00406e70(int param_1)
           *(undefined4 *)(param_1 + 0x7b8) = 0xc;
         }
       }
-      AnmManager::FUN_00433960(g_AnmManager,(AnmVm *)(param_1 + 0x76e4));
-      AnmManager::FUN_00433960(g_AnmManager,(AnmVm *)(param_1 + 0x77f4));
-      AnmManager::FUN_00433960(g_AnmManager,(AnmVm *)(param_1 + 0x7904));
-      AnmManager::FUN_00433960(g_AnmManager,(AnmVm *)(param_1 + 0x7a14));
+      AnmManager::ExecuteScript(g_AnmManager,(AnmVm *)(param_1 + 0x76e4));
+      AnmManager::ExecuteScript(g_AnmManager,(AnmVm *)(param_1 + 0x77f4));
+      AnmManager::ExecuteScript(g_AnmManager,(AnmVm *)(param_1 + 0x7904));
+      AnmManager::ExecuteScript(g_AnmManager,(AnmVm *)(param_1 + 0x7a14));
     }
     else {
       FUN_00420130();

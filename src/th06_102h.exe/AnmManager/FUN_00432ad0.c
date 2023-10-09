@@ -17,8 +17,8 @@ int __thiscall AnmManager::FUN_00432ad0(AnmManager *this,AnmVm *vm)
     iVar4 = -1;
   }
   else {
-    fVar2 = (vm->sprite->widthPx * vm->scaleY) / 2.0;
-    fVar3 = (vm->sprite->heightPx * vm->scaleX) / 2.0;
+    fVar2 = (vm->sprite->widthPx * vm->scaleX) / 2.0;
+    fVar3 = (vm->sprite->heightPx * vm->scaleY) / 2.0;
     if ((vm->flags >> 8 & 1) == 0) {
       DAT_006d4630 = (vm->pos).x - fVar2;
       fVar1 = (vm->pos).x;

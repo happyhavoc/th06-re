@@ -95,12 +95,12 @@ undefined4 FUN_004135b0(short *param_1,uint param_2,int param_3,float param_4)
     local_10[5].matrix.m[0][1] = (float)fVar7;
     local_10[5].angleVel.y = *(float *)(param_1 + 2);
     local_10[5].angleVel.z = *(float *)(param_1 + 4);
-    local_10[5].scaleX = *(float *)(param_1 + 6);
-    local_10[5].scaleX = 0.1;
+    local_10[5].scaleY = *(float *)(param_1 + 6);
+    local_10[5].scaleY = 0.1;
     fVar8 = (float10)local_10[5].matrix.m[0][1];
     fVar7 = (float10)fcos(fVar8);
     fVar8 = (float10)fsin(fVar8);
-    local_10[5].scaleY = (float)(fVar7 * (float10)local_8);
+    local_10[5].scaleX = (float)(fVar7 * (float10)local_8);
     local_10[5].scaleInterpFinalY = (float)(fVar8 * (float10)local_8);
     *(short *)(local_10[5].matrix.m[2] + 3) = param_1[0x26];
     *(short *)((int)local_10[5].matrix.m[2] + 0xe) = param_1[1];

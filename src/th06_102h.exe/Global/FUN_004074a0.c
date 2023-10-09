@@ -663,11 +663,11 @@ switchD_00407544_caseD_2:
     param_1[0xc].autoRotate = *(short *)(local_20 + 1) - 0x43;
     piVar13 = FUN_0040afb0((int)param_1,(int *)(local_20 + 4),(undefined4 *)0x0);
     *(undefined2 *)(local_58 + 0x11) = *(undefined2 *)piVar13;
-    iVar21 = ((int)*(short *)((int)&param_1[0xc].scaleY + 2) - (int)*(short *)&param_1[0xc].scaleY)
+    iVar21 = ((int)*(short *)((int)&param_1[0xc].scaleX + 2) - (int)*(short *)&param_1[0xc].scaleX)
              * _DAT_0069d710;
     *(short *)(local_58 + 0x11) =
          (short)((int)(iVar21 + (iVar21 >> 0x1f & 0x1fU)) >> 5) +
-         *(short *)(local_58 + 0x11) + *(short *)&param_1[0xc].scaleY;
+         *(short *)(local_58 + 0x11) + *(short *)&param_1[0xc].scaleX;
     if (*(short *)(local_58 + 0x11) < 1) {
       *(undefined2 *)(local_58 + 0x11) = 1;
     }
@@ -697,7 +697,7 @@ switchD_00407544_caseD_2:
     local_58[6] = *pfVar19;
     if ((NAN(local_58[6]) == (local_58[6] == 0.0)) &&
        (fVar3 = param_1[0xc].angleVel.z,
-       local_58[6] = ((param_1[0xc].scaleX - fVar3) * (float)_DAT_0069d710) / 32.0 + fVar3 +
+       local_58[6] = ((param_1[0xc].scaleY - fVar3) * (float)_DAT_0069d710) / 32.0 + fVar3 +
                      local_58[6], local_58[6] < 0.3 != NAN(local_58[6]))) {
       local_58[6] = 0.3;
     }
@@ -706,7 +706,7 @@ switchD_00407544_caseD_2:
     pfVar19 = FUN_0040b380((int)param_1,local_54 + 4,(undefined4 *)0x0);
     local_58[7] = *pfVar19;
     fVar3 = param_1[0xc].angleVel.z;
-    local_58[7] = (((param_1[0xc].scaleX - fVar3) * (float)_DAT_0069d710) / 32.0 + fVar3) / 2.0 +
+    local_58[7] = (((param_1[0xc].scaleY - fVar3) * (float)_DAT_0069d710) / 32.0 + fVar3) / 2.0 +
                   local_58[7];
     if (local_58[7] < 0.3 != NAN(local_58[7])) {
       local_58[7] = 0.3;
@@ -911,9 +911,9 @@ switchD_00407544_caseD_2:
     g_Stage.spellcardEclRelated0 = 1;
     g_Stage.spellcardEclRelated1 = 0;
     param_1[0xc].angleVel.z = -0.5;
-    param_1[0xc].scaleX = 0.5;
-    *(undefined2 *)&param_1[0xc].scaleY = 0;
-    *(undefined2 *)((int)&param_1[0xc].scaleY + 2) = 0;
+    param_1[0xc].scaleY = 0.5;
+    *(undefined2 *)&param_1[0xc].scaleX = 0;
+    *(undefined2 *)((int)&param_1[0xc].scaleX + 2) = 0;
     *(undefined2 *)&param_1[0xc].scaleInterpFinalY = 0;
     *(undefined2 *)((int)&param_1[0xc].scaleInterpFinalY + 2) = 0;
     iVar21 = DAT_005a5f98 * 0x40;
@@ -1186,9 +1186,9 @@ switchD_00407544_caseD_2:
     break;
   case 0x83:
     param_1[0xc].angleVel.z = *local_1c;
-    param_1[0xc].scaleX = local_20[4];
-    *(undefined2 *)&param_1[0xc].scaleY = *(undefined2 *)(local_20 + 5);
-    *(undefined2 *)((int)&param_1[0xc].scaleY + 2) = *(undefined2 *)(local_20 + 6);
+    param_1[0xc].scaleY = local_20[4];
+    *(undefined2 *)&param_1[0xc].scaleX = *(undefined2 *)(local_20 + 5);
+    *(undefined2 *)((int)&param_1[0xc].scaleX + 2) = *(undefined2 *)(local_20 + 6);
     *(undefined2 *)&param_1[0xc].scaleInterpFinalY = *(undefined2 *)(local_20 + 7);
     *(undefined2 *)((int)&param_1[0xc].scaleInterpFinalY + 2) = *(undefined2 *)(local_20 + 8);
     break;

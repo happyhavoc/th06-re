@@ -180,8 +180,8 @@ undefined4 FUN_00427860(void)
   fVar2 = in_ECX[4].matrix.m[1][1];
   fVar3 = in_ECX[4].rotation.y;
   fVar4 = in_ECX[4].matrix.m[1][0];
-  in_ECX[4].scaleX = in_ECX[4].rotation.x - in_ECX[4].matrix.m[0][3];
-  in_ECX[4].scaleY = fVar3 - fVar4;
+  in_ECX[4].scaleY = in_ECX[4].rotation.x - in_ECX[4].matrix.m[0][3];
+  in_ECX[4].scaleX = fVar3 - fVar4;
   in_ECX[4].scaleInterpFinalY = fVar1 - fVar2;
   fVar1 = in_ECX[4].rotation.z;
   fVar2 = in_ECX[4].matrix.m[1][1];

@@ -14,7 +14,7 @@ undefined4 FUN_004109c0(int param_1)
     }
     for (local_c = 0; local_c < 0x10; local_c = local_c + 1) {
       if (*(short *)(param_1 + 200 + local_c * 0x110) != 0) {
-        AnmManager::FUN_00433960(g_AnmManager,(AnmVm *)(param_1 + 0x14 + local_c * 0x110));
+        AnmManager::ExecuteScript(g_AnmManager,(AnmVm *)(param_1 + 0x14 + local_c * 0x110));
       }
     }
     if (((*(int *)(param_1 + 0x1118) == 0) || ((g_CurFrameInput & 0x100) == 0)) || (3 < local_8))

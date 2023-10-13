@@ -36,7 +36,7 @@ LAB_00426400:
   this = g_AnmManager;
   sVar2 = psVar3[0x10];
   param_2->anmFileIndex = sVar2;
-  AnmManager::SetBeginingOfScript(this,param_2,this->scripts[sVar2]);
+  AnmManager::SetAndExecuteScript(this,param_2,this->scripts[sVar2]);
   if (*(char *)(psVar3 + 0xf) == '\0') {
     param_2[1].rotation.x = *(float *)(param_1 + 0x440);
     param_2[1].rotation.y = *(float *)(param_1 + 0x444);

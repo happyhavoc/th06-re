@@ -97,7 +97,7 @@ undefined4 FUN_004288c0(AnmVm *param_1)
     param_1->scaleY = 3.0;
     this = g_AnmManager;
     param_1->anmFileIndex = 0x400;
-    AnmManager::SetBeginingOfScript(this,param_1,this->scripts[0x400]);
+    AnmManager::SetAndExecuteScript(this,param_1,this->scripts[0x400]);
     if (DAT_0069d4ba < '\x01') {
       DAT_0069d4c0 = 1;
       goto LAB_00428fa8;

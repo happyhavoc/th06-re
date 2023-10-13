@@ -1,5 +1,5 @@
 
-int __thiscall AnmManager::FUN_004323a0(AnmManager *this,AnmVm *vm,int sprite_index)
+int __thiscall AnmManager::SetActiveSprite(AnmManager *this,AnmVm *vm,int sprite_index)
 
 {
   int res;

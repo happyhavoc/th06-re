@@ -17,10 +17,10 @@ void __thiscall AsciiManager::Initialize(AsciiManager *this)
   (this->vm1).flags = (this->vm1).flags | 0x300;
   pAVar1 = g_AnmManager;
   AnmVm::Initialize(&this->vm1);
-  AnmManager::FUN_004323a0(pAVar1,&this->vm1,0);
+  AnmManager::SetActiveSprite(pAVar1,&this->vm1,0);
   pAVar1 = g_AnmManager;
   AnmVm::Initialize(&this->vm0);
-  AnmManager::FUN_004323a0(pAVar1,&this->vm0,0x20);
+  AnmManager::SetActiveSprite(pAVar1,&this->vm0,0x20);
   (this->vm1).pos.z = 0.1;
   this->field10_0x6234 = 0;
   return;

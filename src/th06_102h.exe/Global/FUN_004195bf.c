@@ -17,7 +17,7 @@ void FUN_004195bf(void)
           if (*(byte *)(*(int *)(in_ECX + 4) + 0x1ba0) < 3) {
             iVar1 = *(int *)(in_ECX + 4);
             *(undefined2 *)(iVar1 + 0x14e4) = 0x614;
-            AnmManager::SetBeginingOfScript(this,(AnmVm *)(iVar1 + 0x1430),this->scripts[0x614]);
+            AnmManager::SetAndExecuteScript(this,(AnmVm *)(iVar1 + 0x1430),this->scripts[0x614]);
             *(undefined *)(*(int *)(in_ECX + 4) + 0x1ba0) = 3;
           }
           if (*(int *)(in_ECX + 0x10) == 0) {
@@ -37,7 +37,7 @@ void FUN_004195bf(void)
       else if (*(char *)(*(int *)(in_ECX + 4) + 0x1ba0) == '\0') {
         iVar1 = *(int *)(in_ECX + 4);
         *(undefined2 *)(iVar1 + 0x14e4) = 0x613;
-        AnmManager::SetBeginingOfScript(this,(AnmVm *)(iVar1 + 0x1430),this->scripts[0x613]);
+        AnmManager::SetAndExecuteScript(this,(AnmVm *)(iVar1 + 0x1430),this->scripts[0x613]);
         *(undefined *)(*(int *)(in_ECX + 4) + 0x1ba0) = 1;
         *(undefined4 *)(in_ECX + 0x10) = 0;
       }

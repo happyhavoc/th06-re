@@ -18,7 +18,7 @@ undefined4 FUN_00429c50(AnmVm *param_1)
     }
     pAVar2 = g_AnmManager;
     param_1->anmFileIndex = 0x400;
-    AnmManager::SetBeginingOfScript(pAVar2,param_1,pAVar2->scripts[0x400]);
+    AnmManager::SetAndExecuteScript(pAVar2,param_1,pAVar2->scripts[0x400]);
   }
   else if (DAT_0069d4bd == 1) {
     if ((g_GameContext.unkInput2 != 3) &&
@@ -27,7 +27,7 @@ undefined4 FUN_00429c50(AnmVm *param_1)
     }
     pAVar2 = g_AnmManager;
     param_1->anmFileIndex = 0x400;
-    AnmManager::SetBeginingOfScript(pAVar2,param_1,pAVar2->scripts[0x400]);
+    AnmManager::SetAndExecuteScript(pAVar2,param_1,pAVar2->scripts[0x400]);
   }
   param_1[4].rotation.x = VIEWPORT_WIDTH / 2.0;
   param_1[4].rotation.y = VIEWPORT_HEIGHT - 64.0;
@@ -64,10 +64,10 @@ undefined4 FUN_00429c50(AnmVm *param_1)
   *(undefined *)((int)param_1[9].matrix.m[1] + 6) = 0;
   pAVar2 = g_AnmManager;
   param_1[1].anmFileIndex = 0x480;
-  AnmManager::SetBeginingOfScript(pAVar2,param_1 + 1,pAVar2->scripts[0x480]);
+  AnmManager::SetAndExecuteScript(pAVar2,param_1 + 1,pAVar2->scripts[0x480]);
   pAVar2 = g_AnmManager;
   param_1[2].anmFileIndex = 0x481;
-  AnmManager::SetBeginingOfScript(pAVar2,param_1 + 2,pAVar2->scripts[0x481]);
+  AnmManager::SetAndExecuteScript(pAVar2,param_1 + 2,pAVar2->scripts[0x481]);
   local_c = &param_1[9].pos.z;
   for (local_8 = 0; local_8 < 0x50; local_8 = local_8 + 1) {
     *(undefined2 *)((int)local_c + 0x14e) = 0;

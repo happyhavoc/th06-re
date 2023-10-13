@@ -30,7 +30,7 @@ int Stage::FUN_00404180(Stage *arg)
   if (0 < arg->spellcardEclRelated0) {
     if (arg->spellcardEclRelated1 <= (int)(uint)g_GameContext.cfg.frameskipConfig) {
       (arg->field20_0x88).anmFileIndex = 0x2b3;
-      AnmManager::SetBeginingOfScript(this,&arg->field20_0x88,this->scripts[0x2b3]);
+      AnmManager::SetAndExecuteScript(this,&arg->field20_0x88,this->scripts[0x2b3]);
     }
     AnmManager::FUN_00432cc0(g_AnmManager,&arg->field20_0x88);
   }

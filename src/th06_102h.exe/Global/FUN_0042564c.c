@@ -30,7 +30,7 @@ void FUN_0042564c(int param_1)
      (iVar4 = AnmManager::LoadAnm(g_AnmManager,0x2b,"data/music02.anm",0x111), pAVar3 = g_AnmManager
      , iVar4 == 0)) {
     *(undefined2 *)(param_1 + 0xd8) = 0x100;
-    AnmManager::SetBeginingOfScript(pAVar3,(AnmVm *)(param_1 + 0x24),pAVar3->scripts[0x100]);
+    AnmManager::SetAndExecuteScript(pAVar3,(AnmVm *)(param_1 + 0x24),pAVar3->scripts[0x100]);
     *(undefined4 *)(param_1 + 8) = 0;
     local_18 = FileSystem::OpenPath("data/musiccmt.txt",0);
     local_10 = local_18;
@@ -114,7 +114,7 @@ LAB_004259f3:
           local_8 = local_8 + 1) {
         pAVar1 = (AnmVm *)(param_1 + 0x134 + local_8 * 0x110);
         AnmVm::Initialize(pAVar1);
-        AnmManager::FUN_004323a0(pAVar3,pAVar1,local_8 + 0x101);
+        AnmManager::SetActiveSprite(pAVar3,pAVar1,local_8 + 0x101);
         FUN_00434b60(g_AnmManager,param_1 + 0x134 + local_8 * 0x110,0xc0e0ff,0x302080,
                      *(int *)(param_1 + 0x20) + 0x40 + local_8 * 0x272);
         *(undefined4 *)(param_1 + 0x1c4 + local_8 * 0x110) = 0x42ba0000;
@@ -127,7 +127,7 @@ LAB_004259f3:
       for (local_8 = 0; pAVar3 = g_AnmManager, local_8 < 0x10; local_8 = local_8 + 1) {
         pAVar1 = (AnmVm *)(param_1 + 0x2334 + local_8 * 0x110);
         AnmVm::Initialize(pAVar1);
-        AnmManager::FUN_004323a0(pAVar3,pAVar1,local_8 + 0x708);
+        AnmManager::SetActiveSprite(pAVar3,pAVar1,local_8 + 0x708);
         puVar6 = local_5c;
         for (iVar4 = 0x10; iVar4 != 0; iVar4 = iVar4 + -1) {
           *puVar6 = 0;

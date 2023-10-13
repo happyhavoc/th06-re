@@ -101,7 +101,7 @@ int FUN_004264b0(float *param_1,float *param_2,undefined4 *param_3)
             sVar4 = local_8->anmFileIndex;
             local_80 = sVar4 + 0x20;
             local_8->anmFileIndex = local_80;
-            AnmManager::SetBeginingOfScript(this,local_8,this->scripts[sVar4 + 0x20]);
+            AnmManager::SetAndExecuteScript(this,local_8,this->scripts[sVar4 + 0x20]);
             FUN_0040ef50((int *)&AnmRelatedHugeStruct_00487fe0,5,(float *)(local_8 + 1),1,0xffffffff
                         );
             local_8[1].rotation.z = 0.1;

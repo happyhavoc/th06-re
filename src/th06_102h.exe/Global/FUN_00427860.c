@@ -132,23 +132,23 @@ undefined4 FUN_00427860(void)
     if ((NAN(local_10) != (local_10 == 0.0)) &&
        ((float)in_ECX[9].flags < 0.0 != NAN((float)in_ECX[9].flags))) {
       in_ECX->anmFileIndex = 0x402;
-      AnmManager::SetBeginingOfScript(pAVar5,in_ECX,pAVar5->scripts[0x402]);
+      AnmManager::SetAndExecuteScript(pAVar5,in_ECX,pAVar5->scripts[0x402]);
     }
   }
   else {
     in_ECX->anmFileIndex = 0x401;
-    AnmManager::SetBeginingOfScript(pAVar5,in_ECX,pAVar5->scripts[0x401]);
+    AnmManager::SetAndExecuteScript(pAVar5,in_ECX,pAVar5->scripts[0x401]);
   }
   pAVar5 = g_AnmManager;
   if ((local_10 <= 0.0) || ((float)in_ECX[9].flags < 0.0 == ((float)in_ECX[9].flags == 0.0))) {
     if ((NAN(local_10) != (local_10 == 0.0)) && (0.0 < (float)in_ECX[9].flags)) {
       in_ECX->anmFileIndex = 0x404;
-      AnmManager::SetBeginingOfScript(pAVar5,in_ECX,pAVar5->scripts[0x404]);
+      AnmManager::SetAndExecuteScript(pAVar5,in_ECX,pAVar5->scripts[0x404]);
     }
   }
   else {
     in_ECX->anmFileIndex = 0x403;
-    AnmManager::SetBeginingOfScript(pAVar5,in_ECX,pAVar5->scripts[0x403]);
+    AnmManager::SetAndExecuteScript(pAVar5,in_ECX,pAVar5->scripts[0x403]);
   }
   in_ECX[9].flags = (uint)local_10;
   *(float *)&in_ECX[9].alphaInterpEndTime = local_c;

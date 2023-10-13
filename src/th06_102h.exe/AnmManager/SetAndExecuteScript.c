@@ -1,6 +1,6 @@
 
 void __thiscall
-AnmManager::SetBeginingOfScript(AnmManager *this,AnmVm *vm,AnmRawInstr *beginingOfScript)
+AnmManager::SetAndExecuteScript(AnmManager *this,AnmVm *vm,AnmRawInstr *beginingOfScript)
 
 {
   vm->flags = vm->flags & 0xffffff3f;

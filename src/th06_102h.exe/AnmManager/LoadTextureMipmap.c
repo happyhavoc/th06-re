@@ -1,7 +1,8 @@
 
-undefined4 __thiscall
-AnmManager::Unknown(AnmManager *this,int param_1,undefined4 param_2,undefined4 param_3,
-                   D3DCOLOR param_4)
+int __thiscall
+AnmManager::LoadTextureMipmap
+          (AnmManager *this,int texture_index,char *texture_path,int format_index,D3DCOLOR color_key
+          )
 
 {
   HRESULT HVar1;
@@ -24,20 +25,21 @@ AnmManager::Unknown(AnmManager *this,int param_1,undefined4 param_2,undefined4 p
   D3DSURFACE_DESC local_24;
   
   local_3c = (IDirect3DTexture8 *)0x0;
-  local_28 = FileSystem::OpenPath(param_2,0);
+  local_28 = FileSystem::OpenPath(texture_path,0);
   if (local_28 != (byte *)0x0) {
-    (*this->textures[param_1]->lpVtbl->GetLevelDesc)(this->textures[param_1],0,&local_24);
+    (*this->textures[texture_index]->lpVtbl->GetLevelDesc)
+              (this->textures[texture_index],0,&local_24);
     if (((local_24.Format == D3DFMT_A8R8G8B8) || (local_24.Format == D3DFMT_A4R4G4B4)) ||
        (local_24.Format == D3DFMT_A1R5G5B5)) {
       HVar1 = _D3DXCreateTextureFromFileInMemoryEx_60
                         (g_GameContext.d3dDevice,local_28,g_LastFileSize,0,0,0,0,local_24.Format,
-                         D3DPOOL_SYSTEMMEM,3,0xffffffff,param_4,(D3DXIMAGE_INFO *)0x0,
+                         D3DPOOL_SYSTEMMEM,3,0xffffffff,color_key,(D3DXIMAGE_INFO *)0x0,
                          (PALETTEENTRY *)0x0,&local_3c);
       if (((HVar1 == 0) &&
-          (HVar1 = (*this->textures[param_1]->lpVtbl->LockRect)
-                             (this->textures[param_1],0,&local_30,(RECT *)0x0,0), HVar1 == 0)) &&
-         (HVar1 = (*local_3c->lpVtbl->LockRect)(local_3c,0,&local_38,(RECT *)0x0,0x8000), HVar1 == 0
-         )) {
+          (HVar1 = (*this->textures[texture_index]->lpVtbl->LockRect)
+                             (this->textures[texture_index],0,&local_30,(RECT *)0x0,0), HVar1 == 0))
+         && (HVar1 = (*local_3c->lpVtbl->LockRect)(local_3c,0,&local_38,(RECT *)0x0,0x8000),
+            HVar1 == 0)) {
         if (local_24.Format == D3DFMT_A8R8G8B8) {
           for (local_48 = 0; local_48 < local_24.Height; local_48 = local_48 + 1) {
             local_40 = (void *)((int)local_30.pBits + local_48 * local_30.Pitch);
@@ -72,7 +74,7 @@ AnmManager::Unknown(AnmManager *this,int param_1,undefined4 param_2,undefined4 p
           }
         }
         (*local_3c->lpVtbl->UnlockRect)(local_3c,0);
-        (*this->textures[param_1]->lpVtbl->UnlockRect)(this->textures[param_1],0);
+        (*this->textures[texture_index]->lpVtbl->UnlockRect)(this->textures[texture_index],0);
         if (local_3c != (IDirect3DTexture8 *)0x0) {
           (*local_3c->lpVtbl->Release)(local_3c);
           local_3c = (IDirect3DTexture8 *)0x0;
@@ -91,6 +93,6 @@ AnmManager::Unknown(AnmManager *this,int param_1,undefined4 param_2,undefined4 p
     }
     _free(local_28);
   }
-  return 0xffffffff;
+  return -1;
 }
 

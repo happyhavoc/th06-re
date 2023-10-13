@@ -62,9 +62,9 @@ LAB_00433998:
   case AnmOpcode_ExitHide:
     vm->currentInstruction = (AnmRawInstr *)0x0;
     return 1;
-  case AnmOpcode_1:
+  case AnmOpcode_SetActiveSprite:
     vm->flags = vm->flags | 1;
-    FUN_004323a0(this,vm,local_8->args[0] + this->spriteIndices[vm->anmFileIndex]);
+    SetActiveSprite(this,vm,local_8->args[0] + this->spriteIndices[vm->anmFileIndex]);
     vm->timeOfLastSpriteSet = (vm->currentTimeInScript).current;
     break;
   case AnmOpcode_SetScale:
@@ -131,7 +131,7 @@ LAB_00433998:
       uVar4 = FUN_0041e780(&DAT_0069d8f8);
       local_e0 = (int)((ulonglong)uVar4 % (ulonglong)(longlong)(int)(uint)uVar2);
     }
-    FUN_004323a0(this,vm,*local_c + local_e0 + this->spriteIndices[vm->anmFileIndex]);
+    SetActiveSprite(this,vm,*local_c + local_e0 + this->spriteIndices[vm->anmFileIndex]);
     vm->timeOfLastSpriteSet = (vm->currentTimeInScript).current;
     break;
   case AnmOpcode_17:

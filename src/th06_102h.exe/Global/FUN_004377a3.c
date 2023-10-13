@@ -7,7 +7,7 @@ void FUN_004377a3(AnmVm *param_1,int param_2,int param_3,uint param_4,uint param
       param_1->color = param_4;
     }
     else {
-      AnmManager::FUN_004323a0(g_AnmManager,param_1,param_1->anotherSpriteNumber + param_6);
+      AnmManager::SetActiveSprite(g_AnmManager,param_1,param_1->anotherSpriteNumber + param_6);
       param_1->color = param_4 & 0xff000000 | 0xffffff;
     }
     (param_1->pos2).x = -4.0;
@@ -19,7 +19,7 @@ void FUN_004377a3(AnmVm *param_1,int param_2,int param_3,uint param_4,uint param
       param_1->color = param_5;
     }
     else {
-      AnmManager::FUN_004323a0(g_AnmManager,param_1,(int)param_1->anotherSpriteNumber);
+      AnmManager::SetActiveSprite(g_AnmManager,param_1,(int)param_1->anotherSpriteNumber);
       param_1->color = param_5 & 0xff000000 | 0xffffff;
     }
     (param_1->pos2).x = 0.0;

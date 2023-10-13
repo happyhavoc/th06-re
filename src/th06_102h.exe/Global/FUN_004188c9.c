@@ -14,6 +14,8 @@ undefined4 FUN_004188c9(void)
   short local_20;
   short local_14;
   
+                    /* This is the MSG VM execute function
+                        */
   if (*(int *)(in_ECX + 0x253c) < 0) {
     uVar4 = 0xffffffff;
   }
@@ -39,11 +41,11 @@ undefined4 FUN_004188c9(void)
         local_14 = sVar2 + (short)uVar5 + 0x4a0;
         pAVar1 = (AnmVm *)(in_ECX + 0x2550 + *psVar6 * 0x110);
         pAVar1->anmFileIndex = local_14;
-        AnmManager::SetBeginingOfScript(pAVar3,pAVar1,pAVar3->scripts[uVar5 + sVar2 + 0x4a0]);
+        AnmManager::SetAndExecuteScript(pAVar3,pAVar1,pAVar3->scripts[uVar5 + sVar2 + 0x4a0]);
         break;
       case 2:
         psVar6 = (short *)(*(int *)(in_ECX + 0x2538) + 4);
-        AnmManager::FUN_004323a0
+        AnmManager::SetActiveSprite
                   (g_AnmManager,(AnmVm *)(in_ECX + 0x2550 + *psVar6 * 0x110),
                    (int)*(short *)(*(int *)(in_ECX + 0x2538) + 6) +
                    (-(uint)(*psVar6 != 0) & 8) + 0x4a0);
@@ -60,7 +62,7 @@ undefined4 FUN_004188c9(void)
         local_20 = sVar2 + 0x702;
         pAVar1 = (AnmVm *)(in_ECX + 0x2770 + *(short *)(iVar7 + 6) * 0x110);
         pAVar1->anmFileIndex = local_20;
-        AnmManager::SetBeginingOfScript(pAVar3,pAVar1,pAVar3->scripts[sVar2 + 0x702]);
+        AnmManager::SetAndExecuteScript(pAVar3,pAVar1,pAVar3->scripts[sVar2 + 0x702]);
         *(undefined *)(in_ECX + 0x287d + *(short *)(iVar7 + 6) * 0x110) =
              *(undefined *)(in_ECX + 0x2bd0);
         *(undefined *)(in_ECX + 0x287c + *(short *)(iVar7 + 6) * 0x110) =
@@ -94,7 +96,7 @@ undefined4 FUN_004188c9(void)
         break;
       case 7:
         *(undefined2 *)(in_ECX + 0x1d68) = 0x701;
-        AnmManager::SetBeginingOfScript(pAVar3,(AnmVm *)(in_ECX + 0x1cb4),pAVar3->scripts[0x701]);
+        AnmManager::SetAndExecuteScript(pAVar3,(AnmVm *)(in_ECX + 0x1cb4),pAVar3->scripts[0x701]);
         *(undefined *)(in_ECX + 0x1dc0) = 0x10;
         *(undefined *)(in_ECX + 0x1dc1) = 0x10;
         FUN_00434c40(g_AnmManager,in_ECX + 0x1cb4,0xe0ffff,0,&DAT_0046a98c,
@@ -111,7 +113,7 @@ undefined4 FUN_004188c9(void)
         local_34 = sVar2 + 0x704;
         pAVar1 = (AnmVm *)(in_ECX + 0x2990 + *(short *)(iVar7 + 6) * 0x110);
         pAVar1->anmFileIndex = local_34;
-        AnmManager::SetBeginingOfScript(pAVar3,pAVar1,pAVar3->scripts[sVar2 + 0x704]);
+        AnmManager::SetAndExecuteScript(pAVar3,pAVar1,pAVar3->scripts[sVar2 + 0x704]);
         FUN_00434c40(g_AnmManager,in_ECX + 0x2990 + *(short *)(iVar7 + 6) * 0x110,
                      *(undefined4 *)(in_ECX + 0x2bb0 + *(short *)(iVar7 + 4) * 4),
                      *(undefined4 *)(in_ECX + 0x2bc0 + *(short *)(iVar7 + 4) * 4),iVar7 + 8);
@@ -122,7 +124,7 @@ undefined4 FUN_004188c9(void)
         pAVar3 = g_AnmManager;
         if (DAT_0069d6d4 < 6) {
           *(undefined2 *)(in_ECX + 0x24d8) = 0x619;
-          AnmManager::SetBeginingOfScript(pAVar3,(AnmVm *)(in_ECX + 0x2424),pAVar3->scripts[0x619]);
+          AnmManager::SetAndExecuteScript(pAVar3,(AnmVm *)(in_ECX + 0x2424),pAVar3->scripts[0x619]);
         }
         else {
           DAT_0069d4bc = 0xff;

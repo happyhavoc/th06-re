@@ -120,10 +120,10 @@ switchD_004358f7_caseD_2:
         local_c->flags = local_c->flags | 2;
         sVar1 = *(short *)(param_1 + 0x821c + ((int)local_8 / 2) * 2);
         if ((int)local_8 % 2 == 0) {
-          AnmManager::FUN_004323a0(g_AnmManager,local_c,(int)sVar1 / 10 + 0x100);
+          AnmManager::SetActiveSprite(g_AnmManager,local_c,(int)sVar1 / 10 + 0x100);
         }
         else {
-          AnmManager::FUN_004323a0(g_AnmManager,local_c,(int)sVar1 % 10 + 0x100);
+          AnmManager::SetActiveSprite(g_AnmManager,local_c,(int)sVar1 % 10 + 0x100);
         }
         local_c->anotherSpriteNumber = local_c->spriteNumber;
         FUN_004377a3(local_c,(int)local_8 / 2,*(undefined4 *)(param_1 + 0x81a0),

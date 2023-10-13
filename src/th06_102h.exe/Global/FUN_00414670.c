@@ -25,12 +25,12 @@ AnmVm * FUN_00414670(short *param_1)
   sVar1 = *param_1;
   local_10 = sVar1 + 0x209;
   local_c->anmFileIndex = local_10;
-  AnmManager::SetBeginingOfScript(pAVar3,local_c,pAVar3->scripts[sVar1 + 0x209]);
-  AnmManager::FUN_004323a0(g_AnmManager,local_c,(int)local_c->spriteNumber + (int)param_1[1]);
+  AnmManager::SetAndExecuteScript(pAVar3,local_c,pAVar3->scripts[sVar1 + 0x209]);
+  AnmManager::SetActiveSprite(g_AnmManager,local_c,(int)local_c->spriteNumber + (int)param_1[1]);
   pAVar3 = g_AnmManager;
   iVar2 = *(int *)(&DAT_00476440 + param_1[1] * 4);
   AnmVm::Initialize(local_c + 1);
-  AnmManager::FUN_004323a0(pAVar3,local_c + 1,iVar2 + 0x28c);
+  AnmManager::SetActiveSprite(pAVar3,local_c + 1,iVar2 + 0x28c);
   local_c[1].flags = local_c[1].flags | 4;
   local_c[2].rotation.x = *(float *)(param_1 + 2);
   local_c[2].rotation.y = *(float *)(param_1 + 4);

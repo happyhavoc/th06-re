@@ -15,7 +15,7 @@ void FUN_0040b8e0(int param_1,int param_2)
     if ((*(short *)((int)local_c[5].matrix.m[3] + 2) != 0) &&
        (*(short *)((int)local_c[5].matrix.m[3] + 2) != 5)) {
       *(undefined2 *)((int)local_c[5].matrix.m[2] + 0xe) = 0xf;
-      AnmManager::FUN_004323a0
+      AnmManager::SetActiveSprite
                 (g_AnmManager,local_c,
                  (int)local_c->anotherSpriteNumber +
                  (int)*(short *)((int)local_c[5].matrix.m[2] + 0xe));

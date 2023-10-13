@@ -32,7 +32,7 @@ AsciiManagerProbablyStageRelated::FUN_00401b80(AsciiManagerProbablyStageRelated 
     for (local_8 = 0; pAVar1 = g_AnmManager, local_8 < 6; local_8 = local_8 + 1) {
       local_6c = (short)local_8 + 2;
       this->vms0[local_8].anmFileIndex = local_6c;
-      AnmManager::SetBeginingOfScript(pAVar1,this->vms0 + local_8,pAVar1->scripts[local_8 + 2]);
+      AnmManager::SetAndExecuteScript(pAVar1,this->vms0 + local_8,pAVar1->scripts[local_8 + 2]);
     }
     for (local_8 = 0; local_8 < 3; local_8 = local_8 + 1) {
       this->vms0[local_8].pendingInterrupt = 1;
@@ -48,7 +48,7 @@ AsciiManagerProbablyStageRelated::FUN_00401b80(AsciiManagerProbablyStageRelated 
       pAVar1->heightMaybe = 0x1c0;
       pAVar1 = g_AnmManager;
       (this->vm1).anmFileIndex = 0x718;
-      AnmManager::SetBeginingOfScript(pAVar1,&this->vm1,pAVar1->scripts[0x718]);
+      AnmManager::SetAndExecuteScript(pAVar1,&this->vm1,pAVar1->scripts[0x718]);
       (this->vm1).pos.x = 32.0;
       (this->vm1).pos.y = 16.0;
       (this->vm1).pos.z = 0.0;

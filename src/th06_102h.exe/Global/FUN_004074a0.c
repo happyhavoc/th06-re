@@ -224,21 +224,21 @@ LAB_004074ce:
               uVar9 = param_1[0xd].alphaInterpEndTime;
               local_268 = uVar9 + 0x100;
               param_1->anmFileIndex = local_268;
-              AnmManager::SetBeginingOfScript
+              AnmManager::SetAndExecuteScript
                         (pAVar11,param_1,pAVar11->scripts[(short)uVar9 + 0x100]);
             }
             else if (*(char *)((int)&param_1[0xd].flags + 3) == '\x01') {
               uVar9 = param_1[0xd].scaleInterpEndTime;
               local_270 = uVar9 + 0x100;
               param_1->anmFileIndex = local_270;
-              AnmManager::SetBeginingOfScript
+              AnmManager::SetAndExecuteScript
                         (pAVar11,param_1,pAVar11->scripts[(short)uVar9 + 0x100]);
             }
             else {
               uVar9 = param_1[0xd].autoRotate;
               local_278 = uVar9 + 0x100;
               param_1->anmFileIndex = local_278;
-              AnmManager::SetBeginingOfScript
+              AnmManager::SetAndExecuteScript
                         (pAVar11,param_1,pAVar11->scripts[(short)uVar9 + 0x100]);
             }
           }
@@ -246,13 +246,13 @@ LAB_004074ce:
             sVar8 = param_1[0xd].pendingInterrupt;
             local_280 = sVar8 + 0x100;
             param_1->anmFileIndex = local_280;
-            AnmManager::SetBeginingOfScript(pAVar11,param_1,pAVar11->scripts[sVar8 + 0x100]);
+            AnmManager::SetAndExecuteScript(pAVar11,param_1,pAVar11->scripts[sVar8 + 0x100]);
           }
           else if (cVar7 == '\x02') {
             uVar9 = param_1[0xd].posInterpEndTime;
             local_288 = uVar9 + 0x100;
             param_1->anmFileIndex = local_288;
-            AnmManager::SetBeginingOfScript(pAVar11,param_1,pAVar11->scripts[(short)uVar9 + 0x100]);
+            AnmManager::SetAndExecuteScript(pAVar11,param_1,pAVar11->scripts[(short)uVar9 + 0x100]);
           }
           *(char *)((int)&param_1[0xd].flags + 3) = cVar7;
         }
@@ -1011,7 +1011,7 @@ switchD_00407544_caseD_2:
     fVar3 = local_20[3];
     local_13c = SUB42(fVar3,0) + 0x100;
     param_1->anmFileIndex = local_13c;
-    AnmManager::SetBeginingOfScript(pAVar11,param_1,pAVar11->scripts[(int)fVar3 + 0x100]);
+    AnmManager::SetAndExecuteScript(pAVar11,param_1,pAVar11->scripts[(int)fVar3 + 0x100]);
     break;
   case 0x62:
     param_1[0xd].alphaInterpEndTime = *(ushort *)(local_20 + 3);
@@ -1030,7 +1030,7 @@ switchD_00407544_caseD_2:
     local_144 = SUB42(fVar3,0) + 0x100;
     fVar4 = local_20[3];
     param_1[(int)fVar4 + 1].anmFileIndex = local_144;
-    AnmManager::SetBeginingOfScript
+    AnmManager::SetAndExecuteScript
               (pAVar11,param_1 + (int)fVar4 + 1,pAVar11->scripts[(int)fVar3 + 0x100]);
     break;
   case 100:

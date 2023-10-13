@@ -10,12 +10,12 @@ void __thiscall FUN_00417acd(int param_1_00,int param_2,char *param_3)
   pAVar3 = g_AnmManager;
   iVar2 = *(int *)(param_1_00 + 4);
   *(undefined2 *)(iVar2 + 0x1e78) = 0x4a1;
-  AnmManager::SetBeginingOfScript(pAVar3,(AnmVm *)(iVar2 + 0x1dc4),pAVar3->scripts[0x4a1]);
-  AnmManager::FUN_004323a0(g_AnmManager,(AnmVm *)(*(int *)(param_1_00 + 4) + 0x1dc4),param_2);
+  AnmManager::SetAndExecuteScript(pAVar3,(AnmVm *)(iVar2 + 0x1dc4),pAVar3->scripts[0x4a1]);
+  AnmManager::SetActiveSprite(g_AnmManager,(AnmVm *)(*(int *)(param_1_00 + 4) + 0x1dc4),param_2);
   pAVar3 = g_AnmManager;
   iVar2 = *(int *)(param_1_00 + 4);
   *(undefined2 *)(iVar2 + 0x2098) = 0x706;
-  AnmManager::SetBeginingOfScript(pAVar3,(AnmVm *)(iVar2 + 0x1fe4),pAVar3->scripts[0x706]);
+  AnmManager::SetAndExecuteScript(pAVar3,(AnmVm *)(iVar2 + 0x1fe4),pAVar3->scripts[0x706]);
   FUN_00434b60(g_AnmManager,*(int *)(param_1_00 + 4) + 0x1fe4,0xf0f0ff,0,param_3);
   local_1c = param_3;
   do {

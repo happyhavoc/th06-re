@@ -30,7 +30,7 @@ int __thiscall AnmManager::LoadAnm(AnmManager *this,int anm_index,char *path,int
   }
   else {
     anim_data->textureIdx = anm_index;
-    local_c = (char *)((int)anim_data->sprites + anim_data->first_name_offset + -0x40);
+    local_c = (char *)((int)anim_data->sprites + anim_data->name_offset + -0x40);
     if (*local_c == '@') {
       FUN_00431d70(anim_data->textureIdx,anim_data->width,anim_data->height,anim_data->format);
     }
@@ -45,9 +45,10 @@ int __thiscall AnmManager::LoadAnm(AnmManager *this,int anm_index,char *path,int
         return -1;
       }
     }
-    if (anim_data->second_name_offset != 0) {
-      local_c = (char *)((int)anim_data->sprites + anim_data->second_name_offset + -0x40);
-      iVar1 = Unknown(this,anim_data->textureIdx,local_c,anim_data->format,anim_data->color_key);
+    if (anim_data->mipmap_name_offset != 0) {
+      local_c = (char *)((int)anim_data->sprites + anim_data->mipmap_name_offset + -0x40);
+      iVar1 = LoadTextureMipmap(this,anim_data->textureIdx,local_c,anim_data->format,
+                                anim_data->color_key);
       if (iVar1 != 0) {
         GameErrorContextFatal
                   (&g_GameErrorContext,

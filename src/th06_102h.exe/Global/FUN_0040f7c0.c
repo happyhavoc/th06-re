@@ -71,7 +71,7 @@ void __fastcall FUN_0040f7c0(int param_1)
           local_ac = (short)local_8 + 0x708 + (short)iVar6 * 2;
           pAVar1 = (AnmVm *)(param_1 + 0x14 + (local_8 + *(int *)(param_1 + 0x1154) * 2) * 0x110);
           pAVar1->anmFileIndex = local_ac;
-          AnmManager::SetBeginingOfScript
+          AnmManager::SetAndExecuteScript
                     (pAVar2,pAVar1,pAVar2->scripts[iVar6 * 2 + local_8 + 0x708]);
           FUN_00434b60(g_AnmManager,
                        param_1 + 0x14 + (local_8 + *(int *)(param_1 + 0x1154) * 2) * 0x110,
@@ -158,7 +158,7 @@ switchD_0040fa93_caseD_52:
           lVar3 = FUN_0040f4d0(param_1);
           lVar4 = FUN_0040f4d0(param_1);
           FUN_004051b0(param_1 + 0x14 + lVar5 * 0x110,lVar3 + 0x600);
-          AnmManager::FUN_004323a0
+          AnmManager::SetActiveSprite
                     (g_AnmManager,(AnmVm *)(param_1 + 0x14 + lVar5 * 0x110),lVar4 + 0x600);
           break;
         case 0x62:
@@ -251,7 +251,7 @@ switchD_0040fa32_caseD_0:
     local_90 = (short)local_8 + 0x708 + (short)iVar6 * 2;
     pAVar1 = (AnmVm *)(param_1 + 0x14 + (local_8 + *(int *)(param_1 + 0x1154) * 2) * 0x110);
     pAVar1->anmFileIndex = local_90;
-    AnmManager::SetBeginingOfScript(pAVar2,pAVar1,pAVar2->scripts[iVar6 * 2 + local_8 + 0x708]);
+    AnmManager::SetAndExecuteScript(pAVar2,pAVar1,pAVar2->scripts[iVar6 * 2 + local_8 + 0x708]);
     FUN_00434b60(g_AnmManager,param_1 + 0x14 + (local_8 + *(int *)(param_1 + 0x1154) * 2) * 0x110,
                  *(undefined4 *)(param_1 + 0x1158),0xc0d0d0,&local_34);
   }

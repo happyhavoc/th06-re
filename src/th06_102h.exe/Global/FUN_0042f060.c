@@ -43,13 +43,13 @@ undefined4 FUN_0042f060(byte **param_1)
       pAVar1 = g_AnmManager;
       local_3c = (short)local_8 + 0x100;
       local_c->anmFileIndex = local_3c;
-      AnmManager::SetBeginingOfScript(pAVar1,local_c,pAVar1->scripts[local_8 + 0x100]);
+      AnmManager::SetAndExecuteScript(pAVar1,local_c,pAVar1->scripts[local_8 + 0x100]);
       local_c = local_c + 1;
     }
     local_c = (AnmVm *)(param_1 + 0xa28);
     for (local_8 = 0; pAVar1 = g_AnmManager, local_8 < 0x10; local_8 = local_8 + 1) {
       AnmVm::Initialize(local_c);
-      AnmManager::FUN_004323a0(pAVar1,local_c,local_8 + 0x708);
+      AnmManager::SetActiveSprite(pAVar1,local_c,local_8 + 0x708);
       (local_c->pos).x = 0.0;
       (local_c->pos).y = 0.0;
       (local_c->pos).z = 0.0;

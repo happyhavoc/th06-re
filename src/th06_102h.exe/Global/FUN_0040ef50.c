@@ -26,7 +26,7 @@ FUN_0040ef50(int *param_1_00,int param_2,float *param_3,int param_4,D3DCOLOR par
       iVar1 = *(int *)(&DAT_00476298 + param_2 * 8);
       local_10 = (short)iVar1;
       local_8->anmFileIndex = local_10;
-      AnmManager::SetBeginingOfScript(this,local_8,this->scripts[iVar1]);
+      AnmManager::SetAndExecuteScript(this,local_8,this->scripts[iVar1]);
       local_8->color = param_5;
       local_8[1].matrix.m[2][2] = *(float *)(&DAT_0047629c + param_2 * 8);
       local_8[1].matrix.m[2][0] = 0.0;

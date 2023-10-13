@@ -29,7 +29,7 @@ void FUN_0040d530(int param_1)
         (fVar1 = local_68[5].currentTimeInScript.subFrame, NAN(fVar1) != (fVar1 == 0.0))))) {
       *(ushort *)(local_68[5].matrix.m[2] + 3) = *(ushort *)(local_68[5].matrix.m[2] + 3) | 0x10;
       *(undefined2 *)((int)local_68[5].matrix.m[2] + 0xe) = 2;
-      AnmManager::FUN_004323a0
+      AnmManager::SetActiveSprite
                 (g_AnmManager,local_68,
                  (int)local_68->anotherSpriteNumber +
                  (int)*(short *)((int)local_68[5].matrix.m[2] + 0xe));

@@ -18,7 +18,7 @@ void FUN_00420190(void)
       fVar1 = local_10[1].rotation.y;
       if (fVar1 < -8.0 == NAN(fVar1)) {
         if (*(char *)((int)&local_10[1].currentTimeInScript.previous + 2) == '\0') {
-          AnmManager::FUN_004323a0
+          AnmManager::SetActiveSprite
                     (g_AnmManager,local_10,
                      *(char *)&local_10[1].currentTimeInScript.previous + 0x200);
           *(undefined *)((int)&local_10[1].currentTimeInScript.previous + 2) = 1;
@@ -28,7 +28,7 @@ void FUN_00420190(void)
       else {
         (local_10->pos).y = VIEWPORT_Y + 8.0;
         if (*(char *)((int)&local_10[1].currentTimeInScript.previous + 2) != '\0') {
-          AnmManager::FUN_004323a0
+          AnmManager::SetActiveSprite
                     (g_AnmManager,local_10,
                      *(char *)&local_10[1].currentTimeInScript.previous + 0x207);
           *(undefined *)((int)&local_10[1].currentTimeInScript.previous + 2) = 0;

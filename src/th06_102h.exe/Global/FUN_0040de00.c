@@ -54,7 +54,7 @@ void FUN_0040de00(int param_1,undefined4 param_2)
           local_68[5].uvScrollPos.y = (float)(fVar6 * (float10)0.01);
           *(short *)((int)local_68[5].matrix.m[2] + 0xe) =
                *(short *)((int)local_68[5].matrix.m[2] + 0xe) + 1;
-          AnmManager::FUN_004323a0
+          AnmManager::SetActiveSprite
                     (g_AnmManager,local_68,
                      (int)local_68->anotherSpriteNumber +
                      (int)*(short *)((int)local_68[5].matrix.m[2] + 0xe));

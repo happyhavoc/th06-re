@@ -15,7 +15,7 @@ undefined4 FUN_00417d29(void)
   if (g_GameContext.unkInput2 == 3) {
     uVar1 = in_ECX[1];
     *(undefined2 *)(uVar1 + 0x24d8) = 0x619;
-    AnmManager::SetBeginingOfScript(pAVar2,(AnmVm *)(uVar1 + 0x2424),pAVar2->scripts[0x619]);
+    AnmManager::SetAndExecuteScript(pAVar2,(AnmVm *)(uVar1 + 0x2424),pAVar2->scripts[0x619]);
     *(undefined2 *)(in_ECX[1] + 0x24ae) = 1;
   }
   else {
@@ -169,7 +169,7 @@ undefined4 FUN_00417d29(void)
       local_14 = (short)local_8 + 0x600;
       vm = (AnmVm *)(local_8 * 0x110 + in_ECX[1]);
       vm->anmFileIndex = local_14;
-      AnmManager::SetBeginingOfScript(pAVar2,vm,pAVar2->scripts[local_8 + 0x600]);
+      AnmManager::SetAndExecuteScript(pAVar2,vm,pAVar2->scripts[local_8 + 0x600]);
     }
   }
   *(undefined *)(in_ECX + 8) = 0;
@@ -179,27 +179,27 @@ undefined4 FUN_00417d29(void)
   pAVar2 = g_AnmManager;
   uVar1 = in_ECX[1];
   *(undefined2 *)(uVar1 + 0x1e78) = 0x4a1;
-  AnmManager::SetBeginingOfScript(pAVar2,(AnmVm *)(uVar1 + 0x1dc4),pAVar2->scripts[0x4a1]);
+  AnmManager::SetAndExecuteScript(pAVar2,(AnmVm *)(uVar1 + 0x1dc4),pAVar2->scripts[0x4a1]);
   pAVar2 = g_AnmManager;
   uVar1 = in_ECX[1];
   *(undefined2 *)(uVar1 + 0x1f88) = 0x4a3;
-  AnmManager::SetBeginingOfScript(pAVar2,(AnmVm *)(uVar1 + 0x1ed4),pAVar2->scripts[0x4a3]);
+  AnmManager::SetAndExecuteScript(pAVar2,(AnmVm *)(uVar1 + 0x1ed4),pAVar2->scripts[0x4a3]);
   pAVar2 = g_AnmManager;
   uVar1 = in_ECX[1];
   *(undefined2 *)(uVar1 + 0x2098) = 0x706;
-  AnmManager::SetBeginingOfScript(pAVar2,(AnmVm *)(uVar1 + 0x1fe4),pAVar2->scripts[0x706]);
+  AnmManager::SetAndExecuteScript(pAVar2,(AnmVm *)(uVar1 + 0x1fe4),pAVar2->scripts[0x706]);
   pAVar2 = g_AnmManager;
   uVar1 = in_ECX[1];
   *(undefined2 *)(uVar1 + 0x21a8) = 0x707;
-  AnmManager::SetBeginingOfScript(pAVar2,(AnmVm *)(uVar1 + 0x20f4),pAVar2->scripts[0x707]);
+  AnmManager::SetAndExecuteScript(pAVar2,(AnmVm *)(uVar1 + 0x20f4),pAVar2->scripts[0x707]);
   pAVar2 = g_AnmManager;
   uVar1 = in_ECX[1];
   *(undefined2 *)(uVar1 + 0x22b8) = 0x617;
-  AnmManager::SetBeginingOfScript(pAVar2,(AnmVm *)(uVar1 + 0x2204),pAVar2->scripts[0x617]);
+  AnmManager::SetAndExecuteScript(pAVar2,(AnmVm *)(uVar1 + 0x2204),pAVar2->scripts[0x617]);
   pAVar2 = g_AnmManager;
   uVar1 = in_ECX[1];
   *(undefined2 *)(uVar1 + 0x23c8) = 0x618;
-  AnmManager::SetBeginingOfScript(pAVar2,(AnmVm *)(uVar1 + 0x2314),pAVar2->scripts[0x618]);
+  AnmManager::SetAndExecuteScript(pAVar2,(AnmVm *)(uVar1 + 0x2314),pAVar2->scripts[0x618]);
   *(undefined4 *)(in_ECX[1] + 0x1e80) = 0;
   *(undefined4 *)(in_ECX[1] + 0x20a0) = 0;
   *(undefined4 *)(in_ECX[1] + 0x1f90) = 0;
@@ -215,11 +215,11 @@ undefined4 FUN_00417d29(void)
   pAVar2 = g_AnmManager;
   uVar1 = in_ECX[1];
   *(undefined2 *)(uVar1 + 0x1c58) = 0x700;
-  AnmManager::SetBeginingOfScript(pAVar2,(AnmVm *)(uVar1 + 0x1ba4),pAVar2->scripts[0x700]);
+  AnmManager::SetAndExecuteScript(pAVar2,(AnmVm *)(uVar1 + 0x1ba4),pAVar2->scripts[0x700]);
   pAVar2 = g_AnmManager;
   uVar1 = in_ECX[1];
   *(undefined2 *)(uVar1 + 0x1d68) = 0x701;
-  AnmManager::SetBeginingOfScript(pAVar2,(AnmVm *)(uVar1 + 0x1cb4),pAVar2->scripts[0x701]);
+  AnmManager::SetAndExecuteScript(pAVar2,(AnmVm *)(uVar1 + 0x1cb4),pAVar2->scripts[0x701]);
   FUN_00434e20(g_AnmManager,in_ECX[1] + 0x1ba4,0xe0ffff,0,g_Stage.field1_0x4 + 0x10);
   *(undefined *)(in_ECX[1] + 0x1dc0) = 0x10;
   *(undefined *)(in_ECX[1] + 0x1dc1) = 0x10;

@@ -31,7 +31,8 @@ void FUN_00405260(int param_1)
         *(undefined4 *)(param_1 + 0x75e4 + local_10 * 4) = 0;
       }
       FUN_00420130();
-      FUN_0040ef50(0xc,param_1 + 0x440,1,0xff4040ff);
+      FUN_0040ef50((int *)&AnmRelatedHugeStruct_00487fe0,0xc,(float *)(param_1 + 0x440),1,0xff4040ff
+                  );
       *(undefined4 *)(param_1 + 0x938) = *(undefined4 *)(param_1 + 0x440);
       *(undefined4 *)(param_1 + 0x93c) = *(undefined4 *)(param_1 + 0x444);
       *(undefined4 *)(param_1 + 0x940) = 0x43800000;
@@ -121,8 +122,10 @@ void FUN_00405260(int param_1)
             *(undefined4 *)(param_1 + 0x8c4 + local_10 * 0x10) = 0x42400000;
             if ((99 < *(int *)(param_1 + 0x838 + local_10 * 4)) ||
                (*(int *)(param_1 + 0x75cc) + -0x1e <= *(int *)(param_1 + 0x75d8))) {
-              FUN_0040ef50(6,param_1 + 0x7624 + local_10 * 0xc,8,0xffffffff);
-              FUN_0040ef50(0xc,param_1 + 0x7624 + local_10 * 0xc,1,0xff4040ff);
+              FUN_0040ef50((int *)&AnmRelatedHugeStruct_00487fe0,6,
+                           (float *)(param_1 + 0x7624 + local_10 * 0xc),8,0xffffffff);
+              FUN_0040ef50((int *)&AnmRelatedHugeStruct_00487fe0,0xc,
+                           (float *)(param_1 + 0x7624 + local_10 * 0xc),1,0xff4040ff);
               *(undefined4 *)(param_1 + 0x75e4 + local_10 * 4) = 2;
               *(undefined2 *)(param_1 + 0x776e + local_10 * 0x440) = 1;
               *(undefined2 *)(param_1 + 0x776e + (local_10 * 4 + 1) * 0x110) = 1;
@@ -146,10 +149,10 @@ void FUN_00405260(int param_1)
           *(undefined4 *)(param_1 + 0x75e4 + local_10 * 4) = 0;
         }
         *(float *)(param_1 + 0x7624 + local_10 * 0xc) =
-             g_GameContext.field84_0x1a8 * *(float *)(param_1 + 0x7684 + local_10 * 0xc) +
+             g_GameContext.field81_0x1a8 * *(float *)(param_1 + 0x7684 + local_10 * 0xc) +
              *(float *)(param_1 + 0x7624 + local_10 * 0xc);
         *(float *)(param_1 + 0x7628 + local_10 * 0xc) =
-             g_GameContext.field84_0x1a8 * *(float *)(param_1 + 0x7688 + local_10 * 0xc) +
+             g_GameContext.field81_0x1a8 * *(float *)(param_1 + 0x7688 + local_10 * 0xc) +
              *(float *)(param_1 + 0x7628 + local_10 * 0xc);
         AnmManager::ExecuteScript(g_AnmManager,(AnmVm *)(param_1 + 0x76e4 + local_10 * 0x440));
         AnmManager::ExecuteScript

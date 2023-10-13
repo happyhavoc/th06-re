@@ -26,9 +26,7 @@ void FUN_0042e446(int param_1)
   undefined local_1c;
   uint local_18;
   int local_14;
-  float local_10;
-  float local_c;
-  float fStack_8;
+  D3DXVECTOR3 local_10;
   
   local_18 = __security_cookie ^ unaff_retaddr;
   local_28 = (AnmVm *)(param_1 + 0x40);
@@ -225,9 +223,9 @@ void FUN_0042e446(int param_1)
           g_AsciiManager.color = 0x60c0c0c0;
           g_AsciiManager.scale.y = 1.0;
         }
-        fStack_8 = fStack_38;
-        local_10 = local_40 + local_48;
-        local_c = local_3c + local_48;
+        local_10.z = fStack_38;
+        local_10.x = local_40 + local_48;
+        local_10.y = local_3c + local_48;
         local_5c = PTR_DAT_004784d4[local_14 * 0x10 + local_30];
         local_5b = 0;
         if (local_14 == 5) {

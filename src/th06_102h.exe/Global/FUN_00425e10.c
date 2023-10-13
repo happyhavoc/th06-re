@@ -47,7 +47,7 @@ int __fastcall FUN_00425e10(int param_1)
   }
   AnmTimer::AnmTimer((AnmTimer *)(param_1 + 0x75a8));
   AnmTimer::AnmTimer((AnmTimer *)(param_1 + 0x75b4));
-  FUN_00426000();
+  FUN_00426000(param_1 + 0x75c8);
   return param_1;
 }
 

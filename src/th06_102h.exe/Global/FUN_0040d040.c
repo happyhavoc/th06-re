@@ -119,7 +119,7 @@ void FUN_0040d040(int param_1,int param_2)
           *(float *)(param_1 + 0xd04) = local_dc[local_60 * 3];
           *(float *)(param_1 + 0xd08) = local_54;
           *(float *)(param_1 + 0xd0c) = local_50;
-          FUN_004145c0();
+          FUN_004145c0(param_1 + 0xd00);
         }
         iVar1 = local_60;
         fVar3 = (float10)FUN_0045bda4((double)local_78);

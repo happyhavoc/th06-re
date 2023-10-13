@@ -44,7 +44,7 @@ int * FUN_0040afb0(int param_1,int *param_2,undefined4 *param_3)
     param_2 = (int *)(param_1 + 0xcf8);
     break;
   case -0x2725:
-    fVar1 = (float10)FUN_00428700(param_1 + 0xc6c);
+    fVar1 = FUN_00428700(0x6ca628,(float *)(param_1 + 0xc6c));
     _DAT_00487e4c = (float)fVar1;
     if (param_3 != (undefined4 *)0x0) {
       *param_3 = 2;

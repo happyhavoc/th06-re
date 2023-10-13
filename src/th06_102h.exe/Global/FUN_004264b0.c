@@ -82,7 +82,8 @@ int FUN_004264b0(float *param_1,float *param_2,undefined4 *param_3)
             local_8[1].angleVel.y = 48.0;
           }
           if (local_8[1].currentTimeInScript.current % 6 == 0) {
-            FUN_0040ef50(5,local_8 + 1,1,0xffffffff);
+            FUN_0040ef50((int *)&AnmRelatedHugeStruct_00487fe0,5,(float *)(local_8 + 1),1,0xffffffff
+                        );
           }
         }
         this = g_AnmManager;
@@ -92,7 +93,7 @@ int FUN_004264b0(float *param_1,float *param_2,undefined4 *param_3)
             local_3c = param_1[1];
             local_38 = param_1[2];
             local_40 = local_8[1].rotation.x;
-            FUN_0040ef50(5,&local_40,1,0xffffffff);
+            FUN_0040ef50((int *)&AnmRelatedHugeStruct_00487fe0,5,&local_40,1,0xffffffff);
           }
         }
         else {
@@ -101,7 +102,8 @@ int FUN_004264b0(float *param_1,float *param_2,undefined4 *param_3)
             local_80 = sVar4 + 0x20;
             local_8->anmFileIndex = local_80;
             AnmManager::SetBeginingOfScript(this,local_8,this->scripts[sVar4 + 0x20]);
-            FUN_0040ef50(5,local_8 + 1,1,0xffffffff);
+            FUN_0040ef50((int *)&AnmRelatedHugeStruct_00487fe0,5,(float *)(local_8 + 1),1,0xffffffff
+                        );
             local_8[1].rotation.z = 0.1;
           }
           *(undefined2 *)((int)local_8[1].matrix.m[0] + 2) = 2;
@@ -132,7 +134,7 @@ int FUN_004264b0(float *param_1,float *param_2,undefined4 *param_3)
              *(int *)(in_ECX + 0x838 + local_c * 4) + *(int *)(in_ECX + 0x7b8 + local_c * 4);
         *(char *)(in_ECX + 0x9e4) = *(char *)(in_ECX + 0x9e4) + '\x01';
         if ((*(byte *)(in_ECX + 0x9e4) & 3) == 0) {
-          FUN_0040ef50(3,param_1,1,0xffffffff);
+          FUN_0040ef50((int *)&AnmRelatedHugeStruct_00487fe0,3,param_1,1,0xffffffff);
         }
         if ((*(int *)(in_ECX + 0x75c8) != 0) && (param_3 != (undefined4 *)0x0)) {
           *param_3 = 1;

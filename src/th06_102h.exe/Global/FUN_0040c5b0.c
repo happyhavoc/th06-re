@@ -16,8 +16,7 @@ void FUN_0040c5b0(int param_1)
   float local_70;
   float local_6c;
   float local_68;
-  undefined2 local_64;
-  undefined2 local_62;
+  undefined4 local_64;
   float local_60;
   float local_5c;
   float local_58;
@@ -33,13 +32,13 @@ void FUN_0040c5b0(int param_1)
   uint local_8;
   
   if (*(int *)(param_1 + 0x9ac) % 9 == 0) {
-    puVar3 = (undefined4 *)&local_64;
+    puVar3 = &local_64;
     for (iVar2 = 0x15; iVar2 != 0; iVar2 = iVar2 + -1) {
       *puVar3 = 0;
       puVar3 = puVar3 + 1;
     }
     local_8 = *(int *)(param_1 + 0x9ac) / 9;
-    local_64 = 8;
+    local_64._0_2_ = 8;
     local_1c = 0;
     if (DAT_0069bcb0 < 2) {
       local_20 = 1;
@@ -102,9 +101,9 @@ void FUN_0040c5b0(int param_1)
       if (((local_8 & 1) != 0) && (DAT_0069bcb0 < 2)) {
         local_54 = local_88;
       }
-      local_62 = 3;
+      local_64._2_2_ = 3;
       local_84.x = fVar1;
-      FUN_004145c0();
+      FUN_004145c0((int)&local_64);
       local_88 = local_88 + 0.1745329;
     }
     FUN_004311e0(7);

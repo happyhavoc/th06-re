@@ -7,7 +7,7 @@ undefined4 FUN_004145c0(int param_1)
   int local_10;
   int local_8;
   
-  fVar2 = (float10)FUN_00428700(param_1 + 4);
+  fVar2 = FUN_00428700(0x6ca628,(float *)(param_1 + 4));
   for (local_10 = 0; local_10 < *(short *)(param_1 + 0x46); local_10 = local_10 + 1) {
     for (local_8 = 0; local_8 < *(short *)(param_1 + 0x44); local_8 = local_8 + 1) {
       iVar1 = FUN_004135b0(param_1,local_8,local_10,(float)fVar2);

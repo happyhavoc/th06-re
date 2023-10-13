@@ -2,9 +2,11 @@
 void FUN_0040caf0(int param_1)
 
 {
-  ushort uVar1;
-  uint uVar2;
-  float10 fVar3;
+  float fVar1;
+  float fVar2;
+  ushort uVar3;
+  uint uVar4;
+  float10 fVar5;
   int local_a0;
   float local_20;
   float local_1c;
@@ -12,7 +14,7 @@ void FUN_0040caf0(int param_1)
   float local_14;
   float local_10;
   uint local_c;
-  int local_8;
+  AnmVm *local_8;
   
   if ((*(byte *)(param_1 + 0xe52) >> 3 & 1) != 0) {
     FUN_004114c0();
@@ -25,37 +27,37 @@ void FUN_0040caf0(int param_1)
   if (*(int *)(param_1 + 0xec4) == *(int *)(param_1 + 0xebc)) goto LAB_0040cffe;
   if (*(int *)(param_1 + 0xec4) < 0x79) {
     if (0x3c < *(int *)(param_1 + 0xec4)) {
-      uVar2 = *(uint *)(param_1 + 0xec4) & 0x80000001;
-      if ((int)uVar2 < 0) {
-        uVar2 = (uVar2 - 1 | 0xfffffffe) + 1;
+      uVar4 = *(uint *)(param_1 + 0xec4) & 0x80000001;
+      if ((int)uVar4 < 0) {
+        uVar4 = (uVar4 - 1 | 0xfffffffe) + 1;
       }
-      if (uVar2 == 0) goto LAB_0040cc18;
+      if (uVar4 == 0) goto LAB_0040cc18;
     }
     if (0x1e < *(int *)(param_1 + 0xec4)) {
-      uVar2 = *(uint *)(param_1 + 0xec4) & 0x80000003;
-      if ((int)uVar2 < 0) {
-        uVar2 = (uVar2 - 1 | 0xfffffffc) + 1;
+      uVar4 = *(uint *)(param_1 + 0xec4) & 0x80000003;
+      if ((int)uVar4 < 0) {
+        uVar4 = (uVar4 - 1 | 0xfffffffc) + 1;
       }
-      if (uVar2 == 0) goto LAB_0040cc18;
+      if (uVar4 == 0) goto LAB_0040cc18;
     }
-    uVar2 = *(uint *)(param_1 + 0xec4) & 0x80000007;
-    if ((int)uVar2 < 0) {
-      uVar2 = (uVar2 - 1 | 0xfffffff8) + 1;
+    uVar4 = *(uint *)(param_1 + 0xec4) & 0x80000007;
+    if ((int)uVar4 < 0) {
+      uVar4 = (uVar4 - 1 | 0xfffffff8) + 1;
     }
-    if (uVar2 != 0) goto LAB_0040cffe;
+    if (uVar4 != 0) goto LAB_0040cffe;
   }
 LAB_0040cc18:
   local_c = *(uint *)(param_1 + 0xec4) & 0x8000000f;
   if ((int)local_c < 0) {
     local_c = (local_c - 1 | 0xfffffff0) + 1;
   }
-  uVar2 = (int)local_c / 2;
-  if ((short)uVar2 == 0) {
+  uVar4 = (int)local_c / 2;
+  if ((short)uVar4 == 0) {
     local_a0 = 0;
   }
   else {
-    uVar1 = FUN_0041e780(&DAT_0069d8f8);
-    local_a0 = (int)((ulonglong)uVar1 % (ulonglong)(longlong)(int)(uVar2 & 0xffff));
+    uVar3 = FUN_0041e780(&DAT_0069d8f8);
+    local_a0 = (int)((ulonglong)uVar3 % (ulonglong)(longlong)(int)(uVar4 & 0xffff));
   }
   local_c = local_a0 + (int)local_c / 2;
   local_10 = ((float)local_c * 160.0) / 16.0 + 32.0;
@@ -66,33 +68,37 @@ LAB_0040cc18:
   local_20 = *(float *)(param_1 + 0xc6c);
   local_1c = *(float *)(param_1 + 0xc70);
   local_18 = *(undefined4 *)(param_1 + 0xc74);
-  fVar3 = (float10)FUN_0045bda4((double)local_14);
-  local_20 = (float)fVar3 * local_10 + local_20;
-  fVar3 = (float10)FUN_0045bcf4((double)local_14);
-  local_1c = (float)fVar3 * local_10 + local_1c;
-  local_8 = FUN_0040ef50(0x13,&local_20,1,0xff3030ff);
-  fVar3 = (float10)FUN_0041e820();
-  *(float *)(local_8 + 0x11c) = (float)((fVar3 * (float10)40.0 - (float10)20.0) / (float10)60.0);
-  *(float *)(local_8 + 0x120) = ((float)local_c * 8.0) / 60.0 - 0.2666667;
-  *(undefined4 *)(local_8 + 0x124) = 0;
-  *(float *)(local_8 + 0x128) = -*(float *)(local_8 + 0x11c) * 0.008333334;
-  *(float *)(local_8 + 300) = -*(float *)(local_8 + 0x120) * 0.008333334;
-  *(float *)(local_8 + 0x130) = -*(float *)(local_8 + 0x124) * 0.008333334;
+  fVar5 = (float10)FUN_0045bda4((double)local_14);
+  local_20 = (float)fVar5 * local_10 + local_20;
+  fVar5 = (float10)FUN_0045bcf4((double)local_14);
+  local_1c = (float)fVar5 * local_10 + local_1c;
+  local_8 = FUN_0040ef50((int *)&AnmRelatedHugeStruct_00487fe0,0x13,&local_20,1,0xff3030ff);
+  fVar5 = (float10)FUN_0041e820();
+  local_8[1].angleVel.x = (float)((fVar5 * (float10)40.0 - (float10)20.0) / (float10)60.0);
+  local_8[1].angleVel.y = ((float)local_c * 8.0) / 60.0 - 0.2666667;
+  local_8[1].angleVel.z = 0.0;
+  fVar1 = local_8[1].angleVel.z;
+  fVar2 = local_8[1].angleVel.y;
+  local_8[1].scaleY = -local_8[1].angleVel.x * 0.008333334;
+  local_8[1].scaleX = -fVar2 * 0.008333334;
+  local_8[1].scaleInterpFinalY = -fVar1 * 0.008333334;
   local_20 = *(float *)(param_1 + 0xc6c);
   local_1c = *(float *)(param_1 + 0xc70);
   local_18 = *(undefined4 *)(param_1 + 0xc74);
-  fVar3 = (float10)FUN_0045bda4((double)local_14);
-  local_20 = local_20 - (float)fVar3 * local_10;
-  fVar3 = (float10)FUN_0045bcf4((double)local_14);
-  local_1c = (float)fVar3 * local_10 + local_1c;
-  local_8 = FUN_0040ef50(0x13,&local_20,1,0xff3030ff);
-  fVar3 = (float10)FUN_0041e820();
-  *(float *)(local_8 + 0x11c) = (float)((fVar3 * (float10)40.0 - (float10)20.0) / (float10)60.0);
-  *(float *)(local_8 + 0x120) = ((float)local_c * 8.0) / 60.0 - 0.2666667;
-  *(undefined4 *)(local_8 + 0x124) = 0;
-  *(float *)(local_8 + 0x128) = -*(float *)(local_8 + 0x11c) * 0.008333334;
-  *(float *)(local_8 + 300) = -*(float *)(local_8 + 0x120) * 0.008333334;
-  *(float *)(local_8 + 0x130) = -*(float *)(local_8 + 0x124) * 0.008333334;
+  fVar5 = (float10)FUN_0045bda4((double)local_14);
+  local_20 = local_20 - (float)fVar5 * local_10;
+  fVar5 = (float10)FUN_0045bcf4((double)local_14);
+  local_1c = (float)fVar5 * local_10 + local_1c;
+  local_8 = FUN_0040ef50((int *)&AnmRelatedHugeStruct_00487fe0,0x13,&local_20,1,0xff3030ff);
+  fVar5 = (float10)FUN_0041e820();
+  local_8[1].angleVel.x = (float)((fVar5 * (float10)40.0 - (float10)20.0) / (float10)60.0);
+  local_8[1].angleVel.y = ((float)local_c * 8.0) / 60.0 - 0.2666667;
+  local_8[1].angleVel.z = 0.0;
+  fVar1 = local_8[1].angleVel.z;
+  fVar2 = local_8[1].angleVel.y;
+  local_8[1].scaleY = -local_8[1].angleVel.x * 0.008333334;
+  local_8[1].scaleX = -fVar2 * 0.008333334;
+  local_8[1].scaleInterpFinalY = -fVar1 * 0.008333334;
 LAB_0040cffe:
   *(undefined4 *)(param_1 + 0xebc) = *(undefined4 *)(param_1 + 0xec4);
   GameContext::FUN_00424285(&g_GameContext,(int *)(param_1 + 0xec4),(float *)(param_1 + 0xec0));

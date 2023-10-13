@@ -126,7 +126,7 @@ void FUN_00417502(uint *param_1)
     g_AsciiManager.scale.x = 2.0;
     g_AsciiManager.scale.y = 2.0;
     g_AsciiManager.color = 0xffff8080;
-    AsciiManager::FUN_00401530(&g_AsciiManager,(undefined4 *)(param_1[1] + 0x2c24),&local_34);
+    AsciiManager::FUN_00401530(&g_AsciiManager,(D3DXVECTOR3 *)(param_1[1] + 0x2c24),&local_34);
     g_AsciiManager.scale.x = 1.0;
     g_AsciiManager.scale.y = 1.0;
     g_AsciiManager.color = 0xffffffff;

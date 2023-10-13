@@ -1,5 +1,5 @@
 
-void __thiscall AsciiManager::FUN_00401530(AsciiManager *this,undefined4 *param_1,char *param_2)
+void __thiscall AsciiManager::FUN_00401530(AsciiManager *this,D3DXVECTOR3 *param_1,char *param_2)
 
 {
   AsciiManagerString *pAVar1;
@@ -18,9 +18,9 @@ void __thiscall AsciiManager::FUN_00401530(AsciiManager *this,undefined4 *param_
       local_10 = local_10 + 1;
       local_14 = (AsciiManagerString *)(local_14->text + 1);
     } while (cVar2 != '\0');
-    (pAVar1->position).x = (float)*param_1;
-    (pAVar1->position).y = (float)param_1[1];
-    (pAVar1->position).z = (float)param_1[2];
+    (pAVar1->position).x = param_1->x;
+    (pAVar1->position).y = param_1->y;
+    (pAVar1->position).z = param_1->z;
     pAVar1->color = this->color;
     (pAVar1->scale).x = (this->scale).x;
     (pAVar1->scale).y = (this->scale).y;

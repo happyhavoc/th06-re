@@ -10,7 +10,7 @@ void FUN_0040b8e0(int param_1,int param_2)
   
   local_c = (AnmVm *)&DAT_005ab5f8;
   iVar1 = *(int *)(param_2 + 0x10);
-  FUN_0040ef50(0xc,param_1 + 0xc6c,1,0xffffffff);
+  FUN_0040ef50((int *)&AnmRelatedHugeStruct_00487fe0,0xc,(float *)(param_1 + 0xc6c),1,0xffffffff);
   for (local_8 = 0; local_8 < 0x280; local_8 = local_8 + 1) {
     if ((*(short *)((int)local_c[5].matrix.m[3] + 2) != 0) &&
        (*(short *)((int)local_c[5].matrix.m[3] + 2) != 5)) {

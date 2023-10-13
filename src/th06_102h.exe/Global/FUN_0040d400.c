@@ -42,7 +42,7 @@ void FUN_0040d400(int param_1)
       local_16 = 1;
       local_10 = 8;
       local_14 = 1;
-      FUN_004145c0(&local_5c);
+      FUN_004145c0((int)&local_5c);
       local_60 = local_60 + 1;
     }
     local_68 = local_68 + 0x171;

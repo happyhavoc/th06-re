@@ -4,9 +4,7 @@
 void FUN_00423f3f(void)
 
 {
-  undefined4 local_20;
-  undefined4 local_1c;
-  undefined4 local_18;
+  D3DXVECTOR3 local_20;
   float local_14;
   float local_10;
   float local_c;
@@ -23,7 +21,7 @@ void FUN_00423f3f(void)
     local_10 = (float)(ulonglong)DAT_006c6d08 / local_14;
     DAT_006c6d08 = 0;
     _DAT_006c6d0c = local_8;
-    sprintf(&DAT_006c6c08,"%.02ffps",(double)local_10);
+    sprintf(s__006c6c08,"%.02ffps",(double)local_10);
     if (DAT_0069d4c1 != '\0') {
       local_c = 60.0 / g_GameContext.framerateMultiplier;
       g_GameContext._440_4_ = (float)g_GameContext._440_4_ + local_c;
@@ -45,11 +43,11 @@ void FUN_00423f3f(void)
       }
     }
   }
-  if (g_GameContext._412_4_ == 0) {
-    local_20 = 0x44000000;
-    local_1c = 0x43e80000;
-    local_18 = 0;
-    AsciiManager::FUN_00401530(&g_AsciiManager,&local_20,&DAT_006c6c08);
+  if (g_GameContext.field78_0x19c == 0) {
+    local_20.x = 512.0;
+    local_20.y = 464.0;
+    local_20.z = 0.0;
+    AsciiManager::FUN_00401530(&g_AsciiManager,&local_20,s__006c6c08);
   }
   return;
 }

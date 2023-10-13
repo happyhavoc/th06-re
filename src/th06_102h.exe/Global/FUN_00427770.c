@@ -9,8 +9,8 @@ void FUN_00427770(void)
   int local_8;
   
   _DAT_005a5f8c = 0;
-  FUN_0040ef50(0xc,in_ECX + 0x440,1,0xff4040ff);
-  FUN_0040ef50(6,in_ECX + 0x440,0x10,0xffffffff);
+  FUN_0040ef50((int *)&AnmRelatedHugeStruct_00487fe0,0xc,(float *)(in_ECX + 0x440),1,0xff4040ff);
+  FUN_0040ef50((int *)&AnmRelatedHugeStruct_00487fe0,6,(float *)(in_ECX + 0x440),0x10,0xffffffff);
   *(undefined *)(in_ECX + 0x9e0) = 2;
   *(undefined4 *)(in_ECX + 0x75bc) = 0;
   *(undefined4 *)(in_ECX + 0x75b8) = 0;

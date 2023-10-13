@@ -20,7 +20,7 @@ void FUN_0040d530(int param_1)
     puVar3 = puVar3 + 1;
   }
   fVar4 = (float10)FUN_0041e820();
-  FUN_0040ef50(0xc,param_1 + 0xc6c,1,0xffffffff);
+  FUN_0040ef50((int *)&AnmRelatedHugeStruct_00487fe0,0xc,(float *)(param_1 + 0xc6c),1,0xffffffff);
   for (local_60 = 0; local_60 < 0x280; local_60 = local_60 + 1) {
     if ((((*(short *)((int)local_68[5].matrix.m[3] + 2) != 0) &&
          (*(short *)((int)local_68[5].matrix.m[3] + 2) != 5)) &&

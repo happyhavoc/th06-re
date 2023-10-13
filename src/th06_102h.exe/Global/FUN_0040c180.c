@@ -15,7 +15,7 @@ void FUN_0040c180(int param_1,int param_2)
   int local_10;
   
   if (*(int *)(param_2 + 0x10) < 2) {
-    FUN_0040ef50(0xc,param_1 + 0xc6c,1,0xffffffff);
+    FUN_0040ef50((int *)&AnmRelatedHugeStruct_00487fe0,0xc,(float *)(param_1 + 0xc6c),1,0xffffffff);
     DAT_0069bccc = *(undefined *)(param_2 + 0x10);
   }
   else {

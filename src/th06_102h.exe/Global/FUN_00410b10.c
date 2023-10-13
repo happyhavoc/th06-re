@@ -5,7 +5,7 @@ undefined4 FUN_00410b10(int param_1)
   int iVar1;
   
   DAT_0069d4c2 = 1;
-  g_GameContext._412_4_ = 1;
+  g_GameContext.field78_0x19c = 1;
   GameContext::LoadPBG3(&g_GameContext,5,(byte *)"紅魔郷ED.dat");
   AnmManager::LoadAnm(g_AnmManager,0x2c,"data/staff01.anm",0x600);
   AnmManager::LoadAnm(g_AnmManager,0x2d,"data/staff02.anm",0x607);

@@ -67,7 +67,7 @@ void FUN_0041f4a0(void)
       else {
         if ((*(char *)((int)&local_18[1].currentTimeInScript.previous + 3) == '\x01') ||
            ((0x7f < _DAT_0069d4b0 && (DAT_006caa6c < 128.0 != NAN(DAT_006caa6c))))) {
-          fVar11 = (float10)FUN_00428700(local_18 + 1);
+          fVar11 = FUN_00428700(0x6ca628,(float *)(local_18 + 1));
           fVar5 = (float10)fcos((float10)(float)fVar11);
           fVar11 = (float10)fsin((float10)(float)fVar11);
           local_18[1].angleVel.x = (float)(fVar5 * (float10)8.0);
@@ -83,10 +83,10 @@ void FUN_0041f4a0(void)
           }
         }
 LAB_0041f7c5:
-        fVar1 = g_GameContext.field84_0x1a8 * local_18[1].angleVel.z;
-        fVar2 = g_GameContext.field84_0x1a8 * local_18[1].angleVel.y;
+        fVar1 = g_GameContext.field81_0x1a8 * local_18[1].angleVel.z;
+        fVar2 = g_GameContext.field81_0x1a8 * local_18[1].angleVel.y;
         local_18[1].rotation.x =
-             g_GameContext.field84_0x1a8 * local_18[1].angleVel.x + local_18[1].rotation.x;
+             g_GameContext.field81_0x1a8 * local_18[1].angleVel.x + local_18[1].rotation.x;
         local_18[1].rotation.y = fVar2 + local_18[1].rotation.y;
         local_18[1].rotation.z = fVar1 + local_18[1].rotation.z;
         fVar1 = local_18[1].rotation.y;
@@ -100,7 +100,7 @@ LAB_0041f7c5:
           local_18[1].angleVel.y = 3.0;
         }
         else {
-          local_18[1].angleVel.y = g_GameContext.field84_0x1a8 * 0.03 + local_18[1].angleVel.y;
+          local_18[1].angleVel.y = g_GameContext.field81_0x1a8 * 0.03 + local_18[1].angleVel.y;
         }
       }
       iVar9 = FUN_00426fd0(local_18 + 1,&DAT_0069e234);

@@ -34,37 +34,37 @@ undefined4 FUN_004149d0(int param_1)
       case 1:
         goto switchD_00414a97_caseD_1;
       case 2:
-        fVar1 = local_24[5].scaleInterpFinalX * 0.5 * g_GameContext.field84_0x1a8;
-        fVar3 = local_24[5].scaleInterpFinalY * 0.5 * g_GameContext.field84_0x1a8;
+        fVar1 = local_24[5].scaleInterpFinalX * 0.5 * g_GameContext.field81_0x1a8;
+        fVar3 = local_24[5].scaleInterpFinalY * 0.5 * g_GameContext.field81_0x1a8;
         pfVar5 = &local_24[5].angleVel.y;
-        *pfVar5 = local_24[5].scaleX * 0.5 * g_GameContext.field84_0x1a8 + *pfVar5;
+        *pfVar5 = local_24[5].scaleX * 0.5 * g_GameContext.field81_0x1a8 + *pfVar5;
         local_24[5].angleVel.z = fVar3 + local_24[5].angleVel.z;
         local_24[5].scaleY = fVar1 + local_24[5].scaleY;
         iVar4 = AnmManager::ExecuteScript(g_AnmManager,local_24 + 1);
         break;
       case 3:
-        fVar1 = local_24[5].scaleInterpFinalX * 0.4 * g_GameContext.field84_0x1a8;
-        fVar3 = local_24[5].scaleInterpFinalY * 0.4 * g_GameContext.field84_0x1a8;
+        fVar1 = local_24[5].scaleInterpFinalX * 0.4 * g_GameContext.field81_0x1a8;
+        fVar3 = local_24[5].scaleInterpFinalY * 0.4 * g_GameContext.field81_0x1a8;
         pfVar5 = &local_24[5].angleVel.y;
-        *pfVar5 = local_24[5].scaleX * 0.4 * g_GameContext.field84_0x1a8 + *pfVar5;
+        *pfVar5 = local_24[5].scaleX * 0.4 * g_GameContext.field81_0x1a8 + *pfVar5;
         local_24[5].angleVel.z = fVar3 + local_24[5].angleVel.z;
         local_24[5].scaleY = fVar1 + local_24[5].scaleY;
         iVar4 = AnmManager::ExecuteScript(g_AnmManager,local_24 + 2);
         break;
       case 4:
-        fVar1 = local_24[5].scaleInterpFinalX * 0.3333333 * g_GameContext.field84_0x1a8;
-        fVar3 = local_24[5].scaleInterpFinalY * 0.3333333 * g_GameContext.field84_0x1a8;
+        fVar1 = local_24[5].scaleInterpFinalX * 0.3333333 * g_GameContext.field81_0x1a8;
+        fVar3 = local_24[5].scaleInterpFinalY * 0.3333333 * g_GameContext.field81_0x1a8;
         pfVar5 = &local_24[5].angleVel.y;
-        *pfVar5 = local_24[5].scaleX * 0.3333333 * g_GameContext.field84_0x1a8 + *pfVar5;
+        *pfVar5 = local_24[5].scaleX * 0.3333333 * g_GameContext.field81_0x1a8 + *pfVar5;
         local_24[5].angleVel.z = fVar3 + local_24[5].angleVel.z;
         local_24[5].scaleY = fVar1 + local_24[5].scaleY;
         iVar4 = AnmManager::ExecuteScript(g_AnmManager,local_24 + 3);
         break;
       case 5:
-        fVar1 = local_24[5].scaleInterpFinalX * 0.5 * g_GameContext.field84_0x1a8;
-        fVar3 = local_24[5].scaleInterpFinalY * 0.5 * g_GameContext.field84_0x1a8;
+        fVar1 = local_24[5].scaleInterpFinalX * 0.5 * g_GameContext.field81_0x1a8;
+        fVar3 = local_24[5].scaleInterpFinalY * 0.5 * g_GameContext.field81_0x1a8;
         pfVar5 = &local_24[5].angleVel.y;
-        *pfVar5 = local_24[5].scaleX * 0.5 * g_GameContext.field84_0x1a8 + *pfVar5;
+        *pfVar5 = local_24[5].scaleX * 0.5 * g_GameContext.field81_0x1a8 + *pfVar5;
         local_24[5].angleVel.z = fVar3 + local_24[5].angleVel.z;
         local_24[5].scaleY = fVar1 + local_24[5].scaleY;
         iVar4 = AnmManager::ExecuteScript(g_AnmManager,local_24 + 4);
@@ -99,7 +99,7 @@ switchD_00414a97_caseD_1:
                   fVar8 = (float10)FUN_0041e850(local_24[5].matrix.m[0][1]);
                   local_24[5].matrix.m[0][1] = (float)fVar8;
                   local_24[5].currentTimeInScript.subFrame =
-                       g_GameContext.field84_0x1a8 * (float)local_24[5].currentTimeInScript.current
+                       g_GameContext.field81_0x1a8 * (float)local_24[5].currentTimeInScript.current
                        + local_24[5].currentTimeInScript.subFrame;
                   fVar1 = local_24[5].currentTimeInScript.subFrame;
                   fVar7 = (float10)local_24[5].matrix.m[0][1];
@@ -115,10 +115,10 @@ switchD_00414a97_caseD_1:
               }
             }
             else if ((int)local_24[5].matrix.m[1][2] < (int)local_24[5].matrix.m[1][3]) {
-              fVar1 = g_GameContext.field84_0x1a8 * (float)local_24[5].currentTimeInScript.previous;
-              fVar3 = g_GameContext.field84_0x1a8 * local_24[5].uvScrollPos.y;
+              fVar1 = g_GameContext.field81_0x1a8 * (float)local_24[5].currentTimeInScript.previous;
+              fVar3 = g_GameContext.field81_0x1a8 * local_24[5].uvScrollPos.y;
               local_24[5].scaleX =
-                   g_GameContext.field84_0x1a8 * local_24[5].uvScrollPos.x + local_24[5].scaleX;
+                   g_GameContext.field81_0x1a8 * local_24[5].uvScrollPos.x + local_24[5].scaleX;
               local_24[5].scaleInterpFinalY = fVar3 + local_24[5].scaleInterpFinalY;
               local_24[5].scaleInterpFinalX = fVar1 + local_24[5].scaleInterpFinalX;
               fVar8 = (float10)FUN_0045be40((double)local_24[5].scaleInterpFinalY,
@@ -220,7 +220,7 @@ switchD_00414a97_caseD_1:
                     *(ushort *)(local_24[5].matrix.m[2] + 3) =
                          *(ushort *)(local_24[5].matrix.m[2] + 3) & 0xff7f;
                   }
-                  fVar8 = (float10)FUN_00428700();
+                  fVar8 = FUN_00428700(0x6ca628,&local_24[5].angleVel.y);
                   local_24[5].matrix.m[0][1] = (float)(fVar8 + (float10)local_24[5].matrix.m[0][3]);
                   local_24[5].currentTimeInScript.subFrame = local_24[5].matrix.m[0][0];
                   local_10 = local_24[5].currentTimeInScript.subFrame;
@@ -285,10 +285,10 @@ switchD_00414a97_caseD_1:
             local_24[5].scaleInterpFinalY = (float)(fVar7 * (float10)local_10);
           }
         }
-        fVar1 = g_GameContext.field84_0x1a8 * local_24[5].scaleInterpFinalX;
-        fVar3 = g_GameContext.field84_0x1a8 * local_24[5].scaleInterpFinalY;
+        fVar1 = g_GameContext.field81_0x1a8 * local_24[5].scaleInterpFinalX;
+        fVar3 = g_GameContext.field81_0x1a8 * local_24[5].scaleInterpFinalY;
         pfVar5 = &local_24[5].angleVel.y;
-        *pfVar5 = g_GameContext.field84_0x1a8 * local_24[5].scaleX + *pfVar5;
+        *pfVar5 = g_GameContext.field81_0x1a8 * local_24[5].scaleX + *pfVar5;
         local_24[5].angleVel.z = fVar3 + local_24[5].angleVel.z;
         local_24[5].scaleY = fVar1 + local_24[5].scaleY;
         iVar4 = FUN_0041b5e1(local_24[5].angleVel.y,local_24[5].angleVel.z,local_24->sprite->widthPx
@@ -345,7 +345,7 @@ LAB_00414a1a:
     for (local_c = 0; local_c < 0x40; local_c = local_c + 1) {
       if (local_2c[2].currentTimeInScript.current != 0) {
         local_2c[2].angleVel.z =
-             g_GameContext.field84_0x1a8 * local_2c[2].scaleInterpFinalY + local_2c[2].angleVel.z;
+             g_GameContext.field81_0x1a8 * local_2c[2].scaleInterpFinalY + local_2c[2].angleVel.z;
         if (local_2c[2].scaleY < local_2c[2].angleVel.z - local_2c[2].angleVel.y) {
           local_2c[2].angleVel.y = local_2c[2].angleVel.z - local_2c[2].scaleY;
         }

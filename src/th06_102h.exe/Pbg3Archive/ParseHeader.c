@@ -38,7 +38,7 @@ undefined4 __thiscall Pbg3Archive::ParseHeader(Pbg3Archive *this)
             iVar4 = Pbg3Parser::ReadString(this->inner,this->entries->filename + iVar1,0x100);
             if (iVar4 == 0) {
               if (this->inner != (Pbg3Parser *)0x0) {
-                (*(code *)this->inner->vtbl->dtor)(1);
+                (*(code *)this->inner->vtbl->Close)(1);
                 this->inner = (Pbg3Parser *)0x0;
               }
               if (this->entries != (Pbg3Entry *)0x0) {
@@ -56,7 +56,7 @@ undefined4 __thiscall Pbg3Archive::ParseHeader(Pbg3Archive *this)
       if (this->inner == (Pbg3Parser *)0x0) {
         return 0;
       }
-      (*(code *)this->inner->vtbl->dtor)(1);
+      (*(code *)this->inner->vtbl->Close)(1);
       this->inner = (Pbg3Parser *)0x0;
       return 0;
     }
@@ -65,7 +65,7 @@ undefined4 __thiscall Pbg3Archive::ParseHeader(Pbg3Archive *this)
   if (inner == (Pbg3Parser *)0x0) {
     return 0;
   }
-  (*(code *)inner->vtbl->dtor)(1);
+  (*(code *)inner->vtbl->Close)(1);
   this->inner = (Pbg3Parser *)0x0;
   return 0;
 }

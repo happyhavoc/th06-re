@@ -244,25 +244,25 @@ switchD_004339dd_caseD_15:
 LAB_00434338:
     fVar1 = (vm->angleVel).x;
     if (NAN(fVar1) == (fVar1 == 0.0)) {
-      fVar6 = (float10)FUN_0041e850((vm->rotation).x,g_GameContext.field84_0x1a8 * (vm->angleVel).x)
+      fVar6 = (float10)FUN_0041e850((vm->rotation).x,g_GameContext.field81_0x1a8 * (vm->angleVel).x)
       ;
       (vm->rotation).x = (float)fVar6;
     }
     fVar1 = (vm->angleVel).y;
     if (NAN(fVar1) == (fVar1 == 0.0)) {
-      fVar6 = (float10)FUN_0041e850((vm->rotation).y,g_GameContext.field84_0x1a8 * (vm->angleVel).y)
+      fVar6 = (float10)FUN_0041e850((vm->rotation).y,g_GameContext.field81_0x1a8 * (vm->angleVel).y)
       ;
       (vm->rotation).y = (float)fVar6;
     }
     fVar1 = (vm->angleVel).z;
     if (NAN(fVar1) == (fVar1 == 0.0)) {
-      fVar6 = (float10)FUN_0041e850((vm->rotation).z,g_GameContext.field84_0x1a8 * (vm->angleVel).z)
+      fVar6 = (float10)FUN_0041e850((vm->rotation).z,g_GameContext.field81_0x1a8 * (vm->angleVel).z)
       ;
       (vm->rotation).z = (float)fVar6;
     }
     if ((short)vm->scaleInterpEndTime < 1) {
-      vm->scaleY = g_GameContext.field84_0x1a8 * vm->scaleInterpFinalY + vm->scaleY;
-      vm->scaleX = g_GameContext.field84_0x1a8 * vm->scaleInterpFinalX + vm->scaleX;
+      vm->scaleY = g_GameContext.field81_0x1a8 * vm->scaleInterpFinalY + vm->scaleY;
+      vm->scaleX = g_GameContext.field81_0x1a8 * vm->scaleInterpFinalX + vm->scaleX;
     }
     else {
       (vm->scaleInterpTime).previous = (vm->scaleInterpTime).current;

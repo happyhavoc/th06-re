@@ -94,11 +94,11 @@ void FUN_004291b0(int param_1)
         local_18[1].angleVel.y = fVar2 + fVar2;
       }
       pAVar6 = local_18 + 1;
-      (pAVar6->rotation).x = g_GameContext.field84_0x1a8 * local_18[1].scaleY + (pAVar6->rotation).x
+      (pAVar6->rotation).x = g_GameContext.field81_0x1a8 * local_18[1].scaleY + (pAVar6->rotation).x
       ;
       (local_18->pos).x = (pAVar6->rotation).x;
       pfVar8 = &local_18[1].rotation.y;
-      *pfVar8 = g_GameContext.field84_0x1a8 * local_18[1].scaleX + *pfVar8;
+      *pfVar8 = g_GameContext.field81_0x1a8 * local_18[1].scaleX + *pfVar8;
       (local_18->pos).y = *pfVar8;
       (local_18->pos).z = local_18[1].rotation.z;
       if ((*(short *)(local_18[1].matrix.m[0] + 1) != 3) &&

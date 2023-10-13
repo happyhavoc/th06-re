@@ -33,7 +33,7 @@ undefined4 __thiscall Pbg3Archive::Load(Pbg3Archive *this,char *param_1)
         return uVar3;
       }
       if (this->inner != (Pbg3Parser *)0x0) {
-        (*(code *)this->inner->vtbl->dtor)(1);
+        (*(code *)this->inner->vtbl->Close)(1);
         this->inner = (Pbg3Parser *)0x0;
       }
     }

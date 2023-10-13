@@ -11,7 +11,7 @@ undefined4 FUN_00410d80(void *param_1)
   Chain::Cut(&g_Chain,*(ChainElem **)((int)param_1 + 4));
   *(undefined4 *)((int)param_1 + 4) = 0;
   _free(param_1);
-  g_GameContext._412_4_ = 0;
+  g_GameContext.field78_0x19c = 0;
   GameContext::RemovePbg3File(&g_GameContext,5);
   return 0;
 }

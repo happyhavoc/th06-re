@@ -39,7 +39,7 @@ AnmVm * FUN_00414670(short *param_1)
   local_c[2].currentTimeInScript.current = 1;
   local_c[2].angleVel.x = *(float *)(param_1 + 8);
   if (param_1[0x24] == 0) {
-    fVar4 = (float10)FUN_00428700(param_1 + 2);
+    fVar4 = FUN_00428700(0x6ca628,(float *)(param_1 + 2));
     local_c[2].angleVel.x = (float)(fVar4 + (float10)local_c[2].angleVel.x);
   }
   *(short *)(local_c[2].matrix.m[0] + 3) = param_1[0x26];

@@ -9,9 +9,9 @@ undefined4 Stage::RegisterChain(undefined4 param_1)
   pSVar3 = &g_Stage;
   for (iVar2 = 0xbd; iVar2 != 0; iVar2 = iVar2 + -1) {
     pSVar3->quadVms = (AnmVm *)0x0;
-    pSVar3 = (Stage *)&pSVar3->field1_0x4;
+    pSVar3 = (Stage *)&pSVar3->stdData;
   }
-  g_Stage.field1_0x4 = 0;
+  g_Stage.stdData = (byte *)0x0;
   g_Stage.field9_0x2c.current = 0;
   g_Stage.field9_0x2c.subFrame = 0.0;
   g_Stage.field9_0x2c.previous = -999;

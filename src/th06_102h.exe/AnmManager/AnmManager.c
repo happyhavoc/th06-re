@@ -1,6 +1,4 @@
 
-/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
-
 AnmManager * __thiscall AnmManager::AnmManager(AnmManager *this)
 
 {
@@ -24,36 +22,36 @@ AnmManager * __thiscall AnmManager::AnmManager(AnmManager *this)
   for (local_8 = 0; local_8 < 0x800; local_8 = local_8 + 1) {
     this->sprites[local_8].sourceFileIndex = 0xffffffff;
   }
-  DAT_006d4654 = 0x3f800000;
-  DAT_006d463c = 0x3f800000;
-  DAT_006d4624 = 0x3f800000;
-  _DAT_006d460c = 0x3f800000;
-  D3DXVECTOR2_006d4610.x = 0.0;
-  D3DXVECTOR2_006d4610.y = 0.0;
-  D3DXVECTOR2_006d4628.x = 1.0;
-  D3DXVECTOR2_006d4628.y = 0.0;
-  DAT_006d4640 = 0;
-  _DAT_006d4644 = 0x3f800000;
-  DAT_006d4658 = 0x3f800000;
-  DAT_006d465c = 0x3f800000;
-  DAT_006d45f0 = 0x3f800000;
-  DAT_006d45d4 = 0x3f800000;
-  DAT_006d45b8 = 0x3f800000;
-  _DAT_006d459c = 0x3f800000;
-  _DAT_006d45a4 = 0;
-  _DAT_006d45a8 = 0;
-  _DAT_006d45c0 = 0x3f800000;
-  DAT_006d45c4 = 0;
-  DAT_006d45dc = 0;
-  _DAT_006d45e0 = 0x3f800000;
-  DAT_006d45f8 = 0x3f800000;
-  DAT_006d45fc = 0x3f800000;
+  PRIMITIVES_TO_DRAW_VERTEXBUF[21] = 1.0;
+  PRIMITIVES_TO_DRAW_VERTEXBUF[15] = 1.0;
+  PRIMITIVES_TO_DRAW_VERTEXBUF[9] = 1.0;
+  PRIMITIVES_TO_DRAW_VERTEXBUF[3] = 1.0;
+  PRIMITIVES_TO_DRAW_VERTEXBUF[4] = 0.0;
+  PRIMITIVES_TO_DRAW_VERTEXBUF[5] = 0.0;
+  PRIMITIVES_TO_DRAW_VERTEXBUF[10] = 1.0;
+  PRIMITIVES_TO_DRAW_VERTEXBUF[11] = 0.0;
+  PRIMITIVES_TO_DRAW_VERTEXBUF[16] = 0.0;
+  PRIMITIVES_TO_DRAW_VERTEXBUF[17] = 1.0;
+  PRIMITIVES_TO_DRAW_VERTEXBUF[22] = 1.0;
+  PRIMITIVES_TO_DRAW_VERTEXBUF[23] = 1.0;
+  g_PrimitivesToDrawNoVertexBuf[24] = 1.0;
+  g_PrimitivesToDrawNoVertexBuf[17] = 1.0;
+  g_PrimitivesToDrawNoVertexBuf[10] = 1.0;
+  g_PrimitivesToDrawNoVertexBuf[3] = 1.0;
+  g_PrimitivesToDrawNoVertexBuf[5] = 0.0;
+  g_PrimitivesToDrawNoVertexBuf[6] = 0.0;
+  g_PrimitivesToDrawNoVertexBuf[12] = 1.0;
+  g_PrimitivesToDrawNoVertexBuf[13] = 0.0;
+  g_PrimitivesToDrawNoVertexBuf[19] = 0.0;
+  g_PrimitivesToDrawNoVertexBuf[20] = 1.0;
+  g_PrimitivesToDrawNoVertexBuf[26] = 1.0;
+  g_PrimitivesToDrawNoVertexBuf[27] = 1.0;
   this->vertexBuffer = (IDirect3DVertexBuffer8 *)0x0;
   this->currentTexture = (IDirect3DTexture8 *)0x0;
   this->currentBlendMode = '\0';
   this->currentColorOp = '\0';
   this->currentTextureFactor = 1;
-  this->field16_0x210be = '\0';
+  this->currentVertexShader = '\0';
   this->currentZWriteDisable = '\0';
   this->vertexBufferContents[3].position.z = -NAN;
   return this;

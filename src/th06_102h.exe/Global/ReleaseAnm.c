@@ -33,7 +33,7 @@ void __thiscall ReleaseAnm(AnmManager *this,int anm_index)
     this->anmFiles[anm_index] = (AnmRawEntry *)0x0;
     this->currentBlendMode = 0xff;
     this->currentColorOp = 0xff;
-    this->field16_0x210be = 0xff;
+    this->currentVertexShader = 0xff;
     this->currentTexture = (IDirect3DTexture8 *)0x0;
   }
   return;

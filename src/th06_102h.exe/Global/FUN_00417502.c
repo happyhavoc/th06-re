@@ -1,6 +1,4 @@
 
-/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
-
 void FUN_00417502(uint *param_1)
 
 {
@@ -34,7 +32,7 @@ void FUN_00417502(uint *param_1)
     local_c = local_c + 16.0;
     g_AsciiManager.color = 0xffe0e0ff;
     AsciiManager::FUN_00401650
-              (&g_AsciiManager,&local_10,"Power *  100 = %5d\n",(uint)_DAT_0069d4b0 * 100);
+              (&g_AsciiManager,&local_10,"Power *  100 = %5d\n",(uint)USHORT_0069d4b0 * 100);
     local_c = local_c + 16.0;
     g_AsciiManager.color = 0xffd0d0ff;
     AsciiManager::FUN_00401650(&g_AsciiManager,&local_10,"Graze *   10 = %5d\n",DAT_0069bcb4 * 10);

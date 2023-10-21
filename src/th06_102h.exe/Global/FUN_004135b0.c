@@ -11,6 +11,7 @@ undefined4 FUN_004135b0(short *param_1,uint param_2,int param_3,float param_4)
   AnmVm *pAVar6;
   float10 fVar7;
   float10 fVar8;
+  float fVar9;
   float local_14;
   AnmVm *local_10;
   int local_c;
@@ -67,26 +68,26 @@ undefined4 FUN_004135b0(short *param_1,uint param_2,int param_3,float param_4)
     case 6:
       fVar2 = *(float *)(param_1 + 8);
       fVar1 = *(float *)(param_1 + 10);
-      fVar7 = (float10)FUN_0041e820();
-      local_14 = (float)(fVar7 * (float10)(fVar2 - fVar1) + (float10)*(float *)(param_1 + 10));
+      fVar9 = FUN_0041e820(&DAT_0069d8f8);
+      local_14 = fVar9 * (fVar2 - fVar1) + *(float *)(param_1 + 10);
       break;
     case 7:
       fVar2 = *(float *)(param_1 + 0xc);
       fVar1 = *(float *)(param_1 + 0xe);
-      fVar7 = (float10)FUN_0041e820();
-      local_8 = (float)(fVar7 * (float10)(fVar2 - fVar1) + (float10)*(float *)(param_1 + 0xe));
+      fVar9 = FUN_0041e820(&DAT_0069d8f8);
+      local_8 = fVar9 * (fVar2 - fVar1) + *(float *)(param_1 + 0xe);
       local_14 = (float)param_3 * *(float *)(param_1 + 10) + *(float *)(param_1 + 8) +
                  ((float)param_2 * 6.283185) / (float)(int)param_1[0x22] + 0.0;
       break;
     case 8:
       fVar2 = *(float *)(param_1 + 8);
       fVar1 = *(float *)(param_1 + 10);
-      fVar7 = (float10)FUN_0041e820();
-      local_14 = (float)(fVar7 * (float10)(fVar2 - fVar1) + (float10)*(float *)(param_1 + 10));
+      fVar9 = FUN_0041e820(&DAT_0069d8f8);
+      local_14 = fVar9 * (fVar2 - fVar1) + *(float *)(param_1 + 10);
       fVar2 = *(float *)(param_1 + 0xc);
       fVar1 = *(float *)(param_1 + 0xe);
-      fVar7 = (float10)FUN_0041e820();
-      local_8 = (float)(fVar7 * (float10)(fVar2 - fVar1) + (float10)*(float *)(param_1 + 0xe));
+      fVar9 = FUN_0041e820(&DAT_0069d8f8);
+      local_8 = fVar9 * (fVar2 - fVar1) + *(float *)(param_1 + 0xe);
     }
     *(undefined2 *)((int)local_10[5].matrix.m[3] + 2) = 1;
     *(undefined *)((int)local_10[5].matrix.m[3] + 6) = 1;

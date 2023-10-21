@@ -52,7 +52,7 @@ void InitD3dDevice(void)
             (g_GameContext.d3dDevice,D3DRS_FOGSTART,0x447a0000);
   (*(g_GameContext.d3dDevice)->lpVtbl->SetRenderState)
             (g_GameContext.d3dDevice,D3DRS_FOGEND,0x459c4000);
-  if ((g_GameContext.cfg.opts >> 8 & 1) == 0) {
+  if ((g_GameContext.cfg.opts >> NO_COLOR_COMP & 1) == 0) {
     (*(g_GameContext.d3dDevice)->lpVtbl->SetTextureStageState)
               (g_GameContext.d3dDevice,0,D3DTSS_ALPHAOP,4);
   }
@@ -105,10 +105,10 @@ void InitD3dDevice(void)
   if (g_AnmManager != (AnmManager *)0x0) {
     g_AnmManager->currentBlendMode = 0xff;
     g_AnmManager->currentColorOp = 0xff;
-    g_AnmManager->field16_0x210be = 0xff;
+    g_AnmManager->currentVertexShader = 0xff;
     g_AnmManager->currentTexture = (IDirect3DTexture8 *)0x0;
   }
-  g_Stage.field17_0x7c._0_1_ = 1;
+  g_Stage.skyFogNeedsSetup = 1;
   return;
 }
 

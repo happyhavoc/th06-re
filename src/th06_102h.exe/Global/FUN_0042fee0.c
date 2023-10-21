@@ -15,8 +15,8 @@ undefined4 FUN_0042fee0(int param_1)
   g_GameContext.viewport.Y = 0;
   g_GameContext.viewport.Width = 0x280;
   g_GameContext.viewport.Height = 0x1e0;
-  (*(g_GameContext.d3dDevice)->lpVtbl->SetViewport)
-            (g_GameContext.d3dDevice,(D3DVIEWPORT8 *)0x6c6de0);
+  (*(g_GameContext.d3dDevice)->lpVtbl->SetViewport)(g_GameContext.d3dDevice,&g_GameContext.viewport)
+  ;
   FUN_0042f8b0(&local_14,*(int *)(param_1 + 0x10) << 0x18 | *(uint *)(param_1 + 0x18));
   return 1;
 }

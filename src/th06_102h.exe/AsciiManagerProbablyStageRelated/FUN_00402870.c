@@ -134,7 +134,7 @@ AsciiManagerProbablyStageRelated::FUN_00402870(AsciiManagerProbablyStageRelated 
       DAT_0069bca4 = (uint)DAT_0069d4b8;
       _DAT_0069bca8 = 0;
       DAT_0069bcb4 = 0;
-      _DAT_0069d4b0 = 0;
+      USHORT_0069d4b0 = 0;
       DAT_0069d4b4 = 0;
       DAT_0069d4ba = g_GameContext.lifeCount;
       DAT_0069d4bb = g_GameContext.bombCount;

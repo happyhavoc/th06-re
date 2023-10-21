@@ -106,7 +106,7 @@ undefined4 FUN_00416d60(int param_1)
       *(undefined4 *)(param_1 + 0x554 + local_8 * 0x560) = 0x40800000;
     }
   }
-  puVar6 = &DAT_0069e268;
+  puVar6 = null_ARRAY_0069e268;
   for (iVar3 = 0xa253; iVar3 != 0; iVar3 = iVar3 + -1) {
     *puVar6 = 0;
     puVar6 = puVar6 + 1;

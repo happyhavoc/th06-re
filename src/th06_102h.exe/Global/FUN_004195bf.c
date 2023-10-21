@@ -1,6 +1,4 @@
 
-/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
-
 void FUN_004195bf(void)
 
 {
@@ -121,7 +119,7 @@ void FUN_004195bf(void)
     FUN_0041b5af();
   }
   if (*(int *)(*(int *)(in_ECX + 4) + 0x2bdc) == 1) {
-    local_c = (DAT_0069d6d4 * 1000 + DAT_0069bcb4 * 10 + (uint)_DAT_0069d4b0 * 100) *
+    local_c = (DAT_0069d6d4 * 1000 + DAT_0069bcb4 * 10 + (uint)USHORT_0069d4b0 * 100) *
               (uint)DAT_0069d4b4;
     if (5 < DAT_0069d6d4) {
       local_c = local_c + DAT_0069d4ba * 3000000 + DAT_0069d4bb * 1000000;

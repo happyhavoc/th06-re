@@ -3,10 +3,10 @@ void FUN_0040caf0(int param_1)
 
 {
   float fVar1;
-  float fVar2;
-  ushort uVar3;
-  uint uVar4;
-  float10 fVar5;
+  ushort uVar2;
+  uint uVar3;
+  float10 fVar4;
+  float fVar5;
   int local_a0;
   float local_20;
   float local_1c;
@@ -27,37 +27,37 @@ void FUN_0040caf0(int param_1)
   if (*(int *)(param_1 + 0xec4) == *(int *)(param_1 + 0xebc)) goto LAB_0040cffe;
   if (*(int *)(param_1 + 0xec4) < 0x79) {
     if (0x3c < *(int *)(param_1 + 0xec4)) {
-      uVar4 = *(uint *)(param_1 + 0xec4) & 0x80000001;
-      if ((int)uVar4 < 0) {
-        uVar4 = (uVar4 - 1 | 0xfffffffe) + 1;
+      uVar3 = *(uint *)(param_1 + 0xec4) & 0x80000001;
+      if ((int)uVar3 < 0) {
+        uVar3 = (uVar3 - 1 | 0xfffffffe) + 1;
       }
-      if (uVar4 == 0) goto LAB_0040cc18;
+      if (uVar3 == 0) goto LAB_0040cc18;
     }
     if (0x1e < *(int *)(param_1 + 0xec4)) {
-      uVar4 = *(uint *)(param_1 + 0xec4) & 0x80000003;
-      if ((int)uVar4 < 0) {
-        uVar4 = (uVar4 - 1 | 0xfffffffc) + 1;
+      uVar3 = *(uint *)(param_1 + 0xec4) & 0x80000003;
+      if ((int)uVar3 < 0) {
+        uVar3 = (uVar3 - 1 | 0xfffffffc) + 1;
       }
-      if (uVar4 == 0) goto LAB_0040cc18;
+      if (uVar3 == 0) goto LAB_0040cc18;
     }
-    uVar4 = *(uint *)(param_1 + 0xec4) & 0x80000007;
-    if ((int)uVar4 < 0) {
-      uVar4 = (uVar4 - 1 | 0xfffffff8) + 1;
+    uVar3 = *(uint *)(param_1 + 0xec4) & 0x80000007;
+    if ((int)uVar3 < 0) {
+      uVar3 = (uVar3 - 1 | 0xfffffff8) + 1;
     }
-    if (uVar4 != 0) goto LAB_0040cffe;
+    if (uVar3 != 0) goto LAB_0040cffe;
   }
 LAB_0040cc18:
   local_c = *(uint *)(param_1 + 0xec4) & 0x8000000f;
   if ((int)local_c < 0) {
     local_c = (local_c - 1 | 0xfffffff0) + 1;
   }
-  uVar4 = (int)local_c / 2;
-  if ((short)uVar4 == 0) {
+  uVar3 = (int)local_c / 2;
+  if ((short)uVar3 == 0) {
     local_a0 = 0;
   }
   else {
-    uVar3 = FUN_0041e780(&DAT_0069d8f8);
-    local_a0 = (int)((ulonglong)uVar3 % (ulonglong)(longlong)(int)(uVar4 & 0xffff));
+    uVar2 = FUN_0041e780(&DAT_0069d8f8);
+    local_a0 = (int)((ulonglong)uVar2 % (ulonglong)(longlong)(int)(uVar3 & 0xffff));
   }
   local_c = local_a0 + (int)local_c / 2;
   local_10 = ((float)local_c * 160.0) / 16.0 + 32.0;
@@ -68,37 +68,37 @@ LAB_0040cc18:
   local_20 = *(float *)(param_1 + 0xc6c);
   local_1c = *(float *)(param_1 + 0xc70);
   local_18 = *(undefined4 *)(param_1 + 0xc74);
-  fVar5 = (float10)FUN_0045bda4((double)local_14);
-  local_20 = (float)fVar5 * local_10 + local_20;
-  fVar5 = (float10)FUN_0045bcf4((double)local_14);
-  local_1c = (float)fVar5 * local_10 + local_1c;
+  fVar4 = (float10)FUN_0045bda4((double)local_14);
+  local_20 = (float)fVar4 * local_10 + local_20;
+  fVar4 = (float10)FUN_0045bcf4((double)local_14);
+  local_1c = (float)fVar4 * local_10 + local_1c;
   local_8 = FUN_0040ef50((int *)&AnmRelatedHugeStruct_00487fe0,0x13,&local_20,1,0xff3030ff);
-  fVar5 = (float10)FUN_0041e820();
-  local_8[1].angleVel.x = (float)((fVar5 * (float10)40.0 - (float10)20.0) / (float10)60.0);
+  fVar5 = FUN_0041e820(&DAT_0069d8f8);
+  local_8[1].angleVel.x = (fVar5 * 40.0 - 20.0) / 60.0;
   local_8[1].angleVel.y = ((float)local_c * 8.0) / 60.0 - 0.2666667;
   local_8[1].angleVel.z = 0.0;
-  fVar1 = local_8[1].angleVel.z;
-  fVar2 = local_8[1].angleVel.y;
+  fVar5 = local_8[1].angleVel.z;
+  fVar1 = local_8[1].angleVel.y;
   local_8[1].scaleY = -local_8[1].angleVel.x * 0.008333334;
-  local_8[1].scaleX = -fVar2 * 0.008333334;
-  local_8[1].scaleInterpFinalY = -fVar1 * 0.008333334;
+  local_8[1].scaleX = -fVar1 * 0.008333334;
+  local_8[1].scaleInterpFinalY = -fVar5 * 0.008333334;
   local_20 = *(float *)(param_1 + 0xc6c);
   local_1c = *(float *)(param_1 + 0xc70);
   local_18 = *(undefined4 *)(param_1 + 0xc74);
-  fVar5 = (float10)FUN_0045bda4((double)local_14);
-  local_20 = local_20 - (float)fVar5 * local_10;
-  fVar5 = (float10)FUN_0045bcf4((double)local_14);
-  local_1c = (float)fVar5 * local_10 + local_1c;
+  fVar4 = (float10)FUN_0045bda4((double)local_14);
+  local_20 = local_20 - (float)fVar4 * local_10;
+  fVar4 = (float10)FUN_0045bcf4((double)local_14);
+  local_1c = (float)fVar4 * local_10 + local_1c;
   local_8 = FUN_0040ef50((int *)&AnmRelatedHugeStruct_00487fe0,0x13,&local_20,1,0xff3030ff);
-  fVar5 = (float10)FUN_0041e820();
-  local_8[1].angleVel.x = (float)((fVar5 * (float10)40.0 - (float10)20.0) / (float10)60.0);
+  fVar5 = FUN_0041e820(&DAT_0069d8f8);
+  local_8[1].angleVel.x = (fVar5 * 40.0 - 20.0) / 60.0;
   local_8[1].angleVel.y = ((float)local_c * 8.0) / 60.0 - 0.2666667;
   local_8[1].angleVel.z = 0.0;
-  fVar1 = local_8[1].angleVel.z;
-  fVar2 = local_8[1].angleVel.y;
+  fVar5 = local_8[1].angleVel.z;
+  fVar1 = local_8[1].angleVel.y;
   local_8[1].scaleY = -local_8[1].angleVel.x * 0.008333334;
-  local_8[1].scaleX = -fVar2 * 0.008333334;
-  local_8[1].scaleInterpFinalY = -fVar1 * 0.008333334;
+  local_8[1].scaleX = -fVar1 * 0.008333334;
+  local_8[1].scaleInterpFinalY = -fVar5 * 0.008333334;
 LAB_0040cffe:
   *(undefined4 *)(param_1 + 0xebc) = *(undefined4 *)(param_1 + 0xec4);
   GameContext::FUN_00424285(&g_GameContext,(int *)(param_1 + 0xec4),(float *)(param_1 + 0xec0));

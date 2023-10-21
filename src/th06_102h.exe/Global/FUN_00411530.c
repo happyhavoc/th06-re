@@ -1,14 +1,13 @@
 
-/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
-
 void __fastcall FUN_00411530(int param_1)
 
 {
-  int iVar1;
-  int iVar2;
-  undefined2 uVar3;
-  float10 fVar4;
-  float fVar5;
+  float fVar1;
+  bool bVar2;
+  undefined3 extraout_var;
+  int iVar3;
+  undefined3 extraout_var_00;
+  undefined2 uVar4;
   float local_4c;
   float local_48;
   float local_44;
@@ -31,25 +30,24 @@ void __fastcall FUN_00411530(int param_1)
   if (*(int *)(param_1 + 0xee5dc) == 0) {
     *(undefined4 *)(param_1 + 0xee5dc) = DAT_00487e58;
   }
-  iVar2 = FUN_004195a2();
-  if (((iVar2 == 0) &&
+  bVar2 = FUN_004195a2(0x69bc30);
+  if (((CONCAT31(extraout_var,bVar2) == 0) &&
       (local_c = DAT_0069d4ba * -0xf0 + 0x960,
       *(int *)(param_1 + 0xee5e8) != *(int *)(param_1 + 0xee5e0))) &&
      (*(int *)(param_1 + 0xee5e8) % local_c == 0)) {
     FUN_0041c57e(100);
   }
-  while (fVar5 = DAT_0069d6f4, -1 < **(short **)(param_1 + 0xee5dc)) {
+  while (fVar1 = DAT_0069d6f4, -1 < **(short **)(param_1 + 0xee5dc)) {
     if (*(int *)(param_1 + 0xee5e8) == (int)**(short **)(param_1 + 0xee5dc)) {
-      iVar2 = (int)*(short *)(*(int *)(param_1 + 0xee5dc) + 4);
-      switch(iVar2) {
+      switch(*(undefined2 *)(*(int *)(param_1 + 0xee5dc) + 4)) {
       case 0:
         if (DAT_0069bc50 == '\0') {
-          iVar2 = *(int *)(param_1 + 0xee5dc);
-          local_10 = iVar2 + 8;
-          uVar3 = (undefined2)((uint)local_10 >> 0x10);
+          iVar3 = *(int *)(param_1 + 0xee5dc);
+          local_10 = iVar3 + 8;
+          uVar4 = (undefined2)((uint)local_10 >> 0x10);
           FUN_00411390((int)*(short *)(*(int *)(param_1 + 0xee5dc) + 2),local_10,
-                       CONCAT22(uVar3,*(undefined2 *)(iVar2 + 0x14)),
-                       CONCAT22(uVar3,*(undefined2 *)(iVar2 + 0x16)),*(undefined4 *)(iVar2 + 0x18));
+                       CONCAT22(uVar4,*(undefined2 *)(iVar3 + 0x14)),
+                       CONCAT22(uVar4,*(undefined2 *)(iVar3 + 0x16)),*(undefined4 *)(iVar3 + 0x18));
         }
         break;
       case 1:
@@ -60,13 +58,13 @@ void __fastcall FUN_00411530(int param_1)
         break;
       case 2:
         if (DAT_0069bc50 == '\0') {
-          iVar2 = *(int *)(param_1 + 0xee5dc);
-          local_14 = iVar2 + 8;
-          uVar3 = (undefined2)((uint)local_14 >> 0x10);
+          iVar3 = *(int *)(param_1 + 0xee5dc);
+          local_14 = iVar3 + 8;
+          uVar4 = (undefined2)((uint)local_14 >> 0x10);
           local_8 = FUN_00411390((int)*(short *)(*(int *)(param_1 + 0xee5dc) + 2),local_14,
-                                 CONCAT22(uVar3,*(undefined2 *)(iVar2 + 0x14)),
-                                 CONCAT22(uVar3,*(undefined2 *)(iVar2 + 0x16)),
-                                 *(undefined4 *)(iVar2 + 0x18));
+                                 CONCAT22(uVar4,*(undefined2 *)(iVar3 + 0x14)),
+                                 CONCAT22(uVar4,*(undefined2 *)(iVar3 + 0x16)),
+                                 *(undefined4 *)(iVar3 + 0x18));
           *(byte *)(local_8 + 0xe50) = *(byte *)(local_8 + 0xe50) | 0x40;
         }
         break;
@@ -79,23 +77,23 @@ void __fastcall FUN_00411530(int param_1)
         break;
       case 4:
         if (DAT_0069bc50 == '\0') {
-          iVar2 = *(int *)(param_1 + 0xee5dc);
-          local_18 = (float *)(iVar2 + 8);
+          iVar3 = *(int *)(param_1 + 0xee5dc);
+          local_18 = (float *)(iVar3 + 8);
           local_24 = *local_18;
-          local_20 = *(float *)(iVar2 + 0xc);
-          local_1c = *(float *)(iVar2 + 0x10);
+          local_20 = *(float *)(iVar3 + 0xc);
+          local_1c = *(float *)(iVar3 + 0x10);
           if (*local_18 < -990.0 != (*local_18 == -990.0)) {
-            fVar4 = (float10)FUN_0041e820();
-            local_24 = (float)(fVar4 * (float10)fVar5);
+            local_24 = FUN_0041e820(&DAT_0069d8f8);
+            local_24 = local_24 * fVar1;
           }
-          fVar5 = DAT_0069d6f8;
+          fVar1 = DAT_0069d6f8;
           if (local_18[1] < -990.0 != (local_18[1] == -990.0)) {
-            fVar4 = (float10)FUN_0041e820();
-            local_20 = (float)(fVar4 * (float10)fVar5);
+            local_20 = FUN_0041e820(&DAT_0069d8f8);
+            local_20 = local_20 * fVar1;
           }
           if (local_18[2] < -990.0 != (local_18[2] == -990.0)) {
-            fVar4 = (float10)FUN_0041e820();
-            local_1c = (float)(fVar4 * (float10)800.0);
+            local_1c = FUN_0041e820(&DAT_0069d8f8);
+            local_1c = local_1c * 800.0;
           }
           FUN_00411390((int)*(short *)(*(int *)(param_1 + 0xee5dc) + 2),&local_24,
                        *(undefined2 *)(local_18 + 3),*(undefined2 *)((int)local_18 + 0xe),
@@ -104,22 +102,22 @@ void __fastcall FUN_00411530(int param_1)
         break;
       case 5:
         if (DAT_0069bc50 == '\0') {
-          iVar2 = *(int *)(param_1 + 0xee5dc);
-          local_30 = *(float *)(iVar2 + 8);
-          local_2c = *(float *)(iVar2 + 0xc);
-          local_28 = *(float *)(iVar2 + 0x10);
+          iVar3 = *(int *)(param_1 + 0xee5dc);
+          local_30 = *(float *)(iVar3 + 8);
+          local_2c = *(float *)(iVar3 + 0xc);
+          local_28 = *(float *)(iVar3 + 0x10);
           if (local_30 < -990.0 != (local_30 == -990.0)) {
-            fVar4 = (float10)FUN_0041e820();
-            local_30 = (float)(fVar4 * (float10)fVar5);
+            local_30 = FUN_0041e820(&DAT_0069d8f8);
+            local_30 = local_30 * fVar1;
           }
-          fVar5 = DAT_0069d6f8;
+          fVar1 = DAT_0069d6f8;
           if (local_2c < -990.0 != (local_2c == -990.0)) {
-            fVar4 = (float10)FUN_0041e820();
-            local_2c = (float)(fVar4 * (float10)fVar5);
+            local_2c = FUN_0041e820(&DAT_0069d8f8);
+            local_2c = local_2c * fVar1;
           }
           if (local_28 < -990.0 != (local_28 == -990.0)) {
-            fVar4 = (float10)FUN_0041e820();
-            local_28 = (float)(fVar4 * (float10)800.0);
+            local_28 = FUN_0041e820(&DAT_0069d8f8);
+            local_28 = local_28 * 800.0;
           }
           FUN_00411390((int)*(short *)(*(int *)(param_1 + 0xee5dc) + 2),&local_30,0xffffffff,
                        0xffffffff,0xffffffff);
@@ -127,23 +125,23 @@ void __fastcall FUN_00411530(int param_1)
         break;
       case 6:
         if (DAT_0069bc50 == '\0') {
-          iVar2 = *(int *)(param_1 + 0xee5dc);
-          local_34 = (float *)(iVar2 + 8);
+          iVar3 = *(int *)(param_1 + 0xee5dc);
+          local_34 = (float *)(iVar3 + 8);
           local_40 = *local_34;
-          local_3c = *(float *)(iVar2 + 0xc);
-          local_38 = *(float *)(iVar2 + 0x10);
+          local_3c = *(float *)(iVar3 + 0xc);
+          local_38 = *(float *)(iVar3 + 0x10);
           if (*local_34 < -990.0 != (*local_34 == -990.0)) {
-            fVar4 = (float10)FUN_0041e820();
-            local_40 = (float)(fVar4 * (float10)fVar5);
+            local_40 = FUN_0041e820(&DAT_0069d8f8);
+            local_40 = local_40 * fVar1;
           }
-          fVar5 = DAT_0069d6f8;
+          fVar1 = DAT_0069d6f8;
           if (local_34[1] < -990.0 != (local_34[1] == -990.0)) {
-            fVar4 = (float10)FUN_0041e820();
-            local_3c = (float)(fVar4 * (float10)fVar5);
+            local_3c = FUN_0041e820(&DAT_0069d8f8);
+            local_3c = local_3c * fVar1;
           }
           if (local_34[2] < -990.0 != (local_34[2] == -990.0)) {
-            fVar4 = (float10)FUN_0041e820();
-            local_38 = (float)(fVar4 * (float10)800.0);
+            local_38 = FUN_0041e820(&DAT_0069d8f8);
+            local_38 = local_38 * 800.0;
           }
           local_8 = FUN_00411390((int)*(short *)(*(int *)(param_1 + 0xee5dc) + 2),&local_40,
                                  *(undefined2 *)(local_34 + 3),*(undefined2 *)((int)local_34 + 0xe),
@@ -153,22 +151,22 @@ void __fastcall FUN_00411530(int param_1)
         break;
       case 7:
         if (DAT_0069bc50 == '\0') {
-          iVar1 = *(int *)(param_1 + 0xee5dc);
-          local_4c = *(float *)(iVar1 + 8);
-          local_48 = *(float *)(iVar1 + 0xc);
-          local_44 = *(float *)(iVar1 + 0x10);
+          iVar3 = *(int *)(param_1 + 0xee5dc);
+          local_4c = *(float *)(iVar3 + 8);
+          local_48 = *(float *)(iVar3 + 0xc);
+          local_44 = *(float *)(iVar3 + 0x10);
           if (local_4c < -990.0 != (local_4c == -990.0)) {
-            fVar4 = (float10)FUN_0041e820();
-            local_4c = (float)(fVar4 * (float10)fVar5);
+            local_4c = FUN_0041e820(&DAT_0069d8f8);
+            local_4c = local_4c * fVar1;
           }
+          fVar1 = DAT_0069d6f8;
           if (local_48 < -990.0 != (local_48 == -990.0)) {
-            fVar5 = DAT_0069d6f8;
-            fVar4 = (float10)FUN_0041e820(iVar2,param_1,DAT_0069d6f8);
-            local_48 = (float)(fVar4 * (float10)fVar5);
+            local_48 = FUN_0041e820(&DAT_0069d8f8);
+            local_48 = local_48 * fVar1;
           }
           if (local_44 < -990.0 != (local_44 == -990.0)) {
-            fVar4 = (float10)FUN_0041e820();
-            local_44 = (float)(fVar4 * (float10)800.0);
+            local_44 = FUN_0041e820(&DAT_0069d8f8);
+            local_44 = local_44 * 800.0;
           }
           local_8 = FUN_00411390((int)*(short *)(*(int *)(param_1 + 0xee5dc) + 2),&local_4c,
                                  0xffffffff,0xffffffff,0xffffffff);
@@ -185,8 +183,8 @@ void __fastcall FUN_00411530(int param_1)
         }
         break;
       case 9:
-        iVar2 = FUN_00419572();
-        if (iVar2 != 0) {
+        iVar3 = FUN_00419572();
+        if (iVar3 != 0) {
           FUN_004241e5(1);
           return;
         }
@@ -197,7 +195,7 @@ void __fastcall FUN_00411530(int param_1)
              *(undefined4 *)(*(int *)(param_1 + 0xee5dc) + 0xc);
         break;
       case 0xb:
-        _DAT_0069d4b0 = *(undefined2 *)(*(int *)(param_1 + 0xee5dc) + 2);
+        USHORT_0069d4b0 = *(ushort *)(*(int *)(param_1 + 0xee5dc) + 2);
         break;
       case 0xc:
         if ((*(int *)(param_1 + 0xee598 + *(short *)(*(int *)(param_1 + 0xee5dc) + 2) * 4) != 0) &&
@@ -212,8 +210,8 @@ void __fastcall FUN_00411530(int param_1)
     *(int *)(param_1 + 0xee5dc) =
          (int)*(short *)(*(int *)(param_1 + 0xee5dc) + 6) + *(int *)(param_1 + 0xee5dc);
   }
-  iVar2 = FUN_004195a2();
-  if (iVar2 == 0) {
+  bVar2 = FUN_004195a2(0x69bc30);
+  if (CONCAT31(extraout_var_00,bVar2) == 0) {
     DAT_0069d70c = DAT_0069d70c + 1;
   }
   return;

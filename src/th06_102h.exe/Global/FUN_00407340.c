@@ -1,5 +1,5 @@
 
-undefined4 FUN_00407340(undefined4 param_1)
+undefined4 FUN_00407340(char *param_1)
 
 {
   short *psVar1;

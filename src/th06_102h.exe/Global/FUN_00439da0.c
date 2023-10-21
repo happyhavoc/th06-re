@@ -23,7 +23,8 @@ undefined4 FUN_00439da0(int param_1)
             iVar1 = AnmManager::LoadAnm(g_AnmManager,0x17,"data/title04s.anm",0x195);
             if (iVar1 == 0) {
               for (local_8 = 0; local_8 < 0x50; local_8 = local_8 + 1) {
-                FUN_004051b0(param_1 + local_8 * 0x110,local_8 + 0x100);
+                AnmManager::FUN_004051b0
+                          (g_AnmManager,(AnmVm *)(param_1 + local_8 * 0x110),local_8 + 0x100);
                 *(uint *)(param_1 + 0x80 + local_8 * 0x110) =
                      *(uint *)(param_1 + 0x80 + local_8 * 0x110) & 0xfffffffe;
                 *(undefined2 *)(param_1 + 0xb2 + local_8 * 0x110) =

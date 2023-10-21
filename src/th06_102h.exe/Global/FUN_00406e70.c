@@ -4,7 +4,7 @@ void FUN_00406e70(int param_1)
 {
   undefined4 *puVar1;
   uint uVar2;
-  int local_c;
+  AnmVm *local_c;
   int local_8;
   
   if (*(int *)(param_1 + 0x75d8) < *(int *)(param_1 + 0x75cc)) {
@@ -39,20 +39,20 @@ void FUN_00406e70(int param_1)
       AnmManager::ExecuteScript(g_AnmManager,(AnmVm *)(param_1 + 0x7a14));
     }
     else {
-      FUN_00420130();
+      FUN_00420130(0x69e268);
       FUN_00417acd(0x69bc30,0x4a1,&DAT_0046a450);
       *(undefined4 *)(param_1 + 0x75cc) = 300;
       *(undefined4 *)(param_1 + 0x75bc) = 0x168;
       *(undefined4 *)(param_1 + 0x75b8) = 0;
       *(undefined4 *)(param_1 + 0x75b4) = 0xfffffc19;
-      local_c = param_1 + 0x76e4;
+      local_c = (AnmVm *)(param_1 + 0x76e4);
       for (local_8 = 0; local_8 < 4; local_8 = local_8 + 1) {
-        FUN_004051b0(local_c,local_8 + 0x408);
+        AnmManager::FUN_004051b0(g_AnmManager,local_c,local_8 + 0x408);
         puVar1 = (undefined4 *)(param_1 + 0x7624 + local_8 * 0xc);
         *puVar1 = *(undefined4 *)(param_1 + 0x440);
         puVar1[1] = *(undefined4 *)(param_1 + 0x444);
         puVar1[2] = *(undefined4 *)(param_1 + 0x448);
-        local_c = local_c + 0x110;
+        local_c = local_c + 1;
       }
       FUN_004311e0(0x13);
       *(undefined4 *)(param_1 + 0x9d4) = 0x3e99999a;

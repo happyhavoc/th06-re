@@ -28,7 +28,7 @@ undefined4 __thiscall GameContext::Parse(GameContext *this,char *config_file_nam
     pFVar2 = fopen("bgm/th06_01.wav","rb");
     if (pFVar2 == (FILE *)0x0) {
       g_GameContext.cfg.musicMode = MIDI;
-      DebugPrint("wave データが無いので、midi にします\n");
+      DebugPrint("wave データが無��ので、midi にします\n");
     }
     else {
       g_GameContext.cfg.musicMode = WAV;
@@ -130,7 +130,7 @@ undefined4 __thiscall GameContext::Parse(GameContext *this,char *config_file_nam
                         "ゲーム周りのアイテムの描画を抑制します\n");
   }
   if (((this->cfg).opts >> 5 & 1) != 0) {
-    GameErrorContextLog(&g_GameErrorContext,"グーローシェーディング���抑制します\n")
+    GameErrorContextLog(&g_GameErrorContext,"グーローシェーディングを抑制します\n")
     ;
   }
   if (((this->cfg).opts >> 6 & 1) != 0) {

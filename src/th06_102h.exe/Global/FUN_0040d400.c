@@ -4,7 +4,7 @@ void FUN_0040d400(int param_1)
 {
   int iVar1;
   undefined4 *puVar2;
-  float10 fVar3;
+  float fVar3;
   undefined4 *local_68;
   int local_64;
   int local_60;
@@ -35,8 +35,8 @@ void FUN_0040d400(int param_1)
       local_50 = local_68[0x15a];
       local_5c = 3;
       local_5a = 1;
-      fVar3 = (float10)FUN_0041e820();
-      local_4c = (float)(fVar3 * (float10)6.283185 - (float10)3.141593);
+      fVar3 = FUN_0041e820(&DAT_0069d8f8);
+      local_4c = fVar3 * 6.283185 - 3.141593;
       local_44 = 0;
       local_18 = 1;
       local_16 = 1;

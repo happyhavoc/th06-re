@@ -220,10 +220,10 @@ undefined4 FUN_00417d29(void)
   uVar1 = in_ECX[1];
   *(undefined2 *)(uVar1 + 0x1d68) = 0x701;
   AnmManager::SetAndExecuteScript(pAVar2,(AnmVm *)(uVar1 + 0x1cb4),pAVar2->scripts[0x701]);
-  FUN_00434e20(g_AnmManager,in_ECX[1] + 0x1ba4,0xe0ffff,0,g_Stage.field1_0x4 + 0x10);
+  FUN_00434e20(g_AnmManager,in_ECX[1] + 0x1ba4,0xe0ffff,0,g_Stage.stdData + 0x10);
   *(undefined *)(in_ECX[1] + 0x1dc0) = 0x10;
   *(undefined *)(in_ECX[1] + 0x1dc1) = 0x10;
-  FUN_00434c40(g_AnmManager,in_ECX[1] + 0x1cb4,0xe0ffff,0,&DAT_0046a98c,g_Stage.field1_0x4 + 0x90);
+  FUN_00434c40(g_AnmManager,in_ECX[1] + 0x1cb4,0xe0ffff,0,&DAT_0046a98c,g_Stage.stdData + 0x90);
   *(undefined4 *)(in_ECX[1] + 0x253c) = 0xffffffff;
   *(undefined4 *)(in_ECX[1] + 0x2bdc) = 0;
   *(undefined4 *)(in_ECX[1] + 0x2bf4) = 0;

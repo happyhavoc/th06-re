@@ -1,11 +1,11 @@
 
-void __fastcall FUN_0043c6d0(FileAbstraction *param_1)
+void __fastcall FUN_0043c6d0(FileAbstractionToPbg3Parser param_1)
 
 {
-  if (param_1[-2].handle < (HANDLE)param_1[-2].field2_0x8) {
-    param_1[-2].handle = (HANDLE)((int)param_1[-2].handle + 1);
+  if (ADJ(param_1)->offsetInFile < ADJ(param_1)->fileSize) {
+    ADJ(param_1)->offsetInFile = ADJ(param_1)->offsetInFile + 1;
   }
-  FileAbstraction::ReadByte(param_1);
+  FileAbstraction::ReadByte(&param_1->base);
   return;
 }
 

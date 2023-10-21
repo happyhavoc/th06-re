@@ -62,7 +62,7 @@ int __thiscall AnmManager::FUN_00433590(AnmManager *this,AnmVm *vm)
           (*(g_GameContext.d3dDevice)->lpVtbl->SetTexture)
                     (g_GameContext.d3dDevice,0,(IDirect3DBaseTexture8 *)this->currentTexture);
         }
-        if (this->field16_0x210be != '\x03') {
+        if (this->currentVertexShader != '\x03') {
           if ((g_GameContext.cfg.opts >> 1 & 1) == 0) {
             (*(g_GameContext.d3dDevice)->lpVtbl->SetVertexShader)(g_GameContext.d3dDevice,0x102);
             (*(g_GameContext.d3dDevice)->lpVtbl->SetStreamSource)
@@ -71,7 +71,7 @@ int __thiscall AnmManager::FUN_00433590(AnmManager *this,AnmVm *vm)
           else {
             (*(g_GameContext.d3dDevice)->lpVtbl->SetVertexShader)(g_GameContext.d3dDevice,0x142);
           }
-          this->field16_0x210be = '\x03';
+          this->currentVertexShader = '\x03';
         }
       }
       FUN_004324d0(this,vm);

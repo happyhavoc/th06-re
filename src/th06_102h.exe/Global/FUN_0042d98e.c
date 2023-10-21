@@ -149,8 +149,8 @@ undefined4 FUN_0042d98e(int param_1)
             else {
               for (local_10 = 0; local_10 < 4; local_10 = local_10 + 1) {
                 for (local_14 = 0; local_14 < 5; local_14 = local_14 + 1) {
-                  (&DAT_0069ccdc)[local_14 + local_10 * 0x18] = 99;
-                  (&DAT_0069cce1)[local_14 + local_10 * 0x18] = 99;
+                  *(undefined *)(local_10 * 0x18 + 0x69ccdc + local_14) = 99;
+                  *(undefined *)(local_10 * 0x18 + 0x69cce1 + local_14) = 99;
                 }
               }
               *(undefined4 *)(param_1 + 0x30) = 0;

@@ -1,5 +1,5 @@
 
-undefined4 FUN_00418665(undefined4 param_1)
+undefined4 FUN_00418665(char *param_1)
 
 {
   byte *pbVar1;

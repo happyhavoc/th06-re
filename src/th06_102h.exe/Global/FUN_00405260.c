@@ -7,16 +7,16 @@ void FUN_00405260(int param_1)
   float fVar3;
   float fVar4;
   float fVar5;
-  float fVar6;
-  int iVar7;
-  uint uVar8;
-  float10 fVar9;
+  int iVar6;
+  uint uVar7;
+  float10 fVar8;
+  float fVar9;
   float local_90;
   int local_28;
   float local_24;
   float local_20;
   float local_18;
-  int local_14;
+  AnmVm *local_14;
   int local_10;
   
   if (*(int *)(param_1 + 0x75d8) < *(int *)(param_1 + 0x75cc)) {
@@ -30,7 +30,7 @@ void FUN_00405260(int param_1)
       for (local_10 = 0; local_10 < 8; local_10 = local_10 + 1) {
         *(undefined4 *)(param_1 + 0x75e4 + local_10 * 4) = 0;
       }
-      FUN_00420130();
+      FUN_00420130(0x69e268);
       FUN_0040ef50((int *)&AnmRelatedHugeStruct_00487fe0,0xc,(float *)(param_1 + 0x440),1,0xff4040ff
                   );
       *(undefined4 *)(param_1 + 0x938) = *(undefined4 *)(param_1 + 0x440);
@@ -39,32 +39,32 @@ void FUN_00405260(int param_1)
       *(undefined4 *)(param_1 + 0x944) = 0x43800000;
     }
     if ((0x3b < *(int *)(param_1 + 0x75d8)) && (*(int *)(param_1 + 0x75d8) < 0xb4)) {
-      uVar8 = *(uint *)(param_1 + 0x75d8) & 0x8000000f;
-      if ((int)uVar8 < 0) {
-        uVar8 = (uVar8 - 1 | 0xfffffff0) + 1;
+      uVar7 = *(uint *)(param_1 + 0x75d8) & 0x8000000f;
+      if ((int)uVar7 < 0) {
+        uVar7 = (uVar7 - 1 | 0xfffffff0) + 1;
       }
-      if ((uVar8 == 0) &&
-         (iVar7 = *(int *)(param_1 + 0x75d8) + -0x3c,
-         iVar7 = (int)(iVar7 + (iVar7 >> 0x1f & 0xfU)) >> 4, iVar7 != 0)) {
-        *(undefined4 *)(param_1 + 0x75e4 + iVar7 * 4) = 1;
-        *(undefined4 *)(param_1 + 0x7604 + iVar7 * 4) = 0x40800000;
-        puVar1 = (undefined4 *)(param_1 + 0x7624 + iVar7 * 0xc);
+      if ((uVar7 == 0) &&
+         (iVar6 = *(int *)(param_1 + 0x75d8) + -0x3c,
+         iVar6 = (int)(iVar6 + (iVar6 >> 0x1f & 0xfU)) >> 4, iVar6 != 0)) {
+        *(undefined4 *)(param_1 + 0x75e4 + iVar6 * 4) = 1;
+        *(undefined4 *)(param_1 + 0x7604 + iVar6 * 4) = 0x40800000;
+        puVar1 = (undefined4 *)(param_1 + 0x7624 + iVar6 * 0xc);
         *puVar1 = *(undefined4 *)(param_1 + 0x440);
         puVar1[1] = *(undefined4 *)(param_1 + 0x444);
         puVar1[2] = *(undefined4 *)(param_1 + 0x448);
-        fVar9 = (float10)FUN_0041e820();
-        fVar3 = (float)(fVar9 * (float10)6.283185 - (float10)3.141593);
-        fVar9 = (float10)FUN_0045bda4((double)fVar3);
-        *(float *)(param_1 + 0x7684 + iVar7 * 0xc) =
-             (float)fVar9 * *(float *)(param_1 + 0x7604 + iVar7 * 4);
-        fVar9 = (float10)FUN_0045bcf4((double)fVar3);
-        *(float *)(param_1 + 0x7688 + iVar7 * 0xc) =
-             (float)fVar9 * *(float *)(param_1 + 0x7604 + iVar7 * 4);
-        *(undefined4 *)(param_1 + 0x838 + iVar7 * 4) = 0;
-        local_14 = param_1 + 0x76e4 + iVar7 * 0x440;
+        fVar9 = FUN_0041e820(&DAT_0069d8f8);
+        fVar9 = fVar9 * 6.283185 - 3.141593;
+        fVar8 = (float10)FUN_0045bda4((double)fVar9);
+        *(float *)(param_1 + 0x7684 + iVar6 * 0xc) =
+             (float)fVar8 * *(float *)(param_1 + 0x7604 + iVar6 * 4);
+        fVar8 = (float10)FUN_0045bcf4((double)fVar9);
+        *(float *)(param_1 + 0x7688 + iVar6 * 0xc) =
+             (float)fVar8 * *(float *)(param_1 + 0x7604 + iVar6 * 4);
+        *(undefined4 *)(param_1 + 0x838 + iVar6 * 4) = 0;
+        local_14 = (AnmVm *)(param_1 + 0x76e4 + iVar6 * 0x440);
         for (local_28 = 0; local_28 < 4; local_28 = local_28 + 1) {
-          FUN_004051b0(local_14,local_28 + 0x485);
-          local_14 = local_14 + 0x110;
+          AnmManager::FUN_004051b0(g_AnmManager,local_14,local_28 + 0x485);
+          local_14 = local_14 + 1;
         }
         FUN_004311e0(0xd);
       }
@@ -84,28 +84,28 @@ void FUN_00405260(int param_1)
             }
             local_24 = local_24 - *(float *)(param_1 + 0x7624 + local_10 * 0xc);
             local_20 = local_20 - *(float *)(param_1 + 0x7628 + local_10 * 0xc);
-            fVar9 = (float10)FUN_0045bc34((double)(local_24 * local_24 + local_20 * local_20));
-            local_18 = (float)fVar9 / (*(float *)(param_1 + 0x7604 + local_10 * 4) / 8.0);
+            fVar8 = (float10)FUN_0045bc34((double)(local_24 * local_24 + local_20 * local_20));
+            local_18 = (float)fVar8 / (*(float *)(param_1 + 0x7604 + local_10 * 4) / 8.0);
             if (local_18 < 1.0 != NAN(local_18)) {
               local_18 = 1.0;
             }
-            fVar5 = local_24 / local_18 + *(float *)(param_1 + 0x7684 + local_10 * 0xc);
-            fVar6 = local_20 / local_18 + *(float *)(param_1 + 0x7688 + local_10 * 0xc);
-            fVar9 = (float10)FUN_0045bc34((double)(fVar5 * fVar5 + fVar6 * fVar6));
-            fVar3 = (float)fVar9;
-            local_90 = fVar3;
-            if (10.0 < fVar3) {
+            fVar4 = local_24 / local_18 + *(float *)(param_1 + 0x7684 + local_10 * 0xc);
+            fVar5 = local_20 / local_18 + *(float *)(param_1 + 0x7688 + local_10 * 0xc);
+            fVar8 = (float10)FUN_0045bc34((double)(fVar4 * fVar4 + fVar5 * fVar5));
+            fVar9 = (float)fVar8;
+            local_90 = fVar9;
+            if (10.0 < fVar9) {
               local_90 = 10.0;
             }
             *(float *)(param_1 + 0x7604 + local_10 * 4) = local_90;
-            fVar4 = *(float *)(param_1 + 0x7604 + local_10 * 4);
-            if (fVar4 < 1.0 != NAN(fVar4)) {
+            fVar3 = *(float *)(param_1 + 0x7604 + local_10 * 4);
+            if (fVar3 < 1.0 != NAN(fVar3)) {
               *(undefined4 *)(param_1 + 0x7604 + local_10 * 4) = 0x3f800000;
             }
             *(float *)(param_1 + 0x7684 + local_10 * 0xc) =
-                 (fVar5 * *(float *)(param_1 + 0x7604 + local_10 * 4)) / fVar3;
+                 (fVar4 * *(float *)(param_1 + 0x7604 + local_10 * 4)) / fVar9;
             *(float *)(param_1 + 0x7688 + local_10 * 0xc) =
-                 (fVar6 * *(float *)(param_1 + 0x7604 + local_10 * 4)) / fVar3;
+                 (fVar5 * *(float *)(param_1 + 0x7604 + local_10 * 4)) / fVar9;
             *(undefined4 *)(param_1 + 0x638 + local_10 * 0xc) = 0x42400000;
             *(undefined4 *)(param_1 + 0x63c + local_10 * 0xc) = 0x42400000;
             puVar1 = (undefined4 *)(param_1 + 0x7624 + local_10 * 0xc);

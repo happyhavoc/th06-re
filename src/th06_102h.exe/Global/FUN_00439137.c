@@ -76,7 +76,7 @@ undefined4 __fastcall FUN_00439137(int param_1)
           g_GameContext.cfg.musicMode = WAV|MIDI;
         }
         g_GameContext.cfg.musicMode = g_GameContext.cfg.musicMode + ~OFF;
-        FUN_00424b2f();
+        isMusicMutedWtf();
         FUN_00424b5d("bgm/th06_01.mid");
       }
       else if (iVar1 == 4) {
@@ -129,7 +129,7 @@ undefined4 __fastcall FUN_00439137(int param_1)
         if (MIDI < g_GameContext.cfg.musicMode) {
           g_GameContext.cfg.musicMode = OFF;
         }
-        FUN_00424b2f();
+        isMusicMutedWtf();
         FUN_00424b5d("bgm/th06_01.mid");
       }
       else if (iVar1 == 4) {
@@ -159,7 +159,7 @@ undefined4 __fastcall FUN_00439137(int param_1)
         g_GameContext.cfg.defaultDifficulty = 1;
         g_GameContext.cfg.windowed = false;
         g_GameContext.cfg.frameskipConfig = 0;
-        FUN_00424b2f();
+        isMusicMutedWtf();
         FUN_00424b5d("bgm/th06_01.mid");
       }
       else if (iVar1 == 7) {

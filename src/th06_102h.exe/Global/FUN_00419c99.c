@@ -1,6 +1,4 @@
 
-/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
-
 void __fastcall FUN_00419c99(uint *param_1)
 
 {
@@ -341,14 +339,14 @@ void __fastcall FUN_00419c99(uint *param_1)
     do {
       local_1c0 = local_1c0 + -1;
     } while (-1 < local_1c0);
-    if (_DAT_0069d4b0 != 0) {
+    if (USHORT_0069d4b0 != 0) {
       local_154 = 0x43f80000;
       local_150 = 0x433a0000;
       local_14c = 0x3dcccccd;
       local_7c = 0x43f80000;
       uStack_78 = 0x433a0000;
       uStack_74 = 0x3dcccccd;
-      local_160 = (float)(_DAT_0069d4b0 + 0x1f0) + 0.0;
+      local_160 = (float)(USHORT_0069d4b0 + 0x1f0) + 0.0;
       local_15c = 0x433a0000;
       local_158 = 0x3dcccccd;
       uStack_64 = 0x433a0000;
@@ -359,7 +357,7 @@ void __fastcall FUN_00419c99(uint *param_1)
       local_54 = 0x43f80000;
       uStack_50 = 0x434a0000;
       uStack_4c = 0x3dcccccd;
-      local_178 = (float)(_DAT_0069d4b0 + 0x1f0) + 0.0;
+      local_178 = (float)(USHORT_0069d4b0 + 0x1f0) + 0.0;
       local_174 = 0x434a0000;
       local_170 = 0x3dcccccd;
       uStack_3c = 0x434a0000;
@@ -392,7 +390,7 @@ void __fastcall FUN_00419c99(uint *param_1)
       (*(g_GameContext.d3dDevice)->lpVtbl->SetVertexShader)(g_GameContext.d3dDevice,0x44);
       (*(g_GameContext.d3dDevice)->lpVtbl->DrawPrimitiveUP)
                 (g_GameContext.d3dDevice,D3DPT_TRIANGLESTRIP,2,&local_7c,0x14);
-      g_AnmManager->field16_0x210be = 0xff;
+      g_AnmManager->currentVertexShader = 0xff;
       g_AnmManager->currentColorOp = 0xff;
       g_AnmManager->currentBlendMode = 0xff;
       g_AnmManager->currentZWriteDisable = 0xff;
@@ -406,7 +404,7 @@ void __fastcall FUN_00419c99(uint *param_1)
                 (g_GameContext.d3dDevice,0,D3DTSS_ALPHAARG1,2);
       (*(g_GameContext.d3dDevice)->lpVtbl->SetTextureStageState)
                 (g_GameContext.d3dDevice,0,D3DTSS_COLORARG1,2);
-      if (0x7f < _DAT_0069d4b0) {
+      if (0x7f < USHORT_0069d4b0) {
         uVar1 = param_1[1];
         local_14 = (AnmVm *)(uVar1 + 0x1320);
         local_184 = 0x43f80000;
@@ -418,11 +416,11 @@ void __fastcall FUN_00419c99(uint *param_1)
         AnmManager::FUN_00432ad0(g_AnmManager,local_14);
       }
     }
-    if (_DAT_0069d4b0 < 0x80) {
+    if (USHORT_0069d4b0 < 0x80) {
       local_190 = 0x43f80000;
       local_18c = 0x433a0000;
       local_188 = 0;
-      AsciiManager::FUN_00401650(&g_AsciiManager,&local_190,"%d",(uint)_DAT_0069d4b0);
+      AsciiManager::FUN_00401650(&g_AsciiManager,&local_190,"%d",(uint)USHORT_0069d4b0);
     }
   }
   local_88 = 0x43f80000;

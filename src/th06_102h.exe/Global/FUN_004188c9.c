@@ -100,11 +100,11 @@ undefined4 FUN_004188c9(void)
         *(undefined *)(in_ECX + 0x1dc0) = 0x10;
         *(undefined *)(in_ECX + 0x1dc1) = 0x10;
         FUN_00434c40(g_AnmManager,in_ECX + 0x1cb4,0xe0ffff,0,&DAT_0046a98c,
-                     g_Stage.field1_0x4 + 0x90 + *(int *)(*(int *)(in_ECX + 0x2538) + 4) * 0x80);
+                     g_Stage.stdData + *(int *)(*(int *)(in_ECX + 0x2538) + 4) * 0x80 + 0x90);
         iVar7 = FUN_00424ae4(*(undefined4 *)(*(int *)(in_ECX + 0x2538) + 4));
         if (iVar7 != 0) {
-          FUN_00424b5d((char *)(g_Stage.field1_0x4 + 0x290 +
-                               *(int *)(*(int *)(in_ECX + 0x2538) + 4) * 0x80));
+          FUN_00424b5d((char *)(g_Stage.stdData +
+                               *(int *)(*(int *)(in_ECX + 0x2538) + 4) * 0x80 + 0x290));
         }
         break;
       case 8:

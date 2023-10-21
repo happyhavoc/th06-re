@@ -38,7 +38,7 @@ void FUN_0042f8b0(float *param_1,float param_2)
   (*(g_GameContext.d3dDevice)->lpVtbl->SetVertexShader)(g_GameContext.d3dDevice,0x44);
   (*(g_GameContext.d3dDevice)->lpVtbl->DrawPrimitiveUP)
             (g_GameContext.d3dDevice,D3DPT_TRIANGLESTRIP,2,local_54,0x14);
-  g_AnmManager->field16_0x210be = 0xff;
+  g_AnmManager->currentVertexShader = 0xff;
   g_AnmManager->currentSprite = (AnmLoadedSprite *)0x0;
   g_AnmManager->currentTexture = (IDirect3DTexture8 *)0x0;
   g_AnmManager->currentColorOp = 0xff;

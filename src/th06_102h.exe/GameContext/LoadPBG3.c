@@ -5,7 +5,7 @@ void __thiscall GameContext::LoadPBG3(GameContext *this,int pbg3FileIdx,byte *fi
 
 {
   byte bVar1;
-  Pbg3Archive *_Memory;
+  Pbg3Archive *this_00;
   int iVar2;
   bool bVar3;
   uint unaff_retaddr;
@@ -64,10 +64,10 @@ LAB_00424435:
   DebugPrint("%s open ...\n",filename);
   iVar2 = Pbg3Archive::Load(this->pbg3File[pbg3FileIdx],(char *)filename);
   if (iVar2 == 0) {
-    _Memory = this->pbg3File[pbg3FileIdx];
-    if (_Memory != (Pbg3Archive *)0x0) {
-      func_0x0043ca80();
-      _free(_Memory);
+    this_00 = this->pbg3File[pbg3FileIdx];
+    if (this_00 != (Pbg3Archive *)0x0) {
+      Pbg3Archive::dtor(this_00);
+      _free(this_00);
     }
     this->pbg3File[pbg3FileIdx] = (Pbg3Archive *)0x0;
     this->pbg3File[pbg3FileIdx] = (Pbg3Archive *)0x0;

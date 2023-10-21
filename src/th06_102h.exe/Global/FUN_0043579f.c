@@ -1,6 +1,4 @@
 
-/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
-
 undefined4 FUN_0043579f(int param_1)
 
 {
@@ -59,7 +57,7 @@ undefined4 FUN_0043579f(int param_1)
 LAB_004359b3:
       DAT_0069bcbc = 1;
       DAT_0069d4c4 = 1;
-      _DAT_0069d4c8 = 0;
+      DAT_0069d4c8 = 0;
       g_GameContext.framerateMultiplier = 1.0;
       _strcpy(RPY_UNKNOWN,"data/demo/demo00.rpy");
       DAT_0069bcb0 = 3;
@@ -553,11 +551,10 @@ LAB_0043666d:
             local_c = (AnmVm *)((int)local_c + 0x220);
           }
           *(undefined4 *)(param_1 + 0x81a0) = DAT_0069d6d8;
-          if ((byte)(&DAT_0069cce1)
-                    [DAT_0069bcb0 + ((uint)DAT_0069d4be + (uint)DAT_0069d4bd * 2) * 0x18] < 7) {
-            local_b4 = (uint)(byte)(&DAT_0069cce1)
-                                   [DAT_0069bcb0 +
-                                    ((uint)DAT_0069d4be + (uint)DAT_0069d4bd * 2) * 0x18];
+          if (*(byte *)(((uint)DAT_0069d4be + (uint)DAT_0069d4bd * 2) * 0x18 + 0x69cce1 +
+                       DAT_0069bcb0) < 7) {
+            local_b4 = (uint)*(byte *)(((uint)DAT_0069d4be + (uint)DAT_0069d4bd * 2) * 0x18 +
+                                       0x69cce1 + DAT_0069bcb0);
           }
           else {
             local_b4 = 6;

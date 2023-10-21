@@ -5,6 +5,7 @@ void FUN_0040b8e0(int param_1,int param_2)
   int iVar1;
   float10 fVar2;
   float10 fVar3;
+  float fVar4;
   AnmVm *local_c;
   int local_8;
   
@@ -31,8 +32,8 @@ void FUN_0040b8e0(int param_1,int param_2)
         local_c[5].matrix.m[1][2] = 0.0;
         local_c[5].matrix.m[1][1] = 0.0;
         local_c[5].matrix.m[1][0] = -NAN;
-        fVar2 = (float10)FUN_0041e820();
-        fVar3 = (float10)(float)(fVar2 * (float10)6.283185 - (float10)3.141593);
+        fVar4 = FUN_0041e820(&DAT_0069d8f8);
+        fVar3 = (float10)(fVar4 * 6.283185 - 3.141593);
         fVar2 = (float10)fcos(fVar3);
         fVar3 = (float10)fsin(fVar3);
         local_c[5].uvScrollPos.x = (float)(fVar2 * (float10)0.01);

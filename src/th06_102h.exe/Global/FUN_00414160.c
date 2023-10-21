@@ -1,9 +1,8 @@
 
-void FUN_00414160(int param_1)
+void __thiscall FUN_00414160(int param_1_00,int param_2)
 
 {
   float10 fVar1;
-  int in_ECX;
   int iVar2;
   undefined4 *puVar3;
   float10 fVar4;
@@ -18,7 +17,7 @@ void FUN_00414160(int param_1)
   local_1c = &DAT_005ab5f8;
   for (local_14 = 0; local_14 < 0x280; local_14 = local_14 + 1) {
     if ((*(short *)((int)local_1c + 0x5be) != 0) && (*(short *)((int)local_1c + 0x5be) != 5)) {
-      if (param_1 == 0) {
+      if (param_2 == 0) {
         *(undefined2 *)((int)local_1c + 0x5be) = 5;
       }
       else {
@@ -32,7 +31,7 @@ void FUN_00414160(int param_1)
     }
     local_1c = local_1c + 0x171;
   }
-  local_20 = in_ECX + 0xec000;
+  local_20 = param_1_00 + 0xec000;
   for (local_14 = 0; local_14 < 0x40; local_14 = local_14 + 1) {
     if (*(int *)(local_20 + 600) != 0) {
       if (*(byte *)(local_20 + 0x26c) < 2) {
@@ -40,7 +39,7 @@ void FUN_00414160(int param_1)
         *(undefined4 *)(local_20 + 0x264) = 0;
         *(undefined4 *)(local_20 + 0x260) = 0;
         *(undefined4 *)(local_20 + 0x25c) = 0xfffffc19;
-        if (param_1 != 0) {
+        if (param_2 != 0) {
           local_28 = *(float *)(local_20 + 0x230);
           fVar1 = (float10)fcos((float10)*(float *)(local_20 + 0x22c));
           fVar4 = (float10)fsin((float10)*(float *)(local_20 + 0x22c));

@@ -1,6 +1,4 @@
 
-/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
-
 uint FUN_00426100(int param_1,AnmVm *param_2,int param_3,int param_4,int *param_5)
 
 {
@@ -11,7 +9,7 @@ uint FUN_00426100(int param_1,AnmVm *param_2,int param_3,int param_4,int *param_
   float *pfVar4;
   float10 fVar5;
   
-  for (; param_5[1] <= (int)(uint)_DAT_0069d4b0; param_5 = param_5 + 3) {
+  for (; param_5[1] <= (int)(uint)USHORT_0069d4b0; param_5 = param_5 + 3) {
   }
   psVar3 = (short *)(param_3 * 0x24 + param_5[2]);
   if (*(char *)((int)psVar3 + 0x1f) == '\x03') {

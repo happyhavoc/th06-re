@@ -13,7 +13,7 @@ int Stage::AddedCallback(Stage *arg)
   (arg->position).z = 0.0;
   arg->spellcardEclRelated0 = 0;
   arg->skyFogInterpDuration = 0;
-  iVar1 = FUN_00404690((&PTR_s_dummy_004760e0)[DAT_0069d6d4 * 2],
+  iVar1 = FUN_00404690(arg,(&PTR_s_dummy_004760e0)[DAT_0069d6d4 * 2],
                        (&PTR_s_dummy_004760e4)[DAT_0069d6d4 * 2]);
   if (iVar1 == 0) {
     (arg->skyFog).color = 0xff000000;

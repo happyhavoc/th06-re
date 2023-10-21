@@ -4,7 +4,7 @@ undefined4 FUN_00439f88(int param_1)
 {
   int iVar1;
   undefined4 uVar2;
-  int local_c;
+  AnmVm *local_c;
   int local_8;
   
   for (local_8 = 0x15; local_8 < 0x1b; local_8 = local_8 + 1) {
@@ -30,23 +30,23 @@ undefined4 FUN_00439f88(int param_1)
                   if (iVar1 == 0) {
                     iVar1 = AnmManager::LoadAnm(g_AnmManager,0x23,"data/slpl01b.anm",0x159);
                     if (iVar1 == 0) {
-                      local_c = param_1 + 0x5500;
+                      local_c = (AnmVm *)(param_1 + 0x5500);
                       for (local_8 = 0x150; local_8 < 0x160; local_8 = local_8 + 1) {
-                        FUN_004051b0(local_c,local_8);
-                        *(uint *)(local_c + 0x80) = *(uint *)(local_c + 0x80) & 0xfffffffe;
-                        *(uint *)(local_c + 0x80) = *(uint *)(local_c + 0x80) | 8;
+                        AnmManager::FUN_004051b0(g_AnmManager,local_c,local_8);
+                        local_c->flags = local_c->flags & 0xfffffffe;
+                        local_c->flags = local_c->flags | 8;
                         if ((g_GameContext.cfg.opts & 1) == 0) {
-                          *(undefined4 *)(local_c + 0x7c) = 0xff000000;
+                          local_c->color = 0xff000000;
                         }
                         else {
-                          *(undefined4 *)(local_c + 0x7c) = 0xffffffff;
+                          local_c->color = 0xffffffff;
                         }
-                        *(undefined4 *)(local_c + 0xe4) = 0;
-                        *(undefined4 *)(local_c + 0xe8) = 0;
-                        *(undefined4 *)(local_c + 0xec) = 0;
-                        *(undefined2 *)(local_c + 0xb2) = *(undefined2 *)(local_c + 0xb0);
-                        *(uint *)(local_c + 0x80) = *(uint *)(local_c + 0x80) | 0x1000;
-                        local_c = local_c + 0x110;
+                        (local_c->pos2).x = 0.0;
+                        (local_c->pos2).y = 0.0;
+                        (local_c->pos2).z = 0.0;
+                        local_c->anotherSpriteNumber = local_c->spriteNumber;
+                        local_c->flags = local_c->flags | 0x1000;
+                        local_c = local_c + 1;
                       }
                       uVar2 = 0;
                     }

@@ -9,7 +9,7 @@ undefined4 FUN_0042b280(int param_1,int param_2,uint param_3,uint param_4)
   int *local_8;
   
   if (param_2 == 0) {
-    FUN_0042b437(*(undefined4 *)(param_1 + 0xc));
+    FUN_0042b437(*(void **)(param_1 + 0xc));
     *(undefined4 *)(*(int *)(param_1 + 0xc) + 4) = 0;
     *(undefined4 *)(*(int *)(param_1 + 0xc) + 8) = 0;
     **(undefined4 **)(param_1 + 0xc) = 0;

@@ -109,7 +109,8 @@ void __fastcall FUN_004381ec(int param_1)
           *(undefined4 *)(param_1 + 0x81f4) = 0;
           *(undefined4 *)(param_1 + 0x81a0) = 0;
           FUN_004311e0(10);
-          pbVar3 = FileSystem::OpenPath(param_1 + 0x823c + *(int *)(param_1 + 0x81e8) * 0x200,1);
+          pbVar3 = FileSystem::OpenPath
+                             ((char *)(param_1 + 0x823c + *(int *)(param_1 + 0x81e8) * 0x200),1);
           *(byte **)(param_1 + 0x10edc) = pbVar3;
           FUN_0042a140(*(undefined4 *)(param_1 + 0x10edc),g_LastFileSize);
           for (local_c = 0; local_c < 7; local_c = local_c + 1) {

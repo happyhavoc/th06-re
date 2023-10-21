@@ -1,5 +1,5 @@
 
-undefined4 FUN_004106d0(undefined4 param_1)
+undefined4 FUN_004106d0(char *param_1)
 
 {
   void *_Memory;

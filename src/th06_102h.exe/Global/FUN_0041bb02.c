@@ -6,9 +6,10 @@ undefined4 FUN_0041bb02(uint *param_1)
 {
   bool bVar1;
   ushort uVar2;
-  byte *pbVar3;
-  int iVar4;
-  undefined4 uVar5;
+  ScoreDat *scoredat;
+  int iVar3;
+  undefined4 uVar4;
+  Pscr *pPVar5;
   uint local_14;
   int local_10;
   uint *local_c;
@@ -65,16 +66,20 @@ undefined4 FUN_0041bb02(uint *param_1)
       *(undefined2 *)((int)local_c + 0x3e) = 0;
       local_c = local_c + 0x10;
     }
-    pbVar3 = FUN_0042b0d9("score.dat");
-    DAT_0069bcac = FUN_0042b280(pbVar3,0,(uint)DAT_0069d4be + (uint)DAT_0069d4bd * 2,DAT_0069bcb0);
-    FUN_0042b466(pbVar3,param_1 + 0xc);
-    FUN_0042b502(pbVar3,param_1 + 0x40c);
-    FUN_0042b65e(pbVar3,param_1 + 0x424);
+    scoredat = (ScoreDat *)OpenScore("score.dat");
+    DAT_0069bcac = FUN_0042b280(scoredat,0,(uint)DAT_0069d4be + (uint)DAT_0069d4bd * 2,DAT_0069bcb0)
+    ;
+    FUN_0042b466(scoredat,param_1 + 0xc);
+    ParseClrd(scoredat,(Clrd *)(param_1 + 0x40c));
+    pPVar5 = (Pscr *)(param_1 + 0x424);
+    ParsePscr((int)scoredat,pPVar5);
     if (*(char *)((int)param_1 + 0x1823) != '\0') {
-      DAT_0069bcac = param_1[((uint)DAT_0069d4be + (uint)DAT_0069d4bd * 2) * 0x78 +
-                             DAT_0069d6d4 * 0x14 + DAT_0069bcb0 * 5 + 0x427];
+      pPVar5 = (Pscr *)(DAT_0069bcb0 * 0x14);
+      DAT_0069bcac = (param_1 +
+                     ((uint)DAT_0069d4be + (uint)DAT_0069d4bd * 2) * 0x78 +
+                     DAT_0069d6d4 * 0x14 + 0x427)[DAT_0069bcb0 * 5];
     }
-    FUN_0042b7dc(pbVar3);
+    FUN_0042b7dc(pPVar5,scoredat);
     param_1[0x69c] = *(uint *)(&DAT_00476564 + DAT_0069bcb0 * 0xc);
     param_1[0x69e] = *(uint *)(&DAT_00476568 + DAT_0069bcb0 * 0xc);
     param_1[0x69d] = *(uint *)(&DAT_0047656c + DAT_0069bcb0 * 0xc);
@@ -88,15 +93,15 @@ undefined4 FUN_0041bb02(uint *param_1)
   *(undefined *)((int)param_1 + 0x181f) = 0;
   param_1[0x68d] = param_1[0x68d] + 1;
   if (DAT_0069bcbc == 0) {
-    iVar4 = (uint)DAT_0069d4be + (uint)DAT_0069d4bd * 2;
+    iVar3 = (uint)DAT_0069d4be + (uint)DAT_0069d4bd * 2;
     if ((*(char *)(param_1 + 0x606) == '\0') &&
-       ((int)(uint)*(byte *)((int)param_1 + DAT_0069bcb0 + iVar4 * 0x18 + 0x103c) <
+       ((int)(uint)*(byte *)((int)param_1 + DAT_0069bcb0 + iVar3 * 0x18 + 0x103c) <
         (int)(param_1[0x68d] - 1))) {
-      *(char *)((int)param_1 + DAT_0069bcb0 + iVar4 * 0x18 + 0x103c) = (char)param_1[0x68d] + -1;
+      *(char *)((int)param_1 + DAT_0069bcb0 + iVar3 * 0x18 + 0x103c) = (char)param_1[0x68d] + -1;
     }
-    if ((int)(uint)*(byte *)((int)param_1 + DAT_0069bcb0 + iVar4 * 0x18 + 0x1041) <
+    if ((int)(uint)*(byte *)((int)param_1 + DAT_0069bcb0 + iVar3 * 0x18 + 0x1041) <
         (int)(param_1[0x68d] - 1)) {
-      *(char *)((int)param_1 + DAT_0069bcb0 + iVar4 * 0x18 + 0x1041) = (char)param_1[0x68d] + -1;
+      *(char *)((int)param_1 + DAT_0069bcb0 + iVar3 * 0x18 + 0x1041) = (char)param_1[0x68d] + -1;
     }
   }
   if ((*(char *)((int)param_1 + 0x1823) != '\0') && (param_1[0x68d] != 1)) {
@@ -110,8 +115,8 @@ undefined4 FUN_0041bb02(uint *param_1)
   GameContext::LoadPBG3(&g_GameContext,4,(byte *)s__g_CM_dat_0046af84);
   GameContext::LoadPBG3(&g_GameContext,2,(byte *)s__g_ST_dat_0046af74);
   if (DAT_0069bcbc == 1) {
-    iVar4 = FUN_0042a240(1,RPY_UNKNOWN);
-    if (iVar4 != 0) {
+    iVar3 = FUN_0042a240(1,RPY_UNKNOWN);
+    if (iVar3 != 0) {
       bVar1 = true;
     }
     while (*(uint *)(&DAT_004764b0 + *(char *)(param_1 + 0x607) * 4) <= *param_1) {
@@ -122,27 +127,27 @@ undefined4 FUN_0041bb02(uint *param_1)
   }
   _DAT_0069d8fc = 0;
   *(undefined2 *)(param_1 + 0x68b) = DAT_0069d8f8;
-  iVar4 = Stage::RegisterChain(param_1[0x68d]);
-  if (iVar4 == 0) {
-    iVar4 = FUN_00428780(0);
-    if (iVar4 == 0) {
-      iVar4 = FUN_004148f0("data/etama.anm");
-      if (iVar4 == 0) {
-        iVar4 = FUN_00412320((&PTR_s_dummy_004764e8)[param_1[0x68d] * 2],
+  iVar3 = Stage::RegisterChain(param_1[0x68d]);
+  if (iVar3 == 0) {
+    iVar3 = FUN_00428780(0);
+    if (iVar3 == 0) {
+      iVar3 = FUN_004148f0("data/etama.anm");
+      if (iVar3 == 0) {
+        iVar3 = FUN_00412320((&PTR_s_dummy_004764e8)[param_1[0x68d] * 2],
                              (&PTR_s_dummy_004764ec)[param_1[0x68d] * 2]);
-        if (iVar4 == 0) {
-          iVar4 = FUN_00407340((&PTR_s_dummy_004764c4)[param_1[0x68d]]);
-          if (iVar4 == 0) {
-            iVar4 = FUN_0040f3f0();
-            if (iVar4 == 0) {
-              iVar4 = FUN_0041b252();
-              if (iVar4 == 0) {
+        if (iVar3 == 0) {
+          iVar3 = FUN_00407340((&PTR_s_dummy_004764c4)[param_1[0x68d]]);
+          if (iVar3 == 0) {
+            iVar3 = FUN_0040f3f0();
+            if (iVar3 == 0) {
+              iVar3 = FUN_0041b252();
+              if (iVar3 == 0) {
                 if (DAT_0069bcbc == 0) {
                   FUN_0042a240(0,"replay/th6_00.rpy");
                 }
                 if (DAT_0069d4c4 == '\0') {
-                  FUN_00424aac(1,g_Stage.field1_0x4 + 0x310);
-                  FUN_00424b5d((char *)(g_Stage.field1_0x4 + 0x290));
+                  FUN_00424aac(1,g_Stage.stdData + 0x310);
+                  FUN_00424b5d((char *)(g_Stage.stdData + 0x290));
                 }
                 *(undefined *)(param_1 + 0x608) = 0;
                 *(undefined *)((int)param_1 + 0x1821) = 1;
@@ -158,48 +163,48 @@ undefined4 FUN_0041bb02(uint *param_1)
                   g_GameContext.unkInput2 = 1;
                 }
                 g_GameContext.field77_0x198 = 3;
-                uVar5 = 0;
+                uVar4 = 0;
               }
               else {
                 GameErrorContextLog(&g_GameErrorContext,
                                     "error : 2D表示の初期化に失敗しました\n");
-                uVar5 = 0xffffffff;
+                uVar4 = 0xffffffff;
               }
             }
             else {
               GameErrorContextLog(&g_GameErrorContext,
-                                  "error : エフェクトの初期化に失敗しました\n");
-              uVar5 = 0xffffffff;
+                                  "error : エフェクトの初��化に失敗しました\n");
+              uVar4 = 0xffffffff;
             }
           }
           else {
             GameErrorContextLog(&g_GameErrorContext,
                                 "error : 敵頭脳の初期化に失敗しました\n");
-            uVar5 = 0xffffffff;
+            uVar4 = 0xffffffff;
           }
         }
         else {
           GameErrorContextLog(&g_GameErrorContext,"error : 敵の初期化に失敗しました\n");
-          uVar5 = 0xffffffff;
+          uVar4 = 0xffffffff;
         }
       }
       else {
-        GameErrorContextLog(&g_GameErrorContext,"error : 敵弾の初期化に失���しました\n")
+        GameErrorContextLog(&g_GameErrorContext,"error : 敵弾の初期化に失敗しました\n")
         ;
-        uVar5 = 0xffffffff;
+        uVar4 = 0xffffffff;
       }
     }
     else {
       GameErrorContextLog(&g_GameErrorContext,
                           "error : プレイヤーの初期化に失敗しました\n");
-      uVar5 = 0xffffffff;
+      uVar4 = 0xffffffff;
     }
   }
   else {
     GameErrorContextLog(&g_GameErrorContext,
-                        "error : 背景データの初期化に失敗しました\n");
-    uVar5 = 0xffffffff;
+                        "error : 背景データの初期化に失敗しま��た\n");
+    uVar4 = 0xffffffff;
   }
-  return uVar5;
+  return uVar4;
 }
 

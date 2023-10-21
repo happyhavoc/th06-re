@@ -9,7 +9,7 @@ void FUN_004066f0(int param_1)
   float fVar5;
   float fVar6;
   float10 fVar7;
-  int local_c;
+  AnmVm *local_c;
   int local_8;
   
   if (*(int *)(param_1 + 0x75d8) < *(int *)(param_1 + 0x75cc)) {
@@ -44,25 +44,26 @@ void FUN_004066f0(int param_1)
       }
     }
     else {
-      FUN_00420130();
+      FUN_00420130(0x69e268);
       FUN_00417acd(0x69bc30,0x4a3,&DAT_0046a420);
       *(undefined4 *)(param_1 + 0x75cc) = 0xfa;
       *(undefined4 *)(param_1 + 0x75bc) = 300;
       *(undefined4 *)(param_1 + 0x75b8) = 0;
       *(undefined4 *)(param_1 + 0x75b4) = 0xfffffc19;
-      local_c = param_1 + 0x76e4;
+      local_c = (AnmVm *)(param_1 + 0x76e4);
       for (local_8 = 0; local_8 < 8; local_8 = local_8 + 1) {
-        FUN_004051b0(local_c,local_8 % 3 + 0x405);
+        AnmManager::FUN_004051b0(g_AnmManager,local_c,local_8 % 3 + 0x405);
         puVar1 = (undefined4 *)(param_1 + 0x7624 + local_8 * 0xc);
         *puVar1 = *(undefined4 *)(param_1 + 0x440);
         puVar1[1] = *(undefined4 *)(param_1 + 0x444);
         puVar1[2] = *(undefined4 *)(param_1 + 0x448);
-        fVar7 = (float10)FUN_0045bda4((double)(((float)local_8 * 6.283185) / 8.0));
+        fVar5 = ((float)local_8 * 6.283185) / 8.0;
+        fVar7 = (float10)FUN_0045bda4((double)fVar5);
         *(float *)(param_1 + 0x7684 + local_8 * 0xc) = (float)fVar7 + (float)fVar7;
-        fVar7 = (float10)FUN_0045bcf4();
+        fVar7 = (float10)FUN_0045bcf4((double)fVar5);
         *(float *)(param_1 + 0x7688 + local_8 * 0xc) = (float)fVar7 + (float)fVar7;
         *(undefined4 *)(param_1 + 0x768c + local_8 * 0xc) = 0;
-        local_c = local_c + 0x110;
+        local_c = local_c + 1;
       }
       FUN_004311e0(6);
       FUN_0042fd30(1,0x78,4,1);

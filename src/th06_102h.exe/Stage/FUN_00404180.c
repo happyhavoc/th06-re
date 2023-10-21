@@ -12,7 +12,7 @@ int Stage::FUN_00404180(Stage *arg)
   undefined4 local_8;
   
   if (arg->spellcardEclRelated0 < 2) {
-    iVar1 = FUN_004172d3();
+    iVar1 = FUN_004172d3(0x69bc30);
     if (iVar1 == 0) {
       FUN_00404970(arg,2);
       FUN_00404970(arg,3);
@@ -29,10 +29,10 @@ int Stage::FUN_00404180(Stage *arg)
   this = g_AnmManager;
   if (0 < arg->spellcardEclRelated0) {
     if (arg->spellcardEclRelated1 <= (int)(uint)g_GameContext.cfg.frameskipConfig) {
-      (arg->field20_0x88).anmFileIndex = 0x2b3;
-      AnmManager::SetAndExecuteScript(this,&arg->field20_0x88,this->scripts[0x2b3]);
+      (arg->field23_0x88).anmFileIndex = 0x2b3;
+      AnmManager::SetAndExecuteScript(this,&arg->field23_0x88,this->scripts[0x2b3]);
     }
-    AnmManager::FUN_00432cc0(g_AnmManager,&arg->field20_0x88);
+    AnmManager::FUN_00432cc0(g_AnmManager,&arg->field23_0x88);
   }
   g_GameContext.viewport.MinZ = 0.0;
   g_GameContext.viewport.MaxZ = 0.5;

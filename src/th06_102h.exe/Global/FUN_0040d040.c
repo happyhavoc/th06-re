@@ -5,6 +5,7 @@ void FUN_0040d040(int param_1,int param_2)
   int iVar1;
   undefined4 *puVar2;
   float10 fVar3;
+  float fVar4;
   int local_e0;
   float local_dc [24];
   float local_7c;
@@ -44,8 +45,8 @@ void FUN_0040d040(int param_1,int param_2)
     local_e0 = local_e0 + -1;
   } while (-1 < local_e0);
   local_68 = *(int *)(param_2 + 0x10);
-  fVar3 = (float10)FUN_0041e820();
-  local_7c = (float)(fVar3 * (float10)6.283185);
+  fVar4 = FUN_0041e820(&DAT_0069d8f8);
+  local_7c = fVar4 * 6.283185;
   for (local_74 = 0; local_74 < 2; local_74 = local_74 + 1) {
     if (local_74 == 0) {
       local_78 = local_7c + -3.141593;

@@ -125,8 +125,8 @@ void __fastcall FUN_0040f7c0(int param_1)
             local_8 = 0;
             for (local_50 = 0; local_50 < 4; local_50 = local_50 + 1) {
               for (local_54 = 0; local_54 < 4; local_54 = local_54 + 1) {
-                if (((&DAT_0069ccdc)[local_54 + local_50 * 0x18] == 'c') ||
-                   ((&DAT_0069cce1)[local_54 + local_50 * 0x18] == 'c')) {
+                if ((*(char *)(local_50 * 0x18 + 0x69ccdc + local_54) == 'c') ||
+                   (*(char *)(local_50 * 0x18 + 0x69cce1 + local_54) == 'c')) {
                   *(undefined4 *)(param_1 + 0x1118) = 1;
                   break;
                 }
@@ -157,7 +157,8 @@ switchD_0040fa93_caseD_52:
           lVar5 = FUN_0040f4d0(param_1);
           lVar3 = FUN_0040f4d0(param_1);
           lVar4 = FUN_0040f4d0(param_1);
-          FUN_004051b0(param_1 + 0x14 + lVar5 * 0x110,lVar3 + 0x600);
+          AnmManager::FUN_004051b0
+                    (g_AnmManager,(AnmVm *)(param_1 + 0x14 + lVar5 * 0x110),lVar3 + 0x600);
           AnmManager::SetActiveSprite
                     (g_AnmManager,(AnmVm *)(param_1 + 0x14 + lVar5 * 0x110),lVar4 + 0x600);
           break;

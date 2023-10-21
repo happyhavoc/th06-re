@@ -2,11 +2,11 @@
 void FUN_0040d770(int param_1)
 
 {
-  float fVar1;
+  float10 fVar1;
   int iVar2;
   undefined4 *puVar3;
   float10 fVar4;
-  float10 fVar5;
+  float fVar5;
   AnmVm *local_64;
   int local_60;
   undefined4 local_5c [22];
@@ -17,14 +17,14 @@ void FUN_0040d770(int param_1)
     *puVar3 = 0;
     puVar3 = puVar3 + 1;
   }
-  FUN_0041e820();
+  FUN_0041e820(&DAT_0069d8f8);
   FUN_0040ef50((int *)&AnmRelatedHugeStruct_00487fe0,0xc,(float *)(param_1 + 0xc6c),1,0xffffffff);
   for (local_60 = 0; local_60 < 0x280; local_60 = local_60 + 1) {
     if ((((*(short *)((int)local_64[5].matrix.m[3] + 2) != 0) &&
          (*(short *)((int)local_64[5].matrix.m[3] + 2) != 5)) &&
         (local_64->sprite != (AnmLoadedSprite *)0x0)) &&
-       ((fVar1 = local_64->sprite->heightPx, fVar1 < 30.0 != NAN(fVar1) &&
-        (fVar1 = local_64[5].currentTimeInScript.subFrame, NAN(fVar1) != (fVar1 == 0.0))))) {
+       ((fVar5 = local_64->sprite->heightPx, fVar5 < 30.0 != NAN(fVar5) &&
+        (fVar5 = local_64[5].currentTimeInScript.subFrame, NAN(fVar5) != (fVar5 == 0.0))))) {
       *(ushort *)(local_64[5].matrix.m[2] + 3) = *(ushort *)(local_64[5].matrix.m[2] + 3) | 0x10;
       *(undefined2 *)((int)local_64[5].matrix.m[2] + 0xe) = 2;
       AnmManager::SetActiveSprite
@@ -36,12 +36,12 @@ void FUN_0040d770(int param_1)
       local_64[5].matrix.m[1][1] = 0.0;
       local_64[5].matrix.m[1][0] = -NAN;
       local_64[5].matrix.m[1][3] = 1.681558e-43;
-      fVar4 = (float10)FUN_0041e820();
-      fVar5 = (float10)(float)(fVar4 * (float10)6.283185 - (float10)3.141593);
-      fVar4 = (float10)fcos(fVar5);
-      fVar5 = (float10)fsin(fVar5);
-      local_64[5].uvScrollPos.x = (float)(fVar4 * (float10)0.01);
-      local_64[5].uvScrollPos.y = (float)(fVar5 * (float10)0.01);
+      fVar5 = FUN_0041e820(&DAT_0069d8f8);
+      fVar4 = (float10)(fVar5 * 6.283185 - 3.141593);
+      fVar1 = (float10)fcos(fVar4);
+      fVar4 = (float10)fsin(fVar4);
+      local_64[5].uvScrollPos.x = (float)(fVar1 * (float10)0.01);
+      local_64[5].uvScrollPos.y = (float)(fVar4 * (float10)0.01);
     }
     local_64 = (AnmVm *)(local_64[5].matrix.m[3] + 2);
   }

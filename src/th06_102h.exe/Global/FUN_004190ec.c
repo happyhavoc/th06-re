@@ -84,7 +84,7 @@ undefined4 FUN_004190ec(void)
     (*(g_GameContext.d3dDevice)->lpVtbl->SetVertexShader)(g_GameContext.d3dDevice,0x44);
     (*(g_GameContext.d3dDevice)->lpVtbl->DrawPrimitiveUP)
               (g_GameContext.d3dDevice,D3DPT_TRIANGLESTRIP,2,&local_5c,0x14);
-    g_AnmManager->field16_0x210be = 0xff;
+    g_AnmManager->currentVertexShader = 0xff;
     g_AnmManager->currentColorOp = 0xff;
     g_AnmManager->currentBlendMode = 0xff;
     g_AnmManager->currentZWriteDisable = 0xff;

@@ -25,7 +25,7 @@ undefined4 FUN_004149d0(int param_1)
   
   local_24 = (AnmVm *)(param_1 + 0x5600);
   if (DAT_0069bccc == '\0') {
-    FUN_0041f4a0();
+    FUN_0041f4a0((AnmVm *)null_ARRAY_0069e268);
     *(undefined4 *)(param_1 + 0xf5c04) = 0;
     for (local_c = 0; local_c < 0x280; local_c = local_c + 1) {
       if (*(short *)((int)local_24[5].matrix.m[3] + 2) == 0) goto LAB_00414a1a;
@@ -220,7 +220,7 @@ switchD_00414a97_caseD_1:
                     *(ushort *)(local_24[5].matrix.m[2] + 3) =
                          *(ushort *)(local_24[5].matrix.m[2] + 3) & 0xff7f;
                   }
-                  fVar8 = FUN_00428700(0x6ca628,&local_24[5].angleVel.y);
+                  fVar8 = FUN_00428700(&DAT_006ca628,&local_24[5].angleVel.y);
                   local_24[5].matrix.m[0][1] = (float)(fVar8 + (float10)local_24[5].matrix.m[0][3]);
                   local_24[5].currentTimeInScript.subFrame = local_24[5].matrix.m[0][0];
                   local_10 = local_24[5].currentTimeInScript.subFrame;

@@ -288,7 +288,7 @@ void FUN_0042e446(int param_1)
         *(undefined *)((int)&local_24 + local_d0) = 0x5f;
         AsciiManager::FUN_00401650(&g_AsciiManager,&local_40,"      %8s",&local_24);
       }
-      else if ((*(int *)(param_1 + 0x51b0 + local_14 * 0x50) == 0x50523654) &&
+      else if ((*(char (*) [4])(param_1 + 0x51b0 + local_14 * 0x50) == (char  [4])0x50523654) &&
               (*(short *)(param_1 + 0x51b4 + local_14 * 0x50) == 0x102)) {
         AsciiManager::FUN_00401650
                   (&g_AsciiManager,&local_40,"No.%.2d %8s %8s %7s %9d",local_14 + 1,

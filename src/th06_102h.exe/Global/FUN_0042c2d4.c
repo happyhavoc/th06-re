@@ -258,7 +258,8 @@ LAB_0042c515:
         *(undefined4 *)(param_1 + 4) = 0;
         FUN_0045d414(param_1 + 0x5670);
         *(undefined4 *)(param_1 + 0x5684) = DAT_0069bca4;
-        if ((*(int *)(param_1 + 0x51b0 + *(int *)(param_1 + 0x10) * 0x50) == 0x50523654) &&
+        if ((*(char (*) [4])(param_1 + 0x51b0 + *(int *)(param_1 + 0x10) * 0x50) ==
+             (char  [4])0x50523654) &&
            (*(short *)(param_1 + 0x51b4 + *(int *)(param_1 + 0x10) * 0x50) == 0x102)) {
           local_8 = param_1 + 0x40;
           for (local_10 = 0; local_10 < 0x26; local_10 = local_10 + 1) {

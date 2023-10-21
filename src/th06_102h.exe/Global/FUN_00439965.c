@@ -25,8 +25,8 @@ undefined4 FUN_00439965(void)
     }
     local_c = local_28;
     local_10 = (uint)DAT_0069d4be + (uint)DAT_0069d4bd * 2;
-    if ((byte)(&DAT_0069cce1)[DAT_0069bcb0 + local_10 * 0x18] < 7) {
-      local_2c = (uint)(byte)(&DAT_0069cce1)[DAT_0069bcb0 + local_10 * 0x18];
+    if (*(byte *)(local_10 * 0x18 + 0x69cce1 + DAT_0069bcb0) < 7) {
+      local_2c = (uint)*(byte *)(local_10 * 0x18 + 0x69cce1 + DAT_0069bcb0);
     }
     else {
       local_2c = 6;

@@ -1,5 +1,5 @@
 
-void __thiscall SoundPlayer::FUN_004306e0(SoundPlayer *this,int idx,undefined4 param_2)
+void __thiscall SoundPlayer::FUN_004306e0(SoundPlayer *this,int idx,char *param_2)
 
 {
   int iVar1;

@@ -1,6 +1,4 @@
 
-/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
-
 undefined4 FUN_00427860(void)
 
 {
@@ -9,8 +7,9 @@ undefined4 FUN_00427860(void)
   float fVar3;
   float fVar4;
   AnmManager *pAVar5;
-  float *pfVar6;
-  int iVar7;
+  bool bVar6;
+  float *pfVar7;
+  undefined3 extraout_var;
   AnmVm *in_ECX;
   float local_18;
   float local_14;
@@ -154,8 +153,8 @@ undefined4 FUN_00427860(void)
   *(float *)&in_ECX[9].alphaInterpEndTime = local_c;
   in_ECX[4].rotation.x =
        local_10 * in_ECX[9].matrix.m[0][1] * g_GameContext.field81_0x1a8 + in_ECX[4].rotation.x;
-  pfVar6 = &in_ECX[4].rotation.y;
-  *pfVar6 = local_c * in_ECX[9].matrix.m[0][2] * g_GameContext.field81_0x1a8 + *pfVar6;
+  pfVar7 = &in_ECX[4].rotation.y;
+  *pfVar7 = local_c * in_ECX[9].matrix.m[0][2] * g_GameContext.field81_0x1a8 + *pfVar7;
   fVar1 = in_ECX[4].rotation.x;
   if (fVar1 < DAT_0069d6ec == (NAN(fVar1) || NAN(DAT_0069d6ec))) {
     fVar1 = in_ECX[4].rotation.x;
@@ -212,7 +211,7 @@ undefined4 FUN_00427860(void)
   in_ECX[4].matrix.m[3][2] = in_ECX[4].rotation.z;
   local_14 = 0.0;
   local_18 = 0.0;
-  if (_DAT_0069d4b0 < 8) {
+  if (USHORT_0069d4b0 < 8) {
     *(undefined *)((int)in_ECX[9].matrix.m[1] + 6) = 0;
   }
   else if (*(char *)((int)in_ECX[9].matrix.m[1] + 6) == '\0') {
@@ -282,7 +281,8 @@ switchD_004281aa_caseD_4:
   in_ECX[4].matrix.m[3][0] = local_18 + in_ECX[4].matrix.m[3][0];
   in_ECX[4].matrix.m[2][2] = local_14 + in_ECX[4].matrix.m[2][2];
   in_ECX[4].matrix.m[3][1] = local_14 + in_ECX[4].matrix.m[3][1];
-  if (((g_CurFrameInput & 1) != 0) && (iVar7 = FUN_004195a2(), iVar7 == 0)) {
+  if (((g_CurFrameInput & 1) != 0) &&
+     (bVar6 = FUN_004195a2(0x69bc30), CONCAT31(extraout_var,bVar6) == 0)) {
     FUN_00428630(in_ECX);
   }
   in_ECX[9].autoRotate = g_CurFrameInput;

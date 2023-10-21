@@ -1,9 +1,7 @@
 
-bool FUN_004195a2(void)
+bool __fastcall FUN_004195a2(int param_1)
 
 {
-  int in_ECX;
-  
-  return -1 < *(int *)(*(int *)(in_ECX + 4) + 0x253c);
+  return -1 < *(int *)(*(int *)(param_1 + 4) + 0x253c);
 }
 

@@ -1,17 +1,17 @@
 
-undefined4 FUN_0042f060(byte **param_1)
+undefined4 FUN_0042f060(ScoreDat **param_1)
 
 {
   AnmManager *pAVar1;
   int iVar2;
-  byte *pbVar3;
+  ScoreDat *pSVar3;
   short local_3c;
   int local_14;
   int local_10;
   AnmVm *local_c;
   int local_8;
   
-  if (param_1[2] != (byte *)0x11) {
+  if (param_1[2] != (ScoreDat *)0x11) {
     iVar2 = AnmManager::LoadSurface(g_AnmManager,0,"data/result/result.jpg");
     if (iVar2 != 0) {
       return 0xffffffff;
@@ -63,8 +63,8 @@ undefined4 FUN_0042f060(byte **param_1)
     for (local_10 = 0; local_10 < 4; local_10 = local_10 + 1) {
       for (local_14 = 0; local_14 < 10; local_14 = local_14 + 1) {
         param_1[local_8 * 0x118 + local_10 * 0x46 + local_14 * 7 + 0xeeb] =
-             (byte *)(local_14 * -100000 + 1000000);
-        param_1[local_8 * 0x118 + local_10 * 0x46 + local_14 * 7 + 0xee8] = (byte *)0x53594d44;
+             (ScoreDat *)(local_14 * -100000 + 1000000);
+        param_1[local_8 * 0x118 + local_10 * 0x46 + local_14 * 7 + 0xee8] = (ScoreDat *)0x53594d44;
         *(undefined *)((int)param_1 + local_14 * 0x1c + local_10 * 0x118 + local_8 * 0x460 + 0x3bb1)
              = (undefined)local_8;
         *(undefined *)(param_1 + local_8 * 0x118 + local_10 * 0x46 + local_14 * 7 + 0xeea) = 0x10;
@@ -82,20 +82,20 @@ undefined4 FUN_0042f060(byte **param_1)
       }
     }
   }
-  param_1[5] = (byte *)0x0;
-  pbVar3 = FUN_0042b0d9("score.dat");
-  *param_1 = pbVar3;
+  param_1[5] = (ScoreDat *)0x0;
+  pSVar3 = (ScoreDat *)OpenScore("score.dat");
+  *param_1 = pSVar3;
   for (local_8 = 0; local_8 < 5; local_8 = local_8 + 1) {
     for (local_10 = 0; local_10 < 4; local_10 = local_10 + 1) {
       FUN_0042b280(*param_1,param_1 + local_8 * 0xc + local_10 * 3 + 0xeac,local_10,local_8);
     }
   }
-  if ((param_1[2] != (byte *)0x9) && (param_1[2] != (byte *)0x11)) {
+  if ((param_1[2] != (ScoreDat *)0x9) && (param_1[2] != (ScoreDat *)0x11)) {
     FUN_0042b466(*param_1,&DAT_0069bcd0);
-    FUN_0042b502(*param_1,&DAT_0069ccd0);
-    FUN_0042b65e(*param_1,&DAT_0069cd30);
+    ParseClrd(*param_1,SCORE_CRLD);
+    ParsePscr((int)*param_1,(Pscr *)&DAT_0069cd30);
   }
-  if ((param_1[2] == (byte *)0x11) &&
+  if ((param_1[2] == (ScoreDat *)0x11) &&
      ((uint)(&DAT_0069cd3c)
             [(DAT_0069d6d4 + -1) * 0x14 +
              ((uint)DAT_0069d4be + (uint)DAT_0069d4bd * 2) * 0x78 + DAT_0069bcb0 * 5] < DAT_0069bca4

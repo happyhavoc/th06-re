@@ -1,12 +1,11 @@
 
-undefined4 FUN_004172d3(void)
+undefined4 __fastcall FUN_004172d3(int param_1)
 
 {
-  int in_ECX;
   undefined4 local_c;
   
-  if ((*(short *)(*(int *)(in_ECX + 4) + 0x24d4) < 0) ||
-     ((*(uint *)(*(int *)(in_ECX + 4) + 0x24a4) >> 0xd & 1) == 0)) {
+  if ((*(short *)(*(int *)(param_1 + 4) + 0x24d4) < 0) ||
+     ((*(uint *)(*(int *)(param_1 + 4) + 0x24a4) >> 0xd & 1) == 0)) {
     local_c = 0;
   }
   else {

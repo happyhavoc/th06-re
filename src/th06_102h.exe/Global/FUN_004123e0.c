@@ -5,8 +5,10 @@ undefined4 FUN_004123e0(int param_1)
 
 {
   float fVar1;
-  int iVar2;
-  uint uVar3;
+  bool bVar2;
+  int iVar3;
+  undefined3 extraout_var;
+  uint uVar4;
   AnmVm *local_28;
   int local_20;
   float local_1c;
@@ -33,13 +35,13 @@ undefined4 FUN_004123e0(int param_1)
     FUN_00413380();
     FUN_00412240();
     if (((*(byte *)((int)&local_28[0xd].flags + 1) >> 2 & 1) == 0) &&
-       (iVar2 = FUN_0041b5e1(local_28[0xb].currentInstruction,local_28[0xb].sprite,
-                             local_28->sprite->widthPx,local_28->sprite->heightPx), iVar2 != 0)) {
+       (iVar3 = FUN_0041b5e1(local_28[0xb].currentInstruction,local_28[0xb].sprite,
+                             local_28->sprite->widthPx,local_28->sprite->heightPx), iVar3 != 0)) {
       *(byte *)((int)&local_28[0xd].flags + 1) = *(byte *)((int)&local_28[0xd].flags + 1) | 4;
     }
     if (((*(byte *)((int)&local_28[0xd].flags + 1) >> 2 & 1) == 1) &&
-       (iVar2 = FUN_0041b5e1(local_28[0xb].currentInstruction,local_28[0xb].sprite,
-                             local_28->sprite->widthPx,local_28->sprite->heightPx), iVar2 == 0)) {
+       (iVar3 = FUN_0041b5e1(local_28[0xb].currentInstruction,local_28[0xb].sprite,
+                             local_28->sprite->widthPx,local_28->sprite->heightPx), iVar3 == 0)) {
       *(byte *)&local_28[0xd].flags = *(byte *)&local_28[0xd].flags & 0x7f;
       FUN_004121b0();
       goto LAB_00412416;
@@ -50,8 +52,8 @@ undefined4 FUN_004123e0(int param_1)
     if (-1 < (int)local_28[0xd].posInterpFinal.z) {
       FUN_00411f40((int)local_28);
     }
-    iVar2 = FUN_004074a0(local_28);
-    if (iVar2 == -1) {
+    iVar3 = FUN_004074a0(local_28);
+    if (iVar3 == -1) {
       *(byte *)&local_28[0xd].flags = *(byte *)&local_28[0xd].flags & 0x7f;
       FUN_004121b0();
       goto LAB_00412416;
@@ -62,7 +64,7 @@ undefined4 FUN_004123e0(int param_1)
     local_28[0xc].matrix.m[0][0] = (float)local_28->color;
     for (local_20 = 0; local_20 < 8; local_20 = local_20 + 1) {
       if ((-1 < local_28[local_20 + 1].anmFileIndex) &&
-         (iVar2 = AnmManager::ExecuteScript(g_AnmManager,local_28 + local_20 + 1), iVar2 != 0)) {
+         (iVar3 = AnmManager::ExecuteScript(g_AnmManager,local_28 + local_20 + 1), iVar3 != 0)) {
         local_28[local_20 + 1].anmFileIndex = -1;
       }
     }
@@ -75,8 +77,8 @@ undefined4 FUN_004123e0(int param_1)
       local_14 = local_28[0xb].posInterpInitial.y * 0.6666667;
       local_18 = local_28[0xb].posInterpInitial.x * 0.6666667;
       local_1c = (float)local_28[0xb].alphaInterpFinal * 0.6666667;
-      iVar2 = FUN_00426c40(&local_28[0xb].currentInstruction,&local_1c);
-      if (((iVar2 == 1) && ((*(byte *)((int)&local_28[0xd].flags + 1) & 1) != 0)) &&
+      iVar3 = FUN_00426c40(&local_28[0xb].currentInstruction,&local_1c);
+      if (((iVar3 == 1) && ((*(byte *)((int)&local_28[0xd].flags + 1) & 1) != 0)) &&
          ((*(byte *)((int)&local_28[0xd].flags + 1) >> 3 & 1) == 0)) {
         local_28[0xc].scaleInterpFinalX = (float)((int)local_28[0xc].scaleInterpFinalX + -10);
       }
@@ -181,11 +183,11 @@ switchD_00412938_caseD_2:
       FUN_0040ef50((int *)&AnmRelatedHugeStruct_00487fe0,(uint)*(byte *)local_28[0xd].matrix.m[3],
                    (float *)&local_28[0xb].currentInstruction,1,0xffffffff);
     }
-    uVar3 = local_10 & 0x80000001;
-    if ((int)uVar3 < 0) {
-      uVar3 = (uVar3 - 1 | 0xfffffffe) + 1;
+    uVar4 = local_10 & 0x80000001;
+    if ((int)uVar4 < 0) {
+      uVar4 = (uVar4 - 1 | 0xfffffffe) + 1;
     }
-    FUN_004311e0(uVar3 + 2);
+    FUN_004311e0(uVar4 + 2);
     FUN_0040ef50((int *)&AnmRelatedHugeStruct_00487fe0,(uint)*(byte *)local_28[0xd].matrix.m[3],
                  (float *)&local_28[0xb].currentInstruction,1,0xffffffff);
     FUN_0040ef50((int *)&AnmRelatedHugeStruct_00487fe0,
@@ -205,7 +207,7 @@ switchD_00412938_caseD_2:
     }
 LAB_00412ce2:
     if (((*(byte *)((int)&local_28[0xd].flags + 1) >> 3 & 1) != 0) &&
-       (iVar2 = FUN_004195a2(), iVar2 == 0)) {
+       (bVar2 = FUN_004195a2(0x69bc30), CONCAT31(extraout_var,bVar2) == 0)) {
       _DAT_0069bc54 =
            (float)(int)local_28[0xc].scaleInterpFinalX / (float)(int)local_28[0xc].uvScrollPos.x;
     }

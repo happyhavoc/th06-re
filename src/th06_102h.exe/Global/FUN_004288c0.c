@@ -6,7 +6,8 @@ undefined4 FUN_004288c0(AnmVm *param_1)
 {
   float fVar1;
   AnmManager *this;
-  int iVar2;
+  bool bVar2;
+  undefined3 extraout_var;
   long lVar3;
   uint uVar4;
   int local_8;
@@ -21,8 +22,9 @@ undefined4 FUN_004288c0(AnmVm *param_1)
     param_1[8].matrix.m[local_8][1] = 0.0;
   }
   if (param_1[0x6e].pos2.y == 0.0) {
-    iVar2 = FUN_004195a2();
-    if (((((iVar2 == 0) && (param_1[9].matrix.m[0][3] != 0.0)) && ('\0' < (char)DAT_0069d4bb)) &&
+    bVar2 = FUN_004195a2(0x69bc30);
+    if (((((CONCAT31(extraout_var,bVar2) == 0) && (param_1[9].matrix.m[0][3] != 0.0)) &&
+         ('\0' < (char)DAT_0069d4bb)) &&
         (((g_CurFrameInput & 2) != 0 && ((g_CurFrameInput & 2) != (g_LastFrameInput & 2))))) &&
        (param_1[0x6e].timeOfLastSpriteSet != 0)) {
       DAT_0069bcc4 = DAT_0069bcc4 + 1;
@@ -53,7 +55,7 @@ undefined4 FUN_004288c0(AnmVm *param_1)
           FUN_0041f290(param_1 + 4,4,2);
           FUN_0041f290(param_1 + 4,4,2);
           FUN_0041f290(param_1 + 4,4,2);
-          _DAT_0069d4b0 = 0;
+          USHORT_0069d4b0 = 0;
           DAT_0069d4bc = 0xff;
         }
         else {
@@ -63,11 +65,11 @@ undefined4 FUN_004288c0(AnmVm *param_1)
           FUN_0041f290(param_1 + 4,0,2);
           FUN_0041f290(param_1 + 4,0,2);
           FUN_0041f290(param_1 + 4,0,2);
-          if (_DAT_0069d4b0 < 0x11) {
-            _DAT_0069d4b0 = 0;
+          if (USHORT_0069d4b0 < 0x11) {
+            USHORT_0069d4b0 = 0;
           }
           else {
-            _DAT_0069d4b0 = _DAT_0069d4b0 - 0x10;
+            USHORT_0069d4b0 = USHORT_0069d4b0 - 0x10;
           }
         }
         DAT_0069bc30 = DAT_0069bc30 & 0xffffffcf | 0x20;
@@ -136,7 +138,7 @@ undefined4 FUN_004288c0(AnmVm *param_1)
 LAB_00428fa8:
   if (param_1[9].matrix.m[1][0] != 0.0) {
     param_1[9].matrix.m[1][0] = (float)((int)param_1[9].matrix.m[1][0] + -1);
-    FUN_00414160(0);
+    FUN_00414160(0x5a5ff8,0);
   }
   if (*(char *)(param_1[9].matrix.m[1] + 1) == '\x03') {
     FUN_004241e5(1);

@@ -1,9 +1,7 @@
 
-undefined FUN_00417344(void)
+undefined __fastcall FUN_00417344(int param_1)
 
 {
-  int in_ECX;
-  
-  return *(undefined *)(*(int *)(in_ECX + 4) + 0x2bd8);
+  return *(undefined *)(*(int *)(param_1 + 4) + 0x2bd8);
 }
 

@@ -35,10 +35,10 @@ void __thiscall FUN_004324d0(AnmManager *this,AnmVm *vm)
     }
   }
   else {
-    _DAT_006d45a0 = vm->color;
-    _DAT_006d45bc = vm->color;
-    _DAT_006d45d8 = vm->color;
-    _DAT_006d45f4 = vm->color;
+    AnmManager::g_PrimitivesToDrawNoVertexBuf[4] = (float)vm->color;
+    AnmManager::g_PrimitivesToDrawNoVertexBuf[11] = (float)vm->color;
+    AnmManager::g_PrimitivesToDrawNoVertexBuf[18] = (float)vm->color;
+    AnmManager::g_PrimitivesToDrawNoVertexBuf[25] = (float)vm->color;
     _DAT_006d466c = vm->color;
     _DAT_006d4684 = vm->color;
     _DAT_006d469c = vm->color;

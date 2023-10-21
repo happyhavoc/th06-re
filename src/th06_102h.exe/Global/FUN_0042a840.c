@@ -12,7 +12,7 @@ undefined4 FUN_0042a840(undefined4 *param_1)
   
   *param_1 = 0;
   if (param_1[1] == 0) {
-    pbVar1 = FileSystem::OpenPath(param_1[3],(uint)(DAT_0069d4c4 == '\0'));
+    pbVar1 = FileSystem::OpenPath((char *)param_1[3],(uint)(DAT_0069d4c4 == '\0'));
     param_1[1] = pbVar1;
     iVar2 = FUN_0042a140(param_1[1],g_LastFileSize);
     if (iVar2 != 0) {
@@ -39,7 +39,7 @@ undefined4 FUN_0042a840(undefined4 *param_1)
     _DAT_0069d710 = (uint)*(byte *)(iVar2 + 0xb);
     DAT_0069d4ba = *(undefined *)(iVar2 + 9);
     DAT_0069d4bb = *(undefined *)(iVar2 + 10);
-    _DAT_0069d4b0 = (ushort)*(byte *)(iVar2 + 8);
+    USHORT_0069d4b0 = (ushort)*(byte *)(iVar2 + 8);
     param_1[0x12] = iVar2 + 0x10;
     DAT_0069d4b9 = *(undefined *)(iVar2 + 0xc);
     if ((1 < DAT_0069d6d4) && (*(int *)(param_1[1] + 0x2c + DAT_0069d6d4 * 4) != 0)) {

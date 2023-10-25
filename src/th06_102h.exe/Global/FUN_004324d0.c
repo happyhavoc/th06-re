@@ -1,6 +1,4 @@
 
-/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
-
 void __thiscall FUN_004324d0(AnmManager *this,AnmVm *vm)
 
 {
@@ -39,10 +37,10 @@ void __thiscall FUN_004324d0(AnmManager *this,AnmVm *vm)
     AnmManager::g_PrimitivesToDrawNoVertexBuf[11] = (float)vm->color;
     AnmManager::g_PrimitivesToDrawNoVertexBuf[18] = (float)vm->color;
     AnmManager::g_PrimitivesToDrawNoVertexBuf[25] = (float)vm->color;
-    _DAT_006d466c = vm->color;
-    _DAT_006d4684 = vm->color;
-    _DAT_006d469c = vm->color;
-    _DAT_006d46b4 = vm->color;
+    UINT_006d466c = vm->color;
+    UINT_006d4684 = vm->color;
+    UINT_006d469c = vm->color;
+    UINT_006d46b4 = vm->color;
   }
   if (((g_GameContext.cfg.opts >> 6 & 1) == 0) &&
      ((uint)this->currentZWriteDisable != (vm->flags >> 0xc & 1))) {

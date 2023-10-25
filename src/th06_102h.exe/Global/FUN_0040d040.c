@@ -88,7 +88,7 @@ void FUN_0040d040(int param_1,int param_2)
         local_50 = local_dc[local_60 * 3 + 2];
         local_5c = 1;
         if (local_68 == 0) {
-          if (DAT_0069bcb0 < 2) {
+          if ((int)g_GameManager.difficulty < 2) {
             local_5a = 2;
           }
           else {
@@ -97,7 +97,7 @@ void FUN_0040d040(int param_1,int param_2)
           local_4c = local_78;
           local_44 = 0;
           local_3c = 0;
-          if (DAT_0069bcb0 < 2) {
+          if ((int)g_GameManager.difficulty < 2) {
             local_30 = 0x41e00000;
             local_38 = local_64;
           }

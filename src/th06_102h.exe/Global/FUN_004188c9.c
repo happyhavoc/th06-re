@@ -55,7 +55,7 @@ undefined4 FUN_004188c9(void)
         psVar6 = (short *)(iVar7 + 4);
         if ((*(short *)(iVar7 + 6) == 0) && (-1 < *(short *)(in_ECX + 0x2934))) {
           FUN_00434b60(g_AnmManager,in_ECX + 0x2880,*(undefined4 *)(in_ECX + 0x2bb0 + *psVar6 * 4),
-                       *(undefined4 *)(in_ECX + 0x2bc0 + *psVar6 * 4),&DAT_0046ac10);
+                       *(undefined4 *)(in_ECX + 0x2bc0 + *psVar6 * 4)," ");
         }
         pAVar3 = g_AnmManager;
         sVar2 = *(short *)(iVar7 + 6);
@@ -69,7 +69,7 @@ undefined4 FUN_004188c9(void)
              *(undefined *)(in_ECX + 0x287d + *(short *)(iVar7 + 6) * 0x110);
         FUN_00434b60(g_AnmManager,in_ECX + 0x2770 + *(short *)(iVar7 + 6) * 0x110,
                      *(undefined4 *)(in_ECX + 0x2bb0 + *psVar6 * 4),
-                     *(undefined4 *)(in_ECX + 0x2bc0 + *psVar6 * 4),iVar7 + 8);
+                     *(undefined4 *)(in_ECX + 0x2bc0 + *psVar6 * 4),(char *)(iVar7 + 8));
         *(undefined4 *)(in_ECX + 0x254c) = 0;
         break;
       case 4:
@@ -122,25 +122,26 @@ undefined4 FUN_004188c9(void)
       case 9:
         *(undefined4 *)(in_ECX + 0x2bdc) = 1;
         pAVar3 = g_AnmManager;
-        if (DAT_0069d6d4 < 6) {
+        if ((int)g_GameManager.current_stage < 6) {
           *(undefined2 *)(in_ECX + 0x24d8) = 0x619;
           AnmManager::SetAndExecuteScript(pAVar3,(AnmVm *)(in_ECX + 0x2424),pAVar3->scripts[0x619]);
         }
         else {
-          DAT_0069d4bc = 0xff;
+          g_GameManager._6172_1_ = 0xff;
         }
         break;
       case 10:
         goto LAB_00418fe0;
       case 0xb:
-        DAT_0069bca0 = DAT_0069bca4;
-        if (DAT_0069d4c3 == '\0') {
-          if ((DAT_0069d6d4 < 5) || ((DAT_0069bcb0 != 0 && (DAT_0069d6d4 == 5)))) {
+        g_GameManager.field0_0x0 = g_GameManager.score;
+        if (g_GameManager._6179_1_ == '\0') {
+          if (((int)g_GameManager.current_stage < 5) ||
+             ((g_GameManager.difficulty != 0 && (g_GameManager.current_stage == 5)))) {
             g_GameContext.unkInput2 = 3;
           }
-          else if (DAT_0069bcbc == 0) {
-            if (DAT_0069bcb0 == 4) {
-              DAT_0069d4c2 = 1;
+          else if (g_GameManager.field6_0x18._4_4_ == 0) {
+            if (g_GameManager.difficulty == 4) {
+              g_GameManager.unk_1822 = 1;
               g_GameContext.unkInput2 = 7;
             }
             else {

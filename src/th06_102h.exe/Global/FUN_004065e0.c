@@ -21,8 +21,8 @@ void FUN_004065e0(int param_1)
     (local_8->pos).x = *pfVar1 + (local_8->pos2).x;
     (local_8->pos).y = fVar4 + fVar5;
     (local_8->pos).z = fVar2 + fVar3;
-    (local_8->pos).x = VIEWPORT_X + (local_8->pos).x;
-    (local_8->pos).y = VIEWPORT_Y + (local_8->pos).y;
+    (local_8->pos).x = g_GameManager.arcade_region_top_left_pos.x + (local_8->pos).x;
+    (local_8->pos).y = g_GameManager.arcade_region_top_left_pos.y + (local_8->pos).y;
     (local_8->pos).z = 0.0;
     AnmManager::FUN_00432cc0(g_AnmManager,local_8);
     local_8 = local_8 + 1;

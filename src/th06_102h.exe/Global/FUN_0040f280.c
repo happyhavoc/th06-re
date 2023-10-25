@@ -5,7 +5,7 @@ undefined4 FUN_0040f280(undefined4 *param_1)
   int iVar1;
   
   FUN_0040e340(param_1);
-  switch(DAT_0069d6d4) {
+  switch(g_GameManager.current_stage) {
   case 0:
   case 1:
     iVar1 = AnmManager::LoadAnm(g_AnmManager,0xb,"data/eff01.anm",0x2b3);

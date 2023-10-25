@@ -2,15 +2,15 @@
 undefined4 __fastcall FUN_0042bc85(int param_1)
 
 {
-  int iVar1;
+  Hscr *out;
   int local_20;
   int local_1c;
   int local_c;
   int local_8;
   
   if (*(int *)(param_1 + 4) == 0) {
-    *(uint *)(param_1 + 0x24) = (uint)DAT_0069d4bd;
-    *(undefined4 *)(param_1 + 0x2c) = DAT_0069bcb0;
+    *(uint *)(param_1 + 0x24) = (uint)g_GameManager.character;
+    *(uint *)(param_1 + 0x2c) = g_GameManager.difficulty;
     local_c = param_1 + 0x40;
     for (local_8 = 0; local_8 < 0x26; local_8 = local_8 + 1) {
       *(short *)(local_c + 0x8a) = (short)*(undefined4 *)(param_1 + 0x2c) + 3;
@@ -18,30 +18,33 @@ undefined4 __fastcall FUN_0042bc85(int param_1)
     }
     FUN_00434e20(g_AnmManager,param_1 + 0x28a0,0xffffff,0,
                  (&PTR_DAT_004784d8)[*(int *)(param_1 + 0x24) * 2]);
-    if (DAT_0069d4be != 0) {
+    if (g_GameManager.shottype != 0) {
       *(undefined4 *)(param_1 + 0x291c) = 0x80ffffff;
     }
     FUN_00434e20(g_AnmManager,param_1 + 0x29b0,0xffffff,0,
                  (&PTR_DAT_004784dc)[*(int *)(param_1 + 0x24) * 2]);
-    if (DAT_0069d4be != 1) {
+    if (g_GameManager.shottype != 1) {
       *(undefined4 *)(param_1 + 0x2a2c) = 0x80ffffff;
     }
-    *(byte *)(param_1 + 0x5190) = DAT_0069d4be + (char)*(undefined4 *)(param_1 + 0x24) * '\x02';
+    *(byte *)(param_1 + 0x5190) =
+         g_GameManager.shottype + (char)*(undefined4 *)(param_1 + 0x24) * '\x02';
     *(undefined *)(param_1 + 0x5191) = *(undefined *)(param_1 + 0x2c);
-    *(undefined4 *)(param_1 + 0x518c) = DAT_0069bca4;
+    *(uint *)(param_1 + 0x518c) = g_GameManager.score;
     *(undefined *)(param_1 + 0x5188) = 0x10;
     *(undefined4 *)(param_1 + 0x5180) = 0x52435348;
-    if (DAT_0069d4c2 == '\0') {
-      *(undefined *)(param_1 + 0x5192) = (undefined)DAT_0069d6d4;
+    if (g_GameManager.unk_1822 == 0) {
+      *(undefined *)(param_1 + 0x5192) = (undefined)g_GameManager.current_stage;
     }
     else {
       *(undefined *)(param_1 + 0x5192) = 99;
     }
     *(undefined *)(param_1 + 0x5189) = 1;
     _strcpy((char *)(param_1 + 0x5193),"        ");
-    iVar1 = FUN_0042bc2d(param_1 + 0x5180,*(undefined4 *)(param_1 + 0x2c),
-                         (uint)DAT_0069d4be + *(int *)(param_1 + 0x24) * 2);
-    if (9 < iVar1) goto LAB_0042c273;
+    out = (Hscr *)(param_1 + 0x5180);
+    ResultScreen::FUN_0042bc2d
+              ((ResultScreen *)param_1,out,*(int *)(param_1 + 0x2c),
+               (uint)g_GameManager.shottype + *(int *)(param_1 + 0x24) * 2);
+    if (9 < (int)out) goto LAB_0042c273;
     *(undefined4 *)(param_1 + 0x10) = 0;
     _strcpy((char *)(param_1 + 0x34),"");
   }

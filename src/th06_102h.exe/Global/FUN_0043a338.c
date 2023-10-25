@@ -7,7 +7,7 @@ undefined4 FUN_0043a338(int param_1)
   undefined4 uVar3;
   
   _memset(&struct_006d46c0,0,0x10f34);
-  DAT_0069d4bf = 0;
+  g_GameManager._6175_1_ = 0;
   UVar1 = (*(g_GameContext.d3dDevice)->lpVtbl->GetAvailableTextureMem)(g_GameContext.d3dDevice);
   DebugPrint("Debug : title 開始 VRAM = %d\n",UVar1);
   struct_006d46c0.unk_81f0 = -(uint)(param_1 != 0) & 0xc;

@@ -24,7 +24,7 @@ undefined4 FUN_004149d0(int param_1)
   int local_8;
   
   local_24 = (AnmVm *)(param_1 + 0x5600);
-  if (DAT_0069bccc == '\0') {
+  if (g_GameManager.field6_0x18[20] == '\0') {
     FUN_0041f4a0((AnmVm *)null_ARRAY_0069e268);
     *(undefined4 *)(param_1 + 0xf5c04) = 0;
     for (local_c = 0; local_c < 0x280; local_c = local_c + 1) {

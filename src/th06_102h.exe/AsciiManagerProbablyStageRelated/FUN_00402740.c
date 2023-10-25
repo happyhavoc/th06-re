@@ -9,11 +9,11 @@ AsciiManagerProbablyStageRelated::FUN_00402740(AsciiManagerProbablyStageRelated 
   AnmVm local_11c;
   int local_8;
   
-  if (DAT_0069d4bf != '\0') {
-    g_GameContext.viewport.X = __ftol2((double)VIEWPORT_X);
-    g_GameContext.viewport.Y = __ftol2((double)VIEWPORT_Y);
-    g_GameContext.viewport.Width = __ftol2((double)VIEWPORT_WIDTH);
-    g_GameContext.viewport.Height = __ftol2((double)VIEWPORT_HEIGHT);
+  if (g_GameManager._6175_1_ != '\0') {
+    g_GameContext.viewport.X = __ftol2((double)g_GameManager.arcade_region_top_left_pos.x);
+    g_GameContext.viewport.Y = __ftol2((double)g_GameManager.arcade_region_top_left_pos.y);
+    g_GameContext.viewport.Width = __ftol2((double)g_GameManager.arcade_region_size.x);
+    g_GameContext.viewport.Height = __ftol2((double)g_GameManager.arcade_region_size.y);
     (*(g_GameContext.d3dDevice)->lpVtbl->SetViewport)
               (g_GameContext.d3dDevice,&g_GameContext.viewport);
     if ((g_GameContext.lockableBackbuffer != 0) && (this->field0_0x0 != 0)) {

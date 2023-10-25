@@ -21,8 +21,8 @@ undefined4 FUN_0041bb02(uint *param_1)
     param_1[2] = 0;
   }
   else {
-    g_GameContext.bombCount = DAT_0069d4bb;
-    g_GameContext.lifeCount = DAT_0069d4ba;
+    g_GameContext.bombCount = g_GameManager.bombs_remaining;
+    g_GameContext.lifeCount = g_GameManager.lives_remaining;
     param_1[0x68f] = 0x42000000;
     param_1[0x690] = 0x41800000;
     param_1[0x691] = 0x43c00000;
@@ -47,7 +47,7 @@ undefined4 FUN_0041bb02(uint *param_1)
     else {
       *(undefined *)(param_1 + 0x607) = 4;
     }
-    DAT_0069d4b9 = 0;
+    g_GameManager.power_item_count_for_score = 0;
     param_1[0x69c] = 8;
     param_1[6] = 0;
     *(undefined2 *)((int)param_1 + 0x1816) = 0;
@@ -67,22 +67,25 @@ undefined4 FUN_0041bb02(uint *param_1)
       local_c = local_c + 0x10;
     }
     scoredat = (ScoreDat *)OpenScore("score.dat");
-    DAT_0069bcac = FUN_0042b280(scoredat,0,(uint)DAT_0069d4be + (uint)DAT_0069d4bd * 2,DAT_0069bcb0)
-    ;
-    FUN_0042b466(scoredat,param_1 + 0xc);
+    g_GameManager.high_score =
+         FUN_0042b280(scoredat,(ResultScreenUnk3ab0 *)0x0,
+                      (uint)g_GameManager.shottype + (uint)g_GameManager.character * 2,
+                      g_GameManager.difficulty);
+    ParseCatk(scoredat,(Catk *)(param_1 + 0xc));
     ParseClrd(scoredat,(Clrd *)(param_1 + 0x40c));
     pPVar5 = (Pscr *)(param_1 + 0x424);
-    ParsePscr((int)scoredat,pPVar5);
+    ParsePscr(scoredat,pPVar5);
     if (*(char *)((int)param_1 + 0x1823) != '\0') {
-      pPVar5 = (Pscr *)(DAT_0069bcb0 * 0x14);
-      DAT_0069bcac = (param_1 +
-                     ((uint)DAT_0069d4be + (uint)DAT_0069d4bd * 2) * 0x78 +
-                     DAT_0069d6d4 * 0x14 + 0x427)[DAT_0069bcb0 * 5];
+      pPVar5 = (Pscr *)(g_GameManager.difficulty * 0x14);
+      g_GameManager.high_score =
+           (param_1 +
+           ((uint)g_GameManager.shottype + (uint)g_GameManager.character * 2) * 0x78 +
+           g_GameManager.current_stage * 0x14 + 0x427)[g_GameManager.difficulty * 5];
     }
     FUN_0042b7dc(pPVar5,scoredat);
-    param_1[0x69c] = *(uint *)(&DAT_00476564 + DAT_0069bcb0 * 0xc);
-    param_1[0x69e] = *(uint *)(&DAT_00476568 + DAT_0069bcb0 * 0xc);
-    param_1[0x69d] = *(uint *)(&DAT_0047656c + DAT_0069bcb0 * 0xc);
+    param_1[0x69c] = *(uint *)(&DAT_00476564 + g_GameManager.difficulty * 0xc);
+    param_1[0x69e] = *(uint *)(&DAT_00476568 + g_GameManager.difficulty * 0xc);
+    param_1[0x69d] = *(uint *)(&DAT_0047656c + g_GameManager.difficulty * 0xc);
     param_1[8] = 0;
     param_1[9] = 0;
     param_1[10] = 0;
@@ -92,16 +95,18 @@ undefined4 FUN_0041bb02(uint *param_1)
   param_1[5] = 0;
   *(undefined *)((int)param_1 + 0x181f) = 0;
   param_1[0x68d] = param_1[0x68d] + 1;
-  if (DAT_0069bcbc == 0) {
-    iVar3 = (uint)DAT_0069d4be + (uint)DAT_0069d4bd * 2;
+  if (g_GameManager.field6_0x18._4_4_ == 0) {
+    iVar3 = (uint)g_GameManager.shottype + (uint)g_GameManager.character * 2;
     if ((*(char *)(param_1 + 0x606) == '\0') &&
-       ((int)(uint)*(byte *)((int)param_1 + DAT_0069bcb0 + iVar3 * 0x18 + 0x103c) <
+       ((int)(uint)*(byte *)((int)param_1 + g_GameManager.difficulty + iVar3 * 0x18 + 0x103c) <
         (int)(param_1[0x68d] - 1))) {
-      *(char *)((int)param_1 + DAT_0069bcb0 + iVar3 * 0x18 + 0x103c) = (char)param_1[0x68d] + -1;
+      *(char *)((int)param_1 + g_GameManager.difficulty + iVar3 * 0x18 + 0x103c) =
+           (char)param_1[0x68d] + -1;
     }
-    if ((int)(uint)*(byte *)((int)param_1 + DAT_0069bcb0 + iVar3 * 0x18 + 0x1041) <
+    if ((int)(uint)*(byte *)((int)param_1 + g_GameManager.difficulty + iVar3 * 0x18 + 0x1041) <
         (int)(param_1[0x68d] - 1)) {
-      *(char *)((int)param_1 + DAT_0069bcb0 + iVar3 * 0x18 + 0x1041) = (char)param_1[0x68d] + -1;
+      *(char *)((int)param_1 + g_GameManager.difficulty + iVar3 * 0x18 + 0x1041) =
+           (char)param_1[0x68d] + -1;
     }
   }
   if ((*(char *)((int)param_1 + 0x1823) != '\0') && (param_1[0x68d] != 1)) {
@@ -114,16 +119,16 @@ undefined4 FUN_0041bb02(uint *param_1)
   }
   GameContext::LoadPBG3(&g_GameContext,4,(byte *)s__g_CM_dat_0046af84);
   GameContext::LoadPBG3(&g_GameContext,2,(byte *)s__g_ST_dat_0046af74);
-  if (DAT_0069bcbc == 1) {
-    iVar3 = FUN_0042a240(1,RPY_UNKNOWN);
+  if (g_GameManager.field6_0x18._4_4_ == 1) {
+    iVar3 = FUN_0042a240(1,g_GameManager.replay_file);
     if (iVar3 != 0) {
       bVar1 = true;
     }
     while (*(uint *)(&DAT_004764b0 + *(char *)(param_1 + 0x607) * 4) <= *param_1) {
       *(char *)(param_1 + 0x607) = *(char *)(param_1 + 0x607) + '\x01';
     }
-    param_1[0x69e] = *(uint *)(&DAT_0047652c + DAT_0069bcb0 * 0xc);
-    param_1[0x69d] = *(uint *)(&DAT_00476530 + DAT_0069bcb0 * 0xc);
+    param_1[0x69e] = *(uint *)(&DAT_0047652c + g_GameManager.difficulty * 0xc);
+    param_1[0x69d] = *(uint *)(&DAT_00476530 + g_GameManager.difficulty * 0xc);
   }
   _DAT_0069d8fc = 0;
   *(undefined2 *)(param_1 + 0x68b) = DAT_0069d8f8;
@@ -142,10 +147,10 @@ undefined4 FUN_0041bb02(uint *param_1)
             if (iVar3 == 0) {
               iVar3 = FUN_0041b252();
               if (iVar3 == 0) {
-                if (DAT_0069bcbc == 0) {
+                if (g_GameManager.field6_0x18._4_4_ == 0) {
                   FUN_0042a240(0,"replay/th6_00.rpy");
                 }
-                if (DAT_0069d4c4 == '\0') {
+                if (g_GameManager.demo_mode == 0) {
                   FUN_00424aac(1,g_Stage.stdData + 0x310);
                   FUN_00424b5d((char *)(g_Stage.stdData + 0x290));
                 }
@@ -173,7 +178,7 @@ undefined4 FUN_0041bb02(uint *param_1)
             }
             else {
               GameErrorContextLog(&g_GameErrorContext,
-                                  "error : エフェクトの初��化に失敗しました\n");
+                                  "error : エフェクトの初期化に失敗しました\n");
               uVar4 = 0xffffffff;
             }
           }
@@ -202,7 +207,7 @@ undefined4 FUN_0041bb02(uint *param_1)
   }
   else {
     GameErrorContextLog(&g_GameErrorContext,
-                        "error : 背景データの初期化に失敗しま��た\n");
+                        "error : 背景データの初期化に失敗しました\n");
     uVar4 = 0xffffffff;
   }
   return uVar4;

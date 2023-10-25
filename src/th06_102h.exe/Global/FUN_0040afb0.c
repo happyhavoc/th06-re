@@ -14,7 +14,7 @@ int * FUN_0040afb0(int param_1,int *param_2,undefined4 *param_3)
   }
   switch(*param_2) {
   case -0x2729:
-    _DAT_00487e44 = (uint)DAT_0069d4be + (uint)DAT_0069d4bd * 2;
+    _DAT_00487e44 = (uint)g_GameManager.shottype + (uint)g_GameManager.character * 2;
     if (param_3 != (undefined4 *)0x0) {
       *param_3 = 0;
     }
@@ -91,13 +91,13 @@ int * FUN_0040afb0(int param_1,int *param_2,undefined4 *param_3)
     if (param_3 != (undefined4 *)0x0) {
       *param_3 = 2;
     }
-    param_2 = (int *)&DAT_0069d710;
+    param_2 = (int *)&g_GameManager.rank;
     break;
   case -0x271d:
     if (param_3 != (undefined4 *)0x0) {
       *param_3 = 2;
     }
-    param_2 = &DAT_0069bcb0;
+    param_2 = (int *)&g_GameManager.difficulty;
     break;
   case -0x271c:
     if (param_3 != (undefined4 *)0x0) {

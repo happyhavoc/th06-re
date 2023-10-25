@@ -63,7 +63,7 @@ int FUN_00414360(int param_1,int param_2)
     }
     local_2c = local_2c + 0x270;
   }
-  DAT_0069bca4 = DAT_0069bca4 + local_c;
+  g_GameManager.score = g_GameManager.score + local_c;
   if (local_c != 0) {
     FUN_0041735a(local_c);
   }

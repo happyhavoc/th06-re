@@ -12,7 +12,7 @@ undefined4 FUN_0042a840(undefined4 *param_1)
   
   *param_1 = 0;
   if (param_1[1] == 0) {
-    pbVar1 = FileSystem::OpenPath((char *)param_1[3],(uint)(DAT_0069d4c4 == '\0'));
+    pbVar1 = FileSystem::OpenPath((char *)param_1[3],(uint)(g_GameManager.demo_mode == 0));
     param_1[1] = pbVar1;
     iVar2 = FUN_0042a140(param_1[1],g_LastFileSize);
     if (iVar2 != 0) {
@@ -25,26 +25,27 @@ undefined4 FUN_0042a840(undefined4 *param_1)
       }
     }
   }
-  if (*(int *)(param_1[1] + 0x30 + DAT_0069d6d4 * 4) == 0) {
+  if (*(int *)(param_1[1] + 0x30 + g_GameManager.current_stage * 4) == 0) {
     uVar3 = 0xffffffff;
   }
   else {
-    iVar2 = *(int *)(param_1[1] + 0x30 + DAT_0069d6d4 * 4);
-    DAT_0069d4bd = (undefined)((int)(uint)*(byte *)(param_1[1] + 6) >> 1);
-    DAT_0069d4be = *(byte *)(param_1[1] + 6) & 1;
-    DAT_0069bcb0 = (uint)*(byte *)(param_1[1] + 7);
-    DAT_0069d4b6 = *(undefined2 *)(iVar2 + 6);
+    iVar2 = *(int *)(param_1[1] + 0x30 + g_GameManager.current_stage * 4);
+    g_GameManager.character = (byte)((int)(uint)*(byte *)(param_1[1] + 6) >> 1);
+    g_GameManager.shottype = *(byte *)(param_1[1] + 6) & 1;
+    g_GameManager.difficulty = (uint)*(byte *)(param_1[1] + 7);
+    g_GameManager.field13_0x1816 = *(undefined2 *)(iVar2 + 6);
     DAT_0069d8f8 = *(undefined2 *)(iVar2 + 4);
     _DAT_0069d8fc = 0;
-    _DAT_0069d710 = (uint)*(byte *)(iVar2 + 0xb);
-    DAT_0069d4ba = *(undefined *)(iVar2 + 9);
-    DAT_0069d4bb = *(undefined *)(iVar2 + 10);
-    USHORT_0069d4b0 = (ushort)*(byte *)(iVar2 + 8);
+    g_GameManager.rank = (uint)*(byte *)(iVar2 + 0xb);
+    g_GameManager.lives_remaining = *(byte *)(iVar2 + 9);
+    g_GameManager.bombs_remaining = *(byte *)(iVar2 + 10);
+    g_GameManager.current_power = (ushort)*(byte *)(iVar2 + 8);
     param_1[0x12] = iVar2 + 0x10;
-    DAT_0069d4b9 = *(undefined *)(iVar2 + 0xc);
-    if ((1 < DAT_0069d6d4) && (*(int *)(param_1[1] + 0x2c + DAT_0069d6d4 * 4) != 0)) {
-      DAT_0069bca0 = **(undefined4 **)(param_1[1] + 0x2c + DAT_0069d6d4 * 4);
-      DAT_0069bca4 = DAT_0069bca0;
+    g_GameManager.power_item_count_for_score = *(byte *)(iVar2 + 0xc);
+    if ((1 < (int)g_GameManager.current_stage) &&
+       (*(int *)(param_1[1] + 0x2c + g_GameManager.current_stage * 4) != 0)) {
+      g_GameManager.field0_0x0 = **(uint **)(param_1[1] + 0x2c + g_GameManager.current_stage * 4);
+      g_GameManager.score = g_GameManager.field0_0x0;
     }
     uVar3 = 0;
   }

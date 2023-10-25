@@ -6,7 +6,8 @@ undefined4 FUN_00429710(int param_1)
 {
   if (-1 < *(int *)(param_1 + 0x75b0)) {
     if ((*(int *)(param_1 + 0x75b0) != *(int *)(param_1 + 0x75a8)) &&
-       (((_DAT_006d1bf0 == 0 || (DAT_0069d4bd != '\x01')) || (DAT_0069d4be != '\x01')))) {
+       (((_DAT_006d1bf0 == 0 || (g_GameManager.character != 1)) || (g_GameManager.shottype != 1))))
+    {
       FUN_00429820(param_1,*(undefined4 *)(param_1 + 0x75b0));
     }
     *(undefined4 *)(param_1 + 0x75a8) = *(undefined4 *)(param_1 + 0x75b0);

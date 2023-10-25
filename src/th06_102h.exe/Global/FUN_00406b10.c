@@ -15,8 +15,8 @@ void FUN_00406b10(int param_1)
     (local_8->pos).x = *pfVar1;
     (local_8->pos).y = pfVar1[1];
     (local_8->pos).z = pfVar1[2];
-    (local_8->pos).x = VIEWPORT_X + (local_8->pos).x;
-    (local_8->pos).y = VIEWPORT_Y + (local_8->pos).y;
+    (local_8->pos).x = g_GameManager.arcade_region_top_left_pos.x + (local_8->pos).x;
+    (local_8->pos).y = g_GameManager.arcade_region_top_left_pos.y + (local_8->pos).y;
     (local_8->pos).z = 0.0;
     local_8->scaleX = 3.2;
     local_8->scaleY = 3.2;

@@ -30,7 +30,7 @@ undefined4 FUN_004190ec(void)
   if (*(int *)(in_ECX + 0x253c) < 0) {
     uVar1 = 0xffffffff;
   }
-  else if ((DAT_0069d6d4 == 6) &&
+  else if ((g_GameManager.current_stage == 6) &&
           ((*(int *)(in_ECX + 0x253c) == 1 || (*(int *)(in_ECX + 0x253c) == 0xb)))) {
     uVar1 = 0;
   }
@@ -45,16 +45,20 @@ undefined4 FUN_004190ec(void)
     do {
       local_94 = local_94 + -1;
     } while (-1 < local_94);
-    local_5c = ((VIEWPORT_WIDTH - 256.0) / 2.0 + VIEWPORT_X) - 16.0;
+    local_5c = ((g_GameManager.arcade_region_size.x - 256.0) / 2.0 +
+               g_GameManager.arcade_region_top_left_pos.x) - 16.0;
     uStack_58 = 0x43c00000;
     uStack_54 = 0;
-    local_48 = (VIEWPORT_WIDTH - 256.0) / 2.0 + VIEWPORT_X + 256.0 + 16.0;
+    local_48 = (g_GameManager.arcade_region_size.x - 256.0) / 2.0 +
+               g_GameManager.arcade_region_top_left_pos.x + 256.0 + 16.0;
     uStack_44 = 0x43c00000;
     uStack_40 = 0;
-    local_34 = ((VIEWPORT_WIDTH - 256.0) / 2.0 + VIEWPORT_X) - 16.0;
+    local_34 = ((g_GameManager.arcade_region_size.x - 256.0) / 2.0 +
+               g_GameManager.arcade_region_top_left_pos.x) - 16.0;
     fStack_30 = local_8 + 384.0;
     uStack_2c = 0;
-    local_20 = (VIEWPORT_WIDTH - 256.0) / 2.0 + VIEWPORT_X + 256.0 + 16.0;
+    local_20 = (g_GameManager.arcade_region_size.x - 256.0) / 2.0 +
+               g_GameManager.arcade_region_top_left_pos.x + 256.0 + 16.0;
     fStack_1c = local_8 + 384.0;
     uStack_18 = 0;
     local_38 = 0xd0000000;

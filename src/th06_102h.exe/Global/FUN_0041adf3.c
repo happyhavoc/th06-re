@@ -12,14 +12,15 @@ void __fastcall FUN_0041adf3(int param_1)
     local_10 = 0x43280000;
     local_c = 0x43460000;
     local_8 = 0;
-    if (DAT_0069d4c4 == '\0') {
+    if (g_GameManager.demo_mode == 0) {
       AnmManager::FUN_00433590(g_AnmManager,(AnmVm *)(*(int *)(param_1 + 4) + 0x1ba4));
       g_AsciiManager.color = *(uint *)(*(int *)(param_1 + 4) + 0x1c20) & 0xff000000 | 0xffff40;
-      if (DAT_0069d6d4 < 6) {
+      if ((int)g_GameManager.current_stage < 6) {
         local_10 = 0x43280000;
-        AsciiManager::FUN_00401650(&g_AsciiManager,&local_10,"STAGE %d",DAT_0069d6d4);
+        AsciiManager::FUN_00401650(&g_AsciiManager,&local_10,"STAGE %d",g_GameManager.current_stage)
+        ;
       }
-      else if (DAT_0069d6d4 == 6) {
+      else if (g_GameManager.current_stage == 6) {
         local_10 = 0x43080000;
         AsciiManager::FUN_00401650(&g_AsciiManager,&local_10,"FINAL STAGE");
       }
@@ -35,7 +36,7 @@ void __fastcall FUN_0041adf3(int param_1)
     }
     g_AsciiManager.color = 0xffffffff;
   }
-  if (((*(uint *)(*(int *)(param_1 + 4) + 0x1d34) & 1) != 0) && (DAT_0069d4c4 == '\0')) {
+  if (((*(uint *)(*(int *)(param_1 + 4) + 0x1d34) & 1) != 0) && (g_GameManager.demo_mode == 0)) {
     AnmManager::FUN_00433590(g_AnmManager,(AnmVm *)(*(int *)(param_1 + 4) + 0x1cb4));
   }
   if ((*(uint *)(*(int *)(param_1 + 4) + 0x1e44) & 1) != 0) {
@@ -71,10 +72,10 @@ void __fastcall FUN_0041adf3(int param_1)
     AnmManager::FUN_00432ad0(g_AnmManager,(AnmVm *)(*(int *)(param_1 + 4) + 0x20f4));
   }
   if (-1 < *(short *)(*(int *)(param_1 + 4) + 0x24d4)) {
-    g_GameContext.viewport.X = __ftol2((double)VIEWPORT_X);
-    g_GameContext.viewport.Y = __ftol2((double)VIEWPORT_Y);
-    g_GameContext.viewport.Width = __ftol2((double)VIEWPORT_WIDTH);
-    g_GameContext.viewport.Height = __ftol2((double)VIEWPORT_HEIGHT);
+    g_GameContext.viewport.X = __ftol2((double)g_GameManager.arcade_region_top_left_pos.x);
+    g_GameContext.viewport.Y = __ftol2((double)g_GameManager.arcade_region_top_left_pos.y);
+    g_GameContext.viewport.Width = __ftol2((double)g_GameManager.arcade_region_size.x);
+    g_GameContext.viewport.Height = __ftol2((double)g_GameManager.arcade_region_size.y);
     (*(g_GameContext.d3dDevice)->lpVtbl->SetViewport)
               (g_GameContext.d3dDevice,(D3DVIEWPORT8 *)0x6c6de0);
     AnmManager::FUN_00432ad0(g_AnmManager,(AnmVm *)(*(int *)(param_1 + 4) + 0x2424));

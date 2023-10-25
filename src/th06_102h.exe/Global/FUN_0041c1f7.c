@@ -3,7 +3,7 @@ undefined4 FUN_0041c1f7(int param_1)
 
 {
   (*(g_GameContext.d3dDevice)->lpVtbl->ResourceManagerDiscardBytes)(g_GameContext.d3dDevice,0);
-  if (DAT_0069d4c4 == '\0') {
+  if (g_GameManager.demo_mode == 0) {
     GameContext::FUN_00424d38(&g_GameContext);
   }
   FUN_00404650();

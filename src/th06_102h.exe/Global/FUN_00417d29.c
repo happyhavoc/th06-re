@@ -33,7 +33,7 @@ undefined4 FUN_00417d29(void)
       return 0xffffffff;
     }
     *(undefined2 *)(in_ECX[1] + 0x24d4) = 0xffff;
-    if (DAT_0069d4bd == '\0') {
+    if (g_GameManager.character == 0) {
       iVar3 = AnmManager::LoadAnm(g_AnmManager,0xf,"data/face00a.anm",0x4a0);
       if (iVar3 != 0) {
         return 0xffffffff;
@@ -47,7 +47,7 @@ undefined4 FUN_00417d29(void)
         return 0xffffffff;
       }
     }
-    else if (DAT_0069d4bd == '\x01') {
+    else if (g_GameManager.character == 1) {
       iVar3 = AnmManager::LoadAnm(g_AnmManager,0xf,"data/face01a.anm",0x4a0);
       if (iVar3 != 0) {
         return 0xffffffff;
@@ -62,7 +62,7 @@ undefined4 FUN_00417d29(void)
       }
     }
   }
-  if (DAT_0069d6d4 == 1) {
+  if (g_GameManager.current_stage == 1) {
     iVar3 = AnmManager::LoadAnm(g_AnmManager,0x12,"data/face03a.anm",0x4a8);
     if (iVar3 != 0) {
       return 0xffffffff;
@@ -76,7 +76,7 @@ undefined4 FUN_00417d29(void)
       return 0xffffffff;
     }
   }
-  else if (DAT_0069d6d4 == 2) {
+  else if (g_GameManager.current_stage == 2) {
     iVar3 = AnmManager::LoadAnm(g_AnmManager,0x12,"data/face05a.anm",0x4a8);
     if (iVar3 != 0) {
       return 0xffffffff;
@@ -86,7 +86,7 @@ undefined4 FUN_00417d29(void)
       return 0xffffffff;
     }
   }
-  else if (DAT_0069d6d4 == 3) {
+  else if (g_GameManager.current_stage == 3) {
     iVar3 = AnmManager::LoadAnm(g_AnmManager,0x12,"data/face06a.anm",0x4a8);
     if (iVar3 != 0) {
       return 0xffffffff;
@@ -100,7 +100,7 @@ undefined4 FUN_00417d29(void)
       return 0xffffffff;
     }
   }
-  else if (DAT_0069d6d4 == 4) {
+  else if (g_GameManager.current_stage == 4) {
     iVar3 = AnmManager::LoadAnm(g_AnmManager,0x12,"data/face08a.anm",0x4a8);
     if (iVar3 != 0) {
       return 0xffffffff;
@@ -114,7 +114,7 @@ undefined4 FUN_00417d29(void)
       return 0xffffffff;
     }
   }
-  else if (DAT_0069d6d4 == 5) {
+  else if (g_GameManager.current_stage == 5) {
     iVar3 = AnmManager::LoadAnm(g_AnmManager,0x12,"data/face09a.anm",0x4a8);
     if (iVar3 != 0) {
       return 0xffffffff;
@@ -128,7 +128,7 @@ undefined4 FUN_00417d29(void)
       return 0xffffffff;
     }
   }
-  else if (DAT_0069d6d4 == 6) {
+  else if (g_GameManager.current_stage == 6) {
     iVar3 = AnmManager::LoadAnm(g_AnmManager,0x12,"data/face09b.anm",0x4a8);
     if (iVar3 != 0) {
       return 0xffffffff;

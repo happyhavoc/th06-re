@@ -24,14 +24,14 @@ undefined4 ParseClrd(ScoreDat *scoredat,Clrd *param_2)
       param_2[local_c].base.unk_len = 0x18;
       param_2[local_c].base.th6k_len = 0x18;
       param_2[local_c].base.version_ = '\x10';
-      param_2[local_c].idx = (byte)local_c;
+      param_2[local_c].character_shottype = (byte)local_c;
       for (local_14 = 0; local_14 < 5; local_14 = local_14 + 1) {
-        param_2[local_c].field1_0xc[local_14] = 1;
-        param_2[local_c].field2_0x11[local_14] = 1;
+        param_2[local_c].difficulty_cleared_with_retries[local_14] = 1;
+        param_2[local_c].difficulty_cleared_without_retries[local_14] = 1;
       }
     }
-    local_8 = (Th6k *)(scoredat->xorseed + scoredat->th6k_offset);
-    for (local_10 = scoredat->length - scoredat->th6k_offset; 0 < local_10;
+    local_8 = (Th6k *)(scoredat->xorseed + scoredat->data_offset);
+    for (local_10 = scoredat->file_length - scoredat->data_offset; 0 < local_10;
         local_10 = local_10 - (uint)*puVar1) {
       if ((local_8->magic == L'\x44524c43') && (local_8->version_ == '\x10')) {
         if (3 < (byte)local_8[1].field_0xa) break;

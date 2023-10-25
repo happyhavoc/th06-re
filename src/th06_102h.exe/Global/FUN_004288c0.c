@@ -12,7 +12,7 @@ undefined4 FUN_004288c0(AnmVm *param_1)
   uint uVar4;
   int local_8;
   
-  if (DAT_0069bccc != '\0') {
+  if (g_GameManager.field6_0x18[20] != '\0') {
     return 1;
   }
   for (local_8 = 0; local_8 < 0x20; local_8 = local_8 + 1) {
@@ -24,11 +24,11 @@ undefined4 FUN_004288c0(AnmVm *param_1)
   if (param_1[0x6e].pos2.y == 0.0) {
     bVar2 = FUN_004195a2(0x69bc30);
     if (((((CONCAT31(extraout_var,bVar2) == 0) && (param_1[9].matrix.m[0][3] != 0.0)) &&
-         ('\0' < (char)DAT_0069d4bb)) &&
+         ('\0' < (char)g_GameManager.bombs_remaining)) &&
         (((g_CurFrameInput & 2) != 0 && ((g_CurFrameInput & 2) != (g_LastFrameInput & 2))))) &&
        (param_1[0x6e].timeOfLastSpriteSet != 0)) {
-      DAT_0069bcc4 = DAT_0069bcc4 + 1;
-      DAT_0069d4bb = DAT_0069d4bb - 1;
+      g_GameManager.field6_0x18._12_4_ = g_GameManager.field6_0x18._12_4_ + 1;
+      g_GameManager.bombs_remaining = g_GameManager.bombs_remaining - 1;
       DAT_0069bc30 = DAT_0069bc30 & 0xfffffff3 | 8;
       param_1[0x6e].pos2.y = 1.401298e-45;
       param_1[0x6e].posInterpTime.current = 0;
@@ -48,15 +48,15 @@ undefined4 FUN_004288c0(AnmVm *param_1)
     if (param_1[9].matrix.m[0][3] != 0.0) {
       param_1[9].matrix.m[0][3] = (float)((int)param_1[9].matrix.m[0][3] + -1);
       if (param_1[9].matrix.m[0][3] == 0.0) {
-        DAT_0069d4b9 = 0;
-        if (DAT_0069d4ba < '\x01') {
+        g_GameManager.power_item_count_for_score = 0;
+        if ((char)g_GameManager.lives_remaining < '\x01') {
           FUN_0041f290(param_1 + 4,4,2);
           FUN_0041f290(param_1 + 4,4,2);
           FUN_0041f290(param_1 + 4,4,2);
           FUN_0041f290(param_1 + 4,4,2);
           FUN_0041f290(param_1 + 4,4,2);
-          USHORT_0069d4b0 = 0;
-          DAT_0069d4bc = 0xff;
+          g_GameManager.current_power = 0;
+          g_GameManager._6172_1_ = 0xff;
         }
         else {
           FUN_0041f290(param_1 + 4,2,2);
@@ -65,11 +65,11 @@ undefined4 FUN_004288c0(AnmVm *param_1)
           FUN_0041f290(param_1 + 4,0,2);
           FUN_0041f290(param_1 + 4,0,2);
           FUN_0041f290(param_1 + 4,0,2);
-          if (USHORT_0069d4b0 < 0x11) {
-            USHORT_0069d4b0 = 0;
+          if (g_GameManager.current_power < 0x11) {
+            g_GameManager.current_power = 0;
           }
           else {
-            USHORT_0069d4b0 = USHORT_0069d4b0 - 0x10;
+            g_GameManager.current_power = g_GameManager.current_power - 0x10;
           }
         }
         DAT_0069bc30 = DAT_0069bc30 & 0xffffffcf | 0x20;
@@ -89,8 +89,8 @@ undefined4 FUN_004288c0(AnmVm *param_1)
     param_1[9].scaleInterpEndTime = 0;
     if ((int)param_1[0x6e].posInterpFinal.y < 0x1e) goto LAB_00428fa8;
     *(undefined *)(param_1[9].matrix.m[1] + 1) = 1;
-    param_1[4].rotation.x = VIEWPORT_WIDTH / 2.0;
-    param_1[4].rotation.y = VIEWPORT_HEIGHT - 64.0;
+    param_1[4].rotation.x = g_GameManager.arcade_region_size.x / 2.0;
+    param_1[4].rotation.y = g_GameManager.arcade_region_size.y - 64.0;
     param_1[4].rotation.z = 0.2;
     param_1[0x6e].posInterpFinal.y = 0.0;
     param_1[0x6e].posInterpFinal.x = 0.0;
@@ -100,16 +100,16 @@ undefined4 FUN_004288c0(AnmVm *param_1)
     this = g_AnmManager;
     param_1->anmFileIndex = 0x400;
     AnmManager::SetAndExecuteScript(this,param_1,this->scripts[0x400]);
-    if (DAT_0069d4ba < '\x01') {
-      DAT_0069d4c0 = 1;
+    if ((char)g_GameManager.lives_remaining < '\x01') {
+      g_GameManager.field22_0x1820._0_1_ = 1;
       goto LAB_00428fa8;
     }
-    DAT_0069d4ba = DAT_0069d4ba + -1;
-    if ((DAT_0069bcb0 < 4) && (DAT_0069d4c3 == '\0')) {
-      DAT_0069d4bb = g_GameContext.bombCount;
+    g_GameManager.lives_remaining = g_GameManager.lives_remaining - 1;
+    if (((int)g_GameManager.difficulty < 4) && (g_GameManager._6179_1_ == '\0')) {
+      g_GameManager.bombs_remaining = g_GameContext.bombCount;
     }
     else {
-      DAT_0069d4bb = 3;
+      g_GameManager.bombs_remaining = 3;
     }
     DAT_0069bc30 = DAT_0069bc30 & 0xfffffff0 | 10;
   }

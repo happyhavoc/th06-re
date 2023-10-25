@@ -188,21 +188,23 @@ LAB_0043877b:
       }
     }
     else {
-      DAT_0069bcbc = 1;
+      g_GameManager.field6_0x18._4_4_ = 1;
       g_GameContext.framerateMultiplier = 1.0;
-      _strcpy(RPY_UNKNOWN,(char *)(param_1 + 0x823c + *(int *)(param_1 + 0x81e8) * 0x200));
-      DAT_0069bcb0 = (uint)*(byte *)(*(int *)(param_1 + 0x10edc) + 7);
-      DAT_0069d4bd = *(byte *)(*(int *)(param_1 + 0x10edc) + 6) / 2;
-      DAT_0069d4be = *(byte *)(*(int *)(param_1 + 0x10edc) + 6) % 2;
+      _strcpy(g_GameManager.replay_file,
+              (char *)(param_1 + 0x823c + *(int *)(param_1 + 0x81e8) * 0x200));
+      g_GameManager.difficulty = (uint)*(byte *)(*(int *)(param_1 + 0x10edc) + 7);
+      g_GameManager.character = *(byte *)(*(int *)(param_1 + 0x10edc) + 6) / 2;
+      g_GameManager.shottype = *(byte *)(*(int *)(param_1 + 0x10edc) + 6) % 2;
       for (local_c = 0; *(int *)(*(int *)(param_1 + 0x10edc) + 0x34 + local_c * 4) == 0;
           local_c = local_c + 1) {
       }
-      DAT_0069d4ba = *(undefined *)(*(int *)(*(int *)(param_1 + 0x10edc) + 0x34 + local_c * 4) + 9);
-      DAT_0069d4bb = *(undefined *)(*(int *)(*(int *)(param_1 + 0x10edc) + 0x34 + local_c * 4) + 10)
-      ;
+      g_GameManager.lives_remaining =
+           *(byte *)(*(int *)(*(int *)(param_1 + 0x10edc) + 0x34 + local_c * 4) + 9);
+      g_GameManager.bombs_remaining =
+           *(byte *)(*(int *)(*(int *)(param_1 + 0x10edc) + 0x34 + local_c * 4) + 10);
       _free(*(void **)(param_1 + 0x10edc));
       *(undefined4 *)(param_1 + 0x10edc) = 0;
-      DAT_0069d6d4 = *(undefined4 *)(param_1 + 0x81a0);
+      g_GameManager.current_stage = *(uint *)(param_1 + 0x81a0);
       g_GameContext.unkInput2 = 2;
     }
   }

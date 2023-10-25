@@ -34,7 +34,7 @@ FUN_00411390(undefined2 param_1,undefined4 *param_2,short param_3,undefined para
   local_c[0x31c] = param_2[1];
   local_c[0x31d] = param_2[2];
   FUN_00407440(local_c + 0x264,CONCAT22((short)((uint)(local_c + 0x31b) >> 0x10),param_1));
-  FUN_004074a0(local_c);
+  EclManager::run_ecl(local_c);
   local_c[0x33f] = local_c[0x1f];
   *(undefined *)((int)local_c + 0xe3f) = param_4;
   if (-1 < param_3) {

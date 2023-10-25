@@ -52,7 +52,7 @@ undefined4 FUN_004123e0(int param_1)
     if (-1 < (int)local_28[0xd].posInterpFinal.z) {
       FUN_00411f40((int)local_28);
     }
-    iVar3 = FUN_004074a0(local_28);
+    iVar3 = EclManager::run_ecl(local_28);
     if (iVar3 == -1) {
       *(byte *)&local_28[0xd].flags = *(byte *)&local_28[0xd].flags & 0x7f;
       FUN_004121b0();
@@ -89,7 +89,7 @@ undefined4 FUN_004123e0(int param_1)
       if (0x45 < local_c) {
         local_c = 0x46;
       }
-      DAT_0069bca4 = (local_c / 5) * 10 + DAT_0069bca4;
+      g_GameManager.score = (local_c / 5) * 10 + g_GameManager.score;
       if (*(int *)(param_1 + 0xee5c8) != 0) {
         if (local_8 == 0) {
           if (local_c < 8) {
@@ -129,11 +129,11 @@ undefined4 FUN_004123e0(int param_1)
     local_28[0xd].posInterpFinal.z = -NAN;
     switch(*(byte *)((int)&local_28[0xd].flags + 1) >> 5) {
     case 0:
-      DAT_0069bca4 = DAT_0069bca4 + (int)local_28[0xc].uvScrollPos.y;
+      g_GameManager.score = g_GameManager.score + (int)local_28[0xc].uvScrollPos.y;
       *(byte *)&local_28[0xd].flags = *(byte *)&local_28[0xd].flags & 0x7f;
       goto LAB_00412a4d;
     case 1:
-      DAT_0069bca4 = DAT_0069bca4 + (int)local_28[0xc].uvScrollPos.y;
+      g_GameManager.score = g_GameManager.score + (int)local_28[0xc].uvScrollPos.y;
       *(byte *)((int)&local_28[0xd].flags + 1) = *(byte *)((int)&local_28[0xd].flags + 1) & 0xfe;
 LAB_00412a4d:
       if ((*(byte *)((int)&local_28[0xd].flags + 1) >> 3 & 1) != 0) {
@@ -228,7 +228,7 @@ LAB_00412ce2:
     }
 LAB_00412dbc:
     FUN_00412e50(local_28);
-    if (DAT_0069bccc == '\0') {
+    if (g_GameManager.field6_0x18[20] == '\0') {
       local_28[0xc].currentTimeInScript.previous = local_28[0xc].currentTimeInScript.current;
       GameContext::FUN_00424285
                 (&g_GameContext,&local_28[0xc].currentTimeInScript.current,

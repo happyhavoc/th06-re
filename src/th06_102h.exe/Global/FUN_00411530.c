@@ -2,7 +2,7 @@
 void __fastcall FUN_00411530(int param_1)
 
 {
-  float fVar1;
+  undefined4 uVar1;
   bool bVar2;
   undefined3 extraout_var;
   int iVar3;
@@ -32,12 +32,12 @@ void __fastcall FUN_00411530(int param_1)
   }
   bVar2 = FUN_004195a2(0x69bc30);
   if (((CONCAT31(extraout_var,bVar2) == 0) &&
-      (local_c = DAT_0069d4ba * -0xf0 + 0x960,
+      (local_c = (char)g_GameManager.lives_remaining * -0xf0 + 0x960,
       *(int *)(param_1 + 0xee5e8) != *(int *)(param_1 + 0xee5e0))) &&
      (*(int *)(param_1 + 0xee5e8) % local_c == 0)) {
     FUN_0041c57e(100);
   }
-  while (fVar1 = DAT_0069d6f4, -1 < **(short **)(param_1 + 0xee5dc)) {
+  while (uVar1 = g_GameManager._6740_4_, -1 < **(short **)(param_1 + 0xee5dc)) {
     if (*(int *)(param_1 + 0xee5e8) == (int)**(short **)(param_1 + 0xee5dc)) {
       switch(*(undefined2 *)(*(int *)(param_1 + 0xee5dc) + 4)) {
       case 0:
@@ -84,12 +84,12 @@ void __fastcall FUN_00411530(int param_1)
           local_1c = *(float *)(iVar3 + 0x10);
           if (*local_18 < -990.0 != (*local_18 == -990.0)) {
             local_24 = FUN_0041e820(&DAT_0069d8f8);
-            local_24 = local_24 * fVar1;
+            local_24 = local_24 * (float)uVar1;
           }
-          fVar1 = DAT_0069d6f8;
+          uVar1 = g_GameManager._6744_4_;
           if (local_18[1] < -990.0 != (local_18[1] == -990.0)) {
             local_20 = FUN_0041e820(&DAT_0069d8f8);
-            local_20 = local_20 * fVar1;
+            local_20 = local_20 * (float)uVar1;
           }
           if (local_18[2] < -990.0 != (local_18[2] == -990.0)) {
             local_1c = FUN_0041e820(&DAT_0069d8f8);
@@ -108,12 +108,12 @@ void __fastcall FUN_00411530(int param_1)
           local_28 = *(float *)(iVar3 + 0x10);
           if (local_30 < -990.0 != (local_30 == -990.0)) {
             local_30 = FUN_0041e820(&DAT_0069d8f8);
-            local_30 = local_30 * fVar1;
+            local_30 = local_30 * (float)uVar1;
           }
-          fVar1 = DAT_0069d6f8;
+          uVar1 = g_GameManager._6744_4_;
           if (local_2c < -990.0 != (local_2c == -990.0)) {
             local_2c = FUN_0041e820(&DAT_0069d8f8);
-            local_2c = local_2c * fVar1;
+            local_2c = local_2c * (float)uVar1;
           }
           if (local_28 < -990.0 != (local_28 == -990.0)) {
             local_28 = FUN_0041e820(&DAT_0069d8f8);
@@ -132,12 +132,12 @@ void __fastcall FUN_00411530(int param_1)
           local_38 = *(float *)(iVar3 + 0x10);
           if (*local_34 < -990.0 != (*local_34 == -990.0)) {
             local_40 = FUN_0041e820(&DAT_0069d8f8);
-            local_40 = local_40 * fVar1;
+            local_40 = local_40 * (float)uVar1;
           }
-          fVar1 = DAT_0069d6f8;
+          uVar1 = g_GameManager._6744_4_;
           if (local_34[1] < -990.0 != (local_34[1] == -990.0)) {
             local_3c = FUN_0041e820(&DAT_0069d8f8);
-            local_3c = local_3c * fVar1;
+            local_3c = local_3c * (float)uVar1;
           }
           if (local_34[2] < -990.0 != (local_34[2] == -990.0)) {
             local_38 = FUN_0041e820(&DAT_0069d8f8);
@@ -157,12 +157,12 @@ void __fastcall FUN_00411530(int param_1)
           local_44 = *(float *)(iVar3 + 0x10);
           if (local_4c < -990.0 != (local_4c == -990.0)) {
             local_4c = FUN_0041e820(&DAT_0069d8f8);
-            local_4c = local_4c * fVar1;
+            local_4c = local_4c * (float)uVar1;
           }
-          fVar1 = DAT_0069d6f8;
+          uVar1 = g_GameManager._6744_4_;
           if (local_48 < -990.0 != (local_48 == -990.0)) {
             local_48 = FUN_0041e820(&DAT_0069d8f8);
-            local_48 = local_48 * fVar1;
+            local_48 = local_48 * (float)uVar1;
           }
           if (local_44 < -990.0 != (local_44 == -990.0)) {
             local_44 = FUN_0041e820(&DAT_0069d8f8);
@@ -174,12 +174,13 @@ void __fastcall FUN_00411530(int param_1)
         }
         break;
       case 8:
-        if (((DAT_0069bcb0 == 0) && (DAT_0069d6d4 == 5)) &&
+        if (((g_GameManager.difficulty == 0) && (g_GameManager.current_stage == 5)) &&
            (*(short *)(*(int *)(param_1 + 0xee5dc) + 2) == 1)) {
-          FUN_00418768((uint)DAT_0069d4bd * 10 + 3);
+          FUN_00418768((uint)g_GameManager.character * 10 + 3);
         }
         else {
-          FUN_00418768((int)*(short *)(*(int *)(param_1 + 0xee5dc) + 2) + (uint)DAT_0069d4bd * 10);
+          FUN_00418768((int)*(short *)(*(int *)(param_1 + 0xee5dc) + 2) +
+                       (uint)g_GameManager.character * 10);
         }
         break;
       case 9:
@@ -195,7 +196,7 @@ void __fastcall FUN_00411530(int param_1)
              *(undefined4 *)(*(int *)(param_1 + 0xee5dc) + 0xc);
         break;
       case 0xb:
-        USHORT_0069d4b0 = *(ushort *)(*(int *)(param_1 + 0xee5dc) + 2);
+        g_GameManager.current_power = *(ushort *)(*(int *)(param_1 + 0xee5dc) + 2);
         break;
       case 0xc:
         if ((*(int *)(param_1 + 0xee598 + *(short *)(*(int *)(param_1 + 0xee5dc) + 2) * 4) != 0) &&
@@ -212,7 +213,7 @@ void __fastcall FUN_00411530(int param_1)
   }
   bVar2 = FUN_004195a2(0x69bc30);
   if (CONCAT31(extraout_var_00,bVar2) == 0) {
-    DAT_0069d70c = DAT_0069d70c + 1;
+    g_GameManager._6764_4_ = g_GameManager._6764_4_ + 1;
   }
   return;
 }

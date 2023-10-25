@@ -15,8 +15,8 @@ void WriteScore(void **param_1)
   int local_38;
   int local_30;
   int local_2c;
-  undefined *local_28;
-  int *local_24;
+  Pscr *local_28;
+  Catk *local_24;
   Clrd *local_20;
   int local_1c;
   void *local_18;
@@ -35,7 +35,7 @@ void WriteScore(void **param_1)
   local_8 = 0;
   do {
     if (4 < local_8) {
-      local_20 = SCORE_CRLD;
+      local_20 = g_GameManager.clrd;
       for (local_8 = 0; local_8 < 4; local_8 = local_8 + 1) {
         (local_20->base).magic = L'\x44524c43';
         (local_20->base).unk_len = 0x18;
@@ -45,27 +45,27 @@ void WriteScore(void **param_1)
         local_14 = local_14 + 0x18;
         local_20 = local_20 + 1;
       }
-      local_24 = &DAT_0069bcd0;
+      local_24 = g_GameManager.catk;
       for (local_8 = 0; local_8 < 0x40; local_8 = local_8 + 1) {
-        if (*local_24 == 0x4b544143) {
-          *(undefined2 *)(local_24 + 4) = (undefined2)local_8;
-          *(undefined2 *)((int)local_24 + 6) = 0x40;
-          *(undefined2 *)(local_24 + 1) = 0x40;
-          *(undefined *)(local_24 + 2) = 0x10;
+        if ((local_24->base).magic == 0x4b544143) {
+          local_24->idx = (ushort)local_8;
+          (local_24->base).unk_len = 0x40;
+          (local_24->base).th6k_len = 0x40;
+          (local_24->base).version_ = '\x10';
           _memcpy((void *)((int)_Dst + local_14),local_24,0x40);
           local_14 = local_14 + 0x40;
         }
-        local_24 = local_24 + 0x10;
+        local_24 = local_24 + 1;
       }
-      local_28 = &DAT_0069cd30;
+      local_28 = g_GameManager.pscr;
       for (local_8 = 0; local_8 < 4; local_8 = local_8 + 1) {
         for (local_2c = 0; local_2c < 6; local_2c = local_2c + 1) {
           for (local_30 = 0; local_30 < 4; local_30 = local_30 + 1) {
-            if (*(int *)(local_28 + 0xc) != 0) {
+            if (local_28->score != 0) {
               _memcpy((void *)((int)_Dst + local_14),local_28,0x14);
               local_14 = local_14 + 0x14;
             }
-            local_28 = local_28 + 0x14;
+            local_28 = local_28 + 1;
           }
         }
       }
@@ -101,7 +101,7 @@ void WriteScore(void **param_1)
       local_c = 0;
       do {
         if (local_18 == (void *)0x0) break;
-        if (**(int **)((int)local_18 + 8) == 0x52435348) {
+        if (**(int **)((int)local_18 + 8) == L'\x52435348') {
           *(undefined *)(*(int *)((int)local_18 + 8) + 0x10) = (undefined)local_1c;
           *(undefined *)(*(int *)((int)local_18 + 8) + 0x11) = (undefined)local_8;
           *(undefined2 *)(*(int *)((int)local_18 + 8) + 6) = 0x1c;

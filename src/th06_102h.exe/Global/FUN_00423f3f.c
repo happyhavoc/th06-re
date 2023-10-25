@@ -22,7 +22,7 @@ void FUN_00423f3f(void)
     DAT_006c6d08 = 0;
     _DAT_006c6d0c = local_8;
     sprintf(s__006c6c08,"%.02ffps",(double)local_10);
-    if (DAT_0069d4c1 != '\0') {
+    if (g_GameManager.field22_0x1820._1_1_ != '\0') {
       local_c = 60.0 / g_GameContext.framerateMultiplier;
       g_GameContext._440_4_ = (float)g_GameContext._440_4_ + local_c;
       if (local_c * 0.9 < local_10 == (NAN(local_c * 0.9) || NAN(local_10))) {

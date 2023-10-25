@@ -11,7 +11,7 @@ undefined4 FUN_00429c50(AnmVm *param_1)
   float *local_c;
   int local_8;
   
-  if (DAT_0069d4bd == 0) {
+  if (g_GameManager.character == 0) {
     if ((g_GameContext.unkInput2 != 3) &&
        (iVar3 = AnmManager::LoadAnm(g_AnmManager,5,"data/player00.anm",0x400), iVar3 != 0)) {
       return 0xffffffff;
@@ -20,7 +20,7 @@ undefined4 FUN_00429c50(AnmVm *param_1)
     param_1->anmFileIndex = 0x400;
     AnmManager::SetAndExecuteScript(pAVar2,param_1,pAVar2->scripts[0x400]);
   }
-  else if (DAT_0069d4bd == 1) {
+  else if (g_GameManager.character == 1) {
     if ((g_GameContext.unkInput2 != 3) &&
        (iVar3 = AnmManager::LoadAnm(g_AnmManager,5,"data/player01.anm",0x400), iVar3 != 0)) {
       return 0xffffffff;
@@ -29,8 +29,8 @@ undefined4 FUN_00429c50(AnmVm *param_1)
     param_1->anmFileIndex = 0x400;
     AnmManager::SetAndExecuteScript(pAVar2,param_1,pAVar2->scripts[0x400]);
   }
-  param_1[4].rotation.x = VIEWPORT_WIDTH / 2.0;
-  param_1[4].rotation.y = VIEWPORT_HEIGHT - 64.0;
+  param_1[4].rotation.x = g_GameManager.arcade_region_size.x / 2.0;
+  param_1[4].rotation.y = g_GameManager.arcade_region_size.y - 64.0;
   param_1[4].rotation.z = 0.49;
   param_1[4].matrix.m[2][3] = 0.49;
   param_1[4].matrix.m[3][2] = 0.49;
@@ -44,7 +44,8 @@ undefined4 FUN_00429c50(AnmVm *param_1)
   param_1[4].matrix.m[1][3] = 12.0;
   param_1[4].matrix.m[2][0] = 5.0;
   param_1[9].color = 0;
-  pfVar4 = (float *)(&DAT_00476728 + ((uint)DAT_0069d4be + (uint)DAT_0069d4bd * 2) * 0x18);
+  pfVar4 = (float *)(&DAT_00476728 +
+                    ((uint)g_GameManager.shottype + (uint)g_GameManager.character * 2) * 0x18);
   pfVar5 = param_1[9].matrix.m[2] + 2;
   for (iVar3 = 6; iVar3 != 0; iVar3 = iVar3 + -1) {
     *pfVar5 = *pfVar4;
@@ -77,9 +78,11 @@ undefined4 FUN_00429c50(AnmVm *param_1)
   param_1[0x6e].posInterpInitial.x = 0.0;
   param_1[0x6e].alphaInterpFinal = 0xfffffc19;
   param_1[0x6e].timeOfLastSpriteSet =
-       (int)(&PTR_FUN_00476708)[((uint)DAT_0069d4be + (uint)DAT_0069d4bd * 2) * 2];
+       (int)(&PTR_FUN_00476708)
+            [((uint)g_GameManager.shottype + (uint)g_GameManager.character * 2) * 2];
   param_1[0x6e].alphaInterpTime.previous =
-       (int)(&PTR_FUN_0047670c)[((uint)DAT_0069d4be + (uint)DAT_0069d4bd * 2) * 2];
+       (int)(&PTR_FUN_0047670c)
+            [((uint)g_GameManager.shottype + (uint)g_GameManager.character * 2) * 2];
   param_1[0x6e].pos2.y = 0.0;
   for (local_8 = 0; local_8 < 2; local_8 = local_8 + 1) {
     puVar1 = (undefined4 *)((int)&param_1[9].uvScrollPos + local_8 * 0xc);

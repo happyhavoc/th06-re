@@ -15,11 +15,11 @@ undefined4 InitD3dRendering(void)
   D3DXVECTOR3 pUp;
   D3DPRESENT_PARAMETERS present_params;
   D3DDISPLAYMODE display_mode;
-  uint local_5;
+  uint using_d3d_hal;
   undefined uStack_1;
   
   uStack_1 = (undefined)((uint)unaff_EBP >> 0x18);
-  local_5 = CONCAT31((int3)unaff_EBP,1);
+  using_d3d_hal = CONCAT31((int3)unaff_EBP,1);
                     /* memset(&present_params, 0, sizeof(D3DPRESENT_PARAMETERS)); */
   pDVar4 = &present_params;
   for (iVar3 = 0xd; iVar3 != 0; iVar3 = iVar3 + -1) {
@@ -112,7 +112,7 @@ undefined4 InitD3dRendering(void)
 LAB_00421190:
       g_GameContext.hasD3dHardwareVertexProcessing = 0;
 LAB_004211ab:
-      dVar6 = fload_withFB(0x3fd0c15240000000);
+      dVar6 = tan(0.2617993950843811);
       pUp.x = 0.0;
       pUp.y = 1.0;
       pUp.z = 0.0;
@@ -153,8 +153,8 @@ LAB_004211ab:
                            );
         g_GameContext.cfg.opts = g_GameContext.cfg.opts & 0xffffff7f;
       }
-      if (((g_GameContext.cfg.opts >> FORCE_16BIT_COLOR_MODE & 1) == 0) && ((local_5 & 0xff) != 0))
-      {
+      if (((g_GameContext.cfg.opts >> FORCE_16BIT_COLOR_MODE & 1) == 0) &&
+         ((using_d3d_hal & 0xff) != 0)) {
         HVar2 = (*(g_GameContext.d3dIface)->lpVtbl->CheckDeviceFormat)
                           (g_GameContext.d3dIface,0,D3DDEVTYPE_HAL,present_params.BackBufferFormat,0
                            ,D3DRTYPE_TEXTURE,D3DFMT_A8R8G8B8);
@@ -185,7 +185,7 @@ LAB_00421077:
       GameErrorContextLog(&g_GameErrorContext,
                           "REF で動作しますが、重すぎて恐らくゲームになりません...\n"
                          );
-      local_5 = local_5 & 0xffffff00;
+      using_d3d_hal = using_d3d_hal & 0xffffff00;
       goto LAB_00421190;
     }
     if (((g_GameContext.cfg.opts >> FORCE_60FPS & 1) == 0) || (g_GameContext.vsyncEnabled != 0)) {

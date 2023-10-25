@@ -156,24 +156,26 @@ undefined4 FUN_00427860(void)
   pfVar7 = &in_ECX[4].rotation.y;
   *pfVar7 = local_c * in_ECX[9].matrix.m[0][2] * g_GameContext.field81_0x1a8 + *pfVar7;
   fVar1 = in_ECX[4].rotation.x;
-  if (fVar1 < DAT_0069d6ec == (NAN(fVar1) || NAN(DAT_0069d6ec))) {
+  if (fVar1 < (float)g_GameManager._6732_4_ == (NAN(fVar1) || NAN((float)g_GameManager._6732_4_))) {
     fVar1 = in_ECX[4].rotation.x;
-    if (DAT_0069d6ec + DAT_0069d6f4 < fVar1 != (NAN(DAT_0069d6ec + DAT_0069d6f4) || NAN(fVar1))) {
-      in_ECX[4].rotation.x = DAT_0069d6ec + DAT_0069d6f4;
+    if ((float)g_GameManager._6732_4_ + (float)g_GameManager._6740_4_ < fVar1 !=
+        (NAN((float)g_GameManager._6732_4_ + (float)g_GameManager._6740_4_) || NAN(fVar1))) {
+      in_ECX[4].rotation.x = (float)g_GameManager._6732_4_ + (float)g_GameManager._6740_4_;
     }
   }
   else {
-    in_ECX[4].rotation.x = DAT_0069d6ec;
+    in_ECX[4].rotation.x = (float)g_GameManager._6732_4_;
   }
   fVar1 = in_ECX[4].rotation.y;
-  if (fVar1 < DAT_0069d6f0 == (NAN(fVar1) || NAN(DAT_0069d6f0))) {
+  if (fVar1 < (float)g_GameManager._6736_4_ == (NAN(fVar1) || NAN((float)g_GameManager._6736_4_))) {
     fVar1 = in_ECX[4].rotation.y;
-    if (DAT_0069d6f0 + DAT_0069d6f8 < fVar1 != (NAN(DAT_0069d6f0 + DAT_0069d6f8) || NAN(fVar1))) {
-      in_ECX[4].rotation.y = DAT_0069d6f0 + DAT_0069d6f8;
+    if ((float)g_GameManager._6736_4_ + (float)g_GameManager._6744_4_ < fVar1 !=
+        (NAN((float)g_GameManager._6736_4_ + (float)g_GameManager._6744_4_) || NAN(fVar1))) {
+      in_ECX[4].rotation.y = (float)g_GameManager._6736_4_ + (float)g_GameManager._6744_4_;
     }
   }
   else {
-    in_ECX[4].rotation.y = DAT_0069d6f0;
+    in_ECX[4].rotation.y = (float)g_GameManager._6736_4_;
   }
   fVar1 = in_ECX[4].rotation.z;
   fVar2 = in_ECX[4].matrix.m[1][1];
@@ -211,7 +213,7 @@ undefined4 FUN_00427860(void)
   in_ECX[4].matrix.m[3][2] = in_ECX[4].rotation.z;
   local_14 = 0.0;
   local_18 = 0.0;
-  if (USHORT_0069d4b0 < 8) {
+  if (g_GameManager.current_power < 8) {
     *(undefined *)((int)in_ECX[9].matrix.m[1] + 6) = 0;
   }
   else if (*(char *)((int)in_ECX[9].matrix.m[1] + 6) == '\0') {

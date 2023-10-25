@@ -16,12 +16,12 @@ void FUN_0040c180(int param_1,int param_2)
   
   if (*(int *)(param_2 + 0x10) < 2) {
     FUN_0040ef50((int *)&AnmRelatedHugeStruct_00487fe0,0xc,(float *)(param_1 + 0xc6c),1,0xffffffff);
-    DAT_0069bccc = *(undefined *)(param_2 + 0x10);
+    g_GameManager.field6_0x18[20] = *(undefined *)(param_2 + 0x10);
   }
   else {
     local_10 = 0xe;
     local_18 = (AnmVm *)&DAT_005ab5f8;
-    if (DAT_0069bcb0 < 2) {
+    if ((int)g_GameManager.difficulty < 2) {
       for (local_14 = 0; local_14 < 0x280; local_14 = local_14 + 1) {
         if (((*(short *)((int)local_18[5].matrix.m[3] + 2) != 0) &&
             (*(short *)((int)local_18[5].matrix.m[3] + 2) != 5)) &&

@@ -26,8 +26,8 @@ void FUN_00434b60(AnmManager *param_1,int param_2,undefined4 param_3,undefined4 
   lVar2 = __ftol2((double)*(float *)(*(int *)(param_2 + 0xc0) + 0x18));
   lVar3 = __ftol2((double)*(float *)(*(int *)(param_2 + 0xc0) + 8));
   lVar4 = __ftol2((double)*(float *)(*(int *)(param_2 + 0xc0) + 4));
-  FUN_00434af0(**(undefined4 **)(param_2 + 0xc0),lVar4,lVar3,lVar2,lVar1,uVar5,uVar6,param_3,param_4
-               ,pcVar7);
+  FUN_00434af0((int)param_1,**(int **)(param_2 + 0xc0),lVar4,lVar3,lVar2,lVar1,uVar5,uVar6,param_3,
+               param_4,pcVar7);
   *(uint *)(param_2 + 0x80) = *(uint *)(param_2 + 0x80) | 1;
   __security_check_cookie(local_c ^ unaff_retaddr);
   return;

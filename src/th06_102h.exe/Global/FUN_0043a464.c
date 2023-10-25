@@ -6,10 +6,10 @@ undefined4 FUN_0043a464(struct *param_1)
 {
   AnmManager *pAVar1;
   ScoreDat *scoredat;
-  undefined *puVar2;
+  undefined4 uVar2;
   int local_c;
   
-  if (DAT_0069d4c4 == '\0') {
+  if (g_GameManager.demo_mode == 0) {
     isMusicMutedWtf();
   }
   pAVar1 = g_AnmManager;
@@ -35,13 +35,13 @@ LAB_0043a516:
         goto LAB_0043a516;
       }
     }
-    param_1->unk_81a0 = (uint)(DAT_0069bcb0 == 4);
+    param_1->unk_81a0 = (uint)(g_GameManager.difficulty == 4);
   }
 LAB_0043a520:
-  if (DAT_0069d4c3 != '\0') {
+  if (g_GameManager._6179_1_ != '\0') {
     param_1->unk_81a0 = 2;
   }
-  DAT_0069d4c3 = 0;
+  g_GameManager._6179_1_ = 0;
   if ((g_GameContext.cfg.opts & 1) == USE_D3D_HW_TEXTURE_BLENDING) {
     param_1->unk_8208 = 0x80004000;
     param_1->unk_8204 = 0xff008000;
@@ -57,11 +57,11 @@ LAB_0043a520:
   param_1->unk_10f28 = 0x10;
   param_1->unk_10edc = 0;
   scoredat = (ScoreDat *)OpenScore("score.dat");
-  ParseClrd(scoredat,SCORE_CRLD);
-  puVar2 = &DAT_0069cd30;
-  ParsePscr((int)scoredat,(Pscr *)&DAT_0069cd30);
-  FUN_0042b7dc(puVar2,scoredat);
-  if (DAT_0069d4c4 == '\0') {
+  ParseClrd(scoredat,g_GameManager.clrd);
+  uVar2 = 0x69cd30;
+  ParsePscr(scoredat,g_GameManager.pscr);
+  FUN_0042b7dc(uVar2,scoredat);
+  if (g_GameManager.demo_mode == 0) {
     if (g_GameContext._1024_4_ == 0) {
       FUN_00424b5d("bgm/th06_01.mid");
       FUN_0042fd30(0,0x78,0xffffff,0,0);
@@ -70,8 +70,8 @@ LAB_0043a520:
       FUN_0042fd30(0,200,0xffffff,0,0);
     }
   }
-  DAT_0069d4c4 = 0;
-  DAT_0069d4c8 = 0;
+  g_GameManager.demo_mode = 0;
+  g_GameManager._6184_4_ = 0;
   return 0;
 }
 

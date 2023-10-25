@@ -4,7 +4,7 @@
 undefined4 FUN_0042a570(int *param_1)
 
 {
-  if (DAT_0069d4c1 != '\0') {
+  if (g_GameManager.field22_0x1820._1_1_ != '\0') {
     while (*(int *)(param_1[0x12] + 8) <= *param_1) {
       param_1[0x12] = param_1[0x12] + 8;
     }

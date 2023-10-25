@@ -12,8 +12,8 @@ void FUN_00420190(void)
   local_10 = in_ECX;
   for (local_c = 0; local_c < 0x200; local_c = local_c + 1) {
     if (*(char *)((int)&local_10[1].currentTimeInScript.previous + 1) != '\0') {
-      (local_10->pos).x = VIEWPORT_X + local_10[1].rotation.x;
-      (local_10->pos).y = VIEWPORT_Y + local_10[1].rotation.y;
+      (local_10->pos).x = g_GameManager.arcade_region_top_left_pos.x + local_10[1].rotation.x;
+      (local_10->pos).y = g_GameManager.arcade_region_top_left_pos.y + local_10[1].rotation.y;
       (local_10->pos).z = 0.01;
       fVar1 = local_10[1].rotation.y;
       if (fVar1 < -8.0 == NAN(fVar1)) {
@@ -26,7 +26,7 @@ void FUN_00420190(void)
         }
       }
       else {
-        (local_10->pos).y = VIEWPORT_Y + 8.0;
+        (local_10->pos).y = g_GameManager.arcade_region_top_left_pos.y + 8.0;
         if (*(char *)((int)&local_10[1].currentTimeInScript.previous + 2) != '\0') {
           AnmManager::SetActiveSprite
                     (g_AnmManager,local_10,

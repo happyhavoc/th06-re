@@ -1,6 +1,4 @@
 
-/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
-
 void FUN_0041c28c(float param_1)
 
 {
@@ -20,7 +18,7 @@ void FUN_0041c28c(float param_1)
   local_14 = (float)(ulonglong)g_GameContext.viewport.Width /
              (float)(ulonglong)g_GameContext.viewport.Height;
   local_18 = 0.5235988;
-  dVar1 = fload_withFB(0x3fd0c15240000000);
+  dVar1 = tan(0.2617993950843811);
   local_8 = local_c / (float)(float10)CONCAT28(extraout_ST0h,dVar1);
   local_24.x = 0.0;
   local_24.y = 1.0;
@@ -33,7 +31,7 @@ void FUN_0041c28c(float param_1)
   local_3c.z = -local_8;
   _D3DXMatrixLookAtLH_16(&g_GameContext.viewMatrix,&local_3c,&local_30,&local_24);
   dVar1 = _fabs((double)local_8);
-  _DAT_0069d6fc = (float)dVar1;
+  g_GameManager._6748_4_ = (undefined4)dVar1;
   _D3DXMatrixPerspectiveFovLH_20
             (&g_GameContext.projectionMatrix,local_18,local_14,100.0,param_1 + 10000.0);
   (*(g_GameContext.d3dDevice)->lpVtbl->SetTransform)

@@ -24,15 +24,15 @@ undefined4 FUN_00439965(void)
       local_28 = 0xff;
     }
     local_c = local_28;
-    local_10 = (uint)DAT_0069d4be + (uint)DAT_0069d4bd * 2;
-    if (*(byte *)(local_10 * 0x18 + 0x69cce1 + DAT_0069bcb0) < 7) {
-      local_2c = (uint)*(byte *)(local_10 * 0x18 + 0x69cce1 + DAT_0069bcb0);
+    local_10 = (uint)g_GameManager.shottype + (uint)g_GameManager.character * 2;
+    if (*(byte *)(local_10 * 0x18 + 0x69cce1 + g_GameManager.difficulty) < 7) {
+      local_2c = (uint)*(byte *)(local_10 * 0x18 + 0x69cce1 + g_GameManager.difficulty);
     }
     else {
       local_2c = 6;
     }
     local_14 = local_2c;
-    if ((DAT_0069bcb0 == 0) && (local_2c == 6)) {
+    if ((g_GameManager.difficulty == 0) && (local_2c == 6)) {
       local_14 = 5;
     }
     for (local_8 = 0; local_8 < (int)local_14; local_8 = local_8 + 1) {
@@ -44,7 +44,8 @@ undefined4 FUN_00439965(void)
       }
       AsciiManager::FUN_00401650
                 (&g_AsciiManager,&local_20,"STAGE %d  %.9d",local_8 + 1,
-                 (&DAT_0069cd3c)[local_8 * 0x14 + local_10 * 0x78 + DAT_0069bcb0 * 5]);
+                 *(undefined4 *)
+                  (local_10 * 0x1e0 + local_8 * 0x50 + 0x69cd3c + g_GameManager.difficulty * 0x14));
       local_1c = local_1c + 24.0;
     }
     g_AsciiManager.color = 0xffffffff;

@@ -46,7 +46,7 @@ undefined4 InputChainAddedCallback(GameContext *param_1)
     AnmManager::ReleaseSurface(g_AnmManager,0);
     DVar4 = timeGetTime();
     *(DWORD *)&param_1->field_0x400 = DVar4;
-    FUN_00423b14(param_1);
+    SetupDInput(param_1);
     this = (MidiOutput *)operator_new(0x300);
     uStack_8 = 0;
     if (this == (MidiOutput *)0x0) {

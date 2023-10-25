@@ -1,6 +1,4 @@
 
-/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
-
 int __fastcall
 AsciiManagerProbablyStageRelated::FUN_00402870(AsciiManagerProbablyStageRelated *this)
 
@@ -10,21 +8,21 @@ AsciiManagerProbablyStageRelated::FUN_00402870(AsciiManagerProbablyStageRelated 
   short local_3c;
   int local_8;
   
-  if (DAT_0069d4c3 != '\0') {
-    DAT_0069bca0 = DAT_0069bca4;
-    DAT_0069d4c0 = 0;
+  if (g_GameManager._6179_1_ != '\0') {
+    g_GameManager.field0_0x0 = g_GameManager.score;
+    g_GameManager.field22_0x1820._0_1_ = 0;
     g_GameContext.unkInput2 = 7;
     return 1;
   }
-  if (DAT_0069bcbc != 0) {
-    DAT_0069bca0 = DAT_0069bca4;
-    DAT_0069d4c0 = 0;
+  if (g_GameManager.field6_0x18._4_4_ != 0) {
+    g_GameManager.field0_0x0 = g_GameManager.score;
+    g_GameManager.field22_0x1820._0_1_ = 0;
     g_GameContext.unkInput2 = 8;
     return 1;
   }
-  if ((2 < DAT_0069d4b8) || (3 < DAT_0069bcb0)) {
-    DAT_0069bca0 = DAT_0069bca4;
-    DAT_0069d4c0 = 0;
+  if ((2 < g_GameManager.num_retries) || (3 < (int)g_GameManager.difficulty)) {
+    g_GameManager.field0_0x0 = g_GameManager.score;
+    g_GameManager.field22_0x1820._0_1_ = 0;
     g_GameContext.unkInput2 = 7;
     return 1;
   }
@@ -124,21 +122,21 @@ AsciiManagerProbablyStageRelated::FUN_00402870(AsciiManagerProbablyStageRelated 
     if (0x1d < this->field1_0x4) {
       this->field0_0x0 = 0;
       this->field1_0x4 = 0;
-      DAT_0069d4c0 = 0;
+      g_GameManager.field22_0x1820._0_1_ = 0;
       for (local_8 = 0; local_8 < 4; local_8 = local_8 + 1) {
         this->vms0[local_8].flags = this->vms0[local_8].flags & 0xfffffffe;
       }
-      DAT_0069d4b8 = DAT_0069d4b8 + 1;
+      g_GameManager.num_retries = g_GameManager.num_retries + 1;
       DAT_0069bc30 = DAT_0069bc30 & 0xfffffc00 | 0x2aa;
-      DAT_0069bca0 = (uint)DAT_0069d4b8;
-      DAT_0069bca4 = (uint)DAT_0069d4b8;
-      _DAT_0069bca8 = 0;
-      DAT_0069bcb4 = 0;
-      USHORT_0069d4b0 = 0;
-      DAT_0069d4b4 = 0;
-      DAT_0069d4ba = g_GameContext.lifeCount;
-      DAT_0069d4bb = g_GameContext.bombCount;
-      DAT_0069d4bc = 0;
+      g_GameManager.field0_0x0 = (uint)g_GameManager.num_retries;
+      g_GameManager.score = (uint)g_GameManager.num_retries;
+      g_GameManager.field2_0x8 = 0;
+      g_GameManager.graze_in_stage = 0;
+      g_GameManager.current_power = 0;
+      g_GameManager.point_items_collected_in_stage = 0;
+      g_GameManager.lives_remaining = g_GameContext.lifeCount;
+      g_GameManager.bombs_remaining = g_GameContext.bombCount;
+      g_GameManager._6172_1_ = 0;
       return 0;
     }
     break;
@@ -146,12 +144,12 @@ AsciiManagerProbablyStageRelated::FUN_00402870(AsciiManagerProbablyStageRelated 
     if (0x13 < this->field1_0x4) {
       this->field0_0x0 = 0;
       this->field1_0x4 = 0;
-      DAT_0069d4c0 = 0;
+      g_GameManager.field22_0x1820._0_1_ = 0;
       g_GameContext.unkInput2 = 7;
       for (local_8 = 0; local_8 < 4; local_8 = local_8 + 1) {
         this->vms0[local_8].flags = this->vms0[local_8].flags & 0xfffffffe;
       }
-      DAT_0069bca0 = DAT_0069bca4;
+      g_GameManager.field0_0x0 = g_GameManager.score;
       return 0;
     }
   }

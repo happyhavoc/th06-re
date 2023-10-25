@@ -119,23 +119,25 @@ void FUN_004195bf(void)
     FUN_0041b5af();
   }
   if (*(int *)(*(int *)(in_ECX + 4) + 0x2bdc) == 1) {
-    local_c = (DAT_0069d6d4 * 1000 + DAT_0069bcb4 * 10 + (uint)USHORT_0069d4b0 * 100) *
-              (uint)DAT_0069d4b4;
-    if (5 < DAT_0069d6d4) {
-      local_c = local_c + DAT_0069d4ba * 3000000 + DAT_0069d4bb * 1000000;
+    local_c = (g_GameManager.current_stage * 1000 + g_GameManager.graze_in_stage * 10 +
+              (uint)g_GameManager.current_power * 100) *
+              (uint)g_GameManager.point_items_collected_in_stage;
+    if (5 < (int)g_GameManager.current_stage) {
+      local_c = local_c + (char)g_GameManager.lives_remaining * 3000000 +
+                (char)g_GameManager.bombs_remaining * 1000000;
     }
-    if (DAT_0069bcb0 == 0) {
+    if (g_GameManager.difficulty == 0) {
       local_c = local_c / 2 - (local_c / 2) % 10;
     }
-    else if (DAT_0069bcb0 == 2) {
+    else if (g_GameManager.difficulty == 2) {
       local_c = (local_c * 0xc) / 10;
       local_c = local_c - local_c % 10;
     }
-    else if (DAT_0069bcb0 == 3) {
+    else if (g_GameManager.difficulty == 3) {
       local_c = (local_c * 0xf) / 10;
       local_c = local_c - local_c % 10;
     }
-    else if (DAT_0069bcb0 == 4) {
+    else if (g_GameManager.difficulty == 4) {
       local_c = local_c * 2 - (local_c * 2) % 10;
     }
     if (g_GameContext.lifeCount == 3) {
@@ -147,7 +149,7 @@ void FUN_004195bf(void)
       local_c = local_c - local_c % 10;
     }
     *(int *)(*(int *)(in_ECX + 4) + 0x2be0) = local_c;
-    DAT_0069bca4 = DAT_0069bca4 + local_c;
+    g_GameManager.score = g_GameManager.score + local_c;
     *(int *)(*(int *)(in_ECX + 4) + 0x2bdc) = *(int *)(*(int *)(in_ECX + 4) + 0x2bdc) + 1;
   }
   return;

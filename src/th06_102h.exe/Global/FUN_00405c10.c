@@ -22,9 +22,9 @@ void FUN_00405c10(int param_1)
       (local_8->pos).x = *pfVar5 + (local_8->pos2).x;
       (local_8->pos).y = fVar3 + fVar4;
       (local_8->pos).z = fVar1 + fVar2;
-      (local_8->pos).x = VIEWPORT_X + (local_8->pos).x;
+      (local_8->pos).x = g_GameManager.arcade_region_top_left_pos.x + (local_8->pos).x;
       pfVar5 = &(local_8->pos).y;
-      *pfVar5 = VIEWPORT_Y + *pfVar5;
+      *pfVar5 = g_GameManager.arcade_region_top_left_pos.y + *pfVar5;
       (local_8->pos).z = 0.0;
       AnmManager::FUN_00432ad0(g_AnmManager,local_8);
       pfVar5 = (float *)(param_1 + 0x7624 + local_c * 0xc);
@@ -35,9 +35,9 @@ void FUN_00405c10(int param_1)
       local_8[1].pos.x = *pfVar5 + local_8[1].pos2.x;
       local_8[1].pos.y = fVar3 + fVar4;
       local_8[1].pos.z = fVar1 + fVar2;
-      local_8[1].pos.x = VIEWPORT_X + local_8[1].pos.x;
+      local_8[1].pos.x = g_GameManager.arcade_region_top_left_pos.x + local_8[1].pos.x;
       pfVar5 = &local_8[1].pos.y;
-      *pfVar5 = VIEWPORT_Y + *pfVar5;
+      *pfVar5 = g_GameManager.arcade_region_top_left_pos.y + *pfVar5;
       local_8[1].pos.z = 0.0;
       AnmManager::FUN_00432ad0(g_AnmManager,local_8 + 1);
       pfVar5 = (float *)(param_1 + 0x7624 + local_c * 0xc);
@@ -48,9 +48,9 @@ void FUN_00405c10(int param_1)
       local_8[2].pos.x = *pfVar5 + local_8[2].pos2.x;
       local_8[2].pos.y = fVar3 + fVar4;
       local_8[2].pos.z = fVar1 + fVar2;
-      local_8[2].pos.x = VIEWPORT_X + local_8[2].pos.x;
+      local_8[2].pos.x = g_GameManager.arcade_region_top_left_pos.x + local_8[2].pos.x;
       pfVar5 = &local_8[2].pos.y;
-      *pfVar5 = VIEWPORT_Y + *pfVar5;
+      *pfVar5 = g_GameManager.arcade_region_top_left_pos.y + *pfVar5;
       local_8[2].pos.z = 0.0;
       AnmManager::FUN_00432ad0(g_AnmManager,local_8 + 2);
       pfVar5 = (float *)(param_1 + 0x7624 + local_c * 0xc);
@@ -61,9 +61,9 @@ void FUN_00405c10(int param_1)
       local_8[3].pos.x = *pfVar5 + local_8[3].pos2.x;
       local_8[3].pos.y = fVar3 + fVar4;
       local_8[3].pos.z = fVar1 + fVar2;
-      local_8[3].pos.x = VIEWPORT_X + local_8[3].pos.x;
+      local_8[3].pos.x = g_GameManager.arcade_region_top_left_pos.x + local_8[3].pos.x;
       pfVar5 = &local_8[3].pos.y;
-      *pfVar5 = VIEWPORT_Y + *pfVar5;
+      *pfVar5 = g_GameManager.arcade_region_top_left_pos.y + *pfVar5;
       local_8[3].pos.z = 0.0;
       AnmManager::FUN_00432ad0(g_AnmManager,local_8 + 3);
     }

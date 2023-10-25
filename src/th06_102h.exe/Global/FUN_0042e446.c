@@ -63,10 +63,10 @@ void FUN_0042e446(int param_1)
         *pfVar1 = local_40;
         pfVar1[1] = local_3c;
         pfVar1[2] = fStack_38;
-        if (*(short *)(&DAT_0069bd0c + local_44 * 0x40) == 0) {
+        if (g_GameManager.catk[local_44].num_successes == 0) {
           g_AsciiManager.color = 0x80c0c0ff;
         }
-        else if (*(short *)(&DAT_0069bd0e + local_44 * 0x40) == 0) {
+        else if (g_GameManager.catk[local_44].unk_3e == 0) {
           g_AsciiManager.color = 0xffc0a0a0;
         }
         else {
@@ -79,8 +79,8 @@ void FUN_0042e446(int param_1)
         local_40 = local_40 + 368.0;
         AsciiManager::FUN_00401650
                   (&g_AsciiManager,&local_40,"%3d/%3d",
-                   (uint)*(ushort *)(&DAT_0069bd0e + local_44 * 0x40),
-                   (uint)*(ushort *)(&DAT_0069bd0c + local_44 * 0x40));
+                   (uint)(ushort)g_GameManager.catk[local_44].unk_3e,
+                   (uint)(ushort)g_GameManager.catk[local_44].num_successes);
         local_40 = local_40 - 368.0;
         local_3c = local_3c + 30.0;
       }
@@ -106,7 +106,7 @@ void FUN_0042e446(int param_1)
                          (*(int *)(param_1 + 0x24) * 2 + 1) * 0xc);
       for (local_14 = 0; local_3c = local_3c + 18.0, local_14 < 10; local_14 = local_14 + 1) {
         if (*(int *)(param_1 + 8) == 9) {
-          if (DAT_0069d4be == 0) {
+          if (g_GameManager.shottype == 0) {
             if (*(char *)(*(int *)(local_2c + 8) + 9) == '\0') {
               g_AsciiManager.color = 0x80ffffc0;
             }
@@ -153,7 +153,7 @@ void FUN_0042e446(int param_1)
         }
         local_40 = local_40 + 300.0;
         if (*(int *)(param_1 + 8) == 9) {
-          if (DAT_0069d4be == 1) {
+          if (g_GameManager.shottype == 1) {
             if (*(char *)(*(int *)(local_34 + 8) + 9) == '\0') {
               g_AsciiManager.color = 0xc0c0c0ff;
             }
@@ -273,7 +273,8 @@ void FUN_0042e446(int param_1)
         AsciiManager::FUN_00401650
                   (&g_AsciiManager,&local_40,"No.%.2d %8s %8s %7s %9d",local_14 + 1,param_1 + 0x34,
                    param_1 + 0x5670,
-                   (&PTR_s_ReimuA_00478518)[(uint)DAT_0069d4be + (uint)DAT_0069d4bd * 2],
+                   (&PTR_s_ReimuA_00478518)
+                   [(uint)g_GameManager.shottype + (uint)g_GameManager.character * 2],
                    *(undefined4 *)(param_1 + 0x5684));
         g_AsciiManager.color = 0xfff0f0ff;
         local_24 = 0x20202020;

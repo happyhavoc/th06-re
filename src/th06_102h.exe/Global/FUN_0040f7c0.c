@@ -75,7 +75,7 @@ void __fastcall FUN_0040f7c0(int param_1)
                     (pAVar2,pAVar1,pAVar2->scripts[iVar6 * 2 + local_8 + 0x708]);
           FUN_00434b60(g_AnmManager,
                        param_1 + 0x14 + (local_8 + *(int *)(param_1 + 0x1154) * 2) * 0x110,
-                       *(undefined4 *)(param_1 + 0x1158),0xc0d0d0,&local_34);
+                       *(undefined4 *)(param_1 + 0x1158),0xc0d0d0,(char *)&local_34);
           if (local_8 != 0) goto LAB_00410546;
           local_8 = 1;
           local_38 = 0;
@@ -119,7 +119,7 @@ void __fastcall FUN_0040f7c0(int param_1)
           *(long *)(param_1 + 0x1164) = lVar5;
           break;
         case 0x46:
-          iVar6 = FUN_004106d0(*(int *)(param_1 + 0x116c) + 1);
+          iVar6 = FUN_004106d0(param_1,(char *)(*(int *)(param_1 + 0x116c) + 1));
           if (iVar6 == 0) {
             local_38 = 0;
             local_8 = 0;
@@ -254,7 +254,7 @@ switchD_0040fa32_caseD_0:
     pAVar1->anmFileIndex = local_90;
     AnmManager::SetAndExecuteScript(pAVar2,pAVar1,pAVar2->scripts[iVar6 * 2 + local_8 + 0x708]);
     FUN_00434b60(g_AnmManager,param_1 + 0x14 + (local_8 + *(int *)(param_1 + 0x1154) * 2) * 0x110,
-                 *(undefined4 *)(param_1 + 0x1158),0xc0d0d0,&local_34);
+                 *(undefined4 *)(param_1 + 0x1158),0xc0d0d0,(char *)&local_34);
   }
   while (((**(char **)(param_1 + 0x116c) == '\n' || (**(char **)(param_1 + 0x116c) == '\0')) ||
          (**(char **)(param_1 + 0x116c) == '\r'))) {

@@ -81,7 +81,7 @@ int __thiscall AnmManager::FUN_00433590(AnmManager *this,AnmVm *vm)
       }
       else {
         (*(g_GameContext.d3dDevice)->lpVtbl->DrawPrimitiveUP)
-                  (g_GameContext.d3dDevice,D3DPT_TRIANGLESTRIP,2,&DAT_006d4660,0x18);
+                  (g_GameContext.d3dDevice,D3DPT_TRIANGLESTRIP,2,&FLOAT_006d4660,0x18);
       }
       iVar2 = 0;
     }

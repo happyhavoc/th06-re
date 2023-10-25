@@ -40,7 +40,7 @@ void FUN_0040c5b0(int param_1)
     local_8 = *(int *)(param_1 + 0x9ac) / 9;
     local_64._0_2_ = 8;
     local_1c = 0;
-    if (DAT_0069bcb0 < 2) {
+    if ((int)g_GameManager.difficulty < 2) {
       local_20 = 1;
     }
     else {
@@ -98,7 +98,7 @@ void FUN_0040c5b0(int param_1)
       local_5c = local_84.y + *(float *)(param_1 + 0xc70) + local_70;
       local_60 = fVar1 + *(float *)(param_1 + 0xc6c) + local_74;
       local_4c = 0x40000000;
-      if (((local_8 & 1) != 0) && (DAT_0069bcb0 < 2)) {
+      if (((local_8 & 1) != 0) && ((int)g_GameManager.difficulty < 2)) {
         local_54 = local_88;
       }
       local_64._2_2_ = 3;

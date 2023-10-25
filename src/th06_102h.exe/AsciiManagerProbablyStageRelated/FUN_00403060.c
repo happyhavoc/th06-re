@@ -8,11 +8,11 @@ AsciiManagerProbablyStageRelated::FUN_00403060(AsciiManagerProbablyStageRelated 
   AnmVm *pAVar3;
   int local_8;
   
-  if (DAT_0069d4c0 != '\0') {
-    g_GameContext.viewport.X = __ftol2((double)VIEWPORT_X);
-    g_GameContext.viewport.Y = __ftol2((double)VIEWPORT_Y);
-    g_GameContext.viewport.Width = __ftol2((double)VIEWPORT_WIDTH);
-    g_GameContext.viewport.Height = __ftol2((double)VIEWPORT_HEIGHT);
+  if ((char)g_GameManager.field22_0x1820 != '\0') {
+    g_GameContext.viewport.X = __ftol2((double)g_GameManager.arcade_region_top_left_pos.x);
+    g_GameContext.viewport.Y = __ftol2((double)g_GameManager.arcade_region_top_left_pos.y);
+    g_GameContext.viewport.Width = __ftol2((double)g_GameManager.arcade_region_size.x);
+    g_GameContext.viewport.Height = __ftol2((double)g_GameManager.arcade_region_size.y);
     (*(g_GameContext.d3dDevice)->lpVtbl->SetViewport)
               (g_GameContext.d3dDevice,(D3DVIEWPORT8 *)0x6c6de0);
     if ((g_GameContext.lockableBackbuffer != 0) &&
@@ -29,7 +29,7 @@ AsciiManagerProbablyStageRelated::FUN_00403060(AsciiManagerProbablyStageRelated 
       }
       this->vms0[4].pos.x = this->vms0[4].scaleX * 8.0 + this->vms0[4].pos.x;
       this->vms0[4].sprite =
-           (AnmLoadedSprite *)((int)g_AnmManager + (0x1e - (uint)DAT_0069d4b8) * 0x38);
+           (AnmLoadedSprite *)((int)g_AnmManager + (0x1e - (uint)g_GameManager.num_retries) * 0x38);
       AnmManager::FUN_00432ad0(g_AnmManager,this->vms0 + 4);
     }
     for (local_8 = 0; local_8 < 4; local_8 = local_8 + 1) {

@@ -118,7 +118,7 @@ AsciiManagerProbablyStageRelated::FUN_00401b80(AsciiManagerProbablyStageRelated 
   case 3:
     if (0x13 < this->field1_0x4) {
       this->field0_0x0 = 0;
-      DAT_0069d4bf = 0;
+      g_GameManager._6175_1_ = 0;
       for (local_8 = 0; local_8 < 6; local_8 = local_8 + 1) {
         this->vms0[local_8].flags = this->vms0[local_8].flags & 0xfffffffe;
       }
@@ -188,7 +188,7 @@ AsciiManagerProbablyStageRelated::FUN_00401b80(AsciiManagerProbablyStageRelated 
   case 6:
     if (0x13 < this->field1_0x4) {
       this->field0_0x0 = 0;
-      DAT_0069d4bf = 0;
+      g_GameManager._6175_1_ = 0;
       g_GameContext.unkInput2 = 1;
       for (local_8 = 0; local_8 < 6; local_8 = local_8 + 1) {
         this->vms0[local_8].flags = this->vms0[local_8].flags & 0xfffffffe;

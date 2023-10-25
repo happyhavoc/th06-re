@@ -1,6 +1,4 @@
 
-/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
-
 int Stage::FUN_00403810(Stage *arg)
 
 {
@@ -14,7 +12,7 @@ int Stage::FUN_00403810(Stage *arg)
   StdRawInstr *local_c;
   
   if (arg->stdData != (byte *)0x0) {
-    if (DAT_0069bccc == '\0') {
+    if (g_GameManager.field6_0x18[20] == '\0') {
       do {
         local_c = arg->beginningOfScript + arg->instructionIndex;
         switch(local_c->field1_0x4) {
@@ -78,13 +76,13 @@ switchD_00403892_caseD_6:
             }
             fVar2 = ((float)(arg->facingDirInterpTimer).current +
                     (arg->facingDirInterpTimer).subFrame) / (float)arg->facingDirInterpDuration;
-            _DAT_0069d700 =
+            g_GameManager.stage_camera_facing_dir.x =
                  ((arg->facingDirInterpFinal).x - (arg->facingDirInterpInitial).x) * fVar2 +
                  (arg->facingDirInterpInitial).x;
-            _DAT_0069d704 =
+            g_GameManager.stage_camera_facing_dir.y =
                  ((arg->facingDirInterpFinal).y - (arg->facingDirInterpInitial).y) * fVar2 +
                  (arg->facingDirInterpInitial).y;
-            _DAT_0069d708 =
+            g_GameManager.stage_camera_facing_dir.z =
                  ((arg->facingDirInterpFinal).z - (arg->facingDirInterpInitial).z) * fVar2 +
                  (arg->facingDirInterpInitial).z;
           }

@@ -94,13 +94,13 @@ int __thiscall AnmManager::FUN_00433150(AnmManager *this,AnmVm *vm)
       this->currentVertexShader = '\x03';
     }
     FUN_004324d0(this,vm);
-    if ((g_GameContext.cfg.opts >> 1 & 1) == 0) {
+    if ((g_GameContext.cfg.opts >> DONT_USE_VERTEX_BUF & 1) == 0) {
       (*(g_GameContext.d3dDevice)->lpVtbl->DrawPrimitive)
                 (g_GameContext.d3dDevice,D3DPT_TRIANGLESTRIP,0,2);
     }
     else {
       (*(g_GameContext.d3dDevice)->lpVtbl->DrawPrimitiveUP)
-                (g_GameContext.d3dDevice,D3DPT_TRIANGLESTRIP,2,&DAT_006d4660,0x18);
+                (g_GameContext.d3dDevice,D3DPT_TRIANGLESTRIP,2,&FLOAT_006d4660,0x18);
     }
     iVar2 = 0;
   }

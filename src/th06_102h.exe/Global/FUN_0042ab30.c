@@ -67,7 +67,7 @@ void FUN_0042ab30(char *param_1,char *param_2)
           }
         }
         DebugPrint2("%s write ...\n",param_1);
-        local_40 = DAT_0069bca0;
+        local_40 = g_GameManager.field0_0x0;
         local_10 = (float)g_GameContext._436_4_ / (float)g_GameContext._440_4_ - 0.5;
         local_10 = local_10 + local_10;
         if (local_10 < 0.0 == NAN(local_10)) {
@@ -81,7 +81,8 @@ void FUN_0042ab30(char *param_1,char *param_2)
         local_38 = (1.0 - local_10) * 100.0;
         local_3c = local_38 + 1.12;
         local_34 = local_38 + 2.34;
-        **(undefined4 **)(*(int *)(local_c + 4) + 0x30 + DAT_0069d6d4 * 4) = DAT_0069bca4;
+        **(uint **)(*(int *)(local_c + 4) + 0x30 + g_GameManager.current_stage * 4) =
+             g_GameManager.score;
         local_90 = param_2;
         local_94 = local_4b;
         do {

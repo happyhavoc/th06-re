@@ -31,10 +31,10 @@ void __thiscall AsciiManager::FUN_004016b0(AsciiManager *this)
                   (g_GameContext.d3dDevice,&g_GameContext.viewport);
       }
       else {
-        g_GameContext.viewport.X = __ftol2((double)VIEWPORT_X);
-        g_GameContext.viewport.Y = __ftol2((double)VIEWPORT_Y);
-        g_GameContext.viewport.Width = __ftol2((double)VIEWPORT_WIDTH);
-        g_GameContext.viewport.Height = __ftol2((double)VIEWPORT_HEIGHT);
+        g_GameContext.viewport.X = __ftol2((double)g_GameManager.arcade_region_top_left_pos.x);
+        g_GameContext.viewport.Y = __ftol2((double)g_GameManager.arcade_region_top_left_pos.y);
+        g_GameContext.viewport.Width = __ftol2((double)g_GameManager.arcade_region_size.x);
+        g_GameContext.viewport.Height = __ftol2((double)g_GameManager.arcade_region_size.y);
         (*(g_GameContext.d3dDevice)->lpVtbl->SetViewport)
                   (g_GameContext.d3dDevice,&g_GameContext.viewport);
       }

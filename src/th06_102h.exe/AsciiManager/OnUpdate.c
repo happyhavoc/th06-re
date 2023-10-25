@@ -5,7 +5,7 @@ int AsciiManager::OnUpdate(AsciiManager *arg)
   AsciiManagerPopup *local_c;
   int local_8;
   
-  if ((DAT_0069d4bf == '\0') && (DAT_0069d4c0 == '\0')) {
+  if ((g_GameManager._6175_1_ == '\0') && ((char)g_GameManager.field22_0x1820 == '\0')) {
     local_c = arg->popups0;
     for (local_8 = 0; local_8 < 0x203; local_8 = local_8 + 1) {
       if (local_c->inUse != '\0') {
@@ -20,10 +20,10 @@ int AsciiManager::OnUpdate(AsciiManager *arg)
       local_c = local_c + 1;
     }
   }
-  else if (DAT_0069d4bf != '\0') {
+  else if (g_GameManager._6175_1_ != '\0') {
     AsciiManagerProbablyStageRelated::FUN_00401b80(&arg->field17_0x6244);
   }
-  if (DAT_0069d4c0 != '\0') {
+  if ((char)g_GameManager.field22_0x1820 != '\0') {
     AsciiManagerProbablyStageRelated::FUN_00402870(&arg->field18_0x69bc);
   }
   return 1;

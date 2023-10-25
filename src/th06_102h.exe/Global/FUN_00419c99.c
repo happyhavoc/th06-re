@@ -309,7 +309,7 @@ void __fastcall FUN_00419c99(uint *param_1)
   if (((*param_1 & 3) != 0) || ((g_GameContext.cfg.opts >> 4 & 1) != 0)) {
     local_14 = (AnmVm *)(param_1[1] + 0x1100);
     local_c = 496.0;
-    for (local_10 = 0; local_10 < DAT_0069d4ba; local_10 = local_10 + 1) {
+    for (local_10 = 0; local_10 < (char)g_GameManager.lives_remaining; local_10 = local_10 + 1) {
       local_13c = local_c;
       local_138 = 0x42f40000;
       local_134 = 0x3efae148;
@@ -323,7 +323,7 @@ void __fastcall FUN_00419c99(uint *param_1)
   if (((*param_1 >> 2 & 3) != 0) || ((g_GameContext.cfg.opts >> 4 & 1) != 0)) {
     local_14 = (AnmVm *)(param_1[1] + 0x1210);
     local_c = 496.0;
-    for (local_10 = 0; local_10 < DAT_0069d4bb; local_10 = local_10 + 1) {
+    for (local_10 = 0; local_10 < (char)g_GameManager.bombs_remaining; local_10 = local_10 + 1) {
       local_148 = local_c;
       local_144 = 0x43120000;
       local_140 = 0x3efae148;
@@ -339,14 +339,14 @@ void __fastcall FUN_00419c99(uint *param_1)
     do {
       local_1c0 = local_1c0 + -1;
     } while (-1 < local_1c0);
-    if (USHORT_0069d4b0 != 0) {
+    if (g_GameManager.current_power != 0) {
       local_154 = 0x43f80000;
       local_150 = 0x433a0000;
       local_14c = 0x3dcccccd;
       local_7c = 0x43f80000;
       uStack_78 = 0x433a0000;
       uStack_74 = 0x3dcccccd;
-      local_160 = (float)(USHORT_0069d4b0 + 0x1f0) + 0.0;
+      local_160 = (float)(g_GameManager.current_power + 0x1f0) + 0.0;
       local_15c = 0x433a0000;
       local_158 = 0x3dcccccd;
       uStack_64 = 0x433a0000;
@@ -357,7 +357,7 @@ void __fastcall FUN_00419c99(uint *param_1)
       local_54 = 0x43f80000;
       uStack_50 = 0x434a0000;
       uStack_4c = 0x3dcccccd;
-      local_178 = (float)(USHORT_0069d4b0 + 0x1f0) + 0.0;
+      local_178 = (float)(g_GameManager.current_power + 0x1f0) + 0.0;
       local_174 = 0x434a0000;
       local_170 = 0x3dcccccd;
       uStack_3c = 0x434a0000;
@@ -404,7 +404,7 @@ void __fastcall FUN_00419c99(uint *param_1)
                 (g_GameContext.d3dDevice,0,D3DTSS_ALPHAARG1,2);
       (*(g_GameContext.d3dDevice)->lpVtbl->SetTextureStageState)
                 (g_GameContext.d3dDevice,0,D3DTSS_COLORARG1,2);
-      if (0x7f < USHORT_0069d4b0) {
+      if (0x7f < g_GameManager.current_power) {
         uVar1 = param_1[1];
         local_14 = (AnmVm *)(uVar1 + 0x1320);
         local_184 = 0x43f80000;
@@ -416,32 +416,33 @@ void __fastcall FUN_00419c99(uint *param_1)
         AnmManager::FUN_00432ad0(g_AnmManager,local_14);
       }
     }
-    if (USHORT_0069d4b0 < 0x80) {
+    if (g_GameManager.current_power < 0x80) {
       local_190 = 0x43f80000;
       local_18c = 0x433a0000;
       local_188 = 0;
-      AsciiManager::FUN_00401650(&g_AsciiManager,&local_190,"%d",(uint)USHORT_0069d4b0);
+      AsciiManager::FUN_00401650(&g_AsciiManager,&local_190,"%d",(uint)g_GameManager.current_power);
     }
   }
   local_88 = 0x43f80000;
   local_84 = 0x42a40000;
   local_80 = 0;
-  AsciiManager::FUN_00401650(&g_AsciiManager,&local_88,"%.9d",DAT_0069bca0);
+  AsciiManager::FUN_00401650(&g_AsciiManager,&local_88,"%.9d",g_GameManager.field0_0x0);
   local_88 = 0x43f80000;
   local_84 = 0x42680000;
   local_80 = 0;
-  AsciiManager::FUN_00401650(&g_AsciiManager,&local_88,"%.9d",DAT_0069bcac);
+  AsciiManager::FUN_00401650(&g_AsciiManager,&local_88,"%.9d",g_GameManager.high_score);
   if (((*param_1 >> 6 & 3) != 0) || ((g_GameContext.cfg.opts >> 4 & 1) != 0)) {
     local_88 = 0x43f80000;
     local_84 = 0x434e0000;
     local_80 = 0;
-    AsciiManager::FUN_00401650(&g_AsciiManager,&local_88,"%d",DAT_0069bcb4);
+    AsciiManager::FUN_00401650(&g_AsciiManager,&local_88,"%d",g_GameManager.graze_in_stage);
   }
   if (((*param_1 >> 8 & 3) != 0) || ((g_GameContext.cfg.opts >> 4 & 1) != 0)) {
     local_88 = 0x43f80000;
     local_84 = 0x43620000;
     local_80 = 0;
-    AsciiManager::FUN_00401650(&g_AsciiManager,&local_88,"%d",(uint)DAT_0069d4b4);
+    AsciiManager::FUN_00401650
+              (&g_AsciiManager,&local_88,"%d",(uint)g_GameManager.point_items_collected_in_stage);
   }
   if ((*param_1 & 3) != 0) {
     *param_1 = *param_1 & 0xfffffffc | (*param_1 & 3) - 1 & 3;

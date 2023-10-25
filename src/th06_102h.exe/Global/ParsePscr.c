@@ -1,20 +1,21 @@
 
-undefined4 ParsePscr(int scoredat,Pscr *param_2)
+undefined4 ParsePscr(ScoreDat *scoredat,Pscr *param_2)
 
 {
-  undefined4 uVar1;
-  int iVar2;
-  uint *puVar3;
+  Th6k *pTVar1;
+  undefined4 uVar2;
+  int iVar3;
   Pscr *pPVar4;
+  Pscr *pPVar5;
   int local_1c;
   int local_18;
   int local_14;
   int local_10;
-  uint *local_c;
+  Pscr *local_c;
   Pscr *local_8;
   
   if (param_2 == (Pscr *)0x0) {
-    uVar1 = 0xffffffff;
+    uVar2 = 0xffffffff;
   }
   else {
     local_8 = param_2;
@@ -26,34 +27,32 @@ undefined4 ParsePscr(int scoredat,Pscr *param_2)
           (local_8->base).unk_len = 0x14;
           (local_8->base).th6k_len = 0x14;
           (local_8->base).version_ = '\x10';
-          local_8->idx2 = (byte)local_10;
-          local_8->idx3 = (byte)local_1c;
-          local_8->idx1 = (byte)local_14;
+          local_8->character = (byte)local_10;
+          local_8->difficulty = (byte)local_1c;
+          local_8->stage = (byte)local_14;
           local_8 = local_8 + 1;
         }
       }
     }
-    local_c = (uint *)(scoredat + *(int *)(scoredat + 8));
-    for (local_18 = *(int *)(scoredat + 0x10) - *(int *)(scoredat + 8); 0 < local_18;
-        local_18 = local_18 - (uint)*(ushort *)puVar3) {
-      if ((*local_c == L'\x52435350') && (*(char *)(local_c + 2) == '\x10')) {
-        if ((3 < *(byte *)(local_c + 4)) ||
-           ((4 < *(byte *)((int)local_c + 0x11) || (6 < *(byte *)((int)local_c + 0x12))))) break;
-        puVar3 = local_c;
-        pPVar4 = param_2 + (uint)*(byte *)((int)local_c + 0x12) * 4 +
-                           (uint)*(byte *)(local_c + 4) * 0x18 +
-                           (uint)*(byte *)((int)local_c + 0x11);
-        for (iVar2 = 5; iVar2 != 0; iVar2 = iVar2 + -1) {
-          (pPVar4->base).magic = *puVar3;
-          puVar3 = puVar3 + 1;
+    local_c = (Pscr *)(scoredat->xorseed + scoredat->data_offset);
+    for (local_18 = scoredat->file_length - scoredat->data_offset; 0 < local_18;
+        local_18 = local_18 - (uint)pTVar1->th6k_len) {
+      if (((local_c->base).magic == L'\x52435350') && ((local_c->base).version_ == '\x10')) {
+        if ((3 < local_c->character) || ((4 < local_c->difficulty || (6 < local_c->stage)))) break;
+        pPVar4 = local_c;
+        pPVar5 = param_2 + (uint)local_c->stage * 4 + (uint)local_c->character * 0x18 +
+                           (uint)local_c->difficulty;
+        for (iVar3 = 5; iVar3 != 0; iVar3 = iVar3 + -1) {
+          (pPVar5->base).magic = (pPVar4->base).magic;
           pPVar4 = (Pscr *)&(pPVar4->base).th6k_len;
+          pPVar5 = (Pscr *)&(pPVar5->base).th6k_len;
         }
       }
-      puVar3 = local_c + 1;
-      local_c = (uint *)((int)local_c + (uint)*(ushort *)(local_c + 1));
+      pTVar1 = &local_c->base;
+      local_c = (Pscr *)((int)&(local_c->base).magic + (uint)(local_c->base).th6k_len);
     }
-    uVar1 = 0;
+    uVar2 = 0;
   }
-  return uVar1;
+  return uVar2;
 }
 

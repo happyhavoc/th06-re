@@ -1,17 +1,19 @@
 
-undefined4 FUN_0042f060(ScoreDat **param_1)
+/* WARNING: Unknown calling convention -- yet parameter storage is locked */
+
+undefined4 FUN_0042f060(ResultScreen *param_1)
 
 {
   AnmManager *pAVar1;
   int iVar2;
   ScoreDat *pSVar3;
   short local_3c;
-  int local_14;
-  int local_10;
+  int idx;
+  uint character;
   AnmVm *local_c;
-  int local_8;
+  uint difficulty;
   
-  if (param_1[2] != (ScoreDat *)0x11) {
+  if (param_1->unk_8 != 0x11) {
     iVar2 = AnmManager::LoadSurface(g_AnmManager,0,"data/result/result.jpg");
     if (iVar2 != 0) {
       return 0xffffffff;
@@ -32,8 +34,8 @@ undefined4 FUN_0042f060(ScoreDat **param_1)
     if (iVar2 != 0) {
       return 0xffffffff;
     }
-    local_c = (AnmVm *)(param_1 + 0x10);
-    for (local_8 = 0; local_8 < 0x26; local_8 = local_8 + 1) {
+    local_c = param_1->unk_40;
+    for (difficulty = 0; (int)difficulty < 0x26; difficulty = difficulty + 1) {
       (local_c->pos).x = 0.0;
       (local_c->pos).y = 0.0;
       (local_c->pos).z = 0.0;
@@ -41,15 +43,16 @@ undefined4 FUN_0042f060(ScoreDat **param_1)
       (local_c->pos2).y = 0.0;
       (local_c->pos2).z = 0.0;
       pAVar1 = g_AnmManager;
-      local_3c = (short)local_8 + 0x100;
+      local_3c = (short)difficulty + 0x100;
       local_c->anmFileIndex = local_3c;
-      AnmManager::SetAndExecuteScript(pAVar1,local_c,pAVar1->scripts[local_8 + 0x100]);
+      AnmManager::SetAndExecuteScript(pAVar1,local_c,pAVar1->scripts[difficulty + 0x100]);
       local_c = local_c + 1;
     }
-    local_c = (AnmVm *)(param_1 + 0xa28);
-    for (local_8 = 0; pAVar1 = g_AnmManager, local_8 < 0x10; local_8 = local_8 + 1) {
+    local_c = param_1->unk_28a0;
+    for (difficulty = 0; pAVar1 = g_AnmManager, (int)difficulty < 0x10; difficulty = difficulty + 1)
+    {
       AnmVm::Initialize(local_c);
-      AnmManager::SetActiveSprite(pAVar1,local_c,local_8 + 0x708);
+      AnmManager::SetActiveSprite(pAVar1,local_c,difficulty + 0x708);
       (local_c->pos).x = 0.0;
       (local_c->pos).y = 0.0;
       (local_c->pos).z = 0.0;
@@ -59,52 +62,48 @@ undefined4 FUN_0042f060(ScoreDat **param_1)
       local_c = local_c + 1;
     }
   }
-  for (local_8 = 0; local_8 < 5; local_8 = local_8 + 1) {
-    for (local_10 = 0; local_10 < 4; local_10 = local_10 + 1) {
-      for (local_14 = 0; local_14 < 10; local_14 = local_14 + 1) {
-        param_1[local_8 * 0x118 + local_10 * 0x46 + local_14 * 7 + 0xeeb] =
-             (ScoreDat *)(local_14 * -100000 + 1000000);
-        param_1[local_8 * 0x118 + local_10 * 0x46 + local_14 * 7 + 0xee8] = (ScoreDat *)0x53594d44;
-        *(undefined *)((int)param_1 + local_14 * 0x1c + local_10 * 0x118 + local_8 * 0x460 + 0x3bb1)
-             = (undefined)local_8;
-        *(undefined *)(param_1 + local_8 * 0x118 + local_10 * 0x46 + local_14 * 7 + 0xeea) = 0x10;
-        *(undefined2 *)
-         ((int)param_1 + local_14 * 0x1c + local_10 * 0x118 + local_8 * 0x460 + 0x3ba6) = 0x1c;
-        *(undefined2 *)(param_1 + local_8 * 0x118 + local_10 * 0x46 + local_14 * 7 + 0xee9) = 0x1c;
-        *(undefined *)((int)param_1 + local_14 * 0x1c + local_10 * 0x118 + local_8 * 0x460 + 0x3bb2)
-             = 1;
-        *(undefined *)((int)param_1 + local_14 * 0x1c + local_10 * 0x118 + local_8 * 0x460 + 0x3ba9)
-             = 0;
-        FUN_0042bc2d(param_1 + local_8 * 0x118 + local_10 * 0x46 + local_14 * 7 + 0xee8,local_8,
-                     local_10);
-        _strcpy((char *)((int)param_1 +
-                        local_14 * 0x1c + local_10 * 0x118 + local_8 * 0x460 + 0x3bb3),"Nanashi ");
+  for (difficulty = 0; (int)difficulty < 5; difficulty = difficulty + 1) {
+    for (character = 0; (int)character < 4; character = character + 1) {
+      for (idx = 0; idx < 10; idx = idx + 1) {
+        param_1->default_scores[difficulty][character][idx].score = idx * -100000 + 1000000;
+        param_1->default_scores[difficulty][character][idx].base.magic = (uint)(char  [4])0x53594d44
+        ;
+        param_1->default_scores[difficulty][character][idx].difficulty = (byte)difficulty;
+        param_1->default_scores[difficulty][character][idx].base.version_ = '\x10';
+        param_1->default_scores[difficulty][character][idx].base.unk_len = 0x1c;
+        param_1->default_scores[difficulty][character][idx].base.th6k_len = 0x1c;
+        param_1->default_scores[difficulty][character][idx].stage = 1;
+        param_1->default_scores[difficulty][character][idx].base.field_0x9 = 0;
+        ResultScreen::FUN_0042bc2d
+                  (param_1,param_1->default_scores[difficulty][character] + idx,difficulty,character
+                  );
+        _strcpy(param_1->default_scores[difficulty][character][idx].name,"Nanashi ");
       }
     }
   }
-  param_1[5] = (ScoreDat *)0x0;
+  *(undefined4 *)&param_1->field_0x14 = 0;
   pSVar3 = (ScoreDat *)OpenScore("score.dat");
-  *param_1 = pSVar3;
-  for (local_8 = 0; local_8 < 5; local_8 = local_8 + 1) {
-    for (local_10 = 0; local_10 < 4; local_10 = local_10 + 1) {
-      FUN_0042b280(*param_1,param_1 + local_8 * 0xc + local_10 * 3 + 0xeac,local_10,local_8);
+  param_1->scoredat = pSVar3;
+  for (difficulty = 0; (int)difficulty < 5; difficulty = difficulty + 1) {
+    for (character = 0; (int)character < 4; character = character + 1) {
+      FUN_0042b280(param_1->scoredat,param_1->unk_3ab0 + difficulty * 4 + character,character,
+                   difficulty);
     }
   }
-  if ((param_1[2] != (ScoreDat *)0x9) && (param_1[2] != (ScoreDat *)0x11)) {
-    FUN_0042b466(*param_1,&DAT_0069bcd0);
-    ParseClrd(*param_1,SCORE_CRLD);
-    ParsePscr((int)*param_1,(Pscr *)&DAT_0069cd30);
+  if ((param_1->unk_8 != 9) && (param_1->unk_8 != 0x11)) {
+    ParseCatk(param_1->scoredat,g_GameManager.catk);
+    ParseClrd(param_1->scoredat,g_GameManager.clrd);
+    ParsePscr(param_1->scoredat,g_GameManager.pscr);
   }
-  if ((param_1[2] == (ScoreDat *)0x11) &&
-     ((uint)(&DAT_0069cd3c)
-            [(DAT_0069d6d4 + -1) * 0x14 +
-             ((uint)DAT_0069d4be + (uint)DAT_0069d4bd * 2) * 0x78 + DAT_0069bcb0 * 5] < DAT_0069bca4
-     )) {
-    (&DAT_0069cd3c)
-    [(DAT_0069d6d4 + -1) * 0x14 +
-     ((uint)DAT_0069d4be + (uint)DAT_0069d4bd * 2) * 0x78 + DAT_0069bcb0 * 5] = DAT_0069bca4;
+  if ((param_1->unk_8 == 0x11) &&
+     (*(uint *)(((uint)g_GameManager.shottype + (uint)g_GameManager.character * 2) * 0x1e0 +
+                (g_GameManager.current_stage - 1) * 0x50 + 0x69cd3c +
+               g_GameManager.difficulty * 0x14) < g_GameManager.score)) {
+    *(uint *)(((uint)g_GameManager.shottype + (uint)g_GameManager.character * 2) * 0x1e0 +
+              (g_GameManager.current_stage - 1) * 0x50 + 0x69cd3c + g_GameManager.difficulty * 0x14)
+         = g_GameManager.score;
   }
-  *(undefined2 *)(param_1 + 0xe94) = 0xffff;
+  (param_1->unk_39a0).spriteNumber = -1;
   return 0;
 }
 

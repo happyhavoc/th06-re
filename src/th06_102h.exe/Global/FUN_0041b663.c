@@ -22,10 +22,10 @@ undefined4 FUN_0041b663(uint *param_1)
       (*(char *)(param_1 + 0x609) == '\0')) &&
      (((g_CurFrameInput & 8) != 0 && ((g_CurFrameInput & 8) != (g_LastFrameInput & 8))))) {
     *(undefined *)((int)param_1 + 0x181f) = 1;
-    VIEWPORT_X = 32.0;
-    VIEWPORT_Y = 16.0;
-    VIEWPORT_WIDTH = 384.0;
-    VIEWPORT_HEIGHT = 448.0;
+    g_GameManager.arcade_region_top_left_pos.x = 32.0;
+    g_GameManager.arcade_region_top_left_pos.y = 16.0;
+    g_GameManager.arcade_region_size.x = 384.0;
+    g_GameManager.arcade_region_size.y = 448.0;
     g_GameContext.field77_0x198 = 3;
   }
   if ((*(char *)(param_1 + 0x608) == '\0') && (*(char *)((int)param_1 + 0x181f) == '\0')) {

@@ -21,7 +21,7 @@ void __fastcall FUN_0042c2d4(int param_1)
   iVar1 = *(int *)(param_1 + 8);
   if (iVar1 == 10) {
     if (*(int *)(param_1 + 4) == 0x3c) {
-      if (DAT_0069d4b8 == '\0') {
+      if (g_GameManager.num_retries == 0) {
         if (g_GameContext.framerateMultiplier < 0.99 == NAN(g_GameContext.framerateMultiplier)) {
           local_c = 9;
         }
@@ -257,7 +257,7 @@ LAB_0042c515:
         *(undefined4 *)(param_1 + 0x1c) = *(undefined4 *)(param_1 + 0x10);
         *(undefined4 *)(param_1 + 4) = 0;
         FUN_0045d414(param_1 + 0x5670);
-        *(undefined4 *)(param_1 + 0x5684) = DAT_0069bca4;
+        *(uint *)(param_1 + 0x5684) = g_GameManager.score;
         if ((*(char (*) [4])(param_1 + 0x51b0 + *(int *)(param_1 + 0x10) * 0x50) ==
              (char  [4])0x50523654) &&
            (*(short *)(param_1 + 0x51b4 + *(int *)(param_1 + 0x10) * 0x50) == 0x102)) {

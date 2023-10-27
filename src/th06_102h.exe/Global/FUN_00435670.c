@@ -18,7 +18,7 @@ void __thiscall FUN_00435670(AnmManager *param_1_00,int param_2,int left,int top
       rect.top = top;
       rect.right = left + x;
       rect.bottom = top + y;
-      HVar1 = _D3DXLoadSurfaceFromSurface_32
+      HVar1 = D3DXLoadSurfaceFromSurface
                         (local_18,(PALETTEENTRY *)0x0,(RECT *)0x0,backbuffer,(PALETTEENTRY *)0x0,
                          &rect,0xffffffff,0);
       if (HVar1 == 0) {

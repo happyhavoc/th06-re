@@ -25,7 +25,7 @@ AnmManager::LoadTexture
         format_index = 3;
       }
     }
-    directx_res = _D3DXCreateTextureFromFileInMemoryEx_60
+    directx_res = D3DXCreateTextureFromFileInMemoryEx
                             (g_GameContext.d3dDevice,this->imageDataArray[texture_index],
                              g_LastFileSize,0,0,0,0,g_TextureFormatD3D8Mapping[format_index],
                              D3DPOOL_MANAGED,3,0xffffffff,color_key,(D3DXIMAGE_INFO *)0x0,

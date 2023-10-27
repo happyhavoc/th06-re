@@ -30,7 +30,7 @@ void FUN_004354c0(int param_1,LONG param_2,LONG param_3,int param_4,int param_5,
         (*local_20->lpVtbl->Release)(local_20);
         return;
       }
-      HVar1 = _D3DXLoadSurfaceFromSurface_32
+      HVar1 = D3DXLoadSurfaceFromSurface
                         (*(LPDIRECT3DSURFACE8 *)(in_ECX + 0x20d34 + param_1 * 4),(PALETTEENTRY *)0x0
                          ,(RECT *)0x0,*(LPDIRECT3DSURFACE8 *)(in_ECX + 0x20db4 + param_1 * 4),
                          (PALETTEENTRY *)0x0,(RECT *)0x0,1,0);

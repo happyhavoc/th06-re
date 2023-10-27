@@ -32,18 +32,18 @@ int __thiscall AnmManager::FUN_00433150(AnmManager *this,AnmVm *vm)
     local_c4.m[1][1] = -vm->scaleY * local_c4.m[1][1];
     fVar1 = (vm->rotation).x;
     if (NAN(fVar1) == (fVar1 == 0.0)) {
-      _D3DXMatrixRotationX_8(&local_84,(vm->rotation).x);
-      _D3DXMatrixMultiply_12(&local_c4,&local_c4,&local_84);
+      D3DXMatrixRotationX(&local_84,(vm->rotation).x);
+      D3DXMatrixMultiply(&local_c4,&local_c4,&local_84);
     }
     fVar1 = (vm->rotation).y;
     if (NAN(fVar1) == (fVar1 == 0.0)) {
-      _D3DXMatrixRotationY_8(&local_84,(vm->rotation).y);
-      _D3DXMatrixMultiply_12(&local_c4,&local_c4,&local_84);
+      D3DXMatrixRotationY(&local_84,(vm->rotation).y);
+      D3DXMatrixMultiply(&local_c4,&local_c4,&local_84);
     }
     fVar1 = (vm->rotation).z;
     if (NAN(fVar1) == (fVar1 == 0.0)) {
-      _D3DXMatrixRotationZ_8(&local_84,(vm->rotation).z);
-      _D3DXMatrixMultiply_12(&local_c4,&local_c4,&local_84);
+      D3DXMatrixRotationZ(&local_84,(vm->rotation).z);
+      D3DXMatrixMultiply(&local_c4,&local_c4,&local_84);
     }
     if ((vm->flags >> 8 & 1) == 0) {
       local_c4.m[3][0] = (vm->pos).x;

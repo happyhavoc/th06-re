@@ -54,7 +54,7 @@ void FUN_0040c5b0(int param_1)
     local_9c.z = DAT_006caa70 - *(float *)(param_1 + 0xc74);
     local_9c.y = DAT_006caa6c - *(float *)(param_1 + 0xc70);
     local_9c.x = DAT_006caa68 - *(float *)(param_1 + 0xc6c);
-    _D3DXVec3Normalize_8(&local_84,&local_9c);
+    D3DXVec3Normalize(&local_84,&local_9c);
     if ((local_8 & 1) == 0) {
       local_90 = 256.0;
     }

@@ -20,7 +20,7 @@ int __thiscall AnmManager::LoadSurface(AnmManager *this,int surface_index,char *
                       (g_GameContext.d3dDevice,0x280,0x400,
                        g_GameContext.presentParameters.BackBufferFormat,&surface);
     if (HVar2 == 0) {
-      HVar2 = _D3DXLoadSurfaceFromFileInMemory_36
+      HVar2 = D3DXLoadSurfaceFromFileInMemory
                         (surface,(PALETTEENTRY *)0x0,(RECT *)0x0,data,g_LastFileSize,(RECT *)0x0,1,0
                          ,this->surfaceSourceInfo + surface_index);
       if (((HVar2 == 0) &&
@@ -39,10 +39,10 @@ int __thiscall AnmManager::LoadSurface(AnmManager *this,int surface_index,char *
                                this->surfaceSourceInfo[surface_index].Height,
                                g_GameContext.presentParameters.BackBufferFormat,
                                this->surfacesBis + surface_index), HVar2 == 0)))) &&
-         ((HVar2 = _D3DXLoadSurfaceFromSurface_32
+         ((HVar2 = D3DXLoadSurfaceFromSurface
                              (this->surfaces[surface_index],(PALETTEENTRY *)0x0,(RECT *)0x0,surface,
                               (PALETTEENTRY *)0x0,(RECT *)0x0,1,0), HVar2 == 0 &&
-          (HVar2 = _D3DXLoadSurfaceFromSurface_32
+          (HVar2 = D3DXLoadSurfaceFromSurface
                              (this->surfacesBis[surface_index],(PALETTEENTRY *)0x0,(RECT *)0x0,
                               surface,(PALETTEENTRY *)0x0,(RECT *)0x0,1,0), HVar2 == 0)))) {
         if (surface != (IDirect3DSurface8 *)0x0) {

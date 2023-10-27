@@ -30,7 +30,7 @@ AnmManager::CopySurfaceToBackBuffer
         (*destSurface->lpVtbl->Release)(destSurface);
         return;
       }
-      hres = _D3DXLoadSurfaceFromSurface_32
+      hres = D3DXLoadSurfaceFromSurface
                        (this->surfaces[surfaceIdx],(PALETTEENTRY *)0x0,(RECT *)0x0,
                         this->surfacesBis[surfaceIdx],(PALETTEENTRY *)0x0,(RECT *)0x0,1,0);
       if (hres != 0) {

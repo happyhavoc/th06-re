@@ -12,7 +12,7 @@ undefined4 FUN_0040e920(int param_1)
   float local_14;
   D3DXVECTOR3 local_10;
   
-  _D3DXVec3Normalize_8(&local_64,(D3DXVECTOR3 *)(param_1 + 0x140));
+  D3DXVec3Normalize(&local_64,(D3DXVECTOR3 *)(param_1 + 0x140));
   fVar4 = (float10)FUN_0045bcf4((double)*(float *)(param_1 + 0x160));
   local_14 = (float)fVar4;
   fVar4 = (float10)FUN_0045bda4((double)*(float *)(param_1 + 0x160));
@@ -21,13 +21,13 @@ undefined4 FUN_0040e920(int param_1)
   *(float *)(param_1 + 0x150) = local_64.y * local_14;
   *(float *)(param_1 + 0x154) = local_64.z * local_14;
   *(float *)(param_1 + 0x158) = local_58;
-  _D3DXMatrixRotationQuaternion_8(&local_54,(D3DXQUATERNION *)(param_1 + 0x14c));
+  D3DXMatrixRotationQuaternion(&local_54,(D3DXQUATERNION *)(param_1 + 0x14c));
   local_10.x = local_64.y * 1.0 - local_64.z * 0.0;
   local_10.y = local_64.z * 0.0 - local_64.x * 1.0;
   local_10.z = local_64.x * 0.0 - local_64.y * 0.0;
   fVar1 = local_10.x * local_10.x + local_10.y * local_10.y + local_10.z * local_10.z;
   if (fVar1 < 1e-05 == NAN(fVar1)) {
-    _D3DXVec3Normalize_8(&local_10,&local_10);
+    D3DXVec3Normalize(&local_10,&local_10);
   }
   else {
     local_64.x = 1.0;
@@ -38,7 +38,7 @@ undefined4 FUN_0040e920(int param_1)
   local_10.x = local_10.x * fVar1;
   local_10.y = local_10.y * fVar1;
   local_10.z = local_10.z * fVar1;
-  _D3DXVec3TransformCoord_12(&local_10,&local_10,&local_54);
+  D3DXVec3TransformCoord(&local_10,&local_10,&local_54);
   local_10.z = local_10.z * 6.0;
   *(float *)(param_1 + 0x110) = local_10.x + *(float *)(param_1 + 0x134);
   *(float *)(param_1 + 0x114) = local_10.y + *(float *)(param_1 + 0x138);

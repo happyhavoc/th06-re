@@ -122,9 +122,8 @@ LAB_004211ab:
       pEye.x = 320.0;
       pEye.y = -240.0;
       pEye.z = -(240.0 / (float)(float10)CONCAT28(extraout_ST0h,dVar6));
-      _D3DXMatrixLookAtLH_16(&g_GameContext.viewMatrix,&pEye,&pAt,&pUp);
-      _D3DXMatrixPerspectiveFovLH_20
-                (&g_GameContext.projectionMatrix,0.5235988,1.333333,100.0,10000.0);
+      D3DXMatrixLookAtLH(&g_GameContext.viewMatrix,&pEye,&pAt,&pUp);
+      D3DXMatrixPerspectiveFovLH(&g_GameContext.projectionMatrix,0.5235988,1.333333,100.0,10000.0);
       (*(g_GameContext.d3dDevice)->lpVtbl->SetTransform)
                 (g_GameContext.d3dDevice,D3DTS_VIEW,&g_GameContext.viewMatrix);
       (*(g_GameContext.d3dDevice)->lpVtbl->SetTransform)

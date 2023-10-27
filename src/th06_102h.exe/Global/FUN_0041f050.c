@@ -55,7 +55,7 @@ void FUN_0041f050(int param_1,int param_2,int param_3,undefined4 param_4,int par
   RStack_70.right = param_3 * 2 + -2;
   RStack_70.bottom = param_5 * 2 + -2;
   (**(code **)(*param_10 + 0x3c))(param_10,0,&pIStack_84);
-  _D3DXLoadSurfaceFromSurface_32
+  D3DXLoadSurfaceFromSurface
             (pIStack_84,(PALETTEENTRY *)0x0,&RStack_80,PTR_0069e230,(PALETTEENTRY *)0x0,&RStack_70,4
              ,0);
   if (pIStack_84 != (IDirect3DSurface8 *)0x0) {

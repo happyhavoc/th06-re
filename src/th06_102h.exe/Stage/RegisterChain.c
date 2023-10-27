@@ -16,22 +16,22 @@ undefined4 Stage::RegisterChain(undefined4 param_1)
   g_Stage.field9_0x2c.subFrame = 0.0;
   g_Stage.field9_0x2c.previous = -999;
   g_Stage.field10_0x38 = param_1;
-  ChainElem_00487e24.callback = FUN_00403810;
-  ChainElem_00487e24.addedCallback = AddedCallback;
-  ChainElem_00487e24.deletedCallback = DeletedCallback;
-  ChainElem_00487e24.arg = &g_Stage;
-  iVar2 = Chain::AddToCalcChain(&g_Chain,&ChainElem_00487e24,6);
+  g_StageCalcChain.callback = FUN_00403810;
+  g_StageCalcChain.addedCallback = AddedCallback;
+  g_StageCalcChain.deletedCallback = DeletedCallback;
+  g_StageCalcChain.arg = &g_Stage;
+  iVar2 = Chain::AddToCalcChain(&g_Chain,&g_StageCalcChain,6);
   if (iVar2 == 0) {
-    ChainElem_00487af0.callback = FUN_004040d0;
-    ChainElem_00487af0.addedCallback = 0;
-    ChainElem_00487af0.deletedCallback = 0;
-    ChainElem_00487af0.arg = &g_Stage;
-    Chain::AddToDrawChain(&g_Chain,&ChainElem_00487af0,3);
-    ChainElem_00487e04.callback = FUN_00404180;
-    ChainElem_00487e04.addedCallback = 0;
-    ChainElem_00487e04.deletedCallback = 0;
-    ChainElem_00487e04.arg = &g_Stage;
-    Chain::AddToDrawChain(&g_Chain,&ChainElem_00487e04,4);
+    g_StageOnDrawHighPrioChain.callback = OnDrawHighPrio;
+    g_StageOnDrawHighPrioChain.addedCallback = 0;
+    g_StageOnDrawHighPrioChain.deletedCallback = 0;
+    g_StageOnDrawHighPrioChain.arg = &g_Stage;
+    Chain::AddToDrawChain(&g_Chain,&g_StageOnDrawHighPrioChain,3);
+    g_StageOnDrawLowPrioChain.callback = OnDrawLowPrio;
+    g_StageOnDrawLowPrioChain.addedCallback = 0;
+    g_StageOnDrawLowPrioChain.deletedCallback = 0;
+    g_StageOnDrawLowPrioChain.arg = &g_Stage;
+    Chain::AddToDrawChain(&g_Chain,&g_StageOnDrawLowPrioChain,4);
     uVar1 = 0;
   }
   else {

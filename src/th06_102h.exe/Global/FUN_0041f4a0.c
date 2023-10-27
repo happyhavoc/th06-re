@@ -1,6 +1,4 @@
 
-/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
-
 void __fastcall FUN_0041f4a0(AnmVm *param_1)
 
 {
@@ -65,8 +63,9 @@ void __fastcall FUN_0041f4a0(AnmVm *param_1)
       }
       else {
         if ((*(char *)((int)&local_18[1].currentTimeInScript.previous + 3) == '\x01') ||
-           ((0x7f < g_GameManager.current_power && (DAT_006caa6c < 128.0 != NAN(DAT_006caa6c))))) {
-          fVar11 = FUN_00428700(&DAT_006ca628,(float *)(local_18 + 1));
+           ((0x7f < g_GameManager.current_power &&
+            ((float)g_Player._1092_4_ < 128.0 != NAN((float)g_Player._1092_4_))))) {
+          fVar11 = Player::FUN_00428700(&g_Player,(float *)(local_18 + 1));
           fVar5 = (float10)fcos((float10)(float)fVar11);
           fVar11 = (float10)fsin((float10)(float)fVar11);
           local_18[1].angleVel.x = (float)(fVar5 * (float10)8.0);
@@ -103,7 +102,7 @@ LAB_0041f7c5:
           local_18[1].angleVel.y = g_GameContext.field81_0x1a8 * 0.03 + local_18[1].angleVel.y;
         }
       }
-      iVar9 = FUN_00426fd0(local_18 + 1,&FLOAT_0069e234);
+      iVar9 = Player::CalcBoxCollision(local_18 + 1,&FLOAT_0069e234);
       if (iVar9 == 0) {
         local_18[1].scaleInterpFinalX = local_18[1].uvScrollPos.y;
         GameContext::FUN_00424285
@@ -277,7 +276,7 @@ LAB_0041f7c5:
           break;
         case 6:
           local_c = ((int)g_GameManager.graze_in_stage / 3) * 10 + 500;
-          if (_DAT_006d1bf0 != 0) {
+          if (g_Player._30152_4_ != 0) {
             local_c = 100;
           }
           g_GameManager.score = g_GameManager.score + local_c;

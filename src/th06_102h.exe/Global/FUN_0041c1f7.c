@@ -8,7 +8,7 @@ undefined4 FUN_0041c1f7(int param_1)
   }
   FUN_00404650();
   FUN_004172b0();
-  FUN_0042a0e0();
+  Player::CutChain();
   FUN_00413350();
   COleDispParams::~COleDispParams((COleDispParams *)&DAT_00487e50);
   FUN_0040f4a0();

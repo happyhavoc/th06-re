@@ -577,7 +577,7 @@ switchD_00407544_caseD_2:
     local_10 = local_20[3];
     local_c = local_20[4];
     local_8 = local_20[5];
-    fVar23 = FUN_00428700(&DAT_006ca628,(float *)&param_1[0xb].currentInstruction);
+    fVar23 = Player::FUN_00428700(&g_Player,(float *)&param_1[0xb].currentInstruction);
     param_1[0xb].posInterpFinal.z = (float)(fVar23 + (float10)local_10);
     pfVar17 = FUN_0040b380((int)param_1,&local_c,(undefined4 *)0x0);
     param_1[0xb].pos2.y = *pfVar17;
@@ -860,9 +860,10 @@ switchD_00407544_caseD_2:
     break;
   case 0x59:
     if ((&param_1[0xc].posInterpTime.current)[(int)local_20[3]] != 0) {
-      fVar23 = FUN_00428700(&DAT_006ca628,
-                            (float *)((&param_1[0xc].posInterpTime.current)[(int)local_20[3]] +
-                                     0x220));
+      fVar23 = Player::FUN_00428700
+                         (&g_Player,
+                          (float *)((&param_1[0xc].posInterpTime.current)[(int)local_20[3]] + 0x220)
+                         );
       pfVar17 = FUN_0040b380((int)param_1,local_20 + 4,(undefined4 *)0x0);
       *(float *)((&param_1[0xc].posInterpTime.current)[(int)local_20[3]] + 0x22c) =
            (float)fVar23 + *pfVar17;
@@ -1053,9 +1054,9 @@ switchD_00407544_caseD_2:
     break;
   case 0x66:
     local_6c = local_20 + 3;
-    pAVar16 = FUN_0040ef50((int *)&AnmRelatedHugeStruct_00487fe0,0xd,
-                           (float *)&param_1[0xb].currentInstruction,1,
-                           *(D3DCOLOR *)(PTR_DAT_00476438 + (int)*local_6c * 4));
+    pAVar16 = EffectManager::FUN_0040ef50
+                        ((int *)&g_EffectManager,0xd,(float *)&param_1[0xb].currentInstruction,1,
+                         *(D3DCOLOR *)(PTR_DAT_00476438 + (int)*local_6c * 4));
     *(AnmVm **)((int)(&param_1[0xd].matrix + 1) + ((int)param_1[0xd].posInterpInitial.y + 9) * 4) =
          pAVar16;
     DVar7 = *(D3DCOLOR *)
@@ -1124,8 +1125,9 @@ switchD_00407544_caseD_2:
          *(byte *)((int)&param_1[0xd].flags + 1) & 0xfe | *(byte *)(local_20 + 3) & 1;
     break;
   case 0x76:
-    FUN_0040ef50((int *)&AnmRelatedHugeStruct_00487fe0,(int)local_20[3],
-                 (float *)&param_1[0xb].currentInstruction,(int)local_20[4],(D3DCOLOR)local_20[5]);
+    EffectManager::FUN_0040ef50
+              ((int *)&g_EffectManager,(int)local_20[3],(float *)&param_1[0xb].currentInstruction,
+               (int)local_20[4],(D3DCOLOR)local_20[5]);
     break;
   case 0x77:
     for (local_8c = 0; local_8c < (int)local_20[3]; local_8c = local_8c + 1) {

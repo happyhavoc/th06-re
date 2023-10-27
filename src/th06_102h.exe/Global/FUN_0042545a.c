@@ -33,10 +33,10 @@ undefined4 FUN_0042545a(int param_1)
     local_18.z = pfVar1[2];
     local_18.x = *pfVar1 - 60.0;
     if (*(int *)(param_1 + 0x10) == local_8) {
-      AsciiManager::FUN_00401530(&g_AsciiManager,&local_18,&local_c);
+      AsciiManager::DrawText(&g_AsciiManager,&local_18,&local_c);
     }
     local_18.x = local_18.x + 15.0;
-    AsciiManager::FUN_00401650(&g_AsciiManager,&local_18.x,"%2d.",local_8 + 1);
+    AsciiManager::DrawFormatText(&g_AsciiManager,&local_18.x,"%2d.",local_8 + 1);
   }
   for (local_8 = 0; local_8 < 0x10; local_8 = local_8 + 1) {
     AnmManager::FUN_00432ad0(g_AnmManager,(AnmVm *)(param_1 + 0x2334 + local_8 * 0x110));

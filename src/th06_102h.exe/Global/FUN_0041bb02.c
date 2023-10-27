@@ -134,7 +134,7 @@ undefined4 FUN_0041bb02(uint *param_1)
   *(undefined2 *)(param_1 + 0x68b) = DAT_0069d8f8;
   iVar3 = Stage::RegisterChain(param_1[0x68d]);
   if (iVar3 == 0) {
-    iVar3 = FUN_00428780(0);
+    iVar3 = Player::RegisterChain(0);
     if (iVar3 == 0) {
       iVar3 = FUN_004148f0("data/etama.anm");
       if (iVar3 == 0) {
@@ -143,7 +143,7 @@ undefined4 FUN_0041bb02(uint *param_1)
         if (iVar3 == 0) {
           iVar3 = FUN_00407340((&PTR_s_dummy_004764c4)[param_1[0x68d]]);
           if (iVar3 == 0) {
-            iVar3 = FUN_0040f3f0();
+            iVar3 = EffectManager::RegisterChain();
             if (iVar3 == 0) {
               iVar3 = FUN_0041b252();
               if (iVar3 == 0) {

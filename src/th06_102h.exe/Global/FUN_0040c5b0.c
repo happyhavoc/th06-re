@@ -51,9 +51,9 @@ void FUN_0040c5b0(int param_1)
     local_1a = 0;
     local_18 = 0;
     local_78 = 0.5 - ((float)local_8 * 0.5) / 9.0;
-    local_9c.z = DAT_006caa70 - *(float *)(param_1 + 0xc74);
-    local_9c.y = DAT_006caa6c - *(float *)(param_1 + 0xc70);
-    local_9c.x = DAT_006caa68 - *(float *)(param_1 + 0xc6c);
+    local_9c.z = (float)g_Player._1096_4_ - *(float *)(param_1 + 0xc74);
+    local_9c.y = (float)g_Player._1092_4_ - *(float *)(param_1 + 0xc70);
+    local_9c.x = (float)g_Player._1088_4_ - *(float *)(param_1 + 0xc6c);
     D3DXVec3Normalize(&local_84,&local_9c);
     if ((local_8 & 1) == 0) {
       local_90 = 256.0;

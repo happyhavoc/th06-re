@@ -42,7 +42,7 @@ undefined4 FUN_00439965(void)
       else {
         g_AsciiManager.color = (local_c >> 1) << 0x18 | 0x80c0c0;
       }
-      AsciiManager::FUN_00401650
+      AsciiManager::DrawFormatText
                 (&g_AsciiManager,&local_20,"STAGE %d  %.9d",local_8 + 1,
                  *(undefined4 *)
                   (local_10 * 0x1e0 + local_8 * 0x50 + 0x69cd3c + g_GameManager.difficulty * 0x14));

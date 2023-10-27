@@ -13,8 +13,8 @@ int Stage::AddedCallback(Stage *arg)
   (arg->position).z = 0.0;
   arg->spellcardEclRelated0 = 0;
   arg->skyFogInterpDuration = 0;
-  iVar1 = FUN_00404690(arg,(&PTR_s_dummy_004760e0)[g_GameManager.current_stage * 2],
-                       (&PTR_s_dummy_004760e4)[g_GameManager.current_stage * 2]);
+  iVar1 = LoadStageData(arg,(&PTR_s_dummy_004760e0)[g_GameManager.current_stage * 2],
+                        (&PTR_s_dummy_004760e4)[g_GameManager.current_stage * 2]);
   if (iVar1 == 0) {
     (arg->skyFog).color = 0xff000000;
     (arg->skyFog).nearPlane = 200.0;

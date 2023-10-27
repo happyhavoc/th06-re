@@ -220,7 +220,7 @@ switchD_00414a97_caseD_1:
                     *(ushort *)(local_24[5].matrix.m[2] + 3) =
                          *(ushort *)(local_24[5].matrix.m[2] + 3) & 0xff7f;
                   }
-                  fVar8 = FUN_00428700(&DAT_006ca628,&local_24[5].angleVel.y);
+                  fVar8 = Player::FUN_00428700(&g_Player,&local_24[5].angleVel.y);
                   local_24[5].matrix.m[0][1] = (float)(fVar8 + (float10)local_24[5].matrix.m[0][3]);
                   local_24[5].currentTimeInScript.subFrame = local_24[5].matrix.m[0][0];
                   local_10 = local_24[5].currentTimeInScript.subFrame;
@@ -297,11 +297,11 @@ switchD_00414a97_caseD_1:
           *(undefined2 *)(local_24[5].matrix.m[3] + 1) = 0;
 LAB_00415b6c:
           if (*(char *)((int)local_24[5].matrix.m[3] + 7) == '\0') {
-            local_8 = FUN_00426df0(&local_24[5].angleVel.y,local_24 + 5);
+            local_8 = Player::FUN_00426df0(&local_24[5].angleVel.y,local_24 + 5);
             if (local_8 == 1) {
               *(undefined *)((int)local_24[5].matrix.m[3] + 7) = 1;
 LAB_00415be8:
-              local_8 = FUN_00426c40(&local_24[5].angleVel.y,local_24 + 5);
+              local_8 = Player::CalcKillBoxCollision(&local_24[5].angleVel.y,local_24 + 5);
               if ((local_8 != 0) &&
                  (*(undefined2 *)((int)local_24[5].matrix.m[3] + 2) = 5, local_8 == 2)) {
                 FUN_0041f290();
@@ -392,8 +392,9 @@ LAB_00414a1a:
             local_2c->color = local_28 << 0x18;
           }
           if ((int)local_2c[2].uvScrollPos.x <= (int)local_2c[2].matrix.m[0][2]) {
-            FUN_00427190(&local_38,&local_20,local_2c + 2,local_2c[2].angleVel.x,
-                         (int)local_2c[2].matrix.m[0][2] % 0xc == 0);
+            Player::FUN_00427190
+                      (&local_38,&local_20,local_2c + 2,local_2c[2].angleVel.x,
+                       (int)local_2c[2].matrix.m[0][2] % 0xc == 0);
           }
           if ((int)local_2c[2].scaleInterpFinalX <= (int)local_2c[2].matrix.m[0][2]) {
             local_2c[2].matrix.m[0][2] = 0.0;
@@ -406,8 +407,9 @@ LAB_00414a1a:
         else {
           if (cVar2 == '\x01') {
 LAB_004161bf:
-            FUN_00427190(&local_38,&local_20,local_2c + 2,local_2c[2].angleVel.x,
-                         (int)local_2c[2].matrix.m[0][2] % 0xc == 0);
+            Player::FUN_00427190
+                      (&local_38,&local_20,local_2c + 2,local_2c[2].angleVel.x,
+                       (int)local_2c[2].matrix.m[0][2] % 0xc == 0);
             if ((int)local_2c[2].matrix.m[0][2] < (int)local_2c[2].uvScrollPos.y) goto LAB_00416422;
             local_2c[2].matrix.m[0][2] = 0.0;
             local_2c[2].matrix.m[0][1] = 0.0;
@@ -438,8 +440,9 @@ LAB_004161bf:
             local_2c->color = local_28 << 0x18;
           }
           if ((int)local_2c[2].matrix.m[0][2] < (int)local_2c[2].currentTimeInScript.subFrame) {
-            FUN_00427190(&local_38,&local_20,local_2c + 2,local_2c[2].angleVel.x,
-                         (int)local_2c[2].matrix.m[0][2] % 0xc == 0);
+            Player::FUN_00427190
+                      (&local_38,&local_20,local_2c + 2,local_2c[2].angleVel.x,
+                       (int)local_2c[2].matrix.m[0][2] % 0xc == 0);
           }
           if (local_2c[2].currentTimeInScript.previous <= (int)local_2c[2].matrix.m[0][2]) {
             local_2c[2].currentTimeInScript.current = 0;

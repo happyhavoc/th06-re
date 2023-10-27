@@ -18,7 +18,7 @@ void FUN_0040d770(int param_1)
     puVar3 = puVar3 + 1;
   }
   FUN_0041e820(&DAT_0069d8f8);
-  FUN_0040ef50((int *)&AnmRelatedHugeStruct_00487fe0,0xc,(float *)(param_1 + 0xc6c),1,0xffffffff);
+  EffectManager::FUN_0040ef50((int *)&g_EffectManager,0xc,(float *)(param_1 + 0xc6c),1,0xffffffff);
   for (local_60 = 0; local_60 < 0x280; local_60 = local_60 + 1) {
     if ((((*(short *)((int)local_64[5].matrix.m[3] + 2) != 0) &&
          (*(short *)((int)local_64[5].matrix.m[3] + 2) != 5)) &&

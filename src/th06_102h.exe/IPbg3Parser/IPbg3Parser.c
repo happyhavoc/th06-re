@@ -1,5 +1,5 @@
 
-Pbg3Parser * __thiscall IPbg3Parser::IPbg3Parser(void *this,byte param_1)
+Pbg3Parser * __thiscall IPbg3Parser::IPbg3Parser(IPbg3Parser *this,byte param_1)
 
 {
   *(Pbg3ParserVtbl **)this = &Pbg3ParserVtbl_0046cb7c;

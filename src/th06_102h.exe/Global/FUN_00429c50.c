@@ -78,11 +78,9 @@ undefined4 FUN_00429c50(AnmVm *param_1)
   param_1[0x6e].posInterpInitial.x = 0.0;
   param_1[0x6e].alphaInterpFinal = 0xfffffc19;
   param_1[0x6e].timeOfLastSpriteSet =
-       (int)(&PTR_FUN_00476708)
-            [((uint)g_GameManager.shottype + (uint)g_GameManager.character * 2) * 2];
+       (int)g_BombData[(uint)g_GameManager.shottype + (uint)g_GameManager.character * 2].calc;
   param_1[0x6e].alphaInterpTime.previous =
-       (int)(&PTR_FUN_0047670c)
-            [((uint)g_GameManager.shottype + (uint)g_GameManager.character * 2) * 2];
+       (int)g_BombData[(uint)g_GameManager.shottype + (uint)g_GameManager.character * 2].draw;
   param_1[0x6e].pos2.y = 0.0;
   for (local_8 = 0; local_8 < 2; local_8 = local_8 + 1) {
     puVar1 = (undefined4 *)((int)&param_1[9].uvScrollPos + local_8 * 0xc);

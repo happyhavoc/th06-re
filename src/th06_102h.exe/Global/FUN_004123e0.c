@@ -77,15 +77,16 @@ undefined4 FUN_004123e0(int param_1)
       local_14 = local_28[0xb].posInterpInitial.y * 0.6666667;
       local_18 = local_28[0xb].posInterpInitial.x * 0.6666667;
       local_1c = (float)local_28[0xb].alphaInterpFinal * 0.6666667;
-      iVar3 = FUN_00426c40(&local_28[0xb].currentInstruction,&local_1c);
+      iVar3 = Player::CalcKillBoxCollision(&local_28[0xb].currentInstruction,&local_1c);
       if (((iVar3 == 1) && ((*(byte *)((int)&local_28[0xd].flags + 1) & 1) != 0)) &&
          ((*(byte *)((int)&local_28[0xd].flags + 1) >> 3 & 1) == 0)) {
         local_28[0xc].scaleInterpFinalX = (float)((int)local_28[0xc].scaleInterpFinalX + -10);
       }
     }
     if ((*(byte *)((int)&local_28[0xd].flags + 1) & 1) != 0) {
-      local_c = FUN_004264b0(&local_28[0xb].currentInstruction,&local_28[0xb].alphaInterpFinal,
-                             &local_8);
+      local_c = Player::FUN_004264b0
+                          (&local_28[0xb].currentInstruction,&local_28[0xb].alphaInterpFinal,
+                           &local_8);
       if (0x45 < local_c) {
         local_c = 0x46;
       }
@@ -116,11 +117,11 @@ undefined4 FUN_004123e0(int param_1)
       if ((*(byte *)((int)&local_28[0xd].flags + 1) >> 4 & 1) != 0) {
         local_28[0xc].scaleInterpFinalX = (float)((int)local_28[0xc].scaleInterpFinalX - local_c);
       }
-      if ((float)_DAT_006cb048 < (float)local_28[0xb].sprite !=
-          (NAN((float)_DAT_006cb048) || NAN((float)local_28[0xb].sprite))) {
-        _DAT_006cb044 = local_28[0xb].currentInstruction;
-        _DAT_006cb048 = local_28[0xb].sprite;
-        _DAT_006cb04c = local_28[0xb].alphaInterpInitial;
+      if ((float)g_Player._2592_4_ < (float)local_28[0xb].sprite !=
+          (NAN((float)g_Player._2592_4_) || NAN((float)local_28[0xb].sprite))) {
+        g_Player._2588_4_ = local_28[0xb].currentInstruction;
+        g_Player._2592_4_ = local_28[0xb].sprite;
+        g_Player._2596_4_ = local_28[0xb].alphaInterpInitial;
       }
     }
     if ((0 < (int)local_28[0xc].scaleInterpFinalX) ||
@@ -144,9 +145,9 @@ switchD_00412938_caseD_2:
       if (*(char *)((int)local_28[0xd].matrix.m[3] + 3) < '\0') {
         if (*(char *)((int)local_28[0xd].matrix.m[3] + 3) == -1) {
           if ((uint)*(ushort *)(param_1 + 0xee5b8) % 3 == 0) {
-            FUN_0040ef50((int *)&AnmRelatedHugeStruct_00487fe0,
-                         *(byte *)((int)local_28[0xd].matrix.m[3] + 1) + 4,
-                         (float *)&local_28[0xb].currentInstruction,6,0xffffffff);
+            EffectManager::FUN_0040ef50
+                      ((int *)&g_EffectManager,*(byte *)((int)local_28[0xd].matrix.m[3] + 1) + 4,
+                       (float *)&local_28[0xb].currentInstruction,6,0xffffffff);
             FUN_0041f290(&local_28[0xb].currentInstruction,
                          (&DAT_00476338)[*(ushort *)(param_1 + 0xee5ba)],local_8);
             *(short *)(param_1 + 0xee5ba) = *(short *)(param_1 + 0xee5ba) + 1;
@@ -158,9 +159,9 @@ switchD_00412938_caseD_2:
         }
       }
       else {
-        FUN_0040ef50((int *)&AnmRelatedHugeStruct_00487fe0,
-                     *(byte *)((int)local_28[0xd].matrix.m[3] + 1) + 4,
-                     (float *)&local_28[0xb].currentInstruction,3,0xffffffff);
+        EffectManager::FUN_0040ef50
+                  ((int *)&g_EffectManager,*(byte *)((int)local_28[0xd].matrix.m[3] + 1) + 4,
+                   (float *)&local_28[0xb].currentInstruction,3,0xffffffff);
         FUN_0041f290(&local_28[0xb].currentInstruction,
                      (int)*(char *)((int)local_28[0xd].matrix.m[3] + 3),local_8);
       }
@@ -176,23 +177,27 @@ switchD_00412938_caseD_2:
       *(byte *)((int)&local_28[0xd].flags + 1) = *(byte *)((int)&local_28[0xd].flags + 1) & 0xef;
       *(byte *)((int)&local_28[0xd].flags + 1) = *(byte *)((int)&local_28[0xd].flags + 1) & 0x1f;
       DAT_0069bc50 = 0;
-      FUN_0040ef50((int *)&AnmRelatedHugeStruct_00487fe0,(uint)*(byte *)local_28[0xd].matrix.m[3],
-                   (float *)&local_28[0xb].currentInstruction,1,0xffffffff);
-      FUN_0040ef50((int *)&AnmRelatedHugeStruct_00487fe0,(uint)*(byte *)local_28[0xd].matrix.m[3],
-                   (float *)&local_28[0xb].currentInstruction,1,0xffffffff);
-      FUN_0040ef50((int *)&AnmRelatedHugeStruct_00487fe0,(uint)*(byte *)local_28[0xd].matrix.m[3],
-                   (float *)&local_28[0xb].currentInstruction,1,0xffffffff);
+      EffectManager::FUN_0040ef50
+                ((int *)&g_EffectManager,(uint)*(byte *)local_28[0xd].matrix.m[3],
+                 (float *)&local_28[0xb].currentInstruction,1,0xffffffff);
+      EffectManager::FUN_0040ef50
+                ((int *)&g_EffectManager,(uint)*(byte *)local_28[0xd].matrix.m[3],
+                 (float *)&local_28[0xb].currentInstruction,1,0xffffffff);
+      EffectManager::FUN_0040ef50
+                ((int *)&g_EffectManager,(uint)*(byte *)local_28[0xd].matrix.m[3],
+                 (float *)&local_28[0xb].currentInstruction,1,0xffffffff);
     }
     uVar4 = local_10 & 0x80000001;
     if ((int)uVar4 < 0) {
       uVar4 = (uVar4 - 1 | 0xfffffffe) + 1;
     }
     FUN_004311e0(uVar4 + 2);
-    FUN_0040ef50((int *)&AnmRelatedHugeStruct_00487fe0,(uint)*(byte *)local_28[0xd].matrix.m[3],
-                 (float *)&local_28[0xb].currentInstruction,1,0xffffffff);
-    FUN_0040ef50((int *)&AnmRelatedHugeStruct_00487fe0,
-                 *(byte *)((int)local_28[0xd].matrix.m[3] + 1) + 4,
-                 (float *)&local_28[0xb].currentInstruction,4,0xffffffff);
+    EffectManager::FUN_0040ef50
+              ((int *)&g_EffectManager,(uint)*(byte *)local_28[0xd].matrix.m[3],
+               (float *)&local_28[0xb].currentInstruction,1,0xffffffff);
+    EffectManager::FUN_0040ef50
+              ((int *)&g_EffectManager,*(byte *)((int)local_28[0xd].matrix.m[3] + 1) + 4,
+               (float *)&local_28[0xb].currentInstruction,4,0xffffffff);
     if (-1 < (int)local_28[0xb].pos.y) {
       local_28[0xc].angleVel.z = -0.5;
       local_28[0xc].scaleY = 0.5;

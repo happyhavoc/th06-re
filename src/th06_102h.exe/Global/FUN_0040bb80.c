@@ -20,9 +20,9 @@ void FUN_0040bb80(int param_1)
       _DAT_00487f5c = *(float *)(param_1 + 0xc6c);
       _DAT_00487f60 = *(float *)(param_1 + 0xc70);
       _DAT_00487f64 = *(undefined4 *)(param_1 + 0xc74);
-      _DAT_00487f68 = DAT_006caa68;
-      _DAT_00487f6c = DAT_006caa6c;
-      _DAT_00487f70 = DAT_006caa70;
+      _DAT_00487f68 = (float)g_Player._1088_4_;
+      _DAT_00487f6c = (float)g_Player._1092_4_;
+      _DAT_00487f70 = g_Player._1096_4_;
       fVar8 = FUN_0041e820(&DAT_0069d8f8);
       DAT_00487edc = fVar8 * 6.283185 - 3.141593;
       fVar6 = (float10)FUN_0041e850(DAT_00487edc,0x4020d97c);

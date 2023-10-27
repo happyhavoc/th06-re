@@ -72,7 +72,7 @@ LAB_0040cc18:
   local_20 = (float)fVar4 * local_10 + local_20;
   fVar4 = (float10)FUN_0045bcf4((double)local_14);
   local_1c = (float)fVar4 * local_10 + local_1c;
-  local_8 = FUN_0040ef50((int *)&AnmRelatedHugeStruct_00487fe0,0x13,&local_20,1,0xff3030ff);
+  local_8 = EffectManager::FUN_0040ef50((int *)&g_EffectManager,0x13,&local_20,1,0xff3030ff);
   fVar5 = FUN_0041e820(&DAT_0069d8f8);
   local_8[1].angleVel.x = (fVar5 * 40.0 - 20.0) / 60.0;
   local_8[1].angleVel.y = ((float)local_c * 8.0) / 60.0 - 0.2666667;
@@ -89,7 +89,7 @@ LAB_0040cc18:
   local_20 = local_20 - (float)fVar4 * local_10;
   fVar4 = (float10)FUN_0045bcf4((double)local_14);
   local_1c = (float)fVar4 * local_10 + local_1c;
-  local_8 = FUN_0040ef50((int *)&AnmRelatedHugeStruct_00487fe0,0x13,&local_20,1,0xff3030ff);
+  local_8 = EffectManager::FUN_0040ef50((int *)&g_EffectManager,0x13,&local_20,1,0xff3030ff);
   fVar5 = FUN_0041e820(&DAT_0069d8f8);
   local_8[1].angleVel.x = (fVar5 * 40.0 - 20.0) / 60.0;
   local_8[1].angleVel.y = ((float)local_c * 8.0) / 60.0 - 0.2666667;

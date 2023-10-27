@@ -12,7 +12,7 @@ undefined4 InputChainRemovedCallback(GameContext *param_1)
     GameContext::RemovePbg3File(param_1,local_8);
   }
   ReleaseAnm(g_AnmManager,0);
-  FUN_00401500();
+  AsciiManager::CutChain();
   SoundPlayer::StopBGM(&g_SoundPlayer);
   if (param_1->midiOutput != (MidiOutput *)0x0) {
     MidiOutput::~MidiOutput(param_1->midiOutput);

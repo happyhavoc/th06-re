@@ -120,7 +120,7 @@ void __fastcall FUN_00419c99(uint *param_1)
     local_24 = 0x41800000;
     local_20 = 0;
     g_AsciiManager.color = param_1[4] << 0x18 | 0xffff80;
-    AsciiManager::FUN_00401650(&g_AsciiManager,&local_28,"%d",param_1[5]);
+    AsciiManager::DrawFormatText(&g_AsciiManager,&local_28,"%d",param_1[5]);
     local_94 = 0x43c00000;
     local_90 = 0x41800000;
     local_8c = 0;
@@ -154,7 +154,7 @@ void __fastcall FUN_00419c99(uint *param_1)
     if (((int)local_1e8 < 10) && (param_1[7] != param_1[6])) {
       FUN_004311e0(0x1d);
     }
-    AsciiManager::FUN_00401650(&g_AsciiManager,&local_28,"%.2d",local_18);
+    AsciiManager::DrawFormatText(&g_AsciiManager,&local_28,"%.2d",local_18);
     g_AsciiManager.color = 0xffffffff;
     param_1[7] = param_1[6];
   }
@@ -420,28 +420,29 @@ void __fastcall FUN_00419c99(uint *param_1)
       local_190 = 0x43f80000;
       local_18c = 0x433a0000;
       local_188 = 0;
-      AsciiManager::FUN_00401650(&g_AsciiManager,&local_190,"%d",(uint)g_GameManager.current_power);
+      AsciiManager::DrawFormatText
+                (&g_AsciiManager,&local_190,"%d",(uint)g_GameManager.current_power);
     }
   }
   local_88 = 0x43f80000;
   local_84 = 0x42a40000;
   local_80 = 0;
-  AsciiManager::FUN_00401650(&g_AsciiManager,&local_88,"%.9d",g_GameManager.field0_0x0);
+  AsciiManager::DrawFormatText(&g_AsciiManager,&local_88,"%.9d",g_GameManager.field0_0x0);
   local_88 = 0x43f80000;
   local_84 = 0x42680000;
   local_80 = 0;
-  AsciiManager::FUN_00401650(&g_AsciiManager,&local_88,"%.9d",g_GameManager.high_score);
+  AsciiManager::DrawFormatText(&g_AsciiManager,&local_88,"%.9d",g_GameManager.high_score);
   if (((*param_1 >> 6 & 3) != 0) || ((g_GameContext.cfg.opts >> 4 & 1) != 0)) {
     local_88 = 0x43f80000;
     local_84 = 0x434e0000;
     local_80 = 0;
-    AsciiManager::FUN_00401650(&g_AsciiManager,&local_88,"%d",g_GameManager.graze_in_stage);
+    AsciiManager::DrawFormatText(&g_AsciiManager,&local_88,"%d",g_GameManager.graze_in_stage);
   }
   if (((*param_1 >> 8 & 3) != 0) || ((g_GameContext.cfg.opts >> 4 & 1) != 0)) {
     local_88 = 0x43f80000;
     local_84 = 0x43620000;
     local_80 = 0;
-    AsciiManager::FUN_00401650
+    AsciiManager::DrawFormatText
               (&g_AsciiManager,&local_88,"%d",(uint)g_GameManager.point_items_collected_in_stage);
   }
   if ((*param_1 & 3) != 0) {

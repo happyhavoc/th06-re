@@ -27,9 +27,9 @@ int * FUN_0040afb0(int param_1,int *param_2,undefined4 *param_3)
     param_2 = (int *)(param_1 + 0xce4);
     break;
   case -0x2727:
-    local_8 = DAT_006caa70 - *(float *)(param_1 + 0xc74);
-    local_c = DAT_006caa6c - *(float *)(param_1 + 0xc70);
-    local_10 = DAT_006caa68 - *(float *)(param_1 + 0xc6c);
+    local_8 = (float)g_Player._1096_4_ - *(float *)(param_1 + 0xc74);
+    local_c = (float)g_Player._1092_4_ - *(float *)(param_1 + 0xc70);
+    local_10 = (float)g_Player._1088_4_ - *(float *)(param_1 + 0xc6c);
     fVar1 = (float10)FUN_0040b890(&local_10);
     _DAT_00487e48 = (float)fVar1;
     if (param_3 != (undefined4 *)0x0) {
@@ -44,7 +44,7 @@ int * FUN_0040afb0(int param_1,int *param_2,undefined4 *param_3)
     param_2 = (int *)(param_1 + 0xcf8);
     break;
   case -0x2725:
-    fVar1 = FUN_00428700(&DAT_006ca628,(float *)(param_1 + 0xc6c));
+    fVar1 = Player::FUN_00428700(&g_Player,(float *)(param_1 + 0xc6c));
     _DAT_00487e4c = (float)fVar1;
     if (param_3 != (undefined4 *)0x0) {
       *param_3 = 2;
@@ -55,19 +55,19 @@ int * FUN_0040afb0(int param_1,int *param_2,undefined4 *param_3)
     if (param_3 != (undefined4 *)0x0) {
       *param_3 = 2;
     }
-    param_2 = (int *)&DAT_006caa70;
+    param_2 = (int *)&g_Player.field_0x448;
     break;
   case -0x2723:
     if (param_3 != (undefined4 *)0x0) {
       *param_3 = 2;
     }
-    param_2 = (int *)&DAT_006caa6c;
+    param_2 = (int *)&g_Player.field_0x444;
     break;
   case -0x2722:
     if (param_3 != (undefined4 *)0x0) {
       *param_3 = 2;
     }
-    param_2 = (int *)&DAT_006caa68;
+    param_2 = (int *)&g_Player.field_0x440;
     break;
   case -0x2721:
     if (param_3 != (undefined4 *)0x0) {

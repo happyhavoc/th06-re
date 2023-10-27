@@ -47,7 +47,7 @@ void FUN_00423f3f(void)
     local_20.x = 512.0;
     local_20.y = 464.0;
     local_20.z = 0.0;
-    AsciiManager::FUN_00401530(&g_AsciiManager,&local_20,s__006c6c08);
+    AsciiManager::DrawText(&g_AsciiManager,&local_20,s__006c6c08);
   }
   return;
 }

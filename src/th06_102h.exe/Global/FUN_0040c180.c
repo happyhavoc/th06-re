@@ -15,7 +15,8 @@ void FUN_0040c180(int param_1,int param_2)
   int local_10;
   
   if (*(int *)(param_2 + 0x10) < 2) {
-    FUN_0040ef50((int *)&AnmRelatedHugeStruct_00487fe0,0xc,(float *)(param_1 + 0xc6c),1,0xffffffff);
+    EffectManager::FUN_0040ef50((int *)&g_EffectManager,0xc,(float *)(param_1 + 0xc6c),1,0xffffffff)
+    ;
     g_GameManager.field6_0x18[20] = *(undefined *)(param_2 + 0x10);
   }
   else {
@@ -34,12 +35,12 @@ void FUN_0040c180(int param_1,int param_2)
                     (g_AnmManager,local_18,
                      (int)local_18->anotherSpriteNumber +
                      (int)*(short *)((int)local_18[5].matrix.m[2] + 0xe));
-          fVar5 = local_18[5].angleVel.y - DAT_006caa68;
-          fVar1 = local_18[5].angleVel.z - DAT_006caa6c;
+          fVar5 = local_18[5].angleVel.y - (float)g_Player._1088_4_;
+          fVar1 = local_18[5].angleVel.z - (float)g_Player._1092_4_;
           fVar3 = (float10)FUN_0045bc34((double)(fVar5 * fVar5 + fVar1 * fVar1));
           if ((float)fVar3 <= 128.0) {
             fVar5 = FUN_0041e820(&DAT_0069d8f8);
-            fVar3 = (float10)FUN_00428680();
+            fVar3 = (float10)Player::FUN_00428680();
             local_18[5].matrix.m[0][1] =
                  (float)(fVar3 + (float10)1.570796 + (float10)(fVar5 * 6.283185));
           }
@@ -73,12 +74,12 @@ void FUN_0040c180(int param_1,int param_2)
                     (g_AnmManager,local_18,
                      (int)local_18->anotherSpriteNumber +
                      (int)*(short *)((int)local_18[5].matrix.m[2] + 0xe));
-          fVar5 = local_18[5].angleVel.y - DAT_006caa68;
-          fVar1 = local_18[5].angleVel.z - DAT_006caa6c;
+          fVar5 = local_18[5].angleVel.y - (float)g_Player._1088_4_;
+          fVar1 = local_18[5].angleVel.z - (float)g_Player._1092_4_;
           fVar3 = (float10)FUN_0045bc34((double)(fVar5 * fVar5 + fVar1 * fVar1));
           if ((float)fVar3 <= 128.0) {
             fVar5 = FUN_0041e820(&DAT_0069d8f8);
-            fVar3 = (float10)FUN_00428680();
+            fVar3 = (float10)Player::FUN_00428680();
             local_18[5].matrix.m[0][1] =
                  (float)(fVar3 + (float10)1.570796 + (float10)(fVar5 * 6.283185));
           }

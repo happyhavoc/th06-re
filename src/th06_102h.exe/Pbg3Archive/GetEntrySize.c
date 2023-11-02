@@ -1,10 +1,10 @@
 
-undefined4 __thiscall Pbg3Archive::GetEntrySize(Pbg3Archive *this,uint param_1)
+undefined4 __thiscall Pbg3Archive::GetEntrySize(Pbg3Archive *this,uint entryIdx)
 
 {
-  if ((uint)this->numOfEntries <= param_1) {
+  if ((uint)this->numOfEntries <= entryIdx) {
     return 0;
   }
-  return this->entries[param_1].uncompressedSize;
+  return this->entries[entryIdx].uncompressedSize;
 }
 

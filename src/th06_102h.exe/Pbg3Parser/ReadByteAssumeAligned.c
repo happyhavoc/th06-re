@@ -2,12 +2,14 @@
 byte __thiscall Pbg3Parser::ReadByteAssumeAligned(Pbg3Parser *this)
 
 {
-  byte bVar1;
+  uint uVar1;
+  byte bVar2;
   
-  if (this->offsetInFile < this->fileSize) {
-    this->offsetInFile = this->offsetInFile + 1;
+  uVar1 = (this->base).offsetInFile;
+  if (uVar1 < (this->base).fileSize) {
+    (this->base).offsetInFile = uVar1 + 1;
   }
-  bVar1 = FileAbstraction::ReadByte(&(this->fileAbstraction).base);
-  return bVar1;
+  bVar2 = FileAbstraction::ReadByte(&(this->fileAbstraction).base);
+  return bVar2;
 }
 

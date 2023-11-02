@@ -66,7 +66,7 @@ LAB_00424435:
   if (iVar2 == 0) {
     this_00 = this->pbg3File[pbg3FileIdx];
     if (this_00 != (Pbg3Archive *)0x0) {
-      Pbg3Archive::dtor(this_00);
+      Pbg3Archive::~Pbg3Archive(this_00);
       _free(this_00);
     }
     this->pbg3File[pbg3FileIdx] = (Pbg3Archive *)0x0;

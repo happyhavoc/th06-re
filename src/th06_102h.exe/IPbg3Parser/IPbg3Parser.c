@@ -1,11 +1,12 @@
 
-Pbg3Parser * __thiscall IPbg3Parser::IPbg3Parser(IPbg3Parser *this,byte param_1)
+void __fastcall IPbg3Parser::IPbg3Parser(Pbg3Parser *param_1)
 
 {
-  *(Pbg3ParserVtbl **)this = &Pbg3ParserVtbl_0046cb7c;
-  if ((param_1 & 1) != 0) {
-    _free(this);
-  }
-  return (Pbg3Parser *)this;
+  (param_1->base).bitIdxInCurByte = 0x80;
+  (param_1->base).offsetInFile = 0;
+  (param_1->base).fileSize = 0;
+  (param_1->base).curByte = 0;
+  (param_1->base).someKindOfCrc = 0;
+  return;
 }
 

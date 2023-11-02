@@ -1,11 +1,11 @@
 
-void __fastcall FileAbstraction::Close(FileAbstraction *param_1)
+void __thiscall FileAbstraction::Close(FileAbstraction *this)
 
 {
-  if (param_1->handle != (HANDLE)0xffffffff) {
-    CloseHandle(param_1->handle);
-    param_1->handle = (HANDLE)0xffffffff;
-    param_1->field2_0x8 = 0;
+  if (this->handle != (HANDLE)0xffffffff) {
+    CloseHandle(this->handle);
+    this->handle = (HANDLE)0xffffffff;
+    this->access = 0;
   }
   return;
 }

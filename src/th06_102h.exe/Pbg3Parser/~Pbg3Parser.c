@@ -11,14 +11,14 @@ void __thiscall Pbg3Parser::~Pbg3Parser(Pbg3Parser *this)
   local_c = ExceptionList;
   this_00 = &this->fileAbstraction;
   ExceptionList = &local_c;
-  this->vtbl = &Pbg3ParserVtbl_0046cb9c;
+  (this->base).vtbl = &PBG3PARSER_VTBL;
   (this_00->base).vtbl = &FileAbstractionVtable_0046cbbc;
   local_4 = 1;
   FileAbstraction::Close(&this_00->base);
-  Init(this);
+  IPbg3Parser::IPbg3Parser(this);
   local_4 = local_4 & 0xffffff00;
-  FileAbstraction::UnkDeinit(&this_00->base);
-  this->vtbl = &Pbg3ParserVtbl_0046cb7c;
+  FileAbstraction::~FileAbstraction(&this_00->base);
+  (this->base).vtbl = &IPBG3PARSER_VTBL;
   ExceptionList = local_c;
   return;
 }

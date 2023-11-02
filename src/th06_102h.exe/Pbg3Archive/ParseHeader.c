@@ -2,44 +2,45 @@
 undefined4 __thiscall Pbg3Archive::ParseHeader(Pbg3Archive *this)
 
 {
-  int iVar1;
+  int magic;
   uint val;
-  Pbg3Entry *pPVar2;
-  uint uVar3;
-  int iVar4;
+  Pbg3Entry *pPVar1;
+  uint uVar2;
+  int iVar3;
   Pbg3Parser *inner;
   
-  iVar1 = Pbg3Parser::ReadMagic(this->inner);
-  inner = this->inner;
-  if (iVar1 == 0x33474250) {
-    val = Pbg3Parser::ReadVarInt(inner);
+  magic = IPbg3Parser::ReadMagic(&this->parser->base);
+  inner = this->parser;
+  if (magic == L'\x33474250') {
+    val = IPbg3Parser::ReadVarInt(&inner->base);
     this->numOfEntries = val;
-    val = Pbg3Parser::ReadVarInt(this->inner);
+    val = IPbg3Parser::ReadVarInt(&this->parser->base);
     this->fileTableOffset = val;
-    iVar1 = (*(code *)this->inner->vtbl->SeekToOffset)(val);
-    if (iVar1 != 0) {
-      pPVar2 = (Pbg3Entry *)operator_new(this->numOfEntries * 0x114);
-      this->entries = pPVar2;
-      if (pPVar2 != (Pbg3Entry *)0x0) {
+    magic = (*(code *)((this->parser->base).vtbl)->SeekToOffset)(val);
+    if (magic != 0) {
+      pPVar1 = (Pbg3Entry *)operator_new(this->numOfEntries * sizeof(Pbg3Entry));
+      this->entries = pPVar1;
+      if (pPVar1 != (Pbg3Entry *)0x0) {
         val = 0;
         if (this->numOfEntries != 0) {
-          iVar1 = 0;
+          magic = 0;
           do {
-            uVar3 = Pbg3Parser::ReadVarInt(this->inner);
-            *(uint *)(this->entries->filename + iVar1 + -0x10) = uVar3;
-            uVar3 = Pbg3Parser::ReadVarInt(this->inner);
-            *(uint *)(this->entries->filename + iVar1 + -0x14) = uVar3;
-            uVar3 = Pbg3Parser::ReadVarInt(this->inner);
-            *(uint *)(this->entries->filename + iVar1 + -4) = uVar3;
-            uVar3 = Pbg3Parser::ReadVarInt(this->inner);
-            *(uint *)(this->entries->filename + iVar1 + -8) = uVar3;
-            uVar3 = Pbg3Parser::ReadVarInt(this->inner);
-            *(uint *)(this->entries->filename + iVar1 + -0xc) = uVar3;
-            iVar4 = Pbg3Parser::ReadString(this->inner,this->entries->filename + iVar1,0x100);
-            if (iVar4 == 0) {
-              if (this->inner != (Pbg3Parser *)0x0) {
-                (*(code *)this->inner->vtbl->Close)(1);
-                this->inner = (Pbg3Parser *)0x0;
+            uVar2 = IPbg3Parser::ReadVarInt(&this->parser->base);
+            *(uint *)((int)&this->entries->unk2 + magic) = uVar2;
+            uVar2 = IPbg3Parser::ReadVarInt(&this->parser->base);
+            *(uint *)((int)&this->entries->unk1 + magic) = uVar2;
+            uVar2 = IPbg3Parser::ReadVarInt(&this->parser->base);
+            *(uint *)((int)&this->entries->checksum + magic) = uVar2;
+            uVar2 = IPbg3Parser::ReadVarInt(&this->parser->base);
+            *(uint *)((int)&this->entries->dataOffset + magic) = uVar2;
+            uVar2 = IPbg3Parser::ReadVarInt(&this->parser->base);
+            *(uint *)((int)&this->entries->uncompressedSize + magic) = uVar2;
+            iVar3 = IPbg3Parser::ReadString
+                              (&this->parser->base,&this->entries->filename + magic,0x100);
+            if (iVar3 == 0) {
+              if (this->parser != (Pbg3Parser *)0x0) {
+                (*(code *)((this->parser->base).vtbl)->operator_delete)(1);
+                this->parser = (Pbg3Parser *)0x0;
               }
               if (this->entries != (Pbg3Entry *)0x0) {
                 _free(this->entries);
@@ -48,25 +49,25 @@ undefined4 __thiscall Pbg3Archive::ParseHeader(Pbg3Archive *this)
               return 0;
             }
             val = val + 1;
-            iVar1 = iVar1 + 0x114;
+            magic = magic + 0x114;
           } while (val < (uint)this->numOfEntries);
         }
         return 1;
       }
-      if (this->inner == (Pbg3Parser *)0x0) {
+      if (this->parser == (Pbg3Parser *)0x0) {
         return 0;
       }
-      (*(code *)this->inner->vtbl->Close)(1);
-      this->inner = (Pbg3Parser *)0x0;
+      (*(code *)((this->parser->base).vtbl)->operator_delete)(1);
+      this->parser = (Pbg3Parser *)0x0;
       return 0;
     }
-    inner = this->inner;
+    inner = this->parser;
   }
   if (inner == (Pbg3Parser *)0x0) {
     return 0;
   }
-  (*(code *)inner->vtbl->Close)(1);
-  this->inner = (Pbg3Parser *)0x0;
+  (*(code *)((inner->base).vtbl)->operator_delete)(1);
+  this->parser = (Pbg3Parser *)0x0;
   return 0;
 }
 

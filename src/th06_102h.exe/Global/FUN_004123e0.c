@@ -117,11 +117,11 @@ undefined4 FUN_004123e0(int param_1)
       if ((*(byte *)((int)&local_28[0xd].flags + 1) >> 4 & 1) != 0) {
         local_28[0xc].scaleInterpFinalX = (float)((int)local_28[0xc].scaleInterpFinalX - local_c);
       }
-      if ((float)g_Player._2592_4_ < (float)local_28[0xb].sprite !=
-          (NAN((float)g_Player._2592_4_) || NAN((float)local_28[0xb].sprite))) {
-        g_Player._2588_4_ = local_28[0xb].currentInstruction;
-        g_Player._2592_4_ = local_28[0xb].sprite;
-        g_Player._2596_4_ = local_28[0xb].alphaInterpInitial;
+      if ((float)_DAT_006cb048 < (float)local_28[0xb].sprite !=
+          (NAN((float)_DAT_006cb048) || NAN((float)local_28[0xb].sprite))) {
+        _DAT_006cb044 = local_28[0xb].currentInstruction;
+        _DAT_006cb048 = local_28[0xb].sprite;
+        _DAT_006cb04c = local_28[0xb].alphaInterpInitial;
       }
     }
     if ((0 < (int)local_28[0xc].scaleInterpFinalX) ||

@@ -2,39 +2,40 @@
 uint __thiscall Pbg3Parser::ReadInt(Pbg3Parser *this,char numBitsAsPowerOf2)
 
 {
-  byte bVar1;
   undefined3 extraout_var;
   uint result;
-  uint uVar3;
-  int iVar2;
+  uint remainingBits;
+  int iVar1;
+  byte bitIdx;
   
-  uVar3 = 1 << (numBitsAsPowerOf2 - 1U & 0x1f);
+  remainingBits = 1 << (numBitsAsPowerOf2 - 1U & 0x1f);
   result = 0;
   if ((this->fileAbstraction).base.handle == (HANDLE)0x0) {
     return 0;
   }
   do {
-    if (uVar3 == 0) {
+    if (remainingBits == 0) {
       return result;
     }
-    if (this->bitIdxInCurByte == 0x80) {
-      bVar1 = FileAbstraction::ReadByte(&(this->fileAbstraction).base);
-      iVar2 = CONCAT31(extraout_var,bVar1);
-      *(int *)&this->curByte = iVar2;
-      if (iVar2 == -1) {
+    if ((this->base).bitIdxInCurByte == 0x80) {
+      bitIdx = FileAbstraction::ReadByte(&(this->fileAbstraction).base);
+      iVar1 = CONCAT31(extraout_var,bitIdx);
+      (this->base).curByte = iVar1;
+      if (iVar1 == -1) {
         return 0;
       }
-      this->offsetInFile = this->offsetInFile + 1;
-      this->someKindOfCrc = this->someKindOfCrc + iVar2;
+      (this->base).offsetInFile = (this->base).offsetInFile + 1;
+      (this->base).someKindOfCrc = (this->base).someKindOfCrc + iVar1;
     }
-    if ((this->bitIdxInCurByte & this->curByte) != 0) {
-      result = result | uVar3;
+    bitIdx = (this->base).bitIdxInCurByte;
+    if ((bitIdx & *(byte *)&(this->base).curByte) != 0) {
+      result = result | remainingBits;
     }
-    uVar3 = uVar3 >> 1;
-    bVar1 = this->bitIdxInCurByte >> 1;
-    this->bitIdxInCurByte = bVar1;
-    if (bVar1 == 0) {
-      this->bitIdxInCurByte = 0x80;
+    remainingBits = remainingBits >> 1;
+    bitIdx = bitIdx >> 1;
+    (this->base).bitIdxInCurByte = bitIdx;
+    if (bitIdx == 0) {
+      (this->base).bitIdxInCurByte = 0x80;
     }
   } while( true );
 }

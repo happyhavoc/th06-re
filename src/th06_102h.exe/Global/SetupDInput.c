@@ -67,7 +67,7 @@ undefined4 SetupDInput(GameContext *param_1)
                       );
             if (param_1->controller != (LPDIRECTINPUTDEVICE8A)0x0) {
               (*param_1->controller->lpVtbl->SetDataFormat)
-                        (param_1->controller,(LPCDIDATAFORMAT)&DAT_0046cdfc);
+                        (param_1->controller,&DIDATAFORMAT_0046cdfc);
               (*param_1->controller->lpVtbl->SetCooperativeLevel)
                         (param_1->controller,(HWND)param_1->hwndGameWindow,5);
               g_GameContext.controllerCaps.dwSize = 0x2c;

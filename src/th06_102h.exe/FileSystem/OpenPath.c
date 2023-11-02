@@ -57,7 +57,7 @@ byte * FileSystem::OpenPath(char *file_path,int param_2)
   }
   else {
     DebugPrint2("%s Decode ... \n",filename);
-    buf = (byte *)Pbg3Archive::ReadAndValidateEntry(g_Pbg3Files[pbg3Idx],entryIdx,filename);
+    buf = (byte *)Pbg3Archive::ReadDecompressEntry(g_Pbg3Files[pbg3Idx],entryIdx,filename);
     g_LastFileSize = Pbg3Archive::GetEntrySize(g_Pbg3Files[pbg3Idx],entryIdx);
   }
   return buf;

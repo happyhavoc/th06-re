@@ -1,4 +1,6 @@
 
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
 void FUN_0040d930(AnmVm *param_1,undefined4 param_2)
 
 {
@@ -7,7 +9,7 @@ void FUN_0040d930(AnmVm *param_1,undefined4 param_2)
   if (0 < (int)param_1[0xc].scaleInterpFinalX) {
     FUN_0040caf0(param_1,param_2);
     pAVar1 = g_AnmManager;
-    if (g_Player._30152_4_ == 0) {
+    if (_DAT_006d1bf0 == 0) {
       if ((0 < (int)param_1[0xd].color) &&
          (FUN_004241e5(1), pAVar1 = g_AnmManager, param_1[0xd].color == 0)) {
         if (param_1[0xd].pendingInterrupt < 0) {

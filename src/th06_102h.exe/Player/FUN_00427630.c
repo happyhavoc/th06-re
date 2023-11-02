@@ -1,4 +1,6 @@
 
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
 void Player::FUN_00427630(float *param_1)
 
 {
@@ -7,7 +9,7 @@ void Player::FUN_00427630(float *param_1)
   float local_c;
   float local_8;
   
-  if (g_Player._30152_4_ == 0) {
+  if (_DAT_006d1bf0 == 0) {
     if ((int)g_GameManager.graze_in_stage < 9999) {
       g_GameManager.graze_in_stage = g_GameManager.graze_in_stage + 1;
     }

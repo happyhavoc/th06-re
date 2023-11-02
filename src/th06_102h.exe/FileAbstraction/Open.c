@@ -2,47 +2,47 @@
 int __thiscall FileAbstraction::Open(FileAbstraction *this,LPCSTR filename,char *mode)
 
 {
-  bool bVar1;
-  char cVar2;
+  char cVar1;
   HANDLE hFile;
-  char *pcVar3;
+  char *pcVar2;
+  bool goToEnd;
   
-  bVar1 = false;
+  goToEnd = false;
   (*this->vtbl->Close)(this);
-  cVar2 = *mode;
-  pcVar3 = mode;
-  if (cVar2 != '\0') {
+  cVar1 = *mode;
+  pcVar2 = mode;
+  if (cVar1 != '\0') {
     while( true ) {
-      if (cVar2 == 'r') {
-        this->field2_0x8 = 0x80000000;
-        mode = (char *)0x3;
+      if (cVar1 == 'r') {
+        this->access = 0x80000000;
+        mode = (char *)OPEN_EXISTING;
         goto LAB_0043ced4;
       }
-      if (cVar2 == 'w') break;
-      if (cVar2 == 'a') {
-        bVar1 = true;
-        this->field2_0x8 = 0x40000000;
-        mode = (char *)0x4;
+      if (cVar1 == 'w') break;
+      if (cVar1 == 'a') {
+        goToEnd = true;
+        this->access = GENERIC_WRITE;
+        mode = (char *)OPEN_ALWAYS;
         goto LAB_0043ced4;
       }
-      cVar2 = pcVar3[1];
-      pcVar3 = pcVar3 + 1;
-      if (cVar2 == '\0') {
+      cVar1 = pcVar2[1];
+      pcVar2 = pcVar2 + 1;
+      if (cVar1 == '\0') {
         return 0;
       }
     }
     DeleteFileA(filename);
-    this->field2_0x8 = 0x40000000;
-    mode = (char *)0x4;
+    this->access = GENERIC_WRITE;
+    mode = (char *)OPEN_ALWAYS;
   }
 LAB_0043ced4:
-  if (*pcVar3 != '\0') {
-    hFile = CreateFileA(filename,this->field2_0x8,1,(LPSECURITY_ATTRIBUTES)0x0,(DWORD)mode,0x8000080
-                        ,(HANDLE)0x0);
+  if (*pcVar2 != '\0') {
+    hFile = CreateFileA(filename,this->access,1,(LPSECURITY_ATTRIBUTES)0x0,(DWORD)mode,0x8000080,
+                        (HANDLE)0x0);
     this->handle = hFile;
     if (hFile != (HANDLE)0xffffffff) {
-      if (bVar1) {
-        SetFilePointer(hFile,0,(PLONG)0x0,2);
+      if (goToEnd) {
+        SetFilePointer(hFile,0,(PLONG)0x0,FILE_END);
       }
       return 1;
     }

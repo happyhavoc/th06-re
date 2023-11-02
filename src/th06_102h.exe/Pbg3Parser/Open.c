@@ -1,18 +1,18 @@
 
-undefined4 __thiscall Pbg3Parser::Open(Pbg3Parser *this,char *param_1)
+undefined4 __thiscall Pbg3Parser::Open(Pbg3Parser *this,char *path)
 
 {
   int iVar1;
   DWORD DVar2;
   
   (*((this->fileAbstraction).base.vtbl)->Close)(&(this->fileAbstraction).base);
-  Init(this);
-  iVar1 = FileAbstraction::Open(&(this->fileAbstraction).base,param_1,"r");
+  IPbg3Parser::IPbg3Parser(this);
+  iVar1 = FileAbstraction::Open(&(this->fileAbstraction).base,path,"r");
   if (iVar1 == 0) {
     return 0;
   }
   DVar2 = GetFileSize((this->fileAbstraction).base.handle,(LPDWORD)0x0);
-  this->fileSize = DVar2;
+  (this->base).fileSize = DVar2;
   return 1;
 }
 

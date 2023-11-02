@@ -1,4 +1,6 @@
 
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
 void __fastcall FUN_0041f4a0(AnmVm *param_1)
 
 {
@@ -63,8 +65,8 @@ void __fastcall FUN_0041f4a0(AnmVm *param_1)
       }
       else {
         if ((*(char *)((int)&local_18[1].currentTimeInScript.previous + 3) == '\x01') ||
-           ((0x7f < g_GameManager.current_power &&
-            ((float)g_Player._1092_4_ < 128.0 != NAN((float)g_Player._1092_4_))))) {
+           ((0x7f < g_GameManager.current_power && (_DAT_006caa6c < 128.0 != NAN(_DAT_006caa6c)))))
+        {
           fVar11 = Player::FUN_00428700(&g_Player,(float *)(local_18 + 1));
           fVar5 = (float10)fcos((float10)(float)fVar11);
           fVar11 = (float10)fsin((float10)(float)fVar11);
@@ -276,7 +278,7 @@ LAB_0041f7c5:
           break;
         case 6:
           local_c = ((int)g_GameManager.graze_in_stage / 3) * 10 + 500;
-          if (g_Player._30152_4_ != 0) {
+          if (_DAT_006d1bf0 != 0) {
             local_c = 100;
           }
           g_GameManager.score = g_GameManager.score + local_c;

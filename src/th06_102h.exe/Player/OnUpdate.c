@@ -1,7 +1,7 @@
 
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
 
-undefined4 Player::OnUpdate(Player *param_1)
+undefined4 Player::OnUpdate(undefined param_1)
 
 {
   float fVar1;
@@ -10,61 +10,62 @@ undefined4 Player::OnUpdate(Player *param_1)
   undefined3 extraout_var;
   long lVar3;
   uint uVar4;
+  undefined3 in_stack_00000005;
   int local_8;
   
   if (g_GameManager.field6_0x18[20] != '\0') {
     return 1;
   }
   for (local_8 = 0; local_8 < 0x20; local_8 = local_8 + 1) {
-    *(undefined4 *)(&param_1->field_0x638 + local_8 * 0xc) = 0;
+    (&_param_1[5].pos2)[local_8].y = 0.0;
   }
   for (local_8 = 0; local_8 < 0x10; local_8 = local_8 + 1) {
-    *(undefined4 *)(&param_1->field_0x8c0 + local_8 * 0x10) = 0;
+    _param_1[8].matrix.m[local_8][1] = 0.0;
   }
-  if (*(int *)&param_1->field_0x75c8 == 0) {
+  if (_param_1[0x6e].pos2.y == 0.0) {
     bVar2 = FUN_004195a2(0x69bc30);
-    if (((((CONCAT31(extraout_var,bVar2) == 0) && (*(int *)&param_1->field_0x9d8 != 0)) &&
+    if (((((CONCAT31(extraout_var,bVar2) == 0) && (_param_1[9].matrix.m[0][3] != 0.0)) &&
          ('\0' < (char)g_GameManager.bombs_remaining)) &&
         (((g_CurFrameInput & 2) != 0 && ((g_CurFrameInput & 2) != (g_LastFrameInput & 2))))) &&
-       (*(int *)&param_1->field_0x75dc != 0)) {
+       (_param_1[0x6e].timeOfLastSpriteSet != 0)) {
       g_GameManager.field6_0x18._12_4_ = g_GameManager.field6_0x18._12_4_ + 1;
       g_GameManager.bombs_remaining = g_GameManager.bombs_remaining - 1;
       DAT_0069bc30 = DAT_0069bc30 & 0xfffffff3 | 8;
-      *(undefined4 *)&param_1->field_0x75c8 = 1;
-      *(undefined4 *)&param_1->field_0x75d8 = 0;
-      *(undefined4 *)&param_1->field_0x75d4 = 0;
-      *(undefined4 *)&param_1->field_0x75d0 = 0xfffffc19;
-      *(undefined4 *)&param_1->field_0x75cc = 999;
-      (**(code **)&param_1->field_0x75dc)(param_1);
+      _param_1[0x6e].pos2.y = 1.401298e-45;
+      _param_1[0x6e].posInterpTime.current = 0;
+      _param_1[0x6e].posInterpTime.subFrame = 0.0;
+      _param_1[0x6e].posInterpTime.previous = -999;
+      _param_1[0x6e].pos2.z = 1.399897e-42;
+      (*(code *)_param_1[0x6e].timeOfLastSpriteSet)(_param_1);
       _DAT_005a5f8c = 0;
       FUN_0041c5fa(200);
       _DAT_005a5f9c = DAT_005a5f90;
     }
   }
   else {
-    (**(code **)&param_1->field_0x75dc)(param_1);
+    (*(code *)_param_1[0x6e].timeOfLastSpriteSet)(_param_1);
   }
-  if (param_1->field_0x9e0 == '\x02') {
-    if (*(int *)&param_1->field_0x9d8 != 0) {
-      *(int *)&param_1->field_0x9d8 = *(int *)&param_1->field_0x9d8 + -1;
-      if (*(int *)&param_1->field_0x9d8 == 0) {
+  if (*(char *)(_param_1[9].matrix.m[1] + 1) == '\x02') {
+    if (_param_1[9].matrix.m[0][3] != 0.0) {
+      _param_1[9].matrix.m[0][3] = (float)((int)_param_1[9].matrix.m[0][3] + -1);
+      if (_param_1[9].matrix.m[0][3] == 0.0) {
         g_GameManager.power_item_count_for_score = 0;
         if ((char)g_GameManager.lives_remaining < '\x01') {
-          FUN_0041f290(&param_1->field_0x440,4,2);
-          FUN_0041f290(&param_1->field_0x440,4,2);
-          FUN_0041f290(&param_1->field_0x440,4,2);
-          FUN_0041f290(&param_1->field_0x440,4,2);
-          FUN_0041f290(&param_1->field_0x440,4,2);
+          FUN_0041f290(_param_1 + 4,4,2);
+          FUN_0041f290(_param_1 + 4,4,2);
+          FUN_0041f290(_param_1 + 4,4,2);
+          FUN_0041f290(_param_1 + 4,4,2);
+          FUN_0041f290(_param_1 + 4,4,2);
           g_GameManager.current_power = 0;
           g_GameManager._6172_1_ = 0xff;
         }
         else {
-          FUN_0041f290(&param_1->field_0x440,2,2);
-          FUN_0041f290(&param_1->field_0x440,0,2);
-          FUN_0041f290(&param_1->field_0x440,0,2);
-          FUN_0041f290(&param_1->field_0x440,0,2);
-          FUN_0041f290(&param_1->field_0x440,0,2);
-          FUN_0041f290(&param_1->field_0x440,0,2);
+          FUN_0041f290(_param_1 + 4,2,2);
+          FUN_0041f290(_param_1 + 4,0,2);
+          FUN_0041f290(_param_1 + 4,0,2);
+          FUN_0041f290(_param_1 + 4,0,2);
+          FUN_0041f290(_param_1 + 4,0,2);
+          FUN_0041f290(_param_1 + 4,0,2);
           if (g_GameManager.current_power < 0x11) {
             g_GameManager.current_power = 0;
           }
@@ -77,28 +78,29 @@ undefined4 Player::OnUpdate(Player *param_1)
       }
       goto LAB_00428fa8;
     }
-    fVar1 = ((float)*(int *)&param_1->field_0x75bc + *(float *)&param_1->field_0x75b8) / 30.0;
-    *(float *)&param_1->field_0x18 = fVar1 * 3.0 + 1.0;
-    *(float *)&param_1->field_0x1c = 1.0 - fVar1 * 1.0;
-    lVar3 = __ftol2((double)(255.0 - (((float)*(int *)&param_1->field_0x75bc +
-                                      *(float *)&param_1->field_0x75b8) * 255.0) / 30.0));
-    *(uint *)&param_1->field_0x7c = lVar3 << 0x18 | 0xffffff;
-    *(uint *)&param_1->field_0x80 = *(uint *)&param_1->field_0x80 | 4;
-    *(undefined4 *)&param_1->field_0xa10 = 0;
-    *(undefined4 *)&param_1->field_0xa14 = 0;
-    if (*(int *)&param_1->field_0x75bc < 0x1e) goto LAB_00428fa8;
-    param_1->field_0x9e0 = 1;
-    *(float *)&param_1->field_0x440 = g_GameManager.arcade_region_size.x / 2.0;
-    *(float *)&param_1->field_0x444 = g_GameManager.arcade_region_size.y - 64.0;
-    *(undefined4 *)&param_1->field_0x448 = 0x3e4ccccd;
-    *(undefined4 *)&param_1->field_0x75bc = 0;
-    *(undefined4 *)&param_1->field_0x75b8 = 0;
-    *(undefined4 *)&param_1->field_0x75b4 = 0xfffffc19;
-    *(undefined4 *)&param_1->field_0x1c = 0x40400000;
-    *(undefined4 *)&param_1->field_0x18 = 0x40400000;
+    fVar1 = ((float)(int)_param_1[0x6e].posInterpFinal.y + _param_1[0x6e].posInterpFinal.x) / 30.0;
+    _param_1->scaleY = fVar1 * 3.0 + 1.0;
+    _param_1->scaleX = 1.0 - fVar1 * 1.0;
+    lVar3 = __ftol2((double)(255.0 - (((float)(int)_param_1[0x6e].posInterpFinal.y +
+                                      _param_1[0x6e].posInterpFinal.x) * 255.0) / 30.0));
+    _param_1->color = lVar3 << 0x18 | 0xffffff;
+    _param_1->flags = _param_1->flags | 4;
+    _param_1[9].flags = 0;
+    _param_1[9].alphaInterpEndTime = 0;
+    _param_1[9].scaleInterpEndTime = 0;
+    if ((int)_param_1[0x6e].posInterpFinal.y < 0x1e) goto LAB_00428fa8;
+    *(undefined *)(_param_1[9].matrix.m[1] + 1) = 1;
+    _param_1[4].rotation.x = g_GameManager.arcade_region_size.x / 2.0;
+    _param_1[4].rotation.y = g_GameManager.arcade_region_size.y - 64.0;
+    _param_1[4].rotation.z = 0.2;
+    _param_1[0x6e].posInterpFinal.y = 0.0;
+    _param_1[0x6e].posInterpFinal.x = 0.0;
+    _param_1[0x6e].posInterpInitial.z = -NAN;
+    _param_1->scaleX = 3.0;
+    _param_1->scaleY = 3.0;
     this = g_AnmManager;
-    *(undefined2 *)&param_1->field_0xb4 = 0x400;
-    AnmManager::SetAndExecuteScript(this,(AnmVm *)param_1,this->scripts[0x400]);
+    _param_1->anmFileIndex = 0x400;
+    AnmManager::SetAndExecuteScript(this,_param_1,this->scripts[0x400]);
     if ((char)g_GameManager.lives_remaining < '\x01') {
       g_GameManager.field22_0x1820._0_1_ = 1;
       goto LAB_00428fa8;
@@ -112,75 +114,78 @@ undefined4 Player::OnUpdate(Player *param_1)
     }
     DAT_0069bc30 = DAT_0069bc30 & 0xfffffff0 | 10;
   }
-  else if (param_1->field_0x9e0 != '\x01') goto LAB_00428fa8;
-  *(undefined4 *)&param_1->field_0x9dc = 0x5a;
-  fVar1 = 1.0 - ((float)*(int *)&param_1->field_0x75bc + *(float *)&param_1->field_0x75b8) / 30.0;
-  *(float *)&param_1->field_0x18 = fVar1 * 2.0 + 1.0;
-  *(float *)&param_1->field_0x1c = 1.0 - fVar1 * 1.0;
-  *(uint *)&param_1->field_0x80 = *(uint *)&param_1->field_0x80 | 4;
-  *(undefined4 *)&param_1->field_0x9d4 = 0x3f800000;
-  *(undefined4 *)&param_1->field_0x9d0 = 0x3f800000;
-  *(uint *)&param_1->field_0x7c = (*(int *)&param_1->field_0x75bc * 0xff) / 0x1e << 0x18 | 0xffffff;
-  *(undefined4 *)&param_1->field_0x9d8 = 0;
-  if (0x1d < *(int *)&param_1->field_0x75bc) {
-    param_1->field_0x9e0 = 3;
-    *(undefined4 *)&param_1->field_0x1c = 0x3f800000;
-    *(undefined4 *)&param_1->field_0x18 = 0x3f800000;
-    *(undefined4 *)&param_1->field_0x7c = 0xffffffff;
-    *(uint *)&param_1->field_0x80 = *(uint *)&param_1->field_0x80 & 0xfffffffb;
-    *(undefined4 *)&param_1->field_0x75bc = 0xf0;
-    *(undefined4 *)&param_1->field_0x75b8 = 0;
-    *(undefined4 *)&param_1->field_0x75b4 = 0xfffffc19;
-    *(undefined4 *)&param_1->field_0x9d8 = 6;
+  else if (*(char *)(_param_1[9].matrix.m[1] + 1) != '\x01') goto LAB_00428fa8;
+  _param_1[9].matrix.m[1][0] = 1.261169e-43;
+  fVar1 = 1.0 - ((float)(int)_param_1[0x6e].posInterpFinal.y + _param_1[0x6e].posInterpFinal.x) /
+                30.0;
+  _param_1->scaleY = fVar1 * 2.0 + 1.0;
+  _param_1->scaleX = 1.0 - fVar1 * 1.0;
+  _param_1->flags = _param_1->flags | 4;
+  _param_1[9].matrix.m[0][2] = 1.0;
+  _param_1[9].matrix.m[0][1] = 1.0;
+  _param_1->color = ((int)_param_1[0x6e].posInterpFinal.y * 0xff) / 0x1e << 0x18 | 0xffffff;
+  _param_1[9].matrix.m[0][3] = 0.0;
+  if (0x1d < (int)_param_1[0x6e].posInterpFinal.y) {
+    *(undefined *)(_param_1[9].matrix.m[1] + 1) = 3;
+    _param_1->scaleX = 1.0;
+    _param_1->scaleY = 1.0;
+    _param_1->color = 0xffffffff;
+    _param_1->flags = _param_1->flags & 0xfffffffb;
+    _param_1[0x6e].posInterpFinal.y = 3.363116e-43;
+    _param_1[0x6e].posInterpFinal.x = 0.0;
+    _param_1[0x6e].posInterpInitial.z = -NAN;
+    _param_1[9].matrix.m[0][3] = 8.407791e-45;
   }
 LAB_00428fa8:
-  if (*(int *)&param_1->field_0x9dc != 0) {
-    *(int *)&param_1->field_0x9dc = *(int *)&param_1->field_0x9dc + -1;
+  if (_param_1[9].matrix.m[1][0] != 0.0) {
+    _param_1[9].matrix.m[1][0] = (float)((int)_param_1[9].matrix.m[1][0] + -1);
     FUN_00414160(0x5a5ff8,0);
   }
-  if (param_1->field_0x9e0 == '\x03') {
+  if (*(char *)(_param_1[9].matrix.m[1] + 1) == '\x03') {
     FUN_004241e5(1);
-    if (*(int *)&param_1->field_0x75bc < 1) {
-      param_1->field_0x9e0 = 0;
-      *(undefined4 *)&param_1->field_0x75bc = 0;
-      *(undefined4 *)&param_1->field_0x75b8 = 0;
-      *(undefined4 *)&param_1->field_0x75b4 = 0xfffffc19;
-      *(uint *)&param_1->field_0x80 = *(uint *)&param_1->field_0x80 & 0xfffffff7;
-      *(undefined4 *)&param_1->field_0x7c = 0xffffffff;
+    if ((int)_param_1[0x6e].posInterpFinal.y < 1) {
+      *(undefined *)(_param_1[9].matrix.m[1] + 1) = 0;
+      _param_1[0x6e].posInterpFinal.y = 0.0;
+      _param_1[0x6e].posInterpFinal.x = 0.0;
+      _param_1[0x6e].posInterpInitial.z = -NAN;
+      _param_1->flags = _param_1->flags & 0xfffffff7;
+      _param_1->color = 0xffffffff;
     }
     else {
-      uVar4 = *(uint *)&param_1->field_0x75bc & 0x80000007;
+      uVar4 = (uint)_param_1[0x6e].posInterpFinal.y & 0x80000007;
       if ((int)uVar4 < 0) {
         uVar4 = (uVar4 - 1 | 0xfffffff8) + 1;
       }
       if ((int)uVar4 < 2) {
-        *(uint *)&param_1->field_0x80 = *(uint *)&param_1->field_0x80 | 8;
-        *(undefined4 *)&param_1->field_0x7c = 0xff404040;
+        _param_1->flags = _param_1->flags | 8;
+        _param_1->color = 0xff404040;
       }
       else {
-        *(uint *)&param_1->field_0x80 = *(uint *)&param_1->field_0x80 & 0xfffffff7;
-        *(undefined4 *)&param_1->field_0x7c = 0xffffffff;
+        _param_1->flags = _param_1->flags & 0xfffffff7;
+        _param_1->color = 0xffffffff;
       }
     }
   }
   else {
-    *(undefined4 *)&param_1->field_0x75b4 = *(undefined4 *)&param_1->field_0x75bc;
+    _param_1[0x6e].posInterpInitial.z = _param_1[0x6e].posInterpFinal.y;
     GameContext::FUN_00424285
-              (&g_GameContext,(int *)&param_1->field_0x75bc,(float *)&param_1->field_0x75b8);
+              (&g_GameContext,(int *)&_param_1[0x6e].posInterpFinal.y,
+               &_param_1[0x6e].posInterpFinal.x);
   }
-  if ((param_1->field_0x9e0 != '\x02') && (param_1->field_0x9e0 != '\x01')) {
+  if ((*(char *)(_param_1[9].matrix.m[1] + 1) != '\x02') &&
+     (*(char *)(_param_1[9].matrix.m[1] + 1) != '\x01')) {
     CalcMove();
   }
-  AnmManager::ExecuteScript(g_AnmManager,(AnmVm *)param_1);
-  FUN_004291b0(param_1);
-  if (param_1->field_0x9e2 != '\0') {
-    AnmManager::ExecuteScript(g_AnmManager,(AnmVm *)&param_1->field_0x110);
-    AnmManager::ExecuteScript(g_AnmManager,(AnmVm *)&param_1->field_0x220);
+  AnmManager::ExecuteScript(g_AnmManager,_param_1);
+  FUN_004291b0(_param_1);
+  if (*(char *)((int)_param_1[9].matrix.m[1] + 6) != '\0') {
+    AnmManager::ExecuteScript(g_AnmManager,_param_1 + 1);
+    AnmManager::ExecuteScript(g_AnmManager,_param_1 + 2);
   }
-  *(undefined4 *)&param_1->field_0xa1c = 0xc479c000;
-  *(undefined4 *)&param_1->field_0xa20 = 0xc479c000;
-  *(undefined4 *)&param_1->field_0xa24 = 0;
-  FUN_00429710(param_1);
+  *(undefined4 *)&_param_1[9].posInterpEndTime = 0xc479c000;
+  _param_1[9].pos.x = -999.0;
+  _param_1[9].pos.y = 0.0;
+  FUN_00429710(_param_1);
   return 1;
 }
 

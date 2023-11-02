@@ -1,6 +1,7 @@
 
 /* WARNING: Removing unreachable block (ram,0x0040c27a) */
 /* WARNING: Removing unreachable block (ram,0x0040c464) */
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
 
 void FUN_0040c180(int param_1,int param_2)
 
@@ -35,8 +36,8 @@ void FUN_0040c180(int param_1,int param_2)
                     (g_AnmManager,local_18,
                      (int)local_18->anotherSpriteNumber +
                      (int)*(short *)((int)local_18[5].matrix.m[2] + 0xe));
-          fVar5 = local_18[5].angleVel.y - (float)g_Player._1088_4_;
-          fVar1 = local_18[5].angleVel.z - (float)g_Player._1092_4_;
+          fVar5 = local_18[5].angleVel.y - _DAT_006caa68;
+          fVar1 = local_18[5].angleVel.z - _DAT_006caa6c;
           fVar3 = (float10)FUN_0045bc34((double)(fVar5 * fVar5 + fVar1 * fVar1));
           if ((float)fVar3 <= 128.0) {
             fVar5 = FUN_0041e820(&DAT_0069d8f8);
@@ -74,8 +75,8 @@ void FUN_0040c180(int param_1,int param_2)
                     (g_AnmManager,local_18,
                      (int)local_18->anotherSpriteNumber +
                      (int)*(short *)((int)local_18[5].matrix.m[2] + 0xe));
-          fVar5 = local_18[5].angleVel.y - (float)g_Player._1088_4_;
-          fVar1 = local_18[5].angleVel.z - (float)g_Player._1092_4_;
+          fVar5 = local_18[5].angleVel.y - _DAT_006caa68;
+          fVar1 = local_18[5].angleVel.z - _DAT_006caa6c;
           fVar3 = (float10)FUN_0045bc34((double)(fVar5 * fVar5 + fVar1 * fVar1));
           if ((float)fVar3 <= 128.0) {
             fVar5 = FUN_0041e820(&DAT_0069d8f8);

@@ -5,7 +5,7 @@ FileAbstraction::Write(FileAbstraction *this,LPCVOID data,DWORD dataLen,LPDWORD 
 {
   BOOL BVar1;
   
-  if (this->field2_0x8 != 0x40000000) {
+  if (this->access != 0x40000000) {
     return 0;
   }
   BVar1 = WriteFile(this->handle,data,dataLen,outWritten,(LPOVERLAPPED)0x0);

@@ -11,7 +11,7 @@ undefined4 * __fastcall Pbg3Parser::Pbg3Parser(Pbg3Parser *this)
   local_c = ExceptionList;
   ExceptionList = &local_c;
   (this->base).vtbl = &IPBG3PARSER_VTBL;
-  IPbg3Parser::IPbg3Parser(this);
+  IPbg3Parser::Reset(this);
   local_4 = 0;
   FileAbstraction::FileAbstraction(&(this->fileAbstraction).base);
   (this->fileAbstraction).base.vtbl = &FileAbstractionVtable_0046cbbc;

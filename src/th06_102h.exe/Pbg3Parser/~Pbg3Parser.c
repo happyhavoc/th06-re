@@ -15,7 +15,7 @@ void __thiscall Pbg3Parser::~Pbg3Parser(Pbg3Parser *this)
   (this_00->base).vtbl = &FileAbstractionVtable_0046cbbc;
   local_4 = 1;
   FileAbstraction::Close(&this_00->base);
-  IPbg3Parser::IPbg3Parser(this);
+  IPbg3Parser::Reset(this);
   local_4 = local_4 & 0xffffff00;
   FileAbstraction::~FileAbstraction(&this_00->base);
   (this->base).vtbl = &IPBG3PARSER_VTBL;

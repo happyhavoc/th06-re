@@ -1,5 +1,5 @@
 
-void __fastcall IPbg3Parser::IPbg3Parser(Pbg3Parser *param_1)
+void __fastcall IPbg3Parser::Reset(Pbg3Parser *param_1)
 
 {
   (param_1->base).bitIdxInCurByte = 0x80;

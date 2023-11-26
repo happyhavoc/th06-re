@@ -1,23 +1,25 @@
 
-bool FUN_0041e992(void)
+uint __fastcall FUN_0041e992(undefined4 *param_1)
 
 {
-  int iVar1;
-  undefined4 *in_ECX;
+  uint uVar1;
   
-  iVar1 = in_ECX[5];
-  if (iVar1 != 0) {
-    SelectObject((HDC)in_ECX[5],(HGDIOBJ)in_ECX[6]);
-    DeleteDC((HDC)in_ECX[5]);
-    DeleteObject((HGDIOBJ)in_ECX[7]);
-    *in_ECX = 0xffffffff;
-    in_ECX[1] = 0;
-    in_ECX[2] = 0;
-    in_ECX[5] = 0;
-    in_ECX[7] = 0;
-    in_ECX[6] = 0;
-    in_ECX[8] = 0;
+  if (param_1[5] == 0) {
+    uVar1 = (uint)param_1 & 0xffffff00;
   }
-  return iVar1 != 0;
+  else {
+    SelectObject((HDC)param_1[5],(HGDIOBJ)param_1[6]);
+    DeleteDC((HDC)param_1[5]);
+    DeleteObject((HGDIOBJ)param_1[7]);
+    *param_1 = 0xffffffff;
+    param_1[1] = 0;
+    param_1[2] = 0;
+    param_1[5] = 0;
+    param_1[7] = 0;
+    param_1[6] = 0;
+    param_1[8] = 0;
+    uVar1 = CONCAT31((int3)((uint)param_1 >> 8),1);
+  }
+  return uVar1;
 }
 

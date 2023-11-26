@@ -23,20 +23,20 @@ void __thiscall AsciiManager::FUN_004016b0(AsciiManager *this)
     if (local_18 != *(int *)&local_10->field_0x5c) {
       local_18 = *(int *)&local_10->field_0x5c;
       if (local_18 == 0) {
-        g_GameContext.viewport.X = 0;
-        g_GameContext.viewport.Y = 0;
-        g_GameContext.viewport.Width = 0x280;
-        g_GameContext.viewport.Height = 0x1e0;
-        (*(g_GameContext.d3dDevice)->lpVtbl->SetViewport)
-                  (g_GameContext.d3dDevice,&g_GameContext.viewport);
+        g_Supervisor.viewport.X = 0;
+        g_Supervisor.viewport.Y = 0;
+        g_Supervisor.viewport.Width = 0x280;
+        g_Supervisor.viewport.Height = 0x1e0;
+        (*(g_Supervisor.d3dDevice)->lpVtbl->SetViewport)
+                  (g_Supervisor.d3dDevice,&g_Supervisor.viewport);
       }
       else {
-        g_GameContext.viewport.X = __ftol2((double)g_GameManager.arcade_region_top_left_pos.x);
-        g_GameContext.viewport.Y = __ftol2((double)g_GameManager.arcade_region_top_left_pos.y);
-        g_GameContext.viewport.Width = __ftol2((double)g_GameManager.arcade_region_size.x);
-        g_GameContext.viewport.Height = __ftol2((double)g_GameManager.arcade_region_size.y);
-        (*(g_GameContext.d3dDevice)->lpVtbl->SetViewport)
-                  (g_GameContext.d3dDevice,&g_GameContext.viewport);
+        g_Supervisor.viewport.X = __ftol2((double)g_GameManager.arcade_region_top_left_pos.x);
+        g_Supervisor.viewport.Y = __ftol2((double)g_GameManager.arcade_region_top_left_pos.y);
+        g_Supervisor.viewport.Width = __ftol2((double)g_GameManager.arcade_region_size.x);
+        g_Supervisor.viewport.Height = __ftol2((double)g_GameManager.arcade_region_size.y);
+        (*(g_Supervisor.d3dDevice)->lpVtbl->SetViewport)
+                  (g_Supervisor.d3dDevice,&g_Supervisor.viewport);
       }
     }
     for (; local_14->text[0] != '\0'; local_14 = (AsciiManagerString *)(local_14->text + 1)) {

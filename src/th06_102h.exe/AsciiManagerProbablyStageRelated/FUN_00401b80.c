@@ -40,7 +40,7 @@ AsciiManagerProbablyStageRelated::FUN_00401b80(AsciiManagerProbablyStageRelated 
     this->field0_0x0 = this->field0_0x0 + 1;
     this->field1_0x4 = 0;
     pAVar1 = g_AnmManager;
-    if (g_GameContext.lockableBackbuffer != 0) {
+    if (g_Supervisor.lockableBackbuffer != 0) {
       g_AnmManager->vertexBufferContents[3].position.z = 4.203895e-45;
       pAVar1->vertexBufferContents[3].diffuseColor = 0x20;
       pAVar1->vertexBufferContents[3].textureUV.x = 2.242078e-44;
@@ -189,7 +189,7 @@ AsciiManagerProbablyStageRelated::FUN_00401b80(AsciiManagerProbablyStageRelated 
     if (0x13 < this->field1_0x4) {
       this->field0_0x0 = 0;
       g_GameManager._6175_1_ = 0;
-      g_GameContext.unkInput2 = 1;
+      g_Supervisor.curState = 1;
       for (local_8 = 0; local_8 < 6; local_8 = local_8 + 1) {
         this->vms0[local_8].flags = this->vms0[local_8].flags & 0xfffffffe;
       }
@@ -198,7 +198,7 @@ AsciiManagerProbablyStageRelated::FUN_00401b80(AsciiManagerProbablyStageRelated 
   for (local_8 = 0; local_8 < 6; local_8 = local_8 + 1) {
     AnmManager::ExecuteScript(g_AnmManager,this->vms0 + local_8);
   }
-  if (g_GameContext.lockableBackbuffer != 0) {
+  if (g_Supervisor.lockableBackbuffer != 0) {
     AnmManager::ExecuteScript(g_AnmManager,&this->vm1);
   }
   this->field1_0x4 = this->field1_0x4 + 1;

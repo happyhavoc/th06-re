@@ -11,7 +11,7 @@ void __thiscall GameErrorContext::Flush(GameErrorContext *this)
     }
     _File = fopen("./log.txt","wt");
     _fprintf(_File,this->m_Buffer);
-    _fclose(_File);
+    fclose(_File);
   }
   return;
 }

@@ -72,12 +72,12 @@ void __fastcall FUN_0041adf3(int param_1)
     AnmManager::FUN_00432ad0(g_AnmManager,(AnmVm *)(*(int *)(param_1 + 4) + 0x20f4));
   }
   if (-1 < *(short *)(*(int *)(param_1 + 4) + 0x24d4)) {
-    g_GameContext.viewport.X = __ftol2((double)g_GameManager.arcade_region_top_left_pos.x);
-    g_GameContext.viewport.Y = __ftol2((double)g_GameManager.arcade_region_top_left_pos.y);
-    g_GameContext.viewport.Width = __ftol2((double)g_GameManager.arcade_region_size.x);
-    g_GameContext.viewport.Height = __ftol2((double)g_GameManager.arcade_region_size.y);
-    (*(g_GameContext.d3dDevice)->lpVtbl->SetViewport)
-              (g_GameContext.d3dDevice,(D3DVIEWPORT8 *)0x6c6de0);
+    g_Supervisor.viewport.X = __ftol2((double)g_GameManager.arcade_region_top_left_pos.x);
+    g_Supervisor.viewport.Y = __ftol2((double)g_GameManager.arcade_region_top_left_pos.y);
+    g_Supervisor.viewport.Width = __ftol2((double)g_GameManager.arcade_region_size.x);
+    g_Supervisor.viewport.Height = __ftol2((double)g_GameManager.arcade_region_size.y);
+    (*(g_Supervisor.d3dDevice)->lpVtbl->SetViewport)
+              (g_Supervisor.d3dDevice,(D3DVIEWPORT8 *)0x6c6de0);
     AnmManager::FUN_00432ad0(g_AnmManager,(AnmVm *)(*(int *)(param_1 + 4) + 0x2424));
   }
   return;

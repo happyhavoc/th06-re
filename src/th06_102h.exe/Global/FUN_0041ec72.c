@@ -1,16 +1,16 @@
 
-uint FUN_0041ec72(undefined4 param_1,int param_2,int param_3,int param_4)
+uint __thiscall
+FUN_0041ec72(uint *param_1_00,undefined4 param_2,int param_3,int param_4,int param_5)
 
 {
   uint uVar1;
   int iVar2;
-  uint *in_ECX;
   ushort *local_14;
   int local_c;
   
-  iVar2 = param_3 * param_4 * 2;
-  local_14 = (ushort *)(in_ECX[8] + param_2 * param_3 * 2);
-  uVar1 = *in_ECX;
+  iVar2 = param_4 * param_5 * 2;
+  local_14 = (ushort *)(param_1_00[8] + param_3 * param_4 * 2);
+  uVar1 = *param_1_00;
   if (uVar1 == 0x15) {
     for (local_c = 3; local_c < iVar2; local_c = local_c + 4) {
       *(byte *)((int)local_14 + local_c) = *(byte *)((int)local_14 + local_c) ^ 0xff;

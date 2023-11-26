@@ -2,17 +2,17 @@
 void FUN_0042aab0(void)
 
 {
-  undefined4 *puVar1;
+  ReplayManager *pRVar1;
   
-  puVar1 = DAT_006d3f18;
-  if (DAT_006d3f18 != (undefined4 *)0x0) {
-    DAT_006d3f18[0x12] = DAT_006d3f18[0x12] + 8;
-    *(undefined4 *)puVar1[0x12] = *puVar1;
-    *(undefined2 *)(puVar1[0x12] + 4) = 0;
-    puVar1[0x12] = puVar1[0x12] + 8;
-    *(undefined4 *)puVar1[0x12] = 9999999;
-    *(undefined2 *)(puVar1[0x12] + 4) = 0;
-    puVar1[g_GameManager.current_stage + 0x12] = puVar1[0x12] + 8;
+  pRVar1 = g_ReplayManager;
+  if (g_ReplayManager != (ReplayManager *)0x0) {
+    g_ReplayManager->replay_inputs = g_ReplayManager->replay_inputs + 1;
+    pRVar1->replay_inputs->frame_num = pRVar1->frame_id;
+    pRVar1->replay_inputs->input_key = 0;
+    pRVar1->replay_inputs = pRVar1->replay_inputs + 1;
+    pRVar1->replay_inputs->frame_num = 9999999;
+    pRVar1->replay_inputs->input_key = 0;
+    (&pRVar1->replay_inputs)[g_GameManager.current_stage] = pRVar1->replay_inputs + 1;
   }
   return;
 }

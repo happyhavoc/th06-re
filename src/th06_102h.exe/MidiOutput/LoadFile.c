@@ -5,7 +5,7 @@ undefined4 __thiscall MidiOutput::LoadFile(MidiOutput *this,int param_1,char *pa
   undefined4 uVar1;
   byte *pbVar2;
   
-  if (g_GameContext.cfg.musicMode == MIDI) {
+  if (g_Supervisor.cfg.musicMode == MIDI) {
     ~MidiOutput(this);
     UnloadFile(this,param_1);
     pbVar2 = FileSystem::OpenPath(path,0);

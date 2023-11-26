@@ -12,20 +12,20 @@ void FUN_004354c0(int param_1,LONG param_2,LONG param_3,int param_4,int param_5,
   if (*(int *)(in_ECX + 0x20db4 + param_1 * 4) == 0) {
     return;
   }
-  HVar1 = (*(g_GameContext.d3dDevice)->lpVtbl->GetBackBuffer)
-                    (g_GameContext.d3dDevice,0,D3DBACKBUFFER_TYPE_MONO,&local_20);
+  HVar1 = (*(g_Supervisor.d3dDevice)->lpVtbl->GetBackBuffer)
+                    (g_Supervisor.d3dDevice,0,D3DBACKBUFFER_TYPE_MONO,&local_20);
   if (HVar1 == 0) {
     if (*(int *)(in_ECX + 0x20d34 + param_1 * 4) == 0) {
-      HVar1 = (*(g_GameContext.d3dDevice)->lpVtbl->CreateRenderTarget)
-                        (g_GameContext.d3dDevice,*(UINT *)(in_ECX + 0x20e34 + param_1 * 0x14),
+      HVar1 = (*(g_Supervisor.d3dDevice)->lpVtbl->CreateRenderTarget)
+                        (g_Supervisor.d3dDevice,*(UINT *)(in_ECX + 0x20e34 + param_1 * 0x14),
                          *(UINT *)(in_ECX + 0x20e38 + param_1 * 0x14),
-                         g_GameContext.presentParameters.BackBufferFormat,D3DMULTISAMPLE_NONE,1,
+                         g_Supervisor.presentParameters.BackBufferFormat,D3DMULTISAMPLE_NONE,1,
                          (IDirect3DSurface8 **)(in_ECX + 0x20d34 + param_1 * 4));
       if ((HVar1 != 0) &&
-         (HVar1 = (*(g_GameContext.d3dDevice)->lpVtbl->CreateImageSurface)
-                            (g_GameContext.d3dDevice,*(UINT *)(in_ECX + 0x20e34 + param_1 * 0x14),
+         (HVar1 = (*(g_Supervisor.d3dDevice)->lpVtbl->CreateImageSurface)
+                            (g_Supervisor.d3dDevice,*(UINT *)(in_ECX + 0x20e34 + param_1 * 0x14),
                              *(UINT *)(in_ECX + 0x20e38 + param_1 * 0x14),
-                             g_GameContext.presentParameters.BackBufferFormat,
+                             g_Supervisor.presentParameters.BackBufferFormat,
                              (IDirect3DSurface8 **)(in_ECX + 0x20d34 + param_1 * 4)), HVar1 != 0)) {
         (*local_20->lpVtbl->Release)(local_20);
         return;
@@ -45,8 +45,8 @@ void FUN_004354c0(int param_1,LONG param_2,LONG param_3,int param_4,int param_5,
     local_1c.bottom = param_5 + param_7;
     local_c.x = param_2;
     local_c.y = param_3;
-    (*(g_GameContext.d3dDevice)->lpVtbl->CopyRects)
-              (g_GameContext.d3dDevice,*(IDirect3DSurface8 **)(in_ECX + 0x20d34 + param_1 * 4),
+    (*(g_Supervisor.d3dDevice)->lpVtbl->CopyRects)
+              (g_Supervisor.d3dDevice,*(IDirect3DSurface8 **)(in_ECX + 0x20d34 + param_1 * 4),
                &local_1c,1,local_20,&local_c);
     (*local_20->lpVtbl->Release)(local_20);
     return;

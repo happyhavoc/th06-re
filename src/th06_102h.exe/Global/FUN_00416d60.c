@@ -15,7 +15,7 @@ undefined4 FUN_00416d60(int param_1)
   short local_c;
   uint local_8;
   
-  if (g_GameContext.unkInput2 != 3) {
+  if (g_Supervisor.curState != 3) {
     iVar3 = AnmManager::LoadAnm(g_AnmManager,6,"data/etama3.anm",0x200);
     if (iVar3 != 0) {
       return 0xffffffff;

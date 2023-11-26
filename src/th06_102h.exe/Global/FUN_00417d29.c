@@ -12,7 +12,7 @@ undefined4 FUN_00417d29(void)
   int local_8;
   
   pAVar2 = g_AnmManager;
-  if (g_GameContext.unkInput2 == 3) {
+  if (g_Supervisor.curState == 3) {
     uVar1 = in_ECX[1];
     *(undefined2 *)(uVar1 + 0x24d8) = 0x619;
     AnmManager::SetAndExecuteScript(pAVar2,(AnmVm *)(uVar1 + 0x2424),pAVar2->scripts[0x619]);
@@ -164,7 +164,7 @@ undefined4 FUN_00417d29(void)
       return 0xffffffff;
     }
   }
-  if (g_GameContext.unkInput2 != 3) {
+  if (g_Supervisor.curState != 3) {
     for (local_8 = 0; pAVar2 = g_AnmManager, local_8 < 0x1a; local_8 = local_8 + 1) {
       local_14 = (short)local_8 + 0x600;
       vm = (AnmVm *)(local_8 * 0x110 + in_ECX[1]);

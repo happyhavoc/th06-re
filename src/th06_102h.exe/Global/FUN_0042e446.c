@@ -30,12 +30,11 @@ void FUN_0042e446(int param_1)
   
   local_18 = __security_cookie ^ unaff_retaddr;
   local_28 = (AnmVm *)(param_1 + 0x40);
-  g_GameContext.viewport.X = 0;
-  g_GameContext.viewport.Y = 0;
-  g_GameContext.viewport.Width = 0x280;
-  g_GameContext.viewport.Height = 0x1e0;
-  (*(g_GameContext.d3dDevice)->lpVtbl->SetViewport)(g_GameContext.d3dDevice,&g_GameContext.viewport)
-  ;
+  g_Supervisor.viewport.X = 0;
+  g_Supervisor.viewport.Y = 0;
+  g_Supervisor.viewport.Width = 0x280;
+  g_Supervisor.viewport.Height = 0x1e0;
+  (*(g_Supervisor.d3dDevice)->lpVtbl->SetViewport)(g_Supervisor.d3dDevice,&g_Supervisor.viewport);
   AnmManager::CopySurfaceToBackBuffer(g_AnmManager,0,0,0,0,0);
   for (local_14 = 0; local_14 < 0x26; local_14 = local_14 + 1) {
     local_40 = (local_28->pos).x;
@@ -305,7 +304,7 @@ void FUN_0042e446(int param_1)
     }
   }
   g_AsciiManager.color = 0xffffffff;
-  FUN_0042d35a();
+  FUN_0042d35a(param_1);
   __security_check_cookie(local_18 ^ unaff_retaddr);
   return;
 }

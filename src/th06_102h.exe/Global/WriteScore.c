@@ -72,10 +72,10 @@ void WriteScore(void **param_1)
       *(undefined4 *)((int)_Dst + 8) = 0x14;
       *(size_t *)((int)_Dst + 0x10) = local_14;
       *(undefined2 *)((int)_Dst + 2) = 0;
-      uVar2 = FUN_0041e780(&DAT_0069d8f8);
+      uVar2 = GetRandomU16(&g_RandomSeed);
       local_4c = (undefined)((uint)uVar2 % 0x100);
       *(undefined *)((int)_Dst + 1) = local_4c;
-      uVar2 = FUN_0041e780(&DAT_0069d8f8);
+      uVar2 = GetRandomU16(&g_RandomSeed);
       local_50 = (undefined)((uint)uVar2 % 0x100);
       *(undefined *)((int)_Dst + 6) = local_50;
       *(undefined2 *)((int)_Dst + 4) = 0x10;

@@ -65,8 +65,8 @@ switchD_00403892_caseD_6:
           if (arg->facingDirInterpDuration != 0) {
             if ((arg->facingDirInterpTimer).current < arg->facingDirInterpDuration) {
               (arg->facingDirInterpTimer).previous = (arg->facingDirInterpTimer).current;
-              GameContext::FUN_00424285
-                        (&g_GameContext,&(arg->facingDirInterpTimer).current,
+              Supervisor::FUN_00424285
+                        (&g_Supervisor,&(arg->facingDirInterpTimer).current,
                          &(arg->facingDirInterpTimer).subFrame);
             }
             else {
@@ -88,8 +88,8 @@ switchD_00403892_caseD_6:
           }
           if (arg->skyFogInterpDuration != 0) {
             (arg->skyFogInterpTimer).previous = (arg->skyFogInterpTimer).current;
-            GameContext::FUN_00424285
-                      (&g_GameContext,&(arg->skyFogInterpTimer).current,
+            Supervisor::FUN_00424285
+                      (&g_Supervisor,&(arg->skyFogInterpTimer).current,
                        &(arg->skyFogInterpTimer).subFrame);
             local_20 = ((float)(arg->skyFogInterpTimer).current + (arg->skyFogInterpTimer).subFrame)
                        / (float)arg->skyFogInterpDuration;
@@ -111,20 +111,20 @@ switchD_00403892_caseD_6:
             (arg->skyFog).farPlane =
                  ((arg->skyFogInterpFinal).farPlane - (arg->skyFogInterpInitial).farPlane) *
                  local_20 + (arg->skyFogInterpInitial).farPlane;
-            (*(g_GameContext.d3dDevice)->lpVtbl->SetRenderState)
-                      (g_GameContext.d3dDevice,D3DRS_FOGCOLOR,(arg->skyFog).color);
-            (*(g_GameContext.d3dDevice)->lpVtbl->SetRenderState)
-                      (g_GameContext.d3dDevice,D3DRS_FOGSTART,(DWORD)(arg->skyFog).nearPlane);
-            (*(g_GameContext.d3dDevice)->lpVtbl->SetRenderState)
-                      (g_GameContext.d3dDevice,D3DRS_FOGEND,(DWORD)(arg->skyFog).farPlane);
+            (*(g_Supervisor.d3dDevice)->lpVtbl->SetRenderState)
+                      (g_Supervisor.d3dDevice,D3DRS_FOGCOLOR,(arg->skyFog).color);
+            (*(g_Supervisor.d3dDevice)->lpVtbl->SetRenderState)
+                      (g_Supervisor.d3dDevice,D3DRS_FOGSTART,(DWORD)(arg->skyFog).nearPlane);
+            (*(g_Supervisor.d3dDevice)->lpVtbl->SetRenderState)
+                      (g_Supervisor.d3dDevice,D3DRS_FOGEND,(DWORD)(arg->skyFog).farPlane);
             if (arg->skyFogInterpDuration <= (arg->skyFogInterpTimer).current) {
               arg->skyFogInterpDuration = 0;
             }
           }
           if (local_c->field1_0x4 != 5) {
             (arg->scriptTime).previous = (arg->scriptTime).current;
-            GameContext::FUN_00424285
-                      (&g_GameContext,&(arg->scriptTime).current,&(arg->scriptTime).subFrame);
+            Supervisor::FUN_00424285
+                      (&g_Supervisor,&(arg->scriptTime).current,&(arg->scriptTime).subFrame);
           }
           FUN_00404860(arg);
           if (arg->spellcardEclRelated0 < 1) {
@@ -142,12 +142,12 @@ switchD_00403892_caseD_6:
           (arg->skyFog).nearPlane = *(float *)&local_c->field_0xc;
           (arg->skyFog).farPlane = *(float *)&local_c->field_0x10;
           if (arg->skyFogInterpDuration == 0) {
-            (*(g_GameContext.d3dDevice)->lpVtbl->SetRenderState)
-                      (g_GameContext.d3dDevice,D3DRS_FOGCOLOR,(arg->skyFog).color);
-            (*(g_GameContext.d3dDevice)->lpVtbl->SetRenderState)
-                      (g_GameContext.d3dDevice,D3DRS_FOGSTART,(DWORD)(arg->skyFog).nearPlane);
-            (*(g_GameContext.d3dDevice)->lpVtbl->SetRenderState)
-                      (g_GameContext.d3dDevice,D3DRS_FOGEND,(DWORD)(arg->skyFog).farPlane);
+            (*(g_Supervisor.d3dDevice)->lpVtbl->SetRenderState)
+                      (g_Supervisor.d3dDevice,D3DRS_FOGCOLOR,(arg->skyFog).color);
+            (*(g_Supervisor.d3dDevice)->lpVtbl->SetRenderState)
+                      (g_Supervisor.d3dDevice,D3DRS_FOGSTART,(DWORD)(arg->skyFog).nearPlane);
+            (*(g_Supervisor.d3dDevice)->lpVtbl->SetRenderState)
+                      (g_Supervisor.d3dDevice,D3DRS_FOGEND,(DWORD)(arg->skyFog).farPlane);
           }
           arg->instructionIndex = arg->instructionIndex + 1;
           (arg->skyFogInterpFinal).nearPlane = (arg->skyFog).nearPlane;

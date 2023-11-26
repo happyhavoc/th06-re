@@ -102,12 +102,12 @@ undefined4 Player::OnUpdate(undefined param_1)
     _param_1->anmFileIndex = 0x400;
     AnmManager::SetAndExecuteScript(this,_param_1,this->scripts[0x400]);
     if ((char)g_GameManager.lives_remaining < '\x01') {
-      g_GameManager.field22_0x1820._0_1_ = 1;
+      g_GameManager.field22_0x1820 = 1;
       goto LAB_00428fa8;
     }
     g_GameManager.lives_remaining = g_GameManager.lives_remaining - 1;
     if (((int)g_GameManager.difficulty < 4) && (g_GameManager._6179_1_ == '\0')) {
-      g_GameManager.bombs_remaining = g_GameContext.bombCount;
+      g_GameManager.bombs_remaining = g_Supervisor.bombCount;
     }
     else {
       g_GameManager.bombs_remaining = 3;
@@ -168,8 +168,8 @@ LAB_00428fa8:
   }
   else {
     _param_1[0x6e].posInterpInitial.z = _param_1[0x6e].posInterpFinal.y;
-    GameContext::FUN_00424285
-              (&g_GameContext,(int *)&_param_1[0x6e].posInterpFinal.y,
+    Supervisor::FUN_00424285
+              (&g_Supervisor,(int *)&_param_1[0x6e].posInterpFinal.y,
                &_param_1[0x6e].posInterpFinal.x);
   }
   if ((*(char *)(_param_1[9].matrix.m[1] + 1) != '\x02') &&

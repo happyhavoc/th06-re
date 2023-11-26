@@ -13,7 +13,7 @@ void FUN_00417502(uint *param_1)
   undefined4 local_8;
   
   local_14 = __security_cookie ^ unaff_retaddr;
-  (*(g_GameContext.d3dDevice)->lpVtbl->SetRenderState)(g_GameContext.d3dDevice,D3DRS_ZFUNC,8);
+  (*(g_Supervisor.d3dDevice)->lpVtbl->SetRenderState)(g_Supervisor.d3dDevice,D3DRS_ZFUNC,8);
   if (*(int *)(param_1[1] + 0x2bdc) != 0) {
     local_10 = 0x42940000;
     local_c = 128.0;
@@ -77,12 +77,12 @@ void FUN_00417502(uint *param_1)
     }
     local_c = local_c + 16.0;
     if (((int)g_GameManager.difficulty < 4) && (g_GameManager._6179_1_ == '\0')) {
-      if (g_GameContext.lifeCount == 3) {
+      if (g_Supervisor.lifeCount == 3) {
         g_AsciiManager.color = 0xffff8080;
         AsciiManager::DrawFormatText(&g_AsciiManager,&local_10,"Player Penalty * 0.5\n");
         local_c = local_c + 16.0;
       }
-      else if (g_GameContext.lifeCount == 4) {
+      else if (g_Supervisor.lifeCount == 4) {
         g_AsciiManager.color = 0xffff8080;
         AsciiManager::DrawFormatText(&g_AsciiManager,&local_10,"Player Penalty * 0.2\n");
         local_c = local_c + 16.0;
@@ -135,7 +135,7 @@ void FUN_00417502(uint *param_1)
     g_AsciiManager.color = 0xffffffff;
   }
   g_AsciiManager._25136_4_ = 0;
-  (*(g_GameContext.d3dDevice)->lpVtbl->SetRenderState)(g_GameContext.d3dDevice,D3DRS_ZFUNC,4);
+  (*(g_Supervisor.d3dDevice)->lpVtbl->SetRenderState)(g_Supervisor.d3dDevice,D3DRS_ZFUNC,4);
   __security_check_cookie(local_14 ^ unaff_retaddr);
   return;
 }

@@ -5,8 +5,8 @@ undefined4 FUN_00410b10(int param_1)
   int iVar1;
   
   g_GameManager.unk_1822 = 1;
-  g_GameContext.field78_0x19c = 1;
-  GameContext::LoadPBG3(&g_GameContext,5,(byte *)"紅魔郷ED.dat");
+  g_Supervisor.field78_0x19c = 1;
+  Supervisor::LoadPBG3(&g_Supervisor,5,(byte *)"紅魔郷ED.dat");
   AnmManager::LoadAnm(g_AnmManager,0x2c,"data/staff01.anm",0x600);
   AnmManager::LoadAnm(g_AnmManager,0x2d,"data/staff02.anm",0x607);
   AnmManager::LoadAnm(g_AnmManager,0x2e,"data/staff03.anm",0x60e);

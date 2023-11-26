@@ -16,7 +16,7 @@ AnmManager::LoadTexture
     res = -1;
   }
   else {
-    if ((g_GameContext.cfg.opts >> FORCE_16BIT_COLOR_MODE & 1) != 0) {
+    if ((g_Supervisor.cfg.opts >> FORCE_16BIT_COLOR_MODE & 1) != 0) {
       if ((g_TextureFormatD3D8Mapping[format_index] == D3DFMT_A8R8G8B8) ||
          (g_TextureFormatD3D8Mapping[format_index] == D3DFMT_UNKNOWN)) {
         format_index = 5;
@@ -26,7 +26,7 @@ AnmManager::LoadTexture
       }
     }
     directx_res = D3DXCreateTextureFromFileInMemoryEx
-                            (g_GameContext.d3dDevice,this->imageDataArray[texture_index],
+                            (g_Supervisor.d3dDevice,this->imageDataArray[texture_index],
                              g_LastFileSize,0,0,0,0,g_TextureFormatD3D8Mapping[format_index],
                              D3DPOOL_MANAGED,3,0xffffffff,color_key,(D3DXIMAGE_INFO *)0x0,
                              (PALETTEENTRY *)0x0,this->textures + texture_index);

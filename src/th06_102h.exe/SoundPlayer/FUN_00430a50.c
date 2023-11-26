@@ -27,7 +27,7 @@ undefined4 __thiscall SoundPlayer::FUN_00430a50(SoundPlayer *param_1_00,LPSTR pa
     FUN_0043ba10(local_b0);
     uVar6 = 0xffffffff;
   }
-  else if (g_GameContext.cfg.playSounds == 0) {
+  else if (g_Supervisor.cfg.playSounds == 0) {
     local_8 = 0xffffffff;
     FUN_0043ba10(local_b0);
     uVar6 = 0xffffffff;
@@ -67,8 +67,8 @@ undefined4 __thiscall SoundPlayer::FUN_00430a50(SoundPlayer *param_1_00,LPSTR pa
         local_14 = uVar3 - uVar3 % (uint)*(ushort *)((int)local_b0[0] + 0xc);
         pIVar4 = (LPDIRECTSOUND8)CreateEventA((LPSECURITY_ATTRIBUTES)0x0,0,0,(LPCSTR)0x0);
         param_1_00[1].directsound.directsound8 = pIVar4;
-        pvVar5 = CreateThread((LPSECURITY_ATTRIBUTES)0x0,0,FUN_00431370,g_GameContext.hwndGameWindow
-                              ,0,(LPDWORD)&param_1_00->field_0x614);
+        pvVar5 = CreateThread((LPSECURITY_ATTRIBUTES)0x0,0,FUN_00431370,g_Supervisor.hwndGameWindow,
+                              0,(LPDWORD)&param_1_00->field_0x614);
         param_1_00->field1318_0x618 = (int)pvVar5;
         iVar1 = FUN_0043a9c0(&param_1_00->streamingSound,param_2,0x10100,0,0,0,0,4,local_14,
                              param_1_00[1].directsound.directsound8);

@@ -1,54 +1,57 @@
 
 /* WARNING: Removing unreachable block (ram,0x0042a940) */
-/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
 
-undefined4 FUN_0042a840(undefined4 *param_1)
+undefined4 FUN_0042a840(ReplayManager *param_1)
 
 {
-  byte *pbVar1;
-  int iVar2;
-  undefined4 uVar3;
+  StageReplayData *pSVar1;
+  ReplayData *pRVar2;
+  int iVar3;
+  undefined4 uVar4;
   int local_c;
   
-  *param_1 = 0;
-  if (param_1[1] == 0) {
-    pbVar1 = FileSystem::OpenPath((char *)param_1[3],(uint)(g_GameManager.demo_mode == 0));
-    param_1[1] = pbVar1;
-    iVar2 = FUN_0042a140(param_1[1],g_LastFileSize);
-    if (iVar2 != 0) {
+  param_1->frame_id = 0;
+  if (param_1->data == (ReplayData *)0x0) {
+    pRVar2 = (ReplayData *)
+             FileSystem::OpenPath(param_1->replay_file,(uint)(g_GameManager.demo_mode == 0));
+    param_1->data = pRVar2;
+    iVar3 = FUN_0042a140(param_1->data,g_LastFileSize);
+    if (iVar3 != 0) {
       return 0xffffffff;
     }
     for (local_c = 0; local_c < 7; local_c = local_c + 1) {
-      if (*(int *)(param_1[1] + 0x34 + local_c * 4) != 0) {
-        *(int *)(param_1[1] + 0x34 + local_c * 4) =
-             *(int *)(param_1[1] + 0x34 + local_c * 4) + param_1[1];
+      if (param_1->data->stage_score[local_c + 1] != (StageReplayData *)0x0) {
+        param_1->data->stage_score[local_c + 1] =
+             (StageReplayData *)
+             ((int)param_1->data->stage_score +
+             (int)(param_1->data->stage_score[local_c + 1][-1].replay_inputs + 0xd2e8));
       }
     }
   }
-  if (*(int *)(param_1[1] + 0x30 + g_GameManager.current_stage * 4) == 0) {
-    uVar3 = 0xffffffff;
+  if (param_1->data->stage_score[g_GameManager.current_stage] == (StageReplayData *)0x0) {
+    uVar4 = 0xffffffff;
   }
   else {
-    iVar2 = *(int *)(param_1[1] + 0x30 + g_GameManager.current_stage * 4);
-    g_GameManager.character = (byte)((int)(uint)*(byte *)(param_1[1] + 6) >> 1);
-    g_GameManager.shottype = *(byte *)(param_1[1] + 6) & 1;
-    g_GameManager.difficulty = (uint)*(byte *)(param_1[1] + 7);
-    g_GameManager.field13_0x1816 = *(undefined2 *)(iVar2 + 6);
-    DAT_0069d8f8 = *(undefined2 *)(iVar2 + 4);
-    _DAT_0069d8fc = 0;
-    g_GameManager.rank = (uint)*(byte *)(iVar2 + 0xb);
-    g_GameManager.lives_remaining = *(byte *)(iVar2 + 9);
-    g_GameManager.bombs_remaining = *(byte *)(iVar2 + 10);
-    g_GameManager.current_power = (ushort)*(byte *)(iVar2 + 8);
-    param_1[0x12] = iVar2 + 0x10;
-    g_GameManager.power_item_count_for_score = *(byte *)(iVar2 + 0xc);
+    pSVar1 = param_1->data->stage_score[g_GameManager.current_stage];
+    g_GameManager.character = (byte)((int)(uint)param_1->data->shottype_chara >> 1);
+    g_GameManager.shottype = param_1->data->shottype_chara & 1;
+    g_GameManager.difficulty = (uint)param_1->data->difficulty;
+    g_GameManager.field13_0x1816 = pSVar1->unk6;
+    g_RandomSeed = pSVar1->random_seed;
+    g_RandomSeedUnknown = 0;
+    g_GameManager.rank = (uint)pSVar1->rank;
+    g_GameManager.lives_remaining = pSVar1->lives_remaining;
+    g_GameManager.bombs_remaining = pSVar1->bombs_remaining;
+    g_GameManager.current_power = (ushort)pSVar1->power;
+    param_1->replay_inputs = pSVar1->replay_inputs;
+    g_GameManager.power_item_count_for_score = pSVar1->power_item_count_for_score;
     if ((1 < (int)g_GameManager.current_stage) &&
-       (*(int *)(param_1[1] + 0x2c + g_GameManager.current_stage * 4) != 0)) {
-      g_GameManager.field0_0x0 = **(uint **)(param_1[1] + 0x2c + g_GameManager.current_stage * 4);
+       (param_1->data->stage_score[g_GameManager.current_stage - 1] != (StageReplayData *)0x0)) {
+      g_GameManager.field0_0x0 = param_1->data->stage_score[g_GameManager.current_stage - 1]->score;
       g_GameManager.score = g_GameManager.field0_0x0;
     }
-    uVar3 = 0;
+    uVar4 = 0;
   }
-  return uVar3;
+  return uVar4;
 }
 

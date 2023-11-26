@@ -15,14 +15,14 @@ int WinMain(HINSTANCE hInstance,HINSTANCE hPrevInstance,LPSTR lpCmdLine,int nSho
   renderRet = 0;
   retCode = CheckForRunningGameInstance();
   if (retCode == 0) {
-    g_GameContext.hInstance = hInstance;
-    retCode = GameContext::Parse(&g_GameContext,"東方紅魔郷.cfg");
+    g_Supervisor.hInstance = hInstance;
+    retCode = Supervisor::CreateFromConfig(&g_Supervisor,"東方紅魔郷.cfg");
     if (retCode == 0) {
       retCode = InitD3dInterface();
       if (retCode == 0) {
-        SystemParametersInfoA(SPI_GETSCREENSAVEACTIVE,0,&DAT_006c6be8,0);
-        SystemParametersInfoA(SPI_GETLOWPOWERACTIVE,0,&DAT_006c6bec,0);
-        SystemParametersInfoA(SPI_GETPOWEROFFACTIVE,0,&DAT_006c6bf0,0);
+        SystemParametersInfoA(SPI_GETSCREENSAVEACTIVE,0,&g_GameWindow.screen_save_active,0);
+        SystemParametersInfoA(SPI_GETLOWPOWERACTIVE,0,&g_GameWindow.low_power_active,0);
+        SystemParametersInfoA(SPI_GETPOWEROFFACTIVE,0,&g_GameWindow.power_off_active,0);
         SystemParametersInfoA(SPI_SETSCREENSAVEACTIVE,0,(PVOID)0x0,2);
         SystemParametersInfoA(SPI_SETLOWPOWERACTIVE,0,(PVOID)0x0,2);
         SystemParametersInfoA(SPI_SETPOWEROFFACTIVE,0,(PVOID)0x0,2);
@@ -41,9 +41,9 @@ int WinMain(HINSTANCE hInstance,HINSTANCE hPrevInstance,LPSTR lpCmdLine,int nSho
             vbsPtr = AnmManager::AnmManager(puVar1);
           }
           g_AnmManager = vbsPtr;
-          retCode = AddInputChain();
+          retCode = Supervisor::RegisterChain();
           if (retCode == 0) {
-            if (g_GameContext.cfg.windowed == false) {
+            if (g_Supervisor.cfg.windowed == false) {
               ShowCursor(0);
             }
             g_GameWindow.curFrame = 0;
@@ -56,16 +56,16 @@ int WinMain(HINSTANCE hInstance,HINSTANCE hPrevInstance,LPSTR lpCmdLine,int nSho
                   TranslateMessage(&msg);
                   DispatchMessageA(&msg);
                 }
-                HVar2 = (*(g_GameContext.d3dDevice)->lpVtbl->TestCooperativeLevel)
-                                  (g_GameContext.d3dDevice);
+                HVar2 = (*(g_Supervisor.d3dDevice)->lpVtbl->TestCooperativeLevel)
+                                  (g_Supervisor.d3dDevice);
                 if (HVar2 == 0) break;
                 if (HVar2 == D3DERR_DEVICENOTRESET) {
                   AnmManager::ReleaseSurfaces(g_AnmManager);
-                  HVar2 = (*(g_GameContext.d3dDevice)->lpVtbl->Reset)
-                                    (g_GameContext.d3dDevice,&g_GameContext.presentParameters);
+                  HVar2 = (*(g_Supervisor.d3dDevice)->lpVtbl->Reset)
+                                    (g_Supervisor.d3dDevice,&g_Supervisor.presentParameters);
                   if (HVar2 != 0) goto LAB_0042055a;
                   InitD3dDevice();
-                  g_GameContext.field77_0x198 = 3;
+                  g_Supervisor.unk198 = 3;
                 }
               }
               renderRet = GameWindow::Render(&g_GameWindow);
@@ -80,21 +80,22 @@ LAB_0042055a:
             _free(_Memory);
           }
           g_AnmManager = (AnmManager *)0x0;
-          if (g_GameContext.d3dDevice != (IDirect3DDevice8 *)0x0) {
-            (*(g_GameContext.d3dDevice)->lpVtbl->Release)(g_GameContext.d3dDevice);
-            g_GameContext.d3dDevice = (IDirect3DDevice8 *)0x0;
+          if (g_Supervisor.d3dDevice != (IDirect3DDevice8 *)0x0) {
+            (*(g_Supervisor.d3dDevice)->lpVtbl->Release)(g_Supervisor.d3dDevice);
+            g_Supervisor.d3dDevice = (IDirect3DDevice8 *)0x0;
           }
           ShowWindow((HWND)g_GameWindow.window,0);
           MoveWindow((HWND)g_GameWindow.window,0,0,0,0,0);
           DestroyWindow((HWND)g_GameWindow.window);
           if (renderRet != 2) {
-            FileSystem::WriteDataToFile("東方紅魔郷.cfg",&g_GameContext.cfg,0x38);
-            SystemParametersInfoA(SPI_SETSCREENSAVEACTIVE,DAT_006c6be8,(PVOID)0x0,2);
-            SystemParametersInfoA(SPI_SETLOWPOWERACTIVE,DAT_006c6bec,(PVOID)0x0,2);
-            SystemParametersInfoA(SPI_SETPOWEROFFACTIVE,DAT_006c6bf0,(PVOID)0x0,2);
-            if (g_GameContext.d3dIface != (IDirect3D8 *)0x0) {
-              (*(g_GameContext.d3dIface)->lpVtbl->Release)(g_GameContext.d3dIface);
-              g_GameContext.d3dIface = (IDirect3D8 *)0x0;
+            FileSystem::WriteDataToFile("東方紅魔郷.cfg",&g_Supervisor.cfg,0x38);
+            SystemParametersInfoA
+                      (SPI_SETSCREENSAVEACTIVE,g_GameWindow.screen_save_active,(PVOID)0x0,2);
+            SystemParametersInfoA(SPI_SETLOWPOWERACTIVE,g_GameWindow.low_power_active,(PVOID)0x0,2);
+            SystemParametersInfoA(SPI_SETPOWEROFFACTIVE,g_GameWindow.power_off_active,(PVOID)0x0,2);
+            if (g_Supervisor.d3dIface != (IDirect3D8 *)0x0) {
+              (*(g_Supervisor.d3dIface)->lpVtbl->Release)(g_Supervisor.d3dIface);
+              g_Supervisor.d3dIface = (IDirect3D8 *)0x0;
             }
             ShowCursor(1);
             GameErrorContext::Flush(&g_GameErrorContext);
@@ -105,7 +106,7 @@ LAB_0042055a:
           GameErrorContextLog(&g_GameErrorContext,
                               "再起動を要するオプションが変更されたので再起動します\n"
                              );
-          if (g_GameContext.cfg.windowed == false) {
+          if (g_Supervisor.cfg.windowed == false) {
             ShowCursor(1);
           }
         }

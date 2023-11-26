@@ -56,7 +56,7 @@ LAB_0040cc18:
     local_a0 = 0;
   }
   else {
-    uVar2 = FUN_0041e780(&DAT_0069d8f8);
+    uVar2 = GetRandomU16(&g_RandomSeed);
     local_a0 = (int)((ulonglong)uVar2 % (ulonglong)(longlong)(int)(uVar3 & 0xffff));
   }
   local_c = local_a0 + (int)local_c / 2;
@@ -73,7 +73,7 @@ LAB_0040cc18:
   fVar4 = (float10)FUN_0045bcf4((double)local_14);
   local_1c = (float)fVar4 * local_10 + local_1c;
   local_8 = EffectManager::FUN_0040ef50((int *)&g_EffectManager,0x13,&local_20,1,0xff3030ff);
-  fVar5 = FUN_0041e820(&DAT_0069d8f8);
+  fVar5 = GetRandomF32ZeroToOne(&g_RandomSeed);
   local_8[1].angleVel.x = (fVar5 * 40.0 - 20.0) / 60.0;
   local_8[1].angleVel.y = ((float)local_c * 8.0) / 60.0 - 0.2666667;
   local_8[1].angleVel.z = 0.0;
@@ -90,7 +90,7 @@ LAB_0040cc18:
   fVar4 = (float10)FUN_0045bcf4((double)local_14);
   local_1c = (float)fVar4 * local_10 + local_1c;
   local_8 = EffectManager::FUN_0040ef50((int *)&g_EffectManager,0x13,&local_20,1,0xff3030ff);
-  fVar5 = FUN_0041e820(&DAT_0069d8f8);
+  fVar5 = GetRandomF32ZeroToOne(&g_RandomSeed);
   local_8[1].angleVel.x = (fVar5 * 40.0 - 20.0) / 60.0;
   local_8[1].angleVel.y = ((float)local_c * 8.0) / 60.0 - 0.2666667;
   local_8[1].angleVel.z = 0.0;
@@ -101,7 +101,7 @@ LAB_0040cc18:
   local_8[1].scaleInterpFinalY = -fVar5 * 0.008333334;
 LAB_0040cffe:
   *(undefined4 *)(param_1 + 0xebc) = *(undefined4 *)(param_1 + 0xec4);
-  GameContext::FUN_00424285(&g_GameContext,(int *)(param_1 + 0xec4),(float *)(param_1 + 0xec0));
+  Supervisor::FUN_00424285(&g_Supervisor,(int *)(param_1 + 0xec4),(float *)(param_1 + 0xec0));
   return;
 }
 

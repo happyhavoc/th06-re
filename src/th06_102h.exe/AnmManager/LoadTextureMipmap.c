@@ -32,7 +32,7 @@ AnmManager::LoadTextureMipmap
     if (((local_24.Format == D3DFMT_A8R8G8B8) || (local_24.Format == D3DFMT_A4R4G4B4)) ||
        (local_24.Format == D3DFMT_A1R5G5B5)) {
       HVar1 = D3DXCreateTextureFromFileInMemoryEx
-                        (g_GameContext.d3dDevice,local_28,g_LastFileSize,0,0,0,0,local_24.Format,
+                        (g_Supervisor.d3dDevice,local_28,g_LastFileSize,0,0,0,0,local_24.Format,
                          D3DPOOL_SYSTEMMEM,3,0xffffffff,color_key,(D3DXIMAGE_INFO *)0x0,
                          (PALETTEENTRY *)0x0,&local_3c);
       if (((HVar1 == 0) &&

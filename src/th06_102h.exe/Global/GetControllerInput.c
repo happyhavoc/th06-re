@@ -18,7 +18,7 @@ ushort GetControllerInput(ushort buttons)
   joyinfoex_tag pji;
   
   stack_cookie = __security_cookie ^ unaff_retaddr;
-  if (g_GameContext.controller == (LPDIRECTINPUTDEVICE8A)0x0) {
+  if (g_Supervisor.controller == (LPDIRECTINPUTDEVICE8A)0x0) {
     pjVar2 = &pji;
     for (iVar1 = 0xd; iVar1 != 0; iVar1 = iVar1 + -1) {
       pjVar2->dwSize = 0;
@@ -32,18 +32,18 @@ ushort GetControllerInput(ushort buttons)
                              (&buttons,g_ControllerMapping.shootButton,SHOOT,pji.dwButtons);
       if (g_ControllerMapping.shootButton == g_ControllerMapping.focusButton) {
         if (shootState == 0) {
-          if (DAT_0069d8f4 < 9) {
-            DAT_0069d8f4 = 0;
+          if (g_FocusButtonConflictState < 9) {
+            g_FocusButtonConflictState = 0;
           }
           else {
-            DAT_0069d8f4 = DAT_0069d8f4 - 8;
+            g_FocusButtonConflictState = g_FocusButtonConflictState - 8;
           }
         }
         else {
-          if (DAT_0069d8f4 < 0x10) {
-            DAT_0069d8f4 = DAT_0069d8f4 + 1;
+          if (g_FocusButtonConflictState < 0x10) {
+            g_FocusButtonConflictState = g_FocusButtonConflictState + 1;
           }
-          if (7 < DAT_0069d8f4) {
+          if (7 < g_FocusButtonConflictState) {
             buttons = buttons | 4;
           }
         }
@@ -52,40 +52,41 @@ ushort GetControllerInput(ushort buttons)
         SetButtonFromControllerInputs(&buttons,g_ControllerMapping.focusButton,FOCUS,pji.dwButtons);
       }
       SetButtonFromControllerInputs
-                (&buttons,g_GameContext.cfg.controllerMapping.bombButton,BOMB,pji.dwButtons);
+                (&buttons,g_Supervisor.cfg.controllerMapping.bombButton,BOMB,pji.dwButtons);
       SetButtonFromControllerInputs
-                (&buttons,g_GameContext.cfg.controllerMapping.menuButton,MENU,pji.dwButtons);
+                (&buttons,g_Supervisor.cfg.controllerMapping.menuButton,MENU,pji.dwButtons);
       SetButtonFromControllerInputs
-                (&buttons,g_GameContext.cfg.controllerMapping.upButton,UP,pji.dwButtons);
+                (&buttons,g_Supervisor.cfg.controllerMapping.upButton,UP,pji.dwButtons);
       SetButtonFromControllerInputs
-                (&buttons,g_GameContext.cfg.controllerMapping.downButton,DOWN,pji.dwButtons);
+                (&buttons,g_Supervisor.cfg.controllerMapping.downButton,DOWN,pji.dwButtons);
       SetButtonFromControllerInputs
-                (&buttons,g_GameContext.cfg.controllerMapping.leftButton,LEFT,pji.dwButtons);
+                (&buttons,g_Supervisor.cfg.controllerMapping.leftButton,LEFT,pji.dwButtons);
       SetButtonFromControllerInputs
-                (&buttons,g_GameContext.cfg.controllerMapping.rightButton,RIGHT,pji.dwButtons);
+                (&buttons,g_Supervisor.cfg.controllerMapping.rightButton,RIGHT,pji.dwButtons);
       SetButtonFromControllerInputs
-                (&buttons,g_GameContext.cfg.controllerMapping.skipButton,0x100,pji.dwButtons);
-      joystickXDistance = (uint)(DAT_0069d788 - DAT_0069d784) >> 2;
-      joystickYDistance = (uint)(DAT_0069d790 - DAT_0069d78c) >> 2;
-      buttons = buttons | -(ushort)(((uint)(DAT_0069d784 + DAT_0069d788) >> 1) + joystickXDistance <
-                                   pji.dwXpos) & RIGHT |
+                (&buttons,g_Supervisor.cfg.controllerMapping.skipButton,0x100,pji.dwButtons);
+      joystickXDistance = g_JoystickCaps.wXmax - g_JoystickCaps.wXmin >> 2;
+      joystickYDistance = g_JoystickCaps.wYmax - g_JoystickCaps.wYmin >> 2;
+      buttons = buttons | -(ushort)((g_JoystickCaps.wXmin + g_JoystickCaps.wXmax >> 1) +
+                                    joystickXDistance < pji.dwXpos) & RIGHT |
                 -(ushort)(pji.dwXpos <
-                         ((uint)(DAT_0069d784 + DAT_0069d788) >> 1) - joystickXDistance) & LEFT |
-                -(ushort)(((uint)(DAT_0069d78c + DAT_0069d790) >> 1) + joystickYDistance <
-                         pji.dwYpos) & DOWN |
+                         (g_JoystickCaps.wXmin + g_JoystickCaps.wXmax >> 1) - joystickXDistance) &
+                LEFT | -(ushort)((g_JoystickCaps.wYmin + g_JoystickCaps.wYmax >> 1) +
+                                 joystickYDistance < pji.dwYpos) & DOWN |
                 -(ushort)(pji.dwYpos <
-                         ((uint)(DAT_0069d78c + DAT_0069d790) >> 1) - joystickYDistance) & UP;
+                         (g_JoystickCaps.wYmin + g_JoystickCaps.wYmax >> 1) - joystickYDistance) &
+                UP;
     }
   }
   else {
-    stateHr = (*(g_GameContext.controller)->lpVtbl->Poll)(g_GameContext.controller);
+    stateHr = (*(g_Supervisor.controller)->lpVtbl->Poll)(g_Supervisor.controller);
     if (stateHr < 0) {
       retry_count = 0;
       DebugPrint2("error : DIERR_INPUTLOST\n");
-      hr = (*(g_GameContext.controller)->lpVtbl->Acquire)(g_GameContext.controller);
+      hr = (*(g_Supervisor.controller)->lpVtbl->Acquire)(g_Supervisor.controller);
       do {
         if (hr != -0x7ff8ffe2) break;
-        hr = (*(g_GameContext.controller)->lpVtbl->Acquire)(g_GameContext.controller);
+        hr = (*(g_Supervisor.controller)->lpVtbl->Acquire)(g_Supervisor.controller);
         DebugPrint2("error : DIERR_INPUTLOST %d\n",retry_count);
         retry_count = retry_count + 1;
       } while (retry_count < 400);
@@ -96,54 +97,54 @@ ushort GetControllerInput(ushort buttons)
         pDVar3->lX = 0;
         pDVar3 = (DIJOYSTATE2 *)&pDVar3->lY;
       }
-      stateHr = (*(g_GameContext.controller)->lpVtbl->GetDeviceState)
-                          (g_GameContext.controller,0x110,&js);
+      stateHr = (*(g_Supervisor.controller)->lpVtbl->GetDeviceState)
+                          (g_Supervisor.controller,0x110,&js);
       if (-1 < stateHr) {
         shootState = SetButtonFromDirectInputJoystate
-                               (&buttons,g_GameContext.cfg.controllerMapping.shootButton,1,
+                               (&buttons,g_Supervisor.cfg.controllerMapping.shootButton,1,
                                 js.rgbButtons);
         if (g_ControllerMapping.shootButton == g_ControllerMapping.focusButton) {
           if (shootState == 0) {
-            if (DAT_0069d8f4 < 9) {
-              DAT_0069d8f4 = 0;
+            if (g_FocusButtonConflictState < 9) {
+              g_FocusButtonConflictState = 0;
             }
             else {
-              DAT_0069d8f4 = DAT_0069d8f4 - 8;
+              g_FocusButtonConflictState = g_FocusButtonConflictState - 8;
             }
           }
           else {
-            if (DAT_0069d8f4 < 0x10) {
-              DAT_0069d8f4 = DAT_0069d8f4 + 1;
+            if (g_FocusButtonConflictState < 0x10) {
+              g_FocusButtonConflictState = g_FocusButtonConflictState + 1;
             }
-            if (7 < DAT_0069d8f4) {
+            if (7 < g_FocusButtonConflictState) {
               buttons = buttons | 4;
             }
           }
         }
         else {
           SetButtonFromDirectInputJoystate
-                    (&buttons,g_GameContext.cfg.controllerMapping.focusButton,4,js.rgbButtons);
+                    (&buttons,g_Supervisor.cfg.controllerMapping.focusButton,4,js.rgbButtons);
         }
         SetButtonFromDirectInputJoystate
-                  (&buttons,g_GameContext.cfg.controllerMapping.bombButton,2,js.rgbButtons);
+                  (&buttons,g_Supervisor.cfg.controllerMapping.bombButton,2,js.rgbButtons);
         SetButtonFromDirectInputJoystate
-                  (&buttons,g_GameContext.cfg.controllerMapping.menuButton,8,js.rgbButtons);
+                  (&buttons,g_Supervisor.cfg.controllerMapping.menuButton,8,js.rgbButtons);
         SetButtonFromDirectInputJoystate
-                  (&buttons,g_GameContext.cfg.controllerMapping.upButton,0x10,js.rgbButtons);
+                  (&buttons,g_Supervisor.cfg.controllerMapping.upButton,0x10,js.rgbButtons);
         SetButtonFromDirectInputJoystate
-                  (&buttons,g_GameContext.cfg.controllerMapping.downButton,0x20,js.rgbButtons);
+                  (&buttons,g_Supervisor.cfg.controllerMapping.downButton,0x20,js.rgbButtons);
         SetButtonFromDirectInputJoystate
-                  (&buttons,g_GameContext.cfg.controllerMapping.leftButton,0x40,js.rgbButtons);
+                  (&buttons,g_Supervisor.cfg.controllerMapping.leftButton,0x40,js.rgbButtons);
         SetButtonFromDirectInputJoystate
-                  (&buttons,g_GameContext.cfg.controllerMapping.rightButton,0x80,js.rgbButtons);
+                  (&buttons,g_Supervisor.cfg.controllerMapping.rightButton,0x80,js.rgbButtons);
         SetButtonFromDirectInputJoystate
-                  (&buttons,g_GameContext.cfg.controllerMapping.skipButton,0x100,js.rgbButtons);
-        buttons = buttons | (js.lX <= (short)g_GameContext.cfg.padAxisX) - 1 & 0x80 |
-                  (SBORROW4(js.lX,-(int)(short)g_GameContext.cfg.padAxisX) ==
-                  js.lX + (short)g_GameContext.cfg.padAxisX < 0) - 1 & 0x40 |
-                  (js.lY <= (short)g_GameContext.cfg.padAxisY) - 1 & 0x20 |
-                  (SBORROW4(js.lY,-(int)(short)g_GameContext.cfg.padAxisY) ==
-                  js.lY + (short)g_GameContext.cfg.padAxisY < 0) - 1 & 0x10;
+                  (&buttons,g_Supervisor.cfg.controllerMapping.skipButton,0x100,js.rgbButtons);
+        buttons = buttons | (js.lX <= (short)g_Supervisor.cfg.padAxisX) - 1 & 0x80 |
+                  (SBORROW4(js.lX,-(int)(short)g_Supervisor.cfg.padAxisX) ==
+                  js.lX + (short)g_Supervisor.cfg.padAxisX < 0) - 1 & 0x40 |
+                  (js.lY <= (short)g_Supervisor.cfg.padAxisY) - 1 & 0x20 |
+                  (SBORROW4(js.lY,-(int)(short)g_Supervisor.cfg.padAxisY) ==
+                  js.lY + (short)g_Supervisor.cfg.padAxisY < 0) - 1 & 0x10;
       }
     }
   }

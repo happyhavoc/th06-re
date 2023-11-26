@@ -3,8 +3,8 @@ void __fastcall FUN_0042c2d4(int param_1)
 
 {
   int iVar1;
-  undefined4 *puVar2;
-  undefined4 *puVar3;
+  ReplayData *pRVar2;
+  char **ppcVar3;
   uint unaff_retaddr;
   int local_b8;
   int local_b4;
@@ -12,7 +12,7 @@ void __fastcall FUN_0042c2d4(int param_1)
   int local_60;
   char local_5c [68];
   uint local_18;
-  undefined4 *local_14;
+  ReplayData *local_14;
   int local_10;
   int local_c;
   int local_8;
@@ -22,7 +22,7 @@ void __fastcall FUN_0042c2d4(int param_1)
   if (iVar1 == 10) {
     if (*(int *)(param_1 + 4) == 0x3c) {
       if (g_GameManager.num_retries == 0) {
-        if (g_GameContext.framerateMultiplier < 0.99 == NAN(g_GameContext.framerateMultiplier)) {
+        if (g_Supervisor.framerateMultiplier < 0.99 == NAN(g_Supervisor.framerateMultiplier)) {
           local_c = 9;
         }
         else {
@@ -232,16 +232,16 @@ LAB_0042c515:
       FUN_0045d588("replay");
       for (local_10 = 0; local_10 < 0xf; local_10 = local_10 + 1) {
         sprintf(local_5c,"./replay/th6_%.2d.rpy",local_10 + 1);
-        local_14 = (undefined4 *)FileSystem::OpenPath(local_5c,1);
-        if (local_14 != (undefined4 *)0x0) {
+        local_14 = (ReplayData *)FileSystem::OpenPath(local_5c,1);
+        if (local_14 != (ReplayData *)0x0) {
           iVar1 = FUN_0042a140(local_14,g_LastFileSize);
           if (iVar1 == 0) {
-            puVar2 = local_14;
-            puVar3 = (undefined4 *)(param_1 + 0x51b0 + local_10 * 0x50);
+            pRVar2 = local_14;
+            ppcVar3 = (char **)(param_1 + 0x51b0 + local_10 * 0x50);
             for (iVar1 = 0x14; iVar1 != 0; iVar1 = iVar1 + -1) {
-              *puVar3 = *puVar2;
-              puVar2 = puVar2 + 1;
-              puVar3 = puVar3 + 1;
+              *ppcVar3 = pRVar2->magic;
+              pRVar2 = (ReplayData *)&pRVar2->version;
+              ppcVar3 = ppcVar3 + 1;
             }
           }
           _free(local_14);

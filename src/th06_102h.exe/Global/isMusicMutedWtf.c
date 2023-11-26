@@ -4,7 +4,7 @@ undefined4 isMusicMutedWtf(void)
 {
   undefined4 uVar1;
   
-  if ((g_GameContext.cfg.musicMode == MIDI) || (g_GameContext.cfg.musicMode == WAV)) {
+  if ((g_Supervisor.cfg.musicMode == MIDI) || (g_Supervisor.cfg.musicMode == WAV)) {
     uVar1 = 0;
   }
   else {

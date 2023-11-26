@@ -2,9 +2,9 @@
 undefined4 FUN_0041c1f7(int param_1)
 
 {
-  (*(g_GameContext.d3dDevice)->lpVtbl->ResourceManagerDiscardBytes)(g_GameContext.d3dDevice,0);
+  (*(g_Supervisor.d3dDevice)->lpVtbl->ResourceManagerDiscardBytes)(g_Supervisor.d3dDevice,0);
   if (g_GameManager.demo_mode == 0) {
-    GameContext::FUN_00424d38(&g_GameContext);
+    Supervisor::FUN_00424d38(&g_Supervisor);
   }
   FUN_00404650();
   FUN_004172b0();

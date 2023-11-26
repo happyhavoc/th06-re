@@ -8,12 +8,11 @@ void __thiscall AsciiManager::FUN_004031e0(AsciiManager *this)
   AsciiManagerPopup *local_8;
   
   local_8 = this->popups0;
-  g_GameContext.viewport.X = __ftol2((double)g_GameManager.arcade_region_top_left_pos.x);
-  g_GameContext.viewport.Y = __ftol2((double)g_GameManager.arcade_region_top_left_pos.y);
-  g_GameContext.viewport.Width = __ftol2((double)g_GameManager.arcade_region_size.x);
-  g_GameContext.viewport.Height = __ftol2((double)g_GameManager.arcade_region_size.y);
-  (*(g_GameContext.d3dDevice)->lpVtbl->SetViewport)
-            (g_GameContext.d3dDevice,(D3DVIEWPORT8 *)0x6c6de0);
+  g_Supervisor.viewport.X = __ftol2((double)g_GameManager.arcade_region_top_left_pos.x);
+  g_Supervisor.viewport.Y = __ftol2((double)g_GameManager.arcade_region_top_left_pos.y);
+  g_Supervisor.viewport.Width = __ftol2((double)g_GameManager.arcade_region_size.x);
+  g_Supervisor.viewport.Height = __ftol2((double)g_GameManager.arcade_region_size.y);
+  (*(g_Supervisor.d3dDevice)->lpVtbl->SetViewport)(g_Supervisor.d3dDevice,(D3DVIEWPORT8 *)0x6c6de0);
   for (local_10 = 0; local_10 < 0x203; local_10 = local_10 + 1) {
     if (local_8->inUse != '\0') {
       (this->vm1).pos.x = (local_8->position).x - (float)((uint)local_8->characterCount << 2);

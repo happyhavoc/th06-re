@@ -58,11 +58,11 @@ LAB_004359b3:
       g_GameManager.field6_0x18._4_4_ = 1;
       g_GameManager.demo_mode = 1;
       g_GameManager._6184_4_ = 0;
-      g_GameContext.framerateMultiplier = 1.0;
+      g_Supervisor.framerateMultiplier = 1.0;
       _strcpy(g_GameManager.replay_file,"data/demo/demo00.rpy");
       g_GameManager.difficulty = 3;
       g_GameManager.current_stage = 3;
-      g_GameContext.unkInput2 = 2;
+      g_Supervisor.curState = 2;
       return 0;
     }
     iVar4 = FUN_004379e4();
@@ -87,7 +87,7 @@ switchD_004358f7_caseD_2:
     break;
   case 4:
     if (0x3b < *(int *)(param_1 + 0x81f4)) {
-      g_GameContext.unkInput2 = 4;
+      g_Supervisor.curState = 4;
       return 0;
     }
     break;
@@ -199,11 +199,11 @@ switchD_004358f7_caseD_2:
           g_ControllerMapping._8_4_ = *(undefined4 *)(param_1 + 0x8224);
           g_ControllerMapping._12_4_ = *(undefined4 *)(param_1 + 0x8228);
           g_ControllerMapping.skipButton = *(short *)(param_1 + 0x822c);
-          g_GameContext.cfg.controllerMapping._0_4_ = *(undefined4 *)(param_1 + 0x821c);
-          g_GameContext.cfg.controllerMapping._4_4_ = *(undefined4 *)(param_1 + 0x8220);
-          g_GameContext.cfg.controllerMapping._8_4_ = *(undefined4 *)(param_1 + 0x8224);
-          g_GameContext.cfg.controllerMapping._12_4_ = *(undefined4 *)(param_1 + 0x8228);
-          g_GameContext.cfg.controllerMapping.skipButton = *(short *)(param_1 + 0x822c);
+          g_Supervisor.cfg.controllerMapping._0_4_ = *(undefined4 *)(param_1 + 0x821c);
+          g_Supervisor.cfg.controllerMapping._4_4_ = *(undefined4 *)(param_1 + 0x8220);
+          g_Supervisor.cfg.controllerMapping._8_4_ = *(undefined4 *)(param_1 + 0x8224);
+          g_Supervisor.cfg.controllerMapping._12_4_ = *(undefined4 *)(param_1 + 0x8228);
+          g_Supervisor.cfg.controllerMapping.skipButton = *(short *)(param_1 + 0x822c);
         }
       }
     }
@@ -213,7 +213,7 @@ switchD_004358f7_caseD_2:
     iVar4 = FUN_00439f88();
     if (iVar4 != 0) {
       GameErrorContextLog(&g_GameErrorContext,"セレクト画面の読み込みに失敗\n");
-      g_GameContext.unkInput2 = 4;
+      g_Supervisor.curState = 4;
       return 0;
     }
     *(undefined4 *)(param_1 + 0x81f0) = 7;
@@ -224,7 +224,7 @@ switchD_004358f7_caseD_2:
       for (local_8 = 0; (int)local_8 < 0x7a; local_8 = local_8 + 1) {
         *(undefined2 *)(param_1 + 0x8a + local_8 * 0x110) = 6;
       }
-      *(uint *)(param_1 + 0x81a0) = (uint)g_GameContext.cfg.defaultDifficulty;
+      *(uint *)(param_1 + 0x81a0) = (uint)g_Supervisor.cfg.defaultDifficulty;
     }
     else {
       for (local_8 = 0; (int)local_8 < 0x7a; local_8 = local_8 + 1) {
@@ -244,7 +244,7 @@ switchD_004358f7_caseD_2:
       FUN_0043753c(param_1);
       for (local_8 = 0; (int)local_8 < 4; local_8 = local_8 + 1) {
         if (local_8 == *(int *)(param_1 + 0x81a0)) {
-          if ((g_GameContext.cfg.opts & 1) == 0) {
+          if ((g_Supervisor.cfg.opts & 1) == 0) {
             *(undefined4 *)((int)local_c + 0x7c) = 0xff000000;
           }
           else {
@@ -255,7 +255,7 @@ switchD_004358f7_caseD_2:
           *(undefined4 *)((int)local_c + 0xec) = 0;
         }
         else {
-          if ((g_GameContext.cfg.opts & 1) == 0) {
+          if ((g_Supervisor.cfg.opts & 1) == 0) {
             *(undefined4 *)((int)local_c + 0x7c) = 0x60000000;
           }
           else {
@@ -276,7 +276,7 @@ switchD_004358f7_caseD_2:
         local_c = (AnmVm *)((int)local_c + 0x110);
       }
       for (local_8 = 4; (int)local_8 < 5; local_8 = local_8 + 1) {
-        if ((g_GameContext.cfg.opts & 1) == 0) {
+        if ((g_Supervisor.cfg.opts & 1) == 0) {
           *(undefined4 *)((int)local_c + 0x7c) = 0xff000000;
         }
         else {
@@ -313,7 +313,7 @@ switchD_004358f7_caseD_2:
             *(uint *)(param_1 + 0x81a0) = (uint)g_GameManager.character;
           }
         }
-        g_GameContext.cfg.defaultDifficulty = (byte)g_GameManager.difficulty;
+        g_Supervisor.cfg.defaultDifficulty = (byte)g_GameManager.difficulty;
         local_c = (AnmVm *)(param_1 + 0x5b60);
         for (local_8 = 0; (int)local_8 < 2; local_8 = local_8 + 1) {
           if (local_8 != *(int *)(param_1 + 0x81a0)) {
@@ -332,7 +332,7 @@ switchD_004358f7_caseD_2:
       }
       FUN_004311e0(0xb);
       if ((int)g_GameManager.difficulty < 4) {
-        g_GameContext.cfg.defaultDifficulty = *(byte *)(param_1 + 0x81a0);
+        g_Supervisor.cfg.defaultDifficulty = *(byte *)(param_1 + 0x81a0);
         if (g_GameManager._6179_1_ == '\0') {
           *(undefined4 *)(param_1 + 0x81a0) = 0;
         }
@@ -458,7 +458,7 @@ LAB_0043666d:
         for (local_8 = 0; (int)local_8 < 0x7a; local_8 = local_8 + 1) {
           *(undefined2 *)(param_1 + 0x8a + local_8 * 0x110) = 6;
         }
-        *(uint *)(param_1 + 0x81a0) = (uint)g_GameContext.cfg.defaultDifficulty;
+        *(uint *)(param_1 + 0x81a0) = (uint)g_Supervisor.cfg.defaultDifficulty;
       }
       else {
         for (local_8 = 0; (int)local_8 < 0x7a; local_8 = local_8 + 1) {
@@ -471,7 +471,7 @@ LAB_0043666d:
     break;
   case 10:
     if (0x3b < *(int *)(param_1 + 0x81f4)) {
-      g_GameContext.unkInput2 = 6;
+      g_Supervisor.curState = 6;
       return 0;
     }
     break;
@@ -492,7 +492,7 @@ LAB_0043666d:
       *(uint *)((int)local_c + 0x80) = *(uint *)((int)local_c + 0x80) | 8;
       *(uint *)((int)local_c + 0x80) = *(uint *)((int)local_c + 0x80) | 1;
       if (local_8 == *(int *)(param_1 + 0x81a0)) {
-        if ((g_GameContext.cfg.opts & 1) == 0) {
+        if ((g_Supervisor.cfg.opts & 1) == 0) {
           *(undefined4 *)((int)local_c + 0x7c) = 0xff202020;
         }
         else {
@@ -503,7 +503,7 @@ LAB_0043666d:
         *(undefined4 *)((int)local_c + 0xec) = 0;
       }
       else {
-        if ((g_GameContext.cfg.opts & 1) == 0) {
+        if ((g_Supervisor.cfg.opts & 1) == 0) {
           *(undefined4 *)((int)local_c + 0x7c) = 0xa0000000;
         }
         else {
@@ -551,7 +551,7 @@ LAB_0043666d:
             }
             local_c = (AnmVm *)((int)local_c + 0x220);
           }
-          *(undefined4 *)(param_1 + 0x81a0) = g_GameManager.field38_0x1a38;
+          *(undefined4 *)(param_1 + 0x81a0) = g_GameManager.field41_0x1a38;
           if (*(byte *)(((uint)g_GameManager.shottype + (uint)g_GameManager.character * 2) * 0x18 +
                         0x69cce1 + g_GameManager.difficulty) < 7) {
             local_b4 = (uint)*(byte *)(((uint)g_GameManager.shottype +
@@ -610,7 +610,7 @@ LAB_0043666d:
     break;
   case 0x10:
     if (0x3b < *(int *)(param_1 + 0x81f4)) {
-      g_GameContext.unkInput2 = 9;
+      g_Supervisor.curState = 9;
       return 0;
     }
     break;
@@ -621,15 +621,15 @@ LAB_0043666d:
         if (((g_CurFrameInput & 0x1001) != 0) &&
            ((g_CurFrameInput & 0x1001) != (g_LastFrameInput & 0x1001))) {
           g_GameManager.current_stage = *(uint *)(param_1 + 0x81a0);
-          g_GameManager.field38_0x1a38 = *(undefined4 *)(param_1 + 0x81a0);
+          g_GameManager.field41_0x1a38 = *(undefined4 *)(param_1 + 0x81a0);
 LAB_00436de7:
-          g_GameManager.lives_remaining = g_GameContext.cfg.lifeCount;
-          g_GameManager.bombs_remaining = g_GameContext.cfg.bombCount;
+          g_GameManager.lives_remaining = g_Supervisor.cfg.lifeCount;
+          g_GameManager.bombs_remaining = g_Supervisor.cfg.bombCount;
           if ((g_GameManager.difficulty == 4) || (g_GameManager._6179_1_ != '\0')) {
             g_GameManager.lives_remaining = 2;
             g_GameManager.bombs_remaining = 3;
           }
-          g_GameContext.unkInput2 = 2;
+          g_Supervisor.curState = 2;
           FUN_004311e0(10);
           g_GameManager.field6_0x18._4_4_ = 0;
           local_48 = 0.0;
@@ -689,8 +689,8 @@ LAB_00436de7:
             local_44 = 0.375;
           }
           DebugPrint("Reflesh Rate = %f\n",(double)(60.0 / local_44));
-          g_GameContext.framerateMultiplier = local_44;
-          GameContext::FUN_00424d38(&g_GameContext);
+          g_Supervisor.framerateMultiplier = local_44;
+          Supervisor::FUN_00424d38(&g_Supervisor);
           return 0;
         }
       }

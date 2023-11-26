@@ -73,9 +73,10 @@ void __fastcall FUN_0040f7c0(int param_1)
           pAVar1->anmFileIndex = local_ac;
           AnmManager::SetAndExecuteScript
                     (pAVar2,pAVar1,pAVar2->scripts[iVar6 * 2 + local_8 + 0x708]);
-          FUN_00434b60(g_AnmManager,
-                       param_1 + 0x14 + (local_8 + *(int *)(param_1 + 0x1154) * 2) * 0x110,
-                       *(undefined4 *)(param_1 + 0x1158),0xc0d0d0,(char *)&local_34);
+          AnmManager::FUN_00434b60
+                    (g_AnmManager,
+                     param_1 + 0x14 + (local_8 + *(int *)(param_1 + 0x1154) * 2) * 0x110,
+                     *(undefined4 *)(param_1 + 0x1158),0xc0d0d0,(char *)&local_34);
           if (local_8 != 0) goto LAB_00410546;
           local_8 = 1;
           local_38 = 0;
@@ -253,8 +254,9 @@ switchD_0040fa32_caseD_0:
     pAVar1 = (AnmVm *)(param_1 + 0x14 + (local_8 + *(int *)(param_1 + 0x1154) * 2) * 0x110);
     pAVar1->anmFileIndex = local_90;
     AnmManager::SetAndExecuteScript(pAVar2,pAVar1,pAVar2->scripts[iVar6 * 2 + local_8 + 0x708]);
-    FUN_00434b60(g_AnmManager,param_1 + 0x14 + (local_8 + *(int *)(param_1 + 0x1154) * 2) * 0x110,
-                 *(undefined4 *)(param_1 + 0x1158),0xc0d0d0,(char *)&local_34);
+    AnmManager::FUN_00434b60
+              (g_AnmManager,param_1 + 0x14 + (local_8 + *(int *)(param_1 + 0x1154) * 2) * 0x110,
+               *(undefined4 *)(param_1 + 0x1158),0xc0d0d0,(char *)&local_34);
   }
   while (((**(char **)(param_1 + 0x116c) == '\n' || (**(char **)(param_1 + 0x116c) == '\0')) ||
          (**(char **)(param_1 + 0x116c) == '\r'))) {
@@ -275,7 +277,7 @@ switchD_0040fa32_caseD_0:
   *(int *)(param_1 + 0x1154) = *(int *)(param_1 + 0x1154) + 1;
 LAB_00410546:
   *(undefined4 *)(param_1 + 0x111c) = *(undefined4 *)(param_1 + 0x1124);
-  GameContext::FUN_00424285(&g_GameContext,(int *)(param_1 + 0x1124),(float *)(param_1 + 0x1120));
+  Supervisor::FUN_00424285(&g_Supervisor,(int *)(param_1 + 0x1124),(float *)(param_1 + 0x1120));
   *(float *)(param_1 + 0xc) = *(float *)(param_1 + 0xc) - *(float *)(param_1 + 0x10);
   if (*(float *)(param_1 + 0xc) < 0.0 != (*(float *)(param_1 + 0xc) == 0.0)) {
     *(undefined4 *)(param_1 + 0xc) = 0;

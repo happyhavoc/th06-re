@@ -11,12 +11,12 @@ undefined4 FUN_0042ffc0(int param_1)
   
   if (g_GameManager.field6_0x18[20] == '\0') {
     *(undefined4 *)(param_1 + 0x24) = *(undefined4 *)(param_1 + 0x2c);
-    GameContext::FUN_00424285(&g_GameContext,(int *)(param_1 + 0x2c),(float *)(param_1 + 0x28));
+    Supervisor::FUN_00424285(&g_Supervisor,(int *)(param_1 + 0x2c),(float *)(param_1 + 0x28));
     if (*(int *)(param_1 + 0x2c) < *(int *)(param_1 + 0x14)) {
       fVar1 = (((float)*(int *)(param_1 + 0x2c) + *(float *)(param_1 + 0x28)) *
               (float)(*(int *)(param_1 + 0x1c) - *(int *)(param_1 + 0x18))) /
               (float)*(int *)(param_1 + 0x14) + (float)*(int *)(param_1 + 0x18);
-      uVar3 = FUN_0041e7f0(&DAT_0069d8f8);
+      uVar3 = GetRandomU32(&g_RandomSeed);
       uVar3 = uVar3 % 3;
       if (uVar3 == 0) {
         g_GameManager.arcade_region_top_left_pos.x = 32.0;
@@ -30,7 +30,7 @@ undefined4 FUN_0042ffc0(int param_1)
         g_GameManager.arcade_region_top_left_pos.x = 32.0;
         g_GameManager.arcade_region_size.x = 384.0 - fVar1;
       }
-      uVar3 = FUN_0041e7f0(&DAT_0069d8f8);
+      uVar3 = GetRandomU32(&g_RandomSeed);
       uVar3 = uVar3 % 3;
       if (uVar3 == 0) {
         g_GameManager.arcade_region_top_left_pos.y = 16.0;

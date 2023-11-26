@@ -28,23 +28,22 @@ int Stage::OnDrawLowPrio(Stage *arg)
   }
   this = g_AnmManager;
   if (0 < arg->spellcardEclRelated0) {
-    if (arg->spellcardEclRelated1 <= (int)(uint)g_GameContext.cfg.frameskipConfig) {
+    if (arg->spellcardEclRelated1 <= (int)(uint)g_Supervisor.cfg.frameskipConfig) {
       (arg->field23_0x88).anmFileIndex = 0x2b3;
       AnmManager::SetAndExecuteScript(this,&arg->field23_0x88,this->scripts[0x2b3]);
     }
     AnmManager::FUN_00432cc0(g_AnmManager,&arg->field23_0x88);
   }
-  g_GameContext.viewport.MinZ = 0.0;
-  g_GameContext.viewport.MaxZ = 0.5;
+  g_Supervisor.viewport.MinZ = 0.0;
+  g_Supervisor.viewport.MaxZ = 0.5;
   FUN_0041c28c(0);
-  (*(g_GameContext.d3dDevice)->lpVtbl->SetViewport)
-            (g_GameContext.d3dDevice,(D3DVIEWPORT8 *)0x6c6de0);
+  (*(g_Supervisor.d3dDevice)->lpVtbl->SetViewport)(g_Supervisor.d3dDevice,(D3DVIEWPORT8 *)0x6c6de0);
   local_8 = 0x447a0000;
-  (*(g_GameContext.d3dDevice)->lpVtbl->SetRenderState)
-            (g_GameContext.d3dDevice,D3DRS_FOGSTART,0x447a0000);
+  (*(g_Supervisor.d3dDevice)->lpVtbl->SetRenderState)
+            (g_Supervisor.d3dDevice,D3DRS_FOGSTART,0x447a0000);
   local_8 = 0x44fa0000;
-  (*(g_GameContext.d3dDevice)->lpVtbl->SetRenderState)
-            (g_GameContext.d3dDevice,D3DRS_FOGEND,0x44fa0000);
+  (*(g_Supervisor.d3dDevice)->lpVtbl->SetRenderState)
+            (g_Supervisor.d3dDevice,D3DRS_FOGEND,0x44fa0000);
   return 1;
 }
 

@@ -15,7 +15,7 @@ undefined4 FUN_0041ea63(int param_1,int param_2,int param_3)
   HDC local_c;
   int local_8;
   
-  FUN_0041e992();
+  FUN_0041e992(in_ECX);
   _memset(&local_84,0,0x6c);
   local_88 = FUN_0041ec22(param_3);
   if (local_88 == 0) {

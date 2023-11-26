@@ -122,7 +122,7 @@ LAB_004074ce:
     if (bVar18 == 1) {
       fVar23 = (float10)FUN_0041e850(param_1[0xb].posInterpFinal.z);
       param_1[0xb].posInterpFinal.z = (float)fVar23;
-      param_1[0xb].pos2.y = g_GameContext.field81_0x1a8 * param_1[0xb].pos2.z + param_1[0xb].pos2.y;
+      param_1[0xb].pos2.y = g_Supervisor.field81_0x1a8 * param_1[0xb].pos2.z + param_1[0xb].pos2.y;
       fVar25 = param_1[0xb].pos2.y;
       fVar22 = (float10)param_1[0xb].posInterpFinal.z;
       fVar23 = (float10)fcos(fVar22);
@@ -188,8 +188,8 @@ LAB_004074ce:
     if (0 < (int)param_1[0xc].scaleInterpFinalX) {
       if (0 < (int)param_1[0xc].pos.y) {
         param_1[0xc].pos.z = param_1[0xc].scaleInterpInitialX;
-        GameContext::FUN_00424285
-                  (&g_GameContext,(int *)&param_1[0xc].scaleInterpInitialX,
+        Supervisor::FUN_00424285
+                  (&g_Supervisor,(int *)&param_1[0xc].scaleInterpInitialX,
                    &param_1[0xc].scaleInterpInitialY);
         if ((int)param_1[0xc].pos.y <= (int)param_1[0xc].scaleInterpInitialX) {
           fVar25 = (float)param_1[0xb].alphaInterpInitial;
@@ -260,7 +260,7 @@ LAB_004074ce:
     }
     param_1[9].rotation.x = (float)local_20;
     param_1[9].rotation.y = param_1[9].angleVel.x;
-    GameContext::FUN_00424285(&g_GameContext,(int *)&param_1[9].angleVel,&param_1[9].rotation.z);
+    Supervisor::FUN_00424285(&g_Supervisor,(int *)&param_1[9].angleVel,&param_1[9].rotation.z);
     return 0;
   }
   if (((uint)*(byte *)((int)local_20 + 9) & 1 << ((byte)g_GameManager.difficulty & 0x1f)) == 0)
@@ -288,7 +288,7 @@ LAB_004074ce:
       local_29c = 0.0;
     }
     else {
-      uVar14 = FUN_0041e7f0(&DAT_0069d8f8);
+      uVar14 = GetRandomU32(&g_RandomSeed);
       local_29c = (float)(uVar14 % local_24);
     }
     local_14 = local_29c;
@@ -303,7 +303,7 @@ LAB_004074ce:
       local_2a0 = 0;
     }
     else {
-      local_2a0 = FUN_0041e7f0(&DAT_0069d8f8);
+      local_2a0 = GetRandomU32(&g_RandomSeed);
       local_2a0 = local_2a0 % local_28;
     }
     local_14 = (float)(local_2a0 + local_2c);
@@ -312,7 +312,7 @@ LAB_004074ce:
   case 8:
     pfVar17 = FUN_0040b380((int)param_1,local_20 + 4,(undefined4 *)0x0);
     local_30 = *pfVar17;
-    local_18 = FUN_0041e820(&DAT_0069d8f8);
+    local_18 = GetRandomF32ZeroToOne(&g_RandomSeed);
     local_18 = local_18 * local_30;
     FUN_0040b3c0((int)param_1,local_20[3],(int *)&local_18);
     break;
@@ -321,7 +321,7 @@ LAB_004074ce:
     local_34 = *pfVar17;
     pfVar17 = FUN_0040b380((int)param_1,local_1c + 2,(undefined4 *)0x0);
     local_38 = *pfVar17;
-    fVar25 = FUN_0041e820(&DAT_0069d8f8);
+    fVar25 = GetRandomF32ZeroToOne(&g_RandomSeed);
     local_18 = fVar25 * local_34 + local_38;
     FUN_0040b3c0((int)param_1,local_20[3],(int *)&local_18);
     break;
@@ -528,7 +528,7 @@ switchD_00407544_caseD_2:
     local_c = local_20[4];
     local_8 = local_20[5];
     fVar25 = local_c - local_10;
-    fVar24 = FUN_0041e820(&DAT_0069d8f8);
+    fVar24 = GetRandomF32ZeroToOne(&g_RandomSeed);
     param_1[0xb].posInterpFinal.z = fVar24 * fVar25 + local_10;
     break;
   case 0x32:
@@ -536,7 +536,7 @@ switchD_00407544_caseD_2:
     local_c = local_20[4];
     local_8 = local_20[5];
     fVar25 = local_c - local_10;
-    fVar24 = FUN_0041e820(&DAT_0069d8f8);
+    fVar24 = GetRandomF32ZeroToOne(&g_RandomSeed);
     param_1[0xb].posInterpFinal.z = fVar24 * fVar25 + local_10;
     if ((float)param_1[0xb].currentInstruction < param_1[0xd].pos.x + 96.0) {
       if (param_1[0xb].posInterpFinal.z <= 1.570796) {
@@ -741,7 +741,7 @@ switchD_00407544_caseD_2:
         local_184 = 0.0;
       }
       else {
-        uVar14 = FUN_0041e7f0(&DAT_0069d8f8);
+        uVar14 = GetRandomU32(&g_RandomSeed);
         local_184 = (float)(uVar14 % (uint)local_184);
       }
       param_1[0xc].scaleInterpInitialX = local_184;
@@ -1134,9 +1134,9 @@ switchD_00407544_caseD_2:
       local_98 = param_1[0xb].currentInstruction;
       local_94 = param_1[0xb].sprite;
       local_90 = param_1[0xb].alphaInterpInitial;
-      fVar25 = FUN_0041e820(&DAT_0069d8f8);
+      fVar25 = GetRandomF32ZeroToOne(&g_RandomSeed);
       local_98 = (AnmRawInstr *)((fVar25 * 144.0 - 72.0) + (float)local_98);
-      fVar25 = FUN_0041e820(&DAT_0069d8f8);
+      fVar25 = GetRandomF32ZeroToOne(&g_RandomSeed);
       local_94 = (AnmLoadedSprite *)((fVar25 * 144.0 - 72.0) + (float)local_94);
       if (g_GameManager.current_power < 0x80) {
         FUN_0041f290();

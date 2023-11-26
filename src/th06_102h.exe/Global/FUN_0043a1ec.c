@@ -19,7 +19,7 @@ undefined4 FUN_0043a1ec(int param_1)
         AnmManager::FUN_004051b0(g_AnmManager,local_c,local_8);
         local_c->flags = local_c->flags & 0xfffffffe;
         local_c->flags = local_c->flags | 8;
-        if ((g_GameContext.cfg.opts & 1) == 0) {
+        if ((g_Supervisor.cfg.opts & 1) == 0) {
           local_c->color = 0xff000000;
         }
         else {

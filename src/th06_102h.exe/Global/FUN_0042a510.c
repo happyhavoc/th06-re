@@ -6,7 +6,7 @@ undefined4 FUN_0042a510(int *param_1)
   undefined3 extraout_var;
   int iVar2;
   
-  if ((((g_GameManager.field22_0x1820._1_1_ != '\0') &&
+  if ((((g_GameManager.field23_0x1821 != 0) &&
        (bVar1 = FUN_004195a2(0x69bc30), CONCAT31(extraout_var,bVar1) != 0)) &&
       (iVar2 = FUN_00417344(0x69bc30), iVar2 != 0)) && (*param_1 % 3 != 2)) {
     return 6;

@@ -1,63 +1,63 @@
 
-undefined4 FUN_0042a240(int param_1,char *param_2)
+undefined4 FUN_0042a240(int param_1,char *replay_file)
 
 {
   ChainElem *pCVar1;
   int iVar2;
   undefined4 uVar3;
-  void *local_14;
+  ReplayManager *local_14;
   
-  if ((g_GameContext.framerateMultiplier < 0.99 == NAN(g_GameContext.framerateMultiplier)) ||
+  if ((g_Supervisor.framerateMultiplier < 0.99 == NAN(g_Supervisor.framerateMultiplier)) ||
      (param_1 != 0)) {
-    g_GameContext.framerateMultiplier = 1.0;
-    if (DAT_006d3f18 == (void *)0x0) {
-      local_14 = operator_new(0x74);
-      if (local_14 == (void *)0x0) {
-        local_14 = (void *)0x0;
+    g_Supervisor.framerateMultiplier = 1.0;
+    if (g_ReplayManager == (ReplayManager *)0x0) {
+      local_14 = (ReplayManager *)operator_new(0x74);
+      if (local_14 == (ReplayManager *)0x0) {
+        local_14 = (ReplayManager *)0x0;
       }
-      DAT_006d3f18 = local_14;
-      *(undefined4 *)((int)local_14 + 4) = 0;
-      *(int *)((int)local_14 + 8) = param_1;
-      *(char **)((int)local_14 + 0xc) = param_2;
+      g_ReplayManager = local_14;
+      local_14->data = (ReplayData *)0x0;
+      local_14->is_demo = param_1;
+      local_14->replay_file = replay_file;
       if (param_1 == 0) {
-        pCVar1 = ChainElem::Allocate(FUN_0042a470);
-        *(ChainElem **)((int)local_14 + 0x68) = pCVar1;
-        *(code **)(*(int *)((int)local_14 + 0x68) + 8) = FUN_0042a680;
-        *(code **)(*(int *)((int)local_14 + 0x68) + 0xc) = FUN_0042aa20;
+        pCVar1 = ChainElem::Allocate(ReplayManager::OnUpdate);
+        local_14->chain1 = pCVar1;
+        local_14->chain1->addedCallback = ReplayManager::OnAdd;
+        local_14->chain1->deletedCallback = ReplayManager::OnDelete;
         pCVar1 = ChainElem::Allocate(FUN_0042a670);
-        *(ChainElem **)((int)local_14 + 0x6c) = pCVar1;
-        *(void **)(*(int *)((int)local_14 + 0x68) + 0x1c) = local_14;
-        iVar2 = Chain::AddToCalcChain(&g_Chain,*(ChainElem **)((int)local_14 + 0x68),0xf);
+        local_14->chain2 = pCVar1;
+        local_14->chain1->arg = local_14;
+        iVar2 = Chain::AddToCalcChain(&g_Chain,local_14->chain1,0xf);
         if (iVar2 != 0) {
           return 0xffffffff;
         }
-        *(undefined4 *)((int)local_14 + 0x70) = 0;
+        local_14->chain3 = (ChainElem *)0x0;
       }
       else if (param_1 == 1) {
         pCVar1 = ChainElem::Allocate(FUN_0042a570);
-        *(ChainElem **)((int)local_14 + 0x68) = pCVar1;
-        *(code **)(*(int *)((int)local_14 + 0x68) + 8) = FUN_0042a840;
-        *(code **)(*(int *)((int)local_14 + 0x68) + 0xc) = FUN_0042aa20;
+        local_14->chain1 = pCVar1;
+        local_14->chain1->addedCallback = FUN_0042a840;
+        local_14->chain1->deletedCallback = ReplayManager::OnDelete;
         pCVar1 = ChainElem::Allocate(FUN_0042a670);
-        *(ChainElem **)((int)local_14 + 0x6c) = pCVar1;
-        *(void **)(*(int *)((int)local_14 + 0x68) + 0x1c) = local_14;
-        iVar2 = Chain::AddToCalcChain(&g_Chain,*(ChainElem **)((int)local_14 + 0x68),5);
+        local_14->chain2 = pCVar1;
+        local_14->chain1->arg = local_14;
+        iVar2 = Chain::AddToCalcChain(&g_Chain,local_14->chain1,5);
         if (iVar2 != 0) {
           return 0xffffffff;
         }
         pCVar1 = ChainElem::Allocate(FUN_0042a510);
-        *(ChainElem **)((int)local_14 + 0x70) = pCVar1;
-        *(void **)(*(int *)((int)local_14 + 0x70) + 0x1c) = local_14;
-        Chain::AddToCalcChain(&g_Chain,*(ChainElem **)((int)local_14 + 0x70),0x10);
+        local_14->chain3 = pCVar1;
+        local_14->chain3->arg = local_14;
+        Chain::AddToCalcChain(&g_Chain,local_14->chain3,0x10);
       }
-      *(void **)(*(int *)((int)local_14 + 0x6c) + 0x1c) = local_14;
-      Chain::AddToDrawChain(&g_Chain,*(ChainElem **)((int)local_14 + 0x6c),0xd);
+      local_14->chain2->arg = local_14;
+      Chain::AddToDrawChain(&g_Chain,local_14->chain2,0xd);
     }
     else if (param_1 == 0) {
-      FUN_0042a680(DAT_006d3f18);
+      ReplayManager::OnAdd(g_ReplayManager);
     }
     else if (param_1 == 1) {
-      uVar3 = FUN_0042a840(DAT_006d3f18);
+      uVar3 = FUN_0042a840(g_ReplayManager);
       return uVar3;
     }
   }

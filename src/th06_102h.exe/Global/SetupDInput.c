@@ -1,5 +1,5 @@
 
-undefined4 SetupDInput(GameContext *param_1)
+undefined4 SetupDInput(Supervisor *param_1)
 
 {
   HINSTANCE hInst;
@@ -70,9 +70,9 @@ undefined4 SetupDInput(GameContext *param_1)
                         (param_1->controller,&DIDATAFORMAT_0046cdfc);
               (*param_1->controller->lpVtbl->SetCooperativeLevel)
                         (param_1->controller,(HWND)param_1->hwndGameWindow,5);
-              g_GameContext.controllerCaps.dwSize = 0x2c;
+              g_Supervisor.controllerCaps.dwSize = 0x2c;
               (*param_1->controller->lpVtbl->GetCapabilities)
-                        (param_1->controller,&g_GameContext.controllerCaps);
+                        (param_1->controller,&g_Supervisor.controllerCaps);
               (*param_1->controller->lpVtbl->EnumObjects)
                         (param_1->controller,FUN_00423801,(LPVOID)0x0,0);
               GameErrorContextLog(&g_GameErrorContext,"有効なパッドを発見しました\n");

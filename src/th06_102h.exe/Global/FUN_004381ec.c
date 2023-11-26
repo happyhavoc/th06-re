@@ -5,13 +5,13 @@ void __fastcall FUN_004381ec(int param_1)
   int iVar1;
   BOOL BVar2;
   byte *pbVar3;
-  undefined4 *puVar4;
-  undefined4 *puVar5;
+  ReplayData *pRVar4;
+  char **ppcVar5;
   uint unaff_retaddr;
   _WIN32_FIND_DATAA local_19c;
   char local_5c [64];
   uint local_1c;
-  undefined4 *local_18;
+  ReplayData *local_18;
   int local_14;
   HANDLE local_10;
   int local_c;
@@ -26,16 +26,16 @@ void __fastcall FUN_004381ec(int param_1)
         local_14 = 0;
         for (local_c = 0; local_c < 0xf; local_c = local_c + 1) {
           sprintf(local_5c,"./replay/th6_%.2d.rpy",local_c + 1);
-          local_18 = (undefined4 *)FileSystem::OpenPath(local_5c,1);
-          if (local_18 != (undefined4 *)0x0) {
+          local_18 = (ReplayData *)FileSystem::OpenPath(local_5c,1);
+          if (local_18 != (ReplayData *)0x0) {
             iVar1 = FUN_0042a140(local_18,g_LastFileSize);
             if (iVar1 == 0) {
-              puVar4 = local_18;
-              puVar5 = (undefined4 *)(param_1 + 0xfc1c + local_14 * 0x50);
+              pRVar4 = local_18;
+              ppcVar5 = (char **)(param_1 + 0xfc1c + local_14 * 0x50);
               for (iVar1 = 0x14; iVar1 != 0; iVar1 = iVar1 + -1) {
-                *puVar5 = *puVar4;
-                puVar4 = puVar4 + 1;
-                puVar5 = puVar5 + 1;
+                *ppcVar5 = pRVar4->magic;
+                pRVar4 = (ReplayData *)&pRVar4->version;
+                ppcVar5 = ppcVar5 + 1;
               }
               _strcpy((char *)(param_1 + 0x823c + local_14 * 0x200),local_5c);
               sprintf((char *)(param_1 + 0xfa3c + local_14 * 8),"No.%.2d",local_c + 1);
@@ -49,16 +49,16 @@ void __fastcall FUN_004381ec(int param_1)
         local_10 = FindFirstFileA("th6_ud????.rpy",&local_19c);
         if (local_10 != (HANDLE)0xffffffff) {
           for (local_c = 0; local_c < 0x2d; local_c = local_c + 1) {
-            local_18 = (undefined4 *)FileSystem::OpenPath(local_19c.cFileName,1);
-            if (local_18 != (undefined4 *)0x0) {
+            local_18 = (ReplayData *)FileSystem::OpenPath(local_19c.cFileName,1);
+            if (local_18 != (ReplayData *)0x0) {
               iVar1 = FUN_0042a140(local_18,g_LastFileSize);
               if (iVar1 == 0) {
-                puVar4 = local_18;
-                puVar5 = (undefined4 *)(param_1 + 0xfc1c + local_14 * 0x50);
+                pRVar4 = local_18;
+                ppcVar5 = (char **)(param_1 + 0xfc1c + local_14 * 0x50);
                 for (iVar1 = 0x14; iVar1 != 0; iVar1 = iVar1 + -1) {
-                  *puVar5 = *puVar4;
-                  puVar4 = puVar4 + 1;
-                  puVar5 = puVar5 + 1;
+                  *ppcVar5 = pRVar4->magic;
+                  pRVar4 = (ReplayData *)&pRVar4->version;
+                  ppcVar5 = ppcVar5 + 1;
                 }
                 sprintf((char *)(param_1 + 0x823c + local_14 * 0x200),"./replay/%s",
                         local_19c.cFileName);
@@ -87,7 +87,7 @@ void __fastcall FUN_004381ec(int param_1)
       }
       else {
         GameErrorContextLog(&g_GameErrorContext,"セレクト画面の読み込みに失敗\n");
-        g_GameContext.unkInput2 = 4;
+        g_Supervisor.curState = 4;
       }
     }
   }
@@ -112,7 +112,7 @@ void __fastcall FUN_004381ec(int param_1)
           pbVar3 = FileSystem::OpenPath
                              ((char *)(param_1 + 0x823c + *(int *)(param_1 + 0x81e8) * 0x200),1);
           *(byte **)(param_1 + 0x10edc) = pbVar3;
-          FUN_0042a140(*(undefined4 *)(param_1 + 0x10edc),g_LastFileSize);
+          FUN_0042a140(*(ReplayData **)(param_1 + 0x10edc),g_LastFileSize);
           for (local_c = 0; local_c < 7; local_c = local_c + 1) {
             if (*(int *)(*(int *)(param_1 + 0x10edc) + 0x34 + local_c * 4) != 0) {
               *(int *)(*(int *)(param_1 + 0x10edc) + 0x34 + local_c * 4) =
@@ -189,7 +189,7 @@ LAB_0043877b:
     }
     else {
       g_GameManager.field6_0x18._4_4_ = 1;
-      g_GameContext.framerateMultiplier = 1.0;
+      g_Supervisor.framerateMultiplier = 1.0;
       _strcpy(g_GameManager.replay_file,
               (char *)(param_1 + 0x823c + *(int *)(param_1 + 0x81e8) * 0x200));
       g_GameManager.difficulty = (uint)*(byte *)(*(int *)(param_1 + 0x10edc) + 7);
@@ -205,7 +205,7 @@ LAB_0043877b:
       _free(*(void **)(param_1 + 0x10edc));
       *(undefined4 *)(param_1 + 0x10edc) = 0;
       g_GameManager.current_stage = *(uint *)(param_1 + 0x81a0);
-      g_GameContext.unkInput2 = 2;
+      g_Supervisor.curState = 2;
     }
   }
 LAB_00438bb2:

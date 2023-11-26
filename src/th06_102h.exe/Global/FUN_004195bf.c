@@ -140,11 +140,11 @@ void FUN_004195bf(void)
     else if (g_GameManager.difficulty == 4) {
       local_c = local_c * 2 - (local_c * 2) % 10;
     }
-    if (g_GameContext.lifeCount == 3) {
+    if (g_Supervisor.lifeCount == 3) {
       local_c = (local_c * 5) / 10;
       local_c = local_c - local_c % 10;
     }
-    else if (g_GameContext.lifeCount == 4) {
+    else if (g_Supervisor.lifeCount == 4) {
       local_c = (local_c << 1) / 10;
       local_c = local_c - local_c % 10;
     }

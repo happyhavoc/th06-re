@@ -1,25 +1,24 @@
 
-undefined4 FUN_0042d35a(void)
+undefined4 __fastcall FUN_0042d35a(int param_1)
 
 {
-  int in_ECX;
   float local_34;
   float local_20;
   D3DXVECTOR3 local_14;
   int local_8;
   
-  if ((0xe < *(int *)(in_ECX + 8)) && (*(int *)(in_ECX + 8) < 0x11)) {
-    local_8 = in_ECX + 0x2790;
-    g_AsciiManager.color = *(D3DCOLOR *)(in_ECX + 0x280c);
+  if ((0xe < *(int *)(param_1 + 8)) && (*(int *)(param_1 + 8) < 0x11)) {
+    local_8 = param_1 + 0x2790;
+    g_AsciiManager.color = *(D3DCOLOR *)(param_1 + 0x280c);
     if ((int)g_GameManager.difficulty < 4) {
       local_34 = (float)g_GameManager._6764_4_ / 89500.0;
     }
     else {
       local_34 = (float)g_GameManager._6764_4_ / 39600.0;
     }
-    local_14.z = *(float *)(in_ECX + 0x2828);
-    local_14.x = *(float *)(in_ECX + 0x2820) + 224.0;
-    local_14.y = *(float *)(in_ECX + 0x2824) + 32.0;
+    local_14.z = *(float *)(param_1 + 0x2828);
+    local_14.x = *(float *)(param_1 + 0x2820) + 224.0;
+    local_14.y = *(float *)(param_1 + 0x2824) + 32.0;
     AsciiManager::DrawFormatText(&g_AsciiManager,&local_14.x,(char *)&PTR_DAT_0046bcc0);
     local_14.y = local_14.y + 22.0;
     AsciiManager::DrawText
@@ -40,7 +39,7 @@ undefined4 FUN_0042d35a(void)
     AsciiManager::DrawFormatText(&g_AsciiManager,&local_14.x,(char *)&PTR_DAT_0046bcc0);
     local_14.y = local_14.y + 22.0;
     AsciiManager::DrawFormatText(&g_AsciiManager,&local_14.x,(char *)&PTR_DAT_0046bcc0);
-    local_20 = (float)g_GameContext._436_4_ / (float)g_GameContext._440_4_ - 0.5;
+    local_20 = g_Supervisor.field84_0x1b4 / g_Supervisor.field85_0x1b8 - 0.5;
     local_20 = local_20 + local_20;
     if (local_20 < 0.0 == NAN(local_20)) {
       if (1.0 <= local_20) {

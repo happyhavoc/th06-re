@@ -30,12 +30,12 @@ int Stage::AddedCallback(Stage *arg)
     (arg->facingDirInterpTimer).subFrame = 0.0;
     (arg->facingDirInterpTimer).previous = -999;
     arg->unpauseFlag = '\0';
-    (*(g_GameContext.d3dDevice)->lpVtbl->SetRenderState)
-              (g_GameContext.d3dDevice,D3DRS_FOGCOLOR,(arg->skyFog).color);
-    (*(g_GameContext.d3dDevice)->lpVtbl->SetRenderState)
-              (g_GameContext.d3dDevice,D3DRS_FOGSTART,(DWORD)(arg->skyFog).nearPlane);
-    (*(g_GameContext.d3dDevice)->lpVtbl->SetRenderState)
-              (g_GameContext.d3dDevice,D3DRS_FOGEND,(DWORD)(arg->skyFog).farPlane);
+    (*(g_Supervisor.d3dDevice)->lpVtbl->SetRenderState)
+              (g_Supervisor.d3dDevice,D3DRS_FOGCOLOR,(arg->skyFog).color);
+    (*(g_Supervisor.d3dDevice)->lpVtbl->SetRenderState)
+              (g_Supervisor.d3dDevice,D3DRS_FOGSTART,(DWORD)(arg->skyFog).nearPlane);
+    (*(g_Supervisor.d3dDevice)->lpVtbl->SetRenderState)
+              (g_Supervisor.d3dDevice,D3DRS_FOGEND,(DWORD)(arg->skyFog).farPlane);
     iVar1 = 0;
   }
   else {

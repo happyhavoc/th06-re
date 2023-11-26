@@ -11,13 +11,13 @@ int FileSystem::WriteDataToFile(char *path,void *data,size_t size)
     iVar1 = -1;
   }
   else {
-    sVar2 = _fwrite(data,1,size,_File);
+    sVar2 = fwrite(data,1,size,_File);
     if (sVar2 == size) {
-      _fclose(_File);
+      fclose(_File);
       iVar1 = 0;
     }
     else {
-      _fclose(_File);
+      fclose(_File);
       iVar1 = -2;
     }
   }

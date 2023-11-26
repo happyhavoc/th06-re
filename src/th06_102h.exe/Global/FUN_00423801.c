@@ -14,8 +14,8 @@ undefined4 FUN_00423801(LPCDIDEVICEOBJECTINSTANCE param_1)
     prop.dwObj = param_1->dwType;
     local_c = 0xfffffc18;
     local_8 = 1000;
-    HVar1 = (*(g_GameContext.controller)->lpVtbl->SetProperty)
-                      (g_GameContext.controller,(GUID *)0x4,&prop);
+    HVar1 = (*(g_Supervisor.controller)->lpVtbl->SetProperty)
+                      (g_Supervisor.controller,(GUID *)0x4,&prop);
     if (HVar1 < 0) {
       return 0;
     }

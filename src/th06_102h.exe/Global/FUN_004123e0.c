@@ -26,8 +26,8 @@ undefined4 FUN_004123e0(int param_1)
   do {
     if (0xff < (int)local_10) {
       *(undefined4 *)(param_1 + 0xee5e0) = *(undefined4 *)(param_1 + 0xee5e8);
-      GameContext::FUN_00424285
-                (&g_GameContext,(int *)(param_1 + 0xee5e8),(float *)(param_1 + 0xee5e4));
+      Supervisor::FUN_00424285
+                (&g_Supervisor,(int *)(param_1 + 0xee5e8),(float *)(param_1 + 0xee5e4));
       return 1;
     }
     if (-1 < *(char *)&local_28[0xd].flags) goto LAB_00412416;
@@ -235,8 +235,8 @@ LAB_00412dbc:
     FUN_00412e50(local_28);
     if (g_GameManager.field6_0x18[20] == '\0') {
       local_28[0xc].currentTimeInScript.previous = local_28[0xc].currentTimeInScript.current;
-      GameContext::FUN_00424285
-                (&g_GameContext,&local_28[0xc].currentTimeInScript.current,
+      Supervisor::FUN_00424285
+                (&g_Supervisor,&local_28[0xc].currentTimeInScript.current,
                  &local_28[0xc].currentTimeInScript.subFrame);
     }
 LAB_00412416:

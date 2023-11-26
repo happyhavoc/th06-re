@@ -25,7 +25,7 @@ void __thiscall AsciiManager::DrawText(AsciiManager *this,D3DXVECTOR3 *param_1,c
     (pAVar1->scale).x = (this->scale).x;
     (pAVar1->scale).y = (this->scale).y;
     *(undefined4 *)&pAVar1->field_0x5c = *(undefined4 *)&this->field_0x6230;
-    if ((g_GameContext.cfg.opts >> NO_COLOR_COMP & 1 | g_GameContext.cfg.opts & 1) == 0) {
+    if ((g_Supervisor.cfg.opts >> NO_COLOR_COMP & 1 | g_Supervisor.cfg.opts & 1) == 0) {
       *(undefined4 *)&pAVar1->field_0x58 = 0;
     }
     else {

@@ -5,7 +5,7 @@ undefined4 FUN_004148f0(char *param_1)
   int iVar1;
   undefined4 uVar2;
   
-  if ((g_GameContext.cfg.opts & 1) == 0) {
+  if ((g_Supervisor.cfg.opts & 1) == 0) {
     PTR_DAT_00476438 = &DAT_00476358;
   }
   else {

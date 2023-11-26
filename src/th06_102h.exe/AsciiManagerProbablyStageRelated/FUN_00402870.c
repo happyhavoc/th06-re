@@ -10,20 +10,20 @@ AsciiManagerProbablyStageRelated::FUN_00402870(AsciiManagerProbablyStageRelated 
   
   if (g_GameManager._6179_1_ != '\0') {
     g_GameManager.field0_0x0 = g_GameManager.score;
-    g_GameManager.field22_0x1820._0_1_ = 0;
-    g_GameContext.unkInput2 = 7;
+    g_GameManager.field22_0x1820 = 0;
+    g_Supervisor.curState = 7;
     return 1;
   }
   if (g_GameManager.field6_0x18._4_4_ != 0) {
     g_GameManager.field0_0x0 = g_GameManager.score;
-    g_GameManager.field22_0x1820._0_1_ = 0;
-    g_GameContext.unkInput2 = 8;
+    g_GameManager.field22_0x1820 = 0;
+    g_Supervisor.curState = 8;
     return 1;
   }
   if ((2 < g_GameManager.num_retries) || (3 < (int)g_GameManager.difficulty)) {
     g_GameManager.field0_0x0 = g_GameManager.score;
-    g_GameManager.field22_0x1820._0_1_ = 0;
-    g_GameContext.unkInput2 = 7;
+    g_GameManager.field22_0x1820 = 0;
+    g_Supervisor.curState = 7;
     return 1;
   }
   switch(this->field0_0x0) {
@@ -42,7 +42,7 @@ AsciiManagerProbablyStageRelated::FUN_00402870(AsciiManagerProbablyStageRelated 
         }
         this->vms0[local_8].pendingInterrupt = 1;
       }
-      if (g_GameContext.lockableBackbuffer != 0) {
+      if (g_Supervisor.lockableBackbuffer != 0) {
         g_AnmManager->vertexBufferContents[3].position.z = 4.203895e-45;
         pAVar1->vertexBufferContents[3].diffuseColor = 0x20;
         pAVar1->vertexBufferContents[3].textureUV.x = 2.242078e-44;
@@ -122,7 +122,7 @@ AsciiManagerProbablyStageRelated::FUN_00402870(AsciiManagerProbablyStageRelated 
     if (0x1d < this->field1_0x4) {
       this->field0_0x0 = 0;
       this->field1_0x4 = 0;
-      g_GameManager.field22_0x1820._0_1_ = 0;
+      g_GameManager.field22_0x1820 = 0;
       for (local_8 = 0; local_8 < 4; local_8 = local_8 + 1) {
         this->vms0[local_8].flags = this->vms0[local_8].flags & 0xfffffffe;
       }
@@ -134,8 +134,8 @@ AsciiManagerProbablyStageRelated::FUN_00402870(AsciiManagerProbablyStageRelated 
       g_GameManager.graze_in_stage = 0;
       g_GameManager.current_power = 0;
       g_GameManager.point_items_collected_in_stage = 0;
-      g_GameManager.lives_remaining = g_GameContext.lifeCount;
-      g_GameManager.bombs_remaining = g_GameContext.bombCount;
+      g_GameManager.lives_remaining = g_Supervisor.lifeCount;
+      g_GameManager.bombs_remaining = g_Supervisor.bombCount;
       g_GameManager._6172_1_ = 0;
       return 0;
     }
@@ -144,8 +144,8 @@ AsciiManagerProbablyStageRelated::FUN_00402870(AsciiManagerProbablyStageRelated 
     if (0x13 < this->field1_0x4) {
       this->field0_0x0 = 0;
       this->field1_0x4 = 0;
-      g_GameManager.field22_0x1820._0_1_ = 0;
-      g_GameContext.unkInput2 = 7;
+      g_GameManager.field22_0x1820 = 0;
+      g_Supervisor.curState = 7;
       for (local_8 = 0; local_8 < 4; local_8 = local_8 + 1) {
         this->vms0[local_8].flags = this->vms0[local_8].flags & 0xfffffffe;
       }
@@ -156,7 +156,7 @@ AsciiManagerProbablyStageRelated::FUN_00402870(AsciiManagerProbablyStageRelated 
   for (local_8 = 0; local_8 < 4; local_8 = local_8 + 1) {
     AnmManager::ExecuteScript(g_AnmManager,this->vms0 + local_8);
   }
-  if (g_GameContext.lockableBackbuffer != 0) {
+  if (g_Supervisor.lockableBackbuffer != 0) {
     AnmManager::ExecuteScript(g_AnmManager,&this->vm1);
   }
   this->field1_0x4 = this->field1_0x4 + 1;

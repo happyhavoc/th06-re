@@ -77,8 +77,9 @@ LAB_0042508a:
       else {
         *(uint *)(param_1 + 0x23b4 + local_c * 0x110) =
              *(uint *)(param_1 + 0x23b4 + local_c * 0x110) | 2;
-        FUN_00434b60(g_AnmManager,param_1 + 0x2334 + local_c * 0x110,0xffe0c0,0x300000,
-                     (char *)local_54);
+        AnmManager::FUN_00434b60
+                  (g_AnmManager,param_1 + 0x2334 + local_c * 0x110,0xffe0c0,0x300000,
+                   (char *)local_54);
       }
       *(float *)(param_1 + 0x23c4 + local_c * 0x110) = (float)(local_c % 2) * 248.0 + 96.0;
       *(float *)(param_1 + 0x23c8 + local_c * 0x110) = (float)(local_c / 2 << 4) + 320.0;
@@ -88,7 +89,7 @@ LAB_0042508a:
     }
   }
   if (((g_CurFrameInput & 10) != 0) && ((g_CurFrameInput & 10) != (g_LastFrameInput & 10))) {
-    g_GameContext.unkInput2 = 1;
+    g_Supervisor.curState = 1;
   }
   __security_check_cookie(local_10 ^ unaff_retaddr);
   return;

@@ -1,49 +1,46 @@
 
-undefined4 FUN_0042a140(char (*param_1) [4],int param_2)
+int FUN_0042a140(ReplayData *data,int size)
 
 {
-  undefined4 uVar1;
-  char *local_1c;
-  undefined4 local_18;
-  char *local_14;
-  char local_d;
-  int local_8;
+  int iVar1;
+  byte *local_1c;
+  int local_18;
+  char *cur_byte;
+  byte obf_offset;
+  int idx;
   
-  if (param_1 == (char (*) [4])0x0) {
-    uVar1 = 0xffffffff;
+  if (data == (ReplayData *)0x0) {
+    iVar1 = -1;
   }
-  else if (*param_1 == (char  [4])0x50523654) {
-    local_14 = param_1[3] + 3;
-    local_d = param_1[3][2];
-    for (local_8 = 0; local_8 < param_2 + -0xf; local_8 = local_8 + 1) {
-      *local_14 = *local_14 - local_d;
-      local_d = local_d + '\a';
-      local_14 = local_14 + 1;
+  else if ((char  [4])data->magic == (char  [4])0x50523654) {
+    cur_byte = &data->field_0xf;
+    obf_offset = data->field_0xe;
+    for (idx = 0; idx < size + -0xf; idx = idx + 1) {
+      *cur_byte = *cur_byte - obf_offset;
+      obf_offset = obf_offset + 7;
+      cur_byte = cur_byte + 1;
     }
-    local_1c = param_1[3] + 2;
-    local_18._0_1_ = '\x18';
-    local_18._1_1_ = '\x03';
-    local_18._2_1_ = '\0';
-    local_18._3_1_ = '?';
-    for (local_8 = 0; local_8 < param_2 + -0xe; local_8 = local_8 + 1) {
-      local_18 = (char  [4])((int)local_18 + (uint)(byte)*local_1c);
+    local_1c = &data->field_0xe;
+    local_18 = 0x3f000318;
+    for (idx = 0; idx < size + -0xe; idx = idx + 1) {
+      local_18 = local_18 + (uint)*local_1c;
       local_1c = local_1c + 1;
     }
-    if (local_18 == param_1[2]) {
-      if (*(short *)param_1[1] == 0x102) {
-        uVar1 = 0;
+    if (local_18 == *(int *)&data->field_0x8) {
+      if (data->version == 0x102) {
+        iVar1 = 0;
       }
       else {
-        uVar1 = 0xffffffff;
+        iVar1 = -1;
       }
     }
     else {
-      uVar1 = 0xffffffff;
+      iVar1 = -1;
     }
   }
   else {
-    uVar1 = 0xffffffff;
+    iVar1 = -1;
   }
-  return uVar1;
+  return iVar1;
 }
 

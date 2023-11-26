@@ -6,7 +6,7 @@ undefined4 FUN_0043a659(int param_1)
   int local_c;
   int local_8;
   
-  (*(g_GameContext.d3dDevice)->lpVtbl->ResourceManagerDiscardBytes)(g_GameContext.d3dDevice,0);
+  (*(g_Supervisor.d3dDevice)->lpVtbl->ResourceManagerDiscardBytes)(g_Supervisor.d3dDevice,0);
   FUN_0043a70a();
   for (local_8 = 0x1b; local_8 < 0x25; local_8 = local_8 + 1) {
     ReleaseAnm(g_AnmManager,local_8);

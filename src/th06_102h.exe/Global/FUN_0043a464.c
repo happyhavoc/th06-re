@@ -17,18 +17,18 @@ undefined4 FUN_0043a464(struct *param_1)
     pAVar1->scripts[local_c + 0x100] = (AnmRawInstr *)0x0;
   }
   param_1->unk_81e4 = 0;
-  if (g_GameContext.unkInput4 < 2) {
+  if (g_Supervisor.wantedState2 < 2) {
 LAB_0043a516:
     param_1->unk_81a0 = 0;
   }
   else {
-    if (3 < g_GameContext.unkInput4) {
-      if (g_GameContext.unkInput4 == 6) {
+    if (3 < g_Supervisor.wantedState2) {
+      if (g_Supervisor.wantedState2 == 6) {
         param_1->unk_81a0 = 4;
         goto LAB_0043a520;
       }
-      if (g_GameContext.unkInput4 != 7) {
-        if (g_GameContext.unkInput4 == 9) {
+      if (g_Supervisor.wantedState2 != 7) {
+        if (g_Supervisor.wantedState2 == 9) {
           param_1->unk_81a0 = 5;
           goto LAB_0043a520;
         }
@@ -42,7 +42,7 @@ LAB_0043a520:
     param_1->unk_81a0 = 2;
   }
   g_GameManager._6179_1_ = 0;
-  if ((g_GameContext.cfg.opts & 1) == USE_D3D_HW_TEXTURE_BLENDING) {
+  if ((g_Supervisor.cfg.opts & 1) == USE_D3D_HW_TEXTURE_BLENDING) {
     param_1->unk_8208 = 0x80004000;
     param_1->unk_8204 = 0xff008000;
   }
@@ -62,7 +62,7 @@ LAB_0043a520:
   ParsePscr(scoredat,g_GameManager.pscr);
   FUN_0042b7dc(uVar2,scoredat);
   if (g_GameManager.demo_mode == 0) {
-    if (g_GameContext._1024_4_ == 0) {
+    if (g_Supervisor.startup_time_for_menu_music == 0) {
       FUN_00424b5d("bgm/th06_01.mid");
       FUN_0042fd30(0,0x78,0xffffff,0,0);
     }

@@ -28,23 +28,23 @@ int __thiscall AnmManager::FUN_00432730(AnmManager *this,AnmVm *vm,int param_3)
     PRIMITIVES_TO_DRAW_VERTEXBUF[23] = PRIMITIVES_TO_DRAW_VERTEXBUF[17];
     if (this->currentTexture != this->textures[vm->sprite->sourceFileIndex]) {
       this->currentTexture = this->textures[vm->sprite->sourceFileIndex];
-      (*(g_GameContext.d3dDevice)->lpVtbl->SetTexture)
-                (g_GameContext.d3dDevice,0,(IDirect3DBaseTexture8 *)this->currentTexture);
+      (*(g_Supervisor.d3dDevice)->lpVtbl->SetTexture)
+                (g_Supervisor.d3dDevice,0,(IDirect3DBaseTexture8 *)this->currentTexture);
     }
   }
   if (this->currentVertexShader != '\x02') {
-    if ((g_GameContext.cfg.opts >> 1 & 1) == 0) {
-      (*(g_GameContext.d3dDevice)->lpVtbl->SetVertexShader)(g_GameContext.d3dDevice,0x104);
+    if ((g_Supervisor.cfg.opts >> 1 & 1) == 0) {
+      (*(g_Supervisor.d3dDevice)->lpVtbl->SetVertexShader)(g_Supervisor.d3dDevice,0x104);
     }
     else {
-      (*(g_GameContext.d3dDevice)->lpVtbl->SetVertexShader)(g_GameContext.d3dDevice,0x144);
+      (*(g_Supervisor.d3dDevice)->lpVtbl->SetVertexShader)(g_Supervisor.d3dDevice,0x144);
     }
     this->currentVertexShader = '\x02';
   }
   FUN_004324d0(this,vm);
-  if ((g_GameContext.cfg.opts >> DONT_USE_VERTEX_BUF & 1) == 0) {
-    (*(g_GameContext.d3dDevice)->lpVtbl->DrawPrimitiveUP)
-              (g_GameContext.d3dDevice,D3DPT_TRIANGLESTRIP,2,PRIMITIVES_TO_DRAW_VERTEXBUF,0x18);
+  if ((g_Supervisor.cfg.opts >> DONT_USE_VERTEX_BUF & 1) == 0) {
+    (*(g_Supervisor.d3dDevice)->lpVtbl->DrawPrimitiveUP)
+              (g_Supervisor.d3dDevice,D3DPT_TRIANGLESTRIP,2,PRIMITIVES_TO_DRAW_VERTEXBUF,0x18);
   }
   else {
     g_PrimitivesToDrawNoVertexBuf[0] = PRIMITIVES_TO_DRAW_VERTEXBUF[0];
@@ -67,8 +67,8 @@ int __thiscall AnmManager::FUN_00432730(AnmManager *this,AnmVm *vm,int param_3)
     g_PrimitivesToDrawNoVertexBuf[19] = g_PrimitivesToDrawNoVertexBuf[5];
     g_PrimitivesToDrawNoVertexBuf[26] = g_PrimitivesToDrawNoVertexBuf[12];
     g_PrimitivesToDrawNoVertexBuf[27] = g_PrimitivesToDrawNoVertexBuf[20];
-    (*(g_GameContext.d3dDevice)->lpVtbl->DrawPrimitiveUP)
-              (g_GameContext.d3dDevice,D3DPT_TRIANGLESTRIP,2,g_PrimitivesToDrawNoVertexBuf,0x1c);
+    (*(g_Supervisor.d3dDevice)->lpVtbl->DrawPrimitiveUP)
+              (g_Supervisor.d3dDevice,D3DPT_TRIANGLESTRIP,2,g_PrimitivesToDrawNoVertexBuf,0x1c);
   }
   return 0;
 }

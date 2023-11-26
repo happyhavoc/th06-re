@@ -83,10 +83,10 @@ void __fastcall FUN_0041f4a0(AnmVm *param_1)
           }
         }
 LAB_0041f7c5:
-        fVar1 = g_GameContext.field81_0x1a8 * local_18[1].angleVel.z;
-        fVar2 = g_GameContext.field81_0x1a8 * local_18[1].angleVel.y;
+        fVar1 = g_Supervisor.field81_0x1a8 * local_18[1].angleVel.z;
+        fVar2 = g_Supervisor.field81_0x1a8 * local_18[1].angleVel.y;
         local_18[1].rotation.x =
-             g_GameContext.field81_0x1a8 * local_18[1].angleVel.x + local_18[1].rotation.x;
+             g_Supervisor.field81_0x1a8 * local_18[1].angleVel.x + local_18[1].rotation.x;
         local_18[1].rotation.y = fVar2 + local_18[1].rotation.y;
         local_18[1].rotation.z = fVar1 + local_18[1].rotation.z;
         fVar1 = local_18[1].rotation.y;
@@ -101,14 +101,14 @@ LAB_0041f7c5:
           local_18[1].angleVel.y = 3.0;
         }
         else {
-          local_18[1].angleVel.y = g_GameContext.field81_0x1a8 * 0.03 + local_18[1].angleVel.y;
+          local_18[1].angleVel.y = g_Supervisor.field81_0x1a8 * 0.03 + local_18[1].angleVel.y;
         }
       }
       iVar9 = Player::CalcBoxCollision(local_18 + 1,&FLOAT_0069e234);
       if (iVar9 == 0) {
         local_18[1].scaleInterpFinalX = local_18[1].uvScrollPos.y;
-        GameContext::FUN_00424285
-                  (&g_GameContext,(int *)&local_18[1].uvScrollPos.y,&local_18[1].uvScrollPos.x);
+        Supervisor::FUN_00424285
+                  (&g_Supervisor,(int *)&local_18[1].uvScrollPos.y,&local_18[1].uvScrollPos.x);
         AnmManager::ExecuteScript(g_AnmManager,local_18);
       }
       else {

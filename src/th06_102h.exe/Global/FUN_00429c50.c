@@ -12,7 +12,7 @@ undefined4 FUN_00429c50(AnmVm *param_1)
   int local_8;
   
   if (g_GameManager.character == 0) {
-    if ((g_GameContext.unkInput2 != 3) &&
+    if ((g_Supervisor.curState != 3) &&
        (iVar3 = AnmManager::LoadAnm(g_AnmManager,5,"data/player00.anm",0x400), iVar3 != 0)) {
       return 0xffffffff;
     }
@@ -21,7 +21,7 @@ undefined4 FUN_00429c50(AnmVm *param_1)
     AnmManager::SetAndExecuteScript(pAVar2,param_1,pAVar2->scripts[0x400]);
   }
   else if (g_GameManager.character == 1) {
-    if ((g_GameContext.unkInput2 != 3) &&
+    if ((g_Supervisor.curState != 3) &&
        (iVar3 = AnmManager::LoadAnm(g_AnmManager,5,"data/player01.anm",0x400), iVar3 != 0)) {
       return 0xffffffff;
     }

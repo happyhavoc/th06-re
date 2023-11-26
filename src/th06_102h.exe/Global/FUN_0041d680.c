@@ -23,7 +23,7 @@ void FUN_0041d680(void)
     *puVar3 = 0;
     puVar3 = puVar3 + 1;
   }
-  if (g_GameContext.controller == (LPDIRECTINPUTDEVICE8A)0x0) {
+  if (g_Supervisor.controller == (LPDIRECTINPUTDEVICE8A)0x0) {
     pjVar4 = &local_38;
     for (iVar2 = 0xd; iVar2 != 0; iVar2 = iVar2 + -1) {
       pjVar4->dwSize = 0;
@@ -43,21 +43,20 @@ void FUN_0041d680(void)
     }
   }
   else {
-    local_44 = (*(g_GameContext.controller)->lpVtbl->Poll)(g_GameContext.controller);
+    local_44 = (*(g_Supervisor.controller)->lpVtbl->Poll)(g_Supervisor.controller);
     if (local_44 < 0) {
       local_160 = 0;
       DebugPrint2("error : DIERR_INPUTLOST\n");
-      local_44 = (*(g_GameContext.controller)->lpVtbl->Acquire)(g_GameContext.controller);
+      local_44 = (*(g_Supervisor.controller)->lpVtbl->Acquire)(g_Supervisor.controller);
       do {
         if (local_44 != -0x7ff8ffe2) break;
-        local_44 = (*(g_GameContext.controller)->lpVtbl->Acquire)(g_GameContext.controller);
+        local_44 = (*(g_Supervisor.controller)->lpVtbl->Acquire)(g_Supervisor.controller);
         DebugPrint2("error : DIERR_INPUTLOST %d\n",local_160);
         local_160 = local_160 + 1;
       } while (local_160 < 400);
     }
     else {
-      (*(g_GameContext.controller)->lpVtbl->GetDeviceState)
-                (g_GameContext.controller,0x110,local_15c);
+      (*(g_Supervisor.controller)->lpVtbl->GetDeviceState)(g_Supervisor.controller,0x110,local_15c);
       if (-1 < local_44) {
         puVar3 = local_12c;
         puVar5 = &DAT_0069e1b0;

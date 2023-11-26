@@ -20,12 +20,14 @@ undefined4 FUN_0042d98e(ResultScreen *param_1)
             (local_8 < *(int *)&param_1->field_0x28 * 10 + 10 && (local_8 < 0x40));
             local_8 = local_8 + 1) {
           if (g_GameManager.catk[local_8].num_successes == 0) {
-            FUN_00434b60(g_AnmManager,(int)(param_1->unk_28a0 + local_8 % 10),0xffffff,0,
-                         &DAT_0046bcdc);
+            AnmManager::FUN_00434b60
+                      (g_AnmManager,(int)(param_1->unk_28a0 + local_8 % 10),0xffffff,0,&DAT_0046bcdc
+                      );
           }
           else {
-            FUN_00434b60(g_AnmManager,(int)(param_1->unk_28a0 + local_8 % 10),0xffffff,0,
-                         (char *)g_GameManager.catk[local_8].name);
+            AnmManager::FUN_00434b60
+                      (g_AnmManager,(int)(param_1->unk_28a0 + local_8 % 10),0xffffff,0,
+                       (char *)g_GameManager.catk[local_8].name);
           }
         }
       }
@@ -60,7 +62,7 @@ undefined4 FUN_0042d98e(ResultScreen *param_1)
           for (local_8 = 0; local_8 < 0x26; local_8 = local_8 + 1) {
             local_c->pendingInterrupt = 1;
             local_c->flags = local_c->flags | 8;
-            if ((g_GameContext.cfg.opts & 1) == 0) {
+            if ((g_Supervisor.cfg.opts & 1) == 0) {
               local_c->color = local_c->color & 0xff000000;
             }
             else {
@@ -71,7 +73,7 @@ undefined4 FUN_0042d98e(ResultScreen *param_1)
           local_c = param_1->unk_40;
           for (local_8 = 0; local_c = local_c + 1, local_8 < 7; local_8 = local_8 + 1) {
             if (local_8 == param_1->unk_10) {
-              if ((g_GameContext.cfg.opts & 1) == 0) {
+              if ((g_Supervisor.cfg.opts & 1) == 0) {
                 local_c->color = 0xff505050;
               }
               else {
@@ -82,7 +84,7 @@ undefined4 FUN_0042d98e(ResultScreen *param_1)
               (local_c->pos2).z = 0.0;
             }
             else {
-              if ((g_GameContext.cfg.opts & 1) == 0) {
+              if ((g_Supervisor.cfg.opts & 1) == 0) {
                 local_c->color = 0xb0000000;
               }
               else {
@@ -101,7 +103,7 @@ undefined4 FUN_0042d98e(ResultScreen *param_1)
       else if (iVar1 != 1) {
         if (iVar1 == 2) {
           if (0x3b < *(int *)&param_1->field_0x4) {
-            g_GameContext.unkInput2 = 1;
+            g_Supervisor.curState = 1;
             return 0;
           }
         }
@@ -197,7 +199,7 @@ undefined4 FUN_0042d98e(ResultScreen *param_1)
       local_c = param_1->unk_40;
       for (local_8 = 0; local_c = local_c + 1, local_8 < 7; local_8 = local_8 + 1) {
         if (local_8 == param_1->unk_10) {
-          if ((g_GameContext.cfg.opts & 1) == 0) {
+          if ((g_Supervisor.cfg.opts & 1) == 0) {
             local_c->color = 0xff505050;
           }
           else {
@@ -208,7 +210,7 @@ undefined4 FUN_0042d98e(ResultScreen *param_1)
           (local_c->pos2).z = 0.0;
         }
         else {
-          if ((g_GameContext.cfg.opts & 1) == 0) {
+          if ((g_Supervisor.cfg.opts & 1) == 0) {
             local_c->color = 0xb0000000;
           }
           else {
@@ -278,7 +280,7 @@ undefined4 FUN_0042d98e(ResultScreen *param_1)
         FUN_0042d292();
       }
       else if (iVar1 == 0x11) {
-        g_GameContext.unkInput2 = 1;
+        g_Supervisor.curState = 1;
         return 0;
       }
     }

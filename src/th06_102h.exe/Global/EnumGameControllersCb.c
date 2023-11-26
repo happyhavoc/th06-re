@@ -4,9 +4,9 @@ undefined4 EnumGameControllersCb(int param_1)
 {
   HRESULT HVar1;
   
-  if ((g_GameContext.controller == (LPDIRECTINPUTDEVICE8A)0x0) &&
-     (HVar1 = (*(g_GameContext.directInput)->lpVtbl->CreateDevice)
-                        (g_GameContext.directInput,(GUID *)(param_1 + 4),&g_GameContext.controller,
+  if ((g_Supervisor.controller == (LPDIRECTINPUTDEVICE8A)0x0) &&
+     (HVar1 = (*(g_Supervisor.directInput)->lpVtbl->CreateDevice)
+                        (g_Supervisor.directInput,(GUID *)(param_1 + 4),&g_Supervisor.controller,
                          (LPUNKNOWN)0x0), HVar1 < 0)) {
     return 1;
   }

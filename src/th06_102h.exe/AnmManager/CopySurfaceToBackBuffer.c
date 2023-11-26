@@ -12,20 +12,20 @@ AnmManager::CopySurfaceToBackBuffer
   if (this->surfacesBis[surfaceIdx] == (IDirect3DSurface8 *)0x0) {
     return;
   }
-  hres = (*(g_GameContext.d3dDevice)->lpVtbl->GetBackBuffer)
-                   (g_GameContext.d3dDevice,0,D3DBACKBUFFER_TYPE_MONO,&destSurface);
+  hres = (*(g_Supervisor.d3dDevice)->lpVtbl->GetBackBuffer)
+                   (g_Supervisor.d3dDevice,0,D3DBACKBUFFER_TYPE_MONO,&destSurface);
   if (hres == 0) {
     if (this->surfaces[surfaceIdx] == (IDirect3DSurface8 *)0x0) {
-      hres = (*(g_GameContext.d3dDevice)->lpVtbl->CreateRenderTarget)
-                       (g_GameContext.d3dDevice,this->surfaceSourceInfo[surfaceIdx].Width,
+      hres = (*(g_Supervisor.d3dDevice)->lpVtbl->CreateRenderTarget)
+                       (g_Supervisor.d3dDevice,this->surfaceSourceInfo[surfaceIdx].Width,
                         this->surfaceSourceInfo[surfaceIdx].Height,
-                        g_GameContext.presentParameters.BackBufferFormat,D3DMULTISAMPLE_NONE,1,
+                        g_Supervisor.presentParameters.BackBufferFormat,D3DMULTISAMPLE_NONE,1,
                         this->surfaces + surfaceIdx);
       if ((hres != 0) &&
-         (hres = (*(g_GameContext.d3dDevice)->lpVtbl->CreateImageSurface)
-                           (g_GameContext.d3dDevice,this->surfaceSourceInfo[surfaceIdx].Width,
+         (hres = (*(g_Supervisor.d3dDevice)->lpVtbl->CreateImageSurface)
+                           (g_Supervisor.d3dDevice,this->surfaceSourceInfo[surfaceIdx].Width,
                             this->surfaceSourceInfo[surfaceIdx].Height,
-                            g_GameContext.presentParameters.BackBufferFormat,
+                            g_Supervisor.presentParameters.BackBufferFormat,
                             this->surfaces + surfaceIdx), hres != 0)) {
         (*destSurface->lpVtbl->Release)(destSurface);
         return;
@@ -44,8 +44,8 @@ AnmManager::CopySurfaceToBackBuffer
     sourceRect.bottom = this->surfaceSourceInfo[surfaceIdx].Height;
     destPoint.x = x;
     destPoint.y = y;
-    (*(g_GameContext.d3dDevice)->lpVtbl->CopyRects)
-              (g_GameContext.d3dDevice,this->surfaces[surfaceIdx],&sourceRect,1,destSurface,
+    (*(g_Supervisor.d3dDevice)->lpVtbl->CopyRects)
+              (g_Supervisor.d3dDevice,this->surfaces[surfaceIdx],&sourceRect,1,destSurface,
                &destPoint);
     (*destSurface->lpVtbl->Release)(destSurface);
     return;

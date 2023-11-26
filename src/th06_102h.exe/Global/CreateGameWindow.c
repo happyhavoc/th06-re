@@ -22,7 +22,7 @@ void CreateGameWindow(HINSTANCE param_1)
   g_GameWindow.isAppActive = 0;
   base_class.lpszClassName = "BASE";
   RegisterClassA(&base_class);
-  if (g_GameContext.cfg.windowed == false) {
+  if (g_Supervisor.cfg.windowed == false) {
     local_c = 0x280;
     local_8 = 0x1e0;
     g_GameWindow.window =
@@ -40,7 +40,7 @@ void CreateGameWindow(HINSTANCE param_1)
                                0x100a0000,-0x80000000,-0x80000000,local_c,local_8,(HWND)0x0,
                                (HMENU)0x0,param_1,(LPVOID)0x0);
   }
-  g_GameContext.hwndGameWindow = (HWND)g_GameWindow.window;
+  g_Supervisor.hwndGameWindow = (HWND)g_GameWindow.window;
   return;
 }
 

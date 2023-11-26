@@ -16,28 +16,28 @@ int __thiscall AnmManager::LoadSurface(AnmManager *this,int surface_index,char *
     iVar1 = -1;
   }
   else {
-    HVar2 = (*(g_GameContext.d3dDevice)->lpVtbl->CreateImageSurface)
-                      (g_GameContext.d3dDevice,0x280,0x400,
-                       g_GameContext.presentParameters.BackBufferFormat,&surface);
+    HVar2 = (*(g_Supervisor.d3dDevice)->lpVtbl->CreateImageSurface)
+                      (g_Supervisor.d3dDevice,0x280,0x400,
+                       g_Supervisor.presentParameters.BackBufferFormat,&surface);
     if (HVar2 == 0) {
       HVar2 = D3DXLoadSurfaceFromFileInMemory
                         (surface,(PALETTEENTRY *)0x0,(RECT *)0x0,data,g_LastFileSize,(RECT *)0x0,1,0
                          ,this->surfaceSourceInfo + surface_index);
       if (((HVar2 == 0) &&
-          (((HVar2 = (*(g_GameContext.d3dDevice)->lpVtbl->CreateRenderTarget)
-                               (g_GameContext.d3dDevice,this->surfaceSourceInfo[surface_index].Width
-                                ,this->surfaceSourceInfo[surface_index].Height,
-                                g_GameContext.presentParameters.BackBufferFormat,D3DMULTISAMPLE_NONE
-                                ,1,this->surfaces + surface_index), HVar2 == 0 ||
-            (HVar2 = (*(g_GameContext.d3dDevice)->lpVtbl->CreateImageSurface)
-                               (g_GameContext.d3dDevice,this->surfaceSourceInfo[surface_index].Width
-                                ,this->surfaceSourceInfo[surface_index].Height,
-                                g_GameContext.presentParameters.BackBufferFormat,
+          (((HVar2 = (*(g_Supervisor.d3dDevice)->lpVtbl->CreateRenderTarget)
+                               (g_Supervisor.d3dDevice,this->surfaceSourceInfo[surface_index].Width,
+                                this->surfaceSourceInfo[surface_index].Height,
+                                g_Supervisor.presentParameters.BackBufferFormat,D3DMULTISAMPLE_NONE,
+                                1,this->surfaces + surface_index), HVar2 == 0 ||
+            (HVar2 = (*(g_Supervisor.d3dDevice)->lpVtbl->CreateImageSurface)
+                               (g_Supervisor.d3dDevice,this->surfaceSourceInfo[surface_index].Width,
+                                this->surfaceSourceInfo[surface_index].Height,
+                                g_Supervisor.presentParameters.BackBufferFormat,
                                 this->surfaces + surface_index), HVar2 == 0)) &&
-           (HVar2 = (*(g_GameContext.d3dDevice)->lpVtbl->CreateImageSurface)
-                              (g_GameContext.d3dDevice,this->surfaceSourceInfo[surface_index].Width,
+           (HVar2 = (*(g_Supervisor.d3dDevice)->lpVtbl->CreateImageSurface)
+                              (g_Supervisor.d3dDevice,this->surfaceSourceInfo[surface_index].Width,
                                this->surfaceSourceInfo[surface_index].Height,
-                               g_GameContext.presentParameters.BackBufferFormat,
+                               g_Supervisor.presentParameters.BackBufferFormat,
                                this->surfacesBis + surface_index), HVar2 == 0)))) &&
          ((HVar2 = D3DXLoadSurfaceFromSurface
                              (this->surfaces[surface_index],(PALETTEENTRY *)0x0,(RECT *)0x0,surface,

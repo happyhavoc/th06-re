@@ -7,7 +7,7 @@ LRESULT WindowProc(HWND hWnd,uint uMsg,WPARAM wParam,LPMIDIHDR lParam)
   
   if (uMsg < 0x21) {
     if (uMsg == WM_SETCURSOR) {
-      if (g_GameContext.cfg.windowed) {
+      if (g_Supervisor.cfg.windowed) {
         pHVar1 = LoadCursorA((HINSTANCE)0x0,(LPCSTR)0x7f00);
         SetCursor(pHVar1);
         ShowCursor(1);
@@ -32,8 +32,8 @@ LRESULT WindowProc(HWND hWnd,uint uMsg,WPARAM wParam,LPMIDIHDR lParam)
       g_GameWindow.isAppActive = (int)(wParam == 0);
     }
   }
-  else if ((uMsg == 0x3c9) && (g_GameContext.midiOutput != (MidiOutput *)0x0)) {
-    MidiOutput::UnprepareHeader(g_GameContext.midiOutput,lParam);
+  else if ((uMsg == 0x3c9) && (g_Supervisor.midi_output != (MidiOutput *)0x0)) {
+    MidiOutput::UnprepareHeader(g_Supervisor.midi_output,lParam);
   }
   LVar2 = DefWindowProcA(hWnd,uMsg,wParam,(LPARAM)lParam);
   return LVar2;

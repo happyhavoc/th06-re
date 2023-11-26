@@ -14,10 +14,10 @@ undefined4 FUN_00413220(char **param_1)
      (iVar1 = AnmManager::LoadAnm(g_AnmManager,8,*param_1,0x100), iVar1 == 0)) {
     if ((param_1[1] == (char *)0x0) ||
        (iVar1 = AnmManager::LoadAnm(g_AnmManager,9,param_1[1],0x100), iVar1 == 0)) {
-      local_c = FUN_0041e780(&DAT_0069d8f8);
+      local_c = GetRandomU16(&g_RandomSeed);
       local_c = local_c % 3;
       *(ushort *)(param_1 + 0x3b96e) = local_c;
-      local_10 = FUN_0041e780(&DAT_0069d8f8);
+      local_10 = GetRandomU16(&g_RandomSeed);
       local_10 = local_10 % 8;
       *(ushort *)((int)param_1 + 0xee5ba) = local_10;
       param_1[0x3b972] = (char *)0x0;

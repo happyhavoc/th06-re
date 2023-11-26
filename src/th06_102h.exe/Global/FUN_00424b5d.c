@@ -15,16 +15,16 @@ void FUN_00424b5d(char *param_1)
   uint local_c;
   char *local_8;
   
-  this = g_GameContext.midiOutput;
+  this = g_Supervisor.midi_output;
   local_c = __security_cookie ^ unaff_retaddr;
-  if (g_GameContext.cfg.musicMode == MIDI) {
-    if (g_GameContext.midiOutput != (MidiOutput *)0x0) {
-      MidiOutput::~MidiOutput(g_GameContext.midiOutput);
+  if (g_Supervisor.cfg.musicMode == MIDI) {
+    if (g_Supervisor.midi_output != (MidiOutput *)0x0) {
+      MidiOutput::~MidiOutput(g_Supervisor.midi_output);
       MidiOutput::FUN_00422380(this,param_1);
       MidiOutput::FUN_00422490(this);
     }
   }
-  else if (g_GameContext.cfg.musicMode == WAV) {
+  else if (g_Supervisor.cfg.musicMode == WAV) {
     local_218 = param_1;
     local_21c = local_20c;
     do {

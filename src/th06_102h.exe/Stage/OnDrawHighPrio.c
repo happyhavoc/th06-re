@@ -6,13 +6,13 @@ int Stage::OnDrawHighPrio(Stage *arg)
   
   if (arg->skyFogNeedsSetup != 0) {
     arg->skyFogNeedsSetup = 0;
-    (*(g_GameContext.d3dDevice)->lpVtbl->SetRenderState)
-              (g_GameContext.d3dDevice,D3DRS_FOGCOLOR,(arg->skyFog).color);
+    (*(g_Supervisor.d3dDevice)->lpVtbl->SetRenderState)
+              (g_Supervisor.d3dDevice,D3DRS_FOGCOLOR,(arg->skyFog).color);
   }
-  (*(g_GameContext.d3dDevice)->lpVtbl->SetRenderState)
-            (g_GameContext.d3dDevice,D3DRS_FOGSTART,(DWORD)(arg->skyFog).nearPlane);
-  (*(g_GameContext.d3dDevice)->lpVtbl->SetRenderState)
-            (g_GameContext.d3dDevice,D3DRS_FOGEND,(DWORD)(arg->skyFog).farPlane);
+  (*(g_Supervisor.d3dDevice)->lpVtbl->SetRenderState)
+            (g_Supervisor.d3dDevice,D3DRS_FOGSTART,(DWORD)(arg->skyFog).nearPlane);
+  (*(g_Supervisor.d3dDevice)->lpVtbl->SetRenderState)
+            (g_Supervisor.d3dDevice,D3DRS_FOGEND,(DWORD)(arg->skyFog).farPlane);
   if (arg->spellcardEclRelated0 < 2) {
     iVar1 = FUN_004172d3(0x69bc30);
     if (iVar1 == 0) {

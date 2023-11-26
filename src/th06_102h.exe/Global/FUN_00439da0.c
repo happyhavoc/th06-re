@@ -6,7 +6,7 @@ undefined4 FUN_00439da0(int param_1)
   undefined4 uVar2;
   int local_8;
   
-  GameContext::LoadPBG3(&g_GameContext,3,&DAT_0046c570);
+  Supervisor::LoadPBG3(&g_Supervisor,3,&DAT_0046c570);
   for (local_8 = 0x1b; local_8 < 0x25; local_8 = local_8 + 1) {
     ReleaseAnm(g_AnmManager,local_8);
   }

@@ -32,8 +32,8 @@ undefined4 FUN_00437b41(void)
         if (3 < (int)g_GameManager.difficulty) {
           g_GameManager.difficulty = 1;
         }
-        if (3 < g_GameContext.cfg.defaultDifficulty) {
-          g_GameContext.cfg.defaultDifficulty = 1;
+        if (3 < g_Supervisor.cfg.defaultDifficulty) {
+          g_Supervisor.cfg.defaultDifficulty = 1;
         }
         *(undefined4 *)(in_ECX + 0x81f4) = 0;
         *(undefined4 *)(in_ECX + 0x81fc) = 0x40000000;
@@ -72,8 +72,8 @@ undefined4 FUN_00437b41(void)
         if (3 < (int)g_GameManager.difficulty) {
           g_GameManager.difficulty = 1;
         }
-        if (3 < g_GameContext.cfg.defaultDifficulty) {
-          g_GameContext.cfg.defaultDifficulty = 1;
+        if (3 < g_Supervisor.cfg.defaultDifficulty) {
+          g_Supervisor.cfg.defaultDifficulty = 1;
         }
         *(undefined4 *)(in_ECX + 0x81f4) = 0;
         *(undefined4 *)(in_ECX + 0x81fc) = 0x40000000;
@@ -122,9 +122,9 @@ undefined4 FUN_00437b41(void)
           *(undefined2 *)(in_ECX + 0x8a + local_8 * 0x110) = 3;
         }
         *(undefined4 *)(in_ECX + 0x81a0) = 0;
-        *(byte *)(in_ECX + 0x8230) = g_GameContext.cfg.colorMode16bit;
-        *(bool *)(in_ECX + 0x8231) = g_GameContext.cfg.windowed;
-        *(byte *)(in_ECX + 0x8232) = g_GameContext.cfg.frameskipConfig;
+        *(byte *)(in_ECX + 0x8230) = g_Supervisor.cfg.colorMode16bit;
+        *(bool *)(in_ECX + 0x8231) = g_Supervisor.cfg.windowed;
+        *(byte *)(in_ECX + 0x8232) = g_Supervisor.cfg.frameskipConfig;
         FUN_004311e0(10);
         break;
       case 7:

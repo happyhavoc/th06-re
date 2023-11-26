@@ -10,7 +10,7 @@ undefined4 FUN_00416500(int param_1)
   AnmVm *local_10;
   int local_8;
   
-  (*(g_GameContext.d3dDevice)->lpVtbl->SetRenderState)(g_GameContext.d3dDevice,D3DRS_ZFUNC,8);
+  (*(g_Supervisor.d3dDevice)->lpVtbl->SetRenderState)(g_Supervisor.d3dDevice,D3DRS_ZFUNC,8);
   local_10 = (AnmVm *)(param_1 + 0xec000);
   for (local_8 = 0; local_8 < 0x40; local_8 = local_8 + 1) {
     if (local_10[2].currentTimeInScript.current != 0) {
@@ -44,7 +44,7 @@ undefined4 FUN_00416500(int param_1)
     local_10 = (AnmVm *)(local_10[2].matrix.m[1] + 1);
   }
   FUN_00420190();
-  if (g_GameContext.hasD3dHardwareVertexProcessing == 0) {
+  if (g_Supervisor.hasD3dHardwareVertexProcessing == 0) {
     local_20 = param_1 + 0x5600;
     for (local_8 = 0; local_8 < 0x280; local_8 = local_8 + 1) {
       if ((*(short *)(local_20 + 0x5be) != 0) && (0x10 < *(byte *)(local_20 + 0x55d))) {
@@ -108,7 +108,7 @@ undefined4 FUN_00416500(int param_1)
       local_1c = local_1c + 0x5c4;
     }
   }
-  (*(g_GameContext.d3dDevice)->lpVtbl->SetRenderState)(g_GameContext.d3dDevice,D3DRS_ZFUNC,4);
+  (*(g_Supervisor.d3dDevice)->lpVtbl->SetRenderState)(g_Supervisor.d3dDevice,D3DRS_ZFUNC,4);
   return 1;
 }
 

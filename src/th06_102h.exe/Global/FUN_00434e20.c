@@ -1,5 +1,6 @@
 
-void FUN_00434e20(int param_1,int param_2,undefined4 param_3,undefined4 param_4,char *param_5)
+void FUN_00434e20(AnmManager *param_1,int param_2,undefined4 param_3,undefined4 param_4,
+                 char *param_5)
 
 {
   char cVar1;
@@ -40,8 +41,9 @@ void FUN_00434e20(int param_1,int param_2,undefined4 param_3,undefined4 param_4,
   lVar4 = __ftol2((double)*(float *)(*(int *)(param_2 + 0xc0) + 0x18));
   lVar5 = __ftol2((double)*(float *)(*(int *)(param_2 + 0xc0) + 8));
   lVar6 = __ftol2((double)*(float *)(*(int *)(param_2 + 0xc0) + 4));
-  FUN_00434af0(param_1,**(int **)(param_2 + 0xc0),lVar6,lVar5,lVar4,lVar3,uVar7,uVar2,uVar8,uVar9,
-               puVar10);
+  AnmManager::FUN_00434af0
+            (param_1,**(int **)(param_2 + 0xc0),lVar6,lVar5,lVar4,lVar3,uVar7,uVar2,uVar8,uVar9,
+             puVar10);
   local_60 = local_54;
   do {
     cVar1 = *local_60;
@@ -56,8 +58,9 @@ void FUN_00434e20(int param_1,int param_2,undefined4 param_3,undefined4 param_4,
   lVar3 = __ftol2((double)*(float *)(*(int *)(param_2 + 0xc0) + 0x14));
   lVar4 = __ftol2((double)*(float *)(*(int *)(param_2 + 0xc0) + 0x18));
   lVar5 = __ftol2((double)*(float *)(*(int *)(param_2 + 0xc0) + 8));
-  FUN_00434af0(param_1,**(int **)(param_2 + 0xc0),local_c,lVar5,lVar4,lVar3,local_5c,uVar7,param_3,
-               param_4,pcVar11);
+  AnmManager::FUN_00434af0
+            (param_1,**(int **)(param_2 + 0xc0),local_c,lVar5,lVar4,lVar3,local_5c,uVar7,param_3,
+             param_4,pcVar11);
   *(uint *)(param_2 + 0x80) = *(uint *)(param_2 + 0x80) | 1;
   __security_check_cookie(local_10 ^ unaff_retaddr);
   return;

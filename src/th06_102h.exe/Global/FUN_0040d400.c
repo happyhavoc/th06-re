@@ -35,7 +35,7 @@ void FUN_0040d400(int param_1)
       local_50 = local_68[0x15a];
       local_5c = 3;
       local_5a = 1;
-      fVar3 = FUN_0041e820(&DAT_0069d8f8);
+      fVar3 = GetRandomF32ZeroToOne(&g_RandomSeed);
       local_4c = fVar3 * 6.283185 - 3.141593;
       local_44 = 0;
       local_18 = 1;

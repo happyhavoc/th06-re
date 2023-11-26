@@ -2,7 +2,7 @@
 int AsciiManager::OnDrawHighPrio(AsciiManager *arg)
 
 {
-  if (g_GameContext.hasD3dHardwareVertexProcessing == 0) {
+  if (g_Supervisor.hasD3dHardwareVertexProcessing == 0) {
     FUN_004033b0(arg);
   }
   else {

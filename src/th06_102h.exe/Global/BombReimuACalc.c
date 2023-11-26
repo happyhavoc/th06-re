@@ -52,7 +52,7 @@ void BombReimuACalc(int param_1)
         *puVar1 = *(undefined4 *)(param_1 + 0x440);
         puVar1[1] = *(undefined4 *)(param_1 + 0x444);
         puVar1[2] = *(undefined4 *)(param_1 + 0x448);
-        fVar9 = FUN_0041e820(&DAT_0069d8f8);
+        fVar9 = GetRandomF32ZeroToOne(&g_RandomSeed);
         fVar9 = fVar9 * 6.283185 - 3.141593;
         fVar8 = (float10)FUN_0045bda4((double)fVar9);
         *(float *)(param_1 + 0x7684 + iVar6 * 0xc) =
@@ -151,10 +151,10 @@ void BombReimuACalc(int param_1)
           *(undefined4 *)(param_1 + 0x75e4 + local_10 * 4) = 0;
         }
         *(float *)(param_1 + 0x7624 + local_10 * 0xc) =
-             g_GameContext.field81_0x1a8 * *(float *)(param_1 + 0x7684 + local_10 * 0xc) +
+             g_Supervisor.field81_0x1a8 * *(float *)(param_1 + 0x7684 + local_10 * 0xc) +
              *(float *)(param_1 + 0x7624 + local_10 * 0xc);
         *(float *)(param_1 + 0x7628 + local_10 * 0xc) =
-             g_GameContext.field81_0x1a8 * *(float *)(param_1 + 0x7688 + local_10 * 0xc) +
+             g_Supervisor.field81_0x1a8 * *(float *)(param_1 + 0x7688 + local_10 * 0xc) +
              *(float *)(param_1 + 0x7628 + local_10 * 0xc);
         AnmManager::ExecuteScript(g_AnmManager,(AnmVm *)(param_1 + 0x76e4 + local_10 * 0x440));
         AnmManager::ExecuteScript
@@ -166,7 +166,7 @@ void BombReimuACalc(int param_1)
       }
     }
     *(undefined4 *)(param_1 + 0x75d0) = *(undefined4 *)(param_1 + 0x75d8);
-    GameContext::FUN_00424285(&g_GameContext,(int *)(param_1 + 0x75d8),(float *)(param_1 + 0x75d4));
+    Supervisor::FUN_00424285(&g_Supervisor,(int *)(param_1 + 0x75d8),(float *)(param_1 + 0x75d4));
   }
   else {
     FUN_00417314();

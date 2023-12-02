@@ -2,7 +2,7 @@
 undefined4 FUN_00439f88(int param_1)
 
 {
-  int iVar1;
+  ZunResult ZVar1;
   undefined4 uVar2;
   AnmVm *local_c;
   int local_8;
@@ -10,26 +10,26 @@ undefined4 FUN_00439f88(int param_1)
   for (local_8 = 0x15; local_8 < 0x1b; local_8 = local_8 + 1) {
     ReleaseAnm(g_AnmManager,local_8);
   }
-  iVar1 = AnmManager::LoadSurface(g_AnmManager,0,"data/title/select00.jpg");
-  if (iVar1 == 0) {
-    iVar1 = AnmManager::LoadAnm(g_AnmManager,0x1b,"data/select01.anm",0x150);
-    if (iVar1 == 0) {
-      iVar1 = AnmManager::LoadAnm(g_AnmManager,0x1c,"data/select02.anm",0x153);
-      if (iVar1 == 0) {
-        iVar1 = AnmManager::LoadAnm(g_AnmManager,0x1d,"data/select03.anm",0x15a);
-        if (iVar1 == 0) {
-          iVar1 = AnmManager::LoadAnm(g_AnmManager,0x1e,"data/select04.anm",0x15c);
-          if (iVar1 == 0) {
-            iVar1 = AnmManager::LoadAnm(g_AnmManager,0x1f,"data/select05.anm",0x155);
-            if (iVar1 == 0) {
-              iVar1 = AnmManager::LoadAnm(g_AnmManager,0x20,"data/slpl00a.anm",0x156);
-              if (iVar1 == 0) {
-                iVar1 = AnmManager::LoadAnm(g_AnmManager,0x21,"data/slpl00b.anm",0x157);
-                if (iVar1 == 0) {
-                  iVar1 = AnmManager::LoadAnm(g_AnmManager,0x22,"data/slpl01a.anm",0x158);
-                  if (iVar1 == 0) {
-                    iVar1 = AnmManager::LoadAnm(g_AnmManager,0x23,"data/slpl01b.anm",0x159);
-                    if (iVar1 == 0) {
+  ZVar1 = AnmManager::LoadSurface(g_AnmManager,0,"data/title/select00.jpg");
+  if (ZVar1 == ZUN_SUCCESS) {
+    ZVar1 = AnmManager::LoadAnm(g_AnmManager,0x1b,"data/select01.anm",0x150);
+    if (ZVar1 == ZUN_SUCCESS) {
+      ZVar1 = AnmManager::LoadAnm(g_AnmManager,0x1c,"data/select02.anm",0x153);
+      if (ZVar1 == ZUN_SUCCESS) {
+        ZVar1 = AnmManager::LoadAnm(g_AnmManager,0x1d,"data/select03.anm",0x15a);
+        if (ZVar1 == ZUN_SUCCESS) {
+          ZVar1 = AnmManager::LoadAnm(g_AnmManager,0x1e,"data/select04.anm",0x15c);
+          if (ZVar1 == ZUN_SUCCESS) {
+            ZVar1 = AnmManager::LoadAnm(g_AnmManager,0x1f,"data/select05.anm",0x155);
+            if (ZVar1 == ZUN_SUCCESS) {
+              ZVar1 = AnmManager::LoadAnm(g_AnmManager,0x20,"data/slpl00a.anm",0x156);
+              if (ZVar1 == ZUN_SUCCESS) {
+                ZVar1 = AnmManager::LoadAnm(g_AnmManager,0x21,"data/slpl00b.anm",0x157);
+                if (ZVar1 == ZUN_SUCCESS) {
+                  ZVar1 = AnmManager::LoadAnm(g_AnmManager,0x22,"data/slpl01a.anm",0x158);
+                  if (ZVar1 == ZUN_SUCCESS) {
+                    ZVar1 = AnmManager::LoadAnm(g_AnmManager,0x23,"data/slpl01b.anm",0x159);
+                    if (ZVar1 == ZUN_SUCCESS) {
                       local_c = (AnmVm *)(param_1 + 0x5500);
                       for (local_8 = 0x150; local_8 < 0x160; local_8 = local_8 + 1) {
                         AnmManager::FUN_004051b0(g_AnmManager,local_c,local_8);

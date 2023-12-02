@@ -4,16 +4,18 @@ undefined4 FUN_00429c50(AnmVm *param_1)
 {
   undefined4 *puVar1;
   AnmManager *pAVar2;
-  int iVar3;
-  float *pfVar4;
+  ZunResult ZVar3;
+  int iVar4;
   float *pfVar5;
-  float10 fVar6;
+  float *pfVar6;
+  float10 fVar7;
   float *local_c;
   int local_8;
   
   if (g_GameManager.character == 0) {
     if ((g_Supervisor.curState != 3) &&
-       (iVar3 = AnmManager::LoadAnm(g_AnmManager,5,"data/player00.anm",0x400), iVar3 != 0)) {
+       (ZVar3 = AnmManager::LoadAnm(g_AnmManager,5,"data/player00.anm",0x400), ZVar3 != ZUN_SUCCESS)
+       ) {
       return 0xffffffff;
     }
     pAVar2 = g_AnmManager;
@@ -22,7 +24,8 @@ undefined4 FUN_00429c50(AnmVm *param_1)
   }
   else if (g_GameManager.character == 1) {
     if ((g_Supervisor.curState != 3) &&
-       (iVar3 = AnmManager::LoadAnm(g_AnmManager,5,"data/player01.anm",0x400), iVar3 != 0)) {
+       (ZVar3 = AnmManager::LoadAnm(g_AnmManager,5,"data/player01.anm",0x400), ZVar3 != ZUN_SUCCESS)
+       ) {
       return 0xffffffff;
     }
     pAVar2 = g_AnmManager;
@@ -44,18 +47,18 @@ undefined4 FUN_00429c50(AnmVm *param_1)
   param_1[4].matrix.m[1][3] = 12.0;
   param_1[4].matrix.m[2][0] = 5.0;
   param_1[9].color = 0;
-  pfVar4 = (float *)(&DAT_00476728 +
+  pfVar5 = (float *)(&DAT_00476728 +
                     ((uint)g_GameManager.shottype + (uint)g_GameManager.character * 2) * 0x18);
-  pfVar5 = param_1[9].matrix.m[2] + 2;
-  for (iVar3 = 6; iVar3 != 0; iVar3 = iVar3 + -1) {
-    *pfVar5 = *pfVar4;
-    pfVar4 = pfVar4 + 1;
+  pfVar6 = param_1[9].matrix.m[2] + 2;
+  for (iVar4 = 6; iVar4 != 0; iVar4 = iVar4 + -1) {
+    *pfVar6 = *pfVar5;
     pfVar5 = pfVar5 + 1;
+    pfVar6 = pfVar6 + 1;
   }
-  fVar6 = (float10)FUN_0045bc34(0x4000000000000000);
-  param_1[9].matrix.m[3][0] = param_1[9].matrix.m[2][2] / (float)fVar6;
-  fVar6 = (float10)FUN_0045bc34(0x4000000000000000);
-  param_1[9].matrix.m[3][1] = param_1[9].matrix.m[2][3] / (float)fVar6;
+  fVar7 = (float10)FUN_0045bc34(0x4000000000000000);
+  param_1[9].matrix.m[3][0] = param_1[9].matrix.m[2][2] / (float)fVar7;
+  fVar7 = (float10)FUN_0045bc34(0x4000000000000000);
+  param_1[9].matrix.m[3][1] = param_1[9].matrix.m[2][3] / (float)fVar7;
   param_1[0x6e].posInterpFinal.z = param_1[9].matrix.m[3][2];
   param_1[0x6e].pos2.x = param_1[9].matrix.m[3][3];
   *(undefined *)(param_1[9].matrix.m[1] + 1) = 1;

@@ -1,5 +1,5 @@
 
-undefined4 __thiscall MidiOutput::UnprepareHeader(MidiOutput *this,LPMIDIHDR param_1)
+ZunResult __thiscall MidiOutput::UnprepareHeader(MidiOutput *this,LPMIDIHDR param_1)
 
 {
   MMRESULT MVar1;
@@ -14,7 +14,7 @@ undefined4 __thiscall MidiOutput::UnprepareHeader(MidiOutput *this,LPMIDIHDR par
   local_c = 0;
   while( true ) {
     if (0x1f < local_c) {
-      return 0xffffffff;
+      return ZUN_ERROR;
     }
     if ((&this->midiHeaders)[local_c] == param_1) break;
     local_c = local_c + 1;
@@ -26,6 +26,6 @@ undefined4 __thiscall MidiOutput::UnprepareHeader(MidiOutput *this,LPMIDIHDR par
   }
   _free(param_1->lpData);
   _free(param_1);
-  return 0;
+  return ZUN_SUCCESS;
 }
 

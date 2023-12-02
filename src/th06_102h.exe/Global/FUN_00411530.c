@@ -83,16 +83,16 @@ void __fastcall FUN_00411530(int param_1)
           local_20 = *(float *)(iVar3 + 0xc);
           local_1c = *(float *)(iVar3 + 0x10);
           if (*local_18 < -990.0 != (*local_18 == -990.0)) {
-            local_24 = GetRandomF32ZeroToOne(&g_RandomSeed);
+            local_24 = GetRandomF32ZeroToOne(&g_Rng.seed);
             local_24 = local_24 * (float)uVar1;
           }
           uVar1 = g_GameManager._6744_4_;
           if (local_18[1] < -990.0 != (local_18[1] == -990.0)) {
-            local_20 = GetRandomF32ZeroToOne(&g_RandomSeed);
+            local_20 = GetRandomF32ZeroToOne(&g_Rng.seed);
             local_20 = local_20 * (float)uVar1;
           }
           if (local_18[2] < -990.0 != (local_18[2] == -990.0)) {
-            local_1c = GetRandomF32ZeroToOne(&g_RandomSeed);
+            local_1c = GetRandomF32ZeroToOne(&g_Rng.seed);
             local_1c = local_1c * 800.0;
           }
           FUN_00411390((int)*(short *)(*(int *)(param_1 + 0xee5dc) + 2),&local_24,
@@ -107,16 +107,16 @@ void __fastcall FUN_00411530(int param_1)
           local_2c = *(float *)(iVar3 + 0xc);
           local_28 = *(float *)(iVar3 + 0x10);
           if (local_30 < -990.0 != (local_30 == -990.0)) {
-            local_30 = GetRandomF32ZeroToOne(&g_RandomSeed);
+            local_30 = GetRandomF32ZeroToOne(&g_Rng.seed);
             local_30 = local_30 * (float)uVar1;
           }
           uVar1 = g_GameManager._6744_4_;
           if (local_2c < -990.0 != (local_2c == -990.0)) {
-            local_2c = GetRandomF32ZeroToOne(&g_RandomSeed);
+            local_2c = GetRandomF32ZeroToOne(&g_Rng.seed);
             local_2c = local_2c * (float)uVar1;
           }
           if (local_28 < -990.0 != (local_28 == -990.0)) {
-            local_28 = GetRandomF32ZeroToOne(&g_RandomSeed);
+            local_28 = GetRandomF32ZeroToOne(&g_Rng.seed);
             local_28 = local_28 * 800.0;
           }
           FUN_00411390((int)*(short *)(*(int *)(param_1 + 0xee5dc) + 2),&local_30,0xffffffff,
@@ -131,16 +131,16 @@ void __fastcall FUN_00411530(int param_1)
           local_3c = *(float *)(iVar3 + 0xc);
           local_38 = *(float *)(iVar3 + 0x10);
           if (*local_34 < -990.0 != (*local_34 == -990.0)) {
-            local_40 = GetRandomF32ZeroToOne(&g_RandomSeed);
+            local_40 = GetRandomF32ZeroToOne(&g_Rng.seed);
             local_40 = local_40 * (float)uVar1;
           }
           uVar1 = g_GameManager._6744_4_;
           if (local_34[1] < -990.0 != (local_34[1] == -990.0)) {
-            local_3c = GetRandomF32ZeroToOne(&g_RandomSeed);
+            local_3c = GetRandomF32ZeroToOne(&g_Rng.seed);
             local_3c = local_3c * (float)uVar1;
           }
           if (local_34[2] < -990.0 != (local_34[2] == -990.0)) {
-            local_38 = GetRandomF32ZeroToOne(&g_RandomSeed);
+            local_38 = GetRandomF32ZeroToOne(&g_Rng.seed);
             local_38 = local_38 * 800.0;
           }
           local_8 = FUN_00411390((int)*(short *)(*(int *)(param_1 + 0xee5dc) + 2),&local_40,
@@ -156,16 +156,16 @@ void __fastcall FUN_00411530(int param_1)
           local_48 = *(float *)(iVar3 + 0xc);
           local_44 = *(float *)(iVar3 + 0x10);
           if (local_4c < -990.0 != (local_4c == -990.0)) {
-            local_4c = GetRandomF32ZeroToOne(&g_RandomSeed);
+            local_4c = GetRandomF32ZeroToOne(&g_Rng.seed);
             local_4c = local_4c * (float)uVar1;
           }
           uVar1 = g_GameManager._6744_4_;
           if (local_48 < -990.0 != (local_48 == -990.0)) {
-            local_48 = GetRandomF32ZeroToOne(&g_RandomSeed);
+            local_48 = GetRandomF32ZeroToOne(&g_Rng.seed);
             local_48 = local_48 * (float)uVar1;
           }
           if (local_44 < -990.0 != (local_44 == -990.0)) {
-            local_44 = GetRandomF32ZeroToOne(&g_RandomSeed);
+            local_44 = GetRandomF32ZeroToOne(&g_Rng.seed);
             local_44 = local_44 * 800.0;
           }
           local_8 = FUN_00411390((int)*(short *)(*(int *)(param_1 + 0xee5dc) + 2),&local_4c,
@@ -186,7 +186,7 @@ void __fastcall FUN_00411530(int param_1)
       case 9:
         iVar3 = FUN_00419572();
         if (iVar3 != 0) {
-          FUN_004241e5(1);
+          FUN_004241e5((void *)(param_1 + 0xee5e0),1);
           return;
         }
         break;
@@ -202,7 +202,7 @@ void __fastcall FUN_00411530(int param_1)
         if ((*(int *)(param_1 + 0xee598 + *(short *)(*(int *)(param_1 + 0xee5dc) + 2) * 4) != 0) &&
            (*(char *)(*(int *)(param_1 + 0xee598 + *(short *)(*(int *)(param_1 + 0xee5dc) + 2) * 4)
                      + 0xe50) < '\0')) {
-          FUN_004241e5(1);
+          FUN_004241e5((void *)(param_1 + 0xee5e0),1);
           return;
         }
       }

@@ -19,7 +19,7 @@ void FUN_0040d530(int param_1)
     *puVar3 = 0;
     puVar3 = puVar3 + 1;
   }
-  fVar6 = GetRandomF32ZeroToOne(&g_RandomSeed);
+  fVar6 = GetRandomF32ZeroToOne(&g_Rng.seed);
   EffectManager::FUN_0040ef50((int *)&g_EffectManager,0xc,(float *)(param_1 + 0xc6c),1,0xffffffff);
   for (local_60 = 0; local_60 < 0x280; local_60 = local_60 + 1) {
     if ((((*(short *)((int)local_68[5].matrix.m[3] + 2) != 0) &&

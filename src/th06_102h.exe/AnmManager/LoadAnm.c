@@ -1,9 +1,10 @@
 
-int __thiscall AnmManager::LoadAnm(AnmManager *this,int anm_index,char *path,int param_4)
+ZunResult __thiscall AnmManager::LoadAnm(AnmManager *this,int anm_index,char *path,int param_4)
 
 {
   AnmRawEntry *data;
-  int iVar1;
+  ZunResult ZVar1;
+  int iVar2;
   int local_50;
   int local_4c;
   int local_48;
@@ -26,7 +27,7 @@ int __thiscall AnmManager::LoadAnm(AnmManager *this,int anm_index,char *path,int
               (&g_GameErrorContext,
                "スプライトアニメ %s が読み込めません。データが失われてるか壊れています\n"
                ,path);
-    iVar1 = -1;
+    ZVar1 = ZUN_ERROR;
   }
   else {
     anim_data->textureIdx = anm_index;
@@ -35,26 +36,26 @@ int __thiscall AnmManager::LoadAnm(AnmManager *this,int anm_index,char *path,int
       FUN_00431d70(anim_data->textureIdx,anim_data->width,anim_data->height,anim_data->format);
     }
     else {
-      iVar1 = LoadTexture(this,anim_data->textureIdx,local_c,anim_data->format,anim_data->color_key)
+      iVar2 = LoadTexture(this,anim_data->textureIdx,local_c,anim_data->format,anim_data->color_key)
       ;
-      if (iVar1 != 0) {
+      if (iVar2 != 0) {
         GameErrorContextFatal
                   (&g_GameErrorContext,
                    "テクスチャ %s が読み込めません。データが失われてるか壊れています\n"
                    ,local_c);
-        return -1;
+        return ZUN_ERROR;
       }
     }
     if (anim_data->mipmap_name_offset != 0) {
       local_c = (char *)((int)anim_data->sprites + anim_data->mipmap_name_offset + -0x40);
-      iVar1 = LoadTextureMipmap(this,anim_data->textureIdx,local_c,anim_data->format,
+      iVar2 = LoadTextureMipmap(this,anim_data->textureIdx,local_c,anim_data->format,
                                 anim_data->color_key);
-      if (iVar1 != 0) {
+      if (iVar2 != 0) {
         GameErrorContextFatal
                   (&g_GameErrorContext,
                    "テクスチャ %s が読み込めません。データが失われてるか壊れています\n"
                    ,local_c);
-        return -1;
+        return ZUN_ERROR;
       }
     }
     anim_data->unk2 = param_4;
@@ -81,8 +82,8 @@ int __thiscall AnmManager::LoadAnm(AnmManager *this,int anm_index,char *path,int
       local_18 = local_18 + 2;
     }
     this->anmFilesSpriteIndexOffsets[anm_index] = param_4;
-    iVar1 = 0;
+    ZVar1 = ZUN_SUCCESS;
   }
-  return iVar1;
+  return ZVar1;
 }
 

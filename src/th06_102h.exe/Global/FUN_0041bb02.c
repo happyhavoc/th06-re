@@ -9,7 +9,8 @@ undefined4 FUN_0041bb02(GameManager *param_1)
   ScoreDat *scoredat;
   int iVar3;
   undefined4 uVar4;
-  Pscr *pPVar5;
+  ZunResult ZVar5;
+  Pscr *pPVar6;
   uint local_14;
   int local_10;
   Catk *local_c;
@@ -54,7 +55,7 @@ undefined4 FUN_0041bb02(GameManager *param_1)
     local_c = param_1->catk;
     for (local_10 = 0; local_10 < 0x40; local_10 = local_10 + 1) {
       for (local_14 = 0; local_14 < 0x20; local_14 = local_14 + 1) {
-        uVar2 = GetRandomU16(&g_RandomSeed);
+        uVar2 = GetRandomU16(&g_Rng.seed);
         *(ushort *)(local_c->name + local_14 * 2 + -0x18) = uVar2;
       }
       (local_c->base).magic = 0x4b544143;
@@ -73,16 +74,16 @@ undefined4 FUN_0041bb02(GameManager *param_1)
                       g_GameManager.difficulty);
     ParseCatk(scoredat,param_1->catk);
     ParseClrd(scoredat,param_1->clrd);
-    pPVar5 = param_1->pscr;
-    ParsePscr(scoredat,pPVar5);
+    pPVar6 = param_1->pscr;
+    ParsePscr(scoredat,pPVar6);
     if (param_1->field_0x1823 != '\0') {
-      pPVar5 = (Pscr *)(g_GameManager.difficulty * 0x14);
+      pPVar6 = (Pscr *)(g_GameManager.difficulty * 0x14);
       g_GameManager.high_score =
-           *(uint *)((int)&pPVar5[((uint)g_GameManager.shottype + (uint)g_GameManager.character * 2)
+           *(uint *)((int)&pPVar6[((uint)g_GameManager.shottype + (uint)g_GameManager.character * 2)
                                   * 0x18 + g_GameManager.current_stage * 4].score +
                     (int)param_1->pscr);
     }
-    FUN_0042b7dc(pPVar5,scoredat);
+    FUN_0042b7dc(pPVar6,scoredat);
     param_1->rank = *(uint *)(&DAT_00476564 + g_GameManager.difficulty * 0xc);
     param_1->min_rank = *(uint *)(&DAT_00476568 + g_GameManager.difficulty * 0xc);
     param_1->max_rank = *(uint *)(&DAT_0047656c + g_GameManager.difficulty * 0xc);
@@ -117,8 +118,8 @@ undefined4 FUN_0041bb02(GameManager *param_1)
       param_1->current_power = 0x80;
     }
   }
-  Supervisor::LoadPBG3(&g_Supervisor,4,(byte *)s__g_CM_dat_0046af84);
-  Supervisor::LoadPBG3(&g_Supervisor,2,(byte *)s__g_ST_dat_0046af74);
+  Supervisor::LoadPbg3(&g_Supervisor,4,s__g_CM_dat_0046af84);
+  Supervisor::LoadPbg3(&g_Supervisor,2,s__g_ST_dat_0046af74);
   if (g_GameManager.field6_0x18._4_4_ == 1) {
     iVar3 = FUN_0042a240(1,g_GameManager.replay_file);
     if (iVar3 != 0) {
@@ -131,23 +132,24 @@ undefined4 FUN_0041bb02(GameManager *param_1)
     param_1->min_rank = *(uint *)(&DAT_0047652c + g_GameManager.difficulty * 0xc);
     param_1->max_rank = *(uint *)(&DAT_00476530 + g_GameManager.difficulty * 0xc);
   }
-  g_RandomSeedUnknown = 0;
-  param_1->field36_0x1a2c = g_RandomSeed;
+  g_Rng.unk4 = 0;
+  param_1->field36_0x1a2c = g_Rng.seed;
   iVar3 = Stage::RegisterChain(param_1->current_stage);
   if (iVar3 == 0) {
     iVar3 = Player::RegisterChain(0);
     if (iVar3 == 0) {
       iVar3 = FUN_004148f0("data/etama.anm");
       if (iVar3 == 0) {
-        iVar3 = FUN_00412320((&PTR_s_dummy_004764e8)[param_1->current_stage * 2],
-                             (&PTR_s_dummy_004764ec)[param_1->current_stage * 2]);
+        iVar3 = EnemyManager::RegisterChain
+                          ((&PTR_s_dummy_004764e8)[param_1->current_stage * 2],
+                           (&PTR_s_dummy_004764ec)[param_1->current_stage * 2]);
         if (iVar3 == 0) {
           iVar3 = FUN_00407340((&PTR_s_dummy_004764c4)[param_1->current_stage]);
           if (iVar3 == 0) {
             iVar3 = EffectManager::RegisterChain();
             if (iVar3 == 0) {
-              iVar3 = FUN_0041b252();
-              if (iVar3 == 0) {
+              ZVar5 = Gui::RegisterChain();
+              if (ZVar5 == ZUN_SUCCESS) {
                 if (g_GameManager.field6_0x18._4_4_ == 0) {
                   FUN_0042a240(0,"replay/th6_00.rpy");
                 }
@@ -173,7 +175,7 @@ undefined4 FUN_0041bb02(GameManager *param_1)
               }
               else {
                 GameErrorContextLog(&g_GameErrorContext,
-                                    "error : 2D���示の初期化に失敗しました\n");
+                                    "error : 2D表示の初期化に失敗しました\n");
                 uVar4 = 0xffffffff;
               }
             }
@@ -202,7 +204,7 @@ undefined4 FUN_0041bb02(GameManager *param_1)
     }
     else {
       GameErrorContextLog(&g_GameErrorContext,
-                          "error : プレイヤーの初期化に���敗しました\n");
+                          "error : プレイヤーの初期化に失敗しました\n");
       uVar4 = 0xffffffff;
     }
   }

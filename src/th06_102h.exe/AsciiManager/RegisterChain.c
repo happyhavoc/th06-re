@@ -1,8 +1,9 @@
 
-int AsciiManager::RegisterChain(void)
+ZunResult AsciiManager::RegisterChain(void)
 
 {
   int iVar1;
+  ZunResult ZVar2;
   
   g_AsciiManagerCalcChain.callback = OnUpdate;
   g_AsciiManagerCalcChain.addedCallback = AddedCallback;
@@ -20,11 +21,11 @@ int AsciiManager::RegisterChain(void)
     g_AsciiManagerOnDrawHighPrioChain.deletedCallback = 0;
     g_AsciiManagerOnDrawHighPrioChain.arg = &g_AsciiManager;
     Chain::AddToDrawChain(&g_Chain,&g_AsciiManagerOnDrawHighPrioChain,10);
-    iVar1 = 0;
+    ZVar2 = ZUN_SUCCESS;
   }
   else {
-    iVar1 = -1;
+    ZVar2 = ZUN_ERROR;
   }
-  return iVar1;
+  return ZVar2;
 }
 

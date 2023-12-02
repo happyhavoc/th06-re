@@ -12,14 +12,14 @@ undefined4 MainMenu::RegisterChain(int param_1)
   DebugPrint("Debug : title 開始 VRAM = %d\n",UVar1);
   g_MainMenu.unk_81f0 = -(uint)(param_1 != 0) & 0xc;
   g_Supervisor.framerateMultiplier = 0.0;
-  g_MainMenu.chain_calc = ChainElem::Allocate(FUN_0043579f);
+  g_MainMenu.chain_calc = Chain::CreateElem(&g_Chain,FUN_0043579f);
   (g_MainMenu.chain_calc)->arg = &g_MainMenu;
   (g_MainMenu.chain_calc)->addedCallback = FUN_0043a464;
   (g_MainMenu.chain_calc)->deletedCallback = FUN_0043a659;
   g_MainMenu.unk_81f4 = 0;
   iVar2 = Chain::AddToCalcChain(&g_Chain,g_MainMenu.chain_calc,2);
   if (iVar2 == 0) {
-    g_MainMenu.chain_draw = ChainElem::Allocate(FUN_00439ad6);
+    g_MainMenu.chain_draw = Chain::CreateElem(&g_Chain,FUN_00439ad6);
     (g_MainMenu.chain_draw)->arg = &g_MainMenu;
     Chain::AddToDrawChain(&g_Chain,g_MainMenu.chain_draw,0);
     g_MainMenu.unk_10f30 = 0;

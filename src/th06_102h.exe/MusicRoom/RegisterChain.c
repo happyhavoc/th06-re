@@ -26,13 +26,13 @@ undefined4 MusicRoom::RegisterChain(void)
     *ppCVar3 = (ChainElem *)0x0;
     ppCVar3 = ppCVar3 + 1;
   }
-  PTR_006c71f0 = ChainElem::Allocate(Callback);
+  PTR_006c71f0 = Chain::CreateElem(&g_Chain,Callback);
   PTR_006c71f0->arg = &PTR_006c71f0;
   PTR_006c71f0->addedCallback = FUN_0042564c;
   PTR_006c71f0->deletedCallback = FUN_00425d97;
   iVar2 = Chain::AddToCalcChain(&g_Chain,PTR_006c71f0,2);
   if (iVar2 == 0) {
-    PTR_006c71f4 = ChainElem::Allocate(FUN_0042545a);
+    PTR_006c71f4 = Chain::CreateElem(&g_Chain,FUN_0042545a);
     PTR_006c71f4->arg = &PTR_006c71f0;
     Chain::AddToDrawChain(&g_Chain,PTR_006c71f4,0);
     uVar1 = 0;

@@ -42,9 +42,9 @@ void FUN_0041f290(float *param_1,int param_2,int param_3)
   local_c[1].uvScrollPos.x = 0.0;
   local_c[1].scaleInterpFinalX = -NAN;
   if (param_3 == 2) {
-    fVar1 = GetRandomF32ZeroToOne(&g_RandomSeed);
+    fVar1 = GetRandomF32ZeroToOne(&g_Rng.seed);
     local_c[1].scaleY = fVar1 * 288.0 + 48.0;
-    fVar1 = GetRandomF32ZeroToOne(&g_RandomSeed);
+    fVar1 = GetRandomF32ZeroToOne(&g_Rng.seed);
     local_c[1].scaleX = fVar1 * 192.0 - 64.0;
     local_c[1].scaleInterpFinalY = 0.0;
     local_c[1].angleVel.x = local_c[1].rotation.x;

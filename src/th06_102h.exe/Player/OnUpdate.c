@@ -142,7 +142,7 @@ LAB_00428fa8:
     FUN_00414160(0x5a5ff8,0);
   }
   if (*(char *)(_param_1[9].matrix.m[1] + 1) == '\x03') {
-    FUN_004241e5(1);
+    FUN_004241e5(&_param_1[0x6e].posInterpInitial.z,1);
     if ((int)_param_1[0x6e].posInterpFinal.y < 1) {
       *(undefined *)(_param_1[9].matrix.m[1] + 1) = 0;
       _param_1[0x6e].posInterpFinal.y = 0.0;

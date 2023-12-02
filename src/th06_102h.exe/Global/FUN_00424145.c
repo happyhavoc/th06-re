@@ -6,7 +6,7 @@ void FUN_00424145(int param_1)
   
   if (g_Supervisor.framerateMultiplier <= 0.99) {
     if (param_1 < 0) {
-      FUN_004241e5(-param_1);
+      FUN_004241e5(in_ECX,-param_1);
     }
     else {
       *in_ECX = in_ECX[2];

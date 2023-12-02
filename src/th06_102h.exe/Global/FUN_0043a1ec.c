@@ -2,7 +2,7 @@
 undefined4 FUN_0043a1ec(int param_1)
 
 {
-  int iVar1;
+  ZunResult ZVar1;
   undefined4 uVar2;
   AnmVm *local_c;
   int local_8;
@@ -10,10 +10,10 @@ undefined4 FUN_0043a1ec(int param_1)
   for (local_8 = 0x15; local_8 < 0x1b; local_8 = local_8 + 1) {
     ReleaseAnm(g_AnmManager,local_8);
   }
-  iVar1 = AnmManager::LoadSurface(g_AnmManager,0,"data/title/select00.jpg");
-  if (iVar1 == 0) {
-    iVar1 = AnmManager::LoadAnm(g_AnmManager,0x24,"data/replay00.anm",0x160);
-    if (iVar1 == 0) {
+  ZVar1 = AnmManager::LoadSurface(g_AnmManager,0,"data/title/select00.jpg");
+  if (ZVar1 == ZUN_SUCCESS) {
+    ZVar1 = AnmManager::LoadAnm(g_AnmManager,0x24,"data/replay00.anm",0x160);
+    if (ZVar1 == ZUN_SUCCESS) {
       local_c = (AnmVm *)(param_1 + 0x6600);
       for (local_8 = 0x160; local_8 < 0x17a; local_8 = local_8 + 1) {
         AnmManager::FUN_004051b0(g_AnmManager,local_c,local_8);

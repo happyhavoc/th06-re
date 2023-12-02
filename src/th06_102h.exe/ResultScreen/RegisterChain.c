@@ -27,7 +27,7 @@ undefined4 ResultScreen::RegisterChain(int param_1)
   }
   uStack_8 = 0xffffffff;
   DebugPrint("counat = %d\n",g_GameManager._6764_4_);
-  pCVar1 = ChainElem::Allocate(FUN_0042d98e);
+  pCVar1 = Chain::CreateElem(&g_Chain,FUN_0042d98e);
   *(ChainElem **)((int)pvStack_64 + 0x51a8) = pCVar1;
   *(code **)(*(int *)((int)pvStack_64 + 0x51a8) + 8) = FUN_0042f060;
   *(code **)(*(int *)((int)pvStack_64 + 0x51a8) + 0xc) = FUN_0042f5bc;
@@ -42,7 +42,7 @@ undefined4 ResultScreen::RegisterChain(int param_1)
   }
   iVar2 = Chain::AddToCalcChain(&g_Chain,*(ChainElem **)((int)pvStack_64 + 0x51a8),0xd);
   if (iVar2 == 0) {
-    pCVar1 = ChainElem::Allocate(FUN_0042e446);
+    pCVar1 = Chain::CreateElem(&g_Chain,FUN_0042e446);
     *(ChainElem **)((int)pvStack_64 + 0x51ac) = pCVar1;
     *(void **)(*(int *)((int)pvStack_64 + 0x51ac) + 0x1c) = pvStack_64;
     Chain::AddToDrawChain(&g_Chain,*(ChainElem **)((int)pvStack_64 + 0x51ac),0xc);

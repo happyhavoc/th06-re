@@ -12,7 +12,7 @@ undefined4 FUN_00410d80(void *param_1)
   *(undefined4 *)((int)param_1 + 4) = 0;
   _free(param_1);
   g_Supervisor.field78_0x19c = 0;
-  Supervisor::RemovePbg3File(&g_Supervisor,5);
+  Supervisor::ReleasePbg3(&g_Supervisor,5);
   return 0;
 }
 

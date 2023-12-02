@@ -1,9 +1,9 @@
 
-int __thiscall AnmManager::LoadSurface(AnmManager *this,int surface_index,char *path)
+ZunResult __thiscall AnmManager::LoadSurface(AnmManager *this,int surface_index,char *path)
 
 {
   byte *data;
-  int iVar1;
+  ZunResult ZVar1;
   HRESULT HVar2;
   LPDIRECT3DSURFACE8 surface;
   
@@ -13,7 +13,7 @@ int __thiscall AnmManager::LoadSurface(AnmManager *this,int surface_index,char *
   data = FileSystem::OpenPath(path,0);
   if (data == (byte *)0x0) {
     GameErrorContextFatal(&g_GameErrorContext,"%sが読み込めないです。\n",path);
-    iVar1 = -1;
+    ZVar1 = ZUN_ERROR;
   }
   else {
     HVar2 = (*(g_Supervisor.d3dDevice)->lpVtbl->CreateImageSurface)
@@ -50,7 +50,7 @@ int __thiscall AnmManager::LoadSurface(AnmManager *this,int surface_index,char *
           surface = (IDirect3DSurface8 *)0x0;
         }
         _free(data);
-        iVar1 = 0;
+        ZVar1 = ZUN_SUCCESS;
       }
       else {
         if (surface != (IDirect3DSurface8 *)0x0) {
@@ -58,13 +58,13 @@ int __thiscall AnmManager::LoadSurface(AnmManager *this,int surface_index,char *
           surface = (IDirect3DSurface8 *)0x0;
         }
         _free(data);
-        iVar1 = -1;
+        ZVar1 = ZUN_ERROR;
       }
     }
     else {
-      iVar1 = -1;
+      ZVar1 = ZUN_ERROR;
     }
   }
-  return iVar1;
+  return ZVar1;
 }
 

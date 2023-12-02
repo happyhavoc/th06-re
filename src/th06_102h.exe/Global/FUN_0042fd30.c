@@ -36,15 +36,15 @@ int * FUN_0042fd30(int param_1,int param_2,int param_3,int param_4,int param_5)
       piVar2 = piVar2 + 1;
     }
     if (param_1 == 0) {
-      local_14 = ChainElem::Allocate(FUN_0042f800);
-      local_18 = ChainElem::Allocate(FUN_0042fee0);
+      local_14 = Chain::CreateElem(&g_Chain,FUN_0042f800);
+      local_18 = Chain::CreateElem(&g_Chain,FUN_0042fee0);
     }
     else if (param_1 == 1) {
-      local_14 = ChainElem::Allocate(FUN_0042ffc0);
+      local_14 = Chain::CreateElem(&g_Chain,FUN_0042ffc0);
     }
     else if (param_1 == 2) {
-      local_14 = ChainElem::Allocate(FUN_0042fc80);
-      local_18 = ChainElem::Allocate(FUN_0042ff70);
+      local_14 = Chain::CreateElem(&g_Chain,FUN_0042fc80);
+      local_18 = Chain::CreateElem(&g_Chain,FUN_0042ff70);
     }
     local_14->addedCallback = FUN_004301f0;
     local_14->deletedCallback = FUN_00430220;

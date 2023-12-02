@@ -3,9 +3,10 @@ int WinMain(HINSTANCE hInstance,HINSTANCE hPrevInstance,LPSTR lpCmdLine,int nSho
 
 {
   AnmManager *_Memory;
+  ZunResult ZVar1;
   AnmManager *puVar1;
-  BOOL BVar1;
-  HRESULT HVar2;
+  BOOL BVar2;
+  HRESULT HVar3;
   int retCode;
   AnmManager *vbsPtr;
   MSG msg;
@@ -16,8 +17,8 @@ int WinMain(HINSTANCE hInstance,HINSTANCE hPrevInstance,LPSTR lpCmdLine,int nSho
   retCode = CheckForRunningGameInstance();
   if (retCode == 0) {
     g_Supervisor.hInstance = hInstance;
-    retCode = Supervisor::CreateFromConfig(&g_Supervisor,"東方紅魔郷.cfg");
-    if (retCode == 0) {
+    ZVar1 = Supervisor::CreateFromConfig(&g_Supervisor,"東方紅魔郷.cfg");
+    if (ZVar1 == ZUN_SUCCESS) {
       retCode = InitD3dInterface();
       if (retCode == 0) {
         SystemParametersInfoA(SPI_GETSCREENSAVEACTIVE,0,&g_GameWindow.screen_save_active,0);
@@ -30,7 +31,7 @@ int WinMain(HINSTANCE hInstance,HINSTANCE hPrevInstance,LPSTR lpCmdLine,int nSho
           CreateGameWindow(hInstance);
           retCode = InitD3dRendering();
           if (retCode != 0) break;
-          SoundPlayer::Init(&g_SoundPlayer,(HWND)g_GameWindow.window);
+          SoundPlayer::InitializeDSound(&g_SoundPlayer,(HWND)g_GameWindow.window);
           GetJoystickCaps();
           ResetKeyboard();
           puVar1 = (AnmManager *)operator_new(0x2112c);
@@ -41,8 +42,8 @@ int WinMain(HINSTANCE hInstance,HINSTANCE hPrevInstance,LPSTR lpCmdLine,int nSho
             vbsPtr = AnmManager::AnmManager(puVar1);
           }
           g_AnmManager = vbsPtr;
-          retCode = Supervisor::RegisterChain();
-          if (retCode == 0) {
+          ZVar1 = Supervisor::RegisterChain();
+          if (ZVar1 == ZUN_SUCCESS) {
             if (g_Supervisor.cfg.windowed == false) {
               ShowCursor(0);
             }
@@ -51,19 +52,19 @@ int WinMain(HINSTANCE hInstance,HINSTANCE hPrevInstance,LPSTR lpCmdLine,int nSho
               while( true ) {
                 while( true ) {
                   if (g_GameWindow.isAppClosing != 0) goto LAB_0042055a;
-                  BVar1 = PeekMessageA(&msg,(HWND)0x0,0,0,1);
-                  if (BVar1 == 0) break;
+                  BVar2 = PeekMessageA(&msg,(HWND)0x0,0,0,1);
+                  if (BVar2 == 0) break;
                   TranslateMessage(&msg);
                   DispatchMessageA(&msg);
                 }
-                HVar2 = (*(g_Supervisor.d3dDevice)->lpVtbl->TestCooperativeLevel)
+                HVar3 = (*(g_Supervisor.d3dDevice)->lpVtbl->TestCooperativeLevel)
                                   (g_Supervisor.d3dDevice);
-                if (HVar2 == 0) break;
-                if (HVar2 == D3DERR_DEVICENOTRESET) {
+                if (HVar3 == 0) break;
+                if (HVar3 == D3DERR_DEVICENOTRESET) {
                   AnmManager::ReleaseSurfaces(g_AnmManager);
-                  HVar2 = (*(g_Supervisor.d3dDevice)->lpVtbl->Reset)
+                  HVar3 = (*(g_Supervisor.d3dDevice)->lpVtbl->Reset)
                                     (g_Supervisor.d3dDevice,&g_Supervisor.presentParameters);
-                  if (HVar2 != 0) goto LAB_0042055a;
+                  if (HVar3 != 0) goto LAB_0042055a;
                   InitD3dDevice();
                   g_Supervisor.unk198 = 3;
                 }

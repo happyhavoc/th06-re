@@ -2,28 +2,29 @@
 int AsciiManager::AddedCallback(AsciiManager *arg)
 
 {
-  int res;
+  ZunResult res;
+  int iVar1;
   
   res = AnmManager::LoadAnm(g_AnmManager,1,"data/ascii.anm",0);
-  if (res == 0) {
+  if (res == ZUN_SUCCESS) {
     res = AnmManager::LoadAnm(g_AnmManager,2,"data/asciis.anm",0x77);
-    if (res == 0) {
+    if (res == ZUN_SUCCESS) {
       res = AnmManager::LoadAnm(g_AnmManager,3,"data/capture.anm",0x718);
-      if (res == 0) {
+      if (res == ZUN_SUCCESS) {
         Initialize(arg);
-        res = 0;
+        iVar1 = 0;
       }
       else {
-        res = -1;
+        iVar1 = -1;
       }
     }
     else {
-      res = -1;
+      iVar1 = -1;
     }
   }
   else {
-    res = -1;
+    iVar1 = -1;
   }
-  return res;
+  return iVar1;
 }
 

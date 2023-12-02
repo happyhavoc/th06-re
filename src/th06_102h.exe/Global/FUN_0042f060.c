@@ -5,7 +5,7 @@ undefined4 FUN_0042f060(ResultScreen *param_1)
 
 {
   AnmManager *pAVar1;
-  int iVar2;
+  ZunResult ZVar2;
   ScoreDat *pSVar3;
   short local_3c;
   int idx;
@@ -14,24 +14,24 @@ undefined4 FUN_0042f060(ResultScreen *param_1)
   uint difficulty;
   
   if (param_1->unk_8 != 0x11) {
-    iVar2 = AnmManager::LoadSurface(g_AnmManager,0,"data/result/result.jpg");
-    if (iVar2 != 0) {
+    ZVar2 = AnmManager::LoadSurface(g_AnmManager,0,"data/result/result.jpg");
+    if (ZVar2 != ZUN_SUCCESS) {
       return 0xffffffff;
     }
-    iVar2 = AnmManager::LoadAnm(g_AnmManager,0x25,"data/result00.anm",0x100);
-    if (iVar2 != 0) {
+    ZVar2 = AnmManager::LoadAnm(g_AnmManager,0x25,"data/result00.anm",0x100);
+    if (ZVar2 != ZUN_SUCCESS) {
       return 0xffffffff;
     }
-    iVar2 = AnmManager::LoadAnm(g_AnmManager,0x26,"data/result01.anm",0x108);
-    if (iVar2 != 0) {
+    ZVar2 = AnmManager::LoadAnm(g_AnmManager,0x26,"data/result01.anm",0x108);
+    if (ZVar2 != ZUN_SUCCESS) {
       return 0xffffffff;
     }
-    iVar2 = AnmManager::LoadAnm(g_AnmManager,0x27,"data/result02.anm",0x10f);
-    if (iVar2 != 0) {
+    ZVar2 = AnmManager::LoadAnm(g_AnmManager,0x27,"data/result02.anm",0x10f);
+    if (ZVar2 != ZUN_SUCCESS) {
       return 0xffffffff;
     }
-    iVar2 = AnmManager::LoadAnm(g_AnmManager,0x28,"data/result03.anm",0x125);
-    if (iVar2 != 0) {
+    ZVar2 = AnmManager::LoadAnm(g_AnmManager,0x28,"data/result03.anm",0x125);
+    if (ZVar2 != ZUN_SUCCESS) {
       return 0xffffffff;
     }
     local_c = param_1->unk_40;

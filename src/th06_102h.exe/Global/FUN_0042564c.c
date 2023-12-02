@@ -7,11 +7,12 @@ uint FUN_0042564c(int param_1)
   AnmVm *pAVar1;
   char cVar2;
   AnmManager *pAVar3;
-  int iVar4;
+  ZunResult ZVar4;
   uint uVar5;
   char *pcVar6;
-  undefined4 *puVar7;
+  int iVar7;
   undefined4 *puVar8;
+  undefined4 *puVar9;
   uint unaff_retaddr;
   char *local_98;
   undefined4 *local_8c;
@@ -26,15 +27,15 @@ uint FUN_0042564c(int param_1)
   int local_8;
   
   local_1c = __security_cookie ^ unaff_retaddr;
-  iVar4 = AnmManager::LoadSurface(g_AnmManager,0,"data/result/music.jpg");
-  if (iVar4 == 0) {
-    iVar4 = AnmManager::LoadAnm(g_AnmManager,0x29,"data/music00.anm",0x100);
-    if (iVar4 == 0) {
-      iVar4 = AnmManager::LoadAnm(g_AnmManager,0x2a,"data/music01.anm",0x101);
-      if (iVar4 == 0) {
-        iVar4 = AnmManager::LoadAnm(g_AnmManager,0x2b,"data/music02.anm",0x111);
+  ZVar4 = AnmManager::LoadSurface(g_AnmManager,0,"data/result/music.jpg");
+  if (ZVar4 == ZUN_SUCCESS) {
+    ZVar4 = AnmManager::LoadAnm(g_AnmManager,0x29,"data/music00.anm",0x100);
+    if (ZVar4 == ZUN_SUCCESS) {
+      ZVar4 = AnmManager::LoadAnm(g_AnmManager,0x2a,"data/music01.anm",0x101);
+      if (ZVar4 == ZUN_SUCCESS) {
+        ZVar4 = AnmManager::LoadAnm(g_AnmManager,0x2b,"data/music02.anm",0x111);
         pAVar3 = g_AnmManager;
-        if (iVar4 == 0) {
+        if (ZVar4 == ZUN_SUCCESS) {
           *(undefined2 *)(param_1 + 0xd8) = 0x100;
           AnmManager::SetAndExecuteScript(pAVar3,(AnmVm *)(param_1 + 0x24),pAVar3->scripts[0x100]);
           *(undefined4 *)(param_1 + 8) = 0;
@@ -52,12 +53,12 @@ uint FUN_0042564c(int param_1)
               local_70 = 0x20;
               local_78 = local_8c;
               while (local_70 = local_70 + -1, -1 < local_70) {
-                puVar7 = local_78;
-                for (iVar4 = 0x9c; iVar4 != 0; iVar4 = iVar4 + -1) {
-                  *puVar7 = 0;
-                  puVar7 = puVar7 + 1;
+                puVar8 = local_78;
+                for (iVar7 = 0x9c; iVar7 != 0; iVar7 = iVar7 + -1) {
+                  *puVar8 = 0;
+                  puVar8 = puVar8 + 1;
                 }
-                *(undefined2 *)puVar7 = 0;
+                *(undefined2 *)puVar8 = 0;
                 local_78 = (undefined4 *)((int)local_78 + 0x272);
               }
             }
@@ -92,13 +93,13 @@ uint FUN_0042564c(int param_1)
                 }
                 local_c = 0;
                 while ((local_c < 8 && (*local_10 != 0x40))) {
-                  puVar7 = (undefined4 *)
+                  puVar8 = (undefined4 *)
                            (*(int *)(param_1 + 0x20) + local_8 * 0x272 + 0x62 + local_c * 0x42);
-                  for (iVar4 = 0x10; iVar4 != 0; iVar4 = iVar4 + -1) {
-                    *puVar7 = 0;
-                    puVar7 = puVar7 + 1;
+                  for (iVar7 = 0x10; iVar7 != 0; iVar7 = iVar7 + -1) {
+                    *puVar8 = 0;
+                    puVar8 = puVar8 + 1;
                   }
-                  *(undefined2 *)puVar7 = 0;
+                  *(undefined2 *)puVar8 = 0;
                   local_14 = 0;
                   while ((*local_10 != 10 && (*local_10 != 0xd))) {
                     *(byte *)(local_c * 0x42 + 0x62 +
@@ -139,21 +140,21 @@ LAB_004259f3:
               pAVar1 = (AnmVm *)(param_1 + 0x2334 + local_8 * 0x110);
               AnmVm::Initialize(pAVar1);
               AnmManager::SetActiveSprite(pAVar3,pAVar1,local_8 + 0x708);
-              puVar7 = local_5c;
-              for (iVar4 = 0x10; iVar4 != 0; iVar4 = iVar4 + -1) {
-                *puVar7 = 0;
-                puVar7 = puVar7 + 1;
+              puVar8 = local_5c;
+              for (iVar7 = 0x10; iVar7 != 0; iVar7 = iVar7 + -1) {
+                *puVar8 = 0;
+                puVar8 = puVar8 + 1;
               }
               if (local_8 % 2 == 0) {
 LAB_00425c09:
-                puVar7 = (undefined4 *)
+                puVar8 = (undefined4 *)
                          (*(int *)(param_1 + 0x20) + 0x62 + (local_8 / 2) * 0x42 +
                          (local_8 % 2) * 0x20);
-                puVar8 = local_5c;
-                for (iVar4 = 8; iVar4 != 0; iVar4 = iVar4 + -1) {
-                  *puVar8 = *puVar7;
-                  puVar7 = puVar7 + 1;
+                puVar9 = local_5c;
+                for (iVar7 = 8; iVar7 != 0; iVar7 = iVar7 + -1) {
+                  *puVar9 = *puVar8;
                   puVar8 = puVar8 + 1;
+                  puVar9 = puVar9 + 1;
                 }
               }
               else {

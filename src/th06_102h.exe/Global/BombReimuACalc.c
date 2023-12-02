@@ -52,7 +52,7 @@ void BombReimuACalc(int param_1)
         *puVar1 = *(undefined4 *)(param_1 + 0x440);
         puVar1[1] = *(undefined4 *)(param_1 + 0x444);
         puVar1[2] = *(undefined4 *)(param_1 + 0x448);
-        fVar9 = GetRandomF32ZeroToOne(&g_RandomSeed);
+        fVar9 = GetRandomF32ZeroToOne(&g_Rng.seed);
         fVar9 = fVar9 * 6.283185 - 3.141593;
         fVar8 = (float10)FUN_0045bda4((double)fVar9);
         *(float *)(param_1 + 0x7684 + iVar6 * 0xc) =

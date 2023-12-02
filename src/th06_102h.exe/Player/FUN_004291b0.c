@@ -18,7 +18,7 @@ void Player::FUN_004291b0(int param_1)
   
   for (local_10 = 0; local_10 < 2; local_10 = local_10 + 1) {
     if (*(int *)(param_1 + 0x9c0 + local_10 * 0xc) != 0) {
-      FUN_004241e5();
+      FUN_004241e5((void *)(param_1 + 0x9b8 + local_10 * 0xc),1);
     }
   }
   local_18 = (AnmVm *)(param_1 + 0xa28);

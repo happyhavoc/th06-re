@@ -1,11 +1,11 @@
 
-undefined4 __thiscall Supervisor::CreateFromConfig(Supervisor *this,char *config_file_name)
+ZunResult __thiscall Supervisor::CreateFromConfig(Supervisor *this,char *config_file_name)
 
 {
   undefined2 uVar1;
   byte *_Memory;
   FILE *pFVar2;
-  undefined4 uVar3;
+  ZunResult ZVar3;
   int iVar4;
   undefined4 *puVar5;
   GameConfiguration *pGVar6;
@@ -28,7 +28,7 @@ undefined4 __thiscall Supervisor::CreateFromConfig(Supervisor *this,char *config
     pFVar2 = fopen("bgm/th06_01.wav","rb");
     if (pFVar2 == (FILE *)0x0) {
       g_Supervisor.cfg.musicMode = MIDI;
-      DebugPrint("wave データ��無いので、midi にします\n");
+      DebugPrint("wave データが無いので、midi にします\n");
     }
     else {
       g_Supervisor.cfg.musicMode = WAV;
@@ -130,7 +130,7 @@ undefined4 __thiscall Supervisor::CreateFromConfig(Supervisor *this,char *config
                         "ゲーム周りのアイテムの描画を抑制します\n");
   }
   if (((this->cfg).opts >> 5 & 1) != 0) {
-    GameErrorContextLog(&g_GameErrorContext,"グーローシェーディングを抑制します\n")
+    GameErrorContextLog(&g_GameErrorContext,"グー��ーシェーディングを抑制します\n")
     ;
   }
   if (((this->cfg).opts >> 6 & 1) != 0) {
@@ -157,7 +157,7 @@ undefined4 __thiscall Supervisor::CreateFromConfig(Supervisor *this,char *config
   }
   iVar4 = FileSystem::WriteDataToFile(config_file_name,&g_Supervisor.cfg,0x38);
   if (iVar4 == 0) {
-    uVar3 = 0;
+    ZVar3 = ZUN_SUCCESS;
   }
   else {
     GameErrorContextFatal
@@ -166,8 +166,8 @@ undefined4 __thiscall Supervisor::CreateFromConfig(Supervisor *this,char *config
               (&g_GameErrorContext,
                "フォルダが書込み禁止属性になっているか、ディスクがいっぱいいっぱいになってませんか？\n"
               );
-    uVar3 = 0xffffffff;
+    ZVar3 = ZUN_ERROR;
   }
-  return uVar3;
+  return ZVar3;
 }
 

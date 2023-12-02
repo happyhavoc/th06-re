@@ -3,7 +3,7 @@ undefined4 __thiscall Stage::LoadStageData(Stage *this,char *anmpath,char *stdpa
 
 {
   StdRawObject *pSVar1;
-  int anm;
+  ZunResult anm;
   undefined4 uVar2;
   byte *std;
   AnmVm *pAVar3;
@@ -12,7 +12,7 @@ undefined4 __thiscall Stage::LoadStageData(Stage *this,char *anmpath,char *stdpa
   int local_8;
   
   anm = AnmManager::LoadAnm(g_AnmManager,4,anmpath,0x300);
-  if (anm == 0) {
+  if (anm == ZUN_SUCCESS) {
     std = FileSystem::OpenPath(stdpath,0);
     this->stdData = std;
     if (this->stdData == (byte *)0x0) {

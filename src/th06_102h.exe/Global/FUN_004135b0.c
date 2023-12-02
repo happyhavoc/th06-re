@@ -68,13 +68,13 @@ undefined4 FUN_004135b0(short *param_1,uint param_2,int param_3,float param_4)
     case 6:
       fVar2 = *(float *)(param_1 + 8);
       fVar1 = *(float *)(param_1 + 10);
-      fVar9 = GetRandomF32ZeroToOne(&g_RandomSeed);
+      fVar9 = GetRandomF32ZeroToOne(&g_Rng.seed);
       local_14 = fVar9 * (fVar2 - fVar1) + *(float *)(param_1 + 10);
       break;
     case 7:
       fVar2 = *(float *)(param_1 + 0xc);
       fVar1 = *(float *)(param_1 + 0xe);
-      fVar9 = GetRandomF32ZeroToOne(&g_RandomSeed);
+      fVar9 = GetRandomF32ZeroToOne(&g_Rng.seed);
       local_8 = fVar9 * (fVar2 - fVar1) + *(float *)(param_1 + 0xe);
       local_14 = (float)param_3 * *(float *)(param_1 + 10) + *(float *)(param_1 + 8) +
                  ((float)param_2 * 6.283185) / (float)(int)param_1[0x22] + 0.0;
@@ -82,11 +82,11 @@ undefined4 FUN_004135b0(short *param_1,uint param_2,int param_3,float param_4)
     case 8:
       fVar2 = *(float *)(param_1 + 8);
       fVar1 = *(float *)(param_1 + 10);
-      fVar9 = GetRandomF32ZeroToOne(&g_RandomSeed);
+      fVar9 = GetRandomF32ZeroToOne(&g_Rng.seed);
       local_14 = fVar9 * (fVar2 - fVar1) + *(float *)(param_1 + 10);
       fVar2 = *(float *)(param_1 + 0xc);
       fVar1 = *(float *)(param_1 + 0xe);
-      fVar9 = GetRandomF32ZeroToOne(&g_RandomSeed);
+      fVar9 = GetRandomF32ZeroToOne(&g_Rng.seed);
       local_8 = fVar9 * (fVar2 - fVar1) + *(float *)(param_1 + 0xe);
     }
     *(undefined2 *)((int)local_10[5].matrix.m[3] + 2) = 1;

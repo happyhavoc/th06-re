@@ -1,23 +1,27 @@
 
-undefined4 __thiscall MidiOutput::~MidiOutput(MidiOutput *this)
+void __thiscall MidiOutput::~MidiOutput(MidiOutput *this)
 
 {
-  undefined4 uVar1;
-  int local_8;
+  int local_14;
+  void *local_10;
+  undefined *puStack_c;
+  uint local_8;
   
-  if (this->unk == (MidiSample *)0x0) {
-    uVar1 = 0xffffffff;
+  puStack_c = &LAB_004691f6;
+  local_10 = ExceptionList;
+  ExceptionList = &local_10;
+  this->vtbl = (MidiOutputVtbl *)&PTR_FUN_0046b568;
+  local_8 = 1;
+  StopPlayback(this);
+  FUN_004220b0(this);
+  for (local_14 = 0; local_14 < 0x20; local_14 = local_14 + 1) {
+    UnloadFile(this,local_14);
   }
-  else {
-    for (local_8 = 0; local_8 < 0x20; local_8 = local_8 + 1) {
-      if ((&this->midiHeaders)[this->field128_0x90] != (MIDIHDR *)0x0) {
-        UnprepareHeader(this,(&this->midiHeaders)[this->field128_0x90]);
-      }
-    }
-    StopTimer(this);
-    MidiDevice::Close((MidiDevice *)&this->midiOutDev);
-    uVar1 = 0;
-  }
-  return uVar1;
+  local_8 = local_8 & 0xffffff00;
+  FUN_00421ad0();
+  local_8 = 0xffffffff;
+  FUN_00421c60();
+  ExceptionList = local_10;
+  return;
 }
 

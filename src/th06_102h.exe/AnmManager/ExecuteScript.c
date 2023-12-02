@@ -43,7 +43,7 @@ LAB_00434098:
   vm->flags = vm->flags & 0xffffdfff;
   if (local_8->opcode != AnmOpcode_22) {
     if (local_24 == (AnmRawInstr *)0x0) {
-      FUN_004241e5(1);
+      FUN_004241e5(&vm->currentTimeInScript,1);
       goto LAB_00434338;
     }
     local_8 = local_24;
@@ -128,7 +128,7 @@ LAB_00433998:
       local_e0 = 0;
     }
     else {
-      uVar4 = GetRandomU16(&g_RandomSeed);
+      uVar4 = GetRandomU16(&g_Rng.seed);
       local_e0 = (int)((ulonglong)uVar4 % (ulonglong)(longlong)(int)(uint)uVar2);
     }
     SetActiveSprite(this,vm,*local_c + local_e0 + this->spriteIndices[vm->anmFileIndex]);
@@ -240,7 +240,7 @@ switchD_004339dd_caseD_18:
 switchD_004339dd_caseD_15:
   if (vm->pendingInterrupt == 0) {
     vm->flags = vm->flags | 0x2000;
-    FUN_004241e5(1);
+    FUN_004241e5(&vm->currentTimeInScript,1);
 LAB_00434338:
     fVar1 = (vm->angleVel).x;
     if (NAN(fVar1) == (fVar1 == 0.0)) {

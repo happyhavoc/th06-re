@@ -56,7 +56,7 @@ LAB_0040cc18:
     local_a0 = 0;
   }
   else {
-    uVar2 = GetRandomU16(&g_RandomSeed);
+    uVar2 = GetRandomU16(&g_Rng.seed);
     local_a0 = (int)((ulonglong)uVar2 % (ulonglong)(longlong)(int)(uVar3 & 0xffff));
   }
   local_c = local_a0 + (int)local_c / 2;
@@ -73,7 +73,7 @@ LAB_0040cc18:
   fVar4 = (float10)FUN_0045bcf4((double)local_14);
   local_1c = (float)fVar4 * local_10 + local_1c;
   local_8 = EffectManager::FUN_0040ef50((int *)&g_EffectManager,0x13,&local_20,1,0xff3030ff);
-  fVar5 = GetRandomF32ZeroToOne(&g_RandomSeed);
+  fVar5 = GetRandomF32ZeroToOne(&g_Rng.seed);
   local_8[1].angleVel.x = (fVar5 * 40.0 - 20.0) / 60.0;
   local_8[1].angleVel.y = ((float)local_c * 8.0) / 60.0 - 0.2666667;
   local_8[1].angleVel.z = 0.0;
@@ -90,7 +90,7 @@ LAB_0040cc18:
   fVar4 = (float10)FUN_0045bcf4((double)local_14);
   local_1c = (float)fVar4 * local_10 + local_1c;
   local_8 = EffectManager::FUN_0040ef50((int *)&g_EffectManager,0x13,&local_20,1,0xff3030ff);
-  fVar5 = GetRandomF32ZeroToOne(&g_RandomSeed);
+  fVar5 = GetRandomF32ZeroToOne(&g_Rng.seed);
   local_8[1].angleVel.x = (fVar5 * 40.0 - 20.0) / 60.0;
   local_8[1].angleVel.y = ((float)local_c * 8.0) / 60.0 - 0.2666667;
   local_8[1].angleVel.z = 0.0;

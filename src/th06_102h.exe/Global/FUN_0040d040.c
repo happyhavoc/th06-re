@@ -45,7 +45,7 @@ void FUN_0040d040(int param_1,int param_2)
     local_e0 = local_e0 + -1;
   } while (-1 < local_e0);
   local_68 = *(int *)(param_2 + 0x10);
-  fVar4 = GetRandomF32ZeroToOne(&g_RandomSeed);
+  fVar4 = GetRandomF32ZeroToOne(&g_Rng.seed);
   local_7c = fVar4 * 6.283185;
   for (local_74 = 0; local_74 < 2; local_74 = local_74 + 1) {
     if (local_74 == 0) {

@@ -41,7 +41,7 @@ int __thiscall AnmManager::FUN_00432730(AnmManager *this,AnmVm *vm,int param_3)
     }
     this->currentVertexShader = '\x02';
   }
-  FUN_004324d0(this,vm);
+  SetRenderStateForVm(this,vm);
   if ((g_Supervisor.cfg.opts >> DONT_USE_VERTEX_BUF & 1) == 0) {
     (*(g_Supervisor.d3dDevice)->lpVtbl->DrawPrimitiveUP)
               (g_Supervisor.d3dDevice,D3DPT_TRIANGLESTRIP,2,PRIMITIVES_TO_DRAW_VERTEXBUF,0x18);

@@ -20,7 +20,7 @@ undefined4 EffectManager::OnUpdate(int param_1)
         *(undefined *)(local_8[1].matrix.m[2] + 3) = 0;
       }
       local_8[1].matrix.m[1][2] = local_8[1].matrix.m[2][0];
-      Supervisor::FUN_00424285
+      Supervisor::TickTimer
                 (&g_Supervisor,(int *)(local_8[1].matrix.m + 2),local_8[1].matrix.m[1] + 3);
     }
     local_8 = (AnmVm *)(local_8[1].matrix.m + 3);

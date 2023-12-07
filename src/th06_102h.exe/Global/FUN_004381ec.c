@@ -94,7 +94,7 @@ void __fastcall FUN_004381ec(int param_1)
   else if (iVar1 == 0xd) {
     if (0x27 < *(int *)(param_1 + 0x81f4)) {
       if (*(int *)(param_1 + 0x81ec) != 0) {
-        FUN_0043753c(param_1,*(undefined4 *)(param_1 + 0x81ec));
+        MainMenu::FUN_0043753c((MainMenu *)param_1,*(int *)(param_1 + 0x81ec));
         *(undefined4 *)(param_1 + 0x81e8) = *(undefined4 *)(param_1 + 0x81a0);
         if (((g_CurFrameInput & 0x1001) != 0) &&
            ((g_CurFrameInput & 0x1001) != (g_LastFrameInput & 0x1001))) {
@@ -108,7 +108,7 @@ void __fastcall FUN_004381ec(int param_1)
           *(undefined2 *)(local_8 + 0x8a) = 0x10;
           *(undefined4 *)(param_1 + 0x81f4) = 0;
           *(undefined4 *)(param_1 + 0x81a0) = 0;
-          FUN_004311e0(10);
+          SoundPlayer::FUN_004311e0(&g_SoundPlayer,10);
           pbVar3 = FileSystem::OpenPath
                              ((char *)(param_1 + 0x823c + *(int *)(param_1 + 0x81e8) * 0x200),1);
           *(byte **)(param_1 + 0x10edc) = pbVar3;
@@ -135,7 +135,7 @@ LAB_0043877b:
         for (local_c = 0; local_c < 0x7a; local_c = local_c + 1) {
           *(undefined2 *)(param_1 + 0x8a + local_c * 0x110) = 4;
         }
-        FUN_004311e0(0xb);
+        SoundPlayer::FUN_004311e0(&g_SoundPlayer,0xb);
         *(undefined4 *)(param_1 + 0x81a0) = 0;
       }
     }
@@ -147,7 +147,7 @@ LAB_0043877b:
     }
   }
   else if ((iVar1 == 0xf) && (0x27 < *(int *)(param_1 + 0x81f4))) {
-    local_c = FUN_0043753c(param_1,7);
+    local_c = MainMenu::FUN_0043753c((MainMenu *)param_1,7);
     if (local_c < 0) {
       while (*(int *)(param_1 + *(int *)(param_1 + 0x81e8) * 0x50 + 0xfc50 +
                      *(int *)(param_1 + 0x81a0) * 4) == 0) {
@@ -177,7 +177,7 @@ LAB_0043877b:
         for (local_c = 0; local_c < 0x7a; local_c = local_c + 1) {
           *(undefined2 *)(param_1 + 0x8a + local_c * 0x110) = 4;
         }
-        FUN_004311e0(0xb);
+        SoundPlayer::FUN_004311e0(&g_SoundPlayer,0xb);
         *(undefined4 *)(param_1 + 0x81f0) = 0xd;
         local_8 = param_1;
         for (local_c = 0; local_c < 0x7a; local_c = local_c + 1) {
@@ -188,7 +188,7 @@ LAB_0043877b:
       }
     }
     else {
-      g_GameManager.field6_0x18._4_4_ = 1;
+      g_GameManager.field10_0x1c = 1;
       g_Supervisor.framerateMultiplier = 1.0;
       _strcpy(g_GameManager.replay_file,
               (char *)(param_1 + 0x823c + *(int *)(param_1 + 0x81e8) * 0x200));

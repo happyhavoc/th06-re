@@ -152,9 +152,11 @@ undefined4 Player::CalcMove(void)
   in_ECX[9].flags = (uint)local_10;
   *(float *)&in_ECX[9].alphaInterpEndTime = local_c;
   in_ECX[4].rotation.x =
-       local_10 * in_ECX[9].matrix.m[0][1] * g_Supervisor.field81_0x1a8 + in_ECX[4].rotation.x;
+       local_10 * in_ECX[9].matrix.m[0][1] * g_Supervisor.effectiveFramerateMultiplier +
+       in_ECX[4].rotation.x;
   pfVar7 = &in_ECX[4].rotation.y;
-  *pfVar7 = local_c * in_ECX[9].matrix.m[0][2] * g_Supervisor.field81_0x1a8 + *pfVar7;
+  *pfVar7 = local_c * in_ECX[9].matrix.m[0][2] * g_Supervisor.effectiveFramerateMultiplier + *pfVar7
+  ;
   fVar1 = in_ECX[4].rotation.x;
   if (fVar1 < (float)g_GameManager._6732_4_ == (NAN(fVar1) || NAN((float)g_GameManager._6732_4_))) {
     fVar1 = in_ECX[4].rotation.x;
@@ -235,8 +237,7 @@ undefined4 Player::CalcMove(void)
   case 2:
     while( true ) {
       in_ECX[9].matrix.m[1][3] = in_ECX[9].matrix.m[2][1];
-      Supervisor::FUN_00424285
-                (&g_Supervisor,(int *)(in_ECX[9].matrix.m[2] + 1),in_ECX[9].matrix.m[2]);
+      Supervisor::TickTimer(&g_Supervisor,(int *)(in_ECX[9].matrix.m[2] + 1),in_ECX[9].matrix.m[2]);
       fVar1 = ((float)(int)in_ECX[9].matrix.m[2][1] + in_ECX[9].matrix.m[2][0]) / 8.0;
       local_14 = (1.0 - fVar1) * 32.0 + -32.0;
       local_18 = fVar1 * fVar1 * -16.0 + 24.0;
@@ -250,8 +251,7 @@ undefined4 Player::CalcMove(void)
       in_ECX[9].matrix.m[1][3] = -NAN;
 switchD_004281aa_caseD_4:
       in_ECX[9].matrix.m[1][3] = in_ECX[9].matrix.m[2][1];
-      Supervisor::FUN_00424285
-                (&g_Supervisor,(int *)(in_ECX[9].matrix.m[2] + 1),in_ECX[9].matrix.m[2]);
+      Supervisor::TickTimer(&g_Supervisor,(int *)(in_ECX[9].matrix.m[2] + 1),in_ECX[9].matrix.m[2]);
       fVar1 = ((float)(int)in_ECX[9].matrix.m[2][1] + in_ECX[9].matrix.m[2][0]) / 8.0;
       local_14 = fVar1 * 32.0 + -32.0;
       local_18 = (1.0 - fVar1 * fVar1) * -16.0 + 24.0;

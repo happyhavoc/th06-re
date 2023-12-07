@@ -12,8 +12,8 @@ void __thiscall AsciiManager::AsciiManager(AsciiManager *this)
   do {
     local_28 = local_28 + -1;
   } while (-1 < local_28);
-  AsciiManagerProbablyStageRelated::AsciiManagerProbablyStageRelated(&this->field17_0x6244);
-  AsciiManagerProbablyStageRelated::AsciiManagerProbablyStageRelated(&this->field18_0x69bc);
+  StageMenu::StageMenu(&this->game_menu);
+  StageMenu::StageMenu(&this->retry_menu);
   local_80 = 0x203;
   local_88 = this->popups0;
   while (local_80 = local_80 + -1, -1 < local_80) {

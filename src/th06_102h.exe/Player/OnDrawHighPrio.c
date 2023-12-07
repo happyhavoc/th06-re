@@ -11,7 +11,7 @@ undefined4 Player::OnDrawHighPrio(AnmVm *param_1)
   (param_1->pos).x = g_GameManager.arcade_region_top_left_pos.x + param_1[4].rotation.x;
   (param_1->pos).y = g_GameManager.arcade_region_top_left_pos.y + param_1[4].rotation.y;
   (param_1->pos).z = 0.49;
-  if (g_GameManager.field22_0x1820 == 0) {
+  if (g_GameManager.is_in_retry_menu == 0) {
     AnmManager::FUN_00432ad0(g_AnmManager,param_1);
     if ((*(char *)((int)param_1[9].matrix.m[1] + 6) != '\0') &&
        ((*(char *)(param_1[9].matrix.m[1] + 1) == '\0' ||

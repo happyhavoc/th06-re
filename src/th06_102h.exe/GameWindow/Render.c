@@ -93,7 +93,7 @@ LAB_004209ab:
 LAB_00420a0b:
     FUN_00420b50();
     if (NAN(g_Supervisor.framerateMultiplier) == (g_Supervisor.framerateMultiplier == 0.0)) {
-      g_Supervisor.field81_0x1a8 = g_Supervisor.framerateMultiplier;
+      g_Supervisor.effectiveFramerateMultiplier = g_Supervisor.framerateMultiplier;
     }
     else if (1 < (int)UINT_006c6bf4) {
       timeBeginPeriod(1);
@@ -105,14 +105,14 @@ LAB_00420a0b:
               (double)(g_Supervisor.cfg.frameskipConfig + 1);
       if (dVar1 < 0.865) {
         if (dVar1 < 0.6) {
-          g_Supervisor.field81_0x1a8 = 0.5;
+          g_Supervisor.effectiveFramerateMultiplier = 0.5;
         }
         else {
-          g_Supervisor.field81_0x1a8 = 0.8;
+          g_Supervisor.effectiveFramerateMultiplier = 0.8;
         }
       }
       else {
-        g_Supervisor.field81_0x1a8 = 1.0;
+        g_Supervisor.effectiveFramerateMultiplier = 1.0;
       }
       g_Supervisor.lastFrameTime = DVar3;
       timeEndPeriod(1);

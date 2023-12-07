@@ -26,7 +26,7 @@ void FUN_00417bfd(int param_1,char *param_2)
   } while (cVar1 != '\0');
   *(float *)(in_ECX + 0xc) =
        (float)(ulonglong)(uint)(((int)local_1c - (int)(param_2 + 1)) * 0xf) / 2.0 + 16.0;
-  FUN_004311e0(0xe);
+  SoundPlayer::FUN_004311e0(&g_SoundPlayer,0xe);
   return;
 }
 

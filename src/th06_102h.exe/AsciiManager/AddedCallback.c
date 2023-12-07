@@ -11,7 +11,7 @@ int AsciiManager::AddedCallback(AsciiManager *arg)
     if (res == ZUN_SUCCESS) {
       res = AnmManager::LoadAnm(g_AnmManager,3,"data/capture.anm",0x718);
       if (res == ZUN_SUCCESS) {
-        Initialize(arg);
+        InitializeVms(arg);
         iVar1 = 0;
       }
       else {

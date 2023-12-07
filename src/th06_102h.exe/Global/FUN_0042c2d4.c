@@ -60,7 +60,7 @@ void __fastcall FUN_0042c2d4(int param_1)
       if (*(int *)(param_1 + 0x10) == 0) goto LAB_0042c515;
     }
     *(undefined4 *)(param_1 + 4) = 0;
-    FUN_004311e0(0xb);
+    SoundPlayer::FUN_004311e0(&g_SoundPlayer,0xb);
     *(undefined4 *)(param_1 + 8) = 2;
     local_8 = param_1 + 0x40;
     for (local_10 = 0; local_10 < 0x26; local_10 = local_10 + 1) {
@@ -76,7 +76,7 @@ void __fastcall FUN_0042c2d4(int param_1)
           (((g_CurFrameInput & 10) != 0 && ((g_CurFrameInput & 10) != (g_LastFrameInput & 10)))))))
       {
         *(undefined4 *)(param_1 + 4) = 0;
-        FUN_004311e0(0xb);
+        SoundPlayer::FUN_004311e0(&g_SoundPlayer,0xb);
         *(undefined4 *)(param_1 + 8) = 2;
         local_8 = param_1 + 0x40;
         for (local_10 = 0; local_10 < 0x26; local_10 = local_10 + 1) {
@@ -98,7 +98,7 @@ void __fastcall FUN_0042c2d4(int param_1)
               *(int *)(param_1 + 0x20) = *(int *)(param_1 + 0x20) + 0x60;
             }
           } while (PTR_DAT_004784d4[*(int *)(param_1 + 0x20)] == ' ');
-          FUN_004311e0(0xc);
+          SoundPlayer::FUN_004311e0(&g_SoundPlayer,0xc);
         }
         if ((((g_CurFrameInput & 0x20) != 0) &&
             ((g_CurFrameInput & 0x20) != (g_LastFrameInput & 0x20))) ||
@@ -109,7 +109,7 @@ void __fastcall FUN_0042c2d4(int param_1)
               *(int *)(param_1 + 0x20) = *(int *)(param_1 + 0x20) + -0x60;
             }
           } while (PTR_DAT_004784d4[*(int *)(param_1 + 0x20)] == ' ');
-          FUN_004311e0(0xc);
+          SoundPlayer::FUN_004311e0(&g_SoundPlayer,0xc);
         }
         if ((((g_CurFrameInput & 0x40) != 0) &&
             ((g_CurFrameInput & 0x40) != (g_LastFrameInput & 0x40))) ||
@@ -123,7 +123,7 @@ void __fastcall FUN_0042c2d4(int param_1)
               *(undefined4 *)(param_1 + 0x20) = 0xf;
             }
           } while (PTR_DAT_004784d4[*(int *)(param_1 + 0x20)] == ' ');
-          FUN_004311e0(0xc);
+          SoundPlayer::FUN_004311e0(&g_SoundPlayer,0xc);
         }
         if ((((g_CurFrameInput & 0x80) != 0) &&
             ((g_CurFrameInput & 0x80) != (g_LastFrameInput & 0x80))) ||
@@ -134,7 +134,7 @@ void __fastcall FUN_0042c2d4(int param_1)
               *(int *)(param_1 + 0x20) = *(int *)(param_1 + 0x20) + -0x10;
             }
           } while (PTR_DAT_004784d4[*(int *)(param_1 + 0x20)] == ' ');
-          FUN_004311e0(0xc);
+          SoundPlayer::FUN_004311e0(&g_SoundPlayer,0xc);
         }
         if ((((g_CurFrameInput & 0x1001) != 0) &&
             ((g_CurFrameInput & 0x1001) != (g_LastFrameInput & 0x1001))) ||
@@ -168,7 +168,7 @@ void __fastcall FUN_0042c2d4(int param_1)
              )) {
             *(undefined4 *)(param_1 + 0x20) = 0x5f;
           }
-          FUN_004311e0(10);
+          SoundPlayer::FUN_004311e0(&g_SoundPlayer,10);
         }
         if ((((g_CurFrameInput & 10) != 0) && ((g_CurFrameInput & 10) != (g_LastFrameInput & 10)))
            || (((g_CurFrameInput & 10) != 0 && (DAT_0069d90c != 0)))) {
@@ -182,7 +182,7 @@ void __fastcall FUN_0042c2d4(int param_1)
             *(int *)(param_1 + 0x10) = *(int *)(param_1 + 0x10) + -1;
             *(undefined *)(param_1 + local_b8 + 0x34) = 0x20;
           }
-          FUN_004311e0(0xb);
+          SoundPlayer::FUN_004311e0(&g_SoundPlayer,0xb);
         }
         if (((g_CurFrameInput & 8) == 0) || ((g_CurFrameInput & 8) == (g_LastFrameInput & 8)))
         goto LAB_0042d095;
@@ -219,7 +219,7 @@ void __fastcall FUN_0042c2d4(int param_1)
         }
       }
 LAB_0042c515:
-      FUN_004311e0(10);
+      SoundPlayer::FUN_004311e0(&g_SoundPlayer,10);
       *(undefined4 *)(param_1 + 8) = 0xc;
       local_8 = param_1 + 0x40;
       for (local_10 = 0; local_10 < 0x26; local_10 = local_10 + 1) {
@@ -253,7 +253,7 @@ LAB_0042c515:
       *(undefined4 *)(param_1 + 0x1c) = *(undefined4 *)(param_1 + 0x10);
       if (((g_CurFrameInput & 0x1001) != 0) &&
          ((g_CurFrameInput & 0x1001) != (g_LastFrameInput & 0x1001))) {
-        FUN_004311e0(10);
+        SoundPlayer::FUN_004311e0(&g_SoundPlayer,10);
         *(undefined4 *)(param_1 + 0x1c) = *(undefined4 *)(param_1 + 0x10);
         *(undefined4 *)(param_1 + 4) = 0;
         FUN_0045d414(param_1 + 0x5670);
@@ -284,7 +284,7 @@ LAB_0042c515:
         *(undefined4 *)(param_1 + 0x20) = 0;
       }
       if (((g_CurFrameInput & 10) != 0) && ((g_CurFrameInput & 10) != (g_LastFrameInput & 10))) {
-        FUN_004311e0(0xb);
+        SoundPlayer::FUN_004311e0(&g_SoundPlayer,0xb);
         *(undefined4 *)(param_1 + 8) = 10;
         local_8 = param_1 + 0x40;
         for (local_10 = 0; local_10 < 0x26; local_10 = local_10 + 1) {

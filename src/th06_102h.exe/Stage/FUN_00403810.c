@@ -12,7 +12,7 @@ int Stage::FUN_00403810(Stage *arg)
   StdRawInstr *local_c;
   
   if (arg->stdData != (byte *)0x0) {
-    if (g_GameManager.field6_0x18[20] == '\0') {
+    if (g_GameManager._44_1_ == '\0') {
       do {
         local_c = arg->beginningOfScript + arg->instructionIndex;
         switch(local_c->field1_0x4) {
@@ -65,7 +65,7 @@ switchD_00403892_caseD_6:
           if (arg->facingDirInterpDuration != 0) {
             if ((arg->facingDirInterpTimer).current < arg->facingDirInterpDuration) {
               (arg->facingDirInterpTimer).previous = (arg->facingDirInterpTimer).current;
-              Supervisor::FUN_00424285
+              Supervisor::TickTimer
                         (&g_Supervisor,&(arg->facingDirInterpTimer).current,
                          &(arg->facingDirInterpTimer).subFrame);
             }
@@ -88,7 +88,7 @@ switchD_00403892_caseD_6:
           }
           if (arg->skyFogInterpDuration != 0) {
             (arg->skyFogInterpTimer).previous = (arg->skyFogInterpTimer).current;
-            Supervisor::FUN_00424285
+            Supervisor::TickTimer
                       (&g_Supervisor,&(arg->skyFogInterpTimer).current,
                        &(arg->skyFogInterpTimer).subFrame);
             local_20 = ((float)(arg->skyFogInterpTimer).current + (arg->skyFogInterpTimer).subFrame)
@@ -123,7 +123,7 @@ switchD_00403892_caseD_6:
           }
           if (local_c->field1_0x4 != 5) {
             (arg->scriptTime).previous = (arg->scriptTime).current;
-            Supervisor::FUN_00424285
+            Supervisor::TickTimer
                       (&g_Supervisor,&(arg->scriptTime).current,&(arg->scriptTime).subFrame);
           }
           FUN_00404860(arg);

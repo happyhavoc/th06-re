@@ -1,21 +1,22 @@
 
 /* WARNING: Removing unreachable block (ram,0x004300e2) */
 /* WARNING: Removing unreachable block (ram,0x00430173) */
+/* WARNING: Unknown calling convention -- yet parameter storage is locked */
 
-undefined4 FUN_0042ffc0(int param_1)
+undefined4 FUN_0042ffc0(ScreenEffect *param_1)
 
 {
   float fVar1;
   undefined4 uVar2;
   uint uVar3;
   
-  if (g_GameManager.field6_0x18[20] == '\0') {
-    *(undefined4 *)(param_1 + 0x24) = *(undefined4 *)(param_1 + 0x2c);
-    Supervisor::FUN_00424285(&g_Supervisor,(int *)(param_1 + 0x2c),(float *)(param_1 + 0x28));
-    if (*(int *)(param_1 + 0x2c) < *(int *)(param_1 + 0x14)) {
-      fVar1 = (((float)*(int *)(param_1 + 0x2c) + *(float *)(param_1 + 0x28)) *
-              (float)(*(int *)(param_1 + 0x1c) - *(int *)(param_1 + 0x18))) /
-              (float)*(int *)(param_1 + 0x14) + (float)*(int *)(param_1 + 0x18);
+  if (g_GameManager._44_1_ == '\0') {
+    (param_1->timer).previous = (param_1->timer).current;
+    Supervisor::TickTimer(&g_Supervisor,&(param_1->timer).current,&(param_1->timer).subFrame);
+    if ((param_1->timer).current < param_1->field5_0x14) {
+      fVar1 = (((float)(param_1->timer).current + (param_1->timer).subFrame) *
+              (float)(param_1->field7_0x1c - param_1->field6_0x18)) / (float)param_1->field5_0x14 +
+              (float)param_1->field6_0x18;
       uVar3 = GetRandomU32(&g_Rng.seed);
       uVar3 = uVar3 % 3;
       if (uVar3 == 0) {

@@ -13,7 +13,7 @@ undefined4 Player::OnUpdate(undefined param_1)
   undefined3 in_stack_00000005;
   int local_8;
   
-  if (g_GameManager.field6_0x18[20] != '\0') {
+  if (g_GameManager._44_1_ != '\0') {
     return 1;
   }
   for (local_8 = 0; local_8 < 0x20; local_8 = local_8 + 1) {
@@ -28,7 +28,7 @@ undefined4 Player::OnUpdate(undefined param_1)
          ('\0' < (char)g_GameManager.bombs_remaining)) &&
         (((g_CurFrameInput & 2) != 0 && ((g_CurFrameInput & 2) != (g_LastFrameInput & 2))))) &&
        (_param_1[0x6e].timeOfLastSpriteSet != 0)) {
-      g_GameManager.field6_0x18._12_4_ = g_GameManager.field6_0x18._12_4_ + 1;
+      g_GameManager._36_4_ = g_GameManager._36_4_ + 1;
       g_GameManager.bombs_remaining = g_GameManager.bombs_remaining - 1;
       DAT_0069bc30 = DAT_0069bc30 & 0xfffffff3 | 8;
       _param_1[0x6e].pos2.y = 1.401298e-45;
@@ -57,7 +57,7 @@ undefined4 Player::OnUpdate(undefined param_1)
           FUN_0041f290(_param_1 + 4,4,2);
           FUN_0041f290(_param_1 + 4,4,2);
           g_GameManager.current_power = 0;
-          g_GameManager._6172_1_ = 0xff;
+          g_GameManager.field38_0x181c = 0xff;
         }
         else {
           FUN_0041f290(_param_1 + 4,2,2);
@@ -102,11 +102,11 @@ undefined4 Player::OnUpdate(undefined param_1)
     _param_1->anmFileIndex = 0x400;
     AnmManager::SetAndExecuteScript(this,_param_1,this->scripts[0x400]);
     if ((char)g_GameManager.lives_remaining < '\x01') {
-      g_GameManager.field22_0x1820 = 1;
+      g_GameManager.is_in_retry_menu = 1;
       goto LAB_00428fa8;
     }
     g_GameManager.lives_remaining = g_GameManager.lives_remaining - 1;
-    if (((int)g_GameManager.difficulty < 4) && (g_GameManager._6179_1_ == '\0')) {
+    if (((int)g_GameManager.difficulty < 4) && (g_GameManager.field45_0x1823 == 0)) {
       g_GameManager.bombs_remaining = g_Supervisor.bombCount;
     }
     else {
@@ -139,10 +139,10 @@ undefined4 Player::OnUpdate(undefined param_1)
 LAB_00428fa8:
   if (_param_1[9].matrix.m[1][0] != 0.0) {
     _param_1[9].matrix.m[1][0] = (float)((int)_param_1[9].matrix.m[1][0] + -1);
-    FUN_00414160(0x5a5ff8,0);
+    BulletManager::FUN_00414160(0x5a5ff8,0);
   }
   if (*(char *)(_param_1[9].matrix.m[1] + 1) == '\x03') {
-    FUN_004241e5(&_param_1[0x6e].posInterpInitial.z,1);
+    AnmTimer::FUN_004241e5((AnmTimer *)&_param_1[0x6e].posInterpInitial.z,1);
     if ((int)_param_1[0x6e].posInterpFinal.y < 1) {
       *(undefined *)(_param_1[9].matrix.m[1] + 1) = 0;
       _param_1[0x6e].posInterpFinal.y = 0.0;
@@ -168,7 +168,7 @@ LAB_00428fa8:
   }
   else {
     _param_1[0x6e].posInterpInitial.z = _param_1[0x6e].posInterpFinal.y;
-    Supervisor::FUN_00424285
+    Supervisor::TickTimer
               (&g_Supervisor,(int *)&_param_1[0x6e].posInterpFinal.y,
                &_param_1[0x6e].posInterpFinal.x);
   }

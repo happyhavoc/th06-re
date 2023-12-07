@@ -16,16 +16,18 @@ undefined4 EffectManager::FUN_0040e5b0(int param_1)
     *(float *)(param_1 + 300) = -*(float *)(param_1 + 0x120) * 0.05;
     *(float *)(param_1 + 0x130) = -*(float *)(param_1 + 0x124) * 0.05;
   }
-  fVar2 = g_Supervisor.field81_0x1a8 * *(float *)(param_1 + 0x124);
-  fVar1 = g_Supervisor.field81_0x1a8 * *(float *)(param_1 + 0x120);
+  fVar2 = g_Supervisor.effectiveFramerateMultiplier * *(float *)(param_1 + 0x124);
+  fVar1 = g_Supervisor.effectiveFramerateMultiplier * *(float *)(param_1 + 0x120);
   *(float *)(param_1 + 0x110) =
-       g_Supervisor.field81_0x1a8 * *(float *)(param_1 + 0x11c) + *(float *)(param_1 + 0x110);
+       g_Supervisor.effectiveFramerateMultiplier * *(float *)(param_1 + 0x11c) +
+       *(float *)(param_1 + 0x110);
   *(float *)(param_1 + 0x114) = fVar1 + *(float *)(param_1 + 0x114);
   *(float *)(param_1 + 0x118) = fVar2 + *(float *)(param_1 + 0x118);
-  fVar2 = g_Supervisor.field81_0x1a8 * *(float *)(param_1 + 0x130);
-  fVar1 = g_Supervisor.field81_0x1a8 * *(float *)(param_1 + 300);
+  fVar2 = g_Supervisor.effectiveFramerateMultiplier * *(float *)(param_1 + 0x130);
+  fVar1 = g_Supervisor.effectiveFramerateMultiplier * *(float *)(param_1 + 300);
   *(float *)(param_1 + 0x11c) =
-       g_Supervisor.field81_0x1a8 * *(float *)(param_1 + 0x128) + *(float *)(param_1 + 0x11c);
+       g_Supervisor.effectiveFramerateMultiplier * *(float *)(param_1 + 0x128) +
+       *(float *)(param_1 + 0x11c);
   *(float *)(param_1 + 0x120) = fVar1 + *(float *)(param_1 + 0x120);
   *(float *)(param_1 + 0x124) = fVar2 + *(float *)(param_1 + 0x124);
   return 1;

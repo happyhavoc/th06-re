@@ -25,7 +25,7 @@ void __thiscall FUN_00417acd(int param_1_00,int param_2,char *param_3)
   *(float *)(param_1_00 + 8) =
        (float)(ulonglong)(uint)(((int)local_1c - (int)(param_3 + 1)) * 0xf) / 2.0 + 16.0;
   g_Supervisor.unk198 = 3;
-  FUN_004311e0(0xe);
+  SoundPlayer::FUN_004311e0(&g_SoundPlayer,0xe);
   return;
 }
 

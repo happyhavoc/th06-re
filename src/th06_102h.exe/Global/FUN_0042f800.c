@@ -1,23 +1,23 @@
 
-bool FUN_0042f800(int param_1)
+uint FUN_0042f800(ScreenEffect *param_1)
 
 {
   bool bVar1;
-  long lVar2;
+  uint uVar2;
   
-  if (*(int *)(param_1 + 0x14) != 0) {
-    lVar2 = __ftol2((double)(255.0 - (((float)*(int *)(param_1 + 0x2c) + *(float *)(param_1 + 0x28))
-                                     * 255.0) / (float)*(int *)(param_1 + 0x14)));
-    *(long *)(param_1 + 0x10) = lVar2;
-    if (*(int *)(param_1 + 0x10) < 0) {
-      *(undefined4 *)(param_1 + 0x10) = 0;
+  if (param_1->field5_0x14 != 0) {
+    uVar2 = __ftol2((double)(255.0 - (((float)(param_1->timer).current + (param_1->timer).subFrame)
+                                     * 255.0) / (float)param_1->field5_0x14));
+    param_1->field4_0x10 = uVar2;
+    if ((int)param_1->field4_0x10 < 0) {
+      param_1->field4_0x10 = 0;
     }
   }
-  bVar1 = *(int *)(param_1 + 0x2c) < *(int *)(param_1 + 0x14);
+  bVar1 = (param_1->timer).current < param_1->field5_0x14;
   if (bVar1) {
-    *(undefined4 *)(param_1 + 0x24) = *(undefined4 *)(param_1 + 0x2c);
-    Supervisor::FUN_00424285(&g_Supervisor,(int *)(param_1 + 0x2c),(float *)(param_1 + 0x28));
+    (param_1->timer).previous = (param_1->timer).current;
+    Supervisor::TickTimer(&g_Supervisor,&(param_1->timer).current,&(param_1->timer).subFrame);
   }
-  return bVar1;
+  return (uint)bVar1;
 }
 

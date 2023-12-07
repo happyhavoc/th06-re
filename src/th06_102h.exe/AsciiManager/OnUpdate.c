@@ -1,18 +1,18 @@
 
-int AsciiManager::OnUpdate(AsciiManager *arg)
+ChainCallbackResult AsciiManager::OnUpdate(AsciiManager *arg)
 
 {
   AsciiManagerPopup *local_c;
   int local_8;
   
-  if ((g_GameManager._6175_1_ == '\0') && (g_GameManager.field22_0x1820 == 0)) {
+  if ((g_GameManager.is_in_game_menu == 0) && (g_GameManager.is_in_retry_menu == 0)) {
     local_c = arg->popups0;
     for (local_8 = 0; local_8 < 0x203; local_8 = local_8 + 1) {
       if (local_c->inUse != '\0') {
-        (local_c->position).y = (local_c->position).y - g_Supervisor.field81_0x1a8 * 0.5;
+        (local_c->position).y =
+             (local_c->position).y - g_Supervisor.effectiveFramerateMultiplier * 0.5;
         (local_c->timer).previous = (local_c->timer).current;
-        Supervisor::FUN_00424285(&g_Supervisor,&(local_c->timer).current,&(local_c->timer).subFrame)
-        ;
+        Supervisor::TickTimer(&g_Supervisor,&(local_c->timer).current,&(local_c->timer).subFrame);
         if (0x3c < (local_c->timer).current) {
           local_c->inUse = '\0';
         }
@@ -20,12 +20,12 @@ int AsciiManager::OnUpdate(AsciiManager *arg)
       local_c = local_c + 1;
     }
   }
-  else if (g_GameManager._6175_1_ != '\0') {
-    AsciiManagerProbablyStageRelated::FUN_00401b80(&arg->field17_0x6244);
+  else if (g_GameManager.is_in_game_menu != 0) {
+    StageMenu::OnUpdateGameMenu(&arg->game_menu);
   }
-  if (g_GameManager.field22_0x1820 != 0) {
-    AsciiManagerProbablyStageRelated::FUN_00402870(&arg->field18_0x69bc);
+  if (g_GameManager.is_in_retry_menu != 0) {
+    StageMenu::OnUpdateRetryMenu(&arg->retry_menu);
   }
-  return 1;
+  return CHAIN_CALLBACK_RESULT_CONTINUE;
 }
 

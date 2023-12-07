@@ -33,7 +33,7 @@ undefined4 ResultScreen::RegisterChain(int param_1)
   *(code **)(*(int *)((int)pvStack_64 + 0x51a8) + 0xc) = FUN_0042f5bc;
   *(void **)(*(int *)((int)pvStack_64 + 0x51a8) + 0x1c) = pvStack_64;
   if (param_1 != 0) {
-    if (g_GameManager._6179_1_ == '\0') {
+    if (g_GameManager.field45_0x1823 == 0) {
       *(undefined4 *)((int)pvStack_64 + 8) = 9;
     }
     else {

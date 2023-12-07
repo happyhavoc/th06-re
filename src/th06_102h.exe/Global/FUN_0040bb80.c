@@ -71,7 +71,7 @@ void FUN_0040bb80(int param_1)
         *(undefined4 *)(param_1 + 0xd18) = uVar2;
         *(float *)(param_1 + 0xd10) = *(float *)(param_1 + 0xd10) - fVar8 * 0.5235988;
       }
-      FUN_004311e0(0x16);
+      SoundPlayer::FUN_004311e0(&g_SoundPlayer,0x16);
     }
     *(int *)(param_1 + 0x9ac) = *(int *)(param_1 + 0x9ac) + 1;
   }

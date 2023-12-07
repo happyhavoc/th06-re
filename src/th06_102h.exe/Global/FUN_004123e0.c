@@ -26,8 +26,7 @@ undefined4 FUN_004123e0(int param_1)
   do {
     if (0xff < (int)local_10) {
       *(undefined4 *)(param_1 + 0xee5e0) = *(undefined4 *)(param_1 + 0xee5e8);
-      Supervisor::FUN_00424285
-                (&g_Supervisor,(int *)(param_1 + 0xee5e8),(float *)(param_1 + 0xee5e4));
+      Supervisor::TickTimer(&g_Supervisor,(int *)(param_1 + 0xee5e8),(float *)(param_1 + 0xee5e4));
       return 1;
     }
     if (-1 < *(char *)&local_28[0xd].flags) goto LAB_00412416;
@@ -166,7 +165,7 @@ switchD_00412938_caseD_2:
                      (int)*(char *)((int)local_28[0xd].matrix.m[3] + 3),local_8);
       }
       if (((*(byte *)((int)&local_28[0xd].flags + 1) >> 3 & 1) != 0) && (DAT_005a5f90 == 0)) {
-        FUN_00414360(0x3200,0);
+        BulletManager::FUN_00414360(&g_BulletManager,0x3200,0);
       }
       local_28[0xc].scaleInterpFinalX = 0.0;
       break;
@@ -191,7 +190,7 @@ switchD_00412938_caseD_2:
     if ((int)uVar4 < 0) {
       uVar4 = (uVar4 - 1 | 0xfffffffe) + 1;
     }
-    FUN_004311e0(uVar4 + 2);
+    SoundPlayer::FUN_004311e0(&g_SoundPlayer,uVar4 + 2);
     EffectManager::FUN_0040ef50
               ((int *)&g_EffectManager,(uint)*(byte *)local_28[0xd].matrix.m[3],
                (float *)&local_28[0xb].currentInstruction,1,0xffffffff);
@@ -218,7 +217,7 @@ LAB_00412ce2:
     }
     if (*(char *)((int)local_28[0xd].matrix.m[3] + 5) == '\0') {
       if ((int)local_28[0xc].scaleInterpFinalX < (int)fVar1) {
-        FUN_004311e0(0x14);
+        SoundPlayer::FUN_004311e0(&g_SoundPlayer,0x14);
         local_28->flags = local_28->flags | 8;
         *(undefined *)((int)local_28[0xd].matrix.m[3] + 5) = 4;
       }
@@ -233,9 +232,9 @@ LAB_00412ce2:
     }
 LAB_00412dbc:
     FUN_00412e50(local_28);
-    if (g_GameManager.field6_0x18[20] == '\0') {
+    if (g_GameManager._44_1_ == '\0') {
       local_28[0xc].currentTimeInScript.previous = local_28[0xc].currentTimeInScript.current;
-      Supervisor::FUN_00424285
+      Supervisor::TickTimer
                 (&g_Supervisor,&local_28[0xc].currentTimeInScript.current,
                  &local_28[0xc].currentTimeInScript.subFrame);
     }

@@ -4,7 +4,8 @@
 undefined4 Supervisor::CalcCallback(Supervisor *param_1)
 
 {
-  int iVar1;
+  ZunResult ZVar1;
+  int iVar2;
   
   if (g_SoundPlayer.streamingSound != (CStreamingSound *)0x0) {
     FUN_0043b4d0(g_SoundPlayer.streamingSound);
@@ -25,47 +26,47 @@ undefined4 Supervisor::CalcCallback(Supervisor *param_1)
   }
   if (param_1->wantedState == param_1->curState) goto LAB_0042375b;
   param_1->wantedState2 = param_1->wantedState;
-  iVar1 = param_1->wantedState;
-  if (iVar1 == 0) goto LAB_00423454;
-  if (iVar1 == 1) {
-    iVar1 = param_1->curState;
-    if (iVar1 == 2) {
-      iVar1 = GameManager::RegisterChain();
-      if (iVar1 != 0) {
+  iVar2 = param_1->wantedState;
+  if (iVar2 == 0) goto LAB_00423454;
+  if (iVar2 == 1) {
+    iVar2 = param_1->curState;
+    if (iVar2 == 2) {
+      iVar2 = GameManager::RegisterChain();
+      if (iVar2 != 0) {
         return CHAIN_CALLBACK_RESULT_EXIT_GAME_SUCCESS;
       }
     }
     else {
-      if (iVar1 == 4) {
+      if (iVar2 == 4) {
         return CHAIN_CALLBACK_RESULT_EXIT_GAME_SUCCESS;
       }
-      if (iVar1 == 5) {
+      if (iVar2 == 5) {
         return CHAIN_CALLBACK_RESULT_EXIT_GAME_ERROR;
       }
-      if (iVar1 == 6) {
-        iVar1 = ResultScreen::RegisterChain(0);
-        if (iVar1 != 0) {
+      if (iVar2 == 6) {
+        iVar2 = ResultScreen::RegisterChain(0);
+        if (iVar2 != 0) {
           return CHAIN_CALLBACK_RESULT_EXIT_GAME_SUCCESS;
         }
       }
-      else if (iVar1 == 9) {
-        iVar1 = MusicRoom::RegisterChain();
-        if (iVar1 != 0) {
+      else if (iVar2 == 9) {
+        iVar2 = MusicRoom::RegisterChain();
+        if (iVar2 != 0) {
           return CHAIN_CALLBACK_RESULT_EXIT_GAME_SUCCESS;
         }
       }
-      else if (iVar1 == 10) {
+      else if (iVar2 == 10) {
         GameManager::Deinitialize();
-        iVar1 = FUN_004107b0();
-        if (iVar1 != 0) {
+        iVar2 = FUN_004107b0();
+        if (iVar2 != 0) {
           return CHAIN_CALLBACK_RESULT_EXIT_GAME_SUCCESS;
         }
       }
     }
   }
-  else if (iVar1 == 2) {
-    iVar1 = param_1->curState;
-    if (iVar1 == 1) {
+  else if (iVar2 == 2) {
+    iVar2 = param_1->curState;
+    if (iVar2 == 1) {
 LAB_004235a0:
       GameManager::Deinitialize();
       param_1->curState = 0;
@@ -73,52 +74,52 @@ LAB_004235a0:
 LAB_00423454:
       param_1->curState = 1;
       (*(g_Supervisor.d3dDevice)->lpVtbl->ResourceManagerDiscardBytes)(g_Supervisor.d3dDevice,0);
-      iVar1 = MainMenu::RegisterChain(0);
-      if (iVar1 != 0) {
+      ZVar1 = MainMenu::RegisterChain(0);
+      if (ZVar1 != ZUN_SUCCESS) {
         return CHAIN_CALLBACK_RESULT_EXIT_GAME_SUCCESS;
       }
     }
-    else if (iVar1 == 3) {
+    else if (iVar2 == 3) {
       GameManager::Deinitialize();
-      iVar1 = GameManager::RegisterChain();
-      if (iVar1 != 0) {
+      iVar2 = GameManager::RegisterChain();
+      if (iVar2 != 0) {
         return CHAIN_CALLBACK_RESULT_EXIT_GAME_SUCCESS;
       }
       if (param_1->curState == 1) goto LAB_004235a0;
       param_1->curState = 2;
     }
     else {
-      if (iVar1 == 4) {
+      if (iVar2 == 4) {
         return CHAIN_CALLBACK_RESULT_EXIT_GAME_SUCCESS;
       }
-      if (iVar1 == 7) {
+      if (iVar2 == 7) {
         GameManager::Deinitialize();
-        iVar1 = ResultScreen::RegisterChain(1);
-        if (iVar1 != 0) {
+        iVar2 = ResultScreen::RegisterChain(1);
+        if (iVar2 != 0) {
           return CHAIN_CALLBACK_RESULT_EXIT_GAME_SUCCESS;
         }
       }
-      else if (iVar1 == 8) {
+      else if (iVar2 == 8) {
         GameManager::Deinitialize();
         param_1->curState = 0;
         FUN_0042ab30(0,0);
         param_1->curState = 1;
         (*(g_Supervisor.d3dDevice)->lpVtbl->ResourceManagerDiscardBytes)(g_Supervisor.d3dDevice,0);
-        iVar1 = MainMenu::RegisterChain(1);
-        if (iVar1 != 0) {
+        ZVar1 = MainMenu::RegisterChain(1);
+        if (ZVar1 != ZUN_SUCCESS) {
           return CHAIN_CALLBACK_RESULT_EXIT_GAME_SUCCESS;
         }
       }
-      else if (iVar1 == 10) {
+      else if (iVar2 == 10) {
         GameManager::Deinitialize();
-        iVar1 = FUN_004107b0();
-        if (iVar1 != 0) {
+        iVar2 = FUN_004107b0();
+        if (iVar2 != 0) {
           return CHAIN_CALLBACK_RESULT_EXIT_GAME_SUCCESS;
         }
       }
     }
   }
-  else if (iVar1 == 6) {
+  else if (iVar2 == 6) {
     if (param_1->curState == 1) {
       param_1->curState = 0;
       goto LAB_00423454;
@@ -127,7 +128,7 @@ LAB_00423454:
       return CHAIN_CALLBACK_RESULT_EXIT_GAME_SUCCESS;
     }
   }
-  else if (iVar1 == 7) {
+  else if (iVar2 == 7) {
     if (param_1->curState == 1) {
       param_1->curState = 0;
       FUN_0042ab30(0,0);
@@ -138,7 +139,7 @@ LAB_00423454:
       return CHAIN_CALLBACK_RESULT_EXIT_GAME_SUCCESS;
     }
   }
-  else if (iVar1 == 9) {
+  else if (iVar2 == 9) {
     if (param_1->curState == 1) {
       param_1->curState = 0;
       goto LAB_00423454;
@@ -147,16 +148,16 @@ LAB_00423454:
       return CHAIN_CALLBACK_RESULT_EXIT_GAME_SUCCESS;
     }
   }
-  else if (iVar1 == 10) {
-    iVar1 = param_1->curState;
-    if (iVar1 == 1) {
+  else if (iVar2 == 10) {
+    iVar2 = param_1->curState;
+    if (iVar2 == 1) {
       param_1->curState = 0;
       goto LAB_00423454;
     }
-    if (iVar1 == 4) {
+    if (iVar2 == 4) {
       return CHAIN_CALLBACK_RESULT_EXIT_GAME_SUCCESS;
     }
-    if ((iVar1 == 7) && (iVar1 = ResultScreen::RegisterChain(1), iVar1 != 0)) {
+    if ((iVar2 == 7) && (iVar2 = ResultScreen::RegisterChain(1), iVar2 != 0)) {
       return CHAIN_CALLBACK_RESULT_EXIT_GAME_SUCCESS;
     }
   }

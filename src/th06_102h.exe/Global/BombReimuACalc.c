@@ -66,7 +66,7 @@ void BombReimuACalc(int param_1)
           AnmManager::FUN_004051b0(g_AnmManager,local_14,local_28 + 0x485);
           local_14 = local_14 + 1;
         }
-        FUN_004311e0(0xd);
+        SoundPlayer::FUN_004311e0(&g_SoundPlayer,0xd);
       }
     }
     *(undefined *)(param_1 + 0x9e0) = 3;
@@ -138,8 +138,8 @@ void BombReimuACalc(int param_1)
               *(undefined4 *)(param_1 + 0x7b8 + local_10 * 4) = 200;
               *(undefined4 *)(param_1 + 0x8c0 + local_10 * 0x10) = 0x43800000;
               *(undefined4 *)(param_1 + 0x8c4 + local_10 * 0x10) = 0x43800000;
-              FUN_004311e0(0xf);
-              FUN_0042fd30(1,0x10,8,0);
+              SoundPlayer::FUN_004311e0(&g_SoundPlayer,0xf);
+              ScreenEffect::RegisterChain(1,0x10,8,0);
             }
           }
         }
@@ -151,10 +151,12 @@ void BombReimuACalc(int param_1)
           *(undefined4 *)(param_1 + 0x75e4 + local_10 * 4) = 0;
         }
         *(float *)(param_1 + 0x7624 + local_10 * 0xc) =
-             g_Supervisor.field81_0x1a8 * *(float *)(param_1 + 0x7684 + local_10 * 0xc) +
+             g_Supervisor.effectiveFramerateMultiplier *
+             *(float *)(param_1 + 0x7684 + local_10 * 0xc) +
              *(float *)(param_1 + 0x7624 + local_10 * 0xc);
         *(float *)(param_1 + 0x7628 + local_10 * 0xc) =
-             g_Supervisor.field81_0x1a8 * *(float *)(param_1 + 0x7688 + local_10 * 0xc) +
+             g_Supervisor.effectiveFramerateMultiplier *
+             *(float *)(param_1 + 0x7688 + local_10 * 0xc) +
              *(float *)(param_1 + 0x7628 + local_10 * 0xc);
         AnmManager::ExecuteScript(g_AnmManager,(AnmVm *)(param_1 + 0x76e4 + local_10 * 0x440));
         AnmManager::ExecuteScript
@@ -166,7 +168,7 @@ void BombReimuACalc(int param_1)
       }
     }
     *(undefined4 *)(param_1 + 0x75d0) = *(undefined4 *)(param_1 + 0x75d8);
-    Supervisor::FUN_00424285(&g_Supervisor,(int *)(param_1 + 0x75d8),(float *)(param_1 + 0x75d4));
+    Supervisor::TickTimer(&g_Supervisor,(int *)(param_1 + 0x75d8),(float *)(param_1 + 0x75d4));
   }
   else {
     FUN_00417314();

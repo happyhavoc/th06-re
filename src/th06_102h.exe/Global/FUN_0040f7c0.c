@@ -31,7 +31,7 @@ void __fastcall FUN_0040f7c0(int param_1)
   }
   *(undefined2 *)puVar8 = 0;
   if (0 < *(int *)(param_1 + 0x113c)) {
-    FUN_004241e5((void *)(param_1 + 0x1134),1);
+    AnmTimer::FUN_004241e5((AnmTimer *)(param_1 + 0x1134),1);
     if (*(int *)(param_1 + 0x1140) == 0) {
       if ((((g_CurFrameInput & 0x1001) != 0) &&
           ((g_CurFrameInput & 0x1001) != (g_LastFrameInput & 0x1001))) ||
@@ -234,7 +234,7 @@ switchD_0040fa93_caseD_52:
       }
     } while( true );
   }
-  FUN_004241e5((void *)(param_1 + 0x1128),1);
+  AnmTimer::FUN_004241e5((AnmTimer *)(param_1 + 0x1128),1);
   if (*(int *)(param_1 + 0x1144) == 0) {
     if ((((g_CurFrameInput & 0x1001) != 0) &&
         ((g_CurFrameInput & 0x1001) != (g_LastFrameInput & 0x1001))) ||
@@ -278,7 +278,7 @@ switchD_0040fa32_caseD_0:
   *(int *)(param_1 + 0x1154) = *(int *)(param_1 + 0x1154) + 1;
 LAB_00410546:
   *(undefined4 *)(param_1 + 0x111c) = *(undefined4 *)(param_1 + 0x1124);
-  Supervisor::FUN_00424285(&g_Supervisor,(int *)(param_1 + 0x1124),(float *)(param_1 + 0x1120));
+  Supervisor::TickTimer(&g_Supervisor,(int *)(param_1 + 0x1124),(float *)(param_1 + 0x1120));
   *(float *)(param_1 + 0xc) = *(float *)(param_1 + 0xc) - *(float *)(param_1 + 0x10);
   if (*(float *)(param_1 + 0xc) < 0.0 != (*(float *)(param_1 + 0xc) == 0.0)) {
     *(undefined4 *)(param_1 + 0xc) = 0;

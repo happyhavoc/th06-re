@@ -16,11 +16,11 @@ undefined4 EclManager::run_ecl(AnmVm *param_1)
   AnmManager *pAVar9;
   uint *puVar10;
   AnmLoadedSprite **ppAVar11;
-  int *piVar12;
-  D3DCOLOR *pDVar13;
-  uint uVar14;
-  AnmRawInstr **ppAVar15;
-  AnmVm *pAVar16;
+  D3DCOLOR *pDVar12;
+  uint uVar13;
+  AnmRawInstr **ppAVar14;
+  AnmVm *pAVar15;
+  int *piVar16;
   float *pfVar17;
   byte bVar18;
   int iVar19;
@@ -97,12 +97,12 @@ LAB_004074b1:
 LAB_0040954d:
     param_1[9].rotation.x = (float)((int)local_20 + (int)*(short *)((int)local_20 + 6));
     if ((*(byte *)((int)&param_1[0xd].flags + 2) >> 2 & 1) == 0) {
-      pAVar16 = param_1 + 9;
+      pAVar15 = param_1 + 9;
       pfVar17 = (float *)((int)&param_1[9].matrix +
                          *(int *)&param_1[0xb].posInterpEndTime * 0x4c + 0x10);
       for (iVar19 = 0x13; iVar19 != 0; iVar19 = iVar19 + -1) {
-        *pfVar17 = (pAVar16->rotation).x;
-        pAVar16 = (AnmVm *)&(pAVar16->rotation).y;
+        *pfVar17 = (pAVar15->rotation).x;
+        pAVar15 = (AnmVm *)&(pAVar15->rotation).y;
         pfVar17 = pfVar17 + 1;
       }
     }
@@ -122,7 +122,8 @@ LAB_004074ce:
     if (bVar18 == 1) {
       fVar23 = (float10)FUN_0041e850(param_1[0xb].posInterpFinal.z);
       param_1[0xb].posInterpFinal.z = (float)fVar23;
-      param_1[0xb].pos2.y = g_Supervisor.field81_0x1a8 * param_1[0xb].pos2.z + param_1[0xb].pos2.y;
+      param_1[0xb].pos2.y =
+           g_Supervisor.effectiveFramerateMultiplier * param_1[0xb].pos2.z + param_1[0xb].pos2.y;
       fVar25 = param_1[0xb].pos2.y;
       fVar22 = (float10)param_1[0xb].posInterpFinal.z;
       fVar23 = (float10)fcos(fVar22);
@@ -132,7 +133,7 @@ LAB_004074ce:
       param_1[0xb].posInterpFinal.y = 0.0;
     }
     else if (bVar18 == 2) {
-      FUN_004241e5(&param_1[0xc].rotation.y,1);
+      AnmTimer::FUN_004241e5((AnmTimer *)&param_1[0xc].rotation.y,1);
       local_bc = ((float)(int)param_1[0xc].angleVel.x + param_1[0xc].rotation.z) /
                  (float)(int)param_1[0xc].angleVel.y;
       if (1.0 <= local_bc) {
@@ -188,7 +189,7 @@ LAB_004074ce:
     if (0 < (int)param_1[0xc].scaleInterpFinalX) {
       if (0 < (int)param_1[0xc].pos.y) {
         param_1[0xc].pos.z = param_1[0xc].scaleInterpInitialX;
-        Supervisor::FUN_00424285
+        Supervisor::TickTimer
                   (&g_Supervisor,(int *)&param_1[0xc].scaleInterpInitialX,
                    &param_1[0xc].scaleInterpInitialY);
         if ((int)param_1[0xc].pos.y <= (int)param_1[0xc].scaleInterpInitialX) {
@@ -260,7 +261,7 @@ LAB_004074ce:
     }
     param_1[9].rotation.x = (float)local_20;
     param_1[9].rotation.y = param_1[9].angleVel.x;
-    Supervisor::FUN_00424285(&g_Supervisor,(int *)&param_1[9].angleVel,&param_1[9].rotation.z);
+    Supervisor::TickTimer(&g_Supervisor,(int *)&param_1[9].angleVel,&param_1[9].rotation.z);
     return 0;
   }
   if (((uint)*(byte *)((int)local_20 + 9) & 1 << ((byte)g_GameManager.difficulty & 0x1f)) == 0)
@@ -272,8 +273,8 @@ LAB_004074ce:
   case 2:
     goto switchD_00407544_caseD_2;
   case 3:
-    piVar12 = FUN_0040afb0((int)param_1,(int *)(local_20 + 5),(undefined4 *)0x0);
-    local_14 = (float)(*piVar12 - 1);
+    piVar16 = FUN_0040afb0((int)param_1,(int *)(local_20 + 5),(undefined4 *)0x0);
+    local_14 = (float)(*piVar16 - 1);
     FUN_0040b3c0((int)param_1,local_1c[2],(int *)&local_14);
     fVar25 = local_14;
     goto joined_r0x00407ab4;
@@ -288,8 +289,8 @@ LAB_004074ce:
       local_29c = 0.0;
     }
     else {
-      uVar14 = GetRandomU32(&g_Rng.seed);
-      local_29c = (float)(uVar14 % local_24);
+      uVar13 = GetRandomU32(&g_Rng.seed);
+      local_29c = (float)(uVar13 % local_24);
     }
     local_14 = local_29c;
     FUN_0040b3c0((int)param_1,local_20[3],(int *)&local_14);
@@ -297,8 +298,8 @@ LAB_004074ce:
   case 7:
     puVar10 = (uint *)FUN_0040afb0((int)param_1,(int *)(local_20 + 4),(undefined4 *)0x0);
     local_28 = *puVar10;
-    piVar12 = FUN_0040afb0((int)param_1,(int *)(local_1c + 2),(undefined4 *)0x0);
-    local_2c = *piVar12;
+    piVar16 = FUN_0040afb0((int)param_1,(int *)(local_1c + 2),(undefined4 *)0x0);
+    local_2c = *piVar16;
     if (local_28 == 0) {
       local_2a0 = 0;
     }
@@ -373,10 +374,10 @@ LAB_004074ce:
     FUN_0040b3c0((int)param_1,local_20[3],(int *)&local_18);
     break;
   case 0x1b:
-    piVar12 = FUN_0040afb0((int)param_1,(int *)(local_20 + 3),(undefined4 *)0x0);
-    local_48 = *piVar12;
-    piVar12 = FUN_0040afb0((int)param_1,(int *)(local_20 + 4),(undefined4 *)0x0);
-    local_44 = *piVar12;
+    piVar16 = FUN_0040afb0((int)param_1,(int *)(local_20 + 3),(undefined4 *)0x0);
+    local_48 = *piVar16;
+    piVar16 = FUN_0040afb0((int)param_1,(int *)(local_20 + 4),(undefined4 *)0x0);
+    local_44 = *piVar16;
     if (local_48 == local_44) {
       local_2a4 = 0.0;
     }
@@ -465,10 +466,10 @@ switchD_00407544_caseD_2:
     param_1[0xb].currentInstruction = (AnmRawInstr *)local_20[3];
     param_1[0xb].sprite = (AnmLoadedSprite *)local_20[4];
     param_1[0xb].alphaInterpInitial = (D3DCOLOR)local_20[5];
-    ppAVar15 = (AnmRawInstr **)
+    ppAVar14 = (AnmRawInstr **)
                FUN_0040b380((int)param_1,(float *)&param_1[0xb].currentInstruction,(undefined4 *)0x0
                            );
-    param_1[0xb].currentInstruction = *ppAVar15;
+    param_1[0xb].currentInstruction = *ppAVar14;
     ppAVar11 = (AnmLoadedSprite **)
                FUN_0040b380((int)param_1,(float *)&param_1[0xb].sprite,(undefined4 *)0x0);
     param_1[0xb].sprite = *ppAVar11;
@@ -658,8 +659,8 @@ switchD_00407544_caseD_2:
     local_58 = param_1[0xc].matrix.m[0] + 1;
     *(undefined2 *)local_58 = *(undefined2 *)local_54;
     param_1[0xc].autoRotate = *(short *)(local_20 + 1) - 0x43;
-    piVar12 = FUN_0040afb0((int)param_1,(int *)(local_20 + 4),(undefined4 *)0x0);
-    *(undefined2 *)(local_58 + 0x11) = *(undefined2 *)piVar12;
+    piVar16 = FUN_0040afb0((int)param_1,(int *)(local_20 + 4),(undefined4 *)0x0);
+    *(undefined2 *)(local_58 + 0x11) = *(undefined2 *)piVar16;
     iVar19 = ((int)*(short *)((int)&param_1[0xc].scaleX + 2) - (int)*(short *)&param_1[0xc].scaleX)
              * g_GameManager.rank;
     *(short *)(local_58 + 0x11) =
@@ -668,8 +669,8 @@ switchD_00407544_caseD_2:
     if (*(short *)(local_58 + 0x11) < 1) {
       *(undefined2 *)(local_58 + 0x11) = 1;
     }
-    piVar12 = FUN_0040afb0((int)param_1,(int *)(local_54 + 2),(undefined4 *)0x0);
-    *(undefined2 *)((int)local_58 + 0x46) = *(undefined2 *)piVar12;
+    piVar16 = FUN_0040afb0((int)param_1,(int *)(local_54 + 2),(undefined4 *)0x0);
+    *(undefined2 *)((int)local_58 + 0x46) = *(undefined2 *)piVar16;
     iVar19 = ((int)*(short *)((int)&param_1[0xc].scaleInterpFinalY + 2) -
              (int)*(short *)&param_1[0xc].scaleInterpFinalY) * g_GameManager.rank;
     *(short *)((int)local_58 + 0x46) =
@@ -711,8 +712,8 @@ switchD_00407544_caseD_2:
     *(undefined2 *)((int)local_58 + 0x4a) = 0;
     local_58[0x13] = local_54[7];
     local_14 = (float)(int)*(short *)((int)local_54 + 2);
-    piVar12 = FUN_0040afb0((int)param_1,(int *)&local_14,(undefined4 *)0x0);
-    *(undefined2 *)((int)local_58 + 2) = *(undefined2 *)piVar12;
+    piVar16 = FUN_0040afb0((int)param_1,(int *)&local_14,(undefined4 *)0x0);
+    *(undefined2 *)((int)local_58 + 2) = *(undefined2 *)piVar16;
     if ((*(byte *)&param_1[0xd].flags >> 5 & 1) == 0) {
       FUN_004145c0((int)local_58);
     }
@@ -741,8 +742,8 @@ switchD_00407544_caseD_2:
         local_184 = 0.0;
       }
       else {
-        uVar14 = GetRandomU32(&g_Rng.seed);
-        local_184 = (float)(uVar14 % (uint)local_184);
+        uVar13 = GetRandomU32(&g_Rng.seed);
+        local_184 = (float)(uVar13 % (uint)local_184);
       }
       param_1[0xc].scaleInterpInitialX = local_184;
       param_1[0xc].scaleInterpInitialY = 0.0;
@@ -781,8 +782,8 @@ switchD_00407544_caseD_2:
     param_1[0xc].matrix.m[3][2] = *pfVar17;
     pfVar17 = (float *)FUN_0040afb0((int)param_1,(int *)(local_1c + 2),(undefined4 *)0x0);
     param_1[0xc].matrix.m[3][3] = *pfVar17;
-    pDVar13 = (D3DCOLOR *)FUN_0040afb0((int)param_1,(int *)(local_1c + 3),(undefined4 *)0x0);
-    param_1[0xc].color = *pDVar13;
+    pDVar12 = (D3DCOLOR *)FUN_0040afb0((int)param_1,(int *)(local_1c + 3),(undefined4 *)0x0);
+    param_1[0xc].color = *pDVar12;
     pfVar17 = FUN_0040b380((int)param_1,local_1c + 4,(undefined4 *)0x0);
     param_1[0xc].matrix.m[2][1] = *pfVar17;
     pfVar17 = FUN_0040b380((int)param_1,local_1c + 5,(undefined4 *)0x0);
@@ -822,8 +823,8 @@ switchD_00407544_caseD_2:
          *(undefined2 *)((int)local_20 + 0xe);
     pfVar17 = FUN_0040b380((int)param_1,local_20 + 4,(undefined4 *)0x0);
     *(float *)((int)(local_60 + 1) + 4) = *pfVar17;
-    ppAVar15 = (AnmRawInstr **)FUN_0040b380((int)param_1,local_64 + 2,(undefined4 *)0x0);
-    *(AnmRawInstr **)(local_60 + 2) = *ppAVar15;
+    ppAVar14 = (AnmRawInstr **)FUN_0040b380((int)param_1,local_64 + 2,(undefined4 *)0x0);
+    *(AnmRawInstr **)(local_60 + 2) = *ppAVar14;
     pfVar17 = FUN_0040b380((int)param_1,local_64 + 3,(undefined4 *)0x0);
     *(float *)((int)(local_60 + 2) + 8) = *pfVar17;
     pfVar17 = FUN_0040b380((int)param_1,local_64 + 4,(undefined4 *)0x0);
@@ -920,7 +921,7 @@ switchD_00407544_caseD_2:
     iVar20 = DAT_005a5f98 * 0x40;
     local_70 = g_GameManager.catk + DAT_005a5f98;
     csum = 0;
-    if (g_GameManager.field6_0x18._4_4_ == 0) {
+    if (g_GameManager.field10_0x1c == 0) {
       local_2bc = local_20 + 4;
       local_2c0 = g_GameManager.catk[DAT_005a5f98].name;
       do {
@@ -952,7 +953,8 @@ switchD_00407544_caseD_2:
   case 0x5e:
     if (DAT_005a5f90 != 0) {
       FUN_0041732c();
-      if ((DAT_005a5f90 == 1) && (local_7c = FUN_00414360(0x3200,1), _DAT_005a5f8c != 0)) {
+      if ((DAT_005a5f90 == 1) &&
+         (local_7c = BulletManager::FUN_00414360(&g_BulletManager,0x3200,1), _DAT_005a5f8c != 0)) {
         local_80 = g_GameManager.catk + DAT_005a5f98;
         if ((int)DAT_005a5f94 < 500000) {
           local_2dc = (int)DAT_005a5f94 / 10;
@@ -964,14 +966,14 @@ switchD_00407544_caseD_2:
         local_7c = DAT_005a5f94 + (int)(DAT_005a5f94 * DAT_0069bc48) / 10;
         FUN_00417458(&DAT_0069bc30,local_7c);
         g_GameManager.score = g_GameManager.score + local_7c;
-        if (g_GameManager.field6_0x18._4_4_ == 0) {
+        if (g_GameManager.field10_0x1c == 0) {
           local_80->unk_3e = local_80->unk_3e + 1;
           for (local_84 = 4; 0 < local_84; local_84 = local_84 + -1) {
             local_80->name[local_84 + -5] = local_80->name[local_84 + -6];
           }
           local_80->unk_13 = g_GameManager.shottype + g_GameManager.character * '\x02';
         }
-        g_GameManager.field6_0x18._16_4_ = g_GameManager.field6_0x18._16_4_ + 1;
+        g_GameManager._40_4_ = g_GameManager._40_4_ + 1;
       }
       DAT_005a5f90 = 0;
     }
@@ -1054,11 +1056,11 @@ switchD_00407544_caseD_2:
     break;
   case 0x66:
     local_6c = local_20 + 3;
-    pAVar16 = EffectManager::FUN_0040ef50
+    pAVar15 = EffectManager::FUN_0040ef50
                         ((int *)&g_EffectManager,0xd,(float *)&param_1[0xb].currentInstruction,1,
                          *(D3DCOLOR *)(PTR_DAT_00476438 + (int)*local_6c * 4));
     *(AnmVm **)((int)(&param_1[0xd].matrix + 1) + ((int)param_1[0xd].posInterpInitial.y + 9) * 4) =
-         pAVar16;
+         pAVar15;
     DVar7 = *(D3DCOLOR *)
              ((int)(&param_1[0xd].matrix + 1) + ((int)param_1[0xd].posInterpInitial.y + 9) * 4);
     *(float *)(DVar7 + 0x140) = local_6c[1];
@@ -1081,7 +1083,7 @@ switchD_00407544_caseD_2:
          *(byte *)((int)&param_1[0xd].flags + 1) & 0xef | (*(byte *)(local_20 + 3) & 1) << 4;
     break;
   case 0x6a:
-    FUN_004311e0((int)local_20[3]);
+    SoundPlayer::FUN_004311e0(&g_SoundPlayer,(int)local_20[3]);
     break;
   case 0x6b:
     *(byte *)((int)&param_1[0xd].flags + 1) =
@@ -1162,8 +1164,8 @@ switchD_00407544_caseD_2:
     }
     break;
   case 0x7b:
-    FUN_0040afb0((int)param_1,(int *)(local_20 + 3),(undefined4 *)0x0);
-    FUN_00424145();
+    piVar16 = FUN_0040afb0((int)param_1,(int *)(local_20 + 3),(undefined4 *)0x0);
+    AnmTimer::FUN_00424145((AnmTimer *)&param_1[9].rotation.y,*piVar16);
     break;
   case 0x7c:
     FUN_0041f290();
@@ -1222,23 +1224,23 @@ switchD_00407544_caseD_24:
   *(int *)&param_1[0xb].posInterpEndTime = *(int *)&param_1[0xb].posInterpEndTime + -1;
   pfVar17 = (float *)((int)&param_1[9].matrix + *(int *)&param_1[0xb].posInterpEndTime * 0x4c + 0x10
                      );
-  pAVar16 = param_1 + 9;
+  pAVar15 = param_1 + 9;
   for (iVar19 = 0x13; iVar19 != 0; iVar19 = iVar19 + -1) {
-    (pAVar16->rotation).x = *pfVar17;
+    (pAVar15->rotation).x = *pfVar17;
     pfVar17 = pfVar17 + 1;
-    pAVar16 = (AnmVm *)&(pAVar16->rotation).y;
+    pAVar15 = (AnmVm *)&(pAVar15->rotation).y;
   }
   goto LAB_004074b1;
 switchD_00407544_caseD_23:
   local_14 = local_20[3];
   param_1[9].rotation.x = (float)((int)local_20 + (int)*(short *)((int)local_20 + 6));
   if ((*(byte *)((int)&param_1[0xd].flags + 2) >> 2 & 1) == 0) {
-    pAVar16 = param_1 + 9;
+    pAVar15 = param_1 + 9;
     pfVar17 = (float *)((int)&param_1[9].matrix +
                        *(int *)&param_1[0xb].posInterpEndTime * 0x4c + 0x10);
     for (iVar19 = 0x13; iVar19 != 0; iVar19 = iVar19 + -1) {
-      *pfVar17 = (pAVar16->rotation).x;
-      pAVar16 = (AnmVm *)&(pAVar16->rotation).y;
+      *pfVar17 = (pAVar15->rotation).x;
+      pAVar15 = (AnmVm *)&(pAVar15->rotation).y;
       pfVar17 = pfVar17 + 1;
     }
   }

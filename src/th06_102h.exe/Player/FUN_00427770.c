@@ -15,8 +15,8 @@ void Player::FUN_00427770(void)
   *(undefined4 *)(in_ECX + 0x75bc) = 0;
   *(undefined4 *)(in_ECX + 0x75b8) = 0;
   *(undefined4 *)(in_ECX + 0x75b4) = 0xfffffc19;
-  FUN_004311e0(4);
-  g_GameManager.field6_0x18._8_4_ = g_GameManager.field6_0x18._8_4_ + 1;
+  SoundPlayer::FUN_004311e0(&g_SoundPlayer,4);
+  g_GameManager._32_4_ = g_GameManager._32_4_ + 1;
   for (local_8 = 0; local_8 < 2; local_8 = local_8 + 1) {
     puVar1 = (undefined4 *)(in_ECX + 0x9b8 + local_8 * 0xc);
     puVar1[2] = 2;

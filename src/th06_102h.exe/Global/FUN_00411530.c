@@ -35,7 +35,7 @@ void __fastcall FUN_00411530(int param_1)
       (local_c = (char)g_GameManager.lives_remaining * -0xf0 + 0x960,
       *(int *)(param_1 + 0xee5e8) != *(int *)(param_1 + 0xee5e0))) &&
      (*(int *)(param_1 + 0xee5e8) % local_c == 0)) {
-    FUN_0041c57e(100);
+    GameManager::FUN_0041c57e(&g_GameManager,100);
   }
   while (uVar1 = g_GameManager._6740_4_, -1 < **(short **)(param_1 + 0xee5dc)) {
     if (*(int *)(param_1 + 0xee5e8) == (int)**(short **)(param_1 + 0xee5dc)) {
@@ -186,7 +186,7 @@ void __fastcall FUN_00411530(int param_1)
       case 9:
         iVar3 = FUN_00419572();
         if (iVar3 != 0) {
-          FUN_004241e5((void *)(param_1 + 0xee5e0),1);
+          AnmTimer::FUN_004241e5((AnmTimer *)(param_1 + 0xee5e0),1);
           return;
         }
         break;
@@ -202,7 +202,7 @@ void __fastcall FUN_00411530(int param_1)
         if ((*(int *)(param_1 + 0xee598 + *(short *)(*(int *)(param_1 + 0xee5dc) + 2) * 4) != 0) &&
            (*(char *)(*(int *)(param_1 + 0xee598 + *(short *)(*(int *)(param_1 + 0xee5dc) + 2) * 4)
                      + 0xe50) < '\0')) {
-          FUN_004241e5((void *)(param_1 + 0xee5e0),1);
+          AnmTimer::FUN_004241e5((AnmTimer *)(param_1 + 0xee5e0),1);
           return;
         }
       }

@@ -43,7 +43,7 @@ LAB_00434098:
   vm->flags = vm->flags & 0xffffdfff;
   if (local_8->opcode != AnmOpcode_22) {
     if (local_24 == (AnmRawInstr *)0x0) {
-      FUN_004241e5(&vm->currentTimeInScript,1);
+      AnmTimer::FUN_004241e5(&vm->currentTimeInScript,1);
       goto LAB_00434338;
     }
     local_8 = local_24;
@@ -240,30 +240,33 @@ switchD_004339dd_caseD_18:
 switchD_004339dd_caseD_15:
   if (vm->pendingInterrupt == 0) {
     vm->flags = vm->flags | 0x2000;
-    FUN_004241e5(&vm->currentTimeInScript,1);
+    AnmTimer::FUN_004241e5(&vm->currentTimeInScript,1);
 LAB_00434338:
     fVar1 = (vm->angleVel).x;
     if (NAN(fVar1) == (fVar1 == 0.0)) {
-      fVar6 = (float10)FUN_0041e850((vm->rotation).x,g_Supervisor.field81_0x1a8 * (vm->angleVel).x);
+      fVar6 = (float10)FUN_0041e850((vm->rotation).x,
+                                    g_Supervisor.effectiveFramerateMultiplier * (vm->angleVel).x);
       (vm->rotation).x = (float)fVar6;
     }
     fVar1 = (vm->angleVel).y;
     if (NAN(fVar1) == (fVar1 == 0.0)) {
-      fVar6 = (float10)FUN_0041e850((vm->rotation).y,g_Supervisor.field81_0x1a8 * (vm->angleVel).y);
+      fVar6 = (float10)FUN_0041e850((vm->rotation).y,
+                                    g_Supervisor.effectiveFramerateMultiplier * (vm->angleVel).y);
       (vm->rotation).y = (float)fVar6;
     }
     fVar1 = (vm->angleVel).z;
     if (NAN(fVar1) == (fVar1 == 0.0)) {
-      fVar6 = (float10)FUN_0041e850((vm->rotation).z,g_Supervisor.field81_0x1a8 * (vm->angleVel).z);
+      fVar6 = (float10)FUN_0041e850((vm->rotation).z,
+                                    g_Supervisor.effectiveFramerateMultiplier * (vm->angleVel).z);
       (vm->rotation).z = (float)fVar6;
     }
     if ((short)vm->scaleInterpEndTime < 1) {
-      vm->scaleY = g_Supervisor.field81_0x1a8 * vm->scaleInterpFinalY + vm->scaleY;
-      vm->scaleX = g_Supervisor.field81_0x1a8 * vm->scaleInterpFinalX + vm->scaleX;
+      vm->scaleY = g_Supervisor.effectiveFramerateMultiplier * vm->scaleInterpFinalY + vm->scaleY;
+      vm->scaleX = g_Supervisor.effectiveFramerateMultiplier * vm->scaleInterpFinalX + vm->scaleX;
     }
     else {
       (vm->scaleInterpTime).previous = (vm->scaleInterpTime).current;
-      Supervisor::FUN_00424285
+      Supervisor::TickTimer
                 (&g_Supervisor,&(vm->scaleInterpTime).current,&(vm->scaleInterpTime).subFrame);
       if ((vm->scaleInterpTime).current < (int)(short)vm->scaleInterpEndTime) {
         vm->scaleX = (((float)(vm->scaleInterpTime).current + (vm->scaleInterpTime).subFrame) *
@@ -289,7 +292,7 @@ LAB_00434338:
     }
     if (0 < (short)vm->alphaInterpEndTime) {
       (vm->alphaInterpTime).previous = (vm->alphaInterpTime).current;
-      Supervisor::FUN_00424285
+      Supervisor::TickTimer
                 (&g_Supervisor,&(vm->alphaInterpTime).current,&(vm->alphaInterpTime).subFrame);
       local_2c = vm->alphaInterpInitial;
       local_28 = vm->alphaInterpFinal;
@@ -352,11 +355,11 @@ LAB_00434338:
         vm->posInterpEndTime = 0;
       }
       (vm->posInterpTime).previous = (vm->posInterpTime).current;
-      Supervisor::FUN_00424285
+      Supervisor::TickTimer
                 (&g_Supervisor,&(vm->posInterpTime).current,&(vm->posInterpTime).subFrame);
     }
     (vm->currentTimeInScript).previous = (vm->currentTimeInScript).current;
-    Supervisor::FUN_00424285
+    Supervisor::TickTimer
               (&g_Supervisor,&(vm->currentTimeInScript).current,&(vm->currentTimeInScript).subFrame)
     ;
     return 0;

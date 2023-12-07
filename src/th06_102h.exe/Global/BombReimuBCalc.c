@@ -17,7 +17,7 @@ void BombReimuBCalc(int param_1)
     if ((*(int *)(param_1 + 0x75d8) == *(int *)(param_1 + 0x75d0)) ||
        (*(int *)(param_1 + 0x75d8) != 0)) {
       if (*(int *)(param_1 + 0x75d8) == 0x3c) {
-        FUN_0042fd30(1,0x50,0x14,0,0);
+        ScreenEffect::RegisterChain(1,0x50,0x14,0,0);
       }
       *(undefined4 *)(param_1 + 0x8c0) = 0x42780000;
       *(undefined4 *)(param_1 + 0x8c4) = 0x43e00000;
@@ -72,7 +72,7 @@ void BombReimuBCalc(int param_1)
         AnmManager::FUN_004051b0(g_AnmManager,local_c,local_8 + 0x489);
         local_c = local_c + 1;
       }
-      FUN_004311e0(6);
+      SoundPlayer::FUN_004311e0(&g_SoundPlayer,6);
       *(undefined4 *)(param_1 + 0x7624) = *(undefined4 *)(param_1 + 0x440);
       *(undefined4 *)(param_1 + 0x7628) = 1130364928;
       *(undefined4 *)(param_1 + 0x762c) = 0x3ed70a3d;
@@ -85,11 +85,11 @@ void BombReimuBCalc(int param_1)
       *(undefined4 *)(param_1 + 0x7648) = 0x43400000;
       *(undefined4 *)(param_1 + 0x764c) = *(undefined4 *)(param_1 + 0x444);
       *(undefined4 *)(param_1 + 0x7650) = 0x3ecf5c29;
-      FUN_0042fd30(1,0x3c,2,6,0);
+      ScreenEffect::RegisterChain(1,0x3c,2,6,0);
     }
     *(undefined *)(param_1 + 0x9e0) = 3;
     *(undefined4 *)(param_1 + 0x75d0) = *(undefined4 *)(param_1 + 0x75d8);
-    Supervisor::FUN_00424285(&g_Supervisor,(int *)(param_1 + 0x75d8),(float *)(param_1 + 0x75d4));
+    Supervisor::TickTimer(&g_Supervisor,(int *)(param_1 + 0x75d8),(float *)(param_1 + 0x75d4));
   }
   else {
     FUN_00417314();

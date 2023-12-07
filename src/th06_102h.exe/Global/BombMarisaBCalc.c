@@ -11,10 +11,10 @@ void BombMarisaBCalc(int param_1)
     if ((*(int *)(param_1 + 0x75d8) == *(int *)(param_1 + 0x75d0)) ||
        (*(int *)(param_1 + 0x75d8) != 0)) {
       if (*(int *)(param_1 + 0x75d8) == 0x3c) {
-        FUN_0042fd30(1,0x3c,1,7,0);
+        ScreenEffect::RegisterChain(1,0x3c,1,7,0);
       }
       else if (*(int *)(param_1 + 0x75d8) == 0x78) {
-        FUN_0042fd30(1,200,0x18,0,0);
+        ScreenEffect::RegisterChain(1,200,0x18,0,0);
       }
       if (*(int *)(param_1 + 0x75d8) != *(int *)(param_1 + 0x75d0)) {
         uVar2 = *(uint *)(param_1 + 0x75d8) & 0x80000003;
@@ -54,13 +54,13 @@ void BombMarisaBCalc(int param_1)
         puVar1[2] = *(undefined4 *)(param_1 + 0x448);
         local_c = local_c + 1;
       }
-      FUN_004311e0(0x13);
+      SoundPlayer::FUN_004311e0(&g_SoundPlayer,0x13);
       *(undefined4 *)(param_1 + 0x9d4) = 0x3e99999a;
       *(undefined4 *)(param_1 + 0x9d0) = 0x3e99999a;
     }
     *(undefined *)(param_1 + 0x9e0) = 3;
     *(undefined4 *)(param_1 + 0x75d0) = *(undefined4 *)(param_1 + 0x75d8);
-    Supervisor::FUN_00424285(&g_Supervisor,(int *)(param_1 + 0x75d8),(float *)(param_1 + 0x75d4));
+    Supervisor::TickTimer(&g_Supervisor,(int *)(param_1 + 0x75d8),(float *)(param_1 + 0x75d4));
   }
   else {
     FUN_00417314();

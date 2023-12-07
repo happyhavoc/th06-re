@@ -18,7 +18,7 @@ void Player::FUN_004291b0(int param_1)
   
   for (local_10 = 0; local_10 < 2; local_10 = local_10 + 1) {
     if (*(int *)(param_1 + 0x9c0 + local_10 * 0xc) != 0) {
-      FUN_004241e5((void *)(param_1 + 0x9b8 + local_10 * 0xc),1);
+      AnmTimer::FUN_004241e5((AnmTimer *)(param_1 + 0x9b8 + local_10 * 0xc),1);
     }
   }
   local_18 = (AnmVm *)(param_1 + 0xa28);
@@ -94,10 +94,11 @@ void Player::FUN_004291b0(int param_1)
         local_18[1].angleVel.y = fVar2 + fVar2;
       }
       pAVar6 = local_18 + 1;
-      (pAVar6->rotation).x = g_Supervisor.field81_0x1a8 * local_18[1].scaleY + (pAVar6->rotation).x;
+      (pAVar6->rotation).x =
+           g_Supervisor.effectiveFramerateMultiplier * local_18[1].scaleY + (pAVar6->rotation).x;
       (local_18->pos).x = (pAVar6->rotation).x;
       pfVar8 = &local_18[1].rotation.y;
-      *pfVar8 = g_Supervisor.field81_0x1a8 * local_18[1].scaleX + *pfVar8;
+      *pfVar8 = g_Supervisor.effectiveFramerateMultiplier * local_18[1].scaleX + *pfVar8;
       (local_18->pos).y = *pfVar8;
       (local_18->pos).z = local_18[1].rotation.z;
       if ((*(short *)(local_18[1].matrix.m[0] + 1) != 3) &&
@@ -110,7 +111,7 @@ void Player::FUN_004291b0(int param_1)
         *(undefined2 *)((int)local_18[1].matrix.m[0] + 2) = 0;
       }
       local_18[1].currentTimeInScript.previous = local_18[1].currentTimeInScript.current;
-      Supervisor::FUN_00424285
+      Supervisor::TickTimer
                 (&g_Supervisor,&local_18[1].currentTimeInScript.current,
                  &local_18[1].currentTimeInScript.subFrame);
     }

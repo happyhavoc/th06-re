@@ -11,7 +11,7 @@ undefined4 Player::FUN_00429710(int param_1)
       FUN_00429820(param_1,*(undefined4 *)(param_1 + 0x75b0));
     }
     *(undefined4 *)(param_1 + 0x75a8) = *(undefined4 *)(param_1 + 0x75b0);
-    Supervisor::FUN_00424285(&g_Supervisor,(int *)(param_1 + 0x75b0),(float *)(param_1 + 0x75ac));
+    Supervisor::TickTimer(&g_Supervisor,(int *)(param_1 + 0x75b0),(float *)(param_1 + 0x75ac));
     if (((0x1d < *(int *)(param_1 + 0x75b0)) || (*(char *)(param_1 + 0x9e0) == '\x02')) ||
        (*(char *)(param_1 + 0x9e0) == '\x01')) {
       *(undefined4 *)(param_1 + 0x75b0) = 0xffffffff;

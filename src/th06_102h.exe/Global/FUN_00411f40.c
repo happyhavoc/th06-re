@@ -30,7 +30,7 @@ undefined4 __fastcall FUN_00411f40(int param_1)
       if (DAT_005a5f90 != 0) {
         DAT_005a5f90 = DAT_005a5f90 + 1;
       }
-      FUN_00414160(0x5a5ff8,0);
+      BulletManager::FUN_00414160(0x5a5ff8,0);
     }
     local_8 = &DAT_004b8898;
     for (local_c = 0; local_c < 0x100; local_c = local_c + 1) {

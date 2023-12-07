@@ -1,10 +1,10 @@
 
-undefined4 FUN_00430220(void *param_1)
+undefined4 FUN_00430220(ScreenEffect *param_1)
 
 {
-  *(undefined4 *)(*(int *)((int)param_1 + 4) + 0xc) = 0;
-  Chain::Cut(&g_Chain,*(ChainElem **)((int)param_1 + 8));
-  *(undefined4 *)((int)param_1 + 8) = 0;
+  param_1->calcChainElement->deletedCallback = 0;
+  Chain::Cut(&g_Chain,param_1->drawChainElement);
+  param_1->drawChainElement = (ChainElem *)0x0;
   _free(param_1);
   return 0;
 }

@@ -1,9 +1,9 @@
 
-undefined4 SetupDInput(Supervisor *param_1)
+ZunResult SetupDInput(Supervisor *param_1)
 
 {
   HINSTANCE hInst;
-  undefined4 uVar1;
+  ZunResult ZVar1;
   int iVar2;
   HRESULT HVar3;
   
@@ -14,7 +14,7 @@ undefined4 SetupDInput(Supervisor *param_1)
     if (iVar2 < 0) {
       param_1->directInput = (IDirectInput8A *)0x0;
       GameErrorContextLog(&g_GameErrorContext,"DirectInput が使用できません\n");
-      uVar1 = 0xffffffff;
+      ZVar1 = ZUN_ERROR;
     }
     else {
       HVar3 = (*param_1->directInput->lpVtbl->CreateDevice)
@@ -25,7 +25,7 @@ undefined4 SetupDInput(Supervisor *param_1)
           param_1->directInput = (IDirectInput8A *)0x0;
         }
         GameErrorContextLog(&g_GameErrorContext,"DirectInput が使用できません\n");
-        uVar1 = 0xffffffff;
+        ZVar1 = ZUN_ERROR;
       }
       else {
         HVar3 = (*param_1->keyboard->lpVtbl->SetDataFormat)(param_1->keyboard,&DATA_FORMAT);
@@ -40,7 +40,7 @@ undefined4 SetupDInput(Supervisor *param_1)
           }
           GameErrorContextLog(&g_GameErrorContext,
                               "DirectInput SetDataFormat が使用できません\n");
-          uVar1 = 0xffffffff;
+          ZVar1 = ZUN_ERROR;
         }
         else {
           HVar3 = (*param_1->keyboard->lpVtbl->SetCooperativeLevel)
@@ -56,7 +56,7 @@ undefined4 SetupDInput(Supervisor *param_1)
             }
             GameErrorContextLog(&g_GameErrorContext,
                                 "DirectInput SetCooperativeLevel が使用できません\n");
-            uVar1 = 0xffffffff;
+            ZVar1 = ZUN_ERROR;
           }
           else {
             (*param_1->keyboard->lpVtbl->Acquire)(param_1->keyboard);
@@ -77,15 +77,15 @@ undefined4 SetupDInput(Supervisor *param_1)
                         (param_1->controller,FUN_00423801,(LPVOID)0x0,0);
               GameErrorContextLog(&g_GameErrorContext,"有効なパッドを発見しました\n");
             }
-            uVar1 = 0;
+            ZVar1 = ZUN_SUCCESS;
           }
         }
       }
     }
   }
   else {
-    uVar1 = 0xffffffff;
+    ZVar1 = ZUN_ERROR;
   }
-  return uVar1;
+  return ZVar1;
 }
 

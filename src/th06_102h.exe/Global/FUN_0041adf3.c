@@ -17,22 +17,22 @@ void __fastcall FUN_0041adf3(int param_1)
       g_AsciiManager.color = *(uint *)(*(int *)(param_1 + 4) + 0x1c20) & 0xff000000 | 0xffff40;
       if ((int)g_GameManager.current_stage < 6) {
         local_10 = 0x43280000;
-        AsciiManager::DrawFormatText
+        AsciiManager::AddFormatText
                   (&g_AsciiManager,&local_10,"STAGE %d",g_GameManager.current_stage);
       }
       else if (g_GameManager.current_stage == 6) {
         local_10 = 0x43080000;
-        AsciiManager::DrawFormatText(&g_AsciiManager,&local_10,"FINAL STAGE");
+        AsciiManager::AddFormatText(&g_AsciiManager,&local_10,"FINAL STAGE");
       }
       else {
         local_10 = 0x43080000;
-        AsciiManager::DrawFormatText(&g_AsciiManager,&local_10,"EXTRA STAGE");
+        AsciiManager::AddFormatText(&g_AsciiManager,&local_10,"EXTRA STAGE");
       }
     }
     else {
       g_AsciiManager.color = *(uint *)(*(int *)(param_1 + 4) + 0x1c20) & 0xff000000 | 0xffff40;
       local_10 = 0x43080000;
-      AsciiManager::DrawFormatText(&g_AsciiManager,&local_10," DEMO PLAY");
+      AsciiManager::AddFormatText(&g_AsciiManager,&local_10," DEMO PLAY");
     }
     g_AsciiManager.color = 0xffffffff;
   }

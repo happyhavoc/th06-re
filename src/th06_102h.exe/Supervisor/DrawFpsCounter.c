@@ -20,7 +20,7 @@ void Supervisor::DrawFpsCounter(void)
     g_NumFramesSinceLastTime = 0;
     g_LastTime = curTime;
     sprintf(g_FpsCounterBuffer,"%.02ffps",(double)fps);
-    if (g_GameManager.field23_0x1821 != 0) {
+    if (g_GameManager.field43_0x1821 != 0) {
       local_c = 60.0 / g_Supervisor.framerateMultiplier;
       g_Supervisor.field85_0x1b8 = g_Supervisor.field85_0x1b8 + local_c;
       if (local_c * 0.9 < fps == (NAN(local_c * 0.9) || NAN(fps))) {
@@ -45,7 +45,7 @@ void Supervisor::DrawFpsCounter(void)
     local_20.x = 512.0;
     local_20.y = 464.0;
     local_20.z = 0.0;
-    AsciiManager::DrawText(&g_AsciiManager,&local_20,g_FpsCounterBuffer);
+    AsciiManager::AddString(&g_AsciiManager,&local_20,g_FpsCounterBuffer);
   }
   return;
 }

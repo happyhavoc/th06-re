@@ -42,7 +42,7 @@ undefined4 FUN_0042d98e(ResultScreen *param_1)
           }
         }
         if (((g_CurFrameInput & 10) != 0) && ((g_CurFrameInput & 10) != (g_LastFrameInput & 10))) {
-          FUN_004311e0(0xb);
+          SoundPlayer::FUN_004311e0(&g_SoundPlayer,0xb);
           param_1->unk_8 = 0;
           *(undefined4 *)&param_1->field_0x4 = 1;
           local_c = param_1->unk_40;
@@ -157,7 +157,7 @@ undefined4 FUN_0042d98e(ResultScreen *param_1)
                 }
               }
               *(undefined4 *)&param_1->field_0x30 = 0;
-              FUN_004311e0(0x1c);
+              SoundPlayer::FUN_004311e0(&g_SoundPlayer,0x1c);
             }
           }
           if ((*(int *)&param_1->field_0x24 != param_1->unk_10) &&
@@ -180,7 +180,7 @@ undefined4 FUN_0042d98e(ResultScreen *param_1)
             }
             if (((g_CurFrameInput & 10) != 0) && ((g_CurFrameInput & 10) != (g_LastFrameInput & 10))
                ) {
-              FUN_004311e0(0xb);
+              SoundPlayer::FUN_004311e0(&g_SoundPlayer,0xb);
               param_1->unk_8 = 0;
               *(undefined4 *)&param_1->field_0x4 = 1;
               local_c = param_1->unk_40;
@@ -258,13 +258,13 @@ undefined4 FUN_0042d98e(ResultScreen *param_1)
               local_c = local_c + 1;
             }
             param_1->unk_8 = 2;
-            FUN_004311e0(0xb);
+            SoundPlayer::FUN_004311e0(&g_SoundPlayer,0xb);
           }
         }
       }
       if (((g_CurFrameInput & 10) != 0) && ((g_CurFrameInput & 10) != (g_LastFrameInput & 10))) {
         param_1->unk_10 = 6;
-        FUN_004311e0(0xb);
+        SoundPlayer::FUN_004311e0(&g_SoundPlayer,0xb);
       }
     }
   }

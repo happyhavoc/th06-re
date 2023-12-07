@@ -18,23 +18,23 @@ undefined4 MusicRoom::RegisterChain(void)
     DAT_006ca624 = DAT_006ca624 | 1;
     uStack_8 = 0;
     ExceptionList = &pvStack_10;
-    FUN_00425318(&PTR_006c71f0);
+    FUN_00425318(&g_MusicRoomCalcChain);
   }
   uStack_8 = 0xffffffff;
-  ppCVar3 = &PTR_006c71f0;
+  ppCVar3 = &g_MusicRoomCalcChain;
   for (iVar2 = 0xd0d; iVar2 != 0; iVar2 = iVar2 + -1) {
     *ppCVar3 = (ChainElem *)0x0;
     ppCVar3 = ppCVar3 + 1;
   }
-  PTR_006c71f0 = Chain::CreateElem(&g_Chain,Callback);
-  PTR_006c71f0->arg = &PTR_006c71f0;
-  PTR_006c71f0->addedCallback = FUN_0042564c;
-  PTR_006c71f0->deletedCallback = FUN_00425d97;
-  iVar2 = Chain::AddToCalcChain(&g_Chain,PTR_006c71f0,2);
+  g_MusicRoomCalcChain = Chain::CreateElem(&g_Chain,OnUpdate);
+  g_MusicRoomCalcChain->arg = &g_MusicRoomCalcChain;
+  g_MusicRoomCalcChain->addedCallback = FUN_0042564c;
+  g_MusicRoomCalcChain->deletedCallback = FUN_00425d97;
+  iVar2 = Chain::AddToCalcChain(&g_Chain,g_MusicRoomCalcChain,2);
   if (iVar2 == 0) {
-    PTR_006c71f4 = Chain::CreateElem(&g_Chain,FUN_0042545a);
-    PTR_006c71f4->arg = &PTR_006c71f0;
-    Chain::AddToDrawChain(&g_Chain,PTR_006c71f4,0);
+    g_MusicRoomDrawChain = Chain::CreateElem(&g_Chain,OnDraw);
+    g_MusicRoomDrawChain->arg = &g_MusicRoomCalcChain;
+    Chain::AddToDrawChain(&g_Chain,g_MusicRoomDrawChain,0);
     uVar1 = 0;
   }
   else {

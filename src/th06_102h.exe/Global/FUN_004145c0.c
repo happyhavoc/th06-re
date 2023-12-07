@@ -16,7 +16,7 @@ undefined4 FUN_004145c0(int param_1)
   }
 LAB_0041463b:
   if ((*(uint *)(param_1 + 0x4c) & 0x200) != 0) {
-    FUN_004311e0(*(int *)(param_1 + 0x50));
+    SoundPlayer::FUN_004311e0(&g_SoundPlayer,*(int *)(param_1 + 0x50));
   }
   return 0;
 }

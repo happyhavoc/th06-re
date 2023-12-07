@@ -1,5 +1,5 @@
 
-byte * FileSystem::OpenPath(char *file_path,int param_2)
+byte * FileSystem::OpenPath(char *file_path,int inPbg3)
 
 {
   char *slashPos;
@@ -11,7 +11,7 @@ byte * FileSystem::OpenPath(char *file_path,int param_2)
   int pbg3Idx;
   
   entryIdx = -1;
-  if (param_2 == 0) {
+  if (inPbg3 == 0) {
     slashPos = _strrchr(file_path,L'\\');
     if (slashPos == (char *)0x0) {
       filename = file_path;

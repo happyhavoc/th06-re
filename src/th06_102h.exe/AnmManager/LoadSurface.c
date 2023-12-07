@@ -21,8 +21,8 @@ ZunResult __thiscall AnmManager::LoadSurface(AnmManager *this,int surface_index,
                        g_Supervisor.presentParameters.BackBufferFormat,&surface);
     if (HVar2 == 0) {
       HVar2 = D3DXLoadSurfaceFromFileInMemory
-                        (surface,(PALETTEENTRY *)0x0,(RECT *)0x0,data,g_LastFileSize,(RECT *)0x0,1,0
-                         ,this->surfaceSourceInfo + surface_index);
+                        (surface,(PALETTEENTRY *)0x0,(RECT *)0x0,data,g_LastFileSize,(RECT *)0x0,
+                         D3DX_FILTER_NONE,0,this->surfaceSourceInfo + surface_index);
       if (((HVar2 == 0) &&
           (((HVar2 = (*(g_Supervisor.d3dDevice)->lpVtbl->CreateRenderTarget)
                                (g_Supervisor.d3dDevice,this->surfaceSourceInfo[surface_index].Width,
@@ -41,10 +41,11 @@ ZunResult __thiscall AnmManager::LoadSurface(AnmManager *this,int surface_index,
                                this->surfacesBis + surface_index), HVar2 == 0)))) &&
          ((HVar2 = D3DXLoadSurfaceFromSurface
                              (this->surfaces[surface_index],(PALETTEENTRY *)0x0,(RECT *)0x0,surface,
-                              (PALETTEENTRY *)0x0,(RECT *)0x0,1,0), HVar2 == 0 &&
+                              (PALETTEENTRY *)0x0,(RECT *)0x0,D3DX_FILTER_NONE,0), HVar2 == 0 &&
           (HVar2 = D3DXLoadSurfaceFromSurface
                              (this->surfacesBis[surface_index],(PALETTEENTRY *)0x0,(RECT *)0x0,
-                              surface,(PALETTEENTRY *)0x0,(RECT *)0x0,1,0), HVar2 == 0)))) {
+                              surface,(PALETTEENTRY *)0x0,(RECT *)0x0,D3DX_FILTER_NONE,0),
+          HVar2 == 0)))) {
         if (surface != (IDirect3DSurface8 *)0x0) {
           (*surface->lpVtbl->Release)(surface);
           surface = (IDirect3DSurface8 *)0x0;

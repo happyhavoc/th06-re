@@ -11,12 +11,12 @@ ZunResult AsciiManager::RegisterChain(void)
   g_AsciiManagerCalcChain.arg = &g_AsciiManager;
   iVar1 = Chain::AddToCalcChain(&g_Chain,&g_AsciiManagerCalcChain,1);
   if (iVar1 == 0) {
-    g_AsciiManagerOnDrawLowPrioChain.callback = OnDrawLowPrio;
-    g_AsciiManagerOnDrawLowPrioChain.addedCallback = 0;
-    g_AsciiManagerOnDrawLowPrioChain.deletedCallback = 0;
-    g_AsciiManagerOnDrawLowPrioChain.arg = &g_AsciiManager;
-    Chain::AddToDrawChain(&g_Chain,&g_AsciiManagerOnDrawLowPrioChain,0xf);
-    g_AsciiManagerOnDrawHighPrioChain.callback = OnDrawHighPrio;
+    g_AsciiManagerOnDrawMenusChain.callback = OnDrawMenus;
+    g_AsciiManagerOnDrawMenusChain.addedCallback = 0;
+    g_AsciiManagerOnDrawMenusChain.deletedCallback = 0;
+    g_AsciiManagerOnDrawMenusChain.arg = &g_AsciiManager;
+    Chain::AddToDrawChain(&g_Chain,&g_AsciiManagerOnDrawMenusChain,0xf);
+    g_AsciiManagerOnDrawHighPrioChain.callback = OnDrawPopups;
     g_AsciiManagerOnDrawHighPrioChain.addedCallback = 0;
     g_AsciiManagerOnDrawHighPrioChain.deletedCallback = 0;
     g_AsciiManagerOnDrawHighPrioChain.arg = &g_AsciiManager;

@@ -2,9 +2,9 @@
 undefined4 FUN_00410d80(void *param_1)
 
 {
-  ReleaseAnm(g_AnmManager,0x2c);
-  ReleaseAnm(g_AnmManager,0x2d);
-  ReleaseAnm(g_AnmManager,0x2e);
+  AnmManager::ReleaseAnm(g_AnmManager,0x2c);
+  AnmManager::ReleaseAnm(g_AnmManager,0x2d);
+  AnmManager::ReleaseAnm(g_AnmManager,0x2e);
   g_Supervisor.curState = 7;
   AnmManager::ReleaseSurface(g_AnmManager,0);
   _free(*(void **)((int)param_1 + 0x1114));

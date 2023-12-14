@@ -1153,7 +1153,7 @@ switchD_00407544_caseD_2:
          *(byte *)((int)&param_1[0xd].flags + 2) & 0xfd | (*(byte *)(local_20 + 3) & 1) << 1;
     break;
   case 0x79:
-    (*(code *)(&PTR_FUN_00476220)[(int)local_20[3]])(param_1);
+    (*(code *)(&PTR_FUN_00476220)[(int)local_20[3]])(param_1,local_20);
     break;
   case 0x7a:
     if ((int)local_20[3] < 0) {

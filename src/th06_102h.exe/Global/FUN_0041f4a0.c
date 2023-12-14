@@ -218,7 +218,7 @@ LAB_0041f7c5:
           g_GameManager.score = g_GameManager.score + local_c;
           g_GameManager.point_items_collected_in_stage =
                g_GameManager.point_items_collected_in_stage + 1;
-          g_GameManager.field33_0x1816 = g_GameManager.field33_0x1816 + 1;
+          g_GameManager.field30_0x1816 = g_GameManager.field30_0x1816 + 1;
           DAT_0069bc30 = DAT_0069bc30 & 0xfffffcff | 0x200;
           fVar1 = local_18[1].rotation.y;
           if (fVar1 < 128.0 == NAN(fVar1)) {

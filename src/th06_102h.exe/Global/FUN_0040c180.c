@@ -18,7 +18,7 @@ void FUN_0040c180(int param_1,int param_2)
   if (*(int *)(param_2 + 0x10) < 2) {
     EffectManager::FUN_0040ef50((int *)&g_EffectManager,0xc,(float *)(param_1 + 0xc6c),1,0xffffffff)
     ;
-    g_GameManager._44_1_ = *(undefined *)(param_2 + 0x10);
+    g_GameManager.field23_0x2c._0_1_ = *(undefined *)(param_2 + 0x10);
   }
   else {
     local_10 = 0xe;

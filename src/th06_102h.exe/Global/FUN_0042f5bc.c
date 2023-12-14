@@ -17,10 +17,10 @@ undefined4 FUN_0042f5bc(void **param_1)
       FUN_0042bc5b(local_8,local_c);
     }
   }
-  ReleaseAnm(g_AnmManager,0x25);
-  ReleaseAnm(g_AnmManager,0x26);
-  ReleaseAnm(g_AnmManager,0x27);
-  ReleaseAnm(g_AnmManager,0x28);
+  AnmManager::ReleaseAnm(g_AnmManager,0x25);
+  AnmManager::ReleaseAnm(g_AnmManager,0x26);
+  AnmManager::ReleaseAnm(g_AnmManager,0x27);
+  AnmManager::ReleaseAnm(g_AnmManager,0x28);
   AnmManager::ReleaseSurface(g_AnmManager,0);
   Chain::Cut(&g_Chain,(ChainElem *)param_1[0x146b]);
   param_1[0x146b] = (void *)0x0;

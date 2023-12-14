@@ -31,14 +31,14 @@ void __thiscall SetRenderStateForVm(AnmManager *this,AnmVm *vm)
     }
   }
   else {
-    AnmManager::g_PrimitivesToDrawNoVertexBuf[4] = (float)vm->color;
-    AnmManager::g_PrimitivesToDrawNoVertexBuf[11] = (float)vm->color;
-    AnmManager::g_PrimitivesToDrawNoVertexBuf[18] = (float)vm->color;
-    AnmManager::g_PrimitivesToDrawNoVertexBuf[25] = (float)vm->color;
-    UINT_006d466c = vm->color;
-    UINT_006d4684 = vm->color;
-    UINT_006d469c = vm->color;
-    UINT_006d46b4 = vm->color;
+    AnmManager::g_PrimitivesToDrawNoVertexBuf[0].color = vm->color;
+    AnmManager::g_PrimitivesToDrawNoVertexBuf[1].color = vm->color;
+    AnmManager::g_PrimitivesToDrawNoVertexBuf[2].color = vm->color;
+    AnmManager::g_PrimitivesToDrawNoVertexBuf[3].color = vm->color;
+    Vertex_TEX1_DIFFUSE_XYZ_ARRAY_006d4660[0].diffuse = vm->color;
+    Vertex_TEX1_DIFFUSE_XYZ_ARRAY_006d4660[1].diffuse = vm->color;
+    Vertex_TEX1_DIFFUSE_XYZ_ARRAY_006d4660[2].diffuse = vm->color;
+    Vertex_TEX1_DIFFUSE_XYZ_ARRAY_006d4660[3].diffuse = vm->color;
   }
   if (((g_Supervisor.cfg.opts >> 6 & 1) == 0) &&
      ((uint)this->currentZWriteDisable != (vm->flags >> 0xc & 1))) {

@@ -337,7 +337,7 @@ switchD_004358f7_caseD_2:
       SoundPlayer::FUN_004311e0(&g_SoundPlayer,0xb);
       if ((int)g_GameManager.difficulty < 4) {
         g_Supervisor.cfg.defaultDifficulty = *(byte *)&param_1->cursor;
-        if (g_GameManager.field45_0x1823 == 0) {
+        if (g_GameManager.field42_0x1823 == 0) {
           param_1->cursor = 0;
         }
         else {
@@ -522,7 +522,7 @@ LAB_0043666d:
         if (((g_CurFrameInput & 0x1001) != 0) &&
            ((g_CurFrameInput & 0x1001) != (g_LastFrameInput & 0x1001))) {
           g_GameManager.shottype = *(byte *)&param_1->cursor;
-          if (g_GameManager.field45_0x1823 == 0) {
+          if (g_GameManager.field42_0x1823 == 0) {
             if ((int)g_GameManager.difficulty < 4) {
               g_GameManager.current_stage = 0;
             }
@@ -553,7 +553,7 @@ LAB_0043666d:
             }
             local_c = local_c + 2;
           }
-          param_1->cursor = g_GameManager.field61_0x1a38;
+          param_1->cursor = g_GameManager.field58_0x1a38;
           if (*(byte *)(((uint)g_GameManager.shottype + (uint)g_GameManager.character * 2) * 0x18 +
                         0x69cce1 + g_GameManager.difficulty) < 7) {
             local_b4 = (uint)*(byte *)(((uint)g_GameManager.shottype +
@@ -635,11 +635,11 @@ LAB_0043666d:
         if (((g_CurFrameInput & 0x1001) != 0) &&
            ((g_CurFrameInput & 0x1001) != (g_LastFrameInput & 0x1001))) {
           g_GameManager.current_stage = param_1->cursor;
-          g_GameManager.field61_0x1a38 = param_1->cursor;
+          g_GameManager.field58_0x1a38 = param_1->cursor;
 LAB_00436de7:
           g_GameManager.lives_remaining = g_Supervisor.cfg.lifeCount;
           g_GameManager.bombs_remaining = g_Supervisor.cfg.bombCount;
-          if ((g_GameManager.difficulty == 4) || (g_GameManager.field45_0x1823 != 0)) {
+          if ((g_GameManager.difficulty == 4) || (g_GameManager.field42_0x1823 != 0)) {
             g_GameManager.lives_remaining = 2;
             g_GameManager.bombs_remaining = 3;
           }

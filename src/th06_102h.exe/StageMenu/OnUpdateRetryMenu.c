@@ -7,7 +7,7 @@ int __fastcall StageMenu::OnUpdateRetryMenu(StageMenu *this)
   short local_3c;
   int local_8;
   
-  if (g_GameManager.field45_0x1823 != 0) {
+  if (g_GameManager.field42_0x1823 != 0) {
     g_GameManager.field0_0x0 = g_GameManager.score;
     g_GameManager.is_in_retry_menu = 0;
     g_Supervisor.curState = 7;
@@ -42,11 +42,11 @@ int __fastcall StageMenu::OnUpdateRetryMenu(StageMenu *this)
         this->vms0[local_8].pendingInterrupt = 1;
       }
       if (g_Supervisor.lockableBackbuffer != 0) {
-        g_AnmManager->vertexBufferContents[3].position.z = 4.203895e-45;
-        pAVar1->vertexBufferContents[3].diffuseColor = 0x20;
-        pAVar1->vertexBufferContents[3].textureUV.x = 2.242078e-44;
-        pAVar1->vertexBufferContents[3].textureUV.y = 5.380986e-43;
-        pAVar1->heightMaybe = 0x1c0;
+        g_AnmManager->screenshot_textureId = 3;
+        pAVar1->screenshot_left = 0x20;
+        pAVar1->screenshot_top = 0x10;
+        pAVar1->screenshot_width = 0x180;
+        pAVar1->screenshot_height = 0x1c0;
         pAVar1 = g_AnmManager;
         (this->vm1).anmFileIndex = 0x718;
         AnmManager::SetAndExecuteScript(pAVar1,&this->vm1,pAVar1->scripts[0x718]);
@@ -135,7 +135,7 @@ int __fastcall StageMenu::OnUpdateRetryMenu(StageMenu *this)
       g_GameManager.point_items_collected_in_stage = 0;
       g_GameManager.lives_remaining = g_Supervisor.lifeCount;
       g_GameManager.bombs_remaining = g_Supervisor.bombCount;
-      g_GameManager.field38_0x181c = 0;
+      g_GameManager.field35_0x181c = 0;
       return 0;
     }
     break;

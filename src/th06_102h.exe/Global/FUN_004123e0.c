@@ -232,7 +232,7 @@ LAB_00412ce2:
     }
 LAB_00412dbc:
     FUN_00412e50(local_28);
-    if (g_GameManager._44_1_ == '\0') {
+    if ((char)g_GameManager.field23_0x2c == '\0') {
       local_28[0xc].currentTimeInScript.previous = local_28[0xc].currentTimeInScript.current;
       Supervisor::TickTimer
                 (&g_Supervisor,&local_28[0xc].currentTimeInScript.current,

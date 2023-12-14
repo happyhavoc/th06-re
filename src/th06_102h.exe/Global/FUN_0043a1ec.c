@@ -8,7 +8,7 @@ undefined4 FUN_0043a1ec(int param_1)
   int local_8;
   
   for (local_8 = 0x15; local_8 < 0x1b; local_8 = local_8 + 1) {
-    ReleaseAnm(g_AnmManager,local_8);
+    AnmManager::ReleaseAnm(g_AnmManager,local_8);
   }
   ZVar1 = AnmManager::LoadSurface(g_AnmManager,0,"data/title/select00.jpg");
   if (ZVar1 == ZUN_SUCCESS) {

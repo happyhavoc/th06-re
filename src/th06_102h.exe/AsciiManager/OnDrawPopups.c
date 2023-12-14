@@ -1,5 +1,5 @@
 
-int AsciiManager::OnDrawPopups(AsciiManager *arg)
+ChainCallbackResult AsciiManager::OnDrawPopups(AsciiManager *arg)
 
 {
   if (g_Supervisor.hasD3dHardwareVertexProcessing == 0) {
@@ -8,6 +8,6 @@ int AsciiManager::OnDrawPopups(AsciiManager *arg)
   else {
     DrawPopupsWithHwVertexProcessing(arg);
   }
-  return 1;
+  return CHAIN_CALLBACK_RESULT_CONTINUE;
 }
 

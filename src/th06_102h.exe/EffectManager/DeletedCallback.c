@@ -2,7 +2,7 @@
 undefined4 EffectManager::DeletedCallback(void)
 
 {
-  ReleaseAnm(g_AnmManager,0xb);
+  AnmManager::ReleaseAnm(g_AnmManager,0xb);
   return 0;
 }
 

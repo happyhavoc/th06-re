@@ -100,7 +100,8 @@ int __thiscall AnmManager::FUN_00433150(AnmManager *this,AnmVm *vm)
     }
     else {
       (*(g_Supervisor.d3dDevice)->lpVtbl->DrawPrimitiveUP)
-                (g_Supervisor.d3dDevice,D3DPT_TRIANGLESTRIP,2,&FLOAT_006d4660,0x18);
+                (g_Supervisor.d3dDevice,D3DPT_TRIANGLESTRIP,2,Vertex_TEX1_DIFFUSE_XYZ_ARRAY_006d4660
+                 ,0x18);
     }
     iVar2 = 0;
   }

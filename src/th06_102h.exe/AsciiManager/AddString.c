@@ -1,36 +1,38 @@
 
-void __thiscall AsciiManager::AddString(AsciiManager *this,D3DXVECTOR3 *param_1,char *param_2)
+void __thiscall AsciiManager::AddString(AsciiManager *this,D3DXVECTOR3 *position,char *text)
 
 {
-  AsciiManagerString *pAVar1;
-  char cVar2;
+  char cVar1;
   AsciiManagerString *local_14;
   char *local_10;
+  AsciiManager *self;
+  AsciiManagerString *curString;
+  AsciiManagerString *curString2;
   
   if (this->numStrings < 0x100) {
-    pAVar1 = this->strings + this->numStrings;
+    curString2 = this->strings + this->numStrings;
     this->numStrings = this->numStrings + 1;
-    local_10 = param_2;
-    local_14 = pAVar1;
+    local_10 = text;
+    local_14 = curString2;
     do {
-      cVar2 = *local_10;
-      local_14->text[0] = cVar2;
+      cVar1 = *local_10;
+      local_14->text[0] = cVar1;
       local_10 = local_10 + 1;
       local_14 = (AsciiManagerString *)(local_14->text + 1);
-    } while (cVar2 != '\0');
-    (pAVar1->position).x = param_1->x;
-    (pAVar1->position).y = param_1->y;
-    (pAVar1->position).z = param_1->z;
-    pAVar1->color = this->color;
-    (pAVar1->scale).x = (this->scale).x;
-    (pAVar1->scale).y = (this->scale).y;
-    pAVar1->isGui = this->isGui;
+    } while (cVar1 != '\0');
+    (curString2->position).x = position->x;
+    (curString2->position).y = position->y;
+    (curString2->position).z = position->z;
+    curString2->color = this->color;
+    (curString2->scale).x = (this->scale).x;
+    (curString2->scale).y = (this->scale).y;
+    curString2->isGui = this->isGui;
     if ((g_Supervisor.cfg.opts >> NO_COLOR_COMP & 1 | g_Supervisor.cfg.opts & 1) ==
         USE_D3D_HW_TEXTURE_BLENDING) {
-      pAVar1->unk1 = 0;
+      curString2->isSelected = 0;
     }
     else {
-      pAVar1->unk1 = this->isSelected;
+      curString2->isSelected = this->isSelected;
     }
   }
   return;

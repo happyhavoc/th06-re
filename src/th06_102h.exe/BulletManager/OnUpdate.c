@@ -24,7 +24,7 @@ undefined4 BulletManager::OnUpdate(int param_1)
   int local_8;
   
   local_24 = (AnmVm *)(param_1 + 0x5600);
-  if (g_GameManager._44_1_ == '\0') {
+  if ((char)g_GameManager.field23_0x2c == '\0') {
     FUN_0041f4a0((AnmVm *)null_ARRAY_0069e268);
     *(undefined4 *)(param_1 + 0xf5c04) = 0;
     for (local_c = 0; local_c < 0x280; local_c = local_c + 1) {

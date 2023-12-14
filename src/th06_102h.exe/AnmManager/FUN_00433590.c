@@ -63,13 +63,15 @@ int __thiscall AnmManager::FUN_00433590(AnmManager *this,AnmVm *vm)
                     (g_Supervisor.d3dDevice,0,(IDirect3DBaseTexture8 *)this->currentTexture);
         }
         if (this->currentVertexShader != '\x03') {
-          if ((g_Supervisor.cfg.opts >> 1 & 1) == 0) {
-            (*(g_Supervisor.d3dDevice)->lpVtbl->SetVertexShader)(g_Supervisor.d3dDevice,0x102);
+          if ((g_Supervisor.cfg.opts >> DONT_USE_VERTEX_BUF & 1) == 0) {
+            (*(g_Supervisor.d3dDevice)->lpVtbl->SetVertexShader)
+                      (g_Supervisor.d3dDevice,D3DFVF_TEX1 | D3DFVF_XYZ);
             (*(g_Supervisor.d3dDevice)->lpVtbl->SetStreamSource)
                       (g_Supervisor.d3dDevice,0,this->vertexBuffer,0x14);
           }
           else {
-            (*(g_Supervisor.d3dDevice)->lpVtbl->SetVertexShader)(g_Supervisor.d3dDevice,0x142);
+            (*(g_Supervisor.d3dDevice)->lpVtbl->SetVertexShader)
+                      (g_Supervisor.d3dDevice,D3DFVF_TEX1 | D3DFVF_DIFFUSE | D3DFVF_XYZ);
           }
           this->currentVertexShader = '\x03';
         }
@@ -81,7 +83,8 @@ int __thiscall AnmManager::FUN_00433590(AnmManager *this,AnmVm *vm)
       }
       else {
         (*(g_Supervisor.d3dDevice)->lpVtbl->DrawPrimitiveUP)
-                  (g_Supervisor.d3dDevice,D3DPT_TRIANGLESTRIP,2,&FLOAT_006d4660,0x18);
+                  (g_Supervisor.d3dDevice,D3DPT_TRIANGLESTRIP,2,
+                   Vertex_TEX1_DIFFUSE_XYZ_ARRAY_006d4660,0x18);
       }
       iVar2 = 0;
     }

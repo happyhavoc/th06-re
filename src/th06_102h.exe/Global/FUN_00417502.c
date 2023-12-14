@@ -76,7 +76,7 @@ void FUN_00417502(uint *param_1)
       AsciiManager::AddFormatText(&g_AsciiManager,&local_10,"Extra Rank     * 2.0\n");
     }
     local_c = local_c + 16.0;
-    if (((int)g_GameManager.difficulty < 4) && (g_GameManager.field45_0x1823 == 0)) {
+    if (((int)g_GameManager.difficulty < 4) && (g_GameManager.field42_0x1823 == 0)) {
       if (g_Supervisor.lifeCount == 3) {
         g_AsciiManager.color = 0xffff8080;
         AsciiManager::AddFormatText(&g_AsciiManager,&local_10,"Player Penalty * 0.5\n");

@@ -48,7 +48,7 @@ void __thiscall AsciiManager::DrawStrings(AsciiManager *this)
         (this->vm0).pos.x = fVar1 + (this->vm0).pos.x;
       }
       else {
-        if (local_10->unk1 == 0) {
+        if (local_10->isSelected == 0) {
           (this->vm0).sprite =
                (AnmLoadedSprite *)((int)g_AnmManager + ((byte)*local_14 - 0x15) * 0x38);
           (this->vm0).color = local_10->color;

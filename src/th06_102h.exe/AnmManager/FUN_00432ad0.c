@@ -20,27 +20,27 @@ int __thiscall AnmManager::FUN_00432ad0(AnmManager *this,AnmVm *vm)
     fVar2 = (vm->sprite->widthPx * vm->scaleX) / 2.0;
     fVar3 = (vm->sprite->heightPx * vm->scaleY) / 2.0;
     if ((vm->flags >> 8 & 1) == 0) {
-      PRIMITIVES_TO_DRAW_VERTEXBUF[12] = (vm->pos).x - fVar2;
+      g_PrimitivesToDrawVertexBuf[2].pos.x = (vm->pos).x - fVar2;
       fVar1 = (vm->pos).x;
     }
     else {
-      PRIMITIVES_TO_DRAW_VERTEXBUF[12] = (vm->pos).x;
+      g_PrimitivesToDrawVertexBuf[2].pos.x = (vm->pos).x;
       fVar1 = fVar2 + (vm->pos).x;
     }
-    PRIMITIVES_TO_DRAW_VERTEXBUF[18] = fVar2 + fVar1;
+    g_PrimitivesToDrawVertexBuf[3].pos.x = fVar2 + fVar1;
     if ((vm->flags >> 8 & 2) == 0) {
-      PRIMITIVES_TO_DRAW_VERTEXBUF[7] = (vm->pos).y - fVar3;
+      g_PrimitivesToDrawVertexBuf[1].pos.y = (vm->pos).y - fVar3;
       fVar2 = (vm->pos).y;
     }
     else {
-      PRIMITIVES_TO_DRAW_VERTEXBUF[7] = (vm->pos).y;
+      g_PrimitivesToDrawVertexBuf[1].pos.y = (vm->pos).y;
       fVar2 = fVar3 + (vm->pos).y;
     }
-    PRIMITIVES_TO_DRAW_VERTEXBUF[19] = fVar3 + fVar2;
-    PRIMITIVES_TO_DRAW_VERTEXBUF[0] = PRIMITIVES_TO_DRAW_VERTEXBUF[12];
-    PRIMITIVES_TO_DRAW_VERTEXBUF[1] = PRIMITIVES_TO_DRAW_VERTEXBUF[7];
-    PRIMITIVES_TO_DRAW_VERTEXBUF[6] = PRIMITIVES_TO_DRAW_VERTEXBUF[18];
-    PRIMITIVES_TO_DRAW_VERTEXBUF[13] = PRIMITIVES_TO_DRAW_VERTEXBUF[19];
+    g_PrimitivesToDrawVertexBuf[3].pos.y = fVar3 + fVar2;
+    g_PrimitivesToDrawVertexBuf[0].pos.x = g_PrimitivesToDrawVertexBuf[2].pos.x;
+    g_PrimitivesToDrawVertexBuf[0].pos.y = g_PrimitivesToDrawVertexBuf[1].pos.y;
+    g_PrimitivesToDrawVertexBuf[1].pos.x = g_PrimitivesToDrawVertexBuf[3].pos.x;
+    g_PrimitivesToDrawVertexBuf[2].pos.y = g_PrimitivesToDrawVertexBuf[3].pos.y;
     iVar4 = FUN_00432730(this,vm,1);
   }
   return iVar4;

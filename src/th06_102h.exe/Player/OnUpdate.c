@@ -13,7 +13,7 @@ undefined4 Player::OnUpdate(undefined param_1)
   undefined3 in_stack_00000005;
   int local_8;
   
-  if (g_GameManager._44_1_ != '\0') {
+  if ((char)g_GameManager.field23_0x2c != '\0') {
     return 1;
   }
   for (local_8 = 0; local_8 < 0x20; local_8 = local_8 + 1) {
@@ -57,7 +57,7 @@ undefined4 Player::OnUpdate(undefined param_1)
           FUN_0041f290(_param_1 + 4,4,2);
           FUN_0041f290(_param_1 + 4,4,2);
           g_GameManager.current_power = 0;
-          g_GameManager.field38_0x181c = 0xff;
+          g_GameManager.field35_0x181c = 0xff;
         }
         else {
           FUN_0041f290(_param_1 + 4,2,2);
@@ -106,7 +106,7 @@ undefined4 Player::OnUpdate(undefined param_1)
       goto LAB_00428fa8;
     }
     g_GameManager.lives_remaining = g_GameManager.lives_remaining - 1;
-    if (((int)g_GameManager.difficulty < 4) && (g_GameManager.field45_0x1823 == 0)) {
+    if (((int)g_GameManager.difficulty < 4) && (g_GameManager.field42_0x1823 == 0)) {
       g_GameManager.bombs_remaining = g_Supervisor.bombCount;
     }
     else {

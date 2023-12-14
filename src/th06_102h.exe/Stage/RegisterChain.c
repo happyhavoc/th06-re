@@ -1,5 +1,5 @@
 
-undefined4 Stage::RegisterChain(undefined4 param_1)
+undefined4 Stage::RegisterChain(uint stage)
 
 {
   undefined4 uVar1;
@@ -12,11 +12,11 @@ undefined4 Stage::RegisterChain(undefined4 param_1)
     pSVar3 = (Stage *)&pSVar3->stdData;
   }
   g_Stage.stdData = (byte *)0x0;
-  g_Stage.field9_0x2c.current = 0;
-  g_Stage.field9_0x2c.subFrame = 0.0;
-  g_Stage.field9_0x2c.previous = -999;
-  g_Stage.field10_0x38 = param_1;
-  g_StageCalcChain.callback = FUN_00403810;
+  g_Stage.timer.current = 0;
+  g_Stage.timer.subFrame = 0.0;
+  g_Stage.timer.previous = -999;
+  g_Stage.stage = stage;
+  g_StageCalcChain.callback = OnUpdate;
   g_StageCalcChain.addedCallback = AddedCallback;
   g_StageCalcChain.deletedCallback = DeletedCallback;
   g_StageCalcChain.arg = &g_Stage;

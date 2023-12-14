@@ -2,22 +2,22 @@
 ChainCallbackResult AsciiManager::OnUpdate(AsciiManager *arg)
 
 {
-  AsciiManagerPopup *local_c;
+  AsciiManagerPopup *curPopup;
   int local_8;
   
   if ((g_GameManager.is_in_game_menu == 0) && (g_GameManager.is_in_retry_menu == 0)) {
-    local_c = arg->popups0;
+    curPopup = arg->popups0;
     for (local_8 = 0; local_8 < 0x203; local_8 = local_8 + 1) {
-      if (local_c->inUse != '\0') {
-        (local_c->position).y =
-             (local_c->position).y - g_Supervisor.effectiveFramerateMultiplier * 0.5;
-        (local_c->timer).previous = (local_c->timer).current;
-        Supervisor::TickTimer(&g_Supervisor,&(local_c->timer).current,&(local_c->timer).subFrame);
-        if (0x3c < (local_c->timer).current) {
-          local_c->inUse = '\0';
+      if (curPopup->inUse != '\0') {
+        (curPopup->position).y =
+             (curPopup->position).y - g_Supervisor.effectiveFramerateMultiplier * 0.5;
+        (curPopup->timer).previous = (curPopup->timer).current;
+        Supervisor::TickTimer(&g_Supervisor,&(curPopup->timer).current,&(curPopup->timer).subFrame);
+        if (0x3c < (curPopup->timer).current) {
+          curPopup->inUse = '\0';
         }
       }
-      local_c = local_c + 1;
+      curPopup = curPopup + 1;
     }
   }
   else if (g_GameManager.is_in_game_menu != 0) {

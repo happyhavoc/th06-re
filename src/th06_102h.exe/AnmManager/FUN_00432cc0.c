@@ -33,30 +33,30 @@ int __thiscall AnmManager::FUN_00432cc0(AnmManager *this,AnmVm *vm)
       xOffset = ROUND((vm->pos).y);
       fVar4 = ROUND((vm->sprite->widthPx * vm->scaleX) / 2.0);
       fVar5 = ROUND((vm->sprite->heightPx * vm->scaleY) / 2.0);
-      FUN_00432c80(PRIMITIVES_TO_DRAW_VERTEXBUF,-fVar4 - 0.5,-fVar5 - 0.5,fVar2,fVar1,yOffset,
-                   xOffset);
-      FUN_00432c80(PRIMITIVES_TO_DRAW_VERTEXBUF + 6,fVar4 - 0.5,-fVar5 - 0.5,fVar2,fVar1,yOffset,
-                   xOffset);
-      FUN_00432c80(PRIMITIVES_TO_DRAW_VERTEXBUF + 0xc,-fVar4 - 0.5,fVar5 - 0.5,fVar2,fVar1,yOffset,
-                   xOffset);
-      FUN_00432c80(PRIMITIVES_TO_DRAW_VERTEXBUF + 0x12,fVar4 - 0.5,fVar5 - 0.5,fVar2,fVar1,yOffset,
-                   xOffset);
-      PRIMITIVES_TO_DRAW_VERTEXBUF[2] = (vm->pos).z;
+      FUN_00432c80((float *)g_PrimitivesToDrawVertexBuf,-fVar4 - 0.5,-fVar5 - 0.5,fVar2,fVar1,
+                   yOffset,xOffset);
+      FUN_00432c80((float *)(g_PrimitivesToDrawVertexBuf + 1),fVar4 - 0.5,-fVar5 - 0.5,fVar2,fVar1,
+                   yOffset,xOffset);
+      FUN_00432c80((float *)(g_PrimitivesToDrawVertexBuf + 2),-fVar4 - 0.5,fVar5 - 0.5,fVar2,fVar1,
+                   yOffset,xOffset);
+      FUN_00432c80((float *)(g_PrimitivesToDrawVertexBuf + 3),fVar4 - 0.5,fVar5 - 0.5,fVar2,fVar1,
+                   yOffset,xOffset);
+      g_PrimitivesToDrawVertexBuf[0].pos.z = (vm->pos).z;
       if ((vm->flags >> 8 & 1) != 0) {
-        PRIMITIVES_TO_DRAW_VERTEXBUF[0] = PRIMITIVES_TO_DRAW_VERTEXBUF[0] + fVar4;
-        PRIMITIVES_TO_DRAW_VERTEXBUF[6] = PRIMITIVES_TO_DRAW_VERTEXBUF[6] + fVar4;
-        PRIMITIVES_TO_DRAW_VERTEXBUF[12] = PRIMITIVES_TO_DRAW_VERTEXBUF[12] + fVar4;
-        PRIMITIVES_TO_DRAW_VERTEXBUF[18] = PRIMITIVES_TO_DRAW_VERTEXBUF[18] + fVar4;
+        g_PrimitivesToDrawVertexBuf[0].pos.x = g_PrimitivesToDrawVertexBuf[0].pos.x + fVar4;
+        g_PrimitivesToDrawVertexBuf[1].pos.x = g_PrimitivesToDrawVertexBuf[1].pos.x + fVar4;
+        g_PrimitivesToDrawVertexBuf[2].pos.x = g_PrimitivesToDrawVertexBuf[2].pos.x + fVar4;
+        g_PrimitivesToDrawVertexBuf[3].pos.x = g_PrimitivesToDrawVertexBuf[3].pos.x + fVar4;
       }
       if ((vm->flags >> 8 & 2) != 0) {
-        PRIMITIVES_TO_DRAW_VERTEXBUF[1] = PRIMITIVES_TO_DRAW_VERTEXBUF[1] + fVar5;
-        PRIMITIVES_TO_DRAW_VERTEXBUF[7] = PRIMITIVES_TO_DRAW_VERTEXBUF[7] + fVar5;
-        PRIMITIVES_TO_DRAW_VERTEXBUF[13] = PRIMITIVES_TO_DRAW_VERTEXBUF[13] + fVar5;
-        PRIMITIVES_TO_DRAW_VERTEXBUF[19] = PRIMITIVES_TO_DRAW_VERTEXBUF[19] + fVar5;
+        g_PrimitivesToDrawVertexBuf[0].pos.y = g_PrimitivesToDrawVertexBuf[0].pos.y + fVar5;
+        g_PrimitivesToDrawVertexBuf[1].pos.y = g_PrimitivesToDrawVertexBuf[1].pos.y + fVar5;
+        g_PrimitivesToDrawVertexBuf[2].pos.y = g_PrimitivesToDrawVertexBuf[2].pos.y + fVar5;
+        g_PrimitivesToDrawVertexBuf[3].pos.y = g_PrimitivesToDrawVertexBuf[3].pos.y + fVar5;
       }
-      PRIMITIVES_TO_DRAW_VERTEXBUF[8] = PRIMITIVES_TO_DRAW_VERTEXBUF[2];
-      PRIMITIVES_TO_DRAW_VERTEXBUF[14] = PRIMITIVES_TO_DRAW_VERTEXBUF[2];
-      PRIMITIVES_TO_DRAW_VERTEXBUF[20] = PRIMITIVES_TO_DRAW_VERTEXBUF[2];
+      g_PrimitivesToDrawVertexBuf[1].pos.z = g_PrimitivesToDrawVertexBuf[0].pos.z;
+      g_PrimitivesToDrawVertexBuf[2].pos.z = g_PrimitivesToDrawVertexBuf[0].pos.z;
+      g_PrimitivesToDrawVertexBuf[3].pos.z = g_PrimitivesToDrawVertexBuf[0].pos.z;
       iVar6 = FUN_00432730(this,vm,0);
     }
   }

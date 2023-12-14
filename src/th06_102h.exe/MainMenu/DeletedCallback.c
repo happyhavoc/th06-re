@@ -9,7 +9,7 @@ undefined4 MainMenu::DeletedCallback(int param_1)
   (*(g_Supervisor.d3dDevice)->lpVtbl->ResourceManagerDiscardBytes)(g_Supervisor.d3dDevice,0);
   FUN_0043a70a();
   for (local_8 = 0x1b; local_8 < 0x25; local_8 = local_8 + 1) {
-    ReleaseAnm(g_AnmManager,local_8);
+    AnmManager::ReleaseAnm(g_AnmManager,local_8);
   }
   AnmManager::ReleaseSurface(g_AnmManager,0);
   pAVar1 = g_AnmManager;

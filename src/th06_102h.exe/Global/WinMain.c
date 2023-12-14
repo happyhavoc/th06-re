@@ -17,7 +17,7 @@ int WinMain(HINSTANCE hInstance,HINSTANCE hPrevInstance,LPSTR lpCmdLine,int nSho
   retCode = CheckForRunningGameInstance();
   if (retCode == 0) {
     g_Supervisor.hInstance = hInstance;
-    ZVar1 = Supervisor::CreateFromConfig(&g_Supervisor,"東方紅魔郷.cfg");
+    ZVar1 = Supervisor::LoadConfig(&g_Supervisor,"東方紅魔郷.cfg");
     if (ZVar1 == ZUN_SUCCESS) {
       retCode = InitD3dInterface();
       if (retCode == 0) {

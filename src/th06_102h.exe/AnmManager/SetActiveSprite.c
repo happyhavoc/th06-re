@@ -1,11 +1,11 @@
 
-int __thiscall AnmManager::SetActiveSprite(AnmManager *this,AnmVm *vm,int sprite_index)
+ZunResult __thiscall AnmManager::SetActiveSprite(AnmManager *this,AnmVm *vm,int sprite_index)
 
 {
-  int res;
+  ZunResult res;
   
   if ((int)this->sprites[sprite_index].sourceFileIndex < 0) {
-    res = -1;
+    res = ZUN_ERROR;
   }
   else {
     vm->spriteNumber = (short)sprite_index;
@@ -13,7 +13,7 @@ int __thiscall AnmManager::SetActiveSprite(AnmManager *this,AnmVm *vm,int sprite
     D3DXMatrixIdentity(&vm->matrix);
     (vm->matrix).m[0][0] = vm->sprite->widthPx / vm->sprite->textureWidth;
     (vm->matrix).m[1][1] = vm->sprite->heightPx / vm->sprite->textureHeight;
-    res = 0;
+    res = ZUN_SUCCESS;
   }
   return res;
 }

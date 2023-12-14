@@ -40,11 +40,11 @@ int __fastcall StageMenu::OnUpdateGameMenu(StageMenu *this)
     this->numFrames = 0;
     pAVar1 = g_AnmManager;
     if (g_Supervisor.lockableBackbuffer != 0) {
-      g_AnmManager->vertexBufferContents[3].position.z = 4.203895e-45;
-      pAVar1->vertexBufferContents[3].diffuseColor = 0x20;
-      pAVar1->vertexBufferContents[3].textureUV.x = 2.242078e-44;
-      pAVar1->vertexBufferContents[3].textureUV.y = 5.380986e-43;
-      pAVar1->heightMaybe = 0x1c0;
+      g_AnmManager->screenshot_textureId = 3;
+      pAVar1->screenshot_left = 0x20;
+      pAVar1->screenshot_top = 0x10;
+      pAVar1->screenshot_width = 0x180;
+      pAVar1->screenshot_height = 0x1c0;
       pAVar1 = g_AnmManager;
       (this->vm1).anmFileIndex = 0x718;
       AnmManager::SetAndExecuteScript(pAVar1,&this->vm1,pAVar1->scripts[0x718]);

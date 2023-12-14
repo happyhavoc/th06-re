@@ -13,7 +13,7 @@ void FUN_00420b50(void)
     InitD3dDevice();
     g_Supervisor.unk198 = 2;
   }
-  AnmManager::FUN_00421a40(g_AnmManager);
+  AnmManager::TakeScrenshotIfRequested(g_AnmManager);
   if (g_Supervisor.unk198 != 0) {
     g_Supervisor.unk198 = g_Supervisor.unk198 + -1;
   }

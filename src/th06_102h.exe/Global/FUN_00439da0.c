@@ -8,7 +8,7 @@ undefined4 FUN_00439da0(int param_1)
   
   Supervisor::LoadPbg3(&g_Supervisor,3,&DAT_0046c570);
   for (local_8 = 0x1b; local_8 < 0x25; local_8 = local_8 + 1) {
-    ReleaseAnm(g_AnmManager,local_8);
+    AnmManager::ReleaseAnm(g_AnmManager,local_8);
   }
   ZVar1 = AnmManager::LoadAnm(g_AnmManager,0x15,"data/title01.anm",0x100);
   if (ZVar1 == ZUN_SUCCESS) {

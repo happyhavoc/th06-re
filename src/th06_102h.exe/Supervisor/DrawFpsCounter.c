@@ -20,7 +20,7 @@ void Supervisor::DrawFpsCounter(void)
     g_NumFramesSinceLastTime = 0;
     g_LastTime = curTime;
     sprintf(g_FpsCounterBuffer,"%.02ffps",(double)fps);
-    if (g_GameManager.field43_0x1821 != 0) {
+    if (g_GameManager.field40_0x1821 != 0) {
       local_c = 60.0 / g_Supervisor.framerateMultiplier;
       g_Supervisor.field85_0x1b8 = g_Supervisor.field85_0x1b8 + local_c;
       if (local_c * 0.9 < fps == (NAN(local_c * 0.9) || NAN(fps))) {

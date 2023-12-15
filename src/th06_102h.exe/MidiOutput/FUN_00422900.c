@@ -1,222 +1,226 @@
 
-/* WARNING: Type propagation algorithm not settling */
-
-void __thiscall MidiOutput::FUN_00422900(MidiOutput *this,undefined4 *param_1)
+void __thiscall MidiOutput::FUN_00422900(MidiOutput *this,MidiTrack *param_1)
 
 {
   char cVar1;
-  MIDIHDR *pMVar2;
-  LPSTR pCVar3;
-  uint uVar4;
-  long lVar5;
-  int iVar6;
+  LPMIDIHDR _Memory;
+  bool bVar2;
+  MIDIHDR *pMVar3;
+  LPSTR pCVar4;
+  undefined3 extraout_var;
+  uint uVar5;
+  long lVar6;
   int iVar7;
-  MIDIHDR *pMVar8;
-  undefined8 uVar9;
-  MidiSample *local_30;
-  MidiSample *local_2c;
-  byte local_18;
-  byte bStack_17;
+  int iVar8;
+  LPMIDIHDR pmVar9;
+  undefined8 uVar10;
+  MidiTrack *local_30;
+  MidiTrack *local_2c;
+  byte arg1;
+  byte opcode;
   byte bStack_14;
-  undefined4 local_d;
+  undefined4 arg2;
   undefined uStack_9;
   
-  bStack_17 = *(byte *)param_1[5];
-  if (bStack_17 < 0x80) {
-    bStack_17 = *(byte *)(param_1 + 3);
+                    /* WARNING: Load size is inaccurate */
+  opcode = *param_1->curTrackDataCursor;
+  if (opcode < 0x80) {
+    opcode = *(byte *)&param_1->unkc;
   }
   else {
-    param_1[5] = param_1[5] + 1;
+    param_1->curTrackDataCursor = (void *)((int)param_1->curTrackDataCursor + 1);
   }
-  switch(bStack_17 & 0xf0) {
+  switch(opcode & 0xf0) {
   case 0x80:
   case 0x90:
   case 0xa0:
   case 0xb0:
   case 0xe0:
-    local_18 = *(byte *)param_1[5];
-    param_1[5] = param_1[5] + 1;
-    local_d = (uint)*(byte *)param_1[5];
-    param_1[5] = param_1[5] + 1;
+                    /* WARNING: Load size is inaccurate */
+    arg1 = *param_1->curTrackDataCursor;
+    param_1->curTrackDataCursor = (void *)((int)param_1->curTrackDataCursor + 1);
+                    /* WARNING: Load size is inaccurate */
+    arg2 = (uint)*param_1->curTrackDataCursor;
+    param_1->curTrackDataCursor = (void *)((int)param_1->curTrackDataCursor + 1);
     break;
   case 0xc0:
   case 0xd0:
-    local_18 = *(byte *)param_1[5];
-    param_1[5] = param_1[5] + 1;
-    local_d = 0;
+                    /* WARNING: Load size is inaccurate */
+    arg1 = *param_1->curTrackDataCursor;
+    param_1->curTrackDataCursor = (void *)((int)param_1->curTrackDataCursor + 1);
+    arg2 = 0;
     break;
   case 0xf0:
-    if (bStack_17 == 0xf0) {
-      if ((&this->midiHeaders)[this->field128_0x90] != (MIDIHDR *)0x0) {
-        UnprepareHeader(this,(&this->midiHeaders)[this->field128_0x90]);
+    if (opcode == 0xf0) {
+      if (this->midiHeaders[this->midiHeadersCursor] != (MIDIHDR *)0x0) {
+        UnprepareHeader(this,this->midiHeaders[this->midiHeadersCursor]);
       }
-      pMVar2 = (MIDIHDR *)_malloc(0x40);
-      (&this->midiHeaders)[this->field128_0x90] = pMVar2;
-      pMVar2 = (&this->midiHeaders)[this->field128_0x90];
-      iVar6 = FUN_00421d90(param_1 + 5);
-      pMVar8 = pMVar2;
-      for (iVar7 = 0x10; iVar7 != 0; iVar7 = iVar7 + -1) {
-        pMVar8->lpData = (LPSTR)0x0;
-        pMVar8 = (MIDIHDR *)&pMVar8->dwBufferLength;
+      pMVar3 = (MIDIHDR *)_malloc(0x40);
+      this->midiHeaders[this->midiHeadersCursor] = pMVar3;
+      _Memory = this->midiHeaders[this->midiHeadersCursor];
+      iVar7 = FUN_00421d90(&param_1->curTrackDataCursor);
+      pmVar9 = _Memory;
+      for (iVar8 = 0x10; iVar8 != 0; iVar8 = iVar8 + -1) {
+        pmVar9->lpData = (LPSTR)0x0;
+        pmVar9 = (LPMIDIHDR)&pmVar9->dwBufferLength;
       }
-      pCVar3 = (LPSTR)_malloc(iVar6 + 1);
-      pMVar2->lpData = pCVar3;
-      *pMVar2->lpData = -0x10;
-      pMVar2->dwFlags = 0;
-      pMVar2->dwBufferLength = iVar6 + 1;
-      local_d = local_d & 0xff;
+      pCVar4 = (LPSTR)_malloc(iVar7 + 1);
+      _Memory->lpData = pCVar4;
+      *_Memory->lpData = -0x10;
+      _Memory->dwFlags = 0;
+      _Memory->dwBufferLength = iVar7 + 1;
+      arg2 = arg2 & 0xff;
       uStack_9 = 0;
-      while (CONCAT13(uStack_9,local_d._1_3_) < iVar6) {
-        pMVar2->lpData[CONCAT13(uStack_9,local_d._1_3_) + 1] = *(CHAR *)param_1[5];
-        param_1[5] = param_1[5] + 1;
-        iVar7 = CONCAT13(uStack_9,local_d._1_3_) + 1;
-        local_d._1_3_ = (undefined3)iVar7;
-        uStack_9 = (undefined)((uint)iVar7 >> 0x18);
+      while (CONCAT13(uStack_9,arg2._1_3_) < iVar7) {
+                    /* WARNING: Load size is inaccurate */
+        _Memory->lpData[CONCAT13(uStack_9,arg2._1_3_) + 1] = *param_1->curTrackDataCursor;
+        param_1->curTrackDataCursor = (void *)((int)param_1->curTrackDataCursor + 1);
+        iVar8 = CONCAT13(uStack_9,arg2._1_3_) + 1;
+        arg2._1_3_ = (undefined3)iVar8;
+        uStack_9 = (undefined)((uint)iVar8 >> 0x18);
       }
-      iVar6 = FUN_00421b90(pMVar2);
-      if (iVar6 != 0) {
-        _free(pMVar2->lpData);
-        _free(pMVar2);
-        (&this->midiHeaders)[this->field128_0x90] = (MIDIHDR *)0x0;
+      bVar2 = MidiDevice::FUN_00421b90(&this->midiOutDev,_Memory);
+      if (CONCAT31(extraout_var,bVar2) != 0) {
+        _free(_Memory->lpData);
+        _free(_Memory);
+        this->midiHeaders[this->midiHeadersCursor] = (MIDIHDR *)0x0;
       }
-      this->field128_0x90 = this->field128_0x90 + 1;
-      uVar4 = this->field128_0x90 & 0x8000001f;
-      if ((int)uVar4 < 0) {
-        uVar4 = (uVar4 - 1 | 0xffffffe0) + 1;
+      this->midiHeadersCursor = this->midiHeadersCursor + 1;
+      uVar5 = this->midiHeadersCursor & 0x8000001f;
+      if ((int)uVar5 < 0) {
+        uVar5 = (uVar5 - 1 | 0xffffffe0) + 1;
       }
-      this->field128_0x90 = uVar4;
+      this->midiHeadersCursor = uVar5;
     }
-    else if (bStack_17 == 0xff) {
-      cVar1 = *(char *)param_1[5];
-      param_1[5] = param_1[5] + 1;
-      iVar6 = FUN_00421d90(param_1 + 5);
+    else if (opcode == 0xff) {
+                    /* WARNING: Load size is inaccurate */
+      cVar1 = *param_1->curTrackDataCursor;
+      param_1->curTrackDataCursor = (void *)((int)param_1->curTrackDataCursor + 1);
+      iVar7 = FUN_00421d90(&param_1->curTrackDataCursor);
       if (cVar1 == '/') {
-        *param_1 = 0;
+        param_1->track_playing = 0;
         return;
       }
       if (cVar1 == 'Q') {
-        uVar9 = __allmul(*(undefined4 *)&this->field_0x128,*(undefined4 *)&this->field_0x12c,
-                         this->field135_0x11c,this->field135_0x11c >> 0x1f);
-        uVar9 = __allmul(uVar9,1000,0);
-        uVar9 = __aulldiv(uVar9,this->field136_0x120,this->field136_0x120 >> 0x1f);
-        uVar4 = *(uint *)&this->field_0x130;
-        *(uint *)&this->field_0x130 = uVar4 + (uint)uVar9;
-        *(uint *)&this->field_0x134 =
-             *(int *)&this->field_0x134 + (int)((ulonglong)uVar9 >> 0x20) +
-             (uint)CARRY4(uVar4,(uint)uVar9);
-        *(undefined4 *)&this->field_0x128 = 0;
-        *(undefined4 *)&this->field_0x12c = 0;
-        this->field136_0x120 = 0;
-        local_d = local_d & 0xff;
+        uVar10 = __allmul(this->unk128,this->unk12c,this->divisons,this->divisons >> 0x1f);
+        uVar10 = __allmul(uVar10,1000,0);
+        uVar10 = __aulldiv(uVar10,this->unk120,this->unk120 >> 0x1f);
+        uVar5 = this->unk130;
+        this->unk130 = uVar5 + (uint)uVar10;
+        this->unk134 = this->unk134 + (int)((ulonglong)uVar10 >> 0x20) +
+                       (uint)CARRY4(uVar5,(uint)uVar10);
+        this->unk128 = 0;
+        this->unk12c = 0;
+        this->unk120 = 0;
+        arg2 = arg2 & 0xff;
         uStack_9 = 0;
-        while (CONCAT13(uStack_9,local_d._1_3_) < iVar6) {
-          this->field136_0x120 =
-               this->field136_0x120 * 0x100 + (uint)*(byte *)param_1[5] + this->field136_0x120;
-          param_1[5] = param_1[5] + 1;
-          iVar7 = CONCAT13(uStack_9,local_d._1_3_) + 1;
-          local_d._1_3_ = (undefined3)iVar7;
-          uStack_9 = (undefined)((uint)iVar7 >> 0x18);
+        while (CONCAT13(uStack_9,arg2._1_3_) < iVar7) {
+                    /* WARNING: Load size is inaccurate */
+          this->unk120 = this->unk120 * 0x100 + (uint)*param_1->curTrackDataCursor + this->unk120;
+          param_1->curTrackDataCursor = (void *)((int)param_1->curTrackDataCursor + 1);
+          iVar8 = CONCAT13(uStack_9,arg2._1_3_) + 1;
+          arg2._1_3_ = (undefined3)iVar8;
+          uStack_9 = (undefined)((uint)iVar8 >> 0x18);
         }
       }
       else {
-        param_1[5] = param_1[5] + iVar6;
+        param_1->curTrackDataCursor = (void *)((int)param_1->curTrackDataCursor + iVar7);
       }
     }
   }
-  switch(bStack_17 & 0xf0) {
+  switch(opcode & 0xf0) {
   case 0x90:
-    if ((local_d & 0xff) != 0) {
-      local_18 = local_18 + this->field_0x2c4;
-      (&this->field_0x154)
-      [((int)(CONCAT12(bStack_17,CONCAT11(bStack_17,local_18)) & 0xff) >> 3) +
-       (uint)(bStack_17 & 0xffff0f) * 0x17] =
-           (&this->field_0x154)
-           [((int)(CONCAT12(bStack_17,CONCAT11(bStack_17,local_18)) & 0xff) >> 3) +
-            (uint)(bStack_17 & 0xffff0f) * 0x17] | (byte)(1 << (local_18 & 7));
+    if ((arg2 & 0xff) != 0) {
+      arg1 = arg1 + this->unk2c4;
+      this->unk144
+      [((int)(CONCAT12(opcode,CONCAT11(opcode,arg1)) & 0xff) >> 3) +
+       (uint)(opcode & 0xffff0f) * 0x17 + 0x10] =
+           this->unk144
+           [((int)(CONCAT12(opcode,CONCAT11(opcode,arg1)) & 0xff) >> 3) +
+            (uint)(opcode & 0xffff0f) * 0x17 + 0x10] | (byte)(1 << (arg1 & 7));
       break;
     }
   case 0x80:
-    local_18 = local_18 + this->field_0x2c4;
-    (&this->field_0x154)
-    [((int)(CONCAT12(bStack_17,CONCAT11(bStack_17,local_18)) & 0xff) >> 3) +
-     (uint)(bStack_17 & 0xffff0f) * 0x17] =
-         (&this->field_0x154)
-         [((int)(CONCAT12(bStack_17,CONCAT11(bStack_17,local_18)) & 0xff) >> 3) +
-          (uint)(bStack_17 & 0xffff0f) * 0x17] & ~(byte)(1 << (local_18 & 7));
+    arg1 = arg1 + this->unk2c4;
+    this->unk144
+    [((int)(CONCAT12(opcode,CONCAT11(opcode,arg1)) & 0xff) >> 3) + (uint)(opcode & 0xffff0f) * 0x17
+     + 0x10] = this->unk144
+               [((int)(CONCAT12(opcode,CONCAT11(opcode,arg1)) & 0xff) >> 3) +
+                (uint)(opcode & 0xffff0f) * 0x17 + 0x10] & ~(byte)(1 << (arg1 & 7));
     break;
   case 0xb0:
-    switch(local_18) {
+    switch(arg1) {
     case 0:
-      (&this->field_0x165)[(uint)(bStack_17 & 0xffff0f) * 0x17] = (undefined)local_d;
+      this->unk144[(uint)(opcode & 0xffff0f) * 0x17 + 0x21] = (undefined)arg2;
       break;
     case 2:
-      local_2c = this->unk;
-      local_d = local_d & 0xff;
+      local_2c = this->tracks;
+      arg2 = arg2 & 0xff;
       uStack_9 = 0;
-      while (CONCAT13(uStack_9,local_d._1_3_) < this->field130_0x114) {
-        *(undefined4 *)&local_2c->field_0x18 = *(undefined4 *)&local_2c->field_0x14;
-        *(undefined4 *)&local_2c->field_0x1c = *(undefined4 *)&local_2c->field_0x4;
-        iVar6 = CONCAT13(uStack_9,local_d._1_3_) + 1;
-        local_d._1_3_ = (undefined3)iVar6;
+      while (CONCAT13(uStack_9,arg2._1_3_) < this->num_tracks) {
+        local_2c->unk18 = local_2c->curTrackDataCursor;
+        local_2c->unk1c = local_2c->unk4;
+        iVar7 = CONCAT13(uStack_9,arg2._1_3_) + 1;
+        arg2._1_3_ = (undefined3)iVar7;
         local_2c = local_2c + 1;
-        uStack_9 = (undefined)((uint)iVar6 >> 0x18);
+        uStack_9 = (undefined)((uint)iVar7 >> 0x18);
       }
-      *(int *)&this->field_0x2ec = this->field136_0x120;
-      *(undefined4 *)&this->field_0x2f0 = *(undefined4 *)&this->field_0x128;
-      *(undefined4 *)&this->field_0x2f4 = *(undefined4 *)&this->field_0x12c;
-      *(undefined4 *)&this->field_0x2f8 = *(undefined4 *)&this->field_0x130;
-      *(undefined4 *)&this->field_0x2fc = *(undefined4 *)&this->field_0x134;
+      this->unk2ec = this->unk120;
+      this->unk2f0 = this->unk128;
+      this->unk2f4 = this->unk12c;
+      this->unk2f8 = this->unk130;
+      this->unk2fc = this->unk134;
       break;
     case 4:
-      local_30 = this->unk;
-      local_d = local_d & 0xff;
+      local_30 = this->tracks;
+      arg2 = arg2 & 0xff;
       uStack_9 = 0;
-      while (CONCAT13(uStack_9,local_d._1_3_) < this->field130_0x114) {
-        *(undefined4 *)&local_30->field_0x14 = *(undefined4 *)&local_30->field_0x18;
-        *(undefined4 *)&local_30->field_0x4 = *(undefined4 *)&local_30->field_0x1c;
-        iVar6 = CONCAT13(uStack_9,local_d._1_3_) + 1;
-        local_d._1_3_ = (undefined3)iVar6;
+      while (CONCAT13(uStack_9,arg2._1_3_) < this->num_tracks) {
+        local_30->curTrackDataCursor = local_30->unk18;
+        local_30->unk4 = local_30->unk1c;
+        iVar7 = CONCAT13(uStack_9,arg2._1_3_) + 1;
+        arg2._1_3_ = (undefined3)iVar7;
         local_30 = local_30 + 1;
-        uStack_9 = (undefined)((uint)iVar6 >> 0x18);
+        uStack_9 = (undefined)((uint)iVar7 >> 0x18);
       }
-      this->field136_0x120 = *(int *)&this->field_0x2ec;
-      *(undefined4 *)&this->field_0x128 = *(undefined4 *)&this->field_0x2f0;
-      *(undefined4 *)&this->field_0x12c = *(undefined4 *)&this->field_0x2f4;
-      *(undefined4 *)&this->field_0x130 = *(undefined4 *)&this->field_0x2f8;
-      *(undefined4 *)&this->field_0x134 = *(undefined4 *)&this->field_0x2fc;
+      this->unk120 = this->unk2ec;
+      this->unk128 = this->unk2f0;
+      this->unk12c = this->unk2f4;
+      this->unk130 = this->unk2f8;
+      this->unk134 = this->unk2fc;
       break;
     case 7:
-      (&this->field_0x169)[(uint)(bStack_17 & 0xffff0f) * 0x17] = (undefined)local_d;
-      lVar5 = __ftol2((double)((float)(local_d & 0xff) * this->field551_0x2c8));
-      bStack_14 = (byte)lVar5;
-      if (lVar5 < 0) {
+      this->unk144[(uint)(opcode & 0xffff0f) * 0x17 + 0x25] = (undefined)arg2;
+      lVar6 = __ftol2((double)((float)(arg2 & 0xff) * this->unk2c8));
+      bStack_14 = (byte)lVar6;
+      if (lVar6 < 0) {
         bStack_14 = 0;
       }
-      else if (0x7f < lVar5) {
+      else if (0x7f < lVar6) {
         bStack_14 = 0x7f;
       }
-      (&this->field_0x16a)[((CONCAT11(bStack_14,bStack_17) & 0xffff0f) & 0xff) * 0x17] = bStack_14;
-      local_d = (uint)bStack_14;
+      this->unk144[((CONCAT11(bStack_14,opcode) & 0xffff0f) & 0xff) * 0x17 + 0x26] = bStack_14;
+      arg2 = (uint)bStack_14;
       break;
     case 10:
-      (&this->field_0x166)[(uint)(bStack_17 & 0xffff0f) * 0x17] = (undefined)local_d;
+      this->unk144[(uint)(opcode & 0xffff0f) * 0x17 + 0x22] = (undefined)arg2;
       break;
     case 0x5b:
-      (&this->field_0x167)[(uint)(bStack_17 & 0xffff0f) * 0x17] = (undefined)local_d;
+      this->unk144[(uint)(opcode & 0xffff0f) * 0x17 + 0x23] = (undefined)arg2;
       break;
     case 0x5d:
-      (&this->field_0x168)[(uint)(bStack_17 & 0xffff0f) * 0x17] = (undefined)local_d;
+      this->unk144[(uint)(opcode & 0xffff0f) * 0x17 + 0x24] = (undefined)arg2;
     }
     break;
   case 0xc0:
-    (&this->field_0x164)[(uint)(bStack_17 & 0xffff0f) * 0x17] = local_18;
+    this->unk144[(uint)(opcode & 0xffff0f) * 0x17 + 0x20] = arg1;
   }
-  if (bStack_17 < 0xf0) {
-    FUN_00421be0(&this->midiOutDev,bStack_17,local_18,(undefined)local_d);
+  if (opcode < 0xf0) {
+    MidiDevice::SendShortMsg(&this->midiOutDev,opcode,arg1,(undefined)arg2);
   }
-  *(byte *)(param_1 + 3) = bStack_17;
-  iVar6 = FUN_00421d90(param_1 + 5);
-  param_1[1] = param_1[1] + iVar6;
+  *(byte *)&param_1->unkc = opcode;
+  iVar7 = FUN_00421d90(&param_1->curTrackDataCursor);
+  param_1->unk4 = param_1->unk4 + iVar7;
   return;
 }
 

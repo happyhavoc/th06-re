@@ -8,7 +8,7 @@ ZunResult __thiscall MidiOutput::UnprepareHeader(MidiOutput *this,LPMIDIHDR para
   if (param_1 == (LPMIDIHDR)0x0) {
     DebugPrint2("error :\n");
   }
-  if (this->midiOutDev == (HMIDIOUT)0x0) {
+  if ((this->midiOutDev).handle == (HMIDIOUT)0x0) {
     DebugPrint2("error :\n");
   }
   local_c = 0;
@@ -16,11 +16,11 @@ ZunResult __thiscall MidiOutput::UnprepareHeader(MidiOutput *this,LPMIDIHDR para
     if (0x1f < local_c) {
       return ZUN_ERROR;
     }
-    if ((&this->midiHeaders)[local_c] == param_1) break;
+    if (this->midiHeaders[local_c] == param_1) break;
     local_c = local_c + 1;
   }
-  (&this->midiHeaders)[local_c] = (MIDIHDR *)0x0;
-  MVar1 = midiOutUnprepareHeader(this->midiOutDev,param_1,0x40);
+  this->midiHeaders[local_c] = (MIDIHDR *)0x0;
+  MVar1 = midiOutUnprepareHeader((this->midiOutDev).handle,param_1,0x40);
   if (MVar1 != 0) {
     DebugPrint2("error :\n");
   }

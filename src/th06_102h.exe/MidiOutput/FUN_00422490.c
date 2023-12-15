@@ -1,18 +1,18 @@
 
-undefined4 __thiscall MidiOutput::FUN_00422490(MidiOutput *this)
+ZunResult __thiscall MidiOutput::FUN_00422490(MidiOutput *this)
 
 {
-  undefined4 uVar1;
+  ZunResult ZVar1;
   
-  if (this->unk == (MidiSample *)0x0) {
-    uVar1 = 0xffffffff;
+  if (this->tracks == (MidiTrack *)0x0) {
+    ZVar1 = ZUN_ERROR;
   }
   else {
     FUN_004223c0(this);
-    FUN_00421af0(&this->midiOutDev,(HMIDIOUT)0xffffffff);
-    FUN_00421c90((DWORD_PTR)this,1,(LPTIMECALLBACK)0x0,0);
-    uVar1 = 0;
+    MidiDevice::OpenDevice(&this->midiOutDev,0xffffffff);
+    MidiTimer::FUN_00421c90(&this->timer,1,(LPTIMECALLBACK)0x0,0);
+    ZVar1 = ZUN_SUCCESS;
   }
-  return uVar1;
+  return ZVar1;
 }
 

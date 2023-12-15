@@ -159,7 +159,7 @@ undefined4 FUN_004188c9(void)
         }
         goto LAB_00418fe0;
       case 0xc:
-        FUN_00424d82(0x40800000);
+        Supervisor::FUN_00424d82(&g_Supervisor,4.0);
         break;
       case 0xd:
         *(undefined *)(in_ECX + 0x2bd8) = *(undefined *)(*(int *)(in_ECX + 0x2538) + 4);

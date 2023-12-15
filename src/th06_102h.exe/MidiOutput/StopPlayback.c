@@ -1,23 +1,23 @@
 
-undefined4 __thiscall MidiOutput::StopPlayback(MidiOutput *this)
+ZunResult __thiscall MidiOutput::StopPlayback(MidiOutput *this)
 
 {
-  undefined4 uVar1;
+  ZunResult ZVar1;
   int local_8;
   
-  if (this->unk == (MidiSample *)0x0) {
-    uVar1 = 0xffffffff;
+  if (this->tracks == (MidiTrack *)0x0) {
+    ZVar1 = ZUN_ERROR;
   }
   else {
     for (local_8 = 0; local_8 < 0x20; local_8 = local_8 + 1) {
-      if ((&this->midiHeaders)[this->field128_0x90] != (MIDIHDR *)0x0) {
-        UnprepareHeader(this,(&this->midiHeaders)[this->field128_0x90]);
+      if (this->midiHeaders[this->midiHeadersCursor] != (MIDIHDR *)0x0) {
+        UnprepareHeader(this,this->midiHeaders[this->midiHeadersCursor]);
       }
     }
-    StopTimer(this);
-    MidiDevice::Close((MidiDevice *)&this->midiOutDev);
-    uVar1 = 0;
+    MidiTimer::StopTimer(&this->timer);
+    MidiDevice::Close(&this->midiOutDev);
+    ZVar1 = ZUN_SUCCESS;
   }
-  return uVar1;
+  return ZVar1;
 }
 

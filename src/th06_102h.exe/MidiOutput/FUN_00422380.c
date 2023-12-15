@@ -7,7 +7,7 @@ undefined4 __thiscall MidiOutput::FUN_00422380(MidiOutput *this,char *param_1)
   
   iVar1 = LoadFile(this,0x1f,param_1);
   if (iVar1 == 0) {
-    FUN_00422140(this,0x1f);
+    ParseFile(this,0x1f);
     UnloadFile(this,0x1f);
     uVar2 = 0;
   }

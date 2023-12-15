@@ -140,7 +140,7 @@ void __fastcall FUN_0040f7c0(int param_1)
         case 0x4d:
           *(int *)(param_1 + 0x116c) = *(int *)(param_1 + 0x116c) + 1;
           lVar6 = FUN_0040f4d0(param_1);
-          FUN_00424d82((float)lVar6);
+          Supervisor::FUN_00424d82(&g_Supervisor,(float)lVar6);
           break;
         case 0x52:
 switchD_0040fa93_caseD_52:

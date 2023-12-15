@@ -1,5 +1,5 @@
 
-void AnmManager::~AnmManager(void)
+void __thiscall AnmManager::~AnmManager(AnmManager *this)
 
 {
   return;

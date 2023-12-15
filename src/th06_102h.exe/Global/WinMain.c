@@ -77,7 +77,7 @@ LAB_0042055a:
           SoundPlayer::Release(&g_SoundPlayer);
           _Memory = g_AnmManager;
           if (g_AnmManager != (AnmManager *)0x0) {
-            AnmManager::~AnmManager();
+            AnmManager::~AnmManager(g_AnmManager);
             _free(_Memory);
           }
           g_AnmManager = (AnmManager *)0x0;

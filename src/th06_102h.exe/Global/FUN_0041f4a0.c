@@ -134,12 +134,10 @@ LAB_0041f7c5:
                 local_20 = local_20 + 1) {
             }
             if (local_20 == iVar9) {
-              AsciiManager::CreatePopup1(&g_AsciiManager,(undefined4 *)(local_18 + 1),10,0xffffffff)
-              ;
+              AsciiManager::CreatePopup1(&g_AsciiManager,&local_18[1].rotation,10,0xffffffff);
             }
             else {
-              AsciiManager::CreatePopup1(&g_AsciiManager,(undefined4 *)(local_18 + 1),-1,0xff80c0ff)
-              ;
+              AsciiManager::CreatePopup1(&g_AsciiManager,&local_18[1].rotation,-1,0xff80c0ff);
               SoundPlayer::FUN_004311e0(&g_SoundPlayer,0x1f);
             }
           }
@@ -151,7 +149,7 @@ LAB_0041f7c5:
             local_c = *(int *)(&DAT_00476660 + (char)g_GameManager.power_item_count_for_score * 4);
             g_GameManager.score = g_GameManager.score + local_c;
             AsciiManager::CreatePopup1
-                      (&g_AsciiManager,(undefined4 *)(local_18 + 1),local_c,
+                      (&g_AsciiManager,&local_18[1].rotation,local_c,
                        ((local_c < 0x3200) - 1 & 0xffffff01) - 1);
           }
           GameManager::FUN_0041c57e(&g_GameManager,1);
@@ -170,7 +168,7 @@ LAB_0041f7c5:
             }
             local_c = local_e0;
             AsciiManager::CreatePopup1
-                      (&g_AsciiManager,(undefined4 *)(local_18 + 1),local_e0,
+                      (&g_AsciiManager,&local_18[1].rotation,local_e0,
                        ((local_e0 < 100000) - 1 & 0xffffff01) - 1);
             break;
           case 2:
@@ -184,7 +182,7 @@ LAB_0041f7c5:
             }
             local_c = local_e4;
             AsciiManager::CreatePopup1
-                      (&g_AsciiManager,(undefined4 *)(local_18 + 1),local_e4,
+                      (&g_AsciiManager,&local_18[1].rotation,local_e4,
                        ((local_e4 < 150000) - 1 & 0xffffff01) - 1);
             break;
           case 3:
@@ -198,7 +196,7 @@ LAB_0041f7c5:
             }
             local_c = local_e8;
             AsciiManager::CreatePopup1
-                      (&g_AsciiManager,(undefined4 *)(local_18 + 1),local_e8,
+                      (&g_AsciiManager,&local_18[1].rotation,local_e8,
                        ((local_e8 < 200000) - 1 & 0xffffff01) - 1);
             break;
           case 4:
@@ -212,7 +210,7 @@ LAB_0041f7c5:
             }
             local_c = local_ec;
             AsciiManager::CreatePopup1
-                      (&g_AsciiManager,(undefined4 *)(local_18 + 1),local_ec,
+                      (&g_AsciiManager,&local_18[1].rotation,local_ec,
                        ((local_ec < 300000) - 1 & 0xffffff01) - 1);
           }
           g_GameManager.score = g_GameManager.score + local_c;
@@ -246,12 +244,10 @@ LAB_0041f7c5:
                 local_28 = local_28 + 1) {
             }
             if (local_28 == iVar9) {
-              AsciiManager::CreatePopup1(&g_AsciiManager,(undefined4 *)(local_18 + 1),10,0xffffffff)
-              ;
+              AsciiManager::CreatePopup1(&g_AsciiManager,&local_18[1].rotation,10,0xffffffff);
             }
             else {
-              AsciiManager::CreatePopup1(&g_AsciiManager,(undefined4 *)(local_18 + 1),-1,0xff80c0ff)
-              ;
+              AsciiManager::CreatePopup1(&g_AsciiManager,&local_18[1].rotation,-1,0xff80c0ff);
               SoundPlayer::FUN_004311e0(&g_SoundPlayer,0x1f);
             }
           }
@@ -263,7 +259,7 @@ LAB_0041f7c5:
             local_c = *(int *)(&DAT_00476660 + (char)g_GameManager.power_item_count_for_score * 4);
             g_GameManager.score = g_GameManager.score + local_c;
             AsciiManager::CreatePopup1
-                      (&g_AsciiManager,(undefined4 *)(local_18 + 1),local_c,
+                      (&g_AsciiManager,&local_18[1].rotation,local_c,
                        ((local_c < 0x3200) - 1 & 0xffffff01) - 1);
           }
           break;
@@ -279,11 +275,11 @@ LAB_0041f7c5:
             FUN_00414340(0x5a5ff8);
             FUN_004173d9(0);
             SoundPlayer::FUN_004311e0(&g_SoundPlayer,0x1f);
-            AsciiManager::CreatePopup1(&g_AsciiManager,(undefined4 *)(local_18 + 1),-1,0xff80c0ff);
+            AsciiManager::CreatePopup1(&g_AsciiManager,&local_18[1].rotation,-1,0xff80c0ff);
           }
           g_GameManager.current_power = 0x80;
           g_GameManager.score = g_GameManager.score + 1000;
-          AsciiManager::CreatePopup1(&g_AsciiManager,(undefined4 *)(local_18 + 1),1000,0xffffffff);
+          AsciiManager::CreatePopup1(&g_AsciiManager,&local_18[1].rotation,1000,0xffffffff);
           DAT_0069bc30 = DAT_0069bc30 & 0xffffffcf | 0x20;
           break;
         case 5:
@@ -300,8 +296,7 @@ LAB_0041f7c5:
             local_c = 100;
           }
           g_GameManager.score = g_GameManager.score + local_c;
-          AsciiManager::CreatePopup2
-                    (&g_AsciiManager,(undefined4 *)(local_18 + 1),local_c,0xffffffff);
+          AsciiManager::CreatePopup2(&g_AsciiManager,&local_18[1].rotation,local_c,0xffffffff);
         }
         *(undefined *)((int)&local_18[1].currentTimeInScript.previous + 1) = 0;
         bVar8 = true;

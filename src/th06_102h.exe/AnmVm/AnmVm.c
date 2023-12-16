@@ -1,5 +1,5 @@
 
-void __fastcall AnmVm::AnmVm(AnmVm *this)
+void __thiscall AnmVm::AnmVm(AnmVm *this)
 
 {
   AnmTimer::AnmTimer(&this->currentTimeInScript);

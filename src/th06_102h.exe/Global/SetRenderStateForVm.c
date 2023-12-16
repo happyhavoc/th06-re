@@ -35,10 +35,10 @@ void __thiscall SetRenderStateForVm(AnmManager *this,AnmVm *vm)
     AnmManager::g_PrimitivesToDrawNoVertexBuf[1].color = vm->color;
     AnmManager::g_PrimitivesToDrawNoVertexBuf[2].color = vm->color;
     AnmManager::g_PrimitivesToDrawNoVertexBuf[3].color = vm->color;
-    g_PrimitivesToDrawUnknown[0].diffuse = vm->color;
-    g_PrimitivesToDrawUnknown[1].diffuse = vm->color;
-    g_PrimitivesToDrawUnknown[2].diffuse = vm->color;
-    g_PrimitivesToDrawUnknown[3].diffuse = vm->color;
+    AnmManager::g_PrimitivesToDrawUnknown[0].diffuse = vm->color;
+    AnmManager::g_PrimitivesToDrawUnknown[1].diffuse = vm->color;
+    AnmManager::g_PrimitivesToDrawUnknown[2].diffuse = vm->color;
+    AnmManager::g_PrimitivesToDrawUnknown[3].diffuse = vm->color;
   }
   if (((g_Supervisor.cfg.opts >> 6 & 1) == 0) &&
      ((uint)this->currentZWriteDisable != (vm->flags >> 0xc & 1))) {

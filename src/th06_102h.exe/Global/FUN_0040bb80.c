@@ -23,7 +23,7 @@ void FUN_0040bb80(int param_1)
       _DAT_00487f68 = _DAT_006caa68;
       _DAT_00487f6c = _DAT_006caa6c;
       _DAT_00487f70 = _DAT_006caa70;
-      fVar8 = GetRandomF32ZeroToOne(&g_Rng.seed);
+      fVar8 = Rng::GetRandomF32ZeroToOne(&g_Rng);
       DAT_00487edc = fVar8 * 6.283185 - 3.141593;
       fVar6 = (float10)FUN_0041e850(DAT_00487edc,0x4020d97c);
       DAT_00487ee0 = (float)fVar6;
@@ -65,7 +65,7 @@ void FUN_0040bb80(int param_1)
         *(undefined4 *)(param_1 + 0xd0c) = 0;
         uVar2 = *(undefined4 *)(param_1 + 0xd18);
         fVar1 = *(float *)(param_1 + 0xd1c);
-        fVar9 = GetRandomF32ZeroToOne(&g_Rng.seed);
+        fVar9 = Rng::GetRandomF32ZeroToOne(&g_Rng);
         *(float *)(param_1 + 0xd18) = fVar9 * fVar1 + *(float *)(param_1 + 0xd18);
         FUN_004145c0(param_1 + 0xd00);
         *(undefined4 *)(param_1 + 0xd18) = uVar2;

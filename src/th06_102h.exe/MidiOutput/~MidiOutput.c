@@ -10,7 +10,7 @@ void __thiscall MidiOutput::~MidiOutput(MidiOutput *this)
   puStack_c = &LAB_004691f6;
   local_10 = ExceptionList;
   ExceptionList = &local_10;
-  (this->timer).vtbl = (MidiOutputVtbl *)&PTR_FUN_0046b568;
+  (this->timer).vtbl = (MidiOutputVtbl *)&PTR_OnTimerElapsed_0046b568;
   local_8 = 1;
   StopPlayback(this);
   ClearTracks(this);

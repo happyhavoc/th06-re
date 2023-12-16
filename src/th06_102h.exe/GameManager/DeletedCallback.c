@@ -6,7 +6,7 @@ undefined4 GameManager::DeletedCallback(int param_1)
   if (g_GameManager.demo_mode == 0) {
     Supervisor::FUN_00424d38(&g_Supervisor);
   }
-  FUN_00404650();
+  Stage::CutChain();
   FUN_004172b0();
   Player::CutChain();
   FUN_00413350();

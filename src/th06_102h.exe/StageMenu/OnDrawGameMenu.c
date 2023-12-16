@@ -1,5 +1,5 @@
 
-void __fastcall StageMenu::OnDrawGameMenu(StageMenu *this)
+void __thiscall StageMenu::OnDrawGameMenu(StageMenu *this)
 
 {
   int iVar1;

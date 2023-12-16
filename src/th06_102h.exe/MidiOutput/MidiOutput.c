@@ -14,7 +14,7 @@ undefined4 * __thiscall MidiOutput::MidiOutput(MidiOutput *this)
   ExceptionList = &local_10;
   MidiTimer::MidiTimer(&this->timer);
   local_8 = 0;
-  (this->timer).vtbl = (MidiOutputVtbl *)&PTR_FUN_0046b568;
+  (this->timer).vtbl = (MidiOutputVtbl *)&PTR_OnTimerElapsed_0046b568;
   MidiDevice::MidiDevice(&this->midiOutDev);
   this->tracks = (MidiTrack *)0x0;
   this->divisons = 0;

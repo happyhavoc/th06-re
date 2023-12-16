@@ -1,5 +1,5 @@
 
-ZunResult __fastcall SoundPlayer::InitSoundBuffers(SoundPlayer *this)
+ZunResult __thiscall SoundPlayer::InitSoundBuffers(SoundPlayer *this)
 
 {
   ZunResult ZVar1;

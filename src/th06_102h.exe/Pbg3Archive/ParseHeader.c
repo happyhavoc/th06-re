@@ -1,12 +1,12 @@
 
-undefined4 __thiscall Pbg3Archive::ParseHeader(Pbg3Archive *this)
+BOOL __thiscall Pbg3Archive::ParseHeader(Pbg3Archive *this)
 
 {
   int magic;
   uint val;
   Pbg3Entry *pPVar1;
   uint uVar2;
-  int iVar3;
+  BOOL BVar3;
   Pbg3Parser *inner;
   
   magic = IPbg3Parser::ReadMagic(&this->parser->base);
@@ -35,9 +35,9 @@ undefined4 __thiscall Pbg3Archive::ParseHeader(Pbg3Archive *this)
             *(uint *)((int)&this->entries->dataOffset + magic) = uVar2;
             uVar2 = IPbg3Parser::ReadVarInt(&this->parser->base);
             *(uint *)((int)&this->entries->uncompressedSize + magic) = uVar2;
-            iVar3 = IPbg3Parser::ReadString
+            BVar3 = IPbg3Parser::ReadString
                               (&this->parser->base,&this->entries->filename + magic,0x100);
-            if (iVar3 == 0) {
+            if (BVar3 == 0) {
               if (this->parser != (Pbg3Parser *)0x0) {
                 (*(code *)((this->parser->base).vtbl)->operator_delete)(1);
                 this->parser = (Pbg3Parser *)0x0;

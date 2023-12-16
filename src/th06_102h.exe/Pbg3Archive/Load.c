@@ -1,10 +1,10 @@
 
-undefined4 __thiscall Pbg3Archive::Load(Pbg3Archive *this,char *path)
+BOOL __thiscall Pbg3Archive::Load(Pbg3Archive *this,char *path)
 
 {
   int iVar1;
   Pbg3Parser *pPVar2;
-  undefined4 uVar3;
+  BOOL BVar3;
   void *pvStack_c;
   undefined *puStack_8;
   undefined4 uStack_4;
@@ -28,9 +28,9 @@ undefined4 __thiscall Pbg3Archive::Load(Pbg3Archive *this,char *path)
     if (pPVar2 != (Pbg3Parser *)0x0) {
       iVar1 = Pbg3Parser::Open(pPVar2,path);
       if (iVar1 != 0) {
-        uVar3 = ParseHeader(this);
+        BVar3 = ParseHeader(this);
         ExceptionList = pvStack_c;
-        return uVar3;
+        return BVar3;
       }
       if (this->parser != (Pbg3Parser *)0x0) {
         (*(code *)((this->parser->base).vtbl)->operator_delete)(1);

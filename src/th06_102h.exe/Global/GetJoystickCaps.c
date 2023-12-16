@@ -1,5 +1,5 @@
 
-bool GetJoystickCaps(void)
+ushort GetJoystickCaps(void)
 
 {
   MMRESULT MVar1;
@@ -13,8 +13,8 @@ bool GetJoystickCaps(void)
   }
   else {
     GameErrorContextLog(&g_GameErrorContext,
-                        "使えるパッドが存在しないよ��です、残念\n");
+                        "使えるパッドが存在しないようです、残念\n");
   }
-  return MVar1 != 0;
+  return (ushort)(MVar1 != 0);
 }
 

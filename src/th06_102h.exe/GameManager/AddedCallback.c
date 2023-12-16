@@ -55,7 +55,7 @@ undefined4 GameManager::AddedCallback(GameManager *param_1)
     local_c = param_1->catk;
     for (local_10 = 0; local_10 < 0x40; local_10 = local_10 + 1) {
       for (local_14 = 0; local_14 < 0x20; local_14 = local_14 + 1) {
-        uVar2 = GetRandomU16(&g_Rng.seed);
+        uVar2 = Rng::GetRandomU16(&g_Rng);
         *(ushort *)(local_c->name + local_14 * 2 + -0x18) = uVar2;
       }
       (local_c->base).magic = 0x4b544143;
@@ -180,7 +180,7 @@ undefined4 GameManager::AddedCallback(GameManager *param_1)
             }
             else {
               GameErrorContextLog(&g_GameErrorContext,
-                                  "error : エフェクトの初期化に失敗しまし��\n");
+                                  "error : エフェクトの初期化に失敗しました\n");
               uVar4 = 0xffffffff;
             }
           }

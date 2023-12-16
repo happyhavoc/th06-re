@@ -1,5 +1,5 @@
 
-int __fastcall StageMenu::OnUpdateRetryMenu(StageMenu *this)
+int __thiscall StageMenu::OnUpdateRetryMenu(StageMenu *this)
 
 {
   AnmManager *pAVar1;

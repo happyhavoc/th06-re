@@ -289,7 +289,7 @@ LAB_004074ce:
       local_29c = 0.0;
     }
     else {
-      uVar13 = GetRandomU32(&g_Rng.seed);
+      uVar13 = Rng::GetRandomU32(&g_Rng);
       local_29c = (float)(uVar13 % local_24);
     }
     local_14 = local_29c;
@@ -304,7 +304,7 @@ LAB_004074ce:
       local_2a0 = 0;
     }
     else {
-      local_2a0 = GetRandomU32(&g_Rng.seed);
+      local_2a0 = Rng::GetRandomU32(&g_Rng);
       local_2a0 = local_2a0 % local_28;
     }
     local_14 = (float)(local_2a0 + local_2c);
@@ -313,7 +313,7 @@ LAB_004074ce:
   case 8:
     pfVar17 = FUN_0040b380((int)param_1,local_20 + 4,(undefined4 *)0x0);
     local_30 = *pfVar17;
-    local_18 = GetRandomF32ZeroToOne(&g_Rng.seed);
+    local_18 = Rng::GetRandomF32ZeroToOne(&g_Rng);
     local_18 = local_18 * local_30;
     FUN_0040b3c0((int)param_1,local_20[3],(int *)&local_18);
     break;
@@ -322,7 +322,7 @@ LAB_004074ce:
     local_34 = *pfVar17;
     pfVar17 = FUN_0040b380((int)param_1,local_1c + 2,(undefined4 *)0x0);
     local_38 = *pfVar17;
-    fVar25 = GetRandomF32ZeroToOne(&g_Rng.seed);
+    fVar25 = Rng::GetRandomF32ZeroToOne(&g_Rng);
     local_18 = fVar25 * local_34 + local_38;
     FUN_0040b3c0((int)param_1,local_20[3],(int *)&local_18);
     break;
@@ -529,7 +529,7 @@ switchD_00407544_caseD_2:
     local_c = local_20[4];
     local_8 = local_20[5];
     fVar25 = local_c - local_10;
-    fVar24 = GetRandomF32ZeroToOne(&g_Rng.seed);
+    fVar24 = Rng::GetRandomF32ZeroToOne(&g_Rng);
     param_1[0xb].posInterpFinal.z = fVar24 * fVar25 + local_10;
     break;
   case 0x32:
@@ -537,7 +537,7 @@ switchD_00407544_caseD_2:
     local_c = local_20[4];
     local_8 = local_20[5];
     fVar25 = local_c - local_10;
-    fVar24 = GetRandomF32ZeroToOne(&g_Rng.seed);
+    fVar24 = Rng::GetRandomF32ZeroToOne(&g_Rng);
     param_1[0xb].posInterpFinal.z = fVar24 * fVar25 + local_10;
     if ((float)param_1[0xb].currentInstruction < param_1[0xd].pos.x + 96.0) {
       if (param_1[0xb].posInterpFinal.z <= 1.570796) {
@@ -742,7 +742,7 @@ switchD_00407544_caseD_2:
         local_184 = 0.0;
       }
       else {
-        uVar13 = GetRandomU32(&g_Rng.seed);
+        uVar13 = Rng::GetRandomU32(&g_Rng);
         local_184 = (float)(uVar13 % (uint)local_184);
       }
       param_1[0xc].scaleInterpInitialX = local_184;
@@ -1136,9 +1136,9 @@ switchD_00407544_caseD_2:
       local_98 = param_1[0xb].currentInstruction;
       local_94 = param_1[0xb].sprite;
       local_90 = param_1[0xb].alphaInterpInitial;
-      fVar25 = GetRandomF32ZeroToOne(&g_Rng.seed);
+      fVar25 = Rng::GetRandomF32ZeroToOne(&g_Rng);
       local_98 = (AnmRawInstr *)((fVar25 * 144.0 - 72.0) + (float)local_98);
-      fVar25 = GetRandomF32ZeroToOne(&g_Rng.seed);
+      fVar25 = Rng::GetRandomF32ZeroToOne(&g_Rng);
       local_94 = (AnmLoadedSprite *)((fVar25 * 144.0 - 72.0) + (float)local_94);
       if (g_GameManager.current_power < 0x80) {
         FUN_0041f290();

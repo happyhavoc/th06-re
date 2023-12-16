@@ -6,8 +6,9 @@ int __thiscall Supervisor::LoadPbg3(Supervisor *this,int pbg3FileIdx,char *filen
 {
   byte bVar1;
   Pbg3Archive *this_00;
-  int iVar2;
-  bool bVar3;
+  BOOL BVar2;
+  int iVar3;
+  bool bVar4;
   uint unaff_retaddr;
   Pbg3FileName *pPStack_cc;
   byte *pbStack_c8;
@@ -42,8 +43,8 @@ LAB_0042444e:
     local_8 = -1;
     this->pbg3Archives[pbg3FileIdx] = f;
     DebugPrint("%s open ...\n",filename);
-    iVar2 = Pbg3Archive::Load(this->pbg3Archives[pbg3FileIdx],filename);
-    if (iVar2 == 0) {
+    BVar2 = Pbg3Archive::Load(this->pbg3Archives[pbg3FileIdx],filename);
+    if (BVar2 == 0) {
       this_00 = this->pbg3Archives[pbg3FileIdx];
       if (this_00 != (Pbg3Archive *)0x0) {
         Pbg3Archive::~Pbg3Archive(this_00);
@@ -66,7 +67,7 @@ LAB_0042444e:
       if ((int)uStack_14 < 0) {
         GameErrorContextFatal
                   (&g_GameErrorContext,"error : データのバージョンが違います\n");
-        iVar2 = 1;
+        iVar3 = 1;
         goto LAB_00424634;
       }
     }
@@ -76,15 +77,15 @@ LAB_0042444e:
     pbStack_b4 = (byte *)filename;
     do {
       bVar1 = *pbStack_b4;
-      bVar3 = bVar1 < pPStack_b0->filename[0];
+      bVar4 = bVar1 < pPStack_b0->filename[0];
       if (bVar1 != pPStack_b0->filename[0]) {
 LAB_0042442a:
-        iStack_bc = (1 - (uint)bVar3) - (uint)(bVar3 != 0);
+        iStack_bc = (1 - (uint)bVar4) - (uint)(bVar4 != 0);
         goto LAB_00424435;
       }
       if (bVar1 == 0) break;
       bVar1 = pbStack_b4[1];
-      bVar3 = bVar1 < pPStack_b0->filename[1];
+      bVar4 = bVar1 < pPStack_b0->filename[1];
       if (bVar1 != pPStack_b0->filename[1]) goto LAB_0042442a;
       pbStack_b4 = pbStack_b4 + 2;
       pPStack_b0 = (Pbg3FileName *)(pPStack_b0->filename + 2);
@@ -93,10 +94,10 @@ LAB_0042442a:
 LAB_00424435:
     if (iStack_bc != 0) goto LAB_0042444e;
   }
-  iVar2 = 0;
+  iVar3 = 0;
 LAB_00424634:
   ExceptionList = pvStack_10;
   __security_check_cookie(uStack_18 ^ unaff_retaddr);
-  return iVar2;
+  return iVar3;
 }
 

@@ -1,5 +1,5 @@
 
-void __fastcall StageMenu::StageMenu(StageMenu *this)
+void __thiscall StageMenu::StageMenu(StageMenu *this)
 
 {
   AnmVm *local_20;

@@ -1,5 +1,5 @@
 
-void __fastcall Stage::Stage(Stage *this)
+void __thiscall Stage::Stage(Stage *this)
 
 {
   AnmTimer::AnmTimer(&this->scriptTime);

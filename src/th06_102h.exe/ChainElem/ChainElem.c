@@ -1,5 +1,5 @@
 
-ChainElem * __fastcall ChainElem::ChainElem(ChainElem *this)
+ChainElem * __thiscall ChainElem::ChainElem(ChainElem *this)
 
 {
   this->prev = (ChainElem *)0x0;

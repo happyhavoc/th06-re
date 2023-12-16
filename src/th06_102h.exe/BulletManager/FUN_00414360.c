@@ -26,8 +26,8 @@ int __thiscall BulletManager::FUN_00414360(void *this,int param_1,int param_2)
         FUN_0041f290(local_1c + 0x158,6,1);
       }
       AsciiManager::CreatePopup1
-                (&g_AsciiManager,local_1c + 0x158,local_8,((local_8 < param_1) - 1 & 0xffffff01) - 1
-                );
+                (&g_AsciiManager,(D3DXVECTOR3 *)(local_1c + 0x158),local_8,
+                 ((local_8 < param_1) - 1 & 0xffffff01) - 1);
       local_c = local_c + local_8;
       local_10 = local_10 + 1;
       local_8 = local_8 + 10;

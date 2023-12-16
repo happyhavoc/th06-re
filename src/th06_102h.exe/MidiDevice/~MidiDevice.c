@@ -1,8 +1,8 @@
 
-void __fastcall MidiDevice::~MidiDevice(MidiDevice *param_1)
+void __thiscall MidiDevice::~MidiDevice(MidiDevice *this)
 
 {
-  Close(param_1);
+  Close(this);
   return;
 }
 

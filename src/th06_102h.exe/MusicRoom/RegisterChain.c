@@ -1,10 +1,10 @@
 
 /* WARNING: Inlined function: FUN_0045c3e0 */
 
-undefined4 MusicRoom::RegisterChain(void)
+ZunResult MusicRoom::RegisterChain(void)
 
 {
-  undefined4 uVar1;
+  ZunResult ZVar1;
   int iVar2;
   ChainElem **ppCVar3;
   void *pvStack_10;
@@ -35,12 +35,12 @@ undefined4 MusicRoom::RegisterChain(void)
     g_MusicRoomDrawChain = Chain::CreateElem(&g_Chain,OnDraw);
     g_MusicRoomDrawChain->arg = &g_MusicRoomCalcChain;
     Chain::AddToDrawChain(&g_Chain,g_MusicRoomDrawChain,0);
-    uVar1 = 0;
+    ZVar1 = ZUN_SUCCESS;
   }
   else {
-    uVar1 = 0xffffffff;
+    ZVar1 = ZUN_ERROR;
   }
   ExceptionList = pvStack_10;
-  return uVar1;
+  return ZVar1;
 }
 

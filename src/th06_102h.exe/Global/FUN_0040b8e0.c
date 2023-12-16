@@ -32,7 +32,7 @@ void FUN_0040b8e0(int param_1,int param_2)
         local_c[5].matrix.m[1][2] = 0.0;
         local_c[5].matrix.m[1][1] = 0.0;
         local_c[5].matrix.m[1][0] = -NAN;
-        fVar4 = GetRandomF32ZeroToOne(&g_Rng.seed);
+        fVar4 = Rng::GetRandomF32ZeroToOne(&g_Rng);
         fVar3 = (float10)(fVar4 * 6.283185 - 3.141593);
         fVar2 = (float10)fcos(fVar3);
         fVar3 = (float10)fsin(fVar3);

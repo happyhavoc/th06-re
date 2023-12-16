@@ -5,7 +5,7 @@ undefined4 EffectManager::RegisterChain(void)
   int iVar1;
   undefined4 uVar2;
   
-  Reset((undefined4 *)&g_EffectManager);
+  Reset(&g_EffectManager);
   g_EffectManagerCalcChain.callback = OnUpdate;
   g_EffectManagerCalcChain.addedCallback = AddedCallback;
   g_EffectManagerCalcChain.deletedCallback = DeletedCallback;

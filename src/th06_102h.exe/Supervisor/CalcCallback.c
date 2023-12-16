@@ -50,8 +50,8 @@ undefined4 Supervisor::CalcCallback(Supervisor *param_1)
         }
       }
       else if (iVar2 == 9) {
-        iVar2 = MusicRoom::RegisterChain();
-        if (iVar2 != 0) {
+        ZVar1 = MusicRoom::RegisterChain();
+        if (ZVar1 != ZUN_SUCCESS) {
           return CHAIN_CALLBACK_RESULT_EXIT_GAME_SUCCESS;
         }
       }

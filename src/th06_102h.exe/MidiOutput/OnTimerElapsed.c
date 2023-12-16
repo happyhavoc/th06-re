@@ -1,5 +1,5 @@
 
-void MidiOutput::FUN_00422680(void)
+void MidiOutput::OnTimerElapsed(void)
 
 {
   bool bVar1;

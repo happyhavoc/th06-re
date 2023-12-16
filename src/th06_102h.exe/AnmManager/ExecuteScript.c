@@ -128,7 +128,7 @@ LAB_00433998:
       local_e0 = 0;
     }
     else {
-      uVar4 = GetRandomU16(&g_Rng.seed);
+      uVar4 = Rng::GetRandomU16(&g_Rng);
       local_e0 = (int)((ulonglong)uVar4 % (ulonglong)(longlong)(int)(uint)uVar2);
     }
     SetActiveSprite(this,vm,*local_c + local_e0 + this->spriteIndices[vm->anmFileIndex]);

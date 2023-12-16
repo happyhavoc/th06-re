@@ -1,5 +1,5 @@
 
-undefined4 EffectManager::AddedCallback(undefined4 *param_1)
+undefined4 EffectManager::AddedCallback(EffectManager *param_1)
 
 {
   ZunResult ZVar1;

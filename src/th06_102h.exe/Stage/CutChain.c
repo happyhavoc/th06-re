@@ -1,5 +1,5 @@
 
-void FUN_00404650(void)
+void Stage::CutChain(void)
 
 {
   Chain::Cut(&g_Chain,&g_StageCalcChain);

@@ -30,7 +30,7 @@ void FUN_0040c180(int param_1,int param_2)
            ((local_18->sprite != (AnmLoadedSprite *)0x0 &&
             (((30.0 <= local_18->sprite->heightPx &&
               (*(short *)((int)local_18[5].matrix.m[2] + 0xe) != 5)) &&
-             (uVar2 = GetRandomU16(&g_Rng.seed), (uVar2 & 3) == 0)))))) {
+             (uVar2 = Rng::GetRandomU16(&g_Rng), (uVar2 & 3) == 0)))))) {
           *(undefined2 *)((int)local_18[5].matrix.m[2] + 0xe) = 5;
           AnmManager::SetActiveSprite
                     (g_AnmManager,local_18,
@@ -40,13 +40,13 @@ void FUN_0040c180(int param_1,int param_2)
           fVar1 = local_18[5].angleVel.z - _DAT_006caa6c;
           fVar3 = (float10)FUN_0045bc34((double)(fVar5 * fVar5 + fVar1 * fVar1));
           if ((float)fVar3 <= 128.0) {
-            fVar5 = GetRandomF32ZeroToOne(&g_Rng.seed);
+            fVar5 = Rng::GetRandomF32ZeroToOne(&g_Rng);
             fVar3 = (float10)Player::FUN_00428680();
             local_18[5].matrix.m[0][1] =
                  (float)(fVar3 + (float10)1.570796 + (float10)(fVar5 * 6.283185));
           }
           else {
-            fVar5 = GetRandomF32ZeroToOne(&g_Rng.seed);
+            fVar5 = Rng::GetRandomF32ZeroToOne(&g_Rng);
             local_18[5].matrix.m[0][1] = fVar5 * 2.356194 + 0.7853982;
           }
           fVar5 = local_18[5].currentTimeInScript.subFrame;
@@ -69,7 +69,7 @@ void FUN_0040c180(int param_1,int param_2)
             (local_18->sprite != (AnmLoadedSprite *)0x0)) &&
            (((30.0 <= local_18->sprite->heightPx &&
              (*(short *)((int)local_18[5].matrix.m[2] + 0xe) != 5)) &&
-            (uVar2 = GetRandomU16(&g_Rng.seed), (uVar2 & 3) == 0)))) {
+            (uVar2 = Rng::GetRandomU16(&g_Rng), (uVar2 & 3) == 0)))) {
           *(undefined2 *)((int)local_18[5].matrix.m[2] + 0xe) = 5;
           AnmManager::SetActiveSprite
                     (g_AnmManager,local_18,
@@ -79,13 +79,13 @@ void FUN_0040c180(int param_1,int param_2)
           fVar1 = local_18[5].angleVel.z - _DAT_006caa6c;
           fVar3 = (float10)FUN_0045bc34((double)(fVar5 * fVar5 + fVar1 * fVar1));
           if ((float)fVar3 <= 128.0) {
-            fVar5 = GetRandomF32ZeroToOne(&g_Rng.seed);
+            fVar5 = Rng::GetRandomF32ZeroToOne(&g_Rng);
             fVar3 = (float10)Player::FUN_00428680();
             local_18[5].matrix.m[0][1] =
                  (float)(fVar3 + (float10)1.570796 + (float10)(fVar5 * 6.283185));
           }
           else {
-            fVar5 = GetRandomF32ZeroToOne(&g_Rng.seed);
+            fVar5 = Rng::GetRandomF32ZeroToOne(&g_Rng);
             local_18[5].matrix.m[0][1] = fVar5 * 6.283185;
           }
           fVar5 = local_18[5].currentTimeInScript.subFrame;

@@ -6,7 +6,7 @@ undefined4 __thiscall Pbg3Parser::Open(Pbg3Parser *this,char *path)
   DWORD DVar2;
   
   (*((this->fileAbstraction).base.vtbl)->Close)(&(this->fileAbstraction).base);
-  IPbg3Parser::Reset(this);
+  IPbg3Parser::Reset(&this->base);
   iVar1 = FileAbstraction::Open(&(this->fileAbstraction).base,path,"r");
   if (iVar1 == 0) {
     return 0;

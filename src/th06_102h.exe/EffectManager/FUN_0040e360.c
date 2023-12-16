@@ -7,9 +7,9 @@ undefined4 EffectManager::FUN_0040e360(int param_1)
   
   if ((*(int *)(param_1 + 0x16c) == 0) && (*(int *)(param_1 + 0x16c) != *(int *)(param_1 + 0x164)))
   {
-    fVar2 = GetRandomF32ZeroToOne(&g_Rng.seed);
+    fVar2 = Rng::GetRandomF32ZeroToOne(&g_Rng);
     *(float *)(param_1 + 0x11c) = (fVar2 * 256.0 - 128.0) / 12.0;
-    fVar2 = GetRandomF32ZeroToOne(&g_Rng.seed);
+    fVar2 = Rng::GetRandomF32ZeroToOne(&g_Rng);
     *(float *)(param_1 + 0x120) = (fVar2 * 256.0 - 128.0) / 12.0;
     *(undefined4 *)(param_1 + 0x124) = 0;
     *(float *)(param_1 + 0x128) = -*(float *)(param_1 + 0x11c) * 0.05263158;

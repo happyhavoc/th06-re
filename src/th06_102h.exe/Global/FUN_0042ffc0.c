@@ -17,7 +17,7 @@ undefined4 FUN_0042ffc0(ScreenEffect *param_1)
       fVar1 = (((float)(param_1->timer).current + (param_1->timer).subFrame) *
               (float)(param_1->field7_0x1c - param_1->field6_0x18)) / (float)param_1->field5_0x14 +
               (float)param_1->field6_0x18;
-      uVar3 = GetRandomU32(&g_Rng.seed);
+      uVar3 = Rng::GetRandomU32(&g_Rng);
       uVar3 = uVar3 % 3;
       if (uVar3 == 0) {
         g_GameManager.arcade_region_top_left_pos.x = 32.0;
@@ -31,7 +31,7 @@ undefined4 FUN_0042ffc0(ScreenEffect *param_1)
         g_GameManager.arcade_region_top_left_pos.x = 32.0;
         g_GameManager.arcade_region_size.x = 384.0 - fVar1;
       }
-      uVar3 = GetRandomU32(&g_Rng.seed);
+      uVar3 = Rng::GetRandomU32(&g_Rng);
       uVar3 = uVar3 % 3;
       if (uVar3 == 0) {
         g_GameManager.arcade_region_top_left_pos.y = 16.0;

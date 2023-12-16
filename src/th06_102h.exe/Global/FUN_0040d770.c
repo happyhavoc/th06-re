@@ -17,7 +17,7 @@ void FUN_0040d770(int param_1)
     *puVar3 = 0;
     puVar3 = puVar3 + 1;
   }
-  GetRandomF32ZeroToOne(&g_Rng.seed);
+  Rng::GetRandomF32ZeroToOne(&g_Rng);
   EffectManager::FUN_0040ef50((int *)&g_EffectManager,0xc,(float *)(param_1 + 0xc6c),1,0xffffffff);
   for (local_60 = 0; local_60 < 0x280; local_60 = local_60 + 1) {
     if ((((*(short *)((int)local_64[5].matrix.m[3] + 2) != 0) &&
@@ -36,7 +36,7 @@ void FUN_0040d770(int param_1)
       local_64[5].matrix.m[1][1] = 0.0;
       local_64[5].matrix.m[1][0] = -NAN;
       local_64[5].matrix.m[1][3] = 1.681558e-43;
-      fVar5 = GetRandomF32ZeroToOne(&g_Rng.seed);
+      fVar5 = Rng::GetRandomF32ZeroToOne(&g_Rng);
       fVar4 = (float10)(fVar5 * 6.283185 - 3.141593);
       fVar1 = (float10)fcos(fVar4);
       fVar4 = (float10)fsin(fVar4);

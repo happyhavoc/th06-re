@@ -7,7 +7,7 @@ undefined4 Supervisor::DeletedCallback(Supervisor *param_1)
   MidiOutput *this;
   int local_8;
   
-  FUN_004240f0(g_AnmManager);
+  AnmManager::FUN_004240f0(g_AnmManager);
   for (local_8 = 0; local_8 < 0x10; local_8 = local_8 + 1) {
     ReleasePbg3(param_1,local_8);
   }

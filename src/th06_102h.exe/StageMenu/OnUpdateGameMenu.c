@@ -1,5 +1,5 @@
 
-int __fastcall StageMenu::OnUpdateGameMenu(StageMenu *this)
+int __thiscall StageMenu::OnUpdateGameMenu(StageMenu *this)
 
 {
   AnmManager *pAVar1;

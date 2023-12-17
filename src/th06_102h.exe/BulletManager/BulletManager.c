@@ -1,5 +1,5 @@
 
-AnmVm * __fastcall FUN_00413450(AnmVm *param_1)
+AnmVm * __fastcall BulletManager::BulletManager(AnmVm *param_1)
 
 {
   AnmVm *local_60;

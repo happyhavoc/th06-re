@@ -1,5 +1,5 @@
 
-undefined4 Supervisor::DrawCallback(void)
+ChainCallbackResult Supervisor::OnDraw(Supervisor *self)
 
 {
   g_AnmManager->currentVertexShader = 0xff;
@@ -9,6 +9,6 @@ undefined4 Supervisor::DrawCallback(void)
   g_AnmManager->currentBlendMode = 0xff;
   g_AnmManager->currentZWriteDisable = 0xff;
   DrawFpsCounter();
-  return 1;
+  return CHAIN_CALLBACK_RESULT_CONTINUE;
 }
 

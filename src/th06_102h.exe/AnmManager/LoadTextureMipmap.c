@@ -1,8 +1,8 @@
 
-int __thiscall
+ZunResult __thiscall
 AnmManager::LoadTextureMipmap
-          (AnmManager *this,int texture_index,char *texture_path,int format_index,D3DCOLOR color_key
-          )
+          (AnmManager *this,uint texture_index,char *texture_path,uint format_index,
+          D3DCOLOR color_key)
 
 {
   HRESULT HVar1;
@@ -80,7 +80,7 @@ AnmManager::LoadTextureMipmap
           local_3c = (IDirect3DTexture8 *)0x0;
         }
         _free(local_28);
-        return 0;
+        return ZUN_SUCCESS;
       }
     }
     else {
@@ -93,6 +93,6 @@ AnmManager::LoadTextureMipmap
     }
     _free(local_28);
   }
-  return -1;
+  return ZUN_ERROR;
 }
 

@@ -1,7 +1,5 @@
 
-/* WARNING: Unknown calling convention -- yet parameter storage is locked */
-
-undefined4 Supervisor::DeletedCallback(Supervisor *param_1)
+ZunResult Supervisor::DeletedCallback(Supervisor *param_1)
 
 {
   MidiOutput *this;
@@ -43,6 +41,6 @@ undefined4 Supervisor::DeletedCallback(Supervisor *param_1)
     (*param_1->directInput->lpVtbl->Release)(param_1->directInput);
     param_1->directInput = (IDirectInput8A *)0x0;
   }
-  return 0;
+  return ZUN_SUCCESS;
 }
 

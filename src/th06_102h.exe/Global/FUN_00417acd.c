@@ -1,5 +1,5 @@
 
-void __thiscall FUN_00417acd(int param_1_00,int param_2,char *param_3)
+void __thiscall FUN_00417acd(int param_1_00,uint param_2,char *param_3)
 
 {
   char cVar1;

@@ -1,7 +1,7 @@
 
 ZunResult __thiscall
 AnmManager::CreateEmptyTexture
-          (AnmManager *this,int textureIdx,UINT width,UINT height,int textureFormat)
+          (AnmManager *this,uint textureIdx,uint width,uint height,uint textureFormat)
 
 {
   D3DXCreateTexture(g_Supervisor.d3dDevice,width,height,1,0,

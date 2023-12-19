@@ -2,7 +2,7 @@
 void __thiscall MidiOutput::~MidiOutput(MidiOutput *this)
 
 {
-  int local_14;
+  uint local_14;
   void *local_10;
   undefined *puStack_c;
   uint local_8;
@@ -14,7 +14,7 @@ void __thiscall MidiOutput::~MidiOutput(MidiOutput *this)
   local_8 = 1;
   StopPlayback(this);
   ClearTracks(this);
-  for (local_14 = 0; local_14 < 0x20; local_14 = local_14 + 1) {
+  for (local_14 = 0; (int)local_14 < 0x20; local_14 = local_14 + 1) {
     UnloadFile(this,local_14);
   }
   local_8 = local_8 & 0xffffff00;

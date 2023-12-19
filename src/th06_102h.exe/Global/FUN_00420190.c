@@ -20,7 +20,7 @@ void FUN_00420190(void)
         if (*(char *)((int)&local_10[1].currentTimeInScript.previous + 2) == '\0') {
           AnmManager::SetActiveSprite
                     (g_AnmManager,local_10,
-                     *(char *)&local_10[1].currentTimeInScript.previous + 0x200);
+                     (int)*(char *)&local_10[1].currentTimeInScript.previous + 0x200);
           *(undefined *)((int)&local_10[1].currentTimeInScript.previous + 2) = 1;
           local_10->color = 0xffffffff;
         }
@@ -30,7 +30,7 @@ void FUN_00420190(void)
         if (*(char *)((int)&local_10[1].currentTimeInScript.previous + 2) != '\0') {
           AnmManager::SetActiveSprite
                     (g_AnmManager,local_10,
-                     *(char *)&local_10[1].currentTimeInScript.previous + 0x207);
+                     (int)*(char *)&local_10[1].currentTimeInScript.previous + 0x207);
           *(undefined *)((int)&local_10[1].currentTimeInScript.previous + 2) = 0;
         }
         lVar2 = __ftol2((double)(((8.0 - local_10[1].rotation.y) * 255.0) / 128.0));

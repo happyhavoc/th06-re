@@ -1,5 +1,5 @@
 
-undefined4 __thiscall SoundPlayer::Release(SoundPlayer *this)
+ZunResult __thiscall SoundPlayer::Release(SoundPlayer *this)
 
 {
   DirectSound8Player *this_00;
@@ -41,6 +41,6 @@ undefined4 __thiscall SoundPlayer::Release(SoundPlayer *this)
       this->directsound8_uninit = (DirectSound8Player *)0x0;
     }
   }
-  return 0;
+  return ZUN_SUCCESS;
 }
 

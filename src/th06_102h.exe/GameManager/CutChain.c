@@ -1,5 +1,5 @@
 
-void GameManager::Deinitialize(void)
+void GameManager::CutChain(void)
 
 {
   Chain::Cut(&g_Chain,&g_GameManagerCalcChain);

@@ -1,5 +1,5 @@
 
-undefined4 GameManager::DeletedCallback(int param_1)
+ZunResult GameManager::DeletedCallback(GameManager *param_1)
 
 {
   (*(g_Supervisor.d3dDevice)->lpVtbl->ResourceManagerDiscardBytes)(g_Supervisor.d3dDevice,0);
@@ -14,8 +14,8 @@ undefined4 GameManager::DeletedCallback(int param_1)
   FUN_0040f4a0();
   FUN_0041b58c();
   FUN_0042aab0();
-  *(undefined *)(param_1 + 0x1821) = 0;
+  param_1->field40_0x1821 = 0;
   AsciiManager::InitializeVms(&g_AsciiManager);
-  return 0;
+  return ZUN_SUCCESS;
 }
 

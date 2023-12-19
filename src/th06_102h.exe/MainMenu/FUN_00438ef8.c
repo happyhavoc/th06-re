@@ -8,10 +8,12 @@ MainMenu::FUN_00438ef8(MainMenu *this,int param_1,int param_2,int param_3,int pa
       *(undefined4 *)(param_1 + 0x7c) = 0x800000ff;
     }
     else if (*(short *)(param_1 + 0xb2) < 0x122) {
-      AnmManager::SetActiveSprite(g_AnmManager,(AnmVm *)param_1,*(short *)(param_1 + 0xb2) + 0x7a);
+      AnmManager::SetActiveSprite
+                (g_AnmManager,(AnmVm *)param_1,(int)*(short *)(param_1 + 0xb2) + 0x7a);
     }
     else {
-      AnmManager::SetActiveSprite(g_AnmManager,(AnmVm *)param_1,*(short *)(param_1 + 0xb2) + 0x73);
+      AnmManager::SetActiveSprite
+                (g_AnmManager,(AnmVm *)param_1,(int)*(short *)(param_1 + 0xb2) + 0x73);
     }
     *(undefined4 *)(param_1 + 0xe4) = 0xc0000000;
     *(undefined4 *)(param_1 + 0xe8) = 0xc0000000;

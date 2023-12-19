@@ -1,10 +1,10 @@
 
-undefined4 GameManager::OnDraw(int param_1)
+ChainCallbackResult GameManager::OnDraw(GameManager *param_1)
 
 {
-  if (*(char *)(param_1 + 0x181f) != '\0') {
-    *(undefined *)(param_1 + 0x181f) = 2;
+  if (param_1->is_in_game_menu != 0) {
+    param_1->is_in_game_menu = 2;
   }
-  return 1;
+  return CHAIN_CALLBACK_RESULT_CONTINUE;
 }
 

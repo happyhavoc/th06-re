@@ -1,5 +1,5 @@
 
-void __thiscall AnmManager::LoadSprite(AnmManager *this,int spriteIdx,AnmLoadedSprite *sprite)
+void __thiscall AnmManager::LoadSprite(AnmManager *this,uint spriteIdx,AnmLoadedSprite *sprite)
 
 {
   int iVar1;

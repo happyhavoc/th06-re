@@ -6,7 +6,6 @@ AnmManager::LoadAnm(AnmManager *this,int anm_index,char *path,int spriteIdxOffse
   AnmRawEntry *data;
   ZunResult ZVar1;
   char *name;
-  int iVar2;
   AnmRawSprite *rawSprite;
   AnmLoadedSprite loadedSprite;
   uint *curSprite;
@@ -42,8 +41,8 @@ AnmManager::LoadAnm(AnmManager *this,int anm_index,char *path,int spriteIdxOffse
     }
     if (data->mipmap_name_offset != 0) {
       name = (char *)((int)data->spriteOffsets + data->mipmap_name_offset + -0x40);
-      iVar2 = LoadTextureMipmap(this,data->textureIdx,name,data->format,data->color_key);
-      if (iVar2 != 0) {
+      ZVar1 = LoadTextureMipmap(this,data->textureIdx,name,data->format,data->color_key);
+      if (ZVar1 != ZUN_SUCCESS) {
         GameErrorContextFatal
                   (&g_GameErrorContext,
                    "テクスチャ %s が読み込めません。データが失われてるか壊れています\n"

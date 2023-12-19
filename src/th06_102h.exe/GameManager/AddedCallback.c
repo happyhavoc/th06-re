@@ -1,16 +1,13 @@
 
-/* WARNING: Unknown calling convention -- yet parameter storage is locked */
-
-undefined4 GameManager::AddedCallback(GameManager *param_1)
+ZunResult GameManager::AddedCallback(GameManager *param_1)
 
 {
   bool bVar1;
   ushort uVar2;
   ScoreDat *scoredat;
   int iVar3;
-  undefined4 uVar4;
-  ZunResult ZVar5;
-  Pscr *pPVar6;
+  ZunResult ZVar4;
+  Pscr *pPVar5;
   uint local_14;
   int local_10;
   Catk *local_c;
@@ -74,16 +71,16 @@ undefined4 GameManager::AddedCallback(GameManager *param_1)
                       g_GameManager.difficulty);
     ParseCatk(scoredat,param_1->catk);
     ParseClrd(scoredat,param_1->clrd);
-    pPVar6 = param_1->pscr;
-    ParsePscr(scoredat,pPVar6);
+    pPVar5 = param_1->pscr;
+    ParsePscr(scoredat,pPVar5);
     if (param_1->field42_0x1823 != 0) {
-      pPVar6 = (Pscr *)(g_GameManager.difficulty * 0x14);
+      pPVar5 = (Pscr *)(g_GameManager.difficulty * 0x14);
       g_GameManager.high_score =
-           *(uint *)((int)&pPVar6[((uint)g_GameManager.shottype + (uint)g_GameManager.character * 2)
+           *(uint *)((int)&pPVar5[((uint)g_GameManager.shottype + (uint)g_GameManager.character * 2)
                                   * 0x18 + g_GameManager.current_stage * 4].score +
                     (int)param_1->pscr);
     }
-    FUN_0042b7dc(pPVar6,scoredat);
+    FUN_0042b7dc(pPVar5,scoredat);
     param_1->rank = *(uint *)(&DAT_00476564 + g_GameManager.difficulty * 0xc);
     param_1->min_rank = *(uint *)(&DAT_00476568 + g_GameManager.difficulty * 0xc);
     param_1->max_rank = *(uint *)(&DAT_0047656c + g_GameManager.difficulty * 0xc);
@@ -147,8 +144,8 @@ undefined4 GameManager::AddedCallback(GameManager *param_1)
           if (iVar3 == 0) {
             iVar3 = EffectManager::RegisterChain();
             if (iVar3 == 0) {
-              ZVar5 = Gui::RegisterChain();
-              if (ZVar5 == ZUN_SUCCESS) {
+              ZVar4 = Gui::RegisterChain();
+              if (ZVar4 == ZUN_SUCCESS) {
                 if (g_GameManager.field10_0x1c == 0) {
                   FUN_0042a240(0,"replay/th6_00.rpy");
                 }
@@ -170,48 +167,48 @@ undefined4 GameManager::AddedCallback(GameManager *param_1)
                   g_Supervisor.curState = 1;
                 }
                 g_Supervisor.unk198 = 3;
-                uVar4 = 0;
+                ZVar4 = ZUN_SUCCESS;
               }
               else {
                 GameErrorContextLog(&g_GameErrorContext,
                                     "error : 2D表示の初期化に失敗しました\n");
-                uVar4 = 0xffffffff;
+                ZVar4 = ZUN_ERROR;
               }
             }
             else {
               GameErrorContextLog(&g_GameErrorContext,
                                   "error : エフェクトの初期化に失敗しました\n");
-              uVar4 = 0xffffffff;
+              ZVar4 = ZUN_ERROR;
             }
           }
           else {
             GameErrorContextLog(&g_GameErrorContext,
                                 "error : 敵頭脳の初期化に失敗しました\n");
-            uVar4 = 0xffffffff;
+            ZVar4 = ZUN_ERROR;
           }
         }
         else {
           GameErrorContextLog(&g_GameErrorContext,"error : 敵の初期化に失敗しました\n");
-          uVar4 = 0xffffffff;
+          ZVar4 = ZUN_ERROR;
         }
       }
       else {
         GameErrorContextLog(&g_GameErrorContext,"error : 敵弾の初期化に失敗しました\n")
         ;
-        uVar4 = 0xffffffff;
+        ZVar4 = ZUN_ERROR;
       }
     }
     else {
       GameErrorContextLog(&g_GameErrorContext,
                           "error : プレイヤーの初期化に失敗しました\n");
-      uVar4 = 0xffffffff;
+      ZVar4 = ZUN_ERROR;
     }
   }
   else {
     GameErrorContextLog(&g_GameErrorContext,
                         "error : 背景データの初期化に失敗しました\n");
-    uVar4 = 0xffffffff;
+    ZVar4 = ZUN_ERROR;
   }
-  return uVar4;
+  return ZVar4;
 }
 

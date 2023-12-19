@@ -4,9 +4,10 @@ int WinMain(HINSTANCE hInstance,HINSTANCE hPrevInstance,LPSTR lpCmdLine,int nSho
 {
   AnmManager *_Memory;
   ZunResult ZVar1;
-  AnmManager *puVar1;
   BOOL BVar2;
-  HRESULT HVar3;
+  uint uVar3;
+  AnmManager *puVar1;
+  HRESULT HVar4;
   int retCode;
   AnmManager *vbsPtr;
   MSG msg;
@@ -19,18 +20,18 @@ int WinMain(HINSTANCE hInstance,HINSTANCE hPrevInstance,LPSTR lpCmdLine,int nSho
     g_Supervisor.hInstance = hInstance;
     ZVar1 = Supervisor::LoadConfig(&g_Supervisor,"東方紅魔郷.cfg");
     if (ZVar1 == ZUN_SUCCESS) {
-      retCode = InitD3dInterface();
-      if (retCode == 0) {
+      BVar2 = InitD3dInterface();
+      if (BVar2 == 0) {
         SystemParametersInfoA(SPI_GETSCREENSAVEACTIVE,0,&g_GameWindow.screen_save_active,0);
         SystemParametersInfoA(SPI_GETLOWPOWERACTIVE,0,&g_GameWindow.low_power_active,0);
         SystemParametersInfoA(SPI_GETPOWEROFFACTIVE,0,&g_GameWindow.power_off_active,0);
         SystemParametersInfoA(SPI_SETSCREENSAVEACTIVE,0,(PVOID)0x0,2);
         SystemParametersInfoA(SPI_SETLOWPOWERACTIVE,0,(PVOID)0x0,2);
-        SystemParametersInfoA(SPI_SETPOWEROFFACTIVE,0,(PVOID)0x0,2);
+        uVar3 = SystemParametersInfoA(SPI_SETPOWEROFFACTIVE,0,(PVOID)0x0,2);
         while( true ) {
-          CreateGameWindow(hInstance);
-          retCode = InitD3dRendering();
-          if (retCode != 0) break;
+          CreateGameWindow((HINSTANCE)hInstance);
+          InitD3dRendering();
+          if (uVar3 != 0) break;
           SoundPlayer::InitializeDSound(&g_SoundPlayer,(HWND)g_GameWindow.window);
           GetJoystickCaps();
           ResetKeyboard();
@@ -57,14 +58,14 @@ int WinMain(HINSTANCE hInstance,HINSTANCE hPrevInstance,LPSTR lpCmdLine,int nSho
                   TranslateMessage(&msg);
                   DispatchMessageA(&msg);
                 }
-                HVar3 = (*(g_Supervisor.d3dDevice)->lpVtbl->TestCooperativeLevel)
+                HVar4 = (*(g_Supervisor.d3dDevice)->lpVtbl->TestCooperativeLevel)
                                   (g_Supervisor.d3dDevice);
-                if (HVar3 == 0) break;
-                if (HVar3 == D3DERR_DEVICENOTRESET) {
+                if (HVar4 == 0) break;
+                if (HVar4 == D3DERR_DEVICENOTRESET) {
                   AnmManager::ReleaseSurfaces(g_AnmManager);
-                  HVar3 = (*(g_Supervisor.d3dDevice)->lpVtbl->Reset)
+                  HVar4 = (*(g_Supervisor.d3dDevice)->lpVtbl->Reset)
                                     (g_Supervisor.d3dDevice,&g_Supervisor.presentParameters);
-                  if (HVar3 != 0) goto LAB_0042055a;
+                  if (HVar4 != 0) goto LAB_0042055a;
                   InitD3dDevice();
                   g_Supervisor.unk198 = 3;
                 }
@@ -107,8 +108,9 @@ LAB_0042055a:
           GameErrorContextLog(&g_GameErrorContext,
                               "再起動を要するオプションが変更されたので再起動します\n"
                              );
-          if (g_Supervisor.cfg.windowed == false) {
-            ShowCursor(1);
+          uVar3 = (uint)g_Supervisor.cfg.windowed;
+          if (uVar3 == 0) {
+            uVar3 = ShowCursor(1);
           }
         }
         GameErrorContext::Flush(&g_GameErrorContext);

@@ -1,5 +1,5 @@
 
-undefined4 InitD3dRendering(void)
+void InitD3dRendering(void)
 
 {
   bool bVar1;
@@ -134,7 +134,7 @@ LAB_004211ab:
       if (((g_Supervisor.cfg.opts & 1) == 0) &&
          ((g_Supervisor.d3dCaps.TextureOpCaps & D3DTEXOPCAPS_ADD) == 0)) {
         GameErrorContextLog(&g_GameErrorContext,
-                            "D3DTEXOPCAPS_ADD をサ���ートしていません、色加算エミュレートモードで動作します\n"
+                            "D3DTEXOPCAPS_ADD をサポートしていません、色加算エミュレートモードで動作します\n"
                            );
         g_Supervisor.cfg.opts = g_Supervisor.cfg.opts | 1;
       }
@@ -163,7 +163,7 @@ LAB_004211ab:
           g_Supervisor.colorMode16Bits = 0;
           g_Supervisor.cfg.opts = g_Supervisor.cfg.opts | 4;
           GameErrorContextLog(&g_GameErrorContext,
-                              "D3DFMT_A8R8G8B8 をサポートしていません、減色モードで動作します\n"
+                              "D3DFMT_A8R8G8B8 をサポートしてい���せん、減色モードで動作します\n"
                              );
         }
       }
@@ -172,7 +172,7 @@ LAB_004211ab:
       g_GameWindow.isAppClosing = 0;
       g_Supervisor.lastFrameTime = 0;
       g_Supervisor.framerateMultiplier = 0.0;
-      return 0;
+      return;
     }
 LAB_00421077:
     HVar2 = (*(g_Supervisor.d3dIface)->lpVtbl->CreateDevice)
@@ -194,7 +194,7 @@ LAB_00421077:
           (*(g_Supervisor.d3dIface)->lpVtbl->Release)(g_Supervisor.d3dIface);
           g_Supervisor.d3dIface = (IDirect3D8 *)0x0;
         }
-        return 1;
+        return;
       }
       GameErrorContextLog(&g_GameErrorContext,
                           "バックバッファをロック不可能にしてみます\n");

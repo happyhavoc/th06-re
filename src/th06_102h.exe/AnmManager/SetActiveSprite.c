@@ -1,5 +1,5 @@
 
-ZunResult __thiscall AnmManager::SetActiveSprite(AnmManager *this,AnmVm *vm,int sprite_index)
+ZunResult __thiscall AnmManager::SetActiveSprite(AnmManager *this,AnmVm *vm,uint sprite_index)
 
 {
   ZunResult res;

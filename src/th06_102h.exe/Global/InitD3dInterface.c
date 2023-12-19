@@ -1,5 +1,5 @@
 
-bool InitD3dInterface(void)
+BOOL InitD3dInterface(void)
 
 {
   bool bVar1;
@@ -11,6 +11,6 @@ bool InitD3dInterface(void)
               (&g_GameErrorContext,
                "Direct3D オブジェクトは何故か作成出来なかった\n");
   }
-  return bVar1;
+  return (uint)bVar1;
 }
 

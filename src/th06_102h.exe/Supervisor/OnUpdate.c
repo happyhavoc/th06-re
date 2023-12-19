@@ -1,7 +1,5 @@
 
-/* WARNING: Unknown calling convention -- yet parameter storage is locked */
-
-undefined4 Supervisor::CalcCallback(Supervisor *param_1)
+ChainCallbackResult Supervisor::OnUpdate(Supervisor *param_1)
 
 {
   ZunResult ZVar1;
@@ -31,8 +29,8 @@ undefined4 Supervisor::CalcCallback(Supervisor *param_1)
   if (iVar2 == 1) {
     iVar2 = param_1->curState;
     if (iVar2 == 2) {
-      iVar2 = GameManager::RegisterChain();
-      if (iVar2 != 0) {
+      ZVar1 = GameManager::RegisterChain();
+      if (ZVar1 != ZUN_SUCCESS) {
         return CHAIN_CALLBACK_RESULT_EXIT_GAME_SUCCESS;
       }
     }
@@ -56,7 +54,7 @@ undefined4 Supervisor::CalcCallback(Supervisor *param_1)
         }
       }
       else if (iVar2 == 10) {
-        GameManager::Deinitialize();
+        GameManager::CutChain();
         iVar2 = FUN_004107b0();
         if (iVar2 != 0) {
           return CHAIN_CALLBACK_RESULT_EXIT_GAME_SUCCESS;
@@ -68,7 +66,7 @@ undefined4 Supervisor::CalcCallback(Supervisor *param_1)
     iVar2 = param_1->curState;
     if (iVar2 == 1) {
 LAB_004235a0:
-      GameManager::Deinitialize();
+      GameManager::CutChain();
       param_1->curState = 0;
       FUN_0042ab30(0,0);
 LAB_00423454:
@@ -80,9 +78,9 @@ LAB_00423454:
       }
     }
     else if (iVar2 == 3) {
-      GameManager::Deinitialize();
-      iVar2 = GameManager::RegisterChain();
-      if (iVar2 != 0) {
+      GameManager::CutChain();
+      ZVar1 = GameManager::RegisterChain();
+      if (ZVar1 != ZUN_SUCCESS) {
         return CHAIN_CALLBACK_RESULT_EXIT_GAME_SUCCESS;
       }
       if (param_1->curState == 1) goto LAB_004235a0;
@@ -93,14 +91,14 @@ LAB_00423454:
         return CHAIN_CALLBACK_RESULT_EXIT_GAME_SUCCESS;
       }
       if (iVar2 == 7) {
-        GameManager::Deinitialize();
+        GameManager::CutChain();
         iVar2 = ResultScreen::RegisterChain(1);
         if (iVar2 != 0) {
           return CHAIN_CALLBACK_RESULT_EXIT_GAME_SUCCESS;
         }
       }
       else if (iVar2 == 8) {
-        GameManager::Deinitialize();
+        GameManager::CutChain();
         param_1->curState = 0;
         FUN_0042ab30(0,0);
         param_1->curState = 1;
@@ -111,7 +109,7 @@ LAB_00423454:
         }
       }
       else if (iVar2 == 10) {
-        GameManager::Deinitialize();
+        GameManager::CutChain();
         iVar2 = FUN_004107b0();
         if (iVar2 != 0) {
           return CHAIN_CALLBACK_RESULT_EXIT_GAME_SUCCESS;
@@ -167,6 +165,6 @@ LAB_00423454:
 LAB_0042375b:
   param_1->wantedState = param_1->curState;
   param_1->calcCount = param_1->calcCount + 1;
-  return 1;
+  return CHAIN_CALLBACK_RESULT_CONTINUE;
 }
 

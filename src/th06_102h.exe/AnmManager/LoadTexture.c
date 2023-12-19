@@ -1,8 +1,8 @@
 
 ZunResult __thiscall
 AnmManager::LoadTexture
-          (AnmManager *this,int texture_index,char *texture_path,int format_index,D3DCOLOR color_key
-          )
+          (AnmManager *this,uint texture_index,char *texture_path,uint format_index,
+          D3DCOLOR color_key)
 
 {
   byte *image_data;

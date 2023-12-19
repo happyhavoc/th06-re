@@ -1,5 +1,5 @@
 
-ZunResult SetupDInput(Supervisor *param_1)
+ZunResult Supervisor::SetupDInput(Supervisor *param_1)
 
 {
   HINSTANCE hInst;

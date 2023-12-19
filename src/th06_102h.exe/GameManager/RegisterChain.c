@@ -1,9 +1,9 @@
 
-undefined4 GameManager::RegisterChain(void)
+ZunResult GameManager::RegisterChain(void)
 
 {
   int iVar1;
-  undefined4 uVar2;
+  ZunResult ZVar2;
   
   g_GameManagerCalcChain.callback = OnUpdate;
   g_GameManagerCalcChain.addedCallback = AddedCallback;
@@ -17,11 +17,11 @@ undefined4 GameManager::RegisterChain(void)
     g_GameManagerDrawChain.deletedCallback = 0;
     g_GameManagerDrawChain.arg = &g_GameManager;
     Chain::AddToDrawChain(&g_Chain,&g_GameManagerDrawChain,2);
-    uVar2 = 0;
+    ZVar2 = ZUN_SUCCESS;
   }
   else {
-    uVar2 = 0xffffffff;
+    ZVar2 = ZUN_ERROR;
   }
-  return uVar2;
+  return ZVar2;
 }
 

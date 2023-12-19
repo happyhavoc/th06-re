@@ -1,5 +1,5 @@
 
-void __thiscall MidiOutput::UnloadFile(MidiOutput *this,int param_1)
+void __thiscall MidiOutput::UnloadFile(MidiOutput *this,uint param_1)
 
 {
   _free(this->midiFileData[param_1]);

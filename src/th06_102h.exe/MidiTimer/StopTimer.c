@@ -1,5 +1,5 @@
 
-undefined4 __thiscall MidiTimer::StopTimer(MidiTimer *this)
+int __thiscall MidiTimer::StopTimer(MidiTimer *this)
 
 {
   if (this->timerId != 0) {

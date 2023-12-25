@@ -18,7 +18,7 @@ ZunResult Gui::RegisterChain(void)
   pvStack_10 = ExceptionList;
   ExceptionList = &pvStack_10;
   if (g_Supervisor.curState != 3) {
-    puVar4 = &DAT_0069bc30;
+    puVar4 = &g_Gui;
     ExceptionList = &pvStack_10;
     for (iVar3 = 0xb; iVar3 != 0; iVar3 = iVar3 + -1) {
       *puVar4 = 0;
@@ -35,16 +35,16 @@ ZunResult Gui::RegisterChain(void)
     DAT_0069bc34 = uStack_20;
   }
   uStack_8 = 0xffffffff;
-  ChainElem_0069bc7c.callback = FUN_004174d7;
-  ChainElem_0069bc7c.addedCallback = FUN_0041b1a4;
-  ChainElem_0069bc7c.deletedCallback = FUN_0041b1b1;
-  ChainElem_0069bc7c.arg = &DAT_0069bc30;
+  ChainElem_0069bc7c.callback = OnUpdate;
+  ChainElem_0069bc7c.addedCallback = AddedCallback;
+  ChainElem_0069bc7c.deletedCallback = DeletedCallback;
+  ChainElem_0069bc7c.arg = &g_Gui;
   iVar3 = Chain::AddToCalcChain(&g_Chain,&ChainElem_0069bc7c,0xc);
   if (iVar3 == 0) {
-    ChainElem_0069bc5c.callback = FUN_00417502;
+    ChainElem_0069bc5c.callback = OnDraw;
     ChainElem_0069bc5c.addedCallback = 0;
     ChainElem_0069bc5c.deletedCallback = 0;
-    ChainElem_0069bc5c.arg = &DAT_0069bc30;
+    ChainElem_0069bc5c.arg = &g_Gui;
     Chain::AddToDrawChain(&g_Chain,&ChainElem_0069bc5c,0xb);
     ZVar2 = ZUN_SUCCESS;
   }

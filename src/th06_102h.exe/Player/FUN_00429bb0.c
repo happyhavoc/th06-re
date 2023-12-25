@@ -1,22 +1,22 @@
 
-void Player::FUN_00429bb0(int param_1)
+void Player::FUN_00429bb0(Player *param_1)
 
 {
-  float10 fVar1;
-  AnmVm *local_c;
+  float fVar1;
+  PlayerBullet *bullet;
   int local_8;
   
-  local_c = (AnmVm *)(param_1 + 0xa28);
+  bullet = param_1->bullets;
   for (local_8 = 0; local_8 < 0x50; local_8 = local_8 + 1) {
-    if (*(short *)((int)local_c[1].matrix.m[0] + 2) == 2) {
-      if (local_c->autoRotate != 0) {
-        fVar1 = (float10)FUN_0041e850(local_c[1].uvScrollPos.y,0x40490fdb);
-        (local_c->rotation).z = (float)((float10)1.570796 - fVar1);
+    if (bullet->field11_0x14e == 2) {
+      if ((bullet->field0_0x0).autoRotate != 0) {
+        fVar1 = FUN_0041e850(bullet->field8_0x13c,3.141593);
+        (bullet->field0_0x0).rotation.z = 1.570796 - fVar1;
       }
-      (local_c->pos).z = 0.4;
-      AnmManager::FUN_00433590(g_AnmManager,local_c);
+      (bullet->field0_0x0).pos.z = 0.4;
+      AnmManager::FUN_00433590(g_AnmManager,&bullet->field0_0x0);
     }
-    local_c = (AnmVm *)(local_c[1].matrix.m[0] + 3);
+    bullet = bullet + 1;
   }
   return;
 }

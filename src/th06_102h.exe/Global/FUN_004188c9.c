@@ -129,19 +129,19 @@ undefined4 FUN_004188c9(void)
           AnmManager::SetAndExecuteScript(pAVar3,(AnmVm *)(in_ECX + 0x2424),pAVar3->scripts[0x619]);
         }
         else {
-          g_GameManager.field35_0x181c = 0xff;
+          g_GameManager.field23_0x181c = 0xff;
         }
         break;
       case 10:
         goto LAB_00418fe0;
       case 0xb:
         g_GameManager.field0_0x0 = g_GameManager.score;
-        if (g_GameManager.field42_0x1823 == 0) {
+        if (g_GameManager.field30_0x1823 == 0) {
           if (((int)g_GameManager.current_stage < 5) ||
              ((g_GameManager.difficulty != 0 && (g_GameManager.current_stage == 5)))) {
             g_Supervisor.curState = 3;
           }
-          else if (g_GameManager.field10_0x1c == 0) {
+          else if (g_GameManager.field7_0x1c == 0) {
             if (g_GameManager.difficulty == 4) {
               g_GameManager.unk_1822 = 1;
               g_Supervisor.curState = 7;

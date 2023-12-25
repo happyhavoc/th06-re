@@ -27,7 +27,7 @@ undefined4 __fastcall MainMenu::FUN_00437b41(MainMenu *param_1)
           param_1->field0_0x0[local_8].pendingInterrupt = 4;
         }
         param_1->unk_81f0 = 6;
-        g_GameManager.field42_0x1823 = 0;
+        g_GameManager.field30_0x1823 = 0;
         if (3 < (int)g_GameManager.difficulty) {
           g_GameManager.difficulty = 1;
         }
@@ -52,7 +52,7 @@ undefined4 __fastcall MainMenu::FUN_00437b41(MainMenu *param_1)
             param_1->field0_0x0[local_8].pendingInterrupt = 4;
           }
           param_1->unk_81f0 = 6;
-          g_GameManager.field42_0x1823 = 0;
+          g_GameManager.field30_0x1823 = 0;
           g_GameManager.difficulty = 4;
           param_1->unk_81f4 = 0;
           param_1->unk_81fc = 0x40000000;
@@ -63,7 +63,7 @@ undefined4 __fastcall MainMenu::FUN_00437b41(MainMenu *param_1)
         }
         break;
       case 2:
-        g_GameManager.field42_0x1823 = 1;
+        g_GameManager.field30_0x1823 = 1;
         for (local_8 = 0; local_8 < 0x7a; local_8 = local_8 + 1) {
           param_1->field0_0x0[local_8].pendingInterrupt = 4;
         }
@@ -86,7 +86,7 @@ undefined4 __fastcall MainMenu::FUN_00437b41(MainMenu *param_1)
           param_1->field0_0x0[local_8].pendingInterrupt = 4;
         }
         param_1->unk_81f0 = 0xc;
-        g_GameManager.field42_0x1823 = 0;
+        g_GameManager.field30_0x1823 = 0;
         param_1->unk_81f4 = 0;
         param_1->unk_81fc = 0x40000000;
         param_1->unk_8200 = 0xff000000;

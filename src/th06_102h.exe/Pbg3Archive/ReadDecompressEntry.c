@@ -7,24 +7,24 @@ byte * __thiscall Pbg3Archive::ReadDecompressEntry(Pbg3Archive *this,uint entryI
   DWORD_PTR cookie;
   byte *outData2;
   uint uVar1;
-  int iVar2;
-  uint uVar3;
+  uint curByte;
   byte curByteBitIdx2;
-  byte bVar4;
-  byte *curByteInData;
-  undefined4 *puVar5;
-  uint uVar6;
+  int idx;
+  byte *dataCursor;
+  undefined4 *puVar2;
+  uint matchOffset;
   uint local_2038;
   uint checksum;
   uint value;
   uint curByteBitIdx;
-  uint expected_csum;
+  uint dict_head;
   byte *data;
   size_t size;
   byte *curByteInOutData;
   byte *outData;
   Pbg3Archive *self;
   byte dict [8192];
+  byte c;
   
   cookie = __security_cookie;
   self = this;
@@ -34,7 +34,7 @@ byte * __thiscall Pbg3Archive::ReadDecompressEntry(Pbg3Archive *this,uint entryI
     outData = outData2;
     if (outData2 != (byte *)0x0) {
       curByteInOutData = outData2;
-      data = ReadEntryRaw(this,(int *)&size,(int *)&expected_csum,entryIdx);
+      data = ReadEntryRaw(this,(int *)&size,(int *)&dict_head,entryIdx);
                     /* LZSS decompression. This is kinda hell. See
                        https://github.com/thpatch/thtk/blob/663477e14a932e857c2fd852a8312f5749589e6f/thtk/thlzss.c#L242
                        for a reasonable implementation */
@@ -42,75 +42,77 @@ byte * __thiscall Pbg3Archive::ReadDecompressEntry(Pbg3Archive *this,uint entryI
         curByteBitIdx2 = 0x80;
         local_2038 = 0x80;
         checksum = 0;
-        expected_csum = 1;
-        puVar5 = (undefined4 *)dict;
-        for (iVar2 = 0x800; curByteInData = data, iVar2 != 0; iVar2 = iVar2 + -1) {
-          *puVar5 = 0;
-          puVar5 = puVar5 + 1;
+        dict_head = 1;
+        puVar2 = (undefined4 *)dict;
+                    /* memset(dict, 0, sizeof(dict)) */
+        for (idx = 0x800; dataCursor = data, idx != 0; idx = idx + -1) {
+          *puVar2 = 0;
+          puVar2 = puVar2 + 1;
         }
         do {
-          uVar3 = (uint)*curByteInData;
-          if ((int)curByteInData - (int)data < (int)size) {
-            curByteInData = curByteInData + 1;
+          curByte = (uint)*dataCursor;
+          if ((int)dataCursor - (int)data < (int)size) {
+            dataCursor = dataCursor + 1;
           }
           else {
-            uVar3 = 0;
+            curByte = 0;
           }
-          checksum = checksum + uVar3;
+          checksum = checksum + curByte;
           do {
-            uVar1 = local_2038 & uVar3;
+            uVar1 = local_2038 & curByte;
             curByteBitIdx2 = curByteBitIdx2 >> 1;
             if (curByteBitIdx2 == 0) {
               local_2038._0_1_ = 0x80;
               curByteBitIdx2 = (byte)local_2038;
             }
             local_2038 = (uint)curByteBitIdx2;
-            uVar6 = 0;
+            matchOffset = 0;
             if (uVar1 == 0) {
-              iVar2 = (int)curByteInData - (int)data;
+              idx = (int)dataCursor - (int)data;
+                    /* Reads 13 bits for the offset */
               uVar1 = 0x1000;
               do {
-                bVar4 = curByteBitIdx2;
+                c = curByteBitIdx2;
                 if (curByteBitIdx2 == 0x80) {
-                  uVar3 = (uint)*curByteInData;
-                  if (iVar2 < (int)size) {
-                    curByteInData = curByteInData + 1;
-                    iVar2 = iVar2 + 1;
+                  curByte = (uint)*dataCursor;
+                  if (idx < (int)size) {
+                    dataCursor = dataCursor + 1;
+                    idx = idx + 1;
                   }
                   else {
-                    uVar3 = 0;
+                    curByte = 0;
                   }
-                  checksum = checksum + uVar3;
-                  bVar4 = (byte)local_2038;
+                  checksum = checksum + curByte;
+                  c = (byte)local_2038;
                 }
-                if (((byte)uVar3 & bVar4) != 0) {
-                  uVar6 = uVar6 | uVar1;
+                if (((byte)curByte & c) != 0) {
+                  matchOffset = matchOffset | uVar1;
                 }
                 uVar1 = uVar1 >> 1;
-                curByteBitIdx2 = bVar4 >> 1;
-                if (bVar4 >> 1 == 0) {
+                curByteBitIdx2 = c >> 1;
+                if (c >> 1 == 0) {
                   local_2038._0_1_ = 0x80;
                   curByteBitIdx2 = (byte)local_2038;
                 }
                 local_2038 = (uint)curByteBitIdx2;
               } while (uVar1 != 0);
-              if (uVar6 == 0) goto joined_r0x0043cdcd;
+              if (matchOffset == 0) goto joined_r0x0043cdcd;
               uVar1 = 8;
-              iVar2 = (int)curByteInData - (int)data;
+              idx = (int)dataCursor - (int)data;
               value = 0;
               do {
                 if (curByteBitIdx2 == 0x80) {
-                  uVar3 = (uint)*curByteInData;
-                  if (iVar2 < (int)size) {
-                    curByteInData = curByteInData + 1;
-                    iVar2 = iVar2 + 1;
+                  curByte = (uint)*dataCursor;
+                  if (idx < (int)size) {
+                    dataCursor = dataCursor + 1;
+                    idx = idx + 1;
                   }
                   else {
-                    uVar3 = 0;
+                    curByte = 0;
                   }
-                  checksum = checksum + uVar3;
+                  checksum = checksum + curByte;
                 }
-                if (((byte)uVar3 & curByteBitIdx2) != 0) {
+                if (((byte)curByte & curByteBitIdx2) != 0) {
                   value = value | uVar1;
                 }
                 uVar1 = uVar1 >> 1;
@@ -121,40 +123,40 @@ byte * __thiscall Pbg3Archive::ReadDecompressEntry(Pbg3Archive *this,uint entryI
                 }
                 local_2038 = (uint)curByteBitIdx2;
               } while (uVar1 != 0);
-              iVar2 = 0;
+              idx = 0;
               do {
-                bVar4 = dict[uVar6 + iVar2 & 0x1fff];
-                *curByteInOutData = bVar4;
+                c = dict[matchOffset + idx & 0x1fff];
+                *curByteInOutData = c;
                 curByteInOutData = curByteInOutData + 1;
-                dict[expected_csum] = bVar4;
-                expected_csum = expected_csum + 1 & 0x1fff;
-                iVar2 = iVar2 + 1;
-              } while (iVar2 <= (int)(value + 2));
+                dict[dict_head] = c;
+                dict_head = dict_head + 1 & 0x1fff;
+                idx = idx + 1;
+              } while (idx <= (int)(value + 2));
             }
             else {
               curByteBitIdx = 0x80;
               value = 0;
-              iVar2 = (int)curByteInData - (int)data;
+              idx = (int)dataCursor - (int)data;
               do {
                 if (curByteBitIdx2 == 0x80) {
-                  uVar3 = (uint)*curByteInData;
-                  if (iVar2 < (int)size) {
-                    curByteInData = curByteInData + 1;
-                    iVar2 = iVar2 + 1;
+                  curByte = (uint)*dataCursor;
+                  if (idx < (int)size) {
+                    dataCursor = dataCursor + 1;
+                    idx = idx + 1;
                   }
                   else {
-                    uVar3 = 0;
+                    curByte = 0;
                   }
-                  checksum = checksum + uVar3;
+                  checksum = checksum + curByte;
                 }
-                bVar4 = curByteBitIdx2;
-                if (((byte)uVar3 & curByteBitIdx2) != 0) {
+                c = curByteBitIdx2;
+                if (((byte)curByte & curByteBitIdx2) != 0) {
                   value = value | curByteBitIdx;
-                  bVar4 = (byte)local_2038;
+                  c = (byte)local_2038;
                 }
                 curByteBitIdx = curByteBitIdx >> 1;
-                curByteBitIdx2 = bVar4 >> 1;
-                if (bVar4 >> 1 == 0) {
+                curByteBitIdx2 = c >> 1;
+                if (c >> 1 == 0) {
                   local_2038._0_1_ = 0x80;
                   curByteBitIdx2 = (byte)local_2038;
                 }
@@ -162,8 +164,8 @@ byte * __thiscall Pbg3Archive::ReadDecompressEntry(Pbg3Archive *this,uint entryI
               } while (curByteBitIdx != 0);
               *curByteInOutData = (byte)value;
               curByteInOutData = curByteInOutData + 1;
-              dict[expected_csum] = (byte)value;
-              expected_csum = expected_csum + 1 & 0x1fff;
+              dict[dict_head] = (byte)value;
+              dict_head = dict_head + 1 & 0x1fff;
             }
           } while (curByteBitIdx2 != 0x80);
         } while( true );

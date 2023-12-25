@@ -55,7 +55,7 @@ ChainCallbackResult Supervisor::OnUpdate(Supervisor *param_1)
       }
       else if (iVar2 == 10) {
         GameManager::CutChain();
-        iVar2 = FUN_004107b0();
+        iVar2 = Ending::RegisterChain();
         if (iVar2 != 0) {
           return CHAIN_CALLBACK_RESULT_EXIT_GAME_SUCCESS;
         }
@@ -110,7 +110,7 @@ LAB_00423454:
       }
       else if (iVar2 == 10) {
         GameManager::CutChain();
-        iVar2 = FUN_004107b0();
+        iVar2 = Ending::RegisterChain();
         if (iVar2 != 0) {
           return CHAIN_CALLBACK_RESULT_EXIT_GAME_SUCCESS;
         }

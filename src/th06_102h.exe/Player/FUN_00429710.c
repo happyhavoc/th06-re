@@ -1,22 +1,22 @@
 
-/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
-
-undefined4 Player::FUN_00429710(int param_1)
+undefined4 Player::FUN_00429710(Player *param_1)
 
 {
-  if (-1 < *(int *)(param_1 + 0x75b0)) {
-    if ((*(int *)(param_1 + 0x75b0) != *(int *)(param_1 + 0x75a8)) &&
-       (((_DAT_006d1bf0 == 0 || (g_GameManager.character != 1)) || (g_GameManager.shottype != 1))))
-    {
-      FUN_00429820(param_1,*(undefined4 *)(param_1 + 0x75b0));
+  if (-1 < (param_1->field34_0x75a8).current) {
+    if (((param_1->field34_0x75a8).current != (param_1->field34_0x75a8).previous) &&
+       (((g_Player.inner.field0_0x0 == 0 || (g_GameManager.character != 1)) ||
+        (g_GameManager.shottype != 1)))) {
+      FUN_00429820(param_1,(param_1->field34_0x75a8).current);
     }
-    *(undefined4 *)(param_1 + 0x75a8) = *(undefined4 *)(param_1 + 0x75b0);
-    Supervisor::TickTimer(&g_Supervisor,(int *)(param_1 + 0x75b0),(float *)(param_1 + 0x75ac));
-    if (((0x1d < *(int *)(param_1 + 0x75b0)) || (*(char *)(param_1 + 0x9e0) == '\x02')) ||
-       (*(char *)(param_1 + 0x9e0) == '\x01')) {
-      *(undefined4 *)(param_1 + 0x75b0) = 0xffffffff;
-      *(undefined4 *)(param_1 + 0x75ac) = 0;
-      *(undefined4 *)(param_1 + 0x75a8) = 0xfffffc19;
+    (param_1->field34_0x75a8).previous = (param_1->field34_0x75a8).current;
+    Supervisor::TickTimer
+              (&g_Supervisor,&(param_1->field34_0x75a8).current,&(param_1->field34_0x75a8).subFrame)
+    ;
+    if (((0x1d < (param_1->field34_0x75a8).current) || (param_1->field21_0x9e0 == 2)) ||
+       (param_1->field21_0x9e0 == 1)) {
+      (param_1->field34_0x75a8).current = -1;
+      (param_1->field34_0x75a8).subFrame = 0.0;
+      (param_1->field34_0x75a8).previous = -999;
     }
   }
   return 0;

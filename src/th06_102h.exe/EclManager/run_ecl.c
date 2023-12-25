@@ -25,7 +25,10 @@ undefined4 EclManager::run_ecl(AnmVm *param_1)
   byte bVar18;
   int iVar19;
   int iVar20;
+  float *unaff_EDI;
   float *pfVar21;
+  float10 extraout_ST0;
+  float10 extraout_ST0_00;
   float10 fVar22;
   float10 fVar23;
   float fVar24;
@@ -120,8 +123,9 @@ LAB_004074ce:
   if (param_1[9].angleVel.x != *local_20) {
     bVar18 = *(byte *)&param_1[0xd].flags & 3;
     if (bVar18 == 1) {
-      fVar23 = (float10)FUN_0041e850(param_1[0xb].posInterpFinal.z);
-      param_1[0xb].posInterpFinal.z = (float)fVar23;
+      fVar25 = FUN_0041e850(param_1[0xb].posInterpFinal.z,
+                            g_Supervisor.effectiveFramerateMultiplier * param_1[0xb].pos2.x);
+      param_1[0xb].posInterpFinal.z = fVar25;
       param_1[0xb].pos2.y =
            g_Supervisor.effectiveFramerateMultiplier * param_1[0xb].pos2.z + param_1[0xb].pos2.y;
       fVar25 = param_1[0xb].pos2.y;
@@ -369,8 +373,7 @@ LAB_004074ce:
   case 0x1a:
     pfVar17 = (float *)FUN_0040afb0((int)param_1,(int *)(local_20 + 3),(undefined4 *)0x0);
     local_18 = *pfVar17;
-    fVar23 = (float10)FUN_0041e850(local_18);
-    local_18 = (float)fVar23;
+    local_18 = FUN_0041e850(local_18,0.0);
     FUN_0040b3c0((int)param_1,local_20[3],(int *)&local_18);
     break;
   case 0x1b:
@@ -578,8 +581,8 @@ switchD_00407544_caseD_2:
     local_10 = local_20[3];
     local_c = local_20[4];
     local_8 = local_20[5];
-    fVar23 = Player::FUN_00428700(&g_Player,(float *)&param_1[0xb].currentInstruction);
-    param_1[0xb].posInterpFinal.z = (float)(fVar23 + (float10)local_10);
+    Player::FUN_00428700(&g_Player,(float10 *)&param_1[0xb].currentInstruction,unaff_EDI);
+    param_1[0xb].posInterpFinal.z = (float)(extraout_ST0 + (float10)local_10);
     pfVar17 = FUN_0040b380((int)param_1,&local_c,(undefined4 *)0x0);
     param_1[0xb].pos2.y = *pfVar17;
     *(byte *)&param_1[0xd].flags = *(byte *)&param_1[0xd].flags & 0xfc | 1;
@@ -689,8 +692,8 @@ switchD_00407544_caseD_2:
     local_58[3] = fVar25 + fVar24;
     pfVar17 = FUN_0040b380((int)param_1,local_54 + 5,(undefined4 *)0x0);
     local_58[4] = *pfVar17;
-    fVar23 = (float10)FUN_0041e850(local_58[4]);
-    local_58[4] = (float)fVar23;
+    fVar25 = FUN_0041e850(local_58[4],0.0);
+    local_58[4] = fVar25;
     pfVar17 = FUN_0040b380((int)param_1,local_54 + 3,(undefined4 *)0x0);
     local_58[6] = *pfVar17;
     if ((NAN(local_58[6]) == (local_58[6] == 0.0)) &&
@@ -861,13 +864,13 @@ switchD_00407544_caseD_2:
     break;
   case 0x59:
     if ((&param_1[0xc].posInterpTime.current)[(int)local_20[3]] != 0) {
-      fVar23 = Player::FUN_00428700
-                         (&g_Player,
-                          (float *)((&param_1[0xc].posInterpTime.current)[(int)local_20[3]] + 0x220)
-                         );
+      Player::FUN_00428700
+                (&g_Player,
+                 (float10 *)((&param_1[0xc].posInterpTime.current)[(int)local_20[3]] + 0x220),
+                 unaff_EDI);
       pfVar17 = FUN_0040b380((int)param_1,local_20 + 4,(undefined4 *)0x0);
       *(float *)((&param_1[0xc].posInterpTime.current)[(int)local_20[3]] + 0x22c) =
-           (float)fVar23 + *pfVar17;
+           (float)extraout_ST0_00 + *pfVar17;
     }
     break;
   case 0x5a:
@@ -921,7 +924,7 @@ switchD_00407544_caseD_2:
     iVar20 = DAT_005a5f98 * 0x40;
     local_70 = g_GameManager.catk + DAT_005a5f98;
     csum = 0;
-    if (g_GameManager.field10_0x1c == 0) {
+    if (g_GameManager.field7_0x1c == 0) {
       local_2bc = local_20 + 4;
       local_2c0 = g_GameManager.catk[DAT_005a5f98].name;
       do {
@@ -964,16 +967,16 @@ switchD_00407544_caseD_2:
         }
         local_88 = local_2dc;
         local_7c = DAT_005a5f94 + (int)(DAT_005a5f94 * DAT_0069bc48) / 10;
-        FUN_00417458(&DAT_0069bc30,local_7c);
+        FUN_00417458(&g_Gui,local_7c);
         g_GameManager.score = g_GameManager.score + local_7c;
-        if (g_GameManager.field10_0x1c == 0) {
+        if (g_GameManager.field7_0x1c == 0) {
           local_80->unk_3e = local_80->unk_3e + 1;
           for (local_84 = 4; 0 < local_84; local_84 = local_84 + -1) {
             local_80->name[local_84 + -5] = local_80->name[local_84 + -6];
           }
           local_80->unk_13 = g_GameManager.shottype + g_GameManager.character * '\x02';
         }
-        g_GameManager._40_4_ = g_GameManager._40_4_ + 1;
+        g_GameManager.field10_0x28 = g_GameManager.field10_0x28 + 1;
       }
       DAT_005a5f90 = 0;
     }
@@ -1175,7 +1178,7 @@ switchD_00407544_caseD_2:
     break;
   case 0x7e:
     _DAT_0069bc44 = local_20[3];
-    g_GameManager._6764_4_ = g_GameManager._6764_4_ + 0x708;
+    g_GameManager.field58_0x1a6c = g_GameManager.field58_0x1a6c + 0x708;
     break;
   case 0x80:
     param_1->pendingInterrupt = *(short *)(local_20 + 3);

@@ -12,7 +12,7 @@ uint __thiscall Pbg3Archive::FindEntry(Pbg3Archive *this,char *path)
   
   entryIdx = 0;
   if (this->numOfEntries != 0) {
-    pcVar4 = &this->entries->filename;
+    pcVar4 = this->entries->filename;
     pbVar2 = (byte *)path;
     pcVar5 = pcVar4;
 LAB_0043c939:

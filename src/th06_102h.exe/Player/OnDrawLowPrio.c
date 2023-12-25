@@ -1,8 +1,8 @@
 
-undefined4 Player::OnDrawLowPrio(undefined4 param_1)
+ChainCallbackResult Player::OnDrawLowPrio(Player *param_1)
 
 {
   FUN_00429bb0(param_1);
-  return 1;
+  return CHAIN_CALLBACK_RESULT_CONTINUE;
 }
 

@@ -33,7 +33,7 @@ ChainCallbackResult GameManager::OnUpdate(GameManager *this)
   else {
     local_c = 0;
   }
-  this->field40_0x1821 = local_c;
+  this->field28_0x1821 = local_c;
   g_Supervisor.viewport.X = __ftol2((double)(this->arcade_region_top_left_pos).x);
   g_Supervisor.viewport.Y = __ftol2((double)(this->arcade_region_top_left_pos).y);
   g_Supervisor.viewport.Width = __ftol2((double)(this->arcade_region_size).x);
@@ -77,14 +77,14 @@ ChainCallbackResult GameManager::OnUpdate(GameManager *this)
         this->field2_0x8 = 0;
         this->field0_0x0 = this->score;
       }
-      if ((-1 < (char)this->field35_0x181c) &&
-         (UINT_ARRAY_004764b0[(char)this->field35_0x181c] <= (uint)this->field0_0x0)) {
+      if ((-1 < (char)this->field23_0x181c) &&
+         (UINT_ARRAY_004764b0[(char)this->field23_0x181c] <= (uint)this->field0_0x0)) {
         if ((char)this->lives_remaining < '\b') {
           this->lives_remaining = this->lives_remaining + 1;
           SoundPlayer::FUN_004311e0(&g_SoundPlayer,0x1c);
         }
-        DAT_0069bc30 = DAT_0069bc30 & 0xfffffffc | 2;
-        this->field35_0x181c = this->field35_0x181c + 1;
+        g_Gui = g_Gui & 0xfffffffc | 2;
+        this->field23_0x181c = this->field23_0x181c + 1;
         FUN_0041c57e(&g_GameManager,200);
       }
       if (this->high_score < (uint)this->field0_0x0) {

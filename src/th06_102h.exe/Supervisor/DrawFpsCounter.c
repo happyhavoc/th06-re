@@ -20,28 +20,28 @@ void Supervisor::DrawFpsCounter(void)
     g_NumFramesSinceLastTime = 0;
     g_LastTime = curTime;
     sprintf(g_FpsCounterBuffer,"%.02ffps",(double)fps);
-    if (g_GameManager.field40_0x1821 != 0) {
+    if (g_GameManager.field28_0x1821 != 0) {
       local_c = 60.0 / g_Supervisor.framerateMultiplier;
-      g_Supervisor.field85_0x1b8 = g_Supervisor.field85_0x1b8 + local_c;
+      g_Supervisor.unk1b8 = g_Supervisor.unk1b8 + local_c;
       if (local_c * 0.9 < fps == (NAN(local_c * 0.9) || NAN(fps))) {
         if (local_c * 0.7 < fps == (NAN(local_c * 0.7) || NAN(fps))) {
           if (local_c * 0.5 < fps == (NAN(local_c * 0.5) || NAN(fps))) {
-            g_Supervisor.field84_0x1b4 = local_c * 0.5 + g_Supervisor.field84_0x1b4;
+            g_Supervisor.unk1b4 = local_c * 0.5 + g_Supervisor.unk1b4;
           }
           else {
-            g_Supervisor.field84_0x1b4 = local_c * 0.6 + g_Supervisor.field84_0x1b4;
+            g_Supervisor.unk1b4 = local_c * 0.6 + g_Supervisor.unk1b4;
           }
         }
         else {
-          g_Supervisor.field84_0x1b4 = local_c * 0.8 + g_Supervisor.field84_0x1b4;
+          g_Supervisor.unk1b4 = local_c * 0.8 + g_Supervisor.unk1b4;
         }
       }
       else {
-        g_Supervisor.field84_0x1b4 = g_Supervisor.field84_0x1b4 + local_c;
+        g_Supervisor.unk1b4 = g_Supervisor.unk1b4 + local_c;
       }
     }
   }
-  if (g_Supervisor.field78_0x19c == 0) {
+  if (g_Supervisor.unk19c == 0) {
     local_20.x = 512.0;
     local_20.y = 464.0;
     local_20.z = 0.0;

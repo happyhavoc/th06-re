@@ -26,17 +26,17 @@ BOOL __thiscall Pbg3Archive::ParseHeader(Pbg3Archive *this)
           magic = 0;
           do {
             uVar2 = IPbg3Parser::ReadVarInt(&this->parser->base);
-            *(uint *)((int)&this->entries->unk2 + magic) = uVar2;
+            *(uint *)(this->entries->filename + magic + -0x10) = uVar2;
             uVar2 = IPbg3Parser::ReadVarInt(&this->parser->base);
-            *(uint *)((int)&this->entries->unk1 + magic) = uVar2;
+            *(uint *)(this->entries->filename + magic + -0x14) = uVar2;
             uVar2 = IPbg3Parser::ReadVarInt(&this->parser->base);
-            *(uint *)((int)&this->entries->checksum + magic) = uVar2;
+            *(uint *)(this->entries->filename + magic + -4) = uVar2;
             uVar2 = IPbg3Parser::ReadVarInt(&this->parser->base);
-            *(uint *)((int)&this->entries->dataOffset + magic) = uVar2;
+            *(uint *)(this->entries->filename + magic + -8) = uVar2;
             uVar2 = IPbg3Parser::ReadVarInt(&this->parser->base);
-            *(uint *)((int)&this->entries->uncompressedSize + magic) = uVar2;
+            *(uint *)(this->entries->filename + magic + -0xc) = uVar2;
             BVar3 = IPbg3Parser::ReadString
-                              (&this->parser->base,&this->entries->filename + magic,0x100);
+                              (&this->parser->base,this->entries->filename + magic,0x100);
             if (BVar3 == 0) {
               if (this->parser != (Pbg3Parser *)0x0) {
                 (*(code *)((this->parser->base).vtbl)->operator_delete)(1);

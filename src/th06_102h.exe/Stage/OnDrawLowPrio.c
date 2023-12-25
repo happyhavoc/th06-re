@@ -4,10 +4,7 @@ int Stage::OnDrawLowPrio(Stage *arg)
 {
   AnmManager *this;
   int iVar1;
-  undefined4 local_1c;
-  undefined4 local_18;
-  undefined4 local_14;
-  undefined4 local_10;
+  zRect local_1c;
   int local_c;
   undefined4 local_8;
   
@@ -17,22 +14,22 @@ int Stage::OnDrawLowPrio(Stage *arg)
       FUN_00404970(arg,2);
       FUN_00404970(arg,3);
       if (arg->spellcardEclRelated0 == 1) {
-        local_1c = 0x42000000;
-        local_18 = 0x41800000;
-        local_14 = 0x43d00000;
-        local_10 = 0x43e80000;
+        local_1c.left = 32.0;
+        local_1c.top = 16.0;
+        local_1c.right = 416.0;
+        local_1c.bottom = 464.0;
         local_c = (arg->spellcardEclRelated1 * 0xff) / 0x3c;
-        FUN_0042f8b0(&local_1c,local_c << 0x18);
+        DrawSquare(&local_1c,local_c << 0x18);
       }
     }
   }
   this = g_AnmManager;
   if (0 < arg->spellcardEclRelated0) {
     if (arg->spellcardEclRelated1 <= (int)(uint)g_Supervisor.cfg.frameskipConfig) {
-      (arg->field23_0x88).anmFileIndex = 0x2b3;
-      AnmManager::SetAndExecuteScript(this,&arg->field23_0x88,this->scripts[0x2b3]);
+      (arg->field20_0x88).anmFileIndex = 0x2b3;
+      AnmManager::SetAndExecuteScript(this,&arg->field20_0x88,this->scripts[0x2b3]);
     }
-    AnmManager::FUN_00432cc0(g_AnmManager,&arg->field23_0x88);
+    AnmManager::FUN_00432cc0(g_AnmManager,&arg->field20_0x88);
   }
   g_Supervisor.viewport.MinZ = 0.0;
   g_Supervisor.viewport.MaxZ = 0.5;

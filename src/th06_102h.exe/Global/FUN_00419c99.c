@@ -130,18 +130,18 @@ void __fastcall FUN_00419c99(uint *param_1)
     if ((int)param_1[6] < 0x14) {
       if ((int)param_1[6] < 10) {
         if ((int)param_1[6] < 5) {
-          local_1c = DAT_004764ac;
+          local_1c = D3DCOLOR_004764ac;
         }
         else {
-          local_1c = DAT_004764a8;
+          local_1c = D3DCOLOR_004764a8;
         }
       }
       else {
-        local_1c = DAT_004764a4;
+        local_1c = D3DCOLOR_004764a4;
       }
     }
     else {
-      local_1c = DAT_004764a0;
+      local_1c = D3DCOLOR_004764a0;
     }
     g_AsciiManager.color = param_1[4] << 0x18 | local_1c;
     if ((int)param_1[6] < 100) {

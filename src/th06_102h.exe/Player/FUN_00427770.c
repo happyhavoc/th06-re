@@ -1,27 +1,26 @@
 
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
 
-void Player::FUN_00427770(void)
+void __thiscall Player::FUN_00427770(Player *this)
 
 {
-  undefined4 *puVar1;
-  int in_ECX;
+  AnmTimer *pAVar1;
   int local_8;
   
   _DAT_005a5f8c = 0;
-  EffectManager::FUN_0040ef50((int *)&g_EffectManager,0xc,(float *)(in_ECX + 0x440),1,0xff4040ff);
-  EffectManager::FUN_0040ef50((int *)&g_EffectManager,6,(float *)(in_ECX + 0x440),0x10,0xffffffff);
-  *(undefined *)(in_ECX + 0x9e0) = 2;
-  *(undefined4 *)(in_ECX + 0x75bc) = 0;
-  *(undefined4 *)(in_ECX + 0x75b8) = 0;
-  *(undefined4 *)(in_ECX + 0x75b4) = 0xfffffc19;
+  EffectManager::FUN_0040ef50((int *)&g_EffectManager,0xc,&(this->position).x,1,0xff4040ff);
+  EffectManager::FUN_0040ef50((int *)&g_EffectManager,6,&(this->position).x,0x10,0xffffffff);
+  this->field21_0x9e0 = 2;
+  (this->field35_0x75b4).current = 0;
+  (this->field35_0x75b4).subFrame = 0.0;
+  (this->field35_0x75b4).previous = -999;
   SoundPlayer::FUN_004311e0(&g_SoundPlayer,4);
-  g_GameManager._32_4_ = g_GameManager._32_4_ + 1;
+  g_GameManager.field8_0x20 = g_GameManager.field8_0x20 + 1;
   for (local_8 = 0; local_8 < 2; local_8 = local_8 + 1) {
-    puVar1 = (undefined4 *)(in_ECX + 0x9b8 + local_8 * 0xc);
-    puVar1[2] = 2;
-    puVar1[1] = 0;
-    *puVar1 = 0xfffffc19;
+    pAVar1 = this->field16_0x9b8 + local_8;
+    pAVar1->current = 2;
+    pAVar1->subFrame = 0.0;
+    pAVar1->previous = -999;
   }
   return;
 }

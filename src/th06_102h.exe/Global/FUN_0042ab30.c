@@ -70,7 +70,7 @@ void FUN_0042ab30(char *param_1,char *param_2)
         }
         DebugPrint2("%s write ...\n",param_1);
         local_40 = g_GameManager.field0_0x0;
-        local_10 = g_Supervisor.field84_0x1b4 / g_Supervisor.field85_0x1b8 - 0.5;
+        local_10 = g_Supervisor.unk1b4 / g_Supervisor.unk1b8 - 0.5;
         local_10 = local_10 + local_10;
         if (local_10 < 0.0 == NAN(local_10)) {
           if (1.0 <= local_10) {

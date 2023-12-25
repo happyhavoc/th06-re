@@ -1,21 +1,21 @@
 
-float10 Player::FUN_00428680(float *param_1)
+float10 * __thiscall
+Player::FUN_00428680(Player *this,float10 *__return_storage_ptr__,float *param_1)
 
 {
   float fVar1;
   float fVar2;
-  int in_ECX;
-  float10 fVar3;
+  float10 *pfVar3;
   
-  fVar1 = *param_1 - *(float *)(in_ECX + 0x440);
-  fVar2 = param_1[1] - *(float *)(in_ECX + 0x444);
-  if ((NAN(fVar2) == (fVar2 == 0.0)) || (NAN(fVar1) == (fVar1 == 0.0))) {
-    fVar3 = (float10)FUN_0045be40((double)fVar2,(double)fVar1);
-    fVar3 = (float10)(float)fVar3;
+  fVar1 = *(float *)__return_storage_ptr__ - (this->position).x;
+  fVar2 = *(float *)((int)__return_storage_ptr__ + 4) - (this->position).y;
+  if ((NAN(fVar2) == (fVar2 == 0.0)) ||
+     (pfVar3 = (float10 *)
+               CONCAT22((short)((uint)this >> 0x10),
+                        (ushort)(fVar1 < 0.0) << 8 | (ushort)NAN(fVar1) << 10 |
+                        (ushort)(fVar1 == 0.0) << 0xe), NAN(fVar1) == (fVar1 == 0.0))) {
+    pfVar3 = (float10 *)FUN_0045be40((double)fVar2,(double)fVar1);
   }
-  else {
-    fVar3 = (float10)1.570796;
-  }
-  return fVar3;
+  return pfVar3;
 }
 

@@ -10,17 +10,14 @@ undefined4 MainMenu::OnDraw(MainMenu *param_1)
   bool bVar4;
   AnmVm *curVm;
   int vmIdx;
-  undefined4 local_18;
-  undefined4 local_14;
-  undefined4 local_10;
-  undefined4 local_c;
+  zRect local_18;
   int local_8;
   
   curVm = param_1->field0_0x0;
-  local_18 = 0;
-  local_14 = 0;
-  local_10 = 0x44200000;
-  local_c = 0x43f00000;
+  local_18.left = 0.0;
+  local_18.top = 0.0;
+  local_18.right = 640.0;
+  local_18.bottom = 480.0;
   if (param_1->unk_81f0 != 0) {
     g_AnmManager->currentTexture = (IDirect3DTexture8 *)0x0;
     AnmManager::CopySurfaceToBackBuffer(g_AnmManager,0,0,0,0,0);
@@ -28,9 +25,9 @@ undefined4 MainMenu::OnDraw(MainMenu *param_1)
       if (param_1->unk_820c != 0) {
         param_1->unk_820c = param_1->unk_820c - 1;
         local_8 = (param_1->unk_8200 >> 0x18) - (param_1->unk_81fc >> 0x18);
-        FUN_0042f8b0(&local_18,
-                     ((local_8 * param_1->unk_820c) / *(uint *)&param_1->field_0x8214 +
-                     (param_1->unk_81fc >> 0x18)) * 0x1000000 | param_1->unk_8200 & 0xffffff);
+        DrawSquare(&local_18,
+                   ((local_8 * param_1->unk_820c) / *(uint *)&param_1->field_0x8214 +
+                   (param_1->unk_81fc >> 0x18)) * 0x1000000 | param_1->unk_8200 & 0xffffff);
       }
     }
     else {
@@ -38,9 +35,9 @@ undefined4 MainMenu::OnDraw(MainMenu *param_1)
         param_1->unk_820c = param_1->unk_820c + 1;
       }
       local_8 = (param_1->unk_8200 >> 0x18) - (param_1->unk_81fc >> 0x18);
-      FUN_0042f8b0(&local_18,
-                   ((local_8 * param_1->unk_820c) / param_1->unk_8210 + (param_1->unk_81fc >> 0x18))
-                   * 0x1000000 | param_1->unk_8200 & 0xffffff);
+      DrawSquare(&local_18,
+                 ((local_8 * param_1->unk_820c) / param_1->unk_8210 + (param_1->unk_81fc >> 0x18)) *
+                 0x1000000 | param_1->unk_8200 & 0xffffff);
     }
     for (vmIdx = 0; vmIdx < 0x62; vmIdx = vmIdx + 1) {
       if (curVm->sprite == (AnmLoadedSprite *)0x0) {

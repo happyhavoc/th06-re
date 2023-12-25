@@ -1,34 +1,32 @@
 
-/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
-
-undefined4 Player::RegisterChain(undefined param_1)
+undefined4 Player::RegisterChain(byte param_1)
 
 {
   undefined4 uVar1;
   int iVar2;
-  undefined4 *puVar3;
+  Player *pPVar3;
   
-  puVar3 = (undefined4 *)&g_Player;
+  pPVar3 = &g_Player;
   for (iVar2 = 0x263c; iVar2 != 0; iVar2 = iVar2 + -1) {
-    *puVar3 = 0;
-    puVar3 = puVar3 + 1;
+    (pPVar3->vm0).rotation.x = 0.0;
+    pPVar3 = (Player *)&(pPVar3->vm0).rotation.y;
   }
-  _DAT_006d1be4 = 0;
-  _DAT_006d1be0 = 0;
-  _DAT_006d1bdc = 0xfffffc19;
-  DAT_006cb009 = param_1;
-  PTR_006d3f0c = Chain::CreateElem(&g_Chain,OnUpdate);
-  PTR_006d3f10 = Chain::CreateElem(&g_Chain,OnDrawHighPrio);
-  PTR_006d3f14 = Chain::CreateElem(&g_Chain,OnDrawLowPrio);
-  PTR_006d3f0c->arg = &g_Player;
-  PTR_006d3f10->arg = &g_Player;
-  PTR_006d3f14->arg = &g_Player;
-  PTR_006d3f0c->addedCallback = FUN_00429c50;
-  PTR_006d3f0c->deletedCallback = DeletedCallback;
-  iVar2 = Chain::AddToCalcChain(&g_Chain,PTR_006d3f0c,7);
+  g_Player.field35_0x75b4.current = 0;
+  g_Player.field35_0x75b4.subFrame = 0.0;
+  g_Player.field35_0x75b4.previous = -999;
+  g_Player.field22_0x9e1 = param_1;
+  g_Player.onTick = Chain::CreateElem(&g_Chain,OnUpdate);
+  g_Player.onDraw1 = Chain::CreateElem(&g_Chain,OnDrawHighPrio);
+  g_Player.onDraw2 = Chain::CreateElem(&g_Chain,OnDrawLowPrio);
+  (g_Player.onTick)->arg = &g_Player;
+  (g_Player.onDraw1)->arg = &g_Player;
+  (g_Player.onDraw2)->arg = &g_Player;
+  (g_Player.onTick)->addedCallback = AddedCallback;
+  (g_Player.onTick)->deletedCallback = DeletedCallback;
+  iVar2 = Chain::AddToCalcChain(&g_Chain,g_Player.onTick,7);
   if (iVar2 == 0) {
-    Chain::AddToDrawChain(&g_Chain,PTR_006d3f10,5);
-    Chain::AddToDrawChain(&g_Chain,PTR_006d3f14,7);
+    Chain::AddToDrawChain(&g_Chain,g_Player.onDraw1,5);
+    Chain::AddToDrawChain(&g_Chain,g_Player.onDraw2,7);
     uVar1 = 0;
   }
   else {

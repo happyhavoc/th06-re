@@ -2,12 +2,11 @@
 int __thiscall AnmManager::ExecuteScript(AnmManager *this,AnmVm *vm)
 
 {
-  float fVar1;
-  ushort uVar2;
-  float fVar3;
-  ushort uVar4;
-  uint uVar5;
-  float10 fVar6;
+  ushort uVar1;
+  float fVar2;
+  ushort uVar3;
+  uint uVar4;
+  float fVar5;
   undefined local_120;
   int local_e0;
   float local_3c;
@@ -123,31 +122,31 @@ LAB_00433998:
   case AnmOpcode_16:
     vm->flags = vm->flags | 1;
     local_c = local_8->args;
-    uVar2 = *(ushort *)(local_8->args + 1);
-    if (uVar2 == 0) {
+    uVar1 = *(ushort *)(local_8->args + 1);
+    if (uVar1 == 0) {
       local_e0 = 0;
     }
     else {
-      uVar4 = Rng::GetRandomU16(&g_Rng);
-      local_e0 = (int)((ulonglong)uVar4 % (ulonglong)(longlong)(int)(uint)uVar2);
+      uVar3 = Rng::GetRandomU16(&g_Rng);
+      local_e0 = (int)((ulonglong)uVar3 % (ulonglong)(longlong)(int)(uint)uVar1);
     }
     SetActiveSprite(this,vm,*local_c + local_e0 + this->spriteIndices[vm->anmFileIndex]);
     vm->timeOfLastSpriteSet = (vm->currentTimeInScript).current;
     break;
   case AnmOpcode_17:
     if ((vm->flags >> 5 & 1) == 0) {
-      fVar1 = (float)local_8->args[2];
-      fVar3 = (float)local_8->args[1];
+      fVar5 = (float)local_8->args[2];
+      fVar2 = (float)local_8->args[1];
       (vm->pos).x = (float)local_8->args[0];
-      (vm->pos).y = fVar3;
-      (vm->pos).z = fVar1;
+      (vm->pos).y = fVar2;
+      (vm->pos).z = fVar5;
     }
     else {
-      fVar1 = (float)local_8->args[2];
-      fVar3 = (float)local_8->args[1];
+      fVar5 = (float)local_8->args[2];
+      fVar2 = (float)local_8->args[1];
       (vm->pos2).x = (float)local_8->args[0];
-      (vm->pos2).y = fVar3;
-      (vm->pos2).z = fVar1;
+      (vm->pos2).y = fVar2;
+      (vm->pos2).z = fVar5;
     }
     break;
   case AnmOpcode_18:
@@ -169,11 +168,11 @@ LAB_00433f53:
       (vm->posInterpInitial).y = (vm->pos2).y;
       (vm->posInterpInitial).z = (vm->pos2).z;
     }
-    fVar1 = (float)local_8->args[2];
-    fVar3 = (float)local_8->args[1];
+    fVar5 = (float)local_8->args[2];
+    fVar2 = (float)local_8->args[1];
     (vm->posInterpFinal).x = (float)local_8->args[0];
-    (vm->posInterpFinal).y = fVar3;
-    (vm->posInterpFinal).z = fVar1;
+    (vm->posInterpFinal).y = fVar2;
+    (vm->posInterpFinal).z = fVar5;
     vm->posInterpEndTime = *(ushort *)(local_8->args + 3);
     (vm->posInterpTime).current = 0;
     (vm->posInterpTime).subFrame = 0.0;
@@ -195,8 +194,8 @@ LAB_00433f53:
   case AnmOpcode_27:
     (vm->uvScrollPos).x = (vm->uvScrollPos).x + (float)local_8->args[0];
     if ((vm->uvScrollPos).x < 1.0) {
-      fVar1 = (vm->uvScrollPos).x;
-      if (fVar1 < 0.0 != NAN(fVar1)) {
+      fVar5 = (vm->uvScrollPos).x;
+      if (fVar5 < 0.0 != NAN(fVar5)) {
         (vm->uvScrollPos).x = (vm->uvScrollPos).x + 1.0;
       }
     }
@@ -207,8 +206,8 @@ LAB_00433f53:
   case AnmOpcode_28:
     (vm->uvScrollPos).y = (vm->uvScrollPos).y + (float)local_8->args[0];
     if ((vm->uvScrollPos).y < 1.0) {
-      fVar1 = (vm->uvScrollPos).y;
-      if (fVar1 < 0.0 != NAN(fVar1)) {
+      fVar5 = (vm->uvScrollPos).y;
+      if (fVar5 < 0.0 != NAN(fVar5)) {
         (vm->uvScrollPos).y = (vm->uvScrollPos).y + 1.0;
       }
     }
@@ -242,23 +241,23 @@ switchD_004339dd_caseD_15:
     vm->flags = vm->flags | 0x2000;
     AnmTimer::FUN_004241e5(&vm->currentTimeInScript,1);
 LAB_00434338:
-    fVar1 = (vm->angleVel).x;
-    if (NAN(fVar1) == (fVar1 == 0.0)) {
-      fVar6 = (float10)FUN_0041e850((vm->rotation).x,
-                                    g_Supervisor.effectiveFramerateMultiplier * (vm->angleVel).x);
-      (vm->rotation).x = (float)fVar6;
+    fVar5 = (vm->angleVel).x;
+    if (NAN(fVar5) == (fVar5 == 0.0)) {
+      fVar5 = FUN_0041e850((vm->rotation).x,
+                           g_Supervisor.effectiveFramerateMultiplier * (vm->angleVel).x);
+      (vm->rotation).x = fVar5;
     }
-    fVar1 = (vm->angleVel).y;
-    if (NAN(fVar1) == (fVar1 == 0.0)) {
-      fVar6 = (float10)FUN_0041e850((vm->rotation).y,
-                                    g_Supervisor.effectiveFramerateMultiplier * (vm->angleVel).y);
-      (vm->rotation).y = (float)fVar6;
+    fVar5 = (vm->angleVel).y;
+    if (NAN(fVar5) == (fVar5 == 0.0)) {
+      fVar5 = FUN_0041e850((vm->rotation).y,
+                           g_Supervisor.effectiveFramerateMultiplier * (vm->angleVel).y);
+      (vm->rotation).y = fVar5;
     }
-    fVar1 = (vm->angleVel).z;
-    if (NAN(fVar1) == (fVar1 == 0.0)) {
-      fVar6 = (float10)FUN_0041e850((vm->rotation).z,
-                                    g_Supervisor.effectiveFramerateMultiplier * (vm->angleVel).z);
-      (vm->rotation).z = (float)fVar6;
+    fVar5 = (vm->angleVel).z;
+    if (NAN(fVar5) == (fVar5 == 0.0)) {
+      fVar5 = FUN_0041e850((vm->rotation).z,
+                           g_Supervisor.effectiveFramerateMultiplier * (vm->angleVel).z);
+      (vm->rotation).z = fVar5;
     }
     if ((short)vm->scaleInterpEndTime < 1) {
       vm->scaleY = g_Supervisor.effectiveFramerateMultiplier * vm->scaleInterpFinalY + vm->scaleY;
@@ -327,11 +326,11 @@ LAB_00434338:
       if (1.0 <= local_3c) {
         local_3c = 1.0;
       }
-      uVar5 = vm->flags >> 10 & 3;
-      if (uVar5 == 1) {
+      uVar4 = vm->flags >> 10 & 3;
+      if (uVar4 == 1) {
         local_3c = 1.0 - (1.0 - local_3c) * (1.0 - local_3c);
       }
-      else if (uVar5 == 2) {
+      else if (uVar4 == 2) {
         local_3c = 1.0 - local_3c;
         local_3c = 1.0 - local_3c * local_3c * local_3c * local_3c;
       }

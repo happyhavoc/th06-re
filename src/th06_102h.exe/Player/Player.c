@@ -1,5 +1,5 @@
 
-int __fastcall Player::Player(int param_1)
+int __thiscall Player::Player(Player *this)
 
 {
   AnmVm *local_64;
@@ -12,9 +12,9 @@ int __fastcall Player::Player(int param_1)
   AnmVm *local_20;
   int local_18;
   
-  AnmVm::AnmVm((AnmVm *)param_1);
+  AnmVm::AnmVm(&this->vm0);
   local_18 = 3;
-  local_20 = (AnmVm *)(param_1 + 0x110);
+  local_20 = this->vm1;
   while (local_18 = local_18 + -1, -1 < local_18) {
     AnmVm::AnmVm(local_20);
     local_20 = local_20 + 1;
@@ -32,22 +32,22 @@ int __fastcall Player::Player(int param_1)
     local_3c = local_3c + -1;
   } while (-1 < local_3c);
   local_48 = 2;
-  local_50 = (AnmTimer *)(param_1 + 0x9b8);
+  local_50 = this->field16_0x9b8;
   while (local_48 = local_48 + -1, -1 < local_48) {
     AnmTimer::AnmTimer(local_50);
     local_50 = local_50 + 1;
   }
-  AnmTimer::AnmTimer((AnmTimer *)(param_1 + 0x9e8));
+  AnmTimer::AnmTimer(&this->field26_0x9e8);
   local_5c = 0x50;
-  local_64 = (AnmVm *)(param_1 + 0xa28);
+  local_64 = &this->bullets[0].field0_0x0;
   while (local_5c = local_5c + -1, -1 < local_5c) {
     AnmVm::AnmVm(local_64);
     AnmTimer::AnmTimer(&local_64[1].currentTimeInScript);
     local_64 = (AnmVm *)(local_64[1].matrix.m[0] + 3);
   }
-  AnmTimer::AnmTimer((AnmTimer *)(param_1 + 0x75a8));
-  AnmTimer::AnmTimer((AnmTimer *)(param_1 + 0x75b4));
-  FUN_00426000(param_1 + 0x75c8);
-  return param_1;
+  AnmTimer::AnmTimer(&this->field34_0x75a8);
+  AnmTimer::AnmTimer(&this->field35_0x75b4);
+  PlayerInner::PlayerInner(&this->inner);
+  return (int)this;
 }
 

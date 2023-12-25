@@ -1,66 +1,62 @@
 
-void FUN_0040f550(void)
+void __fastcall FUN_0040f550(int param_1)
 
 {
-  int in_ECX;
-  undefined4 local_14;
-  undefined4 local_10;
-  undefined4 local_c;
-  undefined4 local_8;
+  zRect local_14;
   
-  local_14 = 0;
-  local_10 = 0;
-  local_c = 0x44200000;
-  local_8 = 0x43f00000;
-  switch(*(undefined4 *)(in_ECX + 0x1168)) {
+  local_14.left = 0.0;
+  local_14.top = 0.0;
+  local_14.right = 640.0;
+  local_14.bottom = 480.0;
+  switch(*(undefined4 *)(param_1 + 0x1168)) {
   case 0:
-    *(undefined4 *)(in_ECX + 0x115c) = 0;
+    *(undefined4 *)(param_1 + 0x115c) = 0;
     break;
   case 1:
-    if (*(int *)(in_ECX + 0x1160) < *(int *)(in_ECX + 0x1164)) {
-      *(int *)(in_ECX + 0x115c) =
-           (0xff - (*(int *)(in_ECX + 0x1160) * 0xff) / *(int *)(in_ECX + 0x1164)) * 0x1000000;
-      *(int *)(in_ECX + 0x1160) = *(int *)(in_ECX + 0x1160) + 1;
+    if (*(int *)(param_1 + 0x1160) < *(int *)(param_1 + 0x1164)) {
+      *(int *)(param_1 + 0x115c) =
+           (0xff - (*(int *)(param_1 + 0x1160) * 0xff) / *(int *)(param_1 + 0x1164)) * 0x1000000;
+      *(int *)(param_1 + 0x1160) = *(int *)(param_1 + 0x1160) + 1;
     }
     else {
-      *(undefined4 *)(in_ECX + 0x1168) = 0;
-      *(undefined4 *)(in_ECX + 0x115c) = 0;
+      *(undefined4 *)(param_1 + 0x1168) = 0;
+      *(undefined4 *)(param_1 + 0x115c) = 0;
     }
     break;
   case 2:
-    if (*(int *)(in_ECX + 0x1160) < *(int *)(in_ECX + 0x1164)) {
-      *(int *)(in_ECX + 0x115c) =
-           (*(int *)(in_ECX + 0x1160) * 0xff) / *(int *)(in_ECX + 0x1164) << 0x18;
-      *(int *)(in_ECX + 0x1160) = *(int *)(in_ECX + 0x1160) + 1;
+    if (*(int *)(param_1 + 0x1160) < *(int *)(param_1 + 0x1164)) {
+      *(int *)(param_1 + 0x115c) =
+           (*(int *)(param_1 + 0x1160) * 0xff) / *(int *)(param_1 + 0x1164) << 0x18;
+      *(int *)(param_1 + 0x1160) = *(int *)(param_1 + 0x1160) + 1;
     }
     else {
-      *(undefined4 *)(in_ECX + 0x115c) = 0xff000000;
+      *(undefined4 *)(param_1 + 0x115c) = 0xff000000;
     }
     break;
   case 3:
-    if (*(int *)(in_ECX + 0x1160) < *(int *)(in_ECX + 0x1164)) {
-      *(uint *)(in_ECX + 0x115c) =
-           (0xff - (*(int *)(in_ECX + 0x1160) * 0xff) / *(int *)(in_ECX + 0x1164)) * 0x1000000 |
+    if (*(int *)(param_1 + 0x1160) < *(int *)(param_1 + 0x1164)) {
+      *(uint *)(param_1 + 0x115c) =
+           (0xff - (*(int *)(param_1 + 0x1160) * 0xff) / *(int *)(param_1 + 0x1164)) * 0x1000000 |
            0xffffff;
-      *(int *)(in_ECX + 0x1160) = *(int *)(in_ECX + 0x1160) + 1;
+      *(int *)(param_1 + 0x1160) = *(int *)(param_1 + 0x1160) + 1;
     }
     else {
-      *(undefined4 *)(in_ECX + 0x1168) = 0;
-      *(undefined4 *)(in_ECX + 0x115c) = 0;
+      *(undefined4 *)(param_1 + 0x1168) = 0;
+      *(undefined4 *)(param_1 + 0x115c) = 0;
     }
     break;
   case 4:
-    if (*(int *)(in_ECX + 0x1160) < *(int *)(in_ECX + 0x1164)) {
-      *(uint *)(in_ECX + 0x115c) =
-           (*(int *)(in_ECX + 0x1160) * 0xff) / *(int *)(in_ECX + 0x1164) << 0x18 | 0xffffff;
-      *(int *)(in_ECX + 0x1160) = *(int *)(in_ECX + 0x1160) + 1;
+    if (*(int *)(param_1 + 0x1160) < *(int *)(param_1 + 0x1164)) {
+      *(uint *)(param_1 + 0x115c) =
+           (*(int *)(param_1 + 0x1160) * 0xff) / *(int *)(param_1 + 0x1164) << 0x18 | 0xffffff;
+      *(int *)(param_1 + 0x1160) = *(int *)(param_1 + 0x1160) + 1;
     }
     else {
-      *(undefined4 *)(in_ECX + 0x115c) = 0xffffffff;
+      *(undefined4 *)(param_1 + 0x115c) = 0xffffffff;
     }
   }
-  if ((*(uint *)(in_ECX + 0x115c) & 0xff000000) != 0) {
-    FUN_0042f8b0(&local_14,*(undefined4 *)(in_ECX + 0x115c));
+  if ((*(uint *)(param_1 + 0x115c) & 0xff000000) != 0) {
+    DrawSquare(&local_14,*(D3DCOLOR *)(param_1 + 0x115c));
   }
   return;
 }

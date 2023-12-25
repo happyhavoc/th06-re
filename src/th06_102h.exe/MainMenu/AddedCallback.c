@@ -38,10 +38,10 @@ LAB_0043a516:
     param_1->cursor = (uint)(g_GameManager.difficulty == 4);
   }
 LAB_0043a520:
-  if (g_GameManager.field42_0x1823 != 0) {
+  if (g_GameManager.field30_0x1823 != 0) {
     param_1->cursor = 2;
   }
-  g_GameManager.field42_0x1823 = 0;
+  g_GameManager.field30_0x1823 = 0;
   if ((g_Supervisor.cfg.opts & 1) == USE_D3D_HW_TEXTURE_BLENDING) {
     param_1->unk_8208 = 0x80004000;
     param_1->unk_8204 = 0xff008000;

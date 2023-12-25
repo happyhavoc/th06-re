@@ -2,7 +2,7 @@
 void __fastcall FUN_00411530(int param_1)
 
 {
-  undefined4 uVar1;
+  float fVar1;
   bool bVar2;
   undefined3 extraout_var;
   int iVar3;
@@ -37,7 +37,7 @@ void __fastcall FUN_00411530(int param_1)
      (*(int *)(param_1 + 0xee5e8) % local_c == 0)) {
     GameManager::FUN_0041c57e(&g_GameManager,100);
   }
-  while (uVar1 = g_GameManager._6740_4_, -1 < **(short **)(param_1 + 0xee5dc)) {
+  while (fVar1 = g_GameManager.field51_0x1a54, -1 < **(short **)(param_1 + 0xee5dc)) {
     if (*(int *)(param_1 + 0xee5e8) == (int)**(short **)(param_1 + 0xee5dc)) {
       switch(*(undefined2 *)(*(int *)(param_1 + 0xee5dc) + 4)) {
       case 0:
@@ -84,12 +84,12 @@ void __fastcall FUN_00411530(int param_1)
           local_1c = *(float *)(iVar3 + 0x10);
           if (*local_18 < -990.0 != (*local_18 == -990.0)) {
             local_24 = Rng::GetRandomF32ZeroToOne(&g_Rng);
-            local_24 = local_24 * (float)uVar1;
+            local_24 = local_24 * fVar1;
           }
-          uVar1 = g_GameManager._6744_4_;
+          fVar1 = g_GameManager.field52_0x1a58;
           if (local_18[1] < -990.0 != (local_18[1] == -990.0)) {
             local_20 = Rng::GetRandomF32ZeroToOne(&g_Rng);
-            local_20 = local_20 * (float)uVar1;
+            local_20 = local_20 * fVar1;
           }
           if (local_18[2] < -990.0 != (local_18[2] == -990.0)) {
             local_1c = Rng::GetRandomF32ZeroToOne(&g_Rng);
@@ -108,12 +108,12 @@ void __fastcall FUN_00411530(int param_1)
           local_28 = *(float *)(iVar3 + 0x10);
           if (local_30 < -990.0 != (local_30 == -990.0)) {
             local_30 = Rng::GetRandomF32ZeroToOne(&g_Rng);
-            local_30 = local_30 * (float)uVar1;
+            local_30 = local_30 * fVar1;
           }
-          uVar1 = g_GameManager._6744_4_;
+          fVar1 = g_GameManager.field52_0x1a58;
           if (local_2c < -990.0 != (local_2c == -990.0)) {
             local_2c = Rng::GetRandomF32ZeroToOne(&g_Rng);
-            local_2c = local_2c * (float)uVar1;
+            local_2c = local_2c * fVar1;
           }
           if (local_28 < -990.0 != (local_28 == -990.0)) {
             local_28 = Rng::GetRandomF32ZeroToOne(&g_Rng);
@@ -132,12 +132,12 @@ void __fastcall FUN_00411530(int param_1)
           local_38 = *(float *)(iVar3 + 0x10);
           if (*local_34 < -990.0 != (*local_34 == -990.0)) {
             local_40 = Rng::GetRandomF32ZeroToOne(&g_Rng);
-            local_40 = local_40 * (float)uVar1;
+            local_40 = local_40 * fVar1;
           }
-          uVar1 = g_GameManager._6744_4_;
+          fVar1 = g_GameManager.field52_0x1a58;
           if (local_34[1] < -990.0 != (local_34[1] == -990.0)) {
             local_3c = Rng::GetRandomF32ZeroToOne(&g_Rng);
-            local_3c = local_3c * (float)uVar1;
+            local_3c = local_3c * fVar1;
           }
           if (local_34[2] < -990.0 != (local_34[2] == -990.0)) {
             local_38 = Rng::GetRandomF32ZeroToOne(&g_Rng);
@@ -157,12 +157,12 @@ void __fastcall FUN_00411530(int param_1)
           local_44 = *(float *)(iVar3 + 0x10);
           if (local_4c < -990.0 != (local_4c == -990.0)) {
             local_4c = Rng::GetRandomF32ZeroToOne(&g_Rng);
-            local_4c = local_4c * (float)uVar1;
+            local_4c = local_4c * fVar1;
           }
-          uVar1 = g_GameManager._6744_4_;
+          fVar1 = g_GameManager.field52_0x1a58;
           if (local_48 < -990.0 != (local_48 == -990.0)) {
             local_48 = Rng::GetRandomF32ZeroToOne(&g_Rng);
-            local_48 = local_48 * (float)uVar1;
+            local_48 = local_48 * fVar1;
           }
           if (local_44 < -990.0 != (local_44 == -990.0)) {
             local_44 = Rng::GetRandomF32ZeroToOne(&g_Rng);
@@ -213,7 +213,7 @@ void __fastcall FUN_00411530(int param_1)
   }
   bVar2 = FUN_004195a2(0x69bc30);
   if (CONCAT31(extraout_var_00,bVar2) == 0) {
-    g_GameManager._6764_4_ = g_GameManager._6764_4_ + 1;
+    g_GameManager.field58_0x1a6c = g_GameManager.field58_0x1a6c + 1;
   }
   return;
 }

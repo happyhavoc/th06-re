@@ -1,5 +1,5 @@
 
-undefined4 Player::CalcMove(void)
+undefined4 __thiscall Player::CalcMove(Player *this)
 
 {
   float fVar1;
@@ -10,7 +10,6 @@ undefined4 Player::CalcMove(void)
   bool bVar6;
   float *pfVar7;
   undefined3 extraout_var;
-  AnmVm *in_ECX;
   float local_18;
   float local_14;
   float local_10;
@@ -18,276 +17,277 @@ undefined4 Player::CalcMove(void)
   
   local_10 = 0.0;
   local_c = 0.0;
-  in_ECX[9].color = 0;
+  this->field28_0xa0c = 0;
   if ((g_CurFrameInput & 0x10) == 0) {
     if ((g_CurFrameInput & 0x20) == 0) {
       if ((g_CurFrameInput & 0x40) != 0) {
-        in_ECX[9].color = 3;
+        this->field28_0xa0c = 3;
       }
       if ((g_CurFrameInput & 0x80) != 0) {
-        in_ECX[9].color = 4;
+        this->field28_0xa0c = 4;
       }
     }
     else {
-      in_ECX[9].color = 2;
+      this->field28_0xa0c = 2;
       if ((g_CurFrameInput & 0x40) != 0) {
-        in_ECX[9].color = 7;
+        this->field28_0xa0c = 7;
       }
       if ((g_CurFrameInput & 0x80) != 0) {
-        in_ECX[9].color = 8;
+        this->field28_0xa0c = 8;
       }
     }
   }
   else {
-    in_ECX[9].color = 1;
+    this->field28_0xa0c = 1;
     if ((g_CurFrameInput & 0x40) != 0) {
-      in_ECX[9].color = 5;
+      this->field28_0xa0c = 5;
     }
     if ((g_CurFrameInput & 0x80) != 0) {
-      in_ECX[9].color = 6;
+      this->field28_0xa0c = 6;
     }
   }
   if ((g_CurFrameInput & 4) == 0) {
-    *(undefined *)((int)in_ECX[9].matrix.m[1] + 7) = 0;
+    this->field24_0x9e3 = 0;
   }
   else {
-    *(undefined *)((int)in_ECX[9].matrix.m[1] + 7) = 1;
+    this->field24_0x9e3 = 1;
   }
   pAVar5 = g_AnmManager;
-  switch(in_ECX[9].color) {
+  switch(this->field28_0xa0c) {
   case 1:
     if ((g_CurFrameInput & 4) == 0) {
-      local_c = in_ECX[9].matrix.m[2][2];
+      local_c = (this->field27_0x9f4).field0_0x0;
     }
     else {
-      local_c = in_ECX[9].matrix.m[2][3];
+      local_c = (this->field27_0x9f4).field1_0x4;
     }
     local_c = -local_c;
     break;
   case 2:
     if ((g_CurFrameInput & 4) == 0) {
-      local_c = in_ECX[9].matrix.m[2][2];
+      local_c = (this->field27_0x9f4).field0_0x0;
     }
     else {
-      local_c = in_ECX[9].matrix.m[2][3];
+      local_c = (this->field27_0x9f4).field1_0x4;
     }
     break;
   case 3:
     if ((g_CurFrameInput & 4) == 0) {
-      local_10 = in_ECX[9].matrix.m[2][2];
+      local_10 = (this->field27_0x9f4).field0_0x0;
     }
     else {
-      local_10 = in_ECX[9].matrix.m[2][3];
+      local_10 = (this->field27_0x9f4).field1_0x4;
     }
     local_10 = -local_10;
     break;
   case 4:
     if ((g_CurFrameInput & 4) == 0) {
-      local_10 = in_ECX[9].matrix.m[2][2];
+      local_10 = (this->field27_0x9f4).field0_0x0;
     }
     else {
-      local_10 = in_ECX[9].matrix.m[2][3];
+      local_10 = (this->field27_0x9f4).field1_0x4;
     }
     break;
   case 5:
     if ((g_CurFrameInput & 4) == 0) {
-      local_10 = in_ECX[9].matrix.m[3][0];
+      local_10 = (this->field27_0x9f4).field2_0x8;
     }
     else {
-      local_10 = in_ECX[9].matrix.m[3][1];
+      local_10 = (this->field27_0x9f4).field3_0xc;
     }
     local_10 = -local_10;
     local_c = local_10;
     break;
   case 6:
     if ((g_CurFrameInput & 4) == 0) {
-      local_10 = in_ECX[9].matrix.m[3][0];
+      local_10 = (this->field27_0x9f4).field2_0x8;
     }
     else {
-      local_10 = in_ECX[9].matrix.m[3][1];
+      local_10 = (this->field27_0x9f4).field3_0xc;
     }
     local_c = -local_10;
     break;
   case 7:
     if ((g_CurFrameInput & 4) == 0) {
-      local_10 = in_ECX[9].matrix.m[3][0];
+      local_10 = (this->field27_0x9f4).field2_0x8;
     }
     else {
-      local_10 = in_ECX[9].matrix.m[3][1];
+      local_10 = (this->field27_0x9f4).field3_0xc;
     }
     local_10 = -local_10;
     local_c = -local_10;
     break;
   case 8:
     if ((g_CurFrameInput & 4) == 0) {
-      local_10 = in_ECX[9].matrix.m[3][0];
+      local_10 = (this->field27_0x9f4).field2_0x8;
     }
     else {
-      local_10 = in_ECX[9].matrix.m[3][1];
+      local_10 = (this->field27_0x9f4).field3_0xc;
     }
     local_c = local_10;
   }
-  if ((local_10 < 0.0 == NAN(local_10)) || ((float)in_ECX[9].flags < 0.0)) {
+  if ((local_10 < 0.0 == NAN(local_10)) || (this->field29_0xa10 < 0.0)) {
     if ((NAN(local_10) != (local_10 == 0.0)) &&
-       ((float)in_ECX[9].flags < 0.0 != NAN((float)in_ECX[9].flags))) {
-      in_ECX->anmFileIndex = 0x402;
-      AnmManager::SetAndExecuteScript(pAVar5,in_ECX,pAVar5->scripts[0x402]);
+       (this->field29_0xa10 < 0.0 != NAN(this->field29_0xa10))) {
+      (this->vm0).anmFileIndex = 0x402;
+      AnmManager::SetAndExecuteScript(pAVar5,&this->vm0,pAVar5->scripts[0x402]);
     }
   }
   else {
-    in_ECX->anmFileIndex = 0x401;
-    AnmManager::SetAndExecuteScript(pAVar5,in_ECX,pAVar5->scripts[0x401]);
+    (this->vm0).anmFileIndex = 0x401;
+    AnmManager::SetAndExecuteScript(pAVar5,&this->vm0,pAVar5->scripts[0x401]);
   }
   pAVar5 = g_AnmManager;
-  if ((local_10 <= 0.0) || ((float)in_ECX[9].flags < 0.0 == ((float)in_ECX[9].flags == 0.0))) {
-    if ((NAN(local_10) != (local_10 == 0.0)) && (0.0 < (float)in_ECX[9].flags)) {
-      in_ECX->anmFileIndex = 0x404;
-      AnmManager::SetAndExecuteScript(pAVar5,in_ECX,pAVar5->scripts[0x404]);
+  if ((local_10 <= 0.0) || (this->field29_0xa10 < 0.0 == (this->field29_0xa10 == 0.0))) {
+    if ((NAN(local_10) != (local_10 == 0.0)) && (0.0 < this->field29_0xa10)) {
+      (this->vm0).anmFileIndex = 0x404;
+      AnmManager::SetAndExecuteScript(pAVar5,&this->vm0,pAVar5->scripts[0x404]);
     }
   }
   else {
-    in_ECX->anmFileIndex = 0x403;
-    AnmManager::SetAndExecuteScript(pAVar5,in_ECX,pAVar5->scripts[0x403]);
+    (this->vm0).anmFileIndex = 0x403;
+    AnmManager::SetAndExecuteScript(pAVar5,&this->vm0,pAVar5->scripts[0x403]);
   }
-  in_ECX[9].flags = (uint)local_10;
-  *(float *)&in_ECX[9].alphaInterpEndTime = local_c;
-  in_ECX[4].rotation.x =
-       local_10 * in_ECX[9].matrix.m[0][1] * g_Supervisor.effectiveFramerateMultiplier +
-       in_ECX[4].rotation.x;
-  pfVar7 = &in_ECX[4].rotation.y;
-  *pfVar7 = local_c * in_ECX[9].matrix.m[0][2] * g_Supervisor.effectiveFramerateMultiplier + *pfVar7
-  ;
-  fVar1 = in_ECX[4].rotation.x;
-  if (fVar1 < (float)g_GameManager._6732_4_ == (NAN(fVar1) || NAN((float)g_GameManager._6732_4_))) {
-    fVar1 = in_ECX[4].rotation.x;
-    if ((float)g_GameManager._6732_4_ + (float)g_GameManager._6740_4_ < fVar1 !=
-        (NAN((float)g_GameManager._6732_4_ + (float)g_GameManager._6740_4_) || NAN(fVar1))) {
-      in_ECX[4].rotation.x = (float)g_GameManager._6732_4_ + (float)g_GameManager._6740_4_;
+  this->field29_0xa10 = local_10;
+  this->field30_0xa14 = (int)local_c;
+  (this->position).x =
+       local_10 * this->field17_0x9d0 * g_Supervisor.effectiveFramerateMultiplier +
+       (this->position).x;
+  pfVar7 = &(this->position).y;
+  *pfVar7 = local_c * this->field18_0x9d4 * g_Supervisor.effectiveFramerateMultiplier + *pfVar7;
+  fVar1 = (this->position).x;
+  if (fVar1 < g_GameManager.field49_0x1a4c == (NAN(fVar1) || NAN(g_GameManager.field49_0x1a4c))) {
+    fVar1 = (this->position).x;
+    if (g_GameManager.field49_0x1a4c + g_GameManager.field51_0x1a54 < fVar1 !=
+        (NAN(g_GameManager.field49_0x1a4c + g_GameManager.field51_0x1a54) || NAN(fVar1))) {
+      (this->position).x = g_GameManager.field49_0x1a4c + g_GameManager.field51_0x1a54;
     }
   }
   else {
-    in_ECX[4].rotation.x = (float)g_GameManager._6732_4_;
+    (this->position).x = g_GameManager.field49_0x1a4c;
   }
-  fVar1 = in_ECX[4].rotation.y;
-  if (fVar1 < (float)g_GameManager._6736_4_ == (NAN(fVar1) || NAN((float)g_GameManager._6736_4_))) {
-    fVar1 = in_ECX[4].rotation.y;
-    if ((float)g_GameManager._6736_4_ + (float)g_GameManager._6744_4_ < fVar1 !=
-        (NAN((float)g_GameManager._6736_4_ + (float)g_GameManager._6744_4_) || NAN(fVar1))) {
-      in_ECX[4].rotation.y = (float)g_GameManager._6736_4_ + (float)g_GameManager._6744_4_;
+  fVar1 = (this->position).y;
+  if (fVar1 < g_GameManager.field50_0x1a50 == (NAN(fVar1) || NAN(g_GameManager.field50_0x1a50))) {
+    fVar1 = (this->position).y;
+    if (g_GameManager.field50_0x1a50 + g_GameManager.field52_0x1a58 < fVar1 !=
+        (NAN(g_GameManager.field50_0x1a50 + g_GameManager.field52_0x1a58) || NAN(fVar1))) {
+      (this->position).y = g_GameManager.field50_0x1a50 + g_GameManager.field52_0x1a58;
     }
   }
   else {
-    in_ECX[4].rotation.y = (float)g_GameManager._6736_4_;
+    (this->position).y = g_GameManager.field50_0x1a50;
   }
-  fVar1 = in_ECX[4].rotation.z;
-  fVar2 = in_ECX[4].matrix.m[1][1];
-  fVar3 = in_ECX[4].rotation.y;
-  fVar4 = in_ECX[4].matrix.m[1][0];
-  in_ECX[4].scaleY = in_ECX[4].rotation.x - in_ECX[4].matrix.m[0][3];
-  in_ECX[4].scaleX = fVar3 - fVar4;
-  in_ECX[4].scaleInterpFinalY = fVar1 - fVar2;
-  fVar1 = in_ECX[4].rotation.z;
-  fVar2 = in_ECX[4].matrix.m[1][1];
-  fVar3 = in_ECX[4].rotation.y;
-  fVar4 = in_ECX[4].matrix.m[1][0];
-  in_ECX[4].scaleInterpFinalX = in_ECX[4].rotation.x + in_ECX[4].matrix.m[0][3];
-  in_ECX[4].uvScrollPos.x = fVar3 + fVar4;
-  in_ECX[4].uvScrollPos.y = fVar1 + fVar2;
-  fVar1 = in_ECX[4].rotation.z;
-  fVar2 = in_ECX[4].matrix.m[2][0];
-  fVar3 = in_ECX[4].rotation.y;
-  fVar4 = in_ECX[4].matrix.m[1][3];
-  in_ECX[4].currentTimeInScript.previous = (int)(in_ECX[4].rotation.x - in_ECX[4].matrix.m[1][2]);
-  in_ECX[4].currentTimeInScript.subFrame = fVar3 - fVar4;
-  in_ECX[4].currentTimeInScript.current = (int)(fVar1 - fVar2);
-  fVar1 = in_ECX[4].rotation.z;
-  fVar2 = in_ECX[4].matrix.m[2][0];
-  fVar3 = in_ECX[4].rotation.y;
-  fVar4 = in_ECX[4].matrix.m[1][3];
-  in_ECX[4].matrix.m[0][0] = in_ECX[4].rotation.x + in_ECX[4].matrix.m[1][2];
-  in_ECX[4].matrix.m[0][1] = fVar3 + fVar4;
-  in_ECX[4].matrix.m[0][2] = fVar1 + fVar2;
-  in_ECX[4].matrix.m[2][1] = in_ECX[4].rotation.x;
-  in_ECX[4].matrix.m[2][2] = in_ECX[4].rotation.y;
-  in_ECX[4].matrix.m[2][3] = in_ECX[4].rotation.z;
-  in_ECX[4].matrix.m[3][0] = in_ECX[4].rotation.x;
-  in_ECX[4].matrix.m[3][1] = in_ECX[4].rotation.y;
-  in_ECX[4].matrix.m[3][2] = in_ECX[4].rotation.z;
+  fVar1 = (this->position).z;
+  fVar2 = (this->field8_0x488).z;
+  fVar3 = (this->position).y;
+  fVar4 = (this->field8_0x488).y;
+  (this->field4_0x458).x = (this->position).x - (this->field8_0x488).x;
+  (this->field4_0x458).y = fVar3 - fVar4;
+  (this->field4_0x458).z = fVar1 - fVar2;
+  fVar1 = (this->position).z;
+  fVar2 = (this->field8_0x488).z;
+  fVar3 = (this->position).y;
+  fVar4 = (this->field8_0x488).y;
+  (this->field5_0x464).x = (this->position).x + (this->field8_0x488).x;
+  (this->field5_0x464).y = fVar3 + fVar4;
+  (this->field5_0x464).z = fVar1 + fVar2;
+  fVar1 = (this->position).z;
+  fVar2 = (this->field9_0x494).z;
+  fVar3 = (this->position).y;
+  fVar4 = (this->field9_0x494).y;
+  (this->field6_0x470).x = (this->position).x - (this->field9_0x494).x;
+  (this->field6_0x470).y = fVar3 - fVar4;
+  (this->field6_0x470).z = fVar1 - fVar2;
+  fVar1 = (this->position).z;
+  fVar2 = (this->field9_0x494).z;
+  fVar3 = (this->position).y;
+  fVar4 = (this->field9_0x494).y;
+  (this->field7_0x47c).x = (this->position).x + (this->field9_0x494).x;
+  (this->field7_0x47c).y = fVar3 + fVar4;
+  (this->field7_0x47c).z = fVar1 + fVar2;
+  this->field10_0x4a0[0].x = (this->position).x;
+  this->field10_0x4a0[0].y = (this->position).y;
+  this->field10_0x4a0[0].z = (this->position).z;
+  this->field10_0x4a0[1].x = (this->position).x;
+  this->field10_0x4a0[1].y = (this->position).y;
+  this->field10_0x4a0[1].z = (this->position).z;
   local_14 = 0.0;
   local_18 = 0.0;
   if (g_GameManager.current_power < 8) {
-    *(undefined *)((int)in_ECX[9].matrix.m[1] + 6) = 0;
+    this->field23_0x9e2 = 0;
   }
-  else if (*(char *)((int)in_ECX[9].matrix.m[1] + 6) == '\0') {
-    *(undefined *)((int)in_ECX[9].matrix.m[1] + 6) = 1;
+  else if (this->field23_0x9e2 == 0) {
+    this->field23_0x9e2 = 1;
   }
-  switch(*(undefined *)((int)in_ECX[9].matrix.m[1] + 6)) {
+  switch(this->field23_0x9e2) {
   case 0:
-    in_ECX[9].matrix.m[2][1] = 0.0;
-    in_ECX[9].matrix.m[2][0] = 0.0;
-    in_ECX[9].matrix.m[1][3] = -NAN;
+    (this->field26_0x9e8).current = 0;
+    (this->field26_0x9e8).subFrame = 0.0;
+    (this->field26_0x9e8).previous = -999;
     break;
   case 1:
     local_18 = 24.0;
-    in_ECX[9].matrix.m[2][1] = 0.0;
-    in_ECX[9].matrix.m[2][0] = 0.0;
-    in_ECX[9].matrix.m[1][3] = -NAN;
-    if (*(char *)((int)in_ECX[9].matrix.m[1] + 7) == '\0') break;
-    *(undefined *)((int)in_ECX[9].matrix.m[1] + 6) = 2;
+    (this->field26_0x9e8).current = 0;
+    (this->field26_0x9e8).subFrame = 0.0;
+    (this->field26_0x9e8).previous = -999;
+    if (this->field24_0x9e3 == 0) break;
+    this->field23_0x9e2 = 2;
   case 2:
     while( true ) {
-      in_ECX[9].matrix.m[1][3] = in_ECX[9].matrix.m[2][1];
-      Supervisor::TickTimer(&g_Supervisor,(int *)(in_ECX[9].matrix.m[2] + 1),in_ECX[9].matrix.m[2]);
-      fVar1 = ((float)(int)in_ECX[9].matrix.m[2][1] + in_ECX[9].matrix.m[2][0]) / 8.0;
+      (this->field26_0x9e8).previous = (this->field26_0x9e8).current;
+      Supervisor::TickTimer
+                (&g_Supervisor,&(this->field26_0x9e8).current,&(this->field26_0x9e8).subFrame);
+      fVar1 = ((float)(this->field26_0x9e8).current + (this->field26_0x9e8).subFrame) / 8.0;
       local_14 = (1.0 - fVar1) * 32.0 + -32.0;
       local_18 = fVar1 * fVar1 * -16.0 + 24.0;
-      if (7 < (int)in_ECX[9].matrix.m[2][1]) {
-        *(undefined *)((int)in_ECX[9].matrix.m[1] + 6) = 3;
+      if (7 < (this->field26_0x9e8).current) {
+        this->field23_0x9e2 = 3;
       }
-      if (*(char *)((int)in_ECX[9].matrix.m[1] + 7) != '\0') break;
-      *(undefined *)((int)in_ECX[9].matrix.m[1] + 6) = 4;
-      in_ECX[9].matrix.m[2][1] = (float)(8 - (int)in_ECX[9].matrix.m[2][1]);
-      in_ECX[9].matrix.m[2][0] = 0.0;
-      in_ECX[9].matrix.m[1][3] = -NAN;
+      if (this->field24_0x9e3 != 0) break;
+      this->field23_0x9e2 = 4;
+      (this->field26_0x9e8).current = 8 - (this->field26_0x9e8).current;
+      (this->field26_0x9e8).subFrame = 0.0;
+      (this->field26_0x9e8).previous = -999;
 switchD_004281aa_caseD_4:
-      in_ECX[9].matrix.m[1][3] = in_ECX[9].matrix.m[2][1];
-      Supervisor::TickTimer(&g_Supervisor,(int *)(in_ECX[9].matrix.m[2] + 1),in_ECX[9].matrix.m[2]);
-      fVar1 = ((float)(int)in_ECX[9].matrix.m[2][1] + in_ECX[9].matrix.m[2][0]) / 8.0;
+      (this->field26_0x9e8).previous = (this->field26_0x9e8).current;
+      Supervisor::TickTimer
+                (&g_Supervisor,&(this->field26_0x9e8).current,&(this->field26_0x9e8).subFrame);
+      fVar1 = ((float)(this->field26_0x9e8).current + (this->field26_0x9e8).subFrame) / 8.0;
       local_14 = fVar1 * 32.0 + -32.0;
       local_18 = (1.0 - fVar1 * fVar1) * -16.0 + 24.0;
-      if (7 < (int)in_ECX[9].matrix.m[2][1]) {
-        *(undefined *)((int)in_ECX[9].matrix.m[1] + 6) = 1;
+      if (7 < (this->field26_0x9e8).current) {
+        this->field23_0x9e2 = 1;
       }
-      if (*(char *)((int)in_ECX[9].matrix.m[1] + 7) == '\0') break;
-      *(undefined *)((int)in_ECX[9].matrix.m[1] + 6) = 2;
-      in_ECX[9].matrix.m[2][1] = (float)(8 - (int)in_ECX[9].matrix.m[2][1]);
-      in_ECX[9].matrix.m[2][0] = 0.0;
-      in_ECX[9].matrix.m[1][3] = -NAN;
+      if (this->field24_0x9e3 == 0) break;
+      this->field23_0x9e2 = 2;
+      (this->field26_0x9e8).current = 8 - (this->field26_0x9e8).current;
+      (this->field26_0x9e8).subFrame = 0.0;
+      (this->field26_0x9e8).previous = -999;
     }
     break;
   case 3:
     local_18 = 8.0;
     local_14 = -32.0;
-    in_ECX[9].matrix.m[2][1] = 0.0;
-    in_ECX[9].matrix.m[2][0] = 0.0;
-    in_ECX[9].matrix.m[1][3] = -NAN;
-    if (*(char *)((int)in_ECX[9].matrix.m[1] + 7) == '\0') {
-      *(undefined *)((int)in_ECX[9].matrix.m[1] + 6) = 4;
+    (this->field26_0x9e8).current = 0;
+    (this->field26_0x9e8).subFrame = 0.0;
+    (this->field26_0x9e8).previous = -999;
+    if (this->field24_0x9e3 == 0) {
+      this->field23_0x9e2 = 4;
       goto switchD_004281aa_caseD_4;
     }
     break;
   case 4:
     goto switchD_004281aa_caseD_4;
   }
-  in_ECX[4].matrix.m[2][1] = in_ECX[4].matrix.m[2][1] - local_18;
-  in_ECX[4].matrix.m[3][0] = local_18 + in_ECX[4].matrix.m[3][0];
-  in_ECX[4].matrix.m[2][2] = local_14 + in_ECX[4].matrix.m[2][2];
-  in_ECX[4].matrix.m[3][1] = local_14 + in_ECX[4].matrix.m[3][1];
+  this->field10_0x4a0[0].x = this->field10_0x4a0[0].x - local_18;
+  this->field10_0x4a0[1].x = local_18 + this->field10_0x4a0[1].x;
+  this->field10_0x4a0[0].y = local_14 + this->field10_0x4a0[0].y;
+  this->field10_0x4a0[1].y = local_14 + this->field10_0x4a0[1].y;
   if (((g_CurFrameInput & 1) != 0) &&
      (bVar6 = FUN_004195a2(0x69bc30), CONCAT31(extraout_var,bVar6) == 0)) {
-    FUN_00428630(in_ECX);
+    FUN_00428630(this);
   }
-  in_ECX[9].autoRotate = g_CurFrameInput;
+  this->field31_0xa18 = g_CurFrameInput;
   return 0;
 }
 

@@ -188,7 +188,7 @@ LAB_0043877b:
       }
     }
     else {
-      g_GameManager.field10_0x1c = 1;
+      g_GameManager.field7_0x1c = 1;
       g_Supervisor.framerateMultiplier = 1.0;
       _strcpy(g_GameManager.replay_file,
               (char *)(param_1 + 0x823c + *(int *)(param_1 + 0x81e8) * 0x200));

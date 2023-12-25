@@ -76,7 +76,8 @@ undefined4 FUN_004123e0(int param_1)
       local_14 = local_28[0xb].posInterpInitial.y * 0.6666667;
       local_18 = local_28[0xb].posInterpInitial.x * 0.6666667;
       local_1c = (float)local_28[0xb].alphaInterpFinal * 0.6666667;
-      iVar3 = Player::CalcKillBoxCollision(&local_28[0xb].currentInstruction,&local_1c);
+      iVar3 = Player::CalcKillBoxCollision
+                        (&g_Player,(float *)&local_28[0xb].currentInstruction,&local_1c);
       if (((iVar3 == 1) && ((*(byte *)((int)&local_28[0xd].flags + 1) & 1) != 0)) &&
          ((*(byte *)((int)&local_28[0xd].flags + 1) >> 3 & 1) == 0)) {
         local_28[0xc].scaleInterpFinalX = (float)((int)local_28[0xc].scaleInterpFinalX + -10);
@@ -84,8 +85,8 @@ undefined4 FUN_004123e0(int param_1)
     }
     if ((*(byte *)((int)&local_28[0xd].flags + 1) & 1) != 0) {
       local_c = Player::FUN_004264b0
-                          (&local_28[0xb].currentInstruction,&local_28[0xb].alphaInterpFinal,
-                           &local_8);
+                          (&g_Player,(float *)&local_28[0xb].currentInstruction,
+                           (float *)&local_28[0xb].alphaInterpFinal,&local_8);
       if (0x45 < local_c) {
         local_c = 0x46;
       }
@@ -116,11 +117,11 @@ undefined4 FUN_004123e0(int param_1)
       if ((*(byte *)((int)&local_28[0xd].flags + 1) >> 4 & 1) != 0) {
         local_28[0xc].scaleInterpFinalX = (float)((int)local_28[0xc].scaleInterpFinalX - local_c);
       }
-      if ((float)_DAT_006cb048 < (float)local_28[0xb].sprite !=
-          (NAN((float)_DAT_006cb048) || NAN((float)local_28[0xb].sprite))) {
-        _DAT_006cb044 = local_28[0xb].currentInstruction;
-        _DAT_006cb048 = local_28[0xb].sprite;
-        _DAT_006cb04c = local_28[0xb].alphaInterpInitial;
+      if (g_Player.position_of_last_enemy_hit.y < (float)local_28[0xb].sprite !=
+          (NAN(g_Player.position_of_last_enemy_hit.y) || NAN((float)local_28[0xb].sprite))) {
+        g_Player.position_of_last_enemy_hit.x = (float)local_28[0xb].currentInstruction;
+        g_Player.position_of_last_enemy_hit.y = (float)local_28[0xb].sprite;
+        g_Player.position_of_last_enemy_hit.z = (float)local_28[0xb].alphaInterpInitial;
       }
     }
     if ((0 < (int)local_28[0xc].scaleInterpFinalX) ||
@@ -232,7 +233,7 @@ LAB_00412ce2:
     }
 LAB_00412dbc:
     FUN_00412e50(local_28);
-    if ((char)g_GameManager.field23_0x2c == '\0') {
+    if ((char)g_GameManager.field11_0x2c == '\0') {
       local_28[0xc].currentTimeInScript.previous = local_28[0xc].currentTimeInScript.current;
       Supervisor::TickTimer
                 (&g_Supervisor,&local_28[0xc].currentTimeInScript.current,

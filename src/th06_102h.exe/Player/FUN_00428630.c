@@ -1,11 +1,11 @@
 
-void Player::FUN_00428630(int param_1)
+void Player::FUN_00428630(Player *param_1)
 
 {
-  if (*(int *)(param_1 + 0x75b0) < 0) {
-    *(undefined4 *)(param_1 + 0x75b0) = 0;
-    *(undefined4 *)(param_1 + 0x75ac) = 0;
-    *(undefined4 *)(param_1 + 0x75a8) = 0xfffffc19;
+  if ((param_1->field34_0x75a8).current < 0) {
+    (param_1->field34_0x75a8).current = 0;
+    (param_1->field34_0x75a8).subFrame = 0.0;
+    (param_1->field34_0x75a8).previous = -999;
   }
   return;
 }

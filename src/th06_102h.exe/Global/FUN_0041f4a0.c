@@ -1,6 +1,4 @@
 
-/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
-
 void __fastcall FUN_0041f4a0(AnmVm *param_1)
 
 {
@@ -14,15 +12,16 @@ void __fastcall FUN_0041f4a0(AnmVm *param_1)
   bool bVar8;
   int iVar9;
   long lVar10;
+  float10 extraout_ST0;
   float10 fVar11;
-  int local_ec;
-  int local_e8;
-  int local_e4;
-  int local_e0;
+  float *in_stack_ffffff14;
+  float *local_e8;
+  float *local_e4;
+  float *local_e0;
   int local_28;
   int local_20;
   AnmVm *local_18;
-  int local_c;
+  float *local_c;
   int local_8;
   
   if ((DAT_0069e240 & 1) == 0) {
@@ -65,11 +64,11 @@ void __fastcall FUN_0041f4a0(AnmVm *param_1)
       }
       else {
         if ((*(char *)((int)&local_18[1].currentTimeInScript.previous + 3) == '\x01') ||
-           ((0x7f < g_GameManager.current_power && (_DAT_006caa6c < 128.0 != NAN(_DAT_006caa6c)))))
-        {
-          fVar11 = Player::FUN_00428700(&g_Player,(float *)(local_18 + 1));
-          fVar5 = (float10)fcos((float10)(float)fVar11);
-          fVar11 = (float10)fsin((float10)(float)fVar11);
+           ((0x7f < g_GameManager.current_power &&
+            (g_Player.position.y < 128.0 != NAN(g_Player.position.y))))) {
+          Player::FUN_00428700(&g_Player,(float10 *)(local_18 + 1),in_stack_ffffff14);
+          fVar5 = (float10)fcos((float10)(float)extraout_ST0);
+          fVar11 = (float10)fsin((float10)(float)extraout_ST0);
           local_18[1].angleVel.x = (float)(fVar5 * (float10)8.0);
           local_18[1].angleVel.y = (float)(fVar11 * (float10)8.0);
           *(undefined *)((int)&local_18[1].currentTimeInScript.previous + 3) = 1;
@@ -129,7 +128,7 @@ LAB_0041f7c5:
               FUN_004173d9(0);
             }
             g_GameManager.score = g_GameManager.score + 10;
-            DAT_0069bc30 = DAT_0069bc30 & 0xffffffcf | 0x20;
+            g_Gui = g_Gui & 0xffffffcf | 0x20;
             for (; *(int *)(&DAT_004766dc + local_20 * 4) <= (int)(uint)g_GameManager.current_power;
                 local_20 = local_20 + 1) {
             }
@@ -146,11 +145,12 @@ LAB_0041f7c5:
             if (0x1e < g_GameManager.power_item_count_for_score) {
               g_GameManager.power_item_count_for_score = 0x1e;
             }
-            local_c = *(int *)(&DAT_00476660 + (char)g_GameManager.power_item_count_for_score * 4);
-            g_GameManager.score = g_GameManager.score + local_c;
+            local_c = *(float **)
+                       (&DAT_00476660 + (char)g_GameManager.power_item_count_for_score * 4);
+            g_GameManager.score = g_GameManager.score + (int)local_c;
             AsciiManager::CreatePopup1
-                      (&g_AsciiManager,&local_18[1].rotation,local_c,
-                       ((local_c < 0x3200) - 1 & 0xffffff01) - 1);
+                      (&g_AsciiManager,&local_18[1].rotation,(int)local_c,
+                       (((int)local_c < 0x3200) - 1 & 0xffffff01) - 1);
           }
           GameManager::FUN_0041c57e(&g_GameManager,1);
           break;
@@ -160,64 +160,64 @@ LAB_0041f7c5:
           case 1:
             lVar10 = __ftol2((double)local_18[1].rotation.y);
             if (lVar10 < 0x80) {
-              local_e0 = 100000;
+              local_e0 = (float *)0x186a0;
             }
             else {
               lVar10 = __ftol2((double)local_18[1].rotation.y);
-              local_e0 = (lVar10 + -0x80) * -100 + 60000;
+              local_e0 = (float *)((lVar10 + -0x80) * -100 + 60000);
             }
             local_c = local_e0;
             AsciiManager::CreatePopup1
-                      (&g_AsciiManager,&local_18[1].rotation,local_e0,
-                       ((local_e0 < 100000) - 1 & 0xffffff01) - 1);
+                      (&g_AsciiManager,&local_18[1].rotation,(int)local_e0,
+                       (((int)local_e0 < 100000) - 1 & 0xffffff01) - 1);
             break;
           case 2:
             lVar10 = __ftol2((double)local_18[1].rotation.y);
             if (lVar10 < 0x80) {
-              local_e4 = 150000;
+              local_e4 = (float *)0x249f0;
             }
             else {
               lVar10 = __ftol2((double)local_18[1].rotation.y);
-              local_e4 = (lVar10 + -0x80) * -0xb4 + 100000;
+              local_e4 = (float *)((lVar10 + -0x80) * -0xb4 + 100000);
             }
             local_c = local_e4;
             AsciiManager::CreatePopup1
-                      (&g_AsciiManager,&local_18[1].rotation,local_e4,
-                       ((local_e4 < 150000) - 1 & 0xffffff01) - 1);
+                      (&g_AsciiManager,&local_18[1].rotation,(int)local_e4,
+                       (((int)local_e4 < 150000) - 1 & 0xffffff01) - 1);
             break;
           case 3:
             lVar10 = __ftol2((double)local_18[1].rotation.y);
             if (lVar10 < 0x80) {
-              local_e8 = 200000;
+              local_e8 = (float *)0x30d40;
             }
             else {
               lVar10 = __ftol2((double)local_18[1].rotation.y);
-              local_e8 = (lVar10 + -0x80) * -0x10e + 150000;
+              local_e8 = (float *)((lVar10 + -0x80) * -0x10e + 150000);
             }
             local_c = local_e8;
             AsciiManager::CreatePopup1
-                      (&g_AsciiManager,&local_18[1].rotation,local_e8,
-                       ((local_e8 < 200000) - 1 & 0xffffff01) - 1);
+                      (&g_AsciiManager,&local_18[1].rotation,(int)local_e8,
+                       (((int)local_e8 < 200000) - 1 & 0xffffff01) - 1);
             break;
           case 4:
             lVar10 = __ftol2((double)local_18[1].rotation.y);
             if (lVar10 < 0x80) {
-              local_ec = 300000;
+              local_c = (float *)0x493e0;
             }
             else {
               lVar10 = __ftol2((double)local_18[1].rotation.y);
-              local_ec = (lVar10 + -0x80) * -400 + 200000;
+              local_c = (float *)((lVar10 + -0x80) * -400 + 200000);
             }
-            local_c = local_ec;
+            in_stack_ffffff14 = local_c;
             AsciiManager::CreatePopup1
-                      (&g_AsciiManager,&local_18[1].rotation,local_ec,
-                       ((local_ec < 300000) - 1 & 0xffffff01) - 1);
+                      (&g_AsciiManager,&local_18[1].rotation,(int)local_c,
+                       (((int)local_c < 300000) - 1 & 0xffffff01) - 1);
           }
-          g_GameManager.score = g_GameManager.score + local_c;
+          g_GameManager.score = g_GameManager.score + (int)local_c;
           g_GameManager.point_items_collected_in_stage =
                g_GameManager.point_items_collected_in_stage + 1;
-          g_GameManager.field30_0x1816 = g_GameManager.field30_0x1816 + 1;
-          DAT_0069bc30 = DAT_0069bc30 & 0xfffffcff | 0x200;
+          g_GameManager.field18_0x1816 = g_GameManager.field18_0x1816 + 1;
+          g_Gui = g_Gui & 0xfffffcff | 0x200;
           fVar1 = local_18[1].rotation.y;
           if (fVar1 < 128.0 == NAN(fVar1)) {
             GameManager::FUN_0041c57e(&g_GameManager,3);
@@ -238,7 +238,7 @@ LAB_0041f7c5:
               FUN_00414340(0x5a5ff8);
               FUN_004173d9(0);
             }
-            DAT_0069bc30 = DAT_0069bc30 & 0xffffffcf | 0x20;
+            g_Gui = g_Gui & 0xffffffcf | 0x20;
             g_GameManager.score = g_GameManager.score + 10;
             for (; *(int *)(&DAT_004766dc + local_28 * 4) <= (int)(uint)g_GameManager.current_power;
                 local_28 = local_28 + 1) {
@@ -256,17 +256,18 @@ LAB_0041f7c5:
             if (0x1e < g_GameManager.power_item_count_for_score) {
               g_GameManager.power_item_count_for_score = 0x1e;
             }
-            local_c = *(int *)(&DAT_00476660 + (char)g_GameManager.power_item_count_for_score * 4);
-            g_GameManager.score = g_GameManager.score + local_c;
+            local_c = *(float **)
+                       (&DAT_00476660 + (char)g_GameManager.power_item_count_for_score * 4);
+            g_GameManager.score = g_GameManager.score + (int)local_c;
             AsciiManager::CreatePopup1
-                      (&g_AsciiManager,&local_18[1].rotation,local_c,
-                       ((local_c < 0x3200) - 1 & 0xffffff01) - 1);
+                      (&g_AsciiManager,&local_18[1].rotation,(int)local_c,
+                       (((int)local_c < 0x3200) - 1 & 0xffffff01) - 1);
           }
           break;
         case 3:
           if ((char)g_GameManager.bombs_remaining < '\b') {
             g_GameManager.bombs_remaining = g_GameManager.bombs_remaining + 1;
-            DAT_0069bc30 = DAT_0069bc30 & 0xfffffff3 | 8;
+            g_Gui = g_Gui & 0xfffffff3 | 8;
           }
           GameManager::FUN_0041c57e(&g_GameManager,5);
           break;
@@ -280,23 +281,23 @@ LAB_0041f7c5:
           g_GameManager.current_power = 0x80;
           g_GameManager.score = g_GameManager.score + 1000;
           AsciiManager::CreatePopup1(&g_AsciiManager,&local_18[1].rotation,1000,0xffffffff);
-          DAT_0069bc30 = DAT_0069bc30 & 0xffffffcf | 0x20;
+          g_Gui = g_Gui & 0xffffffcf | 0x20;
           break;
         case 5:
           if ((char)g_GameManager.lives_remaining < '\b') {
             g_GameManager.lives_remaining = g_GameManager.lives_remaining + 1;
-            DAT_0069bc30 = DAT_0069bc30 & 0xfffffffc | 2;
+            g_Gui = g_Gui & 0xfffffffc | 2;
           }
           GameManager::FUN_0041c57e(&g_GameManager,200);
           SoundPlayer::FUN_004311e0(&g_SoundPlayer,0x1c);
           break;
         case 6:
-          local_c = ((int)g_GameManager.graze_in_stage / 3) * 10 + 500;
-          if (_DAT_006d1bf0 != 0) {
-            local_c = 100;
+          local_c = (float *)(((int)g_GameManager.graze_in_stage / 3) * 10 + 500);
+          if (g_Player.inner.field0_0x0 != 0) {
+            local_c = (float *)0x64;
           }
-          g_GameManager.score = g_GameManager.score + local_c;
-          AsciiManager::CreatePopup2(&g_AsciiManager,&local_18[1].rotation,local_c,0xffffffff);
+          g_GameManager.score = g_GameManager.score + (int)local_c;
+          AsciiManager::CreatePopup2(&g_AsciiManager,&local_18[1].rotation,(int)local_c,0xffffffff);
         }
         *(undefined *)((int)&local_18[1].currentTimeInScript.previous + 1) = 0;
         bVar8 = true;

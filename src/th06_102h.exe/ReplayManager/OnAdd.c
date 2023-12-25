@@ -40,8 +40,8 @@ undefined4 ReplayManager::OnAdd(ReplayManager *param_1)
   pSVar2->lives_remaining = g_GameManager.lives_remaining;
   pSVar2->power = (byte)g_GameManager.current_power;
   pSVar2->rank = (byte)g_GameManager.rank;
-  pSVar2->unk6 = g_GameManager.field30_0x1816;
-  pSVar2->random_seed = g_GameManager.field53_0x1a2c;
+  pSVar2->unk6 = g_GameManager.field18_0x1816;
+  pSVar2->random_seed = g_GameManager.field41_0x1a2c;
   pSVar2->power_item_count_for_score = g_GameManager.power_item_count_for_score;
   param_1->replay_inputs = pSVar2->replay_inputs;
   param_1->replay_inputs->frame_num = 0;

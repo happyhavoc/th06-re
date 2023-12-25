@@ -12,7 +12,7 @@ int Stage::OnUpdate(Stage *arg)
   StdRawInstr *local_c;
   
   if (arg->stdData != (byte *)0x0) {
-    if ((char)g_GameManager.field23_0x2c == '\0') {
+    if ((char)g_GameManager.field11_0x2c == '\0') {
       do {
         local_c = arg->beginningOfScript + arg->instructionIndex;
         switch(local_c->field1_0x4) {
@@ -134,7 +134,7 @@ switchD_00403892_caseD_6:
             arg->spellcardEclRelated0 = arg->spellcardEclRelated0 + 1;
           }
           arg->spellcardEclRelated1 = arg->spellcardEclRelated1 + 1;
-          AnmManager::ExecuteScript(g_AnmManager,&arg->field23_0x88);
+          AnmManager::ExecuteScript(g_AnmManager,&arg->field20_0x88);
           return 1;
         case 1:
           if ((arg->scriptTime).current < local_c->field0_0x0) goto switchD_00403892_caseD_6;
@@ -190,10 +190,10 @@ switchD_00403892_caseD_6:
         }
       } while( true );
     }
-    *(undefined *)((int)&(arg->field23_0x88).color + 3) = 0x60;
-    *(undefined *)((int)&(arg->field23_0x88).color + 2) = 0x80;
-    *(undefined *)((int)&(arg->field23_0x88).color + 1) = 0x30;
-    *(undefined *)&(arg->field23_0x88).color = 0x30;
+    *(undefined *)((int)&(arg->field20_0x88).color + 3) = 0x60;
+    *(undefined *)((int)&(arg->field20_0x88).color + 2) = 0x80;
+    *(undefined *)((int)&(arg->field20_0x88).color + 1) = 0x30;
+    *(undefined *)&(arg->field20_0x88).color = 0x30;
   }
   return 1;
 }

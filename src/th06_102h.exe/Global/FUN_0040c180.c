@@ -1,7 +1,6 @@
 
 /* WARNING: Removing unreachable block (ram,0x0040c27a) */
 /* WARNING: Removing unreachable block (ram,0x0040c464) */
-/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
 
 void FUN_0040c180(int param_1,int param_2)
 
@@ -9,8 +8,12 @@ void FUN_0040c180(int param_1,int param_2)
   float fVar1;
   ushort uVar2;
   float10 fVar3;
+  float10 extraout_ST0;
   float10 fVar4;
+  float10 extraout_ST0_00;
   float fVar5;
+  float *in_stack_ffffffc0;
+  float *pfVar6;
   AnmVm *local_18;
   int local_14;
   int local_10;
@@ -18,7 +21,7 @@ void FUN_0040c180(int param_1,int param_2)
   if (*(int *)(param_2 + 0x10) < 2) {
     EffectManager::FUN_0040ef50((int *)&g_EffectManager,0xc,(float *)(param_1 + 0xc6c),1,0xffffffff)
     ;
-    g_GameManager.field23_0x2c._0_1_ = *(undefined *)(param_2 + 0x10);
+    g_GameManager.field11_0x2c._0_1_ = *(undefined *)(param_2 + 0x10);
   }
   else {
     local_10 = 0xe;
@@ -36,14 +39,14 @@ void FUN_0040c180(int param_1,int param_2)
                     (g_AnmManager,local_18,
                      (int)local_18->anotherSpriteNumber +
                      (int)*(short *)((int)local_18[5].matrix.m[2] + 0xe));
-          fVar5 = local_18[5].angleVel.y - _DAT_006caa68;
-          fVar1 = local_18[5].angleVel.z - _DAT_006caa6c;
+          fVar5 = local_18[5].angleVel.y - g_Player.position.x;
+          fVar1 = local_18[5].angleVel.z - g_Player.position.y;
           fVar3 = (float10)FUN_0045bc34((double)(fVar5 * fVar5 + fVar1 * fVar1));
           if ((float)fVar3 <= 128.0) {
             fVar5 = Rng::GetRandomF32ZeroToOne(&g_Rng);
-            fVar3 = (float10)Player::FUN_00428680();
+            Player::FUN_00428680(&g_Player,(float10 *)&local_18[5].angleVel.y,in_stack_ffffffc0);
             local_18[5].matrix.m[0][1] =
-                 (float)(fVar3 + (float10)1.570796 + (float10)(fVar5 * 6.283185));
+                 (float)(extraout_ST0 + (float10)1.570796 + (float10)(fVar5 * 6.283185));
           }
           else {
             fVar5 = Rng::GetRandomF32ZeroToOne(&g_Rng);
@@ -75,14 +78,15 @@ void FUN_0040c180(int param_1,int param_2)
                     (g_AnmManager,local_18,
                      (int)local_18->anotherSpriteNumber +
                      (int)*(short *)((int)local_18[5].matrix.m[2] + 0xe));
-          fVar5 = local_18[5].angleVel.y - _DAT_006caa68;
-          fVar1 = local_18[5].angleVel.z - _DAT_006caa6c;
+          fVar5 = local_18[5].angleVel.y - g_Player.position.x;
+          fVar1 = local_18[5].angleVel.z - g_Player.position.y;
           fVar3 = (float10)FUN_0045bc34((double)(fVar5 * fVar5 + fVar1 * fVar1));
-          if ((float)fVar3 <= 128.0) {
+          pfVar6 = (float *)(float)fVar3;
+          if ((float)pfVar6 <= 128.0) {
             fVar5 = Rng::GetRandomF32ZeroToOne(&g_Rng);
-            fVar3 = (float10)Player::FUN_00428680();
+            Player::FUN_00428680(&g_Player,(float10 *)&local_18[5].angleVel.y,pfVar6);
             local_18[5].matrix.m[0][1] =
-                 (float)(fVar3 + (float10)1.570796 + (float10)(fVar5 * 6.283185));
+                 (float)(extraout_ST0_00 + (float10)1.570796 + (float10)(fVar5 * 6.283185));
           }
           else {
             fVar5 = Rng::GetRandomF32ZeroToOne(&g_Rng);

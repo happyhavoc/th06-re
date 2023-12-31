@@ -26,7 +26,7 @@ BOOL __thiscall Pbg3Archive::Load(Pbg3Archive *this,char *path)
     uStack_4 = 0xffffffff;
     this->parser = pPVar2;
     if (pPVar2 != (Pbg3Parser *)0x0) {
-      iVar1 = Pbg3Parser::Open(pPVar2,path);
+      iVar1 = Pbg3Parser::OpenArchive(pPVar2,path);
       if (iVar1 != 0) {
         BVar3 = ParseHeader(this);
         ExceptionList = pvStack_c;

@@ -1,5 +1,5 @@
 
-undefined4 __thiscall Pbg3Parser::Open(Pbg3Parser *this,char *path)
+undefined4 __thiscall Pbg3Parser::OpenArchive(Pbg3Parser *this,char *path)
 
 {
   int iVar1;

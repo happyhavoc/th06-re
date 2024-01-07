@@ -75,7 +75,7 @@ void Player::BombMarisaACalc(Player *param_1)
                &(param_1->inner).field2_0x8.subFrame);
   }
   else {
-    FUN_00417314();
+    Gui::FUN_00417314(&g_Gui);
     (param_1->inner).field0_0x0 = 0;
   }
   return;

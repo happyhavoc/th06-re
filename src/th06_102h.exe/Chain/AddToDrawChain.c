@@ -1,8 +1,8 @@
 
-undefined4 __thiscall Chain::AddToDrawChain(Chain *this,ChainElem *param_2,int param_3)
+ZunResult __thiscall Chain::AddToDrawChain(Chain *this,ChainElem *param_2,int param_3)
 
 {
-  undefined4 uVar1;
+  ZunResult ZVar1;
   ChainElem *local_8;
   
   DebugPrint2("add draw chain (pri = %d)\n",param_3);
@@ -24,12 +24,12 @@ undefined4 __thiscall Chain::AddToDrawChain(Chain *this,ChainElem *param_2,int p
     param_2->prev = local_8;
     local_8->next = param_2;
   }
-  if (param_2->addedCallback == 0) {
-    uVar1 = 0;
+  if (param_2->addedCallback == (ChainLifecycleCallback *)0x0) {
+    ZVar1 = ZUN_SUCCESS;
   }
   else {
-    uVar1 = (*(code *)param_2->addedCallback)(param_2->arg);
+    ZVar1 = (*param_2->addedCallback)(param_2->arg);
   }
-  return uVar1;
+  return ZVar1;
 }
 

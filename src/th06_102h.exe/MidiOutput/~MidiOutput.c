@@ -15,7 +15,7 @@ void __thiscall MidiOutput::~MidiOutput(MidiOutput *this)
   StopPlayback(this);
   ClearTracks(this);
   for (local_14 = 0; (int)local_14 < 0x20; local_14 = local_14 + 1) {
-    UnloadFile(this,local_14);
+    ReleaseFileData(this,local_14);
   }
   local_8 = local_8 & 0xffffff00;
   MidiDevice::~MidiDevice(&this->midiOutDev);

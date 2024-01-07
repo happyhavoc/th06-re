@@ -11,7 +11,7 @@ void FUN_004121b0(void)
     *(byte *)(in_ECX + 0xe51) = *(byte *)(in_ECX + 0xe51) & 0xfe;
   }
   if ((*(byte *)(in_ECX + 0xe51) >> 3 & 1) != 0) {
-    DAT_0069bc50 = 0;
+    g_Gui.boss_present = false;
   }
   if (*(int *)(in_ECX + 0xea0) != 0) {
     FUN_004114c0();

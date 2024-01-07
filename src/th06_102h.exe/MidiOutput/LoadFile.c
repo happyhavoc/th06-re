@@ -1,26 +1,19 @@
 
-undefined4 __thiscall MidiOutput::LoadFile(MidiOutput *this,int param_1,char *path)
+undefined4 __thiscall MidiOutput::LoadFile(MidiOutput *this,char *midiPath)
 
 {
-  undefined4 uVar1;
-  byte *pbVar2;
+  int iVar1;
+  undefined4 uVar2;
   
-  if (g_Supervisor.cfg.musicMode == MIDI) {
-    StopPlayback(this);
-    UnloadFile(this,param_1);
-    pbVar2 = FileSystem::OpenPath(path,0);
-    this->midiFileData[param_1] = pbVar2;
-    if (this->midiFileData[param_1] == (byte *)0x0) {
-      GameErrorContextLog(&g_GameErrorContext,"error : MIDI File が読み込めない %s \n",path);
-      uVar1 = 0xffffffff;
-    }
-    else {
-      uVar1 = 0;
-    }
+  iVar1 = ReadFileData(this,0x1f,midiPath);
+  if (iVar1 == 0) {
+    ParseFile(this,0x1f);
+    ReleaseFileData(this,0x1f);
+    uVar2 = 0;
   }
   else {
-    uVar1 = 0;
+    uVar2 = 0xffffffff;
   }
-  return uVar1;
+  return uVar2;
 }
 

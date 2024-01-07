@@ -309,8 +309,10 @@ switchD_004358f7_caseD_2:
         else {
           param_1->field0_0x0[0x55].pendingInterrupt = 8;
           g_GameManager.difficulty = 4;
-          iVar4 = FUN_0043a736(g_GameManager.character,0);
-          if ((iVar4 == 0) && (iVar4 = FUN_0043a736(g_GameManager.character,1), iVar4 == 0)) {
+          iVar4 = GameManager::FUN_0043a736(&g_GameManager,(uint)g_GameManager.character,0);
+          if ((iVar4 == 0) &&
+             (iVar4 = GameManager::FUN_0043a736(&g_GameManager,(uint)g_GameManager.character,1),
+             iVar4 == 0)) {
             param_1->cursor = 1 - g_GameManager.character;
           }
           else {
@@ -362,8 +364,8 @@ LAB_0043666d:
           param_1->cursor = param_1->cursor + 2;
         }
         if (((g_GameManager.difficulty == 4) &&
-            (iVar4 = FUN_0043a736(param_1->cursor,0), iVar4 == 0)) &&
-           (iVar4 = FUN_0043a736(param_1->cursor,1), iVar4 == 0)) {
+            (iVar4 = GameManager::FUN_0043a736(&g_GameManager,param_1->cursor,0), iVar4 == 0)) &&
+           (iVar4 = GameManager::FUN_0043a736(&g_GameManager,param_1->cursor,1), iVar4 == 0)) {
           param_1->cursor = param_1->cursor + 1;
           if (1 < (int)param_1->cursor) {
             param_1->cursor = param_1->cursor - 2;
@@ -391,8 +393,9 @@ LAB_0043666d:
       if (1 < (int)param_1->cursor) {
         param_1->cursor = param_1->cursor - 2;
       }
-      if (((g_GameManager.difficulty != 4) || (iVar4 = FUN_0043a736(param_1->cursor,0), iVar4 != 0))
-         || (iVar4 = FUN_0043a736(param_1->cursor,1), iVar4 != 0)) {
+      if (((g_GameManager.difficulty != 4) ||
+          (iVar4 = GameManager::FUN_0043a736(&g_GameManager,param_1->cursor,0), iVar4 != 0)) ||
+         (iVar4 = GameManager::FUN_0043a736(&g_GameManager,param_1->cursor,1), iVar4 != 0)) {
         SoundPlayer::FUN_004311e0(&g_SoundPlayer,0xc);
         local_c = param_1->field0_0x0 + 0x56;
         for (local_8 = 0; (int)local_8 < 2; local_8 = local_8 + 1) {
@@ -443,7 +446,9 @@ LAB_0043666d:
           param_1->cursor = (uint)g_GameManager.shottype;
         }
         else {
-          iVar4 = FUN_0043a736(g_GameManager.character,g_GameManager.shottype);
+          iVar4 = GameManager::FUN_0043a736
+                            (&g_GameManager,(uint)g_GameManager.character,
+                             (uint)g_GameManager.shottype);
           if (iVar4 == 0) {
             param_1->cursor = 1 - g_GameManager.shottype;
           }
@@ -481,7 +486,9 @@ LAB_0043666d:
   case 0xb:
     FUN_0043753c(param_1,2);
     if ((g_GameManager.difficulty == 4) &&
-       (iVar4 = FUN_0043a736(g_GameManager.character,param_1->cursor), iVar4 == 0)) {
+       (iVar4 = GameManager::FUN_0043a736
+                          (&g_GameManager,(uint)g_GameManager.character,param_1->cursor), iVar4 == 0
+       )) {
       param_1->cursor = 1 - param_1->cursor;
     }
     local_c = param_1->field0_0x0 + 0x5c;

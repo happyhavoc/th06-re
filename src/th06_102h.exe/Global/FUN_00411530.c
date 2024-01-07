@@ -41,7 +41,7 @@ void __fastcall FUN_00411530(int param_1)
     if (*(int *)(param_1 + 0xee5e8) == (int)**(short **)(param_1 + 0xee5dc)) {
       switch(*(undefined2 *)(*(int *)(param_1 + 0xee5dc) + 4)) {
       case 0:
-        if (DAT_0069bc50 == '\0') {
+        if (g_Gui.boss_present == false) {
           iVar3 = *(int *)(param_1 + 0xee5dc);
           local_10 = iVar3 + 8;
           uVar4 = (undefined2)((uint)local_10 >> 0x10);
@@ -51,13 +51,13 @@ void __fastcall FUN_00411530(int param_1)
         }
         break;
       case 1:
-        if (DAT_0069bc50 == '\0') {
+        if (g_Gui.boss_present == false) {
           FUN_00411390((int)*(short *)(*(int *)(param_1 + 0xee5dc) + 2),
                        *(int *)(param_1 + 0xee5dc) + 8,0xffffffff,0xffffffff,0xffffffff);
         }
         break;
       case 2:
-        if (DAT_0069bc50 == '\0') {
+        if (g_Gui.boss_present == false) {
           iVar3 = *(int *)(param_1 + 0xee5dc);
           local_14 = iVar3 + 8;
           uVar4 = (undefined2)((uint)local_14 >> 0x10);
@@ -69,14 +69,14 @@ void __fastcall FUN_00411530(int param_1)
         }
         break;
       case 3:
-        if (DAT_0069bc50 == '\0') {
+        if (g_Gui.boss_present == false) {
           local_8 = FUN_00411390((int)*(short *)(*(int *)(param_1 + 0xee5dc) + 2),
                                  *(int *)(param_1 + 0xee5dc) + 8,0xffffffff,0xffffffff,0xffffffff);
           *(byte *)(local_8 + 0xe50) = *(byte *)(local_8 + 0xe50) | 0x40;
         }
         break;
       case 4:
-        if (DAT_0069bc50 == '\0') {
+        if (g_Gui.boss_present == false) {
           iVar3 = *(int *)(param_1 + 0xee5dc);
           local_18 = (float *)(iVar3 + 8);
           local_24 = *local_18;
@@ -101,7 +101,7 @@ void __fastcall FUN_00411530(int param_1)
         }
         break;
       case 5:
-        if (DAT_0069bc50 == '\0') {
+        if (g_Gui.boss_present == false) {
           iVar3 = *(int *)(param_1 + 0xee5dc);
           local_30 = *(float *)(iVar3 + 8);
           local_2c = *(float *)(iVar3 + 0xc);
@@ -124,7 +124,7 @@ void __fastcall FUN_00411530(int param_1)
         }
         break;
       case 6:
-        if (DAT_0069bc50 == '\0') {
+        if (g_Gui.boss_present == false) {
           iVar3 = *(int *)(param_1 + 0xee5dc);
           local_34 = (float *)(iVar3 + 8);
           local_40 = *local_34;
@@ -150,7 +150,7 @@ void __fastcall FUN_00411530(int param_1)
         }
         break;
       case 7:
-        if (DAT_0069bc50 == '\0') {
+        if (g_Gui.boss_present == false) {
           iVar3 = *(int *)(param_1 + 0xee5dc);
           local_4c = *(float *)(iVar3 + 8);
           local_48 = *(float *)(iVar3 + 0xc);

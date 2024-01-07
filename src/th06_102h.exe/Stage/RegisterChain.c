@@ -23,13 +23,13 @@ undefined4 Stage::RegisterChain(uint stage)
   iVar2 = Chain::AddToCalcChain(&g_Chain,&g_StageCalcChain,6);
   if (iVar2 == 0) {
     g_StageOnDrawHighPrioChain.callback = OnDrawHighPrio;
-    g_StageOnDrawHighPrioChain.addedCallback = 0;
-    g_StageOnDrawHighPrioChain.deletedCallback = 0;
+    g_StageOnDrawHighPrioChain.addedCallback = (ChainLifecycleCallback *)0x0;
+    g_StageOnDrawHighPrioChain.deletedCallback = (ChainLifecycleCallback *)0x0;
     g_StageOnDrawHighPrioChain.arg = &g_Stage;
     Chain::AddToDrawChain(&g_Chain,&g_StageOnDrawHighPrioChain,3);
     g_StageOnDrawLowPrioChain.callback = OnDrawLowPrio;
-    g_StageOnDrawLowPrioChain.addedCallback = 0;
-    g_StageOnDrawLowPrioChain.deletedCallback = 0;
+    g_StageOnDrawLowPrioChain.addedCallback = (ChainLifecycleCallback *)0x0;
+    g_StageOnDrawLowPrioChain.deletedCallback = (ChainLifecycleCallback *)0x0;
     g_StageOnDrawLowPrioChain.arg = &g_Stage;
     Chain::AddToDrawChain(&g_Chain,&g_StageOnDrawLowPrioChain,4);
     uVar1 = 0;

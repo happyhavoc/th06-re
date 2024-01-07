@@ -128,7 +128,7 @@ LAB_0041f7c5:
               FUN_004173d9(0);
             }
             g_GameManager.score = g_GameManager.score + 10;
-            g_Gui = g_Gui & 0xffffffcf | 0x20;
+            g_Gui.flags = g_Gui.flags & 0xffffffcf | 0x20;
             for (; *(int *)(&DAT_004766dc + local_20 * 4) <= (int)(uint)g_GameManager.current_power;
                 local_20 = local_20 + 1) {
             }
@@ -217,7 +217,7 @@ LAB_0041f7c5:
           g_GameManager.point_items_collected_in_stage =
                g_GameManager.point_items_collected_in_stage + 1;
           g_GameManager.field18_0x1816 = g_GameManager.field18_0x1816 + 1;
-          g_Gui = g_Gui & 0xfffffcff | 0x200;
+          g_Gui.flags = g_Gui.flags & 0xfffffcff | 0x200;
           fVar1 = local_18[1].rotation.y;
           if (fVar1 < 128.0 == NAN(fVar1)) {
             GameManager::FUN_0041c57e(&g_GameManager,3);
@@ -238,7 +238,7 @@ LAB_0041f7c5:
               FUN_00414340(0x5a5ff8);
               FUN_004173d9(0);
             }
-            g_Gui = g_Gui & 0xffffffcf | 0x20;
+            g_Gui.flags = g_Gui.flags & 0xffffffcf | 0x20;
             g_GameManager.score = g_GameManager.score + 10;
             for (; *(int *)(&DAT_004766dc + local_28 * 4) <= (int)(uint)g_GameManager.current_power;
                 local_28 = local_28 + 1) {
@@ -267,7 +267,7 @@ LAB_0041f7c5:
         case 3:
           if ((char)g_GameManager.bombs_remaining < '\b') {
             g_GameManager.bombs_remaining = g_GameManager.bombs_remaining + 1;
-            g_Gui = g_Gui & 0xfffffff3 | 8;
+            g_Gui.flags = g_Gui.flags & 0xfffffff3 | 8;
           }
           GameManager::FUN_0041c57e(&g_GameManager,5);
           break;
@@ -281,12 +281,12 @@ LAB_0041f7c5:
           g_GameManager.current_power = 0x80;
           g_GameManager.score = g_GameManager.score + 1000;
           AsciiManager::CreatePopup1(&g_AsciiManager,&local_18[1].rotation,1000,0xffffffff);
-          g_Gui = g_Gui & 0xffffffcf | 0x20;
+          g_Gui.flags = g_Gui.flags & 0xffffffcf | 0x20;
           break;
         case 5:
           if ((char)g_GameManager.lives_remaining < '\b') {
             g_GameManager.lives_remaining = g_GameManager.lives_remaining + 1;
-            g_Gui = g_Gui & 0xfffffffc | 2;
+            g_Gui.flags = g_Gui.flags & 0xfffffffc | 2;
           }
           GameManager::FUN_0041c57e(&g_GameManager,200);
           SoundPlayer::FUN_004311e0(&g_SoundPlayer,0x1c);

@@ -1,8 +1,8 @@
 
-undefined4 __thiscall Chain::AddToCalcChain(Chain *this,ChainElem *elem,int priority)
+ZunResult __thiscall Chain::AddToCalcChain(Chain *this,ChainElem *elem,int priority)
 
 {
-  undefined4 uVar1;
+  ZunResult ZVar1;
   ChainElem *cur;
   
   DebugPrint2("add calc chain (pri = %d)\n",priority);
@@ -23,13 +23,13 @@ undefined4 __thiscall Chain::AddToCalcChain(Chain *this,ChainElem *elem,int prio
     elem->prev = cur;
     cur->next = elem;
   }
-  if (elem->addedCallback == 0) {
-    uVar1 = 0;
+  if (elem->addedCallback == (ChainLifecycleCallback *)0x0) {
+    ZVar1 = ZUN_SUCCESS;
   }
   else {
-    uVar1 = (*(code *)elem->addedCallback)(elem->arg);
-    elem->addedCallback = 0;
+    ZVar1 = (*elem->addedCallback)(elem->arg);
+    elem->addedCallback = (ChainLifecycleCallback *)0x0;
   }
-  return uVar1;
+  return ZVar1;
 }
 

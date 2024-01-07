@@ -136,10 +136,10 @@ ZunResult GameManager::AddedCallback(GameManager *param_1)
     if (iVar3 == 0) {
       iVar3 = BulletManager::RegisterChain("data/etama.anm");
       if (iVar3 == 0) {
-        iVar3 = EnemyManager::RegisterChain
+        ZVar4 = EnemyManager::RegisterChain
                           ((&PTR_s_dummy_004764e8)[param_1->current_stage * 2],
                            (&PTR_s_dummy_004764ec)[param_1->current_stage * 2]);
-        if (iVar3 == 0) {
+        if (ZVar4 == ZUN_SUCCESS) {
           iVar3 = FUN_00407340((&PTR_s_dummy_004764c4)[param_1->current_stage]);
           if (iVar3 == 0) {
             iVar3 = EffectManager::RegisterChain();
@@ -206,7 +206,7 @@ ZunResult GameManager::AddedCallback(GameManager *param_1)
   }
   else {
     GameErrorContextLog(&g_GameErrorContext,
-                        "error : 背景データの初期化に失敗しました\n");
+                        "error : 背景デー��の初期化に失敗しました\n");
     ZVar4 = ZUN_ERROR;
   }
   return ZVar4;

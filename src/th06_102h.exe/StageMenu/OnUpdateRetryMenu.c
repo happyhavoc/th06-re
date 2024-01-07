@@ -126,7 +126,7 @@ int __thiscall StageMenu::OnUpdateRetryMenu(StageMenu *this)
         this->vms0[local_8].flags = this->vms0[local_8].flags & 0xfffffffe;
       }
       g_GameManager.num_retries = g_GameManager.num_retries + 1;
-      g_Gui = g_Gui & 0xfffffc00 | 0x2aa;
+      g_Gui.flags = g_Gui.flags & 0xfffffc00 | 0x2aa;
       g_GameManager.field0_0x0 = (uint)g_GameManager.num_retries;
       g_GameManager.score = (uint)g_GameManager.num_retries;
       g_GameManager.field2_0x8 = 0;

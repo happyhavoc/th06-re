@@ -20,8 +20,8 @@ void FUN_00424b5d(char *param_1)
   if (g_Supervisor.cfg.musicMode == MIDI) {
     if (g_Supervisor.midi_output != (MidiOutput *)0x0) {
       MidiOutput::StopPlayback(g_Supervisor.midi_output);
-      MidiOutput::FUN_00422380(this,param_1);
-      MidiOutput::FUN_00422490(this);
+      MidiOutput::LoadFile(this,param_1);
+      MidiOutput::Play(this);
     }
   }
   else if (g_Supervisor.cfg.musicMode == WAV) {

@@ -10,7 +10,7 @@ undefined * __thiscall SoundPlayer::FUN_004311e0(SoundPlayer *this,int soundIdx)
   pSVar2 = (SoundPlayer *)soundIdx;
   for (local_8 = (SoundPlayer *)0x0;
       ((int)local_8 < 3 && (pSVar2 = local_8, -1 < this->soundBuffersToPlay[(int)local_8]));
-      local_8 = (SoundPlayer *)((int)&(local_8->directsound).directsound8 + 1)) {
+      local_8 = (SoundPlayer *)((int)&(local_8->csoundmanager).m_pDS + 1)) {
     if (this->soundBuffersToPlay[(int)local_8] == soundIdx) {
       return (undefined *)this;
     }

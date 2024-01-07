@@ -20,8 +20,8 @@ undefined4 BulletManager::RegisterChain(char *param_1)
   iVar1 = Chain::AddToCalcChain(&g_Chain,&g_BulletManagerCalcChain,0xb);
   if (iVar1 == 0) {
     g_BulletManagerDrawChain.callback = OnDraw;
-    g_BulletManagerDrawChain.addedCallback = 0;
-    g_BulletManagerDrawChain.deletedCallback = 0;
+    g_BulletManagerDrawChain.addedCallback = (ChainLifecycleCallback *)0x0;
+    g_BulletManagerDrawChain.deletedCallback = (ChainLifecycleCallback *)0x0;
     g_BulletManagerDrawChain.arg = &g_BulletManager;
     Chain::AddToDrawChain(&g_Chain,&g_BulletManagerDrawChain,9);
     uVar2 = 0;

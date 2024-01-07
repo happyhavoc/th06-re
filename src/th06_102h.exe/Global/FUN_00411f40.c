@@ -9,7 +9,7 @@ undefined4 __fastcall FUN_00411f40(int param_1)
   undefined *local_8;
   
   if ((*(byte *)(param_1 + 0xe51) >> 3 & 1) != 0) {
-    DAT_0069bc48 = (*(int *)(param_1 + 0xeb0) - *(int *)(param_1 + 0xcf8)) / 0x3c;
+    g_Gui.ecl_spellcard_related = (*(int *)(param_1 + 0xeb0) - *(int *)(param_1 + 0xcf8)) / 0x3c;
   }
   if (*(int *)(param_1 + 0xcf8) < *(int *)(param_1 + 0xeb0)) {
     uVar1 = 0;

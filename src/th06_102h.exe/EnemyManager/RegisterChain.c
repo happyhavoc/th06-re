@@ -1,34 +1,34 @@
 
-undefined4 EnemyManager::RegisterChain(undefined4 param_1,undefined4 param_2)
+ZunResult EnemyManager::RegisterChain(char *stgEnm1,char *stgEnm2)
 
 {
   int iVar1;
-  undefined4 uVar2;
+  ZunResult ZVar2;
   
-  FUN_00410e30(&DAT_004b79c8);
-  DAT_004b79c8 = param_1;
-  DAT_004b79cc = param_2;
-  ChainElem_005a5fb4.callback = FUN_004123e0;
-  ChainElem_005a5fb4.addedCallback = FUN_00413220;
-  ChainElem_005a5fb4.deletedCallback = FUN_00413320;
-  ChainElem_005a5fb4.arg = &DAT_004b79c8;
+  FUN_00410e30(&g_EnemyManager);
+  g_EnemyManager = stgEnm1;
+  DAT_004b79cc = stgEnm2;
+  ChainElem_005a5fb4.callback = OnUpdate;
+  ChainElem_005a5fb4.addedCallback = AddedCallback;
+  ChainElem_005a5fb4.deletedCallback = DeletedCallback;
+  ChainElem_005a5fb4.arg = &g_EnemyManager;
   iVar1 = Chain::AddToCalcChain(&g_Chain,&ChainElem_005a5fb4,9);
   if (iVar1 == 0) {
-    ChainElem_004b79a8.callback = FUN_00412f10;
-    ChainElem_004b79a8.addedCallback = 0;
-    ChainElem_004b79a8.deletedCallback = 0;
-    ChainElem_004b79a8.arg = &DAT_004b79c8;
+    ChainElem_004b79a8.callback = OnDraw;
+    ChainElem_004b79a8.addedCallback = (ChainLifecycleCallback *)0x0;
+    ChainElem_004b79a8.deletedCallback = (ChainLifecycleCallback *)0x0;
+    ChainElem_004b79a8.arg = &g_EnemyManager;
     iVar1 = Chain::AddToDrawChain(&g_Chain,&ChainElem_004b79a8,6);
     if (iVar1 == 0) {
-      uVar2 = 0;
+      ZVar2 = ZUN_SUCCESS;
     }
     else {
-      uVar2 = 0xffffffff;
+      ZVar2 = ZUN_ERROR;
     }
   }
   else {
-    uVar2 = 0xffffffff;
+    ZVar2 = ZUN_ERROR;
   }
-  return uVar2;
+  return ZVar2;
 }
 

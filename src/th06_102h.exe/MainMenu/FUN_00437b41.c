@@ -8,9 +8,11 @@ undefined4 __fastcall MainMenu::FUN_00437b41(MainMenu *param_1)
   int local_8;
   
   iVar1 = FUN_0043753c(param_1,8);
-  if ((((param_1->cursor == 1) && (iVar2 = FUN_0043a736(0,0), iVar2 == 0)) &&
-      (iVar2 = FUN_0043a736(0,1), iVar2 == 0)) &&
-     ((iVar2 = FUN_0043a736(1,0), iVar2 == 0 && (iVar2 = FUN_0043a736(1,1), iVar2 == 0)))) {
+  if ((((param_1->cursor == 1) &&
+       (iVar2 = GameManager::FUN_0043a736(&g_GameManager,0,0), iVar2 == 0)) &&
+      (iVar2 = GameManager::FUN_0043a736(&g_GameManager,0,1), iVar2 == 0)) &&
+     ((iVar2 = GameManager::FUN_0043a736(&g_GameManager,1,0), iVar2 == 0 &&
+      (iVar2 = GameManager::FUN_0043a736(&g_GameManager,1,1), iVar2 == 0)))) {
     param_1->cursor = param_1->cursor + iVar1;
   }
   local_c = param_1;
@@ -42,9 +44,10 @@ undefined4 __fastcall MainMenu::FUN_00437b41(MainMenu *param_1)
         SoundPlayer::FUN_004311e0(&g_SoundPlayer,10);
         break;
       case 1:
-        iVar1 = FUN_0043a736(0,0);
-        if ((((iVar1 == 0) && (iVar1 = FUN_0043a736(0,1), iVar1 == 0)) &&
-            (iVar1 = FUN_0043a736(1,0), iVar1 == 0)) && (iVar1 = FUN_0043a736(1,1), iVar1 == 0)) {
+        iVar1 = GameManager::FUN_0043a736(&g_GameManager,0,0);
+        if ((((iVar1 == 0) && (iVar1 = GameManager::FUN_0043a736(&g_GameManager,0,1), iVar1 == 0))
+            && (iVar1 = GameManager::FUN_0043a736(&g_GameManager,1,0), iVar1 == 0)) &&
+           (iVar1 = GameManager::FUN_0043a736(&g_GameManager,1,1), iVar1 == 0)) {
           SoundPlayer::FUN_004311e0(&g_SoundPlayer,0xb);
         }
         else {

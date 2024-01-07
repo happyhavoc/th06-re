@@ -2,7 +2,8 @@
 int __thiscall Chain::RunDrawChain(Chain *this)
 
 {
-  undefined4 res;
+  ChainCallbackResult CVar1;
+  undefined3 extraout_var;
   int updateCount;
   ChainElem *current;
   ChainElem *next;
@@ -14,13 +15,13 @@ LAB_0041cae9:
     if (current == (ChainElem *)0x0) {
       return updateCount;
     }
-    if (current->callback != 0) break;
+    if (current->callback != (ChainCallback *)0x0) break;
 LAB_0041cb5c:
     current = current->next;
   }
   do {
-    res = (*(code *)current->callback)(current->arg);
-    switch(res) {
+    CVar1 = (*current->callback)(current->arg);
+    switch(CONCAT31(extraout_var,CVar1)) {
     case 0:
       goto switchD_0041cb14_caseD_0;
     default:

@@ -13,8 +13,8 @@ undefined4 EffectManager::RegisterChain(void)
   iVar1 = Chain::AddToCalcChain(&g_Chain,&g_EffectManagerCalcChain,10);
   if (iVar1 == 0) {
     g_EffectManagerOnDrawChain.callback = OnDraw;
-    g_EffectManagerOnDrawChain.addedCallback = 0;
-    g_EffectManagerOnDrawChain.deletedCallback = 0;
+    g_EffectManagerOnDrawChain.addedCallback = (ChainLifecycleCallback *)0x0;
+    g_EffectManagerOnDrawChain.deletedCallback = (ChainLifecycleCallback *)0x0;
     g_EffectManagerOnDrawChain.arg = &g_EffectManager;
     Chain::AddToDrawChain(&g_Chain,&g_EffectManagerOnDrawChain,8);
     uVar2 = 0;

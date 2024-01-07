@@ -9,7 +9,7 @@ undefined4 FUN_00431370(void)
   
   bVar1 = false;
   while (!bVar1) {
-    DVar2 = MsgWaitForMultipleObjects(1,(HANDLE *)&DAT_006d4580,0,0xffffffff,0xbf);
+    DVar2 = MsgWaitForMultipleObjects(1,&g_SoundPlayer.hEvent,0,0xffffffff,0xbf);
     if (g_SoundPlayer.streamingSound == (CStreamingSound *)0x0) {
       bVar1 = true;
     }

@@ -29,7 +29,7 @@ ChainCallbackResult Player::OnUpdate(Player *param_1)
        ((param_1->inner).bombCalc != (void *)0x0)) {
       g_GameManager.field9_0x24 = g_GameManager.field9_0x24 + 1;
       g_GameManager.bombs_remaining = g_GameManager.bombs_remaining - 1;
-      g_Gui = g_Gui & 0xfffffff3 | 8;
+      g_Gui.flags = g_Gui.flags & 0xfffffff3 | 8;
       (param_1->inner).field0_0x0 = 1;
       (param_1->inner).field2_0x8.current = 0;
       (param_1->inner).field2_0x8.subFrame = 0.0;
@@ -72,7 +72,7 @@ ChainCallbackResult Player::OnUpdate(Player *param_1)
             g_GameManager.current_power = g_GameManager.current_power - 0x10;
           }
         }
-        g_Gui = g_Gui & 0xffffffcf | 0x20;
+        g_Gui.flags = g_Gui.flags & 0xffffffcf | 0x20;
         FUN_0041c5fa(0x640);
       }
       goto LAB_00428fa8;
@@ -110,7 +110,7 @@ ChainCallbackResult Player::OnUpdate(Player *param_1)
     else {
       g_GameManager.bombs_remaining = 3;
     }
-    g_Gui = g_Gui & 0xfffffff0 | 10;
+    g_Gui.flags = g_Gui.flags & 0xfffffff0 | 10;
   }
   else if (param_1->field21_0x9e0 != 1) goto LAB_00428fa8;
   param_1->field20_0x9dc = 0x5a;

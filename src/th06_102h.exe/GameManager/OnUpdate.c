@@ -83,7 +83,7 @@ ChainCallbackResult GameManager::OnUpdate(GameManager *this)
           this->lives_remaining = this->lives_remaining + 1;
           SoundPlayer::FUN_004311e0(&g_SoundPlayer,0x1c);
         }
-        g_Gui = g_Gui & 0xfffffffc | 2;
+        g_Gui.flags = g_Gui.flags & 0xfffffffc | 2;
         this->field23_0x181c = this->field23_0x181c + 1;
         FUN_0041c57e(&g_GameManager,200);
       }

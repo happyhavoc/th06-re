@@ -13,8 +13,8 @@ ZunResult GameManager::RegisterChain(void)
   iVar1 = Chain::AddToCalcChain(&g_Chain,&g_GameManagerCalcChain,4);
   if (iVar1 == 0) {
     g_GameManagerDrawChain.callback = OnDraw;
-    g_GameManagerDrawChain.addedCallback = 0;
-    g_GameManagerDrawChain.deletedCallback = 0;
+    g_GameManagerDrawChain.addedCallback = (ChainLifecycleCallback *)0x0;
+    g_GameManagerDrawChain.deletedCallback = (ChainLifecycleCallback *)0x0;
     g_GameManagerDrawChain.arg = &g_GameManager;
     Chain::AddToDrawChain(&g_Chain,&g_GameManagerDrawChain,2);
     ZVar2 = ZUN_SUCCESS;

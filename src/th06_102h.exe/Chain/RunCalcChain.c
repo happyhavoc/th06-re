@@ -2,7 +2,8 @@
 int __thiscall Chain::RunCalcChain(Chain *this)
 
 {
-  undefined4 res;
+  ChainCallbackResult CVar1;
+  undefined3 extraout_var;
   int updateCount;
   ChainElem *current;
   ChainElem *tmp;
@@ -15,13 +16,13 @@ LAB_0041ca26:
     if (current == (ChainElem *)0x0) {
       return updateCount;
     }
-    if (current->callback != 0) break;
+    if (current->callback != (ChainCallback *)0x0) break;
 LAB_0041ca9b:
     current = current->next;
   }
   do {
-    res = (*(code *)current->callback)(current->arg);
-    switch(res) {
+    CVar1 = (*current->callback)(current->arg);
+    switch(CONCAT31(extraout_var,CVar1)) {
     case 0:
       goto switchD_0041ca51_caseD_0;
     default:

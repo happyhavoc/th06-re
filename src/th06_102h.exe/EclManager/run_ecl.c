@@ -966,7 +966,7 @@ switchD_00407544_caseD_2:
           local_2dc = 50000;
         }
         local_88 = local_2dc;
-        local_7c = DAT_005a5f94 + (int)(DAT_005a5f94 * DAT_0069bc48) / 10;
+        local_7c = DAT_005a5f94 + (int)(DAT_005a5f94 * g_Gui.ecl_spellcard_related) / 10;
         FUN_00417458(&g_Gui,local_7c);
         g_GameManager.score = g_GameManager.score + local_7c;
         if (g_GameManager.field7_0x1c == 0) {
@@ -1045,14 +1045,14 @@ switchD_00407544_caseD_2:
     break;
   case 0x65:
     if ((int)local_20[3] < 0) {
-      DAT_0069bc50 = 0;
+      g_Gui.boss_present = false;
       *(undefined4 *)(&DAT_005a5f60 + (uint)*(byte *)(param_1[0xd].matrix.m[3] + 1) * 4) = 0;
       *(byte *)((int)&param_1[0xd].flags + 1) = *(byte *)((int)&param_1[0xd].flags + 1) & 0xf7;
     }
     else {
       *(AnmVm **)(&DAT_005a5f60 + (int)local_20[3] * 4) = param_1;
-      DAT_0069bc50 = 1;
-      _DAT_0069bc54 = 0x3f800000;
+      g_Gui.boss_present = true;
+      g_Gui.boss_health_bar1 = 1.0;
       *(byte *)((int)&param_1[0xd].flags + 1) = *(byte *)((int)&param_1[0xd].flags + 1) | 8;
       *(undefined *)(param_1[0xd].matrix.m[3] + 1) = *(undefined *)(local_20 + 3);
     }
@@ -1177,7 +1177,7 @@ switchD_00407544_caseD_2:
     g_Stage.unpauseFlag = '\x01';
     break;
   case 0x7e:
-    _DAT_0069bc44 = local_20[3];
+    g_Gui.ecl_set_lives = (int)local_20[3];
     g_GameManager.field58_0x1a6c = g_GameManager.field58_0x1a6c + 0x708;
     break;
   case 0x80:

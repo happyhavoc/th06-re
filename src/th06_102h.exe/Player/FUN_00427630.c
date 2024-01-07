@@ -20,7 +20,7 @@ void __thiscall Player::FUN_00427630(Player *this,float *param_1)
   EffectManager::FUN_0040ef50((int *)&g_EffectManager,8,&local_10,1,0xffffffff);
   g_GameManager.score = g_GameManager.score + 500;
   GameManager::FUN_0041c57e(&g_GameManager,6);
-  g_Gui = g_Gui & 0xffffff3f | 0x80;
+  g_Gui.flags = g_Gui.flags & 0xffffff3f | 0x80;
   SoundPlayer::FUN_004311e0(&g_SoundPlayer,0x1e);
   return;
 }

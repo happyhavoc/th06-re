@@ -23,7 +23,7 @@ void __thiscall SoundPlayer::LoadSound(SoundPlayer *this,int idx,char *path)
   byte *local_8;
   
   local_c = __security_cookie ^ unaff_retaddr;
-  if (this->directsound8_uninit != (DirectSound8Player *)0x0) {
+  if (this->csoundmanager_ptr != (CSoundManager *)0x0) {
     if (this->sound_buffers[idx] != (LPDIRECTSOUNDBUFFER)0x0) {
       (*this->sound_buffers[idx]->lpVtbl->Release)(this->sound_buffers[idx]);
       this->sound_buffers[idx] = (LPDIRECTSOUNDBUFFER)0x0;
@@ -64,9 +64,9 @@ void __thiscall SoundPlayer::LoadSound(SoundPlayer *this,int idx,char *path)
               local_30.dwFlags = 0x8088;
               local_30.dwBufferBytes = local_38;
               local_30.lpwfxFormat = &local_60;
-              HVar3 = (*((this->directsound).directsound8)->lpVtbl->CreateSoundBuffer)
-                                ((this->directsound).directsound8,&local_30,
-                                 this->sound_buffers + idx,(LPUNKNOWN)0x0);
+              HVar3 = (*((this->csoundmanager).m_pDS)->lpVtbl->CreateSoundBuffer)
+                                ((this->csoundmanager).m_pDS,&local_30,this->sound_buffers + idx,
+                                 (LPUNKNOWN)0x0);
               if (HVar3 < 0) {
                 _free(local_4c);
               }

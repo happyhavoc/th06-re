@@ -2,7 +2,7 @@
 void __thiscall Chain::Cut(Chain *this,ChainElem *to_remove)
 
 {
-  code *pcVar1;
+  ChainLifecycleCallback *pCVar1;
   ChainElem *cur_elem;
   bool isDrawChain;
   
@@ -25,7 +25,7 @@ destroy_elem:
         if (to_remove->prev == (ChainElem *)0x0) {
           return;
         }
-        to_remove->callback = 0;
+        to_remove->callback = (ChainCallback *)0x0;
         to_remove->prev->next = to_remove->next;
         if (to_remove->next != (ChainElem *)0x0) {
           to_remove->next->prev = to_remove->prev;
@@ -41,12 +41,12 @@ destroy_elem:
           _free(to_remove);
           return;
         }
-        if (to_remove->deletedCallback == 0) {
+        if (to_remove->deletedCallback == (ChainLifecycleCallback *)0x0) {
           return;
         }
-        pcVar1 = (code *)to_remove->deletedCallback;
-        to_remove->deletedCallback = 0;
-        (*pcVar1)(to_remove->arg);
+        pCVar1 = to_remove->deletedCallback;
+        to_remove->deletedCallback = (ChainLifecycleCallback *)0x0;
+        (*pCVar1)(to_remove->arg);
         return;
       }
     }

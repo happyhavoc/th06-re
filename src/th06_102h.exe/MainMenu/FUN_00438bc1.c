@@ -7,8 +7,7 @@ undefined4 __thiscall MainMenu::FUN_00438bc1(MainMenu *this)
   AnmVm *local_8;
   
   AsciiManager::AddFormatText
-            (&g_AsciiManager,&this->field0_0x0[0x62].pos.x,"No.   Name      Date     Player   Rank")
-  ;
+            (&g_AsciiManager,&this->field0_0x0[0x62].pos,"No.   Name      Date     Player   Rank");
   iVar1 = *(int *)&this->field_0x81e8 - *(int *)&this->field_0x81e8 % 0xf;
   local_8 = this->field0_0x0 + 0x62;
   for (local_c = iVar1; ((int)local_c < iVar1 + 0xf && ((int)local_c < *(int *)&this->field_0x81ec))
@@ -31,7 +30,7 @@ undefined4 __thiscall MainMenu::FUN_00438bc1(MainMenu *this)
       }
     }
     AsciiManager::AddFormatText
-              (&g_AsciiManager,&local_8[1].pos.x,"%s %8s  %8s %7s  %7s",
+              (&g_AsciiManager,&local_8[1].pos,"%s %8s  %8s %7s  %7s",
                &this->field_0xfa3c + local_c * 8,&this->field_0xfc35 + local_c * 0x50,
                &this->field_0xfc2c + local_c * 0x50,
                (&PTR_s_ReimuA_004786b0)[(byte)(&this->field_0xfc22)[local_c * 0x50]],
@@ -42,9 +41,9 @@ undefined4 __thiscall MainMenu::FUN_00438bc1(MainMenu *this)
     g_AsciiManager.color = 0xffffffff;
     g_AsciiManager.isSelected = 0;
     AsciiManager::AddFormatText
-              (&g_AsciiManager,&this->field0_0x0[0x61].pos.x,"       %2.3f%%",
+              (&g_AsciiManager,&this->field0_0x0[0x61].pos,"       %2.3f%%",
                (double)*(float *)(this->unk_10edc + 0x2c));
-    AsciiManager::AddFormatText(&g_AsciiManager,&this->field0_0x0[0x72].pos.x,"Stage  LastScore");
+    AsciiManager::AddFormatText(&g_AsciiManager,&this->field0_0x0[0x72].pos,"Stage  LastScore");
     local_8 = this->field0_0x0 + 0x72;
     for (local_c = 0; (int)local_c < 7; local_c = local_c + 1) {
       if ((g_Supervisor.cfg.opts >> NO_COLOR_COMP & 1 | g_Supervisor.cfg.opts & 1) ==
@@ -66,11 +65,11 @@ undefined4 __thiscall MainMenu::FUN_00438bc1(MainMenu *this)
         }
       }
       if (*(int *)(this->unk_10edc + 0x34 + local_c * 4) == 0) {
-        AsciiManager::AddFormatText(&g_AsciiManager,&local_8[1].pos.x,"%s ---------");
+        AsciiManager::AddFormatText(&g_AsciiManager,&local_8[1].pos,"%s ---------");
       }
       else {
         AsciiManager::AddFormatText
-                  (&g_AsciiManager,&local_8[1].pos.x,"%s %9d",(&PTR_s_Stage1_00478694)[local_c]);
+                  (&g_AsciiManager,&local_8[1].pos,"%s %9d",(&PTR_s_Stage1_00478694)[local_c]);
       }
       local_8 = local_8 + 1;
     }

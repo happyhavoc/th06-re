@@ -1,5 +1,5 @@
 
-void AsciiManager::AddFormatText(AsciiManager *param_1,undefined4 *param_2,char *param_3,...)
+void AsciiManager::AddFormatText(AsciiManager *manager,D3DXVECTOR3 *position,char *fmt,...)
 
 {
   uint unaff_retaddr;
@@ -9,8 +9,8 @@ void AsciiManager::AddFormatText(AsciiManager *param_1,undefined4 *param_2,char 
   
   local_c = __security_cookie ^ unaff_retaddr;
   local_8 = &stack0x00000010;
-  vsprintf(str,param_3,local_8);
-  AddString(param_1,(D3DXVECTOR3 *)param_2,str);
+  vsprintf(str,fmt,local_8);
+  AddString(manager,position,str);
   local_8 = (va_list)0x0;
   __security_check_cookie(local_c ^ unaff_retaddr);
   return;

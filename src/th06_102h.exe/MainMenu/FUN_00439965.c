@@ -4,18 +4,16 @@ undefined4 __thiscall MainMenu::FUN_00439965(MainMenu *this)
 {
   uint local_2c;
   uint local_28;
-  undefined4 local_20;
-  float local_1c;
-  undefined4 local_18;
+  D3DXVECTOR3 local_20;
   uint local_14;
   int local_10;
   uint local_c;
   uint local_8;
   
   if (this->unk_81f0 == 0x11) {
-    local_20 = 0x43a00000;
-    local_1c = 200.0;
-    local_18 = 0;
+    local_20.x = 320.0;
+    local_20.y = 200.0;
+    local_20.z = 0.0;
     if ((int)this->unk_81f4 < 0x1e) {
       local_28 = (int)(this->unk_81f4 * 0xff) / 0x1e;
     }
@@ -45,7 +43,7 @@ undefined4 __thiscall MainMenu::FUN_00439965(MainMenu *this)
                 (&g_AsciiManager,&local_20,"STAGE %d  %.9d",local_8 + 1,
                  *(undefined4 *)
                   (local_10 * 0x1e0 + local_8 * 0x50 + 0x69cd3c + g_GameManager.difficulty * 0x14));
-      local_1c = local_1c + 24.0;
+      local_20.y = local_20.y + 24.0;
     }
     g_AsciiManager.color = 0xffffffff;
   }

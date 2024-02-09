@@ -1,36 +1,37 @@
 
-undefined4 * __fastcall Ending::Ending(undefined4 *param_1)
+undefined4 * __fastcall Ending::Ending(Ending *ending)
 
 {
   int iVar1;
-  undefined4 *puVar2;
+  Ending *pEVar2;
   AnmVm *local_20;
   int local_18;
   
   local_18 = 0x10;
-  local_20 = (AnmVm *)(param_1 + 5);
+  local_20 = ending->AnmVm;
   while (local_18 = local_18 + -1, -1 < local_18) {
     AnmVm::AnmVm(local_20);
     local_20 = local_20 + 1;
   }
-  AnmTimer::AnmTimer((AnmTimer *)(param_1 + 0x447));
-  AnmTimer::AnmTimer((AnmTimer *)(param_1 + 0x44a));
-  AnmTimer::AnmTimer((AnmTimer *)(param_1 + 0x44d));
-  puVar2 = param_1;
+  AnmTimer::AnmTimer(&ending->anmTimer1);
+  AnmTimer::AnmTimer(&ending->anmTimer2);
+  AnmTimer::AnmTimer(&ending->anmTimer3);
+  pEVar2 = ending;
+                    /* memset? */
   for (iVar1 = 0x45c; iVar1 != 0; iVar1 = iVar1 + -1) {
-    *puVar2 = 0;
-    puVar2 = puVar2 + 1;
+    *(undefined4 *)pEVar2 = 0;
+    pEVar2 = (Ending *)&pEVar2->field_0x4;
   }
-  param_1[0x452] = 8;
-  param_1[0x44c] = 0;
-  param_1[1099] = 0;
-  param_1[0x44a] = 4294966297;
-  param_1[0x449] = 0;
-  param_1[0x448] = 0;
-  param_1[0x447] = 4294966297;
-  param_1[2] = 0;
-  param_1[3] = 0;
-  param_1[4] = 0;
-  return param_1;
+  *(undefined4 *)&ending->field_0x1148 = 8;
+  (ending->anmTimer2).current = 0;
+  (ending->anmTimer2).subFrame = 0.0;
+  (ending->anmTimer2).previous = -999;
+  (ending->anmTimer1).current = 0;
+  (ending->anmTimer1).subFrame = 0.0;
+  (ending->anmTimer1).previous = -999;
+  (ending->anmTimer4).previous = 0;
+  (ending->anmTimer4).subFrame = 0.0;
+  (ending->anmTimer4).current = 0;
+  return (undefined4 *)ending;
 }
 

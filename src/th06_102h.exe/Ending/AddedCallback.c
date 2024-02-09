@@ -1,8 +1,11 @@
 
-undefined4 Ending::AddedCallback(int param_1)
+/* WARNING: Unknown calling convention -- yet parameter storage is locked */
+
+ZunResult Ending::AddedCallback(Ending *param_1)
 
 {
-  int iVar1;
+  ZunResult load_ending;
+  int shottypeAndCharacter;
   
   g_GameManager.unk_1822 = 1;
   g_Supervisor.unk19c = 1;
@@ -14,58 +17,63 @@ undefined4 Ending::AddedCallback(int param_1)
   g_AnmManager->currentSprite = (AnmLoadedSprite *)0x0;
   g_AnmManager->currentBlendMode = 0xff;
   g_AnmManager->currentVertexShader = 0xff;
-  iVar1 = (uint)g_GameManager.shottype + (uint)g_GameManager.character * 2;
-  *(undefined4 *)(param_1 + 0x1118) = 0;
+  shottypeAndCharacter = (uint)g_GameManager.shottype + (uint)g_GameManager.character * 2;
+  *(undefined4 *)&param_1->field_0x1118 = 0;
   if (g_GameManager.num_retries == 0) {
-    if (*(char *)(iVar1 * 0x18 + 0x69ccdc + g_GameManager.difficulty) == 'c') {
-      *(undefined4 *)(param_1 + 0x1118) = 1;
+                    /* That huge number is actually an address, ghidra just isn't picking up on the
+                       fact that it's supposed to be Clrd->difficulty_cleared_with_retries */
+    if (*(char *)(shottypeAndCharacter * 0x18 + 0x69ccdc + g_GameManager.difficulty) == 'c') {
+      *(undefined4 *)&param_1->field_0x1118 = 1;
     }
-    *(undefined *)(iVar1 * 0x18 + 0x69ccdc + g_GameManager.difficulty) = 'c';
+    *(undefined *)(shottypeAndCharacter * 0x18 + 0x69ccdc + g_GameManager.difficulty) = 'c';
   }
-  else if (*(char *)(iVar1 * 0x18 + 0x69cce1 + g_GameManager.difficulty) == 'c') {
-    *(undefined4 *)(param_1 + 0x1118) = 1;
+  else {
+                    /* Same here, but with Clrd->difficulty_cleared_without_retries */
+    if (*(char *)(shottypeAndCharacter * 0x18 + 0x69cce1 + g_GameManager.difficulty) == 'c') {
+      *(undefined4 *)&param_1->field_0x1118 = 1;
+    }
   }
-  *(undefined *)(iVar1 * 0x18 + 0x69cce1 + g_GameManager.difficulty) = 'c';
+  *(undefined *)(shottypeAndCharacter * 0x18 + 0x69cce1 + g_GameManager.difficulty) = 'c';
   if ((g_GameManager.difficulty == 0) || (g_GameManager.num_retries != 0)) {
     if (g_GameManager.character == 0) {
-      iVar1 = FUN_004106d0(param_1,"data/end00b.end");
-      if (iVar1 != 0) {
-        return 0xffffffff;
+      load_ending = loadEnding(param_1,"data/end00b.end");
+      if (load_ending != ZUN_SUCCESS) {
+        return ZUN_ERROR;
       }
     }
     else if ((g_GameManager.character == 1) &&
-            (iVar1 = FUN_004106d0(param_1,"data/end10b.end"), iVar1 != 0)) {
-      return 0xffffffff;
+            (load_ending = loadEnding(param_1,"data/end10b.end"), load_ending != ZUN_SUCCESS)) {
+      return ZUN_ERROR;
     }
   }
   else if (g_GameManager.character == 0) {
     if (g_GameManager.shottype == 0) {
-      iVar1 = FUN_004106d0(param_1,"data/end00.end");
-      if (iVar1 != 0) {
-        return 0xffffffff;
+      load_ending = loadEnding(param_1,"data/end00.end");
+      if (load_ending != ZUN_SUCCESS) {
+        return ZUN_ERROR;
       }
     }
     else {
-      iVar1 = FUN_004106d0(param_1,"data/end01.end");
-      if (iVar1 != 0) {
-        return 0xffffffff;
+      load_ending = loadEnding(param_1,"data/end01.end");
+      if (load_ending != ZUN_SUCCESS) {
+        return ZUN_ERROR;
       }
     }
   }
   else if (g_GameManager.character == 1) {
     if (g_GameManager.shottype == 0) {
-      iVar1 = FUN_004106d0(param_1,"data/end10.end");
-      if (iVar1 != 0) {
-        return 0xffffffff;
+      load_ending = loadEnding(param_1,"data/end10.end");
+      if (load_ending != ZUN_SUCCESS) {
+        return ZUN_ERROR;
       }
     }
     else {
-      iVar1 = FUN_004106d0(param_1,"data/end11.end");
-      if (iVar1 != 0) {
-        return 0xffffffff;
+      load_ending = loadEnding(param_1,"data/end11.end");
+      if (load_ending != ZUN_SUCCESS) {
+        return ZUN_ERROR;
       }
     }
   }
-  return 0;
+  return ZUN_SUCCESS;
 }
 

@@ -1,23 +1,23 @@
 
-undefined4 Ending::OnUpdate(int param_1)
+undefined4 Ending::OnUpdate(Ending *ending)
 
 {
   int in_EAX;
-  int local_c;
+  int i;
   int local_8;
   
   local_8 = 0;
   while( true ) {
-    FUN_0040f7c0(param_1);
+    parseEndFile(ending);
     if (in_EAX != 0) {
       return 0;
     }
-    for (local_c = 0; local_c < 0x10; local_c = local_c + 1) {
-      if (*(short *)(param_1 + 200 + local_c * 0x110) != 0) {
-        AnmManager::ExecuteScript(g_AnmManager,(AnmVm *)(param_1 + 0x14 + local_c * 0x110));
+    for (i = 0; i < 16; i = i + 1) {
+      if (ending->AnmVm[i].anmFileIndex != 0) {
+        AnmManager::ExecuteScript(g_AnmManager,ending->AnmVm + i);
       }
     }
-    if (((*(int *)(param_1 + 0x1118) == 0) || ((g_CurFrameInput & 0x100) == 0)) || (3 < local_8))
+    if (((*(int *)&ending->field_0x1118 == 0) || ((g_CurFrameInput & 0x100) == 0)) || (3 < local_8))
     break;
     in_EAX = local_8 + 1;
     local_8 = in_EAX;

@@ -1,24 +1,24 @@
 
-undefined4 Ending::OnDraw(int param_1)
+undefined4 Ending::OnDraw(Ending *ending)
 
 {
   long lVar1;
   long lVar2;
   undefined4 uVar3;
   undefined4 uVar4;
-  int local_8;
+  int i;
   
   uVar4 = 0x1e0;
   uVar3 = 0x280;
-  lVar1 = __ftol2((double)*(float *)(param_1 + 0xc));
-  lVar2 = __ftol2((double)*(float *)(param_1 + 8));
+  lVar1 = __ftol2((double)(ending->anmTimer4).subFrame);
+  lVar2 = __ftol2((double)(float)(ending->anmTimer4).previous);
   FUN_004354c0(0,0,0,lVar2,lVar1,uVar3,uVar4);
-  for (local_8 = 0; local_8 < 0x10; local_8 = local_8 + 1) {
-    if (*(short *)(param_1 + 200 + local_8 * 0x110) != 0) {
-      AnmManager::FUN_00432ad0(g_AnmManager,(AnmVm *)(param_1 + 0x14 + local_8 * 0x110));
+  for (i = 0; i < 16; i = i + 1) {
+    if (ending->AnmVm[i].anmFileIndex != 0) {
+      AnmManager::FUN_00432ad0(g_AnmManager,ending->AnmVm + i);
     }
   }
-  FUN_0040f550(param_1);
+  FUN_0040f550(ending);
   return 1;
 }
 

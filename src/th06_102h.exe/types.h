@@ -1766,6 +1766,226 @@ struct test {
     int field2_0x8;
 };
 
+typedef struct Ending Ending, *PEnding;
+
+typedef struct AnmTimer AnmTimer, *PAnmTimer;
+
+typedef struct AnmVm AnmVm, *PAnmVm;
+
+typedef struct _D3DVECTOR _D3DVECTOR, *P_D3DVECTOR;
+
+typedef struct _D3DVECTOR D3DXVECTOR3;
+
+typedef struct D3DXVECTOR2 D3DXVECTOR2, *PD3DXVECTOR2;
+
+typedef struct _D3DMATRIX _D3DMATRIX, *P_D3DMATRIX;
+
+typedef struct _D3DMATRIX D3DMATRIX;
+
+typedef union D3DCOLORUNION D3DCOLORUNION, *PD3DCOLORUNION;
+
+typedef struct AnmRawInstr AnmRawInstr, *PAnmRawInstr;
+
+typedef struct AnmLoadedSprite AnmLoadedSprite, *PAnmLoadedSprite;
+
+typedef DWORD D3DCOLOR;
+
+typedef uchar uint8_t;
+
+typedef float FLOAT;
+
+typedef enum AnmOpcode {
+    AnmOpcode_Exit=0,
+    AnmOpcode_SetActiveSprite=1,
+    AnmOpcode_SetScale=2,
+    AnmOpcode_SetAlpha=3,
+    AnmOpcode_SetColor=4,
+    AnmOpcode_5=5,
+    AnmOpcode_6=6,
+    AnmOpcode_FlipX=7,
+    AnmOpcode_FlipY=8,
+    AnmOpcode_SetRotation=9,
+    AnmOpcode_10=10,
+    AnmOpcode_11=11,
+    AnmOpcode_12=12,
+    AnmOpcode_13=13,
+    AnmOpcode_14=14,
+    AnmOpcode_ExitHide=15,
+    AnmOpcode_16=16,
+    AnmOpcode_17=17,
+    AnmOpcode_18=18,
+    AnmOpcode_19=19,
+    AnmOpcode_20=20,
+    AnmOpcode_Stop=21,
+    AnmOpcode_22=22,
+    AnmOpcode_23=23,
+    AnmOpcode_StopHide=24,
+    AnmOpcode_25=25,
+    AnmOpcode_26=26,
+    AnmOpcode_27=27,
+    AnmOpcode_28=28,
+    AnmOpcode_29=29,
+    AnmOpcode_30=30,
+    AnmOpcode_31=31
+} AnmOpcode;
+
+struct D3DXVECTOR2 {
+    FLOAT x;
+    FLOAT y;
+};
+
+struct AnmLoadedSprite {
+    uint sourceFileIndex;
+    struct D3DXVECTOR2 startPixelInclusive;
+    struct D3DXVECTOR2 endPixelInclusive;
+    float textureHeight;
+    float textureWidth;
+    struct D3DXVECTOR2 uvStart;
+    struct D3DXVECTOR2 uvEnd;
+    float heightPx;
+    float widthPx;
+    int spriteId;
+};
+
+struct _D3DMATRIX {
+    float m[4][4];
+};
+
+struct _D3DVECTOR {
+    float x;
+    float y;
+    float z;
+};
+
+union D3DCOLORUNION {
+    D3DCOLOR color;
+    byte bytes[4];
+};
+
+struct AnmRawInstr {
+    ushort time;
+    enum AnmOpcode opcode;
+    uchar argsCount;
+    uint args[10];
+};
+
+struct AnmTimer {
+    int previous;
+    float subFrame;
+    int current;
+};
+
+struct AnmVm {
+    D3DXVECTOR3 rotation;
+    D3DXVECTOR3 angleVel;
+    float scaleY;
+    float scaleX;
+    float scaleInterpFinalY;
+    float scaleInterpFinalX;
+    struct D3DXVECTOR2 uvScrollPos;
+    struct AnmTimer currentTimeInScript;
+    D3DMATRIX matrix;
+    union D3DCOLORUNION color;
+    uint flags;
+    ushort alphaInterpEndTime;
+    ushort scaleInterpEndTime;
+    ushort autoRotate;
+    short pendingInterrupt;
+    ushort posInterpEndTime;
+    undefined field16_0x8e;
+    undefined field17_0x8f;
+    D3DXVECTOR3 pos;
+    float scaleInterpInitialY;
+    float scaleInterpInitialX;
+    struct AnmTimer scaleInterpTime;
+    short spriteNumber;
+    short anotherSpriteNumber;
+    short anmFileIndex;
+    undefined field25_0xb6;
+    undefined field26_0xb7;
+    struct AnmRawInstr *beginingOfScript;
+    struct AnmRawInstr *currentInstruction;
+    struct AnmLoadedSprite *sprite;
+    D3DCOLOR alphaInterpInitial;
+    D3DCOLOR alphaInterpFinal;
+    D3DXVECTOR3 posInterpInitial;
+    D3DXVECTOR3 posInterpFinal;
+    D3DXVECTOR3 pos2;
+    struct AnmTimer posInterpTime;
+    int timeOfLastSpriteSet;
+    struct AnmTimer alphaInterpTime;
+    uint8_t fontWidth;
+    uint8_t fontHeight;
+    undefined field40_0x10e;
+    undefined field41_0x10f;
+};
+
+struct Ending {
+    undefined field0_0x0;
+    undefined field1_0x1;
+    undefined field2_0x2;
+    undefined field3_0x3;
+    undefined field4_0x4;
+    undefined field5_0x5;
+    undefined field6_0x6;
+    undefined field7_0x7;
+    struct AnmTimer anmTimer4;
+    struct AnmVm AnmVm[16];
+    int *endFileData;
+    undefined field11_0x1118;
+    undefined field12_0x1119;
+    undefined field13_0x111a;
+    undefined field14_0x111b;
+    struct AnmTimer anmTimer1;
+    struct AnmTimer anmTimer2;
+    struct AnmTimer anmTimer3;
+    undefined field18_0x1140;
+    undefined field19_0x1141;
+    undefined field20_0x1142;
+    undefined field21_0x1143;
+    undefined field22_0x1144;
+    undefined field23_0x1145;
+    undefined field24_0x1146;
+    undefined field25_0x1147;
+    undefined field26_0x1148;
+    undefined field27_0x1149;
+    undefined field28_0x114a;
+    undefined field29_0x114b;
+    undefined field30_0x114c;
+    undefined field31_0x114d;
+    undefined field32_0x114e;
+    undefined field33_0x114f;
+    undefined field34_0x1150;
+    undefined field35_0x1151;
+    undefined field36_0x1152;
+    undefined field37_0x1153;
+    undefined field38_0x1154;
+    undefined field39_0x1155;
+    undefined field40_0x1156;
+    undefined field41_0x1157;
+    undefined field42_0x1158;
+    undefined field43_0x1159;
+    undefined field44_0x115a;
+    undefined field45_0x115b;
+    undefined field46_0x115c;
+    undefined field47_0x115d;
+    undefined field48_0x115e;
+    undefined field49_0x115f;
+    undefined field50_0x1160;
+    undefined field51_0x1161;
+    undefined field52_0x1162;
+    undefined field53_0x1163;
+    undefined field54_0x1164;
+    undefined field55_0x1165;
+    undefined field56_0x1166;
+    undefined field57_0x1167;
+    undefined field58_0x1168;
+    undefined field59_0x1169;
+    undefined field60_0x116a;
+    undefined field61_0x116b;
+    int *endFileDataPtr;
+};
+
 typedef struct GameWindow GameWindow, *PGameWindow;
 
 struct GameWindow {
@@ -2814,8 +3034,6 @@ typedef struct _DICOLORSET _DICOLORSET, *P_DICOLORSET;
 typedef struct _DICOLORSET DICOLORSET;
 
 typedef DICOLORSET *LPCDICOLORSET;
-
-typedef DWORD D3DCOLOR;
 
 struct _DICOLORSET {
     DWORD dwSize;
@@ -11401,8 +11619,6 @@ typedef struct _BIDI_DATA *PBIDI_DATA;
 
 typedef union _union_1485 _union_1485, *P_union_1485;
 
-typedef float FLOAT;
-
 typedef struct _BINARY_CONTAINER BINARY_CONTAINER;
 
 union _union_1485 {
@@ -15984,10 +16200,6 @@ typedef enum _D3DTRANSFORMSTATETYPE {
 
 typedef enum _D3DTRANSFORMSTATETYPE D3DTRANSFORMSTATETYPE;
 
-typedef struct _D3DMATRIX _D3DMATRIX, *P_D3DMATRIX;
-
-typedef struct _D3DMATRIX D3DMATRIX;
-
 typedef struct _D3DVIEWPORT8 _D3DVIEWPORT8, *P_D3DVIEWPORT8;
 
 typedef struct _D3DVIEWPORT8 D3DVIEWPORT8;
@@ -16229,8 +16441,6 @@ typedef enum _D3DLIGHTTYPE {
 } _D3DLIGHTTYPE;
 
 typedef enum _D3DLIGHTTYPE D3DLIGHTTYPE;
-
-typedef struct _D3DVECTOR _D3DVECTOR, *P_D3DVECTOR;
 
 typedef struct _D3DVECTOR D3DVECTOR;
 
@@ -16482,10 +16692,6 @@ struct IDirect3DVolume8Vtbl {
     HRESULT (*UnlockBox)(struct IDirect3DVolume8 *);
 };
 
-struct _D3DMATRIX {
-    float m[4][4];
-};
-
 struct IDirect3DSurface8Vtbl {
     HRESULT (*QueryInterface)(struct IDirect3DSurface8 *, IID *, void **);
     ULONG (*AddRef)(struct IDirect3DSurface8 *);
@@ -16505,12 +16711,6 @@ struct _D3DCOLORVALUE {
     float g;
     float b;
     float a;
-};
-
-struct _D3DVECTOR {
-    float x;
-    float y;
-    float z;
 };
 
 struct _D3DMATERIAL8 {
@@ -16803,8 +17003,6 @@ struct IDirect3DTexture8 {
 
 typedef struct ID3DXSpriteVtbl ID3DXSpriteVtbl, *PID3DXSpriteVtbl;
 
-typedef struct D3DXVECTOR2 D3DXVECTOR2, *PD3DXVECTOR2;
-
 typedef struct _D3DMATRIX D3DXMATRIX;
 
 struct ID3DXSpriteVtbl {
@@ -16816,11 +17014,6 @@ struct ID3DXSpriteVtbl {
     HRESULT (*Draw)(struct IDirect3DVolume8 *, LPDIRECT3DTEXTURE8, RECT *, struct D3DXVECTOR2 *, struct D3DXVECTOR2 *, FLOAT, struct D3DXVECTOR2 *, D3DCOLOR);
     HRESULT (*DrawTransform)(struct IDirect3DVolume8 *, LPDIRECT3DTEXTURE8, RECT *, D3DXMATRIX *, D3DCOLOR);
     HRESULT (*End)(struct IDirect3DVolume8 *);
-};
-
-struct D3DXVECTOR2 {
-    FLOAT x;
-    FLOAT y;
 };
 
 typedef struct ID3DXRenderToSurface ID3DXRenderToSurface, *PID3DXRenderToSurface;
@@ -37397,8 +37590,6 @@ typedef char *va_list;
 
 typedef uint uintptr_t;
 
-typedef struct _D3DVECTOR D3DXVECTOR3;
-
 typedef struct _D3DMATRIX *LPD3DXMATRIX;
 
 typedef struct ID3DXMatrixStack ID3DXMatrixStack, *PID3DXMatrixStack;
@@ -43327,8 +43518,6 @@ typedef struct _RPC_ASYNC_STATE RPC_ASYNC_STATE;
 #define RPC_C_NOTIFY_ON_SEND_COMPLETE 1
 
 #define EEInfoPreviousRecordsMissing 1
-
-typedef uchar uint8_t;
 
 #define FLT_ROUNDS 1
 
@@ -72075,120 +72264,6 @@ typedef struct Bullet Bullet, *PBullet;
 
 typedef struct BulletTypeVms BulletTypeVms, *PBulletTypeVms;
 
-typedef struct AnmTimer AnmTimer, *PAnmTimer;
-
-typedef struct AnmVm AnmVm, *PAnmVm;
-
-typedef union D3DCOLORUNION D3DCOLORUNION, *PD3DCOLORUNION;
-
-typedef struct AnmRawInstr AnmRawInstr, *PAnmRawInstr;
-
-typedef struct AnmLoadedSprite AnmLoadedSprite, *PAnmLoadedSprite;
-
-typedef enum AnmOpcode {
-    AnmOpcode_Exit=0,
-    AnmOpcode_SetActiveSprite=1,
-    AnmOpcode_SetScale=2,
-    AnmOpcode_SetAlpha=3,
-    AnmOpcode_SetColor=4,
-    AnmOpcode_5=5,
-    AnmOpcode_6=6,
-    AnmOpcode_FlipX=7,
-    AnmOpcode_FlipY=8,
-    AnmOpcode_SetRotation=9,
-    AnmOpcode_10=10,
-    AnmOpcode_11=11,
-    AnmOpcode_12=12,
-    AnmOpcode_13=13,
-    AnmOpcode_14=14,
-    AnmOpcode_ExitHide=15,
-    AnmOpcode_16=16,
-    AnmOpcode_17=17,
-    AnmOpcode_18=18,
-    AnmOpcode_19=19,
-    AnmOpcode_20=20,
-    AnmOpcode_Stop=21,
-    AnmOpcode_22=22,
-    AnmOpcode_23=23,
-    AnmOpcode_StopHide=24,
-    AnmOpcode_25=25,
-    AnmOpcode_26=26,
-    AnmOpcode_27=27,
-    AnmOpcode_28=28,
-    AnmOpcode_29=29,
-    AnmOpcode_30=30,
-    AnmOpcode_31=31
-} AnmOpcode;
-
-struct AnmLoadedSprite {
-    uint sourceFileIndex;
-    struct D3DXVECTOR2 startPixelInclusive;
-    struct D3DXVECTOR2 endPixelInclusive;
-    float textureHeight;
-    float textureWidth;
-    struct D3DXVECTOR2 uvStart;
-    struct D3DXVECTOR2 uvEnd;
-    float heightPx;
-    float widthPx;
-    int spriteId;
-};
-
-struct AnmTimer {
-    int previous;
-    float subFrame;
-    int current;
-};
-
-union D3DCOLORUNION {
-    D3DCOLOR color;
-    byte bytes[4];
-};
-
-struct AnmVm {
-    D3DXVECTOR3 rotation;
-    D3DXVECTOR3 angleVel;
-    float scaleY;
-    float scaleX;
-    float scaleInterpFinalY;
-    float scaleInterpFinalX;
-    struct D3DXVECTOR2 uvScrollPos;
-    struct AnmTimer currentTimeInScript;
-    D3DMATRIX matrix;
-    union D3DCOLORUNION color;
-    uint flags;
-    ushort alphaInterpEndTime;
-    ushort scaleInterpEndTime;
-    ushort autoRotate;
-    short pendingInterrupt;
-    ushort posInterpEndTime;
-    undefined field16_0x8e;
-    undefined field17_0x8f;
-    D3DXVECTOR3 pos;
-    float scaleInterpInitialY;
-    float scaleInterpInitialX;
-    struct AnmTimer scaleInterpTime;
-    short spriteNumber;
-    short anotherSpriteNumber;
-    short anmFileIndex;
-    undefined field25_0xb6;
-    undefined field26_0xb7;
-    struct AnmRawInstr *beginingOfScript;
-    struct AnmRawInstr *currentInstruction;
-    struct AnmLoadedSprite *sprite;
-    D3DCOLOR alphaInterpInitial;
-    D3DCOLOR alphaInterpFinal;
-    D3DXVECTOR3 posInterpInitial;
-    D3DXVECTOR3 posInterpFinal;
-    D3DXVECTOR3 pos2;
-    struct AnmTimer posInterpTime;
-    int timeOfLastSpriteSet;
-    struct AnmTimer alphaInterpTime;
-    uint8_t fontWidth;
-    uint8_t fontHeight;
-    undefined field40_0x10e;
-    undefined field41_0x10f;
-};
-
 struct BulletTypeVms {
     struct AnmVm vm0;
     struct AnmVm spawn_effect_short;
@@ -72236,13 +72311,6 @@ struct Bullet {
     ushort field19_0x5c0;
     byte field20_0x5c2;
     byte field21_0x5c3;
-};
-
-struct AnmRawInstr {
-    ushort time;
-    enum AnmOpcode opcode;
-    uchar argsCount;
-    uint args[10];
 };
 
 typedef struct ReplayData ReplayData, *PReplayData;

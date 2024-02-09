@@ -5,7 +5,7 @@ ZunResult EnemyManager::RegisterChain(char *stgEnm1,char *stgEnm2)
   int iVar1;
   ZunResult ZVar2;
   
-  FUN_00410e30(&g_EnemyManager);
+  Initialize((EnemyManager *)&g_EnemyManager);
   g_EnemyManager = stgEnm1;
   DAT_004b79cc = stgEnm2;
   ChainElem_005a5fb4.callback = OnUpdate;

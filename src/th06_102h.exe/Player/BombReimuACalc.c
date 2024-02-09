@@ -22,7 +22,7 @@ void Player::BombReimuACalc(Player *param_1)
   if ((param_1->inner).field2_0x8.current < (param_1->inner).field1_0x4) {
     if (((param_1->inner).field2_0x8.current != (param_1->inner).field2_0x8.previous) &&
        ((param_1->inner).field2_0x8.current == 0)) {
-      Gui::FUN_00417acd(0x69bc30,0x4a1,&DAT_0046a3f4);
+      Gui::FUN_00417acd(&g_Gui,0x4a1,&DAT_0046a3f4);
       (param_1->inner).field1_0x4 = 300;
       (param_1->field35_0x75b4).current = 0x168;
       (param_1->field35_0x75b4).subFrame = 0.0;
@@ -30,8 +30,8 @@ void Player::BombReimuACalc(Player *param_1)
       for (local_10 = 0; local_10 < 8; local_10 = local_10 + 1) {
         *(undefined4 *)((param_1->inner).field5_0x1c + local_10 * 4) = 0;
       }
-      ItemManager::FUN_00420130(0x69e268);
-      EffectManager::FUN_0040ef50((int *)&g_EffectManager,0xc,&(param_1->position).x,1,0xff4040ff);
+      ItemManager::FUN_00420130(g_ItemManager);
+      EffectManager::FUN_0040ef50(&g_EffectManager,0xc,&param_1->position,1,0xff4040ff);
       param_1->field15_0x8b8[8].position1.x = (param_1->position).x;
       param_1->field15_0x8b8[8].position1.y = (param_1->position).y;
       param_1->field15_0x8b8[8].size1.x = 256.0;
@@ -126,11 +126,11 @@ void Player::BombReimuACalc(Player *param_1)
             if ((99 < param_1->field14_0x838[local_10]) ||
                ((param_1->inner).field1_0x4 + -0x1e <= (param_1->inner).field2_0x8.current)) {
               EffectManager::FUN_0040ef50
-                        ((int *)&g_EffectManager,6,
-                         &(param_1->inner).field6_0x5c[local_10].field0_0x0,8,0xffffffff);
+                        (&g_EffectManager,6,(D3DXVECTOR3 *)((param_1->inner).field6_0x5c + local_10)
+                         ,8,0xffffffff);
               EffectManager::FUN_0040ef50
-                        ((int *)&g_EffectManager,0xc,
-                         &(param_1->inner).field6_0x5c[local_10].field0_0x0,1,0xff4040ff);
+                        (&g_EffectManager,0xc,
+                         (D3DXVECTOR3 *)((param_1->inner).field6_0x5c + local_10),1,0xff4040ff);
               *(undefined4 *)((param_1->inner).field5_0x1c + local_10 * 4) = 2;
               (param_1->inner).field10_0x11c[local_10 * 4].pendingInterrupt = 1;
               (param_1->inner).field10_0x11c[local_10 * 4 + 1].pendingInterrupt = 1;

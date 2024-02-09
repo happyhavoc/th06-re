@@ -59,8 +59,8 @@ int __thiscall StageMenu::OnUpdateRetryMenu(StageMenu *this)
     this->curState = this->curState + 2;
     this->numFrames = 0;
   case 1:
-    this->vms0[2].color = 0xffff8080;
-    this->vms0[3].color = 0x80808080;
+    this->vms0[2].color.color = 0xffff8080;
+    this->vms0[3].color.color = 0x80808080;
     this->vms0[2].scaleY = 1.7;
     this->vms0[2].scaleX = 1.7;
     this->vms0[3].scaleY = 1.5;
@@ -89,8 +89,8 @@ int __thiscall StageMenu::OnUpdateRetryMenu(StageMenu *this)
     }
     break;
   case 2:
-    this->vms0[3].color = 0xffff8080;
-    this->vms0[2].color = 0x80808080;
+    this->vms0[3].color.color = 0xffff8080;
+    this->vms0[2].color.color = 0x80808080;
     this->vms0[2].scaleY = 1.5;
     this->vms0[2].scaleX = 1.5;
     this->vms0[3].scaleY = 1.7;

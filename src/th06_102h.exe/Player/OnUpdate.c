@@ -6,8 +6,7 @@ ChainCallbackResult Player::OnUpdate(Player *param_1)
 {
   float fVar1;
   AnmManager *this;
-  bool bVar2;
-  undefined3 extraout_var;
+  BOOL BVar2;
   long lVar3;
   uint uVar4;
   int local_8;
@@ -22,8 +21,8 @@ ChainCallbackResult Player::OnUpdate(Player *param_1)
     param_1->field15_0x8b8[local_8].size1.x = 0.0;
   }
   if ((param_1->inner).field0_0x0 == 0) {
-    bVar2 = FUN_004195a2(0x69bc30);
-    if (((((CONCAT31(extraout_var,bVar2) == 0) && (param_1->field19_0x9d8 != 0)) &&
+    BVar2 = Gui::HasCurrentMsgIdx(&g_Gui);
+    if (((((BVar2 == 0) && (param_1->field19_0x9d8 != 0)) &&
          ('\0' < (char)g_GameManager.bombs_remaining)) &&
         (((g_CurFrameInput & 2) != 0 && ((g_CurFrameInput & 2) != (g_LastFrameInput & 2))))) &&
        ((param_1->inner).bombCalc != (void *)0x0)) {
@@ -36,7 +35,7 @@ ChainCallbackResult Player::OnUpdate(Player *param_1)
       (param_1->inner).field2_0x8.previous = -999;
       (param_1->inner).field1_0x4 = 999;
       (*(code *)(param_1->inner).bombCalc)(param_1);
-      _DAT_005a5f8c = 0;
+      BOOL_005a5f8c = 0;
       FUN_0041c5fa(200);
       _DAT_005a5f9c = DAT_005a5f90;
     }
@@ -82,7 +81,7 @@ ChainCallbackResult Player::OnUpdate(Player *param_1)
     (param_1->vm0).scaleX = 1.0 - fVar1 * 1.0;
     lVar3 = __ftol2((double)(255.0 - (((float)(param_1->field35_0x75b4).current +
                                       (param_1->field35_0x75b4).subFrame) * 255.0) / 30.0));
-    (param_1->vm0).color = lVar3 << 0x18 | 0xffffff;
+    (param_1->vm0).color.color = lVar3 << 0x18 | 0xffffff;
     (param_1->vm0).flags = (param_1->vm0).flags | 4;
     param_1->field29_0xa10 = 0.0;
     param_1->field30_0xa14 = 0;
@@ -121,13 +120,13 @@ ChainCallbackResult Player::OnUpdate(Player *param_1)
   (param_1->vm0).flags = (param_1->vm0).flags | 4;
   param_1->field18_0x9d4 = 1.0;
   param_1->field17_0x9d0 = 1.0;
-  (param_1->vm0).color = ((param_1->field35_0x75b4).current * 0xff) / 0x1e << 0x18 | 0xffffff;
+  (param_1->vm0).color.color = ((param_1->field35_0x75b4).current * 0xff) / 0x1e << 0x18 | 0xffffff;
   param_1->field19_0x9d8 = 0;
   if (0x1d < (param_1->field35_0x75b4).current) {
     param_1->field21_0x9e0 = 3;
     (param_1->vm0).scaleX = 1.0;
     (param_1->vm0).scaleY = 1.0;
-    (param_1->vm0).color = 0xffffffff;
+    (param_1->vm0).color.color = 0xffffffff;
     (param_1->vm0).flags = (param_1->vm0).flags & 0xfffffffb;
     (param_1->field35_0x75b4).current = 0xf0;
     (param_1->field35_0x75b4).subFrame = 0.0;
@@ -137,7 +136,7 @@ ChainCallbackResult Player::OnUpdate(Player *param_1)
 LAB_00428fa8:
   if (param_1->field20_0x9dc != 0) {
     param_1->field20_0x9dc = param_1->field20_0x9dc + -1;
-    BulletManager::FUN_00414160(0x5a5ff8,0);
+    BulletManager::FUN_00414160(&g_BulletManager,0);
   }
   if (param_1->field21_0x9e0 == 3) {
     AnmTimer::FUN_004241e5(&param_1->field35_0x75b4,1);
@@ -147,7 +146,7 @@ LAB_00428fa8:
       (param_1->field35_0x75b4).subFrame = 0.0;
       (param_1->field35_0x75b4).previous = -999;
       (param_1->vm0).flags = (param_1->vm0).flags & 0xfffffff7;
-      (param_1->vm0).color = 0xffffffff;
+      (param_1->vm0).color.color = 0xffffffff;
     }
     else {
       uVar4 = (param_1->field35_0x75b4).current & 0x80000007;
@@ -156,11 +155,11 @@ LAB_00428fa8:
       }
       if ((int)uVar4 < 2) {
         (param_1->vm0).flags = (param_1->vm0).flags | 8;
-        (param_1->vm0).color = 0xff404040;
+        (param_1->vm0).color.color = 0xff404040;
       }
       else {
         (param_1->vm0).flags = (param_1->vm0).flags & 0xfffffff7;
-        (param_1->vm0).color = 0xffffffff;
+        (param_1->vm0).color.color = 0xffffffff;
       }
     }
   }

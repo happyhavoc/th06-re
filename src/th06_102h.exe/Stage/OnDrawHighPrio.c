@@ -13,8 +13,8 @@ int Stage::OnDrawHighPrio(Stage *arg)
             (g_Supervisor.d3dDevice,D3DRS_FOGSTART,(DWORD)(arg->skyFog).nearPlane);
   (*(g_Supervisor.d3dDevice)->lpVtbl->SetRenderState)
             (g_Supervisor.d3dDevice,D3DRS_FOGEND,(DWORD)(arg->skyFog).farPlane);
-  if (arg->spellcardEclRelated0 < 2) {
-    iVar1 = FUN_004172d3(0x69bc30);
+  if ((int)arg->spellcardState < 2) {
+    iVar1 = Gui::FUN_004172d3(&g_Gui);
     if (iVar1 == 0) {
       FUN_00404970(arg,0);
       FUN_00404970(arg,1);

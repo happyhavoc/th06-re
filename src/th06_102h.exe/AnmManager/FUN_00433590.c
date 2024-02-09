@@ -21,7 +21,7 @@ int __thiscall AnmManager::FUN_00433590(AnmManager *this,AnmVm *vm)
        || (fVar1 = (vm->rotation).z, NAN(fVar1) == (fVar1 == 0.0))) {
       iVar2 = FUN_00433150(this,vm);
     }
-    else if (vm->color == 0) {
+    else if ((vm->color).color == 0) {
       iVar2 = -1;
     }
     else {

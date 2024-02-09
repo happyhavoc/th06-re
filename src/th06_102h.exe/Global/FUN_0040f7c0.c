@@ -174,7 +174,7 @@ switchD_0040fa93_caseD_52:
           *(long *)(param_1 + 0x1158) = lVar6;
           break;
         case 0x6d:
-          FUN_00424b5d((char *)(*(int *)(param_1 + 0x116c) + 1));
+          Supervisor::PlayAudio((char *)(*(int *)(param_1 + 0x116c) + 1));
           break;
         case 0x72:
           *(int *)(param_1 + 0x116c) = *(int *)(param_1 + 0x116c) + 1;

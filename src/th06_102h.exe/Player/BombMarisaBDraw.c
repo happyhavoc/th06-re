@@ -20,7 +20,7 @@ void Player::BombMarisaBDraw(Player *param_1)
     fVar1 = (float10)FUN_0045bcf4((double)fVar2);
     (local_8->pos).y =
          ((float)fVar1 * local_8->sprite->heightPx * local_8->scaleY) / 2.0 + (local_8->pos).y;
-    fVar2 = FUN_0041e850(1.570796 - fVar2,3.141593);
+    fVar2 = add_normalize_angle(1.570796 - fVar2,3.141593);
     (local_8->rotation).z = fVar2;
     (local_8->pos).x = g_GameManager.arcade_region_top_left_pos.x + (local_8->pos).x;
     (local_8->pos).y = g_GameManager.arcade_region_top_left_pos.y + (local_8->pos).y;

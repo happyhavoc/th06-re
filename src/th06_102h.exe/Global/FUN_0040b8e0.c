@@ -1,5 +1,5 @@
 
-void FUN_0040b8e0(int param_1,int param_2)
+void FUN_0040b8e0(Enemy *param_1,int insn)
 
 {
   int iVar1;
@@ -9,9 +9,9 @@ void FUN_0040b8e0(int param_1,int param_2)
   AnmVm *local_c;
   int local_8;
   
-  local_c = (AnmVm *)&DAT_005ab5f8;
-  iVar1 = *(int *)(param_2 + 0x10);
-  EffectManager::FUN_0040ef50((int *)&g_EffectManager,0xc,(float *)(param_1 + 0xc6c),1,0xffffffff);
+  local_c = (AnmVm *)g_BulletManager.bullets;
+  iVar1 = *(int *)(insn + 0x10);
+  EffectManager::FUN_0040ef50(&g_EffectManager,0xc,&param_1->position,1,0xffffffff);
   for (local_8 = 0; local_8 < 0x280; local_8 = local_8 + 1) {
     if ((*(short *)((int)local_c[5].matrix.m[3] + 2) != 0) &&
        (*(short *)((int)local_c[5].matrix.m[3] + 2) != 5)) {

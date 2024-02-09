@@ -8,24 +8,24 @@ int Stage::OnDrawLowPrio(Stage *arg)
   int local_c;
   undefined4 local_8;
   
-  if (arg->spellcardEclRelated0 < 2) {
-    iVar1 = FUN_004172d3(0x69bc30);
+  if ((int)arg->spellcardState < 2) {
+    iVar1 = Gui::FUN_004172d3(&g_Gui);
     if (iVar1 == 0) {
       FUN_00404970(arg,2);
       FUN_00404970(arg,3);
-      if (arg->spellcardEclRelated0 == 1) {
+      if (arg->spellcardState == RUNNING) {
         local_1c.left = 32.0;
         local_1c.top = 16.0;
         local_1c.right = 416.0;
         local_1c.bottom = 464.0;
-        local_c = (arg->spellcardEclRelated1 * 0xff) / 0x3c;
+        local_c = (arg->ticksSinceSpellcardStarted * 0xff) / 0x3c;
         DrawSquare(&local_1c,local_c << 0x18);
       }
     }
   }
   this = g_AnmManager;
-  if (0 < arg->spellcardEclRelated0) {
-    if (arg->spellcardEclRelated1 <= (int)(uint)g_Supervisor.cfg.frameskipConfig) {
+  if (0 < (int)arg->spellcardState) {
+    if (arg->ticksSinceSpellcardStarted <= (int)(uint)g_Supervisor.cfg.frameskipConfig) {
       (arg->field20_0x88).anmFileIndex = 0x2b3;
       AnmManager::SetAndExecuteScript(this,&arg->field20_0x88,this->scripts[0x2b3]);
     }

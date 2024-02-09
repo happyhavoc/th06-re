@@ -4,11 +4,11 @@ void FUN_004377a3(AnmVm *param_1,int param_2,int param_3,uint param_4,uint param
 {
   if (param_2 == param_3) {
     if ((g_Supervisor.cfg.opts >> 8 & 1 | g_Supervisor.cfg.opts & 1) == 0) {
-      param_1->color = param_4;
+      (param_1->color).color = param_4;
     }
     else {
       AnmManager::SetActiveSprite(g_AnmManager,param_1,param_1->anotherSpriteNumber + param_6);
-      param_1->color = param_4 & 0xff000000 | 0xffffff;
+      (param_1->color).color = param_4 & 0xff000000 | 0xffffff;
     }
     (param_1->pos2).x = -4.0;
     (param_1->pos2).y = -4.0;
@@ -16,11 +16,11 @@ void FUN_004377a3(AnmVm *param_1,int param_2,int param_3,uint param_4,uint param
   }
   else {
     if ((g_Supervisor.cfg.opts >> 8 & 1 | g_Supervisor.cfg.opts & 1) == 0) {
-      param_1->color = param_5;
+      (param_1->color).color = param_5;
     }
     else {
       AnmManager::SetActiveSprite(g_AnmManager,param_1,(int)param_1->anotherSpriteNumber);
-      param_1->color = param_5 & 0xff000000 | 0xffffff;
+      (param_1->color).color = param_5 & 0xff000000 | 0xffffff;
     }
     (param_1->pos2).x = 0.0;
     (param_1->pos2).y = 0.0;

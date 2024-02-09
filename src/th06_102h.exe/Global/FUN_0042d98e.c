@@ -63,7 +63,7 @@ undefined4 FUN_0042d98e(ResultScreen *param_1)
             local_c->pendingInterrupt = 1;
             local_c->flags = local_c->flags | 8;
             if ((g_Supervisor.cfg.opts & 1) == 0) {
-              local_c->color = local_c->color & 0xff000000;
+              (local_c->color).color = (local_c->color).color & 0xff000000;
             }
             else {
               local_c->color = local_c->color;
@@ -74,10 +74,10 @@ undefined4 FUN_0042d98e(ResultScreen *param_1)
           for (local_8 = 0; local_c = local_c + 1, local_8 < 7; local_8 = local_8 + 1) {
             if (local_8 == param_1->unk_10) {
               if ((g_Supervisor.cfg.opts & 1) == 0) {
-                local_c->color = 0xff505050;
+                (local_c->color).color = 0xff505050;
               }
               else {
-                local_c->color = 0xffffffff;
+                (local_c->color).color = 0xffffffff;
               }
               (local_c->pos2).x = -4.0;
               (local_c->pos2).y = -4.0;
@@ -85,10 +85,10 @@ undefined4 FUN_0042d98e(ResultScreen *param_1)
             }
             else {
               if ((g_Supervisor.cfg.opts & 1) == 0) {
-                local_c->color = 0xb0000000;
+                (local_c->color).color = 0xb0000000;
               }
               else {
-                local_c->color = 0xb0ffffff;
+                (local_c->color).color = 0xb0ffffff;
               }
               (local_c->pos2).x = 0.0;
               (local_c->pos2).y = 0.0;
@@ -200,10 +200,10 @@ undefined4 FUN_0042d98e(ResultScreen *param_1)
       for (local_8 = 0; local_c = local_c + 1, local_8 < 7; local_8 = local_8 + 1) {
         if (local_8 == param_1->unk_10) {
           if ((g_Supervisor.cfg.opts & 1) == 0) {
-            local_c->color = 0xff505050;
+            (local_c->color).color = 0xff505050;
           }
           else {
-            local_c->color = 0xffffffff;
+            (local_c->color).color = 0xffffffff;
           }
           (local_c->pos2).x = -4.0;
           (local_c->pos2).y = -4.0;
@@ -211,10 +211,10 @@ undefined4 FUN_0042d98e(ResultScreen *param_1)
         }
         else {
           if ((g_Supervisor.cfg.opts & 1) == 0) {
-            local_c->color = 0xb0000000;
+            (local_c->color).color = 0xb0000000;
           }
           else {
-            local_c->color = 0xb0ffffff;
+            (local_c->color).color = 0xb0ffffff;
           }
           (local_c->pos2).x = 0.0;
           (local_c->pos2).y = 0.0;

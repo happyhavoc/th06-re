@@ -53,8 +53,8 @@ int __thiscall StageMenu::OnUpdateGameMenu(StageMenu *this)
       (this->vm1).pos.z = 0.0;
     }
   case 1:
-    this->vms0[1].color = 0xffff8080;
-    this->vms0[2].color = 0x80808080;
+    this->vms0[1].color.color = 0xffff8080;
+    this->vms0[2].color.color = 0x80808080;
     this->vms0[1].scaleY = 1.7;
     this->vms0[1].scaleX = 1.7;
     this->vms0[2].scaleY = 1.5;
@@ -82,8 +82,8 @@ int __thiscall StageMenu::OnUpdateGameMenu(StageMenu *this)
     }
     break;
   case 2:
-    this->vms0[1].color = 0x80808080;
-    this->vms0[2].color = 0xffff8080;
+    this->vms0[1].color.color = 0x80808080;
+    this->vms0[2].color.color = 0xffff8080;
     this->vms0[1].scaleY = 1.5;
     this->vms0[1].scaleX = 1.5;
     this->vms0[2].scaleY = 1.7;
@@ -124,8 +124,8 @@ int __thiscall StageMenu::OnUpdateGameMenu(StageMenu *this)
     }
     break;
   case 4:
-    this->vms0[4].color = 0xffff8080;
-    this->vms0[5].color = 0x80808080;
+    this->vms0[4].color.color = 0xffff8080;
+    this->vms0[5].color.color = 0x80808080;
     this->vms0[4].scaleY = 1.7;
     this->vms0[4].scaleX = 1.7;
     this->vms0[5].scaleY = 1.5;
@@ -153,8 +153,8 @@ int __thiscall StageMenu::OnUpdateGameMenu(StageMenu *this)
     }
     break;
   case 5:
-    this->vms0[4].color = 0x80808080;
-    this->vms0[5].color = 0xffff8080;
+    this->vms0[4].color.color = 0x80808080;
+    this->vms0[5].color.color = 0xffff8080;
     this->vms0[4].scaleY = 1.5;
     this->vms0[4].scaleX = 1.5;
     this->vms0[5].scaleY = 1.7;

@@ -21,10 +21,10 @@ undefined4 __fastcall MainMenu::FUN_004379e4(MainMenu *param_1)
       param_1->field0_0x0[local_8].pendingInterrupt = 2;
     }
     if ((g_Supervisor.cfg.opts & 1) == 0) {
-      param_1->field0_0x0[param_1->cursor].color = 0xffff0000;
+      param_1->field0_0x0[param_1->cursor].color.color = 0xffff0000;
     }
     else {
-      param_1->field0_0x0[param_1->cursor].color = 0xffffe0e0;
+      param_1->field0_0x0[param_1->cursor].color.color = 0xffffe0e0;
     }
     pDVar1 = &param_1->field0_0x0[param_1->cursor].pos2;
     pDVar1->x = -6.0;

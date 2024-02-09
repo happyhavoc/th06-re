@@ -11,7 +11,7 @@ int Stage::AddedCallback(Stage *arg)
   (arg->position).x = 0.0;
   (arg->position).y = 0.0;
   (arg->position).z = 0.0;
-  arg->spellcardEclRelated0 = 0;
+  arg->spellcardState = NOT_RUNNING;
   arg->skyFogInterpDuration = 0;
   iVar1 = LoadStageData(arg,(&PTR_s_dummy_004760e0)[g_GameManager.current_stage * 2],
                         (&PTR_s_dummy_004760e4)[g_GameManager.current_stage * 2]);

@@ -362,7 +362,8 @@ void __thiscall Gui::FUN_00419c99(Gui *this)
                   (g_Supervisor.d3dDevice,D3DRS_ZWRITEENABLE,0);
       }
                     /* 0x44 = D3DFVF_DIFFUSE | D3DFVF_XYZRHW */
-      (*(g_Supervisor.d3dDevice)->lpVtbl->SetVertexShader)(g_Supervisor.d3dDevice,0x44);
+      (*(g_Supervisor.d3dDevice)->lpVtbl->SetVertexShader)
+                (g_Supervisor.d3dDevice,D3DFVF_DIFFUSE | D3DFVF_XYZRHW);
       (*(g_Supervisor.d3dDevice)->lpVtbl->DrawPrimitiveUP)
                 (g_Supervisor.d3dDevice,D3DPT_TRIANGLESTRIP,2,local_7c,0x14);
       g_AnmManager->currentVertexShader = 0xff;

@@ -17,7 +17,7 @@ undefined4 FUN_004378a2(void)
         local_8 = timeGetTime();
       }
       g_Supervisor.startup_time_for_menu_music = 0;
-      FUN_00424b5d("bgm/th06_01.mid");
+      Supervisor::PlayAudio("bgm/th06_01.mid");
     }
     for (local_c = 0; local_c < 0x7a; local_c = local_c + 1) {
       *(undefined2 *)(in_ECX + 0x8a + local_c * 0x110) = 1;

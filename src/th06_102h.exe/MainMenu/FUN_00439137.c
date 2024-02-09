@@ -77,7 +77,7 @@ undefined4 __fastcall MainMenu::FUN_00439137(MainMenu *param_1)
         }
         g_Supervisor.cfg.musicMode = g_Supervisor.cfg.musicMode + ~OFF;
         isMusicMutedWtf();
-        FUN_00424b5d("bgm/th06_01.mid");
+        Supervisor::PlayAudio("bgm/th06_01.mid");
       }
       else if (uVar1 == 4) {
         SoundPlayer::FUN_004311e0(&g_SoundPlayer,0xc);
@@ -130,7 +130,7 @@ undefined4 __fastcall MainMenu::FUN_00439137(MainMenu *param_1)
           g_Supervisor.cfg.musicMode = OFF;
         }
         isMusicMutedWtf();
-        FUN_00424b5d("bgm/th06_01.mid");
+        Supervisor::PlayAudio("bgm/th06_01.mid");
       }
       else if (uVar1 == 4) {
         SoundPlayer::FUN_004311e0(&g_SoundPlayer,0xc);
@@ -160,7 +160,7 @@ undefined4 __fastcall MainMenu::FUN_00439137(MainMenu *param_1)
         g_Supervisor.cfg.windowed = false;
         g_Supervisor.cfg.frameskipConfig = 0;
         isMusicMutedWtf();
-        FUN_00424b5d("bgm/th06_01.mid");
+        Supervisor::PlayAudio("bgm/th06_01.mid");
       }
       else if (uVar1 == 7) {
         param_1->unk_81f0 = 5;

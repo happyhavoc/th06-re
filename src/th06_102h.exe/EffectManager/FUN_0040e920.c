@@ -1,32 +1,33 @@
 
-undefined4 EffectManager::FUN_0040e920(int param_1)
+int EffectManager::FUN_0040e920(Effect *param_1)
 
 {
   float fVar1;
-  uint uVar2;
-  long lVar3;
-  float10 fVar4;
+  float fVar2;
+  uint uVar3;
+  long lVar4;
+  float10 fVar5;
   D3DXVECTOR3 local_64;
   float local_58;
   D3DXMATRIX local_54;
   float local_14;
   D3DXVECTOR3 local_10;
   
-  D3DXVec3Normalize(&local_64,(D3DXVECTOR3 *)(param_1 + 0x140));
-  fVar4 = (float10)FUN_0045bcf4((double)*(float *)(param_1 + 0x160));
-  local_14 = (float)fVar4;
-  fVar4 = (float10)FUN_0045bda4((double)*(float *)(param_1 + 0x160));
-  local_58 = (float)fVar4;
-  *(float *)(param_1 + 0x14c) = local_64.x * local_14;
-  *(float *)(param_1 + 0x150) = local_64.y * local_14;
-  *(float *)(param_1 + 0x154) = local_64.z * local_14;
-  *(float *)(param_1 + 0x158) = local_58;
-  D3DXMatrixRotationQuaternion(&local_54,(D3DXQUATERNION *)(param_1 + 0x14c));
+  D3DXVec3Normalize(&local_64,&param_1->pos2);
+  fVar5 = (float10)FUN_0045bcf4((double)param_1->field12_0x160);
+  local_14 = (float)fVar5;
+  fVar5 = (float10)FUN_0045bda4((double)param_1->field12_0x160);
+  local_58 = (float)fVar5;
+  (param_1->field10_0x14c).x = local_64.x * local_14;
+  (param_1->field10_0x14c).y = local_64.y * local_14;
+  (param_1->field10_0x14c).z = local_64.z * local_14;
+  (param_1->field10_0x14c).w = local_58;
+  D3DXMatrixRotationQuaternion(&local_54,&param_1->field10_0x14c);
   local_10.x = local_64.y * 1.0 - local_64.z * 0.0;
   local_10.y = local_64.z * 0.0 - local_64.x * 1.0;
   local_10.z = local_64.x * 0.0 - local_64.y * 0.0;
-  fVar1 = local_10.x * local_10.x + local_10.y * local_10.y + local_10.z * local_10.z;
-  if (fVar1 < 1e-05 == NAN(fVar1)) {
+  fVar2 = local_10.x * local_10.x + local_10.y * local_10.y + local_10.z * local_10.z;
+  if (fVar2 < 1e-05 == NAN(fVar2)) {
     D3DXVec3Normalize(&local_10,&local_10);
   }
   else {
@@ -34,26 +35,28 @@ undefined4 EffectManager::FUN_0040e920(int param_1)
     local_64.y = 0.0;
     local_64.z = 0.0;
   }
-  fVar1 = *(float *)(param_1 + 0x15c);
-  local_10.x = local_10.x * fVar1;
-  local_10.y = local_10.y * fVar1;
-  local_10.z = local_10.z * fVar1;
+  fVar2 = param_1->field11_0x15c;
+  local_10.x = local_10.x * fVar2;
+  local_10.y = local_10.y * fVar2;
+  local_10.z = local_10.z * fVar2;
   D3DXVec3TransformCoord(&local_10,&local_10,&local_54);
   local_10.z = local_10.z * 6.0;
-  *(float *)(param_1 + 0x110) = local_10.x + *(float *)(param_1 + 0x134);
-  *(float *)(param_1 + 0x114) = local_10.y + *(float *)(param_1 + 0x138);
-  *(float *)(param_1 + 0x118) = local_10.z + *(float *)(param_1 + 0x13c);
-  if (*(char *)(param_1 + 0x17a) != '\0') {
-    *(char *)(param_1 + 0x17b) = *(char *)(param_1 + 0x17b) + '\x01';
-    if ('\x0f' < *(char *)(param_1 + 0x17b)) {
+  fVar2 = (param_1->field8_0x134).z;
+  fVar1 = (param_1->field8_0x134).y;
+  (param_1->pos1).x = local_10.x + (param_1->field8_0x134).x;
+  (param_1->pos1).y = local_10.y + fVar1;
+  (param_1->pos1).z = local_10.z + fVar2;
+  if (param_1->field18_0x17a != 0) {
+    param_1->field_0x17b = param_1->field_0x17b + '\x01';
+    if ('\x0f' < (char)param_1->field_0x17b) {
       return 0;
     }
-    fVar1 = 1.0 - (float)(int)*(char *)(param_1 + 0x17b) / 16.0;
-    uVar2 = *(uint *)(param_1 + 0x7c);
-    lVar3 = __ftol2((double)(fVar1 * 255.0));
-    *(uint *)(param_1 + 0x7c) = uVar2 & 0xffffff | lVar3 << 0x18;
-    *(float *)(param_1 + 0x18) = 2.0 - fVar1;
-    *(undefined4 *)(param_1 + 0x1c) = *(undefined4 *)(param_1 + 0x18);
+    fVar2 = 1.0 - (float)(int)(char)param_1->field_0x17b / 16.0;
+    uVar3 = (param_1->vm).color.color;
+    lVar4 = __ftol2((double)(fVar2 * 255.0));
+    (param_1->vm).color.color = uVar3 & 0xffffff | lVar4 << 0x18;
+    (param_1->vm).scaleY = 2.0 - fVar2;
+    (param_1->vm).scaleX = (param_1->vm).scaleY;
   }
   return 1;
 }

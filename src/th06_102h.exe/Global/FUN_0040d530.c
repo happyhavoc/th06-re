@@ -13,14 +13,14 @@ void FUN_0040d530(int param_1)
   int local_60;
   undefined4 local_5c [22];
   
-  local_68 = (AnmVm *)&DAT_005ab5f8;
+  local_68 = (AnmVm *)g_BulletManager.bullets;
   puVar3 = local_5c;
   for (iVar2 = 0x15; iVar2 != 0; iVar2 = iVar2 + -1) {
     *puVar3 = 0;
     puVar3 = puVar3 + 1;
   }
   fVar6 = Rng::GetRandomF32ZeroToOne(&g_Rng);
-  EffectManager::FUN_0040ef50((int *)&g_EffectManager,0xc,(float *)(param_1 + 0xc6c),1,0xffffffff);
+  EffectManager::FUN_0040ef50(&g_EffectManager,0xc,(D3DXVECTOR3 *)(param_1 + 0xc6c),1,0xffffffff);
   for (local_60 = 0; local_60 < 0x280; local_60 = local_60 + 1) {
     if ((((*(short *)((int)local_68[5].matrix.m[3] + 2) != 0) &&
          (*(short *)((int)local_68[5].matrix.m[3] + 2) != 5)) &&

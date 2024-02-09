@@ -7,9 +7,8 @@ undefined4 __thiscall Player::CalcMove(Player *this)
   float fVar3;
   float fVar4;
   AnmManager *pAVar5;
-  bool bVar6;
-  float *pfVar7;
-  undefined3 extraout_var;
+  float *pfVar6;
+  BOOL BVar7;
   float local_18;
   float local_14;
   float local_10;
@@ -153,8 +152,8 @@ undefined4 __thiscall Player::CalcMove(Player *this)
   (this->position).x =
        local_10 * this->field17_0x9d0 * g_Supervisor.effectiveFramerateMultiplier +
        (this->position).x;
-  pfVar7 = &(this->position).y;
-  *pfVar7 = local_c * this->field18_0x9d4 * g_Supervisor.effectiveFramerateMultiplier + *pfVar7;
+  pfVar6 = &(this->position).y;
+  *pfVar6 = local_c * this->field18_0x9d4 * g_Supervisor.effectiveFramerateMultiplier + *pfVar6;
   fVar1 = (this->position).x;
   if (fVar1 < g_GameManager.field49_0x1a4c == (NAN(fVar1) || NAN(g_GameManager.field49_0x1a4c))) {
     fVar1 = (this->position).x;
@@ -283,8 +282,7 @@ switchD_004281aa_caseD_4:
   this->field10_0x4a0[1].x = local_18 + this->field10_0x4a0[1].x;
   this->field10_0x4a0[0].y = local_14 + this->field10_0x4a0[0].y;
   this->field10_0x4a0[1].y = local_14 + this->field10_0x4a0[1].y;
-  if (((g_CurFrameInput & 1) != 0) &&
-     (bVar6 = FUN_004195a2(0x69bc30), CONCAT31(extraout_var,bVar6) == 0)) {
+  if (((g_CurFrameInput & 1) != 0) && (BVar7 = Gui::HasCurrentMsgIdx(&g_Gui), BVar7 == 0)) {
     FUN_00428630(this);
   }
   this->field31_0xa18 = g_CurFrameInput;

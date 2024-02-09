@@ -22,7 +22,7 @@ void FUN_00420190(void)
                     (g_AnmManager,local_10,
                      (int)*(char *)&local_10[1].currentTimeInScript.previous + 0x200);
           *(undefined *)((int)&local_10[1].currentTimeInScript.previous + 2) = 1;
-          local_10->color = 0xffffffff;
+          (local_10->color).color = 0xffffffff;
         }
       }
       else {
@@ -38,7 +38,7 @@ void FUN_00420190(void)
         if (local_8 < 0x40) {
           local_8 = 0x40;
         }
-        local_10->color = local_10->color & 0xffffff | local_8 << 0x18;
+        (local_10->color).color = (local_10->color).color & 0xffffff | local_8 << 0x18;
       }
       AnmManager::FUN_00432ad0(g_AnmManager,local_10);
     }

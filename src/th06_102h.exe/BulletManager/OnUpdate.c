@@ -6,11 +6,9 @@ undefined4 BulletManager::OnUpdate(int param_1)
   float fVar2;
   int iVar3;
   float *pfVar4;
-  float *unaff_EDI;
   AnmVm *pAVar5;
   float10 fVar6;
   float10 fVar7;
-  float10 extraout_ST0;
   float fVar8;
   float local_260;
   float local_38;
@@ -27,7 +25,7 @@ undefined4 BulletManager::OnUpdate(int param_1)
   
   local_24 = (AnmVm *)(param_1 + 0x5600);
   if ((char)g_GameManager.field11_0x2c == '\0') {
-    FUN_0041f4a0((AnmVm *)null_ARRAY_0069e268);
+    FUN_0041f4a0((AnmVm *)g_ItemManager);
     *(undefined4 *)(param_1 + 0xf5c04) = 0;
     for (local_c = 0; local_c < 0x280; local_c = local_c + 1) {
       if (*(short *)((int)local_24[5].matrix.m[3] + 2) == 0) goto LAB_00414a1a;
@@ -101,9 +99,9 @@ switchD_00414a97_caseD_1:
             if ((*(ushort *)(local_24[5].matrix.m[2] + 3) & 0x10) == 0) {
               if ((*(ushort *)(local_24[5].matrix.m[2] + 3) & 0x20) != 0) {
                 if ((int)local_24[5].matrix.m[1][2] < (int)local_24[5].matrix.m[1][3]) {
-                  fVar8 = FUN_0041e850(local_24[5].matrix.m[0][1],
-                                       g_Supervisor.effectiveFramerateMultiplier *
-                                       local_24[5].matrix.m[0][2]);
+                  fVar8 = add_normalize_angle(local_24[5].matrix.m[0][1],
+                                              g_Supervisor.effectiveFramerateMultiplier *
+                                              local_24[5].matrix.m[0][2]);
                   local_24[5].matrix.m[0][1] = fVar8;
                   local_24[5].currentTimeInScript.subFrame =
                        g_Supervisor.effectiveFramerateMultiplier *
@@ -158,13 +156,14 @@ switchD_00414a97_caseD_1:
               if ((*(ushort *)(local_24[5].matrix.m[2] + 3) & 0x80) == 0) {
                 if ((*(ushort *)(local_24[5].matrix.m[2] + 3) & 0x400) == 0) {
                   if (((*(ushort *)(local_24[5].matrix.m[2] + 3) & 0x800) != 0) &&
-                     (iVar3 = FUN_0041b5e1(local_24[5].angleVel.y,local_24[5].angleVel.z,
-                                           local_24->sprite->widthPx,local_24->sprite->heightPx),
+                     (iVar3 = GameManager::FUN_0041b5e1
+                                        (local_24[5].angleVel.y,local_24[5].angleVel.z,
+                                         local_24->sprite->widthPx,local_24->sprite->heightPx),
                      iVar3 == 0)) {
                     fVar8 = local_24[5].angleVel.y;
                     if ((fVar8 < 0.0 != NAN(fVar8)) || (384.0 <= local_24[5].angleVel.y)) {
                       local_24[5].matrix.m[0][1] = -local_24[5].matrix.m[0][1] - 3.141593;
-                      fVar8 = FUN_0041e850(local_24[5].matrix.m[0][1],0.0);
+                      fVar8 = add_normalize_angle(local_24[5].matrix.m[0][1],0.0);
                       local_24[5].matrix.m[0][1] = fVar8;
                     }
                     fVar8 = local_24[5].angleVel.z;
@@ -186,13 +185,14 @@ switchD_00414a97_caseD_1:
                   }
                 }
                 else {
-                  iVar3 = FUN_0041b5e1(local_24[5].angleVel.y,local_24[5].angleVel.z,
-                                       local_24->sprite->widthPx,local_24->sprite->heightPx);
+                  iVar3 = GameManager::FUN_0041b5e1
+                                    (local_24[5].angleVel.y,local_24[5].angleVel.z,
+                                     local_24->sprite->widthPx,local_24->sprite->heightPx);
                   if (iVar3 == 0) {
                     fVar8 = local_24[5].angleVel.y;
                     if ((fVar8 < 0.0 != NAN(fVar8)) || (384.0 <= local_24[5].angleVel.y)) {
                       local_24[5].matrix.m[0][1] = -local_24[5].matrix.m[0][1] - 3.141593;
-                      fVar8 = FUN_0041e850(local_24[5].matrix.m[0][1],0.0);
+                      fVar8 = add_normalize_angle(local_24[5].matrix.m[0][1],0.0);
                       local_24[5].matrix.m[0][1] = fVar8;
                     }
                     fVar8 = local_24[5].angleVel.z;
@@ -230,9 +230,8 @@ switchD_00414a97_caseD_1:
                     *(ushort *)(local_24[5].matrix.m[2] + 3) =
                          *(ushort *)(local_24[5].matrix.m[2] + 3) & 0xff7f;
                   }
-                  Player::FUN_00428700(&g_Player,(float10 *)&local_24[5].angleVel.y,unaff_EDI);
-                  local_24[5].matrix.m[0][1] =
-                       (float)(extraout_ST0 + (float10)local_24[5].matrix.m[0][3]);
+                  fVar8 = Player::FUN_00428700(&g_Player,&local_24[5].angleVel.y);
+                  local_24[5].matrix.m[0][1] = fVar8 + local_24[5].matrix.m[0][3];
                   local_24[5].currentTimeInScript.subFrame = local_24[5].matrix.m[0][0];
                   local_10 = local_24[5].currentTimeInScript.subFrame;
                 }
@@ -302,8 +301,9 @@ switchD_00414a97_caseD_1:
         *pfVar4 = g_Supervisor.effectiveFramerateMultiplier * local_24[5].scaleX + *pfVar4;
         local_24[5].angleVel.z = fVar2 + local_24[5].angleVel.z;
         local_24[5].scaleY = fVar8 + local_24[5].scaleY;
-        iVar3 = FUN_0041b5e1(local_24[5].angleVel.y,local_24[5].angleVel.z,local_24->sprite->widthPx
-                             ,local_24->sprite->heightPx);
+        iVar3 = GameManager::FUN_0041b5e1
+                          (local_24[5].angleVel.y,local_24[5].angleVel.z,local_24->sprite->widthPx,
+                           local_24->sprite->heightPx);
         if (iVar3 != 0) {
           *(undefined2 *)(local_24[5].matrix.m[3] + 1) = 0;
 LAB_00415b6c:
@@ -403,7 +403,7 @@ LAB_00414a1a:
             if (0xff < local_28) {
               local_28 = 0xff;
             }
-            local_2c->color = local_28 << 0x18;
+            (local_2c->color).color = local_28 << 0x18;
           }
           if ((int)local_2c[2].uvScrollPos.x <= (int)local_2c[2].matrix.m[0][2]) {
             Player::FUN_00427190
@@ -451,7 +451,7 @@ LAB_004161bf:
             if (0xff < local_28) {
               local_28 = 0xff;
             }
-            local_2c->color = local_28 << 0x18;
+            (local_2c->color).color = local_28 << 0x18;
           }
           if ((int)local_2c[2].matrix.m[0][2] < (int)local_2c[2].currentTimeInScript.subFrame) {
             Player::FUN_00427190

@@ -5,14 +5,14 @@ AnmVm * FUN_00414670(short *param_1)
   short sVar1;
   int iVar2;
   AnmManager *pAVar3;
-  float *in_ECX;
-  float10 extraout_ST0;
+  int in_ECX;
+  float fVar4;
   short local_10;
   AnmVm *local_c;
   int local_8;
   
   pAVar3 = g_AnmManager;
-  local_c = (AnmVm *)(in_ECX + 0x3b000);
+  local_c = (AnmVm *)(in_ECX + 0xec000);
   local_8 = 0;
   while( true ) {
     if (0x3f < local_8) {
@@ -39,8 +39,8 @@ AnmVm * FUN_00414670(short *param_1)
   local_c[2].currentTimeInScript.current = 1;
   local_c[2].angleVel.x = *(float *)(param_1 + 8);
   if (param_1[0x24] == 0) {
-    Player::FUN_00428700(&g_Player,(float10 *)(param_1 + 2),in_ECX);
-    local_c[2].angleVel.x = (float)(extraout_ST0 + (float10)local_c[2].angleVel.x);
+    fVar4 = Player::FUN_00428700(&g_Player,(float *)(param_1 + 2));
+    local_c[2].angleVel.x = fVar4 + local_c[2].angleVel.x;
   }
   *(short *)(local_c[2].matrix.m[0] + 3) = param_1[0x26];
   local_c[2].matrix.m[0][2] = 0.0;

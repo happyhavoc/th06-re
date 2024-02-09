@@ -1,15 +1,13 @@
 
-/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
-
 void __thiscall Player::FUN_00427770(Player *this)
 
 {
   AnmTimer *pAVar1;
   int local_8;
   
-  _DAT_005a5f8c = 0;
-  EffectManager::FUN_0040ef50((int *)&g_EffectManager,0xc,&(this->position).x,1,0xff4040ff);
-  EffectManager::FUN_0040ef50((int *)&g_EffectManager,6,&(this->position).x,0x10,0xffffffff);
+  BOOL_005a5f8c = 0;
+  EffectManager::FUN_0040ef50(&g_EffectManager,0xc,&this->position,1,0xff4040ff);
+  EffectManager::FUN_0040ef50(&g_EffectManager,6,&this->position,0x10,0xffffffff);
   this->field21_0x9e0 = 2;
   (this->field35_0x75b4).current = 0;
   (this->field35_0x75b4).subFrame = 0.0;

@@ -10,7 +10,7 @@ void Player::FUN_00429bb0(Player *param_1)
   for (local_8 = 0; local_8 < 0x50; local_8 = local_8 + 1) {
     if (bullet->field11_0x14e == 2) {
       if ((bullet->field0_0x0).autoRotate != 0) {
-        fVar1 = FUN_0041e850(bullet->field8_0x13c,3.141593);
+        fVar1 = add_normalize_angle(bullet->field8_0x13c,3.141593);
         (bullet->field0_0x0).rotation.z = 1.570796 - fVar1;
       }
       (bullet->field0_0x0).pos.z = 0.4;

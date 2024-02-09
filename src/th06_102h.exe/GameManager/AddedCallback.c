@@ -140,7 +140,8 @@ ZunResult GameManager::AddedCallback(GameManager *param_1)
                           ((&PTR_s_dummy_004764e8)[param_1->current_stage * 2],
                            (&PTR_s_dummy_004764ec)[param_1->current_stage * 2]);
         if (ZVar4 == ZUN_SUCCESS) {
-          iVar3 = FUN_00407340((&PTR_s_dummy_004764c4)[param_1->current_stage]);
+          iVar3 = FUN_00407340((GameManager *)&g_EclManager,
+                               (&PTR_s_dummy_004764c4)[param_1->current_stage]);
           if (iVar3 == 0) {
             iVar3 = EffectManager::RegisterChain();
             if (iVar3 == 0) {
@@ -151,7 +152,7 @@ ZunResult GameManager::AddedCallback(GameManager *param_1)
                 }
                 if (g_GameManager.demo_mode == 0) {
                   FUN_00424aac(1,g_Stage.stdData + 0x310);
-                  FUN_00424b5d((char *)(g_Stage.stdData + 0x290));
+                  Supervisor::PlayAudio((char *)(g_Stage.stdData + 0x290));
                 }
                 param_1->is_in_retry_menu = 0;
                 param_1->field28_0x1821 = 1;
@@ -206,7 +207,7 @@ ZunResult GameManager::AddedCallback(GameManager *param_1)
   }
   else {
     GameErrorContextLog(&g_GameErrorContext,
-                        "error : 背景デー��の初期化に失敗しました\n");
+                        "error : 背景データの初期化に失敗しました\n");
     ZVar4 = ZUN_ERROR;
   }
   return ZVar4;

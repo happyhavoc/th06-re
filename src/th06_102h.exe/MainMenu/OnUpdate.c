@@ -249,10 +249,10 @@ switchD_004358f7_caseD_2:
       for (local_8 = 0; (int)local_8 < 4; local_8 = local_8 + 1) {
         if (local_8 == param_1->cursor) {
           if ((g_Supervisor.cfg.opts & 1) == 0) {
-            local_c->color = 0xff000000;
+            (local_c->color).color = 0xff000000;
           }
           else {
-            local_c->color = 0xffffffff;
+            (local_c->color).color = 0xffffffff;
           }
           (local_c->pos2).x = -6.0;
           (local_c->pos2).y = -6.0;
@@ -260,10 +260,10 @@ switchD_004358f7_caseD_2:
         }
         else {
           if ((g_Supervisor.cfg.opts & 1) == 0) {
-            local_c->color = 0x60000000;
+            (local_c->color).color = 0x60000000;
           }
           else {
-            local_c->color = 0x60ffffff;
+            (local_c->color).color = 0x60ffffff;
           }
           (local_c->pos2).x = 0.0;
           (local_c->pos2).y = 0.0;
@@ -281,10 +281,10 @@ switchD_004358f7_caseD_2:
       }
       for (local_8 = 4; (int)local_8 < 5; local_8 = local_8 + 1) {
         if ((g_Supervisor.cfg.opts & 1) == 0) {
-          local_c->color = 0xff000000;
+          (local_c->color).color = 0xff000000;
         }
         else {
-          local_c->color = 0xffffffff;
+          (local_c->color).color = 0xffffffff;
         }
         (local_c->pos2).x = -6.0;
         (local_c->pos2).y = -6.0;
@@ -502,10 +502,10 @@ LAB_0043666d:
       local_c->flags = local_c->flags | 1;
       if (local_8 == param_1->cursor) {
         if ((g_Supervisor.cfg.opts & 1) == 0) {
-          local_c->color = 0xff202020;
+          (local_c->color).color = 0xff202020;
         }
         else {
-          local_c->color = 0xffffffff;
+          (local_c->color).color = 0xffffffff;
         }
         (local_c->pos2).x = -6.0;
         (local_c->pos2).y = -6.0;
@@ -513,10 +513,10 @@ LAB_0043666d:
       }
       else {
         if ((g_Supervisor.cfg.opts & 1) == 0) {
-          local_c->color = 0xa0000000;
+          (local_c->color).color = 0xa0000000;
         }
         else {
-          local_c->color = 0xa0d0d0d0;
+          (local_c->color).color = 0xa0d0d0d0;
         }
         (local_c->pos2).x = 0.0;
         (local_c->pos2).y = 0.0;

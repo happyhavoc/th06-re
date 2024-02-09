@@ -31,7 +31,7 @@ undefined4 BulletManager::OnDraw(int param_1)
         local_10[1].pos.z = 0.0;
         local_10[1].color = local_10->color;
         local_10[1].flags = local_10[1].flags | 8;
-        local_10[1].color = local_10[1].color & 0xffffff | 0xff000000;
+        local_10[1].color.color = local_10[1].color.color & 0xffffff | 0xff000000;
         local_10[1].scaleX = ((16.0 - local_10[2].angleVel.y) / 16.0) * (local_10[2].scaleX / 10.0);
         local_10[1].scaleY = local_10[1].scaleX;
         if (local_10[1].scaleY < 0.0 != NAN(local_10[1].scaleY)) {

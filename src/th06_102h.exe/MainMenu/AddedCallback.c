@@ -63,7 +63,7 @@ LAB_0043a520:
   FUN_0042b7dc(uVar2,scoredat);
   if (g_GameManager.demo_mode == 0) {
     if (g_Supervisor.startup_time_for_menu_music == 0) {
-      FUN_00424b5d("bgm/th06_01.mid");
+      Supervisor::PlayAudio("bgm/th06_01.mid");
       ScreenEffect::RegisterChain(0,0x78,0xffffff,0,0);
     }
     else {

@@ -16,7 +16,7 @@ void FUN_00412e50(int param_1)
           (NAN(*(float *)(iVar1 + 0x15c)) || NAN(*(float *)(param_1 + 0xea4)))) {
         *(float *)(iVar1 + 0x15c) = *(float *)(iVar1 + 0x15c) + 0.3;
       }
-      fVar2 = FUN_0041e850(*(float *)(iVar1 + 0x160),0.03141593);
+      fVar2 = add_normalize_angle(*(float *)(iVar1 + 0x160),0.03141593);
       *(float *)(iVar1 + 0x160) = fVar2;
     }
   }

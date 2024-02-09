@@ -51,11 +51,11 @@ void __thiscall AsciiManager::DrawStrings(AsciiManager *this)
         if (local_10->isSelected == 0) {
           (this->vm0).sprite =
                (AnmLoadedSprite *)((int)g_AnmManager + ((byte)*local_14 - 0x15) * 0x38);
-          (this->vm0).color = local_10->color;
+          (this->vm0).color = (D3DCOLORUNION)local_10->color;
         }
         else {
           (this->vm0).sprite = g_AnmManager->sprites + (byte)*local_14 + 0x61;
-          (this->vm0).color = 0xffffffff;
+          (this->vm0).color.color = 0xffffffff;
         }
         AnmManager::FUN_00432ad0(g_AnmManager,&this->vm0);
         (this->vm0).pos.x = fVar1 + (this->vm0).pos.x;

@@ -41,7 +41,8 @@ void __thiscall MusicRoom::FUN_00424ead(void *this)
   if (((g_CurFrameInput & 0x1001) != 0) &&
      ((g_CurFrameInput & 0x1001) != (g_LastFrameInput & 0x1001))) {
     *(undefined4 *)((int)this + 0x14) = *(undefined4 *)((int)this + 0x10);
-    FUN_00424b5d((char *)(*(int *)((int)this + 0x14) * 0x272 + *(int *)((int)this + 0x20)));
+    Supervisor::PlayAudio((char *)(*(int *)((int)this + 0x14) * 0x272 + *(int *)((int)this + 0x20)))
+    ;
     for (local_c = 0; local_c < 0x10; local_c = local_c + 1) {
       puVar4 = local_54;
       for (iVar3 = 0x10; iVar3 != 0; iVar3 = iVar3 + -1) {

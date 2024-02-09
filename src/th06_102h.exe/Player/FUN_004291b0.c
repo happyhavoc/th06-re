@@ -95,9 +95,10 @@ void Player::FUN_004291b0(Player *param_1)
       (local_18->field0_0x0).pos.y = *pfVar7;
       (local_18->field0_0x0).pos.z = (local_18->field1_0x110).z;
       if ((local_18->field12_0x150 != 3) &&
-         (iVar6 = FUN_0041b5e1((local_18->field1_0x110).x,(local_18->field1_0x110).y,
-                               ((local_18->field0_0x0).sprite)->widthPx,
-                               ((local_18->field0_0x0).sprite)->heightPx), iVar6 == 0)) {
+         (iVar6 = GameManager::FUN_0041b5e1
+                            ((local_18->field1_0x110).x,(local_18->field1_0x110).y,
+                             ((local_18->field0_0x0).sprite)->widthPx,
+                             ((local_18->field0_0x0).sprite)->heightPx), iVar6 == 0)) {
         local_18->field11_0x14e = 0;
       }
       iVar6 = AnmManager::ExecuteScript(g_AnmManager,&local_18->field0_0x0);

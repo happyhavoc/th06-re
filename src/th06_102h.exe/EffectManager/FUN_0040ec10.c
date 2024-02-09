@@ -1,27 +1,34 @@
 
-undefined4 EffectManager::FUN_0040ec10(int param_1)
+int EffectManager::FUN_0040ec10(Effect *param_1)
 
 {
-  float10 fVar1;
+  float fVar1;
   float fVar2;
+  float fVar3;
+  float fVar4;
+  float10 fVar5;
+  float fVar6;
   
-  if ((*(int *)(param_1 + 0x16c) == 0) && (*(int *)(param_1 + 0x16c) != *(int *)(param_1 + 0x164)))
-  {
-    *(undefined4 *)(param_1 + 0x134) = *(undefined4 *)(param_1 + 0x110);
-    *(undefined4 *)(param_1 + 0x138) = *(undefined4 *)(param_1 + 0x114);
-    *(undefined4 *)(param_1 + 0x13c) = *(undefined4 *)(param_1 + 0x118);
-    fVar2 = Rng::GetRandomF32ZeroToOne(&g_Rng);
-    fVar2 = fVar2 * 6.283185 - 3.141593;
-    fVar1 = (float10)FUN_0045bda4((double)fVar2);
-    *(float *)(param_1 + 0x140) = (float)fVar1;
-    fVar1 = (float10)FUN_0045bcf4((double)fVar2);
-    *(float *)(param_1 + 0x144) = (float)fVar1;
-    *(undefined4 *)(param_1 + 0x148) = 0;
+  if (((param_1->timer).current == 0) && ((param_1->timer).current != (param_1->timer).previous)) {
+    (param_1->field8_0x134).x = (param_1->pos1).x;
+    (param_1->field8_0x134).y = (param_1->pos1).y;
+    (param_1->field8_0x134).z = (param_1->pos1).z;
+    fVar6 = Rng::GetRandomF32ZeroToOne(&g_Rng);
+    fVar6 = fVar6 * 6.283185 - 3.141593;
+    fVar5 = (float10)FUN_0045bda4((double)fVar6);
+    (param_1->pos2).x = (float)fVar5;
+    fVar5 = (float10)FUN_0045bcf4((double)fVar6);
+    (param_1->pos2).y = (float)fVar5;
+    (param_1->pos2).z = 0.0;
   }
-  fVar2 = 256.0 - (((float)*(int *)(param_1 + 0x16c) + *(float *)(param_1 + 0x168)) * 256.0) / 60.0;
-  *(float *)(param_1 + 0x110) = fVar2 * *(float *)(param_1 + 0x140) + *(float *)(param_1 + 0x134);
-  *(float *)(param_1 + 0x114) = fVar2 * *(float *)(param_1 + 0x144) + *(float *)(param_1 + 0x138);
-  *(float *)(param_1 + 0x118) = fVar2 * *(float *)(param_1 + 0x148) + *(float *)(param_1 + 0x13c);
+  fVar4 = 256.0 - (((float)(param_1->timer).current + (param_1->timer).subFrame) * 256.0) / 60.0;
+  fVar6 = (param_1->pos2).z;
+  fVar1 = (param_1->pos2).y;
+  fVar2 = (param_1->field8_0x134).z;
+  fVar3 = (param_1->field8_0x134).y;
+  (param_1->pos1).x = fVar4 * (param_1->pos2).x + (param_1->field8_0x134).x;
+  (param_1->pos1).y = fVar4 * fVar1 + fVar3;
+  (param_1->pos1).z = fVar4 * fVar6 + fVar2;
   return 1;
 }
 

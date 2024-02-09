@@ -1,32 +1,36 @@
 
-void FUN_0040ad10(int param_1,int param_2)
+void FUN_0040ad10(Enemy *param_1,int param_2)
 
 {
   float fVar1;
   float fVar2;
   float fVar3;
-  float *pfVar4;
+  float fVar4;
+  float fVar5;
+  float *pfVar6;
   
-  pfVar4 = FUN_0040b380(param_1,(float *)(param_2 + 0x10),(undefined4 *)0x0);
-  fVar1 = *pfVar4;
-  pfVar4 = FUN_0040b380(param_1,(float *)(param_2 + 0x14),(undefined4 *)0x0);
-  fVar2 = *pfVar4;
-  pfVar4 = FUN_0040b380(param_1,(float *)(param_2 + 0x18),(undefined4 *)0x0);
-  fVar3 = *pfVar4;
-  *(float *)(param_1 + 0xcac) = fVar1 - *(float *)(param_1 + 0xc6c);
-  *(float *)(param_1 + 0xcb0) = fVar2 - *(float *)(param_1 + 0xc70);
-  *(float *)(param_1 + 0xcb4) = fVar3 - *(float *)(param_1 + 0xc74);
-  *(undefined4 *)(param_1 + 0xcb8) = *(undefined4 *)(param_1 + 0xc6c);
-  *(undefined4 *)(param_1 + 0xcbc) = *(undefined4 *)(param_1 + 0xc70);
-  *(undefined4 *)(param_1 + 0xcc0) = *(undefined4 *)(param_1 + 0xc74);
-  *(undefined4 *)(param_1 + 0xcd0) = *(undefined4 *)(param_2 + 0xc);
-  *(undefined4 *)(param_1 + 0xccc) = *(undefined4 *)(param_1 + 0xcd0);
-  *(undefined4 *)(param_1 + 0xcc8) = 0;
-  *(undefined4 *)(param_1 + 0xcc4) = 0xfffffc19;
-  *(byte *)(param_1 + 0xe50) = *(byte *)(param_1 + 0xe50) & 0xfc | 2;
-  *(undefined4 *)(param_1 + 0xc84) = 0;
-  *(undefined4 *)(param_1 + 0xc88) = 0;
-  *(undefined4 *)(param_1 + 0xc8c) = 0;
+  pfVar6 = Enemy::get_var_float(param_1,(float *)(param_2 + 0x10),(undefined4 *)0x0);
+  fVar3 = *pfVar6;
+  pfVar6 = Enemy::get_var_float(param_1,(float *)(param_2 + 0x14),(undefined4 *)0x0);
+  fVar4 = *pfVar6;
+  pfVar6 = Enemy::get_var_float(param_1,(float *)(param_2 + 0x18),(undefined4 *)0x0);
+  fVar5 = *pfVar6;
+  fVar1 = (param_1->position).z;
+  fVar2 = (param_1->position).y;
+  (param_1->move_interp).x = fVar3 - (param_1->position).x;
+  (param_1->move_interp).y = fVar4 - fVar2;
+  (param_1->move_interp).z = fVar5 - fVar1;
+  (param_1->move_interp_start_pos).x = (param_1->position).x;
+  (param_1->move_interp_start_pos).y = (param_1->position).y;
+  (param_1->move_interp_start_pos).z = (param_1->position).z;
+  param_1->move_interp_start_time = *(int *)(param_2 + 0xc);
+  (param_1->move_interp_timer).current = param_1->move_interp_start_time;
+  (param_1->move_interp_timer).subFrame = 0.0;
+  (param_1->move_interp_timer).previous = -999;
+  param_1->flags1 = param_1->flags1 & 0xfc | 2;
+  (param_1->axis_speed).x = 0.0;
+  (param_1->axis_speed).y = 0.0;
+  (param_1->axis_speed).z = 0.0;
   return;
 }
 

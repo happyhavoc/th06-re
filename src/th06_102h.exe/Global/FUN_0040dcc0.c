@@ -22,7 +22,7 @@ void FUN_0040dcc0(int param_1)
         *(float *)(param_1 + 0xd04) = (float)fVar3 * local_24 + *(float *)(iVar2 + 0x220);
         *(float *)(param_1 + 0xd08) = (float)fVar4 * local_24 + fVar1;
         *(undefined4 *)(param_1 + 0xd0c) = 0;
-        FUN_004145c0(param_1 + 0xd00);
+        BulletManager::FUN_004145c0(&g_BulletManager,(EnemyBulletShooter *)(param_1 + 0xd00));
       }
       *(int *)(param_1 + 0x9b0) = *(int *)(param_1 + 0x9b0) + 1;
     }

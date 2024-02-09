@@ -1,19 +1,21 @@
 
-undefined4 EffectManager::OnDraw(int param_1)
+/* WARNING: Unknown calling convention -- yet parameter storage is locked */
+
+undefined4 EffectManager::OnDraw(EffectManager *param_1)
 
 {
   int local_c;
-  AnmVm *local_8;
+  Effect *local_8;
   
-  local_8 = (AnmVm *)(param_1 + 8);
+  local_8 = param_1->effects;
   for (local_c = 0; local_c < 0x200; local_c = local_c + 1) {
-    if (*(char *)(local_8[1].matrix.m[2] + 3) != '\0') {
-      (local_8->pos).x = local_8[1].rotation.x;
-      (local_8->pos).y = local_8[1].rotation.y;
-      (local_8->pos).z = local_8[1].rotation.z;
-      AnmManager::FUN_00433150(g_AnmManager,local_8);
+    if (local_8->in_use_flag != 0) {
+      (local_8->vm).pos.x = (local_8->pos1).x;
+      (local_8->vm).pos.y = (local_8->pos1).y;
+      (local_8->vm).pos.z = (local_8->pos1).z;
+      AnmManager::FUN_00433150(g_AnmManager,&local_8->vm);
     }
-    local_8 = (AnmVm *)(local_8[1].matrix.m + 3);
+    local_8 = local_8 + 1;
   }
   return 1;
 }

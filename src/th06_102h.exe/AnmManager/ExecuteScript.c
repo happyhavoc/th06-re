@@ -7,13 +7,13 @@ int __thiscall AnmManager::ExecuteScript(AnmManager *this,AnmVm *vm)
   ushort uVar3;
   uint uVar4;
   float fVar5;
-  undefined local_120;
+  byte local_120;
   int local_e0;
   float local_3c;
   int local_38;
   long local_34;
   float local_30;
-  D3DCOLOR local_2c;
+  D3DCOLORUNION local_2c;
   D3DCOLOR local_28;
   AnmRawInstr *local_24;
   uint *local_20;
@@ -71,10 +71,10 @@ LAB_00433998:
     vm->scaleY = (float)local_8->args[1];
     break;
   case AnmOpcode_SetAlpha:
-    *(char *)((int)&vm->color + 3) = (char)local_8->args[0];
+    (vm->color).bytes[3] = (byte)local_8->args[0];
     break;
   case AnmOpcode_SetColor:
-    vm->color = vm->color & 0xff000000 | local_8->args[0] & 0xffffff;
+    (vm->color).color = (vm->color).color & 0xff000000 | local_8->args[0] & 0xffffff;
     break;
   case AnmOpcode_5:
     goto switchD_004339dd_caseD_5;
@@ -106,8 +106,8 @@ LAB_00433998:
     break;
   case AnmOpcode_12:
     local_20 = local_8->args;
-    vm->alphaInterpInitial = vm->color;
-    vm->alphaInterpFinal = vm->color & 0xffffff | *local_20 << 0x18;
+    vm->alphaInterpInitial = (D3DCOLOR)vm->color;
+    vm->alphaInterpFinal = (vm->color).color & 0xffffff | *local_20 << 0x18;
     vm->alphaInterpEndTime = *(ushort *)(local_8->args + 1);
     (vm->alphaInterpTime).current = 0;
     (vm->alphaInterpTime).subFrame = 0.0;
@@ -243,20 +243,20 @@ switchD_004339dd_caseD_15:
 LAB_00434338:
     fVar5 = (vm->angleVel).x;
     if (NAN(fVar5) == (fVar5 == 0.0)) {
-      fVar5 = FUN_0041e850((vm->rotation).x,
-                           g_Supervisor.effectiveFramerateMultiplier * (vm->angleVel).x);
+      fVar5 = add_normalize_angle((vm->rotation).x,
+                                  g_Supervisor.effectiveFramerateMultiplier * (vm->angleVel).x);
       (vm->rotation).x = fVar5;
     }
     fVar5 = (vm->angleVel).y;
     if (NAN(fVar5) == (fVar5 == 0.0)) {
-      fVar5 = FUN_0041e850((vm->rotation).y,
-                           g_Supervisor.effectiveFramerateMultiplier * (vm->angleVel).y);
+      fVar5 = add_normalize_angle((vm->rotation).y,
+                                  g_Supervisor.effectiveFramerateMultiplier * (vm->angleVel).y);
       (vm->rotation).y = fVar5;
     }
     fVar5 = (vm->angleVel).z;
     if (NAN(fVar5) == (fVar5 == 0.0)) {
-      fVar5 = FUN_0041e850((vm->rotation).z,
-                           g_Supervisor.effectiveFramerateMultiplier * (vm->angleVel).z);
+      fVar5 = add_normalize_angle((vm->rotation).z,
+                                  g_Supervisor.effectiveFramerateMultiplier * (vm->angleVel).z);
       (vm->rotation).z = fVar5;
     }
     if ((short)vm->scaleInterpEndTime < 1) {
@@ -293,7 +293,7 @@ LAB_00434338:
       (vm->alphaInterpTime).previous = (vm->alphaInterpTime).current;
       Supervisor::TickTimer
                 (&g_Supervisor,&(vm->alphaInterpTime).current,&(vm->alphaInterpTime).subFrame);
-      local_2c = vm->alphaInterpInitial;
+      local_2c.color = vm->alphaInterpInitial;
       local_28 = vm->alphaInterpFinal;
       local_30 = ((float)(vm->alphaInterpTime).current + (vm->alphaInterpTime).subFrame) /
                  (float)(int)(short)vm->alphaInterpEndTime;
@@ -302,18 +302,18 @@ LAB_00434338:
       }
       for (local_38 = 0; local_38 < 4; local_38 = local_38 + 1) {
         local_34 = __ftol2((double)(((float)(uint)*(byte *)((int)&local_28 + local_38) -
-                                    (float)(uint)*(byte *)((int)&local_2c + local_38)) * local_30 +
-                                   (float)(uint)*(byte *)((int)&local_2c + local_38)));
+                                    (float)(uint)local_2c.bytes[local_38]) * local_30 +
+                                   (float)(uint)local_2c.bytes[local_38]));
         if (local_34 < 0) {
           local_34 = 0;
         }
         if (local_34 < 0x100) {
-          local_120 = (undefined)local_34;
+          local_120 = (byte)local_34;
         }
         else {
           local_120 = 0xff;
         }
-        *(undefined *)((int)&local_2c + local_38) = local_120;
+        local_2c.bytes[local_38] = local_120;
       }
       vm->color = local_2c;
       if ((int)(short)vm->alphaInterpEndTime <= (vm->alphaInterpTime).current) {

@@ -17,7 +17,7 @@ int __thiscall AnmManager::FUN_00433150(AnmManager *this,AnmVm *vm)
   else if ((vm->flags >> 1 & 1) == 0) {
     iVar2 = -1;
   }
-  else if (vm->color == 0) {
+  else if ((vm->color).color == 0) {
     iVar2 = -1;
   }
   else {

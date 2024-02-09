@@ -1,5 +1,5 @@
 
-int Stage::OnUpdate(Stage *arg)
+ChainCallbackResult Stage::OnUpdate(Stage *arg)
 
 {
   float fVar1;
@@ -127,15 +127,15 @@ switchD_00403892_caseD_6:
                       (&g_Supervisor,&(arg->scriptTime).current,&(arg->scriptTime).subFrame);
           }
           FUN_00404860(arg);
-          if (arg->spellcardEclRelated0 < 1) {
-            return 1;
+          if ((int)arg->spellcardState < 1) {
+            return CHAIN_CALLBACK_RESULT_CONTINUE;
           }
-          if (arg->spellcardEclRelated1 == 0x3c) {
-            arg->spellcardEclRelated0 = arg->spellcardEclRelated0 + 1;
+          if (arg->ticksSinceSpellcardStarted == 0x3c) {
+            arg->spellcardState = arg->spellcardState + RUNNING;
           }
-          arg->spellcardEclRelated1 = arg->spellcardEclRelated1 + 1;
+          arg->ticksSinceSpellcardStarted = arg->ticksSinceSpellcardStarted + 1;
           AnmManager::ExecuteScript(g_AnmManager,&arg->field20_0x88);
-          return 1;
+          return CHAIN_CALLBACK_RESULT_CONTINUE;
         case 1:
           if ((arg->scriptTime).current < local_c->field0_0x0) goto switchD_00403892_caseD_6;
           (arg->skyFog).color = *(D3DCOLOR *)&local_c->field_0x8;
@@ -190,11 +190,11 @@ switchD_00403892_caseD_6:
         }
       } while( true );
     }
-    *(undefined *)((int)&(arg->field20_0x88).color + 3) = 0x60;
-    *(undefined *)((int)&(arg->field20_0x88).color + 2) = 0x80;
-    *(undefined *)((int)&(arg->field20_0x88).color + 1) = 0x30;
-    *(undefined *)&(arg->field20_0x88).color = 0x30;
+    (arg->field20_0x88).color.bytes[3] = 0x60;
+    (arg->field20_0x88).color.bytes[2] = 0x80;
+    (arg->field20_0x88).color.bytes[1] = 0x30;
+    (arg->field20_0x88).color.bytes[0] = 0x30;
   }
-  return 1;
+  return CHAIN_CALLBACK_RESULT_CONTINUE;
 }
 

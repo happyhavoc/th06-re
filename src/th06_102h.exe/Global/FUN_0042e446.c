@@ -130,7 +130,9 @@ void FUN_0042e446(int param_1)
           g_AsciiManager.color = 0xffffc0c0;
         }
         AsciiManager::AddFormatText
-                  (&g_AsciiManager,&local_40,(char *)&PTR_DAT_0046bdd0,local_14 + 1);
+                  (&g_AsciiManager,&local_40,
+                   (char *)&PTR_g_BulletManager_bullets_421__vms_vm0_posInterpFinal_x_1_0046bdd0,
+                   local_14 + 1);
         local_40.x = local_40.x + 36.0;
         if (*(byte *)(*(int *)(local_2c + 8) + 0x12) < 7) {
           AsciiManager::AddFormatText

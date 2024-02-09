@@ -19,7 +19,11 @@ undefined4 __fastcall FUN_0042d35a(int param_1)
     local_14.z = *(float *)(param_1 + 0x2828);
     local_14.x = *(float *)(param_1 + 0x2820) + 224.0;
     local_14.y = *(float *)(param_1 + 0x2824) + 32.0;
-    AsciiManager::AddFormatText(&g_AsciiManager,&local_14,(char *)&PTR_DAT_0046bcc0);
+    AsciiManager::AddFormatText
+              (&g_AsciiManager,&local_14,
+               (char *)&
+                       PTR_g_BulletManager_bullets_422__vms_spawn_effect_short_alphaInterpTime_subFrame_1_0046bcc0
+              );
     local_14.y = local_14.y + 22.0;
     AsciiManager::AddString
               (&g_AsciiManager,&local_14,(&PTR_s__Easy_00478504)[g_GameManager.difficulty]);
@@ -32,13 +36,29 @@ undefined4 __fastcall FUN_0042d35a(int param_1)
       AsciiManager::AddFormatText(&g_AsciiManager,&local_14,"      100%%");
     }
     local_14.y = local_14.y + 22.0;
-    AsciiManager::AddFormatText(&g_AsciiManager,&local_14,(char *)&PTR_DAT_0046bcc0);
+    AsciiManager::AddFormatText
+              (&g_AsciiManager,&local_14,
+               (char *)&
+                       PTR_g_BulletManager_bullets_422__vms_spawn_effect_short_alphaInterpTime_subFrame_1_0046bcc0
+              );
     local_14.y = local_14.y + 22.0;
-    AsciiManager::AddFormatText(&g_AsciiManager,&local_14,(char *)&PTR_DAT_0046bcc0);
+    AsciiManager::AddFormatText
+              (&g_AsciiManager,&local_14,
+               (char *)&
+                       PTR_g_BulletManager_bullets_422__vms_spawn_effect_short_alphaInterpTime_subFrame_1_0046bcc0
+              );
     local_14.y = local_14.y + 22.0;
-    AsciiManager::AddFormatText(&g_AsciiManager,&local_14,(char *)&PTR_DAT_0046bcc0);
+    AsciiManager::AddFormatText
+              (&g_AsciiManager,&local_14,
+               (char *)&
+                       PTR_g_BulletManager_bullets_422__vms_spawn_effect_short_alphaInterpTime_subFrame_1_0046bcc0
+              );
     local_14.y = local_14.y + 22.0;
-    AsciiManager::AddFormatText(&g_AsciiManager,&local_14,(char *)&PTR_DAT_0046bcc0);
+    AsciiManager::AddFormatText
+              (&g_AsciiManager,&local_14,
+               (char *)&
+                       PTR_g_BulletManager_bullets_422__vms_spawn_effect_short_alphaInterpTime_subFrame_1_0046bcc0
+              );
     local_20 = g_Supervisor.unk1b4 / g_Supervisor.unk1b8 - 0.5;
     local_20 = local_20 + local_20;
     if (local_20 < 0.0 == NAN(local_20)) {

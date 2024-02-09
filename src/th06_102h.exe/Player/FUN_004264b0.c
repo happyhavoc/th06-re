@@ -13,9 +13,7 @@ int __thiscall Player::FUN_004264b0(Player *this,float *param_1,float *param_2,u
   int iVar5;
   int local_d4;
   short local_80;
-  float local_40;
-  float local_3c;
-  float local_38;
+  D3DXVECTOR3 local_40;
   int local_34;
   float local_30;
   float local_2c;
@@ -40,12 +38,12 @@ int __thiscall Player::FUN_004264b0(Player *this,float *param_1,float *param_2,u
     if ((*(short *)((int)local_8[1].matrix.m[0] + 2) != 0) &&
        ((*(short *)((int)local_8[1].matrix.m[0] + 2) == 1 ||
         (*(short *)(local_8[1].matrix.m[0] + 1) == 2)))) {
-      local_40 = local_8[1].rotation.x - local_8[1].angleVel.x / 2.0;
-      local_3c = local_8[1].rotation.y - local_8[1].angleVel.y / 2.0;
+      local_40.x = local_8[1].rotation.x - local_8[1].angleVel.x / 2.0;
+      local_40.y = local_8[1].rotation.y - local_8[1].angleVel.y / 2.0;
       local_24 = local_8[1].angleVel.x / 2.0 + local_8[1].rotation.x;
       local_20 = local_8[1].angleVel.y / 2.0 + local_8[1].rotation.y;
-      if ((local_3c <= local_14) &&
-         (((local_40 <= local_18 && (local_20 < local_2c == (NAN(local_20) || NAN(local_2c)))) &&
+      if ((local_40.y <= local_14) &&
+         (((local_40.x <= local_18 && (local_20 < local_2c == (NAN(local_20) || NAN(local_2c)))) &&
           (local_24 < local_30 == (NAN(local_24) || NAN(local_30)))))) {
         if ((this->inner).field0_0x0 == 0) {
           local_d4 = (int)*(short *)local_8[1].matrix.m[0];
@@ -81,18 +79,17 @@ int __thiscall Player::FUN_004264b0(Player *this,float *param_1,float *param_2,u
             local_8[1].angleVel.y = 48.0;
           }
           if (local_8[1].currentTimeInScript.current % 6 == 0) {
-            EffectManager::FUN_0040ef50
-                      ((int *)&g_EffectManager,5,(float *)(local_8 + 1),1,0xffffffff);
+            EffectManager::FUN_0040ef50(&g_EffectManager,5,&local_8[1].rotation,1,0xffffffff);
           }
         }
         this_00 = g_AnmManager;
         if (*(short *)(local_8[1].matrix.m[0] + 1) == 3) {
           this->field25_0x9e4 = this->field25_0x9e4 + 1;
           if ((this->field25_0x9e4 & 7) == 0) {
-            local_3c = param_1[1];
-            local_38 = param_1[2];
-            local_40 = local_8[1].rotation.x;
-            EffectManager::FUN_0040ef50((int *)&g_EffectManager,5,&local_40,1,0xffffffff);
+            local_40.y = param_1[1];
+            local_40.z = param_1[2];
+            local_40.x = local_8[1].rotation.x;
+            EffectManager::FUN_0040ef50(&g_EffectManager,5,&local_40,1,0xffffffff);
           }
         }
         else {
@@ -101,8 +98,7 @@ int __thiscall Player::FUN_004264b0(Player *this,float *param_1,float *param_2,u
             local_80 = sVar4 + 0x20;
             local_8->anmFileIndex = local_80;
             AnmManager::SetAndExecuteScript(this_00,local_8,this_00->scripts[sVar4 + 0x20]);
-            EffectManager::FUN_0040ef50
-                      ((int *)&g_EffectManager,5,(float *)(local_8 + 1),1,0xffffffff);
+            EffectManager::FUN_0040ef50(&g_EffectManager,5,&local_8[1].rotation,1,0xffffffff);
             local_8[1].rotation.z = 0.1;
           }
           *(short *)((int)local_8[1].matrix.m[0] + 2) = 2;
@@ -118,21 +114,21 @@ int __thiscall Player::FUN_004264b0(Player *this,float *param_1,float *param_2,u
     if (fVar3 < 0.0 == (fVar3 == 0.0)) {
       pDVar1 = this->field12_0x638 + local_c;
       pDVar2 = this->field11_0x4b8 + local_c;
-      local_38 = pDVar2->z - pDVar1->z * 0.5;
-      local_3c = pDVar2->y - pDVar1->y * 0.5;
-      local_40 = pDVar2->x - pDVar1->x * 0.5;
+      local_40.z = pDVar2->z - pDVar1->z * 0.5;
+      local_40.y = pDVar2->y - pDVar1->y * 0.5;
+      local_40.x = pDVar2->x - pDVar1->x * 0.5;
       pDVar1 = this->field12_0x638 + local_c;
       pDVar2 = this->field11_0x4b8 + local_c;
       local_1c = pDVar1->z * 0.5 + pDVar2->z;
       local_20 = pDVar1->y * 0.5 + pDVar2->y;
       local_24 = pDVar1->x * 0.5 + pDVar2->x;
-      if (((local_40 <= local_18) && (local_24 < local_30 == (NAN(local_24) || NAN(local_30)))) &&
-         ((local_3c <= local_14 && (local_20 < local_2c == (NAN(local_20) || NAN(local_2c)))))) {
+      if (((local_40.x <= local_18) && (local_24 < local_30 == (NAN(local_24) || NAN(local_30)))) &&
+         ((local_40.y <= local_14 && (local_20 < local_2c == (NAN(local_20) || NAN(local_2c)))))) {
         local_34 = local_34 + this->field13_0x7b8[local_c];
         this->field14_0x838[local_c] = this->field14_0x838[local_c] + this->field13_0x7b8[local_c];
         this->field25_0x9e4 = this->field25_0x9e4 + 1;
         if ((this->field25_0x9e4 & 3) == 0) {
-          EffectManager::FUN_0040ef50((int *)&g_EffectManager,3,param_1,1,0xffffffff);
+          EffectManager::FUN_0040ef50(&g_EffectManager,3,(D3DXVECTOR3 *)param_1,1,0xffffffff);
         }
         if (((this->inner).field0_0x0 != 0) && (param_3 != (undefined4 *)0x0)) {
           *param_3 = 1;

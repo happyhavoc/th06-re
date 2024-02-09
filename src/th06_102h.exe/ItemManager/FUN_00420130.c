@@ -1,16 +1,16 @@
 
-void __fastcall ItemManager::FUN_00420130(int param_1)
+void __thiscall ItemManager::FUN_00420130(void *this)
 
 {
-  int local_c;
+  void *local_c;
   int local_8;
   
-  local_c = param_1;
+  local_c = this;
   for (local_8 = 0; local_8 < 0x200; local_8 = local_8 + 1) {
-    if (*(char *)(local_c + 0x141) != '\0') {
-      *(undefined *)(local_c + 0x143) = 1;
+    if (*(char *)((int)local_c + 0x141) != '\0') {
+      *(undefined *)((int)local_c + 0x143) = 1;
     }
-    local_c = local_c + 0x144;
+    local_c = (void *)((int)local_c + 0x144);
   }
   return;
 }

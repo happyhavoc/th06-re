@@ -1,13 +1,15 @@
 
-undefined4 EnemyManager::OnUpdate(int param_1)
+/* WARNING: Unknown calling convention -- yet parameter storage is locked */
+
+undefined4 EnemyManager::OnUpdate(EnemyManager *param_1)
 
 {
   float fVar1;
-  bool bVar2;
+  int iVar2;
   int iVar3;
-  undefined3 extraout_var;
-  uint uVar4;
-  AnmVm *local_28;
+  BOOL BVar4;
+  uint uVar5;
+  Enemy *local_28;
   int local_20;
   float local_1c;
   float local_18;
@@ -18,78 +20,80 @@ undefined4 EnemyManager::OnUpdate(int param_1)
   
   local_8 = 0;
   FUN_00411530(param_1);
-  local_28 = (AnmVm *)(param_1 + 0xed0);
-  *(undefined4 *)(param_1 + 0xee5bc) = 0;
+  local_28 = param_1->enemies;
+  param_1->enemy_count_real = 0;
   local_10 = 0;
   do {
     if (0xff < (int)local_10) {
-      *(undefined4 *)(param_1 + 0xee5e0) = *(undefined4 *)(param_1 + 0xee5e8);
-      Supervisor::TickTimer(&g_Supervisor,(int *)(param_1 + 0xee5e8),(float *)(param_1 + 0xee5e4));
+      (param_1->timeline_time).previous = (param_1->timeline_time).current;
+      Supervisor::TickTimer
+                (&g_Supervisor,&(param_1->timeline_time).current,&(param_1->timeline_time).subFrame)
+      ;
       return 1;
     }
-    if (-1 < *(char *)&local_28[0xd].flags) goto LAB_00412416;
-    *(int *)(param_1 + 0xee5bc) = *(int *)(param_1 + 0xee5bc) + 1;
-    FUN_00413380();
-    FUN_00412240();
-    if (((*(byte *)((int)&local_28[0xd].flags + 1) >> 2 & 1) == 0) &&
-       (iVar3 = FUN_0041b5e1(local_28[0xb].currentInstruction,local_28[0xb].sprite,
-                             local_28->sprite->widthPx,local_28->sprite->heightPx), iVar3 != 0)) {
-      *(byte *)((int)&local_28[0xd].flags + 1) = *(byte *)((int)&local_28[0xd].flags + 1) | 4;
+    if (-1 < (char)local_28->flags1) goto LAB_00412416;
+    param_1->enemy_count_real = param_1->enemy_count_real + 1;
+    Enemy::FUN_00413380(local_28);
+    Enemy::FUN_00412240(local_28);
+    if (((local_28->flags2 >> 2 & 1) == 0) &&
+       (iVar2 = GameManager::FUN_0041b5e1
+                          ((local_28->position).x,(local_28->position).y,
+                           ((local_28->primary_vm).sprite)->widthPx,
+                           ((local_28->primary_vm).sprite)->heightPx), iVar2 != 0)) {
+      local_28->flags2 = local_28->flags2 | 4;
     }
-    if (((*(byte *)((int)&local_28[0xd].flags + 1) >> 2 & 1) == 1) &&
-       (iVar3 = FUN_0041b5e1(local_28[0xb].currentInstruction,local_28[0xb].sprite,
-                             local_28->sprite->widthPx,local_28->sprite->heightPx), iVar3 == 0)) {
-      *(byte *)&local_28[0xd].flags = *(byte *)&local_28[0xd].flags & 0x7f;
-      FUN_004121b0();
+    if (((local_28->flags2 >> 2 & 1) == 1) &&
+       (iVar2 = GameManager::FUN_0041b5e1
+                          ((local_28->position).x,(local_28->position).y,
+                           ((local_28->primary_vm).sprite)->widthPx,
+                           ((local_28->primary_vm).sprite)->heightPx), iVar2 == 0)) {
+      local_28->flags1 = local_28->flags1 & 0x7f;
+      Enemy::FUN_004121b0(local_28);
       goto LAB_00412416;
     }
-    if (-1 < (int)local_28[0xd].posInterpFinal.x) {
-      FUN_00411da0((int)local_28);
+    if (-1 < local_28->life_callback_threshold) {
+      Enemy::FUN_00411da0(local_28);
     }
-    if (-1 < (int)local_28[0xd].posInterpFinal.z) {
-      FUN_00411f40((int)local_28);
+    if (-1 < local_28->timer_callback_threshold) {
+      Enemy::FUN_00411f40(local_28);
     }
-    iVar3 = EclManager::run_ecl(local_28);
-    if (iVar3 == -1) {
-      *(byte *)&local_28[0xd].flags = *(byte *)&local_28[0xd].flags & 0x7f;
-      FUN_004121b0();
+    iVar2 = EclManager::run_ecl(local_28);
+    if (iVar2 == -1) {
+      local_28->flags1 = local_28->flags1 & 0x7f;
+      Enemy::FUN_004121b0(local_28);
       goto LAB_00412416;
     }
-    FUN_00412240();
-    local_28->color = (D3DCOLOR)local_28[0xc].matrix.m[0][0];
-    AnmManager::ExecuteScript(g_AnmManager,local_28);
-    local_28[0xc].matrix.m[0][0] = (float)local_28->color;
+    Enemy::FUN_00412240(local_28);
+    (local_28->primary_vm).color = (D3DCOLORUNION)local_28->field31_0xcfc;
+    AnmManager::ExecuteScript(g_AnmManager,&local_28->primary_vm);
+    local_28->field31_0xcfc = (D3DCOLOR)(local_28->primary_vm).color;
     for (local_20 = 0; local_20 < 8; local_20 = local_20 + 1) {
-      if ((-1 < local_28[local_20 + 1].anmFileIndex) &&
-         (iVar3 = AnmManager::ExecuteScript(g_AnmManager,local_28 + local_20 + 1), iVar3 != 0)) {
-        local_28[local_20 + 1].anmFileIndex = -1;
+      if ((-1 < local_28->vms[local_20].anmFileIndex) &&
+         (iVar2 = AnmManager::ExecuteScript(g_AnmManager,local_28->vms + local_20), iVar2 != 0)) {
+        local_28->vms[local_20].anmFileIndex = -1;
       }
     }
     local_8 = 0;
-    if (((*(byte *)((int)&local_28[0xd].flags + 1) >> 2 & 1) == 0) ||
-       ((*(byte *)((int)&local_28[0xd].flags + 2) >> 3 & 1) != 0)) goto LAB_00412dbc;
-    fVar1 = local_28[0xc].scaleInterpFinalX;
-    if (((*(byte *)((int)&local_28[0xd].flags + 1) >> 1 & 1) != 0) &&
-       ((*(byte *)((int)&local_28[0xd].flags + 1) & 1) != 0)) {
-      local_14 = local_28[0xb].posInterpInitial.y * 0.6666667;
-      local_18 = local_28[0xb].posInterpInitial.x * 0.6666667;
-      local_1c = (float)local_28[0xb].alphaInterpFinal * 0.6666667;
-      iVar3 = Player::CalcKillBoxCollision
-                        (&g_Player,(float *)&local_28[0xb].currentInstruction,&local_1c);
-      if (((iVar3 == 1) && ((*(byte *)((int)&local_28[0xd].flags + 1) & 1) != 0)) &&
-         ((*(byte *)((int)&local_28[0xd].flags + 1) >> 3 & 1) == 0)) {
-        local_28[0xc].scaleInterpFinalX = (float)((int)local_28[0xc].scaleInterpFinalX + -10);
+    if (((local_28->flags2 >> 2 & 1) == 0) || ((local_28->flags3 >> 3 & 1) != 0)) goto LAB_00412dbc;
+    iVar2 = local_28->life;
+    if (((local_28->flags2 >> 1 & 1) != 0) && ((local_28->flags2 & 1) != 0)) {
+      local_14 = (local_28->hitbox_dimensions).z * 0.6666667;
+      local_18 = (local_28->hitbox_dimensions).y * 0.6666667;
+      local_1c = (local_28->hitbox_dimensions).x * 0.6666667;
+      iVar3 = Player::CalcKillBoxCollision(&g_Player,&(local_28->position).x,&local_1c);
+      if (((iVar3 == 1) && ((local_28->flags2 & 1) != 0)) && ((local_28->flags2 >> 3 & 1) == 0)) {
+        local_28->life = local_28->life + -10;
       }
     }
-    if ((*(byte *)((int)&local_28[0xd].flags + 1) & 1) != 0) {
+    if ((local_28->flags2 & 1) != 0) {
       local_c = Player::FUN_004264b0
-                          (&g_Player,(float *)&local_28[0xb].currentInstruction,
-                           (float *)&local_28[0xb].alphaInterpFinal,&local_8);
+                          (&g_Player,&(local_28->position).x,&(local_28->hitbox_dimensions).x,
+                           &local_8);
       if (0x45 < local_c) {
         local_c = 0x46;
       }
       g_GameManager.score = (local_c / 5) * 10 + g_GameManager.score;
-      if (*(int *)(param_1 + 0xee5c8) != 0) {
+      if (param_1->spellcard_capture != 0) {
         if (local_8 == 0) {
           if (local_c < 8) {
             if (local_c != 0) {
@@ -100,7 +104,7 @@ undefined4 EnemyManager::OnUpdate(int param_1)
             local_c = local_c / 7;
           }
         }
-        else if (*(int *)(param_1 + 0xee5d4) == 0) {
+        else if (*(int *)&param_1->field_0xee5d4 == 0) {
           local_c = 0;
         }
         else if (local_c < 4) {
@@ -112,134 +116,122 @@ undefined4 EnemyManager::OnUpdate(int param_1)
           local_c = local_c / 3;
         }
       }
-      if ((*(byte *)((int)&local_28[0xd].flags + 1) >> 4 & 1) != 0) {
-        local_28[0xc].scaleInterpFinalX = (float)((int)local_28[0xc].scaleInterpFinalX - local_c);
+      if ((local_28->flags2 >> 4 & 1) != 0) {
+        local_28->life = local_28->life - local_c;
       }
-      if (g_Player.position_of_last_enemy_hit.y < (float)local_28[0xb].sprite !=
-          (NAN(g_Player.position_of_last_enemy_hit.y) || NAN((float)local_28[0xb].sprite))) {
-        g_Player.position_of_last_enemy_hit.x = (float)local_28[0xb].currentInstruction;
-        g_Player.position_of_last_enemy_hit.y = (float)local_28[0xb].sprite;
-        g_Player.position_of_last_enemy_hit.z = (float)local_28[0xb].alphaInterpInitial;
+      fVar1 = (local_28->position).y;
+      if (g_Player.position_of_last_enemy_hit.y < fVar1 !=
+          (NAN(g_Player.position_of_last_enemy_hit.y) || NAN(fVar1))) {
+        g_Player.position_of_last_enemy_hit.x = (local_28->position).x;
+        g_Player.position_of_last_enemy_hit.y = (local_28->position).y;
+        g_Player.position_of_last_enemy_hit.z = (local_28->position).z;
       }
     }
-    if ((0 < (int)local_28[0xc].scaleInterpFinalX) ||
-       ((*(byte *)((int)&local_28[0xd].flags + 1) & 1) == 0)) goto LAB_00412ce2;
-    local_28[0xd].posInterpFinal.x = -NAN;
-    local_28[0xd].posInterpFinal.z = -NAN;
-    switch(*(byte *)((int)&local_28[0xd].flags + 1) >> 5) {
+    if ((0 < local_28->life) || ((local_28->flags2 & 1) == 0)) goto LAB_00412ce2;
+    local_28->life_callback_threshold = -1;
+    local_28->timer_callback_threshold = -1;
+    switch(local_28->flags2 >> 5) {
     case 0:
-      g_GameManager.score = g_GameManager.score + (int)local_28[0xc].uvScrollPos.y;
-      *(byte *)&local_28[0xd].flags = *(byte *)&local_28[0xd].flags & 0x7f;
+      g_GameManager.score = g_GameManager.score + local_28->score;
+      local_28->flags1 = local_28->flags1 & 0x7f;
       goto LAB_00412a4d;
     case 1:
-      g_GameManager.score = g_GameManager.score + (int)local_28[0xc].uvScrollPos.y;
-      *(byte *)((int)&local_28[0xd].flags + 1) = *(byte *)((int)&local_28[0xd].flags + 1) & 0xfe;
+      g_GameManager.score = g_GameManager.score + local_28->score;
+      local_28->flags2 = local_28->flags2 & 0xfe;
 LAB_00412a4d:
-      if ((*(byte *)((int)&local_28[0xd].flags + 1) >> 3 & 1) != 0) {
+      if ((local_28->flags2 >> 3 & 1) != 0) {
         g_Gui.boss_present = false;
-        FUN_004114c0(local_28);
+        Enemy::FUN_004114c0(local_28);
       }
 switchD_00412938_caseD_2:
-      if (*(char *)((int)local_28[0xd].matrix.m[3] + 3) < '\0') {
-        if (*(char *)((int)local_28[0xd].matrix.m[3] + 3) == -1) {
-          if ((uint)*(ushort *)(param_1 + 0xee5b8) % 3 == 0) {
+      if ((char)local_28->item_drop < '\0') {
+        if (local_28->item_drop == 0xff) {
+          if ((uint)param_1->random_item_spawn_index % 3 == 0) {
             EffectManager::FUN_0040ef50
-                      ((int *)&g_EffectManager,*(byte *)((int)local_28[0xd].matrix.m[3] + 1) + 4,
-                       (float *)&local_28[0xb].currentInstruction,6,0xffffffff);
-            FUN_0041f290(&local_28[0xb].currentInstruction,
-                         (&DAT_00476338)[*(ushort *)(param_1 + 0xee5ba)],local_8);
-            *(short *)(param_1 + 0xee5ba) = *(short *)(param_1 + 0xee5ba) + 1;
-            if (0x1f < *(ushort *)(param_1 + 0xee5ba)) {
-              *(undefined2 *)(param_1 + 0xee5ba) = 0;
+                      (&g_EffectManager,local_28->death_anm2 + 4,&local_28->position,6,0xffffffff);
+            FUN_0041f290(&local_28->position,(&DAT_00476338)[param_1->random_item_table_index],
+                         local_8);
+            param_1->random_item_table_index = param_1->random_item_table_index + 1;
+            if (0x1f < param_1->random_item_table_index) {
+              param_1->random_item_table_index = 0;
             }
           }
-          *(short *)(param_1 + 0xee5b8) = *(short *)(param_1 + 0xee5b8) + 1;
+          param_1->random_item_spawn_index = param_1->random_item_spawn_index + 1;
         }
       }
       else {
         EffectManager::FUN_0040ef50
-                  ((int *)&g_EffectManager,*(byte *)((int)local_28[0xd].matrix.m[3] + 1) + 4,
-                   (float *)&local_28[0xb].currentInstruction,3,0xffffffff);
-        FUN_0041f290(&local_28[0xb].currentInstruction,
-                     (int)*(char *)((int)local_28[0xd].matrix.m[3] + 3),local_8);
+                  (&g_EffectManager,local_28->death_anm2 + 4,&local_28->position,3,0xffffffff);
+        FUN_0041f290(&local_28->position,(int)(char)local_28->item_drop,local_8);
       }
-      if (((*(byte *)((int)&local_28[0xd].flags + 1) >> 3 & 1) != 0) && (DAT_005a5f90 == 0)) {
+      if (((local_28->flags2 >> 3 & 1) != 0) && (DAT_005a5f90 == 0)) {
         BulletManager::FUN_00414360(&g_BulletManager,0x3200,0);
       }
-      local_28[0xc].scaleInterpFinalX = 0.0;
+      local_28->life = 0;
       break;
     case 2:
       goto switchD_00412938_caseD_2;
     case 3:
-      local_28[0xc].scaleInterpFinalX = 1.401298e-45;
-      *(byte *)((int)&local_28[0xd].flags + 1) = *(byte *)((int)&local_28[0xd].flags + 1) & 0xef;
-      *(byte *)((int)&local_28[0xd].flags + 1) = *(byte *)((int)&local_28[0xd].flags + 1) & 0x1f;
+      local_28->life = 1;
+      local_28->flags2 = local_28->flags2 & 0xef;
+      local_28->flags2 = local_28->flags2 & 0x1f;
       g_Gui.boss_present = false;
       EffectManager::FUN_0040ef50
-                ((int *)&g_EffectManager,(uint)*(byte *)local_28[0xd].matrix.m[3],
-                 (float *)&local_28[0xb].currentInstruction,1,0xffffffff);
+                (&g_EffectManager,(uint)local_28->death_anm1,&local_28->position,1,0xffffffff);
       EffectManager::FUN_0040ef50
-                ((int *)&g_EffectManager,(uint)*(byte *)local_28[0xd].matrix.m[3],
-                 (float *)&local_28[0xb].currentInstruction,1,0xffffffff);
+                (&g_EffectManager,(uint)local_28->death_anm1,&local_28->position,1,0xffffffff);
       EffectManager::FUN_0040ef50
-                ((int *)&g_EffectManager,(uint)*(byte *)local_28[0xd].matrix.m[3],
-                 (float *)&local_28[0xb].currentInstruction,1,0xffffffff);
+                (&g_EffectManager,(uint)local_28->death_anm1,&local_28->position,1,0xffffffff);
     }
-    uVar4 = local_10 & 0x80000001;
-    if ((int)uVar4 < 0) {
-      uVar4 = (uVar4 - 1 | 0xfffffffe) + 1;
+    uVar5 = local_10 & 0x80000001;
+    if ((int)uVar5 < 0) {
+      uVar5 = (uVar5 - 1 | 0xfffffffe) + 1;
     }
-    SoundPlayer::FUN_004311e0(&g_SoundPlayer,uVar4 + 2);
+    SoundPlayer::FUN_004311e0(&g_SoundPlayer,uVar5 + 2);
     EffectManager::FUN_0040ef50
-              ((int *)&g_EffectManager,(uint)*(byte *)local_28[0xd].matrix.m[3],
-               (float *)&local_28[0xb].currentInstruction,1,0xffffffff);
+              (&g_EffectManager,(uint)local_28->death_anm1,&local_28->position,1,0xffffffff);
     EffectManager::FUN_0040ef50
-              ((int *)&g_EffectManager,*(byte *)((int)local_28[0xd].matrix.m[3] + 1) + 4,
-               (float *)&local_28[0xb].currentInstruction,4,0xffffffff);
-    if (-1 < (int)local_28[0xb].pos.y) {
-      local_28[0xc].angleVel.z = -0.5;
-      local_28[0xc].scaleY = 0.5;
-      *(undefined2 *)&local_28[0xc].scaleX = 0;
-      *(undefined2 *)((int)&local_28[0xc].scaleX + 2) = 0;
-      *(undefined2 *)&local_28[0xc].scaleInterpFinalY = 0;
-      *(undefined2 *)((int)&local_28[0xc].scaleInterpFinalY + 2) = 0;
-      *(undefined4 *)&local_28[0xb].posInterpEndTime = 0;
-      FUN_00407440(local_28 + 9,
-                   CONCAT22((short)((uint)local_28 >> 0x10),*(undefined2 *)&local_28[0xb].pos.y));
-      local_28[0xb].pos.y = -NAN;
+              (&g_EffectManager,local_28->death_anm2 + 4,&local_28->position,4,0xffffffff);
+    if (-1 < local_28->death_callback_sub) {
+      local_28->bullet_rank_speed_low = -0.5;
+      local_28->bullet_rank_speed_high = 0.5;
+      local_28->bullet_rank_amount1_low = 0;
+      local_28->bullet_rank_amount1_high = 0;
+      local_28->bullet_rank_amount2_low = 0;
+      local_28->bullet_rank_amount2_high = 0;
+      local_28->stack_depth = 0;
+      EclManager::FUN_00407440
+                (&g_EclManager,&local_28->current_context,*(short *)&local_28->death_callback_sub);
+      local_28->death_callback_sub = -1;
     }
 LAB_00412ce2:
-    if (((*(byte *)((int)&local_28[0xd].flags + 1) >> 3 & 1) != 0) &&
-       (bVar2 = FUN_004195a2(0x69bc30), CONCAT31(extraout_var,bVar2) == 0)) {
-      g_Gui.boss_health_bar1 =
-           (float)(int)local_28[0xc].scaleInterpFinalX / (float)(int)local_28[0xc].uvScrollPos.x;
+    if (((local_28->flags2 >> 3 & 1) != 0) && (BVar4 = Gui::HasCurrentMsgIdx(&g_Gui), BVar4 == 0)) {
+      g_Gui.boss_health_bar1 = (float)local_28->life / (float)local_28->max_life;
     }
-    if (*(char *)((int)local_28[0xd].matrix.m[3] + 5) == '\0') {
-      if ((int)local_28[0xc].scaleInterpFinalX < (int)fVar1) {
+    if (local_28->field43_0xe41 == 0) {
+      if (local_28->life < iVar2) {
         SoundPlayer::FUN_004311e0(&g_SoundPlayer,0x14);
-        local_28->flags = local_28->flags | 8;
-        *(undefined *)((int)local_28[0xd].matrix.m[3] + 5) = 4;
+        (local_28->primary_vm).flags = (local_28->primary_vm).flags | 8;
+        local_28->field43_0xe41 = 4;
       }
       else {
-        local_28->flags = local_28->flags & 0xfffffff7;
+        (local_28->primary_vm).flags = (local_28->primary_vm).flags & 0xfffffff7;
       }
     }
     else {
-      *(char *)((int)local_28[0xd].matrix.m[3] + 5) =
-           *(char *)((int)local_28[0xd].matrix.m[3] + 5) + -1;
-      local_28->flags = local_28->flags & 0xfffffff7;
+      local_28->field43_0xe41 = local_28->field43_0xe41 - 1;
+      (local_28->primary_vm).flags = (local_28->primary_vm).flags & 0xfffffff7;
     }
 LAB_00412dbc:
     FUN_00412e50(local_28);
     if ((char)g_GameManager.field11_0x2c == '\0') {
-      local_28[0xc].currentTimeInScript.previous = local_28[0xc].currentTimeInScript.current;
+      (local_28->boss_timer).previous = (local_28->boss_timer).current;
       Supervisor::TickTimer
-                (&g_Supervisor,&local_28[0xc].currentTimeInScript.current,
-                 &local_28[0xc].currentTimeInScript.subFrame);
+                (&g_Supervisor,&(local_28->boss_timer).current,&(local_28->boss_timer).subFrame);
     }
 LAB_00412416:
     local_10 = local_10 + 1;
-    local_28 = (AnmVm *)&local_28[0xd].posInterpTime.current;
+    local_28 = local_28 + 1;
   } while( true );
 }
 

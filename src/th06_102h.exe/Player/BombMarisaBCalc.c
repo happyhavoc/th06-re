@@ -39,8 +39,8 @@ void Player::BombMarisaBCalc(Player *param_1)
       AnmManager::ExecuteScript(g_AnmManager,(param_1->inner).field10_0x11c + 3);
     }
     else {
-      ItemManager::FUN_00420130(0x69e268);
-      Gui::FUN_00417acd(0x69bc30,0x4a1,&DAT_0046a450);
+      ItemManager::FUN_00420130(g_ItemManager);
+      Gui::FUN_00417acd(&g_Gui,0x4a1,&DAT_0046a450);
       (param_1->inner).field1_0x4 = 300;
       (param_1->field35_0x75b4).current = 0x168;
       (param_1->field35_0x75b4).subFrame = 0.0;

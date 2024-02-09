@@ -11,8 +11,8 @@ undefined4 BulletManager::RegisterChain(char *param_1)
   else {
     PTR_DAT_00476438 = &DAT_004763c8;
   }
-  FUN_00413430((undefined4 *)&g_BulletManager);
-  DAT_0069bc0c = param_1;
+  InitializeToZero(&g_BulletManager);
+  g_BulletManager.etama_anm_filename = param_1;
   g_BulletManagerCalcChain.callback = OnUpdate;
   g_BulletManagerCalcChain.addedCallback = AddedCallback;
   g_BulletManagerCalcChain.deletedCallback = DeletedCallback;

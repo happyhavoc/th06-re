@@ -1,29 +1,29 @@
 
-void __thiscall Gui::FUN_00417acd(int param_1_00,uint param_2,char *param_3)
+void __thiscall Gui::FUN_00417acd(Gui *this,uint param_1,char *param_2)
 
 {
   char cVar1;
-  int iVar2;
+  GuiImpl *pGVar2;
   AnmManager *pAVar3;
   char *local_1c;
   
   pAVar3 = g_AnmManager;
-  iVar2 = *(int *)(param_1_00 + 4);
-  *(undefined2 *)(iVar2 + 0x1e78) = 0x4a1;
-  AnmManager::SetAndExecuteScript(pAVar3,(AnmVm *)(iVar2 + 0x1dc4),pAVar3->scripts[0x4a1]);
-  AnmManager::SetActiveSprite(g_AnmManager,(AnmVm *)(*(int *)(param_1_00 + 4) + 0x1dc4),param_2);
+  pGVar2 = this->impl;
+  (pGVar2->vm3).anmFileIndex = 0x4a1;
+  AnmManager::SetAndExecuteScript(pAVar3,&pGVar2->vm3,pAVar3->scripts[0x4a1]);
+  AnmManager::SetActiveSprite(g_AnmManager,&this->impl->vm3,param_1);
   pAVar3 = g_AnmManager;
-  iVar2 = *(int *)(param_1_00 + 4);
-  *(undefined2 *)(iVar2 + 0x2098) = 0x706;
-  AnmManager::SetAndExecuteScript(pAVar3,(AnmVm *)(iVar2 + 0x1fe4),pAVar3->scripts[0x706]);
-  AnmManager::FUN_00434b60(g_AnmManager,*(int *)(param_1_00 + 4) + 0x1fe4,0xf0f0ff,0,param_3);
-  local_1c = param_3;
+  pGVar2 = this->impl;
+  (pGVar2->vm5).anmFileIndex = 0x706;
+  AnmManager::SetAndExecuteScript(pAVar3,&pGVar2->vm5,pAVar3->scripts[0x706]);
+  AnmManager::FUN_00434b60(g_AnmManager,(int)&this->impl->vm5,0xf0f0ff,0,param_2);
+  local_1c = param_2;
   do {
     cVar1 = *local_1c;
     local_1c = local_1c + 1;
   } while (cVar1 != '\0');
-  *(float *)(param_1_00 + 8) =
-       (float)(ulonglong)(uint)(((int)local_1c - (int)(param_3 + 1)) * 0xf) / 2.0 + 16.0;
+  this->field2_0x8 =
+       (float)(ulonglong)(uint)(((int)local_1c - (int)(param_2 + 1)) * 0xf) / 2.0 + 16.0;
   g_Supervisor.unk198 = 3;
   SoundPlayer::FUN_004311e0(&g_SoundPlayer,0xe);
   return;

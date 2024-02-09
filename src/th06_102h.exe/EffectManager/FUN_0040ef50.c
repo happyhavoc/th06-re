@@ -1,61 +1,62 @@
 
 AnmVm * __thiscall
-EffectManager::FUN_0040ef50(int *param_1_00,int param_2,float *param_3,int param_4,D3DCOLOR param_5)
+EffectManager::FUN_0040ef50
+          (EffectManager *this,int param_1,D3DXVECTOR3 *param_2,int param_3,D3DCOLOR param_4)
 
 {
   int iVar1;
-  AnmManager *this;
-  AnmVm *local_20;
+  Effect *local_20;
   short local_10;
   int local_c;
-  AnmVm *local_8;
+  Effect *local_8;
+  AnmManager *anm_manager;
   
-  local_8 = (AnmVm *)(param_1_00 + *param_1_00 * 0x5f + 2);
+  local_8 = this->effects + this->next_index;
   for (local_c = 0; local_c < 0x200; local_c = local_c + 1) {
-    *param_1_00 = *param_1_00 + 1;
-    if (0x1ff < *param_1_00) {
-      *param_1_00 = 0;
+    this->next_index = this->next_index + 1;
+    if (0x1ff < this->next_index) {
+      this->next_index = 0;
     }
-    if (*(char *)(local_8[1].matrix.m[2] + 3) == '\0') {
-      *(undefined *)(local_8[1].matrix.m[2] + 3) = 1;
-      *(undefined *)((int)local_8[1].matrix.m[2] + 0xd) = (undefined)param_2;
-      local_8[1].rotation.x = *param_3;
-      local_8[1].rotation.y = param_3[1];
-      local_8[1].rotation.z = param_3[2];
-      this = g_AnmManager;
-      iVar1 = *(int *)(&DAT_00476298 + param_2 * 8);
+    if (local_8->in_use_flag == 0) {
+      local_8->in_use_flag = 1;
+      local_8->effect_id = (byte)param_1;
+      (local_8->pos1).x = param_2->x;
+      (local_8->pos1).y = param_2->y;
+      (local_8->pos1).z = param_2->z;
+      anm_manager = g_AnmManager;
+      iVar1 = g_Effects[param_1].anmFileIndex;
       local_10 = (short)iVar1;
-      local_8->anmFileIndex = local_10;
-      AnmManager::SetAndExecuteScript(this,local_8,this->scripts[iVar1]);
-      local_8->color = param_5;
-      local_8[1].matrix.m[2][2] = *(float *)(&DAT_0047629c + param_2 * 8);
-      local_8[1].matrix.m[2][0] = 0.0;
-      local_8[1].matrix.m[1][3] = 0.0;
-      local_8[1].matrix.m[1][2] = -NAN;
-      *(undefined *)((int)local_8[1].matrix.m[2] + 0xe) = 0;
-      *(undefined *)((int)local_8[1].matrix.m[2] + 0xf) = 0;
-      param_4 = param_4 + -1;
-      if (param_4 == 0) break;
-      if (*param_1_00 == 0) {
-        local_8 = (AnmVm *)(param_1_00 + 2);
+      (local_8->vm).anmFileIndex = local_10;
+      AnmManager::SetAndExecuteScript(anm_manager,&local_8->vm,anm_manager->scripts[iVar1]);
+      (local_8->vm).color.color = param_4;
+      local_8->effect_update_callback = g_Effects[param_1].update_callback;
+      (local_8->timer).current = 0;
+      (local_8->timer).subFrame = 0.0;
+      (local_8->timer).previous = -999;
+      local_8->field18_0x17a = 0;
+      local_8->field_0x17b = 0;
+      param_3 = param_3 + -1;
+      if (param_3 == 0) break;
+      if (this->next_index == 0) {
+        local_8 = this->effects;
       }
       else {
-        local_8 = (AnmVm *)(local_8[1].matrix.m + 3);
+        local_8 = local_8 + 1;
       }
     }
-    else if (*param_1_00 == 0) {
-      local_8 = (AnmVm *)(param_1_00 + 2);
+    else if (this->next_index == 0) {
+      local_8 = this->effects;
     }
     else {
-      local_8 = (AnmVm *)(local_8[1].matrix.m + 3);
+      local_8 = local_8 + 1;
     }
   }
   if (local_c < 0x200) {
     local_20 = local_8;
   }
   else {
-    local_20 = (AnmVm *)(param_1_00 + 0xbe02);
+    local_20 = &this->dummy_effect_for_failed_spawns;
   }
-  return local_20;
+  return &local_20->vm;
 }
 

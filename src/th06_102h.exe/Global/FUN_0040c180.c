@@ -19,13 +19,12 @@ void FUN_0040c180(int param_1,int param_2)
   int local_10;
   
   if (*(int *)(param_2 + 0x10) < 2) {
-    EffectManager::FUN_0040ef50((int *)&g_EffectManager,0xc,(float *)(param_1 + 0xc6c),1,0xffffffff)
-    ;
+    EffectManager::FUN_0040ef50(&g_EffectManager,0xc,(D3DXVECTOR3 *)(param_1 + 0xc6c),1,0xffffffff);
     g_GameManager.field11_0x2c._0_1_ = *(undefined *)(param_2 + 0x10);
   }
   else {
     local_10 = 0xe;
-    local_18 = (AnmVm *)&DAT_005ab5f8;
+    local_18 = (AnmVm *)g_BulletManager.bullets;
     if ((int)g_GameManager.difficulty < 2) {
       for (local_14 = 0; local_14 < 0x280; local_14 = local_14 + 1) {
         if (((*(short *)((int)local_18[5].matrix.m[3] + 2) != 0) &&

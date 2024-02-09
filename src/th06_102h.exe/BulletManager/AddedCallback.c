@@ -107,7 +107,7 @@ undefined4 BulletManager::AddedCallback(int param_1)
       *(undefined4 *)(param_1 + 0x554 + local_8 * 0x560) = 0x40800000;
     }
   }
-  puVar7 = null_ARRAY_0069e268;
+  puVar7 = g_ItemManager;
   for (iVar5 = 0xa253; iVar5 != 0; iVar5 = iVar5 + -1) {
     *puVar7 = 0;
     puVar7 = puVar7 + 1;

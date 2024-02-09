@@ -1,11 +1,11 @@
 
-/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+/* WARNING: Unknown calling convention -- yet parameter storage is locked */
 
-void FUN_0040bb80(int param_1)
+void FUN_0040bb80(Enemy *param_1)
 
 {
   float fVar1;
-  undefined4 uVar2;
+  float fVar2;
   float10 fVar3;
   float fVar4;
   float fVar5;
@@ -15,62 +15,62 @@ void FUN_0040bb80(int param_1)
   float fVar9;
   int local_8;
   
-  if (*(int *)(param_1 + 0x9ac) < *(int *)(param_1 + 0x9b0)) {
-    if (*(int *)(param_1 + 0x9ac) == 0) {
-      _DAT_00487f5c = *(float *)(param_1 + 0xc6c);
-      _DAT_00487f60 = *(float *)(param_1 + 0xc70);
-      _DAT_00487f64 = *(undefined4 *)(param_1 + 0xc74);
-      _DAT_00487f68 = g_Player.position.x;
-      _DAT_00487f6c = g_Player.position.y;
-      _DAT_00487f70 = g_Player.position.z;
+  if ((param_1->current_context).var2 < (param_1->current_context).var3) {
+    if ((param_1->current_context).var2 == 0) {
+      FLOAT_00487f5c = (param_1->position).x;
+      FLOAT_00487f60 = (param_1->position).y;
+      FLOAT_00487f64 = (param_1->position).z;
+      FLOAT_00487f68 = g_Player.position.x;
+      FLOAT_00487f6c = g_Player.position.y;
+      FLOAT_00487f70 = g_Player.position.z;
       fVar8 = Rng::GetRandomF32ZeroToOne(&g_Rng);
-      DAT_00487edc = fVar8 * 6.283185 - 3.141593;
-      DAT_00487ee0 = FUN_0041e850(DAT_00487edc,2.513274);
+      FLOAT_ARRAY_00487edc[0] = fVar8 * 6.283185 - 3.141593;
+      FLOAT_ARRAY_00487edc[1] = add_normalize_angle(FLOAT_ARRAY_00487edc[0],2.513274);
     }
-    if (*(int *)(param_1 + 0x9ac) % 0x1e == 0) {
-      DAT_00487edc = DAT_00487ee0;
-      DAT_00487ee0 = FUN_0041e850(DAT_00487ee0,2.513274);
-      DAT_00487ee4 = FUN_0041e850(DAT_00487ee0,2.513274);
-      DAT_00487ee8 = FUN_0041e850(DAT_00487ee4,2.513274);
-      DAT_00487eec = FUN_0041e850(DAT_00487ee8,2.513274);
-      _DAT_00487ef0 = FUN_0041e850(DAT_00487eec,2.513274);
+    if ((param_1->current_context).var2 % 0x1e == 0) {
+      FLOAT_ARRAY_00487edc[0] = FLOAT_ARRAY_00487edc[1];
+      FLOAT_ARRAY_00487edc[1] = add_normalize_angle(FLOAT_ARRAY_00487edc[1],2.513274);
+      FLOAT_ARRAY_00487edc[2] = add_normalize_angle(FLOAT_ARRAY_00487edc[1],2.513274);
+      FLOAT_ARRAY_00487edc[3] = add_normalize_angle(FLOAT_ARRAY_00487edc[2],2.513274);
+      FLOAT_ARRAY_00487edc[4] = add_normalize_angle(FLOAT_ARRAY_00487edc[3],2.513274);
+      FLOAT_ARRAY_00487edc[5] = add_normalize_angle(FLOAT_ARRAY_00487edc[4],2.513274);
     }
-    if (*(int *)(param_1 + 0x9ac) % 6 == 0) {
-      fVar8 = (float)*(int *)(param_1 + 0x9ac) / (float)*(int *)(param_1 + 0x9b0);
+    if ((param_1->current_context).var2 % 6 == 0) {
+      fVar8 = (float)(param_1->current_context).var2 / (float)(param_1->current_context).var3;
       fVar4 = fVar8 * 0.1;
-      fVar6 = (_DAT_00487f6c - _DAT_00487f60) * fVar4 + _DAT_00487f60;
-      fVar4 = (_DAT_00487f68 - _DAT_00487f5c) * fVar4 + _DAT_00487f5c;
+      fVar6 = (FLOAT_00487f6c - FLOAT_00487f60) * fVar4 + FLOAT_00487f60;
+      fVar4 = (FLOAT_00487f68 - FLOAT_00487f5c) * fVar4 + FLOAT_00487f5c;
       fVar8 = fVar8 + 0.5;
-      *(float *)(param_1 + 0xd10) = fVar8 * 1.047198;
+      (param_1->bullet_props).angle1 = fVar8 * 1.047198;
       for (local_8 = 0; local_8 < 5; local_8 = local_8 + 1) {
-        fVar5 = (float)(*(int *)(param_1 + 0x9ac) % 0x1e) / 30.0;
-        fVar3 = (float10)fcos((float10)(&DAT_00487edc)[local_8]);
-        fVar7 = (float10)fsin((float10)(&DAT_00487edc)[local_8]);
-        fVar1 = (float)(fVar3 * (float10)*(float *)(param_1 + 0x9c0));
-        fVar9 = (float)(fVar7 * (float10)*(float *)(param_1 + 0x9c0));
-        fVar3 = (float10)fcos((float10)(&DAT_00487ee0)[local_8]);
-        fVar7 = (float10)fsin((float10)(&DAT_00487ee0)[local_8]);
-        *(float *)(param_1 + 0xd04) =
-             fVar4 + ((float)(fVar3 * (float10)*(float *)(param_1 + 0x9c0)) - fVar1) * fVar5 + fVar1
-        ;
-        *(float *)(param_1 + 0xd08) =
-             fVar6 + ((float)(fVar7 * (float10)*(float *)(param_1 + 0x9c0)) - fVar9) * fVar5 + fVar9
-        ;
-        *(undefined4 *)(param_1 + 0xd0c) = 0;
-        uVar2 = *(undefined4 *)(param_1 + 0xd18);
-        fVar1 = *(float *)(param_1 + 0xd1c);
+        fVar5 = (float)((param_1->current_context).var2 % 0x1e) / 30.0;
+        fVar2 = (param_1->current_context).float3;
+        fVar3 = (float10)fcos((float10)FLOAT_ARRAY_00487edc[local_8]);
+        fVar7 = (float10)fsin((float10)FLOAT_ARRAY_00487edc[local_8]);
+        fVar1 = (float)(fVar3 * (float10)fVar2);
+        fVar2 = (float)(fVar7 * (float10)fVar2);
+        fVar9 = (param_1->current_context).float3;
+        fVar3 = (float10)fcos((float10)FLOAT_ARRAY_00487edc[local_8 + 1]);
+        fVar7 = (float10)fsin((float10)FLOAT_ARRAY_00487edc[local_8 + 1]);
+        (param_1->bullet_props).position.x =
+             fVar4 + ((float)(fVar3 * (float10)fVar9) - fVar1) * fVar5 + fVar1;
+        (param_1->bullet_props).position.y =
+             fVar6 + ((float)(fVar7 * (float10)fVar9) - fVar2) * fVar5 + fVar2;
+        (param_1->bullet_props).position.z = 0.0;
+        fVar1 = (param_1->bullet_props).speed1;
+        fVar2 = (param_1->bullet_props).speed2;
         fVar9 = Rng::GetRandomF32ZeroToOne(&g_Rng);
-        *(float *)(param_1 + 0xd18) = fVar9 * fVar1 + *(float *)(param_1 + 0xd18);
-        FUN_004145c0(param_1 + 0xd00);
-        *(undefined4 *)(param_1 + 0xd18) = uVar2;
-        *(float *)(param_1 + 0xd10) = *(float *)(param_1 + 0xd10) - fVar8 * 0.5235988;
+        (param_1->bullet_props).speed1 = fVar9 * fVar2 + (param_1->bullet_props).speed1;
+        BulletManager::FUN_004145c0(&g_BulletManager,&param_1->bullet_props);
+        (param_1->bullet_props).speed1 = fVar1;
+        (param_1->bullet_props).angle1 = (param_1->bullet_props).angle1 - fVar8 * 0.5235988;
       }
       SoundPlayer::FUN_004311e0(&g_SoundPlayer,0x16);
     }
-    *(int *)(param_1 + 0x9ac) = *(int *)(param_1 + 0x9ac) + 1;
+    (param_1->current_context).var2 = (param_1->current_context).var2 + 1;
   }
   else {
-    *(undefined4 *)(param_1 + 0x9a0) = 0;
+    (param_1->current_context).func_set_func = (void *)0x0;
   }
   return;
 }

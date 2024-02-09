@@ -55,7 +55,7 @@ void FUN_0041f290(float *param_1,int param_2,int param_3)
   local_14 = (short)param_2 + 0x215;
   local_c->anmFileIndex = local_14;
   AnmManager::SetAndExecuteScript(this,local_c,this->scripts[param_2 + 0x215]);
-  local_c->color = 0xffffffff;
+  (local_c->color).color = 0xffffffff;
   *(undefined *)((int)&local_c[1].currentTimeInScript.previous + 2) = 1;
   return;
 }

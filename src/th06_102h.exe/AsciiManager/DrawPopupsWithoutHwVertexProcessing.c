@@ -17,7 +17,7 @@ void __thiscall AsciiManager::DrawPopupsWithoutHwVertexProcessing(AsciiManager *
     if (local_8->inUse != '\0') {
       (this->vm1).pos.x = (local_8->position).x - (float)((uint)local_8->characterCount << 2);
       (this->vm1).pos.y = (local_8->position).y;
-      (this->vm1).color = local_8->color;
+      (this->vm1).color = (D3DCOLORUNION)local_8->color;
       local_14 = local_8->digits + (local_8->characterCount - 1);
       for (local_c = (uint)local_8->characterCount; 0 < (int)local_c; local_c = local_c - 1) {
         (this->vm1).sprite = g_AnmManager->sprites + (byte)*local_14;

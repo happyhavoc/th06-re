@@ -23,7 +23,7 @@ void FUN_00416c50(AnmVm *param_1)
   (local_8->pos).x = g_GameManager.arcade_region_top_left_pos.x + param_1[5].angleVel.y;
   (local_8->pos).y = g_GameManager.arcade_region_top_left_pos.y + param_1[5].angleVel.z;
   (local_8->pos).z = 0.0;
-  local_8->color = local_8->color & 0xff000000 | 0xffffff;
+  (local_8->color).color = (local_8->color).color & 0xff000000 | 0xffffff;
   if (local_8->autoRotate != 0) {
     (local_8->rotation).z = 1.570796 - param_1[5].matrix.m[0][1];
   }

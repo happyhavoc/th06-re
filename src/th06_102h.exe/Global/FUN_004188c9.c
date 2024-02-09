@@ -105,8 +105,9 @@ undefined4 FUN_004188c9(void)
                      g_Stage.stdData + *(int *)(*(int *)(in_ECX + 0x2538) + 4) * 0x80 + 0x90);
         iVar7 = FUN_00424ae4(*(undefined4 *)(*(int *)(in_ECX + 0x2538) + 4));
         if (iVar7 != 0) {
-          FUN_00424b5d((char *)(g_Stage.stdData +
-                               *(int *)(*(int *)(in_ECX + 0x2538) + 4) * 0x80 + 0x290));
+          Supervisor::PlayAudio
+                    ((char *)(g_Stage.stdData +
+                             *(int *)(*(int *)(in_ECX + 0x2538) + 4) * 0x80 + 0x290));
         }
         break;
       case 8:

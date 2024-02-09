@@ -15,7 +15,7 @@ void FUN_0040daa0(int param_1)
       *(float *)(param_1 + 0xd04) = *(float *)(param_1 + 0xd04) + *(float *)(param_1 + 0xc6c);
       *(float *)(param_1 + 0xd08) = *(float *)(param_1 + 0xd08) + *(float *)(param_1 + 0xc70);
       *(float *)(param_1 + 0xd0c) = *(float *)(param_1 + 0xd0c) + *(float *)(param_1 + 0xc74);
-      FUN_004145c0(param_1 + 0xd00);
+      BulletManager::FUN_004145c0(&g_BulletManager,(EnemyBulletShooter *)(param_1 + 0xd00));
     }
   }
   return;

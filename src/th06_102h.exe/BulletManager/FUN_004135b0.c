@@ -4,7 +4,7 @@ BulletManager::FUN_004135b0
           (BulletManager *this,EnemyBulletShooter *param_1,uint param_2,int param_3,float param_4)
 
 {
-  undefined *puVar1;
+  float *pfVar1;
   float fVar2;
   float10 fVar3;
   undefined4 uVar4;
@@ -121,14 +121,14 @@ BulletManager::FUN_004135b0
       pAVar7 = (AnmVm *)&(pAVar7->rotation).y;
       pAVar9 = (AnmVm *)&(pAVar9->rotation).y;
     }
-    puVar1 = &this->bullet_type_templates[(short)param_1->sprite].field_0x550;
-    *(undefined4 *)&(local_10->vms).field_0x550 = *(undefined4 *)puVar1;
-    *(undefined4 *)&(local_10->vms).field_0x554 = *(undefined4 *)(puVar1 + 4);
-    *(undefined4 *)&(local_10->vms).field_0x558 = *(undefined4 *)(puVar1 + 8);
-    (local_10->vms).field17_0x55c =
-         this->bullet_type_templates[(short)param_1->sprite].field17_0x55c;
-    (local_10->vms).field18_0x55d =
-         this->bullet_type_templates[(short)param_1->sprite].field18_0x55d;
+    pfVar1 = &this->bullet_type_templates[(short)param_1->sprite].field5_0x550;
+    (local_10->vms).field5_0x550 = *pfVar1;
+    (local_10->vms).field6_0x554 = pfVar1[1];
+    *(float *)&(local_10->vms).field_0x558 = pfVar1[2];
+    (local_10->vms).field11_0x55c =
+         this->bullet_type_templates[(short)param_1->sprite].field11_0x55c;
+    (local_10->vms).field12_0x55d =
+         this->bullet_type_templates[(short)param_1->sprite].field12_0x55d;
     if ((local_10->ex_flags & 2) == 0) {
       if ((local_10->ex_flags & 4) == 0) {
         if ((local_10->ex_flags & 8) != 0) {

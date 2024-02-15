@@ -1,17 +1,17 @@
 
-undefined4 BulletManager::OnDraw(int param_1)
+ChainCallbackResult BulletManager::OnDraw(BulletManager *arg)
 
 {
   float fVar1;
   float10 fVar2;
   float10 fVar3;
-  int local_20;
-  int local_1c;
+  Bullet *local_20;
+  Bullet *local_1c;
   AnmVm *local_10;
   int local_8;
   
   (*(g_Supervisor.d3dDevice)->lpVtbl->SetRenderState)(g_Supervisor.d3dDevice,D3DRS_ZFUNC,8);
-  local_10 = (AnmVm *)(param_1 + 0xec000);
+  local_10 = &arg->lasers[0].vm0;
   for (local_8 = 0; local_8 < 0x40; local_8 = local_8 + 1) {
     if (local_10[2].currentTimeInScript.current != 0) {
       fVar3 = (float10)local_10[2].angleVel.x;
@@ -45,70 +45,74 @@ undefined4 BulletManager::OnDraw(int param_1)
   }
   FUN_00420190();
   if (g_Supervisor.hasD3dHardwareVertexProcessing == 0) {
-    local_20 = param_1 + 0x5600;
+    local_20 = arg->bullets;
     for (local_8 = 0; local_8 < 0x280; local_8 = local_8 + 1) {
-      if ((*(short *)(local_20 + 0x5be) != 0) && (0x10 < *(byte *)(local_20 + 0x55d))) {
+      if ((local_20->state != 0) && (0x10 < (local_20->vms).field12_0x55d)) {
         FUN_00416c50(local_20);
       }
-      local_20 = local_20 + 0x5c4;
+      local_20 = local_20 + 1;
     }
-    local_20 = param_1 + 0x5600;
+    local_20 = arg->bullets;
     for (local_8 = 0; local_8 < 0x280; local_8 = local_8 + 1) {
-      if (((*(short *)(local_20 + 0x5be) != 0) && (*(char *)(local_20 + 0x55d) == '\x10')) &&
-         ((*(short *)(local_20 + 0xb4) == 0x201 || (*(short *)(local_20 + 0xb4) == 0x203)))) {
+      if (((local_20->state != 0) && ((local_20->vms).field12_0x55d == 0x10)) &&
+         (((local_20->vms).vm0.anmFileIndex == 0x201 || ((local_20->vms).vm0.anmFileIndex == 0x203))
+         )) {
         FUN_00416c50(local_20);
       }
-      local_20 = local_20 + 0x5c4;
+      local_20 = local_20 + 1;
     }
-    local_20 = param_1 + 0x5600;
+    local_20 = arg->bullets;
     for (local_8 = 0; local_8 < 0x280; local_8 = local_8 + 1) {
-      if ((((*(short *)(local_20 + 0x5be) != 0) && (*(char *)(local_20 + 0x55d) == '\x10')) &&
-          (*(short *)(local_20 + 0xb4) != 0x201)) && (*(short *)(local_20 + 0xb4) != 0x203)) {
+      if ((((local_20->state != 0) && ((local_20->vms).field12_0x55d == 0x10)) &&
+          ((local_20->vms).vm0.anmFileIndex != 0x201)) &&
+         ((local_20->vms).vm0.anmFileIndex != 0x203)) {
         FUN_00416c50(local_20);
       }
-      local_20 = local_20 + 0x5c4;
+      local_20 = local_20 + 1;
     }
-    local_20 = param_1 + 0x5600;
+    local_20 = arg->bullets;
     for (local_8 = 0; local_8 < 0x280; local_8 = local_8 + 1) {
-      if ((*(short *)(local_20 + 0x5be) != 0) && (*(char *)(local_20 + 0x55d) == '\b')) {
+      if ((local_20->state != 0) && ((local_20->vms).field12_0x55d == 8)) {
         FUN_00416c50(local_20);
       }
-      local_20 = local_20 + 0x5c4;
+      local_20 = local_20 + 1;
     }
   }
   else {
-    local_1c = param_1 + 0x5600;
+    local_1c = arg->bullets;
     for (local_8 = 0; local_8 < 0x280; local_8 = local_8 + 1) {
-      if ((*(short *)(local_1c + 0x5be) != 0) && (0x10 < *(byte *)(local_1c + 0x55d))) {
+      if ((local_1c->state != 0) && (0x10 < (local_1c->vms).field12_0x55d)) {
         FUN_00416b50(local_1c);
       }
-      local_1c = local_1c + 0x5c4;
+      local_1c = local_1c + 1;
     }
-    local_1c = param_1 + 0x5600;
+    local_1c = arg->bullets;
     for (local_8 = 0; local_8 < 0x280; local_8 = local_8 + 1) {
-      if (((*(short *)(local_1c + 0x5be) != 0) && (*(char *)(local_1c + 0x55d) == '\x10')) &&
-         ((*(short *)(local_1c + 0xb4) == 0x201 || (*(short *)(local_1c + 0xb4) == 0x203)))) {
+      if (((local_1c->state != 0) && ((local_1c->vms).field12_0x55d == 0x10)) &&
+         (((local_1c->vms).vm0.anmFileIndex == 0x201 || ((local_1c->vms).vm0.anmFileIndex == 0x203))
+         )) {
         FUN_00416b50(local_1c);
       }
-      local_1c = local_1c + 0x5c4;
+      local_1c = local_1c + 1;
     }
-    local_1c = param_1 + 0x5600;
+    local_1c = arg->bullets;
     for (local_8 = 0; local_8 < 0x280; local_8 = local_8 + 1) {
-      if ((((*(short *)(local_1c + 0x5be) != 0) && (*(char *)(local_1c + 0x55d) == '\x10')) &&
-          (*(short *)(local_1c + 0xb4) != 0x201)) && (*(short *)(local_1c + 0xb4) != 0x203)) {
+      if ((((local_1c->state != 0) && ((local_1c->vms).field12_0x55d == 0x10)) &&
+          ((local_1c->vms).vm0.anmFileIndex != 0x201)) &&
+         ((local_1c->vms).vm0.anmFileIndex != 0x203)) {
         FUN_00416b50(local_1c);
       }
-      local_1c = local_1c + 0x5c4;
+      local_1c = local_1c + 1;
     }
-    local_1c = param_1 + 0x5600;
+    local_1c = arg->bullets;
     for (local_8 = 0; local_8 < 0x280; local_8 = local_8 + 1) {
-      if ((*(short *)(local_1c + 0x5be) != 0) && (*(char *)(local_1c + 0x55d) == '\b')) {
+      if ((local_1c->state != 0) && ((local_1c->vms).field12_0x55d == 8)) {
         FUN_00416b50(local_1c);
       }
-      local_1c = local_1c + 0x5c4;
+      local_1c = local_1c + 1;
     }
   }
   (*(g_Supervisor.d3dDevice)->lpVtbl->SetRenderState)(g_Supervisor.d3dDevice,D3DRS_ZFUNC,4);
-  return 1;
+  return CHAIN_CALLBACK_RESULT_CONTINUE;
 }
 

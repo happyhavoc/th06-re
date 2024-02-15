@@ -1,13 +1,13 @@
 
-undefined4 BulletManager::AddedCallback(int param_1)
+ZunResult BulletManager::AddedCallback(BulletManager *arg)
 
 {
-  float fVar1;
-  AnmManager *pAVar2;
-  ZunResult ZVar3;
-  long lVar4;
-  int iVar5;
-  AnmVm *pAVar6;
+  AnmVm *pAVar1;
+  float fVar2;
+  AnmManager *pAVar3;
+  ZunResult ZVar4;
+  long lVar5;
+  int iVar6;
   undefined4 *puVar7;
   short local_3c;
   short local_30;
@@ -17,101 +17,101 @@ undefined4 BulletManager::AddedCallback(int param_1)
   uint local_8;
   
   if (g_Supervisor.curState != 3) {
-    ZVar3 = AnmManager::LoadAnm(g_AnmManager,6,"data/etama3.anm",0x200);
-    if (ZVar3 != ZUN_SUCCESS) {
-      return 0xffffffff;
+    ZVar4 = AnmManager::LoadAnm(g_AnmManager,6,"data/etama3.anm",0x200);
+    if (ZVar4 != ZUN_SUCCESS) {
+      return ZUN_ERROR;
     }
-    ZVar3 = AnmManager::LoadAnm(g_AnmManager,7,"data/etama4.anm",0x29a);
-    if (ZVar3 != ZUN_SUCCESS) {
-      return 0xffffffff;
+    ZVar4 = AnmManager::LoadAnm(g_AnmManager,7,"data/etama4.anm",0x29a);
+    if (ZVar4 != ZUN_SUCCESS) {
+      return ZUN_ERROR;
     }
   }
-  for (local_8 = 0; pAVar2 = g_AnmManager, local_8 < 10; local_8 = local_8 + 1) {
-    iVar5 = *(int *)(&DAT_0046a6e8 + local_8 * 0x14);
-    pAVar6 = (AnmVm *)(param_1 + local_8 * 0x560);
-    local_c = (short)iVar5;
-    pAVar6->anmFileIndex = local_c;
-    AnmManager::SetAndExecuteScript(pAVar2,pAVar6,pAVar2->scripts[iVar5]);
-    pAVar2 = g_AnmManager;
-    iVar5 = *(int *)(&DAT_0046a6ec + local_8 * 0x14);
-    pAVar6 = (AnmVm *)(param_1 + 0x110 + local_8 * 0x560);
-    local_18 = (short)iVar5;
-    pAVar6->anmFileIndex = local_18;
-    AnmManager::SetAndExecuteScript(pAVar2,pAVar6,pAVar2->scripts[iVar5]);
-    pAVar2 = g_AnmManager;
-    iVar5 = *(int *)(&DAT_0046a6f0 + local_8 * 0x14);
-    pAVar6 = (AnmVm *)(param_1 + 0x220 + local_8 * 0x560);
-    local_24 = (short)iVar5;
-    pAVar6->anmFileIndex = local_24;
-    AnmManager::SetAndExecuteScript(pAVar2,pAVar6,pAVar2->scripts[iVar5]);
-    pAVar2 = g_AnmManager;
-    iVar5 = *(int *)(&DAT_0046a6f4 + local_8 * 0x14);
-    pAVar6 = (AnmVm *)(param_1 + 0x330 + local_8 * 0x560);
-    local_30 = (short)iVar5;
-    pAVar6->anmFileIndex = local_30;
-    AnmManager::SetAndExecuteScript(pAVar2,pAVar6,pAVar2->scripts[iVar5]);
-    pAVar2 = g_AnmManager;
-    iVar5 = *(int *)(&DAT_0046a6f8 + local_8 * 0x14);
-    pAVar6 = (AnmVm *)(param_1 + 0x440 + local_8 * 0x560);
-    local_3c = (short)iVar5;
-    pAVar6->anmFileIndex = local_3c;
-    AnmManager::SetAndExecuteScript(pAVar2,pAVar6,pAVar2->scripts[iVar5]);
-    *(undefined2 *)(param_1 + 0xb2 + local_8 * 0x560) =
-         *(undefined2 *)(param_1 + 0xb0 + local_8 * 0x560);
-    lVar4 = __ftol2((double)*(float *)(*(int *)(param_1 + 0xc0 + local_8 * 0x560) + 0x2c));
-    *(char *)(param_1 + 0x55d + local_8 * 0x560) = (char)lVar4;
-    fVar1 = *(float *)(*(int *)(param_1 + 0xc0 + local_8 * 0x560) + 0x2c);
-    if (fVar1 < 8.0 == (fVar1 == 8.0)) {
-      fVar1 = *(float *)(*(int *)(param_1 + 0xc0 + local_8 * 0x560) + 0x2c);
-      if (fVar1 < 16.0 == (fVar1 == 16.0)) {
-        fVar1 = *(float *)(*(int *)(param_1 + 0xc0 + local_8 * 0x560) + 0x2c);
-        if (fVar1 < 32.0 == (fVar1 == 32.0)) {
-          *(undefined4 *)(param_1 + 0x550 + local_8 * 0x560) = 0x42000000;
-          *(undefined4 *)(param_1 + 0x554 + local_8 * 0x560) = 0x42000000;
+  for (local_8 = 0; pAVar3 = g_AnmManager, local_8 < 10; local_8 = local_8 + 1) {
+    iVar6 = *(int *)(&DAT_0046a6e8 + local_8 * 0x14);
+    local_c = (short)iVar6;
+    arg->bullet_type_templates[local_8].vm0.anmFileIndex = local_c;
+    AnmManager::SetAndExecuteScript
+              (pAVar3,&arg->bullet_type_templates[local_8].vm0,pAVar3->scripts[iVar6]);
+    pAVar3 = g_AnmManager;
+    iVar6 = *(int *)(&DAT_0046a6ec + local_8 * 0x14);
+    pAVar1 = &arg->bullet_type_templates[local_8].spawn_effect_short;
+    local_18 = (short)iVar6;
+    pAVar1->anmFileIndex = local_18;
+    AnmManager::SetAndExecuteScript(pAVar3,pAVar1,pAVar3->scripts[iVar6]);
+    pAVar3 = g_AnmManager;
+    iVar6 = *(int *)(&DAT_0046a6f0 + local_8 * 0x14);
+    pAVar1 = &arg->bullet_type_templates[local_8].spawn_effect_medium;
+    local_24 = (short)iVar6;
+    pAVar1->anmFileIndex = local_24;
+    AnmManager::SetAndExecuteScript(pAVar3,pAVar1,pAVar3->scripts[iVar6]);
+    pAVar3 = g_AnmManager;
+    iVar6 = *(int *)(&DAT_0046a6f4 + local_8 * 0x14);
+    pAVar1 = &arg->bullet_type_templates[local_8].spawn_effect_long;
+    local_30 = (short)iVar6;
+    pAVar1->anmFileIndex = local_30;
+    AnmManager::SetAndExecuteScript(pAVar3,pAVar1,pAVar3->scripts[iVar6]);
+    pAVar3 = g_AnmManager;
+    iVar6 = *(int *)(&DAT_0046a6f8 + local_8 * 0x14);
+    pAVar1 = &arg->bullet_type_templates[local_8].vm5;
+    local_3c = (short)iVar6;
+    pAVar1->anmFileIndex = local_3c;
+    AnmManager::SetAndExecuteScript(pAVar3,pAVar1,pAVar3->scripts[iVar6]);
+    arg->bullet_type_templates[local_8].vm0.anotherSpriteNumber =
+         arg->bullet_type_templates[local_8].vm0.spriteNumber;
+    lVar5 = __ftol2((double)(arg->bullet_type_templates[local_8].vm0.sprite)->heightPx);
+    arg->bullet_type_templates[local_8].field12_0x55d = (byte)lVar5;
+    fVar2 = (arg->bullet_type_templates[local_8].vm0.sprite)->heightPx;
+    if (fVar2 < 8.0 == (fVar2 == 8.0)) {
+      fVar2 = (arg->bullet_type_templates[local_8].vm0.sprite)->heightPx;
+      if (fVar2 < 16.0 == (fVar2 == 16.0)) {
+        fVar2 = (arg->bullet_type_templates[local_8].vm0.sprite)->heightPx;
+        if (fVar2 < 32.0 == (fVar2 == 32.0)) {
+          arg->bullet_type_templates[local_8].field5_0x550 = 32.0;
+          arg->bullet_type_templates[local_8].field6_0x554 = 32.0;
         }
         else if (*(int *)(&DAT_0046a6e8 + local_8 * 0x14) == 0x207) {
-          *(undefined4 *)(param_1 + 0x550 + local_8 * 0x560) = 0x41300000;
-          *(undefined4 *)(param_1 + 0x554 + local_8 * 0x560) = 0x41300000;
+          arg->bullet_type_templates[local_8].field5_0x550 = 11.0;
+          arg->bullet_type_templates[local_8].field6_0x554 = 11.0;
         }
         else if (*(int *)(&DAT_0046a6e8 + local_8 * 0x14) == 0x208) {
-          *(undefined4 *)(param_1 + 0x550 + local_8 * 0x560) = 0x41100000;
-          *(undefined4 *)(param_1 + 0x554 + local_8 * 0x560) = 0x41100000;
+          arg->bullet_type_templates[local_8].field5_0x550 = 9.0;
+          arg->bullet_type_templates[local_8].field6_0x554 = 9.0;
         }
         else {
-          *(undefined4 *)(param_1 + 0x550 + local_8 * 0x560) = 0x41800000;
-          *(undefined4 *)(param_1 + 0x554 + local_8 * 0x560) = 0x41800000;
+          arg->bullet_type_templates[local_8].field5_0x550 = 16.0;
+          arg->bullet_type_templates[local_8].field6_0x554 = 16.0;
         }
       }
       else {
-        iVar5 = *(int *)(&DAT_0046a6e8 + local_8 * 0x14);
-        if (iVar5 == 0x202) {
-          *(undefined4 *)(param_1 + 0x550 + local_8 * 0x560) = 0x40800000;
-          *(undefined4 *)(param_1 + 0x554 + local_8 * 0x560) = 0x40800000;
+        iVar6 = *(int *)(&DAT_0046a6e8 + local_8 * 0x14);
+        if (iVar6 == 0x202) {
+          arg->bullet_type_templates[local_8].field5_0x550 = 4.0;
+          arg->bullet_type_templates[local_8].field6_0x554 = 4.0;
         }
-        else if (iVar5 == 0x204) {
-          *(undefined4 *)(param_1 + 0x550 + local_8 * 0x560) = 0x40a00000;
-          *(undefined4 *)(param_1 + 0x554 + local_8 * 0x560) = 0x40a00000;
+        else if (iVar6 == 0x204) {
+          arg->bullet_type_templates[local_8].field5_0x550 = 5.0;
+          arg->bullet_type_templates[local_8].field6_0x554 = 5.0;
         }
-        else if (iVar5 == 0x205) {
-          *(undefined4 *)(param_1 + 0x550 + local_8 * 0x560) = 0x40800000;
-          *(undefined4 *)(param_1 + 0x554 + local_8 * 0x560) = 0x40800000;
+        else if (iVar6 == 0x205) {
+          arg->bullet_type_templates[local_8].field5_0x550 = 4.0;
+          arg->bullet_type_templates[local_8].field6_0x554 = 4.0;
         }
         else {
-          *(undefined4 *)(param_1 + 0x550 + local_8 * 0x560) = 0x40c00000;
-          *(undefined4 *)(param_1 + 0x554 + local_8 * 0x560) = 0x40c00000;
+          arg->bullet_type_templates[local_8].field5_0x550 = 6.0;
+          arg->bullet_type_templates[local_8].field6_0x554 = 6.0;
         }
       }
     }
     else {
-      *(undefined4 *)(param_1 + 0x550 + local_8 * 0x560) = 0x40800000;
-      *(undefined4 *)(param_1 + 0x554 + local_8 * 0x560) = 0x40800000;
+      arg->bullet_type_templates[local_8].field5_0x550 = 4.0;
+      arg->bullet_type_templates[local_8].field6_0x554 = 4.0;
     }
   }
   puVar7 = g_ItemManager;
-  for (iVar5 = 0xa253; iVar5 != 0; iVar5 = iVar5 + -1) {
+  for (iVar6 = 0xa253; iVar6 != 0; iVar6 = iVar6 + -1) {
     *puVar7 = 0;
     puVar7 = puVar7 + 1;
   }
-  return 0;
+  return ZUN_SUCCESS;
 }
 

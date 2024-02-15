@@ -1,9 +1,8 @@
 
-undefined4 BulletManager::RegisterChain(char *param_1)
+int BulletManager::RegisterChain(char *etama_anm_path)
 
 {
   int iVar1;
-  undefined4 uVar2;
   
   if ((g_Supervisor.cfg.opts & 1) == 0) {
     PTR_DAT_00476438 = &DAT_00476358;
@@ -12,7 +11,7 @@ undefined4 BulletManager::RegisterChain(char *param_1)
     PTR_DAT_00476438 = &DAT_004763c8;
   }
   InitializeToZero(&g_BulletManager);
-  g_BulletManager.etama_anm_filename = param_1;
+  g_BulletManager.etama_anm_filename = etama_anm_path;
   g_BulletManagerCalcChain.callback = OnUpdate;
   g_BulletManagerCalcChain.addedCallback = AddedCallback;
   g_BulletManagerCalcChain.deletedCallback = DeletedCallback;
@@ -24,11 +23,11 @@ undefined4 BulletManager::RegisterChain(char *param_1)
     g_BulletManagerDrawChain.deletedCallback = (ChainLifecycleCallback *)0x0;
     g_BulletManagerDrawChain.arg = &g_BulletManager;
     Chain::AddToDrawChain(&g_Chain,&g_BulletManagerDrawChain,9);
-    uVar2 = 0;
+    iVar1 = 0;
   }
   else {
-    uVar2 = 0xffffffff;
+    iVar1 = -1;
   }
-  return uVar2;
+  return iVar1;
 }
 

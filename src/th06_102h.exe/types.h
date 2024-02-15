@@ -72270,22 +72270,16 @@ struct BulletTypeVms {
     struct AnmVm spawn_effect_medium;
     struct AnmVm spawn_effect_long;
     struct AnmVm vm5;
-    undefined field5_0x550;
-    undefined field6_0x551;
-    undefined field7_0x552;
-    undefined field8_0x553;
-    undefined field9_0x554;
-    undefined field10_0x555;
-    undefined field11_0x556;
-    undefined field12_0x557;
-    undefined field13_0x558;
-    undefined field14_0x559;
-    undefined field15_0x55a;
-    undefined field16_0x55b;
-    byte field17_0x55c;
-    byte field18_0x55d;
-    undefined field19_0x55e;
-    undefined field20_0x55f;
+    float field5_0x550;
+    float field6_0x554;
+    undefined field7_0x558;
+    undefined field8_0x559;
+    undefined field9_0x55a;
+    undefined field10_0x55b;
+    byte field11_0x55c;
+    byte field12_0x55d;
+    undefined field13_0x55e;
+    undefined field14_0x55f;
 };
 
 struct Bullet {

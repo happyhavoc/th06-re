@@ -18,7 +18,7 @@ uint __thiscall CSound::Stop(CSound *this)
       local_8 = local_8 | uVar1;
     }
     DebugPrint2("\n");
-    this->field7_0x1c = 0;
+    this->m_dwIsFadingOut = 0;
   }
   return local_8;
 }

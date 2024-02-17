@@ -32,7 +32,7 @@ CSoundManager::CreateStreaming
   local_10 = ExceptionList;
   local_24 = __security_cookie ^ unaff_retaddr;
   if (this->m_pDS == (LPDIRECTSOUND8)0x0) {
-    HVar1 = -0x7ffbfe10;
+    HVar1 = CO_E_NOTINITIALIZED;
   }
   else {
     local_20 = (IDirectSoundBuffer *)0x0;
@@ -75,17 +75,17 @@ CSoundManager::CreateStreaming
     local_4c = (*this->m_pDS->lpVtbl->CreateSoundBuffer)
                          (this->m_pDS,&local_48,&local_20,(LPUNKNOWN)0x0);
     if (local_4c < 0) {
-      HVar1 = -0x7fffbffb;
+      HVar1 = E_FAIL;
     }
     else {
       local_4c = (*local_20->lpVtbl->QueryInterface)(local_20,&IID_0046fe10,&local_50);
       if (local_4c < 0) {
-        HVar1 = -0x7fffbffb;
+        HVar1 = E_FAIL;
       }
       else {
         local_18 = (LPCDSBPOSITIONNOTIFY)operator_new(dwNotifyCount << 3);
         if (local_18 == (LPCDSBPOSITIONNOTIFY)0x0) {
-          HVar1 = -0x7ff8fff2;
+          HVar1 = E_OUTOFMEMORY;
         }
         else {
           for (local_54 = 0; local_54 < dwNotifyCount; local_54 = local_54 + 1) {
@@ -102,7 +102,7 @@ CSoundManager::CreateStreaming
               _free(local_18);
               local_18 = (LPCDSBPOSITIONNOTIFY)0x0;
             }
-            HVar1 = -0x7fffbffb;
+            HVar1 = E_FAIL;
           }
           else {
             if (local_50 != (LPDIRECTSOUNDNOTIFY)0x0) {

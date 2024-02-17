@@ -1,8 +1,8 @@
 
 int __thiscall
 CSoundManager::Initialize
-          (CSoundManager *this,HWND hWnd,DWORD dwCoopLevel,undefined4 dwPrimaryChannels,
-          int dwPrimaryFreq,undefined4 dwPrimaryBitRate)
+          (CSoundManager *this,HWND hWnd,DWORD dwCoopLevel,DWORD dwPrimaryChannels,int dwPrimaryFreq
+          ,DWORD dwPrimaryBitRate)
 
 {
   int iVar1;
@@ -15,7 +15,7 @@ CSoundManager::Initialize
   if ((-1 < iVar1) &&
      (iVar1 = (*this->m_pDS->lpVtbl->SetCooperativeLevel)(this->m_pDS,(HWND)hWnd,dwCoopLevel),
      -1 < iVar1)) {
-    SetPrimaryBufferFormat(this,(short)dwPrimaryChannels,dwPrimaryFreq,(ushort)dwPrimaryBitRate);
+    SetPrimaryBufferFormat(this,dwPrimaryChannels,dwPrimaryFreq,dwPrimaryBitRate);
     iVar1 = 0;
   }
   return iVar1;

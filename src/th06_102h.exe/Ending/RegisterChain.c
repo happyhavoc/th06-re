@@ -2,7 +2,7 @@
 undefined4 Ending::RegisterChain(void)
 
 {
-  Ending *ending;
+  Ending *this;
   ChainElem *pCVar1;
   int iVar2;
   undefined4 uVar3;
@@ -15,13 +15,13 @@ undefined4 Ending::RegisterChain(void)
   puStack_c = &LAB_0046911b;
   local_10 = ExceptionList;
   ExceptionList = &local_10;
-  ending = (Ending *)operator_new(0x1170);
+  this = (Ending *)operator_new(0x1170);
   local_8 = 0;
-  if (ending == (Ending *)0x0) {
+  if (this == (Ending *)0x0) {
     local_40 = (ChainElem **)0x0;
   }
   else {
-    local_40 = (ChainElem **)Ending(ending);
+    local_40 = (ChainElem **)Ending(this);
   }
   local_8 = 0xffffffff;
   pCVar1 = Chain::CreateElem(&g_Chain,OnUpdate);

@@ -3,18 +3,19 @@ undefined4 Ending::OnUpdate(Ending *ending)
 
 {
   int in_EAX;
-  int i;
+  Ending *in_stack_fffffff4;
   int local_8;
   
   local_8 = 0;
   while( true ) {
-    parseEndFile(ending);
+    parseEndFile(ending,in_stack_fffffff4);
     if (in_EAX != 0) {
       return 0;
     }
-    for (i = 0; i < 16; i = i + 1) {
-      if (ending->AnmVm[i].anmFileIndex != 0) {
-        AnmManager::ExecuteScript(g_AnmManager,ending->AnmVm + i);
+    for (in_stack_fffffff4 = (Ending *)0x0; (int)in_stack_fffffff4 < 16;
+        in_stack_fffffff4 = (Ending *)&in_stack_fffffff4->field_0x1) {
+      if (ending->AnmVm[(int)in_stack_fffffff4].anmFileIndex != 0) {
+        AnmManager::ExecuteScript(g_AnmManager,ending->AnmVm + (int)in_stack_fffffff4);
       }
     }
     if (((*(int *)&ending->field_0x1118 == 0) || ((g_CurFrameInput & 0x100) == 0)) || (3 < local_8))

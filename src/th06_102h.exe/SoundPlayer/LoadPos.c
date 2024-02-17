@@ -25,7 +25,7 @@ undefined4 __thiscall SoundPlayer::LoadPos(SoundPlayer *this,char *filepath)
       pCVar1 = (this->streamingSound->base).m_pWaveFile;
       iVar2 = data[1];
       pCVar1->m_loopStartPoint = *data << 2;
-      pCVar1->m_loopEndPoint = (void *)(iVar2 << 2);
+      pCVar1->m_loopEndPoint = iVar2 << 2;
       _free(data);
       uVar3 = 0;
     }

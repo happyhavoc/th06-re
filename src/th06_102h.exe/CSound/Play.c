@@ -24,9 +24,9 @@ int __thiscall CSound::Play(CSound *this,DWORD dwPriority,DWORD dwFlags)
           }
           Reset(this);
         }
-        this->field7_0x1c = 0;
-        this->field5_0x14 = 0;
-        this->field6_0x18 = 0;
+        this->m_dwIsFadingOut = 0;
+        this->m_dwCurFadeoutProgress = 0;
+        this->m_dwTotalFadeout = 0;
         iVar1 = (*local_8->lpVtbl->Play)(local_8,0,dwPriority,dwFlags);
       }
     }

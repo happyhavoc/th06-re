@@ -26,15 +26,15 @@ undefined4 __thiscall CWaveFile::ResetFile(CWaveFile *this,char param_1)
         return 0x80004005;
       }
       if (0 < (int)this->m_loopEndPoint) {
-        (this->m_ck).cksize = (DWORD)this->m_loopEndPoint;
+        (this->m_ck).cksize = this->m_loopEndPoint;
       }
-      if ((param_1 != '\0') && (0 < this->m_loopStartPoint)) {
+      if ((param_1 != '\0') && (0 < (int)this->m_loopStartPoint)) {
         MVar2 = mmioGetInfo(this->m_hmmio,&mmioinfoIn,0);
         if (MVar2 != 0) {
           DebugPrint2("error : mmioGetInfo in CWaveFile::ResetFile\n");
           return 0x80004005;
         }
-        for (local_58 = 0; local_58 < this->m_loopStartPoint; local_58 = local_58 + 1) {
+        for (local_58 = 0; local_58 < (int)this->m_loopStartPoint; local_58 = local_58 + 1) {
           if (mmioinfoIn.pchNext == mmioinfoIn.pchEndRead) {
             MVar2 = mmioAdvance(this->m_hmmio,&mmioinfoIn,0);
             if (MVar2 != 0) {

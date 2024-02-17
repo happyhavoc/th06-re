@@ -6,7 +6,7 @@ ChainCallbackResult Supervisor::OnUpdate(Supervisor *param_1)
   int iVar2;
   
   if (g_SoundPlayer.streamingSound != (CStreamingSound *)0x0) {
-    CStreamingSound::FUN_0043b4d0(g_SoundPlayer.streamingSound);
+    CStreamingSound::UpdateFadeOut(g_SoundPlayer.streamingSound);
   }
   g_LastFrameInput = g_CurFrameInput;
   g_CurFrameInput = GetInput();

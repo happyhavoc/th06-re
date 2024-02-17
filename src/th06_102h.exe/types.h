@@ -260,8 +260,8 @@ struct CWaveFile {
     BYTE *m_pbData;
     BYTE *m_pbDataCur;
     ULONG m_ulDataSize;
-    int m_loopStartPoint;
-    void *m_loopEndPoint;
+    DWORD m_loopStartPoint;
+    DWORD m_loopEndPoint;
 };
 
 struct tWAVEFORMATEX {
@@ -280,9 +280,9 @@ struct CSound {
     DWORD m_dwDSBufferSize;
     struct CWaveFile *m_pWaveFile;
     DWORD m_dwNumBuffers;
-    int field5_0x14;
-    int field6_0x18;
-    DWORD field7_0x1c;
+    int m_dwCurFadeoutProgress;
+    int m_dwTotalFadeout;
+    DWORD m_dwIsFadingOut;
 };
 
 struct CStreamingSound {

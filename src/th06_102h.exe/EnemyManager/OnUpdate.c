@@ -192,7 +192,9 @@ switchD_00412938_caseD_2:
               (&g_EffectManager,(uint)local_28->death_anm1,&local_28->position,1,0xffffffff);
     EffectManager::FUN_0040ef50
               (&g_EffectManager,local_28->death_anm2 + 4,&local_28->position,4,0xffffffff);
-    if (-1 < local_28->death_callback_sub) {
+    iVar3._0_2_ = local_28->death_callback_sub;
+    iVar3._2_2_ = local_28->interrupts[0];
+    if (-1 < iVar3) {
       local_28->bullet_rank_speed_low = -0.5;
       local_28->bullet_rank_speed_high = 0.5;
       local_28->bullet_rank_amount1_low = 0;
@@ -201,8 +203,9 @@ switchD_00412938_caseD_2:
       local_28->bullet_rank_amount2_high = 0;
       local_28->stack_depth = 0;
       EclManager::FUN_00407440
-                (&g_EclManager,&local_28->current_context,*(short *)&local_28->death_callback_sub);
+                (&g_EclManager,&local_28->current_context,local_28->death_callback_sub);
       local_28->death_callback_sub = -1;
+      local_28->interrupts[0] = -1;
     }
 LAB_00412ce2:
     if (((local_28->flags2 >> 3 & 1) != 0) && (BVar4 = Gui::HasCurrentMsgIdx(&g_Gui), BVar4 == 0)) {

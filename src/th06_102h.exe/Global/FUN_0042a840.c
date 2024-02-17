@@ -38,7 +38,7 @@ undefined4 FUN_0042a840(ReplayManager *param_1)
     g_GameManager.difficulty = (uint)param_1->data->difficulty;
     g_GameManager.field18_0x1816 = pSVar1->unk6;
     g_Rng.seed = pSVar1->random_seed;
-    g_Rng.unk4 = 0;
+    g_Rng.generationCount = 0;
     g_GameManager.rank = (uint)pSVar1->rank;
     g_GameManager.lives_remaining = pSVar1->lives_remaining;
     g_GameManager.bombs_remaining = pSVar1->bombs_remaining;

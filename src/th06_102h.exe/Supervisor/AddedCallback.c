@@ -55,7 +55,7 @@ ZunResult Supervisor::AddedCallback(Supervisor *param_1)
     isMidiOutputAllocated_usedByUnwind = 0xffffffff;
     param_1->midi_output = pMStack_24;
     DVar4 = timeGetTime();
-    g_Rng.unk4 = 0;
+    g_Rng.generationCount = 0;
     g_Rng.seed = (ushort)DVar4;
     SoundPlayer::InitSoundBuffers(&g_SoundPlayer);
     ZVar2 = AnmManager::LoadAnm(g_AnmManager,0,"data/text.anm",0x700);

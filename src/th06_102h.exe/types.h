@@ -72516,7 +72516,7 @@ typedef struct Rng Rng, *PRng;
 
 struct Rng {
     ushort seed;
-    uint unk4;
+    uint generationCount;
 };
 
 typedef struct Enemy Enemy, *PEnemy;
@@ -72570,7 +72570,7 @@ struct Enemy {
     struct EnemyEclContext saved_context_stack[8];
     int stack_depth;
     int field5_0xc40;
-    int death_callback_sub;
+    short death_callback_sub;
     short interrupts[16];
     int run_interrupt;
     D3DXVECTOR3 position;

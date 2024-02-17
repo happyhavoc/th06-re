@@ -128,7 +128,7 @@ ZunResult GameManager::AddedCallback(GameManager *param_1)
     param_1->min_rank = DifficultyInfo_ARRAY_00476528[g_GameManager.difficulty].min_rank;
     param_1->max_rank = DifficultyInfo_ARRAY_00476528[g_GameManager.difficulty].max_rank;
   }
-  g_Rng.unk4 = 0;
+  g_Rng.generationCount = 0;
   param_1->field41_0x1a2c = g_Rng.seed;
   iVar3 = Stage::RegisterChain(param_1->current_stage);
   if (iVar3 == 0) {

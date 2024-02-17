@@ -9,23 +9,24 @@ undefined4 EclManager::run_ecl(Enemy *param_1)
   float fVar3;
   float fVar4;
   short sVar5;
-  AnmManager *pAVar6;
-  uint uVar7;
-  uint *puVar8;
-  void *pvVar9;
-  Effect *pEVar10;
-  int *piVar11;
-  float *pfVar12;
-  byte bVar13;
-  int iVar14;
+  undefined2 uVar6;
+  AnmManager *pAVar7;
+  uint uVar8;
+  uint *puVar9;
+  void *pvVar10;
+  Effect *pEVar11;
+  int *piVar12;
+  float *pfVar13;
+  byte bVar14;
   int iVar15;
-  EnemyEclContext *pEVar16;
+  int iVar16;
   EnemyEclContext *pEVar17;
-  int *piVar18;
-  float10 fVar19;
+  EnemyEclContext *pEVar18;
+  int *piVar19;
   float10 fVar20;
-  float fVar21;
+  float10 fVar21;
   float fVar22;
+  float fVar23;
   int local_2dc;
   byte *local_2cc;
   byte *local_2c0;
@@ -95,40 +96,40 @@ LAB_0040954d:
     (param_1->current_context).current_instr =
          (void *)((int)local_20 + (int)*(short *)((int)local_20 + 6));
     if ((param_1->flags3 >> 2 & 1) == 0) {
-      pEVar16 = &param_1->current_context;
-      pEVar17 = param_1->saved_context_stack + param_1->stack_depth;
-      for (iVar14 = 0x13; iVar14 != 0; iVar14 = iVar14 + -1) {
-        pEVar17->current_instr = pEVar16->current_instr;
-        pEVar16 = (EnemyEclContext *)&pEVar16->time;
+      pEVar17 = &param_1->current_context;
+      pEVar18 = param_1->saved_context_stack + param_1->stack_depth;
+      for (iVar15 = 0x13; iVar15 != 0; iVar15 = iVar15 + -1) {
+        pEVar18->current_instr = pEVar17->current_instr;
         pEVar17 = (EnemyEclContext *)&pEVar17->time;
+        pEVar18 = (EnemyEclContext *)&pEVar18->time;
       }
     }
     FUN_00407440(&g_EclManager,&param_1->current_context,
-                 param_1->interrupts[param_1->run_interrupt * 2]);
+                 param_1->interrupts[param_1->run_interrupt * 2 + 1]);
     if (param_1->stack_depth < 7) {
       param_1->stack_depth = param_1->stack_depth + 1;
     }
     param_1->run_interrupt = -1;
   }
 LAB_004074ce:
-  pAVar6 = g_AnmManager;
+  pAVar7 = g_AnmManager;
   if ((param_1->current_context).time.current != *local_20) {
-    bVar13 = param_1->flags1 & 3;
-    if (bVar13 == 1) {
-      fVar22 = add_normalize_angle(param_1->angle,
+    bVar14 = param_1->flags1 & 3;
+    if (bVar14 == 1) {
+      fVar23 = add_normalize_angle(param_1->angle,
                                    g_Supervisor.effectiveFramerateMultiplier *
                                    param_1->angular_velocity);
-      param_1->angle = fVar22;
+      param_1->angle = fVar23;
       param_1->speed =
            g_Supervisor.effectiveFramerateMultiplier * param_1->acceleration + param_1->speed;
-      fVar22 = param_1->speed;
-      fVar20 = (float10)fcos((float10)param_1->angle);
-      fVar19 = (float10)fsin((float10)param_1->angle);
-      (param_1->axis_speed).x = (float)(fVar20 * (float10)fVar22);
-      (param_1->axis_speed).y = (float)(fVar19 * (float10)fVar22);
+      fVar23 = param_1->speed;
+      fVar21 = (float10)fcos((float10)param_1->angle);
+      fVar20 = (float10)fsin((float10)param_1->angle);
+      (param_1->axis_speed).x = (float)(fVar21 * (float10)fVar23);
+      (param_1->axis_speed).y = (float)(fVar20 * (float10)fVar23);
       (param_1->axis_speed).z = 0.0;
     }
-    else if (bVar13 == 2) {
+    else if (bVar14 == 2) {
       AnmTimer::FUN_004241e5(&param_1->move_interp_timer,1);
       local_bc = ((float)(param_1->move_interp_timer).current +
                  (param_1->move_interp_timer).subFrame) / (float)param_1->move_interp_start_time;
@@ -152,8 +153,8 @@ LAB_004074ce:
         local_bc = 1.0 - local_bc;
         local_bc = local_bc * local_bc * local_bc * local_bc;
       }
-      fVar22 = (param_1->move_interp).z;
-      fVar21 = (param_1->move_interp).y;
+      fVar23 = (param_1->move_interp).z;
+      fVar22 = (param_1->move_interp).y;
       fVar3 = (param_1->move_interp_start_pos).z;
       fVar4 = (param_1->move_interp_start_pos).y;
       fVar1 = (param_1->position).z;
@@ -161,20 +162,20 @@ LAB_004074ce:
       (param_1->axis_speed).x =
            (local_bc * (param_1->move_interp).x + (param_1->move_interp_start_pos).x) -
            (param_1->position).x;
-      (param_1->axis_speed).y = (local_bc * fVar21 + fVar4) - fVar2;
-      (param_1->axis_speed).z = (local_bc * fVar22 + fVar3) - fVar1;
-      fVar20 = (float10)FUN_0045be40((double)(param_1->axis_speed).y,(double)(param_1->axis_speed).x
+      (param_1->axis_speed).y = (local_bc * fVar22 + fVar4) - fVar2;
+      (param_1->axis_speed).z = (local_bc * fVar23 + fVar3) - fVar1;
+      fVar21 = (float10)FUN_0045be40((double)(param_1->axis_speed).y,(double)(param_1->axis_speed).x
                                     );
-      param_1->angle = (float)fVar20;
+      param_1->angle = (float)fVar21;
       if ((param_1->move_interp_timer).current < 1) {
         param_1->flags1 = param_1->flags1 & 0xfc;
-        fVar22 = (param_1->move_interp_start_pos).z;
-        fVar21 = (param_1->move_interp).z;
+        fVar23 = (param_1->move_interp_start_pos).z;
+        fVar22 = (param_1->move_interp).z;
         fVar3 = (param_1->move_interp_start_pos).y;
         fVar4 = (param_1->move_interp).y;
         (param_1->position).x = (param_1->move_interp_start_pos).x + (param_1->move_interp).x;
         (param_1->position).y = fVar3 + fVar4;
-        (param_1->position).z = fVar22 + fVar21;
+        (param_1->position).z = fVar23 + fVar22;
         (param_1->axis_speed).x = 0.0;
         (param_1->axis_speed).y = 0.0;
         (param_1->axis_speed).z = 0.0;
@@ -187,70 +188,70 @@ LAB_004074ce:
                   (&g_Supervisor,&(param_1->shoot_interval_timer).current,
                    &(param_1->shoot_interval_timer).subFrame);
         if (param_1->shoot_interval <= (param_1->shoot_interval_timer).current) {
-          fVar22 = (param_1->position).z;
-          fVar21 = (param_1->shoot_offset).z;
+          fVar23 = (param_1->position).z;
+          fVar22 = (param_1->shoot_offset).z;
           fVar3 = (param_1->position).y;
           fVar4 = (param_1->shoot_offset).y;
           (param_1->bullet_props).position.x = (param_1->position).x + (param_1->shoot_offset).x;
           (param_1->bullet_props).position.y = fVar3 + fVar4;
-          (param_1->bullet_props).position.z = fVar22 + fVar21;
+          (param_1->bullet_props).position.z = fVar23 + fVar22;
           BulletManager::FUN_004145c0(&g_BulletManager,&param_1->bullet_props);
           (param_1->shoot_interval_timer).current = 0;
           (param_1->shoot_interval_timer).subFrame = 0.0;
           (param_1->shoot_interval_timer).previous = -999;
         }
       }
-      pAVar6 = g_AnmManager;
+      pAVar7 = g_AnmManager;
       if (-1 < param_1->anm_ex_left) {
-        bVar13 = 0;
-        fVar22 = (param_1->axis_speed).x;
-        if (fVar22 < 0.0 == NAN(fVar22)) {
+        bVar14 = 0;
+        fVar23 = (param_1->axis_speed).x;
+        if (fVar23 < 0.0 == NAN(fVar23)) {
           if (0.0 < (param_1->axis_speed).x) {
-            bVar13 = 2;
+            bVar14 = 2;
           }
         }
         else {
-          bVar13 = 1;
+          bVar14 = 1;
         }
-        if (param_1->anm_ex_flags != bVar13) {
-          if (bVar13 == 0) {
+        if (param_1->anm_ex_flags != bVar14) {
+          if (bVar14 == 0) {
             if (param_1->anm_ex_flags == 0xff) {
               sVar5 = param_1->anm_ex_defaults;
               local_268 = sVar5 + 0x100;
               (param_1->primary_vm).anmFileIndex = local_268;
               AnmManager::SetAndExecuteScript
-                        (pAVar6,&param_1->primary_vm,pAVar6->scripts[sVar5 + 0x100]);
+                        (pAVar7,&param_1->primary_vm,pAVar7->scripts[sVar5 + 0x100]);
             }
             else if (param_1->anm_ex_flags == 1) {
               sVar5 = param_1->anm_ex_far_left;
               local_270 = sVar5 + 0x100;
               (param_1->primary_vm).anmFileIndex = local_270;
               AnmManager::SetAndExecuteScript
-                        (pAVar6,&param_1->primary_vm,pAVar6->scripts[sVar5 + 0x100]);
+                        (pAVar7,&param_1->primary_vm,pAVar7->scripts[sVar5 + 0x100]);
             }
             else {
               sVar5 = param_1->anm_ex_far_right;
               local_278 = sVar5 + 0x100;
               (param_1->primary_vm).anmFileIndex = local_278;
               AnmManager::SetAndExecuteScript
-                        (pAVar6,&param_1->primary_vm,pAVar6->scripts[sVar5 + 0x100]);
+                        (pAVar7,&param_1->primary_vm,pAVar7->scripts[sVar5 + 0x100]);
             }
           }
-          else if (bVar13 == 1) {
+          else if (bVar14 == 1) {
             sVar5 = param_1->anm_ex_left;
             local_280 = sVar5 + 0x100;
             (param_1->primary_vm).anmFileIndex = local_280;
             AnmManager::SetAndExecuteScript
-                      (pAVar6,&param_1->primary_vm,pAVar6->scripts[sVar5 + 0x100]);
+                      (pAVar7,&param_1->primary_vm,pAVar7->scripts[sVar5 + 0x100]);
           }
-          else if (bVar13 == 2) {
+          else if (bVar14 == 2) {
             sVar5 = param_1->anm_ex_right;
             local_288 = sVar5 + 0x100;
             (param_1->primary_vm).anmFileIndex = local_288;
             AnmManager::SetAndExecuteScript
-                      (pAVar6,&param_1->primary_vm,pAVar6->scripts[sVar5 + 0x100]);
+                      (pAVar7,&param_1->primary_vm,pAVar7->scripts[sVar5 + 0x100]);
           }
-          param_1->anm_ex_flags = bVar13;
+          param_1->anm_ex_flags = bVar14;
         }
       }
       if ((param_1->current_context).func_set_func != (void *)0x0) {
@@ -273,33 +274,33 @@ LAB_004074ce:
   case 2:
     goto switchD_00407544_caseD_2;
   case 3:
-    piVar11 = Enemy::get_var(param_1,local_20 + 5,(EclValueType *)0x0);
-    local_14 = (float)(*piVar11 + -1);
+    piVar12 = Enemy::get_var(param_1,local_20 + 5,(EclValueType *)0x0);
+    local_14 = (float)(*piVar12 + -1);
     Enemy::set_var(param_1,local_1c[2],(int *)&local_14);
-    fVar22 = local_14;
+    fVar23 = local_14;
     goto joined_r0x00407ab4;
   case 4:
   case 5:
     Enemy::set_var(param_1,local_20[3],local_20 + 4);
     break;
   case 6:
-    puVar8 = (uint *)Enemy::get_var(param_1,local_20 + 4,(EclValueType *)0x0);
-    local_24 = *puVar8;
+    puVar9 = (uint *)Enemy::get_var(param_1,local_20 + 4,(EclValueType *)0x0);
+    local_24 = *puVar9;
     if (local_24 == 0) {
       local_29c = 0.0;
     }
     else {
-      uVar7 = Rng::GetRandomU32(&g_Rng);
-      local_29c = (float)(uVar7 % local_24);
+      uVar8 = Rng::GetRandomU32(&g_Rng);
+      local_29c = (float)(uVar8 % local_24);
     }
     local_14 = local_29c;
     Enemy::set_var(param_1,local_20[3],(int *)&local_14);
     break;
   case 7:
-    puVar8 = (uint *)Enemy::get_var(param_1,local_20 + 4,(EclValueType *)0x0);
-    local_28 = *puVar8;
-    piVar11 = Enemy::get_var(param_1,(int *)(local_1c + 2),(EclValueType *)0x0);
-    local_2c = *piVar11;
+    puVar9 = (uint *)Enemy::get_var(param_1,local_20 + 4,(EclValueType *)0x0);
+    local_28 = *puVar9;
+    piVar12 = Enemy::get_var(param_1,(int *)(local_1c + 2),(EclValueType *)0x0);
+    local_2c = *piVar12;
     if (local_28 == 0) {
       local_2a0 = 0;
     }
@@ -311,19 +312,19 @@ LAB_004074ce:
     Enemy::set_var(param_1,local_20[3],(int *)&local_14);
     break;
   case 8:
-    pfVar12 = Enemy::get_var_float(param_1,(float *)(local_20 + 4),(undefined4 *)0x0);
-    local_30 = *pfVar12;
+    pfVar13 = Enemy::get_var_float(param_1,(float *)(local_20 + 4),(undefined4 *)0x0);
+    local_30 = *pfVar13;
     local_18 = Rng::GetRandomF32ZeroToOne(&g_Rng);
     local_18 = local_18 * local_30;
     Enemy::set_var(param_1,local_20[3],(int *)&local_18);
     break;
   case 9:
-    pfVar12 = Enemy::get_var_float(param_1,(float *)(local_20 + 4),(undefined4 *)0x0);
-    local_34 = *pfVar12;
-    pfVar12 = Enemy::get_var_float(param_1,local_1c + 2,(undefined4 *)0x0);
-    local_38 = *pfVar12;
-    fVar22 = Rng::GetRandomF32ZeroToOne(&g_Rng);
-    local_18 = fVar22 * local_34 + local_38;
+    pfVar13 = Enemy::get_var_float(param_1,(float *)(local_20 + 4),(undefined4 *)0x0);
+    local_34 = *pfVar13;
+    pfVar13 = Enemy::get_var_float(param_1,local_1c + 2,(undefined4 *)0x0);
+    local_38 = *pfVar13;
+    fVar23 = Rng::GetRandomF32ZeroToOne(&g_Rng);
+    local_18 = fVar23 * local_34 + local_38;
     Enemy::set_var(param_1,local_20[3],(int *)&local_18);
     break;
   case 10:
@@ -367,16 +368,16 @@ LAB_004074ce:
     Enemy::math_atan2(param_1,local_20[3],local_20 + 4);
     break;
   case 0x1a:
-    pfVar12 = (float *)Enemy::get_var(param_1,local_20 + 3,(EclValueType *)0x0);
-    local_18 = *pfVar12;
+    pfVar13 = (float *)Enemy::get_var(param_1,local_20 + 3,(EclValueType *)0x0);
+    local_18 = *pfVar13;
     local_18 = add_normalize_angle(local_18,0.0);
     Enemy::set_var(param_1,local_20[3],(int *)&local_18);
     break;
   case 0x1b:
-    piVar11 = Enemy::get_var(param_1,local_20 + 3,(EclValueType *)0x0);
-    local_48 = *piVar11;
-    piVar11 = Enemy::get_var(param_1,local_20 + 4,(EclValueType *)0x0);
-    local_44 = *piVar11;
+    piVar12 = Enemy::get_var(param_1,local_20 + 3,(EclValueType *)0x0);
+    local_48 = *piVar12;
+    piVar12 = Enemy::get_var(param_1,local_20 + 4,(EclValueType *)0x0);
+    local_44 = *piVar12;
     if (local_48 == local_44) {
       local_2a4 = 0;
     }
@@ -386,10 +387,10 @@ LAB_004074ce:
     (param_1->current_context).compare_register = local_2a4;
     break;
   case 0x1c:
-    pfVar12 = Enemy::get_var_float(param_1,(float *)(local_20 + 3),(undefined4 *)0x0);
-    local_4c = *pfVar12;
-    pfVar12 = Enemy::get_var_float(param_1,(float *)(local_20 + 4),(undefined4 *)0x0);
-    local_50 = *pfVar12;
+    pfVar13 = Enemy::get_var_float(param_1,(float *)(local_20 + 3),(undefined4 *)0x0);
+    local_4c = *pfVar13;
+    pfVar13 = Enemy::get_var_float(param_1,(float *)(local_20 + 4),(undefined4 *)0x0);
+    local_50 = *pfVar13;
     if ((NAN(local_4c) || NAN(local_50)) == (local_4c == local_50)) {
       if (local_4c < local_50 == (NAN(local_4c) || NAN(local_50))) {
         local_2ac = 1;
@@ -414,9 +415,9 @@ LAB_004074ce:
     if ((param_1->current_context).compare_register != 0) break;
     goto switchD_00407544_caseD_2;
   case 0x20:
-    fVar22 = (float)(param_1->current_context).compare_register;
+    fVar23 = (float)(param_1->current_context).compare_register;
 joined_r0x00407ab4:
-    if ((int)fVar22 < 1) break;
+    if ((int)fVar23 < 1) break;
     goto switchD_00407544_caseD_2;
   case 0x21:
     if ((param_1->current_context).compare_register < 0) break;
@@ -432,108 +433,108 @@ switchD_00407544_caseD_2:
   case 0x24:
     goto switchD_00407544_caseD_24;
   case 0x25:
-    pfVar12 = (float *)Enemy::get_var(param_1,local_20 + 6,(EclValueType *)0x0);
-    local_14 = *pfVar12;
+    pfVar13 = (float *)Enemy::get_var(param_1,local_20 + 6,(EclValueType *)0x0);
+    local_14 = *pfVar13;
     if ((int)local_14 < (int)local_1c[4]) goto switchD_00407544_caseD_23;
     break;
   case 0x26:
-    pfVar12 = (float *)Enemy::get_var(param_1,local_20 + 6,(EclValueType *)0x0);
-    local_14 = *pfVar12;
+    pfVar13 = (float *)Enemy::get_var(param_1,local_20 + 6,(EclValueType *)0x0);
+    local_14 = *pfVar13;
     if ((int)local_14 <= (int)local_1c[4]) goto switchD_00407544_caseD_23;
     break;
   case 0x27:
-    pfVar12 = (float *)Enemy::get_var(param_1,local_20 + 6,(EclValueType *)0x0);
-    local_14 = *pfVar12;
+    pfVar13 = (float *)Enemy::get_var(param_1,local_20 + 6,(EclValueType *)0x0);
+    local_14 = *pfVar13;
     if (local_14 == local_1c[4]) goto switchD_00407544_caseD_23;
     break;
   case 0x28:
-    pfVar12 = (float *)Enemy::get_var(param_1,local_20 + 6,(EclValueType *)0x0);
-    local_14 = *pfVar12;
+    pfVar13 = (float *)Enemy::get_var(param_1,local_20 + 6,(EclValueType *)0x0);
+    local_14 = *pfVar13;
     if ((int)local_1c[4] < (int)local_14) goto switchD_00407544_caseD_23;
     break;
   case 0x29:
-    pfVar12 = (float *)Enemy::get_var(param_1,local_20 + 6,(EclValueType *)0x0);
-    local_14 = *pfVar12;
+    pfVar13 = (float *)Enemy::get_var(param_1,local_20 + 6,(EclValueType *)0x0);
+    local_14 = *pfVar13;
     if ((int)local_1c[4] <= (int)local_14) goto switchD_00407544_caseD_23;
     break;
   case 0x2a:
-    pfVar12 = (float *)Enemy::get_var(param_1,local_20 + 6,(EclValueType *)0x0);
-    local_14 = *pfVar12;
+    pfVar13 = (float *)Enemy::get_var(param_1,local_20 + 6,(EclValueType *)0x0);
+    local_14 = *pfVar13;
     if (local_14 != local_1c[4]) goto switchD_00407544_caseD_23;
     break;
   case 0x2b:
     (param_1->position).x = (float)local_20[3];
     (param_1->position).y = (float)local_20[4];
     (param_1->position).z = (float)local_20[5];
-    pfVar12 = Enemy::get_var_float(param_1,&(param_1->position).x,(undefined4 *)0x0);
-    (param_1->position).x = *pfVar12;
-    pfVar12 = Enemy::get_var_float(param_1,&(param_1->position).y,(undefined4 *)0x0);
-    (param_1->position).y = *pfVar12;
-    pfVar12 = Enemy::get_var_float(param_1,&(param_1->position).z,(undefined4 *)0x0);
-    (param_1->position).z = *pfVar12;
+    pfVar13 = Enemy::get_var_float(param_1,&(param_1->position).x,(undefined4 *)0x0);
+    (param_1->position).x = *pfVar13;
+    pfVar13 = Enemy::get_var_float(param_1,&(param_1->position).y,(undefined4 *)0x0);
+    (param_1->position).y = *pfVar13;
+    pfVar13 = Enemy::get_var_float(param_1,&(param_1->position).z,(undefined4 *)0x0);
+    (param_1->position).z = *pfVar13;
     Enemy::FUN_00412240(param_1);
     break;
   case 0x2c:
     (param_1->axis_speed).x = (float)local_20[3];
     (param_1->axis_speed).y = (float)local_20[4];
     (param_1->axis_speed).z = (float)local_20[5];
-    pfVar12 = Enemy::get_var_float(param_1,&(param_1->axis_speed).x,(undefined4 *)0x0);
-    (param_1->axis_speed).x = *pfVar12;
-    pfVar12 = Enemy::get_var_float(param_1,&(param_1->axis_speed).y,(undefined4 *)0x0);
-    (param_1->axis_speed).y = *pfVar12;
-    pfVar12 = Enemy::get_var_float(param_1,&(param_1->axis_speed).z,(undefined4 *)0x0);
-    (param_1->axis_speed).z = *pfVar12;
+    pfVar13 = Enemy::get_var_float(param_1,&(param_1->axis_speed).x,(undefined4 *)0x0);
+    (param_1->axis_speed).x = *pfVar13;
+    pfVar13 = Enemy::get_var_float(param_1,&(param_1->axis_speed).y,(undefined4 *)0x0);
+    (param_1->axis_speed).y = *pfVar13;
+    pfVar13 = Enemy::get_var_float(param_1,&(param_1->axis_speed).z,(undefined4 *)0x0);
+    (param_1->axis_speed).z = *pfVar13;
     param_1->flags1 = param_1->flags1 & 0xfc;
     break;
   case 0x2d:
     local_10 = (float)local_20[3];
     local_c = (float)local_20[4];
     local_8 = local_20[5];
-    pfVar12 = Enemy::get_var_float(param_1,&local_10,(undefined4 *)0x0);
-    param_1->angle = *pfVar12;
-    pfVar12 = Enemy::get_var_float(param_1,&local_c,(undefined4 *)0x0);
-    param_1->speed = *pfVar12;
+    pfVar13 = Enemy::get_var_float(param_1,&local_10,(undefined4 *)0x0);
+    param_1->angle = *pfVar13;
+    pfVar13 = Enemy::get_var_float(param_1,&local_c,(undefined4 *)0x0);
+    param_1->speed = *pfVar13;
     param_1->flags1 = param_1->flags1 & 0xfc | 1;
     break;
   case 0x2e:
     local_10 = (float)local_20[3];
     local_c = (float)local_20[4];
     local_8 = local_20[5];
-    pfVar12 = Enemy::get_var_float(param_1,&local_10,(undefined4 *)0x0);
-    param_1->angular_velocity = *pfVar12;
+    pfVar13 = Enemy::get_var_float(param_1,&local_10,(undefined4 *)0x0);
+    param_1->angular_velocity = *pfVar13;
     param_1->flags1 = param_1->flags1 & 0xfc | 1;
     break;
   case 0x2f:
     local_10 = (float)local_20[3];
     local_c = (float)local_20[4];
     local_8 = local_20[5];
-    pfVar12 = Enemy::get_var_float(param_1,&local_10,(undefined4 *)0x0);
-    param_1->speed = *pfVar12;
+    pfVar13 = Enemy::get_var_float(param_1,&local_10,(undefined4 *)0x0);
+    param_1->speed = *pfVar13;
     param_1->flags1 = param_1->flags1 & 0xfc | 1;
     break;
   case 0x30:
     local_10 = (float)local_20[3];
     local_c = (float)local_20[4];
     local_8 = local_20[5];
-    pfVar12 = Enemy::get_var_float(param_1,&local_10,(undefined4 *)0x0);
-    param_1->acceleration = *pfVar12;
+    pfVar13 = Enemy::get_var_float(param_1,&local_10,(undefined4 *)0x0);
+    param_1->acceleration = *pfVar13;
     param_1->flags1 = param_1->flags1 & 0xfc | 1;
     break;
   case 0x31:
     local_10 = (float)local_20[3];
     local_c = (float)local_20[4];
     local_8 = local_20[5];
-    fVar22 = local_c - local_10;
-    fVar21 = Rng::GetRandomF32ZeroToOne(&g_Rng);
-    param_1->angle = fVar21 * fVar22 + local_10;
+    fVar23 = local_c - local_10;
+    fVar22 = Rng::GetRandomF32ZeroToOne(&g_Rng);
+    param_1->angle = fVar22 * fVar23 + local_10;
     break;
   case 0x32:
     local_10 = (float)local_20[3];
     local_c = (float)local_20[4];
     local_8 = local_20[5];
-    fVar22 = local_c - local_10;
-    fVar21 = Rng::GetRandomF32ZeroToOne(&g_Rng);
-    param_1->angle = fVar21 * fVar22 + local_10;
+    fVar23 = local_c - local_10;
+    fVar22 = Rng::GetRandomF32ZeroToOne(&g_Rng);
+    param_1->angle = fVar22 * fVar23 + local_10;
     if ((param_1->position).x < (param_1->lower_move_limit).x + 96.0) {
       if (param_1->angle <= 1.570796) {
         if (param_1->angle < -1.570796 != NAN(param_1->angle)) {
@@ -544,9 +545,9 @@ switchD_00407544_caseD_2:
         param_1->angle = 3.141593 - param_1->angle;
       }
     }
-    fVar21 = (param_1->upper_move_limit).x - 96.0;
-    fVar22 = (param_1->position).x;
-    if (fVar21 < fVar22 != (NAN(fVar21) || NAN(fVar22))) {
+    fVar22 = (param_1->upper_move_limit).x - 96.0;
+    fVar23 = (param_1->position).x;
+    if (fVar22 < fVar23 != (NAN(fVar22) || NAN(fVar23))) {
       if ((param_1->angle < 1.570796 == NAN(param_1->angle)) || (param_1->angle < 0.0)) {
         if ((-1.570796 < param_1->angle) && (param_1->angle < 0.0 != (param_1->angle == 0.0))) {
           param_1->angle = -3.141593 - param_1->angle;
@@ -560,9 +561,9 @@ switchD_00407544_caseD_2:
        (param_1->angle < 0.0 != NAN(param_1->angle))) {
       param_1->angle = -param_1->angle;
     }
-    fVar21 = (param_1->upper_move_limit).y - 48.0;
-    fVar22 = (param_1->position).y;
-    if ((fVar21 < fVar22 != (NAN(fVar21) || NAN(fVar22))) && (0.0 < param_1->angle)) {
+    fVar22 = (param_1->upper_move_limit).y - 48.0;
+    fVar23 = (param_1->position).y;
+    if ((fVar22 < fVar23 != (NAN(fVar22) || NAN(fVar23))) && (0.0 < param_1->angle)) {
       param_1->angle = -param_1->angle;
     }
     break;
@@ -570,10 +571,10 @@ switchD_00407544_caseD_2:
     local_10 = (float)local_20[3];
     local_c = (float)local_20[4];
     local_8 = local_20[5];
-    fVar22 = Player::FUN_00428700(&g_Player,&(param_1->position).x);
-    param_1->angle = fVar22 + local_10;
-    pfVar12 = Enemy::get_var_float(param_1,&local_c,(undefined4 *)0x0);
-    param_1->speed = *pfVar12;
+    fVar23 = Player::FUN_00428700(&g_Player,&(param_1->position).x);
+    param_1->angle = fVar23 + local_10;
+    pfVar13 = Enemy::get_var_float(param_1,&local_c,(undefined4 *)0x0);
+    param_1->speed = *pfVar13;
     param_1->flags1 = param_1->flags1 & 0xfc | 1;
     break;
   case 0x34:
@@ -651,39 +652,39 @@ switchD_00407544_caseD_2:
     local_58 = &param_1->bullet_props;
     local_58->sprite = *(ushort *)local_54;
     (param_1->bullet_props).aim_mode = *(short *)(local_20 + 1) - 0x43;
-    piVar11 = Enemy::get_var(param_1,local_20 + 4,(EclValueType *)0x0);
-    local_58->count1 = *(ushort *)piVar11;
-    iVar14 = ((int)(short)param_1->bullet_rank_amount1_high -
+    piVar12 = Enemy::get_var(param_1,local_20 + 4,(EclValueType *)0x0);
+    local_58->count1 = *(ushort *)piVar12;
+    iVar15 = ((int)(short)param_1->bullet_rank_amount1_high -
              (int)(short)param_1->bullet_rank_amount1_low) * g_GameManager.rank;
     local_58->count1 =
-         (short)((int)(iVar14 + (iVar14 >> 0x1f & 0x1fU)) >> 5) +
+         (short)((int)(iVar15 + (iVar15 >> 0x1f & 0x1fU)) >> 5) +
          local_58->count1 + param_1->bullet_rank_amount1_low;
     if ((short)local_58->count1 < 1) {
       local_58->count1 = 1;
     }
-    piVar11 = Enemy::get_var(param_1,local_54 + 2,(EclValueType *)0x0);
-    local_58->count2 = *(ushort *)piVar11;
-    iVar14 = ((int)(short)param_1->bullet_rank_amount2_high -
+    piVar12 = Enemy::get_var(param_1,local_54 + 2,(EclValueType *)0x0);
+    local_58->count2 = *(ushort *)piVar12;
+    iVar15 = ((int)(short)param_1->bullet_rank_amount2_high -
              (int)(short)param_1->bullet_rank_amount2_low) * g_GameManager.rank;
     local_58->count2 =
-         (short)((int)(iVar14 + (iVar14 >> 0x1f & 0x1fU)) >> 5) +
+         (short)((int)(iVar15 + (iVar15 >> 0x1f & 0x1fU)) >> 5) +
          local_58->count2 + param_1->bullet_rank_amount2_low;
     if ((short)local_58->count2 < 1) {
       local_58->count2 = 1;
     }
-    fVar22 = (param_1->position).z;
-    fVar21 = (param_1->shoot_offset).z;
+    fVar23 = (param_1->position).z;
+    fVar22 = (param_1->shoot_offset).z;
     fVar3 = (param_1->position).y;
     fVar4 = (param_1->shoot_offset).y;
     (local_58->position).x = (param_1->position).x + (param_1->shoot_offset).x;
     (local_58->position).y = fVar3 + fVar4;
-    (local_58->position).z = fVar22 + fVar21;
-    pfVar12 = Enemy::get_var_float(param_1,(float *)(local_54 + 5),(undefined4 *)0x0);
-    local_58->angle1 = *pfVar12;
-    fVar22 = add_normalize_angle(local_58->angle1,0.0);
-    local_58->angle1 = fVar22;
-    pfVar12 = Enemy::get_var_float(param_1,(float *)(local_54 + 3),(undefined4 *)0x0);
-    local_58->speed1 = *pfVar12;
+    (local_58->position).z = fVar23 + fVar22;
+    pfVar13 = Enemy::get_var_float(param_1,(float *)(local_54 + 5),(undefined4 *)0x0);
+    local_58->angle1 = *pfVar13;
+    fVar23 = add_normalize_angle(local_58->angle1,0.0);
+    local_58->angle1 = fVar23;
+    pfVar13 = Enemy::get_var_float(param_1,(float *)(local_54 + 3),(undefined4 *)0x0);
+    local_58->speed1 = *pfVar13;
     if ((NAN(local_58->speed1) == (local_58->speed1 == 0.0)) &&
        (local_58->speed1 =
              ((param_1->bullet_rank_speed_high - param_1->bullet_rank_speed_low) *
@@ -691,10 +692,10 @@ switchD_00407544_caseD_2:
        local_58->speed1 < 0.3 != NAN(local_58->speed1))) {
       local_58->speed1 = 0.3;
     }
-    pfVar12 = Enemy::get_var_float(param_1,(float *)(local_54 + 6),(undefined4 *)0x0);
-    local_58->angle2 = *pfVar12;
-    pfVar12 = Enemy::get_var_float(param_1,(float *)(local_54 + 4),(undefined4 *)0x0);
-    local_58->speed2 = *pfVar12;
+    pfVar13 = Enemy::get_var_float(param_1,(float *)(local_54 + 6),(undefined4 *)0x0);
+    local_58->angle2 = *pfVar13;
+    pfVar13 = Enemy::get_var_float(param_1,(float *)(local_54 + 4),(undefined4 *)0x0);
+    local_58->speed2 = *pfVar13;
     local_58->speed2 =
          (((param_1->bullet_rank_speed_high - param_1->bullet_rank_speed_low) *
           (float)g_GameManager.rank) / 32.0 + param_1->bullet_rank_speed_low) / 2.0 +
@@ -705,36 +706,36 @@ switchD_00407544_caseD_2:
     *(undefined2 *)&local_58->field_0x4a = 0;
     local_58->flags = local_54[7];
     local_14 = (float)(int)*(short *)((int)local_54 + 2);
-    piVar11 = Enemy::get_var(param_1,(int *)&local_14,(EclValueType *)0x0);
-    local_58->color = *(ushort *)piVar11;
+    piVar12 = Enemy::get_var(param_1,(int *)&local_14,(EclValueType *)0x0);
+    local_58->color = *(ushort *)piVar12;
     if ((param_1->flags1 >> 5 & 1) == 0) {
       BulletManager::FUN_004145c0(&g_BulletManager,local_58);
     }
     break;
   case 0x4c:
     param_1->shoot_interval = local_20[3];
-    iVar14 = param_1->shoot_interval / 5;
-    iVar15 = (-param_1->shoot_interval / 5 - iVar14) * g_GameManager.rank;
+    iVar15 = param_1->shoot_interval / 5;
+    iVar16 = (-param_1->shoot_interval / 5 - iVar15) * g_GameManager.rank;
     param_1->shoot_interval =
-         ((int)(iVar15 + (iVar15 >> 0x1f & 0x1fU)) >> 5) + iVar14 + param_1->shoot_interval;
+         ((int)(iVar16 + (iVar16 >> 0x1f & 0x1fU)) >> 5) + iVar15 + param_1->shoot_interval;
     (param_1->shoot_interval_timer).current = 0;
     (param_1->shoot_interval_timer).subFrame = 0.0;
     (param_1->shoot_interval_timer).previous = -999;
     break;
   case 0x4d:
     param_1->shoot_interval = local_20[3];
-    iVar14 = param_1->shoot_interval / 5;
-    iVar15 = (-param_1->shoot_interval / 5 - iVar14) * g_GameManager.rank;
+    iVar15 = param_1->shoot_interval / 5;
+    iVar16 = (-param_1->shoot_interval / 5 - iVar15) * g_GameManager.rank;
     param_1->shoot_interval =
-         ((int)(iVar15 + (iVar15 >> 0x1f & 0x1fU)) >> 5) + iVar14 + param_1->shoot_interval;
+         ((int)(iVar16 + (iVar16 >> 0x1f & 0x1fU)) >> 5) + iVar15 + param_1->shoot_interval;
     if (param_1->shoot_interval != 0) {
-      uVar7 = param_1->shoot_interval;
-      if (uVar7 == 0) {
+      uVar8 = param_1->shoot_interval;
+      if (uVar8 == 0) {
         local_184 = 0;
       }
       else {
         local_184 = Rng::GetRandomU32(&g_Rng);
-        local_184 = local_184 % uVar7;
+        local_184 = local_184 % uVar8;
       }
       (param_1->shoot_interval_timer).current = local_184;
       (param_1->shoot_interval_timer).subFrame = 0.0;
@@ -748,40 +749,40 @@ switchD_00407544_caseD_2:
     param_1->flags1 = param_1->flags1 & 0xdf;
     break;
   case 0x50:
-    fVar22 = (param_1->position).z;
-    fVar21 = (param_1->shoot_offset).z;
+    fVar23 = (param_1->position).z;
+    fVar22 = (param_1->shoot_offset).z;
     fVar3 = (param_1->position).y;
     fVar4 = (param_1->shoot_offset).y;
     (param_1->bullet_props).position.x = (param_1->position).x + (param_1->shoot_offset).x;
     (param_1->bullet_props).position.y = fVar3 + fVar4;
-    (param_1->bullet_props).position.z = fVar22 + fVar21;
+    (param_1->bullet_props).position.z = fVar23 + fVar22;
     BulletManager::FUN_004145c0(&g_BulletManager,&param_1->bullet_props);
     break;
   case 0x51:
-    pfVar12 = Enemy::get_var_float(param_1,local_1c,(undefined4 *)0x0);
-    (param_1->shoot_offset).x = *pfVar12;
-    pfVar12 = Enemy::get_var_float(param_1,local_1c + 1,(undefined4 *)0x0);
-    (param_1->shoot_offset).y = *pfVar12;
-    pfVar12 = Enemy::get_var_float(param_1,local_1c + 2,(undefined4 *)0x0);
-    (param_1->shoot_offset).z = *pfVar12;
+    pfVar13 = Enemy::get_var_float(param_1,local_1c,(undefined4 *)0x0);
+    (param_1->shoot_offset).x = *pfVar13;
+    pfVar13 = Enemy::get_var_float(param_1,local_1c + 1,(undefined4 *)0x0);
+    (param_1->shoot_offset).y = *pfVar13;
+    pfVar13 = Enemy::get_var_float(param_1,local_1c + 2,(undefined4 *)0x0);
+    (param_1->shoot_offset).z = *pfVar13;
     break;
   case 0x52:
-    piVar11 = Enemy::get_var(param_1,(int *)local_1c,(EclValueType *)0x0);
-    (param_1->bullet_props).ex_ints[0] = *piVar11;
-    piVar11 = Enemy::get_var(param_1,(int *)(local_1c + 1),(EclValueType *)0x0);
-    (param_1->bullet_props).ex_ints[1] = *piVar11;
-    piVar11 = Enemy::get_var(param_1,(int *)(local_1c + 2),(EclValueType *)0x0);
-    (param_1->bullet_props).ex_ints[2] = *piVar11;
-    piVar11 = Enemy::get_var(param_1,(int *)(local_1c + 3),(EclValueType *)0x0);
-    (param_1->bullet_props).ex_ints[3] = *piVar11;
-    pfVar12 = Enemy::get_var_float(param_1,local_1c + 4,(undefined4 *)0x0);
-    (param_1->bullet_props).ex_floats[0] = *pfVar12;
-    pfVar12 = Enemy::get_var_float(param_1,local_1c + 5,(undefined4 *)0x0);
-    (param_1->bullet_props).ex_floats[1] = *pfVar12;
-    pfVar12 = Enemy::get_var_float(param_1,local_1c + 6,(undefined4 *)0x0);
-    (param_1->bullet_props).ex_floats[2] = *pfVar12;
-    pfVar12 = Enemy::get_var_float(param_1,local_1c + 7,(undefined4 *)0x0);
-    (param_1->bullet_props).ex_floats[3] = *pfVar12;
+    piVar12 = Enemy::get_var(param_1,(int *)local_1c,(EclValueType *)0x0);
+    (param_1->bullet_props).ex_ints[0] = *piVar12;
+    piVar12 = Enemy::get_var(param_1,(int *)(local_1c + 1),(EclValueType *)0x0);
+    (param_1->bullet_props).ex_ints[1] = *piVar12;
+    piVar12 = Enemy::get_var(param_1,(int *)(local_1c + 2),(EclValueType *)0x0);
+    (param_1->bullet_props).ex_ints[2] = *piVar12;
+    piVar12 = Enemy::get_var(param_1,(int *)(local_1c + 3),(EclValueType *)0x0);
+    (param_1->bullet_props).ex_ints[3] = *piVar12;
+    pfVar13 = Enemy::get_var_float(param_1,local_1c + 4,(undefined4 *)0x0);
+    (param_1->bullet_props).ex_floats[0] = *pfVar13;
+    pfVar13 = Enemy::get_var_float(param_1,local_1c + 5,(undefined4 *)0x0);
+    (param_1->bullet_props).ex_floats[1] = *pfVar13;
+    pfVar13 = Enemy::get_var_float(param_1,local_1c + 6,(undefined4 *)0x0);
+    (param_1->bullet_props).ex_floats[2] = *pfVar13;
+    pfVar13 = Enemy::get_var_float(param_1,local_1c + 7,(undefined4 *)0x0);
+    (param_1->bullet_props).ex_floats[3] = *pfVar13;
     break;
   case 0x53:
     BulletManager::FUN_00414340(&g_BulletManager);
@@ -799,25 +800,25 @@ switchD_00407544_caseD_2:
   case 0x56:
     local_64 = local_20 + 3;
     local_60 = &param_1->laser_props;
-    fVar22 = (param_1->position).z;
-    fVar21 = (param_1->shoot_offset).z;
+    fVar23 = (param_1->position).z;
+    fVar22 = (param_1->shoot_offset).z;
     fVar3 = (param_1->position).y;
     fVar4 = (param_1->shoot_offset).y;
     (param_1->laser_props).position.x = (param_1->position).x + (param_1->shoot_offset).x;
     (param_1->laser_props).position.y = fVar3 + fVar4;
-    (param_1->laser_props).position.z = fVar22 + fVar21;
+    (param_1->laser_props).position.z = fVar23 + fVar22;
     local_60->sprite = *(ushort *)local_64;
     (param_1->laser_props).color = *(ushort *)((int)local_20 + 0xe);
-    pfVar12 = Enemy::get_var_float(param_1,(float *)(local_20 + 4),(undefined4 *)0x0);
-    local_60->angle = *pfVar12;
-    pfVar12 = Enemy::get_var_float(param_1,(float *)(local_64 + 2),(undefined4 *)0x0);
-    local_60->speed = *pfVar12;
-    pfVar12 = Enemy::get_var_float(param_1,(float *)(local_64 + 3),(undefined4 *)0x0);
-    local_60->start_offset = *pfVar12;
-    pfVar12 = Enemy::get_var_float(param_1,(float *)(local_64 + 4),(undefined4 *)0x0);
-    local_60->end_offset = *pfVar12;
-    pfVar12 = Enemy::get_var_float(param_1,(float *)(local_64 + 5),(undefined4 *)0x0);
-    local_60->start_length = *pfVar12;
+    pfVar13 = Enemy::get_var_float(param_1,(float *)(local_20 + 4),(undefined4 *)0x0);
+    local_60->angle = *pfVar13;
+    pfVar13 = Enemy::get_var_float(param_1,(float *)(local_64 + 2),(undefined4 *)0x0);
+    local_60->speed = *pfVar13;
+    pfVar13 = Enemy::get_var_float(param_1,(float *)(local_64 + 3),(undefined4 *)0x0);
+    local_60->start_offset = *pfVar13;
+    pfVar13 = Enemy::get_var_float(param_1,(float *)(local_64 + 4),(undefined4 *)0x0);
+    local_60->end_offset = *pfVar13;
+    pfVar13 = Enemy::get_var_float(param_1,(float *)(local_64 + 5),(undefined4 *)0x0);
+    local_60->start_length = *pfVar13;
     local_60->width = (float)local_64[6];
     local_60->start_time = local_64[7];
     local_60->duration = local_64[8];
@@ -831,38 +832,38 @@ switchD_00407544_caseD_2:
     else {
       local_60->type = 1;
     }
-    pvVar9 = (void *)FUN_00414670();
-    param_1->lasers[param_1->laser_store] = pvVar9;
+    pvVar10 = (void *)FUN_00414670();
+    param_1->lasers[param_1->laser_store] = pvVar10;
     break;
   case 0x57:
-    piVar11 = Enemy::get_var(param_1,local_20 + 3,(EclValueType *)0x0);
-    param_1->laser_store = *piVar11;
+    piVar12 = Enemy::get_var(param_1,local_20 + 3,(EclValueType *)0x0);
+    param_1->laser_store = *piVar12;
     break;
   case 0x58:
     if (param_1->lasers[local_20[3]] != (void *)0x0) {
-      pvVar9 = param_1->lasers[local_20[3]];
-      pfVar12 = Enemy::get_var_float(param_1,(float *)(local_20 + 4),(undefined4 *)0x0);
+      pvVar10 = param_1->lasers[local_20[3]];
+      pfVar13 = Enemy::get_var_float(param_1,(float *)(local_20 + 4),(undefined4 *)0x0);
       *(float *)((int)param_1->lasers[local_20[3]] + 0x22c) =
-           *(float *)((int)pvVar9 + 0x22c) + *pfVar12;
+           *(float *)((int)pvVar10 + 0x22c) + *pfVar13;
     }
     break;
   case 0x59:
     if (param_1->lasers[local_20[3]] != (void *)0x0) {
-      fVar22 = Player::FUN_00428700(&g_Player,(float *)((int)param_1->lasers[local_20[3]] + 0x220));
-      pfVar12 = Enemy::get_var_float(param_1,(float *)(local_20 + 4),(undefined4 *)0x0);
-      *(float *)((int)param_1->lasers[local_20[3]] + 0x22c) = fVar22 + *pfVar12;
+      fVar23 = Player::FUN_00428700(&g_Player,(float *)((int)param_1->lasers[local_20[3]] + 0x220));
+      pfVar13 = Enemy::get_var_float(param_1,(float *)(local_20 + 4),(undefined4 *)0x0);
+      *(float *)((int)param_1->lasers[local_20[3]] + 0x22c) = fVar23 + *pfVar13;
     }
     break;
   case 0x5a:
     if (param_1->lasers[local_20[3]] != (void *)0x0) {
-      fVar22 = (param_1->position).z;
-      fVar21 = (float)local_20[6];
+      fVar23 = (param_1->position).z;
+      fVar22 = (float)local_20[6];
       fVar3 = (param_1->position).y;
       fVar4 = (float)local_20[5];
-      pvVar9 = param_1->lasers[local_20[3]];
-      *(float *)((int)pvVar9 + 0x220) = (param_1->position).x + (float)local_20[4];
-      *(float *)((int)pvVar9 + 0x224) = fVar3 + fVar4;
-      *(float *)((int)pvVar9 + 0x228) = fVar22 + fVar21;
+      pvVar10 = param_1->lasers[local_20[3]];
+      *(float *)((int)pvVar10 + 0x220) = (param_1->position).x + (float)local_20[4];
+      *(float *)((int)pvVar10 + 0x224) = fVar3 + fVar4;
+      *(float *)((int)pvVar10 + 0x228) = fVar23 + fVar22;
     }
     break;
   case 0x5b:
@@ -879,10 +880,10 @@ switchD_00407544_caseD_2:
         (*(int *)((int)param_1->lasers[local_20[3]] + 600) != 0)) &&
        (*(byte *)((int)param_1->lasers[local_20[3]] + 0x26c) < 2)) {
       *(undefined *)((int)param_1->lasers[local_20[3]] + 0x26c) = 2;
-      pvVar9 = param_1->lasers[local_20[3]];
-      *(undefined4 *)((int)pvVar9 + 0x264) = 0;
-      *(undefined4 *)((int)pvVar9 + 0x260) = 0;
-      *(undefined4 *)((int)pvVar9 + 0x25c) = 0xfffffc19;
+      pvVar10 = param_1->lasers[local_20[3]];
+      *(undefined4 *)((int)pvVar10 + 0x264) = 0;
+      *(undefined4 *)((int)pvVar10 + 0x260) = 0;
+      *(undefined4 *)((int)pvVar10 + 0x25c) = 0xfffffc19;
     }
     break;
   case 0x5d:
@@ -900,36 +901,36 @@ switchD_00407544_caseD_2:
     param_1->bullet_rank_amount1_high = 0;
     param_1->bullet_rank_amount2_low = 0;
     param_1->bullet_rank_amount2_high = 0;
-    iVar14 = DAT_005a5f98;
-    iVar15 = DAT_005a5f98 * 0x40;
+    iVar15 = DAT_005a5f98;
+    iVar16 = DAT_005a5f98 * 0x40;
     local_70 = g_GameManager.catk + DAT_005a5f98;
     csum = 0;
     if (g_GameManager.field7_0x1c == 0) {
       local_2bc = local_20 + 4;
       local_2c0 = g_GameManager.catk[DAT_005a5f98].name;
       do {
-        bVar13 = *(byte *)local_2bc;
-        *local_2c0 = bVar13;
+        bVar14 = *(byte *)local_2bc;
+        *local_2c0 = bVar14;
         local_2bc = (int *)((int)local_2bc + 1);
         local_2c0 = local_2c0 + 1;
-      } while (bVar13 != 0);
-      local_2cc = g_GameManager.catk[iVar14].name;
+      } while (bVar14 != 0);
+      local_2cc = g_GameManager.catk[iVar15].name;
       do {
-        bVar13 = *local_2cc;
+        bVar14 = *local_2cc;
         local_2cc = local_2cc + 1;
-      } while (bVar13 != 0);
-      for (local_74 = (int)local_2cc - (iVar15 + 0x69bce9); 0 < (int)local_74;
+      } while (bVar14 != 0);
+      for (local_74 = (int)local_2cc - (iVar16 + 0x69bce9); 0 < (int)local_74;
           local_74 = local_74 - 1) {
         csum = csum + (int)(char)local_70->name[local_74 - 1];
       }
-      if ((uint)g_GameManager.catk[iVar14].name_csum != (csum & 0xff)) {
-        g_GameManager.catk[iVar14].unk_3e = 0;
-        g_GameManager.catk[iVar14].num_successes = 0;
-        g_GameManager.catk[iVar14].name_csum = (byte)csum;
+      if ((uint)g_GameManager.catk[iVar15].name_csum != (csum & 0xff)) {
+        g_GameManager.catk[iVar15].unk_3e = 0;
+        g_GameManager.catk[iVar15].num_successes = 0;
+        g_GameManager.catk[iVar15].name_csum = (byte)csum;
       }
-      g_GameManager.catk[iVar14].unk_c = DAT_005a5f94;
-      if ((ushort)g_GameManager.catk[iVar14].num_successes < 9999) {
-        g_GameManager.catk[iVar14].num_successes = g_GameManager.catk[iVar14].num_successes + 1;
+      g_GameManager.catk[iVar15].unk_c = DAT_005a5f94;
+      if ((ushort)g_GameManager.catk[iVar15].num_successes < 9999) {
+        g_GameManager.catk[iVar15].num_successes = g_GameManager.catk[iVar15].num_successes + 1;
       }
     }
     break;
@@ -963,19 +964,19 @@ switchD_00407544_caseD_2:
     g_Stage.spellcardState = NOT_RUNNING;
     break;
   case 0x5f:
-    piVar11 = local_20 + 3;
-    piVar18 = &local_b0;
-    for (iVar14 = 6; iVar14 != 0; iVar14 = iVar14 + -1) {
-      *piVar18 = *piVar11;
-      piVar11 = piVar11 + 1;
-      piVar18 = piVar18 + 1;
+    piVar12 = local_20 + 3;
+    piVar19 = &local_b0;
+    for (iVar15 = 6; iVar15 != 0; iVar15 = iVar15 + -1) {
+      *piVar19 = *piVar12;
+      piVar12 = piVar12 + 1;
+      piVar19 = piVar19 + 1;
     }
-    pfVar12 = Enemy::get_var_float(param_1,&local_ac.x,(undefined4 *)0x0);
-    local_ac.x = *pfVar12;
-    pfVar12 = Enemy::get_var_float(param_1,&local_ac.y,(undefined4 *)0x0);
-    local_ac.y = *pfVar12;
-    pfVar12 = Enemy::get_var_float(param_1,&local_ac.z,(undefined4 *)0x0);
-    local_ac.z = *pfVar12;
+    pfVar13 = Enemy::get_var_float(param_1,&local_ac.x,(undefined4 *)0x0);
+    local_ac.x = *pfVar13;
+    pfVar13 = Enemy::get_var_float(param_1,&local_ac.y,(undefined4 *)0x0);
+    local_ac.y = *pfVar13;
+    pfVar13 = Enemy::get_var_float(param_1,&local_ac.z,(undefined4 *)0x0);
+    local_ac.z = *pfVar13;
     EnemyManager::SpawnEnemy
               ((EnemyManager *)&g_EnemyManager,(short)local_b0,&local_ac,local_a0,(char)local_9e,
                local_9c);
@@ -984,20 +985,21 @@ switchD_00407544_caseD_2:
     local_b4 = Enemy_ARRAY_004b8898;
     for (local_b8 = 0; local_b8 < 0x100; local_b8 = local_b8 + 1) {
       if (((((char)local_b4->flags1 < '\0') && ((local_b4->flags2 >> 3 & 1) == 0)) &&
-          (local_b4->life = 0, (local_b4->flags2 & 1) == 0)) && (-1 < local_b4->death_callback_sub))
-      {
-        FUN_00407440(&g_EclManager,&local_b4->current_context,
-                     *(short *)&local_b4->death_callback_sub);
+          (local_b4->life = 0, (local_b4->flags2 & 1) == 0)) &&
+         (iVar15._0_2_ = local_b4->death_callback_sub, iVar15._2_2_ = local_b4->interrupts[0],
+         -1 < iVar15)) {
+        FUN_00407440(&g_EclManager,&local_b4->current_context,local_b4->death_callback_sub);
         local_b4->death_callback_sub = -1;
+        local_b4->interrupts[0] = -1;
       }
       local_b4 = local_b4 + 1;
     }
     break;
   case 0x61:
-    iVar14 = local_20[3];
-    local_13c = (short)iVar14 + 0x100;
+    iVar15 = local_20[3];
+    local_13c = (short)iVar15 + 0x100;
     (param_1->primary_vm).anmFileIndex = local_13c;
-    AnmManager::SetAndExecuteScript(pAVar6,&param_1->primary_vm,pAVar6->scripts[iVar14 + 0x100]);
+    AnmManager::SetAndExecuteScript(pAVar7,&param_1->primary_vm,pAVar7->scripts[iVar15 + 0x100]);
     break;
   case 0x62:
     param_1->anm_ex_defaults = *(short *)(local_20 + 3);
@@ -1011,13 +1013,13 @@ switchD_00407544_caseD_2:
     if (7 < local_20[3]) {
       DebugPrint2("error : sub anim overflow\n");
     }
-    pAVar6 = g_AnmManager;
-    fVar22 = local_1c[1];
-    local_144 = SUB42(fVar22,0) + 0x100;
-    iVar14 = local_20[3];
-    param_1->vms[iVar14].anmFileIndex = local_144;
+    pAVar7 = g_AnmManager;
+    fVar23 = local_1c[1];
+    local_144 = SUB42(fVar23,0) + 0x100;
+    iVar15 = local_20[3];
+    param_1->vms[iVar15].anmFileIndex = local_144;
     AnmManager::SetAndExecuteScript
-              (pAVar6,param_1->vms + iVar14,pAVar6->scripts[(int)fVar22 + 0x100]);
+              (pAVar7,param_1->vms + iVar15,pAVar7->scripts[(int)fVar23 + 0x100]);
     break;
   case 100:
     local_5c = local_20 + 3;
@@ -1041,15 +1043,15 @@ switchD_00407544_caseD_2:
     break;
   case 0x66:
     local_6c = local_20 + 3;
-    pEVar10 = (Effect *)
+    pEVar11 = (Effect *)
               EffectManager::FUN_0040ef50
                         (&g_EffectManager,0xd,&param_1->position,1,
                          *(D3DCOLOR *)(PTR_DAT_00476438 + *local_6c * 4));
-    param_1->effect_array[param_1->effect_idx] = pEVar10;
-    pEVar10 = param_1->effect_array[param_1->effect_idx];
-    (pEVar10->pos2).x = (float)local_6c[1];
-    (pEVar10->pos2).y = (float)local_6c[2];
-    (pEVar10->pos2).z = (float)local_6c[3];
+    param_1->effect_array[param_1->effect_idx] = pEVar11;
+    pEVar11 = param_1->effect_array[param_1->effect_idx];
+    (pEVar11->pos2).x = (float)local_6c[1];
+    (pEVar11->pos2).y = (float)local_6c[2];
+    (pEVar11->pos2).z = (float)local_6c[3];
     param_1->effect_distance = (float)local_6c[4];
     param_1->effect_idx = param_1->effect_idx + 1;
     break;
@@ -1071,10 +1073,12 @@ switchD_00407544_caseD_2:
     param_1->flags2 = param_1->flags2 & 0x1f | *(char *)(local_20 + 3) << 5;
     break;
   case 0x6c:
-    param_1->death_callback_sub = local_20[3];
+    uVar6 = *(undefined2 *)((int)(local_20 + 3) + 2);
+    param_1->death_callback_sub = *(undefined2 *)(local_20 + 3);
+    param_1->interrupts[0] = uVar6;
     break;
   case 0x6d:
-    *(float *)(param_1->interrupts + local_20[4] * 2) = *local_1c;
+    *(float *)(param_1->interrupts + local_20[4] * 2 + 1) = *local_1c;
     break;
   case 0x6e:
     param_1->run_interrupt = local_20[3];
@@ -1115,10 +1119,10 @@ switchD_00407544_caseD_2:
       local_98 = (param_1->position).x;
       local_94 = (param_1->position).y;
       local_90 = (param_1->position).z;
-      fVar22 = Rng::GetRandomF32ZeroToOne(&g_Rng);
-      local_98 = (fVar22 * 144.0 - 72.0) + local_98;
-      fVar22 = Rng::GetRandomF32ZeroToOne(&g_Rng);
-      local_94 = (fVar22 * 144.0 - 72.0) + local_94;
+      fVar23 = Rng::GetRandomF32ZeroToOne(&g_Rng);
+      local_98 = (fVar23 * 144.0 - 72.0) + local_98;
+      fVar23 = Rng::GetRandomF32ZeroToOne(&g_Rng);
+      local_94 = (fVar23 * 144.0 - 72.0) + local_94;
       if (g_GameManager.current_power < 0x80) {
         FUN_0041f290();
       }
@@ -1142,8 +1146,8 @@ switchD_00407544_caseD_2:
     }
     break;
   case 0x7b:
-    piVar11 = Enemy::get_var(param_1,local_20 + 3,(EclValueType *)0x0);
-    AnmTimer::FUN_00424145(&(param_1->current_context).time,*piVar11);
+    piVar12 = Enemy::get_var(param_1,local_20 + 3,(EclValueType *)0x0);
+    AnmTimer::FUN_00424145(&(param_1->current_context).time,*piVar12);
     break;
   case 0x7c:
     FUN_0041f290();
@@ -1176,7 +1180,7 @@ switchD_00407544_caseD_2:
     param_1->flags3 = param_1->flags3 & 0xf7 | (*(byte *)(local_20 + 3) & 1) << 3;
     break;
   case 0x85:
-    param_1->timer_callback_sub = param_1->death_callback_sub;
+    param_1->timer_callback_sub = *(int *)&param_1->death_callback_sub;
     (param_1->boss_timer).current = 0;
     (param_1->boss_timer).subFrame = 0.0;
     (param_1->boss_timer).previous = -999;
@@ -1197,12 +1201,12 @@ switchD_00407544_caseD_24:
     DebugPrint2("error : no Stack Ret\n");
   }
   param_1->stack_depth = param_1->stack_depth + -1;
-  pEVar16 = param_1->saved_context_stack + param_1->stack_depth;
-  pEVar17 = &param_1->current_context;
-  for (iVar14 = 0x13; iVar14 != 0; iVar14 = iVar14 + -1) {
-    pEVar17->current_instr = pEVar16->current_instr;
-    pEVar16 = (EnemyEclContext *)&pEVar16->time;
+  pEVar17 = param_1->saved_context_stack + param_1->stack_depth;
+  pEVar18 = &param_1->current_context;
+  for (iVar15 = 0x13; iVar15 != 0; iVar15 = iVar15 + -1) {
+    pEVar18->current_instr = pEVar17->current_instr;
     pEVar17 = (EnemyEclContext *)&pEVar17->time;
+    pEVar18 = (EnemyEclContext *)&pEVar18->time;
   }
   goto LAB_004074b1;
 switchD_00407544_caseD_23:
@@ -1210,12 +1214,12 @@ switchD_00407544_caseD_23:
   (param_1->current_context).current_instr =
        (void *)((int)local_20 + (int)*(short *)((int)local_20 + 6));
   if ((param_1->flags3 >> 2 & 1) == 0) {
-    pEVar16 = &param_1->current_context;
-    pEVar17 = param_1->saved_context_stack + param_1->stack_depth;
-    for (iVar14 = 0x13; iVar14 != 0; iVar14 = iVar14 + -1) {
-      pEVar17->current_instr = pEVar16->current_instr;
-      pEVar16 = (EnemyEclContext *)&pEVar16->time;
+    pEVar17 = &param_1->current_context;
+    pEVar18 = param_1->saved_context_stack + param_1->stack_depth;
+    for (iVar15 = 0x13; iVar15 != 0; iVar15 = iVar15 + -1) {
+      pEVar18->current_instr = pEVar17->current_instr;
       pEVar17 = (EnemyEclContext *)&pEVar17->time;
+      pEVar18 = (EnemyEclContext *)&pEVar18->time;
     }
   }
   FUN_00407440(&g_EclManager,&param_1->current_context,local_14._0_2_);

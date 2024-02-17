@@ -5,7 +5,7 @@ void FUN_0040c5b0(int param_1)
   float fVar1;
   int iVar2;
   EnemyBulletShooter *pEVar3;
-  float10 fVar4;
+  double dVar4;
   D3DXVECTOR3 local_9c;
   float local_90;
   float local_8c;
@@ -62,10 +62,10 @@ void FUN_0040c5b0(int param_1)
     local_84.y = -(local_84.y * local_90);
     local_84.x = -(local_84.x * local_90);
     local_78 = 0.7853982;
-    fVar4 = (float10)FUN_0045bda4(0x3fe921fb60000000);
-    local_8c = (float)fVar4;
-    fVar4 = (float10)FUN_0045bcf4((double)local_78);
-    local_68 = (float)fVar4;
+    dVar4 = cos(0.7853981852531433);
+    local_8c = (float)dVar4;
+    dVar4 = sin((double)local_78);
+    local_68 = (float)dVar4;
     local_9c.x = local_84.x;
     local_9c.y = local_84.y;
     local_9c.z = local_84.z;
@@ -73,10 +73,10 @@ void FUN_0040c5b0(int param_1)
     local_84.y = local_84.y * local_8c + -local_84.x * local_68;
     local_78 = -0.1745329;
     local_84.x = fVar1 + local_84.x * local_8c;
-    fVar4 = (float10)FUN_0045bda4(0xbfc6571860000000);
-    local_8c = (float)fVar4;
-    fVar4 = (float10)FUN_0045bcf4((double)local_78);
-    local_68 = (float)fVar4;
+    dVar4 = cos(-0.1745329350233078);
+    local_8c = (float)dVar4;
+    dVar4 = sin((double)local_78);
+    local_68 = (float)dVar4;
     local_64._16_4_ = 0.0;
     local_88 = -0.7853982;
     for (local_c = 0; local_c < 9; local_c = local_c + 1) {

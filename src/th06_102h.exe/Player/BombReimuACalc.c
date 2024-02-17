@@ -6,12 +6,12 @@ void Player::BombReimuACalc(Player *param_1)
   D3DXVECTOR3 *pDVar2;
   float fVar3;
   float fVar4;
-  float fVar5;
-  int iVar6;
-  uint uVar7;
-  float10 fVar8;
+  int iVar5;
+  uint uVar6;
+  float10 fVar7;
+  double dVar8;
   float fVar9;
-  float local_90;
+  float fVar10;
   int local_28;
   float local_24;
   float local_20;
@@ -39,29 +39,29 @@ void Player::BombReimuACalc(Player *param_1)
     }
     if ((0x3b < (param_1->inner).field2_0x8.current) && ((param_1->inner).field2_0x8.current < 0xb4)
        ) {
-      uVar7 = (param_1->inner).field2_0x8.current & 0x8000000f;
-      if ((int)uVar7 < 0) {
-        uVar7 = (uVar7 - 1 | 0xfffffff0) + 1;
+      uVar6 = (param_1->inner).field2_0x8.current & 0x8000000f;
+      if ((int)uVar6 < 0) {
+        uVar6 = (uVar6 - 1 | 0xfffffff0) + 1;
       }
-      if ((uVar7 == 0) &&
-         (iVar6 = (param_1->inner).field2_0x8.current + -0x3c,
-         iVar6 = (int)(iVar6 + (iVar6 >> 0x1f & 0xfU)) >> 4, iVar6 != 0)) {
-        *(undefined4 *)((param_1->inner).field5_0x1c + iVar6 * 4) = 1;
-        *(undefined4 *)((param_1->inner).field5_0x1c + iVar6 * 4 + 0x20) = 0x40800000;
-        pPVar1 = (param_1->inner).field6_0x5c + iVar6;
+      if ((uVar6 == 0) &&
+         (iVar5 = (param_1->inner).field2_0x8.current + -0x3c,
+         iVar5 = (int)(iVar5 + (iVar5 >> 0x1f & 0xfU)) >> 4, iVar5 != 0)) {
+        *(undefined4 *)((param_1->inner).field5_0x1c + iVar5 * 4) = 1;
+        *(undefined4 *)((param_1->inner).field5_0x1c + iVar5 * 4 + 0x20) = 0x40800000;
+        pPVar1 = (param_1->inner).field6_0x5c + iVar5;
         pPVar1->field0_0x0 = (param_1->position).x;
         pPVar1->field1_0x4 = (param_1->position).y;
         pPVar1->field2_0x8 = (param_1->position).z;
         fVar9 = Rng::GetRandomF32ZeroToOne(&g_Rng);
         fVar9 = fVar9 * 6.283185 - 3.141593;
-        fVar8 = (float10)FUN_0045bda4((double)fVar9);
-        (param_1->inner).field8_0xbc[iVar6 * 3] =
-             (int)((float)fVar8 * *(float *)((param_1->inner).field5_0x1c + iVar6 * 4 + 0x20));
-        fVar8 = (float10)FUN_0045bcf4((double)fVar9);
-        (param_1->inner).field8_0xbc[iVar6 * 3 + 1] =
-             (int)((float)fVar8 * *(float *)((param_1->inner).field5_0x1c + iVar6 * 4 + 0x20));
-        param_1->field14_0x838[iVar6] = 0;
-        local_14 = (param_1->inner).field10_0x11c + iVar6 * 4;
+        dVar8 = cos((double)fVar9);
+        (param_1->inner).field8_0xbc[iVar5 * 3] =
+             (int)((float)dVar8 * *(float *)((param_1->inner).field5_0x1c + iVar5 * 4 + 0x20));
+        dVar8 = sin((double)fVar9);
+        (param_1->inner).field8_0xbc[iVar5 * 3 + 1] =
+             (int)((float)dVar8 * *(float *)((param_1->inner).field5_0x1c + iVar5 * 4 + 0x20));
+        param_1->field14_0x838[iVar5] = 0;
+        local_14 = (param_1->inner).field10_0x11c + iVar5 * 4;
         for (local_28 = 0; local_28 < 4; local_28 = local_28 + 1) {
           AnmManager::FUN_004051b0(g_AnmManager,local_14,local_28 + 0x485);
           local_14 = local_14 + 1;
@@ -82,32 +82,34 @@ void Player::BombReimuACalc(Player *param_1)
               local_24 = (param_1->position_of_last_enemy_hit).x;
               local_20 = (param_1->position_of_last_enemy_hit).y;
             }
-            local_24 = local_24 - (param_1->inner).field6_0x5c[local_10].field0_0x0;
-            local_20 = local_20 - (param_1->inner).field6_0x5c[local_10].field1_0x4;
-            fVar8 = (float10)FUN_0045bc34((double)(local_24 * local_24 + local_20 * local_20));
-            local_18 = (float)fVar8 /
+            fVar9 = (param_1->inner).field6_0x5c[local_10].field0_0x0;
+            fVar3 = (param_1->inner).field6_0x5c[local_10].field1_0x4;
+            fVar7 = (float10)FUN_0045bc34();
+            local_18 = (float)fVar7 /
                        (*(float *)((param_1->inner).field5_0x1c + local_10 * 4 + 0x20) / 8.0);
             if (local_18 < 1.0 != NAN(local_18)) {
               local_18 = 1.0;
             }
-            fVar4 = local_24 / local_18 + (float)(param_1->inner).field8_0xbc[local_10 * 3];
-            fVar5 = local_20 / local_18 + (float)(param_1->inner).field8_0xbc[local_10 * 3 + 1];
-            fVar8 = (float10)FUN_0045bc34((double)(fVar4 * fVar4 + fVar5 * fVar5));
-            fVar9 = (float)fVar8;
-            local_90 = fVar9;
+            fVar4 = (local_24 - fVar9) / local_18 +
+                    (float)(param_1->inner).field8_0xbc[local_10 * 3];
+            fVar3 = (local_20 - fVar3) / local_18 +
+                    (float)(param_1->inner).field8_0xbc[local_10 * 3 + 1];
+            fVar7 = (float10)FUN_0045bc34((double)(fVar4 * fVar4 + fVar3 * fVar3));
+            fVar9 = (float)fVar7;
+            fVar10 = fVar9;
             if (10.0 < fVar9) {
-              local_90 = 10.0;
+              fVar10 = 10.0;
             }
-            *(float *)((param_1->inner).field5_0x1c + local_10 * 4 + 0x20) = local_90;
-            fVar3 = *(float *)((param_1->inner).field5_0x1c + local_10 * 4 + 0x20);
-            if (fVar3 < 1.0 != NAN(fVar3)) {
+            *(float *)((param_1->inner).field5_0x1c + local_10 * 4 + 0x20) = fVar10;
+            fVar10 = *(float *)((param_1->inner).field5_0x1c + local_10 * 4 + 0x20);
+            if (fVar10 < 1.0 != NAN(fVar10)) {
               *(undefined4 *)((param_1->inner).field5_0x1c + local_10 * 4 + 0x20) = 0x3f800000;
             }
             (param_1->inner).field8_0xbc[local_10 * 3] =
                  (int)((fVar4 * *(float *)((param_1->inner).field5_0x1c + local_10 * 4 + 0x20)) /
                       fVar9);
             (param_1->inner).field8_0xbc[local_10 * 3 + 1] =
-                 (int)((fVar5 * *(float *)((param_1->inner).field5_0x1c + local_10 * 4 + 0x20)) /
+                 (int)((fVar3 * *(float *)((param_1->inner).field5_0x1c + local_10 * 4 + 0x20)) /
                       fVar9);
             param_1->field12_0x638[local_10].x = 48.0;
             param_1->field12_0x638[local_10].y = 48.0;
@@ -142,7 +144,7 @@ void Player::BombReimuACalc(Player *param_1)
               param_1->field15_0x8b8[local_10].size1.x = 256.0;
               param_1->field15_0x8b8[local_10].size1.y = 256.0;
               SoundPlayer::FUN_004311e0(&g_SoundPlayer,0xf);
-              ScreenEffect::RegisterChain(1,0x10,8,0);
+              ScreenEffect::RegisterChain();
             }
           }
         }

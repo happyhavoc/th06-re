@@ -9,7 +9,6 @@ void InitD3dRendering(void)
   D3DPRESENT_PARAMETERS *pDVar4;
   D3DPRESENT_PARAMETERS *pDVar5;
   double dVar6;
-  undefined2 extraout_ST0h;
   D3DXVECTOR3 pEye;
   D3DXVECTOR3 pAt;
   D3DXVECTOR3 pUp;
@@ -59,7 +58,7 @@ void InitD3dRendering(void)
       present_params.FullScreen_RefreshRateInHz = 60;
       present_params.FullScreen_PresentationInterval = D3DPRESENT_INTERVAL_ONE;
       GameErrorContextLog(&g_GameErrorContext,
-                          "リフレッシュレートを60Hzに変更します\n");
+                          "���フレッシュレートを60Hzに変更します\n");
     }
     if (g_Supervisor.cfg.frameskipConfig == 0) {
       present_params.SwapEffect = D3DSWAPEFFECT_FLIP;
@@ -120,7 +119,7 @@ LAB_004211ab:
       pAt.z = 0.0;
       pEye.x = 320.0;
       pEye.y = -240.0;
-      pEye.z = -(240.0 / (float)(float10)CONCAT28(extraout_ST0h,dVar6));
+      pEye.z = -(240.0 / (float)dVar6);
       D3DXMatrixLookAtLH(&g_Supervisor.viewMatrix,&pEye,&pAt,&pUp);
       D3DXMatrixPerspectiveFovLH(&g_Supervisor.projectionMatrix,0.5235988,1.333333,100.0,10000.0);
       (*(g_Supervisor.d3dDevice)->lpVtbl->SetTransform)
@@ -147,7 +146,7 @@ LAB_004211ab:
       if ((bVar1) &&
          ((g_Supervisor.d3dCaps.PresentationIntervals & D3DPRESENT_INTERVAL_IMMEDIATE) == 0)) {
         GameErrorContextLog(&g_GameErrorContext,
-                            "ビデオカードが非同期フリップをサポートしていません、Force60Frameで動作できません\n"
+                            "ビデオカードが非同期フリップをサポートしていません、Force60Frameで動作で���ません\n"
                            );
         g_Supervisor.cfg.opts = g_Supervisor.cfg.opts & 0xffffff7f;
       }
@@ -163,7 +162,7 @@ LAB_004211ab:
           g_Supervisor.colorMode16Bits = 0;
           g_Supervisor.cfg.opts = g_Supervisor.cfg.opts | 4;
           GameErrorContextLog(&g_GameErrorContext,
-                              "D3DFMT_A8R8G8B8 をサポートしてい���せん、減色モードで動作します\n"
+                              "D3DFMT_A8R8G8B8 をサポートしていません、減色モードで動作します\n"
                              );
         }
       }
@@ -203,7 +202,7 @@ LAB_00421077:
     }
     else {
       GameErrorContextLog(&g_GameErrorContext,
-                          "リフレッシュレートが変更できません、vsync 非同期に変更します\n"
+                          "リフレッシュレートが変更できません、vsync 非同期に���更します\n"
                          );
       present_params.FullScreen_RefreshRateInHz = 0;
       g_Supervisor.vsyncEnabled = 1;

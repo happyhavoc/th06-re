@@ -5,7 +5,7 @@ void FUN_0040caf0(Enemy *param_1)
   float fVar1;
   ushort uVar2;
   uint uVar3;
-  float10 fVar4;
+  double dVar4;
   float fVar5;
   int local_a0;
   D3DXVECTOR3 local_20;
@@ -66,10 +66,10 @@ LAB_0040cc18:
   local_20.x = (param_1->position).x;
   local_20.y = (param_1->position).y;
   local_20.z = (param_1->position).z;
-  fVar4 = (float10)FUN_0045bda4((double)local_14);
-  local_20.x = (float)fVar4 * local_10 + local_20.x;
-  fVar4 = (float10)FUN_0045bcf4((double)local_14);
-  local_20.y = (float)fVar4 * local_10 + local_20.y;
+  dVar4 = cos((double)local_14);
+  local_20.x = (float)dVar4 * local_10 + local_20.x;
+  dVar4 = sin((double)local_14);
+  local_20.y = (float)dVar4 * local_10 + local_20.y;
   local_8 = EffectManager::FUN_0040ef50(&g_EffectManager,0x13,&local_20,1,0xff3030ff);
   fVar5 = Rng::GetRandomF32ZeroToOne(&g_Rng);
   local_8[1].angleVel.x = (fVar5 * 40.0 - 20.0) / 60.0;
@@ -83,10 +83,10 @@ LAB_0040cc18:
   local_20.x = (param_1->position).x;
   local_20.y = (param_1->position).y;
   local_20.z = (param_1->position).z;
-  fVar4 = (float10)FUN_0045bda4((double)local_14);
-  local_20.x = local_20.x - (float)fVar4 * local_10;
-  fVar4 = (float10)FUN_0045bcf4((double)local_14);
-  local_20.y = (float)fVar4 * local_10 + local_20.y;
+  dVar4 = cos((double)local_14);
+  local_20.x = local_20.x - (float)dVar4 * local_10;
+  dVar4 = sin((double)local_14);
+  local_20.y = (float)dVar4 * local_10 + local_20.y;
   local_8 = EffectManager::FUN_0040ef50(&g_EffectManager,0x13,&local_20,1,0xff3030ff);
   fVar5 = Rng::GetRandomF32ZeroToOne(&g_Rng);
   local_8[1].angleVel.x = (fVar5 * 40.0 - 20.0) / 60.0;

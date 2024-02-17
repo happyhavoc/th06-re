@@ -2,7 +2,7 @@
 void Player::BombMarisaBDraw(Player *param_1)
 
 {
-  float10 fVar1;
+  double dVar1;
   float fVar2;
   int local_c;
   AnmVm *local_8;
@@ -14,13 +14,13 @@ void Player::BombMarisaBDraw(Player *param_1)
     (local_8->pos).x = (param_1->position).x;
     (local_8->pos).y = (param_1->position).y;
     (local_8->pos).z = (param_1->position).z;
-    fVar1 = (float10)FUN_0045bda4((double)fVar2);
+    dVar1 = cos((double)fVar2);
     (local_8->pos).x =
-         ((float)fVar1 * local_8->sprite->heightPx * local_8->scaleY) / 2.0 + (local_8->pos).x;
-    fVar1 = (float10)FUN_0045bcf4((double)fVar2);
+         ((float)dVar1 * local_8->sprite->heightPx * local_8->scaleY) / 2.0 + (local_8->pos).x;
+    dVar1 = sin((double)fVar2);
     (local_8->pos).y =
-         ((float)fVar1 * local_8->sprite->heightPx * local_8->scaleY) / 2.0 + (local_8->pos).y;
-    fVar2 = add_normalize_angle(1.570796 - fVar2,3.141593);
+         ((float)dVar1 * local_8->sprite->heightPx * local_8->scaleY) / 2.0 + (local_8->pos).y;
+    fVar2 = add_normalize_angle(3.141593,3.141593);
     (local_8->rotation).z = fVar2;
     (local_8->pos).x = g_GameManager.arcade_region_top_left_pos.x + (local_8->pos).x;
     (local_8->pos).y = g_GameManager.arcade_region_top_left_pos.y + (local_8->pos).y;

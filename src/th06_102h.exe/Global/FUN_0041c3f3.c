@@ -3,7 +3,6 @@ void FUN_0041c3f3(float param_1)
 
 {
   double dVar1;
-  undefined2 extraout_ST0h;
   D3DXVECTOR3 local_3c;
   D3DXVECTOR3 local_30;
   D3DXVECTOR3 local_24;
@@ -19,7 +18,7 @@ void FUN_0041c3f3(float param_1)
              (float)(ulonglong)g_Supervisor.viewport.Height;
   local_18 = 0.5235988;
   dVar1 = tan(0.2617993950843811);
-  local_8 = local_c / (float)(float10)CONCAT28(extraout_ST0h,dVar1);
+  local_8 = local_c / (float)dVar1;
   local_24.x = 0.0;
   local_24.y = 1.0;
   local_24.z = 0.0;

@@ -7,7 +7,7 @@ void Player::BombMarisaACalc(Player *param_1)
   D3DXVECTOR3 *pDVar3;
   float fVar4;
   float fVar5;
-  float10 fVar6;
+  double dVar6;
   AnmVm *local_c;
   int local_8;
   
@@ -58,10 +58,10 @@ void Player::BombMarisaACalc(Player *param_1)
         pPVar1->field1_0x4 = (param_1->position).y;
         pPVar1->field2_0x8 = (param_1->position).z;
         fVar4 = ((float)local_8 * 6.283185) / 8.0;
-        fVar6 = (float10)FUN_0045bda4((double)fVar4);
-        (param_1->inner).field8_0xbc[local_8 * 3] = (int)((float)fVar6 + (float)fVar6);
-        fVar6 = (float10)FUN_0045bcf4((double)fVar4);
-        (param_1->inner).field8_0xbc[local_8 * 3 + 1] = (int)((float)fVar6 + (float)fVar6);
+        dVar6 = cos((double)fVar4);
+        (param_1->inner).field8_0xbc[local_8 * 3] = (int)((float)dVar6 + (float)dVar6);
+        dVar6 = sin((double)fVar4);
+        (param_1->inner).field8_0xbc[local_8 * 3 + 1] = (int)((float)dVar6 + (float)dVar6);
         (param_1->inner).field8_0xbc[local_8 * 3 + 2] = 0;
         local_c = local_c + 1;
       }

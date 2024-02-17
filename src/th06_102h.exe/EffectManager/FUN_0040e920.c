@@ -6,7 +6,7 @@ int EffectManager::FUN_0040e920(Effect *param_1)
   float fVar2;
   uint uVar3;
   long lVar4;
-  float10 fVar5;
+  double dVar5;
   D3DXVECTOR3 local_64;
   float local_58;
   D3DXMATRIX local_54;
@@ -14,10 +14,10 @@ int EffectManager::FUN_0040e920(Effect *param_1)
   D3DXVECTOR3 local_10;
   
   D3DXVec3Normalize(&local_64,&param_1->pos2);
-  fVar5 = (float10)FUN_0045bcf4((double)param_1->field12_0x160);
-  local_14 = (float)fVar5;
-  fVar5 = (float10)FUN_0045bda4((double)param_1->field12_0x160);
-  local_58 = (float)fVar5;
+  dVar5 = sin((double)param_1->field12_0x160);
+  local_14 = (float)dVar5;
+  dVar5 = cos((double)param_1->field12_0x160);
+  local_58 = (float)dVar5;
   (param_1->field10_0x14c).x = local_64.x * local_14;
   (param_1->field10_0x14c).y = local_64.y * local_14;
   (param_1->field10_0x14c).z = local_64.z * local_14;

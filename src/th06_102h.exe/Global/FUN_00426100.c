@@ -7,7 +7,7 @@ uint FUN_00426100(int param_1,AnmVm *param_2,int param_3,int param_4,int *param_
   AnmManager *this;
   short *psVar3;
   float *pfVar4;
-  float10 fVar5;
+  double dVar5;
   
   for (; param_5[1] <= (int)(uint)g_GameManager.current_power; param_5 = param_5 + 3) {
   }
@@ -55,10 +55,10 @@ LAB_00426400:
   param_2[1].angleVel.z = 1.0;
   param_2[1].uvScrollPos.y = *(FLOAT *)(psVar3 + 10);
   param_2[1].uvScrollPos.x = *(FLOAT *)(psVar3 + 0xc);
-  fVar5 = (float10)FUN_0045bda4((double)*(float *)(psVar3 + 10));
-  param_2[1].scaleY = (float)fVar5 * *(float *)(psVar3 + 0xc);
-  fVar5 = (float10)FUN_0045bcf4((double)*(float *)(psVar3 + 10));
-  param_2[1].scaleX = (float)fVar5 * *(float *)(psVar3 + 0xc);
+  dVar5 = cos((double)*(float *)(psVar3 + 10));
+  param_2[1].scaleY = (float)dVar5 * *(float *)(psVar3 + 0xc);
+  dVar5 = sin((double)*(float *)(psVar3 + 10));
+  param_2[1].scaleX = (float)dVar5 * *(float *)(psVar3 + 0xc);
   param_2[1].currentTimeInScript.current = 0;
   param_2[1].currentTimeInScript.subFrame = 0.0;
   param_2[1].currentTimeInScript.previous = -999;

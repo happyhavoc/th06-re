@@ -4,7 +4,7 @@ void FUN_0040d040(int param_1,int param_2)
 {
   int iVar1;
   undefined4 *puVar2;
-  float10 fVar3;
+  double dVar3;
   float fVar4;
   int local_e0;
   float local_dc [24];
@@ -62,11 +62,11 @@ void FUN_0040d040(int param_1,int param_2)
       local_dc[iVar1 * 3 + 1] = *(float *)(param_1 + 0xc70);
       local_dc[iVar1 * 3 + 2] = *(float *)(param_1 + 0xc74);
       iVar1 = local_60;
-      fVar3 = (float10)FUN_0045bda4((double)local_78);
-      local_dc[local_60 * 3] = (float)fVar3 * local_64 + local_dc[iVar1 * 3];
+      dVar3 = cos((double)local_78);
+      local_dc[local_60 * 3] = (float)dVar3 * local_64 + local_dc[iVar1 * 3];
       iVar1 = local_60;
-      fVar3 = (float10)FUN_0045bcf4((double)local_78);
-      local_dc[local_60 * 3 + 1] = (float)fVar3 * local_64 + local_dc[iVar1 * 3 + 1];
+      dVar3 = sin((double)local_78);
+      local_dc[local_60 * 3 + 1] = (float)dVar3 * local_64 + local_dc[iVar1 * 3 + 1];
       local_78 = local_78 + 0.7853982;
     }
     if (local_74 == 0) {
@@ -123,11 +123,11 @@ void FUN_0040d040(int param_1,int param_2)
           BulletManager::FUN_004145c0(&g_BulletManager,(EnemyBulletShooter *)(param_1 + 0xd00));
         }
         iVar1 = local_60;
-        fVar3 = (float10)FUN_0045bda4((double)local_78);
-        local_dc[local_60 * 3] = (float)fVar3 * local_64 + local_dc[iVar1 * 3];
+        dVar3 = cos((double)local_78);
+        local_dc[local_60 * 3] = (float)dVar3 * local_64 + local_dc[iVar1 * 3];
         iVar1 = local_60;
-        fVar3 = (float10)FUN_0045bcf4((double)local_78);
-        local_dc[local_60 * 3 + 1] = (float)fVar3 * local_64 + local_dc[iVar1 * 3 + 1];
+        dVar3 = sin((double)local_78);
+        local_dc[local_60 * 3 + 1] = (float)dVar3 * local_64 + local_dc[iVar1 * 3 + 1];
         local_78 = local_78 + 0.7853982;
       }
       local_78 = (local_70 - 6.283185) + local_78;

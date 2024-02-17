@@ -6,7 +6,7 @@ int EffectManager::FUN_0040ec10(Effect *param_1)
   float fVar2;
   float fVar3;
   float fVar4;
-  float10 fVar5;
+  double dVar5;
   float fVar6;
   
   if (((param_1->timer).current == 0) && ((param_1->timer).current != (param_1->timer).previous)) {
@@ -15,10 +15,10 @@ int EffectManager::FUN_0040ec10(Effect *param_1)
     (param_1->field8_0x134).z = (param_1->pos1).z;
     fVar6 = Rng::GetRandomF32ZeroToOne(&g_Rng);
     fVar6 = fVar6 * 6.283185 - 3.141593;
-    fVar5 = (float10)FUN_0045bda4((double)fVar6);
-    (param_1->pos2).x = (float)fVar5;
-    fVar5 = (float10)FUN_0045bcf4((double)fVar6);
-    (param_1->pos2).y = (float)fVar5;
+    dVar5 = cos((double)fVar6);
+    (param_1->pos2).x = (float)dVar5;
+    dVar5 = sin((double)fVar6);
+    (param_1->pos2).y = (float)dVar5;
     (param_1->pos2).z = 0.0;
   }
   fVar4 = 256.0 - (((float)(param_1->timer).current + (param_1->timer).subFrame) * 256.0) / 60.0;

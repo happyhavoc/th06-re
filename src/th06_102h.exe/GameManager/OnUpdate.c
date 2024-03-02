@@ -43,7 +43,7 @@ ChainCallbackResult GameManager::OnUpdate(GameManager *this)
   FUN_0041c3f3(0);
   (*(g_Supervisor.d3dDevice)->lpVtbl->SetViewport)(g_Supervisor.d3dDevice,(D3DVIEWPORT8 *)0x6c6de0);
   (*(g_Supervisor.d3dDevice)->lpVtbl->Clear)
-            (g_Supervisor.d3dDevice,0,(D3DRECT *)0x0,2,g_Stage.skyFog.color,1.0,0);
+            (g_Supervisor.d3dDevice,0,(D3DRECT *)0x0,D3DCLEAR_ZBUFFER,g_Stage.skyFog.color,1.0,0);
   if (((this->is_in_game_menu == 1) || (this->is_in_game_menu == 2)) ||
      (this->is_in_retry_menu != 0)) {
     CVar1 = CHAIN_CALLBACK_RESULT_BREAK;

@@ -19,7 +19,7 @@ AnmVm * __thiscall BulletManager::BulletManager(BulletManager *this)
   local_30 = this->bullets;
   while (local_28 = local_28 + -1, -1 < local_28) {
     BulletTypeVms::BulletTypeVms(&local_30->vms);
-    ZunTimer::ZunTimer(&local_30->timer);
+    ZunTimer::Initialize(&local_30->timer);
     local_30 = local_30 + 1;
   }
   local_58 = 0x40;
@@ -27,10 +27,10 @@ AnmVm * __thiscall BulletManager::BulletManager(BulletManager *this)
   while (local_58 = local_58 + -1, -1 < local_58) {
     AnmVm::AnmVm(&local_60->vm0);
     AnmVm::AnmVm(&local_60->vm1);
-    ZunTimer::ZunTimer(&local_60->timer);
+    ZunTimer::Initialize(&local_60->timer);
     local_60 = local_60 + 1;
   }
-  ZunTimer::ZunTimer(&this->time);
+  ZunTimer::Initialize(&this->time);
   InitializeToZero(this);
   return (AnmVm *)this;
 }

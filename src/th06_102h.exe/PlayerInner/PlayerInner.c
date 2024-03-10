@@ -7,7 +7,7 @@ int __thiscall PlayerInner::PlayerInner(PlayerInner *this)
   int local_18;
   int local_c;
   
-  ZunTimer::ZunTimer(&this->field2_0x8);
+  ZunTimer::Initialize(&this->field2_0x8);
   local_c = 8;
   do {
     local_c = local_c + -1;

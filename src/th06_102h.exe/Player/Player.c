@@ -34,19 +34,19 @@ int __thiscall Player::Player(Player *this)
   local_48 = 2;
   local_50 = this->field16_0x9b8;
   while (local_48 = local_48 + -1, -1 < local_48) {
-    ZunTimer::ZunTimer(local_50);
+    ZunTimer::Initialize(local_50);
     local_50 = local_50 + 1;
   }
-  ZunTimer::ZunTimer(&this->field26_0x9e8);
+  ZunTimer::Initialize(&this->field26_0x9e8);
   local_5c = 0x50;
   local_64 = &this->bullets[0].field0_0x0;
   while (local_5c = local_5c + -1, -1 < local_5c) {
     AnmVm::AnmVm(local_64);
-    ZunTimer::ZunTimer(&local_64[1].currentTimeInScript);
+    ZunTimer::Initialize(&local_64[1].currentTimeInScript);
     local_64 = (AnmVm *)(local_64[1].matrix.m[0] + 3);
   }
-  ZunTimer::ZunTimer(&this->field34_0x75a8);
-  ZunTimer::ZunTimer(&this->field35_0x75b4);
+  ZunTimer::Initialize(&this->field34_0x75a8);
+  ZunTimer::Initialize(&this->field35_0x75b4);
   PlayerInner::PlayerInner(&this->inner);
   return (int)this;
 }

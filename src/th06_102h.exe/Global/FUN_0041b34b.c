@@ -22,9 +22,9 @@ AnmVm * FUN_0041b34b(void)
   AnmVm::AnmVm((AnmVm *)&in_ECX[0x21].rotation.y);
   AnmVm::AnmVm((AnmVm *)&in_ECX[0x22].rotation.y);
   FUN_0041b4c4((int)&in_ECX[0x23].rotation.y);
-  ZunTimer::ZunTimer((ZunTimer *)(in_ECX[0x29].matrix.m[2] + 3));
-  ZunTimer::ZunTimer((ZunTimer *)&in_ECX[0x29].autoRotate);
-  ZunTimer::ZunTimer((ZunTimer *)&in_ECX[0x29].scaleInterpTime.subFrame);
+  ZunTimer::Initialize((ZunTimer *)(in_ECX[0x29].matrix.m[2] + 3));
+  ZunTimer::Initialize((ZunTimer *)&in_ECX[0x29].autoRotate);
+  ZunTimer::Initialize((ZunTimer *)&in_ECX[0x29].scaleInterpTime.subFrame);
   return in_ECX;
 }
 

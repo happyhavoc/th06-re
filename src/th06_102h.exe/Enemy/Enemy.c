@@ -17,30 +17,30 @@ AnmVm * __thiscall Enemy::Enemy(Enemy *this)
     AnmVm::AnmVm(local_20);
     local_20 = local_20 + 1;
   }
-  ZunTimer::ZunTimer(&(this->current_context).time);
+  ZunTimer::Initialize(&(this->current_context).time);
   local_30 = 8;
   local_38 = this->saved_context_stack;
   while (local_30 = local_30 + -1, -1 < local_30) {
-    ZunTimer::ZunTimer(&local_38->time);
+    ZunTimer::Initialize(&local_38->time);
     local_38 = local_38 + 1;
   }
-  ZunTimer::ZunTimer(&this->move_interp_timer);
-  ZunTimer::ZunTimer(&this->boss_timer);
+  ZunTimer::Initialize(&this->move_interp_timer);
+  ZunTimer::Initialize(&this->boss_timer);
   pEVar2 = &this->bullet_props;
   for (iVar1 = 0x15; iVar1 != 0; iVar1 = iVar1 + -1) {
     pEVar2->sprite = 0;
     pEVar2->color = 0;
     pEVar2 = (EnemyBulletShooter *)&pEVar2->position;
   }
-  ZunTimer::ZunTimer(&this->shoot_interval_timer);
+  ZunTimer::Initialize(&this->shoot_interval_timer);
   pEVar3 = &this->laser_props;
   for (iVar1 = 0x15; iVar1 != 0; iVar1 = iVar1 + -1) {
     pEVar3->sprite = 0;
     pEVar3->color = 0;
     pEVar3 = (EnemyLaserShooter *)&pEVar3->position;
   }
-  ZunTimer::ZunTimer(&this->field44_0xe44);
-  ZunTimer::ZunTimer(&this->field64_0xebc);
+  ZunTimer::Initialize(&this->field44_0xe44);
+  ZunTimer::Initialize(&this->field64_0xebc);
   return &this->primary_vm;
 }
 

@@ -17,7 +17,7 @@ void __thiscall AsciiManager::AsciiManager(AsciiManager *this)
   local_80 = 0x203;
   local_88 = this->popups0;
   while (local_80 = local_80 + -1, -1 < local_80) {
-    ZunTimer::ZunTimer(&local_88->timer);
+    ZunTimer::Initialize(&local_88->timer);
     local_88 = local_88 + 1;
   }
   return;

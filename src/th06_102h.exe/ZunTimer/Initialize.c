@@ -1,5 +1,5 @@
 
-void __thiscall ZunTimer::ZunTimer(ZunTimer *this)
+void __thiscall ZunTimer::Initialize(ZunTimer *this)
 
 {
   this->current = 0;

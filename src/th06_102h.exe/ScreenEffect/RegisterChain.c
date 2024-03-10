@@ -24,7 +24,7 @@ ScreenEffect::RegisterChain(int param_1,int param_2,int param_3,int param_4,int 
     local_2c = (ScreenEffect *)0x0;
   }
   else {
-    ZunTimer::ZunTimer(&local_2c->timer);
+    ZunTimer::Initialize(&local_2c->timer);
   }
   local_8 = 0xffffffff;
   if (local_2c == (ScreenEffect *)0x0) {

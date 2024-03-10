@@ -61,7 +61,7 @@ undefined4 FUN_0042d98e(ResultScreen *param_1)
           local_c = param_1->unk_40;
           for (local_8 = 0; local_8 < 0x26; local_8 = local_8 + 1) {
             local_c->pendingInterrupt = 1;
-            local_c->flags = local_c->flags | 8;
+            *(uint *)&local_c->flags = *(uint *)&local_c->flags | 8;
             if ((g_Supervisor.cfg.opts & 1) == 0) {
               (local_c->color).color = (local_c->color).color & 0xff000000;
             }

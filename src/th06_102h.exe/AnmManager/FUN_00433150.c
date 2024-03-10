@@ -11,10 +11,10 @@ int __thiscall AnmManager::FUN_00433150(AnmManager *this,AnmVm *vm)
   D3DXMATRIX local_84;
   D3DMATRIX local_44;
   
-  if ((vm->flags & 1) == 0) {
+  if ((*(uint *)&vm->flags & 1) == 0) {
     iVar2 = -1;
   }
-  else if ((vm->flags >> 1 & 1) == 0) {
+  else if ((*(uint *)&vm->flags >> 1 & 1) == 0) {
     iVar2 = -1;
   }
   else if ((vm->color).color == 0) {
@@ -45,14 +45,14 @@ int __thiscall AnmManager::FUN_00433150(AnmManager *this,AnmVm *vm)
       D3DXMatrixRotationZ(&local_84,(vm->rotation).z);
       D3DXMatrixMultiply(&local_c4,&local_c4,&local_84);
     }
-    if ((vm->flags >> 8 & 1) == 0) {
+    if ((*(uint *)&vm->flags >> 8 & 1) == 0) {
       local_c4.m[3][0] = (vm->pos).x;
     }
     else {
       dVar5 = _fabs((double)((vm->sprite->widthPx * vm->scaleX) / 2.0));
       local_c4.m[3][0] = (float)dVar5 + (vm->pos).x;
     }
-    if ((vm->flags >> 8 & 2) == 0) {
+    if ((*(uint *)&vm->flags >> 8 & 2) == 0) {
       local_c4.m[3][1] = -(vm->pos).y;
     }
     else {

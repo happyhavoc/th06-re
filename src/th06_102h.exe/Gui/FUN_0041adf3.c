@@ -6,7 +6,7 @@ void __thiscall Gui::FUN_0041adf3(Gui *this)
   GuiImpl *pGVar2;
   D3DXVECTOR3 local_10;
   
-  if (((this->impl->vm1).flags & 1) != 0) {
+  if ((*(uint *)&(this->impl->vm1).flags & 1) != 0) {
     local_10.x = 168.0;
     local_10.y = 198.0;
     local_10.z = 0.0;
@@ -34,16 +34,16 @@ void __thiscall Gui::FUN_0041adf3(Gui *this)
     }
     g_AsciiManager.color = 0xffffffff;
   }
-  if ((((this->impl->vm2).flags & 1) != 0) && (g_GameManager.demo_mode == 0)) {
+  if (((*(uint *)&(this->impl->vm2).flags & 1) != 0) && (g_GameManager.demo_mode == 0)) {
     AnmManager::FUN_00433590(g_AnmManager,&this->impl->vm2);
   }
-  if (((this->impl->vm3).flags & 1) != 0) {
+  if ((*(uint *)&(this->impl->vm3).flags & 1) != 0) {
     AnmManager::FUN_00432ad0(g_AnmManager,&this->impl->vm3);
   }
-  if (((this->impl->vm4).flags & 1) != 0) {
+  if ((*(uint *)&(this->impl->vm4).flags & 1) != 0) {
     AnmManager::FUN_00432ad0(g_AnmManager,&this->impl->vm4);
   }
-  if (((this->impl->vm5).flags & 1) != 0) {
+  if ((*(uint *)&(this->impl->vm5).flags & 1) != 0) {
     pGVar1 = this->impl;
     pGVar2 = this->impl;
     (pGVar2->vm7).pos.x = (pGVar1->vm5).pos.x;
@@ -55,7 +55,7 @@ void __thiscall Gui::FUN_0041adf3(Gui *this)
     AnmManager::FUN_00432ad0(g_AnmManager,&this->impl->vm7);
     AnmManager::FUN_00432ad0(g_AnmManager,&this->impl->vm5);
   }
-  if (((this->impl->vm6).flags & 1) != 0) {
+  if ((*(uint *)&(this->impl->vm6).flags & 1) != 0) {
     pGVar1 = this->impl;
     pGVar2 = this->impl;
     (pGVar2->vm8).pos.x = (pGVar1->vm6).pos.x;

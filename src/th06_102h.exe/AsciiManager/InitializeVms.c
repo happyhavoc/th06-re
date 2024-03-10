@@ -14,7 +14,7 @@ void __thiscall AsciiManager::InitializeVms(AsciiManager *this)
   this->color = 0xffffffff;
   (this->scale).x = 1.0;
   (this->scale).y = 1.0;
-  (this->vm1).flags = (this->vm1).flags | 0x300;
+  *(uint *)&(this->vm1).flags = *(uint *)&(this->vm1).flags | 0x300;
   pAVar1 = g_AnmManager;
   AnmVm::Initialize(&this->vm1);
   AnmManager::SetActiveSprite(pAVar1,&this->vm1,0);

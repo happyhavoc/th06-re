@@ -102,20 +102,20 @@ switchD_004358f7_caseD_2:
     }
     for (local_8 = 0; (int)local_8 < 9; local_8 = local_8 + 1) {
       if ((short)param_1->field92_0x821c[local_8] < 0) {
-        local_c->flags = local_c->flags & 0xfffffffd;
+        *(uint *)&local_c->flags = *(uint *)&local_c->flags & 0xfffffffd;
       }
       else {
-        local_c->flags = local_c->flags | 2;
+        *(uint *)&local_c->flags = *(uint *)&local_c->flags | 2;
         FUN_004377a3(local_c,local_8,param_1->cursor,param_1->unk_8204);
       }
       local_c = local_c + 1;
     }
     for (local_8 = 0; (int)local_8 < 0x12; local_8 = local_8 + 1) {
       if ((short)param_1->field92_0x821c[(int)local_8 / 2] < 0) {
-        local_c->flags = local_c->flags & 0xfffffffd;
+        *(uint *)&local_c->flags = *(uint *)&local_c->flags & 0xfffffffd;
       }
       else {
-        local_c->flags = local_c->flags | 2;
+        *(uint *)&local_c->flags = *(uint *)&local_c->flags | 2;
         if ((int)local_8 % 2 == 0) {
           AnmManager::SetActiveSprite
                     (g_AnmManager,local_c,
@@ -272,11 +272,11 @@ switchD_004358f7_caseD_2:
         }
         local_c = local_c + 1;
       }
-      local_c->flags = local_c->flags & 0xfffffffd;
+      *(uint *)&local_c->flags = *(uint *)&local_c->flags & 0xfffffffd;
     }
     else {
       for (local_8 = 0; (int)local_8 < 4; local_8 = local_8 + 1) {
-        local_c->flags = local_c->flags & 0xfffffffd;
+        *(uint *)&local_c->flags = *(uint *)&local_c->flags & 0xfffffffd;
         local_c = local_c + 1;
       }
       for (local_8 = 4; (int)local_8 < 5; local_8 = local_8 + 1) {
@@ -493,13 +493,13 @@ LAB_0043666d:
     }
     local_c = param_1->field0_0x0 + 0x5c;
     for (local_8 = 0; (int)local_8 < 2; local_8 = local_8 + 1) {
-      local_c[1].flags = local_c[1].flags | 8;
+      *(uint *)&local_c[1].flags = *(uint *)&local_c[1].flags | 8;
       local_c = local_c + 2;
     }
     local_c = param_1->field0_0x0 + (uint)g_GameManager.character * 2 + 0x5c;
     for (local_8 = 0; (int)local_8 < 2; local_8 = local_8 + 1) {
-      local_c->flags = local_c->flags | 8;
-      local_c->flags = local_c->flags | 1;
+      *(uint *)&local_c->flags = *(uint *)&local_c->flags | 8;
+      *(uint *)&local_c->flags = *(uint *)&local_c->flags | 1;
       if (local_8 == param_1->cursor) {
         if ((g_Supervisor.cfg.opts & 1) == 0) {
           (local_c->color).color = 0xff202020;

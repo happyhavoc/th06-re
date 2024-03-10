@@ -30,7 +30,7 @@ ChainCallbackResult BulletManager::OnDraw(BulletManager *arg)
         local_10[1].pos.y = (float)fVar3 * local_10[2].angleVel.y + local_10[2].rotation.y;
         local_10[1].pos.z = 0.0;
         local_10[1].color = local_10->color;
-        local_10[1].flags = local_10[1].flags | 8;
+        *(uint *)&local_10[1].flags = *(uint *)&local_10[1].flags | 8;
         local_10[1].color.color = local_10[1].color.color & 0xffffff | 0xff000000;
         local_10[1].scaleX = ((16.0 - local_10[2].angleVel.y) / 16.0) * (local_10[2].scaleX / 10.0);
         local_10[1].scaleY = local_10[1].scaleX;

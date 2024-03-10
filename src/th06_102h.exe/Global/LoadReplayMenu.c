@@ -16,8 +16,8 @@ ZunResult LoadReplayMenu(MainMenu *param_1)
       local_c = param_1->field0_0x0 + 0x60;
       for (file_idx = 0x160; file_idx < 0x17a; file_idx = file_idx + 1) {
         AnmManager::ExecuteAnmIdx(g_AnmManager,local_c,file_idx);
-        local_c->flags = local_c->flags & 0xfffffffe;
-        local_c->flags = local_c->flags | 8;
+        *(uint *)&local_c->flags = *(uint *)&local_c->flags & 0xfffffffe;
+        *(uint *)&local_c->flags = *(uint *)&local_c->flags | 8;
         if ((g_Supervisor.cfg.opts & 1) == 0) {
           (local_c->color).color = 0xff000000;
         }
@@ -28,7 +28,7 @@ ZunResult LoadReplayMenu(MainMenu *param_1)
         (local_c->pos2).y = 0.0;
         (local_c->pos2).z = 0.0;
         local_c->anotherSpriteNumber = local_c->spriteNumber;
-        local_c->flags = local_c->flags | 0x1000;
+        *(uint *)&local_c->flags = *(uint *)&local_c->flags | 0x1000;
         local_c = local_c + 1;
       }
       ZVar1 = ZUN_SUCCESS;

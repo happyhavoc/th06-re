@@ -123,7 +123,7 @@ int __thiscall StageMenu::OnUpdateRetryMenu(StageMenu *this)
       this->numFrames = 0;
       g_GameManager.is_in_retry_menu = 0;
       for (local_8 = 0; local_8 < 4; local_8 = local_8 + 1) {
-        this->vms0[local_8].flags = this->vms0[local_8].flags & 0xfffffffe;
+        *(uint *)&this->vms0[local_8].flags = *(uint *)&this->vms0[local_8].flags & 0xfffffffe;
       }
       g_GameManager.num_retries = g_GameManager.num_retries + 1;
       g_Gui.flags = g_Gui.flags & 0xfffffc00 | 0x2aa;
@@ -146,7 +146,7 @@ int __thiscall StageMenu::OnUpdateRetryMenu(StageMenu *this)
       g_GameManager.is_in_retry_menu = 0;
       g_Supervisor.curState = 7;
       for (local_8 = 0; local_8 < 4; local_8 = local_8 + 1) {
-        this->vms0[local_8].flags = this->vms0[local_8].flags & 0xfffffffe;
+        *(uint *)&this->vms0[local_8].flags = *(uint *)&this->vms0[local_8].flags & 0xfffffffe;
       }
       g_GameManager.field0_0x0 = g_GameManager.score;
       return 0;

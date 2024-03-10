@@ -85,7 +85,7 @@ void __thiscall Gui::FUN_00419c99(Gui *this)
     AnmManager::FUN_00432ad0(g_AnmManager,local_14);
     pGVar1 = this->impl;
     local_14 = pGVar1->vms + 0x15;
-    pGVar1->vms[0x15].flags = pGVar1->vms[0x15].flags | 0x300;
+    *(uint *)&pGVar1->vms[0x15].flags = *(uint *)&pGVar1->vms[0x15].flags | 0x300;
     pGVar1->vms[0x15].scaleX = (this->boss_health_bar2 * 288.0) / 14.0;
     pGVar1->vms[0x15].pos.x = 96.0;
     pGVar1->vms[0x15].pos.y = 24.0;

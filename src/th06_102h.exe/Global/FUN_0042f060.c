@@ -56,7 +56,7 @@ undefined4 FUN_0042f060(ResultScreen *param_1)
       (local_c->pos).x = 0.0;
       (local_c->pos).y = 0.0;
       (local_c->pos).z = 0.0;
-      local_c->flags = local_c->flags | 0x300;
+      *(uint *)&local_c->flags = *(uint *)&local_c->flags | 0x300;
       local_c->fontWidth = '\x0f';
       local_c->fontHeight = '\x0f';
       local_c = local_c + 1;

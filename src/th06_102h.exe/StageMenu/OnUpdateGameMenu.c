@@ -9,7 +9,7 @@ int __thiscall StageMenu::OnUpdateGameMenu(StageMenu *this)
   if (((g_CurFrameInput & MENU) != 0) && ((g_CurFrameInput & MENU) != (g_LastFrameInput & MENU))) {
     this->curState = 3;
     for (local_8 = 0; local_8 < 6; local_8 = local_8 + 1) {
-      if ((this->vms0[local_8].flags & 1) != 0) {
+      if ((*(uint *)&this->vms0[local_8].flags & 1) != 0) {
         this->vms0[local_8].pendingInterrupt = 2;
       }
     }
@@ -20,7 +20,7 @@ int __thiscall StageMenu::OnUpdateGameMenu(StageMenu *this)
   {
     this->curState = 6;
     for (local_8 = 0; local_8 < 6; local_8 = local_8 + 1) {
-      if ((this->vms0[local_8].flags & 1) != 0) {
+      if ((*(uint *)&this->vms0[local_8].flags & 1) != 0) {
         this->vms0[local_8].pendingInterrupt = 2;
       }
     }
@@ -119,7 +119,7 @@ int __thiscall StageMenu::OnUpdateGameMenu(StageMenu *this)
       this->curState = 0;
       g_GameManager.is_in_game_menu = 0;
       for (local_8 = 0; local_8 < 6; local_8 = local_8 + 1) {
-        this->vms0[local_8].flags = this->vms0[local_8].flags & 0xfffffffe;
+        *(uint *)&this->vms0[local_8].flags = *(uint *)&this->vms0[local_8].flags & 0xfffffffe;
       }
     }
     break;
@@ -190,7 +190,7 @@ int __thiscall StageMenu::OnUpdateGameMenu(StageMenu *this)
       g_GameManager.is_in_game_menu = 0;
       g_Supervisor.curState = 1;
       for (local_8 = 0; local_8 < 6; local_8 = local_8 + 1) {
-        this->vms0[local_8].flags = this->vms0[local_8].flags & 0xfffffffe;
+        *(uint *)&this->vms0[local_8].flags = *(uint *)&this->vms0[local_8].flags & 0xfffffffe;
       }
     }
   }

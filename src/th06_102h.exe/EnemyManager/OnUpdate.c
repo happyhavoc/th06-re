@@ -214,16 +214,17 @@ LAB_00412ce2:
     if (local_28->field43_0xe41 == 0) {
       if (local_28->life < iVar2) {
         SoundPlayer::FUN_004311e0(&g_SoundPlayer,0x14);
-        (local_28->primary_vm).flags = (local_28->primary_vm).flags | 8;
+        *(uint *)&(local_28->primary_vm).flags = *(uint *)&(local_28->primary_vm).flags | 8;
         local_28->field43_0xe41 = 4;
       }
       else {
-        (local_28->primary_vm).flags = (local_28->primary_vm).flags & 0xfffffff7;
+        *(uint *)&(local_28->primary_vm).flags = *(uint *)&(local_28->primary_vm).flags & 0xfffffff7
+        ;
       }
     }
     else {
       local_28->field43_0xe41 = local_28->field43_0xe41 - 1;
-      (local_28->primary_vm).flags = (local_28->primary_vm).flags & 0xfffffff7;
+      *(uint *)&(local_28->primary_vm).flags = *(uint *)&(local_28->primary_vm).flags & 0xfffffff7;
     }
 LAB_00412dbc:
     FUN_00412e50(local_28);

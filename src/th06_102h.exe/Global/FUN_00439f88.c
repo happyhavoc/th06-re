@@ -33,8 +33,8 @@ undefined4 FUN_00439f88(int param_1)
                       local_c = (AnmVm *)(param_1 + 0x5500);
                       for (local_8 = 0x150; local_8 < 0x160; local_8 = local_8 + 1) {
                         AnmManager::ExecuteAnmIdx(g_AnmManager,local_c,local_8);
-                        local_c->flags = local_c->flags & 0xfffffffe;
-                        local_c->flags = local_c->flags | 8;
+                        *(uint *)&local_c->flags = *(uint *)&local_c->flags & 0xfffffffe;
+                        *(uint *)&local_c->flags = *(uint *)&local_c->flags | 8;
                         if ((g_Supervisor.cfg.opts & 1) == 0) {
                           (local_c->color).color = 0xff000000;
                         }
@@ -45,7 +45,7 @@ undefined4 FUN_00439f88(int param_1)
                         (local_c->pos2).y = 0.0;
                         (local_c->pos2).z = 0.0;
                         local_c->anotherSpriteNumber = local_c->spriteNumber;
-                        local_c->flags = local_c->flags | 0x1000;
+                        *(uint *)&local_c->flags = *(uint *)&local_c->flags | 0x1000;
                         local_c = local_c + 1;
                       }
                       uVar2 = 0;

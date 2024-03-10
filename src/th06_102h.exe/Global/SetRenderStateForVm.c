@@ -2,8 +2,8 @@
 void __thiscall SetRenderStateForVm(AnmManager *this,AnmVm *vm)
 
 {
-  if ((uint)this->currentBlendMode != (vm->flags >> 2 & 1)) {
-    this->currentBlendMode = (byte)(vm->flags >> 2) & 1;
+  if ((uint)this->currentBlendMode != (*(uint *)&vm->flags >> 2 & 1)) {
+    this->currentBlendMode = (byte)(*(uint *)&vm->flags >> 2) & 1;
     if (this->currentBlendMode == '\0') {
       (*(g_Supervisor.d3dDevice)->lpVtbl->SetRenderState)(g_Supervisor.d3dDevice,D3DRS_DESTBLEND,6);
     }
@@ -12,8 +12,8 @@ void __thiscall SetRenderStateForVm(AnmManager *this,AnmVm *vm)
     }
   }
   if ((((g_Supervisor.cfg.opts & 1) == 0) && ((g_Supervisor.cfg.opts >> 8 & 1) == 0)) &&
-     ((uint)this->currentColorOp != (vm->flags >> 3 & 1))) {
-    this->currentColorOp = (byte)(vm->flags >> 3) & 1;
+     ((uint)this->currentColorOp != (*(uint *)&vm->flags >> 3 & 1))) {
+    this->currentColorOp = (byte)(*(uint *)&vm->flags >> 3) & 1;
     if (this->currentColorOp == '\0') {
       (*(g_Supervisor.d3dDevice)->lpVtbl->SetTextureStageState)
                 (g_Supervisor.d3dDevice,0,D3DTSS_COLOROP,4);
@@ -41,8 +41,8 @@ void __thiscall SetRenderStateForVm(AnmManager *this,AnmVm *vm)
     AnmManager::g_PrimitivesToDrawUnknown[3].diffuse = (vm->color).color;
   }
   if (((g_Supervisor.cfg.opts >> 6 & 1) == 0) &&
-     ((uint)this->currentZWriteDisable != (vm->flags >> 0xc & 1))) {
-    this->currentZWriteDisable = (byte)(vm->flags >> 0xc) & 1;
+     ((uint)this->currentZWriteDisable != (*(uint *)&vm->flags >> 0xc & 1))) {
+    this->currentZWriteDisable = (byte)(*(uint *)&vm->flags >> 0xc) & 1;
     if (this->currentZWriteDisable == '\0') {
       (*(g_Supervisor.d3dDevice)->lpVtbl->SetRenderState)
                 (g_Supervisor.d3dDevice,D3DRS_ZWRITEENABLE,1);

@@ -1784,6 +1784,26 @@ typedef struct _D3DMATRIX D3DMATRIX;
 
 typedef union D3DCOLORUNION D3DCOLORUNION, *PD3DCOLORUNION;
 
+typedef enum AnmVmFlags {
+    AnmVmFlags_None=0,
+    AnmVmFlags_1=1,
+    AnmVmFlags_0 | AnmVmFlags_1=3,
+    AnmVmFlags_2=4,
+    AnmVmFlags_3=8,
+    AnmVmFlags_4=16,
+    AnmVmFlags_5=32,
+    AnmVmFlags_6=64,
+    AnmVmFlags_7=128,
+    AnmVmFlags_8=256,
+    AnmVmFlags_9=512,
+    AnmVmFlags_10=1024,
+    AnmVmFlags_11=2048,
+    AnmVmFlags_12=4096,
+    AnmVmFlags_13=8192,
+    AnmVmFlags_14=16384,
+    AnmVmFlags_15=32768
+} AnmVmFlags;
+
 typedef struct AnmRawInstr AnmRawInstr, *PAnmRawInstr;
 
 typedef struct AnmLoadedSprite AnmLoadedSprite, *PAnmLoadedSprite;
@@ -1886,14 +1906,16 @@ struct AnmVm {
     struct ZunTimer currentTimeInScript;
     D3DMATRIX matrix;
     union D3DCOLORUNION color;
-    uint flags;
+    enum AnmVmFlags flags;
+    undefined field11_0x82;
+    undefined field12_0x83;
     ushort alphaInterpEndTime;
     ushort scaleInterpEndTime;
     ushort autoRotate;
     short pendingInterrupt;
     ushort posInterpEndTime;
-    undefined field16_0x8e;
-    undefined field17_0x8f;
+    undefined field18_0x8e;
+    undefined field19_0x8f;
     D3DXVECTOR3 pos;
     float scaleInterpInitialY;
     float scaleInterpInitialX;
@@ -1901,8 +1923,8 @@ struct AnmVm {
     short spriteNumber;
     short anotherSpriteNumber;
     short anmFileIndex;
-    undefined field25_0xb6;
-    undefined field26_0xb7;
+    undefined field27_0xb6;
+    undefined field28_0xb7;
     struct AnmRawInstr *beginingOfScript;
     struct AnmRawInstr *currentInstruction;
     struct AnmLoadedSprite *sprite;
@@ -1916,8 +1938,8 @@ struct AnmVm {
     struct ZunTimer alphaInterpTime;
     uint8_t fontWidth;
     uint8_t fontHeight;
-    undefined field40_0x10e;
-    undefined field41_0x10f;
+    undefined field42_0x10e;
+    undefined field43_0x10f;
 };
 
 struct Ending {

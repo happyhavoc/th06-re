@@ -10,8 +10,8 @@ void __thiscall AsciiManager::DrawStrings(AsciiManager *this)
   
   local_18 = 1;
   local_10 = this->strings;
-  (this->vm0).flags = (this->vm0).flags | 1;
-  (this->vm0).flags = (this->vm0).flags | 0x300;
+  *(uint *)&(this->vm0).flags = *(uint *)&(this->vm0).flags | 1;
+  *(uint *)&(this->vm0).flags = *(uint *)&(this->vm0).flags | 0x300;
   for (local_c = 0; local_c < this->numStrings; local_c = local_c + 1) {
     (this->vm0).pos.x = (local_10->position).x;
     (this->vm0).pos.y = (local_10->position).y;

@@ -32,7 +32,7 @@ void __thiscall StageMenu::OnDrawRetryMenu(StageMenu *this)
       AnmManager::FUN_00432ad0(g_AnmManager,this->vms0 + 4);
     }
     for (local_8 = 0; local_8 < 4; local_8 = local_8 + 1) {
-      if ((this->vms0[local_8].flags & 1) != 0) {
+      if ((*(uint *)&this->vms0[local_8].flags & 1) != 0) {
         AnmManager::FUN_00432ad0(g_AnmManager,this->vms0 + local_8);
       }
     }

@@ -39,7 +39,7 @@ LAB_00434098:
     }
   }
   vm->pendingInterrupt = 0;
-  vm->flags = vm->flags & 0xffffdfff;
+  *(uint *)&vm->flags = *(uint *)&vm->flags & 0xffffdfff;
   if (local_8->opcode != AnmOpcode_22) {
     if (local_24 == (AnmRawInstr *)0x0) {
       ZunTimer::Decrement(&vm->currentTimeInScript,1);
@@ -51,18 +51,18 @@ LAB_00434098:
   (vm->currentTimeInScript).current = (int)(short)vm->currentInstruction->time;
   (vm->currentTimeInScript).subFrame = 0.0;
   (vm->currentTimeInScript).previous = -999;
-  vm->flags = vm->flags | 1;
+  *(uint *)&vm->flags = *(uint *)&vm->flags | 1;
 LAB_00433998:
   local_8 = vm->currentInstruction;
   if ((vm->currentTimeInScript).current < (int)(short)local_8->time) goto LAB_00434338;
   switch(local_8->opcode) {
   case AnmOpcode_Exit:
-    vm->flags = vm->flags & 0xfffffffe;
+    *(uint *)&vm->flags = *(uint *)&vm->flags & 0xfffffffe;
   case AnmOpcode_ExitHide:
     vm->currentInstruction = (AnmRawInstr *)0x0;
     return 1;
   case AnmOpcode_SetActiveSprite:
-    vm->flags = vm->flags | 1;
+    *(uint *)&vm->flags = *(uint *)&vm->flags | 1;
     SetActiveSprite(this,vm,local_8->args[0] + this->spriteIndices[vm->anmFileIndex]);
     vm->timeOfLastSpriteSet = (vm->currentTimeInScript).current;
     break;
@@ -79,11 +79,13 @@ LAB_00433998:
   case AnmOpcode_5:
     goto switchD_004339dd_caseD_5;
   case AnmOpcode_FlipX:
-    vm->flags = vm->flags & 0xffffff3f | (vm->flags >> 6 & 3 ^ 1) << 6;
+    *(uint *)&vm->flags = *(uint *)&vm->flags & 0xffffff3f | (*(uint *)&vm->flags >> 6 & 3 ^ 1) << 6
+    ;
     vm->scaleX = vm->scaleX * -1.0;
     break;
   case AnmOpcode_FlipY:
-    vm->flags = vm->flags & 0xffffff3f | (vm->flags >> 6 & 3 ^ 2) << 6;
+    *(uint *)&vm->flags = *(uint *)&vm->flags & 0xffffff3f | (*(uint *)&vm->flags >> 6 & 3 ^ 2) << 6
+    ;
     vm->scaleY = vm->scaleY * -1.0;
     break;
   case AnmOpcode_SetRotation:
@@ -114,13 +116,13 @@ LAB_00433998:
     (vm->alphaInterpTime).previous = -999;
     break;
   case AnmOpcode_13:
-    vm->flags = vm->flags | 4;
+    *(uint *)&vm->flags = *(uint *)&vm->flags | 4;
     break;
   case AnmOpcode_14:
-    vm->flags = vm->flags & 0xfffffffb;
+    *(uint *)&vm->flags = *(uint *)&vm->flags & 0xfffffffb;
     break;
   case AnmOpcode_16:
-    vm->flags = vm->flags | 1;
+    *(uint *)&vm->flags = *(uint *)&vm->flags | 1;
     local_c = local_8->args;
     uVar1 = *(ushort *)(local_8->args + 1);
     if (uVar1 == 0) {
@@ -134,7 +136,7 @@ LAB_00433998:
     vm->timeOfLastSpriteSet = (vm->currentTimeInScript).current;
     break;
   case AnmOpcode_17:
-    if ((vm->flags >> 5 & 1) == 0) {
+    if ((*(uint *)&vm->flags >> 5 & 1) == 0) {
       fVar5 = (float)local_8->args[2];
       fVar2 = (float)local_8->args[1];
       (vm->pos).x = (float)local_8->args[0];
@@ -150,15 +152,15 @@ LAB_00433998:
     }
     break;
   case AnmOpcode_18:
-    vm->flags = vm->flags & 0xfffff3ff;
+    *(uint *)&vm->flags = *(uint *)&vm->flags & 0xfffff3ff;
     goto LAB_00433f53;
   case AnmOpcode_19:
-    vm->flags = vm->flags & 0xfffff3ff | 0x400;
+    *(uint *)&vm->flags = *(uint *)&vm->flags & 0xfffff3ff | 0x400;
     goto LAB_00433f53;
   case AnmOpcode_20:
-    vm->flags = vm->flags & 0xfffff3ff | 0x800;
+    *(uint *)&vm->flags = *(uint *)&vm->flags & 0xfffff3ff | 0x800;
 LAB_00433f53:
-    if ((vm->flags >> 5 & 1) == 0) {
+    if ((*(uint *)&vm->flags >> 5 & 1) == 0) {
       (vm->posInterpInitial).x = (vm->pos).x;
       (vm->posInterpInitial).y = (vm->pos).y;
       (vm->posInterpInitial).z = (vm->pos).z;
@@ -181,12 +183,12 @@ LAB_00433f53:
   case AnmOpcode_Stop:
     goto switchD_004339dd_caseD_15;
   case AnmOpcode_23:
-    vm->flags = vm->flags | 0x300;
+    *(uint *)&vm->flags = *(uint *)&vm->flags | 0x300;
     break;
   case AnmOpcode_StopHide:
     goto switchD_004339dd_caseD_18;
   case AnmOpcode_25:
-    vm->flags = vm->flags & 0xffffffdf | (local_8->args[0] & 1) << 5;
+    *(uint *)&vm->flags = *(uint *)&vm->flags & 0xffffffdf | (local_8->args[0] & 1) << 5;
     break;
   case AnmOpcode_26:
     vm->autoRotate = *(ushort *)local_8->args;
@@ -216,7 +218,7 @@ LAB_00433f53:
     }
     break;
   case AnmOpcode_29:
-    vm->flags = vm->flags & 0xfffffffe | local_8->args[0] & 1;
+    *(uint *)&vm->flags = *(uint *)&vm->flags & 0xfffffffe | local_8->args[0] & 1;
     break;
   case AnmOpcode_30:
     vm->scaleInterpFinalX = (float)local_8->args[0];
@@ -230,15 +232,15 @@ LAB_00433f53:
     vm->scaleInterpInitialY = vm->scaleY;
     break;
   case AnmOpcode_31:
-    vm->flags = vm->flags & 0xffffefff | (local_8->args[0] & 1) << 0xc;
+    *(uint *)&vm->flags = *(uint *)&vm->flags & 0xffffefff | (local_8->args[0] & 1) << 0xc;
   }
   vm->currentInstruction = (AnmRawInstr *)((int)local_8->args + (uint)local_8->argsCount);
   goto LAB_00433998;
 switchD_004339dd_caseD_18:
-  vm->flags = vm->flags & 0xfffffffe;
+  *(uint *)&vm->flags = *(uint *)&vm->flags & 0xfffffffe;
 switchD_004339dd_caseD_15:
   if (vm->pendingInterrupt == 0) {
-    vm->flags = vm->flags | 0x2000;
+    *(uint *)&vm->flags = *(uint *)&vm->flags | 0x2000;
     ZunTimer::Decrement(&vm->currentTimeInScript,1);
 LAB_00434338:
     fVar5 = (vm->angleVel).x;
@@ -282,10 +284,10 @@ LAB_00434338:
         vm->scaleInterpFinalY = 0.0;
         vm->scaleInterpFinalX = 0.0;
       }
-      if ((vm->flags >> 6 & 1) != 0) {
+      if ((*(uint *)&vm->flags >> 6 & 1) != 0) {
         vm->scaleX = vm->scaleX * -1.0;
       }
-      if ((vm->flags >> 6 & 2) != 0) {
+      if ((*(uint *)&vm->flags >> 6 & 2) != 0) {
         vm->scaleY = vm->scaleY * -1.0;
       }
     }
@@ -326,7 +328,7 @@ LAB_00434338:
       if (1.0 <= local_3c) {
         local_3c = 1.0;
       }
-      uVar4 = vm->flags >> 10 & 3;
+      uVar4 = *(uint *)&vm->flags >> 10 & 3;
       if (uVar4 == 1) {
         local_3c = 1.0 - (1.0 - local_3c) * (1.0 - local_3c);
       }
@@ -334,7 +336,7 @@ LAB_00434338:
         local_3c = 1.0 - local_3c;
         local_3c = 1.0 - local_3c * local_3c * local_3c * local_3c;
       }
-      if ((vm->flags >> 5 & 1) == 0) {
+      if ((*(uint *)&vm->flags >> 5 & 1) == 0) {
         (vm->pos).x = (1.0 - local_3c) * (vm->posInterpInitial).x +
                       local_3c * (vm->posInterpFinal).x;
         (vm->pos).y = (1.0 - local_3c) * (vm->posInterpInitial).y +

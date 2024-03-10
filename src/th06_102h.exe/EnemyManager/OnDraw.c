@@ -14,8 +14,8 @@ undefined4 EnemyManager::OnDraw(int param_1)
   
   local_14 = (AnmVm *)(param_1 + 0xed0);
   for (local_8 = 0; local_8 < 0x100; local_8 = local_8 + 1) {
-    if ((*(char *)&local_14[0xd].flags < '\0') &&
-       ((*(byte *)((int)&local_14[0xd].flags + 2) >> 3 & 1) == 0)) {
+    if ((*(char *)&local_14[0xd].flags < '\0') && (((byte)local_14[0xd].field_0x82 >> 3 & 1) == 0))
+    {
       pAVar5 = local_14;
       for (local_10 = 0; local_c = pAVar5 + 1, local_10 < 4; local_10 = local_10 + 1) {
         if (-1 < pAVar5[1].anmFileIndex) {
@@ -34,7 +34,7 @@ undefined4 EnemyManager::OnDraw(int param_1)
         }
         pAVar5 = local_c;
       }
-      if ((*(byte *)((int)&local_14[0xd].flags + 2) >> 1 & 1) != 0) {
+      if (((byte)local_14[0xd].field_0x82 >> 1 & 1) != 0) {
         (local_14->rotation).z = local_14[0xb].posInterpFinal.z;
       }
       fVar1 = (float)local_14[0xb].alphaInterpInitial;

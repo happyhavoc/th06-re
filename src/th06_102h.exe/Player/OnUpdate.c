@@ -82,7 +82,7 @@ ChainCallbackResult Player::OnUpdate(Player *param_1)
     lVar3 = __ftol2((double)(255.0 - (((float)(param_1->field35_0x75b4).current +
                                       (param_1->field35_0x75b4).subFrame) * 255.0) / 30.0));
     (param_1->vm0).color.color = lVar3 << 0x18 | 0xffffff;
-    (param_1->vm0).flags = (param_1->vm0).flags | 4;
+    *(uint *)&(param_1->vm0).flags = *(uint *)&(param_1->vm0).flags | 4;
     param_1->field29_0xa10 = 0.0;
     param_1->field30_0xa14 = 0;
     if ((param_1->field35_0x75b4).current < 0x1e) goto LAB_00428fa8;
@@ -117,7 +117,7 @@ ChainCallbackResult Player::OnUpdate(Player *param_1)
                 30.0;
   (param_1->vm0).scaleY = fVar1 * 2.0 + 1.0;
   (param_1->vm0).scaleX = 1.0 - fVar1 * 1.0;
-  (param_1->vm0).flags = (param_1->vm0).flags | 4;
+  *(uint *)&(param_1->vm0).flags = *(uint *)&(param_1->vm0).flags | 4;
   param_1->field18_0x9d4 = 1.0;
   param_1->field17_0x9d0 = 1.0;
   (param_1->vm0).color.color = ((param_1->field35_0x75b4).current * 0xff) / 0x1e << 0x18 | 0xffffff;
@@ -127,7 +127,7 @@ ChainCallbackResult Player::OnUpdate(Player *param_1)
     (param_1->vm0).scaleX = 1.0;
     (param_1->vm0).scaleY = 1.0;
     (param_1->vm0).color.color = 0xffffffff;
-    (param_1->vm0).flags = (param_1->vm0).flags & 0xfffffffb;
+    *(uint *)&(param_1->vm0).flags = *(uint *)&(param_1->vm0).flags & 0xfffffffb;
     (param_1->field35_0x75b4).current = 0xf0;
     (param_1->field35_0x75b4).subFrame = 0.0;
     (param_1->field35_0x75b4).previous = -999;
@@ -145,7 +145,7 @@ LAB_00428fa8:
       (param_1->field35_0x75b4).current = 0;
       (param_1->field35_0x75b4).subFrame = 0.0;
       (param_1->field35_0x75b4).previous = -999;
-      (param_1->vm0).flags = (param_1->vm0).flags & 0xfffffff7;
+      *(uint *)&(param_1->vm0).flags = *(uint *)&(param_1->vm0).flags & 0xfffffff7;
       (param_1->vm0).color.color = 0xffffffff;
     }
     else {
@@ -154,11 +154,11 @@ LAB_00428fa8:
         uVar4 = (uVar4 - 1 | 0xfffffff8) + 1;
       }
       if ((int)uVar4 < 2) {
-        (param_1->vm0).flags = (param_1->vm0).flags | 8;
+        *(uint *)&(param_1->vm0).flags = *(uint *)&(param_1->vm0).flags | 8;
         (param_1->vm0).color.color = 0xff404040;
       }
       else {
-        (param_1->vm0).flags = (param_1->vm0).flags & 0xfffffff7;
+        *(uint *)&(param_1->vm0).flags = *(uint *)&(param_1->vm0).flags & 0xfffffff7;
         (param_1->vm0).color.color = 0xffffffff;
       }
     }

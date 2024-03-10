@@ -14,10 +14,10 @@ int __thiscall AnmManager::FUN_00432cc0(AnmManager *this,AnmVm *vm)
   
   fVar1 = (vm->rotation).z;
   if (NAN(fVar1) == (fVar1 == 0.0)) {
-    if ((vm->flags & 1) == 0) {
+    if ((*(uint *)&vm->flags & 1) == 0) {
       iVar6 = -1;
     }
-    else if ((vm->flags >> 1 & 1) == 0) {
+    else if ((*(uint *)&vm->flags >> 1 & 1) == 0) {
       iVar6 = -1;
     }
     else if ((vm->color).color == 0) {
@@ -42,13 +42,13 @@ int __thiscall AnmManager::FUN_00432cc0(AnmManager *this,AnmVm *vm)
       FUN_00432c80((float *)(g_PrimitivesToDrawVertexBuf + 3),fVar4 - 0.5,fVar5 - 0.5,fVar2,fVar1,
                    yOffset,xOffset);
       g_PrimitivesToDrawVertexBuf[0].pos.z = (vm->pos).z;
-      if ((vm->flags >> 8 & 1) != 0) {
+      if ((*(uint *)&vm->flags >> 8 & 1) != 0) {
         g_PrimitivesToDrawVertexBuf[0].pos.x = g_PrimitivesToDrawVertexBuf[0].pos.x + fVar4;
         g_PrimitivesToDrawVertexBuf[1].pos.x = g_PrimitivesToDrawVertexBuf[1].pos.x + fVar4;
         g_PrimitivesToDrawVertexBuf[2].pos.x = g_PrimitivesToDrawVertexBuf[2].pos.x + fVar4;
         g_PrimitivesToDrawVertexBuf[3].pos.x = g_PrimitivesToDrawVertexBuf[3].pos.x + fVar4;
       }
-      if ((vm->flags >> 8 & 2) != 0) {
+      if ((*(uint *)&vm->flags >> 8 & 2) != 0) {
         g_PrimitivesToDrawVertexBuf[0].pos.y = g_PrimitivesToDrawVertexBuf[0].pos.y + fVar5;
         g_PrimitivesToDrawVertexBuf[1].pos.y = g_PrimitivesToDrawVertexBuf[1].pos.y + fVar5;
         g_PrimitivesToDrawVertexBuf[2].pos.y = g_PrimitivesToDrawVertexBuf[2].pos.y + fVar5;

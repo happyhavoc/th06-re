@@ -9,10 +9,10 @@ int __thiscall AnmManager::FUN_00433590(AnmManager *this,AnmVm *vm)
   D3DMATRIX local_c4 [2];
   D3DMATRIX local_44;
   
-  if ((vm->flags & 1) == 0) {
+  if ((*(uint *)&vm->flags & 1) == 0) {
     iVar2 = -1;
   }
-  else if ((vm->flags >> 1 & 1) == 0) {
+  else if ((*(uint *)&vm->flags >> 1 & 1) == 0) {
     iVar2 = -1;
   }
   else {
@@ -34,10 +34,10 @@ int __thiscall AnmManager::FUN_00433590(AnmManager *this,AnmVm *vm)
       }
       local_c4[0].m[3][0] = ROUND((vm->pos).x) - 0.5;
       local_c4[0].m[3][1] = -ROUND((vm->pos).y) + 0.5;
-      if ((vm->flags >> 8 & 1) != 0) {
+      if ((*(uint *)&vm->flags >> 8 & 1) != 0) {
         local_c4[0].m[3][0] = (vm->sprite->widthPx * vm->scaleX) / 2.0 + local_c4[0].m[3][0];
       }
-      if ((vm->flags >> 8 & 2) != 0) {
+      if ((*(uint *)&vm->flags >> 8 & 2) != 0) {
         local_c4[0].m[3][1] = local_c4[0].m[3][1] - (vm->sprite->heightPx * vm->scaleY) / 2.0;
       }
       local_c4[0].m[3][2] = (vm->pos).z;

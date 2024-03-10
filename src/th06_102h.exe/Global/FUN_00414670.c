@@ -31,7 +31,7 @@ AnmVm * FUN_00414670(short *param_1)
   iVar2 = *(int *)(&DAT_00476440 + param_1[1] * 4);
   AnmVm::Initialize(local_c + 1);
   AnmManager::SetActiveSprite(pAVar3,local_c + 1,iVar2 + 0x28c);
-  local_c[1].flags = local_c[1].flags | 4;
+  *(uint *)&local_c[1].flags = *(uint *)&local_c[1].flags | 4;
   local_c[2].rotation.x = *(float *)(param_1 + 2);
   local_c[2].rotation.y = *(float *)(param_1 + 4);
   local_c[2].rotation.z = *(float *)(param_1 + 6);

@@ -42,7 +42,7 @@ LAB_00434098:
   vm->flags = vm->flags & 0xffffdfff;
   if (local_8->opcode != AnmOpcode_22) {
     if (local_24 == (AnmRawInstr *)0x0) {
-      ZunTimer::FUN_004241e5(&vm->currentTimeInScript,1);
+      ZunTimer::Decrement(&vm->currentTimeInScript,1);
       goto LAB_00434338;
     }
     local_8 = local_24;
@@ -239,7 +239,7 @@ switchD_004339dd_caseD_18:
 switchD_004339dd_caseD_15:
   if (vm->pendingInterrupt == 0) {
     vm->flags = vm->flags | 0x2000;
-    ZunTimer::FUN_004241e5(&vm->currentTimeInScript,1);
+    ZunTimer::Decrement(&vm->currentTimeInScript,1);
 LAB_00434338:
     fVar5 = (vm->angleVel).x;
     if (NAN(fVar5) == (fVar5 == 0.0)) {

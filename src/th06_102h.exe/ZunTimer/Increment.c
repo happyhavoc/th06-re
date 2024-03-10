@@ -1,14 +1,14 @@
 
-void __thiscall ZunTimer::FUN_00424145(ZunTimer *this,int param_1)
+void __thiscall ZunTimer::Increment(ZunTimer *this,int value)
 
 {
   if (g_Supervisor.framerateMultiplier <= 0.99) {
-    if (param_1 < 0) {
-      FUN_004241e5(this,-param_1);
+    if (value < 0) {
+      Decrement(this,-value);
     }
     else {
       this->previous = this->current;
-      this->subFrame = g_Supervisor.effectiveFramerateMultiplier * (float)param_1 + this->subFrame;
+      this->subFrame = g_Supervisor.effectiveFramerateMultiplier * (float)value + this->subFrame;
       while (1.0 <= this->subFrame) {
         this->current = this->current + 1;
         this->subFrame = this->subFrame - 1.0;
@@ -16,7 +16,7 @@ void __thiscall ZunTimer::FUN_00424145(ZunTimer *this,int param_1)
     }
   }
   else {
-    this->current = this->current + param_1;
+    this->current = this->current + value;
   }
   return;
 }

@@ -139,7 +139,7 @@ LAB_00428fa8:
     BulletManager::FUN_00414160(&g_BulletManager,0);
   }
   if (param_1->field21_0x9e0 == 3) {
-    ZunTimer::FUN_004241e5(&param_1->field35_0x75b4,1);
+    ZunTimer::Decrement(&param_1->field35_0x75b4,1);
     if ((param_1->field35_0x75b4).current < 1) {
       param_1->field21_0x9e0 = 0;
       (param_1->field35_0x75b4).current = 0;

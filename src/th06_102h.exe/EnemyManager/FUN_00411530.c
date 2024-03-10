@@ -174,7 +174,7 @@ void __thiscall EnemyManager::FUN_00411530(EnemyManager *this)
       case 9:
         iVar4 = FUN_00419572();
         if (iVar4 != 0) {
-          ZunTimer::FUN_004241e5(&this->timeline_time,1);
+          ZunTimer::Decrement(&this->timeline_time,1);
           return;
         }
         break;
@@ -188,7 +188,7 @@ void __thiscall EnemyManager::FUN_00411530(EnemyManager *this)
       case 0xc:
         if ((this->bosses[*(short *)((int)this->timeline_instr + 2)] != (Enemy *)0x0) &&
            ((char)this->bosses[*(short *)((int)this->timeline_instr + 2)]->flags1 < '\0')) {
-          ZunTimer::FUN_004241e5(&this->timeline_time,1);
+          ZunTimer::Decrement(&this->timeline_time,1);
           return;
         }
       }

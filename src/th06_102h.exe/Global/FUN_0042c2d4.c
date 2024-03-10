@@ -2,9 +2,10 @@
 void __fastcall FUN_0042c2d4(int param_1)
 
 {
-  int iVar1;
-  ReplayData *pRVar2;
-  char **ppcVar3;
+  ZunResult ZVar1;
+  int iVar2;
+  ReplayData *pRVar3;
+  char **ppcVar4;
   uint unaff_retaddr;
   int local_b8;
   int local_b4;
@@ -18,8 +19,8 @@ void __fastcall FUN_0042c2d4(int param_1)
   int local_8;
   
   local_18 = __security_cookie ^ unaff_retaddr;
-  iVar1 = *(int *)(param_1 + 8);
-  if (iVar1 == 10) {
+  iVar2 = *(int *)(param_1 + 8);
+  if (iVar2 == 10) {
     if (*(int *)(param_1 + 4) == 0x3c) {
       if (g_GameManager.num_retries == 0) {
         if (g_Supervisor.framerateMultiplier < 0.99 == NAN(g_Supervisor.framerateMultiplier)) {
@@ -69,7 +70,7 @@ void __fastcall FUN_0042c2d4(int param_1)
     }
   }
   else {
-    if (iVar1 == 0xb) {
+    if (iVar2 == 0xb) {
       if ((0x13 < *(int *)(param_1 + 4)) &&
          ((((g_CurFrameInput & 0x1001) != 0 &&
            ((g_CurFrameInput & 0x1001) != (g_LastFrameInput & 0x1001))) ||
@@ -86,8 +87,8 @@ void __fastcall FUN_0042c2d4(int param_1)
       }
       goto LAB_0042d095;
     }
-    if (iVar1 != 0xc) {
-      if (iVar1 == 0xd) {
+    if (iVar2 != 0xc) {
+      if (iVar2 == 0xd) {
         if (*(int *)(param_1 + 4) < 0x1e) goto LAB_0042d095;
         if ((((g_CurFrameInput & 0x10) != 0) &&
             ((g_CurFrameInput & 0x10) != (g_LastFrameInput & 0x10))) ||
@@ -97,7 +98,8 @@ void __fastcall FUN_0042c2d4(int param_1)
             if (*(int *)(param_1 + 0x20) < 0) {
               *(int *)(param_1 + 0x20) = *(int *)(param_1 + 0x20) + 0x60;
             }
-          } while (PTR_DAT_004784d4[*(int *)(param_1 + 0x20)] == ' ');
+          } while (PTR_s_ABCDEFGHIJKLMNOPQRSTUVWXYZ_______004784d4[*(int *)(param_1 + 0x20)] == ' ')
+          ;
           SoundPlayer::FUN_004311e0(&g_SoundPlayer,0xc);
         }
         if ((((g_CurFrameInput & 0x20) != 0) &&
@@ -108,7 +110,8 @@ void __fastcall FUN_0042c2d4(int param_1)
             if (0x5f < *(int *)(param_1 + 0x20)) {
               *(int *)(param_1 + 0x20) = *(int *)(param_1 + 0x20) + -0x60;
             }
-          } while (PTR_DAT_004784d4[*(int *)(param_1 + 0x20)] == ' ');
+          } while (PTR_s_ABCDEFGHIJKLMNOPQRSTUVWXYZ_______004784d4[*(int *)(param_1 + 0x20)] == ' ')
+          ;
           SoundPlayer::FUN_004311e0(&g_SoundPlayer,0xc);
         }
         if ((((g_CurFrameInput & 0x40) != 0) &&
@@ -122,7 +125,8 @@ void __fastcall FUN_0042c2d4(int param_1)
             if (*(int *)(param_1 + 0x20) < 0) {
               *(undefined4 *)(param_1 + 0x20) = 0xf;
             }
-          } while (PTR_DAT_004784d4[*(int *)(param_1 + 0x20)] == ' ');
+          } while (PTR_s_ABCDEFGHIJKLMNOPQRSTUVWXYZ_______004784d4[*(int *)(param_1 + 0x20)] == ' ')
+          ;
           SoundPlayer::FUN_004311e0(&g_SoundPlayer,0xc);
         }
         if ((((g_CurFrameInput & 0x80) != 0) &&
@@ -133,7 +137,8 @@ void __fastcall FUN_0042c2d4(int param_1)
             if (*(int *)(param_1 + 0x20) % 0x10 == 0) {
               *(int *)(param_1 + 0x20) = *(int *)(param_1 + 0x20) + -0x10;
             }
-          } while (PTR_DAT_004784d4[*(int *)(param_1 + 0x20)] == ' ');
+          } while (PTR_s_ABCDEFGHIJKLMNOPQRSTUVWXYZ_______004784d4[*(int *)(param_1 + 0x20)] == ' ')
+          ;
           SoundPlayer::FUN_004311e0(&g_SoundPlayer,0xc);
         }
         if ((((g_CurFrameInput & 0x1001) != 0) &&
@@ -147,7 +152,8 @@ void __fastcall FUN_0042c2d4(int param_1)
           }
           local_60 = local_b4;
           if (*(int *)(param_1 + 0x20) < 0x5e) {
-            *(undefined *)(param_1 + local_b4 + 0x34) = PTR_DAT_004784d4[*(int *)(param_1 + 0x20)];
+            *(undefined *)(param_1 + local_b4 + 0x34) =
+                 PTR_s_ABCDEFGHIJKLMNOPQRSTUVWXYZ_______004784d4[*(int *)(param_1 + 0x20)];
           }
           else if (*(int *)(param_1 + 0x20) == 0x5e) {
             *(undefined *)(param_1 + local_b4 + 0x34) = 0x20;
@@ -188,7 +194,7 @@ void __fastcall FUN_0042c2d4(int param_1)
         goto LAB_0042d095;
       }
       else {
-        if (iVar1 != 0xe) goto LAB_0042d095;
+        if (iVar2 != 0xe) goto LAB_0042d095;
         local_8 = param_1 + 0x1140;
         if (*(int *)(param_1 + 0x10) == 0) {
           *(uint *)(param_1 + 0x11bc) = *(uint *)(param_1 + 0x11bc) & 0xff000000 | 0xff6060;
@@ -234,14 +240,14 @@ LAB_0042c515:
         sprintf(local_5c,"./replay/th6_%.2d.rpy",local_10 + 1);
         local_14 = (ReplayData *)FileSystem::OpenPath(local_5c,1);
         if (local_14 != (ReplayData *)0x0) {
-          iVar1 = FUN_0042a140(local_14,g_LastFileSize);
-          if (iVar1 == 0) {
-            pRVar2 = local_14;
-            ppcVar3 = (char **)(param_1 + 0x51b0 + local_10 * 0x50);
-            for (iVar1 = 0x14; iVar1 != 0; iVar1 = iVar1 + -1) {
-              *ppcVar3 = pRVar2->magic;
-              pRVar2 = (ReplayData *)&pRVar2->version;
-              ppcVar3 = ppcVar3 + 1;
+          ZVar1 = FUN_0042a140(local_14,g_LastFileSize);
+          if (ZVar1 == ZUN_SUCCESS) {
+            pRVar3 = local_14;
+            ppcVar4 = (char **)(param_1 + 0x51b0 + local_10 * 0x50);
+            for (iVar2 = 0x14; iVar2 != 0; iVar2 = iVar2 + -1) {
+              *ppcVar4 = pRVar3->magic;
+              pRVar3 = (ReplayData *)&pRVar3->version;
+              ppcVar4 = ppcVar4 + 1;
             }
           }
           _free(local_14);

@@ -45,14 +45,14 @@ void Player::BombMarisaACalc(Player *param_1)
     }
     else {
       ItemManager::FUN_00420130(g_ItemManager);
-      Gui::FUN_00417acd(&g_Gui,0x4a3,&DAT_0046a420);
+      Gui::FUN_00417acd(&g_Gui,0x4a3,"魔符「スターダストレヴァリエ」");
       (param_1->inner).field1_0x4 = 0xfa;
       (param_1->field35_0x75b4).current = 300;
       (param_1->field35_0x75b4).subFrame = 0.0;
       (param_1->field35_0x75b4).previous = -999;
       local_c = (param_1->inner).field10_0x11c;
       for (local_8 = 0; local_8 < 8; local_8 = local_8 + 1) {
-        AnmManager::FUN_004051b0(g_AnmManager,local_c,local_8 % 3 + 0x405);
+        AnmManager::ExecuteAnmIdx(g_AnmManager,local_c,local_8 % 3 + 0x405);
         pPVar1 = (param_1->inner).field6_0x5c + local_8;
         pPVar1->field0_0x0 = (param_1->position).x;
         pPVar1->field1_0x4 = (param_1->position).y;

@@ -4,7 +4,7 @@ undefined4 FUN_0042a240(int param_1,char *replay_file)
 {
   ChainElem *pCVar1;
   int iVar2;
-  undefined4 uVar3;
+  ZunResult ZVar3;
   ReplayManager *local_14;
   
   if ((g_Supervisor.framerateMultiplier < 0.99 == NAN(g_Supervisor.framerateMultiplier)) ||
@@ -57,8 +57,8 @@ undefined4 FUN_0042a240(int param_1,char *replay_file)
       ReplayManager::OnAdd(g_ReplayManager);
     }
     else if (param_1 == 1) {
-      uVar3 = FUN_0042a840(g_ReplayManager);
-      return uVar3;
+      ZVar3 = FUN_0042a840(g_ReplayManager);
+      return ZVar3;
     }
   }
   return 0;

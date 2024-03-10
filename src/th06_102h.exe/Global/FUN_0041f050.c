@@ -25,7 +25,7 @@ void FUN_0041f050(int param_1,int param_2,int param_3,undefined4 param_4,int par
   pvStack_10 = ExceptionList;
   pHStack_14 = (HDC)0x41f05a;
   ExceptionList = &pvStack_10;
-  pHStack_18 = CreateFontA(param_5 << 1,0,0,0,700,0,0,0,0x80,0,0,4,0x11,&DAT_0046b0ac);
+  pHStack_18 = CreateFontA(param_5 << 1,0,0,0,700,0,0,0,0x80,0,0,4,0x11,"ＭＳ ゴシック");
   FUN_0041e945(auStack_60);
   uStack_8 = 0;
   (*g_BackBufferSurface->lpVtbl->GetDesc)(g_BackBufferSurface,&DStack_38);

@@ -1,23 +1,22 @@
 
 /* WARNING: Removing unreachable block (ram,0x0042a940) */
 
-undefined4 FUN_0042a840(ReplayManager *param_1)
+ZunResult FUN_0042a840(ReplayManager *param_1)
 
 {
-  StageReplayData *pSVar1;
   ReplayData *pRVar2;
-  int iVar3;
-  undefined4 uVar4;
+  ZunResult ZVar3;
   int local_c;
+  StageReplayData *pSVar1;
   
   param_1->frame_id = 0;
   if (param_1->data == (ReplayData *)0x0) {
     pRVar2 = (ReplayData *)
              FileSystem::OpenPath(param_1->replay_file,(uint)(g_GameManager.demo_mode == 0));
     param_1->data = pRVar2;
-    iVar3 = FUN_0042a140(param_1->data,g_LastFileSize);
-    if (iVar3 != 0) {
-      return 0xffffffff;
+    ZVar3 = FUN_0042a140(param_1->data,g_LastFileSize);
+    if (ZVar3 != ZUN_SUCCESS) {
+      return ZUN_ERROR;
     }
     for (local_c = 0; local_c < 7; local_c = local_c + 1) {
       if (param_1->data->stage_score[local_c + 1] != (StageReplayData *)0x0) {
@@ -29,7 +28,7 @@ undefined4 FUN_0042a840(ReplayManager *param_1)
     }
   }
   if (param_1->data->stage_score[g_GameManager.current_stage] == (StageReplayData *)0x0) {
-    uVar4 = 0xffffffff;
+    ZVar3 = ZUN_ERROR;
   }
   else {
     pSVar1 = param_1->data->stage_score[g_GameManager.current_stage];
@@ -50,8 +49,8 @@ undefined4 FUN_0042a840(ReplayManager *param_1)
       g_GameManager.field0_0x0 = param_1->data->stage_score[g_GameManager.current_stage - 1]->score;
       g_GameManager.score = g_GameManager.field0_0x0;
     }
-    uVar4 = 0;
+    ZVar3 = ZUN_SUCCESS;
   }
-  return uVar4;
+  return ZVar3;
 }
 

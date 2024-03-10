@@ -1,5 +1,5 @@
 
-undefined4 ReplayManager::OnAdd(ReplayManager *param_1)
+ZunResult ReplayManager::OnAdd(ReplayManager *param_1)
 
 {
   ReplayData *pRVar1;
@@ -26,7 +26,7 @@ undefined4 ReplayManager::OnAdd(ReplayManager *param_1)
   else {
     pSVar2 = param_1->data->stage_score[g_GameManager.current_stage - 1];
     if (pSVar2 == (StageReplayData *)0x0) {
-      return 0xffffffff;
+      return ZUN_ERROR;
     }
     pSVar2->score = g_GameManager.score;
   }
@@ -47,6 +47,6 @@ undefined4 ReplayManager::OnAdd(ReplayManager *param_1)
   param_1->replay_inputs->frame_num = 0;
   param_1->replay_inputs->input_key = 0;
   param_1->field56_0x44 = 0;
-  return 0;
+  return ZUN_SUCCESS;
 }
 

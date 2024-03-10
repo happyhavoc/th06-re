@@ -22,7 +22,7 @@ void Player::BombReimuACalc(Player *param_1)
   if ((param_1->inner).field2_0x8.current < (param_1->inner).field1_0x4) {
     if (((param_1->inner).field2_0x8.current != (param_1->inner).field2_0x8.previous) &&
        ((param_1->inner).field2_0x8.current == 0)) {
-      Gui::FUN_00417acd(&g_Gui,0x4a1,&DAT_0046a3f4);
+      Gui::FUN_00417acd(&g_Gui,0x4a1,"霊符「夢想封印」");
       (param_1->inner).field1_0x4 = 300;
       (param_1->field35_0x75b4).current = 0x168;
       (param_1->field35_0x75b4).subFrame = 0.0;
@@ -63,7 +63,7 @@ void Player::BombReimuACalc(Player *param_1)
         param_1->field14_0x838[iVar5] = 0;
         local_14 = (param_1->inner).field10_0x11c + iVar5 * 4;
         for (local_28 = 0; local_28 < 4; local_28 = local_28 + 1) {
-          AnmManager::FUN_004051b0(g_AnmManager,local_14,local_28 + 0x485);
+          AnmManager::ExecuteAnmIdx(g_AnmManager,local_14,local_28 + 0x485);
           local_14 = local_14 + 1;
         }
         SoundPlayer::FUN_004311e0(&g_SoundPlayer,0xd);

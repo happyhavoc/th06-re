@@ -60,14 +60,14 @@ void Player::BombReimuBCalc(Player *param_1)
     }
     else {
       ItemManager::FUN_00420130(g_ItemManager);
-      Gui::FUN_00417acd(&g_Gui,0x4a3,&DAT_0046a410);
+      Gui::FUN_00417acd(&g_Gui,0x4a3,"夢符「封魔陣」");
       (param_1->inner).field1_0x4 = 0x8c;
       (param_1->field35_0x75b4).current = 200;
       (param_1->field35_0x75b4).subFrame = 0.0;
       (param_1->field35_0x75b4).previous = -999;
       local_c = (param_1->inner).field10_0x11c;
       for (local_8 = 0; local_8 < 4; local_8 = local_8 + 1) {
-        AnmManager::FUN_004051b0(g_AnmManager,local_c,local_8 + 0x489);
+        AnmManager::ExecuteAnmIdx(g_AnmManager,local_c,local_8 + 0x489);
         local_c = local_c + 1;
       }
       SoundPlayer::FUN_004311e0(&g_SoundPlayer,6);

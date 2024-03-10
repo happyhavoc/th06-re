@@ -1,5 +1,5 @@
 
-void __thiscall AnmManager::FUN_004051b0(AnmManager *this,AnmVm *vm,int anmFileIdx)
+void __thiscall AnmManager::ExecuteAnmIdx(AnmManager *this,AnmVm *vm,int anmFileIdx)
 
 {
   vm->anmFileIndex = (short)anmFileIdx;
@@ -9,8 +9,8 @@ void __thiscall AnmManager::FUN_004051b0(AnmManager *this,AnmVm *vm,int anmFileI
   (vm->pos2).x = 0.0;
   (vm->pos2).y = 0.0;
   (vm->pos2).z = 0.0;
-  vm->fontHeight = '\x0f';
-  vm->fontWidth = '\x0f';
+  vm->fontHeight = 15;
+  vm->fontWidth = uVar2;
   SetAndExecuteScript(this,vm,this->scripts[anmFileIdx]);
   return;
 }

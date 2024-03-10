@@ -612,7 +612,7 @@ LAB_0043666d:
   case 0xd:
   case 0xe:
   case 0xf:
-    FUN_004381ec((int)param_1);
+    FUN_004381ec(param_1);
     if (uVar3 != 0) {
       return 0;
     }

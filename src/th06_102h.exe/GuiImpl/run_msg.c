@@ -107,7 +107,7 @@ undefined4 __thiscall GuiImpl::run_msg(GuiImpl *this)
         AnmManager::SetAndExecuteScript(pAVar4,&this->vm2,pAVar4->scripts[0x701]);
         (this->vm2).fontWidth = '\x10';
         (this->vm2).fontHeight = '\x10';
-        FUN_00434c40(g_AnmManager,&this->vm2,0xe0ffff,0,&DAT_0046a98c,
+        FUN_00434c40(g_AnmManager,&this->vm2,0xe0ffff,0,"♪%s",
                      g_Stage.stdData + *(int *)((int)(this->msg).current_instr + 4) * 0x80 + 0x90);
         iVar8 = FUN_00424ae4(*(undefined4 *)((int)(this->msg).current_instr + 4));
         if (iVar8 != 0) {

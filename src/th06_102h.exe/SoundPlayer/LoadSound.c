@@ -38,7 +38,7 @@ void __thiscall SoundPlayer::LoadSound(SoundPlayer *this,int idx,char *path)
         iVar2 = _strncmp((char *)local_8,"WAVE",4);
         if (iVar2 == 0) {
           local_8 = local_8 + 4;
-          local_34 = (undefined4 *)FUN_004309f0(local_8,&DAT_0046c0ec,&local_38,iVar1 + -0xc);
+          local_34 = (undefined4 *)FUN_004309f0(local_8,"fmt ",&local_38,iVar1 + -0xc);
           if (local_34 == (undefined4 *)0x0) {
             GameErrorContextLog(&g_GameErrorContext,"Wav ファイルじゃない? %s\n",path);
             _free(local_4c);
@@ -49,7 +49,7 @@ void __thiscall SoundPlayer::LoadSound(SoundPlayer *this,int idx,char *path)
             local_60.nAvgBytesPerSec = local_34[2];
             local_60._12_4_ = local_34[3];
             local_60.cbSize = *(WORD *)(local_34 + 4);
-            local_34 = (undefined4 *)FUN_004309f0(local_8,&DAT_0046c0e4,&local_38,iVar1 + -0xc);
+            local_34 = (undefined4 *)FUN_004309f0(local_8,"data",&local_38,iVar1 + -0xc);
             if (local_34 == (undefined4 *)0x0) {
               GameErrorContextLog(&g_GameErrorContext,"Wav ファイルじゃない? %s\n",path);
               _free(local_4c);

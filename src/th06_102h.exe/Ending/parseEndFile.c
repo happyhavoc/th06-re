@@ -163,7 +163,7 @@ switchD_0040fa93_caseD_52:
           lVar7 = FUN_0040f4d0((int)this);
           lVar5 = FUN_0040f4d0((int)this);
           lVar6 = FUN_0040f4d0((int)this);
-          AnmManager::FUN_004051b0(g_AnmManager,this->AnmVm + lVar7,lVar5 + 0x600);
+          AnmManager::ExecuteAnmIdx(g_AnmManager,this->AnmVm + lVar7,lVar5 + 0x600);
           AnmManager::SetActiveSprite(g_AnmManager,this->AnmVm + lVar7,lVar6 + 0x600);
           break;
         case 0x62:

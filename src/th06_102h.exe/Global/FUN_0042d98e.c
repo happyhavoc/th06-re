@@ -164,9 +164,9 @@ undefined4 FUN_0042d98e(ResultScreen *param_1)
              (*(int *)&param_1->field_0x4 == 0x14)) {
             *(int *)&param_1->field_0x24 = param_1->unk_10;
             FUN_00434e20(g_AnmManager,param_1->unk_28a0,0xffffff,0,
-                         (&PTR_DAT_004784d8)[*(int *)&param_1->field_0x24 * 2]);
+                         (&PTR_s______004784d8)[*(int *)&param_1->field_0x24 * 2]);
             FUN_00434e20(g_AnmManager,param_1->unk_28a0 + 1,0xffffff,0,
-                         (&PTR_DAT_004784dc)[*(int *)&param_1->field_0x24 * 2]);
+                         (&PTR_s______004784dc)[*(int *)&param_1->field_0x24 * 2]);
           }
           if (0x1d < *(int *)&param_1->field_0x4) {
             iVar1 = FUN_0042d18f(param_1,2);

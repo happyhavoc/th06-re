@@ -38,8 +38,8 @@ undefined4 __thiscall Stage::LoadStageData(Stage *this,char *anmpath,char *stdpa
         pSVar1->flags = '\x01';
         for (local_14 = &pSVar1->firstQuad; -1 < local_14->type;
             local_14 = (StdRawQuadBasic *)((int)&local_14->type + (int)local_14->byteSize)) {
-          AnmManager::FUN_004051b0(g_AnmManager,this->quadVms + local_8,local_14->anmScript + 0x300)
-          ;
+          AnmManager::ExecuteAnmIdx
+                    (g_AnmManager,this->quadVms + local_8,local_14->anmScript + 0x300);
           local_14->vmIndex = (short)local_8;
           local_8 = local_8 + 1;
         }

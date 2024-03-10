@@ -32,7 +32,7 @@ undefined4 FUN_00439f88(int param_1)
                     if (ZVar1 == ZUN_SUCCESS) {
                       local_c = (AnmVm *)(param_1 + 0x5500);
                       for (local_8 = 0x150; local_8 < 0x160; local_8 = local_8 + 1) {
-                        AnmManager::FUN_004051b0(g_AnmManager,local_c,local_8);
+                        AnmManager::ExecuteAnmIdx(g_AnmManager,local_c,local_8);
                         local_c->flags = local_c->flags & 0xfffffffe;
                         local_c->flags = local_c->flags | 8;
                         if ((g_Supervisor.cfg.opts & 1) == 0) {

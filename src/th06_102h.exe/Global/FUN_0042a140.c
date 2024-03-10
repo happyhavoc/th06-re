@@ -1,8 +1,8 @@
 
-int FUN_0042a140(ReplayData *data,int size)
+ZunResult FUN_0042a140(ReplayData *data,int size)
 
 {
-  int iVar1;
+  ZunResult iVar1;
   byte *local_1c;
   int local_18;
   char *cur_byte;
@@ -10,7 +10,7 @@ int FUN_0042a140(ReplayData *data,int size)
   int idx;
   
   if (data == (ReplayData *)0x0) {
-    iVar1 = -1;
+    iVar1 = ZUN_ERROR;
   }
   else if ((char  [4])data->magic == (char  [4])0x50523654) {
     cur_byte = &data->field_0xf;
@@ -28,18 +28,18 @@ int FUN_0042a140(ReplayData *data,int size)
     }
     if (local_18 == *(int *)&data->field_0x8) {
       if (data->version == 0x102) {
-        iVar1 = 0;
+        iVar1 = ZUN_SUCCESS;
       }
       else {
-        iVar1 = -1;
+        iVar1 = ZUN_ERROR;
       }
     }
     else {
-      iVar1 = -1;
+      iVar1 = ZUN_ERROR;
     }
   }
   else {
-    iVar1 = -1;
+    iVar1 = ZUN_ERROR;
   }
   return iVar1;
 }

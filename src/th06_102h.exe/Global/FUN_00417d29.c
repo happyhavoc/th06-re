@@ -223,7 +223,7 @@ undefined4 __fastcall FUN_00417d29(uint *param_1)
   FUN_00434e20(g_AnmManager,param_1[1] + 0x1ba4,0xe0ffff,0,g_Stage.stdData + 0x10);
   *(undefined *)(param_1[1] + 0x1dc0) = 0x10;
   *(undefined *)(param_1[1] + 0x1dc1) = 0x10;
-  FUN_00434c40(g_AnmManager,param_1[1] + 0x1cb4,0xe0ffff,0,&DAT_0046a98c,g_Stage.stdData + 0x90);
+  FUN_00434c40(g_AnmManager,param_1[1] + 0x1cb4,0xe0ffff,0,"♪%s",g_Stage.stdData + 0x90);
   *(undefined4 *)(param_1[1] + 0x253c) = 0xffffffff;
   *(undefined4 *)(param_1[1] + 0x2bdc) = 0;
   *(undefined4 *)(param_1[1] + 0x2bf4) = 0;

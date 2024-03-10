@@ -225,7 +225,7 @@ void FUN_0042e446(int param_1)
         local_10.z = local_40.z;
         local_10.x = local_40.x + local_48;
         local_10.y = local_40.y + local_48;
-        local_5c = PTR_DAT_004784d4[local_14 * 0x10 + local_30];
+        local_5c = PTR_s_ABCDEFGHIJKLMNOPQRSTUVWXYZ_______004784d4[local_14 * 0x10 + local_30];
         local_5b = 0;
         if (local_14 == 5) {
           if (local_30 == 0xe) {

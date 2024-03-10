@@ -40,14 +40,14 @@ void Player::BombMarisaBCalc(Player *param_1)
     }
     else {
       ItemManager::FUN_00420130(g_ItemManager);
-      Gui::FUN_00417acd(&g_Gui,0x4a1,&DAT_0046a450);
+      Gui::FUN_00417acd(&g_Gui,0x4a1,"恋符「マスタースパーク」");
       (param_1->inner).field1_0x4 = 300;
       (param_1->field35_0x75b4).current = 0x168;
       (param_1->field35_0x75b4).subFrame = 0.0;
       (param_1->field35_0x75b4).previous = -999;
       local_c = (param_1->inner).field10_0x11c;
       for (local_8 = 0; local_8 < 4; local_8 = local_8 + 1) {
-        AnmManager::FUN_004051b0(g_AnmManager,local_c,local_8 + 0x408);
+        AnmManager::ExecuteAnmIdx(g_AnmManager,local_c,local_8 + 0x408);
         pPVar1 = (param_1->inner).field6_0x5c + local_8;
         pPVar1->field0_0x0 = (param_1->position).x;
         pPVar1->field1_0x4 = (param_1->position).y;

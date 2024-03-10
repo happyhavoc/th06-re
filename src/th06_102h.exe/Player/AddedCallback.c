@@ -2,7 +2,7 @@
 undefined4 Player::AddedCallback(Player *param_1)
 
 {
-  AnmTimer *pAVar1;
+  ZunTimer *pZVar1;
   AnmManager *pAVar2;
   ZunResult ZVar3;
   int iVar4;
@@ -86,10 +86,10 @@ undefined4 Player::AddedCallback(Player *param_1)
        g_BombData[(uint)g_GameManager.shottype + (uint)g_GameManager.character * 2].draw;
   (param_1->inner).field0_0x0 = 0;
   for (local_8 = 0; local_8 < 2; local_8 = local_8 + 1) {
-    pAVar1 = param_1->field16_0x9b8 + local_8;
-    pAVar1->current = 0;
-    pAVar1->subFrame = 0.0;
-    pAVar1->previous = -999;
+    pZVar1 = param_1->field16_0x9b8 + local_8;
+    pZVar1->current = 0;
+    pZVar1->subFrame = 0.0;
+    pZVar1->previous = -999;
   }
   param_1->field18_0x9d4 = 1.0;
   param_1->field17_0x9d0 = 1.0;

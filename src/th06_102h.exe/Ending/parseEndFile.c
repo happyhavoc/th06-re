@@ -33,7 +33,7 @@ void __thiscall Ending::parseEndFile(Ending *this,Ending *ending)
   }
   *(undefined2 *)puVar10 = 0;
   if (0 < (this->anmTimer3).current) {
-    AnmTimer::FUN_004241e5(&this->anmTimer3,1);
+    ZunTimer::FUN_004241e5(&this->anmTimer3,1);
     if (*(int *)&this->field_0x1140 == 0) {
       if ((((g_CurFrameInput & 0x1001) != 0) &&
           ((g_CurFrameInput & 0x1001) != (g_LastFrameInput & 0x1001))) ||
@@ -236,7 +236,7 @@ switchD_0040fa93_caseD_52:
       }
     } while( true );
   }
-  AnmTimer::FUN_004241e5(&this->anmTimer2,1);
+  ZunTimer::FUN_004241e5(&this->anmTimer2,1);
   if (*(int *)&this->field_0x1144 == 0) {
     if ((((g_CurFrameInput & 0x1001) != 0) &&
         ((g_CurFrameInput & 0x1001) != (g_LastFrameInput & 0x1001))) ||

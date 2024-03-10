@@ -1,5 +1,5 @@
 
-void __thiscall AnmTimer::FUN_004241e5(AnmTimer *this,int param_1)
+void __thiscall ZunTimer::FUN_004241e5(ZunTimer *this,int param_1)
 
 {
   if (g_Supervisor.framerateMultiplier <= 0.99) {

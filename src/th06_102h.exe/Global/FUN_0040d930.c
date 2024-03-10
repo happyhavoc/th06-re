@@ -9,7 +9,7 @@ void FUN_0040d930(AnmVm *param_1,undefined4 param_2)
     pAVar1 = g_AnmManager;
     if (g_Player.inner.field0_0x0 == 0) {
       if ((0 < (int)param_1[0xd].color.color) &&
-         (AnmTimer::FUN_004241e5((AnmTimer *)(param_1[0xd].matrix.m[3] + 2),1),
+         (ZunTimer::FUN_004241e5((ZunTimer *)(param_1[0xd].matrix.m[3] + 2),1),
          pAVar1 = g_AnmManager, param_1[0xd].color.color == 0)) {
         if (param_1[0xd].pendingInterrupt < 0) {
           param_1->anmFileIndex = 0x1a0;

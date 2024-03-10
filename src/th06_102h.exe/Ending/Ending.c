@@ -13,9 +13,9 @@ undefined4 * __thiscall Ending::Ending(Ending *this)
     AnmVm::AnmVm(local_20);
     local_20 = local_20 + 1;
   }
-  AnmTimer::AnmTimer(&this->anmTimer1);
-  AnmTimer::AnmTimer(&this->anmTimer2);
-  AnmTimer::AnmTimer(&this->anmTimer3);
+  ZunTimer::ZunTimer(&this->anmTimer1);
+  ZunTimer::ZunTimer(&this->anmTimer2);
+  ZunTimer::ZunTimer(&this->anmTimer3);
   pEVar2 = this;
                     /* memset? */
   for (iVar1 = 0x45c; iVar1 != 0; iVar1 = iVar1 + -1) {

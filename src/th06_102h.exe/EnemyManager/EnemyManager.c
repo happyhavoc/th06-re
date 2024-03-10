@@ -12,7 +12,7 @@ int __thiscall EnemyManager::EnemyManager(EnemyManager *this)
     Enemy::Enemy(local_94);
     local_94 = local_94 + 1;
   }
-  AnmTimer::AnmTimer(&this->timeline_time);
+  ZunTimer::ZunTimer(&this->timeline_time);
   Initialize(this);
   return (int)this;
 }

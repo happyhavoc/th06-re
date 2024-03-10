@@ -2,7 +2,7 @@
 void __thiscall Player::FUN_00427770(Player *this)
 
 {
-  AnmTimer *pAVar1;
+  ZunTimer *pZVar1;
   int local_8;
   
   BOOL_005a5f8c = 0;
@@ -15,10 +15,10 @@ void __thiscall Player::FUN_00427770(Player *this)
   SoundPlayer::FUN_004311e0(&g_SoundPlayer,4);
   g_GameManager.field8_0x20 = g_GameManager.field8_0x20 + 1;
   for (local_8 = 0; local_8 < 2; local_8 = local_8 + 1) {
-    pAVar1 = this->field16_0x9b8 + local_8;
-    pAVar1->current = 2;
-    pAVar1->subFrame = 0.0;
-    pAVar1->previous = -999;
+    pZVar1 = this->field16_0x9b8 + local_8;
+    pZVar1->current = 2;
+    pZVar1->subFrame = 0.0;
+    pZVar1->previous = -999;
   }
   return;
 }

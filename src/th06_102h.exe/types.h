@@ -1768,7 +1768,7 @@ struct test {
 
 typedef struct Ending Ending, *PEnding;
 
-typedef struct AnmTimer AnmTimer, *PAnmTimer;
+typedef struct ZunTimer ZunTimer, *PZunTimer;
 
 typedef struct AnmVm AnmVm, *PAnmVm;
 
@@ -1869,7 +1869,7 @@ struct AnmRawInstr {
     uint args[10];
 };
 
-struct AnmTimer {
+struct ZunTimer {
     int previous;
     float subFrame;
     int current;
@@ -1883,7 +1883,7 @@ struct AnmVm {
     float scaleInterpFinalY;
     float scaleInterpFinalX;
     struct D3DXVECTOR2 uvScrollPos;
-    struct AnmTimer currentTimeInScript;
+    struct ZunTimer currentTimeInScript;
     D3DMATRIX matrix;
     union D3DCOLORUNION color;
     uint flags;
@@ -1897,7 +1897,7 @@ struct AnmVm {
     D3DXVECTOR3 pos;
     float scaleInterpInitialY;
     float scaleInterpInitialX;
-    struct AnmTimer scaleInterpTime;
+    struct ZunTimer scaleInterpTime;
     short spriteNumber;
     short anotherSpriteNumber;
     short anmFileIndex;
@@ -1911,9 +1911,9 @@ struct AnmVm {
     D3DXVECTOR3 posInterpInitial;
     D3DXVECTOR3 posInterpFinal;
     D3DXVECTOR3 pos2;
-    struct AnmTimer posInterpTime;
+    struct ZunTimer posInterpTime;
     int timeOfLastSpriteSet;
-    struct AnmTimer alphaInterpTime;
+    struct ZunTimer alphaInterpTime;
     uint8_t fontWidth;
     uint8_t fontHeight;
     undefined field40_0x10e;
@@ -1929,16 +1929,16 @@ struct Ending {
     undefined field5_0x5;
     undefined field6_0x6;
     undefined field7_0x7;
-    struct AnmTimer anmTimer4;
+    struct ZunTimer anmTimer4;
     struct AnmVm AnmVm[16];
     int *endFileData;
     undefined field11_0x1118;
     undefined field12_0x1119;
     undefined field13_0x111a;
     undefined field14_0x111b;
-    struct AnmTimer anmTimer1;
-    struct AnmTimer anmTimer2;
-    struct AnmTimer anmTimer3;
+    struct ZunTimer anmTimer1;
+    struct ZunTimer anmTimer2;
+    struct ZunTimer anmTimer3;
     undefined field18_0x1140;
     undefined field19_0x1141;
     undefined field20_0x1142;
@@ -72293,7 +72293,7 @@ struct Bullet {
     float angle;
     float ex_5_float_1;
     float dir_change__rotation_arg;
-    struct AnmTimer timer;
+    struct ZunTimer timer;
     int ex_5_int_0;
     int dir_change__interval;
     int dir_change__num_times;
@@ -72397,7 +72397,7 @@ struct GuiImplChildB {
     D3DXVECTOR3 field0_0x0;
     int field1_0xc;
     int field2_0x10;
-    struct AnmTimer field3_0x14;
+    struct ZunTimer field3_0x14;
 };
 
 typedef struct MsgRawHeader MsgRawHeader, *PMsgRawHeader;
@@ -72419,7 +72419,7 @@ struct ScreenEffect {
     int field6_0x18;
     int field7_0x1c;
     int field8_0x20;
-    struct AnmTimer timer;
+    struct ZunTimer timer;
 };
 
 typedef struct EnemyLaserShooter EnemyLaserShooter, *PEnemyLaserShooter;
@@ -72471,7 +72471,7 @@ struct Effect {
     struct D3DXQUATERNION field10_0x14c;
     float field11_0x15c;
     float field12_0x160;
-    struct AnmTimer timer;
+    struct ZunTimer timer;
     undefined4 field14_0x170;
     int (*effect_update_callback)(struct Effect *);
     byte in_use_flag;
@@ -72527,7 +72527,7 @@ typedef struct EnemyBulletShooter EnemyBulletShooter, *PEnemyBulletShooter;
 
 struct EnemyEclContext {
     void *current_instr;
-    struct AnmTimer time;
+    struct ZunTimer time;
     void *func_set_func;
     int var0;
     int var1;
@@ -72583,7 +72583,7 @@ struct Enemy {
     D3DXVECTOR3 shoot_offset;
     D3DXVECTOR3 move_interp;
     D3DXVECTOR3 move_interp_start_pos;
-    struct AnmTimer move_interp_timer;
+    struct ZunTimer move_interp_timer;
     int move_interp_start_time;
     float bullet_rank_speed_low;
     float bullet_rank_speed_high;
@@ -72594,11 +72594,11 @@ struct Enemy {
     int life;
     int max_life;
     int score;
-    struct AnmTimer boss_timer;
+    struct ZunTimer boss_timer;
     D3DCOLOR field31_0xcfc;
     struct EnemyBulletShooter bullet_props;
     int shoot_interval;
-    struct AnmTimer shoot_interval_timer;
+    struct ZunTimer shoot_interval_timer;
     struct EnemyLaserShooter laser_props;
     void *lasers[32];
     int laser_store;
@@ -72608,7 +72608,7 @@ struct Enemy {
     byte item_drop;
     byte boss_id;
     byte field43_0xe41;
-    struct AnmTimer field44_0xe44;
+    struct ZunTimer field44_0xe44;
     byte flags1;
     byte flags2;
     byte flags3;
@@ -72628,7 +72628,7 @@ struct Enemy {
     int timer_callback_threshold;
     int timer_callback_sub;
     float field63_0xeb8;
-    struct AnmTimer field64_0xebc;
+    struct ZunTimer field64_0xebc;
 };
 
 typedef struct Gui Gui, *PGui;
@@ -72655,7 +72655,7 @@ struct GuiMsgVm {
     struct MsgRawHeader *msg_file;
     void *current_instr;
     uint current_msg_idx;
-    struct AnmTimer timer;
+    struct ZunTimer timer;
     int frames_elapsed_during_pause;
     struct AnmVm portraits[2];
     struct AnmVm dialogue_lines[2];
@@ -72700,7 +72700,7 @@ struct PlayerBullet {
     float field6_0x134;
     float field7_0x138;
     float field8_0x13c;
-    struct AnmTimer field9_0x140;
+    struct ZunTimer field9_0x140;
     short field10_0x14c;
     short field11_0x14e;
     short field12_0x150;
@@ -72726,7 +72726,7 @@ struct AsciiManagerPopup {
     char digits[8];
     D3DXVECTOR3 position;
     D3DCOLOR color;
-    struct AnmTimer timer;
+    struct ZunTimer timer;
     uchar inUse;
     uchar characterCount;
 };
@@ -72788,7 +72788,7 @@ struct EnemyManager {
     undefined field26_0xee5da;
     undefined field27_0xee5db;
     void *timeline_instr;
-    struct AnmTimer timeline_time;
+    struct ZunTimer timeline_time;
 };
 
 typedef struct Laser Laser, *PLaser;
@@ -72809,7 +72809,7 @@ struct Laser {
     int end_time;
     int graze_interval;
     int in_use;
-    struct AnmTimer timer;
+    struct ZunTimer timer;
     short flags;
     short color;
     byte state;
@@ -72834,7 +72834,7 @@ struct BulletManager {
     struct Laser lasers[64];
     int next_bullet_index;
     int bullet_count;
-    struct AnmTimer time;
+    struct ZunTimer time;
     char *etama_anm_filename;
 };
 
@@ -72851,7 +72851,7 @@ struct PlayerUnknown {
 struct PlayerInner {
     int field0_0x0;
     int field1_0x4;
-    struct AnmTimer field2_0x8;
+    struct ZunTimer field2_0x8;
     void *bombCalc;
     void *bombDraw;
     undefined field5_0x1c[64];
@@ -74326,7 +74326,7 @@ struct Player {
     int field13_0x7b8[32];
     int field14_0x838[32];
     struct PlayerRect field15_0x8b8[16];
-    struct AnmTimer field16_0x9b8[2];
+    struct ZunTimer field16_0x9b8[2];
     float field17_0x9d0;
     float field18_0x9d4;
     int field19_0x9d8;
@@ -74336,7 +74336,7 @@ struct Player {
     byte field23_0x9e2;
     byte field24_0x9e3;
     byte field25_0x9e4;
-    struct AnmTimer field26_0x9e8;
+    struct ZunTimer field26_0x9e8;
     struct ShottypeData field27_0x9f4;
     int field28_0xa0c;
     float field29_0xa10;
@@ -74344,8 +74344,8 @@ struct Player {
     short field31_0xa18;
     D3DXVECTOR3 position_of_last_enemy_hit;
     struct PlayerBullet bullets[80];
-    struct AnmTimer field34_0x75a8;
-    struct AnmTimer field35_0x75b4;
+    struct ZunTimer field34_0x75a8;
+    struct ZunTimer field35_0x75b4;
     void *field36_0x75c0;
     void *field37_0x75c4;
     struct PlayerInner inner;
@@ -111200,16 +111200,16 @@ struct Stage {
     struct StdRawObject **objects;
     struct StdRawInstance *objectInstances;
     struct StdRawInstr *beginningOfScript;
-    struct AnmTimer scriptTime;
+    struct ZunTimer scriptTime;
     int instructionIndex;
-    struct AnmTimer timer;
+    struct ZunTimer timer;
     uint stage;
     D3DXVECTOR3 position;
     struct StageCameraSky skyFog;
     struct StageCameraSky skyFogInterpInitial;
     struct StageCameraSky skyFogInterpFinal;
     int skyFogInterpDuration;
-    struct AnmTimer skyFogInterpTimer;
+    struct ZunTimer skyFogInterpTimer;
     byte skyFogNeedsSetup;
     enum SpellcardState spellcardState;
     int ticksSinceSpellcardStarted;
@@ -111219,7 +111219,7 @@ struct Stage {
     D3DXVECTOR3 facingDirInterpInitial;
     D3DXVECTOR3 facingDirInterpFinal;
     int facingDirInterpDuration;
-    struct AnmTimer facingDirInterpTimer;
+    struct ZunTimer facingDirInterpTimer;
     D3DXVECTOR3 positionInterpFinal;
     int positionInterpEndTime;
     D3DXVECTOR3 positionInterpInitial;
@@ -111446,7 +111446,7 @@ struct Unknown { /* Old variant of AnmVm (TODO remove me) */
     undefined4 field9_0x24;
     undefined4 field10_0x28;
     undefined4 field11_0x2c;
-    struct AnmTimer field12_0x30;
+    struct ZunTimer field12_0x30;
     struct UnknownSub3c field13_0x3c;
     int field14_0x7c;
     uint field15_0x80;

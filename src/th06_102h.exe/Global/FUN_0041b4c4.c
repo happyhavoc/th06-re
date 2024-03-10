@@ -9,7 +9,7 @@ int __fastcall FUN_0041b4c4(int param_1)
   AnmVm *local_24;
   int local_1c;
   
-  AnmTimer::AnmTimer((AnmTimer *)(param_1 + 0xc));
+  ZunTimer::ZunTimer((ZunTimer *)(param_1 + 0xc));
   local_1c = 2;
   local_24 = (AnmVm *)(param_1 + 0x1c);
   while (local_1c = local_1c + -1, -1 < local_1c) {

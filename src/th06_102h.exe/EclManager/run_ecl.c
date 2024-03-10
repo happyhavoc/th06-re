@@ -130,7 +130,7 @@ LAB_004074ce:
       (param_1->axis_speed).z = 0.0;
     }
     else if (bVar14 == 2) {
-      AnmTimer::FUN_004241e5(&param_1->move_interp_timer,1);
+      ZunTimer::FUN_004241e5(&param_1->move_interp_timer,1);
       local_bc = ((float)(param_1->move_interp_timer).current +
                  (param_1->move_interp_timer).subFrame) / (float)param_1->move_interp_start_time;
       if (1.0 <= local_bc) {
@@ -1147,7 +1147,7 @@ switchD_00407544_caseD_2:
     break;
   case 0x7b:
     piVar12 = Enemy::get_var(param_1,local_20 + 3,(EclValueType *)0x0);
-    AnmTimer::FUN_00424145(&(param_1->current_context).time,*piVar12);
+    ZunTimer::FUN_00424145(&(param_1->current_context).time,*piVar12);
     break;
   case 0x7c:
     FUN_0041f290();

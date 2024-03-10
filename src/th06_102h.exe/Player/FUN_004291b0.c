@@ -17,7 +17,7 @@ void Player::FUN_004291b0(Player *param_1)
   
   for (local_10 = 0; local_10 < 2; local_10 = local_10 + 1) {
     if (param_1->field16_0x9b8[local_10].current != 0) {
-      AnmTimer::FUN_004241e5(param_1->field16_0x9b8 + local_10,1);
+      ZunTimer::FUN_004241e5(param_1->field16_0x9b8 + local_10,1);
     }
   }
   local_18 = param_1->bullets;

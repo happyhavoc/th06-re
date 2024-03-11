@@ -5,6 +5,7 @@ undefined4 FUN_0042d98e(ResultScreen *param_1)
 
 {
   int iVar1;
+  int unaff_EDI;
   int local_14;
   int local_10;
   AnmVm *local_c;
@@ -21,13 +22,12 @@ undefined4 FUN_0042d98e(ResultScreen *param_1)
             local_8 = local_8 + 1) {
           if (g_GameManager.catk[local_8].num_successes == 0) {
             AnmManager::FUN_00434b60
-                      (g_AnmManager,(int)(param_1->unk_28a0 + local_8 % 10),0xffffff,0,&DAT_0046bcdc
-                      );
+                      (g_AnmManager,param_1->unk_28a0 + local_8 % 10,0xffffff,0,0x46bcdc,unaff_EDI);
           }
           else {
             AnmManager::FUN_00434b60
-                      (g_AnmManager,(int)(param_1->unk_28a0 + local_8 % 10),0xffffff,0,
-                       (char *)g_GameManager.catk[local_8].name);
+                      (g_AnmManager,param_1->unk_28a0 + local_8 % 10,0xffffff,0,
+                       local_8 * 0x40 + 0x69bce8,unaff_EDI);
           }
         }
       }

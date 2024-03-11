@@ -6,6 +6,7 @@ void __thiscall MusicRoom::FUN_00424ead(void *this)
   char *pcVar2;
   int iVar3;
   undefined4 *puVar4;
+  int unaff_EDI;
   undefined4 *puVar5;
   uint unaff_retaddr;
   char *local_5c;
@@ -79,8 +80,8 @@ LAB_0042508a:
         *(uint *)((int)this + local_c * 0x110 + 0x23b4) =
              *(uint *)((int)this + local_c * 0x110 + 0x23b4) | 2;
         AnmManager::FUN_00434b60
-                  (g_AnmManager,(int)this + local_c * 0x110 + 0x2334,0xffe0c0,0x300000,
-                   (char *)local_54);
+                  (g_AnmManager,(AnmVm *)((int)this + local_c * 0x110 + 0x2334),0xffe0c0,0x300000,
+                   (int)local_54,unaff_EDI);
       }
       *(float *)((int)this + local_c * 0x110 + 0x23c4) = (float)(local_c % 2) * 248.0 + 96.0;
       *(float *)((int)this + local_c * 0x110 + 0x23c8) = (float)(local_c / 2 << 4) + 320.0;

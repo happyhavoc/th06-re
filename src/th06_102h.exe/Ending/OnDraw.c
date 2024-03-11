@@ -2,23 +2,23 @@
 undefined4 Ending::OnDraw(Ending *ending)
 
 {
-  long lVar1;
-  long lVar2;
-  undefined4 uVar3;
-  undefined4 uVar4;
+  long subFrame;
+  long prevFrame;
   int i;
+  int rectHeight;
+  int rectWidth;
   
-  uVar4 = 0x1e0;
-  uVar3 = 0x280;
-  lVar1 = __ftol2((double)(ending->anmTimer4).subFrame);
-  lVar2 = __ftol2((double)(float)(ending->anmTimer4).previous);
-  FUN_004354c0(0,0,0,lVar2,lVar1,uVar3,uVar4);
+  rectHeight = 480;
+  rectWidth = 640;
+  subFrame = __ftol2((double)(ending->anmTimer4).subFrame);
+  prevFrame = __ftol2((double)(float)(ending->anmTimer4).previous);
+  AnmManager::drawEndingRect(g_AnmManager,0,0,0,prevFrame,subFrame,rectWidth,rectHeight);
   for (i = 0; i < 16; i = i + 1) {
-    if (ending->AnmVm[i].anmFileIndex != 0) {
-      AnmManager::FUN_00432ad0(g_AnmManager,ending->AnmVm + i);
+    if ((&ending->AnmVm)[i].anmFileIndex != 0) {
+      AnmManager::FUN_00432ad0(g_AnmManager,&ending->AnmVm + i);
     }
   }
-  FUN_0040f550(ending);
+  FadingEffect(ending);
   return 1;
 }
 

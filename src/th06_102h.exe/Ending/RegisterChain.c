@@ -1,46 +1,46 @@
 
-undefined4 Ending::RegisterChain(void)
+ZunResult Ending::RegisterChain(void)
 
 {
   Ending *this;
-  ChainElem *pCVar1;
-  int iVar2;
-  undefined4 uVar3;
-  ChainElem **local_40;
+  ChainElem *createChain;
+  int iVar1;
+  ZunResult result;
+  Ending *endingChainElem;
   void *local_10;
   undefined *puStack_c;
-  undefined4 local_8;
+  int local_8;
   
-  local_8 = 0xffffffff;
+  local_8 = -1;
   puStack_c = &LAB_0046911b;
   local_10 = ExceptionList;
   ExceptionList = &local_10;
   this = (Ending *)operator_new(0x1170);
   local_8 = 0;
   if (this == (Ending *)0x0) {
-    local_40 = (ChainElem **)0x0;
+    endingChainElem = (Ending *)0x0;
   }
   else {
-    local_40 = (ChainElem **)Ending(this);
+    endingChainElem = Ending(this);
   }
-  local_8 = 0xffffffff;
-  pCVar1 = Chain::CreateElem(&g_Chain,OnUpdate);
-  *local_40 = pCVar1;
-  (*local_40)->arg = local_40;
-  (*local_40)->addedCallback = AddedCallback;
-  (*local_40)->deletedCallback = DeletedCallback;
-  iVar2 = Chain::AddToCalcChain(&g_Chain,*local_40,3);
-  if (iVar2 == 0) {
-    pCVar1 = Chain::CreateElem(&g_Chain,OnDraw);
-    local_40[1] = pCVar1;
-    local_40[1]->arg = local_40;
-    Chain::AddToDrawChain(&g_Chain,local_40[1],1);
-    uVar3 = 0;
+  local_8 = -1;
+  createChain = Chain::CreateElem(&g_Chain,OnUpdate);
+  *(ChainElem **)endingChainElem = createChain;
+  (*(ChainElem **)endingChainElem)->arg = endingChainElem;
+  (*(ChainElem **)endingChainElem)->addedCallback = AddedCallback;
+  (*(ChainElem **)endingChainElem)->deletedCallback = DeletedCallback;
+  iVar1 = Chain::AddToCalcChain(&g_Chain,*(ChainElem **)endingChainElem,3);
+  if (iVar1 == 0) {
+    createChain = Chain::CreateElem(&g_Chain,OnDraw);
+    endingChainElem->chainElem = createChain;
+    endingChainElem->chainElem->arg = endingChainElem;
+    Chain::AddToDrawChain(&g_Chain,endingChainElem->chainElem,1);
+    result = ZUN_SUCCESS;
   }
   else {
-    uVar3 = 0xffffffff;
+    result = ZUN_ERROR;
   }
   ExceptionList = local_10;
-  return uVar3;
+  return result;
 }
 

@@ -1768,9 +1768,28 @@ struct test {
 
 typedef struct Ending Ending, *PEnding;
 
+typedef struct ChainElem ChainElem, *PChainElem;
+
+typedef enum ChainCallbackResult {
+    CHAIN_CALLBACK_RESULT_CONTINUE_AND_REMOVE_JOB=0,
+    CHAIN_CALLBACK_RESULT_CONTINUE=1,
+    CHAIN_CALLBACK_RESULT_EXECUTE_AGAIN=2,
+    CHAIN_CALLBACK_RESULT_BREAK=3,
+    CHAIN_CALLBACK_RESULT_EXIT_GAME_SUCCESS=4,
+    CHAIN_CALLBACK_RESULT_EXIT_GAME_ERROR=5,
+    CHAIN_CALLBACK_RESULT_RESTART_FROM_FIRST_JOB=6
+} ChainCallbackResult;
+
+typedef enum ZunResult {
+    ZUN_ERROR=-1,
+    ZUN_SUCCESS=0
+} ZunResult;
+
 typedef struct ZunTimer ZunTimer, *PZunTimer;
 
 typedef struct AnmVm AnmVm, *PAnmVm;
+
+typedef DWORD D3DCOLOR;
 
 typedef struct _D3DVECTOR _D3DVECTOR, *P_D3DVECTOR;
 
@@ -1807,8 +1826,6 @@ typedef enum AnmVmFlags {
 typedef struct AnmRawInstr AnmRawInstr, *PAnmRawInstr;
 
 typedef struct AnmLoadedSprite AnmLoadedSprite, *PAnmLoadedSprite;
-
-typedef DWORD D3DCOLOR;
 
 typedef uchar uint8_t;
 
@@ -1875,6 +1892,18 @@ struct _D3DVECTOR {
     float x;
     float y;
     float z;
+};
+
+struct ChainElem {
+    short priority;
+    ushort flags;
+    ChainCallbackResult (*callback)(void *);
+    ZunResult (*addedCallback)(void *);
+    ZunResult (*deletedCallback)(void *);
+    struct ChainElem *prev;
+    struct ChainElem *next;
+    struct ChainElem *unkPtr;
+    void *arg;
 };
 
 union D3DCOLORUNION {
@@ -1947,65 +1976,47 @@ struct Ending {
     undefined field1_0x1;
     undefined field2_0x2;
     undefined field3_0x3;
-    undefined field4_0x4;
-    undefined field5_0x5;
-    undefined field6_0x6;
-    undefined field7_0x7;
+    struct ChainElem *chainElem;
     struct ZunTimer anmTimer4;
-    struct AnmVm AnmVm[16];
-    int *endFileData;
-    undefined field11_0x1118;
-    undefined field12_0x1119;
-    undefined field13_0x111a;
-    undefined field14_0x111b;
+    struct AnmVm AnmVm;
+    struct AnmVm field7_0x124;
+    struct AnmVm field8_0x234;
+    struct AnmVm field9_0x344;
+    struct AnmVm field10_0x454;
+    struct AnmVm field11_0x564;
+    struct AnmVm field12_0x674;
+    struct AnmVm field13_0x784;
+    struct AnmVm field14_0x894;
+    struct AnmVm field15_0x9a4;
+    struct AnmVm field16_0xab4;
+    struct AnmVm field17_0xbc4;
+    struct AnmVm field18_0xcd4;
+    struct AnmVm field19_0xde4;
+    struct AnmVm field20_0xef4;
+    struct AnmVm field21_0x1004;
+    char *endFileData;
+    undefined1 unk_dependent_on_clrd;
+    undefined field24_0x1119;
+    undefined field25_0x111a;
+    undefined field26_0x111b;
     struct ZunTimer Timer1;
     struct ZunTimer Timer2;
     struct ZunTimer Timer3;
-    undefined field18_0x1140;
-    undefined field19_0x1141;
-    undefined field20_0x1142;
-    undefined field21_0x1143;
-    undefined field22_0x1144;
-    undefined field23_0x1145;
-    undefined field24_0x1146;
-    undefined field25_0x1147;
-    undefined field26_0x1148;
-    undefined field27_0x1149;
-    undefined field28_0x114a;
-    undefined field29_0x114b;
-    undefined field30_0x114c;
-    undefined field31_0x114d;
-    undefined field32_0x114e;
-    undefined field33_0x114f;
+    long minWaitResetFrames; /* Created by retype action */
+    long minWaitFrames;
+    long line2Delay;
+    long topLineDelay;
     undefined field34_0x1150;
     undefined field35_0x1151;
     undefined field36_0x1152;
     undefined field37_0x1153;
-    undefined field38_0x1154;
-    undefined field39_0x1155;
-    undefined field40_0x1156;
-    undefined field41_0x1157;
-    undefined field42_0x1158;
-    undefined field43_0x1159;
-    undefined field44_0x115a;
-    undefined field45_0x115b;
-    undefined field46_0x115c;
-    undefined field47_0x115d;
-    undefined field48_0x115e;
-    undefined field49_0x115f;
-    undefined field50_0x1160;
-    undefined field51_0x1161;
-    undefined field52_0x1162;
-    undefined field53_0x1163;
-    undefined field54_0x1164;
-    undefined field55_0x1165;
-    undefined field56_0x1166;
-    undefined field57_0x1167;
-    undefined field58_0x1168;
-    undefined field59_0x1169;
-    undefined field60_0x116a;
-    undefined field61_0x116b;
-    int *endFileDataPtr;
+    int possibly_times_file_parsed;
+    long textColor;
+    D3DCOLOR unk_d3dcolor;
+    int timeFading;
+    long fadeFrames;
+    int fadeType;
+    char *endFileDataPtr;
 };
 
 typedef struct GameWindow GameWindow, *PGameWindow;
@@ -72014,35 +72025,6 @@ struct EclManager { /* Size is unknown */
     void *ecl_file;
     void *sub_table;
     void *timeline;
-};
-
-typedef struct ChainElem ChainElem, *PChainElem;
-
-typedef enum ChainCallbackResult {
-    CHAIN_CALLBACK_RESULT_CONTINUE_AND_REMOVE_JOB=0,
-    CHAIN_CALLBACK_RESULT_CONTINUE=1,
-    CHAIN_CALLBACK_RESULT_EXECUTE_AGAIN=2,
-    CHAIN_CALLBACK_RESULT_BREAK=3,
-    CHAIN_CALLBACK_RESULT_EXIT_GAME_SUCCESS=4,
-    CHAIN_CALLBACK_RESULT_EXIT_GAME_ERROR=5,
-    CHAIN_CALLBACK_RESULT_RESTART_FROM_FIRST_JOB=6
-} ChainCallbackResult;
-
-typedef enum ZunResult {
-    ZUN_ERROR=-1,
-    ZUN_SUCCESS=0
-} ZunResult;
-
-struct ChainElem {
-    short priority;
-    ushort flags;
-    ChainCallbackResult (*callback)(void *);
-    ZunResult (*addedCallback)(void *);
-    ZunResult (*deletedCallback)(void *);
-    struct ChainElem *prev;
-    struct ChainElem *next;
-    struct ChainElem *unkPtr;
-    void *arg;
 };
 
 typedef struct RenderVertexInfo RenderVertexInfo, *PRenderVertexInfo;

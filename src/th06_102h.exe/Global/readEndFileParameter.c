@@ -2,15 +2,15 @@
 long __fastcall readEndFileParameter(Ending *end)
 
 {
-  long lVar1;
+  long read_result;
   
-  lVar1 = _atol((char *)end->endFileDataPtr);
-  while (*(char *)end->endFileDataPtr != '\0') {
-    end->endFileDataPtr = (int *)((int)end->endFileDataPtr + 1);
+  read_result = _atol(end->endFileDataPtr);
+  while (*end->endFileDataPtr != '\0') {
+    end->endFileDataPtr = end->endFileDataPtr + 1;
   }
-  while (*(char *)end->endFileDataPtr == '\0') {
-    end->endFileDataPtr = (int *)((int)end->endFileDataPtr + 1);
+  while (*end->endFileDataPtr == '\0') {
+    end->endFileDataPtr = end->endFileDataPtr + 1;
   }
-  return lVar1;
+  return read_result;
 }
 

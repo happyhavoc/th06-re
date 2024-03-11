@@ -1,296 +1,314 @@
 
-void __thiscall Ending::parseEndFile(Ending *this,Ending *ending)
+void __thiscall Ending::ParseEndFile(Ending *this)
 
 {
   float fVar1;
   int iVar2;
   AnmManager *pAVar3;
-  ZunResult ZVar4;
-  long lVar5;
-  long lVar6;
-  long lVar7;
-  int iVar8;
-  AnmVm *pAVar9;
-  undefined4 *puVar10;
+  ZunResult backgroundSurface;
+  long anmUnk;
+  long anmScriptIdx;
+  long anmSpriteIdx;
+  long scrollBGDistance;
+  long scrollBGDuration;
+  long newVertCoordinate;
+  long musicFadeFrames;
+  long newColor;
+  long maxWRFrames;
+  long minWRFrames;
+  long maxFrames;
+  long minFrames;
+  long fadeInBlackFrames;
+  long fadeOutBlackFrames;
+  long fadeInFrames;
+  long fadeOutFrames;
+  int i;
+  int unaff_EDI;
+  AnmVm *anmvm_ref;
+  int **ppiVar4;
   uint unaff_retaddr;
   short local_ac;
   short local_90;
-  int local_58;
-  int local_54;
-  int local_50;
+  int staffroll_loop;
+  int exec_inner;
+  int exec_outer;
   int local_38;
-  undefined4 local_34;
+  int *local_34;
   uint local_c;
   int local_8;
   
   local_c = __security_cookie ^ unaff_retaddr;
   local_8 = 0;
   local_38 = 0;
-  puVar10 = &local_34;
-  for (iVar8 = 9; iVar8 != 0; iVar8 = iVar8 + -1) {
-    *puVar10 = 0;
-    puVar10 = puVar10 + 1;
+  ppiVar4 = &local_34;
+  for (i = 9; i != 0; i = i + -1) {
+    *ppiVar4 = (int *)0x0;
+    ppiVar4 = ppiVar4 + 1;
   }
-  *(undefined2 *)puVar10 = 0;
+  *(undefined2 *)ppiVar4 = 0;
   if (0 < (this->Timer3).current) {
     ZunTimer::Decrement(&this->Timer3,1);
-    if (*(int *)&this->field_0x1140 == 0) {
+    if (this->minWaitResetFrames == 0) {
       if ((((g_CurFrameInput & 0x1001) != 0) &&
           ((g_CurFrameInput & 0x1001) != (g_LastFrameInput & 0x1001))) ||
-         ((*(int *)&this->field_0x1118 != 0 && ((g_CurFrameInput & 0x100) != 0)))) {
+         ((*(int *)&this->unk_dependent_on_clrd != 0 && ((g_CurFrameInput & 0x100) != 0)))) {
         (this->Timer3).current = 0;
         (this->Timer3).subFrame = 0.0;
         (this->Timer3).previous = -999;
       }
     }
     else {
-      *(int *)&this->field_0x1140 = *(int *)&this->field_0x1140 + -1;
+                    /* I hate how ghidra refuses to do - 1 and instead does + -1 *sigh* */
+      this->minWaitResetFrames = this->minWaitResetFrames + -1;
     }
     if (0 < (this->Timer3).current) goto LAB_00410546;
-    pAVar9 = this->AnmVm;
-    for (iVar8 = 0x440; iVar8 != 0; iVar8 = iVar8 + -1) {
-      (pAVar9->rotation).x = 0.0;
-      pAVar9 = (AnmVm *)&(pAVar9->rotation).y;
+    anmvm_ref = &this->AnmVm;
+    for (i = 1088; i != 0; i = i + -1) {
+      (anmvm_ref->rotation).x = 0.0;
+      anmvm_ref = (AnmVm *)&(anmvm_ref->rotation).y;
     }
-    *(undefined4 *)&this->field_0x1154 = 0;
+    this->possibly_times_file_parsed = 0;
   }
   if ((this->Timer2).current < 1) {
     do {
       pAVar3 = g_AnmManager;
-      switch(*(undefined *)this->endFileDataPtr) {
-      case 0:
-      case 10:
-      case 0xd:
+      switch(*this->endFileDataPtr) {
+      case '\0':
+      case '\n':
+      case '\r':
         goto switchD_0040fa32_caseD_0;
       default:
-        *(undefined *)((int)&local_34 + local_38) = *(undefined *)this->endFileDataPtr;
-        *(undefined *)((int)&local_34 + local_38 + 1) =
-             *(undefined *)((int)this->endFileDataPtr + 1);
+        *(char *)((int)&local_34 + local_38) = *this->endFileDataPtr;
+        *(char *)((int)&local_34 + local_38 + 1) = this->endFileDataPtr[1];
         local_38 = local_38 + 2;
-        this->endFileDataPtr = (int *)((int)this->endFileDataPtr + 2);
+        this->endFileDataPtr = this->endFileDataPtr + 2;
         pAVar3 = g_AnmManager;
-        if (0x1f < local_38) {
-          iVar8 = *(int *)&this->field_0x1154;
-          local_ac = (short)local_8 + 0x708 + (short)iVar8 * 2;
-          iVar2 = *(int *)&this->field_0x1154;
-          this->AnmVm[local_8 + iVar2 * 2].anmFileIndex = local_ac;
+        if (31 < local_38) {
+          i = this->possibly_times_file_parsed;
+          local_ac = (short)local_8 + 1800 + (short)i * 2;
+          iVar2 = this->possibly_times_file_parsed;
+          (&this->AnmVm)[local_8 + iVar2 * 2].anmFileIndex = local_ac;
           AnmManager::SetAndExecuteScript
-                    (pAVar3,this->AnmVm + local_8 + iVar2 * 2,
-                     pAVar3->scripts[iVar8 * 2 + local_8 + 0x708]);
+                    (pAVar3,&this->AnmVm + local_8 + iVar2 * 2,
+                     pAVar3->scripts[i * 2 + local_8 + 0x708]);
           AnmManager::FUN_00434b60
-                    (g_AnmManager,(int)(this->AnmVm + local_8 + *(int *)&this->field_0x1154 * 2),
-                     *(undefined4 *)&this->field_0x1158,0xc0d0d0,(char *)&local_34);
+                    (g_AnmManager,&this->AnmVm + local_8 + this->possibly_times_file_parsed * 2,
+                     this->textColor,0xc0d0d0,(int)&local_34,unaff_EDI);
           if (local_8 != 0) goto LAB_00410546;
           local_8 = 1;
           local_38 = 0;
-          puVar10 = &local_34;
-          for (iVar8 = 9; iVar8 != 0; iVar8 = iVar8 + -1) {
-            *puVar10 = 0;
-            puVar10 = puVar10 + 1;
+          ppiVar4 = &local_34;
+          for (i = 9; i != 0; i = i + -1) {
+            *ppiVar4 = (int *)0x0;
+            ppiVar4 = ppiVar4 + 1;
           }
-          *(undefined2 *)puVar10 = 0;
+          *(undefined2 *)ppiVar4 = 0;
         }
         break;
-      case 0x40:
+      case '@':
                     /* If there is an @ symbol, that means we have an opcode to read. */
-        this->endFileDataPtr = (int *)((int)this->endFileDataPtr + 1);
-        switch(*(undefined *)this->endFileDataPtr) {
-        case 0x30:
+        this->endFileDataPtr = this->endFileDataPtr + 1;
+        switch(*this->endFileDataPtr) {
+        case '0':
                     /* fadeinblack(frames). UNUSED */
-          this->endFileDataPtr = (int *)((int)this->endFileDataPtr + 1);
-          *(undefined4 *)&this->field_0x1168 = 1;
-          *(undefined4 *)&this->field_0x1160 = 0;
-          lVar7 = readEndFileParameter(this);
-          *(long *)&this->field_0x1164 = lVar7;
+          this->endFileDataPtr = this->endFileDataPtr + 1;
+          this->fadeType = 1;
+          this->timeFading = 0;
+          fadeInBlackFrames = readEndFileParameter(this);
+          this->fadeFrames = fadeInBlackFrames;
           break;
-        case 0x31:
+        case '1':
                     /* fadeoutblack(frames). UNUSED */
-          this->endFileDataPtr = (int *)((int)this->endFileDataPtr + 1);
-          *(undefined4 *)&this->field_0x1168 = 2;
-          *(undefined4 *)&this->field_0x1160 = 0;
-          lVar7 = readEndFileParameter(this);
-          *(long *)&this->field_0x1164 = lVar7;
+          this->endFileDataPtr = this->endFileDataPtr + 1;
+          this->fadeType = 2;
+          this->timeFading = 0;
+          fadeOutBlackFrames = readEndFileParameter(this);
+          this->fadeFrames = fadeOutBlackFrames;
           break;
-        case 0x32:
+        case '2':
                     /* fadein(frames) */
-          this->endFileDataPtr = (int *)((int)this->endFileDataPtr + 1);
-          *(undefined4 *)&this->field_0x1168 = 3;
-          *(undefined4 *)&this->field_0x1160 = 0;
-          lVar7 = readEndFileParameter(this);
-          *(long *)&this->field_0x1164 = lVar7;
+          this->endFileDataPtr = this->endFileDataPtr + 1;
+          this->fadeType = 3;
+          this->timeFading = 0;
+          fadeInFrames = readEndFileParameter(this);
+          this->fadeFrames = fadeInFrames;
           break;
-        case 0x33:
+        case '3':
                     /* fadeout(frames) */
-          this->endFileDataPtr = (int *)((int)this->endFileDataPtr + 1);
-          *(undefined4 *)&this->field_0x1168 = 4;
-          *(undefined4 *)&this->field_0x1160 = 0;
-          lVar7 = readEndFileParameter(this);
-          *(long *)&this->field_0x1164 = lVar7;
+          this->endFileDataPtr = this->endFileDataPtr + 1;
+          this->fadeType = 4;
+          this->timeFading = 0;
+          fadeOutFrames = readEndFileParameter(this);
+          this->fadeFrames = fadeOutFrames;
           break;
-        case 0x46:
+        case 'F':
                     /* exec(endfile) */
-          ZVar4 = loadEnding(this,(char *)((int)this->endFileDataPtr + 1));
-          if (ZVar4 == ZUN_SUCCESS) {
+          backgroundSurface = loadEnding(this,this->endFileDataPtr + 1);
+          if (backgroundSurface == ZUN_SUCCESS) {
             local_38 = 0;
             local_8 = 0;
-            for (local_50 = 0; local_50 < 4; local_50 = local_50 + 1) {
-              for (local_54 = 0; local_54 < 4; local_54 = local_54 + 1) {
-                if ((*(char *)(local_50 * 0x18 + 0x69ccdc + local_54) == 'c') ||
-                   (*(char *)(local_50 * 0x18 + 0x69cce1 + local_54) == 'c')) {
-                  *(undefined4 *)&this->field_0x1118 = 1;
+            for (exec_outer = 0; exec_outer < 4; exec_outer = exec_outer + 1) {
+              for (exec_inner = 0; exec_inner < 4; exec_inner = exec_inner + 1) {
+                    /* The big hex number is actually an address, that address being
+                       Clrd->difficulty_cleared_with_retries, the second one is
+                       Clrd->difficulty_cleared_without_retries */
+                if ((*(char *)(exec_outer * 0x18 + 0x69ccdc + exec_inner) == 99) ||
+                   (*(char *)(exec_outer * 0x18 + 0x69cce1 + exec_inner) == 99)) {
+                  *(undefined4 *)&this->unk_dependent_on_clrd = 1;
                   break;
                 }
               }
             }
             goto switchD_0040fa93_caseD_52;
           }
-          goto LAB_004105d3;
-        case 0x4d:
+          goto endParsing;
+        case 'M':
                     /* musicfade(duration) */
-          this->endFileDataPtr = (int *)((int)this->endFileDataPtr + 1);
-          lVar7 = readEndFileParameter(this);
-          Supervisor::fadeOutMusic(&g_Supervisor,(float)lVar7);
+          this->endFileDataPtr = this->endFileDataPtr + 1;
+          musicFadeFrames = readEndFileParameter(this);
+          Supervisor::fadeOutMusic(&g_Supervisor,(float)musicFadeFrames);
           break;
-        case 0x52:
+        case 'R':
 switchD_0040fa93_caseD_52:
-                    /* staffroll() */
-          for (local_58 = 0; local_58 < 0x10; local_58 = local_58 + 1) {
-            this->AnmVm[local_58].anmFileIndex = 0;
+                    /* staffroll()
+                       Assumingly this clears the entire anm stack allocated for Ending. */
+          for (staffroll_loop = 0; staffroll_loop < 16; staffroll_loop = staffroll_loop + 1) {
+            (&this->AnmVm)[staffroll_loop].anmFileIndex = 0;
           }
           break;
-        case 0x56:
+        case 'V':
                     /* scrollbg(distance, duration) */
-          this->endFileDataPtr = (int *)((int)this->endFileDataPtr + 1);
-          lVar7 = readEndFileParameter(this);
-          lVar5 = readEndFileParameter(this);
-          (this->anmTimer4).current = (int)((float)lVar7 / (float)lVar5);
+          this->endFileDataPtr = this->endFileDataPtr + 1;
+          scrollBGDistance = readEndFileParameter(this);
+          scrollBGDuration = readEndFileParameter(this);
+          (this->anmTimer4).current = (int)((float)scrollBGDistance / (float)scrollBGDuration);
           break;
-        case 0x61:
+        case 'a':
                     /* anm(???, script_index?, sprite_index?) */
-          this->endFileDataPtr = (int *)((int)this->endFileDataPtr + 1);
-          lVar7 = readEndFileParameter(this);
-          lVar5 = readEndFileParameter(this);
-          lVar6 = readEndFileParameter(this);
-          AnmManager::ExecuteAnmIdx(g_AnmManager,this->AnmVm + lVar7,lVar5 + 0x600);
-          AnmManager::SetActiveSprite(g_AnmManager,this->AnmVm + lVar7,lVar6 + 0x600);
+          this->endFileDataPtr = this->endFileDataPtr + 1;
+          anmUnk = readEndFileParameter(this);
+          anmScriptIdx = readEndFileParameter(this);
+          anmSpriteIdx = readEndFileParameter(this);
+          AnmManager::ExecuteAnmIdx(g_AnmManager,&this->AnmVm + anmUnk,anmScriptIdx + 0x600);
+          AnmManager::SetActiveSprite(g_AnmManager,&this->AnmVm + anmUnk,anmSpriteIdx + 0x600);
           break;
-        case 0x62:
+        case 'b':
                     /* background(jpg_file) */
-          ZVar4 = AnmManager::LoadSurface(g_AnmManager,0,(char *)((int)this->endFileDataPtr + 1));
-          if (ZVar4 != ZUN_SUCCESS) goto LAB_004105d3;
+          backgroundSurface = AnmManager::LoadSurface(g_AnmManager,0,this->endFileDataPtr + 1);
+          if (backgroundSurface != ZUN_SUCCESS) goto endParsing;
           break;
-        case 99:
+        case 'c':
                     /* color(bgr_color) */
-          this->endFileDataPtr = (int *)((int)this->endFileDataPtr + 1);
-          lVar7 = readEndFileParameter(this);
-          *(long *)&this->field_0x1158 = lVar7;
+          this->endFileDataPtr = this->endFileDataPtr + 1;
+          newColor = readEndFileParameter(this);
+          this->textColor = newColor;
           break;
-        case 0x6d:
+        case 'm':
                     /* musicplay(file) */
-          Supervisor::PlayAudio((char *)((int)this->endFileDataPtr + 1));
+          Supervisor::PlayAudio(this->endFileDataPtr + 1);
           break;
-        case 0x72:
-          this->endFileDataPtr = (int *)((int)this->endFileDataPtr + 1);
-          lVar7 = readEndFileParameter(this);
-          (this->Timer3).current = lVar7;
+        case 'r':
+                    /* waitreset(minframes, maxframes) */
+          this->endFileDataPtr = this->endFileDataPtr + 1;
+          maxWRFrames = readEndFileParameter(this);
+          (this->Timer3).current = maxWRFrames;
           (this->Timer3).subFrame = 0.0;
           (this->Timer3).previous = -999;
-          lVar7 = readEndFileParameter(this);
-          *(long *)&this->field_0x1140 = lVar7;
-          while ((*(char *)this->endFileDataPtr != '\n' && (*(char *)this->endFileDataPtr != '\r')))
-          {
-            this->endFileDataPtr = (int *)((int)this->endFileDataPtr + 1);
+          minWRFrames = readEndFileParameter(this);
+          this->minWaitResetFrames = minWRFrames;
+          while ((*this->endFileDataPtr != '\n' && (*this->endFileDataPtr != '\r'))) {
+            this->endFileDataPtr = this->endFileDataPtr + 1;
           }
-          while ((*(char *)this->endFileDataPtr == '\n' || (*(char *)this->endFileDataPtr == '\r')))
-          {
-            this->endFileDataPtr = (int *)((int)this->endFileDataPtr + 1);
+          while ((*this->endFileDataPtr == '\n' || (*this->endFileDataPtr == '\r'))) {
+            this->endFileDataPtr = this->endFileDataPtr + 1;
           }
           goto LAB_00410546;
-        case 0x73:
-          this->endFileDataPtr = (int *)((int)this->endFileDataPtr + 1);
-          lVar7 = readEndFileParameter(this);
-          *(long *)&this->field_0x1148 = lVar7;
-          lVar7 = readEndFileParameter(this);
-          *(long *)&this->field_0x114c = lVar7;
+        case 's':
+                    /* setdelay(line2Delay, topLineDelay) */
+          this->endFileDataPtr = this->endFileDataPtr + 1;
+          anmUnk = readEndFileParameter(this);
+          this->line2Delay = anmUnk;
+          anmUnk = readEndFileParameter(this);
+          this->topLineDelay = anmUnk;
           break;
-        case 0x76:
-          this->endFileDataPtr = (int *)((int)this->endFileDataPtr + 1);
-          lVar7 = readEndFileParameter(this);
-          (this->anmTimer4).subFrame = (float)lVar7;
+        case 'v':
+                    /* setscroll(newVertCoordinate) */
+          this->endFileDataPtr = this->endFileDataPtr + 1;
+          newVertCoordinate = readEndFileParameter(this);
+          (this->anmTimer4).subFrame = (float)newVertCoordinate;
           break;
-        case 0x77:
-          this->endFileDataPtr = (int *)((int)this->endFileDataPtr + 1);
-          lVar7 = readEndFileParameter(this);
-          (this->Timer2).current = lVar7;
+        case 'w':
+                    /* wait(maxFrames, minFrames) */
+          this->endFileDataPtr = this->endFileDataPtr + 1;
+          maxFrames = readEndFileParameter(this);
+          (this->Timer2).current = maxFrames;
           (this->Timer2).subFrame = 0.0;
           (this->Timer2).previous = -999;
-          lVar7 = readEndFileParameter(this);
-          *(long *)&this->field_0x1144 = lVar7;
-          while ((*(char *)this->endFileDataPtr != '\n' && (*(char *)this->endFileDataPtr != '\r')))
-          {
-            this->endFileDataPtr = (int *)((int)this->endFileDataPtr + 1);
+          minFrames = readEndFileParameter(this);
+          this->minWaitFrames = minFrames;
+          while ((*this->endFileDataPtr != '\n' && (*this->endFileDataPtr != '\r'))) {
+            this->endFileDataPtr = this->endFileDataPtr + 1;
           }
-          while ((*(char *)this->endFileDataPtr == '\n' || (*(char *)this->endFileDataPtr == '\r')))
-          {
-            this->endFileDataPtr = (int *)((int)this->endFileDataPtr + 1);
+          while ((*this->endFileDataPtr == '\n' || (*this->endFileDataPtr == '\r'))) {
+            this->endFileDataPtr = this->endFileDataPtr + 1;
           }
           goto LAB_00410546;
-        case 0x7a:
-          goto LAB_004105d3;
+        case 'z':
+          goto endParsing;
         }
-        while ((*(char *)this->endFileDataPtr != '\n' && (*(char *)this->endFileDataPtr != '\r'))) {
-          this->endFileDataPtr = (int *)((int)this->endFileDataPtr + 1);
+        while ((*this->endFileDataPtr != '\n' && (*this->endFileDataPtr != '\r'))) {
+          this->endFileDataPtr = this->endFileDataPtr + 1;
         }
-        while ((*(char *)this->endFileDataPtr == '\n' || (*(char *)this->endFileDataPtr == '\r'))) {
-          this->endFileDataPtr = (int *)((int)this->endFileDataPtr + 1);
+        while ((*this->endFileDataPtr == '\n' || (*this->endFileDataPtr == '\r'))) {
+          this->endFileDataPtr = this->endFileDataPtr + 1;
         }
       }
     } while( true );
   }
   ZunTimer::Decrement(&this->Timer2,1);
-  if (*(int *)&this->field_0x1144 == 0) {
+  if (this->minWaitFrames == 0) {
     if ((((g_CurFrameInput & 0x1001) != 0) &&
         ((g_CurFrameInput & 0x1001) != (g_LastFrameInput & 0x1001))) ||
-       ((*(int *)&this->field_0x1118 != 0 && ((g_CurFrameInput & 0x100) != 0)))) {
+       ((*(int *)&this->unk_dependent_on_clrd != 0 && ((g_CurFrameInput & 0x100) != 0)))) {
       (this->Timer2).current = 0;
       (this->Timer2).subFrame = 0.0;
       (this->Timer2).previous = -999;
     }
   }
   else {
-    *(int *)&this->field_0x1144 = *(int *)&this->field_0x1144 + -1;
+    this->minWaitFrames = this->minWaitFrames + -1;
   }
   goto LAB_00410546;
 switchD_0040fa32_caseD_0:
   if (local_38 != 0) {
-    iVar8 = *(int *)&this->field_0x1154;
-    local_90 = (short)local_8 + 0x708 + (short)iVar8 * 2;
-    iVar2 = *(int *)&this->field_0x1154;
-    this->AnmVm[local_8 + iVar2 * 2].anmFileIndex = local_90;
+    i = this->possibly_times_file_parsed;
+    local_90 = (short)local_8 + 0x708 + (short)i * 2;
+    iVar2 = this->possibly_times_file_parsed;
+    (&this->AnmVm)[local_8 + iVar2 * 2].anmFileIndex = local_90;
     AnmManager::SetAndExecuteScript
-              (pAVar3,this->AnmVm + local_8 + iVar2 * 2,pAVar3->scripts[iVar8 * 2 + local_8 + 0x708]
-              );
+              (pAVar3,&this->AnmVm + local_8 + iVar2 * 2,pAVar3->scripts[i * 2 + local_8 + 0x708]);
     AnmManager::FUN_00434b60
-              (g_AnmManager,(int)(this->AnmVm + local_8 + *(int *)&this->field_0x1154 * 2),
-               *(undefined4 *)&this->field_0x1158,0xc0d0d0,(char *)&local_34);
+              (g_AnmManager,&this->AnmVm + local_8 + this->possibly_times_file_parsed * 2,
+               this->textColor,0xc0d0d0,(int)&local_34,unaff_EDI);
   }
-  while (((*(char *)this->endFileDataPtr == '\n' || (*(char *)this->endFileDataPtr == '\0')) ||
-         (*(char *)this->endFileDataPtr == '\r'))) {
-    this->endFileDataPtr = (int *)((int)this->endFileDataPtr + 1);
+  while (((*this->endFileDataPtr == '\n' || (*this->endFileDataPtr == '\0')) ||
+         (*this->endFileDataPtr == '\r'))) {
+    this->endFileDataPtr = this->endFileDataPtr + 1;
   }
+                    /* If skip button is being held... */
   if ((g_CurFrameInput & 0x1001) == 0) {
-    (this->Timer2).current = *(int *)&this->field_0x1148;
+    (this->Timer2).current = this->line2Delay;
     (this->Timer2).subFrame = 0.0;
     (this->Timer2).previous = -999;
-    *(undefined4 *)&this->field_0x1144 = *(undefined4 *)&this->field_0x1148;
+    this->minWaitFrames = this->line2Delay;
   }
   else {
-    (this->Timer2).current = *(int *)&this->field_0x114c;
+    (this->Timer2).current = this->topLineDelay;
     (this->Timer2).subFrame = 0.0;
     (this->Timer2).previous = -999;
-    *(undefined4 *)&this->field_0x1144 = *(undefined4 *)&this->field_0x114c;
+    this->minWaitFrames = this->topLineDelay;
   }
-  *(int *)&this->field_0x1154 = *(int *)&this->field_0x1154 + 1;
+  this->possibly_times_file_parsed = this->possibly_times_file_parsed + 1;
 LAB_00410546:
   (this->Timer1).previous = (this->Timer1).current;
   Supervisor::TickTimer(&g_Supervisor,&(this->Timer1).current,&(this->Timer1).subFrame);
@@ -300,7 +318,7 @@ LAB_00410546:
     (this->anmTimer4).subFrame = 0.0;
     (this->anmTimer4).current = 0;
   }
-LAB_004105d3:
+endParsing:
   __security_check_cookie(local_c ^ unaff_retaddr);
   return;
 }

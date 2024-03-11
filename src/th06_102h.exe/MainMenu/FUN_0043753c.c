@@ -1,14 +1,14 @@
 
-undefined4 MainMenu::FUN_0043753c(MainMenu *param_1,int param_2)
+ZunResult MainMenu::FUN_0043753c(MainMenu *param_1,int param_2)
 
 {
-  undefined4 uVar1;
+  ZunResult ZVar1;
   
   if ((((g_CurFrameInput & 0x10) == 0) || ((g_CurFrameInput & 0x10) == (g_LastFrameInput & 0x10)))
      && (((g_CurFrameInput & 0x10) == 0 || (DAT_0069d90c == 0)))) {
     if ((((g_CurFrameInput & 0x20) == 0) || ((g_CurFrameInput & 0x20) == (g_LastFrameInput & 0x20)))
        && (((g_CurFrameInput & 0x20) == 0 || (DAT_0069d90c == 0)))) {
-      uVar1 = 0;
+      ZVar1 = ZUN_SUCCESS;
     }
     else {
       param_1->cursor = param_1->cursor + 1;
@@ -19,7 +19,7 @@ undefined4 MainMenu::FUN_0043753c(MainMenu *param_1,int param_2)
       if (param_2 <= (int)param_1->cursor) {
         param_1->cursor = 0;
       }
-      uVar1 = 1;
+      ZVar1 = 1;
     }
   }
   else {
@@ -31,8 +31,8 @@ undefined4 MainMenu::FUN_0043753c(MainMenu *param_1,int param_2)
     if (param_2 <= (int)param_1->cursor) {
       param_1->cursor = 0;
     }
-    uVar1 = 0xffffffff;
+    ZVar1 = ZUN_ERROR;
   }
-  return uVar1;
+  return ZVar1;
 }
 

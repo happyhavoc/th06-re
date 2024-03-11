@@ -2,18 +2,18 @@
 undefined4 __fastcall MainMenu::FUN_00437b41(MainMenu *param_1)
 
 {
-  int iVar1;
+  ZunResult ZVar1;
   int iVar2;
   MainMenu *local_c;
   int local_8;
   
-  iVar1 = FUN_0043753c(param_1,8);
+  ZVar1 = FUN_0043753c(param_1,8);
   if ((((param_1->cursor == 1) &&
        (iVar2 = GameManager::hasReachedMaxClears(&g_GameManager,0,0), iVar2 == 0)) &&
       (iVar2 = GameManager::hasReachedMaxClears(&g_GameManager,0,1), iVar2 == 0)) &&
      ((iVar2 = GameManager::hasReachedMaxClears(&g_GameManager,1,0), iVar2 == 0 &&
       (iVar2 = GameManager::hasReachedMaxClears(&g_GameManager,1,1), iVar2 == 0)))) {
-    param_1->cursor = param_1->cursor + iVar1;
+    param_1->cursor = param_1->cursor + ZVar1;
   }
   local_c = param_1;
   for (local_8 = 0; local_8 < 8; local_8 = local_8 + 1) {
@@ -44,11 +44,11 @@ undefined4 __fastcall MainMenu::FUN_00437b41(MainMenu *param_1)
         SoundPlayer::FUN_004311e0(&g_SoundPlayer,10);
         break;
       case 1:
-        iVar1 = GameManager::hasReachedMaxClears(&g_GameManager,0,0);
-        if ((((iVar1 == 0) &&
-             (iVar1 = GameManager::hasReachedMaxClears(&g_GameManager,0,1), iVar1 == 0)) &&
-            (iVar1 = GameManager::hasReachedMaxClears(&g_GameManager,1,0), iVar1 == 0)) &&
-           (iVar1 = GameManager::hasReachedMaxClears(&g_GameManager,1,1), iVar1 == 0)) {
+        iVar2 = GameManager::hasReachedMaxClears(&g_GameManager,0,0);
+        if ((((iVar2 == 0) &&
+             (iVar2 = GameManager::hasReachedMaxClears(&g_GameManager,0,1), iVar2 == 0)) &&
+            (iVar2 = GameManager::hasReachedMaxClears(&g_GameManager,1,0), iVar2 == 0)) &&
+           (iVar2 = GameManager::hasReachedMaxClears(&g_GameManager,1,1), iVar2 == 0)) {
           SoundPlayer::FUN_004311e0(&g_SoundPlayer,0xb);
         }
         else {

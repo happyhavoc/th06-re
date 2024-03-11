@@ -7,25 +7,25 @@ void __fastcall ReplayHandling(MainMenu *menu)
   byte *pbVar4;
   int _;
   ReplayData *nextReplayData;
-  char **magics;
+  char **replayDataMagics;
   _WIN32_FIND_DATAA replayFileInfo;
   char replayFilePath [64];
   uint stackCookie;
   ReplayData *replayData;
-  int local_14;
+  int replayFilesNum;
   HANDLE replayFileHandle;
-  int replayFile;
+  ZunResult replayFile;
   MainMenu *main_menu;
   uint gameState;
   uint unaff_retaddr;
   
   stackCookie = __security_cookie ^ unaff_retaddr;
   gameState = menu->gameState;
-  if (gameState == STATE_TRANSITION_TO_REPLAY_MENU) {
+  if (gameState == STATE_UNLOAD_TO_REPLAY_MENU) {
     if (menu->gameSubState == 0x3c) {
       ZVar2 = LoadReplayMenu(menu);
       if (ZVar2 == ZUN_SUCCESS) {
-        local_14 = 0;
+        replayFilesNum = 0;
         for (replayFile = 0; replayFile < 0xf; replayFile = replayFile + 1) {
           sprintf(replayFilePath,"./replay/th6_%.2d.rpy",replayFile + 1);
           replayData = (ReplayData *)FileSystem::OpenPath(replayFilePath,1);
@@ -33,21 +33,21 @@ void __fastcall ReplayHandling(MainMenu *menu)
             ZVar2 = validateReplayData(replayData,g_LastFileSize);
             if (ZVar2 == ZUN_SUCCESS) {
               nextReplayData = replayData;
-              magics = (char **)(&menu->field_0xfc1c + local_14 * 0x50);
+              replayDataMagics = (char **)(&menu->field_0xfc1c + replayFilesNum * 0x50);
               for (_ = 0x14; _ != 0; _ = _ + -1) {
-                *magics = nextReplayData->magic;
+                *replayDataMagics = nextReplayData->magic;
                 nextReplayData = (ReplayData *)&nextReplayData->version;
-                magics = magics + 1;
+                replayDataMagics = replayDataMagics + 1;
               }
-              _strcpy(&menu->field_0x823c + local_14 * 0x200,replayFilePath);
-              sprintf(&menu->field_0xfa3c + local_14 * 8,"No.%.2d",replayFile + 1);
-              local_14 = local_14 + 1;
+              _strcpy(&menu->field_0x823c + replayFilesNum * 0x200,replayFilePath);
+              sprintf(&menu->field_0xfa3c + replayFilesNum * 8,"No.%.2d",replayFile + 1);
+              replayFilesNum = replayFilesNum + 1;
             }
             _free(replayData);
           }
         }
         createDirectoryInCWD("./replay");
-        FUN_0045d5f9("./replay");
+        ChangeCWD("./replay");
         replayFileHandle = FindFirstFileA("th6_ud????.rpy",&replayFileInfo);
         if (replayFileHandle != (HANDLE)0xffffffff) {
           for (replayFile = 0; replayFile < 0x2d; replayFile = replayFile + 1) {
@@ -56,16 +56,16 @@ void __fastcall ReplayHandling(MainMenu *menu)
               ZVar2 = validateReplayData(replayData,g_LastFileSize);
               if (ZVar2 == ZUN_SUCCESS) {
                 nextReplayData = replayData;
-                magics = (char **)(&menu->field_0xfc1c + local_14 * 0x50);
+                replayDataMagics = (char **)(&menu->field_0xfc1c + replayFilesNum * 0x50);
                 for (_ = 0x14; _ != 0; _ = _ + -1) {
-                  *magics = nextReplayData->magic;
+                  *replayDataMagics = nextReplayData->magic;
                   nextReplayData = (ReplayData *)&nextReplayData->version;
-                  magics = magics + 1;
+                  replayDataMagics = replayDataMagics + 1;
                 }
-                sprintf(&menu->field_0x823c + local_14 * 0x200,"./replay/%s",
+                sprintf(&menu->field_0x823c + replayFilesNum * 0x200,"./replay/%s",
                         replayFileInfo.cFileName);
-                sprintf(&menu->field_0xfa3c + local_14 * 8,"User ");
-                local_14 = local_14 + 1;
+                sprintf(&menu->field_0xfa3c + replayFilesNum * 8,"User ");
+                replayFilesNum = replayFilesNum + 1;
               }
               _free(replayData);
               nextFile = FindNextFileA(replayFileHandle,&replayFileInfo);
@@ -74,14 +74,14 @@ void __fastcall ReplayHandling(MainMenu *menu)
           }
         }
         FindClose(replayFileHandle);
-        FUN_0045d5f9("../");
-        *(int *)&menu->field_0x81ec = local_14;
+        ChangeCWD("../");
+        *(int *)&menu->field_0x81ec = replayFilesNum;
         menu->unk_81fc = 0;
         *(uint *)&menu->field_0x8214 = menu->unk_8210;
         menu->unk_8210 = 0;
-        menu->gameState = 0xd;
+        menu->gameState = STATE_TRANSITION_TO_REPLAY_MENU;
         main_menu = menu;
-        for (replayFile = 0; replayFile < 122; replayFile = replayFile + 1) {
+        for (replayFile = ZUN_SUCCESS; replayFile < 122; replayFile = replayFile + 1) {
           main_menu->AnmVMArray[0].pendingInterrupt = 15;
           main_menu = (MainMenu *)(main_menu->AnmVMArray + 1);
         }
@@ -93,7 +93,7 @@ void __fastcall ReplayHandling(MainMenu *menu)
       }
     }
   }
-  else if (gameState == STATE_LOAD_REPLAY_MENU) {
+  else if (gameState == STATE_TRANSITION_TO_REPLAY_MENU) {
     if (0x27 < (int)menu->gameSubState) {
       if (*(int *)&menu->field_0x81ec != 0) {
         MainMenu::FUN_0043753c(menu,*(int *)&menu->field_0x81ec);
@@ -115,7 +115,7 @@ void __fastcall ReplayHandling(MainMenu *menu)
           ;
           menu->unk_10edc = (uint)pbVar4;
           validateReplayData((ReplayData *)menu->unk_10edc,g_LastFileSize);
-          for (replayFile = 0; replayFile < 7; replayFile = replayFile + 1) {
+          for (replayFile = ZUN_SUCCESS; replayFile < 7; replayFile = replayFile + 1) {
             if (*(int *)(menu->unk_10edc + 0x34 + replayFile * 4) != 0) {
               *(uint *)(menu->unk_10edc + 0x34 + replayFile * 4) =
                    menu->unk_10edc + *(int *)(menu->unk_10edc + 0x34 + replayFile * 4);
@@ -133,7 +133,7 @@ LAB_0043877b:
       if (((g_CurFrameInput & 10) != 0) && ((g_CurFrameInput & 10) != (g_LastFrameInput & 10))) {
         menu->gameState = 0xe;
         menu->gameSubState = 0;
-        for (replayFile = 0; replayFile < 0x7a; replayFile = replayFile + 1) {
+        for (replayFile = ZUN_SUCCESS; replayFile < 0x7a; replayFile = replayFile + 1) {
           menu->AnmVMArray[replayFile].pendingInterrupt = 4;
         }
         SoundPlayer::FUN_004311e0(&g_SoundPlayer,0xb);
@@ -149,7 +149,7 @@ LAB_0043877b:
   }
   else if ((gameState == 0xf) && (0x27 < (int)menu->gameSubState)) {
     replayFile = MainMenu::FUN_0043753c(menu,7);
-    if (replayFile < 0) {
+    if (replayFile < ZUN_SUCCESS) {
       while (*(int *)(&menu->field_0xfc50 + menu->cursor * 4 + *(int *)&menu->field_0x81e8 * 0x50)
              == 0) {
         menu->cursor = menu->cursor - 1;
@@ -158,7 +158,7 @@ LAB_0043877b:
         }
       }
     }
-    else if (0 < replayFile) {
+    else if (ZUN_SUCCESS < replayFile) {
       while (*(int *)(&menu->field_0xfc50 + menu->cursor * 4 + *(int *)&menu->field_0x81e8 * 0x50)
              == 0) {
         menu->cursor = menu->cursor + 1;
@@ -173,7 +173,7 @@ LAB_0043877b:
       if (((g_CurFrameInput & 10) != 0) && ((g_CurFrameInput & 10) != (g_LastFrameInput & 10))) {
         _free((void *)menu->unk_10edc);
         menu->unk_10edc = 0;
-        menu->gameState = 0xd;
+        menu->gameState = STATE_TRANSITION_TO_REPLAY_MENU;
         menu->gameSubState = 0;
         for (replayFile = 0; replayFile < 0x7a; replayFile = replayFile + 1) {
           menu->AnmVMArray[replayFile].pendingInterrupt = 4;
@@ -181,7 +181,7 @@ LAB_0043877b:
         SoundPlayer::FUN_004311e0(&g_SoundPlayer,0xb);
         menu->gameState = 0xd;
         main_menu = menu;
-        for (replayFile = 0; replayFile < 0x7a; replayFile = replayFile + 1) {
+        for (replayFile = ZUN_SUCCESS; replayFile < 0x7a; replayFile = replayFile + 1) {
           main_menu->AnmVMArray[0].pendingInterrupt = 0xf;
           main_menu = (MainMenu *)(main_menu->AnmVMArray + 1);
         }
@@ -195,7 +195,7 @@ LAB_0043877b:
       g_GameManager.difficulty = (uint)*(byte *)(menu->unk_10edc + 7);
       g_GameManager.character = *(byte *)(menu->unk_10edc + 6) / 2;
       g_GameManager.shottype = *(byte *)(menu->unk_10edc + 6) % 2;
-      for (replayFile = 0; *(int *)(menu->unk_10edc + 0x34 + replayFile * 4) == 0;
+      for (replayFile = ZUN_SUCCESS; *(int *)(menu->unk_10edc + 0x34 + replayFile * 4) == 0;
           replayFile = replayFile + 1) {
       }
       g_GameManager.lives_remaining =

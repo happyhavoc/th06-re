@@ -1,5 +1,5 @@
 
-void CreateGameWindow(HINSTANCE param_1)
+void CreateGameWindow(HINSTANCE instance)
 
 {
   int iVar1;
@@ -16,7 +16,7 @@ void CreateGameWindow(HINSTANCE param_1)
   }
   base_class.hbrBackground = (HBRUSH)GetStockObject(0);
   base_class.hCursor = (HCURSOR)LoadCursorA((HINSTANCE)0x0,(LPCSTR)0x7f00);
-  base_class.hInstance = param_1;
+  base_class.hInstance = instance;
   base_class.lpfnWndProc = WindowProc;
   g_GameWindow.lastActiveAppValue = 0;
   g_GameWindow.isAppActive = 0;
@@ -27,7 +27,7 @@ void CreateGameWindow(HINSTANCE param_1)
     local_8 = 0x1e0;
     g_GameWindow.window =
          (HWND)CreateWindowExA(0,"BASE","東方紅魔郷\x3000〜 the Embodiment of Scarlet Devil",
-                               0xcf0000,0,0,0x280,0x1e0,(HWND)0x0,(HMENU)0x0,(HINSTANCE)param_1,
+                               0xcf0000,0,0,0x280,0x1e0,(HWND)0x0,(HMENU)0x0,(HINSTANCE)instance,
                                (LPVOID)0x0);
   }
   else {
@@ -39,7 +39,7 @@ void CreateGameWindow(HINSTANCE param_1)
     g_GameWindow.window =
          (HWND)CreateWindowExA(0,"BASE","東方紅魔郷\x3000〜 the Embodiment of Scarlet Devil",
                                0x100a0000,-0x80000000,-0x80000000,local_c,local_8,(HWND)0x0,
-                               (HMENU)0x0,(HINSTANCE)param_1,(LPVOID)0x0);
+                               (HMENU)0x0,(HINSTANCE)instance,(LPVOID)0x0);
   }
   g_Supervisor.hwndGameWindow = (HWND)g_GameWindow.window;
   return;

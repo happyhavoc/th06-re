@@ -13,7 +13,7 @@ undefined4 MainMenu::OnDraw(MainMenu *param_1)
   zRect local_18;
   int local_8;
   
-  curVm = param_1->field0_0x0;
+  curVm = param_1->AnmVMArray;
   local_18.left = 0.0;
   local_18.top = 0.0;
   local_18.right = 640.0;
@@ -24,20 +24,20 @@ undefined4 MainMenu::OnDraw(MainMenu *param_1)
     if (param_1->unk_8210 == 0) {
       if (param_1->unk_820c != 0) {
         param_1->unk_820c = param_1->unk_820c - 1;
-        local_8 = (param_1->unk_8200 >> 0x18) - (param_1->unk_81fc >> 0x18);
+        local_8 = ((uint)param_1->unk_8200 >> 0x18) - (param_1->unk_81fc >> 0x18);
         DrawSquare(&local_18,
                    ((local_8 * param_1->unk_820c) / *(uint *)&param_1->field_0x8214 +
-                   (param_1->unk_81fc >> 0x18)) * 0x1000000 | param_1->unk_8200 & 0xffffff);
+                   (param_1->unk_81fc >> 0x18)) * 0x1000000 | (uint)param_1->unk_8200 & 0xffffff);
       }
     }
     else {
       if ((int)param_1->unk_820c < (int)param_1->unk_8210) {
         param_1->unk_820c = param_1->unk_820c + 1;
       }
-      local_8 = (param_1->unk_8200 >> 0x18) - (param_1->unk_81fc >> 0x18);
+      local_8 = ((uint)param_1->unk_8200 >> 0x18) - (param_1->unk_81fc >> 0x18);
       DrawSquare(&local_18,
                  ((local_8 * param_1->unk_820c) / param_1->unk_8210 + (param_1->unk_81fc >> 0x18)) *
-                 0x1000000 | param_1->unk_8200 & 0xffffff);
+                 0x1000000 | (uint)param_1->unk_8200 & 0xffffff);
     }
     for (vmIdx = 0; vmIdx < 0x62; vmIdx = vmIdx + 1) {
       if (curVm->sprite == (AnmLoadedSprite *)0x0) {

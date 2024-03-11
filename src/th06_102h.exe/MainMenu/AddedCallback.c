@@ -51,7 +51,7 @@ LAB_0043a520:
     param_1->unk_8204 = 0xffffffff;
   }
   param_1->unk_81fc = 0;
-  param_1->unk_8200 = 0x40000000;
+  param_1->unk_8200 = 2.0;
   param_1->unk_820c = 0;
   param_1->unk_8210 = 0;
   param_1->unk_10f28 = 0x10;

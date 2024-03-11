@@ -18,22 +18,22 @@ undefined4 __fastcall MainMenu::FUN_004379e4(MainMenu *param_1)
     param_1->gameSubState = 0;
     param_1->gameState = 2;
     for (local_8 = 0; local_8 < 0x7a; local_8 = local_8 + 1) {
-      param_1->field0_0x0[local_8].pendingInterrupt = 2;
+      param_1->AnmVMArray[local_8].pendingInterrupt = 2;
     }
     if ((g_Supervisor.cfg.opts & 1) == 0) {
-      param_1->field0_0x0[param_1->cursor].color.color = 0xffff0000;
+      param_1->AnmVMArray[param_1->cursor].color.color = 0xffff0000;
     }
     else {
-      param_1->field0_0x0[param_1->cursor].color.color = 0xffffe0e0;
+      param_1->AnmVMArray[param_1->cursor].color.color = 0xffffe0e0;
     }
-    pDVar1 = &param_1->field0_0x0[param_1->cursor].pos2;
+    pDVar1 = &param_1->AnmVMArray[param_1->cursor].pos2;
     pDVar1->x = -6.0;
     pDVar1->y = -6.0;
     pDVar1->z = 0.0;
     param_1->unk_81fc = 0;
-    param_1->unk_8200 = 0x40000000;
+    param_1->unk_8200 = 2.0;
     param_1->unk_820c = 0;
-    param_1->unk_8210 = 0x3c;
+    param_1->unk_8210 = 60;
     uVar2 = 0;
   }
   return uVar2;

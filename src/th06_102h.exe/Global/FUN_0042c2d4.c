@@ -235,12 +235,12 @@ LAB_0042c515:
       *(undefined4 *)(param_1 + 4) = 0;
     }
     if (*(int *)(param_1 + 4) == 0) {
-      FUN_0045d588("replay");
+      createDirectoryInCWD("replay");
       for (local_10 = 0; local_10 < 0xf; local_10 = local_10 + 1) {
         sprintf(local_5c,"./replay/th6_%.2d.rpy",local_10 + 1);
         local_14 = (ReplayData *)FileSystem::OpenPath(local_5c,1);
         if (local_14 != (ReplayData *)0x0) {
-          ZVar1 = FUN_0042a140(local_14,g_LastFileSize);
+          ZVar1 = validateReplayData(local_14,g_LastFileSize);
           if (ZVar1 == ZUN_SUCCESS) {
             pRVar3 = local_14;
             ppcVar4 = (char **)(param_1 + 0x51b0 + local_10 * 0x50);

@@ -18,12 +18,12 @@ ZunResult __thiscall loadEnding(Ending *ending,char *endFilePath)
   else {
     ending->endFileDataPtr = ending->endFileData;
     *(undefined4 *)&ending->field_0x1148 = 8;
-    (ending->anmTimer2).current = 0;
-    (ending->anmTimer2).subFrame = 0.0;
-    (ending->anmTimer2).previous = -999;
-    (ending->anmTimer1).current = 0;
-    (ending->anmTimer1).subFrame = 0.0;
-    (ending->anmTimer1).previous = -999;
+    (ending->Timer2).current = 0;
+    (ending->Timer2).subFrame = 0.0;
+    (ending->Timer2).previous = -999;
+    (ending->Timer1).current = 0;
+    (ending->Timer1).subFrame = 0.0;
+    (ending->Timer1).previous = -999;
     if (_Memory != (int *)0x0) {
       _free(_Memory);
     }

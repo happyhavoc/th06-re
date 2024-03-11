@@ -1,17 +1,19 @@
 
-undefined4 __thiscall GameManager::FUN_0043a736(GameManager *this,int character,int shottype)
+/* Not entirely sure about this function, seems to not influence any other behavior */
+
+int __thiscall GameManager::hasReachedMaxClears(GameManager *this,int character,int shottype)
 
 {
-  undefined4 local_c;
+  int hasMaxClears;
   
   if (((this->clrd[shottype + character * 2].difficulty_cleared_with_retries[1] == 99) ||
       (this->clrd[shottype + character * 2].difficulty_cleared_with_retries[2] == 99)) ||
      (this->clrd[shottype + character * 2].difficulty_cleared_with_retries[3] == 99)) {
-    local_c = 1;
+    hasMaxClears = 1;
   }
   else {
-    local_c = 0;
+    hasMaxClears = 0;
   }
-  return local_c;
+  return hasMaxClears;
 }
 

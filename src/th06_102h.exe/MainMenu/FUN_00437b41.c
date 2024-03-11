@@ -9,16 +9,16 @@ undefined4 __fastcall MainMenu::FUN_00437b41(MainMenu *param_1)
   
   iVar1 = FUN_0043753c(param_1,8);
   if ((((param_1->cursor == 1) &&
-       (iVar2 = GameManager::FUN_0043a736(&g_GameManager,0,0), iVar2 == 0)) &&
-      (iVar2 = GameManager::FUN_0043a736(&g_GameManager,0,1), iVar2 == 0)) &&
-     ((iVar2 = GameManager::FUN_0043a736(&g_GameManager,1,0), iVar2 == 0 &&
-      (iVar2 = GameManager::FUN_0043a736(&g_GameManager,1,1), iVar2 == 0)))) {
+       (iVar2 = GameManager::hasReachedMaxClears(&g_GameManager,0,0), iVar2 == 0)) &&
+      (iVar2 = GameManager::hasReachedMaxClears(&g_GameManager,0,1), iVar2 == 0)) &&
+     ((iVar2 = GameManager::hasReachedMaxClears(&g_GameManager,1,0), iVar2 == 0 &&
+      (iVar2 = GameManager::hasReachedMaxClears(&g_GameManager,1,1), iVar2 == 0)))) {
     param_1->cursor = param_1->cursor + iVar1;
   }
   local_c = param_1;
   for (local_8 = 0; local_8 < 8; local_8 = local_8 + 1) {
     FUN_004377a3(local_c,local_8,param_1->cursor,0xffff0000,0x80300000,0x7a);
-    local_c = (MainMenu *)(local_c->field0_0x0 + 1);
+    local_c = (MainMenu *)(local_c->AnmVMArray + 1);
   }
   if (0x13 < (int)param_1->gameSubState) {
     if (((g_CurFrameInput & 0x1001) != 0) &&
@@ -26,7 +26,7 @@ undefined4 __fastcall MainMenu::FUN_00437b41(MainMenu *param_1)
       switch(param_1->cursor) {
       case 0:
         for (local_8 = 0; local_8 < 0x7a; local_8 = local_8 + 1) {
-          param_1->field0_0x0[local_8].pendingInterrupt = 4;
+          param_1->AnmVMArray[local_8].pendingInterrupt = 4;
         }
         param_1->gameState = 6;
         g_GameManager.field30_0x1823 = 0;
@@ -38,28 +38,29 @@ undefined4 __fastcall MainMenu::FUN_00437b41(MainMenu *param_1)
         }
         param_1->gameSubState = 0;
         param_1->unk_81fc = 0x40000000;
-        param_1->unk_8200 = 0xff000000;
+        param_1->unk_8200 = -1.701412e+38;
         param_1->unk_820c = 0;
         param_1->unk_8210 = 0x3c;
         SoundPlayer::FUN_004311e0(&g_SoundPlayer,10);
         break;
       case 1:
-        iVar1 = GameManager::FUN_0043a736(&g_GameManager,0,0);
-        if ((((iVar1 == 0) && (iVar1 = GameManager::FUN_0043a736(&g_GameManager,0,1), iVar1 == 0))
-            && (iVar1 = GameManager::FUN_0043a736(&g_GameManager,1,0), iVar1 == 0)) &&
-           (iVar1 = GameManager::FUN_0043a736(&g_GameManager,1,1), iVar1 == 0)) {
+        iVar1 = GameManager::hasReachedMaxClears(&g_GameManager,0,0);
+        if ((((iVar1 == 0) &&
+             (iVar1 = GameManager::hasReachedMaxClears(&g_GameManager,0,1), iVar1 == 0)) &&
+            (iVar1 = GameManager::hasReachedMaxClears(&g_GameManager,1,0), iVar1 == 0)) &&
+           (iVar1 = GameManager::hasReachedMaxClears(&g_GameManager,1,1), iVar1 == 0)) {
           SoundPlayer::FUN_004311e0(&g_SoundPlayer,0xb);
         }
         else {
           for (local_8 = 0; local_8 < 0x7a; local_8 = local_8 + 1) {
-            param_1->field0_0x0[local_8].pendingInterrupt = 4;
+            param_1->AnmVMArray[local_8].pendingInterrupt = 4;
           }
           param_1->gameState = 6;
           g_GameManager.field30_0x1823 = 0;
           g_GameManager.difficulty = 4;
           param_1->gameSubState = 0;
           param_1->unk_81fc = 0x40000000;
-          param_1->unk_8200 = 0xff000000;
+          param_1->unk_8200 = -1.701412e+38;
           param_1->unk_820c = 0;
           param_1->unk_8210 = 0x3c;
           SoundPlayer::FUN_004311e0(&g_SoundPlayer,10);
@@ -68,7 +69,7 @@ undefined4 __fastcall MainMenu::FUN_00437b41(MainMenu *param_1)
       case 2:
         g_GameManager.field30_0x1823 = 1;
         for (local_8 = 0; local_8 < 0x7a; local_8 = local_8 + 1) {
-          param_1->field0_0x0[local_8].pendingInterrupt = 4;
+          param_1->AnmVMArray[local_8].pendingInterrupt = 4;
         }
         param_1->gameState = 6;
         if (3 < (int)g_GameManager.difficulty) {
@@ -79,32 +80,32 @@ undefined4 __fastcall MainMenu::FUN_00437b41(MainMenu *param_1)
         }
         param_1->gameSubState = 0;
         param_1->unk_81fc = 0x40000000;
-        param_1->unk_8200 = 0xff000000;
+        param_1->unk_8200 = -1.701412e+38;
         param_1->unk_820c = 0;
         param_1->unk_8210 = 0x3c;
         SoundPlayer::FUN_004311e0(&g_SoundPlayer,10);
         break;
       case 3:
         for (local_8 = 0; local_8 < 0x7a; local_8 = local_8 + 1) {
-          param_1->field0_0x0[local_8].pendingInterrupt = 4;
+          param_1->AnmVMArray[local_8].pendingInterrupt = 4;
         }
         param_1->gameState = 0xc;
         g_GameManager.field30_0x1823 = 0;
         param_1->gameSubState = 0;
         param_1->unk_81fc = 0x40000000;
-        param_1->unk_8200 = 0xff000000;
+        param_1->unk_8200 = -1.701412e+38;
         param_1->unk_820c = 0;
         param_1->unk_8210 = 0x3c;
         SoundPlayer::FUN_004311e0(&g_SoundPlayer,10);
         break;
       case 4:
         for (local_8 = 0; local_8 < 0x7a; local_8 = local_8 + 1) {
-          param_1->field0_0x0[local_8].pendingInterrupt = 4;
+          param_1->AnmVMArray[local_8].pendingInterrupt = 4;
         }
         param_1->gameState = 10;
         param_1->gameSubState = 0;
         param_1->unk_81fc = 0x40000000;
-        param_1->unk_8200 = 0xff000000;
+        param_1->unk_8200 = -1.701412e+38;
         param_1->unk_820c = 0;
         param_1->unk_8210 = 0x3c;
         SoundPlayer::FUN_004311e0(&g_SoundPlayer,10);
@@ -113,7 +114,7 @@ undefined4 __fastcall MainMenu::FUN_00437b41(MainMenu *param_1)
         param_1->gameState = 0x10;
         param_1->gameSubState = 0;
         for (local_8 = 0; local_8 < 0x7a; local_8 = local_8 + 1) {
-          param_1->field0_0x0[local_8].pendingInterrupt = 4;
+          param_1->AnmVMArray[local_8].pendingInterrupt = 4;
         }
         SoundPlayer::FUN_004311e0(&g_SoundPlayer,10);
         break;
@@ -121,7 +122,7 @@ undefined4 __fastcall MainMenu::FUN_00437b41(MainMenu *param_1)
         param_1->gameState = 3;
         param_1->gameSubState = 0;
         for (local_8 = 0; local_8 < 0x7a; local_8 = local_8 + 1) {
-          param_1->field0_0x0[local_8].pendingInterrupt = 3;
+          param_1->AnmVMArray[local_8].pendingInterrupt = 3;
         }
         param_1->cursor = 0;
         param_1->field_0x8230 = g_Supervisor.cfg.colorMode16bit;
@@ -133,7 +134,7 @@ undefined4 __fastcall MainMenu::FUN_00437b41(MainMenu *param_1)
         param_1->gameState = 4;
         param_1->gameSubState = 0;
         for (local_8 = 0; local_8 < 0x7a; local_8 = local_8 + 1) {
-          param_1->field0_0x0[local_8].pendingInterrupt = 4;
+          param_1->AnmVMArray[local_8].pendingInterrupt = 4;
         }
         SoundPlayer::FUN_004311e0(&g_SoundPlayer,0xb);
       }
@@ -143,7 +144,7 @@ undefined4 __fastcall MainMenu::FUN_00437b41(MainMenu *param_1)
       param_1->gameState = 4;
       param_1->gameSubState = 0;
       for (local_8 = 0; local_8 < 0x7a; local_8 = local_8 + 1) {
-        param_1->field0_0x0[local_8].pendingInterrupt = 4;
+        param_1->AnmVMArray[local_8].pendingInterrupt = 4;
       }
       SoundPlayer::FUN_004311e0(&g_SoundPlayer,0xb);
     }

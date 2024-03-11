@@ -1,15 +1,15 @@
 
-undefined4 isMusicMutedWtf(void)
+ZunResult isMusicMutedWtf(void)
 
 {
-  undefined4 uVar1;
+  ZunResult isMuted;
   
   if ((g_Supervisor.cfg.musicMode == MIDI) || (g_Supervisor.cfg.musicMode == WAV)) {
-    uVar1 = 0;
+    isMuted = ZUN_SUCCESS;
   }
   else {
-    uVar1 = 0xffffffff;
+    isMuted = ZUN_ERROR;
   }
-  return uVar1;
+  return isMuted;
 }
 

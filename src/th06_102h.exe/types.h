@@ -1958,9 +1958,9 @@ struct Ending {
     undefined field12_0x1119;
     undefined field13_0x111a;
     undefined field14_0x111b;
-    struct ZunTimer anmTimer1;
-    struct ZunTimer anmTimer2;
-    struct ZunTimer anmTimer3;
+    struct ZunTimer Timer1;
+    struct ZunTimer Timer2;
+    struct ZunTimer Timer3;
     undefined field18_0x1140;
     undefined field19_0x1141;
     undefined field20_0x1142;
@@ -72331,6 +72331,10 @@ struct Bullet {
 
 typedef struct ReplayData ReplayData, *PReplayData;
 
+typedef uint uint32_t;
+
+typedef ushort uint16_t;
+
 typedef struct StageReplayData StageReplayData, *PStageReplayData;
 
 typedef struct ReplayDataInput ReplayDataInput, *PReplayDataInput;
@@ -72346,56 +72350,52 @@ struct ReplayData {
     ushort version;
     byte shottype_chara;
     byte difficulty;
-    undefined field4_0x8;
-    undefined field5_0x9;
-    undefined field6_0xa;
-    undefined field7_0xb;
-    undefined field8_0xc;
-    undefined field9_0xd;
-    undefined field10_0xe;
-    undefined field11_0xf;
-    undefined field12_0x10;
-    undefined field13_0x11;
-    undefined field14_0x12;
-    undefined field15_0x13;
-    undefined field16_0x14;
-    undefined field17_0x15;
-    undefined field18_0x16;
-    undefined field19_0x17;
-    undefined field20_0x18;
-    undefined field21_0x19;
-    undefined field22_0x1a;
-    undefined field23_0x1b;
-    undefined field24_0x1c;
-    undefined field25_0x1d;
-    undefined field26_0x1e;
-    undefined field27_0x1f;
-    undefined field28_0x20;
-    undefined field29_0x21;
-    undefined field30_0x22;
-    undefined field31_0x23;
-    undefined field32_0x24;
-    undefined field33_0x25;
-    undefined field34_0x26;
-    undefined field35_0x27;
-    undefined field36_0x28;
-    undefined field37_0x29;
-    undefined field38_0x2a;
-    undefined field39_0x2b;
-    undefined field40_0x2c;
-    undefined field41_0x2d;
-    undefined field42_0x2e;
-    undefined field43_0x2f;
+    uint32_t checksum;
+    uint16_t padding_bytes;
+    uint8_t key;
+    undefined field7_0xf;
+    undefined field8_0x10;
+    undefined field9_0x11;
+    undefined field10_0x12;
+    undefined field11_0x13;
+    undefined field12_0x14;
+    undefined field13_0x15;
+    undefined field14_0x16;
+    undefined field15_0x17;
+    undefined field16_0x18;
+    undefined field17_0x19;
+    undefined field18_0x1a;
+    undefined field19_0x1b;
+    undefined field20_0x1c;
+    undefined field21_0x1d;
+    undefined field22_0x1e;
+    undefined field23_0x1f;
+    undefined field24_0x20;
+    undefined field25_0x21;
+    undefined field26_0x22;
+    undefined field27_0x23;
+    undefined field28_0x24;
+    undefined field29_0x25;
+    undefined field30_0x26;
+    undefined field31_0x27;
+    undefined field32_0x28;
+    undefined field33_0x29;
+    undefined field34_0x2a;
+    undefined field35_0x2b;
+    undefined field36_0x2c;
+    undefined field37_0x2d;
+    undefined field38_0x2e;
+    undefined field39_0x2f;
     struct StageReplayData *stage_score[5];
-    undefined field45_0x44;
-    undefined field46_0x45;
-    undefined field47_0x46;
-    undefined field48_0x47;
+    undefined field41_0x44;
+    undefined field42_0x45;
+    undefined field43_0x46;
+    undefined field44_0x47;
     byte *score_inputs;
-    undefined field50_0x4c;
-    undefined field51_0x4d;
-    undefined field52_0x4e;
-    undefined field53_0x4f;
+    undefined field46_0x4c;
+    undefined field47_0x4d;
+    undefined field48_0x4e;
+    undefined field49_0x4f;
 };
 
 struct StageReplayData {
@@ -74405,7 +74405,7 @@ struct zRect {
 typedef struct MainMenu MainMenu, *PMainMenu;
 
 struct MainMenu {
-    struct AnmVm field0_0x0[122];
+    struct AnmVm AnmVMArray[122];
     uint cursor;
     undefined field2_0x81a4;
     undefined field3_0x81a5;
@@ -74482,9 +74482,9 @@ struct MainMenu {
     undefined field74_0x81ef;
     uint gameState;
     uint gameSubState;
-    uint numFramesWithoutInput;
+    uint idleFrames;
     uint unk_81fc;
-    uint unk_8200;
+    float unk_8200;
     uint unk_8204;
     uint unk_8208;
     uint unk_820c;
@@ -74497,7 +74497,7 @@ struct MainMenu {
     undefined field89_0x8219;
     undefined field90_0x821a;
     undefined field91_0x821b;
-    ushort field92_0x821c[9];
+    struct ControllerMapping controlMapping;
     undefined field93_0x822e;
     undefined field94_0x822f;
     undefined field95_0x8230;

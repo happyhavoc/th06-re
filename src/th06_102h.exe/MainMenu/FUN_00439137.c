@@ -3,18 +3,19 @@ undefined4 __fastcall MainMenu::FUN_00439137(MainMenu *param_1)
 
 {
   uint uVar1;
+  short sVar2;
   AnmVm *local_c;
   int local_8;
   
   FUN_0043753c(param_1,9);
-  local_c = param_1->field0_0x0 + 8;
+  local_c = param_1->AnmVMArray + 8;
   for (local_8 = 0; local_8 < 9; local_8 = local_8 + 1) {
     if ((local_8 < 5) || (7 < local_8)) {
       FUN_00438ef8(param_1,(int)local_c,local_8,local_8,param_1->cursor);
       local_c = local_c + 1;
     }
     else {
-      FUN_00438ef8(param_1,(int)(param_1->field0_0x0 + local_8 + 0x43),local_8,local_8,
+      FUN_00438ef8(param_1,(int)(param_1->AnmVMArray + local_8 + 0x43),local_8,local_8,
                    param_1->cursor);
     }
   }
@@ -34,12 +35,12 @@ undefined4 __fastcall MainMenu::FUN_00439137(MainMenu *param_1)
     FUN_00438ef8(param_1,(int)local_c,4,local_8,(uint)g_Supervisor.cfg.playSounds);
     local_c = local_c + 1;
   }
-  local_c = param_1->field0_0x0 + 0x4d;
+  local_c = param_1->AnmVMArray + 0x4d;
   for (local_8 = 0; local_8 < 3; local_8 = local_8 + 1) {
     FUN_00438ef8(param_1,(int)local_c,3,local_8,(uint)g_Supervisor.cfg.musicMode);
     local_c = local_c + 1;
   }
-  local_c = param_1->field0_0x0 + 0x4b;
+  local_c = param_1->AnmVMArray + 0x4b;
   for (local_8 = 0; local_8 < 2; local_8 = local_8 + 1) {
     FUN_00438ef8(param_1,(int)local_c,5,local_8,(uint)(byte)param_1->field_0x8231);
     local_c = local_c + 1;
@@ -166,15 +167,22 @@ undefined4 __fastcall MainMenu::FUN_00439137(MainMenu *param_1)
         param_1->gameState = 5;
         param_1->gameSubState = 0;
         for (local_8 = 0; local_8 < 0x7a; local_8 = local_8 + 1) {
-          param_1->field0_0x0[local_8].pendingInterrupt = 5;
+          param_1->AnmVMArray[local_8].pendingInterrupt = 5;
         }
         param_1->cursor = 0;
         SoundPlayer::FUN_004311e0(&g_SoundPlayer,10);
-        *(undefined4 *)param_1->field92_0x821c = g_ControllerMapping._0_4_;
-        *(undefined4 *)(param_1->field92_0x821c + 2) = g_ControllerMapping._4_4_;
-        *(undefined4 *)(param_1->field92_0x821c + 4) = g_ControllerMapping._8_4_;
-        *(undefined4 *)(param_1->field92_0x821c + 6) = g_ControllerMapping._12_4_;
-        param_1->field92_0x821c[8] = g_ControllerMapping.skipButton;
+        sVar2 = g_ControllerMapping.bombButton;
+        (param_1->controlMapping).shootButton = g_ControllerMapping.shootButton;
+        (param_1->controlMapping).bombButton = sVar2;
+        sVar2 = g_ControllerMapping.menuButton;
+        (param_1->controlMapping).focusButton = g_ControllerMapping.focusButton;
+        (param_1->controlMapping).menuButton = sVar2;
+        (param_1->controlMapping).upButton = g_ControllerMapping.upButton;
+        (param_1->controlMapping).downButton = g_ControllerMapping.downButton;
+        sVar2 = g_ControllerMapping.rightButton;
+        (param_1->controlMapping).leftButton = g_ControllerMapping.leftButton;
+        (param_1->controlMapping).rightButton = sVar2;
+        (param_1->controlMapping).skipButton = g_ControllerMapping.skipButton;
         g_ControllerMapping.upButton = -1;
         g_ControllerMapping.downButton = -1;
       }
@@ -182,7 +190,7 @@ undefined4 __fastcall MainMenu::FUN_00439137(MainMenu *param_1)
         param_1->gameState = 2;
         param_1->gameSubState = 0;
         for (local_8 = 0; local_8 < 0x7a; local_8 = local_8 + 1) {
-          param_1->field0_0x0[local_8].pendingInterrupt = 2;
+          param_1->AnmVMArray[local_8].pendingInterrupt = 2;
         }
         param_1->cursor = 6;
         SoundPlayer::FUN_004311e0(&g_SoundPlayer,0xb);

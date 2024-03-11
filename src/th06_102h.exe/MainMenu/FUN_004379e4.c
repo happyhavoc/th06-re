@@ -16,7 +16,7 @@ undefined4 __fastcall MainMenu::FUN_004379e4(MainMenu *param_1)
   }
   else {
     param_1->unk_81f4 = 0;
-    param_1->unk_81f0 = 2;
+    param_1->gameState = 2;
     for (local_8 = 0; local_8 < 0x7a; local_8 = local_8 + 1) {
       param_1->field0_0x0[local_8].pendingInterrupt = 2;
     }

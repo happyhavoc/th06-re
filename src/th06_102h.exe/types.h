@@ -74480,7 +74480,7 @@ struct MainMenu {
     undefined field72_0x81ed;
     undefined field73_0x81ee;
     undefined field74_0x81ef;
-    uint unk_81f0;
+    uint gameState;
     uint unk_81f4;
     uint numFramesWithoutInput;
     uint unk_81fc;

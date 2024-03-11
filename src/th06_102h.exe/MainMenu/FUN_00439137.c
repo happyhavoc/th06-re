@@ -163,7 +163,7 @@ undefined4 __fastcall MainMenu::FUN_00439137(MainMenu *param_1)
         Supervisor::PlayAudio("bgm/th06_01.mid");
       }
       else if (uVar1 == 7) {
-        param_1->unk_81f0 = 5;
+        param_1->gameState = 5;
         param_1->unk_81f4 = 0;
         for (local_8 = 0; local_8 < 0x7a; local_8 = local_8 + 1) {
           param_1->field0_0x0[local_8].pendingInterrupt = 5;
@@ -179,7 +179,7 @@ undefined4 __fastcall MainMenu::FUN_00439137(MainMenu *param_1)
         g_ControllerMapping.downButton = -1;
       }
       else if (uVar1 == 8) {
-        param_1->unk_81f0 = 2;
+        param_1->gameState = 2;
         param_1->unk_81f4 = 0;
         for (local_8 = 0; local_8 < 0x7a; local_8 = local_8 + 1) {
           param_1->field0_0x0[local_8].pendingInterrupt = 2;

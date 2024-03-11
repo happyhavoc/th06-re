@@ -20,7 +20,7 @@ void __fastcall FUN_004381ec(MainMenu *param_1)
   uint unaff_retaddr;
   
   local_1c = __security_cookie ^ unaff_retaddr;
-  uVar1 = param_1->unk_81f0;
+  uVar1 = param_1->gameState;
   if (uVar1 == 0xc) {
     if (param_1->unk_81f4 == 0x3c) {
       ZVar2 = LoadReplayMenu(param_1);
@@ -79,7 +79,7 @@ void __fastcall FUN_004381ec(MainMenu *param_1)
         param_1->unk_81fc = 0;
         *(uint *)&param_1->field_0x8214 = param_1->unk_8210;
         param_1->unk_8210 = 0;
-        param_1->unk_81f0 = 0xd;
+        param_1->gameState = 0xd;
         local_8 = param_1;
         for (replayFile = 0; replayFile < 0x7a; replayFile = replayFile + 1) {
           local_8->field0_0x0[0].pendingInterrupt = 0xf;
@@ -100,7 +100,7 @@ void __fastcall FUN_004381ec(MainMenu *param_1)
         *(uint *)&param_1->field_0x81e8 = param_1->cursor;
         if (((g_CurFrameInput & 0x1001) != 0) &&
            ((g_CurFrameInput & 0x1001) != (g_LastFrameInput & 0x1001))) {
-          param_1->unk_81f0 = 0xf;
+          param_1->gameState = 0xf;
           local_8 = (MainMenu *)(param_1->field0_0x0 + 0x61);
           for (replayFile = 0; replayFile < 0x19; replayFile = replayFile + 1) {
             *(short *)local_8->field0_0x0 = 0x11;
@@ -133,7 +133,7 @@ void __fastcall FUN_004381ec(MainMenu *param_1)
       }
 LAB_0043877b:
       if (((g_CurFrameInput & 10) != 0) && ((g_CurFrameInput & 10) != (g_LastFrameInput & 10))) {
-        param_1->unk_81f0 = 0xe;
+        param_1->gameState = 0xe;
         param_1->unk_81f4 = 0;
         for (replayFile = 0; replayFile < 0x7a; replayFile = replayFile + 1) {
           param_1->field0_0x0[replayFile].pendingInterrupt = 4;
@@ -145,7 +145,7 @@ LAB_0043877b:
   }
   else if (uVar1 == 0xe) {
     if (param_1->unk_81f4 == 0x24) {
-      param_1->unk_81f0 = 0;
+      param_1->gameState = 0;
       param_1->unk_81f4 = 0;
     }
   }
@@ -175,13 +175,13 @@ LAB_0043877b:
       if (((g_CurFrameInput & 10) != 0) && ((g_CurFrameInput & 10) != (g_LastFrameInput & 10))) {
         _free((void *)param_1->unk_10edc);
         param_1->unk_10edc = 0;
-        param_1->unk_81f0 = 0xd;
+        param_1->gameState = 0xd;
         param_1->unk_81f4 = 0;
         for (replayFile = 0; replayFile < 0x7a; replayFile = replayFile + 1) {
           param_1->field0_0x0[replayFile].pendingInterrupt = 4;
         }
         SoundPlayer::FUN_004311e0(&g_SoundPlayer,0xb);
-        param_1->unk_81f0 = 0xd;
+        param_1->gameState = 0xd;
         local_8 = param_1;
         for (replayFile = 0; replayFile < 0x7a; replayFile = replayFile + 1) {
           local_8->field0_0x0[0].pendingInterrupt = 0xf;

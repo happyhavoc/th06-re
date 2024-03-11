@@ -18,7 +18,7 @@ undefined4 MainMenu::OnDraw(MainMenu *param_1)
   local_18.top = 0.0;
   local_18.right = 640.0;
   local_18.bottom = 480.0;
-  if (param_1->unk_81f0 != 0) {
+  if (param_1->gameState != 0) {
     g_AnmManager->currentTexture = (IDirect3DTexture8 *)0x0;
     AnmManager::CopySurfaceToBackBuffer(g_AnmManager,0,0,0,0,0);
     if (param_1->unk_8210 == 0) {
@@ -63,7 +63,7 @@ undefined4 MainMenu::OnDraw(MainMenu *param_1)
       }
       curVm = curVm + 1;
     }
-    if ((0xc < (int)param_1->unk_81f0) && ((int)param_1->unk_81f0 < 0x10)) {
+    if ((0xc < (int)param_1->gameState) && ((int)param_1->gameState < 0x10)) {
       FUN_00438bc1(param_1);
     }
     FUN_00439965(param_1);

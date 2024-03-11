@@ -2,11 +2,10 @@
 undefined4 MainMenu::OnUpdate(MainMenu *param_1)
 
 {
-  float fVar1;
   DWORD DVar2;
-  uint uVar3;
-  int iVar4;
-  bool bVar5;
+  uint gameState;
+  int iVar3;
+  bool bVar4;
   uint local_b8;
   uint local_b4;
   uint local_50;
@@ -16,6 +15,7 @@ undefined4 MainMenu::OnUpdate(MainMenu *param_1)
   undefined4 local_28;
   AnmVm *local_c;
   uint local_8;
+  float fVar1;
   
   if ((int)param_1->unk_10ee0 < 0x10) {
     timeBeginPeriod(1);
@@ -26,10 +26,10 @@ undefined4 MainMenu::OnUpdate(MainMenu *param_1)
     DVar2 = timeGetTime();
     timeEndPeriod(1);
     param_1->unk_10f2c = param_1->unk_10f2c + 1;
-    iVar4 = DVar2 - param_1->unk_10f30;
-    if (iVar4 < 700) {
-      if (499 < iVar4) {
-        fVar1 = ((float)param_1->unk_10f2c * 1000.0) / (float)iVar4;
+    iVar3 = DVar2 - param_1->unk_10f30;
+    if (iVar3 < 700) {
+      if (499 < iVar3) {
+        fVar1 = ((float)param_1->unk_10f2c * 1000.0) / (float)iVar3;
         if (57.0 <= fVar1) {
           *(float *)(&param_1->field_0x10ee4 + param_1->unk_10ee0 * 4) = fVar1;
           param_1->unk_10ee0 = param_1->unk_10ee0 + 1;
@@ -43,11 +43,11 @@ undefined4 MainMenu::OnUpdate(MainMenu *param_1)
       param_1->unk_10f2c = 0;
     }
   }
-  uVar3 = param_1->unk_81f0;
-  switch(uVar3) {
+  gameState = param_1->gameState;
+  switch(gameState) {
   case 0:
-    iVar4 = FUN_004378a2();
-    if (iVar4 == -1) {
+    iVar3 = FUN_004378a2();
+    if (iVar3 == -1) {
       return 0;
     }
   case 1:
@@ -67,8 +67,8 @@ LAB_004359b3:
       g_Supervisor.curState = 2;
       return 0;
     }
-    iVar4 = FUN_004379e4(param_1);
-    if (iVar4 == 0) {
+    iVar3 = FUN_004379e4(param_1);
+    if (iVar3 == 0) {
       param_1->numFramesWithoutInput = 0;
 switchD_004358f7_caseD_2:
       FUN_00437b41(param_1);
@@ -82,8 +82,8 @@ switchD_004358f7_caseD_2:
   case 2:
     goto switchD_004358f7_caseD_2;
   case 3:
-    iVar4 = FUN_00439137(param_1);
-    if (iVar4 != 0) {
+    iVar3 = FUN_00439137(param_1);
+    if (iVar3 != 0) {
       return 0;
     }
     break;
@@ -132,11 +132,11 @@ switchD_004358f7_caseD_2:
       local_c = local_c + 1;
     }
     if (0x1f < (int)param_1->unk_81f4) {
-      iVar4 = FUN_0041d680();
+      iVar3 = FUN_0041d680();
       local_28 = local_28 & 0xffff0000;
       while( true ) {
         if ((0x1f < (short)(ushort)local_28) ||
-           ((*(byte *)(iVar4 + (short)(ushort)local_28) & 0x80) != 0)) break;
+           ((*(byte *)(iVar3 + (short)(ushort)local_28) & 0x80) != 0)) break;
         local_28 = CONCAT22(local_28._2_2_,(ushort)local_28 + 1);
       }
       if (((short)(ushort)local_28 < 0x20) && (DAT_00478690 != (ushort)local_28)) {
@@ -190,7 +190,7 @@ switchD_004358f7_caseD_2:
           param_1->field92_0x821c[8] = 0xffff;
         }
         else if (param_1->cursor == 10) {
-          param_1->unk_81f0 = 3;
+          param_1->gameState = 3;
           param_1->unk_81f4 = 0;
           for (local_28._0_2_ = 0; (short)(ushort)local_28 < 0x7a;
               local_28._0_2_ = (ushort)local_28 + 1) {
@@ -214,13 +214,13 @@ switchD_004358f7_caseD_2:
     break;
   case 6:
     if (param_1->unk_81f4 != 0x3c) break;
-    iVar4 = FUN_00439f88();
-    if (iVar4 != 0) {
+    iVar3 = FUN_00439f88();
+    if (iVar3 != 0) {
       GameErrorContextLog(&g_GameErrorContext,"セレクト画面の読み込みに失敗\n");
       g_Supervisor.curState = 4;
       return 0;
     }
-    param_1->unk_81f0 = 7;
+    param_1->gameState = 7;
     param_1->unk_81fc = 0;
     *(uint *)&param_1->field_0x8214 = param_1->unk_8210;
     param_1->unk_8210 = 0;
@@ -238,7 +238,7 @@ switchD_004358f7_caseD_2:
     }
   case 8:
     if (param_1->unk_81f4 == 0x24) {
-      param_1->unk_81f0 = 0;
+      param_1->gameState = 0;
       param_1->unk_81f4 = 0;
     }
     break;
@@ -295,7 +295,7 @@ switchD_004358f7_caseD_2:
     if (((g_CurFrameInput & 10) == 0) || ((g_CurFrameInput & 10) == (g_LastFrameInput & 10))) {
       if (((g_CurFrameInput & 0x1001) != 0) &&
          ((g_CurFrameInput & 0x1001) != (g_LastFrameInput & 0x1001))) {
-        param_1->unk_81f0 = 9;
+        param_1->gameState = 9;
         param_1->unk_81f4 = 0;
         for (local_8 = 0; (int)local_8 < 0x7a; local_8 = local_8 + 1) {
           param_1->field0_0x0[local_8].pendingInterrupt = 7;
@@ -309,10 +309,10 @@ switchD_004358f7_caseD_2:
         else {
           param_1->field0_0x0[0x55].pendingInterrupt = 8;
           g_GameManager.difficulty = 4;
-          iVar4 = GameManager::FUN_0043a736(&g_GameManager,(uint)g_GameManager.character,0);
-          if ((iVar4 == 0) &&
-             (iVar4 = GameManager::FUN_0043a736(&g_GameManager,(uint)g_GameManager.character,1),
-             iVar4 == 0)) {
+          iVar3 = GameManager::FUN_0043a736(&g_GameManager,(uint)g_GameManager.character,0);
+          if ((iVar3 == 0) &&
+             (iVar3 = GameManager::FUN_0043a736(&g_GameManager,(uint)g_GameManager.character,1),
+             iVar3 == 0)) {
             param_1->cursor = 1 - g_GameManager.character;
           }
           else {
@@ -331,7 +331,7 @@ switchD_004358f7_caseD_2:
       }
     }
     else {
-      param_1->unk_81f0 = 8;
+      param_1->gameState = 8;
       param_1->unk_81f4 = 0;
       for (local_8 = 0; (int)local_8 < 0x7a; local_8 = local_8 + 1) {
         param_1->field0_0x0[local_8].pendingInterrupt = 4;
@@ -364,8 +364,8 @@ LAB_0043666d:
           param_1->cursor = param_1->cursor + 2;
         }
         if (((g_GameManager.difficulty == 4) &&
-            (iVar4 = GameManager::FUN_0043a736(&g_GameManager,param_1->cursor,0), iVar4 == 0)) &&
-           (iVar4 = GameManager::FUN_0043a736(&g_GameManager,param_1->cursor,1), iVar4 == 0)) {
+            (iVar3 = GameManager::FUN_0043a736(&g_GameManager,param_1->cursor,0), iVar3 == 0)) &&
+           (iVar3 = GameManager::FUN_0043a736(&g_GameManager,param_1->cursor,1), iVar3 == 0)) {
           param_1->cursor = param_1->cursor + 1;
           if (1 < (int)param_1->cursor) {
             param_1->cursor = param_1->cursor - 2;
@@ -394,8 +394,8 @@ LAB_0043666d:
         param_1->cursor = param_1->cursor - 2;
       }
       if (((g_GameManager.difficulty != 4) ||
-          (iVar4 = GameManager::FUN_0043a736(&g_GameManager,param_1->cursor,0), iVar4 != 0)) ||
-         (iVar4 = GameManager::FUN_0043a736(&g_GameManager,param_1->cursor,1), iVar4 != 0)) {
+          (iVar3 = GameManager::FUN_0043a736(&g_GameManager,param_1->cursor,0), iVar3 != 0)) ||
+         (iVar3 = GameManager::FUN_0043a736(&g_GameManager,param_1->cursor,1), iVar3 != 0)) {
         SoundPlayer::FUN_004311e0(&g_SoundPlayer,0xc);
         local_c = param_1->field0_0x0 + 0x56;
         for (local_8 = 0; (int)local_8 < 2; local_8 = local_8 + 1) {
@@ -419,7 +419,7 @@ LAB_0043666d:
     if (((g_CurFrameInput & 10) == 0) || ((g_CurFrameInput & 10) == (g_LastFrameInput & 10))) {
       if (((g_CurFrameInput & 0x1001) != 0) &&
          ((g_CurFrameInput & 0x1001) != (g_LastFrameInput & 0x1001))) {
-        param_1->unk_81f0 = 0xb;
+        param_1->gameState = 0xb;
         param_1->unk_81f4 = 0;
         for (local_8 = 0; (int)local_8 < 0x7a; local_8 = local_8 + 1) {
           param_1->field0_0x0[local_8].pendingInterrupt = 0xd;
@@ -446,10 +446,10 @@ LAB_0043666d:
           param_1->cursor = (uint)g_GameManager.shottype;
         }
         else {
-          iVar4 = GameManager::FUN_0043a736
+          iVar3 = GameManager::FUN_0043a736
                             (&g_GameManager,(uint)g_GameManager.character,
                              (uint)g_GameManager.shottype);
-          if (iVar4 == 0) {
+          if (iVar3 == 0) {
             param_1->cursor = 1 - g_GameManager.shottype;
           }
           else {
@@ -460,7 +460,7 @@ LAB_0043666d:
       }
     }
     else {
-      param_1->unk_81f0 = 7;
+      param_1->gameState = 7;
       param_1->unk_81f4 = 0;
       if ((int)g_GameManager.difficulty < 4) {
         for (local_8 = 0; (int)local_8 < 0x7a; local_8 = local_8 + 1) {
@@ -486,8 +486,8 @@ LAB_0043666d:
   case 0xb:
     FUN_0043753c(param_1,2);
     if ((g_GameManager.difficulty == 4) &&
-       (iVar4 = GameManager::FUN_0043a736
-                          (&g_GameManager,(uint)g_GameManager.character,param_1->cursor), iVar4 == 0
+       (iVar3 = GameManager::FUN_0043a736
+                          (&g_GameManager,(uint)g_GameManager.character,param_1->cursor), iVar3 == 0
        )) {
       param_1->cursor = 1 - param_1->cursor;
     }
@@ -538,7 +538,7 @@ LAB_0043666d:
             }
             goto LAB_00436de7;
           }
-          param_1->unk_81f0 = 0x11;
+          param_1->gameState = 0x11;
           param_1->unk_81f4 = 0;
           for (local_8 = 0; (int)local_8 < 0x7a; local_8 = local_8 + 1) {
             param_1->field0_0x0[local_8].pendingInterrupt = 0x13;
@@ -580,7 +580,7 @@ LAB_0043666d:
         }
       }
       else {
-        param_1->unk_81f0 = 9;
+        param_1->gameState = 9;
         param_1->unk_81f4 = 0;
         for (local_8 = 0; (int)local_8 < 0x7a; local_8 = local_8 + 1) {
           param_1->field0_0x0[local_8].pendingInterrupt = 7;
@@ -613,7 +613,7 @@ LAB_0043666d:
   case 0xe:
   case 0xf:
     FUN_004381ec(param_1);
-    if (uVar3 != 0) {
+    if (gameState != 0) {
       return 0;
     }
     break;
@@ -716,7 +716,7 @@ LAB_00436de7:
         }
       }
       else {
-        param_1->unk_81f0 = 0xb;
+        param_1->gameState = 0xb;
         param_1->unk_81f4 = 0;
         for (local_8 = 0; (int)local_8 < 0x7a; local_8 = local_8 + 1) {
           param_1->field0_0x0[local_8].pendingInterrupt = 0xd;
@@ -746,16 +746,16 @@ LAB_00436de7:
   param_1->unk_81f4 = param_1->unk_81f4 + 1;
   for (local_8 = 0; (int)local_8 < 0x7a; local_8 = local_8 + 1) {
     if (param_1->field0_0x0[local_8].sprite == (AnmLoadedSprite *)0x0) {
-      bVar5 = false;
+      bVar4 = false;
     }
     else if ((int)(param_1->field0_0x0[local_8].sprite)->sourceFileIndex < 0) {
-      bVar5 = false;
+      bVar4 = false;
     }
     else {
-      bVar5 = g_AnmManager->textures[(param_1->field0_0x0[local_8].sprite)->sourceFileIndex] !=
+      bVar4 = g_AnmManager->textures[(param_1->field0_0x0[local_8].sprite)->sourceFileIndex] !=
               (IDirect3DTexture8 *)0x0;
     }
-    if (bVar5) {
+    if (bVar4) {
       AnmManager::ExecuteScript(g_AnmManager,param_1->field0_0x0 + local_8);
     }
   }

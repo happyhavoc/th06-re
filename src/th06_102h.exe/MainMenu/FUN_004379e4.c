@@ -6,7 +6,7 @@ undefined4 __fastcall MainMenu::FUN_004379e4(MainMenu *param_1)
   undefined4 uVar2;
   int local_8;
   
-  if ((int)param_1->unk_81f4 < 0x1e) {
+  if ((int)param_1->gameSubState < 0x1e) {
     uVar2 = 1;
   }
   else if ((((g_CurFrameInput & 0x160b) == 0) ||
@@ -15,7 +15,7 @@ undefined4 __fastcall MainMenu::FUN_004379e4(MainMenu *param_1)
     uVar2 = 1;
   }
   else {
-    param_1->unk_81f4 = 0;
+    param_1->gameSubState = 0;
     param_1->gameState = 2;
     for (local_8 = 0; local_8 < 0x7a; local_8 = local_8 + 1) {
       param_1->field0_0x0[local_8].pendingInterrupt = 2;

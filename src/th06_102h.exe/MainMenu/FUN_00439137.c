@@ -44,7 +44,7 @@ undefined4 __fastcall MainMenu::FUN_00439137(MainMenu *param_1)
     FUN_00438ef8(param_1,(int)local_c,5,local_8,(uint)(byte)param_1->field_0x8231);
     local_c = local_c + 1;
   }
-  if (0x1f < (int)param_1->unk_81f4) {
+  if (0x1f < (int)param_1->gameSubState) {
     if ((((g_CurFrameInput & 0x40) != 0) && ((g_CurFrameInput & 0x40) != (g_LastFrameInput & 0x40)))
        || (((g_CurFrameInput & 0x40) != 0 && (DAT_0069d90c != 0)))) {
       uVar1 = param_1->cursor;
@@ -164,7 +164,7 @@ undefined4 __fastcall MainMenu::FUN_00439137(MainMenu *param_1)
       }
       else if (uVar1 == 7) {
         param_1->gameState = 5;
-        param_1->unk_81f4 = 0;
+        param_1->gameSubState = 0;
         for (local_8 = 0; local_8 < 0x7a; local_8 = local_8 + 1) {
           param_1->field0_0x0[local_8].pendingInterrupt = 5;
         }
@@ -180,7 +180,7 @@ undefined4 __fastcall MainMenu::FUN_00439137(MainMenu *param_1)
       }
       else if (uVar1 == 8) {
         param_1->gameState = 2;
-        param_1->unk_81f4 = 0;
+        param_1->gameSubState = 0;
         for (local_8 = 0; local_8 < 0x7a; local_8 = local_8 + 1) {
           param_1->field0_0x0[local_8].pendingInterrupt = 2;
         }

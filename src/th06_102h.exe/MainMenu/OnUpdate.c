@@ -88,7 +88,7 @@ switchD_004358f7_caseD_2:
     }
     break;
   case 4:
-    if (0x3b < (int)param_1->unk_81f4) {
+    if (0x3b < (int)param_1->gameSubState) {
       g_Supervisor.curState = 4;
       return 0;
     }
@@ -131,7 +131,7 @@ switchD_004358f7_caseD_2:
       }
       local_c = local_c + 1;
     }
-    if (0x1f < (int)param_1->unk_81f4) {
+    if (0x1f < (int)param_1->gameSubState) {
       iVar3 = FUN_0041d680();
       local_28 = local_28 & 0xffff0000;
       while( true ) {
@@ -191,7 +191,7 @@ switchD_004358f7_caseD_2:
         }
         else if (param_1->cursor == 10) {
           param_1->gameState = 3;
-          param_1->unk_81f4 = 0;
+          param_1->gameSubState = 0;
           for (local_28._0_2_ = 0; (short)(ushort)local_28 < 0x7a;
               local_28._0_2_ = (ushort)local_28 + 1) {
             param_1->field0_0x0[(short)(ushort)local_28].pendingInterrupt = 3;
@@ -213,7 +213,7 @@ switchD_004358f7_caseD_2:
     }
     break;
   case 6:
-    if (param_1->unk_81f4 != 0x3c) break;
+    if (param_1->gameSubState != 0x3c) break;
     iVar3 = FUN_00439f88();
     if (iVar3 != 0) {
       GameErrorContextLog(&g_GameErrorContext,"セレクト画面の読み込みに失敗\n");
@@ -237,9 +237,9 @@ switchD_004358f7_caseD_2:
       param_1->cursor = 0;
     }
   case 8:
-    if (param_1->unk_81f4 == 0x24) {
+    if (param_1->gameSubState == 0x24) {
       param_1->gameState = 0;
-      param_1->unk_81f4 = 0;
+      param_1->gameSubState = 0;
     }
     break;
   case 7:
@@ -296,7 +296,7 @@ switchD_004358f7_caseD_2:
       if (((g_CurFrameInput & 0x1001) != 0) &&
          ((g_CurFrameInput & 0x1001) != (g_LastFrameInput & 0x1001))) {
         param_1->gameState = 9;
-        param_1->unk_81f4 = 0;
+        param_1->gameSubState = 0;
         for (local_8 = 0; (int)local_8 < 0x7a; local_8 = local_8 + 1) {
           param_1->field0_0x0[local_8].pendingInterrupt = 7;
         }
@@ -332,7 +332,7 @@ switchD_004358f7_caseD_2:
     }
     else {
       param_1->gameState = 8;
-      param_1->unk_81f4 = 0;
+      param_1->gameSubState = 0;
       for (local_8 = 0; (int)local_8 < 0x7a; local_8 = local_8 + 1) {
         param_1->field0_0x0[local_8].pendingInterrupt = 4;
       }
@@ -352,7 +352,7 @@ switchD_004358f7_caseD_2:
     }
     break;
   case 9:
-    if ((int)param_1->unk_81f4 < 0x1e) break;
+    if ((int)param_1->gameSubState < 0x1e) break;
     if ((((g_CurFrameInput & 0x40) == 0) || ((g_CurFrameInput & 0x40) == (g_LastFrameInput & 0x40)))
        && (((g_CurFrameInput & 0x40) == 0 || (DAT_0069d90c == 0)))) {
 LAB_0043666d:
@@ -420,7 +420,7 @@ LAB_0043666d:
       if (((g_CurFrameInput & 0x1001) != 0) &&
          ((g_CurFrameInput & 0x1001) != (g_LastFrameInput & 0x1001))) {
         param_1->gameState = 0xb;
-        param_1->unk_81f4 = 0;
+        param_1->gameSubState = 0;
         for (local_8 = 0; (int)local_8 < 0x7a; local_8 = local_8 + 1) {
           param_1->field0_0x0[local_8].pendingInterrupt = 0xd;
         }
@@ -461,7 +461,7 @@ LAB_0043666d:
     }
     else {
       param_1->gameState = 7;
-      param_1->unk_81f4 = 0;
+      param_1->gameSubState = 0;
       if ((int)g_GameManager.difficulty < 4) {
         for (local_8 = 0; (int)local_8 < 0x7a; local_8 = local_8 + 1) {
           param_1->field0_0x0[local_8].pendingInterrupt = 6;
@@ -478,7 +478,7 @@ LAB_0043666d:
     }
     break;
   case 10:
-    if (0x3b < (int)param_1->unk_81f4) {
+    if (0x3b < (int)param_1->gameSubState) {
       g_Supervisor.curState = 6;
       return 0;
     }
@@ -524,7 +524,7 @@ LAB_0043666d:
       }
       local_c = local_c + 1;
     }
-    if (0x1d < (int)param_1->unk_81f4) {
+    if (0x1d < (int)param_1->gameSubState) {
       if (((g_CurFrameInput & 10) == 0) || ((g_CurFrameInput & 10) == (g_LastFrameInput & 10))) {
         if (((g_CurFrameInput & 0x1001) != 0) &&
            ((g_CurFrameInput & 0x1001) != (g_LastFrameInput & 0x1001))) {
@@ -539,7 +539,7 @@ LAB_0043666d:
             goto LAB_00436de7;
           }
           param_1->gameState = 0x11;
-          param_1->unk_81f4 = 0;
+          param_1->gameSubState = 0;
           for (local_8 = 0; (int)local_8 < 0x7a; local_8 = local_8 + 1) {
             param_1->field0_0x0[local_8].pendingInterrupt = 0x13;
           }
@@ -581,7 +581,7 @@ LAB_0043666d:
       }
       else {
         param_1->gameState = 9;
-        param_1->unk_81f4 = 0;
+        param_1->gameSubState = 0;
         for (local_8 = 0; (int)local_8 < 0x7a; local_8 = local_8 + 1) {
           param_1->field0_0x0[local_8].pendingInterrupt = 7;
         }
@@ -612,13 +612,13 @@ LAB_0043666d:
   case 0xd:
   case 0xe:
   case 0xf:
-    FUN_004381ec(param_1);
+    ReplayHandling(param_1);
     if (gameState != 0) {
       return 0;
     }
     break;
   case 0x10:
-    if (0x3b < (int)param_1->unk_81f4) {
+    if (0x3b < (int)param_1->gameSubState) {
       g_Supervisor.curState = 9;
       return 0;
     }
@@ -637,7 +637,7 @@ LAB_0043666d:
       local_50 = 5;
     }
     FUN_0043753c(param_1,local_50);
-    if (0x1d < (int)param_1->unk_81f4) {
+    if (0x1d < (int)param_1->gameSubState) {
       if (((g_CurFrameInput & 10) == 0) || ((g_CurFrameInput & 10) == (g_LastFrameInput & 10))) {
         if (((g_CurFrameInput & 0x1001) != 0) &&
            ((g_CurFrameInput & 0x1001) != (g_LastFrameInput & 0x1001))) {
@@ -717,7 +717,7 @@ LAB_00436de7:
       }
       else {
         param_1->gameState = 0xb;
-        param_1->unk_81f4 = 0;
+        param_1->gameSubState = 0;
         for (local_8 = 0; (int)local_8 < 0x7a; local_8 = local_8 + 1) {
           param_1->field0_0x0[local_8].pendingInterrupt = 0xd;
         }
@@ -743,7 +743,7 @@ LAB_00436de7:
       }
     }
   }
-  param_1->unk_81f4 = param_1->unk_81f4 + 1;
+  param_1->gameSubState = param_1->gameSubState + 1;
   for (local_8 = 0; (int)local_8 < 0x7a; local_8 = local_8 + 1) {
     if (param_1->field0_0x0[local_8].sprite == (AnmLoadedSprite *)0x0) {
       bVar4 = false;

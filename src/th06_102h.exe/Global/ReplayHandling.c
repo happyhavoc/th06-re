@@ -1,5 +1,5 @@
 
-void __fastcall FUN_004381ec(MainMenu *param_1)
+void __fastcall ReplayHandling(MainMenu *param_1)
 
 {
   ZunResult ZVar2;
@@ -10,19 +10,19 @@ void __fastcall FUN_004381ec(MainMenu *param_1)
   char **magics;
   _WIN32_FIND_DATAA replayFileInfo;
   char replayFilePath [64];
-  uint local_1c;
+  uint stackCookie;
   ReplayData *replayData;
   int local_14;
   HANDLE replayFileHandle;
   int replayFile;
   MainMenu *local_8;
-  uint uVar1;
+  uint gameState;
   uint unaff_retaddr;
   
-  local_1c = __security_cookie ^ unaff_retaddr;
-  uVar1 = param_1->gameState;
-  if (uVar1 == 0xc) {
-    if (param_1->unk_81f4 == 0x3c) {
+  stackCookie = __security_cookie ^ unaff_retaddr;
+  gameState = param_1->gameState;
+  if (gameState == STATE_TRANSITION_TO_REPLAY_MENU) {
+    if (param_1->gameSubState == 0x3c) {
       ZVar2 = LoadReplayMenu(param_1);
       if (ZVar2 == ZUN_SUCCESS) {
         local_14 = 0;
@@ -74,7 +74,7 @@ void __fastcall FUN_004381ec(MainMenu *param_1)
           }
         }
         FindClose(replayFileHandle);
-        FUN_0045d5f9(&DAT_0046c3b4);
+        FUN_0045d5f9("../");
         *(int *)&param_1->field_0x81ec = local_14;
         param_1->unk_81fc = 0;
         *(uint *)&param_1->field_0x8214 = param_1->unk_8210;
@@ -93,8 +93,8 @@ void __fastcall FUN_004381ec(MainMenu *param_1)
       }
     }
   }
-  else if (uVar1 == 0xd) {
-    if (0x27 < (int)param_1->unk_81f4) {
+  else if (gameState == STATE_LOAD_REPLAY_MENU) {
+    if (0x27 < (int)param_1->gameSubState) {
       if (*(int *)&param_1->field_0x81ec != 0) {
         MainMenu::FUN_0043753c(param_1,*(int *)&param_1->field_0x81ec);
         *(uint *)&param_1->field_0x81e8 = param_1->cursor;
@@ -108,7 +108,7 @@ void __fastcall FUN_004381ec(MainMenu *param_1)
           }
           local_8 = (MainMenu *)(param_1->field0_0x0 + *(int *)&param_1->field_0x81e8 + 99);
           local_8->field0_0x0[0].pendingInterrupt = 0x10;
-          param_1->unk_81f4 = 0;
+          param_1->gameSubState = 0;
           param_1->cursor = 0;
           SoundPlayer::FUN_004311e0(&g_SoundPlayer,10);
           pbVar4 = FileSystem::OpenPath
@@ -134,7 +134,7 @@ void __fastcall FUN_004381ec(MainMenu *param_1)
 LAB_0043877b:
       if (((g_CurFrameInput & 10) != 0) && ((g_CurFrameInput & 10) != (g_LastFrameInput & 10))) {
         param_1->gameState = 0xe;
-        param_1->unk_81f4 = 0;
+        param_1->gameSubState = 0;
         for (replayFile = 0; replayFile < 0x7a; replayFile = replayFile + 1) {
           param_1->field0_0x0[replayFile].pendingInterrupt = 4;
         }
@@ -143,13 +143,13 @@ LAB_0043877b:
       }
     }
   }
-  else if (uVar1 == 0xe) {
-    if (param_1->unk_81f4 == 0x24) {
+  else if (gameState == 0xe) {
+    if (param_1->gameSubState == 0x24) {
       param_1->gameState = 0;
-      param_1->unk_81f4 = 0;
+      param_1->gameSubState = 0;
     }
   }
-  else if ((uVar1 == 0xf) && (0x27 < (int)param_1->unk_81f4)) {
+  else if ((gameState == 0xf) && (0x27 < (int)param_1->gameSubState)) {
     replayFile = MainMenu::FUN_0043753c(param_1,7);
     if (replayFile < 0) {
       while (*(int *)(&param_1->field_0xfc50 +
@@ -176,7 +176,7 @@ LAB_0043877b:
         _free((void *)param_1->unk_10edc);
         param_1->unk_10edc = 0;
         param_1->gameState = 0xd;
-        param_1->unk_81f4 = 0;
+        param_1->gameSubState = 0;
         for (replayFile = 0; replayFile < 0x7a; replayFile = replayFile + 1) {
           param_1->field0_0x0[replayFile].pendingInterrupt = 4;
         }
@@ -212,7 +212,7 @@ LAB_0043877b:
     }
   }
 LAB_00438bb2:
-  __security_check_cookie(local_1c ^ unaff_retaddr);
+  __security_check_cookie(stackCookie ^ unaff_retaddr);
   return;
 }
 

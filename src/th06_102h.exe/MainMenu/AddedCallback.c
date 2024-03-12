@@ -55,7 +55,7 @@ LAB_0043a520:
   param_1->unk_820c = 0;
   param_1->unk_8210 = 0;
   param_1->unk_10f28 = 0x10;
-  param_1->unk_10edc = 0;
+  param_1->replayGameData = 0;
   scoredat = (ScoreDat *)OpenScore("score.dat");
   ParseClrd(scoredat,g_GameManager.clrd);
   uVar2 = 0x69cd30;

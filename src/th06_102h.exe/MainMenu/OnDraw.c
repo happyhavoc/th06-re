@@ -26,7 +26,7 @@ undefined4 MainMenu::OnDraw(MainMenu *param_1)
         param_1->unk_820c = param_1->unk_820c - 1;
         local_8 = ((uint)param_1->unk_8200 >> 0x18) - (param_1->unk_81fc >> 0x18);
         DrawSquare(&local_18,
-                   ((local_8 * param_1->unk_820c) / *(uint *)&param_1->field_0x8214 +
+                   ((local_8 * param_1->unk_820c) / param_1->field78_0x8214 +
                    (param_1->unk_81fc >> 0x18)) * 0x1000000 | (uint)param_1->unk_8200 & 0xffffff);
       }
     }

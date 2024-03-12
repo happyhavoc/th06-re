@@ -6,7 +6,7 @@ undefined4 __fastcall MainMenu::FUN_004379e4(MainMenu *param_1)
   undefined4 uVar2;
   int local_8;
   
-  if ((int)param_1->gameSubState < 0x1e) {
+  if (param_1->gameSubState < 0x1e) {
     uVar2 = 1;
   }
   else if ((((g_CurFrameInput & 0x160b) == 0) ||

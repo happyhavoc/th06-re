@@ -14,8 +14,8 @@ undefined4 __thiscall MainMenu::FUN_00439965(MainMenu *this)
     local_20.x = 320.0;
     local_20.y = 200.0;
     local_20.z = 0.0;
-    if ((int)this->gameSubState < 0x1e) {
-      local_28 = (int)(this->gameSubState * 0xff) / 0x1e;
+    if (this->gameSubState < 0x1e) {
+      local_28 = (this->gameSubState * 0xff) / 0x1e;
     }
     else {
       local_28 = 0xff;

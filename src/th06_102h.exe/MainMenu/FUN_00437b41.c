@@ -7,7 +7,7 @@ undefined4 __fastcall MainMenu::FUN_00437b41(MainMenu *param_1)
   MainMenu *local_c;
   int local_8;
   
-  ZVar1 = FUN_0043753c(param_1,8);
+  ZVar1 = MoveCursor(param_1,8);
   if ((((param_1->cursor == 1) &&
        (iVar2 = GameManager::hasReachedMaxClears(&g_GameManager,0,0), iVar2 == 0)) &&
       (iVar2 = GameManager::hasReachedMaxClears(&g_GameManager,0,1), iVar2 == 0)) &&
@@ -20,7 +20,7 @@ undefined4 __fastcall MainMenu::FUN_00437b41(MainMenu *param_1)
     FUN_004377a3(local_c,local_8,param_1->cursor,0xffff0000,0x80300000,0x7a);
     local_c = (MainMenu *)(local_c->AnmVMArray + 1);
   }
-  if (0x13 < (int)param_1->gameSubState) {
+  if (0x13 < param_1->gameSubState) {
     if (((g_CurFrameInput & 0x1001) != 0) &&
        ((g_CurFrameInput & 0x1001) != (g_LastFrameInput & 0x1001))) {
       switch(param_1->cursor) {

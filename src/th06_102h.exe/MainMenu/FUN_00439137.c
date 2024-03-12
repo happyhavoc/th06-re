@@ -7,7 +7,7 @@ undefined4 __fastcall MainMenu::FUN_00439137(MainMenu *param_1)
   AnmVm *local_c;
   int local_8;
   
-  FUN_0043753c(param_1,9);
+  MoveCursor(param_1,9);
   local_c = param_1->AnmVMArray + 8;
   for (local_8 = 0; local_8 < 9; local_8 = local_8 + 1) {
     if ((local_8 < 5) || (7 < local_8)) {
@@ -45,7 +45,7 @@ undefined4 __fastcall MainMenu::FUN_00439137(MainMenu *param_1)
     FUN_00438ef8(param_1,(int)local_c,5,local_8,(uint)(byte)param_1->field_0x8231);
     local_c = local_c + 1;
   }
-  if (0x1f < (int)param_1->gameSubState) {
+  if (0x1f < param_1->gameSubState) {
     if ((((g_CurFrameInput & 0x40) != 0) && ((g_CurFrameInput & 0x40) != (g_LastFrameInput & 0x40)))
        || (((g_CurFrameInput & 0x40) != 0 && (DAT_0069d90c != 0)))) {
       uVar1 = param_1->cursor;

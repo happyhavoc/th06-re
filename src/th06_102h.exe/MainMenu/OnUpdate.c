@@ -91,20 +91,20 @@ switchD_004358f7_caseD_2:
     }
     break;
   case 4:
-    if (0x3b < (int)menu->gameSubState) {
+    if (0x3b < menu->gameSubState) {
       g_Supervisor.curState = 4;
       return 0;
     }
     break;
   case 5:
-    FUN_0043753c(menu,0xb);
+    MoveCursor(menu,0xb);
     vm_memset = menu->AnmVMArray + 0x22;
     for (i = 0; (int)i < 0xb; i = i + 1) {
       FUN_004377a3(vm_memset,i,menu->cursor,menu->unk_8204);
       vm_memset = vm_memset + 1;
     }
     for (i = 0; (int)i < 9; i = i + 1) {
-      if ((&(menu->controlMapping).shootButton)[i] < 0) {
+      if (*(short *)((int)(menu->replayFilePaths + -1) + i * 2 + 0x1e0) < 0) {
         *(uint *)&vm_memset->flags = *(uint *)&vm_memset->flags & 0xfffffffd;
       }
       else {
@@ -114,12 +114,12 @@ switchD_004358f7_caseD_2:
       vm_memset = vm_memset + 1;
     }
     for (i = 0; (int)i < 0x12; i = i + 1) {
-      if ((&(menu->controlMapping).shootButton)[(int)i / 2] < 0) {
+      if (*(short *)((int)(menu->replayFilePaths + -1) + ((int)i / 2) * 2 + 0x1e0) < 0) {
         *(uint *)&vm_memset->flags = *(uint *)&vm_memset->flags & 0xfffffffd;
       }
       else {
         *(uint *)&vm_memset->flags = *(uint *)&vm_memset->flags | 2;
-        sVar1 = (&(menu->controlMapping).shootButton)[(int)i / 2];
+        sVar1 = *(short *)((int)(menu->replayFilePaths + -1) + ((int)i / 2) * 2 + 0x1e0);
         if ((int)i % 2 == 0) {
           AnmManager::SetActiveSprite(g_AnmManager,vm_memset,(int)sVar1 / 10 + 0x100);
         }
@@ -131,7 +131,7 @@ switchD_004358f7_caseD_2:
       }
       vm_memset = vm_memset + 1;
     }
-    if (0x1f < (int)menu->gameSubState) {
+    if (0x1f < menu->gameSubState) {
       maxClearCheck = FUN_0041d680();
       local_28 = local_28 & 0xffff0000;
       while( true ) {
@@ -233,7 +233,7 @@ switchD_004358f7_caseD_2:
     }
     menu->gameState = 7;
     menu->unk_81fc = 0;
-    *(uint *)&menu->field_0x8214 = menu->unk_8210;
+    menu->field78_0x8214 = menu->unk_8210;
     menu->unk_8210 = 0;
     if ((int)g_GameManager.difficulty < 4) {
       for (i = 0; (int)i < 122; i = i + 1) {
@@ -256,7 +256,7 @@ switchD_004358f7_caseD_2:
   case 7:
     vm_memset = menu->AnmVMArray + 81;
     if ((int)g_GameManager.difficulty < 4) {
-      FUN_0043753c(menu,4);
+      MoveCursor(menu,4);
       for (i = 0; (int)i < 4; i = i + 1) {
         if (i == menu->cursor) {
           if ((g_Supervisor.cfg.opts & 1) == 0) {
@@ -365,7 +365,7 @@ switchD_004358f7_caseD_2:
     }
     break;
   case 9:
-    if ((int)menu->gameSubState < 0x1e) break;
+    if (menu->gameSubState < 0x1e) break;
     if ((((g_CurFrameInput & 0x40) == 0) || ((g_CurFrameInput & 0x40) == (g_LastFrameInput & 0x40)))
        && (((g_CurFrameInput & 0x40) == 0 || (DAT_0069d90c == 0)))) {
 LAB_0043666d:
@@ -496,13 +496,13 @@ LAB_0043666d:
     }
     break;
   case 10:
-    if (59 < (int)menu->gameSubState) {
+    if (59 < menu->gameSubState) {
       g_Supervisor.curState = 6;
       return 0;
     }
     break;
   case 0xb:
-    FUN_0043753c(menu,2);
+    MoveCursor(menu,2);
     if ((g_GameManager.difficulty == 4) &&
        (maxClearCheck =
              GameManager::hasReachedMaxClears
@@ -543,7 +543,7 @@ LAB_0043666d:
       }
       vm_memset = vm_memset + 1;
     }
-    if (0x1d < (int)menu->gameSubState) {
+    if (0x1d < menu->gameSubState) {
       if (((g_CurFrameInput & 10) == 0) || ((g_CurFrameInput & 10) == (g_LastFrameInput & 10))) {
         if (((g_CurFrameInput & 0x1001) != 0) &&
            ((g_CurFrameInput & 0x1001) != (g_LastFrameInput & 0x1001))) {
@@ -637,7 +637,7 @@ LAB_0043666d:
     }
     break;
   case 0x10:
-    if (0x3b < (int)menu->gameSubState) {
+    if (0x3b < menu->gameSubState) {
       g_Supervisor.curState = 9;
       return 0;
     }
@@ -655,8 +655,8 @@ LAB_0043666d:
     if ((g_GameManager.difficulty == 0) && (local_b8 == 6)) {
       local_50 = 5;
     }
-    FUN_0043753c(menu,local_50);
-    if (0x1d < (int)menu->gameSubState) {
+    MoveCursor(menu,local_50);
+    if (0x1d < menu->gameSubState) {
       if (((g_CurFrameInput & 10) == 0) || ((g_CurFrameInput & 10) == (g_LastFrameInput & 10))) {
         if (((g_CurFrameInput & 0x1001) != 0) &&
            ((g_CurFrameInput & 0x1001) != (g_LastFrameInput & 0x1001))) {

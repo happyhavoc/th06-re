@@ -1,5 +1,5 @@
 
-SoundPlayer * __thiscall SoundPlayer::possibly_play_sound_by_idx(SoundPlayer *this,int soundIdx)
+SoundPlayer * __thiscall SoundPlayer::PlaySoundByIdx(SoundPlayer *this,int soundIdx)
 
 {
   SoundPlayer *pSVar1;

@@ -74397,9 +74397,28 @@ struct zRect {
 
 typedef struct MainMenu MainMenu, *PMainMenu;
 
+typedef enum GameState {
+    STATE_STARTUP=0,
+    STATE_PRE_INPUT=1 /* screen before you press anything */,
+    STATE_2=2,
+    STATE_3=3,
+    STATE_4=4,
+    STATE_5=5,
+    STATE_6=6,
+    STATE_7=7,
+    STATE_8=8,
+    STATE_9=9,
+    STATE_10=10,
+    STATE_11=11,
+    STATE_UNLOAD_TO_REPLAY_MENU=12,
+    STATE_REPLAY_MENU=13,
+    STATE_14=14,
+    STATE_15=15
+} GameState;
+
 struct MainMenu {
     struct AnmVm AnmVMArray[122];
-    uint cursor;
+    int cursor;
     undefined field2_0x81a4;
     undefined field3_0x81a5;
     undefined field4_0x81a6;
@@ -74467,7 +74486,7 @@ struct MainMenu {
     uint unk_81e4;
     uint chosenReplay;
     int replayFilesNum;
-    uint gameState;
+    enum GameState gameState;
     int gameSubState;
     uint idleFrames;
     uint unk_81fc;

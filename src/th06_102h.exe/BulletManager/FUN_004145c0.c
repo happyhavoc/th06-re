@@ -16,7 +16,7 @@ undefined4 __thiscall BulletManager::FUN_004145c0(BulletManager *this,EnemyBulle
   }
 LAB_0041463b:
   if ((param_1->flags & 0x200) != 0) {
-    SoundPlayer::possibly_play_sound_by_idx(&g_SoundPlayer,param_1->sfx);
+    SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,param_1->sfx);
   }
   return 0;
 }

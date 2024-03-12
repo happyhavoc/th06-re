@@ -61,7 +61,7 @@ void __fastcall FUN_0042c2d4(ResultScreen *rs)
       if (rs->unk_10 == 0) goto LAB_0042c515;
     }
     rs->field1_0x4 = 0;
-    SoundPlayer::possibly_play_sound_by_idx(&g_SoundPlayer,0xb);
+    SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xb);
     rs->unk_8 = 2;
     local_8 = &rs->unk_40;
     for (local_10 = 0; local_10 < 0x26; local_10 = local_10 + 1) {
@@ -77,7 +77,7 @@ void __fastcall FUN_0042c2d4(ResultScreen *rs)
           (((g_CurFrameInput & 10) != 0 && ((g_CurFrameInput & 10) != (g_LastFrameInput & 10)))))))
       {
         rs->field1_0x4 = 0;
-        SoundPlayer::possibly_play_sound_by_idx(&g_SoundPlayer,0xb);
+        SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xb);
         rs->unk_8 = 2;
         local_8 = &rs->unk_40;
         for (local_10 = 0; local_10 < 0x26; local_10 = local_10 + 1) {
@@ -99,7 +99,7 @@ void __fastcall FUN_0042c2d4(ResultScreen *rs)
               rs->possibly_selected_character = rs->possibly_selected_character + 0x60;
             }
           } while (g_AlphabetList[rs->possibly_selected_character] == ' ');
-          SoundPlayer::possibly_play_sound_by_idx(&g_SoundPlayer,0xc);
+          SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xc);
         }
         if ((((g_CurFrameInput & 0x20) != 0) &&
             ((g_CurFrameInput & 0x20) != (g_LastFrameInput & 0x20))) ||
@@ -110,7 +110,7 @@ void __fastcall FUN_0042c2d4(ResultScreen *rs)
               rs->possibly_selected_character = rs->possibly_selected_character + -0x60;
             }
           } while (g_AlphabetList[rs->possibly_selected_character] == ' ');
-          SoundPlayer::possibly_play_sound_by_idx(&g_SoundPlayer,0xc);
+          SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xc);
         }
         if ((((g_CurFrameInput & 0x40) != 0) &&
             ((g_CurFrameInput & 0x40) != (g_LastFrameInput & 0x40))) ||
@@ -124,7 +124,7 @@ void __fastcall FUN_0042c2d4(ResultScreen *rs)
               rs->possibly_selected_character = 0xf;
             }
           } while (g_AlphabetList[rs->possibly_selected_character] == ' ');
-          SoundPlayer::possibly_play_sound_by_idx(&g_SoundPlayer,0xc);
+          SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xc);
         }
         if ((((g_CurFrameInput & 0x80) != 0) &&
             ((g_CurFrameInput & 0x80) != (g_LastFrameInput & 0x80))) ||
@@ -135,7 +135,7 @@ void __fastcall FUN_0042c2d4(ResultScreen *rs)
               rs->possibly_selected_character = rs->possibly_selected_character + -0x10;
             }
           } while (g_AlphabetList[rs->possibly_selected_character] == ' ');
-          SoundPlayer::possibly_play_sound_by_idx(&g_SoundPlayer,0xc);
+          SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xc);
         }
         if ((((g_CurFrameInput & 0x1001) != 0) &&
             ((g_CurFrameInput & 0x1001) != (g_LastFrameInput & 0x1001))) ||
@@ -167,7 +167,7 @@ void __fastcall FUN_0042c2d4(ResultScreen *rs)
           if ((rs->unk_10 < 8) && (rs->unk_10 = rs->unk_10 + 1, rs->unk_10 == 8)) {
             rs->possibly_selected_character = 0x5f;
           }
-          SoundPlayer::possibly_play_sound_by_idx(&g_SoundPlayer,10);
+          SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,10);
         }
         if ((((g_CurFrameInput & 10) != 0) && ((g_CurFrameInput & 10) != (g_LastFrameInput & 10)))
            || (((g_CurFrameInput & 10) != 0 && (DAT_0069d90c != 0)))) {
@@ -181,7 +181,7 @@ void __fastcall FUN_0042c2d4(ResultScreen *rs)
             rs->unk_10 = rs->unk_10 + -1;
             (&rs->field_0x34)[local_b8] = 0x20;
           }
-          SoundPlayer::possibly_play_sound_by_idx(&g_SoundPlayer,0xb);
+          SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xb);
         }
         if (((g_CurFrameInput & 8) == 0) || ((g_CurFrameInput & 8) == (g_LastFrameInput & 8)))
         goto LAB_0042d095;
@@ -222,7 +222,7 @@ void __fastcall FUN_0042c2d4(ResultScreen *rs)
         }
       }
 LAB_0042c515:
-      SoundPlayer::possibly_play_sound_by_idx(&g_SoundPlayer,10);
+      SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,10);
       rs->unk_8 = 0xc;
       local_8 = &rs->unk_40;
       for (local_10 = 0; local_10 < 0x26; local_10 = local_10 + 1) {
@@ -256,7 +256,7 @@ LAB_0042c515:
       *(int *)&rs->field_0x1c = rs->unk_10;
       if (((g_CurFrameInput & 0x1001) != 0) &&
          ((g_CurFrameInput & 0x1001) != (g_LastFrameInput & 0x1001))) {
-        SoundPlayer::possibly_play_sound_by_idx(&g_SoundPlayer,10);
+        SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,10);
         *(int *)&rs->field_0x1c = rs->unk_10;
         rs->field1_0x4 = 0;
         FUN_0045d414(&rs->field_0x5670);
@@ -286,7 +286,7 @@ LAB_0042c515:
         rs->possibly_selected_character = 0;
       }
       if (((g_CurFrameInput & 10) != 0) && ((g_CurFrameInput & 10) != (g_LastFrameInput & 10))) {
-        SoundPlayer::possibly_play_sound_by_idx(&g_SoundPlayer,0xb);
+        SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xb);
         rs->unk_8 = 10;
         local_8 = &rs->unk_40;
         for (local_10 = 0; local_10 < 0x26; local_10 = local_10 + 1) {

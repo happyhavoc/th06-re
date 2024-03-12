@@ -17,7 +17,7 @@ void __fastcall ReplayHandling(MainMenu *menu)
   HANDLE replayFileHandle;
   int i;
   MainMenu *main_menu;
-  uint gameState;
+  GameState gameState;
   uint unaff_retaddr;
   
   stackCookie = __security_cookie ^ unaff_retaddr;
@@ -80,7 +80,7 @@ void __fastcall ReplayHandling(MainMenu *menu)
         menu->unk_81fc = 0;
         menu->field78_0x8214 = menu->unk_8210;
         menu->unk_8210 = 0;
-        menu->gameState = STATE_TRANSITION_TO_REPLAY_MENU;
+        menu->gameState = STATE_REPLAY_MENU;
         main_menu = menu;
         for (i = 0; i < 122; i = i + 1) {
           main_menu->AnmVMArray[0].pendingInterrupt = 15;
@@ -94,14 +94,14 @@ void __fastcall ReplayHandling(MainMenu *menu)
       }
     }
   }
-  else if (gameState == STATE_TRANSITION_TO_REPLAY_MENU) {
+  else if (gameState == STATE_REPLAY_MENU) {
     if (0x27 < menu->gameSubState) {
       if (menu->replayFilesNum != 0) {
         MainMenu::MoveCursor(menu,menu->replayFilesNum);
         menu->chosenReplay = menu->cursor;
         if (((g_CurFrameInput & 0x1001) != 0) &&
            ((g_CurFrameInput & 0x1001) != (g_LastFrameInput & 0x1001))) {
-          menu->gameState = 0xf;
+          menu->gameState = STATE_15;
           main_menu = (MainMenu *)(menu->AnmVMArray + 0x61);
           for (i = 0; i < 0x19; i = i + 1) {
             *(short *)main_menu->AnmVMArray = 0x11;
@@ -111,7 +111,7 @@ void __fastcall ReplayHandling(MainMenu *menu)
           main_menu->AnmVMArray[0].pendingInterrupt = 0x10;
           menu->gameSubState = 0;
           menu->cursor = 0;
-          SoundPlayer::possibly_play_sound_by_idx(&g_SoundPlayer,10);
+          SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,10);
           pbVar4 = FileSystem::OpenPath(menu->replayFilePaths[menu->chosenReplay],1);
           menu->replayGameData = (int)pbVar4;
           validateReplayData((ReplayData *)menu->replayGameData,g_LastFileSize);
@@ -125,34 +125,34 @@ void __fastcall ReplayHandling(MainMenu *menu)
             if (*(int *)(&menu->field_0xfc50 + menu->cursor * 4 + menu->chosenReplay * 0x50) != 0)
             goto LAB_0043877b;
             menu->cursor = menu->cursor + 1;
-          } while ((int)menu->cursor < 7);
+          } while (menu->cursor < 7);
           goto LAB_00438bb2;
         }
       }
 LAB_0043877b:
       if (((g_CurFrameInput & 10) != 0) && ((g_CurFrameInput & 10) != (g_LastFrameInput & 10))) {
-        menu->gameState = 0xe;
+        menu->gameState = STATE_14;
         menu->gameSubState = 0;
         for (i = 0; i < 0x7a; i = i + 1) {
           menu->AnmVMArray[i].pendingInterrupt = 4;
         }
-        SoundPlayer::possibly_play_sound_by_idx(&g_SoundPlayer,0xb);
+        SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xb);
         menu->cursor = 0;
       }
     }
   }
-  else if (gameState == 0xe) {
+  else if (gameState == STATE_14) {
     if (menu->gameSubState == 0x24) {
-      menu->gameState = 0;
+      menu->gameState = STATE_STARTUP;
       menu->gameSubState = 0;
     }
   }
-  else if ((gameState == 0xf) && (0x27 < menu->gameSubState)) {
+  else if ((gameState == STATE_15) && (0x27 < menu->gameSubState)) {
     i = MainMenu::MoveCursor(menu,7);
     if (i < ZUN_SUCCESS) {
       while (*(int *)(&menu->field_0xfc50 + menu->cursor * 4 + menu->chosenReplay * 0x50) == 0) {
-        menu->cursor = menu->cursor - 1;
-        if ((int)menu->cursor < 0) {
+        menu->cursor = menu->cursor + -1;
+        if (menu->cursor < 0) {
           menu->cursor = 6;
         }
       }
@@ -160,7 +160,7 @@ LAB_0043877b:
     else if (ZUN_SUCCESS < i) {
       while (*(int *)(&menu->field_0xfc50 + menu->cursor * 4 + menu->chosenReplay * 0x50) == 0) {
         menu->cursor = menu->cursor + 1;
-        if (6 < (int)menu->cursor) {
+        if (6 < menu->cursor) {
           menu->cursor = 0;
         }
       }
@@ -171,13 +171,13 @@ LAB_0043877b:
       if (((g_CurFrameInput & 10) != 0) && ((g_CurFrameInput & 10) != (g_LastFrameInput & 10))) {
         _free((void *)menu->replayGameData);
         menu->replayGameData = 0;
-        menu->gameState = STATE_TRANSITION_TO_REPLAY_MENU;
+        menu->gameState = STATE_REPLAY_MENU;
         menu->gameSubState = 0;
         for (i = 0; i < 0x7a; i = i + 1) {
           menu->AnmVMArray[i].pendingInterrupt = 4;
         }
-        SoundPlayer::possibly_play_sound_by_idx(&g_SoundPlayer,0xb);
-        menu->gameState = 0xd;
+        SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xb);
+        menu->gameState = STATE_REPLAY_MENU;
         main_menu = menu;
         for (i = 0; i < 0x7a; i = i + 1) {
           main_menu->AnmVMArray[0].pendingInterrupt = 0xf;

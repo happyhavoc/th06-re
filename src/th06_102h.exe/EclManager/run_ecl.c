@@ -1067,7 +1067,7 @@ switchD_00407544_caseD_2:
     param_1->flags2 = param_1->flags2 & 0xef | (*(byte *)(local_20 + 3) & 1) << 4;
     break;
   case 0x6a:
-    SoundPlayer::possibly_play_sound_by_idx(&g_SoundPlayer,local_20[3]);
+    SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,local_20[3]);
     break;
   case 0x6b:
     param_1->flags2 = param_1->flags2 & 0x1f | *(char *)(local_20 + 3) << 5;

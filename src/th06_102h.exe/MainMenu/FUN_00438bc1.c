@@ -37,7 +37,7 @@ undefined4 __thiscall MainMenu::FUN_00438bc1(MainMenu *this)
                (&PTR_s_Easy_004786c0)[(byte)(&this->field_0xfc23)[local_c * 0x50]]);
     local_8 = local_8 + 1;
   }
-  if ((this->gameState == 0xf) && (this->replayGameData != 0)) {
+  if ((this->gameState == STATE_15) && (this->replayGameData != 0)) {
     g_AsciiManager.color = 0xffffffff;
     g_AsciiManager.isSelected = 0;
     AsciiManager::AddFormatText

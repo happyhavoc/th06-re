@@ -81,7 +81,7 @@ ChainCallbackResult GameManager::OnUpdate(GameManager *this)
          (UINT_ARRAY_004764b0[(char)this->field23_0x181c] <= (uint)this->field0_0x0)) {
         if ((char)this->lives_remaining < '\b') {
           this->lives_remaining = this->lives_remaining + 1;
-          SoundPlayer::possibly_play_sound_by_idx(&g_SoundPlayer,0x1c);
+          SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0x1c);
         }
         g_Gui.flags = g_Gui.flags & 0xfffffffc | 2;
         this->field23_0x181c = this->field23_0x181c + 1;

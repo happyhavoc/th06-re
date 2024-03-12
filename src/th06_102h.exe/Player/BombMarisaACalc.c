@@ -65,7 +65,7 @@ void Player::BombMarisaACalc(Player *param_1)
         (param_1->inner).field8_0xbc[local_8 * 3 + 2] = 0;
         local_c = local_c + 1;
       }
-      SoundPlayer::possibly_play_sound_by_idx(&g_SoundPlayer,6);
+      SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,6);
       ScreenEffect::RegisterChain(1,0x78,4,1);
     }
     param_1->field21_0x9e0 = 3;

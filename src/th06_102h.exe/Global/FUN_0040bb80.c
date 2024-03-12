@@ -65,7 +65,7 @@ void FUN_0040bb80(Enemy *param_1)
         (param_1->bullet_props).speed1 = fVar1;
         (param_1->bullet_props).angle1 = (param_1->bullet_props).angle1 - fVar8 * 0.5235988;
       }
-      SoundPlayer::possibly_play_sound_by_idx(&g_SoundPlayer,0x16);
+      SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0x16);
     }
     (param_1->current_context).var2 = (param_1->current_context).var2 + 1;
   }

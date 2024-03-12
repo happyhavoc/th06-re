@@ -66,7 +66,7 @@ void Player::BombReimuACalc(Player *param_1)
           AnmManager::ExecuteAnmIdx(g_AnmManager,local_14,local_28 + 0x485);
           local_14 = local_14 + 1;
         }
-        SoundPlayer::possibly_play_sound_by_idx(&g_SoundPlayer,0xd);
+        SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xd);
       }
     }
     param_1->field21_0x9e0 = 3;
@@ -143,7 +143,7 @@ void Player::BombReimuACalc(Player *param_1)
               param_1->field13_0x7b8[local_10] = 200;
               param_1->field15_0x8b8[local_10].size1.x = 256.0;
               param_1->field15_0x8b8[local_10].size1.y = 256.0;
-              SoundPlayer::possibly_play_sound_by_idx(&g_SoundPlayer,0xf);
+              SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xf);
               ScreenEffect::RegisterChain();
             }
           }

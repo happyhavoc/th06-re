@@ -97,7 +97,7 @@ void FUN_0040c5b0(int param_1)
       BulletManager::FUN_004145c0(&g_BulletManager,(EnemyBulletShooter *)local_64);
       local_88 = local_88 + 0.1745329;
     }
-    SoundPlayer::possibly_play_sound_by_idx(&g_SoundPlayer,7);
+    SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,7);
   }
   *(int *)(param_1 + 0x9ac) = *(int *)(param_1 + 0x9ac) + 1;
   return;

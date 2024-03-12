@@ -127,7 +127,7 @@ void __thiscall Gui::FUN_00419c99(Gui *this)
     }
     local_18 = local_1e8;
     if ((local_1e8 < 10) && (this->field7_0x1c != this->ecl_spellcard_related)) {
-      SoundPlayer::possibly_play_sound_by_idx(&g_SoundPlayer,0x1d);
+      SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0x1d);
     }
     AsciiManager::AddFormatText(&g_AsciiManager,&local_28,"%.2d",local_18);
     g_AsciiManager.color = 0xffffffff;

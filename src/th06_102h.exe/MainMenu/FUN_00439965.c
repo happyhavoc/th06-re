@@ -8,7 +8,7 @@ undefined4 __thiscall MainMenu::FUN_00439965(MainMenu *this)
   uint local_14;
   int local_10;
   uint local_c;
-  uint local_8;
+  int local_8;
   
   if (this->gameState == 0x11) {
     local_20.x = 320.0;
@@ -32,7 +32,7 @@ undefined4 __thiscall MainMenu::FUN_00439965(MainMenu *this)
     if ((g_GameManager.difficulty == 0) && (local_2c == 6)) {
       local_14 = 5;
     }
-    for (local_8 = 0; (int)local_8 < (int)local_14; local_8 = local_8 + 1) {
+    for (local_8 = 0; local_8 < (int)local_14; local_8 = local_8 + 1) {
       if (local_8 == this->cursor) {
         g_AsciiManager.color = local_c << 0x18 | 0xc0f0f0;
       }

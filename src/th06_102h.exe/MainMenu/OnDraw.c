@@ -18,7 +18,7 @@ undefined4 MainMenu::OnDraw(MainMenu *param_1)
   local_18.top = 0.0;
   local_18.right = 640.0;
   local_18.bottom = 480.0;
-  if (param_1->gameState != 0) {
+  if (param_1->gameState != STATE_STARTUP) {
     g_AnmManager->currentTexture = (IDirect3DTexture8 *)0x0;
     AnmManager::CopySurfaceToBackBuffer(g_AnmManager,0,0,0,0,0);
     if (param_1->unk_8210 == 0) {

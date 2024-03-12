@@ -57,7 +57,7 @@ undefined4 __fastcall ResultScreen::FUN_0042bc85(ResultScreen *rs)
         rs->possibly_selected_character = rs->possibly_selected_character + 0x60;
       }
     } while (g_AlphabetList[rs->possibly_selected_character] == ' ');
-    SoundPlayer::possibly_play_sound_by_idx(&g_SoundPlayer,0xc);
+    SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xc);
   }
   if ((((g_CurFrameInput & 0x20) != 0) && ((g_CurFrameInput & 0x20) != (g_LastFrameInput & 0x20)))
      || (((g_CurFrameInput & 0x20) != 0 && (DAT_0069d90c != 0)))) {
@@ -67,7 +67,7 @@ undefined4 __fastcall ResultScreen::FUN_0042bc85(ResultScreen *rs)
         rs->possibly_selected_character = rs->possibly_selected_character + -0x60;
       }
     } while (g_AlphabetList[rs->possibly_selected_character] == ' ');
-    SoundPlayer::possibly_play_sound_by_idx(&g_SoundPlayer,0xc);
+    SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xc);
   }
   if ((((g_CurFrameInput & 0x40) != 0) && ((g_CurFrameInput & 0x40) != (g_LastFrameInput & 0x40)))
      || (((g_CurFrameInput & 0x40) != 0 && (DAT_0069d90c != 0)))) {
@@ -80,7 +80,7 @@ undefined4 __fastcall ResultScreen::FUN_0042bc85(ResultScreen *rs)
         rs->possibly_selected_character = 0xf;
       }
     } while (g_AlphabetList[rs->possibly_selected_character] == ' ');
-    SoundPlayer::possibly_play_sound_by_idx(&g_SoundPlayer,0xc);
+    SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xc);
   }
   if ((((g_CurFrameInput & 0x80) != 0) && ((g_CurFrameInput & 0x80) != (g_LastFrameInput & 0x80)))
      || (((g_CurFrameInput & 0x80) != 0 && (DAT_0069d90c != 0)))) {
@@ -90,7 +90,7 @@ undefined4 __fastcall ResultScreen::FUN_0042bc85(ResultScreen *rs)
         rs->possibly_selected_character = rs->possibly_selected_character + -0x10;
       }
     } while (g_AlphabetList[rs->possibly_selected_character] == ' ');
-    SoundPlayer::possibly_play_sound_by_idx(&g_SoundPlayer,0xc);
+    SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xc);
   }
   if ((((g_CurFrameInput & 0x1001) == 0) ||
       ((g_CurFrameInput & 0x1001) == (g_LastFrameInput & 0x1001))) &&
@@ -108,7 +108,7 @@ LAB_0042c1aa:
         rs->unk_10 = rs->unk_10 + -1;
         (rs->hscr).name[local_20] = ' ';
       }
-      SoundPlayer::possibly_play_sound_by_idx(&g_SoundPlayer,0xb);
+      SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xb);
     }
     if ((g_CurFrameInput & 8) == 0) {
       return 0;
@@ -130,7 +130,7 @@ LAB_0042c173:
       if ((rs->unk_10 < 8) && (rs->unk_10 = rs->unk_10 + 1, rs->unk_10 == 8)) {
         rs->possibly_selected_character = 0x5f;
       }
-      SoundPlayer::possibly_play_sound_by_idx(&g_SoundPlayer,10);
+      SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,10);
       goto LAB_0042c1aa;
     }
     if (rs->possibly_selected_character == 0x5e) {
@@ -138,7 +138,7 @@ LAB_0042c173:
       goto LAB_0042c173;
     }
   }
-  SoundPlayer::possibly_play_sound_by_idx(&g_SoundPlayer,0xb);
+  SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xb);
 LAB_0042c273:
   rs->unk_8 = 0xf;
   rs->field1_0x4 = 0;

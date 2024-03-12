@@ -34,13 +34,19 @@ undefined4 __thiscall MainMenu::DrawReplayMenu(MainMenu *this)
                        
                        "No.1 AAAA 07/03/23 MarisaB Extra
                         */
-    AsciiManager::AddFormatText(&g_AsciiManager,&vm_ref[1].pos,"%s %8s  %8s %7s  %7s");
+    AsciiManager::AddFormatText
+              (&g_AsciiManager,&vm_ref[1].pos,"%s %8s  %8s %7s  %7s",this->replayFileNumber + i,
+               &this->replay_name_ref + i * 0x14,&this->replay_date_ref + i * 0x14,
+               (&g_shortCharacterList)[(&this->field100_0xfc22)[i * 0x50]],
+               (&g_difficultyList)[(&this->field101_0xfc23)[i * 0x50]]);
     vm_ref = vm_ref + 1;
   }
   if ((this->gameState == STATE_15) && (this->replayGameData != (int *)0x0)) {
     g_AsciiManager.color = 0xffffffff;
     g_AsciiManager.isSelected = 0;
-    AsciiManager::AddFormatText(&g_AsciiManager,&this->AnmVMArray[0x61].pos,"       %2.3f%%");
+    AsciiManager::AddFormatText
+              (&g_AsciiManager,&this->AnmVMArray[0x61].pos,"       %2.3f%%",
+               (double)(float)this->replayGameData[0xb]);
     AsciiManager::AddFormatText(&g_AsciiManager,&this->AnmVMArray[0x72].pos,"Stage  LastScore");
     vm_ref = this->AnmVMArray + 0x72;
     for (i = 0; i < 7; i = i + 1) {
@@ -66,7 +72,7 @@ undefined4 __thiscall MainMenu::DrawReplayMenu(MainMenu *this)
         AsciiManager::AddFormatText(&g_AsciiManager,&vm_ref[1].pos,"%s ---------");
       }
       else {
-        AsciiManager::AddFormatText(&g_AsciiManager,&vm_ref[1].pos,"%s %9d");
+        AsciiManager::AddFormatText(&g_AsciiManager,&vm_ref[1].pos,"%s %9d",(&g_stageList)[i]);
       }
       vm_ref = vm_ref + 1;
     }

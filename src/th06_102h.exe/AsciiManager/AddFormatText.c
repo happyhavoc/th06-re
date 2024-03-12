@@ -1,5 +1,5 @@
 
-void AsciiManager::AddFormatText(AsciiManager *manager,D3DXVECTOR3 *position,char *fmt)
+void AsciiManager::AddFormatText(AsciiManager *manager,D3DXVECTOR3 *position,char *fmt,...)
 
 {
   uint unaff_retaddr;

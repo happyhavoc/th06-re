@@ -15,7 +15,8 @@ void __thiscall Gui::FUN_0041adf3(Gui *this)
       g_AsciiManager.color = (this->impl->vm1).color.color & 0xff000000 | 0xffff40;
       if ((int)g_GameManager.current_stage < 6) {
         local_10.x = 168.0;
-        AsciiManager::AddFormatText(&g_AsciiManager,&local_10,"STAGE %d");
+        AsciiManager::AddFormatText
+                  (&g_AsciiManager,&local_10,"STAGE %d",g_GameManager.current_stage);
       }
       else if (g_GameManager.current_stage == 6) {
         local_10.x = 136.0;

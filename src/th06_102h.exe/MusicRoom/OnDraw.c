@@ -36,7 +36,7 @@ undefined4 MusicRoom::OnDraw(int param_1)
       AsciiManager::AddString(&g_AsciiManager,&local_18,&local_c);
     }
     local_18.x = local_18.x + 15.0;
-    AsciiManager::AddFormatText(&g_AsciiManager,&local_18,"%2d.");
+    AsciiManager::AddFormatText(&g_AsciiManager,&local_18,"%2d.",local_8 + 1);
   }
   for (local_8 = 0; local_8 < 0x10; local_8 = local_8 + 1) {
     AnmManager::FUN_00432ad0(g_AnmManager,(AnmVm *)(param_1 + 0x2334 + local_8 * 0x110));

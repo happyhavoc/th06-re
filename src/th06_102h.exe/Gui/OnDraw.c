@@ -25,22 +25,32 @@ void Gui::OnDraw(Gui *arg)
     }
     local_10.y = local_10.y + 32.0;
     g_AsciiManager.color = 0xffffffff;
-    AsciiManager::AddFormatText(&g_AsciiManager,&local_10,"Stage * 1000 = %5d\n");
+    AsciiManager::AddFormatText
+              (&g_AsciiManager,&local_10,"Stage * 1000 = %5d\n",g_GameManager.current_stage * 1000);
     local_10.y = local_10.y + 16.0;
     g_AsciiManager.color = 0xffe0e0ff;
-    AsciiManager::AddFormatText(&g_AsciiManager,&local_10,"Power *  100 = %5d\n");
+    AsciiManager::AddFormatText
+              (&g_AsciiManager,&local_10,"Power *  100 = %5d\n",
+               (uint)g_GameManager.current_power * 100);
     local_10.y = local_10.y + 16.0;
     g_AsciiManager.color = 0xffd0d0ff;
-    AsciiManager::AddFormatText(&g_AsciiManager,&local_10,"Graze *   10 = %5d\n");
+    AsciiManager::AddFormatText
+              (&g_AsciiManager,&local_10,"Graze *   10 = %5d\n",g_GameManager.graze_in_stage * 10);
     local_10.y = local_10.y + 16.0;
     g_AsciiManager.color = 0xffff8080;
-    AsciiManager::AddFormatText(&g_AsciiManager,&local_10,"    * Point Item %3d\n");
+    AsciiManager::AddFormatText
+              (&g_AsciiManager,&local_10,"    * Point Item %3d\n",
+               (uint)g_GameManager.point_items_collected_in_stage);
     if (5 < (int)g_GameManager.current_stage) {
       local_10.y = local_10.y + 16.0;
       g_AsciiManager.color = 0xffffff80;
-      AsciiManager::AddFormatText(&g_AsciiManager,&local_10,"Player    = %8d\n");
+      AsciiManager::AddFormatText
+                (&g_AsciiManager,&local_10,"Player    = %8d\n",
+                 (char)g_GameManager.lives_remaining * 3000000);
       local_10.y = local_10.y + 16.0;
-      AsciiManager::AddFormatText(&g_AsciiManager,&local_10,"Bomb      = %8d\n");
+      AsciiManager::AddFormatText
+                (&g_AsciiManager,&local_10,"Bomb      = %8d\n",
+                 (char)g_GameManager.bombs_remaining * 1000000);
     }
     local_10.y = local_10.y + 32.0;
     if (g_GameManager.difficulty == 0) {
@@ -77,7 +87,7 @@ void Gui::OnDraw(Gui *arg)
       }
     }
     g_AsciiManager.color = 0xffffffff;
-    AsciiManager::AddFormatText(&g_AsciiManager,&local_10,"Total     = %8d");
+    AsciiManager::AddFormatText(&g_AsciiManager,&local_10,"Total     = %8d",arg->impl->stage_score);
     g_AsciiManager.color = 0xffffffff;
   }
   FUN_004190ec();
@@ -86,14 +96,16 @@ void Gui::OnDraw(Gui *arg)
   g_AsciiManager.isGui = 1;
   if ((arg->impl->field15_0x2be4).field2_0x10 != 0) {
     g_AsciiManager.color = 0xffffff80;
-    AsciiManager::AddFormatText(&g_AsciiManager,&(arg->impl->field15_0x2be4).field0_0x0,"BONUS %8d")
-    ;
+    AsciiManager::AddFormatText
+              (&g_AsciiManager,&(arg->impl->field15_0x2be4).field0_0x0,"BONUS %8d",
+               (arg->impl->field15_0x2be4).field1_0xc);
     g_AsciiManager.color = 0xffffffff;
   }
   if ((arg->impl->field16_0x2c04).field2_0x10 != 0) {
     g_AsciiManager.color = 0xffc0b0ff;
     AsciiManager::AddFormatText
-              (&g_AsciiManager,&(arg->impl->field16_0x2c04).field0_0x0,"Full Power Mode!!");
+              (&g_AsciiManager,&(arg->impl->field16_0x2c04).field0_0x0,"Full Power Mode!!",
+               (arg->impl->field16_0x2c04).field1_0xc);
     g_AsciiManager.color = 0xffffffff;
   }
   if ((arg->impl->field17_0x2c24).field2_0x10 != 0) {

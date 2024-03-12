@@ -39,7 +39,10 @@ undefined4 __thiscall MainMenu::FUN_00439965(MainMenu *this)
       else {
         g_AsciiManager.color = (local_c >> 1) << 0x18 | 0x80c0c0;
       }
-      AsciiManager::AddFormatText(&g_AsciiManager,&local_20,"STAGE %d  %.9d");
+      AsciiManager::AddFormatText
+                (&g_AsciiManager,&local_20,"STAGE %d  %.9d",local_8 + 1,
+                 *(undefined4 *)
+                  (local_10 * 0x1e0 + local_8 * 0x50 + 0x69cd3c + g_GameManager.difficulty * 0x14));
       local_20.y = local_20.y + 24.0;
     }
     g_AsciiManager.color = 0xffffffff;

@@ -30,9 +30,9 @@ void __thiscall ItemManager::FUN_0041f4a0(ItemManager *this)
     FLOAT_0069e23c = 16.0;
   }
   bVar7 = false;
-  this->item_count = 0;
+  *(undefined4 *)&this[0x201].field_0x4 = 0;
   local_8 = 0;
-  curItem = this->items;
+  curItem = (Item *)this;
   do {
     if (0x1ff < local_8) {
       if (bVar7) {
@@ -41,7 +41,7 @@ void __thiscall ItemManager::FUN_0041f4a0(ItemManager *this)
       return;
     }
     if (curItem->is_in_use != 0) {
-      this->item_count = this->item_count + 1;
+      *(int *)&this[0x201].field_0x4 = *(int *)&this[0x201].field_0x4 + 1;
       if (curItem->state == 2) {
         if (0x3b < (curItem->timer).current) {
           if ((curItem->timer).current == 0x3c) {
@@ -92,7 +92,7 @@ LAB_0041f7c5:
         if (g_GameManager.arcade_region_size.y + 16.0 < fVar11 !=
             (g_GameManager.arcade_region_size.y + 16.0 == fVar11)) {
           curItem->is_in_use = 0;
-          FUN_0041c5fa(3);
+          GameManager::FUN_0041c5fa(&g_GameManager,3);
           goto LAB_0041f512;
         }
         fVar11 = (curItem->velocity).y;

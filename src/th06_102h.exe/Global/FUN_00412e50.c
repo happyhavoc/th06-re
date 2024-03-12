@@ -2,22 +2,22 @@
 void FUN_00412e50(Enemy *enemy)
 
 {
-  Effect *pEVar1;
-  float fVar2;
-  int local_c;
+  float fVar1;
+  int i;
+  Effect *effect;
   
-  for (local_c = 0; local_c < enemy->effect_idx; local_c = local_c + 1) {
-    pEVar1 = enemy->effect_array[local_c];
-    if (pEVar1 != (Effect *)0x0) {
-      (pEVar1->field8_0x134).x = (enemy->position).x;
-      (pEVar1->field8_0x134).y = (enemy->position).y;
-      (pEVar1->field8_0x134).z = (enemy->position).z;
-      if (pEVar1->field11_0x15c < enemy->effect_distance !=
-          (NAN(pEVar1->field11_0x15c) || NAN(enemy->effect_distance))) {
-        pEVar1->field11_0x15c = pEVar1->field11_0x15c + 0.3;
+  for (i = 0; i < enemy->effect_idx; i = i + 1) {
+    effect = enemy->effect_array[i];
+    if (effect != (Effect *)0x0) {
+      (effect->field8_0x134).x = (enemy->position).x;
+      (effect->field8_0x134).y = (enemy->position).y;
+      (effect->field8_0x134).z = (enemy->position).z;
+      if (effect->field11_0x15c < enemy->effect_distance !=
+          (NAN(effect->field11_0x15c) || NAN(enemy->effect_distance))) {
+        effect->field11_0x15c = effect->field11_0x15c + 0.3;
       }
-      fVar2 = add_normalize_angle(pEVar1->field12_0x160,0.03141593);
-      pEVar1->field12_0x160 = fVar2;
+      fVar1 = add_normalize_angle(effect->__angle_related,0.03141593);
+      effect->__angle_related = fVar1;
     }
   }
   return;

@@ -1,7 +1,7 @@
 
 /* WARNING: Unknown calling convention -- yet parameter storage is locked */
 
-void FUN_0040bb80(Enemy *param_1)
+void FUN_0040bb80(Enemy *param_1,EclRawInstr *param_2)
 
 {
   float fVar1;

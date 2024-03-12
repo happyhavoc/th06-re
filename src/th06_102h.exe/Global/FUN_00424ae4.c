@@ -1,9 +1,11 @@
 
-undefined4 FUN_00424ae4(int param_1)
+/* WARNING: Unknown calling convention -- yet parameter storage is locked */
+
+int FUN_00424ae4(int param_1)
 
 {
   MidiOutput *this;
-  undefined4 uVar1;
+  int iVar1;
   
   this = g_Supervisor.midi_output;
   if (g_Supervisor.cfg.musicMode == MIDI) {
@@ -12,11 +14,11 @@ undefined4 FUN_00424ae4(int param_1)
       MidiOutput::ParseFile(this,param_1);
       MidiOutput::Play(this);
     }
-    uVar1 = 0;
+    iVar1 = 0;
   }
   else {
-    uVar1 = 1;
+    iVar1 = 1;
   }
-  return uVar1;
+  return iVar1;
 }
 

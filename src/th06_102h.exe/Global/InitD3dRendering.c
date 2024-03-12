@@ -58,7 +58,7 @@ void InitD3dRendering(void)
       present_params.FullScreen_RefreshRateInHz = 60;
       present_params.FullScreen_PresentationInterval = D3DPRESENT_INTERVAL_ONE;
       GameErrorContextLog(&g_GameErrorContext,
-                          "���フレッシュレートを60Hzに変更します\n");
+                          "リフレッシュレートを60Hzに変更します\n");
     }
     if (g_Supervisor.cfg.frameskipConfig == 0) {
       present_params.SwapEffect = D3DSWAPEFFECT_FLIP;
@@ -103,7 +103,7 @@ void InitD3dRendering(void)
                          D3DCREATE_SOFTWARE_VERTEXPROCESSING,&present_params,&g_Supervisor.d3dDevice
                         );
       if (HVar2 < 0) {
-        GameErrorContextLog(&g_GameErrorContext,"HAL も使用できないようです\n");
+        GameErrorContextLog(&g_GameErrorContext,"HAL も使用でき���いようです\n");
         goto LAB_00421077;
       }
       GameErrorContextLog(&g_GameErrorContext,"HAL で動作します\n");
@@ -146,7 +146,7 @@ LAB_004211ab:
       if ((bVar1) &&
          ((g_Supervisor.d3dCaps.PresentationIntervals & D3DPRESENT_INTERVAL_IMMEDIATE) == 0)) {
         GameErrorContextLog(&g_GameErrorContext,
-                            "ビデオカードが非同期フリップをサポートしていません、Force60Frameで動作で���ません\n"
+                            "ビデオカードが非同期フリップをサポートしていません、Force60Frameで動作できません\n"
                            );
         g_Supervisor.cfg.opts = g_Supervisor.cfg.opts & 0xffffff7f;
       }
@@ -202,7 +202,7 @@ LAB_00421077:
     }
     else {
       GameErrorContextLog(&g_GameErrorContext,
-                          "リフレッシュレートが変更できません、vsync 非同期に���更します\n"
+                          "リフレッシュレートが変更できません、vsync 非同期に変更します\n"
                          );
       present_params.FullScreen_RefreshRateInHz = 0;
       g_Supervisor.vsyncEnabled = 1;

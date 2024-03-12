@@ -1,7 +1,7 @@
 
 /* WARNING: Unknown calling convention -- yet parameter storage is locked */
 
-void FUN_0040e1b0(Enemy *param_1,int param_2)
+void FUN_0040e1b0(Enemy *param_1,AnmRawInstr *param_2)
 
 {
   float fVar1;
@@ -12,7 +12,7 @@ void FUN_0040e1b0(Enemy *param_1,int param_2)
   if (0x1c1f < (param_1->boss_timer).current) {
     local_8 = 0;
   }
-  if (*(int *)(param_2 + 0x10) == 0) {
+  if (param_2->args[3] == 0) {
     (param_1->current_context).float3 = 2.0 - ((float)local_8 * 1.0) / 6000.0;
     (param_1->current_context).var5 = (local_8 * 0xf0) / 6000 + 0x28;
   }

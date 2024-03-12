@@ -220,56 +220,56 @@ undefined4 __thiscall Player::CalcMove(Player *this)
   }
   switch(this->field23_0x9e2) {
   case 0:
-    (this->field26_0x9e8).current = 0;
-    (this->field26_0x9e8).subFrame = 0.0;
-    (this->field26_0x9e8).previous = -999;
+    (this->timer_related).current = 0;
+    (this->timer_related).subFrame = 0.0;
+    (this->timer_related).previous = -999;
     break;
   case 1:
     local_18 = 24.0;
-    (this->field26_0x9e8).current = 0;
-    (this->field26_0x9e8).subFrame = 0.0;
-    (this->field26_0x9e8).previous = -999;
+    (this->timer_related).current = 0;
+    (this->timer_related).subFrame = 0.0;
+    (this->timer_related).previous = -999;
     if (this->field24_0x9e3 == 0) break;
     this->field23_0x9e2 = 2;
   case 2:
     while( true ) {
-      (this->field26_0x9e8).previous = (this->field26_0x9e8).current;
+      (this->timer_related).previous = (this->timer_related).current;
       Supervisor::TickTimer
-                (&g_Supervisor,&(this->field26_0x9e8).current,&(this->field26_0x9e8).subFrame);
-      fVar1 = ((float)(this->field26_0x9e8).current + (this->field26_0x9e8).subFrame) / 8.0;
+                (&g_Supervisor,&(this->timer_related).current,&(this->timer_related).subFrame);
+      fVar1 = ((float)(this->timer_related).current + (this->timer_related).subFrame) / 8.0;
       local_14 = (1.0 - fVar1) * 32.0 + -32.0;
       local_18 = fVar1 * fVar1 * -16.0 + 24.0;
-      if (7 < (this->field26_0x9e8).current) {
+      if (7 < (this->timer_related).current) {
         this->field23_0x9e2 = 3;
       }
       if (this->field24_0x9e3 != 0) break;
       this->field23_0x9e2 = 4;
-      (this->field26_0x9e8).current = 8 - (this->field26_0x9e8).current;
-      (this->field26_0x9e8).subFrame = 0.0;
-      (this->field26_0x9e8).previous = -999;
+      (this->timer_related).current = 8 - (this->timer_related).current;
+      (this->timer_related).subFrame = 0.0;
+      (this->timer_related).previous = -999;
 switchD_004281aa_caseD_4:
-      (this->field26_0x9e8).previous = (this->field26_0x9e8).current;
+      (this->timer_related).previous = (this->timer_related).current;
       Supervisor::TickTimer
-                (&g_Supervisor,&(this->field26_0x9e8).current,&(this->field26_0x9e8).subFrame);
-      fVar1 = ((float)(this->field26_0x9e8).current + (this->field26_0x9e8).subFrame) / 8.0;
+                (&g_Supervisor,&(this->timer_related).current,&(this->timer_related).subFrame);
+      fVar1 = ((float)(this->timer_related).current + (this->timer_related).subFrame) / 8.0;
       local_14 = fVar1 * 32.0 + -32.0;
       local_18 = (1.0 - fVar1 * fVar1) * -16.0 + 24.0;
-      if (7 < (this->field26_0x9e8).current) {
+      if (7 < (this->timer_related).current) {
         this->field23_0x9e2 = 1;
       }
       if (this->field24_0x9e3 == 0) break;
       this->field23_0x9e2 = 2;
-      (this->field26_0x9e8).current = 8 - (this->field26_0x9e8).current;
-      (this->field26_0x9e8).subFrame = 0.0;
-      (this->field26_0x9e8).previous = -999;
+      (this->timer_related).current = 8 - (this->timer_related).current;
+      (this->timer_related).subFrame = 0.0;
+      (this->timer_related).previous = -999;
     }
     break;
   case 3:
     local_18 = 8.0;
     local_14 = -32.0;
-    (this->field26_0x9e8).current = 0;
-    (this->field26_0x9e8).subFrame = 0.0;
-    (this->field26_0x9e8).previous = -999;
+    (this->timer_related).current = 0;
+    (this->timer_related).subFrame = 0.0;
+    (this->timer_related).previous = -999;
     if (this->field24_0x9e3 == 0) {
       this->field23_0x9e2 = 4;
       goto switchD_004281aa_caseD_4;

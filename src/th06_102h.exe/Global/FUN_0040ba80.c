@@ -1,7 +1,7 @@
 
 /* WARNING: Unknown calling convention -- yet parameter storage is locked */
 
-void FUN_0040ba80(Enemy *param_1,int param_2)
+void FUN_0040ba80(Enemy *param_1,EclRawInstr *param_2)
 
 {
   float fVar1;
@@ -10,7 +10,7 @@ void FUN_0040ba80(Enemy *param_1,int param_2)
   float fVar4;
   float fVar5;
   
-  fVar4 = (float)*(int *)(param_2 + 0x10);
+  fVar4 = (float)(int)param_2->field8_0x10;
   fVar5 = (param_1->position).z;
   fVar1 = (param_1->shoot_offset).z;
   fVar2 = (param_1->position).y;

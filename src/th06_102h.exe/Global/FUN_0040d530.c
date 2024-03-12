@@ -1,5 +1,7 @@
 
-void FUN_0040d530(int param_1)
+/* WARNING: Unknown calling convention -- yet parameter storage is locked */
+
+void FUN_0040d530(Enemy *param_1,AnmRawInstr *param_2)
 
 {
   float fVar1;
@@ -8,40 +10,38 @@ void FUN_0040d530(int param_1)
   float10 fVar4;
   float10 fVar5;
   float fVar6;
-  AnmVm *local_68;
+  Bullet *bullets;
   float local_64;
   int local_60;
   undefined4 local_5c [22];
   
-  local_68 = (AnmVm *)g_BulletManager.bullets;
+  bullets = g_BulletManager.bullets;
   puVar3 = local_5c;
   for (iVar2 = 0x15; iVar2 != 0; iVar2 = iVar2 + -1) {
     *puVar3 = 0;
     puVar3 = puVar3 + 1;
   }
   fVar6 = Rng::GetRandomF32ZeroToOne(&g_Rng);
-  EffectManager::FUN_0040ef50(&g_EffectManager,0xc,(D3DXVECTOR3 *)(param_1 + 0xc6c),1,0xffffffff);
+  EffectManager::FUN_0040ef50(&g_EffectManager,0xc,&param_1->position,1,0xffffffff);
   for (local_60 = 0; local_60 < 0x280; local_60 = local_60 + 1) {
-    if ((((*(short *)((int)local_68[5].matrix.m[3] + 2) != 0) &&
-         (*(short *)((int)local_68[5].matrix.m[3] + 2) != 5)) &&
-        (local_68->sprite != (AnmLoadedSprite *)0x0)) &&
-       ((fVar1 = local_68->sprite->heightPx, fVar1 < 30.0 != NAN(fVar1) &&
-        (fVar1 = local_68[5].currentTimeInScript.subFrame, NAN(fVar1) != (fVar1 == 0.0))))) {
-      *(ushort *)(local_68[5].matrix.m[2] + 3) = *(ushort *)(local_68[5].matrix.m[2] + 3) | 0x10;
-      *(undefined2 *)((int)local_68[5].matrix.m[2] + 0xe) = 2;
+    if ((((bullets->state != 0) && (bullets->state != 5)) &&
+        ((bullets->vms).vm0.sprite != (AnmLoadedSprite *)0x0)) &&
+       ((fVar1 = ((bullets->vms).vm0.sprite)->heightPx, fVar1 < 30.0 != NAN(fVar1) &&
+        (NAN(bullets->speed) != (bullets->speed == 0.0))))) {
+      bullets->ex_flags = bullets->ex_flags | 0x10;
+      bullets->color = 2;
       AnmManager::SetActiveSprite
-                (g_AnmManager,local_68,
-                 (int)local_68->anotherSpriteNumber +
-                 (int)*(short *)((int)local_68[5].matrix.m[2] + 0xe));
-      local_68[5].currentTimeInScript.subFrame = 0.01;
-      local_68[5].matrix.m[1][2] = 0.0;
-      local_68[5].matrix.m[1][1] = 0.0;
-      local_68[5].matrix.m[1][0] = -NAN;
-      local_68[5].matrix.m[1][3] = 1.681558e-43;
-      fVar1 = (*(float *)(param_1 + 0xc70) - local_68[5].angleVel.z) *
-              (*(float *)(param_1 + 0xc70) - local_68[5].angleVel.z) +
-              (*(float *)(param_1 + 0xc6c) - local_68[5].angleVel.y) *
-              (*(float *)(param_1 + 0xc6c) - local_68[5].angleVel.y);
+                (g_AnmManager,(AnmVm *)bullets,
+                 (int)(bullets->vms).vm0.anotherSpriteNumber + (int)(short)bullets->color);
+      bullets->speed = 0.01;
+      (bullets->timer).current = 0;
+      (bullets->timer).subFrame = 0.0;
+      (bullets->timer).previous = -999;
+      bullets->ex_5_int_0 = 0x78;
+      fVar1 = ((param_1->position).y - (bullets->pos).y) *
+              ((param_1->position).y - (bullets->pos).y) +
+              ((param_1->position).x - (bullets->pos).x) *
+              ((param_1->position).x - (bullets->pos).x);
       if (fVar1 <= 0.1) {
         local_64 = 0.0;
       }
@@ -52,10 +52,10 @@ void FUN_0040d530(int param_1)
       fVar5 = (float10)((local_64 * 3.141593) / 256.0 + (fVar6 * 6.283185 - 3.141593));
       fVar4 = (float10)fcos(fVar5);
       fVar5 = (float10)fsin(fVar5);
-      local_68[5].uvScrollPos.x = (float)(fVar4 * (float10)0.01);
-      local_68[5].uvScrollPos.y = (float)(fVar5 * (float10)0.01);
+      (bullets->ex_4_acceleration).x = (float)(fVar4 * (float10)0.01);
+      (bullets->ex_4_acceleration).y = (float)(fVar5 * (float10)0.01);
     }
-    local_68 = (AnmVm *)(local_68[5].matrix.m[3] + 2);
+    bullets = bullets + 1;
   }
   return;
 }

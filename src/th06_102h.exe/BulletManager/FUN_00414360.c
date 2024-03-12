@@ -21,7 +21,7 @@ int __thiscall BulletManager::FUN_00414360(BulletManager *this,int param_1,int p
   for (local_14 = 0; local_14 < 0x280; local_14 = local_14 + 1) {
     if (*(short *)(local_1c + 0x5be) != 0) {
       if (param_2 != 0) {
-        ItemManager::SpawnItem(&g_ItemManager,(D3DXVECTOR3 *)(local_1c + 0x560),6,1);
+        ItemManager::SpawnItem((ItemManager *)&g_ItemManager,(D3DXVECTOR3 *)(local_1c + 0x560),6,1);
       }
       AsciiManager::CreatePopup1
                 (&g_AsciiManager,(D3DXVECTOR3 *)(local_1c + 0x560),local_8,
@@ -45,7 +45,7 @@ int __thiscall BulletManager::FUN_00414360(BulletManager *this,int param_1,int p
         (local_2c->timer).subFrame = 0.0;
         (local_2c->timer).previous = -999;
         if (param_2 != 0) {
-          ItemManager::SpawnItem(&g_ItemManager,&local_2c->pos,6,1);
+          ItemManager::SpawnItem((ItemManager *)&g_ItemManager,&local_2c->pos,6,1);
           local_34 = local_2c->start_offset;
           fVar1 = (float10)fcos((float10)local_2c->angle);
           fVar2 = (float10)fsin((float10)local_2c->angle);
@@ -54,7 +54,7 @@ int __thiscall BulletManager::FUN_00414360(BulletManager *this,int param_1,int p
             local_28.x = (float)fVar1 * local_34 + (local_2c->pos).x;
             local_28.y = local_18 * local_34 + (local_2c->pos).y;
             local_28.z = 0.0;
-            ItemManager::SpawnItem(&g_ItemManager,&local_28,6,1);
+            ItemManager::SpawnItem((ItemManager *)&g_ItemManager,&local_28,6,1);
           }
         }
       }
@@ -64,7 +64,7 @@ int __thiscall BulletManager::FUN_00414360(BulletManager *this,int param_1,int p
   }
   g_GameManager.score = g_GameManager.score + local_c;
   if (local_c != 0) {
-    FUN_0041735a(local_c);
+    Gui::FUN_0041735a(&g_Gui,local_c);
   }
   return local_c;
 }

@@ -1,40 +1,43 @@
 
-void FUN_0040dbc0(int param_1,int param_2)
+void __cdecl FUN_0040dbc0(Enemy *param_1,AnmRawInstr *param_2)
 
 {
-  float10 fVar1;
-  undefined2 uVar2;
-  int iVar3;
-  undefined4 *puVar4;
-  EnemyBulletShooter *pEVar5;
-  float10 fVar6;
+  uint uVar1;
+  float fVar2;
+  float10 fVar3;
+  ushort uVar4;
+  int iVar5;
+  EnemyBulletShooter *bullet_props;
+  EnemyBulletShooter *pEVar6;
+  float10 fVar7;
   float local_68;
   EnemyBulletShooter local_64;
   int local_8;
   
-  puVar4 = (undefined4 *)(param_1 + 0xd00);
-  pEVar5 = &local_64;
-  for (iVar3 = 0x15; iVar3 != 0; iVar3 = iVar3 + -1) {
-    uVar2 = *(undefined2 *)((int)puVar4 + 2);
-    pEVar5->sprite = *(undefined2 *)puVar4;
-    pEVar5->color = uVar2;
-    puVar4 = puVar4 + 1;
-    pEVar5 = (EnemyBulletShooter *)&pEVar5->position;
+  bullet_props = &param_1->bullet_props;
+  pEVar6 = &local_64;
+  for (iVar5 = 0x15; iVar5 != 0; iVar5 = iVar5 + -1) {
+    uVar4 = bullet_props->color;
+    pEVar6->sprite = bullet_props->sprite;
+    pEVar6->color = uVar4;
+    bullet_props = (EnemyBulletShooter *)&bullet_props->position;
+    pEVar6 = (EnemyBulletShooter *)&pEVar6->position;
   }
-  iVar3 = *(int *)(param_2 + 0x10);
-  local_68 = *(float *)(param_1 + 0x9bc);
-  if (*(int *)(param_1 + 0x9b0) % 6 == 0) {
-    for (local_8 = 0; local_8 < iVar3; local_8 = local_8 + 1) {
-      fVar1 = (float10)fcos((float10)local_68);
-      fVar6 = (float10)fsin((float10)local_68);
-      local_64.position.x = (float)(fVar1 * (float10)*(float *)(param_1 + 0x9c0)) + 192.0;
-      local_64.position.y = (float)(fVar6 * (float10)*(float *)(param_1 + 0x9c0)) + 224.0;
-      local_64.angle1 = local_68 + *(float *)(param_1 + 0x9b8);
+  uVar1 = param_2->args[3];
+  local_68 = (param_1->current_context).float2;
+  if ((param_1->current_context).var3 % 6 == 0) {
+    for (local_8 = 0; local_8 < (int)uVar1; local_8 = local_8 + 1) {
+      fVar2 = (param_1->current_context).float3;
+      fVar3 = (float10)fcos((float10)local_68);
+      fVar7 = (float10)fsin((float10)local_68);
+      local_64.position.x = (float)(fVar3 * (float10)fVar2) + 192.0;
+      local_64.position.y = (float)(fVar7 * (float10)fVar2) + 224.0;
+      local_64.angle1 = local_68 + (param_1->current_context).float1;
       BulletManager::FUN_004145c0(&g_BulletManager,&local_64);
-      local_68 = 6.283185 / (float)iVar3 + local_68;
+      local_68 = 6.283185 / (float)uVar1 + local_68;
     }
   }
-  *(int *)(param_1 + 0x9b0) = *(int *)(param_1 + 0x9b0) + 1;
+  (param_1->current_context).var3 = (param_1->current_context).var3 + 1;
   return;
 }
 

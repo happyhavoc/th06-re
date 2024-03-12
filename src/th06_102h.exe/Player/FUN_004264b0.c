@@ -30,7 +30,7 @@ int __thiscall Player::FUN_004264b0(Player *this,float *param_1,float *param_2,u
   local_2c = param_1[1] - param_2[1] / 2.0;
   local_18 = *param_2 / 2.0 + *param_1;
   local_14 = param_2[1] / 2.0 + param_1[1];
-  local_8 = &this->bullets[0].field0_0x0;
+  local_8 = &this->bullets[0].vm;
   if (param_3 != (undefined4 *)0x0) {
     *param_3 = 0;
   }

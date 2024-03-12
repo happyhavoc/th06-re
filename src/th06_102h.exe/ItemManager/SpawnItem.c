@@ -9,25 +9,25 @@ ItemManager::SpawnItem(ItemManager *this,D3DXVECTOR3 *param_1,int itemType,int s
   Item *local_c;
   int local_8;
   
-  local_c = this->items + this->next_index;
+  local_c = (Item *)(this + *(int *)(this + 0x201));
   local_8 = 0;
   while( true ) {
     if (0x1ff < local_8) {
       return;
     }
-    this->next_index = this->next_index + 1;
+    *(int *)(this + 0x201) = *(int *)(this + 0x201) + 1;
     if (local_c->is_in_use == 0) break;
-    if ((int)this->next_index < 0x200) {
+    if (*(int *)(this + 0x201) < 0x200) {
       local_c = local_c + 1;
     }
     else {
-      this->next_index = 0;
-      local_c = this->items;
+      *(undefined4 *)(this + 0x201) = 0;
+      local_c = (Item *)this;
     }
     local_8 = local_8 + 1;
   }
-  if (0x1ff < (int)this->next_index) {
-    this->next_index = 0;
+  if (0x1ff < *(int *)(this + 0x201)) {
+    *(undefined4 *)(this + 0x201) = 0;
   }
   local_c->is_in_use = 1;
   (local_c->position).x = param_1->x;

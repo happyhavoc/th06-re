@@ -1,5 +1,5 @@
 
-void __thiscall AnmManager::FUN_004240f0(AnmManager *this)
+void __thiscall AnmManager::releaseVertexBuffer(AnmManager *this)
 
 {
   if (this->vertexBuffer != (IDirect3DVertexBuffer8 *)0x0) {

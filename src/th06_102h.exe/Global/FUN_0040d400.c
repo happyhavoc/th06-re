@@ -1,5 +1,7 @@
 
-void FUN_0040d400(int param_1)
+/* WARNING: Unknown calling convention -- yet parameter storage is locked */
+
+void FUN_0040d400(Enemy *param_1,AnmRawInstr *param_2)
 
 {
   int iVar1;
@@ -39,7 +41,7 @@ void FUN_0040d400(int param_1)
     }
     local_68 = local_68 + 0x5c4;
   }
-  *(int *)(param_1 + 0x9b0) = local_60;
+  (param_1->current_context).var3 = local_60;
   return;
 }
 

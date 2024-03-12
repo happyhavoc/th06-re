@@ -1,5 +1,5 @@
 
-void FUN_0040abe0(Enemy *param_1,int param_2)
+void __cdecl FUN_0040abe0(Enemy *enemy,EclRawInstr *instr)
 
 {
   float fVar1;
@@ -7,22 +7,22 @@ void FUN_0040abe0(Enemy *param_1,int param_2)
   float *pfVar3;
   double dVar4;
   
-  piVar2 = (int *)(param_2 + 0xc);
-  pfVar3 = Enemy::get_var_float(param_1,(float *)(param_2 + 0x10),(undefined4 *)0x0);
+  piVar2 = &instr->ecl_var_id;
+  pfVar3 = Enemy::get_var_float(enemy,&instr->field8_0x10,(undefined4 *)0x0);
   fVar1 = *pfVar3;
   dVar4 = cos((double)fVar1);
-  (param_1->move_interp).x = ((float)dVar4 * *(float *)(param_2 + 0x14) * (float)*piVar2) / 2.0;
+  (enemy->move_interp).x = ((float)dVar4 * (float)instr->field9_0x14 * (float)*piVar2) / 2.0;
   dVar4 = sin((double)fVar1);
-  (param_1->move_interp).y = ((float)dVar4 * *(float *)(param_2 + 0x14) * (float)*piVar2) / 2.0;
-  (param_1->move_interp).z = 0.0;
-  (param_1->move_interp_start_pos).x = (param_1->position).x;
-  (param_1->move_interp_start_pos).y = (param_1->position).y;
-  (param_1->move_interp_start_pos).z = (param_1->position).z;
-  param_1->move_interp_start_time = *piVar2;
-  (param_1->move_interp_timer).current = param_1->move_interp_start_time;
-  (param_1->move_interp_timer).subFrame = 0.0;
-  (param_1->move_interp_timer).previous = -999;
-  param_1->flags1 = param_1->flags1 & 0xfc | 2;
+  (enemy->move_interp).y = ((float)dVar4 * (float)instr->field9_0x14 * (float)*piVar2) / 2.0;
+  (enemy->move_interp).z = 0.0;
+  (enemy->move_interp_start_pos).x = (enemy->position).x;
+  (enemy->move_interp_start_pos).y = (enemy->position).y;
+  (enemy->move_interp_start_pos).z = (enemy->position).z;
+  enemy->move_interp_start_time = *piVar2;
+  (enemy->move_interp_timer).current = enemy->move_interp_start_time;
+  (enemy->move_interp_timer).subFrame = 0.0;
+  (enemy->move_interp_timer).previous = -999;
+  enemy->flags1 = enemy->flags1 & 0xfc | 2;
   return;
 }
 

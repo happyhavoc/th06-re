@@ -1,5 +1,5 @@
 
-int __thiscall EnemyManager::EnemyManager(EnemyManager *this)
+EnemyManager * __thiscall EnemyManager::EnemyManager(EnemyManager *this)
 
 {
   Enemy *local_94;
@@ -14,6 +14,6 @@ int __thiscall EnemyManager::EnemyManager(EnemyManager *this)
   }
   ZunTimer::Initialize(&this->timeline_time);
   Initialize(this);
-  return (int)this;
+  return this;
 }
 

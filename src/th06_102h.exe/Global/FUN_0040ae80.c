@@ -1,5 +1,7 @@
 
-void FUN_0040ae80(Enemy *param_1,int param_2)
+/* WARNING: Unknown calling convention -- yet parameter storage is locked */
+
+void FUN_0040ae80(Enemy *param_1,EclRawInstr *param_2)
 
 {
   float fVar1;
@@ -7,7 +9,7 @@ void FUN_0040ae80(Enemy *param_1,int param_2)
   float *pfVar3;
   double dVar4;
   
-  piVar2 = (int *)(param_2 + 0xc);
+  piVar2 = &param_2->ecl_var_id;
   pfVar3 = Enemy::get_var_float(param_1,&param_1->angle,(undefined4 *)0x0);
   fVar1 = *pfVar3;
   dVar4 = cos((double)fVar1);

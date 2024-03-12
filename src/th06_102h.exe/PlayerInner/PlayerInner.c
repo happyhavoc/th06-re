@@ -1,5 +1,6 @@
 
-int __thiscall PlayerInner::PlayerInner(PlayerInner *this)
+PlayerInner * __thiscall
+PlayerInner::PlayerInner(PlayerInner *this,PlayerInner *__return_storage_ptr__)
 
 {
   AnmVm *local_3c;
@@ -22,6 +23,6 @@ int __thiscall PlayerInner::PlayerInner(PlayerInner *this)
     AnmVm::AnmVm(local_3c);
     local_3c = local_3c + 1;
   }
-  return (int)this;
+  return this;
 }
 

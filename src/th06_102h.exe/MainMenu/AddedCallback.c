@@ -60,7 +60,7 @@ LAB_0043a520:
   ParseClrd(scoredat,g_GameManager.clrd);
   pPVar2 = g_GameManager.pscr;
   ParsePscr(scoredat,g_GameManager.pscr);
-  FUN_0042b7dc(pPVar2,scoredat);
+  ScoreDat::FUN_0042b7dc(pPVar2,scoredat);
   if (g_GameManager.demo_mode == 0) {
     if (g_Supervisor.startup_time_for_menu_music == 0) {
       Supervisor::PlayAudio("bgm/th06_01.mid");

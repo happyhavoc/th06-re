@@ -130,7 +130,7 @@ ZunResult __thiscall Supervisor::LoadConfig(Supervisor *this,char *config_file_n
                         "ゲーム周りのアイテムの描画を抑制します\n");
   }
   if (((this->cfg).opts >> 5 & 1) != 0) {
-    GameErrorContextLog(&g_GameErrorContext,"グーローシェー���ィングを抑制します\n")
+    GameErrorContextLog(&g_GameErrorContext,"グーローシェーディングを抑制します\n")
     ;
   }
   if (((this->cfg).opts >> 6 & 1) != 0) {

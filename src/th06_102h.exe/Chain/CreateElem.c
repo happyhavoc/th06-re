@@ -1,5 +1,5 @@
 
-ChainElem * __thiscall Chain::CreateElem(Chain *this,void *callback)
+ChainElem * __thiscall Chain::CreateElem(Chain *this,ChainCallback *callback)
 
 {
   ChainElem *this_00;
@@ -20,7 +20,7 @@ ChainElem * __thiscall Chain::CreateElem(Chain *this,void *callback)
   else {
     local_24 = ChainElem::ChainElem(this_00);
   }
-  local_24->callback = (ChainCallback *)callback;
+  local_24->callback = callback;
   local_24->addedCallback = (ChainLifecycleCallback *)0x0;
   local_24->deletedCallback = (ChainLifecycleCallback *)0x0;
   local_24->flags = local_24->flags | 1;

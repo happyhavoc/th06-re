@@ -8,6 +8,7 @@ undefined4 MainMenu::OnUpdate(MainMenu *menu)
   DWORD DVar2;
   GameState gameState;
   int maxClearCheck;
+  MainMenu *unaff_EDI;
   bool hasLoadedSprite;
   uint local_b8;
   uint local_b4;
@@ -633,7 +634,7 @@ LAB_0043666d:
   case STATE_REPLAY_MENU:
   case STATE_14:
   case STATE_15:
-    ReplayHandling(menu);
+    ReplayHandling(menu,unaff_EDI);
     if (gameState != STATE_STARTUP) {
       return 0;
     }

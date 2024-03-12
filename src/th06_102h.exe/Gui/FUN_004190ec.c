@@ -1,9 +1,8 @@
 
-undefined4 FUN_004190ec(void)
+undefined4 __fastcall Gui::FUN_004190ec(Gui *param_1)
 
 {
   undefined4 uVar1;
-  int in_ECX;
   int local_94;
   float local_5c;
   undefined4 uStack_58;
@@ -27,16 +26,17 @@ undefined4 FUN_004190ec(void)
   undefined4 local_10;
   float local_8;
   
-  if (*(int *)(in_ECX + 0x253c) < 0) {
+  if (param_1[0xd8].field7_0x1c < 0) {
     uVar1 = 0xffffffff;
   }
   else if ((g_GameManager.current_stage == 6) &&
-          ((*(int *)(in_ECX + 0x253c) == 1 || (*(int *)(in_ECX + 0x253c) == 0xb)))) {
+          ((param_1[0xd8].field7_0x1c == 1 || (param_1[0xd8].field7_0x1c == 0xb)))) {
     uVar1 = 0;
   }
   else {
-    if (*(int *)(in_ECX + 0x2548) < 0x3c) {
-      local_8 = (((float)*(int *)(in_ECX + 0x2548) + *(float *)(in_ECX + 0x2544)) * 48.0) / 60.0;
+    if ((int)param_1[0xd8].boss_health_bar2 < 0x3c) {
+      local_8 = (((float)(int)param_1[0xd8].boss_health_bar2 + param_1[0xd8].boss_health_bar1) *
+                48.0) / 60.0;
     }
     else {
       local_8 = 48.0;
@@ -69,8 +69,8 @@ undefined4 FUN_004190ec(void)
     local_28 = 0x3f800000;
     local_3c = 0x3f800000;
     local_50 = 0x3f800000;
-    AnmManager::FUN_00432ad0(g_AnmManager,(AnmVm *)(in_ECX + 0x2550));
-    AnmManager::FUN_00432ad0(g_AnmManager,(AnmVm *)(in_ECX + 0x2660));
+    AnmManager::FUN_00432ad0(g_AnmManager,(AnmVm *)&param_1[0xd9].impl);
+    AnmManager::FUN_00432ad0(g_AnmManager,(AnmVm *)&param_1[0xdf].blue_spellcard_bar_length);
     if ((g_Supervisor.cfg.opts >> NO_COLOR_COMP & 1) == 0) {
       (*(g_Supervisor.d3dDevice)->lpVtbl->SetTextureStageState)
                 (g_Supervisor.d3dDevice,0,D3DTSS_ALPHAOP,2);
@@ -102,10 +102,10 @@ undefined4 FUN_004190ec(void)
               (g_Supervisor.d3dDevice,0,D3DTSS_ALPHAARG1,2);
     (*(g_Supervisor.d3dDevice)->lpVtbl->SetTextureStageState)
               (g_Supervisor.d3dDevice,0,D3DTSS_COLORARG1,2);
-    AnmManager::FUN_00432ad0(g_AnmManager,(AnmVm *)(in_ECX + 0x2770));
-    AnmManager::FUN_00432ad0(g_AnmManager,(AnmVm *)(in_ECX + 0x2880));
-    AnmManager::FUN_00432ad0(g_AnmManager,(AnmVm *)(in_ECX + 0x2990));
-    AnmManager::FUN_00432ad0(g_AnmManager,(AnmVm *)(in_ECX + 0x2aa0));
+    AnmManager::FUN_00432ad0(g_AnmManager,(AnmVm *)&param_1[0xe5].ecl_set_lives);
+    AnmManager::FUN_00432ad0(g_AnmManager,(AnmVm *)&param_1[0xeb].field7_0x1c);
+    AnmManager::FUN_00432ad0(g_AnmManager,(AnmVm *)&param_1[0xf1].boss_health_bar1);
+    AnmManager::FUN_00432ad0(g_AnmManager,(AnmVm *)(param_1 + 0xf8));
     uVar1 = 0;
   }
   return uVar1;

@@ -43,7 +43,7 @@ ChainCallbackResult BulletManager::OnDraw(BulletManager *arg)
     }
     local_10 = (AnmVm *)(local_10[2].matrix.m[1] + 1);
   }
-  FUN_00420190();
+  ItemManager_conflict2::FUN_00420190(&g_ItemManager);
   if (g_Supervisor.hasD3dHardwareVertexProcessing == 0) {
     local_20 = arg->bullets;
     for (local_8 = 0; local_8 < 0x280; local_8 = local_8 + 1) {

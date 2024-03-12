@@ -70,10 +70,10 @@ void Player::FUN_004291b0(Player *param_1)
       }
       else if (sVar2 == 3) {
         if (param_1->field16_0x9b8[local_18->field13_0x152].current == 0x46) {
-          (local_18->field0_0x0).pendingInterrupt = 1;
+          (local_18->vm).pendingInterrupt = 1;
         }
         else if (param_1->field16_0x9b8[local_18->field13_0x152].current == 1) {
-          (local_18->field0_0x0).pendingInterrupt = 1;
+          (local_18->vm).pendingInterrupt = 1;
         }
         pDVar5 = param_1->field10_0x4a0 + local_18->field14_0x154 + -1;
         (local_18->field1_0x110).x = pDVar5->x;
@@ -83,25 +83,25 @@ void Player::FUN_004291b0(Player *param_1)
         (local_18->field1_0x110).y = (local_18->field1_0x110).y / 2.0;
         (local_18->field1_0x110).z = 0.44;
         fVar1 = (local_18->field1_0x110).y;
-        (local_18->field0_0x0).scaleY = (fVar1 + fVar1) / 14.0;
+        (local_18->vm).scaleY = (fVar1 + fVar1) / 14.0;
         fVar1 = (local_18->field1_0x110).y;
         (local_18->field2_0x11c).y = fVar1 + fVar1;
       }
       pDVar5 = &local_18->field1_0x110;
       pDVar5->x = g_Supervisor.effectiveFramerateMultiplier * local_18->field3_0x128 + pDVar5->x;
-      (local_18->field0_0x0).pos.x = pDVar5->x;
+      (local_18->vm).pos.x = pDVar5->x;
       pfVar7 = &(local_18->field1_0x110).y;
       *pfVar7 = g_Supervisor.effectiveFramerateMultiplier * local_18->field4_0x12c + *pfVar7;
-      (local_18->field0_0x0).pos.y = *pfVar7;
-      (local_18->field0_0x0).pos.z = (local_18->field1_0x110).z;
+      (local_18->vm).pos.y = *pfVar7;
+      (local_18->vm).pos.z = (local_18->field1_0x110).z;
       if ((local_18->field12_0x150 != 3) &&
-         (iVar6 = GameManager::FUN_0041b5e1
+         (iVar6 = GameManager::collision_related
                             ((local_18->field1_0x110).x,(local_18->field1_0x110).y,
-                             ((local_18->field0_0x0).sprite)->widthPx,
-                             ((local_18->field0_0x0).sprite)->heightPx), iVar6 == 0)) {
+                             ((local_18->vm).sprite)->widthPx,((local_18->vm).sprite)->heightPx),
+         iVar6 == 0)) {
         local_18->field11_0x14e = 0;
       }
-      iVar6 = AnmManager::ExecuteScript(g_AnmManager,&local_18->field0_0x0);
+      iVar6 = AnmManager::ExecuteScript(g_AnmManager,&local_18->vm);
       if (iVar6 != 0) {
         local_18->field11_0x14e = 0;
       }

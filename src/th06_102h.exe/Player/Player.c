@@ -1,5 +1,5 @@
 
-int __thiscall Player::Player(Player *this)
+Player * __thiscall Player::Player(Player *this)
 
 {
   AnmVm *local_64;
@@ -9,15 +9,17 @@ int __thiscall Player::Player(Player *this)
   int local_3c;
   int local_30;
   int local_24;
-  AnmVm *local_20;
+  Player *local_20;
   int local_18;
   
   AnmVm::AnmVm(&this->vm0);
   local_18 = 3;
-  local_20 = this->vm1;
-  while (local_18 = local_18 + -1, -1 < local_18) {
-    AnmVm::AnmVm(local_20);
-    local_20 = local_20 + 1;
+  local_20 = this;
+  while( true ) {
+    local_20 = (Player *)local_20->vm1;
+    local_18 = local_18 + -1;
+    if (local_18 < 0) break;
+    AnmVm::AnmVm((AnmVm *)local_20);
   }
   local_24 = 2;
   do {
@@ -37,9 +39,9 @@ int __thiscall Player::Player(Player *this)
     ZunTimer::Initialize(local_50);
     local_50 = local_50 + 1;
   }
-  ZunTimer::Initialize(&this->field26_0x9e8);
+  ZunTimer::Initialize(&this->timer_related);
   local_5c = 0x50;
-  local_64 = &this->bullets[0].field0_0x0;
+  local_64 = &this->bullets[0].vm;
   while (local_5c = local_5c + -1, -1 < local_5c) {
     AnmVm::AnmVm(local_64);
     ZunTimer::Initialize(&local_64[1].currentTimeInScript);
@@ -47,7 +49,7 @@ int __thiscall Player::Player(Player *this)
   }
   ZunTimer::Initialize(&this->field34_0x75a8);
   ZunTimer::Initialize(&this->field35_0x75b4);
-  PlayerInner::PlayerInner(&this->inner);
-  return (int)this;
+  PlayerInner::PlayerInner(&this->inner,(PlayerInner *)this);
+  return this;
 }
 

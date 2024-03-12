@@ -57,7 +57,7 @@ void __thiscall ResultScreen::FUN_0042c2d4(ResultScreen *this)
            (this->field54_0x1250).color.color & 0xff000000 | 0xff6060;
     }
     if (this->field1_0x4 < 0x50) goto LAB_0042d095;
-    FUN_0042d18f(this,2);
+    FUN_0042d18f((ResultScreen *)local_8,this,2);
     if ((((g_CurFrameInput & 10) == 0) || ((g_CurFrameInput & 10) == (g_LastFrameInput & 10))) &&
        (((g_CurFrameInput & 8) == 0 || ((g_CurFrameInput & 8) == (g_LastFrameInput & 8))))) {
       if (((g_CurFrameInput & 0x1001) == 0) ||
@@ -69,8 +69,8 @@ void __thiscall ResultScreen::FUN_0042c2d4(ResultScreen *this)
     this->unk_8 = 2;
     local_8 = &this->unk_40;
     for (local_10 = 0; local_10 < 0x26; local_10 = local_10 + 1) {
-      local_8->pendingInterrupt = 2;
-      local_8 = local_8 + 1;
+      *(undefined2 *)((int)&local_8->matrix + 0x4a) = 2;
+      local_8 = (AnmVm *)((int)&local_8->matrix + 0xd0);
     }
   }
   else {
@@ -85,8 +85,8 @@ void __thiscall ResultScreen::FUN_0042c2d4(ResultScreen *this)
         this->unk_8 = 2;
         local_8 = &this->unk_40;
         for (local_10 = 0; local_10 < 0x26; local_10 = local_10 + 1) {
-          local_8->pendingInterrupt = 2;
-          local_8 = local_8 + 1;
+          *(undefined2 *)((int)&local_8->matrix + 0x4a) = 2;
+          local_8 = (AnmVm *)((int)&local_8->matrix + 0xd0);
         }
       }
       goto LAB_0042d095;
@@ -164,8 +164,8 @@ void __thiscall ResultScreen::FUN_0042c2d4(ResultScreen *this)
             this->unk_8 = 2;
             local_8 = &this->unk_40;
             for (local_10 = 0; local_10 < 0x26; local_10 = local_10 + 1) {
-              local_8->pendingInterrupt = 2;
-              local_8 = local_8 + 1;
+              *(undefined2 *)((int)&local_8->matrix + 0x4a) = 2;
+              local_8 = (AnmVm *)((int)&local_8->matrix + 0xd0);
             }
           }
           if ((this->unk_10 < 8) && (this->unk_10 = this->unk_10 + 1, this->unk_10 == 8)) {
@@ -206,7 +206,7 @@ void __thiscall ResultScreen::FUN_0042c2d4(ResultScreen *this)
                (this->field54_0x1250).color.color & 0xff000000 | 0xff6060;
         }
         if (this->field1_0x4 < 0x14) goto LAB_0042d095;
-        FUN_0042d18f(this,2);
+        FUN_0042d18f((ResultScreen *)local_8,this,2);
         if ((((g_CurFrameInput & 10) == 0) || ((g_CurFrameInput & 10) == (g_LastFrameInput & 10)))
            && (((g_CurFrameInput & 8) == 0 || ((g_CurFrameInput & 8) == (g_LastFrameInput & 8))))) {
           if (((g_CurFrameInput & 0x1001) == 0) ||
@@ -219,7 +219,7 @@ void __thiscall ResultScreen::FUN_0042c2d4(ResultScreen *this)
               local_8 = local_8 + 1;
             }
             local_8 = &this->field59_0x17a0 + *(int *)&this->field_0x1c;
-            local_8->pendingInterrupt = 0xe;
+            *(undefined2 *)((int)&local_8->matrix + 0x4a) = 0xe;
             this->unk_8 = 0xd;
             goto LAB_0042d095;
           }
@@ -230,8 +230,8 @@ LAB_0042c515:
       this->unk_8 = 0xc;
       local_8 = &this->unk_40;
       for (local_10 = 0; local_10 < 0x26; local_10 = local_10 + 1) {
-        local_8->pendingInterrupt = 10;
-        local_8 = local_8 + 1;
+        *(undefined2 *)((int)&local_8->matrix + 0x4a) = 10;
+        local_8 = (AnmVm *)((int)&local_8->matrix + 0xd0);
       }
       this->field1_0x4 = 0;
     }
@@ -273,7 +273,7 @@ LAB_0042c515:
             local_8 = local_8 + 1;
           }
           local_8 = &this->field59_0x17a0 + *(int *)&this->field_0x1c;
-          local_8->pendingInterrupt = 0xe;
+          *(undefined2 *)((int)&local_8->matrix + 0x4a) = 0xe;
           this->unk_8 = 0xe;
         }
         else {
@@ -283,7 +283,7 @@ LAB_0042c515:
             local_8 = local_8 + 1;
           }
           local_8 = &this->field59_0x17a0 + *(int *)&this->field_0x1c;
-          local_8->pendingInterrupt = 0xe;
+          *(undefined2 *)((int)&local_8->matrix + 0x4a) = 0xe;
           this->unk_8 = 0xd;
         }
         this->unk_10 = 0;
@@ -294,8 +294,8 @@ LAB_0042c515:
         this->unk_8 = 10;
         local_8 = &this->unk_40;
         for (local_10 = 0; local_10 < 0x26; local_10 = local_10 + 1) {
-          local_8->pendingInterrupt = 2;
-          local_8 = local_8 + 1;
+          *(undefined2 *)((int)&local_8->matrix + 0x4a) = 2;
+          local_8 = (AnmVm *)((int)&local_8->matrix + 0xd0);
         }
         this->field1_0x4 = 0;
       }

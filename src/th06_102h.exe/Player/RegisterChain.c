@@ -1,8 +1,10 @@
 
-undefined4 Player::RegisterChain(byte param_1)
+/* WARNING: Unknown calling convention -- yet parameter storage is locked */
+
+ZunResult Player::RegisterChain(byte param_1)
 
 {
-  undefined4 uVar1;
+  ZunResult ZVar1;
   int iVar2;
   Player *pPVar3;
   
@@ -27,11 +29,11 @@ undefined4 Player::RegisterChain(byte param_1)
   if (iVar2 == 0) {
     Chain::AddToDrawChain(&g_Chain,g_Player.onDraw1,5);
     Chain::AddToDrawChain(&g_Chain,g_Player.onDraw2,7);
-    uVar1 = 0;
+    ZVar1 = ZUN_SUCCESS;
   }
   else {
-    uVar1 = 0xffffffff;
+    ZVar1 = ZUN_ERROR;
   }
-  return uVar1;
+  return ZVar1;
 }
 

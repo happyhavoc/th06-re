@@ -90,7 +90,7 @@ void Gui::OnDraw(Gui *arg)
     AsciiManager::AddFormatText(&g_AsciiManager,&local_10,"Total     = %8d",arg->impl->stage_score);
     g_AsciiManager.color = 0xffffffff;
   }
-  FUN_004190ec();
+  FUN_004190ec((Gui *)arg->impl);
   FUN_0041adf3(arg);
   FUN_00419c99(arg);
   g_AsciiManager.isGui = 1;

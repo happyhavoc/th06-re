@@ -1,10 +1,12 @@
 
-/* WARNING: Unknown calling convention -- yet parameter storage is locked */
-
-undefined4 ResultScreen::OnUpdate(ResultScreen *result_screen)
+undefined4 __thiscall ResultScreen::OnUpdate(ResultScreen *this,ResultScreen *result_screen)
 
 {
   int iVar1;
+  ResultScreen *extraout_ECX;
+  ResultScreen *pRVar2;
+  ResultScreen *extraout_ECX_00;
+  ResultScreen *extraout_ECX_01;
   int unaff_EDI;
   int local_14;
   int local_10;
@@ -14,25 +16,29 @@ undefined4 ResultScreen::OnUpdate(ResultScreen *result_screen)
   iVar1 = result_screen->unk_8;
   if (iVar1 < 9) {
     if (iVar1 == 8) {
+      pRVar2 = result_screen;
       if ((result_screen->field16_0x28 != result_screen->unk_10) &&
          (result_screen->field1_0x4 == 0x14)) {
-        result_screen->field16_0x28 = result_screen->unk_10;
+        pRVar2 = (ResultScreen *)result_screen->unk_10;
+        result_screen->field16_0x28 = (int)pRVar2;
         for (i = result_screen->field16_0x28 * 10;
             (i < result_screen->field16_0x28 * 10 + 10 && (i < 0x40)); i = i + 1) {
           if (g_GameManager.catk[i].num_successes == 0) {
             AnmManager::FUN_00434b60
                       (g_AnmManager,&result_screen->unk_28a0 + i % 10,0xffffff,0,0x46bcdc,unaff_EDI)
             ;
+            pRVar2 = extraout_ECX_00;
           }
           else {
             AnmManager::FUN_00434b60
                       (g_AnmManager,&result_screen->unk_28a0 + i % 10,0xffffff,0,i * 0x40 + 0x69bce8
                        ,unaff_EDI);
+            pRVar2 = extraout_ECX_01;
           }
         }
       }
       if (0x1d < result_screen->field1_0x4) {
-        iVar1 = FUN_0042d18f(result_screen,7);
+        iVar1 = FUN_0042d18f(pRVar2,result_screen,7);
         if (iVar1 != 0) {
           result_screen->field1_0x4 = 0;
           vm = &result_screen->unk_40;
@@ -161,6 +167,7 @@ undefined4 ResultScreen::OnUpdate(ResultScreen *result_screen)
               SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0x1c);
             }
           }
+          pRVar2 = result_screen;
           if ((result_screen->field15_0x24 != result_screen->unk_10) &&
              (result_screen->field1_0x4 == 0x14)) {
             result_screen->field15_0x24 = result_screen->unk_10;
@@ -169,9 +176,10 @@ undefined4 ResultScreen::OnUpdate(ResultScreen *result_screen)
             FUN_00434e20(g_AnmManager,&result_screen->field76_0x29b0,0xffffff,0,
                          (&PTR_Hakurei_Reimu__Dream__004784dc)[result_screen->field15_0x24 * 2],
                          unaff_EDI);
+            pRVar2 = extraout_ECX;
           }
           if (0x1d < result_screen->field1_0x4) {
-            iVar1 = FUN_0042d18f(result_screen,2);
+            iVar1 = FUN_0042d18f(pRVar2,result_screen,2);
             if (iVar1 != 0) {
               result_screen->field1_0x4 = 0;
               vm = &result_screen->unk_40;

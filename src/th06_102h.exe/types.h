@@ -1921,6 +1921,279 @@ struct SoundBufferIdxVolume {
     short unk;
 };
 
+typedef struct ItemManager ItemManager, *PItemManager;
+
+struct ItemManager {
+    undefined field0_0x0;
+    undefined field1_0x1;
+    undefined field2_0x2;
+    undefined field3_0x3;
+    undefined field4_0x4;
+    undefined field5_0x5;
+    undefined field6_0x6;
+    undefined field7_0x7;
+    undefined field8_0x8;
+    undefined field9_0x9;
+    undefined field10_0xa;
+    undefined field11_0xb;
+    undefined field12_0xc;
+    undefined field13_0xd;
+    undefined field14_0xe;
+    undefined field15_0xf;
+    undefined field16_0x10;
+    undefined field17_0x11;
+    undefined field18_0x12;
+    undefined field19_0x13;
+    undefined field20_0x14;
+    undefined field21_0x15;
+    undefined field22_0x16;
+    undefined field23_0x17;
+    undefined field24_0x18;
+    undefined field25_0x19;
+    undefined field26_0x1a;
+    undefined field27_0x1b;
+    undefined field28_0x1c;
+    undefined field29_0x1d;
+    undefined field30_0x1e;
+    undefined field31_0x1f;
+    undefined field32_0x20;
+    undefined field33_0x21;
+    undefined field34_0x22;
+    undefined field35_0x23;
+    undefined field36_0x24;
+    undefined field37_0x25;
+    undefined field38_0x26;
+    undefined field39_0x27;
+    undefined field40_0x28;
+    undefined field41_0x29;
+    undefined field42_0x2a;
+    undefined field43_0x2b;
+    undefined field44_0x2c;
+    undefined field45_0x2d;
+    undefined field46_0x2e;
+    undefined field47_0x2f;
+    struct ZunTimer field48_0x30;
+    undefined field49_0x3c;
+    undefined field50_0x3d;
+    undefined field51_0x3e;
+    undefined field52_0x3f;
+    undefined field53_0x40;
+    undefined field54_0x41;
+    undefined field55_0x42;
+    undefined field56_0x43;
+    undefined field57_0x44;
+    undefined field58_0x45;
+    undefined field59_0x46;
+    undefined field60_0x47;
+    undefined field61_0x48;
+    undefined field62_0x49;
+    undefined field63_0x4a;
+    undefined field64_0x4b;
+    undefined field65_0x4c;
+    undefined field66_0x4d;
+    undefined field67_0x4e;
+    undefined field68_0x4f;
+    undefined field69_0x50;
+    undefined field70_0x51;
+    undefined field71_0x52;
+    undefined field72_0x53;
+    undefined field73_0x54;
+    undefined field74_0x55;
+    undefined field75_0x56;
+    undefined field76_0x57;
+    undefined field77_0x58;
+    undefined field78_0x59;
+    undefined field79_0x5a;
+    undefined field80_0x5b;
+    undefined field81_0x5c;
+    undefined field82_0x5d;
+    undefined field83_0x5e;
+    undefined field84_0x5f;
+    undefined field85_0x60;
+    undefined field86_0x61;
+    undefined field87_0x62;
+    undefined field88_0x63;
+    undefined field89_0x64;
+    undefined field90_0x65;
+    undefined field91_0x66;
+    undefined field92_0x67;
+    undefined field93_0x68;
+    undefined field94_0x69;
+    undefined field95_0x6a;
+    undefined field96_0x6b;
+    undefined field97_0x6c;
+    undefined field98_0x6d;
+    undefined field99_0x6e;
+    undefined field100_0x6f;
+    undefined field101_0x70;
+    undefined field102_0x71;
+    undefined field103_0x72;
+    undefined field104_0x73;
+    undefined field105_0x74;
+    undefined field106_0x75;
+    undefined field107_0x76;
+    undefined field108_0x77;
+    undefined field109_0x78;
+    undefined field110_0x79;
+    undefined field111_0x7a;
+    undefined field112_0x7b;
+    undefined field113_0x7c;
+    undefined field114_0x7d;
+    undefined field115_0x7e;
+    undefined field116_0x7f;
+    undefined field117_0x80;
+    undefined field118_0x81;
+    undefined field119_0x82;
+    undefined field120_0x83;
+    undefined field121_0x84;
+    undefined field122_0x85;
+    undefined field123_0x86;
+    undefined field124_0x87;
+    undefined field125_0x88;
+    undefined field126_0x89;
+    undefined field127_0x8a;
+    undefined field128_0x8b;
+    undefined field129_0x8c;
+    undefined field130_0x8d;
+    undefined field131_0x8e;
+    undefined field132_0x8f;
+    undefined field133_0x90;
+    undefined field134_0x91;
+    undefined field135_0x92;
+    undefined field136_0x93;
+    undefined field137_0x94;
+    undefined field138_0x95;
+    undefined field139_0x96;
+    undefined field140_0x97;
+    undefined field141_0x98;
+    undefined field142_0x99;
+    undefined field143_0x9a;
+    undefined field144_0x9b;
+    undefined field145_0x9c;
+    undefined field146_0x9d;
+    undefined field147_0x9e;
+    undefined field148_0x9f;
+    undefined field149_0xa0;
+    undefined field150_0xa1;
+    undefined field151_0xa2;
+    undefined field152_0xa3;
+    struct ZunTimer field153_0xa4;
+    short field154_0xb0;
+    undefined field155_0xb2;
+    undefined field156_0xb3;
+    undefined field157_0xb4;
+    undefined field158_0xb5;
+    undefined field159_0xb6;
+    undefined field160_0xb7;
+    undefined field161_0xb8;
+    undefined field162_0xb9;
+    undefined field163_0xba;
+    undefined field164_0xbb;
+    undefined field165_0xbc;
+    undefined field166_0xbd;
+    undefined field167_0xbe;
+    undefined field168_0xbf;
+    undefined field169_0xc0;
+    undefined field170_0xc1;
+    undefined field171_0xc2;
+    undefined field172_0xc3;
+    undefined field173_0xc4;
+    undefined field174_0xc5;
+    undefined field175_0xc6;
+    undefined field176_0xc7;
+    undefined field177_0xc8;
+    undefined field178_0xc9;
+    undefined field179_0xca;
+    undefined field180_0xcb;
+    undefined field181_0xcc;
+    undefined field182_0xcd;
+    undefined field183_0xce;
+    undefined field184_0xcf;
+    undefined field185_0xd0;
+    undefined field186_0xd1;
+    undefined field187_0xd2;
+    undefined field188_0xd3;
+    undefined field189_0xd4;
+    undefined field190_0xd5;
+    undefined field191_0xd6;
+    undefined field192_0xd7;
+    undefined field193_0xd8;
+    undefined field194_0xd9;
+    undefined field195_0xda;
+    undefined field196_0xdb;
+    undefined field197_0xdc;
+    undefined field198_0xdd;
+    undefined field199_0xde;
+    undefined field200_0xdf;
+    undefined field201_0xe0;
+    undefined field202_0xe1;
+    undefined field203_0xe2;
+    undefined field204_0xe3;
+    undefined field205_0xe4;
+    undefined field206_0xe5;
+    undefined field207_0xe6;
+    undefined field208_0xe7;
+    undefined field209_0xe8;
+    undefined field210_0xe9;
+    undefined field211_0xea;
+    undefined field212_0xeb;
+    undefined field213_0xec;
+    undefined field214_0xed;
+    undefined field215_0xee;
+    undefined field216_0xef;
+    struct ZunTimer field217_0xf0;
+    undefined field218_0xfc;
+    undefined field219_0xfd;
+    undefined field220_0xfe;
+    undefined field221_0xff;
+    struct ZunTimer field222_0x100;
+    undefined field223_0x10c;
+    undefined field224_0x10d;
+    undefined field225_0x10e;
+    undefined field226_0x10f;
+    undefined field227_0x110;
+    undefined field228_0x111;
+    undefined field229_0x112;
+    undefined field230_0x113;
+    undefined field231_0x114;
+    undefined field232_0x115;
+    undefined field233_0x116;
+    undefined field234_0x117;
+    undefined field235_0x118;
+    undefined field236_0x119;
+    undefined field237_0x11a;
+    undefined field238_0x11b;
+    undefined field239_0x11c;
+    undefined field240_0x11d;
+    undefined field241_0x11e;
+    undefined field242_0x11f;
+    undefined field243_0x120;
+    undefined field244_0x121;
+    undefined field245_0x122;
+    undefined field246_0x123;
+    undefined field247_0x124;
+    undefined field248_0x125;
+    undefined field249_0x126;
+    undefined field250_0x127;
+    undefined field251_0x128;
+    undefined field252_0x129;
+    undefined field253_0x12a;
+    undefined field254_0x12b;
+    undefined field255_0x12c;
+    undefined field256_0x12d;
+    undefined field257_0x12e;
+    undefined field258_0x12f;
+    undefined field259_0x130;
+    undefined field260_0x131;
+    undefined field261_0x132;
+    undefined field262_0x133;
+    struct ZunTimer field263_0x134;
+    undefined field264_0x140;
+    undefined field265_0x141;
+    undefined field266_0x142;
+    undefined field267_0x143;
+};
+
 typedef struct _D3DXIMAGE_INFO _D3DXIMAGE_INFO, *P_D3DXIMAGE_INFO;
 
 typedef struct _D3DXIMAGE_INFO D3DXIMAGE_INFO;
@@ -71898,28 +72171,8 @@ struct Pbg3ParserVtbl {
     void *operator_delete;
 };
 
-typedef struct ItemManager ItemManager, *PItemManager;
 
-typedef struct Item Item, *PItem;
-
-struct Item {
-    struct AnmVm vm;
-    D3DXVECTOR3 position;
-    D3DXVECTOR3 velocity;
-    D3DXVECTOR3 unk;
-    struct ZunTimer timer;
-    byte item_type;
-    byte is_in_use;
-    byte field7_0x142;
-    byte state;
-};
-
-struct ItemManager {
-    struct Item items[512];
-    struct Item dummy_item_for_failed_spawns;
-    uint next_index;
-    uint item_count;
-};
+/* WARNING! conflicting data type names: /th06/ItemManager - /ItemManager */
 
 typedef struct EclManager EclManager, *PEclManager;
 
@@ -72376,7 +72629,7 @@ struct Effect {
     D3DXVECTOR3 pos2;
     struct D3DXQUATERNION field10_0x14c;
     float field11_0x15c;
-    float field12_0x160;
+    float __angle_related;
     struct ZunTimer timer;
     undefined4 field14_0x170;
     int (*effect_update_callback)(struct Effect *);
@@ -72431,8 +72684,10 @@ typedef struct EnemyEclContext EnemyEclContext, *PEnemyEclContext;
 
 typedef struct EnemyBulletShooter EnemyBulletShooter, *PEnemyBulletShooter;
 
+typedef struct EclRawInstr EclRawInstr, *PEclRawInstr;
+
 struct EnemyEclContext {
-    void *current_instr;
+    struct EclRawInstr *current_instr;
     struct ZunTimer time;
     void *func_set_func;
     int var0;
@@ -72501,7 +72756,7 @@ struct Enemy {
     int max_life;
     int score;
     struct ZunTimer boss_timer;
-    D3DCOLOR field31_0xcfc;
+    union D3DCOLORUNION color;
     struct EnemyBulletShooter bullet_props;
     int shoot_interval;
     struct ZunTimer shoot_interval_timer;
@@ -72535,6 +72790,24 @@ struct Enemy {
     int timer_callback_sub;
     float field63_0xeb8;
     struct ZunTimer field64_0xebc;
+};
+
+struct EclRawInstr {
+    int time;
+    short opcode;
+    short offset_to_next;
+    undefined field3_0x8;
+    undefined field4_0x9;
+    undefined field5_0xa;
+    undefined field6_0xb;
+    int ecl_var_id;
+    float field8_0x10;
+    int field9_0x14;
+    int field10_0x18;
+    ushort field11_0x1c;
+    undefined field12_0x1e;
+    undefined field13_0x1f;
+    ushort field14_0x20;
 };
 
 typedef struct Gui Gui, *PGui;
@@ -72597,7 +72870,7 @@ struct GuiImpl {
 typedef struct PlayerBullet PlayerBullet, *PPlayerBullet;
 
 struct PlayerBullet {
-    struct AnmVm field0_0x0;
+    struct AnmVm vm;
     D3DXVECTOR3 field1_0x110;
     D3DXVECTOR3 field2_0x11c;
     float field3_0x128;
@@ -72728,7 +73001,7 @@ typedef struct ResultScreenUnk3ab0 ResultScreenUnk3ab0, *PResultScreenUnk3ab0;
 
 struct ResultScreenUnk3ab0 {
     int unk1;
-    void *unk2;
+    struct ResultScreenUnk3ab0 *unk2;
     void *unk3;
 };
 
@@ -72775,6 +73048,20 @@ typedef enum SpellcardState {
 } SpellcardState;
 
 typedef struct Pbg3Archive *FileAbstractionToPbgArchive;
+
+typedef struct Item Item, *PItem;
+
+struct Item {
+    struct AnmVm vm;
+    D3DXVECTOR3 position;
+    D3DXVECTOR3 velocity;
+    D3DXVECTOR3 unk;
+    struct ZunTimer timer;
+    byte item_type;
+    byte is_in_use;
+    byte field7_0x142;
+    byte state;
+};
 
 typedef struct ResultScreen ResultScreen, *PResultScreen;
 
@@ -74188,7 +74475,7 @@ struct ScoreDat {
     ushort csum;
     byte unk[4];
     uint data_offset;
-    uint unk2;
+    void *unk2;
     uint file_length;
 };
 
@@ -74196,7 +74483,7 @@ typedef struct EffectManager EffectManager, *PEffectManager;
 
 struct EffectManager {
     int next_index;
-    undefined4 unk;
+    struct EffectManager *next;
     struct Effect effects[512];
     struct Effect dummy_effect_for_failed_spawns;
 };
@@ -74243,7 +74530,7 @@ struct Player {
     byte field23_0x9e2;
     byte field24_0x9e3;
     byte field25_0x9e4;
-    struct ZunTimer field26_0x9e8;
+    struct ZunTimer timer_related;
     struct ShottypeData field27_0x9f4;
     int field28_0xa0c;
     float field29_0xa10;

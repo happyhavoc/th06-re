@@ -1,5 +1,5 @@
 
-void FUN_0040c100(Enemy *param_1)
+void FUN_0040c100(Enemy *param_1,EclRawInstr *param_2)
 
 {
   (param_1->current_context).var1 =

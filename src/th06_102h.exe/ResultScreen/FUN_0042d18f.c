@@ -1,5 +1,6 @@
 
-undefined4 FUN_0042d18f(int param_1,int param_2)
+undefined4 __thiscall
+ResultScreen::FUN_0042d18f(ResultScreen *this,ResultScreen *param_1,int param_2)
 
 {
   undefined4 uVar1;
@@ -11,18 +12,18 @@ undefined4 FUN_0042d18f(int param_1,int param_2)
       uVar1 = 0;
     }
     else {
-      *(int *)(param_1 + 0x10) = *(int *)(param_1 + 0x10) + 1;
-      if (param_2 <= *(int *)(param_1 + 0x10)) {
-        *(int *)(param_1 + 0x10) = *(int *)(param_1 + 0x10) - param_2;
+      param_1->unk_10 = param_1->unk_10 + 1;
+      if (param_2 <= param_1->unk_10) {
+        param_1->unk_10 = param_1->unk_10 - param_2;
       }
       SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xc);
       uVar1 = 1;
     }
   }
   else {
-    *(int *)(param_1 + 0x10) = *(int *)(param_1 + 0x10) + -1;
-    if (*(int *)(param_1 + 0x10) < 0) {
-      *(int *)(param_1 + 0x10) = *(int *)(param_1 + 0x10) + param_2;
+    param_1->unk_10 = param_1->unk_10 + -1;
+    if (param_1->unk_10 < 0) {
+      param_1->unk_10 = param_1->unk_10 + param_2;
     }
     SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xc);
     uVar1 = 1;

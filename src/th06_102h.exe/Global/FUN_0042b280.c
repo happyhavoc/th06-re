@@ -11,8 +11,8 @@ FUN_0042b280(ScoreDat *param_1,ResultScreenUnk3ab0 *param_2,uint character,uint 
   
   if (param_2 == (ResultScreenUnk3ab0 *)0x0) {
     FUN_0042b437((uint *)param_1->unk2);
-    *(undefined4 *)(param_1->unk2 + 4) = 0;
-    *(undefined4 *)(param_1->unk2 + 8) = 0;
+    *(undefined4 *)((int)param_1->unk2 + 4) = 0;
+    *(undefined4 *)((int)param_1->unk2 + 8) = 0;
     *(undefined4 *)param_1->unk2 = 0;
   }
   local_8 = (Hscr *)(param_1->xorseed + param_1->data_offset);
@@ -30,15 +30,15 @@ FUN_0042b280(ScoreDat *param_1,ResultScreenUnk3ab0 *param_2,uint character,uint 
     pTVar1 = &local_8->base;
     local_8 = (Hscr *)(local_8->name + ((local_8->base).th6k_len - 0x13));
   }
-  if (*(int *)(param_1->unk2 + 4) == 0) {
+  if (*(int *)((int)param_1->unk2 + 4) == 0) {
     local_18 = 1000000;
   }
   else {
-    if (*(uint *)(*(int *)(*(int *)(param_1->unk2 + 4) + 8) + 0xc) < 0xf4241) {
+    if (*(uint *)(*(int *)(*(int *)((int)param_1->unk2 + 4) + 8) + 0xc) < 0xf4241) {
       local_14 = 1000000;
     }
     else {
-      local_14 = *(undefined4 *)(*(int *)(*(int *)(param_1->unk2 + 4) + 8) + 0xc);
+      local_14 = *(undefined4 *)(*(int *)(*(int *)((int)param_1->unk2 + 4) + 8) + 0xc);
     }
     local_18 = local_14;
   }

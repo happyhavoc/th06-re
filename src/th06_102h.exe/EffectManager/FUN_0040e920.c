@@ -14,9 +14,9 @@ int EffectManager::FUN_0040e920(Effect *param_1)
   D3DXVECTOR3 local_10;
   
   D3DXVec3Normalize(&local_64,&param_1->pos2);
-  dVar5 = sin((double)param_1->field12_0x160);
+  dVar5 = sin((double)param_1->__angle_related);
   local_14 = (float)dVar5;
-  dVar5 = cos((double)param_1->field12_0x160);
+  dVar5 = cos((double)param_1->__angle_related);
   local_58 = (float)dVar5;
   (param_1->field10_0x14c).x = local_64.x * local_14;
   (param_1->field10_0x14c).y = local_64.y * local_14;

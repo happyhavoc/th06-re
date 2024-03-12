@@ -28,7 +28,7 @@ void * __thiscall ResultScreen::ResultScreen(ResultScreen *this)
   local_58 = this->unk_3ab0;
   while (local_50 = local_50 + -1, -1 < local_50) {
     local_58->unk1 = 0;
-    local_58->unk2 = (void *)0x0;
+    local_58->unk2 = (ResultScreenUnk3ab0 *)0x0;
     local_58->unk3 = (void *)0x0;
     local_58 = local_58 + 1;
   }

@@ -1,5 +1,5 @@
 
-undefined4 FUN_00425d97(int param_1)
+undefined4 __cdecl MusicRoom::FUN_00425d97(int param_1)
 
 {
   _free(*(void **)(param_1 + 0x20));

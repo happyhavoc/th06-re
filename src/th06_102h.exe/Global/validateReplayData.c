@@ -4,7 +4,7 @@ ZunResult validateReplayData(ReplayData *data,int size)
 {
   ZunResult unpackResult;
   uint8_t *local_1c;
-  uint32_t checksum_base;
+  uint checksum_base;
   char *cur_byte;
   byte obf_offset;
   int idx;

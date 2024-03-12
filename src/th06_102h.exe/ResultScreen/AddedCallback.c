@@ -1,7 +1,5 @@
 
-/* WARNING: Unknown calling convention -- yet parameter storage is locked */
-
-undefined4 ResultScreen::AddedCallback(ResultScreen *param_1)
+int __thiscall ResultScreen::AddedCallback(ResultScreen *this,ResultScreen *param_1)
 
 {
   AnmManager *pAVar1;
@@ -16,23 +14,23 @@ undefined4 ResultScreen::AddedCallback(ResultScreen *param_1)
   if (param_1->unk_8 != 0x11) {
     ZVar2 = AnmManager::LoadSurface(g_AnmManager,0,"data/result/result.jpg");
     if (ZVar2 != ZUN_SUCCESS) {
-      return 0xffffffff;
+      return -1;
     }
     ZVar2 = AnmManager::LoadAnm(g_AnmManager,0x25,"data/result00.anm",0x100);
     if (ZVar2 != ZUN_SUCCESS) {
-      return 0xffffffff;
+      return -1;
     }
     ZVar2 = AnmManager::LoadAnm(g_AnmManager,0x26,"data/result01.anm",0x108);
     if (ZVar2 != ZUN_SUCCESS) {
-      return 0xffffffff;
+      return -1;
     }
     ZVar2 = AnmManager::LoadAnm(g_AnmManager,0x27,"data/result02.anm",0x10f);
     if (ZVar2 != ZUN_SUCCESS) {
-      return 0xffffffff;
+      return -1;
     }
     ZVar2 = AnmManager::LoadAnm(g_AnmManager,0x28,"data/result03.anm",0x125);
     if (ZVar2 != ZUN_SUCCESS) {
-      return 0xffffffff;
+      return -1;
     }
     local_c = &param_1->unk_40;
     for (difficulty = 0; (int)difficulty < 0x26; difficulty = difficulty + 1) {

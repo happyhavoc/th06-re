@@ -80,7 +80,7 @@ ZunResult GameManager::AddedCallback(GameManager *param_1)
                                   * 0x18 + g_GameManager.current_stage * 4].score +
                     (int)param_1->pscr);
     }
-    FUN_0042b7dc(pPVar5,scoredat);
+    ScoreDat::FUN_0042b7dc(pPVar5,scoredat);
     param_1->rank = DifficultyInfo_ARRAY_00476564[g_GameManager.difficulty].rank;
     param_1->min_rank = DifficultyInfo_ARRAY_00476564[g_GameManager.difficulty].min_rank;
     param_1->max_rank = DifficultyInfo_ARRAY_00476564[g_GameManager.difficulty].max_rank;
@@ -132,8 +132,8 @@ ZunResult GameManager::AddedCallback(GameManager *param_1)
   param_1->field41_0x1a2c = g_Rng.seed;
   iVar3 = Stage::RegisterChain(param_1->current_stage);
   if (iVar3 == 0) {
-    iVar3 = Player::RegisterChain(0);
-    if (iVar3 == 0) {
+    ZVar4 = Player::RegisterChain(0);
+    if (ZVar4 == ZUN_SUCCESS) {
       iVar3 = BulletManager::RegisterChain("data/etama.anm");
       if (iVar3 == 0) {
         ZVar4 = EnemyManager::RegisterChain
@@ -172,7 +172,7 @@ ZunResult GameManager::AddedCallback(GameManager *param_1)
               }
               else {
                 GameErrorContextLog(&g_GameErrorContext,
-                                    "error : 2D表示の初期化に失敗しました\n");
+                                    "error : 2D表���の初期化に失敗しました\n");
                 ZVar4 = ZUN_ERROR;
               }
             }

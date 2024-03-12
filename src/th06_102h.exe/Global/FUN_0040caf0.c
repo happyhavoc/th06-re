@@ -1,5 +1,5 @@
 
-void FUN_0040caf0(Enemy *param_1)
+void FUN_0040caf0(Enemy *param_1,AnmRawInstr *param_2)
 
 {
   float fVar1;

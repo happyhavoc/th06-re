@@ -1,21 +1,25 @@
 
-void FUN_0040daa0(int param_1)
+void __cdecl FUN_0040daa0(Enemy *param_1,AnmRawInstr *param_2)
 
 {
+  D3DXVECTOR3 *pDVar1;
   int local_8;
   
   for (local_8 = 0; local_8 < 8; local_8 = local_8 + 1) {
-    if ((*(int *)(param_1 + 0xdb8 + local_8 * 4) != 0) &&
-       (*(int *)(*(int *)(param_1 + 0xdb8 + local_8 * 4) + 600) != 0)) {
-      *(undefined4 *)(param_1 + 0xd04) = 0x42800000;
-      *(undefined4 *)(param_1 + 0xd08) = 0;
-      *(undefined4 *)(param_1 + 0xd0c) = 0;
-      FUN_0041e8d0(param_1 + 0xd04,param_1 + 0xd04,
-                   *(undefined4 *)(*(int *)(param_1 + 0xdb8 + local_8 * 4) + 0x22c));
-      *(float *)(param_1 + 0xd04) = *(float *)(param_1 + 0xd04) + *(float *)(param_1 + 0xc6c);
-      *(float *)(param_1 + 0xd08) = *(float *)(param_1 + 0xd08) + *(float *)(param_1 + 0xc70);
-      *(float *)(param_1 + 0xd0c) = *(float *)(param_1 + 0xd0c) + *(float *)(param_1 + 0xc74);
-      BulletManager::FUN_004145c0(&g_BulletManager,(EnemyBulletShooter *)(param_1 + 0xd00));
+    if ((param_1->lasers[local_8] != (void *)0x0) &&
+       (*(int *)((int)param_1->lasers[local_8] + 600) != 0)) {
+      (param_1->bullet_props).position.x = 64.0;
+      (param_1->bullet_props).position.y = 0.0;
+      (param_1->bullet_props).position.z = 0.0;
+      FUN_0041e8d0(&(param_1->bullet_props).position,&(param_1->bullet_props).position,
+                   *(undefined4 *)((int)param_1->lasers[local_8] + 0x22c));
+      pDVar1 = &(param_1->bullet_props).position;
+      pDVar1->x = pDVar1->x + (param_1->position).x;
+      (param_1->bullet_props).position.y =
+           (param_1->bullet_props).position.y + (param_1->position).y;
+      (param_1->bullet_props).position.z =
+           (param_1->bullet_props).position.z + (param_1->position).z;
+      BulletManager::FUN_004145c0(&g_BulletManager,&param_1->bullet_props);
     }
   }
   return;

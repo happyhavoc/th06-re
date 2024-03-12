@@ -1,5 +1,5 @@
 
-int Stage::AddedCallback(Stage *arg)
+int __thiscall Stage::AddedCallback(Stage *this,Stage *arg)
 
 {
   int iVar1;

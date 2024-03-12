@@ -29,7 +29,7 @@ ZunResult GameManager::AddedCallback(GameManager *param_1)
     param_1->field50_0x1a50 = 16.0;
     param_1->field51_0x1a54 = 368.0;
     param_1->field52_0x1a58 = 416.0;
-    param_1->field58_0x1a6c = 0;
+    param_1->counat = 0;
     param_1->field0_0x0 = 0;
     param_1->score = 0;
     param_1->field2_0x8 = 0;

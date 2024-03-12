@@ -11,10 +11,10 @@ undefined4 __fastcall FUN_0042d35a(int param_1)
     local_8 = param_1 + 0x2790;
     g_AsciiManager.color = *(D3DCOLOR *)(param_1 + 0x280c);
     if ((int)g_GameManager.difficulty < 4) {
-      local_34 = (float)g_GameManager.field58_0x1a6c / 89500.0;
+      local_34 = (float)g_GameManager.counat / 89500.0;
     }
     else {
-      local_34 = (float)g_GameManager.field58_0x1a6c / 39600.0;
+      local_34 = (float)g_GameManager.counat / 39600.0;
     }
     local_14.z = *(float *)(param_1 + 0x2828);
     local_14.x = *(float *)(param_1 + 0x2820) + 224.0;

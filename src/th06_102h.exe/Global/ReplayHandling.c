@@ -111,7 +111,7 @@ void __fastcall ReplayHandling(MainMenu *menu)
           main_menu->AnmVMArray[0].pendingInterrupt = 0x10;
           menu->gameSubState = 0;
           menu->cursor = 0;
-          SoundPlayer::FUN_004311e0(&g_SoundPlayer,10);
+          SoundPlayer::possibly_play_sound_by_idx(&g_SoundPlayer,10);
           pbVar4 = FileSystem::OpenPath(menu->replayFilePaths[menu->chosenReplay],1);
           menu->replayGameData = (int)pbVar4;
           validateReplayData((ReplayData *)menu->replayGameData,g_LastFileSize);
@@ -136,7 +136,7 @@ LAB_0043877b:
         for (i = 0; i < 0x7a; i = i + 1) {
           menu->AnmVMArray[i].pendingInterrupt = 4;
         }
-        SoundPlayer::FUN_004311e0(&g_SoundPlayer,0xb);
+        SoundPlayer::possibly_play_sound_by_idx(&g_SoundPlayer,0xb);
         menu->cursor = 0;
       }
     }
@@ -176,7 +176,7 @@ LAB_0043877b:
         for (i = 0; i < 0x7a; i = i + 1) {
           menu->AnmVMArray[i].pendingInterrupt = 4;
         }
-        SoundPlayer::FUN_004311e0(&g_SoundPlayer,0xb);
+        SoundPlayer::possibly_play_sound_by_idx(&g_SoundPlayer,0xb);
         menu->gameState = 0xd;
         main_menu = menu;
         for (i = 0; i < 0x7a; i = i + 1) {

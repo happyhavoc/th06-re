@@ -34,7 +34,7 @@ undefined4 FUN_0042f060(ResultScreen *param_1)
     if (ZVar2 != ZUN_SUCCESS) {
       return 0xffffffff;
     }
-    local_c = param_1->unk_40;
+    local_c = &param_1->unk_40;
     for (difficulty = 0; (int)difficulty < 0x26; difficulty = difficulty + 1) {
       (local_c->pos).x = 0.0;
       (local_c->pos).y = 0.0;
@@ -48,7 +48,7 @@ undefined4 FUN_0042f060(ResultScreen *param_1)
       AnmManager::SetAndExecuteScript(pAVar1,local_c,pAVar1->scripts[difficulty + 0x100]);
       local_c = local_c + 1;
     }
-    local_c = param_1->unk_28a0;
+    local_c = &param_1->unk_28a0;
     for (difficulty = 0; pAVar1 = g_AnmManager, (int)difficulty < 0x10; difficulty = difficulty + 1)
     {
       AnmVm::Initialize(local_c);

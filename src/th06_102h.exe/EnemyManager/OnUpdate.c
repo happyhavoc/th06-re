@@ -187,7 +187,7 @@ switchD_00412938_caseD_2:
     if ((int)uVar5 < 0) {
       uVar5 = (uVar5 - 1 | 0xfffffffe) + 1;
     }
-    SoundPlayer::FUN_004311e0(&g_SoundPlayer,uVar5 + 2);
+    SoundPlayer::possibly_play_sound_by_idx(&g_SoundPlayer,uVar5 + 2);
     EffectManager::FUN_0040ef50
               (&g_EffectManager,(uint)local_28->death_anm1,&local_28->position,1,0xffffffff);
     EffectManager::FUN_0040ef50
@@ -213,7 +213,7 @@ LAB_00412ce2:
     }
     if (local_28->field43_0xe41 == 0) {
       if (local_28->life < iVar2) {
-        SoundPlayer::FUN_004311e0(&g_SoundPlayer,0x14);
+        SoundPlayer::possibly_play_sound_by_idx(&g_SoundPlayer,0x14);
         *(uint *)&(local_28->primary_vm).flags = *(uint *)&(local_28->primary_vm).flags | 8;
         local_28->field43_0xe41 = 4;
       }

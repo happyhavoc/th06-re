@@ -65,7 +65,7 @@ LAB_00426400:
   *(ushort *)(param_2[1].matrix.m[0] + 1) = (ushort)*(byte *)((int)psVar3 + 0x1f);
   *(short *)param_2[1].matrix.m[0] = psVar3[0xe];
   if (-1 < psVar3[0x11]) {
-    SoundPlayer::FUN_004311e0(&g_SoundPlayer,(int)psVar3[0x11]);
+    SoundPlayer::possibly_play_sound_by_idx(&g_SoundPlayer,(int)psVar3[0x11]);
   }
   return (uint)(*param_5 + -1 <= param_3);
 }

@@ -202,7 +202,7 @@ void __thiscall EnemyManager::FUN_00411530(EnemyManager *this)
   }
   BVar3 = Gui::HasCurrentMsgIdx(&g_Gui);
   if (BVar3 == 0) {
-    g_GameManager.field58_0x1a6c = g_GameManager.field58_0x1a6c + 1;
+    g_GameManager.counat = g_GameManager.counat + 1;
   }
   return;
 }

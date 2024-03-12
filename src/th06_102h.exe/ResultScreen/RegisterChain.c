@@ -26,8 +26,8 @@ undefined4 ResultScreen::RegisterChain(int param_1)
     pvStack_64 = ResultScreen(this);
   }
   uStack_8 = 0xffffffff;
-  DebugPrint("counat = %d\n",g_GameManager.field58_0x1a6c);
-  pCVar1 = Chain::CreateElem(&g_Chain,FUN_0042d98e);
+  DebugPrint("counat = %d\n",g_GameManager.counat);
+  pCVar1 = Chain::CreateElem(&g_Chain,unk_resultscreen);
   *(ChainElem **)((int)pvStack_64 + 0x51a8) = pCVar1;
   *(code **)(*(int *)((int)pvStack_64 + 0x51a8) + 8) = FUN_0042f060;
   *(code **)(*(int *)((int)pvStack_64 + 0x51a8) + 0xc) = FUN_0042f5bc;

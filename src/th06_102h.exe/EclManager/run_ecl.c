@@ -1067,7 +1067,7 @@ switchD_00407544_caseD_2:
     param_1->flags2 = param_1->flags2 & 0xef | (*(byte *)(local_20 + 3) & 1) << 4;
     break;
   case 0x6a:
-    SoundPlayer::FUN_004311e0(&g_SoundPlayer,local_20[3]);
+    SoundPlayer::possibly_play_sound_by_idx(&g_SoundPlayer,local_20[3]);
     break;
   case 0x6b:
     param_1->flags2 = param_1->flags2 & 0x1f | *(char *)(local_20 + 3) << 5;
@@ -1157,7 +1157,7 @@ switchD_00407544_caseD_2:
     break;
   case 0x7e:
     g_Gui.ecl_set_lives = local_20[3];
-    g_GameManager.field58_0x1a6c = g_GameManager.field58_0x1a6c + 0x708;
+    g_GameManager.counat = g_GameManager.counat + 0x708;
     break;
   case 0x80:
     (param_1->primary_vm).pendingInterrupt = *(short *)(local_20 + 3);

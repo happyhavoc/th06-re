@@ -15,7 +15,7 @@ undefined4 FUN_0042d18f(int param_1,int param_2)
       if (param_2 <= *(int *)(param_1 + 0x10)) {
         *(int *)(param_1 + 0x10) = *(int *)(param_1 + 0x10) - param_2;
       }
-      SoundPlayer::FUN_004311e0(&g_SoundPlayer,0xc);
+      SoundPlayer::possibly_play_sound_by_idx(&g_SoundPlayer,0xc);
       uVar1 = 1;
     }
   }
@@ -24,7 +24,7 @@ undefined4 FUN_0042d18f(int param_1,int param_2)
     if (*(int *)(param_1 + 0x10) < 0) {
       *(int *)(param_1 + 0x10) = *(int *)(param_1 + 0x10) + param_2;
     }
-    SoundPlayer::FUN_004311e0(&g_SoundPlayer,0xc);
+    SoundPlayer::possibly_play_sound_by_idx(&g_SoundPlayer,0xc);
     uVar1 = 1;
   }
   return uVar1;

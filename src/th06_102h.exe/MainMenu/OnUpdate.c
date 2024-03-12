@@ -140,7 +140,7 @@ switchD_004358f7_caseD_2:
         local_28 = CONCAT22(local_28._2_2_,(short)local_28 + 1);
       }
       if (((short)local_28 < 0x20) && (DAT_00478690 != (short)local_28)) {
-        SoundPlayer::FUN_004311e0(&g_SoundPlayer,10);
+        SoundPlayer::possibly_play_sound_by_idx(&g_SoundPlayer,10);
         switch(menu->cursor) {
         case 0:
           FUN_00437672(menu,local_28,(menu->controlMapping).shootButton);
@@ -200,7 +200,7 @@ switchD_004358f7_caseD_2:
             menu->AnmVMArray[(short)local_28].pendingInterrupt = 3;
           }
           menu->cursor = 7;
-          SoundPlayer::FUN_004311e0(&g_SoundPlayer,0xb);
+          SoundPlayer::possibly_play_sound_by_idx(&g_SoundPlayer,0xb);
           g_ControllerMapping.shootButton = (menu->controlMapping).shootButton;
           g_ControllerMapping.bombButton = (menu->controlMapping).bombButton;
           g_ControllerMapping.focusButton = (menu->controlMapping).focusButton;
@@ -311,7 +311,7 @@ switchD_004358f7_caseD_2:
         for (i = 0; (int)i < 0x7a; i = i + 1) {
           menu->AnmVMArray[i].pendingInterrupt = 7;
         }
-        SoundPlayer::FUN_004311e0(&g_SoundPlayer,10);
+        SoundPlayer::possibly_play_sound_by_idx(&g_SoundPlayer,10);
         if ((int)g_GameManager.difficulty < 4) {
           menu->AnmVMArray[menu->cursor + 0x51].pendingInterrupt = 8;
           g_GameManager.difficulty = menu->cursor;
@@ -349,7 +349,7 @@ switchD_004358f7_caseD_2:
       for (i = 0; (int)i < 0x7a; i = i + 1) {
         menu->AnmVMArray[i].pendingInterrupt = 4;
       }
-      SoundPlayer::FUN_004311e0(&g_SoundPlayer,0xb);
+      SoundPlayer::possibly_play_sound_by_idx(&g_SoundPlayer,0xb);
       if ((int)g_GameManager.difficulty < 4) {
         g_Supervisor.cfg.defaultDifficulty = *(byte *)&menu->cursor;
         if (g_GameManager.field30_0x1823 == 0) {
@@ -387,7 +387,7 @@ LAB_0043666d:
           }
         }
         else {
-          SoundPlayer::FUN_004311e0(&g_SoundPlayer,0xc);
+          SoundPlayer::possibly_play_sound_by_idx(&g_SoundPlayer,0xc);
           vm_memset = menu->AnmVMArray + 0x56;
           for (i = 0; (int)i < 2; i = i + 1) {
             if (i == menu->cursor) {
@@ -413,7 +413,7 @@ LAB_0043666d:
           maxClearCheck != 0)) ||
          (maxClearCheck = GameManager::hasReachedMaxClears(&g_GameManager,menu->cursor,1),
          maxClearCheck != 0)) {
-        SoundPlayer::FUN_004311e0(&g_SoundPlayer,0xc);
+        SoundPlayer::possibly_play_sound_by_idx(&g_SoundPlayer,0xc);
         vm_memset = menu->AnmVMArray + 0x56;
         for (i = 0; (int)i < 2; i = i + 1) {
           if (i == menu->cursor) {
@@ -474,7 +474,7 @@ LAB_0043666d:
             menu->cursor = (uint)g_GameManager.shottype;
           }
         }
-        SoundPlayer::FUN_004311e0(&g_SoundPlayer,10);
+        SoundPlayer::possibly_play_sound_by_idx(&g_SoundPlayer,10);
       }
     }
     else {
@@ -492,7 +492,7 @@ LAB_0043666d:
         }
         menu->cursor = 0;
       }
-      SoundPlayer::FUN_004311e0(&g_SoundPlayer,0xb);
+      SoundPlayer::possibly_play_sound_by_idx(&g_SoundPlayer,0xb);
     }
     break;
   case 10:
@@ -613,7 +613,7 @@ LAB_0043666d:
           vm_memset = vm_memset + 2;
         }
         menu->AnmVMArray[g_GameManager.difficulty + 0x51].pendingInterrupt = 0;
-        SoundPlayer::FUN_004311e0(&g_SoundPlayer,0xb);
+        SoundPlayer::possibly_play_sound_by_idx(&g_SoundPlayer,0xb);
         g_GameManager.shottype = *(byte *)&menu->cursor;
         menu->cursor = (uint)g_GameManager.character;
         vm_memset = menu->AnmVMArray + 0x56;
@@ -670,7 +670,7 @@ LAB_00436de7:
             g_GameManager.bombs_remaining = 3;
           }
           g_Supervisor.curState = 2;
-          SoundPlayer::FUN_004311e0(&g_SoundPlayer,10);
+          SoundPlayer::possibly_play_sound_by_idx(&g_SoundPlayer,10);
           g_GameManager.field7_0x1c = 0;
           local_48 = 0.0;
           if ((int)menu->unk_10ee0 < 2) {
@@ -758,7 +758,7 @@ LAB_00436de7:
           vm_memset = vm_memset + 2;
         }
         menu->cursor = (uint)g_GameManager.shottype;
-        SoundPlayer::FUN_004311e0(&g_SoundPlayer,10);
+        SoundPlayer::possibly_play_sound_by_idx(&g_SoundPlayer,10);
       }
     }
   }

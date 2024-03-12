@@ -12,7 +12,7 @@ ZunResult MainMenu::MoveCursor(MainMenu *menu,int menu_length)
     }
     else {
       menu->cursor = menu->cursor + 1;
-      SoundPlayer::FUN_004311e0(&g_SoundPlayer,0xc);
+      SoundPlayer::possibly_play_sound_by_idx(&g_SoundPlayer,0xc);
       if ((int)menu->cursor < 0) {
         menu->cursor = menu_length - 1;
       }
@@ -24,7 +24,7 @@ ZunResult MainMenu::MoveCursor(MainMenu *menu,int menu_length)
   }
   else {
     menu->cursor = menu->cursor - 1;
-    SoundPlayer::FUN_004311e0(&g_SoundPlayer,0xc);
+    SoundPlayer::possibly_play_sound_by_idx(&g_SoundPlayer,0xc);
     if ((int)menu->cursor < 0) {
       menu->cursor = menu_length - 1;
     }

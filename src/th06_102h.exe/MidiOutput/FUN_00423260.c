@@ -9,8 +9,7 @@ void __thiscall MidiOutput::FUN_00423260(MidiOutput *this,int param_1)
   
   if (this->unk2d4 == 0) {
     for (local_c = 0; local_c < 0x10; local_c = local_c + 1) {
-      lVar1 = __ftol2((double)((float)(uint)(byte)this->unk144[local_c * 0x17 + 0x25] * this->unk2c8
-                              ));
+      lVar1 = __ftol2((float)(uint)(byte)this->unk144[local_c * 0x17 + 0x25] * this->unk2c8);
       local_18 = lVar1 + param_1;
       if (local_18 < 0) {
         local_18 = 0;

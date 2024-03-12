@@ -156,12 +156,12 @@ LAB_0041f7c5:
           switch(g_GameManager.difficulty) {
           case 0:
           case 1:
-            lVar9 = __ftol2((double)local_18[1].rotation.y);
+            lVar9 = __ftol2(local_18[1].rotation.y);
             if (lVar9 < 0x80) {
               local_e0 = 100000;
             }
             else {
-              lVar9 = __ftol2((double)local_18[1].rotation.y);
+              lVar9 = __ftol2(local_18[1].rotation.y);
               local_e0 = (lVar9 + -0x80) * -100 + 60000;
             }
             local_c = local_e0;
@@ -170,12 +170,12 @@ LAB_0041f7c5:
                        ((local_e0 < 100000) - 1 & 0xffffff01) - 1);
             break;
           case 2:
-            lVar9 = __ftol2((double)local_18[1].rotation.y);
+            lVar9 = __ftol2(local_18[1].rotation.y);
             if (lVar9 < 0x80) {
               local_e4 = 150000;
             }
             else {
-              lVar9 = __ftol2((double)local_18[1].rotation.y);
+              lVar9 = __ftol2(local_18[1].rotation.y);
               local_e4 = (lVar9 + -0x80) * -0xb4 + 100000;
             }
             local_c = local_e4;
@@ -184,12 +184,12 @@ LAB_0041f7c5:
                        ((local_e4 < 150000) - 1 & 0xffffff01) - 1);
             break;
           case 3:
-            lVar9 = __ftol2((double)local_18[1].rotation.y);
+            lVar9 = __ftol2(local_18[1].rotation.y);
             if (lVar9 < 0x80) {
               local_e8 = 200000;
             }
             else {
-              lVar9 = __ftol2((double)local_18[1].rotation.y);
+              lVar9 = __ftol2(local_18[1].rotation.y);
               local_e8 = (lVar9 + -0x80) * -0x10e + 150000;
             }
             local_c = local_e8;
@@ -198,12 +198,12 @@ LAB_0041f7c5:
                        ((local_e8 < 200000) - 1 & 0xffffff01) - 1);
             break;
           case 4:
-            lVar9 = __ftol2((double)local_18[1].rotation.y);
+            lVar9 = __ftol2(local_18[1].rotation.y);
             if (lVar9 < 0x80) {
               local_ec = 300000;
             }
             else {
-              lVar9 = __ftol2((double)local_18[1].rotation.y);
+              lVar9 = __ftol2(local_18[1].rotation.y);
               local_ec = (lVar9 + -0x80) * -400 + 200000;
             }
             local_c = local_ec;

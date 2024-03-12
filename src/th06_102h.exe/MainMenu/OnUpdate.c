@@ -99,10 +99,10 @@ switchD_004358f7_caseD_2:
     }
     break;
   case STATE_5:
-    MoveCursor(menu,0xb);
+    MoveCursor(menu,11);
     vm_memset = menu->AnmVMArray + 0x22;
     for (i = 0; (int)i < 0xb; i = i + 1) {
-      FUN_004377a3(vm_memset,i,menu->cursor,menu->unk_8204);
+      FUN_004377a3(vm_memset,i,menu->cursor,menu->color2);
       vm_memset = vm_memset + 1;
     }
     for (i = 0; (int)i < 9; i = i + 1) {
@@ -111,7 +111,7 @@ switchD_004358f7_caseD_2:
       }
       else {
         *(uint *)&vm_memset->flags = *(uint *)&vm_memset->flags | 2;
-        FUN_004377a3(vm_memset,i,menu->cursor,menu->unk_8204);
+        FUN_004377a3(vm_memset,i,menu->cursor,menu->color2);
       }
       vm_memset = vm_memset + 1;
     }
@@ -129,7 +129,7 @@ switchD_004358f7_caseD_2:
           AnmManager::SetActiveSprite(g_AnmManager,vm_memset,(int)sVar1 % 10 + 0x100);
         }
         vm_memset->anotherSpriteNumber = vm_memset->spriteNumber;
-        FUN_004377a3(vm_memset,(int)i / 2,menu->cursor,menu->unk_8204);
+        FUN_004377a3(vm_memset,(int)i / 2,menu->cursor,menu->color2);
       }
       vm_memset = vm_memset + 1;
     }
@@ -234,9 +234,9 @@ switchD_004358f7_caseD_2:
       return 0;
     }
     menu->gameState = STATE_7;
-    menu->unk_81fc = 0;
-    menu->field78_0x8214 = menu->unk_8210;
-    menu->unk_8210 = 0;
+    menu->unk_81fc = 0.0;
+    menu->field78_0x8214 = menu->isActive;
+    menu->isActive = 0;
     if ((int)g_GameManager.difficulty < 4) {
       for (i = 0; (int)i < 122; i = i + 1) {
         menu->AnmVMArray[i].pendingInterrupt = 6;

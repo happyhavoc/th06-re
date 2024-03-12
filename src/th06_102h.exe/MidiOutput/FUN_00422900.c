@@ -191,7 +191,7 @@ void __thiscall MidiOutput::FUN_00422900(MidiOutput *this,MidiTrack *param_1)
       break;
     case 7:
       this->unk144[(uint)(opcode & 0xffff0f) * 0x17 + 0x25] = (undefined)arg2;
-      lVar6 = __ftol2((double)((float)(arg2 & 0xff) * this->unk2c8));
+      lVar6 = __ftol2((float)(arg2 & 0xff) * this->unk2c8);
       bStack_14 = (byte)lVar6;
       if (lVar6 < 0) {
         bStack_14 = 0;

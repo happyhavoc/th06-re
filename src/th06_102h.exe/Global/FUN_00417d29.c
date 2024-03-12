@@ -7,6 +7,7 @@ undefined4 __fastcall FUN_00417d29(uint *param_1)
   ZunResult ZVar3;
   AnmVm *vm;
   int iVar4;
+  int unaff_EDI;
   undefined4 *puVar5;
   short local_14;
   int local_8;
@@ -220,7 +221,8 @@ undefined4 __fastcall FUN_00417d29(uint *param_1)
   uVar1 = param_1[1];
   *(undefined2 *)(uVar1 + 0x1d68) = 0x701;
   AnmManager::SetAndExecuteScript(pAVar2,(AnmVm *)(uVar1 + 0x1cb4),pAVar2->scripts[0x701]);
-  FUN_00434e20(g_AnmManager,param_1[1] + 0x1ba4,0xe0ffff,0,g_Stage.stdData + 0x10);
+  FUN_00434e20(g_AnmManager,(AnmVm *)(param_1[1] + 0x1ba4),0xe0ffff,0,
+               (char *)(g_Stage.stdData + 0x10),unaff_EDI);
   *(undefined *)(param_1[1] + 0x1dc0) = 0x10;
   *(undefined *)(param_1[1] + 0x1dc1) = 0x10;
   FUN_00434c40(g_AnmManager,param_1[1] + 0x1cb4,0xe0ffff,0,"♪%s",g_Stage.stdData + 0x90);

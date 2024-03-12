@@ -6,7 +6,7 @@ undefined4 MainMenu::AddedCallback(MainMenu *param_1)
 {
   AnmManager *pAVar1;
   ScoreDat *scoredat;
-  undefined4 uVar2;
+  Pscr *pPVar2;
   int local_c;
   
   if (g_GameManager.demo_mode == 0) {
@@ -43,24 +43,24 @@ LAB_0043a520:
   }
   g_GameManager.field30_0x1823 = 0;
   if ((g_Supervisor.cfg.opts & 1) == USE_D3D_HW_TEXTURE_BLENDING) {
-    param_1->unk_8208 = 0x80004000;
-    param_1->unk_8204 = 0xff008000;
+    param_1->color1 = 0x80004000;
+    param_1->color2 = 0xff008000;
   }
   else {
-    param_1->unk_8208 = 0x80ffffff;
-    param_1->unk_8204 = 0xffffffff;
+    param_1->color1 = 0x80ffffff;
+    param_1->color2 = 0xffffffff;
   }
-  param_1->unk_81fc = 0;
-  param_1->unk_8200 = 2.0;
+  param_1->unk_81fc = 0.0;
+  param_1->maybe_menu_text_color = 1073741824;
   param_1->unk_820c = 0;
-  param_1->unk_8210 = 0;
+  param_1->isActive = 0;
   param_1->unk_10f28 = 0x10;
-  param_1->replayGameData = 0;
+  param_1->replayGameData = (int *)0x0;
   scoredat = (ScoreDat *)OpenScore("score.dat");
   ParseClrd(scoredat,g_GameManager.clrd);
-  uVar2 = 0x69cd30;
+  pPVar2 = g_GameManager.pscr;
   ParsePscr(scoredat,g_GameManager.pscr);
-  FUN_0042b7dc(uVar2,scoredat);
+  FUN_0042b7dc(pPVar2,scoredat);
   if (g_GameManager.demo_mode == 0) {
     if (g_Supervisor.startup_time_for_menu_music == 0) {
       Supervisor::PlayAudio("bgm/th06_01.mid");

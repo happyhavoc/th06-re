@@ -16,7 +16,7 @@ void Player::FUN_00406020(Player *param_1)
     fVar1 = (((float)(param_1->inner).field2_0x8.current + (param_1->inner).field2_0x8.subFrame) *
             176.0) / 60.0;
     if (fVar1 < 176.0) {
-      local_2c = __ftol2((double)fVar1);
+      local_2c = __ftol2(fVar1);
     }
     else {
       local_2c = 0xb0;
@@ -31,7 +31,7 @@ void Player::FUN_00406020(Player *param_1)
              ((float)(param_1->inner).field2_0x8.current + (param_1->inner).field2_0x8.subFrame)) *
             176.0) / 60.0;
     if (fVar1 < 0.0 == NAN(fVar1)) {
-      local_38 = __ftol2((double)fVar1);
+      local_38 = __ftol2(fVar1);
     }
     else {
       local_38 = 0;

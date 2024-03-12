@@ -8,10 +8,10 @@ void __thiscall StageMenu::OnDrawRetryMenu(StageMenu *this)
   int local_8;
   
   if (g_GameManager.is_in_retry_menu != 0) {
-    g_Supervisor.viewport.X = __ftol2((double)g_GameManager.arcade_region_top_left_pos.x);
-    g_Supervisor.viewport.Y = __ftol2((double)g_GameManager.arcade_region_top_left_pos.y);
-    g_Supervisor.viewport.Width = __ftol2((double)g_GameManager.arcade_region_size.x);
-    g_Supervisor.viewport.Height = __ftol2((double)g_GameManager.arcade_region_size.y);
+    g_Supervisor.viewport.X = __ftol2(g_GameManager.arcade_region_top_left_pos.x);
+    g_Supervisor.viewport.Y = __ftol2(g_GameManager.arcade_region_top_left_pos.y);
+    g_Supervisor.viewport.Width = __ftol2(g_GameManager.arcade_region_size.x);
+    g_Supervisor.viewport.Height = __ftol2(g_GameManager.arcade_region_size.y);
     (*(g_Supervisor.d3dDevice)->lpVtbl->SetViewport)
               (g_Supervisor.d3dDevice,(D3DVIEWPORT8 *)0x6c6de0);
     if ((g_Supervisor.lockableBackbuffer != 0) && ((this->curState != 0 || (2 < this->numFrames))))

@@ -6,7 +6,7 @@ undefined4 __thiscall Supervisor::fadeOutMusic(Supervisor *this,float fadeOutSec
   
   if (g_Supervisor.cfg.musicMode == MIDI) {
     if (g_Supervisor.midi_output != (MidiOutput *)0x0) {
-      lVar1 = __ftol2((double)(fadeOutSeconds * 1000.0));
+      lVar1 = __ftol2(fadeOutSeconds * 1000.0);
       MidiOutput::FUN_00422630(g_Supervisor.midi_output,lVar1);
     }
   }

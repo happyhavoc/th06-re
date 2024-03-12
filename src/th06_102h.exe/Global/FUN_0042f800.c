@@ -6,8 +6,8 @@ uint FUN_0042f800(ScreenEffect *param_1)
   uint uVar2;
   
   if (param_1->field5_0x14 != 0) {
-    uVar2 = __ftol2((double)(255.0 - (((float)(param_1->timer).current + (param_1->timer).subFrame)
-                                     * 255.0) / (float)param_1->field5_0x14));
+    uVar2 = __ftol2(255.0 - (((float)(param_1->timer).current + (param_1->timer).subFrame) * 255.0)
+                            / (float)param_1->field5_0x14);
     param_1->field4_0x10 = uVar2;
     if ((int)param_1->field4_0x10 < 0) {
       param_1->field4_0x10 = 0;

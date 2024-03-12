@@ -374,9 +374,8 @@ LAB_00414a1a:
             local_20 = local_14 / 2.0;
           }
           else {
-            local_28 = __ftol2((double)((((float)(int)local_2c[2].matrix.m[0][2] +
-                                         local_2c[2].matrix.m[0][1]) * 255.0) /
-                                       (float)(int)local_2c[2].scaleInterpFinalX));
+            local_28 = __ftol2((((float)(int)local_2c[2].matrix.m[0][2] + local_2c[2].matrix.m[0][1]
+                                ) * 255.0) / (float)(int)local_2c[2].scaleInterpFinalX);
             if (0xff < local_28) {
               local_28 = 0xff;
             }
@@ -422,9 +421,8 @@ LAB_004161bf:
             }
           }
           else {
-            local_28 = __ftol2((double)((((float)(int)local_2c[2].matrix.m[0][2] +
-                                         local_2c[2].matrix.m[0][1]) * 255.0) /
-                                       (float)(int)local_2c[2].scaleInterpFinalX));
+            local_28 = __ftol2((((float)(int)local_2c[2].matrix.m[0][2] + local_2c[2].matrix.m[0][1]
+                                ) * 255.0) / (float)(int)local_2c[2].scaleInterpFinalX);
             if (0xff < local_28) {
               local_28 = 0xff;
             }

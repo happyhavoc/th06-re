@@ -9,8 +9,8 @@ void Player::BombReimuACalc(Player *param_1)
   int iVar5;
   uint uVar6;
   float10 fVar7;
-  double dVar8;
-  float fVar9;
+  float fVar8;
+  double dVar9;
   float fVar10;
   int local_28;
   float local_24;
@@ -52,14 +52,14 @@ void Player::BombReimuACalc(Player *param_1)
         pPVar1->field0_0x0 = (param_1->position).x;
         pPVar1->field1_0x4 = (param_1->position).y;
         pPVar1->field2_0x8 = (param_1->position).z;
-        fVar9 = Rng::GetRandomF32ZeroToOne(&g_Rng);
-        fVar9 = fVar9 * 6.283185 - 3.141593;
-        dVar8 = cos((double)fVar9);
+        fVar8 = Rng::GetRandomF32ZeroToOne(&g_Rng);
+        fVar8 = fVar8 * 6.283185 - 3.141593;
+        dVar9 = cos((double)fVar8);
         (param_1->inner).field8_0xbc[iVar5 * 3] =
-             (int)((float)dVar8 * *(float *)((param_1->inner).field5_0x1c + iVar5 * 4 + 0x20));
-        dVar8 = sin((double)fVar9);
+             (int)((float)dVar9 * *(float *)((param_1->inner).field5_0x1c + iVar5 * 4 + 0x20));
+        dVar9 = sin((double)fVar8);
         (param_1->inner).field8_0xbc[iVar5 * 3 + 1] =
-             (int)((float)dVar8 * *(float *)((param_1->inner).field5_0x1c + iVar5 * 4 + 0x20));
+             (int)((float)dVar9 * *(float *)((param_1->inner).field5_0x1c + iVar5 * 4 + 0x20));
         param_1->field14_0x838[iVar5] = 0;
         local_14 = (param_1->inner).field10_0x11c + iVar5 * 4;
         for (local_28 = 0; local_28 < 4; local_28 = local_28 + 1) {
@@ -82,7 +82,7 @@ void Player::BombReimuACalc(Player *param_1)
               local_24 = (param_1->position_of_last_enemy_hit).x;
               local_20 = (param_1->position_of_last_enemy_hit).y;
             }
-            fVar9 = (param_1->inner).field6_0x5c[local_10].field0_0x0;
+            fVar8 = (param_1->inner).field6_0x5c[local_10].field0_0x0;
             fVar3 = (param_1->inner).field6_0x5c[local_10].field1_0x4;
             fVar7 = (float10)FUN_0045bc34();
             local_18 = (float)fVar7 /
@@ -90,14 +90,14 @@ void Player::BombReimuACalc(Player *param_1)
             if (local_18 < 1.0 != NAN(local_18)) {
               local_18 = 1.0;
             }
-            fVar4 = (local_24 - fVar9) / local_18 +
+            fVar4 = (local_24 - fVar8) / local_18 +
                     (float)(param_1->inner).field8_0xbc[local_10 * 3];
             fVar3 = (local_20 - fVar3) / local_18 +
                     (float)(param_1->inner).field8_0xbc[local_10 * 3 + 1];
             fVar7 = (float10)FUN_0045bc34((double)(fVar4 * fVar4 + fVar3 * fVar3));
-            fVar9 = (float)fVar7;
-            fVar10 = fVar9;
-            if (10.0 < fVar9) {
+            fVar8 = (float)fVar7;
+            fVar10 = fVar8;
+            if (10.0 < fVar8) {
               fVar10 = 10.0;
             }
             *(float *)((param_1->inner).field5_0x1c + local_10 * 4 + 0x20) = fVar10;
@@ -107,10 +107,10 @@ void Player::BombReimuACalc(Player *param_1)
             }
             (param_1->inner).field8_0xbc[local_10 * 3] =
                  (int)((fVar4 * *(float *)((param_1->inner).field5_0x1c + local_10 * 4 + 0x20)) /
-                      fVar9);
+                      fVar8);
             (param_1->inner).field8_0xbc[local_10 * 3 + 1] =
                  (int)((fVar3 * *(float *)((param_1->inner).field5_0x1c + local_10 * 4 + 0x20)) /
-                      fVar9);
+                      fVar8);
             param_1->field12_0x638[local_10].x = 48.0;
             param_1->field12_0x638[local_10].y = 48.0;
             pPVar1 = (param_1->inner).field6_0x5c + local_10;

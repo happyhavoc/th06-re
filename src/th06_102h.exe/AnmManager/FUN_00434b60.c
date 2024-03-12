@@ -4,14 +4,14 @@ void AnmManager::FUN_00434b60
                int param6)
 
 {
-  long lVar1;
-  long lVar2;
-  long lVar3;
-  long lVar4;
+  long spriteHeight;
+  long spriteWidth;
+  long yPos;
+  long xPos;
   uint fontWidth;
-  uint uVar5;
+  uint fontHeight;
   uint unaff_retaddr;
-  char *pcVar6;
+  char *pcVar1;
   char local_4c [64];
   uint local_c;
   int *local_8;
@@ -21,14 +21,14 @@ void AnmManager::FUN_00434b60
   local_8 = &param6;
   vsprintf(local_4c,(char *)param_5,(va_list)local_8);
   local_8 = (int *)0x0;
-  pcVar6 = local_4c;
-  uVar5 = (uint)vm->fontHeight;
-  lVar1 = __ftol2((double)vm->sprite->textureHeight);
-  lVar2 = __ftol2((double)vm->sprite->textureWidth);
-  lVar3 = __ftol2((double)(vm->sprite->startPixelInclusive).y);
-  lVar4 = __ftol2((double)(vm->sprite->startPixelInclusive).x);
-  FUN_00434af0(anm_mgr,vm->sprite->sourceFileIndex,lVar4,lVar3,lVar2,lVar1,fontWidth,uVar5,textColor
-               ,param_4,pcVar6);
+  pcVar1 = local_4c;
+  fontHeight = (uint)vm->fontHeight;
+  spriteHeight = __ftol2(vm->sprite->textureHeight);
+  spriteWidth = __ftol2(vm->sprite->textureWidth);
+  yPos = __ftol2((vm->sprite->startPixelInclusive).y);
+  xPos = __ftol2((vm->sprite->startPixelInclusive).x);
+  FUN_00434af0(anm_mgr,vm->sprite->sourceFileIndex,xPos,yPos,spriteWidth,spriteHeight,fontWidth,
+               fontHeight,textColor,param_4,pcVar1);
   *(uint *)&vm->flags = *(uint *)&vm->flags | 1;
   __security_check_cookie(local_c ^ unaff_retaddr);
   return;

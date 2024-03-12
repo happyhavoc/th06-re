@@ -10,7 +10,7 @@ FUN_0042b280(ScoreDat *param_1,ResultScreenUnk3ab0 *param_2,uint character,uint 
   Hscr *local_8;
   
   if (param_2 == (ResultScreenUnk3ab0 *)0x0) {
-    FUN_0042b437((void *)param_1->unk2);
+    FUN_0042b437((uint *)param_1->unk2);
     *(undefined4 *)(param_1->unk2 + 4) = 0;
     *(undefined4 *)(param_1->unk2 + 8) = 0;
     *(undefined4 *)param_1->unk2 = 0;

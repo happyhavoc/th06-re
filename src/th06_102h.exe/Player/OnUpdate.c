@@ -79,8 +79,8 @@ ChainCallbackResult Player::OnUpdate(Player *param_1)
     fVar1 = ((float)(param_1->field35_0x75b4).current + (param_1->field35_0x75b4).subFrame) / 30.0;
     (param_1->vm0).scaleY = fVar1 * 3.0 + 1.0;
     (param_1->vm0).scaleX = 1.0 - fVar1 * 1.0;
-    lVar3 = __ftol2((double)(255.0 - (((float)(param_1->field35_0x75b4).current +
-                                      (param_1->field35_0x75b4).subFrame) * 255.0) / 30.0));
+    lVar3 = __ftol2(255.0 - (((float)(param_1->field35_0x75b4).current +
+                             (param_1->field35_0x75b4).subFrame) * 255.0) / 30.0);
     (param_1->vm0).color.color = lVar3 << 0x18 | 0xffffff;
     *(uint *)&(param_1->vm0).flags = *(uint *)&(param_1->vm0).flags | 4;
     param_1->field29_0xa10 = 0.0;

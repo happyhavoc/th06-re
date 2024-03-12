@@ -14,11 +14,11 @@ undefined4 ResultScreen::unk_resultscreen(ResultScreen *result_screen)
   iVar1 = result_screen->unk_8;
   if (iVar1 < 9) {
     if (iVar1 == 8) {
-      if ((result_screen->field19_0x28 != result_screen->unk_10) &&
+      if ((result_screen->field16_0x28 != result_screen->unk_10) &&
          (result_screen->field1_0x4 == 0x14)) {
-        result_screen->field19_0x28 = result_screen->unk_10;
-        for (i = result_screen->field19_0x28 * 10;
-            (i < result_screen->field19_0x28 * 10 + 10 && (i < 0x40)); i = i + 1) {
+        result_screen->field16_0x28 = result_screen->unk_10;
+        for (i = result_screen->field16_0x28 * 10;
+            (i < result_screen->field16_0x28 * 10 + 10 && (i < 0x40)); i = i + 1) {
           if (g_GameManager.catk[i].num_successes == 0) {
             AnmManager::FUN_00434b60
                       (g_AnmManager,&result_screen->unk_28a0 + i % 10,0xffffff,0,0x46bcdc,unaff_EDI)
@@ -37,7 +37,7 @@ undefined4 ResultScreen::unk_resultscreen(ResultScreen *result_screen)
           result_screen->field1_0x4 = 0;
           vm = &result_screen->unk_40;
           for (i = 0; i < 38; i = i + 1) {
-            vm->pendingInterrupt = (short)*(undefined4 *)&result_screen->field20_0x2c + 3;
+            vm->pendingInterrupt = (short)*(undefined4 *)&result_screen->field17_0x2c + 3;
             vm = vm + 1;
           }
         }
@@ -51,7 +51,7 @@ undefined4 ResultScreen::unk_resultscreen(ResultScreen *result_screen)
             vm = vm + 1;
           }
           result_screen->field9_0x18 = result_screen->unk_10;
-          result_screen->unk_10 = *(int *)&result_screen->field20_0x2c;
+          result_screen->unk_10 = *(int *)&result_screen->field17_0x2c;
         }
       }
     }
@@ -70,7 +70,7 @@ undefined4 ResultScreen::unk_resultscreen(ResultScreen *result_screen)
             }
             vm = vm + 1;
           }
-          vm = &result_screen->field41_0x150;
+          vm = &result_screen->field38_0x150;
           for (i = 0; i < 7; i = i + 1) {
             if (i == result_screen->unk_10) {
               if ((g_Supervisor.cfg.opts & 1) == 0) {
@@ -161,14 +161,14 @@ undefined4 ResultScreen::unk_resultscreen(ResultScreen *result_screen)
               SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0x1c);
             }
           }
-          if ((*(int *)&result_screen->field15_0x24 != result_screen->unk_10) &&
+          if ((result_screen->field15_0x24 != result_screen->unk_10) &&
              (result_screen->field1_0x4 == 0x14)) {
-            *(int *)&result_screen->field15_0x24 = result_screen->unk_10;
+            result_screen->field15_0x24 = result_screen->unk_10;
             FUN_00434e20(g_AnmManager,&result_screen->unk_28a0,0xffffff,0,
-                         (&g_CharacterList)[*(int *)&result_screen->field15_0x24 * 2]);
-            FUN_00434e20(g_AnmManager,&result_screen->field79_0x29b0,0xffffff,0,
-                         (&PTR_Hakurei_Reimu__Dream__004784dc)
-                         [*(int *)&result_screen->field15_0x24 * 2]);
+                         (&g_CharacterList)[result_screen->field15_0x24 * 2],unaff_EDI);
+            FUN_00434e20(g_AnmManager,&result_screen->field76_0x29b0,0xffffff,0,
+                         (&PTR_Hakurei_Reimu__Dream__004784dc)[result_screen->field15_0x24 * 2],
+                         unaff_EDI);
           }
           if (0x1d < result_screen->field1_0x4) {
             iVar1 = FUN_0042d18f(result_screen,2);
@@ -176,7 +176,7 @@ undefined4 ResultScreen::unk_resultscreen(ResultScreen *result_screen)
               result_screen->field1_0x4 = 0;
               vm = &result_screen->unk_40;
               for (i = 0; i < 0x26; i = i + 1) {
-                vm->pendingInterrupt = (short)*(undefined4 *)&result_screen->field20_0x2c + 3;
+                vm->pendingInterrupt = (short)*(undefined4 *)&result_screen->field17_0x2c + 3;
                 vm = vm + 1;
               }
             }
@@ -191,14 +191,14 @@ undefined4 ResultScreen::unk_resultscreen(ResultScreen *result_screen)
                 vm = vm + 1;
               }
               *(int *)&result_screen->field_0x14 = result_screen->unk_10;
-              result_screen->unk_10 = *(int *)&result_screen->field20_0x2c;
+              result_screen->unk_10 = *(int *)&result_screen->field17_0x2c;
             }
           }
         }
         goto LAB_0042e3fb;
       }
       FUN_0042d0a4(result_screen,7);
-      vm = &result_screen->field41_0x150;
+      vm = &result_screen->field38_0x150;
       for (i = 0; i < 7; i = i + 1) {
         if (i == result_screen->unk_10) {
           if ((g_Supervisor.cfg.opts & 1) == 0) {
@@ -234,26 +234,26 @@ undefined4 ResultScreen::unk_resultscreen(ResultScreen *result_screen)
               vm->pendingInterrupt = (short)result_screen->unk_10 + 3;
               vm = vm + 1;
             }
-            *(int *)&result_screen->field20_0x2c = result_screen->unk_10;
+            *(int *)&result_screen->field17_0x2c = result_screen->unk_10;
             result_screen->unk_8 = result_screen->unk_10 + 3;
             result_screen->field3_0xc = result_screen->unk_8;
             result_screen->field1_0x4 = 0;
             result_screen->unk_10 = *(int *)&result_screen->field_0x14;
-            *(undefined4 *)&result_screen->field15_0x24 = 0xffffffff;
-            result_screen->field19_0x28 = -1;
+            result_screen->field15_0x24 = -1;
+            result_screen->field16_0x28 = -1;
           }
           else if (iVar1 == 5) {
             for (i = 0; i < 0x26; i = i + 1) {
               vm->pendingInterrupt = (short)result_screen->unk_10 + 3;
               vm = vm + 1;
             }
-            *(int *)&result_screen->field20_0x2c = result_screen->unk_10;
+            *(int *)&result_screen->field17_0x2c = result_screen->unk_10;
             result_screen->unk_8 = 8;
             result_screen->field3_0xc = result_screen->unk_8;
             result_screen->field1_0x4 = 0;
-            *(undefined4 *)&result_screen->field15_0x24 = 0xffffffff;
+            result_screen->field15_0x24 = -1;
             result_screen->unk_10 = result_screen->field9_0x18;
-            result_screen->field19_0x28 = -1;
+            result_screen->field16_0x28 = -1;
           }
           else if (iVar1 == 6) {
             for (i = 0; i < 0x26; i = i + 1) {

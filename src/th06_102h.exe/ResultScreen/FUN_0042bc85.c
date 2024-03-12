@@ -3,31 +3,32 @@ undefined4 __fastcall ResultScreen::FUN_0042bc85(ResultScreen *rs)
 
 {
   Hscr *out;
-  int local_20;
+  int in_stack_ffffffe0;
+  int iVar1;
   int local_1c;
   AnmVm *local_c;
   int local_8;
   
   if (rs->field1_0x4 == 0) {
-    *(uint *)&rs->field15_0x24 = (uint)g_GameManager.character;
-    *(uint *)&rs->field20_0x2c = g_GameManager.difficulty;
+    rs->field15_0x24 = (uint)g_GameManager.character;
+    *(uint *)&rs->field17_0x2c = g_GameManager.difficulty;
     local_c = &rs->unk_40;
     for (local_8 = 0; local_8 < 0x26; local_8 = local_8 + 1) {
-      local_c->pendingInterrupt = (short)*(undefined4 *)&rs->field20_0x2c + 3;
+      local_c->pendingInterrupt = (short)*(undefined4 *)&rs->field17_0x2c + 3;
       local_c = local_c + 1;
     }
-    FUN_00434e20(g_AnmManager,&rs->unk_28a0,0xffffff,0,
-                 (&g_CharacterList)[*(int *)&rs->field15_0x24 * 2]);
+    FUN_00434e20(g_AnmManager,&rs->unk_28a0,0xffffff,0,(&g_CharacterList)[rs->field15_0x24 * 2],
+                 in_stack_ffffffe0);
     if (g_GameManager.shottype != 0) {
       (rs->unk_28a0).color.color = 0x80ffffff;
     }
-    FUN_00434e20(g_AnmManager,&rs->field79_0x29b0,0xffffff,0,
-                 (&PTR_Hakurei_Reimu__Dream__004784dc)[*(int *)&rs->field15_0x24 * 2]);
+    FUN_00434e20(g_AnmManager,&rs->field76_0x29b0,0xffffff,0,
+                 (&PTR_Hakurei_Reimu__Dream__004784dc)[rs->field15_0x24 * 2],in_stack_ffffffe0);
     if (g_GameManager.shottype != 1) {
-      (rs->field79_0x29b0).color.color = 0x80ffffff;
+      (rs->field76_0x29b0).color.color = 0x80ffffff;
     }
-    (rs->hscr).character = g_GameManager.shottype + (char)*(undefined4 *)&rs->field15_0x24 * '\x02';
-    (rs->hscr).difficulty = rs->field20_0x2c;
+    (rs->hscr).character = g_GameManager.shottype + (char)rs->field15_0x24 * '\x02';
+    (rs->hscr).difficulty = rs->field17_0x2c;
     (rs->hscr).score = g_GameManager.score;
     (rs->hscr).base.version_ = '\x10';
     (rs->hscr).base.magic = 0x52435348;
@@ -40,8 +41,8 @@ undefined4 __fastcall ResultScreen::FUN_0042bc85(ResultScreen *rs)
     (rs->hscr).base.field_0x9 = 1;
     _strcpy((rs->hscr).name,"        ");
     out = &rs->hscr;
-    FUN_0042bc2d(rs,out,*(int *)&rs->field20_0x2c,
-                 (uint)g_GameManager.shottype + *(int *)&rs->field15_0x24 * 2);
+    FUN_0042bc2d(rs,out,*(int *)&rs->field17_0x2c,
+                 (uint)g_GameManager.shottype + rs->field15_0x24 * 2);
     if (9 < (int)out) goto LAB_0042c273;
     rs->unk_10 = 0;
     _strcpy(&rs->field_0x34,"");
@@ -99,14 +100,14 @@ LAB_0042c1aa:
     if ((((g_CurFrameInput & 10) != 0) && ((g_CurFrameInput & 10) != (g_LastFrameInput & 10))) ||
        (((g_CurFrameInput & 10) != 0 && (DAT_0069d90c != 0)))) {
       if (rs->unk_10 < 8) {
-        local_20 = rs->unk_10;
+        iVar1 = rs->unk_10;
       }
       else {
-        local_20 = 7;
+        iVar1 = 7;
       }
       if (0 < rs->unk_10) {
         rs->unk_10 = rs->unk_10 + -1;
-        (rs->hscr).name[local_20] = ' ';
+        (rs->hscr).name[iVar1] = ' ';
       }
       SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xb);
     }

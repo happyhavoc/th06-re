@@ -34,10 +34,10 @@ ChainCallbackResult GameManager::OnUpdate(GameManager *this)
     local_c = 0;
   }
   this->field28_0x1821 = local_c;
-  g_Supervisor.viewport.X = __ftol2((double)(this->arcade_region_top_left_pos).x);
-  g_Supervisor.viewport.Y = __ftol2((double)(this->arcade_region_top_left_pos).y);
-  g_Supervisor.viewport.Width = __ftol2((double)(this->arcade_region_size).x);
-  g_Supervisor.viewport.Height = __ftol2((double)(this->arcade_region_size).y);
+  g_Supervisor.viewport.X = __ftol2((this->arcade_region_top_left_pos).x);
+  g_Supervisor.viewport.Y = __ftol2((this->arcade_region_top_left_pos).y);
+  g_Supervisor.viewport.Width = __ftol2((this->arcade_region_size).x);
+  g_Supervisor.viewport.Height = __ftol2((this->arcade_region_size).y);
   g_Supervisor.viewport.MinZ = 0.5;
   g_Supervisor.viewport.MaxZ = 1.0;
   FUN_0041c3f3(0);

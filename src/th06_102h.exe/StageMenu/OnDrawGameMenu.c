@@ -9,10 +9,10 @@ void __thiscall StageMenu::OnDrawGameMenu(StageMenu *this)
   int local_8;
   
   if (g_GameManager.is_in_game_menu != 0) {
-    g_Supervisor.viewport.X = __ftol2((double)g_GameManager.arcade_region_top_left_pos.x);
-    g_Supervisor.viewport.Y = __ftol2((double)g_GameManager.arcade_region_top_left_pos.y);
-    g_Supervisor.viewport.Width = __ftol2((double)g_GameManager.arcade_region_size.x);
-    g_Supervisor.viewport.Height = __ftol2((double)g_GameManager.arcade_region_size.y);
+    g_Supervisor.viewport.X = __ftol2(g_GameManager.arcade_region_top_left_pos.x);
+    g_Supervisor.viewport.Y = __ftol2(g_GameManager.arcade_region_top_left_pos.y);
+    g_Supervisor.viewport.Width = __ftol2(g_GameManager.arcade_region_size.x);
+    g_Supervisor.viewport.Height = __ftol2(g_GameManager.arcade_region_size.y);
     (*(g_Supervisor.d3dDevice)->lpVtbl->SetViewport)(g_Supervisor.d3dDevice,&g_Supervisor.viewport);
     if ((g_Supervisor.lockableBackbuffer != 0) && (this->curState != 0)) {
       pAVar2 = &this->vm1;

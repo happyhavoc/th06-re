@@ -97,12 +97,12 @@ switchD_00403892_caseD_6:
               local_20 = 1.0;
             }
             for (local_24 = 0; local_24 < 4; local_24 = local_24 + 1) {
-              lVar5 = __ftol2((double)(((float)(uint)*(byte *)((int)&(arg->skyFogInterpFinal).color
-                                                              + local_24) -
-                                       (float)(uint)*(byte *)((int)&(arg->skyFogInterpInitial).color
-                                                             + local_24)) * local_20 +
-                                      (float)(uint)*(byte *)((int)&(arg->skyFogInterpInitial).color
-                                                            + local_24)));
+              lVar5 = __ftol2(((float)(uint)*(byte *)((int)&(arg->skyFogInterpFinal).color +
+                                                     local_24) -
+                              (float)(uint)*(byte *)((int)&(arg->skyFogInterpInitial).color +
+                                                    local_24)) * local_20 +
+                              (float)(uint)*(byte *)((int)&(arg->skyFogInterpInitial).color +
+                                                    local_24));
               *(char *)((int)&(arg->skyFog).color + local_24) = (char)lVar5;
             }
             (arg->skyFog).nearPlane =

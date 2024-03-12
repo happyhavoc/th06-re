@@ -95,7 +95,7 @@ void __thiscall Gui::FUN_00419c99(Gui *this)
     local_28.y = 16.0;
     local_28.z = 0.0;
     g_AsciiManager.color = this->field4_0x10 << 0x18 | 0xffff80;
-    AsciiManager::AddFormatText(&g_AsciiManager,&local_28,"%d",this->ecl_set_lives);
+    AsciiManager::AddFormatText(&g_AsciiManager,&local_28,"%d");
     local_94 = 0x43c00000;
     local_90 = 0x41800000;
     local_8c = 0;
@@ -129,7 +129,7 @@ void __thiscall Gui::FUN_00419c99(Gui *this)
     if ((local_1e8 < 10) && (this->field7_0x1c != this->ecl_spellcard_related)) {
       SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0x1d);
     }
-    AsciiManager::AddFormatText(&g_AsciiManager,&local_28,"%.2d",local_18);
+    AsciiManager::AddFormatText(&g_AsciiManager,&local_28,"%.2d");
     g_AsciiManager.color = 0xffffffff;
     this->field7_0x1c = this->ecl_spellcard_related;
   }
@@ -396,30 +396,28 @@ void __thiscall Gui::FUN_00419c99(Gui *this)
       local_190.x = 496.0;
       local_190.y = 186.0;
       local_190.z = 0.0;
-      AsciiManager::AddFormatText(&g_AsciiManager,&local_190,"%d",(uint)g_GameManager.current_power)
-      ;
+      AsciiManager::AddFormatText(&g_AsciiManager,&local_190,"%d");
     }
   }
   local_88.x = 496.0;
   local_88.y = 82.0;
   local_88.z = 0.0;
-  AsciiManager::AddFormatText(&g_AsciiManager,&local_88,"%.9d",g_GameManager.field0_0x0);
+  AsciiManager::AddFormatText(&g_AsciiManager,&local_88,"%.9d");
   local_88.x = 496.0;
   local_88.y = 58.0;
   local_88.z = 0.0;
-  AsciiManager::AddFormatText(&g_AsciiManager,&local_88,"%.9d",g_GameManager.high_score);
+  AsciiManager::AddFormatText(&g_AsciiManager,&local_88,"%.9d");
   if (((this->flags >> 6 & 3) != 0) || ((g_Supervisor.cfg.opts >> 4 & 1) != 0)) {
     local_88.x = 496.0;
     local_88.y = 206.0;
     local_88.z = 0.0;
-    AsciiManager::AddFormatText(&g_AsciiManager,&local_88,"%d",g_GameManager.graze_in_stage);
+    AsciiManager::AddFormatText(&g_AsciiManager,&local_88,"%d");
   }
   if (((this->flags >> 8 & 3) != 0) || ((g_Supervisor.cfg.opts >> 4 & 1) != 0)) {
     local_88.x = 496.0;
     local_88.y = 226.0;
     local_88.z = 0.0;
-    AsciiManager::AddFormatText
-              (&g_AsciiManager,&local_88,"%d",(uint)g_GameManager.point_items_collected_in_stage);
+    AsciiManager::AddFormatText(&g_AsciiManager,&local_88,"%d");
   }
   if ((this->flags & 3) != 0) {
     this->flags = this->flags & 0xfffffffc | (this->flags & 3) - 1 & 3;

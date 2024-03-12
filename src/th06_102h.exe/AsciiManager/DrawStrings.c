@@ -31,10 +31,10 @@ void __thiscall AsciiManager::DrawStrings(AsciiManager *this)
                   (g_Supervisor.d3dDevice,&g_Supervisor.viewport);
       }
       else {
-        g_Supervisor.viewport.X = __ftol2((double)g_GameManager.arcade_region_top_left_pos.x);
-        g_Supervisor.viewport.Y = __ftol2((double)g_GameManager.arcade_region_top_left_pos.y);
-        g_Supervisor.viewport.Width = __ftol2((double)g_GameManager.arcade_region_size.x);
-        g_Supervisor.viewport.Height = __ftol2((double)g_GameManager.arcade_region_size.y);
+        g_Supervisor.viewport.X = __ftol2(g_GameManager.arcade_region_top_left_pos.x);
+        g_Supervisor.viewport.Y = __ftol2(g_GameManager.arcade_region_top_left_pos.y);
+        g_Supervisor.viewport.Width = __ftol2(g_GameManager.arcade_region_size.x);
+        g_Supervisor.viewport.Height = __ftol2(g_GameManager.arcade_region_size.y);
         (*(g_Supervisor.d3dDevice)->lpVtbl->SetViewport)
                   (g_Supervisor.d3dDevice,&g_Supervisor.viewport);
       }

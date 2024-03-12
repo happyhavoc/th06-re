@@ -303,9 +303,9 @@ LAB_00434338:
         local_30 = 1.0;
       }
       for (local_38 = 0; local_38 < 4; local_38 = local_38 + 1) {
-        local_34 = __ftol2((double)(((float)(uint)*(byte *)((int)&local_28 + local_38) -
-                                    (float)(uint)local_2c.bytes[local_38]) * local_30 +
-                                   (float)(uint)local_2c.bytes[local_38]));
+        local_34 = __ftol2(((float)(uint)*(byte *)((int)&local_28 + local_38) -
+                           (float)(uint)local_2c.bytes[local_38]) * local_30 +
+                           (float)(uint)local_2c.bytes[local_38]);
         if (local_34 < 0) {
           local_34 = 0;
         }

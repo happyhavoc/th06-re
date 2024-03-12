@@ -23,11 +23,11 @@ void __thiscall MidiOutput::OnTimerElapsed(MidiOutput *this)
       return;
     }
     this->unk2c8 = 1.0 - (float)this->unk2e8 / (float)this->unk2e4;
-    uVar2 = __ftol2((double)(this->unk2c8 * 128.0));
+    uVar2 = __ftol2(this->unk2c8 * 128.0);
     if (uVar2 != this->unk2cc) {
       FUN_00423260(this,0);
     }
-    uVar2 = __ftol2((double)(this->unk2c8 * 128.0));
+    uVar2 = __ftol2(this->unk2c8 * 128.0);
     this->unk2cc = uVar2;
     this->unk2e8 = this->unk2e8 + 1;
   }

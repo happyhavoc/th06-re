@@ -53,7 +53,7 @@ int EffectManager::FUN_0040e920(Effect *param_1)
     }
     fVar2 = 1.0 - (float)(int)(char)param_1->field_0x17b / 16.0;
     uVar3 = (param_1->vm).color.color;
-    lVar4 = __ftol2((double)(fVar2 * 255.0));
+    lVar4 = __ftol2(fVar2 * 255.0);
     (param_1->vm).color.color = uVar3 & 0xffffff | lVar4 << 0x18;
     (param_1->vm).scaleY = 2.0 - fVar2;
     (param_1->vm).scaleX = (param_1->vm).scaleY;

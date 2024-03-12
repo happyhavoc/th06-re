@@ -1,9 +1,9 @@
 
-void __thiscall FUN_0042b7dc(undefined4 param_1_00,void *param_2)
+void __thiscall FUN_0042b7dc(void *param_1_00,ScoreDat *param_2)
 
 {
-  FUN_0042b437(*(void **)((int)param_2 + 0xc));
-  _free(*(void **)((int)param_2 + 0xc));
+  FUN_0042b437((uint *)param_2->unk2);
+  _free((void *)param_2->unk2);
   _free(param_2);
   return;
 }

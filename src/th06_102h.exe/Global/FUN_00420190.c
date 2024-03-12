@@ -33,7 +33,7 @@ void FUN_00420190(void)
                      (int)*(char *)&local_10[1].currentTimeInScript.previous + 0x207);
           *(undefined *)((int)&local_10[1].currentTimeInScript.previous + 2) = 0;
         }
-        lVar2 = __ftol2((double)(((8.0 - local_10[1].rotation.y) * 255.0) / 128.0));
+        lVar2 = __ftol2(((8.0 - local_10[1].rotation.y) * 255.0) / 128.0);
         local_8 = 0xff - lVar2;
         if (local_8 < 0x40) {
           local_8 = 0x40;

@@ -33,7 +33,7 @@ void __fastcall FUN_0042c2d4(ResultScreen *rs)
       else {
         local_c = 0xc;
       }
-      local_8 = &rs->field41_0x150;
+      local_8 = &rs->field38_0x150;
       for (local_10 = 0; local_10 < 0x26; local_10 = local_10 + 1) {
         local_8->pendingInterrupt = (short)local_c;
         local_8 = local_8 + 1;
@@ -43,14 +43,14 @@ void __fastcall FUN_0042c2d4(ResultScreen *rs)
       }
       rs->unk_10 = 0;
     }
-    local_8 = &rs->field56_0x1140;
+    local_8 = &rs->field53_0x1140;
     if (rs->unk_10 == 0) {
-      (rs->field56_0x1140).color.color = (rs->field56_0x1140).color.color & 0xff000000 | 0xff6060;
-      (rs->field57_0x1250).color.color = (rs->field57_0x1250).color.color & 0xff000000 | 0x606060;
+      (rs->field53_0x1140).color.color = (rs->field53_0x1140).color.color & 0xff000000 | 0xff6060;
+      (rs->field54_0x1250).color.color = (rs->field54_0x1250).color.color & 0xff000000 | 0x606060;
     }
     else {
-      (rs->field56_0x1140).color.color = (rs->field56_0x1140).color.color & 0xff000000 | 0x606060;
-      (rs->field57_0x1250).color.color = (rs->field57_0x1250).color.color & 0xff000000 | 0xff6060;
+      (rs->field53_0x1140).color.color = (rs->field53_0x1140).color.color & 0xff000000 | 0x606060;
+      (rs->field54_0x1250).color.color = (rs->field54_0x1250).color.color & 0xff000000 | 0xff6060;
     }
     if (rs->field1_0x4 < 0x50) goto LAB_0042d095;
     FUN_0042d18f(rs,2);
@@ -188,18 +188,18 @@ void __fastcall FUN_0042c2d4(ResultScreen *rs)
       }
       else {
         if (iVar2 != 0xe) goto LAB_0042d095;
-        local_8 = &rs->field56_0x1140;
+        local_8 = &rs->field53_0x1140;
         if (rs->unk_10 == 0) {
-          (rs->field56_0x1140).color.color =
-               (rs->field56_0x1140).color.color & 0xff000000 | 0xff6060;
-          (rs->field57_0x1250).color.color =
-               (rs->field57_0x1250).color.color & 0xff000000 | 0x606060;
+          (rs->field53_0x1140).color.color =
+               (rs->field53_0x1140).color.color & 0xff000000 | 0xff6060;
+          (rs->field54_0x1250).color.color =
+               (rs->field54_0x1250).color.color & 0xff000000 | 0x606060;
         }
         else {
-          (rs->field56_0x1140).color.color =
-               (rs->field56_0x1140).color.color & 0xff000000 | 0x606060;
-          (rs->field57_0x1250).color.color =
-               (rs->field57_0x1250).color.color & 0xff000000 | 0xff6060;
+          (rs->field53_0x1140).color.color =
+               (rs->field53_0x1140).color.color & 0xff000000 | 0x606060;
+          (rs->field54_0x1250).color.color =
+               (rs->field54_0x1250).color.color & 0xff000000 | 0xff6060;
         }
         if (rs->field1_0x4 < 0x14) goto LAB_0042d095;
         FUN_0042d18f(rs,2);
@@ -214,7 +214,7 @@ void __fastcall FUN_0042c2d4(ResultScreen *rs)
               local_8->pendingInterrupt = 0xf;
               local_8 = local_8 + 1;
             }
-            local_8 = &rs->field62_0x17a0 + *(int *)&rs->field_0x1c;
+            local_8 = &rs->field59_0x17a0 + *(int *)&rs->field_0x1c;
             local_8->pendingInterrupt = 0xe;
             rs->unk_8 = 0xd;
             goto LAB_0042d095;
@@ -268,7 +268,7 @@ LAB_0042c515:
             local_8->pendingInterrupt = 0xb;
             local_8 = local_8 + 1;
           }
-          local_8 = &rs->field62_0x17a0 + *(int *)&rs->field_0x1c;
+          local_8 = &rs->field59_0x17a0 + *(int *)&rs->field_0x1c;
           local_8->pendingInterrupt = 0xe;
           rs->unk_8 = 0xe;
         }
@@ -278,7 +278,7 @@ LAB_0042c515:
             local_8->pendingInterrupt = 0xf;
             local_8 = local_8 + 1;
           }
-          local_8 = &rs->field62_0x17a0 + *(int *)&rs->field_0x1c;
+          local_8 = &rs->field59_0x17a0 + *(int *)&rs->field_0x1c;
           local_8->pendingInterrupt = 0xe;
           rs->unk_8 = 0xd;
         }

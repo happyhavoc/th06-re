@@ -15,8 +15,7 @@ void __thiscall Gui::FUN_0041adf3(Gui *this)
       g_AsciiManager.color = (this->impl->vm1).color.color & 0xff000000 | 0xffff40;
       if ((int)g_GameManager.current_stage < 6) {
         local_10.x = 168.0;
-        AsciiManager::AddFormatText
-                  (&g_AsciiManager,&local_10,"STAGE %d",g_GameManager.current_stage);
+        AsciiManager::AddFormatText(&g_AsciiManager,&local_10,"STAGE %d");
       }
       else if (g_GameManager.current_stage == 6) {
         local_10.x = 136.0;
@@ -69,10 +68,10 @@ void __thiscall Gui::FUN_0041adf3(Gui *this)
     AnmManager::FUN_00432ad0(g_AnmManager,&this->impl->vm6);
   }
   if (-1 < (this->impl->vm9).spriteNumber) {
-    g_Supervisor.viewport.X = __ftol2((double)g_GameManager.arcade_region_top_left_pos.x);
-    g_Supervisor.viewport.Y = __ftol2((double)g_GameManager.arcade_region_top_left_pos.y);
-    g_Supervisor.viewport.Width = __ftol2((double)g_GameManager.arcade_region_size.x);
-    g_Supervisor.viewport.Height = __ftol2((double)g_GameManager.arcade_region_size.y);
+    g_Supervisor.viewport.X = __ftol2(g_GameManager.arcade_region_top_left_pos.x);
+    g_Supervisor.viewport.Y = __ftol2(g_GameManager.arcade_region_top_left_pos.y);
+    g_Supervisor.viewport.Width = __ftol2(g_GameManager.arcade_region_size.x);
+    g_Supervisor.viewport.Height = __ftol2(g_GameManager.arcade_region_size.y);
     (*(g_Supervisor.d3dDevice)->lpVtbl->SetViewport)
               (g_Supervisor.d3dDevice,(D3DVIEWPORT8 *)0x6c6de0);
     AnmManager::FUN_00432ad0(g_AnmManager,&this->impl->vm9);

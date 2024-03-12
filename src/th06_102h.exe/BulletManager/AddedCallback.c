@@ -58,7 +58,7 @@ ZunResult BulletManager::AddedCallback(BulletManager *arg)
     AnmManager::SetAndExecuteScript(pAVar3,pAVar1,pAVar3->scripts[iVar6]);
     arg->bullet_type_templates[local_8].vm0.anotherSpriteNumber =
          arg->bullet_type_templates[local_8].vm0.spriteNumber;
-    lVar5 = __ftol2((double)(arg->bullet_type_templates[local_8].vm0.sprite)->heightPx);
+    lVar5 = __ftol2((arg->bullet_type_templates[local_8].vm0.sprite)->heightPx);
     arg->bullet_type_templates[local_8].field12_0x55d = (byte)lVar5;
     fVar2 = (arg->bullet_type_templates[local_8].vm0.sprite)->heightPx;
     if (fVar2 < 8.0 == (fVar2 == 8.0)) {

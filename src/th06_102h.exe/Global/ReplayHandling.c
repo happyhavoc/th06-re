@@ -4,7 +4,7 @@ void __fastcall ReplayHandling(MainMenu *menu)
 {
   ZunResult ZVar2;
   BOOL nextFile;
-  byte *pbVar4;
+  int *pbVar4;
   int _;
   ReplayData *nextReplayData;
   char **ppcVar1;
@@ -77,9 +77,9 @@ void __fastcall ReplayHandling(MainMenu *menu)
         FindClose(replayFileHandle);
         ChangeCWD("../");
         menu->replayFilesNum = replayFileIdx;
-        menu->unk_81fc = 0;
-        menu->field78_0x8214 = menu->unk_8210;
-        menu->unk_8210 = 0;
+        menu->unk_81fc = 0.0;
+        menu->field78_0x8214 = menu->isActive;
+        menu->isActive = 0;
         menu->gameState = STATE_REPLAY_MENU;
         i = 0;
         anmVM = menu->AnmVMArray;
@@ -114,13 +114,13 @@ void __fastcall ReplayHandling(MainMenu *menu)
           menu->gameSubState = 0;
           menu->cursor = 0;
           SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,10);
-          pbVar4 = FileSystem::OpenPath(menu->replayFilePaths[menu->chosenReplay],1);
-          menu->replayGameData = (int)pbVar4;
+          pbVar4 = (int *)FileSystem::OpenPath(menu->replayFilePaths[menu->chosenReplay],1);
+          menu->replayGameData = pbVar4;
           validateReplayData((ReplayData *)menu->replayGameData,g_LastFileSize);
           for (i = 0; i < 7; i = i + 1) {
-            if (*(int *)(menu->replayGameData + 0x34 + i * 4) != 0) {
-              *(int *)(menu->replayGameData + 0x34 + i * 4) =
-                   menu->replayGameData + *(int *)(menu->replayGameData + 0x34 + i * 4);
+            if (menu->replayGameData[i + 0xd] != 0) {
+              menu->replayGameData[i + 0xd] =
+                   (int)menu->replayGameData + menu->replayGameData[i + 0xd];
             }
           }
           do {
@@ -169,10 +169,10 @@ LAB_0043877b:
     }
     if ((((g_CurFrameInput & 0x1001) == 0) ||
         ((g_CurFrameInput & 0x1001) == (g_LastFrameInput & 0x1001))) ||
-       (menu->replayGameData + 0x34 + menu->cursor * 0x50 == 0)) {
+       (menu->replayGameData + menu->cursor * 0x14 + 0xd == (int *)0x0)) {
       if (((g_CurFrameInput & 10) != 0) && ((g_CurFrameInput & 10) != (g_LastFrameInput & 10))) {
-        _free((void *)menu->replayGameData);
-        menu->replayGameData = 0;
+        _free(menu->replayGameData);
+        menu->replayGameData = (int *)0x0;
         menu->gameState = STATE_REPLAY_MENU;
         menu->gameSubState = 0;
         for (i = 0; i < 0x7a; i = i + 1) {
@@ -193,15 +193,15 @@ LAB_0043877b:
       g_GameManager.field7_0x1c = 1;
       g_Supervisor.framerateMultiplier = 1.0;
       _strcpy(g_GameManager.replay_file,menu->replayFilePaths[menu->chosenReplay]);
-      g_GameManager.difficulty = (uint)*(byte *)(menu->replayGameData + 7);
-      g_GameManager.character = *(byte *)(menu->replayGameData + 6) / 2;
-      g_GameManager.shottype = *(byte *)(menu->replayGameData + 6) % 2;
-      for (i = 0; *(int *)(menu->replayGameData + 0x34 + i * 4) == 0; i = i + 1) {
+      g_GameManager.difficulty = (uint)*(byte *)((int)menu->replayGameData + 7);
+      g_GameManager.character = *(byte *)((int)menu->replayGameData + 6) / 2;
+      g_GameManager.shottype = *(byte *)((int)menu->replayGameData + 6) % 2;
+      for (i = 0; menu->replayGameData[i + 0xd] == 0; i = i + 1) {
       }
-      g_GameManager.lives_remaining = *(byte *)(*(int *)(menu->replayGameData + 0x34 + i * 4) + 9);
-      g_GameManager.bombs_remaining = *(byte *)(*(int *)(menu->replayGameData + 0x34 + i * 4) + 10);
-      _free((void *)menu->replayGameData);
-      menu->replayGameData = 0;
+      g_GameManager.lives_remaining = *(byte *)(menu->replayGameData[i + 0xd] + 9);
+      g_GameManager.bombs_remaining = *(byte *)(menu->replayGameData[i + 0xd] + 10);
+      _free(menu->replayGameData);
+      menu->replayGameData = (int *)0x0;
       g_GameManager.current_stage = menu->cursor;
       g_Supervisor.curState = 2;
     }

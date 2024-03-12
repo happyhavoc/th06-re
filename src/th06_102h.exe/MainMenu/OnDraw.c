@@ -21,23 +21,25 @@ undefined4 MainMenu::OnDraw(MainMenu *param_1)
   if (param_1->gameState != STATE_STARTUP) {
     g_AnmManager->currentTexture = (IDirect3DTexture8 *)0x0;
     AnmManager::CopySurfaceToBackBuffer(g_AnmManager,0,0,0,0,0);
-    if (param_1->unk_8210 == 0) {
+    if (param_1->isActive == 0) {
       if (param_1->unk_820c != 0) {
         param_1->unk_820c = param_1->unk_820c - 1;
-        local_8 = ((uint)param_1->unk_8200 >> 0x18) - (param_1->unk_81fc >> 0x18);
+        local_8 = (param_1->maybe_menu_text_color >> 0x18) - ((uint)param_1->unk_81fc >> 0x18);
         DrawSquare(&local_18,
                    ((local_8 * param_1->unk_820c) / param_1->field78_0x8214 +
-                   (param_1->unk_81fc >> 0x18)) * 0x1000000 | (uint)param_1->unk_8200 & 0xffffff);
+                   ((uint)param_1->unk_81fc >> 0x18)) * 0x1000000 |
+                   param_1->maybe_menu_text_color & 0xffffff);
       }
     }
     else {
-      if ((int)param_1->unk_820c < (int)param_1->unk_8210) {
+      if ((int)param_1->unk_820c < (int)param_1->isActive) {
         param_1->unk_820c = param_1->unk_820c + 1;
       }
-      local_8 = ((uint)param_1->unk_8200 >> 0x18) - (param_1->unk_81fc >> 0x18);
+      local_8 = (param_1->maybe_menu_text_color >> 0x18) - ((uint)param_1->unk_81fc >> 0x18);
       DrawSquare(&local_18,
-                 ((local_8 * param_1->unk_820c) / param_1->unk_8210 + (param_1->unk_81fc >> 0x18)) *
-                 0x1000000 | (uint)param_1->unk_8200 & 0xffffff);
+                 ((local_8 * param_1->unk_820c) / param_1->isActive +
+                 ((uint)param_1->unk_81fc >> 0x18)) * 0x1000000 |
+                 param_1->maybe_menu_text_color & 0xffffff);
     }
     for (vmIdx = 0; vmIdx < 0x62; vmIdx = vmIdx + 1) {
       if (curVm->sprite == (AnmLoadedSprite *)0x0) {
@@ -64,7 +66,7 @@ undefined4 MainMenu::OnDraw(MainMenu *param_1)
       curVm = curVm + 1;
     }
     if ((0xc < (int)param_1->gameState) && ((int)param_1->gameState < 0x10)) {
-      FUN_00438bc1(param_1);
+      DrawReplayMenu(param_1);
     }
     FUN_00439965(param_1);
   }

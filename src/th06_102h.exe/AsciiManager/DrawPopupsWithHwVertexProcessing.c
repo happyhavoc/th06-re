@@ -10,10 +10,10 @@ void __thiscall AsciiManager::DrawPopupsWithHwVertexProcessing(AsciiManager *thi
   AsciiManagerPopup *local_8;
   
   local_8 = this->popups0;
-  g_Supervisor.viewport.X = __ftol2((double)g_GameManager.arcade_region_top_left_pos.x);
-  g_Supervisor.viewport.Y = __ftol2((double)g_GameManager.arcade_region_top_left_pos.y);
-  g_Supervisor.viewport.Width = __ftol2((double)g_GameManager.arcade_region_size.x);
-  g_Supervisor.viewport.Height = __ftol2((double)g_GameManager.arcade_region_size.y);
+  g_Supervisor.viewport.X = __ftol2(g_GameManager.arcade_region_top_left_pos.x);
+  g_Supervisor.viewport.Y = __ftol2(g_GameManager.arcade_region_top_left_pos.y);
+  g_Supervisor.viewport.Width = __ftol2(g_GameManager.arcade_region_size.x);
+  g_Supervisor.viewport.Height = __ftol2(g_GameManager.arcade_region_size.y);
   (*(g_Supervisor.d3dDevice)->lpVtbl->SetViewport)(g_Supervisor.d3dDevice,&g_Supervisor.viewport);
   for (local_10 = 0; local_10 < 0x203; local_10 = local_10 + 1) {
     if (local_8->inUse != '\0') {

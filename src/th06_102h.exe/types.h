@@ -72931,8 +72931,7 @@ struct AsciiManager {
     undefined4 unk3;
     struct StageMenu game_menu;
     struct StageMenu retry_menu;
-    struct AsciiManagerPopup popups0[512];
-    struct AsciiManagerPopup popups1[3];
+    struct AsciiManagerPopup popups[515];
 };
 
 typedef struct EnemyManager EnemyManager, *PEnemyManager;

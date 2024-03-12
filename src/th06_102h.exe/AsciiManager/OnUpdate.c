@@ -6,7 +6,7 @@ ChainCallbackResult AsciiManager::OnUpdate(AsciiManager *arg)
   int local_8;
   
   if ((g_GameManager.is_in_game_menu == 0) && (g_GameManager.is_in_retry_menu == 0)) {
-    curPopup = arg->popups0;
+    curPopup = arg->popups;
     for (local_8 = 0; local_8 < 0x203; local_8 = local_8 + 1) {
       if (curPopup->inUse != '\0') {
         (curPopup->position).y =

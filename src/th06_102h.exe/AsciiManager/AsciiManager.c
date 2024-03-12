@@ -15,7 +15,7 @@ void __thiscall AsciiManager::AsciiManager(AsciiManager *this)
   StageMenu::StageMenu(&this->game_menu);
   StageMenu::StageMenu(&this->retry_menu);
   local_80 = 0x203;
-  local_88 = this->popups0;
+  local_88 = this->popups;
   while (local_80 = local_80 + -1, -1 < local_80) {
     ZunTimer::Initialize(&local_88->timer);
     local_88 = local_88 + 1;

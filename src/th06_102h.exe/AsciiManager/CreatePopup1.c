@@ -9,7 +9,7 @@ AsciiManager::CreatePopup1(AsciiManager *this,D3DXVECTOR3 *position,int value,D3
   if (0x1ff < this->nextPopupIndex1) {
     this->nextPopupIndex1 = 0;
   }
-  popup = this->popups0 + this->nextPopupIndex1;
+  popup = this->popups + this->nextPopupIndex1;
   popup->inUse = '\x01';
   characterCount = 0;
   if (value < 0) {

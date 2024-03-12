@@ -7,7 +7,7 @@ void __thiscall AsciiManager::DrawPopupsWithoutHwVertexProcessing(AsciiManager *
   uint local_c;
   AsciiManagerPopup *local_8;
   
-  local_8 = this->popups0;
+  local_8 = this->popups;
   g_Supervisor.viewport.X = __ftol2(g_GameManager.arcade_region_top_left_pos.x);
   g_Supervisor.viewport.Y = __ftol2(g_GameManager.arcade_region_top_left_pos.y);
   g_Supervisor.viewport.Width = __ftol2(g_GameManager.arcade_region_size.x);

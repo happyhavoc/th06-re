@@ -1,5 +1,5 @@
 
-void FUN_00420b50(void)
+void GameWindow::Present(void)
 
 {
   HRESULT HVar1;

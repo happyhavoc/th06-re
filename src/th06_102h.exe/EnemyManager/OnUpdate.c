@@ -149,8 +149,9 @@ switchD_00412938_caseD_2:
           if ((uint)param_1->random_item_spawn_index % 3 == 0) {
             EffectManager::FUN_0040ef50
                       (&g_EffectManager,local_28->death_anm2 + 4,&local_28->position,6,0xffffffff);
-            FUN_0041f290(&local_28->position,(&DAT_00476338)[param_1->random_item_table_index],
-                         local_8);
+            ItemManager::SpawnItem
+                      (&g_ItemManager,&local_28->position,
+                       (uint)(byte)(&DAT_00476338)[param_1->random_item_table_index],local_8);
             param_1->random_item_table_index = param_1->random_item_table_index + 1;
             if (0x1f < param_1->random_item_table_index) {
               param_1->random_item_table_index = 0;
@@ -162,7 +163,8 @@ switchD_00412938_caseD_2:
       else {
         EffectManager::FUN_0040ef50
                   (&g_EffectManager,local_28->death_anm2 + 4,&local_28->position,3,0xffffffff);
-        FUN_0041f290(&local_28->position,(int)(char)local_28->item_drop,local_8);
+        ItemManager::SpawnItem
+                  (&g_ItemManager,&local_28->position,(int)(char)local_28->item_drop,local_8);
       }
       if (((local_28->flags2 >> 3 & 1) != 0) && (DAT_005a5f90 == 0)) {
         BulletManager::FUN_00414360(&g_BulletManager,0x3200,0);

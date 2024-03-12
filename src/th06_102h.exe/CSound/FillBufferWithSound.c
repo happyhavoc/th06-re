@@ -24,7 +24,7 @@ CSound::FillBufferWithSound(CSound *this,LPDIRECTSOUNDBUFFER pDSB,BOOL bRepeatWa
        (local_10 = (*pDSB->lpVtbl->Lock)
                              (pDSB,0,this->m_dwDSBufferSize,&local_14,&local_8,(LPVOID *)0x0,
                               (LPDWORD)0x0,0), -1 < local_10)) {
-      CWaveFile::ResetFile(this->m_pWaveFile,'\0');
+      CWaveFile::ResetFile(this->m_pWaveFile,false);
       local_10 = CWaveFile::Read(this->m_pWaveFile,local_14,local_8,&local_c);
       if (-1 < local_10) {
         if (local_c == 0) {
@@ -54,7 +54,7 @@ CSound::FillBufferWithSound(CSound *this,LPDIRECTSOUNDBUFFER pDSB,BOOL bRepeatWa
           }
           else {
             for (local_18 = local_c; local_18 < local_8; local_18 = local_18 + local_c) {
-              local_10 = CWaveFile::ResetFile(this->m_pWaveFile,'\0');
+              local_10 = CWaveFile::ResetFile(this->m_pWaveFile,false);
               if (local_10 < 0) {
                 return local_10;
               }

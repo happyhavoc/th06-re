@@ -59,7 +59,7 @@ void Player::BombReimuBCalc(Player *param_1)
       }
     }
     else {
-      ItemManager::FUN_00420130(g_ItemManager);
+      ItemManager::FUN_00420130(&g_ItemManager);
       Gui::FUN_00417acd(&g_Gui,0x4a3,"夢符「封魔陣」");
       (param_1->inner).field1_0x4 = 0x8c;
       (param_1->field35_0x75b4).current = 200;

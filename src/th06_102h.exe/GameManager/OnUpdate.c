@@ -3,7 +3,7 @@ ChainCallbackResult GameManager::OnUpdate(GameManager *this)
 
 {
   ChainCallbackResult CVar1;
-  byte local_c;
+  byte is_in_menu;
   uint local_8;
   
   if (this->demo_mode != 0) {
@@ -28,12 +28,12 @@ ChainCallbackResult GameManager::OnUpdate(GameManager *this)
     g_Supervisor.unk198 = 3;
   }
   if ((this->is_in_retry_menu == 0) && (this->is_in_game_menu == 0)) {
-    local_c = 1;
+    is_in_menu = 1;
   }
   else {
-    local_c = 0;
+    is_in_menu = 0;
   }
-  this->field28_0x1821 = local_c;
+  this->is_in_menu = is_in_menu;
   g_Supervisor.viewport.X = __ftol2((this->arcade_region_top_left_pos).x);
   g_Supervisor.viewport.Y = __ftol2((this->arcade_region_top_left_pos).y);
   g_Supervisor.viewport.Width = __ftol2((this->arcade_region_size).x);

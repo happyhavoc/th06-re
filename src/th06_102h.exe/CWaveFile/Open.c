@@ -5,7 +5,7 @@ int __thiscall CWaveFile::Open(CWaveFile *this,LPSTR param_1,undefined4 param_2,
   HMMIO pHVar1;
   int iVar2;
   _MMIOINFO *p_Var3;
-  _MMIOINFO local_54;
+  _MMIOINFO mmioInfo;
   int local_8;
   
   this->m_dwFlags = flags;
@@ -19,15 +19,15 @@ int __thiscall CWaveFile::Open(CWaveFile *this,LPSTR param_1,undefined4 param_2,
         _free(this->m_pwfx);
         this->m_pwfx = (WAVEFORMATEX *)0x0;
       }
-      p_Var3 = &local_54;
+      p_Var3 = &mmioInfo;
       for (iVar2 = 0x12; iVar2 != 0; iVar2 = iVar2 + -1) {
         p_Var3->dwFlags = 0;
         p_Var3 = (_MMIOINFO *)&p_Var3->fccIOProc;
       }
-      pHVar1 = mmioOpenA(param_1,&local_54,0x10000);
+      pHVar1 = mmioOpenA(param_1,&mmioInfo,0x10000);
       this->m_hmmio = pHVar1;
       if (this->m_hmmio == (HMMIO)0x0) {
-        switch(local_54.wErrorRet) {
+        switch(mmioInfo.wErrorRet) {
         case 0x10b:
           DebugPrint2("The directory specification is incorrect. \n");
           break;
@@ -46,7 +46,7 @@ int __thiscall CWaveFile::Open(CWaveFile *this,LPSTR param_1,undefined4 param_2,
                      );
         }
         DebugPrint2("error : mmioOpen in CWaveFile::Open()\n");
-        local_8 = -0x7fffbffb;
+        local_8 = E_FAIL;
       }
       else {
         local_8 = ReadMMIO(this);
@@ -56,7 +56,7 @@ int __thiscall CWaveFile::Open(CWaveFile *this,LPSTR param_1,undefined4 param_2,
           local_8 = -0x7fffbffb;
         }
         else {
-          local_8 = ResetFile(this,'\0');
+          local_8 = ResetFile(this,false);
           if (local_8 < 0) {
             DebugPrint2("error : ResetFile in CWaveFile::Open()\n");
             local_8 = -0x7fffbffb;

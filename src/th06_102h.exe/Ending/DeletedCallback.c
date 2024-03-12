@@ -11,7 +11,7 @@ undefined4 Ending::DeletedCallback(Ending *ending)
   Chain::Cut(&g_Chain,ending->chainElem);
   ending->chainElem = (ChainElem *)0x0;
   _free(ending);
-  g_Supervisor.unk19c = 0;
+  g_Supervisor.isInEnding = 0;
   Supervisor::ReleasePbg3(&g_Supervisor,5);
   return 0;
 }

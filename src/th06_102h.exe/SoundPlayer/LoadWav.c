@@ -69,7 +69,7 @@ undefined4 __thiscall SoundPlayer::LoadWav(SoundPlayer *this,LPSTR param_1)
         this->hEvent = pvVar4;
         pvVar4 = CreateThread((LPSECURITY_ATTRIBUTES)0x0,0,FUN_00431370,g_Supervisor.hwndGameWindow,
                               0,(LPDWORD)&this->field_0x614);
-        this->field1318_0x618 = (int)pvVar4;
+        this->field1191_0x618 = (int)pvVar4;
         HVar5 = CSoundManager::CreateStreaming
                           (this->csoundmanager_ptr,&this->streamingSound,param_1,0x10100,
                            (GUID)ZEXT816(0),4,local_14,this->hEvent);

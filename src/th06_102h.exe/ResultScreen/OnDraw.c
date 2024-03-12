@@ -1,10 +1,12 @@
 
 /* WARNING: Restarted to delay deadcode elimination for space: stack */
+/* WARNING: Unknown calling convention -- yet parameter storage is locked */
 
-void FUN_0042e446(int param_1)
+void ResultScreen::OnDraw(ResultScreen *param_1)
 
 {
-  float *pfVar1;
+  D3DXVECTOR3 *pDVar1;
+  float fVar2;
   uint unaff_retaddr;
   int local_d0;
   int local_8c;
@@ -15,9 +17,9 @@ void FUN_0042e446(int param_1)
   float local_48;
   int local_44;
   D3DXVECTOR3 local_40;
-  int local_34;
+  void *local_34;
   int local_30;
-  int local_2c;
+  void *local_2c;
   AnmVm *local_28;
   undefined4 local_24;
   undefined4 local_20;
@@ -27,7 +29,7 @@ void FUN_0042e446(int param_1)
   D3DXVECTOR3 local_10;
   
   local_18 = __security_cookie ^ unaff_retaddr;
-  local_28 = (AnmVm *)(param_1 + 0x40);
+  local_28 = &param_1->unk_40;
   g_Supervisor.viewport.X = 0;
   g_Supervisor.viewport.Y = 0;
   g_Supervisor.viewport.Width = 0x280;
@@ -47,19 +49,20 @@ void FUN_0042e446(int param_1)
     (local_28->pos).z = local_40.z;
     local_28 = local_28 + 1;
   }
-  local_28 = (AnmVm *)(param_1 + 0xf20);
-  if (*(float *)(param_1 + 0xfb0) < 640.0 != NAN(*(float *)(param_1 + 0xfb0))) {
-    if (*(int *)(param_1 + 0xc) == 8) {
-      local_40.x = *(float *)(param_1 + 0xfb0);
-      local_40.z = *(float *)(param_1 + 0xfb8);
-      local_40.y = *(float *)(param_1 + 0xfb4) + 16.0;
+  local_28 = &param_1->field51_0xf20;
+  fVar2 = (param_1->field51_0xf20).pos.x;
+  if (fVar2 < 640.0 != NAN(fVar2)) {
+    if (param_1->field3_0xc == 8) {
+      local_40.x = (param_1->field51_0xf20).pos.x;
+      local_40.z = (param_1->field51_0xf20).pos.z;
+      local_40.y = (param_1->field51_0xf20).pos.y + 16.0;
       for (local_14 = 0;
-          (local_14 < 10 && (local_44 = *(int *)(param_1 + 0x28) * 10 + local_14, local_44 < 0x40));
+          (local_14 < 10 && (local_44 = param_1->field16_0x28 * 10 + local_14, local_44 < 0x40));
           local_14 = local_14 + 1) {
-        pfVar1 = (float *)(param_1 + 0x2930 + local_14 * 0x110);
-        *pfVar1 = local_40.x;
-        pfVar1[1] = local_40.y;
-        pfVar1[2] = local_40.z;
+        pDVar1 = &(&param_1->unk_28a0)[local_14].pos;
+        pDVar1->x = local_40.x;
+        pDVar1->y = local_40.y;
+        pDVar1->z = local_40.z;
         if (g_GameManager.catk[local_44].num_successes == 0) {
           g_AsciiManager.color = 0x80c0c0ff;
         }
@@ -70,9 +73,9 @@ void FUN_0042e446(int param_1)
           g_AsciiManager.color = local_14 * -0x80800 - 0xf0f01;
         }
         AsciiManager::AddFormatText(&g_AsciiManager,&local_40,"No.%.2d");
-        pfVar1 = (float *)(param_1 + 0x2930 + local_14 * 0x110);
-        *pfVar1 = *pfVar1 + 96.0;
-        AnmManager::FUN_00432ad0(g_AnmManager,(AnmVm *)(param_1 + 0x28a0 + local_14 * 0x110));
+        pDVar1 = &(&param_1->unk_28a0)[local_14].pos;
+        pDVar1->x = pDVar1->x + 96.0;
+        AnmManager::FUN_00432ad0(g_AnmManager,&param_1->unk_28a0 + local_14);
         local_40.x = local_40.x + 368.0;
         AsciiManager::AddFormatText(&g_AsciiManager,&local_40,"%3d/%3d");
         local_40.x = local_40.x - 368.0;
@@ -80,28 +83,28 @@ void FUN_0042e446(int param_1)
       }
     }
     else {
-      local_40.x = *(float *)(param_1 + 0xfb0);
-      local_40.y = *(float *)(param_1 + 0xfb4);
-      local_40.z = *(float *)(param_1 + 0xfb8);
-      *(float *)(param_1 + 0x2930) = local_40.x;
-      *(float *)(param_1 + 0x2934) = local_40.y;
-      *(float *)(param_1 + 0x2938) = local_40.z;
-      AnmManager::FUN_00432ad0(g_AnmManager,(AnmVm *)(param_1 + 0x28a0));
+      local_40.x = (param_1->field51_0xf20).pos.x;
+      local_40.y = (param_1->field51_0xf20).pos.y;
+      local_40.z = (param_1->field51_0xf20).pos.z;
+      (param_1->unk_28a0).pos.x = local_40.x;
+      (param_1->unk_28a0).pos.y = local_40.y;
+      (param_1->unk_28a0).pos.z = local_40.z;
+      AnmManager::FUN_00432ad0(g_AnmManager,&param_1->unk_28a0);
       local_40.x = local_40.x + 320.0;
-      *(float *)(param_1 + 0x2a40) = local_40.x;
-      *(float *)(param_1 + 0x2a44) = local_40.y;
-      *(float *)(param_1 + 0x2a48) = local_40.z;
-      AnmManager::FUN_00432ad0(g_AnmManager,(AnmVm *)(param_1 + 0x29b0));
+      (param_1->field76_0x29b0).pos.x = local_40.x;
+      (param_1->field76_0x29b0).pos.y = local_40.y;
+      (param_1->field76_0x29b0).pos.z = local_40.z;
+      AnmManager::FUN_00432ad0(g_AnmManager,&param_1->field76_0x29b0);
       local_40.x = local_40.x - 320.0;
       local_40.y = local_40.y + 18.0;
-      local_2c = *(int *)(param_1 + *(int *)(param_1 + 0x2c) * 0x30 + 0x3ab4 +
-                         *(int *)(param_1 + 0x24) * 0x18);
-      local_34 = *(int *)(param_1 + *(int *)(param_1 + 0x2c) * 0x30 + 0x3ab4 +
-                         (*(int *)(param_1 + 0x24) * 2 + 1) * 0xc);
+      local_2c = param_1->unk_3ab0[*(int *)&param_1->field17_0x2c * 4 + param_1->field15_0x24 * 2].
+                 unk2;
+      local_34 = param_1->unk_3ab0
+                 [*(int *)&param_1->field17_0x2c * 4 + param_1->field15_0x24 * 2 + 1].unk2;
       for (local_14 = 0; local_40.y = local_40.y + 18.0, local_14 < 10; local_14 = local_14 + 1) {
-        if (*(int *)(param_1 + 8) == 9) {
+        if (param_1->unk_8 == 9) {
           if (g_GameManager.shottype == 0) {
-            if (*(char *)(*(int *)(local_2c + 8) + 9) == '\0') {
+            if (*(char *)(*(int *)((int)local_2c + 8) + 9) == '\0') {
               g_AsciiManager.color = 0x80ffffc0;
             }
             else {
@@ -109,8 +112,8 @@ void FUN_0042e446(int param_1)
               local_24 = 0x20202020;
               local_20 = 0x20202020;
               local_1c = 0;
-              if (*(int *)(param_1 + 0x10) < 8) {
-                local_84 = *(int *)(param_1 + 0x10);
+              if (param_1->unk_10 < 8) {
+                local_84 = param_1->unk_10;
               }
               else {
                 local_84 = 7;
@@ -130,19 +133,19 @@ void FUN_0042e446(int param_1)
                   (&g_AsciiManager,&local_40,
                    (char *)&PTR_g_BulletManager_bullets_421__vms_vm0_posInterpFinal_x_1_0046bdd0);
         local_40.x = local_40.x + 36.0;
-        if (*(byte *)(*(int *)(local_2c + 8) + 0x12) < 7) {
+        if (*(byte *)(*(int *)((int)local_2c + 8) + 0x12) < 7) {
           AsciiManager::AddFormatText(&g_AsciiManager,&local_40,"%8s %9d(%d)");
         }
-        else if (*(char *)(*(int *)(local_2c + 8) + 0x12) == '\a') {
+        else if (*(char *)(*(int *)((int)local_2c + 8) + 0x12) == '\a') {
           AsciiManager::AddFormatText(&g_AsciiManager,&local_40,"%8s %9d(1)");
         }
         else {
           AsciiManager::AddFormatText(&g_AsciiManager,&local_40,"%8s %9d(C)");
         }
         local_40.x = local_40.x + 300.0;
-        if (*(int *)(param_1 + 8) == 9) {
+        if (param_1->unk_8 == 9) {
           if (g_GameManager.shottype == 1) {
-            if (*(char *)(*(int *)(local_34 + 8) + 9) == '\0') {
+            if (*(char *)(*(int *)((int)local_34 + 8) + 9) == '\0') {
               g_AsciiManager.color = 0xc0c0c0ff;
             }
             else {
@@ -150,8 +153,8 @@ void FUN_0042e446(int param_1)
               local_24 = 0x20202020;
               local_20 = 0x20202020;
               local_1c = 0;
-              if (*(int *)(param_1 + 0x10) < 8) {
-                local_8c = *(int *)(param_1 + 0x10);
+              if (param_1->unk_10 < 8) {
+                local_8c = param_1->unk_10;
               }
               else {
                 local_8c = 7;
@@ -167,35 +170,35 @@ void FUN_0042e446(int param_1)
         else {
           g_AsciiManager.color = 0xffc0c0ff;
         }
-        if (*(byte *)(*(int *)(local_34 + 8) + 0x12) < 7) {
+        if (*(byte *)(*(int *)((int)local_34 + 8) + 0x12) < 7) {
           AsciiManager::AddFormatText(&g_AsciiManager,&local_40,"%8s %9d(%d)");
         }
-        else if (*(char *)(*(int *)(local_34 + 8) + 0x12) == '\a') {
+        else if (*(char *)(*(int *)((int)local_34 + 8) + 0x12) == '\a') {
           AsciiManager::AddFormatText(&g_AsciiManager,&local_40,"%8s %9d(1)");
         }
         else {
           AsciiManager::AddFormatText(&g_AsciiManager,&local_40,"%8s %9d(C)");
         }
         local_40.x = local_40.x - 336.0;
-        local_2c = *(int *)(local_2c + 4);
-        local_34 = *(int *)(local_34 + 4);
+        local_2c = *(void **)((int)local_2c + 4);
+        local_34 = *(void **)((int)local_34 + 4);
       }
     }
   }
-  if ((*(int *)(param_1 + 8) == 9) || (*(int *)(param_1 + 8) == 0xd)) {
+  if ((param_1->unk_8 == 9) || (param_1->unk_8 == 0xd)) {
     local_40.x = 160.0;
     local_40.y = 356.0;
     local_40.z = 0.0;
     for (local_14 = 0; local_14 < 6; local_14 = local_14 + 1) {
       for (local_30 = 0; local_30 < 0x10; local_30 = local_30 + 1) {
         local_48 = 0.0;
-        if (*(int *)(param_1 + 0x20) == local_14 * 0x10 + local_30) {
+        if (param_1->possibly_selected_character == local_14 * 0x10 + local_30) {
           g_AsciiManager.color = 0xffffffc0;
-          if (*(int *)(param_1 + 4) % 0x40 < 0x20) {
-            local_48 = ((float)(*(int *)(param_1 + 4) % 0x20) * 0.8) / 32.0 + 1.2;
+          if (param_1->field1_0x4 % 0x40 < 0x20) {
+            local_48 = ((float)(param_1->field1_0x4 % 0x20) * 0.8) / 32.0 + 1.2;
           }
           else {
-            local_48 = 2.0 - ((float)(*(int *)(param_1 + 4) % 0x20) * 0.8) / 32.0;
+            local_48 = 2.0 - ((float)(param_1->field1_0x4 % 0x20) * 0.8) / 32.0;
           }
           g_AsciiManager.scale.y = local_48;
           local_48 = -(local_48 - 1.0) * 8.0;
@@ -228,36 +231,36 @@ void FUN_0042e446(int param_1)
   }
   g_AsciiManager.scale.x = 1.0;
   g_AsciiManager.scale.y = 1.0;
-  if ((9 < *(int *)(param_1 + 8)) && (*(int *)(param_1 + 8) < 0xf)) {
-    local_28 = (AnmVm *)(param_1 + 0x1030);
+  if ((9 < param_1->unk_8) && (param_1->unk_8 < 0xf)) {
+    local_28 = &param_1->field52_0x1030;
     for (local_14 = 0; local_14 < 6; local_14 = local_14 + 1) {
       AnmManager::FUN_00432ad0(g_AnmManager,local_28);
       local_28 = local_28 + 1;
     }
-    local_40.x = *(float *)(param_1 + 0x1720);
-    local_40.y = *(float *)(param_1 + 0x1724);
-    local_40.z = *(float *)(param_1 + 0x1728);
-    local_28 = (AnmVm *)(param_1 + 0x17a0);
+    local_40.x = (param_1->field58_0x1690).pos.x;
+    local_40.y = (param_1->field58_0x1690).pos.y;
+    local_40.z = (param_1->field58_0x1690).pos.z;
+    local_28 = &param_1->field59_0x17a0;
     AsciiManager::AddFormatText(&g_AsciiManager,&local_40,"No.   Name     Date     Player Score");
     for (local_14 = 0; local_14 < 0xf; local_14 = local_14 + 1) {
-      local_40.x = *(float *)((int)local_28 + 0x90);
-      local_40.y = *(float *)((int)local_28 + 0x94);
-      local_40.z = *(float *)((int)local_28 + 0x98);
-      local_28 = (AnmVm *)((int)local_28 + 0x110);
-      if (local_14 == *(int *)(param_1 + 0x1c)) {
+      local_40.x = (local_28->pos).x;
+      local_40.y = (local_28->pos).y;
+      local_40.z = (local_28->pos).z;
+      local_28 = local_28 + 1;
+      if (local_14 == *(int *)&param_1->field_0x1c) {
         g_AsciiManager.color = 0xffff8080;
       }
       else {
         g_AsciiManager.color = 0xff808080;
       }
-      if (*(int *)(param_1 + 8) == 0xd) {
+      if (param_1->unk_8 == 0xd) {
         AsciiManager::AddFormatText(&g_AsciiManager,&local_40,"No.%.2d %8s %8s %7s %9d");
         g_AsciiManager.color = 0xfff0f0ff;
         local_24 = 0x20202020;
         local_20 = 0x20202020;
         local_1c = 0;
-        if (*(int *)(param_1 + 0x10) < 8) {
-          local_d0 = *(int *)(param_1 + 0x10);
+        if (param_1->unk_10 < 8) {
+          local_d0 = param_1->unk_10;
         }
         else {
           local_d0 = 7;
@@ -265,8 +268,9 @@ void FUN_0042e446(int param_1)
         *(undefined *)((int)&local_24 + local_d0) = 0x5f;
         AsciiManager::AddFormatText(&g_AsciiManager,&local_40,"      %8s");
       }
-      else if ((*(char (*) [4])(param_1 + 0x51b0 + local_14 * 0x50) == (char  [4])0x50523654) &&
-              (*(short *)(param_1 + 0x51b4 + local_14 * 0x50) == 0x102)) {
+      else if ((*(char (*) [4])((int)&param_1->hscr + local_14 * 0x50 + 0x30) ==
+                (char  [4])0x50523654) &&
+              (*(short *)((int)&param_1->hscr + local_14 * 0x50 + 0x34) == 0x102)) {
         AsciiManager::AddFormatText(&g_AsciiManager,&local_40,"No.%.2d %8s %8s %7s %9d");
       }
       else {

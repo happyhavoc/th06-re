@@ -8,7 +8,7 @@ ZunResult Ending::AddedCallback(Ending *ending)
   int shottypeAndCharacter;
   
   g_GameManager.unk_1822 = 1;
-  g_Supervisor.unk19c = 1;
+  g_Supervisor.isInEnding = 1;
   Supervisor::LoadPbg3(&g_Supervisor,5,"紅魔郷ED.dat");
   AnmManager::LoadAnm(g_AnmManager,0x2c,"data/staff01.anm",0x600);
   AnmManager::LoadAnm(g_AnmManager,0x2d,"data/staff02.anm",0x607);

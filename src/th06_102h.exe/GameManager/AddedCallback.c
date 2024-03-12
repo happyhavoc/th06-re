@@ -118,7 +118,7 @@ ZunResult GameManager::AddedCallback(GameManager *param_1)
   Supervisor::LoadPbg3(&g_Supervisor,4,"紅魔郷CM.dat");
   Supervisor::LoadPbg3(&g_Supervisor,2,"紅魔郷ST.dat");
   if (g_GameManager.field7_0x1c == 1) {
-    iVar3 = FUN_0042a240(1,g_GameManager.replay_file);
+    iVar3 = ReplayManager::RegisterChain(1,g_GameManager.replay_file);
     if (iVar3 != 0) {
       bVar1 = true;
     }
@@ -140,25 +140,25 @@ ZunResult GameManager::AddedCallback(GameManager *param_1)
                           ((&PTR_s_dummy_004764e8)[param_1->current_stage * 2],
                            (&PTR_s_dummy_004764ec)[param_1->current_stage * 2]);
         if (ZVar4 == ZUN_SUCCESS) {
-          iVar3 = FUN_00407340((GameManager *)&g_EclManager,
-                               (&PTR_s_dummy_004764c4)[param_1->current_stage]);
+          iVar3 = EclManager::FUN_00407340
+                            (&g_EclManager,(&PTR_s_dummy_004764c4)[param_1->current_stage]);
           if (iVar3 == 0) {
             iVar3 = EffectManager::RegisterChain();
             if (iVar3 == 0) {
               ZVar4 = Gui::RegisterChain();
               if (ZVar4 == ZUN_SUCCESS) {
                 if (g_GameManager.field7_0x1c == 0) {
-                  FUN_0042a240(0,"replay/th6_00.rpy");
+                  ReplayManager::RegisterChain(0,"replay/th6_00.rpy");
                 }
                 if (g_GameManager.demo_mode == 0) {
                   FUN_00424aac(1,g_Stage.stdData + 0x310);
                   Supervisor::PlayAudio((char *)(g_Stage.stdData + 0x290));
                 }
                 param_1->is_in_retry_menu = 0;
-                param_1->field28_0x1821 = 1;
+                param_1->is_in_menu = 1;
                 if (g_Supervisor.curState != 3) {
-                  g_Supervisor.unk1b4 = 0.0;
-                  g_Supervisor.unk1b8 = 0.0;
+                  g_Supervisor.unk_frame_related1 = 0.0;
+                  g_Supervisor.unk_frames_related2 = 0.0;
                 }
                 *(undefined *)&param_1->field11_0x2c = 0;
                 param_1->score = 0;

@@ -1,5 +1,5 @@
 
-void __fastcall FUN_0041f4a0(AnmVm *param_1)
+void __thiscall ItemManager::FUN_0041f4a0(ItemManager *this)
 
 {
   float fVar1;
@@ -19,7 +19,7 @@ void __fastcall FUN_0041f4a0(AnmVm *param_1)
   int local_e0;
   int local_28;
   int local_20;
-  AnmVm *local_18;
+  Item *curItem;
   int local_c;
   int local_8;
   
@@ -30,9 +30,9 @@ void __fastcall FUN_0041f4a0(AnmVm *param_1)
     FLOAT_0069e23c = 16.0;
   }
   bVar7 = false;
-  param_1[0x263].scaleY = 0.0;
+  this->item_count = 0;
   local_8 = 0;
-  local_18 = param_1;
+  curItem = this->items;
   do {
     if (0x1ff < local_8) {
       if (bVar7) {
@@ -40,79 +40,78 @@ void __fastcall FUN_0041f4a0(AnmVm *param_1)
       }
       return;
     }
-    if (*(char *)((int)&local_18[1].currentTimeInScript.previous + 1) != '\0') {
-      param_1[0x263].scaleY = (float)((int)param_1[0x263].scaleY + 1);
-      if (*(char *)((int)&local_18[1].currentTimeInScript.previous + 3) == '\x02') {
-        if (0x3b < (int)local_18[1].uvScrollPos.y) {
-          if (local_18[1].uvScrollPos.y == 8.407791e-44) {
-            local_18[1].angleVel.x = 0.0;
-            local_18[1].angleVel.y = 0.0;
-            local_18[1].angleVel.z = 0.0;
+    if (curItem->is_in_use != 0) {
+      this->item_count = this->item_count + 1;
+      if (curItem->state == 2) {
+        if (0x3b < (curItem->timer).current) {
+          if ((curItem->timer).current == 0x3c) {
+            (curItem->velocity).x = 0.0;
+            (curItem->velocity).y = 0.0;
+            (curItem->velocity).z = 0.0;
           }
           goto LAB_0041f7c5;
         }
-        fVar5 = ((float)(int)local_18[1].uvScrollPos.y + local_18[1].uvScrollPos.x) / 60.0;
+        fVar5 = ((float)(curItem->timer).current + (curItem->timer).subFrame) / 60.0;
         fVar6 = 1.0 - fVar5;
-        fVar11 = local_18[1].angleVel.z;
-        fVar1 = local_18[1].angleVel.y;
-        fVar2 = local_18[1].scaleInterpFinalY;
-        fVar3 = local_18[1].scaleX;
-        local_18[1].rotation.x = fVar5 * local_18[1].scaleY + fVar6 * local_18[1].angleVel.x;
-        local_18[1].rotation.y = fVar5 * fVar3 + fVar6 * fVar1;
-        local_18[1].rotation.z = fVar5 * fVar2 + fVar6 * fVar11;
+        fVar11 = (curItem->velocity).z;
+        fVar1 = (curItem->velocity).y;
+        fVar2 = (curItem->unk).z;
+        fVar3 = (curItem->unk).y;
+        (curItem->position).x = fVar5 * (curItem->unk).x + fVar6 * (curItem->velocity).x;
+        (curItem->position).y = fVar5 * fVar3 + fVar6 * fVar1;
+        (curItem->position).z = fVar5 * fVar2 + fVar6 * fVar11;
       }
       else {
-        if ((*(char *)((int)&local_18[1].currentTimeInScript.previous + 3) == '\x01') ||
+        if ((curItem->state == 1) ||
            ((0x7f < g_GameManager.current_power &&
             (g_Player.position.y < 128.0 != NAN(g_Player.position.y))))) {
-          fVar11 = Player::FUN_00428700(&g_Player,(float *)(local_18 + 1));
+          fVar11 = Player::FUN_00428700(&g_Player,&(curItem->position).x);
           fVar4 = (float10)fcos((float10)fVar11);
           fVar10 = (float10)fsin((float10)fVar11);
-          local_18[1].angleVel.x = (float)(fVar4 * (float10)8.0);
-          local_18[1].angleVel.y = (float)(fVar10 * (float10)8.0);
-          *(undefined *)((int)&local_18[1].currentTimeInScript.previous + 3) = 1;
+          (curItem->velocity).x = (float)(fVar4 * (float10)8.0);
+          (curItem->velocity).y = (float)(fVar10 * (float10)8.0);
+          curItem->state = 1;
         }
         else {
-          local_18[1].angleVel.x = 0.0;
-          local_18[1].angleVel.z = 0.0;
-          fVar11 = local_18[1].angleVel.y;
+          (curItem->velocity).x = 0.0;
+          (curItem->velocity).z = 0.0;
+          fVar11 = (curItem->velocity).y;
           if (fVar11 < -2.2 != NAN(fVar11)) {
-            local_18[1].angleVel.y = -2.2;
+            (curItem->velocity).y = -2.2;
           }
         }
 LAB_0041f7c5:
-        fVar11 = g_Supervisor.effectiveFramerateMultiplier * local_18[1].angleVel.z;
-        fVar1 = g_Supervisor.effectiveFramerateMultiplier * local_18[1].angleVel.y;
-        local_18[1].rotation.x =
-             g_Supervisor.effectiveFramerateMultiplier * local_18[1].angleVel.x +
-             local_18[1].rotation.x;
-        local_18[1].rotation.y = fVar1 + local_18[1].rotation.y;
-        local_18[1].rotation.z = fVar11 + local_18[1].rotation.z;
-        fVar11 = local_18[1].rotation.y;
+        fVar11 = g_Supervisor.effectiveFramerateMultiplier * (curItem->velocity).z;
+        fVar1 = g_Supervisor.effectiveFramerateMultiplier * (curItem->velocity).y;
+        (curItem->position).x =
+             g_Supervisor.effectiveFramerateMultiplier * (curItem->velocity).x +
+             (curItem->position).x;
+        (curItem->position).y = fVar1 + (curItem->position).y;
+        (curItem->position).z = fVar11 + (curItem->position).z;
+        fVar11 = (curItem->position).y;
         if (g_GameManager.arcade_region_size.y + 16.0 < fVar11 !=
             (g_GameManager.arcade_region_size.y + 16.0 == fVar11)) {
-          *(undefined *)((int)&local_18[1].currentTimeInScript.previous + 1) = 0;
+          curItem->is_in_use = 0;
           FUN_0041c5fa(3);
           goto LAB_0041f512;
         }
-        fVar11 = local_18[1].angleVel.y;
+        fVar11 = (curItem->velocity).y;
         if (fVar11 < 3.0 == NAN(fVar11)) {
-          local_18[1].angleVel.y = 3.0;
+          (curItem->velocity).y = 3.0;
         }
         else {
-          local_18[1].angleVel.y =
-               g_Supervisor.effectiveFramerateMultiplier * 0.03 + local_18[1].angleVel.y;
+          (curItem->velocity).y =
+               g_Supervisor.effectiveFramerateMultiplier * 0.03 + (curItem->velocity).y;
         }
       }
-      iVar8 = Player::CalcBoxCollision(local_18 + 1,&FLOAT_0069e234);
+      iVar8 = Player::CalcBoxCollision(&curItem->position,&FLOAT_0069e234);
       if (iVar8 == 0) {
-        local_18[1].scaleInterpFinalX = local_18[1].uvScrollPos.y;
-        Supervisor::TickTimer
-                  (&g_Supervisor,(int *)&local_18[1].uvScrollPos.y,&local_18[1].uvScrollPos.x);
-        AnmManager::ExecuteScript(g_AnmManager,local_18);
+        (curItem->timer).previous = (curItem->timer).current;
+        Supervisor::TickTimer(&g_Supervisor,&(curItem->timer).current,&(curItem->timer).subFrame);
+        AnmManager::ExecuteScript(g_AnmManager,&curItem->vm);
       }
       else {
-        switch(*(undefined *)&local_18[1].currentTimeInScript.previous) {
+        switch(curItem->item_type) {
         case 0:
           if (g_GameManager.current_power < 0x80) {
             for (local_20 = 0; iVar8 = local_20,
@@ -132,10 +131,10 @@ LAB_0041f7c5:
                 local_20 = local_20 + 1) {
             }
             if (local_20 == iVar8) {
-              AsciiManager::CreatePopup1(&g_AsciiManager,&local_18[1].rotation,10,0xffffffff);
+              AsciiManager::CreatePopup1(&g_AsciiManager,&curItem->position,10,0xffffffff);
             }
             else {
-              AsciiManager::CreatePopup1(&g_AsciiManager,&local_18[1].rotation,-1,0xff80c0ff);
+              AsciiManager::CreatePopup1(&g_AsciiManager,&curItem->position,-1,0xff80c0ff);
               SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0x1f);
             }
           }
@@ -147,7 +146,7 @@ LAB_0041f7c5:
             local_c = *(int *)(&DAT_00476660 + (char)g_GameManager.power_item_count_for_score * 4);
             g_GameManager.score = g_GameManager.score + local_c;
             AsciiManager::CreatePopup1
-                      (&g_AsciiManager,&local_18[1].rotation,local_c,
+                      (&g_AsciiManager,&curItem->position,local_c,
                        ((local_c < 0x3200) - 1 & 0xffffff01) - 1);
           }
           GameManager::IncreaseSubrank(&g_GameManager,1);
@@ -156,59 +155,59 @@ LAB_0041f7c5:
           switch(g_GameManager.difficulty) {
           case 0:
           case 1:
-            lVar9 = __ftol2(local_18[1].rotation.y);
+            lVar9 = __ftol2((curItem->position).y);
             if (lVar9 < 0x80) {
               local_e0 = 100000;
             }
             else {
-              lVar9 = __ftol2(local_18[1].rotation.y);
+              lVar9 = __ftol2((curItem->position).y);
               local_e0 = (lVar9 + -0x80) * -100 + 60000;
             }
             local_c = local_e0;
             AsciiManager::CreatePopup1
-                      (&g_AsciiManager,&local_18[1].rotation,local_e0,
+                      (&g_AsciiManager,&curItem->position,local_e0,
                        ((local_e0 < 100000) - 1 & 0xffffff01) - 1);
             break;
           case 2:
-            lVar9 = __ftol2(local_18[1].rotation.y);
+            lVar9 = __ftol2((curItem->position).y);
             if (lVar9 < 0x80) {
               local_e4 = 150000;
             }
             else {
-              lVar9 = __ftol2(local_18[1].rotation.y);
+              lVar9 = __ftol2((curItem->position).y);
               local_e4 = (lVar9 + -0x80) * -0xb4 + 100000;
             }
             local_c = local_e4;
             AsciiManager::CreatePopup1
-                      (&g_AsciiManager,&local_18[1].rotation,local_e4,
+                      (&g_AsciiManager,&curItem->position,local_e4,
                        ((local_e4 < 150000) - 1 & 0xffffff01) - 1);
             break;
           case 3:
-            lVar9 = __ftol2(local_18[1].rotation.y);
+            lVar9 = __ftol2((curItem->position).y);
             if (lVar9 < 0x80) {
               local_e8 = 200000;
             }
             else {
-              lVar9 = __ftol2(local_18[1].rotation.y);
+              lVar9 = __ftol2((curItem->position).y);
               local_e8 = (lVar9 + -0x80) * -0x10e + 150000;
             }
             local_c = local_e8;
             AsciiManager::CreatePopup1
-                      (&g_AsciiManager,&local_18[1].rotation,local_e8,
+                      (&g_AsciiManager,&curItem->position,local_e8,
                        ((local_e8 < 200000) - 1 & 0xffffff01) - 1);
             break;
           case 4:
-            lVar9 = __ftol2(local_18[1].rotation.y);
+            lVar9 = __ftol2((curItem->position).y);
             if (lVar9 < 0x80) {
               local_ec = 300000;
             }
             else {
-              lVar9 = __ftol2(local_18[1].rotation.y);
+              lVar9 = __ftol2((curItem->position).y);
               local_ec = (lVar9 + -0x80) * -400 + 200000;
             }
             local_c = local_ec;
             AsciiManager::CreatePopup1
-                      (&g_AsciiManager,&local_18[1].rotation,local_ec,
+                      (&g_AsciiManager,&curItem->position,local_ec,
                        ((local_ec < 300000) - 1 & 0xffffff01) - 1);
           }
           g_GameManager.score = g_GameManager.score + local_c;
@@ -216,7 +215,7 @@ LAB_0041f7c5:
                g_GameManager.point_items_collected_in_stage + 1;
           g_GameManager.field18_0x1816 = g_GameManager.field18_0x1816 + 1;
           g_Gui.flags = g_Gui.flags & 0xfffffcff | 0x200;
-          fVar11 = local_18[1].rotation.y;
+          fVar11 = (curItem->position).y;
           if (fVar11 < 128.0 == NAN(fVar11)) {
             GameManager::IncreaseSubrank(&g_GameManager,3);
           }
@@ -242,10 +241,10 @@ LAB_0041f7c5:
                 local_28 = local_28 + 1) {
             }
             if (local_28 == iVar8) {
-              AsciiManager::CreatePopup1(&g_AsciiManager,&local_18[1].rotation,10,0xffffffff);
+              AsciiManager::CreatePopup1(&g_AsciiManager,&curItem->position,10,0xffffffff);
             }
             else {
-              AsciiManager::CreatePopup1(&g_AsciiManager,&local_18[1].rotation,-1,0xff80c0ff);
+              AsciiManager::CreatePopup1(&g_AsciiManager,&curItem->position,-1,0xff80c0ff);
               SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0x1f);
             }
           }
@@ -257,7 +256,7 @@ LAB_0041f7c5:
             local_c = *(int *)(&DAT_00476660 + (char)g_GameManager.power_item_count_for_score * 4);
             g_GameManager.score = g_GameManager.score + local_c;
             AsciiManager::CreatePopup1
-                      (&g_AsciiManager,&local_18[1].rotation,local_c,
+                      (&g_AsciiManager,&curItem->position,local_c,
                        ((local_c < 0x3200) - 1 & 0xffffff01) - 1);
           }
           break;
@@ -273,11 +272,11 @@ LAB_0041f7c5:
             BulletManager::FUN_00414340(&g_BulletManager);
             FUN_004173d9(0);
             SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0x1f);
-            AsciiManager::CreatePopup1(&g_AsciiManager,&local_18[1].rotation,-1,0xff80c0ff);
+            AsciiManager::CreatePopup1(&g_AsciiManager,&curItem->position,-1,0xff80c0ff);
           }
           g_GameManager.current_power = 0x80;
           g_GameManager.score = g_GameManager.score + 1000;
-          AsciiManager::CreatePopup1(&g_AsciiManager,&local_18[1].rotation,1000,0xffffffff);
+          AsciiManager::CreatePopup1(&g_AsciiManager,&curItem->position,1000,0xffffffff);
           g_Gui.flags = g_Gui.flags & 0xffffffcf | 0x20;
           break;
         case 5:
@@ -294,15 +293,15 @@ LAB_0041f7c5:
             local_c = 100;
           }
           g_GameManager.score = g_GameManager.score + local_c;
-          AsciiManager::CreatePopup2(&g_AsciiManager,&local_18[1].rotation,local_c,0xffffffff);
+          AsciiManager::CreatePopup2(&g_AsciiManager,&curItem->position,local_c,0xffffffff);
         }
-        *(undefined *)((int)&local_18[1].currentTimeInScript.previous + 1) = 0;
+        curItem->is_in_use = 0;
         bVar7 = true;
       }
     }
 LAB_0041f512:
     local_8 = local_8 + 1;
-    local_18 = (AnmVm *)&local_18[1].currentTimeInScript.subFrame;
+    curItem = curItem + 1;
   } while( true );
 }
 

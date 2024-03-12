@@ -21,7 +21,7 @@ ZunResult Supervisor::DeletedCallback(Supervisor *param_1)
     }
     param_1->midi_output = (MidiOutput *)0x0;
   }
-  FUN_0042ab30(0,0);
+  replay_dostuff((char *)0x0,(char *)0x0);
   ReleaseBackBuffer();
   if (param_1->keyboard != (LPDIRECTINPUTDEVICE8A)0x0) {
     (*param_1->keyboard->lpVtbl->Unacquire)(param_1->keyboard);

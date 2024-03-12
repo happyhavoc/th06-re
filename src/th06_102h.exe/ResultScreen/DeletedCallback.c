@@ -1,5 +1,5 @@
 
-undefined4 FUN_0042f5bc(ScoreDat **param_1)
+undefined4 ResultScreen::DeletedCallback(ScoreDat **param_1)
 
 {
   ScoreDat **ppSVar1;

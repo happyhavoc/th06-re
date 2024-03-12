@@ -5,11 +5,11 @@ void Supervisor::DrawFpsCounter(void)
   D3DXVECTOR3 local_20;
   float elapsedTimeInSecs;
   float fps;
-  float local_c;
+  float framerate;
   DWORD curTime;
   
-  if ((DAT_006c6d10 & 1) == 0) {
-    DAT_006c6d10 = DAT_006c6d10 | 1;
+  if ((g_LastTimeIsSet & 1) == 0) {
+    g_LastTimeIsSet = g_LastTimeIsSet | 1;
     g_LastTime = timeGetTime();
   }
   curTime = timeGetTime();
@@ -20,28 +20,28 @@ void Supervisor::DrawFpsCounter(void)
     g_NumFramesSinceLastTime = 0;
     g_LastTime = curTime;
     sprintf(g_FpsCounterBuffer,"%.02ffps",(double)fps);
-    if (g_GameManager.field28_0x1821 != 0) {
-      local_c = 60.0 / g_Supervisor.framerateMultiplier;
-      g_Supervisor.unk1b8 = g_Supervisor.unk1b8 + local_c;
-      if (local_c * 0.9 < fps == (NAN(local_c * 0.9) || NAN(fps))) {
-        if (local_c * 0.7 < fps == (NAN(local_c * 0.7) || NAN(fps))) {
-          if (local_c * 0.5 < fps == (NAN(local_c * 0.5) || NAN(fps))) {
-            g_Supervisor.unk1b4 = local_c * 0.5 + g_Supervisor.unk1b4;
+    if (g_GameManager.is_in_menu != 0) {
+      framerate = 60.0 / g_Supervisor.framerateMultiplier;
+      g_Supervisor.unk_frames_related2 = g_Supervisor.unk_frames_related2 + framerate;
+      if (framerate * 0.9 < fps == (NAN(framerate * 0.9) || NAN(fps))) {
+        if (framerate * 0.7 < fps == (NAN(framerate * 0.7) || NAN(fps))) {
+          if (framerate * 0.5 < fps == (NAN(framerate * 0.5) || NAN(fps))) {
+            g_Supervisor.unk_frame_related1 = framerate * 0.5 + g_Supervisor.unk_frame_related1;
           }
           else {
-            g_Supervisor.unk1b4 = local_c * 0.6 + g_Supervisor.unk1b4;
+            g_Supervisor.unk_frame_related1 = framerate * 0.6 + g_Supervisor.unk_frame_related1;
           }
         }
         else {
-          g_Supervisor.unk1b4 = local_c * 0.8 + g_Supervisor.unk1b4;
+          g_Supervisor.unk_frame_related1 = framerate * 0.8 + g_Supervisor.unk_frame_related1;
         }
       }
       else {
-        g_Supervisor.unk1b4 = g_Supervisor.unk1b4 + local_c;
+        g_Supervisor.unk_frame_related1 = g_Supervisor.unk_frame_related1 + framerate;
       }
     }
   }
-  if (g_Supervisor.unk19c == 0) {
+  if (g_Supervisor.isInEnding == 0) {
     local_20.x = 512.0;
     local_20.y = 464.0;
     local_20.z = 0.0;

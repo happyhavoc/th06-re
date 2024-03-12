@@ -12,7 +12,7 @@ undefined4 * __thiscall SoundPlayer::SoundPlayer(SoundPlayer *this)
     pSVar2 = (SoundPlayer *)&pSVar2->field_0x4;
   }
   for (local_8 = 0; local_8 < 0x80; local_8 = local_8 + 1) {
-    *(undefined4 *)(&this->field_0x408 + local_8 * 4) = 0xffffffff;
+    this->unk_408[local_8] = -1;
   }
   return &this->csoundmanager;
 }

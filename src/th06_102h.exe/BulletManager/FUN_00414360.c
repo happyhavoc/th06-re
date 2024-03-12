@@ -6,9 +6,7 @@ int __thiscall BulletManager::FUN_00414360(BulletManager *this,int param_1,int p
   float10 fVar2;
   float local_34;
   Laser *local_2c;
-  float local_28;
-  float local_24;
-  undefined4 local_20;
+  D3DXVECTOR3 local_28;
   int local_1c;
   float local_18;
   int local_14;
@@ -23,7 +21,7 @@ int __thiscall BulletManager::FUN_00414360(BulletManager *this,int param_1,int p
   for (local_14 = 0; local_14 < 0x280; local_14 = local_14 + 1) {
     if (*(short *)(local_1c + 0x5be) != 0) {
       if (param_2 != 0) {
-        FUN_0041f290(local_1c + 0x560,6,1);
+        ItemManager::SpawnItem(&g_ItemManager,(D3DXVECTOR3 *)(local_1c + 0x560),6,1);
       }
       AsciiManager::CreatePopup1
                 (&g_AsciiManager,(D3DXVECTOR3 *)(local_1c + 0x560),local_8,
@@ -47,16 +45,16 @@ int __thiscall BulletManager::FUN_00414360(BulletManager *this,int param_1,int p
         (local_2c->timer).subFrame = 0.0;
         (local_2c->timer).previous = -999;
         if (param_2 != 0) {
-          FUN_0041f290(&local_2c->pos,6,1);
+          ItemManager::SpawnItem(&g_ItemManager,&local_2c->pos,6,1);
           local_34 = local_2c->start_offset;
           fVar1 = (float10)fcos((float10)local_2c->angle);
           fVar2 = (float10)fsin((float10)local_2c->angle);
           local_18 = (float)fVar2;
           for (; local_34 < local_2c->end_offset; local_34 = local_34 + 32.0) {
-            local_28 = (float)fVar1 * local_34 + (local_2c->pos).x;
-            local_24 = local_18 * local_34 + (local_2c->pos).y;
-            local_20 = 0;
-            FUN_0041f290(&local_28,6,1);
+            local_28.x = (float)fVar1 * local_34 + (local_2c->pos).x;
+            local_28.y = local_18 * local_34 + (local_2c->pos).y;
+            local_28.z = 0.0;
+            ItemManager::SpawnItem(&g_ItemManager,&local_28,6,1);
           }
         }
       }

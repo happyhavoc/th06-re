@@ -19,7 +19,7 @@ HRESULT __thiscall CStreamingSound::Reset(CStreamingSound *this)
        ((local_8 == 0 ||
         (HVar1 = CSound::FillBufferWithSound(&this->base,*(this->base).m_apDSBuffer,0), -1 < HVar1))
        )) {
-      CWaveFile::ResetFile((this->base).m_pWaveFile,'\0');
+      CWaveFile::ResetFile((this->base).m_pWaveFile,false);
       HVar1 = (*(*(this->base).m_apDSBuffer)->lpVtbl->SetCurrentPosition)
                         (*(this->base).m_apDSBuffer,0);
     }

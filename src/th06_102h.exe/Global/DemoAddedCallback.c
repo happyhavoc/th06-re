@@ -1,7 +1,7 @@
 
 /* WARNING: Removing unreachable block (ram,0x0042a940) */
 
-ZunResult FUN_0042a840(ReplayManager *param_1)
+ZunResult DemoAddedCallback(ReplayManager *param_1)
 
 {
   ReplayData *pRVar2;

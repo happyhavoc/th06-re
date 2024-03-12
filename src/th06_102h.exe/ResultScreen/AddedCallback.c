@@ -1,7 +1,7 @@
 
 /* WARNING: Unknown calling convention -- yet parameter storage is locked */
 
-undefined4 FUN_0042f060(ResultScreen *param_1)
+undefined4 ResultScreen::AddedCallback(ResultScreen *param_1)
 
 {
   AnmManager *pAVar1;
@@ -74,9 +74,8 @@ undefined4 FUN_0042f060(ResultScreen *param_1)
         param_1->default_scores[difficulty][character][idx].base.th6k_len = 0x1c;
         param_1->default_scores[difficulty][character][idx].stage = 1;
         param_1->default_scores[difficulty][character][idx].base.field_0x9 = 0;
-        ResultScreen::FUN_0042bc2d
-                  (param_1,param_1->default_scores[difficulty][character] + idx,difficulty,character
-                  );
+        FUN_0042bc2d(param_1,param_1->default_scores[difficulty][character] + idx,difficulty,
+                     character);
         _strcpy(param_1->default_scores[difficulty][character][idx].name,"Nanashi ");
       }
     }

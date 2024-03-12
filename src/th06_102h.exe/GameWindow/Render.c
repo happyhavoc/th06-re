@@ -10,7 +10,7 @@ undefined4 __thiscall GameWindow::Render(GameWindow *this)
   int local_8;
   
   if (this->lastActiveAppValue != 0) {
-    if (this->curFrame != 0) goto LAB_00420894;
+    if (this->curFrame != 0) goto L3;
     do {
       while( true ) {
         if (g_Supervisor.cfg.frameskipConfig <= this->curFrame) {
@@ -49,20 +49,20 @@ undefined4 __thiscall GameWindow::Render(GameWindow *this)
           return 2;
         }
         this->curFrame = this->curFrame + 1;
-LAB_00420894:
+L3:
         if (g_Supervisor.cfg.windowed != false) break;
-        if (((g_Supervisor.cfg.opts >> 7 & 1) == 0) || (g_Supervisor.vsyncEnabled == 0)) {
+        if (((g_Supervisor.cfg.opts >> FORCE_60FPS & 1) == 0) || (g_Supervisor.vsyncEnabled == 0)) {
           bVar2 = false;
         }
         else {
           bVar2 = true;
         }
         if (bVar2) break;
-LAB_004209ab:
+L11:
         if (g_Supervisor.cfg.windowed != false) {
           return 0;
         }
-        if (((g_Supervisor.cfg.opts >> 7 & 1) == 0) || (g_Supervisor.vsyncEnabled == 0)) {
+        if (((g_Supervisor.cfg.opts >> FORCE_60FPS & 1) == 0) || (g_Supervisor.vsyncEnabled == 0)) {
           bVar2 = false;
         }
         else {
@@ -71,31 +71,31 @@ LAB_004209ab:
         if (bVar2) {
           return 0;
         }
-        if (g_Supervisor.cfg.frameskipConfig < this->curFrame) goto LAB_00420a0b;
-        FUN_00420b50();
+        if (g_Supervisor.cfg.frameskipConfig < this->curFrame) goto L15;
+        Present();
       }
-      if (this->curFrame == 0) goto LAB_004209ab;
+      if (this->curFrame == 0) goto L11;
       g_Supervisor.framerateMultiplier = 1.0;
       timeBeginPeriod(1);
       DVar3 = timeGetTime();
       dVar1 = (double)(ulonglong)DVar3;
-      if (dVar1 < DOUBLE_006c6bf8 != (NAN(dVar1) || NAN(DOUBLE_006c6bf8))) {
-        DOUBLE_006c6bf8 = dVar1;
+      if (dVar1 < g_LastFrameTime != (NAN(dVar1) || NAN(g_LastFrameTime))) {
+        g_LastFrameTime = dVar1;
       }
-      local_34 = _fabs(dVar1 - DOUBLE_006c6bf8);
+      local_34 = _fabs(dVar1 - g_LastFrameTime);
       timeEndPeriod(1);
-      if (local_34 < 16.66666666666667) goto LAB_004209ab;
+      if (local_34 < 16.66666666666667) goto L11;
       do {
-        DOUBLE_006c6bf8 = DOUBLE_006c6bf8 + 16.66666666666667;
+        g_LastFrameTime = g_LastFrameTime + 16.66666666666667;
         local_34 = local_34 - 16.66666666666667;
       } while (16.66666666666667 <= local_34);
     } while (this->curFrame <= g_Supervisor.cfg.frameskipConfig);
-LAB_00420a0b:
-    FUN_00420b50();
+L15:
+    Present();
     if (NAN(g_Supervisor.framerateMultiplier) == (g_Supervisor.framerateMultiplier == 0.0)) {
       g_Supervisor.effectiveFramerateMultiplier = g_Supervisor.framerateMultiplier;
     }
-    else if (1 < (int)UINT_006c6bf4) {
+    else if (1 < (int)g_TickCountToEffectiveFramerate) {
       timeBeginPeriod(1);
       DVar3 = timeGetTime();
       if (DVar3 < (uint)g_Supervisor.lastFrameTime) {
@@ -116,10 +116,10 @@ LAB_00420a0b:
       }
       g_Supervisor.lastFrameTime = DVar3;
       timeEndPeriod(1);
-      UINT_006c6bf4 = 0;
+      g_TickCountToEffectiveFramerate = 0;
     }
     this->curFrame = 0;
-    UINT_006c6bf4 = UINT_006c6bf4 + 1;
+    g_TickCountToEffectiveFramerate = g_TickCountToEffectiveFramerate + 1;
   }
   return 0;
 }

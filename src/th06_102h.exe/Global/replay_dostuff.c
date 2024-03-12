@@ -4,7 +4,7 @@
 /* WARNING: Removing unreachable block (ram,0x0042ad69) */
 /* WARNING: Removing unreachable block (ram,0x0042addf) */
 
-void FUN_0042ab30(char *param_1,char *param_2)
+void replay_dostuff(char *replay_path,char *param_2)
 
 {
   char cVar1;
@@ -50,7 +50,7 @@ void FUN_0042ab30(char *param_1,char *param_2)
   if (g_ReplayManager != (ReplayManager *)0x0) {
     rpy_manager = g_ReplayManager;
     if (g_ReplayManager->is_demo == 0) {
-      if (param_1 != (char *)0x0) {
+      if (replay_path != (char *)0x0) {
         rpy_data = g_ReplayManager->data;
         ppcVar5 = local_64;
         for (i = 20; i != 0; i = i + -1) {
@@ -64,13 +64,13 @@ void FUN_0042ab30(char *param_1,char *param_2)
           if (rpy_manager->data->stage_score[j + 1] != (StageReplayData *)0x0) {
             aiStack_30[j] = local_68;
             local_68 = local_68 +
-                       (*(int *)(&rpy_manager->field_0x4c + j * 4) -
+                       (rpy_manager->replay_input_offsets[j] -
                        (int)rpy_manager->data->stage_score[j + 1]);
           }
         }
-        DebugPrint2("%s write ...\n",param_1);
+        DebugPrint2("%s write ...\n",replay_path);
         local_40 = g_GameManager.field0_0x0;
-        local_10 = g_Supervisor.unk1b4 / g_Supervisor.unk1b8 - 0.5;
+        local_10 = g_Supervisor.unk_frame_related1 / g_Supervisor.unk_frames_related2 - 0.5;
         local_10 = local_10 + local_10;
         if (local_10 < 0.0 == NAN(local_10)) {
           if (1.0 <= local_10) {
@@ -119,8 +119,8 @@ void FUN_0042ab30(char *param_1,char *param_2)
             uStack_75 = (undefined)((uint)pSVar3 >> 0x18);
             for (local_70 = 0;
                 local_70 <
-                *(int *)(&rpy_manager->field_0x4c + j * 4) -
-                (int)rpy_manager->data->stage_score[j + 1]; local_70 = local_70 + 1) {
+                rpy_manager->replay_input_offsets[j] - (int)rpy_manager->data->stage_score[j + 1];
+                local_70 = local_70 + 1) {
               uStack_78 = SUB43(pSVar3,0);
               local_74 = local_74 + (uint)*(byte *)CONCAT13(uStack_75,uStack_78);
               pSVar3 = (StageReplayData *)(CONCAT13(uStack_75,uStack_78) + 1);
@@ -141,21 +141,21 @@ void FUN_0042ab30(char *param_1,char *param_2)
             local_84 = rpy_manager->data->stage_score[j + 1];
             for (local_80 = 0;
                 local_80 <
-                *(int *)(&rpy_manager->field_0x4c + j * 4) -
-                (int)rpy_manager->data->stage_score[j + 1]; local_80 = local_80 + 1) {
+                rpy_manager->replay_input_offsets[j] - (int)rpy_manager->data->stage_score[j + 1];
+                local_80 = local_80 + 1) {
               *(char *)&local_84->score = *(char *)&local_84->score + local_79;
               local_79 = local_79 + '\a';
               local_84 = (StageReplayData *)((int)&local_84->score + 1);
             }
           }
         }
-        _File = fopen(param_1,"wb");
+        _File = fopen(replay_path,"wb");
         fwrite(local_64,0x50,1,_File);
         for (j = 0; (int)j < 7; j = j + 1) {
           if (rpy_manager->data->stage_score[j + 1] != (StageReplayData *)0x0) {
             fwrite(rpy_manager->data->stage_score[j + 1],1,
-                   *(int *)(&rpy_manager->field_0x4c + j * 4) -
-                   (int)rpy_manager->data->stage_score[j + 1],_File);
+                   rpy_manager->replay_input_offsets[j] - (int)rpy_manager->data->stage_score[j + 1]
+                   ,_File);
           }
         }
         fclose(_File);
@@ -163,13 +163,13 @@ void FUN_0042ab30(char *param_1,char *param_2)
       for (j = 0; (int)j < 7; j = j + 1) {
         if (g_ReplayManager->data->stage_score[j + 1] != (StageReplayData *)0x0) {
           DebugPrint2("Replay Size %d\n",
-                      *(int *)(&rpy_manager->field_0x4c + j * 4) -
+                      rpy_manager->replay_input_offsets[j] -
                       (int)rpy_manager->data->stage_score[j + 1]);
           _free(g_ReplayManager->data->stage_score[j + 1]);
         }
       }
     }
-    Chain::Cut(&g_Chain,g_ReplayManager->chain1);
+    Chain::Cut(&g_Chain,g_ReplayManager->calc_chain);
   }
   __security_check_cookie(local_14 ^ unaff_retaddr);
   return;

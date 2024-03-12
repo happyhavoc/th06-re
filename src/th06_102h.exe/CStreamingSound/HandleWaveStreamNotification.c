@@ -71,7 +71,7 @@ int __thiscall CStreamingSound::HandleWaveStreamNotification(CStreamingSound *th
           }
           else {
             for (local_2c = local_10; local_2c < local_24; local_2c = local_2c + local_10) {
-              local_20 = CWaveFile::ResetFile((this->base).m_pWaveFile,'\x01');
+              local_20 = CWaveFile::ResetFile((this->base).m_pWaveFile,true);
               if (local_20 < 0) {
                 DebugPrint2("error : m_pWaveFile->ResetFile in HandleWaveStreamNotification\n");
                 return local_20;

@@ -10,9 +10,7 @@ void __thiscall BulletManager::FUN_00414160(BulletManager *this,int param_1)
   Laser *local_20;
   Bullet *local_1c;
   int local_14;
-  float local_10;
-  float local_c;
-  undefined4 local_8;
+  D3DXVECTOR3 local_10;
   
   local_1c = g_BulletManager.bullets;
   for (local_14 = 0; local_14 < 0x280; local_14 = local_14 + 1) {
@@ -21,7 +19,7 @@ void __thiscall BulletManager::FUN_00414160(BulletManager *this,int param_1)
         local_1c->state = 5;
       }
       else {
-        FUN_0041f290(&local_1c->pos,6,1);
+        ItemManager::SpawnItem(&g_ItemManager,&local_1c->pos,6,1);
         pBVar3 = local_1c;
         for (iVar2 = 0x171; iVar2 != 0; iVar2 = iVar2 + -1) {
           (pBVar3->vms).vm0.rotation.x = 0.0;
@@ -44,10 +42,10 @@ void __thiscall BulletManager::FUN_00414160(BulletManager *this,int param_1)
           fVar1 = (float10)fcos((float10)local_20->angle);
           fVar4 = (float10)fsin((float10)local_20->angle);
           for (; local_28 < local_20->end_offset; local_28 = local_28 + 32.0) {
-            local_10 = (float)fVar1 * local_28 + (local_20->pos).x;
-            local_c = (float)fVar4 * local_28 + (local_20->pos).y;
-            local_8 = 0;
-            FUN_0041f290(&local_10,6,1);
+            local_10.x = (float)fVar1 * local_28 + (local_20->pos).x;
+            local_10.y = (float)fVar4 * local_28 + (local_20->pos).y;
+            local_10.z = 0.0;
+            ItemManager::SpawnItem(&g_ItemManager,&local_10,6,1);
           }
         }
       }

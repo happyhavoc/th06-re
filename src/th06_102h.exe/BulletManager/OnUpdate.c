@@ -24,7 +24,7 @@ undefined4 BulletManager::OnUpdate(BulletManager *arg)
   
   local_24 = arg->bullets;
   if ((char)g_GameManager.field11_0x2c == '\0') {
-    FUN_0041f4a0((AnmVm *)g_ItemManager);
+    ItemManager::FUN_0041f4a0(&g_ItemManager);
     arg->bullet_count = 0;
     for (local_c = 0; local_c < 0x280; local_c = local_c + 1) {
       if (local_24->state == 0) goto LAB_00414a1a;
@@ -296,12 +296,12 @@ LAB_00415be8:
               local_8 = Player::CalcKillBoxCollision
                                   (&g_Player,&(local_24->pos).x,&(local_24->vms).field5_0x550);
               if ((local_8 != 0) && (local_24->state = 5, local_8 == 2)) {
-                FUN_0041f290();
+                ItemManager::SpawnItem(&g_ItemManager,&local_24->pos,6,1);
               }
             }
             else if (local_8 == 2) {
               local_24->state = 5;
-              FUN_0041f290();
+              ItemManager::SpawnItem(&g_ItemManager,&local_24->pos,6,1);
             }
           }
           else if (local_24->field21_0x5c3 == 1) goto LAB_00415be8;

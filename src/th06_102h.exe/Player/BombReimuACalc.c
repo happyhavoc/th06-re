@@ -30,7 +30,7 @@ void Player::BombReimuACalc(Player *param_1)
       for (local_10 = 0; local_10 < 8; local_10 = local_10 + 1) {
         *(undefined4 *)((param_1->inner).field5_0x1c + local_10 * 4) = 0;
       }
-      ItemManager::FUN_00420130(g_ItemManager);
+      ItemManager::FUN_00420130(&g_ItemManager);
       EffectManager::FUN_0040ef50(&g_EffectManager,0xc,&param_1->position,1,0xff4040ff);
       param_1->field15_0x8b8[8].position1.x = (param_1->position).x;
       param_1->field15_0x8b8[8].position1.y = (param_1->position).y;

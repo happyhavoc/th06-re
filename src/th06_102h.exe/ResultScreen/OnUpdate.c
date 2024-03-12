@@ -1,7 +1,7 @@
 
 /* WARNING: Unknown calling convention -- yet parameter storage is locked */
 
-undefined4 ResultScreen::unk_resultscreen(ResultScreen *result_screen)
+undefined4 ResultScreen::OnUpdate(ResultScreen *result_screen)
 
 {
   int iVar1;
@@ -280,7 +280,7 @@ undefined4 ResultScreen::unk_resultscreen(ResultScreen *result_screen)
     }
     else if (0xe < iVar1) {
       if (iVar1 < 0x11) {
-        FUN_0042d292();
+        FUN_0042d292(result_screen);
       }
       else if (iVar1 == 0x11) {
         g_Supervisor.curState = 1;

@@ -1,4 +1,6 @@
 
+/* WARNING: Type propagation algorithm not settling */
+
 ZunResult BulletManager::AddedCallback(BulletManager *arg)
 
 {
@@ -8,7 +10,7 @@ ZunResult BulletManager::AddedCallback(BulletManager *arg)
   ZunResult ZVar4;
   long lVar5;
   int iVar6;
-  undefined4 *puVar7;
+  ItemManager *pIVar7;
   short local_3c;
   short local_30;
   short local_24;
@@ -107,10 +109,10 @@ ZunResult BulletManager::AddedCallback(BulletManager *arg)
       arg->bullet_type_templates[local_8].field6_0x554 = 4.0;
     }
   }
-  puVar7 = g_ItemManager;
+  pIVar7 = &g_ItemManager;
   for (iVar6 = 0xa253; iVar6 != 0; iVar6 = iVar6 + -1) {
-    *puVar7 = 0;
-    puVar7 = puVar7 + 1;
+    pIVar7->items[0].vm.rotation.x = 0.0;
+    pIVar7 = (ItemManager *)&pIVar7->items[0].vm.rotation.y;
   }
   return ZUN_SUCCESS;
 }

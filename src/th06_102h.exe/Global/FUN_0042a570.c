@@ -4,7 +4,7 @@
 undefined4 FUN_0042a570(ReplayManager *param_1)
 
 {
-  if (g_GameManager.field28_0x1821 != 0) {
+  if (g_GameManager.is_in_menu != 0) {
     while ((int)param_1->replay_inputs[1].frame_num <= (int)param_1->frame_id) {
       param_1->replay_inputs = param_1->replay_inputs + 1;
     }

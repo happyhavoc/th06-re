@@ -1,5 +1,5 @@
 
-undefined4 __thiscall CWaveFile::ResetFile(CWaveFile *this,char param_1)
+undefined4 __thiscall CWaveFile::ResetFile(CWaveFile *this,bool loop)
 
 {
   LONG LVar1;
@@ -28,7 +28,7 @@ undefined4 __thiscall CWaveFile::ResetFile(CWaveFile *this,char param_1)
       if (0 < (int)this->m_loopEndPoint) {
         (this->m_ck).cksize = this->m_loopEndPoint;
       }
-      if ((param_1 != '\0') && (0 < (int)this->m_loopStartPoint)) {
+      if ((loop) && (0 < (int)this->m_loopStartPoint)) {
         MVar2 = mmioGetInfo(this->m_hmmio,&mmioinfoIn,0);
         if (MVar2 != 0) {
           DebugPrint2("error : mmioGetInfo in CWaveFile::ResetFile\n");

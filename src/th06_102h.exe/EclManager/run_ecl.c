@@ -52,9 +52,7 @@ undefined4 EclManager::run_ecl(Enemy *param_1)
   short local_a0;
   undefined2 local_9e;
   int local_9c;
-  float local_98;
-  float local_94;
-  float local_90;
+  D3DXVECTOR3 local_98;
   int local_8c;
   int local_88;
   int local_84;
@@ -1116,18 +1114,19 @@ switchD_00407544_caseD_2:
     break;
   case 0x77:
     for (local_8c = 0; local_8c < local_20[3]; local_8c = local_8c + 1) {
-      local_98 = (param_1->position).x;
-      local_94 = (param_1->position).y;
-      local_90 = (param_1->position).z;
+      local_98.x = (param_1->position).x;
+      local_98.y = (param_1->position).y;
+      local_98.z = (param_1->position).z;
       fVar23 = Rng::GetRandomF32ZeroToOne(&g_Rng);
-      local_98 = (fVar23 * 144.0 - 72.0) + local_98;
+      local_98.x = (fVar23 * 144.0 - 72.0) + local_98.x;
       fVar23 = Rng::GetRandomF32ZeroToOne(&g_Rng);
-      local_94 = (fVar23 * 144.0 - 72.0) + local_94;
+      local_98.y = (fVar23 * 144.0 - 72.0) + local_98.y;
       if (g_GameManager.current_power < 0x80) {
-        FUN_0041f290();
+        ItemManager::SpawnItem(&g_ItemManager,&local_98,(-(uint)(local_8c != 0) & 0xfffffffe) + 2,0)
+        ;
       }
       else {
-        FUN_0041f290();
+        ItemManager::SpawnItem(&g_ItemManager,&local_98,1,0);
       }
     }
     break;
@@ -1150,7 +1149,7 @@ switchD_00407544_caseD_2:
     ZunTimer::Increment(&(param_1->current_context).time,*piVar12);
     break;
   case 0x7c:
-    FUN_0041f290();
+    ItemManager::SpawnItem(&g_ItemManager,&param_1->position,local_20[3],0);
     break;
   case 0x7d:
     g_Stage.unpauseFlag = '\x01';

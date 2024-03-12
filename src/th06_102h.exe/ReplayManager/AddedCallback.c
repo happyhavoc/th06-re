@@ -1,5 +1,5 @@
 
-ZunResult ReplayManager::OnAdd(ReplayManager *param_1)
+ZunResult ReplayManager::AddedCallback(ReplayManager *param_1)
 
 {
   ReplayData *pRVar1;

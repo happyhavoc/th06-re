@@ -44,7 +44,7 @@ void Player::BombMarisaACalc(Player *param_1)
       }
     }
     else {
-      ItemManager::FUN_00420130(g_ItemManager);
+      ItemManager::FUN_00420130(&g_ItemManager);
       Gui::FUN_00417acd(&g_Gui,0x4a3,"魔符「スターダストレヴァリエ」");
       (param_1->inner).field1_0x4 = 0xfa;
       (param_1->field35_0x75b4).current = 300;

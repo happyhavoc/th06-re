@@ -16,7 +16,7 @@ void __fastcall ReplayHandling(MainMenu *menu)
   int replayFileIdx;
   HANDLE replayFileHandle;
   int i;
-  MainMenu *main_menu;
+  AnmVm *anmVM;
   GameState gameState;
   uint unaff_retaddr;
   
@@ -81,10 +81,12 @@ void __fastcall ReplayHandling(MainMenu *menu)
         menu->field78_0x8214 = menu->unk_8210;
         menu->unk_8210 = 0;
         menu->gameState = STATE_REPLAY_MENU;
-        main_menu = menu;
-        for (i = 0; i < 122; i = i + 1) {
-          main_menu->AnmVMArray[0].pendingInterrupt = 15;
-          main_menu = (MainMenu *)(main_menu->AnmVMArray + 1);
+        i = 0;
+        anmVM = menu->AnmVMArray;
+                    /* memset all pending interrupt to 15 */
+        for (; i < 122; i = i + 1) {
+          anmVM->pendingInterrupt = 15;
+          anmVM = anmVM + 1;
         }
         menu->cursor = 0;
       }
@@ -102,13 +104,13 @@ void __fastcall ReplayHandling(MainMenu *menu)
         if (((g_CurFrameInput & 0x1001) != 0) &&
            ((g_CurFrameInput & 0x1001) != (g_LastFrameInput & 0x1001))) {
           menu->gameState = STATE_15;
-          main_menu = (MainMenu *)(menu->AnmVMArray + 0x61);
+          anmVM = menu->AnmVMArray + 0x61;
           for (i = 0; i < 0x19; i = i + 1) {
-            *(short *)main_menu->AnmVMArray = 0x11;
-            main_menu = (MainMenu *)((int)main_menu + 0x110);
+            anmVM->pendingInterrupt = 0x11;
+            anmVM = anmVM + 1;
           }
-          main_menu = (MainMenu *)(menu->AnmVMArray + menu->chosenReplay + 99);
-          main_menu->AnmVMArray[0].pendingInterrupt = 0x10;
+          anmVM = menu->AnmVMArray + menu->chosenReplay + 99;
+          anmVM->pendingInterrupt = 0x10;
           menu->gameSubState = 0;
           menu->cursor = 0;
           SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,10);
@@ -178,10 +180,11 @@ LAB_0043877b:
         }
         SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xb);
         menu->gameState = STATE_REPLAY_MENU;
-        main_menu = menu;
-        for (i = 0; i < 0x7a; i = i + 1) {
-          main_menu->AnmVMArray[0].pendingInterrupt = 0xf;
-          main_menu = (MainMenu *)(main_menu->AnmVMArray + 1);
+        i = 0;
+        anmVM = menu->AnmVMArray;
+        for (; i < 0x7a; i = i + 1) {
+          anmVM->pendingInterrupt = 0xf;
+          anmVM = anmVM + 1;
         }
         menu->cursor = menu->chosenReplay;
       }

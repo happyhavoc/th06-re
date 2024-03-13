@@ -50,7 +50,7 @@ void __thiscall SoundPlayer::InitializeDSound(SoundPlayer *this,HWND game_window
   }
   else {
     (this->csoundmanager).m_pDS = this->csoundmanager_ptr->m_pDS;
-    this->field1191_0x618 = 0;
+    this->field1188_0x618 = (HANDLE)0x0;
     pDVar3 = &bufdesc;
     for (iVar2 = 9; iVar2 != 0; iVar2 = iVar2 + -1) {
       pDVar3->dwSize = 0;

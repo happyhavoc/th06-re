@@ -1,25 +1,25 @@
 
-undefined4 __thiscall SoundPlayer::LoadPos(SoundPlayer *this,char *filepath)
+ZunResult __thiscall SoundPlayer::LoadPos(SoundPlayer *this,char *filepath)
 
 {
   CWaveFile *pCVar1;
   int iVar2;
-  undefined4 uVar3;
+  ZunResult result;
   int *data;
   
   if (this->csoundmanager_ptr == (CSoundManager *)0x0) {
-    uVar3 = 0xffffffff;
+    result = ZUN_ERROR;
   }
   else if (g_Supervisor.cfg.playSounds == 0) {
-    uVar3 = 0xffffffff;
+    result = ZUN_ERROR;
   }
   else if (this->streamingSound == (CStreamingSound *)0x0) {
-    uVar3 = 0xffffffff;
+    result = ZUN_ERROR;
   }
   else {
     data = (int *)FileSystem::OpenPath(filepath,0);
     if (data == (int *)0x0) {
-      uVar3 = 0xffffffff;
+      result = ZUN_ERROR;
     }
     else {
       pCVar1 = (this->streamingSound->base).m_pWaveFile;
@@ -27,9 +27,9 @@ undefined4 __thiscall SoundPlayer::LoadPos(SoundPlayer *this,char *filepath)
       pCVar1->m_loopStartPoint = *data << 2;
       pCVar1->m_loopEndPoint = iVar2 << 2;
       _free(data);
-      uVar3 = 0;
+      result = ZUN_SUCCESS;
     }
   }
-  return uVar3;
+  return result;
 }
 

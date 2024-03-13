@@ -4,7 +4,7 @@ void Supervisor::PlayAudio(char *param_1)
 {
   char cVar1;
   MidiOutput *this;
-  int iVar2;
+  ZunResult ZVar2;
   uint unaff_retaddr;
   char *local_22c;
   char *local_228;
@@ -50,8 +50,8 @@ void Supervisor::PlayAudio(char *param_1)
     local_8[2] = 'o';
     local_8[3] = 's';
     SoundPlayer::LoadWav(&g_SoundPlayer,local_20c);
-    iVar2 = SoundPlayer::LoadPos(&g_SoundPlayer,local_10c);
-    if (iVar2 < 0) {
+    ZVar2 = SoundPlayer::LoadPos(&g_SoundPlayer,local_10c);
+    if (ZVar2 < ZUN_SUCCESS) {
       SoundPlayer::playBGM(&g_SoundPlayer,0);
     }
     else {

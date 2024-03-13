@@ -105,9 +105,11 @@ typedef struct HWND__ HWND__, *PHWND__;
 
 typedef struct HWND__ *HWND;
 
-typedef struct CStreamingSound CStreamingSound, *PCStreamingSound;
+typedef ulong DWORD;
 
 typedef void *HANDLE;
+
+typedef struct CStreamingSound CStreamingSound, *PCStreamingSound;
 
 typedef struct IDirectSound8 IDirectSound8, *PIDirectSound8;
 
@@ -125,8 +127,6 @@ typedef LONG HRESULT;
 typedef GUID IID;
 
 typedef void *LPVOID;
-
-typedef ulong DWORD;
 
 typedef DWORD ULONG;
 
@@ -1517,15 +1517,12 @@ struct SoundPlayer {
     LPDIRECTSOUNDBUFFER soundbuffer;
     HWND game_window; /* Created by retype action */
     struct CSoundManager *csoundmanager_ptr; /* Created by retype action */
-    undefined field1187_0x614;
-    undefined field1188_0x615;
-    undefined field1189_0x616;
-    undefined field1190_0x617;
-    int field1191_0x618;
-    undefined field1192_0x61c;
-    undefined field1193_0x61d;
-    undefined field1194_0x61e;
-    undefined field1195_0x61f;
+    DWORD field1187_0x614;
+    HANDLE field1188_0x618;
+    undefined field1189_0x61c;
+    undefined field1190_0x61d;
+    undefined field1191_0x61e;
+    undefined field1192_0x61f;
     int soundBuffersToPlay[3]; /* Created by retype action */
     struct CStreamingSound *streamingSound;
     HANDLE hEvent;
@@ -1720,7 +1717,7 @@ typedef enum AnmOpcode {
     AnmOpcode_FlipX=7,
     AnmOpcode_FlipY=8,
     AnmOpcode_SetRotation=9,
-    AnmOpcode_10=10,
+    AnmOpcode_SetPosition=10,
     AnmOpcode_11=11,
     AnmOpcode_12=12,
     AnmOpcode_13=13,
@@ -1736,7 +1733,7 @@ typedef enum AnmOpcode {
     AnmOpcode_23=23,
     AnmOpcode_StopHide=24,
     AnmOpcode_25=25,
-    AnmOpcode_26=26,
+    AnmOpcode_SetAutoRotate=26,
     AnmOpcode_27=27,
     AnmOpcode_28=28,
     AnmOpcode_29=29,

@@ -94,7 +94,7 @@ LAB_00433998:
     local_10 = local_8->args + 2;
     (vm->rotation).z = (float)*local_10;
     break;
-  case AnmOpcode_10:
+  case AnmOpcode_SetPosition:
     (vm->angleVel).x = (float)local_8->args[0];
     (vm->angleVel).y = (float)local_8->args[1];
     local_14 = local_8->args + 2;
@@ -190,7 +190,7 @@ LAB_00433f53:
   case AnmOpcode_25:
     *(uint *)&vm->flags = *(uint *)&vm->flags & 0xffffffdf | (local_8->args[0] & 1) << 5;
     break;
-  case AnmOpcode_26:
+  case AnmOpcode_SetAutoRotate:
     vm->autoRotate = *(ushort *)local_8->args;
     break;
   case AnmOpcode_27:

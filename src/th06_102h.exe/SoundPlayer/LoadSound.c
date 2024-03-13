@@ -11,7 +11,7 @@ void __thiscall SoundPlayer::LoadSound(SoundPlayer *this,int idx,char *path)
   undefined4 *puVar7;
   uint unaff_retaddr;
   tWAVEFORMATEX local_60;
-  byte *local_4c;
+  char *local_4c;
   undefined4 *local_48;
   uint local_44;
   uint local_40;
@@ -20,7 +20,7 @@ void __thiscall SoundPlayer::LoadSound(SoundPlayer *this,int idx,char *path)
   undefined4 *local_34;
   DSBUFFERDESC local_30;
   uint local_c;
-  byte *local_8;
+  char *local_8;
   
   local_c = __security_cookie ^ unaff_retaddr;
   if (this->csoundmanager_ptr != (CSoundManager *)0x0) {
@@ -28,17 +28,17 @@ void __thiscall SoundPlayer::LoadSound(SoundPlayer *this,int idx,char *path)
       (*this->sound_buffers[idx]->lpVtbl->Release)(this->sound_buffers[idx]);
       this->sound_buffers[idx] = (LPDIRECTSOUNDBUFFER)0x0;
     }
-    local_4c = FileSystem::OpenPath(path,0);
+    local_4c = (char *)FileSystem::OpenPath(path,0);
     local_8 = local_4c;
-    if (local_4c != (byte *)0x0) {
-      iVar1 = _strncmp((char *)local_4c,"RIFF",4);
+    if ((byte *)local_4c != (byte *)0x0) {
+      iVar1 = _strncmp(local_4c,"RIFF",4);
       if (iVar1 == 0) {
         iVar1 = *(int *)(local_8 + 4);
         local_8 = local_8 + 8;
-        iVar2 = _strncmp((char *)local_8,"WAVE",4);
+        iVar2 = _strncmp(local_8,"WAVE",4);
         if (iVar2 == 0) {
           local_8 = local_8 + 4;
-          local_34 = (undefined4 *)FUN_004309f0(local_8,"fmt ",&local_38,iVar1 + -0xc);
+          local_34 = (undefined4 *)FUN_004309f0(local_8,"fmt ",&local_38,iVar1 + -12);
           if (local_34 == (undefined4 *)0x0) {
             GameErrorContextLog(&g_GameErrorContext,"Wav ファイルじゃない? %s\n",path);
             _free(local_4c);

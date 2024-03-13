@@ -348,11 +348,11 @@ LAB_004074ce:
     break;
   case 0xe:
   case 0x15:
-    Enemy::math_sub(enemy);
+    Enemy::math_sub(enemy,instruction->ecl_var_id,&instruction->field8_0x10);
     break;
   case 0xf:
   case 0x16:
-    Enemy::math_mul(enemy);
+    Enemy::math_mul(enemy,instruction->ecl_var_id,&instruction->field8_0x10);
     break;
   case 0x10:
   case 0x17:
@@ -361,7 +361,7 @@ LAB_004074ce:
     break;
   case 0x11:
   case 0x18:
-    Enemy::math_mod(enemy);
+    Enemy::math_mod(enemy,instruction->ecl_var_id,&instruction->field8_0x10);
     break;
   case 0x12:
     local_3c = Enemy::get_var(enemy,&instruction->ecl_var_id,(EclValueType *)0x0);
@@ -372,7 +372,8 @@ LAB_004074ce:
     *local_40 = *local_40 + -1;
     break;
   case 0x19:
-    Enemy::math_atan2(enemy,instruction->ecl_var_id,&instruction->field8_0x10);
+    Enemy::math_atan2(enemy,instruction->ecl_var_id,&instruction->field8_0x10,
+                      &instruction->field9_0x14,&instruction->field10_0x18);
     break;
   case 0x1a:
     pfVar14 = (float *)Enemy::get_var(enemy,&instruction->ecl_var_id,(EclValueType *)0x0);

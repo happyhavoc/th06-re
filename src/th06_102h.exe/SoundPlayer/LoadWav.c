@@ -1,5 +1,5 @@
 
-undefined4 __thiscall SoundPlayer::LoadWav(SoundPlayer *this,LPSTR param_1)
+ZunResult __thiscall SoundPlayer::LoadWav(SoundPlayer *this,LPSTR param_1)
 
 {
   int iVar1;
@@ -7,7 +7,7 @@ undefined4 __thiscall SoundPlayer::LoadWav(SoundPlayer *this,LPSTR param_1)
   uint uVar3;
   HANDLE pvVar4;
   HRESULT HVar5;
-  undefined4 uVar6;
+  ZunResult exit_status;
   DWORD local_cc;
   DWORD local_c0;
   CWaveFile local_b0;
@@ -25,17 +25,17 @@ undefined4 __thiscall SoundPlayer::LoadWav(SoundPlayer *this,LPSTR param_1)
   if (this->csoundmanager_ptr == (CSoundManager *)0x0) {
     local_8 = 0xffffffff;
     CWaveFile::operator_delete(&local_b0);
-    uVar6 = 0xffffffff;
+    exit_status = ZUN_ERROR;
   }
   else if (g_Supervisor.cfg.playSounds == 0) {
     local_8 = 0xffffffff;
     CWaveFile::operator_delete(&local_b0);
-    uVar6 = 0xffffffff;
+    exit_status = ZUN_ERROR;
   }
   else if ((this->csoundmanager).m_pDS == (LPDIRECTSOUND8)0x0) {
     local_8 = 0xffffffff;
     CWaveFile::operator_delete(&local_b0);
-    uVar6 = 0xffffffff;
+    exit_status = ZUN_ERROR;
   }
   else {
     StopBGM(this);
@@ -46,7 +46,7 @@ undefined4 __thiscall SoundPlayer::LoadWav(SoundPlayer *this,LPSTR param_1)
       CWaveFile::Close(&local_b0);
       local_8 = 0xffffffff;
       CWaveFile::operator_delete(&local_b0);
-      uVar6 = 0xffffffff;
+      exit_status = ZUN_ERROR;
     }
     else {
       iVar1 = CWaveFile::GetSize(&local_b0);
@@ -54,7 +54,7 @@ undefined4 __thiscall SoundPlayer::LoadWav(SoundPlayer *this,LPSTR param_1)
         CWaveFile::Close(&local_b0);
         local_8 = 0xffffffff;
         CWaveFile::operator_delete(&local_b0);
-        uVar6 = 0xffffffff;
+        exit_status = ZUN_ERROR;
       }
       else {
         DVar2 = timeGetTime();
@@ -68,8 +68,8 @@ undefined4 __thiscall SoundPlayer::LoadWav(SoundPlayer *this,LPSTR param_1)
         pvVar4 = CreateEventA((LPSECURITY_ATTRIBUTES)0x0,0,0,(LPCSTR)0x0);
         this->hEvent = pvVar4;
         pvVar4 = CreateThread((LPSECURITY_ATTRIBUTES)0x0,0,FUN_00431370,g_Supervisor.hwndGameWindow,
-                              0,(LPDWORD)&this->field_0x614);
-        this->field1191_0x618 = (int)pvVar4;
+                              0,&this->field1187_0x614);
+        this->field1188_0x618 = pvVar4;
         HVar5 = CSoundManager::CreateStreaming
                           (this->csoundmanager_ptr,&this->streamingSound,param_1,0x10100,
                            (GUID)ZEXT816(0),4,local_14,this->hEvent);
@@ -79,7 +79,7 @@ undefined4 __thiscall SoundPlayer::LoadWav(SoundPlayer *this,LPSTR param_1)
                      );
           local_8 = 0xffffffff;
           CWaveFile::operator_delete(&local_b0);
-          uVar6 = 0xffffffff;
+          exit_status = ZUN_ERROR;
         }
         else {
           DebugPrint2("comp\n");
@@ -90,12 +90,12 @@ undefined4 __thiscall SoundPlayer::LoadWav(SoundPlayer *this,LPSTR param_1)
           }
           local_8 = 0xffffffff;
           CWaveFile::operator_delete(&local_b0);
-          uVar6 = 0;
+          exit_status = ZUN_SUCCESS;
         }
       }
     }
   }
   ExceptionList = local_10;
-  return uVar6;
+  return exit_status;
 }
 

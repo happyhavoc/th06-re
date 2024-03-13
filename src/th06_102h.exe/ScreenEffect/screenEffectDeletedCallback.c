@@ -1,5 +1,5 @@
 
-undefined4 ScreenEffect::FUN_00430220(ScreenEffect *screen_effect)
+undefined4 ScreenEffect::screenEffectDeletedCallback(ScreenEffect *screen_effect)
 
 {
   screen_effect->calcChainElement->deletedCallback = (ChainLifecycleCallback *)0x0;

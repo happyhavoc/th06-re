@@ -7,7 +7,7 @@ void __thiscall MainMenu::ReplayHandling(MainMenu *this)
   int _;
   ReplayData *nextReplayData;
   char **headerMemset;
-  char **memsetHeader;
+  ReplayData *memsetHeader;
   _WIN32_FIND_DATAA replayFileInfo;
   char replayFilePath [64];
   uint stackCookie;
@@ -32,9 +32,10 @@ void __thiscall MainMenu::ReplayHandling(MainMenu *this)
           if (replayData != (ReplayData *)0x0) {
             ZVar2 = validateReplayData(replayData,g_LastFileSize);
             if (ZVar2 == ZUN_SUCCESS) {
+              _ = 0x14;
               nextReplayData = replayData;
-              headerMemset = (char **)(this->replayFileData + replayFileIdx);
-              for (_ = 0x14; _ != 0; _ = _ + -1) {
+              headerMemset = &this->replayFileData[replayFileIdx].magic;
+              for (; _ != 0; _ = _ + -1) {
                 *headerMemset = nextReplayData->magic;
                 nextReplayData = (ReplayData *)&nextReplayData->version;
                 headerMemset = headerMemset + 1;
@@ -56,11 +57,11 @@ void __thiscall MainMenu::ReplayHandling(MainMenu *this)
               ZVar2 = validateReplayData(replayData,g_LastFileSize);
               if (ZVar2 == ZUN_SUCCESS) {
                 nextReplayData = replayData;
-                memsetHeader = (char **)(this->replayFileData + replayFileIdx);
+                memsetHeader = this->replayFileData + replayFileIdx;
                 for (_ = 0x14; _ != 0; _ = _ + -1) {
-                  *memsetHeader = nextReplayData->magic;
+                  memsetHeader->magic = nextReplayData->magic;
                   nextReplayData = (ReplayData *)&nextReplayData->version;
-                  memsetHeader = memsetHeader + 1;
+                  memsetHeader = (ReplayData *)&memsetHeader->version;
                 }
                 sprintf(this->replayFilePaths[replayFileIdx],"./replay/%s",replayFileInfo.cFileName)
                 ;
@@ -115,19 +116,19 @@ void __thiscall MainMenu::ReplayHandling(MainMenu *this)
           SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,10);
           nextReplayData =
                (ReplayData *)FileSystem::OpenPath(this->replayFilePaths[this->chosenReplay],1);
-          this->replayGameData = nextReplayData;
-          validateReplayData(this->replayGameData,g_LastFileSize);
+          this->currentReplay = nextReplayData;
+          validateReplayData(this->currentReplay,g_LastFileSize);
           for (cur = 0; cur < 7; cur = cur + 1) {
-            if (this->replayGameData->stage_score[cur + 1] != (StageReplayData *)0x0) {
-              this->replayGameData->stage_score[cur + 1] =
+            if (this->currentReplay->stage_score[cur + 1] != (StageReplayData *)0x0) {
+              this->currentReplay->stage_score[cur + 1] =
                    (StageReplayData *)
-                   ((int)this->replayGameData->stage_score +
-                   (int)(this->replayGameData->stage_score[cur + 1][-1].replay_inputs + 0xd2e8));
+                   ((int)this->currentReplay->stage_score +
+                   (int)(this->currentReplay->stage_score[cur + 1][-1].replay_inputs + 0xd2e8));
             }
           }
           do {
-            if (*(int *)(this->replayFileData[this->chosenReplay] + this->cursor * 4 + 0x34) != 0)
-            goto LAB_0043877b;
+            if (this->replayFileData[this->chosenReplay].stage_score[this->cursor + 1] !=
+                (StageReplayData *)0x0) goto LAB_0043877b;
             this->cursor = this->cursor + 1;
           } while (this->cursor < 7);
           goto LAB_00438bb2;
@@ -154,7 +155,8 @@ LAB_0043877b:
   else if ((gameState == STATE_REPLAY_UNLOAD) && (0x27 < this->stateTimer)) {
     cur = MoveCursor(this,7);
     if (cur < ZUN_SUCCESS) {
-      while (*(int *)(this->replayFileData[this->chosenReplay] + this->cursor * 4 + 0x34) == 0) {
+      while (this->replayFileData[this->chosenReplay].stage_score[this->cursor + 1] ==
+             (StageReplayData *)0x0) {
         this->cursor = this->cursor + -1;
         if (this->cursor < 0) {
           this->cursor = 6;
@@ -162,7 +164,8 @@ LAB_0043877b:
       }
     }
     else if (ZUN_SUCCESS < cur) {
-      while (*(int *)(this->replayFileData[this->chosenReplay] + this->cursor * 4 + 0x34) == 0) {
+      while (this->replayFileData[this->chosenReplay].stage_score[this->cursor + 1] ==
+             (StageReplayData *)0x0) {
         this->cursor = this->cursor + 1;
         if (6 < this->cursor) {
           this->cursor = 0;
@@ -171,10 +174,10 @@ LAB_0043877b:
     }
     if ((((g_CurFrameInput & 0x1001) == 0) ||
         ((g_CurFrameInput & 0x1001) == (g_LastFrameInput & 0x1001))) ||
-       ((int)this->replayGameData + this->cursor * 0x50 + 0x34 == 0)) {
+       (this->currentReplay[this->cursor].stage_score == (StageReplayData **)0xfffffffc)) {
       if (((g_CurFrameInput & 10) != 0) && ((g_CurFrameInput & 10) != (g_LastFrameInput & 10))) {
-        _free(this->replayGameData);
-        this->replayGameData = (ReplayData *)0x0;
+        _free(this->currentReplay);
+        this->currentReplay = (ReplayData *)0x0;
         this->gameState = STATE_REPLAY_ANIM;
         this->stateTimer = 0;
         for (cur = 0; cur < 0x7a; cur = cur + 1) {
@@ -195,16 +198,16 @@ LAB_0043877b:
       g_GameManager.field7_0x1c = 1;
       g_Supervisor.framerateMultiplier = 1.0;
       _strcpy(g_GameManager.replay_file,this->replayFilePaths[this->chosenReplay]);
-      g_GameManager.difficulty = (uint)this->replayGameData->difficulty;
-      g_GameManager.character = this->replayGameData->shottype_chara / 2;
-      g_GameManager.shottype = this->replayGameData->shottype_chara % 2;
-      for (cur = 0; this->replayGameData->stage_score[cur + 1] == (StageReplayData *)0x0;
+      g_GameManager.difficulty = (uint)this->currentReplay->difficulty;
+      g_GameManager.character = this->currentReplay->shottype_chara / 2;
+      g_GameManager.shottype = this->currentReplay->shottype_chara % 2;
+      for (cur = 0; this->currentReplay->stage_score[cur + 1] == (StageReplayData *)0x0;
           cur = cur + 1) {
       }
-      g_GameManager.lives_remaining = this->replayGameData->stage_score[cur + 1]->lives_remaining;
-      g_GameManager.bombs_remaining = this->replayGameData->stage_score[cur + 1]->bombs_remaining;
-      _free(this->replayGameData);
-      this->replayGameData = (ReplayData *)0x0;
+      g_GameManager.lives_remaining = this->currentReplay->stage_score[cur + 1]->lives_remaining;
+      g_GameManager.bombs_remaining = this->currentReplay->stage_score[cur + 1]->bombs_remaining;
+      _free(this->currentReplay);
+      this->currentReplay = (ReplayData *)0x0;
       g_GameManager.current_stage = this->cursor;
       g_Supervisor.curState = 2;
     }

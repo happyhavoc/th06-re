@@ -36,17 +36,17 @@ undefined4 __thiscall MainMenu::DrawReplayMenu(MainMenu *this)
                         */
     AsciiManager::AddFormatText
               (&g_AsciiManager,&vm_ref[1].pos,"%s %8s  %8s %7s  %7s",this->replayFileName + i,
-               this->replayFileData[i] + 0x19,this->replayFileData[i] + 0x10,
-               (&g_shortCharacterList)[(byte)this->replayFileData[i][6]],
-               (&g_difficultyList)[(byte)this->replayFileData[i][7]]);
+               &this->replayFileData[i].field_0x19,&this->replayFileData[i].field_0x10,
+               (&g_shortCharacterList)[this->replayFileData[i].shottype_chara],
+               (&g_difficultyList)[this->replayFileData[i].difficulty]);
     vm_ref = vm_ref + 1;
   }
-  if ((this->gameState == STATE_REPLAY_UNLOAD) && (this->replayGameData != (ReplayData *)0x0)) {
+  if ((this->gameState == STATE_REPLAY_UNLOAD) && (this->currentReplay != (ReplayData *)0x0)) {
     g_AsciiManager.color = 0xffffffff;
     g_AsciiManager.isSelected = 0;
     AsciiManager::AddFormatText
               (&g_AsciiManager,&(this->field97_0x6710).pos,"       %2.3f%%",
-               (double)*(float *)&this->replayGameData->field_0x2c);
+               (double)*(float *)&this->currentReplay->field_0x2c);
     AsciiManager::AddFormatText(&g_AsciiManager,&(this->field114_0x7920).pos,"Stage  LastScore");
     vm_ref = &this->field114_0x7920;
     for (i = 0; i < 7; i = i + 1) {
@@ -68,7 +68,7 @@ undefined4 __thiscall MainMenu::DrawReplayMenu(MainMenu *this)
           g_AsciiManager.color = 0xff808080;
         }
       }
-      if (this->replayGameData->stage_score[i + 1] == (StageReplayData *)0x0) {
+      if (this->currentReplay->stage_score[i + 1] == (StageReplayData *)0x0) {
         AsciiManager::AddFormatText(&g_AsciiManager,&vm_ref[1].pos,"%s ---------");
       }
       else {

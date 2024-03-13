@@ -103,7 +103,7 @@ void __thiscall MainMenu::ReplayHandling(MainMenu *this)
         this->chosenReplay = this->cursor;
         if (((g_CurFrameInput & 0x1001) != 0) &&
            ((g_CurFrameInput & 0x1001) != (g_LastFrameInput & 0x1001))) {
-          this->gameState = STATE_REPLAY_UNLOAD;
+          this->gameState = STATE_REPLAY_SELECT;
           anmVM = &this->field97_0x6710;
           for (cur = 0; cur < 0x19; cur = cur + 1) {
             anmVM->pendingInterrupt = 0x11;
@@ -136,7 +136,7 @@ void __thiscall MainMenu::ReplayHandling(MainMenu *this)
       }
 LAB_0043877b:
       if (((g_CurFrameInput & 10) != 0) && ((g_CurFrameInput & 10) != (g_LastFrameInput & 10))) {
-        this->gameState = STATE_REPLAY_SELECT;
+        this->gameState = STATE_REPLAY_UNLOAD;
         this->stateTimer = 0;
         for (cur = 0; cur < 0x7a; cur = cur + 1) {
           (&this->vm1)[cur].pendingInterrupt = 4;
@@ -146,13 +146,13 @@ LAB_0043877b:
       }
     }
   }
-  else if (gameState == STATE_REPLAY_SELECT) {
+  else if (gameState == STATE_REPLAY_UNLOAD) {
     if (this->stateTimer == 0x24) {
       this->gameState = STATE_STARTUP;
       this->stateTimer = 0;
     }
   }
-  else if ((gameState == STATE_REPLAY_UNLOAD) && (0x27 < this->stateTimer)) {
+  else if ((gameState == STATE_REPLAY_SELECT) && (0x27 < this->stateTimer)) {
     cur = MoveCursor(this,7);
     if (cur < ZUN_SUCCESS) {
       while (this->replayFileData[this->chosenReplay].stage_score[this->cursor + 1] ==

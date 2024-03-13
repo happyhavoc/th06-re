@@ -635,8 +635,8 @@ LAB_0043666d:
     break;
   case STATE_REPLAY_LOAD:
   case STATE_REPLAY_ANIM:
-  case STATE_REPLAY_SELECT:
   case STATE_REPLAY_UNLOAD:
+  case STATE_REPLAY_SELECT:
     ReplayHandling(menu);
     if (gameState != STATE_STARTUP) {
       return 0;

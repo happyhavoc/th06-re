@@ -41,7 +41,7 @@ undefined4 __thiscall MainMenu::DrawReplayMenu(MainMenu *this)
                (&g_difficultyList)[this->replayFileData[i].difficulty]);
     vm_ref = vm_ref + 1;
   }
-  if ((this->gameState == STATE_REPLAY_UNLOAD) && (this->currentReplay != (ReplayData *)0x0)) {
+  if ((this->gameState == STATE_REPLAY_SELECT) && (this->currentReplay != (ReplayData *)0x0)) {
     g_AsciiManager.color = 0xffffffff;
     g_AsciiManager.isSelected = 0;
     AsciiManager::AddFormatText

@@ -35,10 +35,10 @@ undefined4 __thiscall MainMenu::DrawReplayMenu(MainMenu *this)
                        "No.1 AAAA 07/03/23 MarisaB Extra
                         */
     AsciiManager::AddFormatText
-              (&g_AsciiManager,&vm_ref[1].pos,"%s %8s  %8s %7s  %7s",this->replayFileNumber + i,
-               this->replayHeaders[i] + 0x19,this->replayHeaders[i] + 0x10,
-               (&g_shortCharacterList)[(byte)this->replayHeaders[i][6]],
-               (&g_difficultyList)[(byte)this->replayHeaders[i][7]]);
+              (&g_AsciiManager,&vm_ref[1].pos,"%s %8s  %8s %7s  %7s",this->replayFileName + i,
+               this->replayFileData[i] + 0x19,this->replayFileData[i] + 0x10,
+               (&g_shortCharacterList)[(byte)this->replayFileData[i][6]],
+               (&g_difficultyList)[(byte)this->replayFileData[i][7]]);
     vm_ref = vm_ref + 1;
   }
   if ((this->gameState == STATE_REPLAY_UNLOAD) && (this->replayGameData != (ReplayData *)0x0)) {

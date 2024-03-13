@@ -72523,16 +72523,7 @@ struct ReplayData {
     undefined field37_0x2d;
     undefined field38_0x2e;
     undefined field39_0x2f;
-    struct StageReplayData *stage_score[5];
-    undefined field41_0x44;
-    undefined field42_0x45;
-    undefined field43_0x46;
-    undefined field44_0x47;
-    byte *score_inputs;
-    undefined field46_0x4c;
-    undefined field47_0x4d;
-    undefined field48_0x4e;
-    undefined field49_0x4f;
+    struct StageReplayData *stage_score[7];
 };
 
 struct StageReplayData {
@@ -74816,8 +74807,8 @@ struct MainMenu {
     struct ChainElem *chain_calc;
     struct ChainElem *chain_draw;
     char replayFilePaths[60][512];
-    char replayFileNumber[60][8];
-    char replayHeaders[60][80]; /* Created by retype action */
+    char replayFileName[60][8];
+    char replayFileData[60][80]; /* Created by retype action */
     struct ReplayData *replayGameData;
     uint unk_10ee0;
     undefined field218_0x10ee4;

@@ -7,7 +7,7 @@ void __thiscall MainMenu::ReplayHandling(MainMenu *this)
   int _;
   ReplayData *nextReplayData;
   char **headerMemset;
-  char **replayDataMagics2;
+  char **memsetHeader;
   _WIN32_FIND_DATAA replayFileInfo;
   char replayFilePath [64];
   uint stackCookie;
@@ -33,14 +33,14 @@ void __thiscall MainMenu::ReplayHandling(MainMenu *this)
             ZVar2 = validateReplayData(replayData,g_LastFileSize);
             if (ZVar2 == ZUN_SUCCESS) {
               nextReplayData = replayData;
-              headerMemset = (char **)(this->replayHeaders + replayFileIdx);
+              headerMemset = (char **)(this->replayFileData + replayFileIdx);
               for (_ = 0x14; _ != 0; _ = _ + -1) {
                 *headerMemset = nextReplayData->magic;
                 nextReplayData = (ReplayData *)&nextReplayData->version;
                 headerMemset = headerMemset + 1;
               }
               _strcpy(this->replayFilePaths[replayFileIdx],replayFilePath);
-              sprintf(this->replayFileNumber[replayFileIdx],"No.%.2d",cur + 1);
+              sprintf(this->replayFileName[replayFileIdx],"No.%.2d",cur + 1);
               replayFileIdx = replayFileIdx + 1;
             }
             _free(replayData);
@@ -56,15 +56,15 @@ void __thiscall MainMenu::ReplayHandling(MainMenu *this)
               ZVar2 = validateReplayData(replayData,g_LastFileSize);
               if (ZVar2 == ZUN_SUCCESS) {
                 nextReplayData = replayData;
-                replayDataMagics2 = (char **)(this->replayHeaders + replayFileIdx);
+                memsetHeader = (char **)(this->replayFileData + replayFileIdx);
                 for (_ = 0x14; _ != 0; _ = _ + -1) {
-                  *replayDataMagics2 = nextReplayData->magic;
+                  *memsetHeader = nextReplayData->magic;
                   nextReplayData = (ReplayData *)&nextReplayData->version;
-                  replayDataMagics2 = replayDataMagics2 + 1;
+                  memsetHeader = memsetHeader + 1;
                 }
                 sprintf(this->replayFilePaths[replayFileIdx],"./replay/%s",replayFileInfo.cFileName)
                 ;
-                sprintf(this->replayFileNumber[replayFileIdx],"User ");
+                sprintf(this->replayFileName[replayFileIdx],"User ");
                 replayFileIdx = replayFileIdx + 1;
               }
               _free(replayData);
@@ -90,7 +90,7 @@ void __thiscall MainMenu::ReplayHandling(MainMenu *this)
         this->cursor = 0;
       }
       else {
-        GameErrorContextLog(&g_GameErrorContext,"セレク��画面の読み込みに失敗\n");
+        GameErrorContextLog(&g_GameErrorContext,"セレクト画面の読み込みに失敗\n");
         g_Supervisor.curState = 4;
       }
     }
@@ -126,7 +126,7 @@ void __thiscall MainMenu::ReplayHandling(MainMenu *this)
             }
           }
           do {
-            if (*(int *)(this->replayHeaders[this->chosenReplay] + this->cursor * 4 + 0x34) != 0)
+            if (*(int *)(this->replayFileData[this->chosenReplay] + this->cursor * 4 + 0x34) != 0)
             goto LAB_0043877b;
             this->cursor = this->cursor + 1;
           } while (this->cursor < 7);
@@ -154,7 +154,7 @@ LAB_0043877b:
   else if ((gameState == STATE_REPLAY_UNLOAD) && (0x27 < this->stateTimer)) {
     cur = MoveCursor(this,7);
     if (cur < ZUN_SUCCESS) {
-      while (*(int *)(this->replayHeaders[this->chosenReplay] + this->cursor * 4 + 0x34) == 0) {
+      while (*(int *)(this->replayFileData[this->chosenReplay] + this->cursor * 4 + 0x34) == 0) {
         this->cursor = this->cursor + -1;
         if (this->cursor < 0) {
           this->cursor = 6;
@@ -162,7 +162,7 @@ LAB_0043877b:
       }
     }
     else if (ZUN_SUCCESS < cur) {
-      while (*(int *)(this->replayHeaders[this->chosenReplay] + this->cursor * 4 + 0x34) == 0) {
+      while (*(int *)(this->replayFileData[this->chosenReplay] + this->cursor * 4 + 0x34) == 0) {
         this->cursor = this->cursor + 1;
         if (6 < this->cursor) {
           this->cursor = 0;
@@ -171,7 +171,7 @@ LAB_0043877b:
     }
     if ((((g_CurFrameInput & 0x1001) == 0) ||
         ((g_CurFrameInput & 0x1001) == (g_LastFrameInput & 0x1001))) ||
-       (this->replayGameData[this->cursor].stage_score == (StageReplayData **)0xfffffffc)) {
+       ((int)this->replayGameData + this->cursor * 0x50 + 0x34 == 0)) {
       if (((g_CurFrameInput & 10) != 0) && ((g_CurFrameInput & 10) != (g_LastFrameInput & 10))) {
         _free(this->replayGameData);
         this->replayGameData = (ReplayData *)0x0;

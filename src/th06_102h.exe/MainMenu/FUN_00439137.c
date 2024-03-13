@@ -44,7 +44,7 @@ undefined4 __thiscall MainMenu::FUN_00439137(MainMenu *this)
     FUN_00438ef8(this,(int)local_c,5,local_8,(uint)(byte)this->field_0x8231);
     local_c = local_c + 1;
   }
-  if (0x1f < this->gameSubState) {
+  if (0x1f < this->stateTimerMaybe) {
     if ((((g_CurFrameInput & 0x40) != 0) && ((g_CurFrameInput & 0x40) != (g_LastFrameInput & 0x40)))
        || (((g_CurFrameInput & 0x40) != 0 && (DAT_0069d90c != 0)))) {
       iVar1 = this->cursor;
@@ -164,7 +164,7 @@ undefined4 __thiscall MainMenu::FUN_00439137(MainMenu *this)
       }
       else if (iVar1 == 7) {
         this->gameState = STATE_KEYCONFIG;
-        this->gameSubState = 0;
+        this->stateTimerMaybe = 0;
         for (local_8 = 0; local_8 < 0x7a; local_8 = local_8 + 1) {
           this->AnmVMArray[local_8].pendingInterrupt = 5;
         }
@@ -187,7 +187,7 @@ undefined4 __thiscall MainMenu::FUN_00439137(MainMenu *this)
       }
       else if (iVar1 == 8) {
         this->gameState = STATE_MAIN_MENU;
-        this->gameSubState = 0;
+        this->stateTimerMaybe = 0;
         for (local_8 = 0; local_8 < 0x7a; local_8 = local_8 + 1) {
           this->AnmVMArray[local_8].pendingInterrupt = 2;
         }

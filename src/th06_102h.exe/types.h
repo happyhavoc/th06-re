@@ -74672,7 +74672,7 @@ struct MainMenu {
     int chosenReplay;
     int replayFilesNum;
     enum GameState gameState;
-    int gameSubState;
+    int stateTimerMaybe;
     uint idleFrames;
     float unk_81fc;
     D3DCOLOR maybe_menu_text_color;

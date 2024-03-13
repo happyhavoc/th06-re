@@ -6,7 +6,7 @@ int __thiscall MainMenu::FUN_004379e4(MainMenu *this)
   int i;
   D3DXVECTOR3 *d3d_vec;
   
-  if (this->gameSubState < 0x1e) {
+  if (this->stateTimerMaybe < 0x1e) {
     result = 1;
   }
   else if ((((g_CurFrameInput & 0x160b) == 0) ||
@@ -15,7 +15,7 @@ int __thiscall MainMenu::FUN_004379e4(MainMenu *this)
     result = 1;
   }
   else {
-    this->gameSubState = 0;
+    this->stateTimerMaybe = 0;
     this->gameState = STATE_MAIN_MENU;
     for (i = 0; i < 122; i = i + 1) {
       this->AnmVMArray[i].pendingInterrupt = 2;

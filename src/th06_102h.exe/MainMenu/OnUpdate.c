@@ -95,7 +95,7 @@ switchD_004358f7_caseD_2:
     }
     break;
   case STATE_QUIT:
-    if (0x3b < menu->gameSubState) {
+    if (0x3b < menu->stateTimerMaybe) {
       g_Supervisor.curState = 4;
       return 0;
     }
@@ -135,7 +135,7 @@ switchD_004358f7_caseD_2:
       }
       vm_memset = vm_memset + 1;
     }
-    if (0x1f < menu->gameSubState) {
+    if (0x1f < menu->stateTimerMaybe) {
       maxClearCheck = FUN_0041d680();
       sVar1 = 0;
       while ((sVar1 < 0x20 && ((*(byte *)(maxClearCheck + sVar1) & 0x80) == 0))) {
@@ -197,7 +197,7 @@ switchD_004358f7_caseD_2:
         }
         else if (menu->cursor == 10) {
           menu->gameState = STATE_OPTIONS;
-          menu->gameSubState = 0;
+          menu->stateTimerMaybe = 0;
           for (local_28 = 0; local_28 < 0x7a; local_28 = local_28 + 1) {
             menu->AnmVMArray[local_28].pendingInterrupt = 3;
           }
@@ -226,7 +226,7 @@ switchD_004358f7_caseD_2:
     }
     break;
   case STATE_DIFFICULTY_LOAD:
-    if (menu->gameSubState != 0x3c) break;
+    if (menu->stateTimerMaybe != 0x3c) break;
     maxClearCheck = FUN_00439f88();
     if (maxClearCheck != 0) {
       GameErrorContextLog(&g_GameErrorContext,"セレクト画面の読み込みに失敗\n");
@@ -250,9 +250,9 @@ switchD_004358f7_caseD_2:
       menu->cursor = 0;
     }
   case STATE_CHARACTER_LOAD:
-    if (menu->gameSubState == 36) {
+    if (menu->stateTimerMaybe == 36) {
       menu->gameState = STATE_STARTUP;
-      menu->gameSubState = 0;
+      menu->stateTimerMaybe = 0;
     }
     break;
   case STATE_DIFFICULTY_SELECT:
@@ -309,7 +309,7 @@ switchD_004358f7_caseD_2:
       if (((g_CurFrameInput & 0x1001) != 0) &&
          ((g_CurFrameInput & 0x1001) != (g_LastFrameInput & 0x1001))) {
         menu->gameState = STATE_CHARACTER_SELECT;
-        menu->gameSubState = 0;
+        menu->stateTimerMaybe = 0;
         for (i = 0; (int)i < 0x7a; i = i + 1) {
           menu->AnmVMArray[i].pendingInterrupt = 7;
         }
@@ -347,7 +347,7 @@ switchD_004358f7_caseD_2:
     }
     else {
       menu->gameState = STATE_CHARACTER_LOAD;
-      menu->gameSubState = 0;
+      menu->stateTimerMaybe = 0;
       for (i = 0; (int)i < 0x7a; i = i + 1) {
         menu->AnmVMArray[i].pendingInterrupt = 4;
       }
@@ -367,7 +367,7 @@ switchD_004358f7_caseD_2:
     }
     break;
   case STATE_CHARACTER_SELECT:
-    if (menu->gameSubState < 0x1e) break;
+    if (menu->stateTimerMaybe < 0x1e) break;
     if ((((g_CurFrameInput & 0x40) == 0) || ((g_CurFrameInput & 0x40) == (g_LastFrameInput & 0x40)))
        && (((g_CurFrameInput & 0x40) == 0 || (DAT_0069d90c == 0)))) {
 LAB_0043666d:
@@ -439,7 +439,7 @@ LAB_0043666d:
       if (((g_CurFrameInput & 0x1001) != 0) &&
          ((g_CurFrameInput & 0x1001) != (g_LastFrameInput & 0x1001))) {
         menu->gameState = STATE_SHOT_SELECT;
-        menu->gameSubState = 0;
+        menu->stateTimerMaybe = 0;
         for (i = 0; (int)i < 0x7a; i = i + 1) {
           menu->AnmVMArray[i].pendingInterrupt = 0xd;
         }
@@ -481,7 +481,7 @@ LAB_0043666d:
     }
     else {
       menu->gameState = STATE_DIFFICULTY_SELECT;
-      menu->gameSubState = 0;
+      menu->stateTimerMaybe = 0;
       if ((int)g_GameManager.difficulty < 4) {
         for (i = 0; (int)i < 0x7a; i = i + 1) {
           menu->AnmVMArray[i].pendingInterrupt = 6;
@@ -498,7 +498,7 @@ LAB_0043666d:
     }
     break;
   case STATE_SCORE:
-    if (59 < menu->gameSubState) {
+    if (59 < menu->stateTimerMaybe) {
       g_Supervisor.curState = 6;
       return 0;
     }
@@ -545,7 +545,7 @@ LAB_0043666d:
       }
       vm_memset = vm_memset + 1;
     }
-    if (0x1d < menu->gameSubState) {
+    if (0x1d < menu->stateTimerMaybe) {
       if (((g_CurFrameInput & 10) == 0) || ((g_CurFrameInput & 10) == (g_LastFrameInput & 10))) {
         if (((g_CurFrameInput & 0x1001) != 0) &&
            ((g_CurFrameInput & 0x1001) != (g_LastFrameInput & 0x1001))) {
@@ -560,7 +560,7 @@ LAB_0043666d:
             goto LAB_00436de7;
           }
           menu->gameState = STATE_PRACTICE_LVL_SELECT;
-          menu->gameSubState = 0;
+          menu->stateTimerMaybe = 0;
           for (i = 0; (int)i < 0x7a; i = i + 1) {
             menu->AnmVMArray[i].pendingInterrupt = 0x13;
           }
@@ -602,7 +602,7 @@ LAB_0043666d:
       }
       else {
         menu->gameState = STATE_CHARACTER_SELECT;
-        menu->gameSubState = 0;
+        menu->stateTimerMaybe = 0;
         for (i = 0; (int)i < 0x7a; i = i + 1) {
           menu->AnmVMArray[i].pendingInterrupt = 7;
         }
@@ -639,7 +639,7 @@ LAB_0043666d:
     }
     break;
   case STATE_MUSIC_ROOM:
-    if (0x3b < menu->gameSubState) {
+    if (0x3b < menu->stateTimerMaybe) {
       g_Supervisor.curState = 9;
       return 0;
     }
@@ -658,7 +658,7 @@ LAB_0043666d:
       local_50 = 5;
     }
     MoveCursor(menu,local_50);
-    if (0x1d < menu->gameSubState) {
+    if (0x1d < menu->stateTimerMaybe) {
       if (((g_CurFrameInput & 10) == 0) || ((g_CurFrameInput & 10) == (g_LastFrameInput & 10))) {
         if (((g_CurFrameInput & 0x1001) != 0) &&
            ((g_CurFrameInput & 0x1001) != (g_LastFrameInput & 0x1001))) {
@@ -738,7 +738,7 @@ LAB_00436de7:
       }
       else {
         menu->gameState = STATE_SHOT_SELECT;
-        menu->gameSubState = 0;
+        menu->stateTimerMaybe = 0;
         for (i = 0; (int)i < 122; i = i + 1) {
           menu->AnmVMArray[i].pendingInterrupt = 13;
         }
@@ -764,7 +764,7 @@ LAB_00436de7:
       }
     }
   }
-  menu->gameSubState = menu->gameSubState + 1;
+  menu->stateTimerMaybe = menu->stateTimerMaybe + 1;
   for (i = 0; (int)i < 122; i = i + 1) {
     if (menu->AnmVMArray[i].sprite == (AnmLoadedSprite *)0x0) {
       hasLoadedSprite = false;

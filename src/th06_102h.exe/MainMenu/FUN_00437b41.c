@@ -20,7 +20,7 @@ undefined4 __thiscall MainMenu::FUN_00437b41(MainMenu *this)
     FUN_004377a3(local_c,local_8,this->cursor,0xffff0000,0x80300000,0x7a);
     local_c = (MainMenu *)(local_c->AnmVMArray + 1);
   }
-  if (0x13 < this->gameSubState) {
+  if (0x13 < this->stateTimerMaybe) {
     if (((g_CurFrameInput & 0x1001) != 0) &&
        ((g_CurFrameInput & 0x1001) != (g_LastFrameInput & 0x1001))) {
       switch(this->cursor) {
@@ -36,7 +36,7 @@ undefined4 __thiscall MainMenu::FUN_00437b41(MainMenu *this)
         if (3 < g_Supervisor.cfg.defaultDifficulty) {
           g_Supervisor.cfg.defaultDifficulty = 1;
         }
-        this->gameSubState = 0;
+        this->stateTimerMaybe = 0;
         this->unk_81fc = 2.0;
         this->maybe_menu_text_color = 0xff000000;
         this->unk_820c = 0;
@@ -58,7 +58,7 @@ undefined4 __thiscall MainMenu::FUN_00437b41(MainMenu *this)
           this->gameState = STATE_DIFFICULTY_LOAD;
           g_GameManager.field30_0x1823 = 0;
           g_GameManager.difficulty = 4;
-          this->gameSubState = 0;
+          this->stateTimerMaybe = 0;
           this->unk_81fc = 2.0;
           this->maybe_menu_text_color = 0xff000000;
           this->unk_820c = 0;
@@ -78,7 +78,7 @@ undefined4 __thiscall MainMenu::FUN_00437b41(MainMenu *this)
         if (3 < g_Supervisor.cfg.defaultDifficulty) {
           g_Supervisor.cfg.defaultDifficulty = 1;
         }
-        this->gameSubState = 0;
+        this->stateTimerMaybe = 0;
         this->unk_81fc = 2.0;
         this->maybe_menu_text_color = 0xff000000;
         this->unk_820c = 0;
@@ -91,7 +91,7 @@ undefined4 __thiscall MainMenu::FUN_00437b41(MainMenu *this)
         }
         this->gameState = STATE_REPLAY_LOAD;
         g_GameManager.field30_0x1823 = 0;
-        this->gameSubState = 0;
+        this->stateTimerMaybe = 0;
         this->unk_81fc = 2.0;
         this->maybe_menu_text_color = 0xff000000;
         this->unk_820c = 0;
@@ -103,7 +103,7 @@ undefined4 __thiscall MainMenu::FUN_00437b41(MainMenu *this)
           this->AnmVMArray[local_8].pendingInterrupt = 4;
         }
         this->gameState = STATE_SCORE;
-        this->gameSubState = 0;
+        this->stateTimerMaybe = 0;
         this->unk_81fc = 2.0;
         this->maybe_menu_text_color = 0xff000000;
         this->unk_820c = 0;
@@ -112,7 +112,7 @@ undefined4 __thiscall MainMenu::FUN_00437b41(MainMenu *this)
         break;
       case 5:
         this->gameState = STATE_MUSIC_ROOM;
-        this->gameSubState = 0;
+        this->stateTimerMaybe = 0;
         for (local_8 = 0; local_8 < 0x7a; local_8 = local_8 + 1) {
           this->AnmVMArray[local_8].pendingInterrupt = 4;
         }
@@ -120,7 +120,7 @@ undefined4 __thiscall MainMenu::FUN_00437b41(MainMenu *this)
         break;
       case 6:
         this->gameState = STATE_OPTIONS;
-        this->gameSubState = 0;
+        this->stateTimerMaybe = 0;
         for (local_8 = 0; local_8 < 0x7a; local_8 = local_8 + 1) {
           this->AnmVMArray[local_8].pendingInterrupt = 3;
         }
@@ -132,7 +132,7 @@ undefined4 __thiscall MainMenu::FUN_00437b41(MainMenu *this)
         break;
       case 7:
         this->gameState = STATE_QUIT;
-        this->gameSubState = 0;
+        this->stateTimerMaybe = 0;
         for (local_8 = 0; local_8 < 0x7a; local_8 = local_8 + 1) {
           this->AnmVMArray[local_8].pendingInterrupt = 4;
         }
@@ -142,7 +142,7 @@ undefined4 __thiscall MainMenu::FUN_00437b41(MainMenu *this)
     if (((g_CurFrameInput & 0x200) != 0) &&
        ((g_CurFrameInput & 0x200) != (g_LastFrameInput & 0x200))) {
       this->gameState = STATE_QUIT;
-      this->gameSubState = 0;
+      this->stateTimerMaybe = 0;
       for (local_8 = 0; local_8 < 0x7a; local_8 = local_8 + 1) {
         this->AnmVMArray[local_8].pendingInterrupt = 4;
       }

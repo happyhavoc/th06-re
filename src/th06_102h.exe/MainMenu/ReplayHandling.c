@@ -22,7 +22,7 @@ void __thiscall MainMenu::ReplayHandling(MainMenu *this)
   stackCookie = __security_cookie ^ unaff_retaddr;
   gameState = this->gameState;
   if (gameState == STATE_REPLAY_LOAD) {
-    if (this->gameSubState == 0x3c) {
+    if (this->stateTimerMaybe == 0x3c) {
       ZVar2 = LoadReplayMenu(this);
       if (ZVar2 == ZUN_SUCCESS) {
         replayFileIdx = 0;
@@ -96,7 +96,7 @@ void __thiscall MainMenu::ReplayHandling(MainMenu *this)
     }
   }
   else if (gameState == STATE_REPLAY_ANIM) {
-    if (0x27 < this->gameSubState) {
+    if (0x27 < this->stateTimerMaybe) {
       if (this->replayFilesNum != 0) {
         MoveCursor(this,this->replayFilesNum);
         this->chosenReplay = this->cursor;
@@ -110,7 +110,7 @@ void __thiscall MainMenu::ReplayHandling(MainMenu *this)
           }
           anmVM = this->AnmVMArray + this->chosenReplay + 99;
           anmVM->pendingInterrupt = 0x10;
-          this->gameSubState = 0;
+          this->stateTimerMaybe = 0;
           this->cursor = 0;
           SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,10);
           nextReplayData =
@@ -136,7 +136,7 @@ void __thiscall MainMenu::ReplayHandling(MainMenu *this)
 LAB_0043877b:
       if (((g_CurFrameInput & 10) != 0) && ((g_CurFrameInput & 10) != (g_LastFrameInput & 10))) {
         this->gameState = STATE_REPLAY_SELECT;
-        this->gameSubState = 0;
+        this->stateTimerMaybe = 0;
         for (cur = 0; cur < 0x7a; cur = cur + 1) {
           this->AnmVMArray[cur].pendingInterrupt = 4;
         }
@@ -146,12 +146,12 @@ LAB_0043877b:
     }
   }
   else if (gameState == STATE_REPLAY_SELECT) {
-    if (this->gameSubState == 0x24) {
+    if (this->stateTimerMaybe == 0x24) {
       this->gameState = STATE_STARTUP;
-      this->gameSubState = 0;
+      this->stateTimerMaybe = 0;
     }
   }
-  else if ((gameState == STATE_REPLAY_UNLOAD) && (0x27 < this->gameSubState)) {
+  else if ((gameState == STATE_REPLAY_UNLOAD) && (0x27 < this->stateTimerMaybe)) {
     cur = MoveCursor(this,7);
     if (cur < ZUN_SUCCESS) {
       while (*(int *)(&this->field_0xfc50 + this->cursor * 4 + this->chosenReplay * 0x50) == 0) {
@@ -176,7 +176,7 @@ LAB_0043877b:
         _free(this->replayGameData);
         this->replayGameData = (ReplayData *)0x0;
         this->gameState = STATE_REPLAY_ANIM;
-        this->gameSubState = 0;
+        this->stateTimerMaybe = 0;
         for (cur = 0; cur < 0x7a; cur = cur + 1) {
           this->AnmVMArray[cur].pendingInterrupt = 4;
         }

@@ -18,7 +18,7 @@ ZunResult MusicRoom::RegisterChain(void)
     DAT_006ca624 = DAT_006ca624 | 1;
     uStack_8 = 0;
     ExceptionList = &pvStack_10;
-    FUN_00425318(&g_MusicRoomCalcChain);
+    FUN_00425318((MusicRoom *)&g_MusicRoomCalcChain);
   }
   uStack_8 = 0xffffffff;
   ppCVar3 = &g_MusicRoomCalcChain;

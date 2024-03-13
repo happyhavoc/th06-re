@@ -17,13 +17,15 @@ undefined4 __thiscall ResultScreen::FUN_0042bc85(ResultScreen *this)
       local_c->pendingInterrupt = (short)*(undefined4 *)&this->field17_0x2c + 3;
       local_c = local_c + 1;
     }
-    FUN_00434e20(g_AnmManager,&this->unk_28a0,0xffffff,0,(&g_CharacterList)[this->field15_0x24 * 2],
-                 in_stack_ffffffe0);
+    AnmManager::FUN_00434e20
+              (g_AnmManager,&this->unk_28a0,0xffffff,0,(&g_CharacterList)[this->field15_0x24 * 2],
+               in_stack_ffffffe0);
     if (g_GameManager.shottype != 0) {
       (this->unk_28a0).color.color = 0x80ffffff;
     }
-    FUN_00434e20(g_AnmManager,&this->field76_0x29b0,0xffffff,0,
-                 (&PTR_Hakurei_Reimu__Dream__004784dc)[this->field15_0x24 * 2],in_stack_ffffffe0);
+    AnmManager::FUN_00434e20
+              (g_AnmManager,&this->field76_0x29b0,0xffffff,0,
+               (&PTR_Hakurei_Reimu__Dream__004784dc)[this->field15_0x24 * 2],in_stack_ffffffe0);
     if (g_GameManager.shottype != 1) {
       (this->field76_0x29b0).color.color = 0x80ffffff;
     }

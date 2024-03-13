@@ -9,6 +9,7 @@ undefined4 MainMenu::OnUpdate(MainMenu *menu)
   ZunResult startedUp;
   int pressedButton;
   GameState gameState;
+  ZunResult ZVar1;
   int maxClearCheck;
   bool hasLoadedSprite;
   uint local_b8;
@@ -18,8 +19,8 @@ undefined4 MainMenu::OnUpdate(MainMenu *menu)
   float local_48;
   float refresh_rate;
   short local_28;
-  AnmVm *vm_memset;
-  uint i;
+  MainMenu *vm_memset;
+  int i;
   float fVar1;
   
   if ((int)menu->unk_10ee0 < 0x10) {
@@ -51,7 +52,7 @@ undefined4 MainMenu::OnUpdate(MainMenu *menu)
   gameState = menu->gameState;
   switch(gameState) {
   case STATE_STARTUP:
-    startedUp = FUN_004378a2();
+    startedUp = beginStartup(menu);
     if (startedUp == ZUN_ERROR) {
       return 0;
     }
@@ -60,7 +61,9 @@ undefined4 MainMenu::OnUpdate(MainMenu *menu)
     if (g_CurFrameInput != 0) {
       menu->idleFrames = 0;
     }
-    if (719 < (int)menu->idleFrames) {
+                    /* I'm *pretty* sure menu->idleFrames is an int, because its comparing against a
+                       signed int, and I'm pretty confident zun just used ints everywhere */
+    if (719 < menu->idleFrames) {
 load_menu_rpy:
       g_GameManager.field7_0x1c = 1;
       g_GameManager.demo_mode = 1;
@@ -83,7 +86,7 @@ switchD_004358f7_caseD_2:
         menu->idleFrames = 0;
       }
       menu->idleFrames = menu->idleFrames + 1;
-      if (0x2cf < (int)menu->idleFrames) goto load_menu_rpy;
+      if (719 < menu->idleFrames) goto load_menu_rpy;
     }
     break;
   case STATE_MAIN_MENU:
@@ -95,48 +98,48 @@ switchD_004358f7_caseD_2:
     }
     break;
   case STATE_QUIT:
-    if (0x3b < menu->stateTimerMaybe) {
+    if (59 < menu->stateTimer) {
       g_Supervisor.curState = 4;
       return 0;
     }
     break;
   case STATE_KEYCONFIG:
     MoveCursor(menu,11);
-    vm_memset = menu->AnmVMArray + 0x22;
-    for (i = 0; (int)i < 0xb; i = i + 1) {
-      FUN_004377a3(vm_memset,i,menu->cursor,menu->color2);
-      vm_memset = vm_memset + 1;
+    vm_memset = (MainMenu *)&menu->keyconfig_anmvm;
+    for (i = 0; i < 0xb; i = i + 1) {
+      FUN_004377a3(vm_memset,i,menu->cursor,menu->color2,menu->color1,0x73);
+      vm_memset = (MainMenu *)&vm_memset->field1_0x110;
     }
-    for (i = 0; (int)i < 9; i = i + 1) {
+    for (i = 0; i < 9; i = i + 1) {
       if (*(short *)((int)(menu->replayFilePaths + -1) + i * 2 + 0x1e0) < 0) {
-        *(uint *)&vm_memset->flags = *(uint *)&vm_memset->flags & 0xfffffffd;
+        *(uint *)&(vm_memset->vm1).flags = *(uint *)&(vm_memset->vm1).flags & 0xfffffffd;
       }
       else {
-        *(uint *)&vm_memset->flags = *(uint *)&vm_memset->flags | 2;
-        FUN_004377a3(vm_memset,i,menu->cursor,menu->color2);
+        *(uint *)&(vm_memset->vm1).flags = *(uint *)&(vm_memset->vm1).flags | 2;
+        FUN_004377a3(vm_memset,i,menu->cursor,menu->color2,menu->color1,0x73);
       }
-      vm_memset = vm_memset + 1;
+      vm_memset = (MainMenu *)&vm_memset->field1_0x110;
     }
-    for (i = 0; (int)i < 0x12; i = i + 1) {
-      if (*(short *)((int)(menu->replayFilePaths + -1) + ((int)i / 2) * 2 + 0x1e0) < 0) {
-        *(uint *)&vm_memset->flags = *(uint *)&vm_memset->flags & 0xfffffffd;
+    for (i = 0; i < 18; i = i + 1) {
+      if (*(short *)((int)(menu->replayFilePaths + -1) + (i / 2) * 2 + 0x1e0) < 0) {
+        *(uint *)&(vm_memset->vm1).flags = *(uint *)&(vm_memset->vm1).flags & 0xfffffffd;
       }
       else {
-        *(uint *)&vm_memset->flags = *(uint *)&vm_memset->flags | 2;
-        sVar1 = *(short *)((int)(menu->replayFilePaths + -1) + ((int)i / 2) * 2 + 0x1e0);
-        if ((int)i % 2 == 0) {
-          AnmManager::SetActiveSprite(g_AnmManager,vm_memset,(int)sVar1 / 10 + 0x100);
+        *(uint *)&(vm_memset->vm1).flags = *(uint *)&(vm_memset->vm1).flags | 2;
+        sVar1 = *(short *)((int)(menu->replayFilePaths + -1) + (i / 2) * 2 + 0x1e0);
+        if (i % 2 == 0) {
+          AnmManager::SetActiveSprite(g_AnmManager,&vm_memset->vm1,(int)sVar1 / 10 + 0x100);
         }
         else {
-          AnmManager::SetActiveSprite(g_AnmManager,vm_memset,(int)sVar1 % 10 + 0x100);
+          AnmManager::SetActiveSprite(g_AnmManager,&vm_memset->vm1,(int)sVar1 % 10 + 0x100);
         }
-        vm_memset->anotherSpriteNumber = vm_memset->spriteNumber;
-        FUN_004377a3(vm_memset,(int)i / 2,menu->cursor,menu->color2);
+        (vm_memset->vm1).anotherSpriteNumber = (vm_memset->vm1).spriteNumber;
+        FUN_004377a3(vm_memset,i / 2,menu->cursor,menu->color2,menu->color1,0x7a);
       }
-      vm_memset = vm_memset + 1;
+      vm_memset = (MainMenu *)&vm_memset->field1_0x110;
     }
-    if (0x1f < menu->stateTimerMaybe) {
-      maxClearCheck = FUN_0041d680();
+    if (31 < menu->stateTimer) {
+      maxClearCheck = joystickcheck_only_called_in_keyconfig();
       sVar1 = 0;
       while ((sVar1 < 0x20 && ((*(byte *)(maxClearCheck + sVar1) & 0x80) == 0))) {
         sVar1 = sVar1 + 1;
@@ -197,9 +200,9 @@ switchD_004358f7_caseD_2:
         }
         else if (menu->cursor == 10) {
           menu->gameState = STATE_OPTIONS;
-          menu->stateTimerMaybe = 0;
+          menu->stateTimer = 0;
           for (local_28 = 0; local_28 < 0x7a; local_28 = local_28 + 1) {
-            menu->AnmVMArray[local_28].pendingInterrupt = 3;
+            (&menu->vm1)[local_28].pendingInterrupt = 3;
           }
           menu->cursor = 7;
           SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xb);
@@ -226,9 +229,9 @@ switchD_004358f7_caseD_2:
     }
     break;
   case STATE_DIFFICULTY_LOAD:
-    if (menu->stateTimerMaybe != 0x3c) break;
-    maxClearCheck = FUN_00439f88();
-    if (maxClearCheck != 0) {
+    if (menu->stateTimer != 0x3c) break;
+    ZVar1 = loadMenu(menu);
+    if (ZVar1 != ZUN_SUCCESS) {
       GameErrorContextLog(&g_GameErrorContext,"セレクト画面の読み込みに失敗\n");
       g_Supervisor.curState = 4;
       return 0;
@@ -238,89 +241,89 @@ switchD_004358f7_caseD_2:
     menu->wasActive = menu->isActive;
     menu->isActive = 0;
     if ((int)g_GameManager.difficulty < 4) {
-      for (i = 0; (int)i < 122; i = i + 1) {
-        menu->AnmVMArray[i].pendingInterrupt = 6;
+      for (i = 0; i < 122; i = i + 1) {
+        (&menu->vm1)[i].pendingInterrupt = 6;
       }
       menu->cursor = (uint)g_Supervisor.cfg.defaultDifficulty;
     }
     else {
-      for (i = 0; (int)i < 122; i = i + 1) {
-        menu->AnmVMArray[i].pendingInterrupt = 18;
+      for (i = 0; i < 122; i = i + 1) {
+        (&menu->vm1)[i].pendingInterrupt = 18;
       }
       menu->cursor = 0;
     }
   case STATE_CHARACTER_LOAD:
-    if (menu->stateTimerMaybe == 36) {
+    if (menu->stateTimer == 36) {
       menu->gameState = STATE_STARTUP;
-      menu->stateTimerMaybe = 0;
+      menu->stateTimer = 0;
     }
     break;
   case STATE_DIFFICULTY_SELECT:
-    vm_memset = menu->AnmVMArray + uVar16;
+    vm_memset = (MainMenu *)&menu->field81_0x5610;
     if ((int)g_GameManager.difficulty < 4) {
       MoveCursor(menu,4);
-      for (i = 0; (int)i < 4; i = i + 1) {
+      for (i = 0; i < 4; i = i + 1) {
         if (i == menu->cursor) {
           if ((g_Supervisor.cfg.opts & 1) == 0) {
-            (vm_memset->color).color = 0xff000000;
+            ((D3DCOLORUNION *)&vm_memset->vm1)->color = 0xff000000;
           }
           else {
-            (vm_memset->color).color = 0xffffffff;
+            ((D3DCOLORUNION *)&vm_memset->vm1)->color = 0xffffffff;
           }
-          (vm_memset->pos2).x = -6.0;
-          (vm_memset->pos2).y = -6.0;
-          (vm_memset->pos2).z = 0.0;
+          ((D3DXVECTOR3 *)&vm_memset->vm1)->x = -6.0;
+          ((D3DXVECTOR3 *)&vm_memset->vm1)->y = -6.0;
+          ((D3DXVECTOR3 *)&vm_memset->vm1)->z = 0.0;
         }
         else {
           if ((g_Supervisor.cfg.opts & 1) == 0) {
-            (vm_memset->color).color = 0x60000000;
+            ((D3DCOLORUNION *)&vm_memset->vm1)->color = 0x60000000;
           }
           else {
-            (vm_memset->color).color = 0x60ffffff;
+            ((D3DCOLORUNION *)&vm_memset->vm1)->color = 0x60ffffff;
           }
-          (vm_memset->pos2).x = 0.0;
-          (vm_memset->pos2).y = 0.0;
-          (vm_memset->pos2).z = 0.0;
-          vm_memset->alphaInterpEndTime = 0;
+          ((D3DXVECTOR3 *)&vm_memset->vm1)->x = 0.0;
+          ((D3DXVECTOR3 *)&vm_memset->vm1)->y = 0.0;
+          ((D3DXVECTOR3 *)&vm_memset->vm1)->z = 0.0;
+          *(ushort *)&vm_memset->vm1 = 0;
         }
-        vm_memset = vm_memset + 1;
+        vm_memset = (MainMenu *)((int)vm_memset + 0x110);
       }
-      *(uint *)&vm_memset->flags = *(uint *)&vm_memset->flags & 0xfffffffd;
+      *(uint *)&vm_memset->vm1 = *(uint *)&vm_memset->vm1 & 0xfffffffd;
     }
     else {
-      for (i = 0; (int)i < 4; i = i + 1) {
-        *(uint *)&vm_memset->flags = *(uint *)&vm_memset->flags & 0xfffffffd;
-        vm_memset = vm_memset + 1;
+      for (i = 0; i < 4; i = i + 1) {
+        *(uint *)&vm_memset->vm1 = *(uint *)&vm_memset->vm1 & 0xfffffffd;
+        vm_memset = (MainMenu *)((int)vm_memset + 0x110);
       }
-      for (i = 4; (int)i < 5; i = i + 1) {
+      for (i = 4; i < 5; i = i + 1) {
         if ((g_Supervisor.cfg.opts & 1) == 0) {
-          (vm_memset->color).color = 0xff000000;
+          ((D3DCOLORUNION *)&vm_memset->vm1)->color = 0xff000000;
         }
         else {
-          (vm_memset->color).color = 0xffffffff;
+          ((D3DCOLORUNION *)&vm_memset->vm1)->color = 0xffffffff;
         }
-        (vm_memset->pos2).x = -6.0;
-        (vm_memset->pos2).y = -6.0;
-        (vm_memset->pos2).z = 0.0;
-        vm_memset = vm_memset + 1;
+        ((D3DXVECTOR3 *)&vm_memset->vm1)->x = -6.0;
+        ((D3DXVECTOR3 *)&vm_memset->vm1)->y = -6.0;
+        ((D3DXVECTOR3 *)&vm_memset->vm1)->z = 0.0;
+        vm_memset = (MainMenu *)((int)vm_memset + 0x110);
       }
     }
     if (((g_CurFrameInput & 10) == 0) || ((g_CurFrameInput & 10) == (g_LastFrameInput & 10))) {
       if (((g_CurFrameInput & 0x1001) != 0) &&
          ((g_CurFrameInput & 0x1001) != (g_LastFrameInput & 0x1001))) {
         menu->gameState = STATE_CHARACTER_SELECT;
-        menu->stateTimerMaybe = 0;
-        for (i = 0; (int)i < 0x7a; i = i + 1) {
-          menu->AnmVMArray[i].pendingInterrupt = 7;
+        menu->stateTimer = 0;
+        for (i = 0; i < 0x7a; i = i + 1) {
+          (&menu->vm1)[i].pendingInterrupt = 7;
         }
         SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,10);
         if ((int)g_GameManager.difficulty < 4) {
-          menu->AnmVMArray[menu->cursor + 0x51].pendingInterrupt = 8;
+          (&menu->field81_0x5610)[menu->cursor].pendingInterrupt = 8;
           g_GameManager.difficulty = menu->cursor;
           menu->cursor = (uint)g_GameManager.character;
         }
         else {
-          menu->AnmVMArray[uVar17].pendingInterrupt = 8;
+          (menu->field85_0x5a50).pendingInterrupt = 8;
           g_GameManager.difficulty = 4;
           maxClearCheck =
                GameManager::hasReachedMaxClears(&g_GameManager,(uint)g_GameManager.character,0);
@@ -335,21 +338,21 @@ switchD_004358f7_caseD_2:
           }
         }
         g_Supervisor.cfg.defaultDifficulty = (byte)g_GameManager.difficulty;
-        vm_memset = menu->AnmVMArray + uVar18;
-        for (i = 0; (int)i < 2; i = i + 1) {
+        vm_memset = (MainMenu *)&menu->field86_0x5b60;
+        for (i = 0; i < 2; i = i + 1) {
           if (i != menu->cursor) {
-            vm_memset->pendingInterrupt = 0;
-            vm_memset[1].pendingInterrupt = 0;
+            *(short *)&vm_memset->vm1 = 0;
+            ((AnmVm *)((int)vm_memset + 0x110))->pendingInterrupt = 0;
           }
-          vm_memset = vm_memset + 2;
+          vm_memset = (MainMenu *)((int)vm_memset + 0x220);
         }
       }
     }
     else {
       menu->gameState = STATE_CHARACTER_LOAD;
-      menu->stateTimerMaybe = 0;
-      for (i = 0; (int)i < 0x7a; i = i + 1) {
-        menu->AnmVMArray[i].pendingInterrupt = 4;
+      menu->stateTimer = 0;
+      for (i = 0; i < 0x7a; i = i + 1) {
+        (&menu->vm1)[i].pendingInterrupt = 4;
       }
       SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xb);
       if ((int)g_GameManager.difficulty < 4) {
@@ -367,7 +370,7 @@ switchD_004358f7_caseD_2:
     }
     break;
   case STATE_CHARACTER_SELECT:
-    if (menu->stateTimerMaybe < 0x1e) break;
+    if (menu->stateTimer < 0x1e) break;
     if ((((g_CurFrameInput & 0x40) == 0) || ((g_CurFrameInput & 0x40) == (g_LastFrameInput & 0x40)))
        && (((g_CurFrameInput & 0x40) == 0 || (DAT_0069d90c == 0)))) {
 LAB_0043666d:
@@ -390,17 +393,17 @@ LAB_0043666d:
         }
         else {
           SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xc);
-          vm_memset = menu->AnmVMArray + 0x56;
-          for (i = 0; (int)i < 2; i = i + 1) {
+          vm_memset = (MainMenu *)&menu->field86_0x5b60;
+          for (i = 0; i < 2; i = i + 1) {
             if (i == menu->cursor) {
-              vm_memset->pendingInterrupt = 10;
-              vm_memset[1].pendingInterrupt = 10;
+              *(short *)&vm_memset->vm1 = 10;
+              ((AnmVm *)((int)vm_memset + 0x110))->pendingInterrupt = 10;
             }
             else {
-              vm_memset->pendingInterrupt = 0xb;
-              vm_memset[1].pendingInterrupt = 0xb;
+              *(short *)&vm_memset->vm1 = 0xb;
+              ((AnmVm *)((int)vm_memset + 0x110))->pendingInterrupt = 0xb;
             }
-            vm_memset = vm_memset + 2;
+            vm_memset = (MainMenu *)((int)vm_memset + 0x220);
           }
         }
       }
@@ -416,17 +419,17 @@ LAB_0043666d:
          (maxClearCheck = GameManager::hasReachedMaxClears(&g_GameManager,menu->cursor,1),
          maxClearCheck != 0)) {
         SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xc);
-        vm_memset = menu->AnmVMArray + 0x56;
-        for (i = 0; (int)i < 2; i = i + 1) {
+        vm_memset = (MainMenu *)&menu->field86_0x5b60;
+        for (i = 0; i < 2; i = i + 1) {
           if (i == menu->cursor) {
-            vm_memset->pendingInterrupt = 9;
-            vm_memset[1].pendingInterrupt = 9;
+            *(short *)&vm_memset->vm1 = 9;
+            ((AnmVm *)((int)vm_memset + 0x110))->pendingInterrupt = 9;
           }
           else {
-            vm_memset->pendingInterrupt = 0xc;
-            vm_memset[1].pendingInterrupt = 0xc;
+            *(short *)&vm_memset->vm1 = 0xc;
+            ((AnmVm *)((int)vm_memset + 0x110))->pendingInterrupt = 0xc;
           }
-          vm_memset = vm_memset + 2;
+          vm_memset = (MainMenu *)((int)vm_memset + 0x220);
         }
         goto LAB_0043666d;
       }
@@ -439,26 +442,26 @@ LAB_0043666d:
       if (((g_CurFrameInput & 0x1001) != 0) &&
          ((g_CurFrameInput & 0x1001) != (g_LastFrameInput & 0x1001))) {
         menu->gameState = STATE_SHOT_SELECT;
-        menu->stateTimerMaybe = 0;
-        for (i = 0; (int)i < 0x7a; i = i + 1) {
-          menu->AnmVMArray[i].pendingInterrupt = 0xd;
+        menu->stateTimer = 0;
+        for (i = 0; i < 0x7a; i = i + 1) {
+          (&menu->vm1)[i].pendingInterrupt = 0xd;
         }
-        menu->AnmVMArray[g_GameManager.difficulty + 0x51].pendingInterrupt = 0;
-        vm_memset = menu->AnmVMArray + 0x56;
-        for (i = 0; (int)i < 2; i = i + 1) {
+        (&menu->field81_0x5610)[g_GameManager.difficulty].pendingInterrupt = 0;
+        vm_memset = (MainMenu *)&menu->field86_0x5b60;
+        for (i = 0; i < 2; i = i + 1) {
           if (i != menu->cursor) {
-            vm_memset->pendingInterrupt = 0;
-            vm_memset[1].pendingInterrupt = 0;
+            *(short *)&vm_memset->vm1 = 0;
+            ((AnmVm *)((int)vm_memset + 0x110))->pendingInterrupt = 0;
           }
-          vm_memset = vm_memset + 2;
+          vm_memset = (MainMenu *)((int)vm_memset + 0x220);
         }
-        vm_memset = menu->AnmVMArray + 0x5c;
-        for (i = 0; (int)i < 2; i = i + 1) {
+        vm_memset = (MainMenu *)&menu->field92_0x61c0;
+        for (i = 0; i < 2; i = i + 1) {
           if (i != menu->cursor) {
-            vm_memset->pendingInterrupt = 0;
-            vm_memset[1].pendingInterrupt = 0;
+            *(short *)&vm_memset->vm1 = 0;
+            ((AnmVm *)((int)vm_memset + 0x110))->pendingInterrupt = 0;
           }
-          vm_memset = vm_memset + 2;
+          vm_memset = (MainMenu *)((int)vm_memset + 0x220);
         }
         g_GameManager.character = *(byte *)&menu->cursor;
         if ((int)g_GameManager.difficulty < 4) {
@@ -481,16 +484,16 @@ LAB_0043666d:
     }
     else {
       menu->gameState = STATE_DIFFICULTY_SELECT;
-      menu->stateTimerMaybe = 0;
+      menu->stateTimer = 0;
       if ((int)g_GameManager.difficulty < 4) {
-        for (i = 0; (int)i < 0x7a; i = i + 1) {
-          menu->AnmVMArray[i].pendingInterrupt = 6;
+        for (i = 0; i < 0x7a; i = i + 1) {
+          (&menu->vm1)[i].pendingInterrupt = 6;
         }
         menu->cursor = (uint)g_Supervisor.cfg.defaultDifficulty;
       }
       else {
-        for (i = 0; (int)i < 0x7a; i = i + 1) {
-          menu->AnmVMArray[i].pendingInterrupt = 0x12;
+        for (i = 0; i < 0x7a; i = i + 1) {
+          (&menu->vm1)[i].pendingInterrupt = 0x12;
         }
         menu->cursor = 0;
       }
@@ -498,7 +501,7 @@ LAB_0043666d:
     }
     break;
   case STATE_SCORE:
-    if (59 < menu->stateTimerMaybe) {
+    if (59 < menu->stateTimer) {
       g_Supervisor.curState = 6;
       return 0;
     }
@@ -512,40 +515,41 @@ LAB_0043666d:
        maxClearCheck == 0)) {
       menu->cursor = 1 - menu->cursor;
     }
-    vm_memset = menu->AnmVMArray + 0x5c;
-    for (i = 0; (int)i < 2; i = i + 1) {
-      *(uint *)&vm_memset[1].flags = *(uint *)&vm_memset[1].flags | 8;
-      vm_memset = vm_memset + 2;
+    vm_memset = (MainMenu *)&menu->field92_0x61c0;
+    for (i = 0; i < 2; i = i + 1) {
+      *(uint *)&((AnmVm *)((int)vm_memset + 0x110))->flags =
+           *(uint *)&((AnmVm *)((int)vm_memset + 0x110))->flags | 8;
+      vm_memset = (MainMenu *)((int)vm_memset + 0x220);
     }
-    vm_memset = menu->AnmVMArray + (uint)g_GameManager.character * 2 + 0x5c;
-    for (i = 0; (int)i < 2; i = i + 1) {
-      *(uint *)&vm_memset->flags = *(uint *)&vm_memset->flags | 8;
-      *(uint *)&vm_memset->flags = *(uint *)&vm_memset->flags | 1;
+    vm_memset = (MainMenu *)(&menu->field92_0x61c0 + (uint)g_GameManager.character * 2);
+    for (i = 0; i < 2; i = i + 1) {
+      *(uint *)&vm_memset->vm1 = *(uint *)&vm_memset->vm1 | 8;
+      *(uint *)&vm_memset->vm1 = *(uint *)&vm_memset->vm1 | 1;
       if (i == menu->cursor) {
         if ((g_Supervisor.cfg.opts & 1) == 0) {
-          (vm_memset->color).color = 0xff202020;
+          ((D3DCOLORUNION *)&vm_memset->vm1)->color = 0xff202020;
         }
         else {
-          (vm_memset->color).color = 0xffffffff;
+          ((D3DCOLORUNION *)&vm_memset->vm1)->color = 0xffffffff;
         }
-        (vm_memset->pos2).x = -6.0;
-        (vm_memset->pos2).y = -6.0;
-        (vm_memset->pos2).z = 0.0;
+        ((D3DXVECTOR3 *)&vm_memset->vm1)->x = -6.0;
+        ((D3DXVECTOR3 *)&vm_memset->vm1)->y = -6.0;
+        ((D3DXVECTOR3 *)&vm_memset->vm1)->z = 0.0;
       }
       else {
         if ((g_Supervisor.cfg.opts & 1) == 0) {
-          (vm_memset->color).color = 0xa0000000;
+          ((D3DCOLORUNION *)&vm_memset->vm1)->color = 0xa0000000;
         }
         else {
-          (vm_memset->color).color = 0xa0d0d0d0;
+          ((D3DCOLORUNION *)&vm_memset->vm1)->color = 0xa0d0d0d0;
         }
-        (vm_memset->pos2).x = 0.0;
-        (vm_memset->pos2).y = 0.0;
-        (vm_memset->pos2).z = 0.0;
+        ((D3DXVECTOR3 *)&vm_memset->vm1)->x = 0.0;
+        ((D3DXVECTOR3 *)&vm_memset->vm1)->y = 0.0;
+        ((D3DXVECTOR3 *)&vm_memset->vm1)->z = 0.0;
       }
-      vm_memset = vm_memset + 1;
+      vm_memset = (MainMenu *)((int)vm_memset + 0x110);
     }
-    if (0x1d < menu->stateTimerMaybe) {
+    if (0x1d < menu->stateTimer) {
       if (((g_CurFrameInput & 10) == 0) || ((g_CurFrameInput & 10) == (g_LastFrameInput & 10))) {
         if (((g_CurFrameInput & 0x1001) != 0) &&
            ((g_CurFrameInput & 0x1001) != (g_LastFrameInput & 0x1001))) {
@@ -560,26 +564,26 @@ LAB_0043666d:
             goto LAB_00436de7;
           }
           menu->gameState = STATE_PRACTICE_LVL_SELECT;
-          menu->stateTimerMaybe = 0;
-          for (i = 0; (int)i < 0x7a; i = i + 1) {
-            menu->AnmVMArray[i].pendingInterrupt = 0x13;
+          menu->stateTimer = 0;
+          for (i = 0; i < 0x7a; i = i + 1) {
+            (&menu->vm1)[i].pendingInterrupt = 0x13;
           }
-          menu->AnmVMArray[g_GameManager.difficulty + 0x51].pendingInterrupt = 0;
-          vm_memset = menu->AnmVMArray + 0x56;
-          for (i = 0; (int)i < 2; i = i + 1) {
-            if (i != g_GameManager.character) {
-              vm_memset->pendingInterrupt = 0;
-              vm_memset[1].pendingInterrupt = 0;
+          (&menu->field81_0x5610)[g_GameManager.difficulty].pendingInterrupt = 0;
+          vm_memset = (MainMenu *)&menu->field86_0x5b60;
+          for (i = 0; i < 2; i = i + 1) {
+            if (i != (uint)g_GameManager.character) {
+              *(short *)&vm_memset->vm1 = 0;
+              ((AnmVm *)((int)vm_memset + 0x110))->pendingInterrupt = 0;
             }
-            vm_memset = vm_memset + 2;
+            vm_memset = (MainMenu *)((int)vm_memset + 0x220);
           }
-          vm_memset = menu->AnmVMArray + 0x5c;
-          for (i = 0; (int)i < 2; i = i + 1) {
-            if (i != g_GameManager.character) {
-              vm_memset->pendingInterrupt = 0;
-              vm_memset[1].pendingInterrupt = 0;
+          vm_memset = (MainMenu *)&menu->field92_0x61c0;
+          for (i = 0; i < 2; i = i + 1) {
+            if (i != (uint)g_GameManager.character) {
+              *(short *)&vm_memset->vm1 = 0;
+              ((AnmVm *)((int)vm_memset + 0x110))->pendingInterrupt = 0;
             }
-            vm_memset = vm_memset + 2;
+            vm_memset = (MainMenu *)((int)vm_memset + 0x220);
           }
           menu->cursor = g_GameManager.field46_0x1a38;
           if (*(byte *)(((uint)g_GameManager.shottype + (uint)g_GameManager.character * 2) * 0x18 +
@@ -602,29 +606,29 @@ LAB_0043666d:
       }
       else {
         menu->gameState = STATE_CHARACTER_SELECT;
-        menu->stateTimerMaybe = 0;
-        for (i = 0; (int)i < 0x7a; i = i + 1) {
-          menu->AnmVMArray[i].pendingInterrupt = 7;
+        menu->stateTimer = 0;
+        for (i = 0; i < 0x7a; i = i + 1) {
+          (&menu->vm1)[i].pendingInterrupt = 7;
         }
-        vm_memset = menu->AnmVMArray + 0x5c;
-        for (i = 0; (int)i < 2; i = i + 1) {
-          if (i != g_GameManager.character) {
-            vm_memset->pendingInterrupt = 0;
-            vm_memset[1].pendingInterrupt = 0;
+        vm_memset = (MainMenu *)&menu->field92_0x61c0;
+        for (i = 0; i < 2; i = i + 1) {
+          if (i != (uint)g_GameManager.character) {
+            *(short *)&vm_memset->vm1 = 0;
+            ((AnmVm *)((int)vm_memset + 0x110))->pendingInterrupt = 0;
           }
-          vm_memset = vm_memset + 2;
+          vm_memset = (MainMenu *)((int)vm_memset + 0x220);
         }
-        menu->AnmVMArray[g_GameManager.difficulty + 0x51].pendingInterrupt = 0;
+        (&menu->field81_0x5610)[g_GameManager.difficulty].pendingInterrupt = 0;
         SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xb);
         g_GameManager.shottype = *(byte *)&menu->cursor;
         menu->cursor = (uint)g_GameManager.character;
-        vm_memset = menu->AnmVMArray + 0x56;
-        for (i = 0; (int)i < 2; i = i + 1) {
+        vm_memset = (MainMenu *)&menu->field86_0x5b60;
+        for (i = 0; i < 2; i = i + 1) {
           if (i != menu->cursor) {
-            vm_memset->pendingInterrupt = 0;
-            vm_memset[1].pendingInterrupt = 0;
+            *(short *)&vm_memset->vm1 = 0;
+            ((AnmVm *)((int)vm_memset + 0x110))->pendingInterrupt = 0;
           }
-          vm_memset = vm_memset + 2;
+          vm_memset = (MainMenu *)((int)vm_memset + 0x220);
         }
       }
     }
@@ -639,7 +643,7 @@ LAB_0043666d:
     }
     break;
   case STATE_MUSIC_ROOM:
-    if (0x3b < menu->stateTimerMaybe) {
+    if (0x3b < menu->stateTimer) {
       g_Supervisor.curState = 9;
       return 0;
     }
@@ -658,7 +662,7 @@ LAB_0043666d:
       local_50 = 5;
     }
     MoveCursor(menu,local_50);
-    if (0x1d < menu->stateTimerMaybe) {
+    if (0x1d < menu->stateTimer) {
       if (((g_CurFrameInput & 10) == 0) || ((g_CurFrameInput & 10) == (g_LastFrameInput & 10))) {
         if (((g_CurFrameInput & 0x1001) != 0) &&
            ((g_CurFrameInput & 0x1001) != (g_LastFrameInput & 0x1001))) {
@@ -679,7 +683,7 @@ LAB_00436de7:
             local_48 = 60.0;
           }
           else {
-            for (i = 0; (int)i < (int)menu->unk_10ee0; i = i + 1) {
+            for (i = 0; i < (int)menu->unk_10ee0; i = i + 1) {
               local_48 = local_48 + *(float *)(&menu->field_0x10ee4 + i * 4);
             }
             local_48 = local_48 / (float)i;
@@ -738,47 +742,47 @@ LAB_00436de7:
       }
       else {
         menu->gameState = STATE_SHOT_SELECT;
-        menu->stateTimerMaybe = 0;
-        for (i = 0; (int)i < 122; i = i + 1) {
-          menu->AnmVMArray[i].pendingInterrupt = 13;
+        menu->stateTimer = 0;
+        for (i = 0; i < 122; i = i + 1) {
+          (&menu->vm1)[i].pendingInterrupt = 13;
         }
-        menu->AnmVMArray[g_GameManager.difficulty + uVar23].pendingInterrupt = 0;
-        vm_memset = menu->AnmVMArray + uVar24;
-        for (i = 0; (int)i < 2; i = i + 1) {
-          if (i != g_GameManager.character) {
-            vm_memset->pendingInterrupt = 0;
-            vm_memset[1].pendingInterrupt = 0;
+        (&menu->field81_0x5610)[g_GameManager.difficulty].pendingInterrupt = 0;
+        vm_memset = (MainMenu *)&menu->field86_0x5b60;
+        for (i = 0; i < 2; i = i + 1) {
+          if (i != (uint)g_GameManager.character) {
+            *(short *)&vm_memset->vm1 = 0;
+            ((AnmVm *)((int)vm_memset + 0x110))->pendingInterrupt = 0;
           }
-          vm_memset = vm_memset + 2;
+          vm_memset = (MainMenu *)((int)vm_memset + 0x220);
         }
-        vm_memset = menu->AnmVMArray + uVar25;
-        for (i = 0; (int)i < 2; i = i + 1) {
-          if (i != g_GameManager.character) {
-            vm_memset->pendingInterrupt = 0;
-            vm_memset[1].pendingInterrupt = 0;
+        vm_memset = (MainMenu *)&menu->field92_0x61c0;
+        for (i = 0; i < 2; i = i + 1) {
+          if (i != (uint)g_GameManager.character) {
+            *(short *)&vm_memset->vm1 = 0;
+            ((AnmVm *)((int)vm_memset + 0x110))->pendingInterrupt = 0;
           }
-          vm_memset = vm_memset + 2;
+          vm_memset = (MainMenu *)((int)vm_memset + 0x220);
         }
         menu->cursor = (uint)g_GameManager.shottype;
         SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,10);
       }
     }
   }
-  menu->stateTimerMaybe = menu->stateTimerMaybe + 1;
-  for (i = 0; (int)i < 122; i = i + 1) {
-    if (menu->AnmVMArray[i].sprite == (AnmLoadedSprite *)0x0) {
+  menu->stateTimer = menu->stateTimer + 1;
+  for (i = 0; i < 122; i = i + 1) {
+    if ((&menu->vm1)[i].sprite == (AnmLoadedSprite *)0x0) {
       hasLoadedSprite = false;
     }
-    else if ((int)(menu->AnmVMArray[i].sprite)->sourceFileIndex < 0) {
+    else if ((int)((&menu->vm1)[i].sprite)->sourceFileIndex < 0) {
       hasLoadedSprite = false;
     }
     else {
       hasLoadedSprite =
-           g_AnmManager->textures[(menu->AnmVMArray[i].sprite)->sourceFileIndex] !=
+           g_AnmManager->textures[((&menu->vm1)[i].sprite)->sourceFileIndex] !=
            (IDirect3DTexture8 *)0x0;
     }
     if (hasLoadedSprite) {
-      AnmManager::ExecuteScript(g_AnmManager,menu->AnmVMArray + i);
+      AnmManager::ExecuteScript(g_AnmManager,&menu->vm1 + i);
     }
   }
   return 1;

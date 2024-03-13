@@ -171,11 +171,13 @@ undefined4 __thiscall ResultScreen::OnUpdate(ResultScreen *this,ResultScreen *re
           if ((result_screen->field15_0x24 != result_screen->unk_10) &&
              (result_screen->field1_0x4 == 0x14)) {
             result_screen->field15_0x24 = result_screen->unk_10;
-            FUN_00434e20(g_AnmManager,&result_screen->unk_28a0,0xffffff,0,
-                         (&g_CharacterList)[result_screen->field15_0x24 * 2],unaff_EDI);
-            FUN_00434e20(g_AnmManager,&result_screen->field76_0x29b0,0xffffff,0,
-                         (&PTR_Hakurei_Reimu__Dream__004784dc)[result_screen->field15_0x24 * 2],
-                         unaff_EDI);
+            AnmManager::FUN_00434e20
+                      (g_AnmManager,&result_screen->unk_28a0,0xffffff,0,
+                       (&g_CharacterList)[result_screen->field15_0x24 * 2],unaff_EDI);
+            AnmManager::FUN_00434e20
+                      (g_AnmManager,&result_screen->field76_0x29b0,0xffffff,0,
+                       (&PTR_Hakurei_Reimu__Dream__004784dc)[result_screen->field15_0x24 * 2],
+                       unaff_EDI);
             pRVar2 = extraout_ECX;
           }
           if (0x1d < result_screen->field1_0x4) {

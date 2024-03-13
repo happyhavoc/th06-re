@@ -2,49 +2,50 @@
 undefined4 __thiscall MainMenu::FUN_00439137(MainMenu *this)
 
 {
-  AnmVm *local_c;
-  int local_8;
+  AnmVm *vm_unk;
+  int i;
   int iVar1;
   short sVar2;
   
   MoveCursor(this,9);
-  local_c = this->AnmVMArray + 8;
-  for (local_8 = 0; local_8 < 9; local_8 = local_8 + 1) {
-    if ((local_8 < 5) || (7 < local_8)) {
-      FUN_00438ef8(this,(int)local_c,local_8,local_8,this->cursor);
-      local_c = local_c + 1;
+  vm_unk = &this->field8_0x880;
+  for (i = 0; i < 9; i = i + 1) {
+    if ((i < 5) || (7 < i)) {
+                    /* passing in the same parameter twice. ok */
+      setSavedCursorPosition(this,vm_unk,i,i,this->cursor);
+      vm_unk = vm_unk + 1;
     }
     else {
-      FUN_00438ef8(this,(int)(this->AnmVMArray + local_8 + 0x43),local_8,local_8,this->cursor);
+      setSavedCursorPosition(this,&this->field67_0x4730 + i,i,i,this->cursor);
     }
   }
-  for (local_8 = 0; local_8 < 5; local_8 = local_8 + 1) {
-    FUN_00438ef8(this,(int)local_c,0,local_8,(uint)g_Supervisor.cfg.lifeCount);
-    local_c = local_c + 1;
+  for (i = 0; i < 5; i = i + 1) {
+    setSavedCursorPosition(this,vm_unk,0,i,(uint)g_Supervisor.cfg.lifeCount);
+    vm_unk = vm_unk + 1;
   }
-  for (local_8 = 0; local_8 < 4; local_8 = local_8 + 1) {
-    FUN_00438ef8(this,(int)local_c,1,local_8,(uint)g_Supervisor.cfg.bombCount);
-    local_c = local_c + 1;
+  for (i = 0; i < 4; i = i + 1) {
+    setSavedCursorPosition(this,vm_unk,1,i,(uint)g_Supervisor.cfg.bombCount);
+    vm_unk = vm_unk + 1;
   }
-  for (local_8 = 0; local_8 < 2; local_8 = local_8 + 1) {
-    FUN_00438ef8(this,(int)local_c,2,local_8,(uint)g_Supervisor.cfg.colorMode16bit);
-    local_c = local_c + 1;
+  for (i = 0; i < 2; i = i + 1) {
+    setSavedCursorPosition(this,vm_unk,2,i,(uint)g_Supervisor.cfg.colorMode16bit);
+    vm_unk = vm_unk + 1;
   }
-  for (local_8 = 0; local_8 < 2; local_8 = local_8 + 1) {
-    FUN_00438ef8(this,(int)local_c,4,local_8,(uint)g_Supervisor.cfg.playSounds);
-    local_c = local_c + 1;
+  for (i = 0; i < 2; i = i + 1) {
+    setSavedCursorPosition(this,vm_unk,4,i,(uint)g_Supervisor.cfg.playSounds);
+    vm_unk = vm_unk + 1;
   }
-  local_c = this->AnmVMArray + 0x4d;
-  for (local_8 = 0; local_8 < 3; local_8 = local_8 + 1) {
-    FUN_00438ef8(this,(int)local_c,3,local_8,(uint)g_Supervisor.cfg.musicMode);
-    local_c = local_c + 1;
+  vm_unk = &this->field77_0x51d0;
+  for (i = 0; i < 3; i = i + 1) {
+    setSavedCursorPosition(this,vm_unk,3,i,(uint)g_Supervisor.cfg.musicMode);
+    vm_unk = vm_unk + 1;
   }
-  local_c = this->AnmVMArray + 0x4b;
-  for (local_8 = 0; local_8 < 2; local_8 = local_8 + 1) {
-    FUN_00438ef8(this,(int)local_c,5,local_8,(uint)(byte)this->field_0x8231);
-    local_c = local_c + 1;
+  vm_unk = &this->field75_0x4fb0;
+  for (i = 0; i < 2; i = i + 1) {
+    setSavedCursorPosition(this,vm_unk,5,i,(uint)(byte)this->field_0x8231);
+    vm_unk = vm_unk + 1;
   }
-  if (0x1f < this->stateTimerMaybe) {
+  if (0x1f < this->stateTimer) {
     if ((((g_CurFrameInput & 0x40) != 0) && ((g_CurFrameInput & 0x40) != (g_LastFrameInput & 0x40)))
        || (((g_CurFrameInput & 0x40) != 0 && (DAT_0069d90c != 0)))) {
       iVar1 = this->cursor;
@@ -164,9 +165,9 @@ undefined4 __thiscall MainMenu::FUN_00439137(MainMenu *this)
       }
       else if (iVar1 == 7) {
         this->gameState = STATE_KEYCONFIG;
-        this->stateTimerMaybe = 0;
-        for (local_8 = 0; local_8 < 0x7a; local_8 = local_8 + 1) {
-          this->AnmVMArray[local_8].pendingInterrupt = 5;
+        this->stateTimer = 0;
+        for (i = 0; i < 0x7a; i = i + 1) {
+          (&this->vm1)[i].pendingInterrupt = 5;
         }
         this->cursor = 0;
         SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,10);
@@ -187,9 +188,9 @@ undefined4 __thiscall MainMenu::FUN_00439137(MainMenu *this)
       }
       else if (iVar1 == 8) {
         this->gameState = STATE_MAIN_MENU;
-        this->stateTimerMaybe = 0;
-        for (local_8 = 0; local_8 < 0x7a; local_8 = local_8 + 1) {
-          this->AnmVMArray[local_8].pendingInterrupt = 2;
+        this->stateTimer = 0;
+        for (i = 0; i < 0x7a; i = i + 1) {
+          (&this->vm1)[i].pendingInterrupt = 2;
         }
         this->cursor = 6;
         SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xb);

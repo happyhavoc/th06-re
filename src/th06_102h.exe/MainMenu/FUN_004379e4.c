@@ -6,7 +6,7 @@ int __thiscall MainMenu::FUN_004379e4(MainMenu *this)
   int i;
   D3DXVECTOR3 *d3d_vec;
   
-  if (this->stateTimerMaybe < 0x1e) {
+  if (this->stateTimer < 0x1e) {
     result = 1;
   }
   else if ((((g_CurFrameInput & 0x160b) == 0) ||
@@ -15,18 +15,18 @@ int __thiscall MainMenu::FUN_004379e4(MainMenu *this)
     result = 1;
   }
   else {
-    this->stateTimerMaybe = 0;
+    this->stateTimer = 0;
     this->gameState = STATE_MAIN_MENU;
     for (i = 0; i < 122; i = i + 1) {
-      this->AnmVMArray[i].pendingInterrupt = 2;
+      (&this->vm1)[i].pendingInterrupt = 2;
     }
     if ((g_Supervisor.cfg.opts & 1) == 0) {
-      this->AnmVMArray[this->cursor].color.color = 0xffff0000;
+      (&this->vm1)[this->cursor].color.color = 0xffff0000;
     }
     else {
-      this->AnmVMArray[this->cursor].color.color = 0xffffe0e0;
+      (&this->vm1)[this->cursor].color.color = 0xffffe0e0;
     }
-    d3d_vec = &this->AnmVMArray[this->cursor].pos2;
+    d3d_vec = &(&this->vm1)[this->cursor].pos2;
     d3d_vec->x = -6.0;
     d3d_vec->y = -6.0;
     d3d_vec->z = 0.0;

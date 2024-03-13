@@ -1,5 +1,5 @@
 
-undefined4 * __thiscall MusicRoom::FUN_00425318(void *this)
+undefined4 * __thiscall MusicRoom::FUN_00425318(MusicRoom *this)
 
 {
   int iVar1;
@@ -12,19 +12,19 @@ undefined4 * __thiscall MusicRoom::FUN_00425318(void *this)
   int local_18;
   
   local_18 = 1;
-  local_20 = (AnmVm *)((int)this + 0x24);
+  local_20 = (AnmVm *)(this + 0x24);
   while (local_18 = local_18 + -1, -1 < local_18) {
     AnmVm::AnmVm(local_20);
     local_20 = local_20 + 1;
   }
   local_34 = 0x20;
-  local_3c = (AnmVm *)((int)this + 0x134);
+  local_3c = (AnmVm *)(this + 0x134);
   while (local_34 = local_34 + -1, -1 < local_34) {
     AnmVm::AnmVm(local_3c);
     local_3c = local_3c + 1;
   }
   local_50 = 0x10;
-  local_58 = (AnmVm *)((int)this + 0x2334);
+  local_58 = (AnmVm *)(this + 0x2334);
   while (local_50 = local_50 + -1, -1 < local_50) {
     AnmVm::AnmVm(local_58);
     local_58 = local_58 + 1;

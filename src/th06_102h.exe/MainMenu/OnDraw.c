@@ -13,7 +13,7 @@ undefined4 MainMenu::OnDraw(MainMenu *param_1)
   zRect local_18;
   int local_8;
   
-  curVm = param_1->AnmVMArray;
+  curVm = &param_1->vm1;
   local_18.left = 0.0;
   local_18.top = 0.0;
   local_18.right = 640.0;

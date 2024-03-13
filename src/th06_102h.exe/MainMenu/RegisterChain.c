@@ -18,14 +18,14 @@ ZunResult MainMenu::RegisterChain(int param_1)
   (g_MainMenu.chain_calc)->arg = &g_MainMenu;
   (g_MainMenu.chain_calc)->addedCallback = AddedCallback;
   (g_MainMenu.chain_calc)->deletedCallback = DeletedCallback;
-  g_MainMenu.stateTimerMaybe = 0;
+  g_MainMenu.stateTimer = 0;
   iVar2 = Chain::AddToCalcChain(&g_Chain,g_MainMenu.chain_calc,2);
   if (iVar2 == 0) {
     g_MainMenu.chain_draw = Chain::CreateElem(&g_Chain,OnDraw);
     (g_MainMenu.chain_draw)->arg = &g_MainMenu;
     Chain::AddToDrawChain(&g_Chain,g_MainMenu.chain_draw,0);
     g_MainMenu.unk_10f30 = 0;
-    g_MainMenu.stateTimerMaybe = 0x3c;
+    g_MainMenu.stateTimer = 0x3c;
     g_MainMenu.unk_10f2c = 0;
     ZVar3 = ZUN_SUCCESS;
   }

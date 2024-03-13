@@ -1,6 +1,7 @@
 
-void FUN_00434e20(AnmManager *AnmMgr,AnmVm *vm,undefined4 param_3,undefined4 param_4,char *print_fmt
-                 ,int param_6)
+void AnmManager::FUN_00434e20
+               (AnmManager *AnmMgr,AnmVm *vm,undefined4 param_3,undefined4 param_4,char *print_fmt,
+               int param_6)
 
 {
   uint fontHeight;
@@ -41,9 +42,8 @@ void FUN_00434e20(AnmManager *AnmMgr,AnmVm *vm,undefined4 param_3,undefined4 par
   spriteTextureWidth = __ftol2(vm->sprite->textureWidth);
   spriteSPIYPos = __ftol2((vm->sprite->startPixelInclusive).y);
   spriteSPIXPos = __ftol2((vm->sprite->startPixelInclusive).x);
-  AnmManager::FUN_00434af0
-            (AnmMgr,vm->sprite->sourceFileIndex,spriteSPIXPos,spriteSPIYPos,spriteTextureWidth,
-             spriteTextureHeight,fontWidth,fontHeight,uVar1,uVar2,puVar3);
+  FUN_00434af0(AnmMgr,vm->sprite->sourceFileIndex,spriteSPIXPos,spriteSPIYPos,spriteTextureWidth,
+               spriteTextureHeight,fontWidth,fontHeight,uVar1,uVar2,puVar3);
   buf_reference = buf;
   do {
     current_digested_char = *buf_reference;
@@ -57,9 +57,8 @@ void FUN_00434e20(AnmManager *AnmMgr,AnmVm *vm,undefined4 param_3,undefined4 par
   spriteTextureHeight = __ftol2(vm->sprite->textureHeight);
   spriteTextureWidth = __ftol2(vm->sprite->textureWidth);
   spriteSPIYPos = __ftol2((vm->sprite->startPixelInclusive).y);
-  AnmManager::FUN_00434af0
-            (AnmMgr,vm->sprite->sourceFileIndex,local_c,spriteSPIYPos,spriteTextureWidth,
-             spriteTextureHeight,font_width,fontWidth,param_3,param_4,pcVar4);
+  FUN_00434af0(AnmMgr,vm->sprite->sourceFileIndex,local_c,spriteSPIYPos,spriteTextureWidth,
+               spriteTextureHeight,font_width,fontWidth,param_3,param_4,pcVar4);
   *(uint *)&vm->flags = *(uint *)&vm->flags | 1;
   __security_check_cookie(local_10 ^ unaff_retaddr);
   return;

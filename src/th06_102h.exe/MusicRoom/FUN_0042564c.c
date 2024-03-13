@@ -1,5 +1,5 @@
 
-int __thiscall MusicRoom::FUN_0042564c(void *this,ChainElem *param_1)
+int __thiscall MusicRoom::FUN_0042564c(MusicRoom *this,ChainElem *param_1)
 
 {
   AnmVm *pAVar1;

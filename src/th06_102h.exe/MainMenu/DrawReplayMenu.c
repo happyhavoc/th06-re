@@ -7,10 +7,10 @@ undefined4 __thiscall MainMenu::DrawReplayMenu(MainMenu *this)
   AnmVm *vm_ref;
   
   AsciiManager::AddFormatText
-            (&g_AsciiManager,&this->AnmVMArray[0x62].pos,"No.   Name      Date     Player   Rank");
+            (&g_AsciiManager,&(this->field98_0x6820).pos,"No.   Name      Date     Player   Rank");
                     /* unsure */
   replay_amount = this->chosenReplay - this->chosenReplay % 15;
-  vm_ref = this->AnmVMArray + 0x62;
+  vm_ref = &this->field98_0x6820;
   for (i = replay_amount; (i < replay_amount + 0xf && (i < this->replayFilesNum)); i = i + 1) {
     if ((g_Supervisor.cfg.opts >> 8 & 1 | g_Supervisor.cfg.opts & 1) == 0) {
       if (i == this->chosenReplay) {
@@ -37,18 +37,18 @@ undefined4 __thiscall MainMenu::DrawReplayMenu(MainMenu *this)
     AsciiManager::AddFormatText
               (&g_AsciiManager,&vm_ref[1].pos,"%s %8s  %8s %7s  %7s",this->replayFileNumber + i,
                &this->replay_name_ref + i * 0x14,&this->replay_date_ref + i * 0x14,
-               (&g_shortCharacterList)[(&this->field100_0xfc22)[i * 0x50]],
-               (&g_difficultyList)[(&this->field101_0xfc23)[i * 0x50]]);
+               (&g_shortCharacterList)[(&this->field221_0xfc22)[i * 0x50]],
+               (&g_difficultyList)[(&this->field222_0xfc23)[i * 0x50]]);
     vm_ref = vm_ref + 1;
   }
   if ((this->gameState == STATE_REPLAY_UNLOAD) && (this->replayGameData != (ReplayData *)0x0)) {
     g_AsciiManager.color = 0xffffffff;
     g_AsciiManager.isSelected = 0;
     AsciiManager::AddFormatText
-              (&g_AsciiManager,&this->AnmVMArray[0x61].pos,"       %2.3f%%",
+              (&g_AsciiManager,&(this->field97_0x6710).pos,"       %2.3f%%",
                (double)*(float *)&this->replayGameData->field_0x2c);
-    AsciiManager::AddFormatText(&g_AsciiManager,&this->AnmVMArray[0x72].pos,"Stage  LastScore");
-    vm_ref = this->AnmVMArray + 0x72;
+    AsciiManager::AddFormatText(&g_AsciiManager,&(this->field114_0x7920).pos,"Stage  LastScore");
+    vm_ref = &this->field114_0x7920;
     for (i = 0; i < 7; i = i + 1) {
       if ((g_Supervisor.cfg.opts >> NO_COLOR_COMP & 1 | g_Supervisor.cfg.opts & 1) ==
           USE_D3D_HW_TEXTURE_BLENDING) {

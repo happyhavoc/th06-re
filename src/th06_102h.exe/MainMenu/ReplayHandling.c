@@ -6,8 +6,8 @@ void __thiscall MainMenu::ReplayHandling(MainMenu *this)
   BOOL nextFile;
   int _;
   ReplayData *nextReplayData;
-  char **ppcVar1;
-  char **replayDataMagics;
+  char **headerMemset;
+  char **replayDataMagics2;
   _WIN32_FIND_DATAA replayFileInfo;
   char replayFilePath [64];
   uint stackCookie;
@@ -33,11 +33,11 @@ void __thiscall MainMenu::ReplayHandling(MainMenu *this)
             ZVar2 = validateReplayData(replayData,g_LastFileSize);
             if (ZVar2 == ZUN_SUCCESS) {
               nextReplayData = replayData;
-              ppcVar1 = (char **)(&this->field_0xfc1c + replayFileIdx * 0x50);
+              headerMemset = (char **)(this->replayHeaders + replayFileIdx);
               for (_ = 0x14; _ != 0; _ = _ + -1) {
-                *ppcVar1 = nextReplayData->magic;
+                *headerMemset = nextReplayData->magic;
                 nextReplayData = (ReplayData *)&nextReplayData->version;
-                ppcVar1 = ppcVar1 + 1;
+                headerMemset = headerMemset + 1;
               }
               _strcpy(this->replayFilePaths[replayFileIdx],replayFilePath);
               sprintf(this->replayFileNumber[replayFileIdx],"No.%.2d",cur + 1);
@@ -56,11 +56,11 @@ void __thiscall MainMenu::ReplayHandling(MainMenu *this)
               ZVar2 = validateReplayData(replayData,g_LastFileSize);
               if (ZVar2 == ZUN_SUCCESS) {
                 nextReplayData = replayData;
-                replayDataMagics = (char **)(&this->field_0xfc1c + replayFileIdx * 0x50);
+                replayDataMagics2 = (char **)(this->replayHeaders + replayFileIdx);
                 for (_ = 0x14; _ != 0; _ = _ + -1) {
-                  *replayDataMagics = nextReplayData->magic;
+                  *replayDataMagics2 = nextReplayData->magic;
                   nextReplayData = (ReplayData *)&nextReplayData->version;
-                  replayDataMagics = replayDataMagics + 1;
+                  replayDataMagics2 = replayDataMagics2 + 1;
                 }
                 sprintf(this->replayFilePaths[replayFileIdx],"./replay/%s",replayFileInfo.cFileName)
                 ;
@@ -90,7 +90,7 @@ void __thiscall MainMenu::ReplayHandling(MainMenu *this)
         this->cursor = 0;
       }
       else {
-        GameErrorContextLog(&g_GameErrorContext,"セレクト画面の読み込みに失敗\n");
+        GameErrorContextLog(&g_GameErrorContext,"セレク��画面の読み込みに失敗\n");
         g_Supervisor.curState = 4;
       }
     }
@@ -126,7 +126,7 @@ void __thiscall MainMenu::ReplayHandling(MainMenu *this)
             }
           }
           do {
-            if (*(int *)(&this->field_0xfc50 + this->cursor * 4 + this->chosenReplay * 0x50) != 0)
+            if (*(int *)(this->replayHeaders[this->chosenReplay] + this->cursor * 4 + 0x34) != 0)
             goto LAB_0043877b;
             this->cursor = this->cursor + 1;
           } while (this->cursor < 7);
@@ -154,7 +154,7 @@ LAB_0043877b:
   else if ((gameState == STATE_REPLAY_UNLOAD) && (0x27 < this->stateTimer)) {
     cur = MoveCursor(this,7);
     if (cur < ZUN_SUCCESS) {
-      while (*(int *)(&this->field_0xfc50 + this->cursor * 4 + this->chosenReplay * 0x50) == 0) {
+      while (*(int *)(this->replayHeaders[this->chosenReplay] + this->cursor * 4 + 0x34) == 0) {
         this->cursor = this->cursor + -1;
         if (this->cursor < 0) {
           this->cursor = 6;
@@ -162,7 +162,7 @@ LAB_0043877b:
       }
     }
     else if (ZUN_SUCCESS < cur) {
-      while (*(int *)(&this->field_0xfc50 + this->cursor * 4 + this->chosenReplay * 0x50) == 0) {
+      while (*(int *)(this->replayHeaders[this->chosenReplay] + this->cursor * 4 + 0x34) == 0) {
         this->cursor = this->cursor + 1;
         if (6 < this->cursor) {
           this->cursor = 0;

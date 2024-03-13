@@ -36,9 +36,9 @@ undefined4 __thiscall MainMenu::DrawReplayMenu(MainMenu *this)
                         */
     AsciiManager::AddFormatText
               (&g_AsciiManager,&vm_ref[1].pos,"%s %8s  %8s %7s  %7s",this->replayFileNumber + i,
-               &this->replay_name_ref + i * 0x14,&this->replay_date_ref + i * 0x14,
-               (&g_shortCharacterList)[(&this->field221_0xfc22)[i * 0x50]],
-               (&g_difficultyList)[(&this->field222_0xfc23)[i * 0x50]]);
+               this->replayHeaders[i] + 0x19,this->replayHeaders[i] + 0x10,
+               (&g_shortCharacterList)[(byte)this->replayHeaders[i][6]],
+               (&g_difficultyList)[(byte)this->replayHeaders[i][7]]);
     vm_ref = vm_ref + 1;
   }
   if ((this->gameState == STATE_REPLAY_UNLOAD) && (this->replayGameData != (ReplayData *)0x0)) {

@@ -6,9 +6,10 @@ undefined4 MainMenu::OnUpdate(MainMenu *menu)
 {
   short sVar1;
   DWORD DVar2;
+  ZunResult startedUp;
+  int pressedButton;
   GameState gameState;
   int maxClearCheck;
-  MainMenu *unaff_EDI;
   bool hasLoadedSprite;
   uint local_b8;
   uint local_b4;
@@ -16,7 +17,7 @@ undefined4 MainMenu::OnUpdate(MainMenu *menu)
   uint local_4c;
   float local_48;
   float refresh_rate;
-  undefined4 local_28;
+  short local_28;
   AnmVm *vm_memset;
   uint i;
   float fVar1;
@@ -50,8 +51,8 @@ undefined4 MainMenu::OnUpdate(MainMenu *menu)
   gameState = menu->gameState;
   switch(gameState) {
   case STATE_STARTUP:
-    maxClearCheck = FUN_004378a2();
-    if (maxClearCheck == -1) {
+    startedUp = FUN_004378a2();
+    if (startedUp == ZUN_ERROR) {
       return 0;
     }
   case STATE_PRE_INPUT:
@@ -73,8 +74,8 @@ load_menu_rpy:
     }
                     /* Second implementation of input checking, basically does the same thing as
                        above */
-    maxClearCheck = FUN_004379e4(menu);
-    if (maxClearCheck == 0) {
+    pressedButton = FUN_004379e4(menu);
+    if (pressedButton == 0) {
       menu->idleFrames = 0;
 switchD_004358f7_caseD_2:
       FUN_00437b41(menu);
@@ -85,21 +86,21 @@ switchD_004358f7_caseD_2:
       if (0x2cf < (int)menu->idleFrames) goto load_menu_rpy;
     }
     break;
-  case STATE_2:
+  case STATE_MAIN_MENU:
     goto switchD_004358f7_caseD_2;
-  case STATE_3:
+  case STATE_OPTIONS:
     maxClearCheck = FUN_00439137(menu);
     if (maxClearCheck != 0) {
       return 0;
     }
     break;
-  case STATE_4:
+  case STATE_QUIT:
     if (0x3b < menu->gameSubState) {
       g_Supervisor.curState = 4;
       return 0;
     }
     break;
-  case STATE_5:
+  case STATE_KEYCONFIG:
     MoveCursor(menu,11);
     vm_memset = menu->AnmVMArray + 0x22;
     for (i = 0; (int)i < 0xb; i = i + 1) {
@@ -136,53 +137,51 @@ switchD_004358f7_caseD_2:
     }
     if (0x1f < menu->gameSubState) {
       maxClearCheck = FUN_0041d680();
-      local_28 = local_28 & 0xffff0000;
-      while( true ) {
-        if ((0x1f < (short)local_28) || ((*(byte *)(maxClearCheck + (short)local_28) & 0x80) != 0))
-        break;
-        local_28 = CONCAT22(local_28._2_2_,(short)local_28 + 1);
+      sVar1 = 0;
+      while ((sVar1 < 0x20 && ((*(byte *)(maxClearCheck + sVar1) & 0x80) == 0))) {
+        sVar1 = sVar1 + 1;
       }
-      if (((short)local_28 < 0x20) && (DAT_00478690 != (short)local_28)) {
+      if ((sVar1 < 0x20) && (DAT_00478690 != sVar1)) {
         SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,10);
         switch(menu->cursor) {
         case 0:
-          FUN_00437672(menu,local_28,(menu->controlMapping).shootButton);
-          (menu->controlMapping).shootButton = (short)local_28;
+          FUN_00437672(menu,sVar1,(menu->controlMapping).shootButton,1);
+          (menu->controlMapping).shootButton = sVar1;
           break;
         case 1:
-          FUN_00437672(menu,local_28,(menu->controlMapping).bombButton);
-          (menu->controlMapping).bombButton = (short)local_28;
+          FUN_00437672(menu,sVar1,(menu->controlMapping).bombButton,0);
+          (menu->controlMapping).bombButton = sVar1;
           break;
         case 2:
-          FUN_00437672(menu,local_28,(menu->controlMapping).focusButton);
-          (menu->controlMapping).focusButton = (short)local_28;
+          FUN_00437672(menu,sVar1,(menu->controlMapping).focusButton,1);
+          (menu->controlMapping).focusButton = sVar1;
           break;
         case 3:
-          FUN_00437672(menu,local_28,(menu->controlMapping).menuButton);
-          (menu->controlMapping).menuButton = (short)local_28;
+          FUN_00437672(menu,sVar1,(menu->controlMapping).menuButton,0);
+          (menu->controlMapping).menuButton = sVar1;
           break;
         case 4:
-          FUN_00437672(menu,local_28,(menu->controlMapping).upButton);
-          (menu->controlMapping).upButton = (short)local_28;
+          FUN_00437672(menu,sVar1,(menu->controlMapping).upButton,0);
+          (menu->controlMapping).upButton = sVar1;
           break;
         case 5:
-          FUN_00437672(menu,local_28,(menu->controlMapping).downButton);
-          (menu->controlMapping).downButton = (short)local_28;
+          FUN_00437672(menu,sVar1,(menu->controlMapping).downButton,0);
+          (menu->controlMapping).downButton = sVar1;
           break;
         case 6:
-          FUN_00437672(menu,local_28,(menu->controlMapping).leftButton);
-          (menu->controlMapping).leftButton = (short)local_28;
+          FUN_00437672(menu,sVar1,(menu->controlMapping).leftButton,0);
+          (menu->controlMapping).leftButton = sVar1;
           break;
         case 7:
-          FUN_00437672(menu,local_28,(menu->controlMapping).rightButton);
-          (menu->controlMapping).rightButton = (short)local_28;
+          FUN_00437672(menu,sVar1,(menu->controlMapping).rightButton,0);
+          (menu->controlMapping).rightButton = sVar1;
           break;
         case 8:
-          FUN_00437672(menu,local_28,(menu->controlMapping).skipButton);
-          (menu->controlMapping).skipButton = (short)local_28;
+          FUN_00437672(menu,sVar1,(menu->controlMapping).skipButton,0);
+          (menu->controlMapping).skipButton = sVar1;
         }
       }
-      DAT_00478690 = (short)local_28;
+      DAT_00478690 = sVar1;
       if (((g_CurFrameInput & 0x1001) != 0) &&
          ((g_CurFrameInput & 0x1001) != (g_LastFrameInput & 0x1001))) {
         if (menu->cursor == 9) {
@@ -197,10 +196,10 @@ switchD_004358f7_caseD_2:
           (menu->controlMapping).skipButton = -1;
         }
         else if (menu->cursor == 10) {
-          menu->gameState = STATE_3;
+          menu->gameState = STATE_OPTIONS;
           menu->gameSubState = 0;
-          for (local_28._0_2_ = 0; (short)local_28 < 0x7a; local_28._0_2_ = (short)local_28 + 1) {
-            menu->AnmVMArray[(short)local_28].pendingInterrupt = 3;
+          for (local_28 = 0; local_28 < 0x7a; local_28 = local_28 + 1) {
+            menu->AnmVMArray[local_28].pendingInterrupt = 3;
           }
           menu->cursor = 7;
           SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xb);
@@ -226,7 +225,7 @@ switchD_004358f7_caseD_2:
       }
     }
     break;
-  case STATE_6:
+  case STATE_DIFFICULTY_LOAD:
     if (menu->gameSubState != 0x3c) break;
     maxClearCheck = FUN_00439f88();
     if (maxClearCheck != 0) {
@@ -234,9 +233,9 @@ switchD_004358f7_caseD_2:
       g_Supervisor.curState = 4;
       return 0;
     }
-    menu->gameState = STATE_7;
+    menu->gameState = STATE_DIFFICULTY_SELECT;
     menu->unk_81fc = 0.0;
-    menu->field78_0x8214 = menu->isActive;
+    menu->wasActive = menu->isActive;
     menu->isActive = 0;
     if ((int)g_GameManager.difficulty < 4) {
       for (i = 0; (int)i < 122; i = i + 1) {
@@ -250,14 +249,14 @@ switchD_004358f7_caseD_2:
       }
       menu->cursor = 0;
     }
-  case STATE_8:
+  case STATE_CHARACTER_LOAD:
     if (menu->gameSubState == 36) {
       menu->gameState = STATE_STARTUP;
       menu->gameSubState = 0;
     }
     break;
-  case STATE_7:
-    vm_memset = menu->AnmVMArray + 81;
+  case STATE_DIFFICULTY_SELECT:
+    vm_memset = menu->AnmVMArray + uVar16;
     if ((int)g_GameManager.difficulty < 4) {
       MoveCursor(menu,4);
       for (i = 0; (int)i < 4; i = i + 1) {
@@ -309,7 +308,7 @@ switchD_004358f7_caseD_2:
     if (((g_CurFrameInput & 10) == 0) || ((g_CurFrameInput & 10) == (g_LastFrameInput & 10))) {
       if (((g_CurFrameInput & 0x1001) != 0) &&
          ((g_CurFrameInput & 0x1001) != (g_LastFrameInput & 0x1001))) {
-        menu->gameState = STATE_9;
+        menu->gameState = STATE_CHARACTER_SELECT;
         menu->gameSubState = 0;
         for (i = 0; (int)i < 0x7a; i = i + 1) {
           menu->AnmVMArray[i].pendingInterrupt = 7;
@@ -321,7 +320,7 @@ switchD_004358f7_caseD_2:
           menu->cursor = (uint)g_GameManager.character;
         }
         else {
-          menu->AnmVMArray[85].pendingInterrupt = 8;
+          menu->AnmVMArray[uVar17].pendingInterrupt = 8;
           g_GameManager.difficulty = 4;
           maxClearCheck =
                GameManager::hasReachedMaxClears(&g_GameManager,(uint)g_GameManager.character,0);
@@ -336,7 +335,7 @@ switchD_004358f7_caseD_2:
           }
         }
         g_Supervisor.cfg.defaultDifficulty = (byte)g_GameManager.difficulty;
-        vm_memset = menu->AnmVMArray + 86;
+        vm_memset = menu->AnmVMArray + uVar18;
         for (i = 0; (int)i < 2; i = i + 1) {
           if (i != menu->cursor) {
             vm_memset->pendingInterrupt = 0;
@@ -347,7 +346,7 @@ switchD_004358f7_caseD_2:
       }
     }
     else {
-      menu->gameState = STATE_8;
+      menu->gameState = STATE_CHARACTER_LOAD;
       menu->gameSubState = 0;
       for (i = 0; (int)i < 0x7a; i = i + 1) {
         menu->AnmVMArray[i].pendingInterrupt = 4;
@@ -367,7 +366,7 @@ switchD_004358f7_caseD_2:
       }
     }
     break;
-  case STATE_9:
+  case STATE_CHARACTER_SELECT:
     if (menu->gameSubState < 0x1e) break;
     if ((((g_CurFrameInput & 0x40) == 0) || ((g_CurFrameInput & 0x40) == (g_LastFrameInput & 0x40)))
        && (((g_CurFrameInput & 0x40) == 0 || (DAT_0069d90c == 0)))) {
@@ -439,7 +438,7 @@ LAB_0043666d:
     if (((g_CurFrameInput & 10) == 0) || ((g_CurFrameInput & 10) == (g_LastFrameInput & 10))) {
       if (((g_CurFrameInput & 0x1001) != 0) &&
          ((g_CurFrameInput & 0x1001) != (g_LastFrameInput & 0x1001))) {
-        menu->gameState = STATE_11;
+        menu->gameState = STATE_SHOT_SELECT;
         menu->gameSubState = 0;
         for (i = 0; (int)i < 0x7a; i = i + 1) {
           menu->AnmVMArray[i].pendingInterrupt = 0xd;
@@ -481,7 +480,7 @@ LAB_0043666d:
       }
     }
     else {
-      menu->gameState = STATE_7;
+      menu->gameState = STATE_DIFFICULTY_SELECT;
       menu->gameSubState = 0;
       if ((int)g_GameManager.difficulty < 4) {
         for (i = 0; (int)i < 0x7a; i = i + 1) {
@@ -498,13 +497,13 @@ LAB_0043666d:
       SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xb);
     }
     break;
-  case STATE_10:
+  case STATE_SCORE:
     if (59 < menu->gameSubState) {
       g_Supervisor.curState = 6;
       return 0;
     }
     break;
-  case STATE_11:
+  case STATE_SHOT_SELECT:
     MoveCursor(menu,2);
     if ((g_GameManager.difficulty == 4) &&
        (maxClearCheck =
@@ -560,7 +559,7 @@ LAB_0043666d:
             }
             goto LAB_00436de7;
           }
-          menu->gameState = 0x11;
+          menu->gameState = STATE_PRACTICE_LVL_SELECT;
           menu->gameSubState = 0;
           for (i = 0; (int)i < 0x7a; i = i + 1) {
             menu->AnmVMArray[i].pendingInterrupt = 0x13;
@@ -602,7 +601,7 @@ LAB_0043666d:
         }
       }
       else {
-        menu->gameState = STATE_9;
+        menu->gameState = STATE_CHARACTER_SELECT;
         menu->gameSubState = 0;
         for (i = 0; (int)i < 0x7a; i = i + 1) {
           menu->AnmVMArray[i].pendingInterrupt = 7;
@@ -630,22 +629,22 @@ LAB_0043666d:
       }
     }
     break;
-  case STATE_UNLOAD_TO_REPLAY_MENU:
-  case STATE_REPLAY_MENU:
-  case STATE_14:
-  case STATE_15:
-    ReplayHandling(menu,unaff_EDI);
+  case STATE_REPLAY_LOAD:
+  case STATE_REPLAY_ANIM:
+  case STATE_REPLAY_SELECT:
+  case STATE_REPLAY_UNLOAD:
+    ReplayHandling(menu);
     if (gameState != STATE_STARTUP) {
       return 0;
     }
     break;
-  case 0x10:
+  case STATE_MUSIC_ROOM:
     if (0x3b < menu->gameSubState) {
       g_Supervisor.curState = 9;
       return 0;
     }
     break;
-  case 0x11:
+  case STATE_PRACTICE_LVL_SELECT:
     if (*(byte *)(((uint)g_GameManager.shottype + (uint)g_GameManager.character * 2) * 0x18 +
                   0x69cce1 + g_GameManager.difficulty) < 7) {
       local_b8 = (uint)*(byte *)(((uint)g_GameManager.shottype + (uint)g_GameManager.character * 2)
@@ -738,13 +737,13 @@ LAB_00436de7:
         }
       }
       else {
-        menu->gameState = STATE_11;
+        menu->gameState = STATE_SHOT_SELECT;
         menu->gameSubState = 0;
         for (i = 0; (int)i < 122; i = i + 1) {
           menu->AnmVMArray[i].pendingInterrupt = 13;
         }
-        menu->AnmVMArray[g_GameManager.difficulty + 81].pendingInterrupt = 0;
-        vm_memset = menu->AnmVMArray + 86;
+        menu->AnmVMArray[g_GameManager.difficulty + uVar23].pendingInterrupt = 0;
+        vm_memset = menu->AnmVMArray + uVar24;
         for (i = 0; (int)i < 2; i = i + 1) {
           if (i != g_GameManager.character) {
             vm_memset->pendingInterrupt = 0;
@@ -752,7 +751,7 @@ LAB_00436de7:
           }
           vm_memset = vm_memset + 2;
         }
-        vm_memset = menu->AnmVMArray + 92;
+        vm_memset = menu->AnmVMArray + uVar25;
         for (i = 0; (int)i < 2; i = i + 1) {
           if (i != g_GameManager.character) {
             vm_memset->pendingInterrupt = 0;

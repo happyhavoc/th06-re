@@ -1,54 +1,53 @@
 
-undefined4 __fastcall MainMenu::FUN_00439137(MainMenu *param_1)
+undefined4 __thiscall MainMenu::FUN_00439137(MainMenu *this)
 
 {
-  int iVar1;
-  short sVar2;
   AnmVm *local_c;
   int local_8;
+  int iVar1;
+  short sVar2;
   
-  MoveCursor(param_1,9);
-  local_c = param_1->AnmVMArray + 8;
+  MoveCursor(this,9);
+  local_c = this->AnmVMArray + 8;
   for (local_8 = 0; local_8 < 9; local_8 = local_8 + 1) {
     if ((local_8 < 5) || (7 < local_8)) {
-      FUN_00438ef8(param_1,(int)local_c,local_8,local_8,param_1->cursor);
+      FUN_00438ef8(this,(int)local_c,local_8,local_8,this->cursor);
       local_c = local_c + 1;
     }
     else {
-      FUN_00438ef8(param_1,(int)(param_1->AnmVMArray + local_8 + 0x43),local_8,local_8,
-                   param_1->cursor);
+      FUN_00438ef8(this,(int)(this->AnmVMArray + local_8 + 0x43),local_8,local_8,this->cursor);
     }
   }
   for (local_8 = 0; local_8 < 5; local_8 = local_8 + 1) {
-    FUN_00438ef8(param_1,(int)local_c,0,local_8,(uint)g_Supervisor.cfg.lifeCount);
+    FUN_00438ef8(this,(int)local_c,0,local_8,(uint)g_Supervisor.cfg.lifeCount);
     local_c = local_c + 1;
   }
   for (local_8 = 0; local_8 < 4; local_8 = local_8 + 1) {
-    FUN_00438ef8(param_1,(int)local_c,1,local_8,(uint)g_Supervisor.cfg.bombCount);
+    FUN_00438ef8(this,(int)local_c,1,local_8,(uint)g_Supervisor.cfg.bombCount);
     local_c = local_c + 1;
   }
   for (local_8 = 0; local_8 < 2; local_8 = local_8 + 1) {
-    FUN_00438ef8(param_1,(int)local_c,2,local_8,(uint)g_Supervisor.cfg.colorMode16bit);
+    FUN_00438ef8(this,(int)local_c,2,local_8,(uint)g_Supervisor.cfg.colorMode16bit);
     local_c = local_c + 1;
   }
   for (local_8 = 0; local_8 < 2; local_8 = local_8 + 1) {
-    FUN_00438ef8(param_1,(int)local_c,4,local_8,(uint)g_Supervisor.cfg.playSounds);
+    FUN_00438ef8(this,(int)local_c,4,local_8,(uint)g_Supervisor.cfg.playSounds);
     local_c = local_c + 1;
   }
-  local_c = param_1->AnmVMArray + 0x4d;
+  local_c = this->AnmVMArray + 0x4d;
   for (local_8 = 0; local_8 < 3; local_8 = local_8 + 1) {
-    FUN_00438ef8(param_1,(int)local_c,3,local_8,(uint)g_Supervisor.cfg.musicMode);
+    FUN_00438ef8(this,(int)local_c,3,local_8,(uint)g_Supervisor.cfg.musicMode);
     local_c = local_c + 1;
   }
-  local_c = param_1->AnmVMArray + 0x4b;
+  local_c = this->AnmVMArray + 0x4b;
   for (local_8 = 0; local_8 < 2; local_8 = local_8 + 1) {
-    FUN_00438ef8(param_1,(int)local_c,5,local_8,(uint)(byte)param_1->field_0x8231);
+    FUN_00438ef8(this,(int)local_c,5,local_8,(uint)(byte)this->field_0x8231);
     local_c = local_c + 1;
   }
-  if (0x1f < param_1->gameSubState) {
+  if (0x1f < this->gameSubState) {
     if ((((g_CurFrameInput & 0x40) != 0) && ((g_CurFrameInput & 0x40) != (g_LastFrameInput & 0x40)))
        || (((g_CurFrameInput & 0x40) != 0 && (DAT_0069d90c != 0)))) {
-      iVar1 = param_1->cursor;
+      iVar1 = this->cursor;
       if (iVar1 == 0) {
         SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xc);
         if (g_Supervisor.cfg.lifeCount == 0) {
@@ -89,19 +88,19 @@ undefined4 __fastcall MainMenu::FUN_00439137(MainMenu *param_1)
       }
       else if (iVar1 == 5) {
         SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xc);
-        if (param_1->field_0x8231 == '\0') {
-          param_1->field_0x8231 = 2;
+        if (this->field_0x8231 == '\0') {
+          this->field_0x8231 = 2;
         }
-        param_1->field_0x8231 = param_1->field_0x8231 + -1;
+        this->field_0x8231 = this->field_0x8231 + -1;
       }
     }
     if (((g_CurFrameInput & 10) != 0) && ((g_CurFrameInput & 10) != (g_LastFrameInput & 10))) {
-      param_1->cursor = 8;
+      this->cursor = 8;
       SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xb);
     }
     if ((((g_CurFrameInput & 0x80) != 0) && ((g_CurFrameInput & 0x80) != (g_LastFrameInput & 0x80)))
        || (((g_CurFrameInput & 0x80) != 0 && (DAT_0069d90c != 0)))) {
-      iVar1 = param_1->cursor;
+      iVar1 = this->cursor;
       if (iVar1 == 0) {
         SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xc);
         g_Supervisor.cfg.lifeCount = g_Supervisor.cfg.lifeCount + 1;
@@ -142,15 +141,15 @@ undefined4 __fastcall MainMenu::FUN_00439137(MainMenu *param_1)
       }
       else if (iVar1 == 5) {
         SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xc);
-        param_1->field_0x8231 = param_1->field_0x8231 + '\x01';
-        if (1 < (byte)param_1->field_0x8231) {
-          param_1->field_0x8231 = 0;
+        this->field_0x8231 = this->field_0x8231 + '\x01';
+        if (1 < (byte)this->field_0x8231) {
+          this->field_0x8231 = 0;
         }
       }
     }
     if (((g_CurFrameInput & 0x1001) != 0) &&
        ((g_CurFrameInput & 0x1001) != (g_LastFrameInput & 0x1001))) {
-      iVar1 = param_1->cursor;
+      iVar1 = this->cursor;
       if (iVar1 == 6) {
         Supervisor::FUN_00424d38(&g_Supervisor);
         g_Supervisor.cfg.lifeCount = 2;
@@ -164,41 +163,41 @@ undefined4 __fastcall MainMenu::FUN_00439137(MainMenu *param_1)
         Supervisor::PlayAudio("bgm/th06_01.mid");
       }
       else if (iVar1 == 7) {
-        param_1->gameState = STATE_5;
-        param_1->gameSubState = 0;
+        this->gameState = STATE_KEYCONFIG;
+        this->gameSubState = 0;
         for (local_8 = 0; local_8 < 0x7a; local_8 = local_8 + 1) {
-          param_1->AnmVMArray[local_8].pendingInterrupt = 5;
+          this->AnmVMArray[local_8].pendingInterrupt = 5;
         }
-        param_1->cursor = 0;
+        this->cursor = 0;
         SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,10);
         sVar2 = g_ControllerMapping.bombButton;
-        (param_1->controlMapping).shootButton = g_ControllerMapping.shootButton;
-        (param_1->controlMapping).bombButton = sVar2;
+        (this->controlMapping).shootButton = g_ControllerMapping.shootButton;
+        (this->controlMapping).bombButton = sVar2;
         sVar2 = g_ControllerMapping.menuButton;
-        (param_1->controlMapping).focusButton = g_ControllerMapping.focusButton;
-        (param_1->controlMapping).menuButton = sVar2;
-        (param_1->controlMapping).upButton = g_ControllerMapping.upButton;
-        (param_1->controlMapping).downButton = g_ControllerMapping.downButton;
+        (this->controlMapping).focusButton = g_ControllerMapping.focusButton;
+        (this->controlMapping).menuButton = sVar2;
+        (this->controlMapping).upButton = g_ControllerMapping.upButton;
+        (this->controlMapping).downButton = g_ControllerMapping.downButton;
         sVar2 = g_ControllerMapping.rightButton;
-        (param_1->controlMapping).leftButton = g_ControllerMapping.leftButton;
-        (param_1->controlMapping).rightButton = sVar2;
-        (param_1->controlMapping).skipButton = g_ControllerMapping.skipButton;
+        (this->controlMapping).leftButton = g_ControllerMapping.leftButton;
+        (this->controlMapping).rightButton = sVar2;
+        (this->controlMapping).skipButton = g_ControllerMapping.skipButton;
         g_ControllerMapping.upButton = -1;
         g_ControllerMapping.downButton = -1;
       }
       else if (iVar1 == 8) {
-        param_1->gameState = STATE_2;
-        param_1->gameSubState = 0;
+        this->gameState = STATE_MAIN_MENU;
+        this->gameSubState = 0;
         for (local_8 = 0; local_8 < 0x7a; local_8 = local_8 + 1) {
-          param_1->AnmVMArray[local_8].pendingInterrupt = 2;
+          this->AnmVMArray[local_8].pendingInterrupt = 2;
         }
-        param_1->cursor = 6;
+        this->cursor = 6;
         SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xb);
-        if (((param_1->field_0x8230 != g_Supervisor.cfg.colorMode16bit) ||
-            ((bool)param_1->field_0x8231 != g_Supervisor.cfg.windowed)) ||
-           (param_1->field_0x8232 != g_Supervisor.cfg.frameskipConfig)) {
-          g_Supervisor.cfg.windowed = (bool)param_1->field_0x8231;
-          g_Supervisor.cfg.frameskipConfig = param_1->field_0x8232;
+        if (((this->field_0x8230 != g_Supervisor.cfg.colorMode16bit) ||
+            ((bool)this->field_0x8231 != g_Supervisor.cfg.windowed)) ||
+           (this->field_0x8232 != g_Supervisor.cfg.frameskipConfig)) {
+          g_Supervisor.cfg.windowed = (bool)this->field_0x8231;
+          g_Supervisor.cfg.frameskipConfig = this->field_0x8232;
           g_Supervisor.curState = 5;
           return 1;
         }

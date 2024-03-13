@@ -26,7 +26,7 @@ undefined4 MainMenu::OnDraw(MainMenu *param_1)
         param_1->unk_820c = param_1->unk_820c - 1;
         local_8 = (param_1->maybe_menu_text_color >> 0x18) - ((uint)param_1->unk_81fc >> 0x18);
         DrawSquare(&local_18,
-                   ((local_8 * param_1->unk_820c) / param_1->field78_0x8214 +
+                   ((local_8 * param_1->unk_820c) / param_1->wasActive +
                    ((uint)param_1->unk_81fc >> 0x18)) * 0x1000000 |
                    param_1->maybe_menu_text_color & 0xffffff);
       }

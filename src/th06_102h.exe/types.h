@@ -74583,20 +74583,22 @@ typedef struct MainMenu MainMenu, *PMainMenu;
 typedef enum GameState {
     STATE_STARTUP=0,
     STATE_PRE_INPUT=1 /* screen before you press anything */,
-    STATE_2=2,
-    STATE_3=3,
-    STATE_4=4,
-    STATE_5=5,
-    STATE_6=6,
-    STATE_7=7,
-    STATE_8=8,
-    STATE_9=9,
-    STATE_10=10,
-    STATE_11=11,
-    STATE_UNLOAD_TO_REPLAY_MENU=12,
-    STATE_REPLAY_MENU=13,
-    STATE_14=14,
-    STATE_15=15
+    STATE_MAIN_MENU=2,
+    STATE_OPTIONS=3,
+    STATE_QUIT=4,
+    STATE_KEYCONFIG=5,
+    STATE_DIFFICULTY_LOAD=6,
+    STATE_DIFFICULTY_SELECT=7,
+    STATE_CHARACTER_LOAD=8,
+    STATE_CHARACTER_SELECT=9,
+    STATE_SCORE=10,
+    STATE_SHOT_SELECT=11,
+    STATE_REPLAY_LOAD=12,
+    STATE_REPLAY_ANIM=13,
+    STATE_REPLAY_SELECT=14,
+    STATE_REPLAY_UNLOAD=15,
+    STATE_MUSIC_ROOM=16,
+    STATE_PRACTICE_LVL_SELECT=17
 } GameState;
 
 struct MainMenu {
@@ -74678,7 +74680,7 @@ struct MainMenu {
     D3DCOLOR color1;
     uint unk_820c;
     uint isActive;
-    uint field78_0x8214;
+    uint wasActive;
     undefined field79_0x8218;
     undefined field80_0x8219;
     undefined field81_0x821a;
@@ -79488,7 +79490,7 @@ struct MainMenu {
     undefined field4885_0x10ed9;
     undefined field4886_0x10eda;
     undefined field4887_0x10edb;
-    int *replayGameData;
+    struct ReplayData *replayGameData;
     uint unk_10ee0;
     undefined field4890_0x10ee4;
     undefined field4891_0x10ee5;

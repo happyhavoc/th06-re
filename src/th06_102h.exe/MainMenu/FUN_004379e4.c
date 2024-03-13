@@ -1,12 +1,12 @@
 
-undefined4 __fastcall MainMenu::FUN_004379e4(MainMenu *menu)
+int __thiscall MainMenu::FUN_004379e4(MainMenu *this)
 
 {
-  undefined4 result;
+  int result;
   int i;
   D3DXVECTOR3 *d3d_vec;
   
-  if (menu->gameSubState < 0x1e) {
+  if (this->gameSubState < 0x1e) {
     result = 1;
   }
   else if ((((g_CurFrameInput & 0x160b) == 0) ||
@@ -15,28 +15,28 @@ undefined4 __fastcall MainMenu::FUN_004379e4(MainMenu *menu)
     result = 1;
   }
   else {
-    menu->gameSubState = 0;
-    menu->gameState = STATE_2;
+    this->gameSubState = 0;
+    this->gameState = STATE_MAIN_MENU;
     for (i = 0; i < 122; i = i + 1) {
-      menu->AnmVMArray[i].pendingInterrupt = 2;
+      this->AnmVMArray[i].pendingInterrupt = 2;
     }
     if ((g_Supervisor.cfg.opts & 1) == 0) {
-      menu->AnmVMArray[menu->cursor].color.color = 0xffff0000;
+      this->AnmVMArray[this->cursor].color.color = 0xffff0000;
     }
     else {
-      menu->AnmVMArray[menu->cursor].color.color = 0xffffe0e0;
+      this->AnmVMArray[this->cursor].color.color = 0xffffe0e0;
     }
-    d3d_vec = &menu->AnmVMArray[menu->cursor].pos2;
+    d3d_vec = &this->AnmVMArray[this->cursor].pos2;
     d3d_vec->x = -6.0;
     d3d_vec->y = -6.0;
     d3d_vec->z = 0.0;
-    menu->unk_81fc = 0.0;
-    menu->maybe_menu_text_color = 0x40000000;
-    menu->unk_820c = 0;
+    this->unk_81fc = 0.0;
+    this->maybe_menu_text_color = 0x40000000;
+    this->unk_820c = 0;
                     /* Seems to only get set once the current menu is active (aka the function has
                        been called), 0 when its not ready (loading, or on the title screen), and 60
                        when it is ready and active. */
-    menu->isActive = 60;
+    this->isActive = 60;
     result = 0;
   }
   return result;

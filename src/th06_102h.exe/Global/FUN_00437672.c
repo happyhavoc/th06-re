@@ -1,33 +1,33 @@
 
-void FUN_00437672(int param_1,short param_2,undefined2 param_3,int param_4)
+void FUN_00437672(MainMenu *menu,short param_2,short param_3,BOOL param_4)
 
 {
-  if ((param_4 == 0) && (*(short *)(param_1 + 0x821c) == param_2)) {
-    *(undefined2 *)(param_1 + 0x821c) = param_3;
+  if ((param_4 == 0) && ((menu->controlMapping).shootButton == param_2)) {
+    (menu->controlMapping).shootButton = param_3;
   }
-  if (*(short *)(param_1 + 0x821e) == param_2) {
-    *(undefined2 *)(param_1 + 0x821e) = param_3;
+  if ((menu->controlMapping).bombButton == param_2) {
+    (menu->controlMapping).bombButton = param_3;
   }
-  if ((param_4 == 0) && (*(short *)(param_1 + 0x8220) == param_2)) {
-    *(undefined2 *)(param_1 + 0x8220) = param_3;
+  if ((param_4 == 0) && ((menu->controlMapping).focusButton == param_2)) {
+    (menu->controlMapping).focusButton = param_3;
   }
-  if (*(short *)(param_1 + 0x8224) == param_2) {
-    *(undefined2 *)(param_1 + 0x8224) = param_3;
+  if ((menu->controlMapping).upButton == param_2) {
+    (menu->controlMapping).upButton = param_3;
   }
-  if (*(short *)(param_1 + 0x8226) == param_2) {
-    *(undefined2 *)(param_1 + 0x8226) = param_3;
+  if ((menu->controlMapping).downButton == param_2) {
+    (menu->controlMapping).downButton = param_3;
   }
-  if (*(short *)(param_1 + 0x8228) == param_2) {
-    *(undefined2 *)(param_1 + 0x8228) = param_3;
+  if ((menu->controlMapping).leftButton == param_2) {
+    (menu->controlMapping).leftButton = param_3;
   }
-  if (*(short *)(param_1 + 0x822a) == param_2) {
-    *(undefined2 *)(param_1 + 0x822a) = param_3;
+  if ((menu->controlMapping).rightButton == param_2) {
+    (menu->controlMapping).rightButton = param_3;
   }
-  if (*(short *)(param_1 + 0x8222) == param_2) {
-    *(undefined2 *)(param_1 + 0x8222) = param_3;
+  if ((menu->controlMapping).menuButton == param_2) {
+    (menu->controlMapping).menuButton = param_3;
   }
-  if (*(short *)(param_1 + 0x822c) == param_2) {
-    *(undefined2 *)(param_1 + 0x822c) = param_3;
+  if ((menu->controlMapping).skipButton == param_2) {
+    (menu->controlMapping).skipButton = param_3;
   }
   return;
 }

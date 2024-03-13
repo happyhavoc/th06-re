@@ -10,7 +10,7 @@ undefined4 __thiscall MainMenu::FUN_00439965(MainMenu *this)
   uint local_c;
   int local_8;
   
-  if (this->gameState == 0x11) {
+  if (this->gameState == STATE_PRACTICE_LVL_SELECT) {
     local_20.x = 320.0;
     local_20.y = 200.0;
     local_20.z = 0.0;

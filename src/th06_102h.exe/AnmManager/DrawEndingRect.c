@@ -1,6 +1,6 @@
 
 void __thiscall
-AnmManager::drawEndingRect
+AnmManager::DrawEndingRect
           (AnmManager *this,int surfaceIdx,LONG rectX,LONG rectY,int rectLeft,int rectTop,int width,
           int height)
 

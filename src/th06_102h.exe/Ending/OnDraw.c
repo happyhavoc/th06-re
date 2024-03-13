@@ -12,7 +12,7 @@ undefined4 Ending::OnDraw(Ending *ending)
   rectWidth = 640;
   subFrame = __ftol2((ending->anmTimer4).subFrame);
   prevFrame = __ftol2((float)(ending->anmTimer4).previous);
-  AnmManager::drawEndingRect(g_AnmManager,0,0,0,prevFrame,subFrame,rectWidth,rectHeight);
+  AnmManager::DrawEndingRect(g_AnmManager,0,0,0,prevFrame,subFrame,rectWidth,rectHeight);
   for (i = 0; i < 16; i = i + 1) {
     if ((&ending->AnmVm)[i].anmFileIndex != 0) {
       AnmManager::FUN_00432ad0(g_AnmManager,&ending->AnmVm + i);

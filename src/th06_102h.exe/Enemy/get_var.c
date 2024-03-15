@@ -3,7 +3,7 @@ int * Enemy::get_var(Enemy *param_1,int *eclGvarId,EclValueType *valueType)
 
 {
   int *pfVar1;
-  float10 fVar1;
+  float10 extraout_ST0;
   float local_10;
   float local_c;
   float local_8;
@@ -30,8 +30,8 @@ int * Enemy::get_var(Enemy *param_1,int *eclGvarId,EclValueType *valueType)
     local_8 = g_Player.position.z - (param_1->position).z;
     local_c = g_Player.position.y - (param_1->position).y;
     local_10 = g_Player.position.x - (param_1->position).x;
-    fVar1 = (float10)FUN_0040b890(&local_10);
-    PLAYER_DISTANCE = (float)fVar1;
+    FUN_0040b890(&local_10);
+    PLAYER_DISTANCE = (float)extraout_ST0;
     if (valueType != (EclValueType *)0x0) {
       *valueType = ECL_VALUE_TYPE_READONLY;
     }

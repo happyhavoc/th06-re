@@ -103,7 +103,7 @@ void InitD3dRendering(void)
                          D3DCREATE_SOFTWARE_VERTEXPROCESSING,&present_params,&g_Supervisor.d3dDevice
                         );
       if (HVar2 < 0) {
-        GameErrorContextLog(&g_GameErrorContext,"HAL も使用でき���いようです\n");
+        GameErrorContextLog(&g_GameErrorContext,"HAL も使用できないようです\n");
         goto LAB_00421077;
       }
       GameErrorContextLog(&g_GameErrorContext,"HAL で動作します\n");

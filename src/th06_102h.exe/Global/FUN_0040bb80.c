@@ -17,12 +17,12 @@ void FUN_0040bb80(Enemy *param_1,EclRawInstr *param_2)
   
   if ((param_1->current_context).var2 < (param_1->current_context).var3) {
     if ((param_1->current_context).var2 == 0) {
-      FLOAT_00487f5c = (param_1->position).x;
-      FLOAT_00487f60 = (param_1->position).y;
-      FLOAT_00487f64 = (param_1->position).z;
-      FLOAT_00487f68 = g_Player.position.x;
-      FLOAT_00487f6c = g_Player.position.y;
-      FLOAT_00487f70 = g_Player.position.z;
+      g_EnemyX = (param_1->position).x;
+      g_EnemyY = (param_1->position).y;
+      g_EnemyZ = (param_1->position).z;
+      g_PlayerX = g_Player.position.x;
+      g_PlayerY = g_Player.position.y;
+      g_PlayerZ = g_Player.position.z;
       fVar8 = Rng::GetRandomF32ZeroToOne(&g_Rng);
       FLOAT_ARRAY_00487edc[0] = fVar8 * 6.283185 - 3.141593;
       FLOAT_ARRAY_00487edc[1] = add_normalize_angle(FLOAT_ARRAY_00487edc[0],2.513274);
@@ -38,8 +38,8 @@ void FUN_0040bb80(Enemy *param_1,EclRawInstr *param_2)
     if ((param_1->current_context).var2 % 6 == 0) {
       fVar8 = (float)(param_1->current_context).var2 / (float)(param_1->current_context).var3;
       fVar4 = fVar8 * 0.1;
-      fVar6 = (FLOAT_00487f6c - FLOAT_00487f60) * fVar4 + FLOAT_00487f60;
-      fVar4 = (FLOAT_00487f68 - FLOAT_00487f5c) * fVar4 + FLOAT_00487f5c;
+      fVar6 = (g_PlayerY - g_EnemyY) * fVar4 + g_EnemyY;
+      fVar4 = (g_PlayerX - g_EnemyX) * fVar4 + g_EnemyX;
       fVar8 = fVar8 + 0.5;
       (param_1->bullet_props).angle1 = fVar8 * 1.047198;
       for (local_8 = 0; local_8 < 5; local_8 = local_8 + 1) {

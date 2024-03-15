@@ -31,16 +31,17 @@ int __thiscall AnmManager::ExecuteScript(AnmManager *this,AnmVm *vm)
 LAB_00434098:
   local_24 = (AnmRawInstr *)0x0;
   for (local_8 = vm->beginingOfScript;
-      (((local_8->opcode != AnmOpcode_22 || ((int)vm->pendingInterrupt != local_8->args[0])) &&
-       (local_8->opcode != AnmOpcode_Exit)) && (local_8->opcode != AnmOpcode_ExitHide));
+      (((local_8->opcode != AnmOpcode_InterruptLabel ||
+        ((int)vm->pendingInterrupt != local_8->args[0])) && (local_8->opcode != AnmOpcode_Exit)) &&
+      (local_8->opcode != AnmOpcode_ExitHide));
       local_8 = (AnmRawInstr *)((int)local_8->args + (uint)local_8->argsCount)) {
-    if ((local_8->opcode == AnmOpcode_22) && (local_8->args[0] == 0xffffffff)) {
+    if ((local_8->opcode == AnmOpcode_InterruptLabel) && (local_8->args[0] == 0xffffffff)) {
       local_24 = local_8;
     }
   }
   vm->pendingInterrupt = 0;
   *(uint *)&vm->flags = *(uint *)&vm->flags & 0xffffdfff;
-  if (local_8->opcode != AnmOpcode_22) {
+  if (local_8->opcode != AnmOpcode_InterruptLabel) {
     if (local_24 == (AnmRawInstr *)0x0) {
       ZunTimer::Decrement(&vm->currentTimeInScript,1);
       goto LAB_00434338;
@@ -76,7 +77,7 @@ LAB_00433998:
   case AnmOpcode_SetColor:
     (vm->color).color = (vm->color).color & 0xff000000 | local_8->args[0] & 0xffffff;
     break;
-  case AnmOpcode_5:
+  case AnmOpcode_Jump:
     goto switchD_004339dd_caseD_5;
   case AnmOpcode_FlipX:
     *(uint *)&vm->flags = *(uint *)&vm->flags & 0xffffff3f | (*(uint *)&vm->flags >> 6 & 3 ^ 1) << 6
@@ -100,13 +101,13 @@ LAB_00433998:
     local_14 = local_8->args + 2;
     (vm->angleVel).z = (float)*local_14;
     break;
-  case AnmOpcode_11:
+  case AnmOpcode_SetScaleSpeed:
     vm->scaleInterpFinalX = (float)local_8->args[0];
     local_18 = local_8->args + 1;
     vm->scaleInterpFinalY = (float)*local_18;
     vm->scaleInterpEndTime = 0;
     break;
-  case AnmOpcode_12:
+  case AnmOpcode_Fade:
     local_20 = local_8->args;
     vm->alphaInterpInitial = (D3DCOLOR)vm->color;
     vm->alphaInterpFinal = (vm->color).color & 0xffffff | *local_20 << 0x18;
@@ -115,13 +116,13 @@ LAB_00433998:
     (vm->alphaInterpTime).subFrame = 0.0;
     (vm->alphaInterpTime).previous = -999;
     break;
-  case AnmOpcode_13:
+  case AnmOpcode_SetBlendAdditive:
     *(uint *)&vm->flags = *(uint *)&vm->flags | 4;
     break;
-  case AnmOpcode_14:
+  case AnmOpcode_SetBlendDefault:
     *(uint *)&vm->flags = *(uint *)&vm->flags & 0xfffffffb;
     break;
-  case AnmOpcode_16:
+  case AnmOpcode_SetRandomSprite:
     *(uint *)&vm->flags = *(uint *)&vm->flags | 1;
     local_c = local_8->args;
     uVar1 = *(ushort *)(local_8->args + 1);
@@ -135,7 +136,7 @@ LAB_00433998:
     SetActiveSprite(this,vm,*local_c + local_e0 + this->spriteIndices[vm->anmFileIndex]);
     vm->timeOfLastSpriteSet = (vm->currentTimeInScript).current;
     break;
-  case AnmOpcode_17:
+  case AnmOpcode_SetTranslation:
     if ((*(uint *)&vm->flags >> 5 & 1) == 0) {
       fVar5 = (float)local_8->args[2];
       fVar2 = (float)local_8->args[1];
@@ -151,13 +152,13 @@ LAB_00433998:
       (vm->pos2).z = fVar5;
     }
     break;
-  case AnmOpcode_18:
+  case AnmOpcode_PosTimeLinear:
     *(uint *)&vm->flags = *(uint *)&vm->flags & 0xfffff3ff;
     goto LAB_00433f53;
-  case AnmOpcode_19:
+  case AnmOpcode_PosTimeDecel:
     *(uint *)&vm->flags = *(uint *)&vm->flags & 0xfffff3ff | 0x400;
     goto LAB_00433f53;
-  case AnmOpcode_20:
+  case AnmOpcode_PosTimeAccel:
     *(uint *)&vm->flags = *(uint *)&vm->flags & 0xfffff3ff | 0x800;
 LAB_00433f53:
     if ((*(uint *)&vm->flags >> 5 & 1) == 0) {
@@ -217,7 +218,7 @@ LAB_00433f53:
       (vm->uvScrollPos).y = (vm->uvScrollPos).y - 1.0;
     }
     break;
-  case AnmOpcode_29:
+  case AnmOpcode_SetVisibility:
     *(uint *)&vm->flags = *(uint *)&vm->flags & 0xfffffffe | local_8->args[0] & 1;
     break;
   case AnmOpcode_30:

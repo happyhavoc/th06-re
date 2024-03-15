@@ -54,7 +54,7 @@ ZunResult BulletManager::AddedCallback(BulletManager *arg)
     AnmManager::SetAndExecuteScript(pAVar3,pAVar1,pAVar3->scripts[iVar6]);
     pAVar3 = g_AnmManager;
     iVar6 = *(int *)(&DAT_0046a6f8 + local_8 * 0x14);
-    pAVar1 = &arg->bullet_type_templates[local_8].vm5;
+    pAVar1 = &arg->bullet_type_templates[local_8].spawn_effect_short_with_memset;
     local_3c = (short)iVar6;
     pAVar1->anmFileIndex = local_3c;
     AnmManager::SetAndExecuteScript(pAVar3,pAVar1,pAVar3->scripts[iVar6]);

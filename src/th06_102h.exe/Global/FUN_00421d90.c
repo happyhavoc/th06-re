@@ -2,10 +2,10 @@
 int FUN_00421d90(byte **param_1)
 
 {
-  byte bVar1;
   int iVar2;
   undefined3 uStack_8;
   undefined uStack_5;
+  byte bVar1;
   
   uStack_8 = 0;
   uStack_5 = 0;

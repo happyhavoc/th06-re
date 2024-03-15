@@ -2,17 +2,10 @@
 void __thiscall ItemManager::FUN_0041f4a0(ItemManager *this)
 
 {
-  float fVar1;
-  float fVar2;
-  float fVar3;
-  float10 fVar4;
-  float fVar5;
-  float fVar6;
-  bool bVar7;
   int iVar8;
   long lVar9;
   float10 fVar10;
-  float fVar11;
+  float fVar7;
   int local_ec;
   int local_e8;
   int local_e4;
@@ -22,6 +15,13 @@ void __thiscall ItemManager::FUN_0041f4a0(ItemManager *this)
   Item *curItem;
   int local_c;
   int local_8;
+  bool bVar7;
+  float fVar1;
+  float fVar2;
+  float fVar3;
+  float10 fVar4;
+  float fVar5;
+  float fVar6;
   
   if ((DAT_0069e240 & 1) == 0) {
     DAT_0069e240 = DAT_0069e240 | 1;
@@ -53,21 +53,21 @@ void __thiscall ItemManager::FUN_0041f4a0(ItemManager *this)
         }
         fVar5 = ((float)(curItem->timer).current + (curItem->timer).subFrame) / 60.0;
         fVar6 = 1.0 - fVar5;
-        fVar11 = (curItem->velocity).z;
+        fVar7 = (curItem->velocity).z;
         fVar1 = (curItem->velocity).y;
         fVar2 = (curItem->unk).z;
         fVar3 = (curItem->unk).y;
         (curItem->position).x = fVar5 * (curItem->unk).x + fVar6 * (curItem->velocity).x;
         (curItem->position).y = fVar5 * fVar3 + fVar6 * fVar1;
-        (curItem->position).z = fVar5 * fVar2 + fVar6 * fVar11;
+        (curItem->position).z = fVar5 * fVar2 + fVar6 * fVar7;
       }
       else {
         if ((curItem->state == 1) ||
            ((0x7f < g_GameManager.current_power &&
             (g_Player.position.y < 128.0 != NAN(g_Player.position.y))))) {
-          fVar11 = Player::FUN_00428700(&g_Player,&(curItem->position).x);
-          fVar4 = (float10)fcos((float10)fVar11);
-          fVar10 = (float10)fsin((float10)fVar11);
+          fVar7 = Player::FUN_00428700(&g_Player,&(curItem->position).x);
+          fVar4 = (float10)fcos((float10)fVar7);
+          fVar10 = (float10)fsin((float10)fVar7);
           (curItem->velocity).x = (float)(fVar4 * (float10)8.0);
           (curItem->velocity).y = (float)(fVar10 * (float10)8.0);
           curItem->state = 1;
@@ -75,28 +75,28 @@ void __thiscall ItemManager::FUN_0041f4a0(ItemManager *this)
         else {
           (curItem->velocity).x = 0.0;
           (curItem->velocity).z = 0.0;
-          fVar11 = (curItem->velocity).y;
-          if (fVar11 < -2.2 != NAN(fVar11)) {
+          fVar7 = (curItem->velocity).y;
+          if (fVar7 < -2.2 != NAN(fVar7)) {
             (curItem->velocity).y = -2.2;
           }
         }
 LAB_0041f7c5:
-        fVar11 = g_Supervisor.effectiveFramerateMultiplier * (curItem->velocity).z;
+        fVar7 = g_Supervisor.effectiveFramerateMultiplier * (curItem->velocity).z;
         fVar1 = g_Supervisor.effectiveFramerateMultiplier * (curItem->velocity).y;
         (curItem->position).x =
              g_Supervisor.effectiveFramerateMultiplier * (curItem->velocity).x +
              (curItem->position).x;
         (curItem->position).y = fVar1 + (curItem->position).y;
-        (curItem->position).z = fVar11 + (curItem->position).z;
-        fVar11 = (curItem->position).y;
-        if (g_GameManager.arcade_region_size.y + 16.0 < fVar11 !=
-            (g_GameManager.arcade_region_size.y + 16.0 == fVar11)) {
+        (curItem->position).z = fVar7 + (curItem->position).z;
+        fVar7 = (curItem->position).y;
+        if (g_GameManager.arcade_region_size.y + 16.0 < fVar7 !=
+            (g_GameManager.arcade_region_size.y + 16.0 == fVar7)) {
           curItem->is_in_use = 0;
           GameManager::FUN_0041c5fa(&g_GameManager,3);
           goto LAB_0041f512;
         }
-        fVar11 = (curItem->velocity).y;
-        if (fVar11 < 3.0 == NAN(fVar11)) {
+        fVar7 = (curItem->velocity).y;
+        if (fVar7 < 3.0 == NAN(fVar7)) {
           (curItem->velocity).y = 3.0;
         }
         else {
@@ -123,7 +123,7 @@ LAB_0041f7c5:
             if (0x7f < g_GameManager.current_power) {
               g_GameManager.current_power = 0x80;
               BulletManager::FUN_00414340(&g_BulletManager);
-              FUN_004173d9(0);
+              Gui::FUN_004173d9(&g_Gui,0);
             }
             g_GameManager.score = g_GameManager.score + 10;
             g_Gui.flags = g_Gui.flags & 0xffffffcf | 0x20;
@@ -215,8 +215,8 @@ LAB_0041f7c5:
                g_GameManager.point_items_collected_in_stage + 1;
           g_GameManager.field18_0x1816 = g_GameManager.field18_0x1816 + 1;
           g_Gui.flags = g_Gui.flags & 0xfffffcff | 0x200;
-          fVar11 = (curItem->position).y;
-          if (fVar11 < 128.0 == NAN(fVar11)) {
+          fVar7 = (curItem->position).y;
+          if (fVar7 < 128.0 == NAN(fVar7)) {
             GameManager::IncreaseSubrank(&g_GameManager,3);
           }
           else {
@@ -233,7 +233,7 @@ LAB_0041f7c5:
             if (0x7f < g_GameManager.current_power) {
               g_GameManager.current_power = 0x80;
               BulletManager::FUN_00414340(&g_BulletManager);
-              FUN_004173d9(0);
+              Gui::FUN_004173d9(&g_Gui,0);
             }
             g_Gui.flags = g_Gui.flags & 0xffffffcf | 0x20;
             g_GameManager.score = g_GameManager.score + 10;
@@ -270,7 +270,7 @@ LAB_0041f7c5:
         case 4:
           if (g_GameManager.current_power < 0x80) {
             BulletManager::FUN_00414340(&g_BulletManager);
-            FUN_004173d9(0);
+            Gui::FUN_004173d9(&g_Gui,0);
             SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0x1f);
             AsciiManager::CreatePopup1(&g_AsciiManager,&curItem->position,-1,0xff80c0ff);
           }

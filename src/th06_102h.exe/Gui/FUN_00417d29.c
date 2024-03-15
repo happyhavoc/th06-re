@@ -72,8 +72,8 @@ ZunResult __fastcall Gui::FUN_00417d29(Gui *gui)
     if (loadAnm != ZUN_SUCCESS) {
       return ZUN_ERROR;
     }
-    iVar1 = FUN_00418665((int)gui,"data/msg1.dat");
-    if (iVar1 != 0) {
+    loadAnm = FUN_00418665(gui,"data/msg1.dat");
+    if (loadAnm != ZUN_SUCCESS) {
       return ZUN_ERROR;
     }
   }
@@ -82,8 +82,8 @@ ZunResult __fastcall Gui::FUN_00417d29(Gui *gui)
     if (loadAnm != ZUN_SUCCESS) {
       return ZUN_ERROR;
     }
-    iVar1 = FUN_00418665((int)gui,"data/msg2.dat");
-    if (iVar1 != 0) {
+    loadAnm = FUN_00418665(gui,"data/msg2.dat");
+    if (loadAnm != ZUN_SUCCESS) {
       return ZUN_ERROR;
     }
   }
@@ -96,8 +96,8 @@ ZunResult __fastcall Gui::FUN_00417d29(Gui *gui)
     if (loadAnm != ZUN_SUCCESS) {
       return ZUN_ERROR;
     }
-    iVar1 = FUN_00418665((int)gui,"data/msg3.dat");
-    if (iVar1 != 0) {
+    loadAnm = FUN_00418665(gui,"data/msg3.dat");
+    if (loadAnm != ZUN_SUCCESS) {
       return ZUN_ERROR;
     }
   }
@@ -110,8 +110,8 @@ ZunResult __fastcall Gui::FUN_00417d29(Gui *gui)
     if (loadAnm != ZUN_SUCCESS) {
       return ZUN_ERROR;
     }
-    iVar1 = FUN_00418665((int)gui,"data/msg4.dat");
-    if (iVar1 != 0) {
+    loadAnm = FUN_00418665(gui,"data/msg4.dat");
+    if (loadAnm != ZUN_SUCCESS) {
       return ZUN_ERROR;
     }
   }
@@ -124,8 +124,8 @@ ZunResult __fastcall Gui::FUN_00417d29(Gui *gui)
     if (loadAnm != ZUN_SUCCESS) {
       return ZUN_ERROR;
     }
-    iVar1 = FUN_00418665((int)gui,"data/msg5.dat");
-    if (iVar1 != 0) {
+    loadAnm = FUN_00418665(gui,"data/msg5.dat");
+    if (loadAnm != ZUN_SUCCESS) {
       return ZUN_ERROR;
     }
   }
@@ -142,8 +142,8 @@ ZunResult __fastcall Gui::FUN_00417d29(Gui *gui)
     if (loadAnm != ZUN_SUCCESS) {
       return ZUN_ERROR;
     }
-    iVar1 = FUN_00418665((int)gui,"data/msg6.dat");
-    if (iVar1 != 0) {
+    loadAnm = FUN_00418665(gui,"data/msg6.dat");
+    if (loadAnm != ZUN_SUCCESS) {
       return ZUN_ERROR;
     }
   }
@@ -160,8 +160,8 @@ ZunResult __fastcall Gui::FUN_00417d29(Gui *gui)
     if (loadAnm != ZUN_SUCCESS) {
       return ZUN_ERROR;
     }
-    iVar1 = FUN_00418665((int)gui,"data/msg7.dat");
-    if (iVar1 != 0) {
+    loadAnm = FUN_00418665(gui,"data/msg7.dat");
+    if (loadAnm != ZUN_SUCCESS) {
       return ZUN_ERROR;
     }
   }

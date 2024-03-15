@@ -2,12 +2,12 @@
 undefined4 __thiscall GameWindow::Render(GameWindow *this)
 
 {
-  double dVar1;
-  bool bVar2;
-  DWORD DVar3;
+  bool bVar1;
+  DWORD delta;
   double local_34;
   D3DVIEWPORT8 viewport;
   int local_8;
+  double slowDown;
   
   if (this->lastActiveAppValue != 0) {
     if (this->curFrame != 0) goto L3;
@@ -52,23 +52,23 @@ undefined4 __thiscall GameWindow::Render(GameWindow *this)
 L3:
         if (g_Supervisor.cfg.windowed != false) break;
         if (((g_Supervisor.cfg.opts >> FORCE_60FPS & 1) == 0) || (g_Supervisor.vsyncEnabled == 0)) {
-          bVar2 = false;
+          bVar1 = false;
         }
         else {
-          bVar2 = true;
+          bVar1 = true;
         }
-        if (bVar2) break;
+        if (bVar1) break;
 L11:
         if (g_Supervisor.cfg.windowed != false) {
           return 0;
         }
         if (((g_Supervisor.cfg.opts >> FORCE_60FPS & 1) == 0) || (g_Supervisor.vsyncEnabled == 0)) {
-          bVar2 = false;
+          bVar1 = false;
         }
         else {
-          bVar2 = true;
+          bVar1 = true;
         }
-        if (bVar2) {
+        if (bVar1) {
           return 0;
         }
         if (g_Supervisor.cfg.frameskipConfig < this->curFrame) goto L15;
@@ -77,12 +77,12 @@ L11:
       if (this->curFrame == 0) goto L11;
       g_Supervisor.framerateMultiplier = 1.0;
       timeBeginPeriod(1);
-      DVar3 = timeGetTime();
-      dVar1 = (double)(ulonglong)DVar3;
-      if (dVar1 < g_LastFrameTime != (NAN(dVar1) || NAN(g_LastFrameTime))) {
-        g_LastFrameTime = dVar1;
+      delta = timeGetTime();
+      slowDown = (double)(ulonglong)delta;
+      if (slowDown < g_LastFrameTime != (NAN(slowDown) || NAN(g_LastFrameTime))) {
+        g_LastFrameTime = slowDown;
       }
-      local_34 = _fabs(dVar1 - g_LastFrameTime);
+      local_34 = _fabs(slowDown - g_LastFrameTime);
       timeEndPeriod(1);
       if (local_34 < 16.66666666666667) goto L11;
       do {
@@ -97,14 +97,14 @@ L15:
     }
     else if (1 < (int)g_TickCountToEffectiveFramerate) {
       timeBeginPeriod(1);
-      DVar3 = timeGetTime();
-      if (DVar3 < (uint)g_Supervisor.lastFrameTime) {
-        g_Supervisor.lastFrameTime = DVar3;
+      delta = timeGetTime();
+      if (delta < g_Supervisor.lastFrameTime) {
+        g_Supervisor.lastFrameTime = delta;
       }
-      dVar1 = ((((double)(ulonglong)(DVar3 - g_Supervisor.lastFrameTime) * 60.0) / 2.0) / 1000.0) /
-              (double)(g_Supervisor.cfg.frameskipConfig + 1);
-      if (dVar1 < 0.865) {
-        if (dVar1 < 0.6) {
+      slowDown = ((((double)(ulonglong)(delta - g_Supervisor.lastFrameTime) * 60.0) / 2.0) / 1000.0)
+                 / (double)(g_Supervisor.cfg.frameskipConfig + 1);
+      if (slowDown < 0.865) {
+        if (slowDown < 0.6) {
           g_Supervisor.effectiveFramerateMultiplier = 0.5;
         }
         else {
@@ -114,7 +114,7 @@ L15:
       else {
         g_Supervisor.effectiveFramerateMultiplier = 1.0;
       }
-      g_Supervisor.lastFrameTime = DVar3;
+      g_Supervisor.lastFrameTime = delta;
       timeEndPeriod(1);
       g_TickCountToEffectiveFramerate = 0;
     }

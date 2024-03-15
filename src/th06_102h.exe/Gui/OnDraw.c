@@ -115,8 +115,10 @@ void Gui::OnDraw(Gui *arg)
     AsciiManager::AddFormatText
               (&g_AsciiManager,&(arg->impl->field17_0x2c24).field0_0x0,"Spell Card Bonus!");
     (arg->impl->field17_0x2c24).field0_0x0.y = (arg->impl->field17_0x2c24).field0_0x0.y + 16.0;
-    sprintf(&local_34,(char *)&PTR_g_BulletManager_bullets_418__vms_vm5_pos2_y_3_0046a7f4,
-            (arg->impl->field17_0x2c24).field1_0xc);
+    sprintf(&local_34,
+            (char *)&
+                    PTR_g_BulletManager_bullets_418__vms_spawn_effect_short_with_memset_pos2_y_3_0046a7f4
+            ,(arg->impl->field17_0x2c24).field1_0xc);
     local_40 = &local_34;
     do {
       cVar1 = *local_40;

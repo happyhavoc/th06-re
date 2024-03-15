@@ -7,7 +7,7 @@ ZunResult GameManager::DeletedCallback(GameManager *param_1)
     Supervisor::FUN_00424d38(&g_Supervisor);
   }
   Stage::CutChain();
-  FUN_004172b0();
+  CutBulletManagerChains();
   Player::CutChain();
   EnemyManager::CutChain();
   COleDispParams::~COleDispParams((COleDispParams *)&g_EclManager);

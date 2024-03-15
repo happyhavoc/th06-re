@@ -114,8 +114,8 @@ BulletManager::FUN_004135b0
       pBVar6 = (BulletTypeVms *)&(pBVar6->vm0).rotation.y;
       pBVar8 = (Bullet *)&(pBVar8->vms).vm0.rotation.y;
     }
-    pAVar7 = &this->bullet_type_templates[(short)param_1->sprite].vm5;
-    pAVar9 = &(local_10->vms).vm5;
+    pAVar7 = &this->bullet_type_templates[(short)param_1->sprite].spawn_effect_short_with_memset;
+    pAVar9 = &(local_10->vms).spawn_effect_short_with_memset;
     for (iVar5 = 0x44; iVar5 != 0; iVar5 = iVar5 + -1) {
       (pAVar9->rotation).x = (pAVar7->rotation).x;
       pAVar7 = (AnmVm *)&(pAVar7->rotation).y;
@@ -252,24 +252,26 @@ BulletManager::FUN_004135b0
       fVar12 = ((local_10->vms).vm0.sprite)->heightPx;
       if (fVar12 < 32.0 == (fVar12 == 32.0)) {
         AnmManager::SetActiveSprite
-                  (g_AnmManager,&(local_10->vms).vm5,
-                   (int)(local_10->vms).vm5.spriteNumber + (int)(short)param_1->color);
+                  (g_AnmManager,&(local_10->vms).spawn_effect_short_with_memset,
+                   (int)(local_10->vms).spawn_effect_short_with_memset.spriteNumber +
+                   (int)(short)param_1->color);
       }
       else if ((local_10->vms).vm0.anmFileIndex == 0x207) {
         AnmManager::SetActiveSprite
-                  (g_AnmManager,&(local_10->vms).vm5,(int)(local_10->vms).vm5.spriteNumber + 1);
+                  (g_AnmManager,&(local_10->vms).spawn_effect_short_with_memset,
+                   (int)(local_10->vms).spawn_effect_short_with_memset.spriteNumber + 1);
       }
       else {
         AnmManager::SetActiveSprite
-                  (g_AnmManager,&(local_10->vms).vm5,
-                   (int)(local_10->vms).vm5.spriteNumber +
+                  (g_AnmManager,&(local_10->vms).spawn_effect_short_with_memset,
+                   (int)(local_10->vms).spawn_effect_short_with_memset.spriteNumber +
                    *(int *)(&DAT_00476480 + (short)param_1->color * 4));
       }
     }
     else {
       AnmManager::SetActiveSprite
-                (g_AnmManager,&(local_10->vms).vm5,
-                 (int)(local_10->vms).vm5.spriteNumber +
+                (g_AnmManager,&(local_10->vms).spawn_effect_short_with_memset,
+                 (int)(local_10->vms).spawn_effect_short_with_memset.spriteNumber +
                  *(int *)(&DAT_00476440 + (short)param_1->color * 4));
     }
     if ((local_10->ex_flags & 0x10) == 0) {

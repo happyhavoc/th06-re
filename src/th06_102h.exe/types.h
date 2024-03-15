@@ -15,6 +15,7 @@ typedef unsigned long    ulong;
 typedef unsigned long long    ulonglong;
 typedef unsigned char    undefined1;
 typedef unsigned short    undefined2;
+typedef unsigned int    undefined3;
 typedef unsigned int    undefined4;
 typedef unsigned long long    undefined5;
 typedef unsigned long long    undefined6;
@@ -1712,31 +1713,31 @@ typedef enum AnmOpcode {
     AnmOpcode_SetScale=2,
     AnmOpcode_SetAlpha=3,
     AnmOpcode_SetColor=4,
-    AnmOpcode_5=5,
-    AnmOpcode_6=6,
+    AnmOpcode_Jump=5,
+    AnmOpcode_Nop=6,
     AnmOpcode_FlipX=7,
     AnmOpcode_FlipY=8,
     AnmOpcode_SetRotation=9,
     AnmOpcode_SetPosition=10,
-    AnmOpcode_11=11,
-    AnmOpcode_12=12,
-    AnmOpcode_13=13,
-    AnmOpcode_14=14,
+    AnmOpcode_SetScaleSpeed=11,
+    AnmOpcode_Fade=12,
+    AnmOpcode_SetBlendAdditive=13,
+    AnmOpcode_SetBlendDefault=14,
     AnmOpcode_ExitHide=15,
-    AnmOpcode_16=16,
-    AnmOpcode_17=17,
-    AnmOpcode_18=18,
-    AnmOpcode_19=19,
-    AnmOpcode_20=20,
+    AnmOpcode_SetRandomSprite=16,
+    AnmOpcode_SetTranslation=17,
+    AnmOpcode_PosTimeLinear=18,
+    AnmOpcode_PosTimeDecel=19,
+    AnmOpcode_PosTimeAccel=20,
     AnmOpcode_Stop=21,
-    AnmOpcode_22=22,
+    AnmOpcode_InterruptLabel=22,
     AnmOpcode_23=23,
     AnmOpcode_StopHide=24,
     AnmOpcode_25=25,
     AnmOpcode_SetAutoRotate=26,
     AnmOpcode_27=27,
     AnmOpcode_28=28,
-    AnmOpcode_29=29,
+    AnmOpcode_SetVisibility=29,
     AnmOpcode_30=30,
     AnmOpcode_31=31
 } AnmOpcode;
@@ -72345,7 +72346,7 @@ struct Supervisor {
     int unk198;
     int isInEnding;
     int vsyncEnabled;
-    int lastFrameTime;
+    uint lastFrameTime;
     float effectiveFramerateMultiplier;
     float framerateMultiplier;
     struct MidiOutput *midi_output;
@@ -72432,7 +72433,7 @@ struct BulletTypeVms {
     struct AnmVm spawn_effect_short;
     struct AnmVm spawn_effect_medium;
     struct AnmVm spawn_effect_long;
-    struct AnmVm vm5;
+    struct AnmVm spawn_effect_short_with_memset;
     float field5_0x550;
     float field6_0x554;
     undefined field7_0x558;
@@ -72561,7 +72562,7 @@ struct GuiImplChildB {
 typedef struct MsgRawHeader MsgRawHeader, *PMsgRawHeader;
 
 struct MsgRawHeader {
-    uint num_entries;
+    int num_entries;
     void *entries;
 };
 

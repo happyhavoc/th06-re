@@ -9,7 +9,7 @@ void FUN_0040e1b0(Enemy *param_1,AnmRawInstr *param_2)
   int local_8;
   
   local_8 = param_1->life;
-  if (0x1c1f < (param_1->boss_timer).current) {
+  if (MAX_BOSS_TIME < (param_1->boss_timer).current) {
     local_8 = 0;
   }
   if (param_2->args[3] == 0) {

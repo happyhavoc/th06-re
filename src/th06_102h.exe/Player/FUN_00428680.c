@@ -18,7 +18,8 @@ Player::FUN_00428680(Player *this,float10 *__return_storage_ptr__,float *param_1
      (pfVar3 = (float10 *)
                CONCAT22(uVar4,(ushort)(fVar1 < 0.0) << 8 | (ushort)NAN(fVar1) << 10 |
                               (ushort)(fVar1 == 0.0) << 0xe), NAN(fVar1) == (fVar1 == 0.0))) {
-    FUN_0045be40(SUB81((double)fVar2,0),(char)((ulonglong)(double)fVar2 >> 0x20));
+    FUN_0045be40(SUB84((double)fVar2,0),(int)((ulonglong)(double)fVar2 >> 0x20),
+                 SUB84((double)fVar1,0),(int)((ulonglong)(double)fVar1 >> 0x20));
   }
   return pfVar3;
 }

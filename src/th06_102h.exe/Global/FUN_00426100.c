@@ -1,5 +1,7 @@
 
-uint FUN_00426100(int param_1,AnmVm *param_2,int param_3,int param_4,int *param_5)
+/* WARNING: Unknown calling convention -- yet parameter storage is locked */
+
+uint FUN_00426100(AnmVm *param_1,AnmVm *param_2,int param_3,int param_4,int *param_5)
 
 {
   undefined4 *puVar1;
@@ -14,14 +16,14 @@ uint FUN_00426100(int param_1,AnmVm *param_2,int param_3,int param_4,int *param_
   psVar3 = (short *)(param_3 * 0x24 + param_5[2]);
   if (*(char *)((int)psVar3 + 0x1f) == '\x03') {
     sVar2 = psVar3[1];
-    if (*(int *)(param_1 + 0x9c0 + sVar2 * 0xc) != 0) {
+    if ((&param_1[9].currentTimeInScript)[sVar2].previous != 0) {
 LAB_00426400:
       if (*param_5 + -1 <= param_3) {
         return 0xfffffffe;
       }
       return 0xffffffff;
     }
-    puVar1 = (undefined4 *)(param_1 + 0x9b8 + sVar2 * 0xc);
+    puVar1 = (undefined4 *)((int)&param_1[9].uvScrollPos + sVar2 * 0xc);
     puVar1[2] = (int)*psVar3;
     puVar1[1] = 0;
     *puVar1 = 0xfffffc19;
@@ -36,12 +38,12 @@ LAB_00426400:
   param_2->anmFileIndex = sVar2;
   AnmManager::SetAndExecuteScript(this,param_2,this->scripts[sVar2]);
   if (*(char *)(psVar3 + 0xf) == '\0') {
-    param_2[1].rotation.x = *(float *)(param_1 + 0x440);
-    param_2[1].rotation.y = *(float *)(param_1 + 0x444);
-    param_2[1].rotation.z = *(float *)(param_1 + 0x448);
+    param_2[1].rotation.x = param_1[4].rotation.x;
+    param_2[1].rotation.y = param_1[4].rotation.y;
+    param_2[1].rotation.z = param_1[4].rotation.z;
   }
   else {
-    pfVar4 = (float *)(param_1 + 0x4a0 + (*(byte *)(psVar3 + 0xf) - 1) * 0xc);
+    pfVar4 = param_1[4].matrix.m[1] + (uint)*(byte *)(psVar3 + 0xf) * 3 + 2;
     param_2[1].rotation.x = *pfVar4;
     param_2[1].rotation.y = pfVar4[1];
     param_2[1].rotation.z = pfVar4[2];

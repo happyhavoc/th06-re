@@ -67,14 +67,14 @@ ZunResult Supervisor::SetupDInput(Supervisor *param_1)
                       );
             if (param_1->controller != (LPDIRECTINPUTDEVICE8A)0x0) {
               (*param_1->controller->lpVtbl->SetDataFormat)
-                        (param_1->controller,&DIDATAFORMAT_0046cdfc);
+                        (param_1->controller,&CONTROLLER_DATA_FORMAT);
               (*param_1->controller->lpVtbl->SetCooperativeLevel)
                         (param_1->controller,(HWND)param_1->hwndGameWindow,5);
               g_Supervisor.controllerCaps.dwSize = 0x2c;
               (*param_1->controller->lpVtbl->GetCapabilities)
                         (param_1->controller,&g_Supervisor.controllerCaps);
               (*param_1->controller->lpVtbl->EnumObjects)
-                        (param_1->controller,FUN_00423801,(LPVOID)0x0,0);
+                        (param_1->controller,controllerCallback,(LPVOID)0x0,0);
               GameErrorContextLog(&g_GameErrorContext,"有効なパッドを発見しました\n");
             }
             ZVar1 = ZUN_SUCCESS;

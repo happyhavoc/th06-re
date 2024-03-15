@@ -1,5 +1,5 @@
 
-void FUN_004172b0(void)
+void CutBulletManagerChains(void)
 
 {
   Chain::Cut(&g_Chain,&g_BulletManagerCalcChain);

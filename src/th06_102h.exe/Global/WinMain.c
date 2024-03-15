@@ -7,6 +7,7 @@ int WinMain(HINSTANCE hInstance,HINSTANCE hPrevInstance,LPSTR lpCmdLine,int nSho
   BOOL BVar2;
   uint uVar3;
   AnmManager *puVar1;
+  BOOL gotMessage;
   HRESULT HVar4;
   int retCode;
   AnmManager *vbsPtr;
@@ -53,8 +54,8 @@ int WinMain(HINSTANCE hInstance,HINSTANCE hPrevInstance,LPSTR lpCmdLine,int nSho
               while( true ) {
                 while( true ) {
                   if (g_GameWindow.isAppClosing != 0) goto LAB_0042055a;
-                  BVar2 = PeekMessageA(&msg,(HWND)0x0,0,0,1);
-                  if (BVar2 == 0) break;
+                  gotMessage = PeekMessageA(&msg,(HWND)0x0,0,0,1);
+                  if (gotMessage == 0) break;
                   TranslateMessage(&msg);
                   DispatchMessageA(&msg);
                 }
@@ -106,7 +107,7 @@ LAB_0042055a:
           g_GameErrorContext.m_BufferEnd = g_GameErrorContext.m_Buffer;
           g_GameErrorContext.m_Buffer[0] = '\0';
           GameErrorContextLog(&g_GameErrorContext,
-                              "再起動を要するオプションが変更されたので再起動します\n"
+                              "再起動���要するオプションが変更されたので再起動します\n"
                              );
           uVar3 = (uint)g_Supervisor.cfg.windowed;
           if (uVar3 == 0) {

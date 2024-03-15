@@ -1,7 +1,7 @@
 
 undefined4 __thiscall
 Player::FUN_00427190
-          (Player *this,float *param_1,float *param_2,float *param_3,undefined4 param_4,int param_5)
+          (Player *this,float *param_1,float *param_2,float *param_3,float param_4,int param_5)
 
 {
   float fVar1;

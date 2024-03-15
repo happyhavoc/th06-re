@@ -1,5 +1,5 @@
 
-undefined4 FUN_00423801(LPCDIDEVICEOBJECTINSTANCE param_1)
+undefined4 controllerCallback(LPCDIDEVICEOBJECTINSTANCE param_1)
 
 {
   HRESULT HVar1;

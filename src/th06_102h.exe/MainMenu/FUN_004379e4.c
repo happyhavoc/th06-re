@@ -11,7 +11,7 @@ int __thiscall MainMenu::FUN_004379e4(MainMenu *this)
   }
   else if ((((g_CurFrameInput & 0x160b) == 0) ||
            ((g_CurFrameInput & 0x160b) == (g_LastFrameInput & 0x160b))) &&
-          (((g_CurFrameInput & 0x160b) == 0 || (DAT_0069d90c == 0)))) {
+          (((g_CurFrameInput & 0x160b) == 0 || (g_IsEigthFrameOfHeldInput == 0)))) {
     result = 1;
   }
   else {

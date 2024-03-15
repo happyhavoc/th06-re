@@ -50,7 +50,7 @@ void __thiscall SoundPlayer::InitializeDSound(SoundPlayer *this,HWND game_window
   }
   else {
     (this->csoundmanager).m_pDS = this->csoundmanager_ptr->m_pDS;
-    this->field1188_0x618 = (HANDLE)0x0;
+    this->m_hndNotifyThreadHandle = (HANDLE)0x0;
     pDVar3 = &bufdesc;
     for (iVar2 = 9; iVar2 != 0; iVar2 = iVar2 + -1) {
       pDVar3->dwSize = 0;
@@ -68,10 +68,10 @@ void __thiscall SoundPlayer::InitializeDSound(SoundPlayer *this,HWND game_window
     wav_format.wBitsPerSample = 0x10;
     bufdesc.lpwfxFormat = &wav_format;
     res = (*((this->csoundmanager).m_pDS)->lpVtbl->CreateSoundBuffer)
-                    ((this->csoundmanager).m_pDS,&bufdesc,&this->soundbuffer,(LPUNKNOWN)0x0);
+                    ((this->csoundmanager).m_pDS,&bufdesc,&this->initSoundBuffer,(LPUNKNOWN)0x0);
     if ((-1 < res) &&
-       (res = (*this->soundbuffer->lpVtbl->Lock)
-                        (this->soundbuffer,0,0x8000,&local_48,&local_44,&local_3c,&local_40,0),
+       (res = (*this->initSoundBuffer->lpVtbl->Lock)
+                        (this->initSoundBuffer,0,0x8000,&local_48,&local_44,&local_3c,&local_40,0),
        -1 < res)) {
       puVar4 = local_48;
                     /* memset(buffer, 0, 0x8000); */
@@ -79,8 +79,9 @@ void __thiscall SoundPlayer::InitializeDSound(SoundPlayer *this,HWND game_window
         *puVar4 = 0;
         puVar4 = puVar4 + 1;
       }
-      (*this->soundbuffer->lpVtbl->Unlock)(this->soundbuffer,local_48,local_44,local_3c,local_40);
-      (*this->soundbuffer->lpVtbl->Play)(this->soundbuffer,0,0,1);
+      (*this->initSoundBuffer->lpVtbl->Unlock)
+                (this->initSoundBuffer,local_48,local_44,local_3c,local_40);
+      (*this->initSoundBuffer->lpVtbl->Play)(this->initSoundBuffer,0,0,1);
                     /* 4 times per second */
       SetTimer(game_window,0,0xfa,(TIMERPROC)0x0);
       this->game_window = (HWND)game_window;

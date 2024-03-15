@@ -6,9 +6,9 @@ ResultScreen::FUN_0042d18f(ResultScreen *this,ResultScreen *param_1,int param_2)
   undefined4 uVar1;
   
   if ((((g_CurFrameInput & 0x40) == 0) || ((g_CurFrameInput & 0x40) == (g_LastFrameInput & 0x40)))
-     && (((g_CurFrameInput & 0x40) == 0 || (DAT_0069d90c == 0)))) {
+     && (((g_CurFrameInput & 0x40) == 0 || (g_IsEigthFrameOfHeldInput == 0)))) {
     if ((((g_CurFrameInput & 0x80) == 0) || ((g_CurFrameInput & 0x80) == (g_LastFrameInput & 0x80)))
-       && (((g_CurFrameInput & 0x80) == 0 || (DAT_0069d90c == 0)))) {
+       && (((g_CurFrameInput & 0x80) == 0 || (g_IsEigthFrameOfHeldInput == 0)))) {
       uVar1 = 0;
     }
     else {

@@ -10,10 +10,10 @@ ChainCallbackResult Supervisor::OnUpdate(Supervisor *supervisor)
   }
   g_LastFrameInput = g_CurFrameInput;
   g_CurFrameInput = GetInput();
-  DAT_0069d90c = 0;
+  g_IsEigthFrameOfHeldInput = 0;
   if (g_LastFrameInput == g_CurFrameInput) {
     if ((0x1d < g_NumOfFramesInputsWereHeld) &&
-       (DAT_0069d90c = (ushort)((uint)g_NumOfFramesInputsWereHeld % 8 == 0),
+       (g_IsEigthFrameOfHeldInput = (ushort)((uint)g_NumOfFramesInputsWereHeld % 8 == 0),
        0x25 < g_NumOfFramesInputsWereHeld)) {
       g_NumOfFramesInputsWereHeld = 0x1e;
     }
@@ -42,7 +42,7 @@ ChainCallbackResult Supervisor::OnUpdate(Supervisor *supervisor)
         return CHAIN_CALLBACK_RESULT_EXIT_GAME_ERROR;
       }
       if (state == 6) {
-        state = ResultScreen::RegisterChain((ResultScreen *)0x0);
+        state = ResultScreen::RegisterChain(0);
         if (state != 0) {
           return CHAIN_CALLBACK_RESULT_EXIT_GAME_SUCCESS;
         }
@@ -68,7 +68,7 @@ ChainCallbackResult Supervisor::OnUpdate(Supervisor *supervisor)
 LAB_004235a0:
       GameManager::CutChain();
       supervisor->curState = 0;
-      replay_dostuff((char *)0x0,(char *)0x0);
+      ReplayDoStuff((char *)0x0,(char *)0x0);
 LAB_00423454:
       supervisor->curState = 1;
       (*(g_Supervisor.d3dDevice)->lpVtbl->ResourceManagerDiscardBytes)(g_Supervisor.d3dDevice,0);
@@ -92,7 +92,7 @@ LAB_00423454:
       }
       if (state == 7) {
         GameManager::CutChain();
-        state = ResultScreen::RegisterChain((ResultScreen *)0x1);
+        state = ResultScreen::RegisterChain(1);
         if (state != 0) {
           return CHAIN_CALLBACK_RESULT_EXIT_GAME_SUCCESS;
         }
@@ -100,7 +100,7 @@ LAB_00423454:
       else if (state == 8) {
         GameManager::CutChain();
         supervisor->curState = 0;
-        replay_dostuff((char *)0x0,(char *)0x0);
+        ReplayDoStuff((char *)0x0,(char *)0x0);
         supervisor->curState = 1;
         (*(g_Supervisor.d3dDevice)->lpVtbl->ResourceManagerDiscardBytes)(g_Supervisor.d3dDevice,0);
         ZVar1 = MainMenu::RegisterChain(1);
@@ -129,11 +129,11 @@ LAB_00423454:
   else if (state == 7) {
     if (supervisor->curState == 1) {
       supervisor->curState = 0;
-      replay_dostuff((char *)0x0,(char *)0x0);
+      ReplayDoStuff((char *)0x0,(char *)0x0);
       goto LAB_00423454;
     }
     if (supervisor->curState == 4) {
-      replay_dostuff((char *)0x0,(char *)0x0);
+      ReplayDoStuff((char *)0x0,(char *)0x0);
       return CHAIN_CALLBACK_RESULT_EXIT_GAME_SUCCESS;
     }
   }
@@ -155,11 +155,11 @@ LAB_00423454:
     if (state == 4) {
       return CHAIN_CALLBACK_RESULT_EXIT_GAME_SUCCESS;
     }
-    if ((state == 7) && (state = ResultScreen::RegisterChain((ResultScreen *)0x1), state != 0)) {
+    if ((state == 7) && (state = ResultScreen::RegisterChain(1), state != 0)) {
       return CHAIN_CALLBACK_RESULT_EXIT_GAME_SUCCESS;
     }
   }
-  DAT_0069d90c = 0;
+  g_IsEigthFrameOfHeldInput = 0;
   g_LastFrameInput = 0;
   g_CurFrameInput = 0;
 LAB_0042375b:

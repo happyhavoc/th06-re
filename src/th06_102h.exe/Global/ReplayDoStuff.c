@@ -4,7 +4,7 @@
 /* WARNING: Removing unreachable block (ram,0x0042ad69) */
 /* WARNING: Removing unreachable block (ram,0x0042addf) */
 
-void replay_dostuff(char *replay_path,char *param_2)
+void ReplayDoStuff(char *replay_path,char *param_2)
 
 {
   char cVar1;

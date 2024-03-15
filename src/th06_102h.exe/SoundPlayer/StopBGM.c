@@ -4,14 +4,14 @@ void __thiscall SoundPlayer::StopBGM(SoundPlayer *this)
 {
   if (this->streamingSound != (CStreamingSound *)0x0) {
     CSound::Stop(&this->streamingSound->base);
-    if (this->field1188_0x618 != (HANDLE)0x0) {
-      PostThreadMessageA(this->field1187_0x614,0x12,0,0);
+    if (this->m_hndNotifyThreadHandle != (HANDLE)0x0) {
+      PostThreadMessageA(this->m_dwNotifyThreadId,0x12,0,0);
       DebugPrint2("stop m_dwNotifyThreadID\n");
-      WaitForSingleObject(this->field1188_0x618,0xffffffff);
+      WaitForSingleObject(this->m_hndNotifyThreadHandle,0xffffffff);
       DebugPrint2("comp\n");
-      CloseHandle(this->field1188_0x618);
-      CloseHandle(this->hEvent);
-      this->field1188_0x618 = (HANDLE)0x0;
+      CloseHandle(this->m_hndNotifyThreadHandle);
+      CloseHandle(this->streamingUpdateEvent);
+      this->m_hndNotifyThreadHandle = (HANDLE)0x0;
     }
     if (this->streamingSound != (CStreamingSound *)0x0) {
       if (this->streamingSound != (CStreamingSound *)0x0) {

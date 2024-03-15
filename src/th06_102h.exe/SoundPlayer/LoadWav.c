@@ -66,13 +66,13 @@ ZunResult __thiscall SoundPlayer::LoadWav(SoundPlayer *this,LPSTR param_1)
         uVar3 = (local_b0.m_pwfx)->nSamplesPerSec * 2 * (uint)(local_b0.m_pwfx)->nBlockAlign >> 2;
         local_14 = uVar3 - uVar3 % (uint)(local_b0.m_pwfx)->nBlockAlign;
         pvVar4 = CreateEventA((LPSECURITY_ATTRIBUTES)0x0,0,0,(LPCSTR)0x0);
-        this->hEvent = pvVar4;
+        this->streamingUpdateEvent = pvVar4;
         pvVar4 = CreateThread((LPSECURITY_ATTRIBUTES)0x0,0,FUN_00431370,g_Supervisor.hwndGameWindow,
-                              0,&this->field1187_0x614);
-        this->field1188_0x618 = pvVar4;
+                              0,&this->m_dwNotifyThreadId);
+        this->m_hndNotifyThreadHandle = pvVar4;
         HVar5 = CSoundManager::CreateStreaming
                           (this->csoundmanager_ptr,&this->streamingSound,param_1,0x10100,
-                           (GUID)ZEXT816(0),4,local_14,this->hEvent);
+                           (GUID)ZEXT816(0),4,local_14,this->streamingUpdateEvent);
         if (HVar5 < 0) {
           DebugPrint2(
                      "error : ストリーミング用サウンドバッファを作成出来ませんでした\n"

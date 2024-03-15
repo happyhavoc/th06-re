@@ -53,7 +53,7 @@ undefined4 __thiscall ResultScreen::FUN_0042bc85(ResultScreen *this)
     return 0;
   }
   if ((((g_CurFrameInput & 0x10) != 0) && ((g_CurFrameInput & 0x10) != (g_LastFrameInput & 0x10)))
-     || (((g_CurFrameInput & 0x10) != 0 && (DAT_0069d90c != 0)))) {
+     || (((g_CurFrameInput & 0x10) != 0 && (g_IsEigthFrameOfHeldInput != 0)))) {
     do {
       this->possibly_selected_character = this->possibly_selected_character + -0x10;
       if (this->possibly_selected_character < 0) {
@@ -63,7 +63,7 @@ undefined4 __thiscall ResultScreen::FUN_0042bc85(ResultScreen *this)
     SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xc);
   }
   if ((((g_CurFrameInput & 0x20) != 0) && ((g_CurFrameInput & 0x20) != (g_LastFrameInput & 0x20)))
-     || (((g_CurFrameInput & 0x20) != 0 && (DAT_0069d90c != 0)))) {
+     || (((g_CurFrameInput & 0x20) != 0 && (g_IsEigthFrameOfHeldInput != 0)))) {
     do {
       this->possibly_selected_character = this->possibly_selected_character + 0x10;
       if (0x5f < this->possibly_selected_character) {
@@ -73,7 +73,7 @@ undefined4 __thiscall ResultScreen::FUN_0042bc85(ResultScreen *this)
     SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xc);
   }
   if ((((g_CurFrameInput & 0x40) != 0) && ((g_CurFrameInput & 0x40) != (g_LastFrameInput & 0x40)))
-     || (((g_CurFrameInput & 0x40) != 0 && (DAT_0069d90c != 0)))) {
+     || (((g_CurFrameInput & 0x40) != 0 && (g_IsEigthFrameOfHeldInput != 0)))) {
     do {
       this->possibly_selected_character = this->possibly_selected_character + -1;
       if (this->possibly_selected_character % 0x10 == 0xf) {
@@ -86,7 +86,7 @@ undefined4 __thiscall ResultScreen::FUN_0042bc85(ResultScreen *this)
     SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xc);
   }
   if ((((g_CurFrameInput & 0x80) != 0) && ((g_CurFrameInput & 0x80) != (g_LastFrameInput & 0x80)))
-     || (((g_CurFrameInput & 0x80) != 0 && (DAT_0069d90c != 0)))) {
+     || (((g_CurFrameInput & 0x80) != 0 && (g_IsEigthFrameOfHeldInput != 0)))) {
     do {
       this->possibly_selected_character = this->possibly_selected_character + 1;
       if (this->possibly_selected_character % 0x10 == 0) {
@@ -97,10 +97,10 @@ undefined4 __thiscall ResultScreen::FUN_0042bc85(ResultScreen *this)
   }
   if ((((g_CurFrameInput & 0x1001) == 0) ||
       ((g_CurFrameInput & 0x1001) == (g_LastFrameInput & 0x1001))) &&
-     (((g_CurFrameInput & 0x1001) == 0 || (DAT_0069d90c == 0)))) {
+     (((g_CurFrameInput & 0x1001) == 0 || (g_IsEigthFrameOfHeldInput == 0)))) {
 LAB_0042c1aa:
     if ((((g_CurFrameInput & 10) != 0) && ((g_CurFrameInput & 10) != (g_LastFrameInput & 10))) ||
-       (((g_CurFrameInput & 10) != 0 && (DAT_0069d90c != 0)))) {
+       (((g_CurFrameInput & 10) != 0 && (g_IsEigthFrameOfHeldInput != 0)))) {
       if (this->unk_10 < 8) {
         iVar1 = this->unk_10;
       }

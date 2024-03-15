@@ -1,7 +1,7 @@
 
 /* WARNING: Inlined function: FUN_0045c3e0 */
 
-undefined4 ResultScreen::RegisterChain(ResultScreen *param_1)
+undefined4 ResultScreen::RegisterChain(BOOL param_1)
 
 {
   ResultScreen *this;
@@ -32,7 +32,7 @@ undefined4 ResultScreen::RegisterChain(ResultScreen *param_1)
   result_screen->calc_chain->addedCallback = AddedCallback;
   result_screen->calc_chain->deletedCallback = DeletedCallback;
   result_screen->calc_chain->arg = result_screen;
-  if (param_1 != (ResultScreen *)0x0) {
+  if (param_1 != 0) {
     if (g_GameManager.field30_0x1823 == 0) {
       result_screen->unk_8 = 9;
     }

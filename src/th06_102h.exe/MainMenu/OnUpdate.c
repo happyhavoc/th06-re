@@ -372,11 +372,11 @@ switchD_004358f7_caseD_2:
   case STATE_CHARACTER_SELECT:
     if (menu->stateTimer < 0x1e) break;
     if ((((g_CurFrameInput & 0x40) == 0) || ((g_CurFrameInput & 0x40) == (g_LastFrameInput & 0x40)))
-       && (((g_CurFrameInput & 0x40) == 0 || (DAT_0069d90c == 0)))) {
+       && (((g_CurFrameInput & 0x40) == 0 || (g_IsEigthFrameOfHeldInput == 0)))) {
 LAB_0043666d:
       if ((((g_CurFrameInput & 0x80) != 0) &&
           ((g_CurFrameInput & 0x80) != (g_LastFrameInput & 0x80))) ||
-         (((g_CurFrameInput & 0x80) != 0 && (DAT_0069d90c != 0)))) {
+         (((g_CurFrameInput & 0x80) != 0 && (g_IsEigthFrameOfHeldInput != 0)))) {
         menu->cursor = menu->cursor + -1;
         if (menu->cursor < 0) {
           menu->cursor = menu->cursor + 2;

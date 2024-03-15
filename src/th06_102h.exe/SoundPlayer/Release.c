@@ -20,10 +20,10 @@ ZunResult __thiscall SoundPlayer::Release(SoundPlayer *this)
     KillTimer((HWND)this->game_window,1);
     StopBGM(this);
     (this->csoundmanager).m_pDS = (LPDIRECTSOUND8)0x0;
-    (*this->soundbuffer->lpVtbl->Stop)(this->soundbuffer);
-    if (this->soundbuffer != (LPDIRECTSOUNDBUFFER)0x0) {
-      (*this->soundbuffer->lpVtbl->Release)(this->soundbuffer);
-      this->soundbuffer = (LPDIRECTSOUNDBUFFER)0x0;
+    (*this->initSoundBuffer->lpVtbl->Stop)(this->initSoundBuffer);
+    if (this->initSoundBuffer != (LPDIRECTSOUNDBUFFER)0x0) {
+      (*this->initSoundBuffer->lpVtbl->Release)(this->initSoundBuffer);
+      this->initSoundBuffer = (LPDIRECTSOUNDBUFFER)0x0;
     }
     if (this->streamingSound != (CStreamingSound *)0x0) {
       if (this->streamingSound != (CStreamingSound *)0x0) {

@@ -34,14 +34,14 @@ void __thiscall SoundPlayer::LoadSound(SoundPlayer *this,int idx,char *path)
         iVar1 = *(int *)(_Str1 + 4);
         iVar2 = _strncmp((char *)(_Str1 + 8),"WAVE",4);
         if (iVar2 == 0) {
-          local_34._0_4_ = FUN_004309f0(_Str1 + 0xc,"fmt ",&local_38,iVar1 + -12);
-          if (local_34._0_4_ == 0) {
+          local_34._0_4_ = FUN_004309f0((char *)(_Str1 + 0xc),"fmt ",&local_38,iVar1 + -12);
+          if ((char *)local_34._0_4_ == (char *)0x0) {
             GameErrorContextLog(&g_GameErrorContext,"Wav ファイルじゃない? %s\n",path);
             _free(_Str1);
           }
           else {
-            local_34._0_4_ = FUN_004309f0(_Str1 + 0xc,"data",&local_38,iVar1 + -0xc);
-            if (local_34._0_4_ == 0) {
+            local_34._0_4_ = FUN_004309f0((char *)(_Str1 + 0xc),"data",&local_38,iVar1 + -0xc);
+            if ((char *)local_34._0_4_ == (char *)0x0) {
               GameErrorContextLog(&g_GameErrorContext,"Wav ファイルじゃない? %s\n",path);
               _free(_Str1);
             }

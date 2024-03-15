@@ -47,7 +47,7 @@ undefined4 __thiscall MainMenu::FUN_00439137(MainMenu *this)
   }
   if (0x1f < this->stateTimer) {
     if ((((g_CurFrameInput & 0x40) != 0) && ((g_CurFrameInput & 0x40) != (g_LastFrameInput & 0x40)))
-       || (((g_CurFrameInput & 0x40) != 0 && (DAT_0069d90c != 0)))) {
+       || (((g_CurFrameInput & 0x40) != 0 && (g_IsEigthFrameOfHeldInput != 0)))) {
       iVar1 = this->cursor;
       if (iVar1 == 0) {
         SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xc);
@@ -100,7 +100,7 @@ undefined4 __thiscall MainMenu::FUN_00439137(MainMenu *this)
       SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xb);
     }
     if ((((g_CurFrameInput & 0x80) != 0) && ((g_CurFrameInput & 0x80) != (g_LastFrameInput & 0x80)))
-       || (((g_CurFrameInput & 0x80) != 0 && (DAT_0069d90c != 0)))) {
+       || (((g_CurFrameInput & 0x80) != 0 && (g_IsEigthFrameOfHeldInput != 0)))) {
       iVar1 = this->cursor;
       if (iVar1 == 0) {
         SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xc);

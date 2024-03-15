@@ -9,10 +9,10 @@ undefined4 FUN_0042a570(ReplayManager *param_1)
       param_1->replay_inputs = param_1->replay_inputs + 1;
     }
     g_CurFrameInput = g_CurFrameInput & 0xfe08 | param_1->replay_inputs->input_key;
-    DAT_0069d90c = 0;
+    g_IsEigthFrameOfHeldInput = 0;
     if (g_LastFrameInput == g_CurFrameInput) {
       if ((0x1d < g_NumOfFramesInputsWereHeld) &&
-         (DAT_0069d90c = (ushort)((g_NumOfFramesInputsWereHeld & 7) == 0),
+         (g_IsEigthFrameOfHeldInput = (ushort)((g_NumOfFramesInputsWereHeld & 7) == 0),
          0x25 < g_NumOfFramesInputsWereHeld)) {
         g_NumOfFramesInputsWereHeld = 0x1e;
       }

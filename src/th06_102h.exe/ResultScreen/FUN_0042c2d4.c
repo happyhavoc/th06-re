@@ -96,7 +96,7 @@ void __thiscall ResultScreen::FUN_0042c2d4(ResultScreen *this)
         if (this->field1_0x4 < 0x1e) goto LAB_0042d095;
         if ((((g_CurFrameInput & 0x10) != 0) &&
             ((g_CurFrameInput & 0x10) != (g_LastFrameInput & 0x10))) ||
-           (((g_CurFrameInput & 0x10) != 0 && (DAT_0069d90c != 0)))) {
+           (((g_CurFrameInput & 0x10) != 0 && (g_IsEigthFrameOfHeldInput != 0)))) {
           do {
             this->possibly_selected_character = this->possibly_selected_character + -0x10;
             if (this->possibly_selected_character < 0) {
@@ -107,7 +107,7 @@ void __thiscall ResultScreen::FUN_0042c2d4(ResultScreen *this)
         }
         if ((((g_CurFrameInput & 0x20) != 0) &&
             ((g_CurFrameInput & 0x20) != (g_LastFrameInput & 0x20))) ||
-           (((g_CurFrameInput & 0x20) != 0 && (DAT_0069d90c != 0)))) {
+           (((g_CurFrameInput & 0x20) != 0 && (g_IsEigthFrameOfHeldInput != 0)))) {
           do {
             this->possibly_selected_character = this->possibly_selected_character + 0x10;
             if (0x5f < this->possibly_selected_character) {
@@ -118,7 +118,7 @@ void __thiscall ResultScreen::FUN_0042c2d4(ResultScreen *this)
         }
         if ((((g_CurFrameInput & 0x40) != 0) &&
             ((g_CurFrameInput & 0x40) != (g_LastFrameInput & 0x40))) ||
-           (((g_CurFrameInput & 0x40) != 0 && (DAT_0069d90c != 0)))) {
+           (((g_CurFrameInput & 0x40) != 0 && (g_IsEigthFrameOfHeldInput != 0)))) {
           do {
             this->possibly_selected_character = this->possibly_selected_character + -1;
             if (this->possibly_selected_character % 0x10 == 0xf) {
@@ -132,7 +132,7 @@ void __thiscall ResultScreen::FUN_0042c2d4(ResultScreen *this)
         }
         if ((((g_CurFrameInput & 0x80) != 0) &&
             ((g_CurFrameInput & 0x80) != (g_LastFrameInput & 0x80))) ||
-           (((g_CurFrameInput & 0x80) != 0 && (DAT_0069d90c != 0)))) {
+           (((g_CurFrameInput & 0x80) != 0 && (g_IsEigthFrameOfHeldInput != 0)))) {
           do {
             this->possibly_selected_character = this->possibly_selected_character + 1;
             if (this->possibly_selected_character % 0x10 == 0) {
@@ -143,7 +143,7 @@ void __thiscall ResultScreen::FUN_0042c2d4(ResultScreen *this)
         }
         if ((((g_CurFrameInput & 0x1001) != 0) &&
             ((g_CurFrameInput & 0x1001) != (g_LastFrameInput & 0x1001))) ||
-           (((g_CurFrameInput & 0x1001) != 0 && (DAT_0069d90c != 0)))) {
+           (((g_CurFrameInput & 0x1001) != 0 && (g_IsEigthFrameOfHeldInput != 0)))) {
           if (this->unk_10 < 8) {
             local_b4 = this->unk_10;
           }
@@ -159,7 +159,7 @@ void __thiscall ResultScreen::FUN_0042c2d4(ResultScreen *this)
           }
           else {
             sprintf(local_a4,"./replay/th6_%.2d.rpy",*(int *)&this->field_0x1c + 1);
-            replay_dostuff(local_a4,&this->field_0x34);
+            ReplayDoStuff(local_a4,&this->field_0x34);
             this->field1_0x4 = 0;
             this->unk_8 = 2;
             local_8 = &this->unk_40;
@@ -174,7 +174,7 @@ void __thiscall ResultScreen::FUN_0042c2d4(ResultScreen *this)
           SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,10);
         }
         if ((((g_CurFrameInput & 10) != 0) && ((g_CurFrameInput & 10) != (g_LastFrameInput & 10)))
-           || (((g_CurFrameInput & 10) != 0 && (DAT_0069d90c != 0)))) {
+           || (((g_CurFrameInput & 10) != 0 && (g_IsEigthFrameOfHeldInput != 0)))) {
           if (this->unk_10 < 8) {
             local_b8 = this->unk_10;
           }

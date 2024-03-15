@@ -5,7 +5,7 @@ AnmManager * __thiscall AnmManager::AnmManager(AnmManager *this)
   int iVar1;
   AnmManager *pAVar2;
   int local_1c;
-  int local_8;
+  int sprite_index;
   
   AnmVm::AnmVm(&this->virtualMachine);
   local_1c = 4;
@@ -23,8 +23,8 @@ AnmManager * __thiscall AnmManager::AnmManager(AnmManager *this)
     pAVar2->sprites[0].sourceFileIndex = 0;
     pAVar2 = (AnmManager *)&pAVar2->sprites[0].startPixelInclusive;
   }
-  for (local_8 = 0; local_8 < 0x800; local_8 = local_8 + 1) {
-    this->sprites[local_8].sourceFileIndex = 0xffffffff;
+  for (sprite_index = 0; sprite_index < 0x800; sprite_index = sprite_index + 1) {
+    this->sprites[sprite_index].sourceFileIndex = 0xffffffff;
   }
   g_PrimitivesToDrawVertexBuf[3].pos.w = 1.0;
   g_PrimitivesToDrawVertexBuf[2].pos.w = 1.0;

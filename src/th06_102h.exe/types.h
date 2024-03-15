@@ -1741,19 +1741,21 @@ typedef enum AnmOpcode {
     AnmOpcode_31=31
 } AnmOpcode;
 
-struct D3DXVECTOR2 {
-    FLOAT x;
-    FLOAT y;
+typedef struct ZunVec2 ZunVec2, *PZunVec2;
+
+struct ZunVec2 {
+    float x;
+    float y;
 };
 
 struct AnmLoadedSprite {
     uint sourceFileIndex;
-    struct D3DXVECTOR2 startPixelInclusive;
-    struct D3DXVECTOR2 endPixelInclusive;
+    struct ZunVec2 startPixelInclusive;
+    struct ZunVec2 endPixelInclusive;
     float textureHeight;
     float textureWidth;
-    struct D3DXVECTOR2 uvStart;
-    struct D3DXVECTOR2 uvEnd;
+    struct ZunVec2 uvStart;
+    struct ZunVec2 uvEnd;
     float heightPx;
     float widthPx;
     int spriteId;
@@ -1791,6 +1793,11 @@ struct AnmRawInstr {
     enum AnmOpcode opcode;
     uchar argsCount;
     uint args[10];
+};
+
+struct D3DXVECTOR2 {
+    FLOAT x;
+    FLOAT y;
 };
 
 struct ZunTimer {

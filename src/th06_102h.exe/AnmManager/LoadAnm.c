@@ -45,7 +45,7 @@ AnmManager::LoadAnm(AnmManager *this,int anm_index,char *path,int spriteIdxOffse
       if (ZVar1 != ZUN_SUCCESS) {
         GameErrorContextFatal
                   (&g_GameErrorContext,
-                   "テクスチャ %s が読み込めません。データが失われてるか壊れています\n"
+                   "テクスチャ %s が読み込めません。データが失われてるか壊���ています\n"
                    ,name);
         return ZUN_ERROR;
       }

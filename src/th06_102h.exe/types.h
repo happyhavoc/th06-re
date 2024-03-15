@@ -572,7 +572,7 @@ struct ZunVec2 {
 };
 
 struct AnmLoadedSprite {
-    uint sourceFileIndex;
+    int sourceFileIndex;
     struct ZunVec2 startPixelInclusive;
     struct ZunVec2 endPixelInclusive;
     float textureHeight;

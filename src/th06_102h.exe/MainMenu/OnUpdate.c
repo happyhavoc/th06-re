@@ -774,7 +774,7 @@ LAB_00436de7:
     if ((&menu->vm1)[i].sprite == (AnmLoadedSprite *)0x0) {
       hasLoadedSprite = false;
     }
-    else if ((int)((&menu->vm1)[i].sprite)->sourceFileIndex < 0) {
+    else if (((&menu->vm1)[i].sprite)->sourceFileIndex < 0) {
       hasLoadedSprite = false;
     }
     else {

@@ -24,7 +24,7 @@ AnmManager * __thiscall AnmManager::AnmManager(AnmManager *this)
     pAVar2 = (AnmManager *)&pAVar2->sprites[0].startPixelInclusive;
   }
   for (sprite_index = 0; sprite_index < 0x800; sprite_index = sprite_index + 1) {
-    this->sprites[sprite_index].sourceFileIndex = 0xffffffff;
+    this->sprites[sprite_index].sourceFileIndex = -1;
   }
   g_PrimitivesToDrawVertexBuf[3].pos.w = 1.0;
   g_PrimitivesToDrawVertexBuf[2].pos.w = 1.0;

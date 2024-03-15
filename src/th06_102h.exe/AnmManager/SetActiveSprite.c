@@ -4,7 +4,7 @@ ZunResult __thiscall AnmManager::SetActiveSprite(AnmManager *this,AnmVm *vm,uint
 {
   ZunResult res;
   
-  if ((int)this->sprites[sprite_index].sourceFileIndex < 0) {
+  if (this->sprites[sprite_index].sourceFileIndex < 0) {
     res = ZUN_ERROR;
   }
   else {

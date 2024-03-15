@@ -45,7 +45,7 @@ undefined4 MainMenu::OnDraw(MainMenu *param_1)
       if (curVm->sprite == (AnmLoadedSprite *)0x0) {
         bVar4 = false;
       }
-      else if ((int)curVm->sprite->sourceFileIndex < 0) {
+      else if (curVm->sprite->sourceFileIndex < 0) {
         bVar4 = false;
       }
       else {

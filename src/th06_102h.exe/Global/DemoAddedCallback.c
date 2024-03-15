@@ -34,7 +34,7 @@ ZunResult DemoAddedCallback(ReplayManager *param_1)
     pSVar1 = param_1->data->stage_score[g_GameManager.current_stage];
     g_GameManager.character = (byte)((int)(uint)param_1->data->shottype_chara >> 1);
     g_GameManager.shottype = param_1->data->shottype_chara & 1;
-    g_GameManager.difficulty = (uint)param_1->data->difficulty;
+    g_GameManager.difficulty = (int)param_1->data->difficulty;
     g_GameManager.field18_0x1816 = pSVar1->unk6;
     g_Rng.seed = pSVar1->random_seed;
     g_Rng.generationCount = 0;
@@ -44,9 +44,10 @@ ZunResult DemoAddedCallback(ReplayManager *param_1)
     g_GameManager.current_power = (ushort)pSVar1->power;
     param_1->replay_inputs = pSVar1->replay_inputs;
     g_GameManager.power_item_count_for_score = pSVar1->power_item_count_for_score;
-    if ((1 < (int)g_GameManager.current_stage) &&
-       (param_1->data->stage_score[g_GameManager.current_stage - 1] != (StageReplayData *)0x0)) {
-      g_GameManager.field0_0x0 = param_1->data->stage_score[g_GameManager.current_stage - 1]->score;
+    if ((1 < g_GameManager.current_stage) &&
+       (param_1->data->stage_score[g_GameManager.current_stage + -1] != (StageReplayData *)0x0)) {
+      g_GameManager.field0_0x0 = param_1->data->stage_score[g_GameManager.current_stage + -1]->score
+      ;
       g_GameManager.score = g_GameManager.field0_0x0;
     }
     ZVar3 = ZUN_SUCCESS;

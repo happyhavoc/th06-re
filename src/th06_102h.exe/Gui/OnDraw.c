@@ -17,7 +17,7 @@ void Gui::OnDraw(Gui *arg)
     local_10.y = 128.0;
     local_10.z = 0.0;
     g_AsciiManager.color = 0xffffff40;
-    if ((int)g_GameManager.current_stage < 6) {
+    if (g_GameManager.current_stage < 6) {
       AsciiManager::AddFormatText(&g_AsciiManager,&local_10,"Stage Clear\n\n");
     }
     else {
@@ -41,7 +41,7 @@ void Gui::OnDraw(Gui *arg)
     AsciiManager::AddFormatText
               (&g_AsciiManager,&local_10,"    * Point Item %3d\n",
                (uint)g_GameManager.point_items_collected_in_stage);
-    if (5 < (int)g_GameManager.current_stage) {
+    if (5 < g_GameManager.current_stage) {
       local_10.y = local_10.y + 16.0;
       g_AsciiManager.color = 0xffffff80;
       AsciiManager::AddFormatText
@@ -74,7 +74,7 @@ void Gui::OnDraw(Gui *arg)
       AsciiManager::AddFormatText(&g_AsciiManager,&local_10,"Extra Rank     * 2.0\n");
     }
     local_10.y = local_10.y + 16.0;
-    if (((int)g_GameManager.difficulty < 4) && (g_GameManager.field30_0x1823 == 0)) {
+    if ((g_GameManager.difficulty < 4) && (g_GameManager.field30_0x1823 == 0)) {
       if (g_Supervisor.lifeCount == 3) {
         g_AsciiManager.color = 0xffff8080;
         AsciiManager::AddFormatText(&g_AsciiManager,&local_10,"Player Penalty * 0.5\n");

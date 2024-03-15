@@ -1,5 +1,5 @@
 
-undefined4 * __thiscall Pbg3Parser::Pbg3Parser(Pbg3Parser *this)
+Pbg3Parser * __thiscall Pbg3Parser::Pbg3Parser(Pbg3Parser *this)
 
 {
   void *local_c;
@@ -17,6 +17,6 @@ undefined4 * __thiscall Pbg3Parser::Pbg3Parser(Pbg3Parser *this)
   (this->fileAbstraction).base.vtbl = &FileAbstractionVtable_0046cbbc;
   (this->base).vtbl = &PBG3PARSER_VTBL;
   ExceptionList = local_c;
-  return (undefined4 *)this;
+  return this;
 }
 

@@ -21,7 +21,7 @@ BOOL __thiscall Pbg3Archive::Load(Pbg3Archive *this,char *path)
       pPVar2 = (Pbg3Parser *)0x0;
     }
     else {
-      pPVar2 = (Pbg3Parser *)Pbg3Parser::Pbg3Parser(pPVar2);
+      pPVar2 = Pbg3Parser::Pbg3Parser(pPVar2);
     }
     uStack_4 = 0xffffffff;
     this->parser = pPVar2;

@@ -12,7 +12,7 @@ void FUN_0042aab0(void)
     rpy_manager->replay_inputs = rpy_manager->replay_inputs + 1;
     rpy_manager->replay_inputs->frame_num = 9999999;
     rpy_manager->replay_inputs->input_key = 0;
-    rpy_manager->replay_input_offsets[g_GameManager.current_stage - 1] =
+    rpy_manager->replay_input_offsets[g_GameManager.current_stage + -1] =
          (int)(rpy_manager->replay_inputs + 1);
   }
   return;

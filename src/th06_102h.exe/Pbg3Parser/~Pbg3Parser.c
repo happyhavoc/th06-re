@@ -7,7 +7,7 @@ void __thiscall Pbg3Parser::~Pbg3Parser(Pbg3Parser *this)
   undefined *puStack_8;
   uint local_4;
   
-  puStack_8 = &LAB_0046932f;
+  puStack_8 = &unwindToPbg3ParserVtableAssign;
   local_c = ExceptionList;
   this_00 = &this->fileAbstraction;
   ExceptionList = &local_c;

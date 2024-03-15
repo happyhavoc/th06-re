@@ -24,7 +24,7 @@ ZunResult ReplayManager::AddedCallback(ReplayManager *param_1)
     }
   }
   else {
-    pSVar2 = param_1->data->stage_score[g_GameManager.current_stage - 1];
+    pSVar2 = param_1->data->stage_score[g_GameManager.current_stage + -1];
     if (pSVar2 == (StageReplayData *)0x0) {
       return ZUN_ERROR;
     }

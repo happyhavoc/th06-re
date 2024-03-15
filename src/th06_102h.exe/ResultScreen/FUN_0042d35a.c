@@ -10,7 +10,7 @@ undefined4 __thiscall ResultScreen::FUN_0042d35a(ResultScreen *this)
   if ((0xe < this->unk_8) && (this->unk_8 < 0x11)) {
     local_8 = &this->field74_0x2790;
     g_AsciiManager.color = (this->field74_0x2790).color.color;
-    if ((int)g_GameManager.difficulty < 4) {
+    if (g_GameManager.difficulty < 4) {
       local_34 = (float)g_GameManager.counat / 89500.0;
     }
     else {

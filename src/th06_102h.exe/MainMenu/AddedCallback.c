@@ -56,7 +56,7 @@ LAB_0043a520:
   param_1->isActive = 0;
   param_1->unk_10f28 = 0x10;
   param_1->currentReplay = (ReplayData *)0x0;
-  scoredat = (ScoreDat *)OpenScore("score.dat");
+  scoredat = OpenScore("score.dat");
   ParseClrd(scoredat,g_GameManager.clrd);
   pPVar2 = g_GameManager.pscr;
   ParsePscr(scoredat,g_GameManager.pscr);

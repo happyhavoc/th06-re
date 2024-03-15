@@ -134,7 +134,7 @@ undefined4 __thiscall GuiImpl::run_msg(GuiImpl *this)
       case 9:
         this->field13_0x2bdc = 1;
         pAVar4 = g_AnmManager;
-        if ((int)g_GameManager.current_stage < 6) {
+        if (g_GameManager.current_stage < 6) {
           (this->vm9).anmFileIndex = 0x619;
           AnmManager::SetAndExecuteScript(pAVar4,&this->vm9,pAVar4->scripts[0x619]);
         }
@@ -147,7 +147,7 @@ undefined4 __thiscall GuiImpl::run_msg(GuiImpl *this)
       case 0xb:
         g_GameManager.field0_0x0 = g_GameManager.score;
         if (g_GameManager.field30_0x1823 == 0) {
-          if (((int)g_GameManager.current_stage < 5) ||
+          if ((g_GameManager.current_stage < 5) ||
              ((g_GameManager.difficulty != 0 && (g_GameManager.current_stage == 5)))) {
             g_Supervisor.curState = 3;
           }

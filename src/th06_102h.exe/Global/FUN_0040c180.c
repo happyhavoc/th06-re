@@ -25,7 +25,7 @@ void FUN_0040c180(Enemy *param_1,EclRawInstr *param_2)
   else {
     local_10 = 0xe;
     bullets = g_BulletManager.bullets;
-    if ((int)g_GameManager.difficulty < 2) {
+    if (g_GameManager.difficulty < 2) {
       for (local_14 = 0; local_14 < 0x280; local_14 = local_14 + 1) {
         if (((bullets->state != 0) && (bullets->state != 5)) &&
            (((bullets->vms).vm0.sprite != (AnmLoadedSprite *)0x0 &&

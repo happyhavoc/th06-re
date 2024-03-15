@@ -1,14 +1,14 @@
 
-ZunResult MainMenu::MoveCursor(MainMenu *menu,int menu_length)
+int MainMenu::MoveCursor(MainMenu *menu,int menu_length)
 
 {
-  ZunResult result;
+  int result;
   
   if ((((g_CurFrameInput & 0x10) == 0) || ((g_CurFrameInput & 0x10) == (g_LastFrameInput & 0x10)))
      && (((g_CurFrameInput & 0x10) == 0 || (DAT_0069d90c == 0)))) {
     if ((((g_CurFrameInput & 0x20) == 0) || ((g_CurFrameInput & 0x20) == (g_LastFrameInput & 0x20)))
        && (((g_CurFrameInput & 0x20) == 0 || (DAT_0069d90c == 0)))) {
-      result = ZUN_SUCCESS;
+      result = 0;
     }
     else {
       menu->cursor = menu->cursor + 1;
@@ -31,7 +31,7 @@ ZunResult MainMenu::MoveCursor(MainMenu *menu,int menu_length)
     if (menu_length <= menu->cursor) {
       menu->cursor = 0;
     }
-    result = ZUN_ERROR;
+    result = -1;
   }
   return result;
 }

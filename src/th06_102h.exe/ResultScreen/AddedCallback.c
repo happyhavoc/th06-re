@@ -7,9 +7,9 @@ int __thiscall ResultScreen::AddedCallback(ResultScreen *this,ResultScreen *para
   ScoreDat *pSVar3;
   short local_3c;
   int idx;
-  uint character;
+  int character;
   AnmVm *local_c;
-  uint difficulty;
+  int difficulty;
   
   if (param_1->unk_8 != 0x11) {
     ZVar2 = AnmManager::LoadSurface(g_AnmManager,0,"data/result/result.jpg");
@@ -33,7 +33,7 @@ int __thiscall ResultScreen::AddedCallback(ResultScreen *this,ResultScreen *para
       return -1;
     }
     local_c = &param_1->unk_40;
-    for (difficulty = 0; (int)difficulty < 0x26; difficulty = difficulty + 1) {
+    for (difficulty = 0; difficulty < 0x26; difficulty = difficulty + 1) {
       (local_c->pos).x = 0.0;
       (local_c->pos).y = 0.0;
       (local_c->pos).z = 0.0;
@@ -47,8 +47,7 @@ int __thiscall ResultScreen::AddedCallback(ResultScreen *this,ResultScreen *para
       local_c = local_c + 1;
     }
     local_c = &param_1->unk_28a0;
-    for (difficulty = 0; pAVar1 = g_AnmManager, (int)difficulty < 0x10; difficulty = difficulty + 1)
-    {
+    for (difficulty = 0; pAVar1 = g_AnmManager, difficulty < 0x10; difficulty = difficulty + 1) {
       AnmVm::Initialize(local_c);
       AnmManager::SetActiveSprite(pAVar1,local_c,difficulty + 0x708);
       (local_c->pos).x = 0.0;
@@ -60,8 +59,8 @@ int __thiscall ResultScreen::AddedCallback(ResultScreen *this,ResultScreen *para
       local_c = local_c + 1;
     }
   }
-  for (difficulty = 0; (int)difficulty < 5; difficulty = difficulty + 1) {
-    for (character = 0; (int)character < 4; character = character + 1) {
+  for (difficulty = 0; difficulty < 5; difficulty = difficulty + 1) {
+    for (character = 0; character < 4; character = character + 1) {
       for (idx = 0; idx < 10; idx = idx + 1) {
         param_1->default_scores[difficulty][character][idx].score = idx * -100000 + 1000000;
         param_1->default_scores[difficulty][character][idx].base.magic = (uint)(char  [4])0x53594d44
@@ -79,11 +78,11 @@ int __thiscall ResultScreen::AddedCallback(ResultScreen *this,ResultScreen *para
     }
   }
   *(undefined4 *)&param_1->field_0x14 = 0;
-  pSVar3 = (ScoreDat *)OpenScore("score.dat");
+  pSVar3 = OpenScore("score.dat");
   param_1->scoredat = pSVar3;
-  for (difficulty = 0; (int)difficulty < 5; difficulty = difficulty + 1) {
-    for (character = 0; (int)character < 4; character = character + 1) {
-      FUN_0042b280(param_1->scoredat,param_1->unk_3ab0 + difficulty * 4 + character,character,
+  for (difficulty = 0; difficulty < 5; difficulty = difficulty + 1) {
+    for (character = 0; character < 4; character = character + 1) {
+      GetHighScore(param_1->scoredat,param_1->unk_3ab0 + difficulty * 4 + character,character,
                    difficulty);
     }
   }
@@ -94,11 +93,11 @@ int __thiscall ResultScreen::AddedCallback(ResultScreen *this,ResultScreen *para
   }
   if ((param_1->unk_8 == 0x11) &&
      (*(uint *)(((uint)g_GameManager.shottype + (uint)g_GameManager.character * 2) * 0x1e0 +
-                (g_GameManager.current_stage - 1) * 0x50 + 0x69cd3c +
+                (g_GameManager.current_stage + -1) * 0x50 + 0x69cd3c +
                g_GameManager.difficulty * 0x14) < g_GameManager.score)) {
     *(uint *)(((uint)g_GameManager.shottype + (uint)g_GameManager.character * 2) * 0x1e0 +
-              (g_GameManager.current_stage - 1) * 0x50 + 0x69cd3c + g_GameManager.difficulty * 0x14)
-         = g_GameManager.score;
+              (g_GameManager.current_stage + -1) * 0x50 + 0x69cd3c + g_GameManager.difficulty * 0x14
+             ) = g_GameManager.score;
   }
   (param_1->unk_39a0).spriteNumber = -1;
   return 0;

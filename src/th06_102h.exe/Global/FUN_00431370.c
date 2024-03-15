@@ -5,7 +5,7 @@ undefined4 FUN_00431370(void)
   bool bVar1;
   DWORD DVar2;
   BOOL BVar3;
-  tagMSG local_20;
+  MSG msg;
   
   bVar1 = false;
   while (!bVar1) {
@@ -19,8 +19,8 @@ undefined4 FUN_00431370(void)
       }
     }
     else if (DVar2 == 1) {
-      while (BVar3 = PeekMessageA(&local_20,(HWND)0x0,0,0,1), BVar3 != 0) {
-        if (local_20.message == 0x12) {
+      while (BVar3 = PeekMessageA(&msg,(HWND)0x0,0,0,1), BVar3 != 0) {
+        if (msg.message == WM_QUIT) {
           bVar1 = true;
         }
       }

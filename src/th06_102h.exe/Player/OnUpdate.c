@@ -103,7 +103,7 @@ ChainCallbackResult Player::OnUpdate(Player *param_1)
       goto LAB_00428fa8;
     }
     g_GameManager.lives_remaining = g_GameManager.lives_remaining - 1;
-    if (((int)g_GameManager.difficulty < 4) && (g_GameManager.field30_0x1823 == 0)) {
+    if ((g_GameManager.difficulty < 4) && (g_GameManager.field30_0x1823 == 0)) {
       g_GameManager.bombs_remaining = g_Supervisor.bombCount;
     }
     else {

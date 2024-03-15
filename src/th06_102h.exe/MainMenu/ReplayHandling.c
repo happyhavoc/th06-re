@@ -154,7 +154,7 @@ LAB_0043877b:
   }
   else if ((gameState == STATE_REPLAY_SELECT) && (0x27 < this->stateTimer)) {
     cur = MoveCursor(this,7);
-    if (cur < ZUN_SUCCESS) {
+    if (cur < 0) {
       while (this->replayFileData[this->chosenReplay].stage_score[this->cursor + 1] ==
              (StageReplayData *)0x0) {
         this->cursor = this->cursor + -1;
@@ -163,7 +163,7 @@ LAB_0043877b:
         }
       }
     }
-    else if (ZUN_SUCCESS < cur) {
+    else if (0 < cur) {
       while (this->replayFileData[this->chosenReplay].stage_score[this->cursor + 1] ==
              (StageReplayData *)0x0) {
         this->cursor = this->cursor + 1;
@@ -198,7 +198,7 @@ LAB_0043877b:
       g_GameManager.field7_0x1c = 1;
       g_Supervisor.framerateMultiplier = 1.0;
       _strcpy(g_GameManager.replay_file,this->replayFilePaths[this->chosenReplay]);
-      g_GameManager.difficulty = (uint)this->currentReplay->difficulty;
+      g_GameManager.difficulty = (int)this->currentReplay->difficulty;
       g_GameManager.character = this->currentReplay->shottype_chara / 2;
       g_GameManager.shottype = this->currentReplay->shottype_chara % 2;
       for (cur = 0; this->currentReplay->stage_score[cur + 1] == (StageReplayData *)0x0;

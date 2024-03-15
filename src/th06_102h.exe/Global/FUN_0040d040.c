@@ -74,7 +74,7 @@ void FUN_0040d040(Enemy *param_1,AnmRawInstr *param_2)
         local_5c.position.z = local_dc[local_60 * 3 + 2];
         local_5c.sprite = 1;
         if (local_68 == 0) {
-          if ((int)g_GameManager.difficulty < 2) {
+          if (g_GameManager.difficulty < 2) {
             local_5c.color = 2;
           }
           else {
@@ -83,7 +83,7 @@ void FUN_0040d040(Enemy *param_1,AnmRawInstr *param_2)
           local_5c.angle = local_78;
           local_5c.speed = 0.0;
           local_5c.start_offset = 0.0;
-          if ((int)g_GameManager.difficulty < 2) {
+          if (g_GameManager.difficulty < 2) {
             local_5c.width = 28.0;
             local_5c.end_offset = local_64;
           }

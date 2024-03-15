@@ -2,7 +2,7 @@
 undefined4 __thiscall MainMenu::FUN_00437b41(MainMenu *this)
 
 {
-  ZunResult cursorMove;
+  int cursorMove;
   int iVar1;
   MainMenu *main_menu;
   int i;
@@ -30,7 +30,7 @@ undefined4 __thiscall MainMenu::FUN_00437b41(MainMenu *this)
         }
         this->gameState = STATE_DIFFICULTY_LOAD;
         g_GameManager.field30_0x1823 = 0;
-        if (3 < (int)g_GameManager.difficulty) {
+        if (3 < g_GameManager.difficulty) {
           g_GameManager.difficulty = 1;
         }
         if (3 < g_Supervisor.cfg.defaultDifficulty) {
@@ -44,11 +44,12 @@ undefined4 __thiscall MainMenu::FUN_00437b41(MainMenu *this)
         SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,10);
         break;
       case 1:
-        iVar1 = GameManager::hasReachedMaxClears(&g_GameManager,0,0);
-        if ((((iVar1 == 0) &&
-             (iVar1 = GameManager::hasReachedMaxClears(&g_GameManager,0,1), iVar1 == 0)) &&
-            (iVar1 = GameManager::hasReachedMaxClears(&g_GameManager,1,0), iVar1 == 0)) &&
-           (iVar1 = GameManager::hasReachedMaxClears(&g_GameManager,1,1), iVar1 == 0)) {
+        cursorMove = GameManager::hasReachedMaxClears(&g_GameManager,0,0);
+        if ((((cursorMove == 0) &&
+             (cursorMove = GameManager::hasReachedMaxClears(&g_GameManager,0,1), cursorMove == 0))
+            && (cursorMove = GameManager::hasReachedMaxClears(&g_GameManager,1,0), cursorMove == 0))
+           && (cursorMove = GameManager::hasReachedMaxClears(&g_GameManager,1,1), cursorMove == 0))
+        {
           SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xb);
         }
         else {
@@ -72,7 +73,7 @@ undefined4 __thiscall MainMenu::FUN_00437b41(MainMenu *this)
           (&this->vm1)[i].pendingInterrupt = 4;
         }
         this->gameState = STATE_DIFFICULTY_LOAD;
-        if (3 < (int)g_GameManager.difficulty) {
+        if (3 < g_GameManager.difficulty) {
           g_GameManager.difficulty = 1;
         }
         if (3 < g_Supervisor.cfg.defaultDifficulty) {

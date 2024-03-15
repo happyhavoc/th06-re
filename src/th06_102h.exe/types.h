@@ -72023,7 +72023,7 @@ struct GameManager {
     uint score;
     undefined4 field2_0x8;
     uint high_score;
-    uint difficulty;
+    int difficulty;
     uint graze_in_stage;
     uint field6_0x18;
     uint field7_0x1c;
@@ -72064,7 +72064,7 @@ struct GameManager {
     undefined field42_0x1a2e;
     undefined field43_0x1a2f;
     uint unk_1a30;
-    uint current_stage;
+    int current_stage;
     undefined4 field46_0x1a38;
     struct D3DXVECTOR2 arcade_region_top_left_pos;
     struct D3DXVECTOR2 arcade_region_size;
@@ -74466,7 +74466,7 @@ struct ScoreDat {
     ushort csum;
     byte unk[4];
     uint data_offset;
-    void *unk2;
+    struct ResultScreenUnk3ab0 *unk2;
     uint file_length;
 };
 

@@ -12,7 +12,7 @@ undefined4 MainMenu::OnUpdate(MainMenu *menu)
   ZunResult ZVar1;
   int maxClearCheck;
   bool hasLoadedSprite;
-  uint local_b8;
+  uint chosenStage;
   uint local_b4;
   uint local_50;
   uint local_4c;
@@ -240,7 +240,7 @@ switchD_004358f7_caseD_2:
     menu->unk_81fc = 0.0;
     menu->wasActive = menu->isActive;
     menu->isActive = 0;
-    if ((int)g_GameManager.difficulty < 4) {
+    if (g_GameManager.difficulty < 4) {
       for (i = 0; i < 122; i = i + 1) {
         (&menu->vm1)[i].pendingInterrupt = 6;
       }
@@ -260,7 +260,7 @@ switchD_004358f7_caseD_2:
     break;
   case STATE_DIFFICULTY_SELECT:
     vm_memset = (MainMenu *)&menu->field81_0x5610;
-    if ((int)g_GameManager.difficulty < 4) {
+    if (g_GameManager.difficulty < 4) {
       MoveCursor(menu,4);
       for (i = 0; i < 4; i = i + 1) {
         if (i == menu->cursor) {
@@ -317,7 +317,7 @@ switchD_004358f7_caseD_2:
           (&menu->vm1)[i].pendingInterrupt = 7;
         }
         SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,10);
-        if ((int)g_GameManager.difficulty < 4) {
+        if (g_GameManager.difficulty < 4) {
           (&menu->field81_0x5610)[menu->cursor].pendingInterrupt = 8;
           g_GameManager.difficulty = menu->cursor;
           menu->cursor = (uint)g_GameManager.character;
@@ -355,7 +355,7 @@ switchD_004358f7_caseD_2:
         (&menu->vm1)[i].pendingInterrupt = 4;
       }
       SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xb);
-      if ((int)g_GameManager.difficulty < 4) {
+      if (g_GameManager.difficulty < 4) {
         g_Supervisor.cfg.defaultDifficulty = *(byte *)&menu->cursor;
         if (g_GameManager.field30_0x1823 == 0) {
           menu->cursor = 0;
@@ -464,7 +464,7 @@ LAB_0043666d:
           vm_memset = (MainMenu *)((int)vm_memset + 0x220);
         }
         g_GameManager.character = *(byte *)&menu->cursor;
-        if ((int)g_GameManager.difficulty < 4) {
+        if (g_GameManager.difficulty < 4) {
           menu->cursor = (uint)g_GameManager.shottype;
         }
         else {
@@ -485,7 +485,7 @@ LAB_0043666d:
     else {
       menu->gameState = STATE_DIFFICULTY_SELECT;
       menu->stateTimer = 0;
-      if ((int)g_GameManager.difficulty < 4) {
+      if (g_GameManager.difficulty < 4) {
         for (i = 0; i < 0x7a; i = i + 1) {
           (&menu->vm1)[i].pendingInterrupt = 6;
         }
@@ -555,7 +555,7 @@ LAB_0043666d:
            ((g_CurFrameInput & 0x1001) != (g_LastFrameInput & 0x1001))) {
           g_GameManager.shottype = *(byte *)&menu->cursor;
           if (g_GameManager.field30_0x1823 == 0) {
-            if ((int)g_GameManager.difficulty < 4) {
+            if (g_GameManager.difficulty < 4) {
               g_GameManager.current_stage = 0;
             }
             else {
@@ -651,14 +651,15 @@ LAB_0043666d:
   case STATE_PRACTICE_LVL_SELECT:
     if (*(byte *)(((uint)g_GameManager.shottype + (uint)g_GameManager.character * 2) * 0x18 +
                   0x69cce1 + g_GameManager.difficulty) < 7) {
-      local_b8 = (uint)*(byte *)(((uint)g_GameManager.shottype + (uint)g_GameManager.character * 2)
-                                 * 0x18 + 0x69cce1 + g_GameManager.difficulty);
+      chosenStage = (uint)*(byte *)(((uint)g_GameManager.shottype +
+                                    (uint)g_GameManager.character * 2) * 0x18 + 0x69cce1 +
+                                   g_GameManager.difficulty);
     }
     else {
-      local_b8 = 6;
+      chosenStage = 6;
     }
-    local_50 = local_b8;
-    if ((g_GameManager.difficulty == 0) && (local_b8 == 6)) {
+    local_50 = chosenStage;
+    if ((g_GameManager.difficulty == 0) && (chosenStage == 6)) {
       local_50 = 5;
     }
     MoveCursor(menu,local_50);

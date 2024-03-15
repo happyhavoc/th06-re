@@ -122,7 +122,7 @@ void FUN_004195bf(void)
     local_c = (g_GameManager.current_stage * 1000 + g_GameManager.graze_in_stage * 10 +
               (uint)g_GameManager.current_power * 100) *
               (uint)g_GameManager.point_items_collected_in_stage;
-    if (5 < (int)g_GameManager.current_stage) {
+    if (5 < g_GameManager.current_stage) {
       local_c = local_c + (char)g_GameManager.lives_remaining * 3000000 +
                 (char)g_GameManager.bombs_remaining * 1000000;
     }

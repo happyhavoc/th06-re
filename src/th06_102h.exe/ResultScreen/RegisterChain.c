@@ -1,13 +1,13 @@
 
 /* WARNING: Inlined function: FUN_0045c3e0 */
 
-undefined4 ResultScreen::RegisterChain(BOOL param_1)
+ZunResult ResultScreen::RegisterChain(BOOL param_1)
 
 {
   ResultScreen *this;
   ChainElem *pCVar1;
   int iVar2;
-  undefined4 uVar3;
+  ZunResult ZVar3;
   ResultScreen *result_screen;
   void *pvStack_10;
   undefined *puStack_c;
@@ -46,12 +46,12 @@ undefined4 ResultScreen::RegisterChain(BOOL param_1)
     result_screen->draw_chain = pCVar1;
     result_screen->draw_chain->arg = result_screen;
     Chain::AddToDrawChain(&g_Chain,result_screen->draw_chain,0xc);
-    uVar3 = 0;
+    ZVar3 = ZUN_SUCCESS;
   }
   else {
-    uVar3 = 0xffffffff;
+    ZVar3 = ZUN_ERROR;
   }
   ExceptionList = pvStack_10;
-  return uVar3;
+  return ZVar3;
 }
 

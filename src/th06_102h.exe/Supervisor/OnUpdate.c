@@ -42,8 +42,8 @@ ChainCallbackResult Supervisor::OnUpdate(Supervisor *supervisor)
         return CHAIN_CALLBACK_RESULT_EXIT_GAME_ERROR;
       }
       if (state == 6) {
-        state = ResultScreen::RegisterChain(0);
-        if (state != 0) {
+        ZVar1 = ResultScreen::RegisterChain(0);
+        if (ZVar1 != ZUN_SUCCESS) {
           return CHAIN_CALLBACK_RESULT_EXIT_GAME_SUCCESS;
         }
       }
@@ -92,8 +92,8 @@ LAB_00423454:
       }
       if (state == 7) {
         GameManager::CutChain();
-        state = ResultScreen::RegisterChain(1);
-        if (state != 0) {
+        ZVar1 = ResultScreen::RegisterChain(1);
+        if (ZVar1 != ZUN_SUCCESS) {
           return CHAIN_CALLBACK_RESULT_EXIT_GAME_SUCCESS;
         }
       }
@@ -155,7 +155,7 @@ LAB_00423454:
     if (state == 4) {
       return CHAIN_CALLBACK_RESULT_EXIT_GAME_SUCCESS;
     }
-    if ((state == 7) && (state = ResultScreen::RegisterChain(1), state != 0)) {
+    if ((state == 7) && (ZVar1 = ResultScreen::RegisterChain(1), ZVar1 != ZUN_SUCCESS)) {
       return CHAIN_CALLBACK_RESULT_EXIT_GAME_SUCCESS;
     }
   }

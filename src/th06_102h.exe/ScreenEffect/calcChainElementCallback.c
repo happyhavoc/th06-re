@@ -1,5 +1,5 @@
 
-uint FUN_0042f800(ScreenEffect *param_1)
+uint ScreenEffect::calcChainElementCallback(ScreenEffect *param_1)
 
 {
   bool bVar1;

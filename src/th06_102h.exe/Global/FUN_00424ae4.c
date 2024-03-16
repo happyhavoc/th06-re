@@ -1,7 +1,7 @@
 
 /* WARNING: Unknown calling convention -- yet parameter storage is locked */
 
-int FUN_00424ae4(int param_1)
+int FUN_00424ae4(int fileIdx)
 
 {
   MidiOutput *this;
@@ -11,7 +11,7 @@ int FUN_00424ae4(int param_1)
   if (g_Supervisor.cfg.musicMode == MIDI) {
     if (g_Supervisor.midi_output != (MidiOutput *)0x0) {
       MidiOutput::StopPlayback(g_Supervisor.midi_output);
-      MidiOutput::ParseFile(this,param_1);
+      MidiOutput::ParseFile(this,fileIdx);
       MidiOutput::Play(this);
     }
     iVar1 = 0;

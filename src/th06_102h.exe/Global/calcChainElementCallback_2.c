@@ -3,7 +3,7 @@
 /* WARNING: Removing unreachable block (ram,0x00430173) */
 /* WARNING: Unknown calling convention -- yet parameter storage is locked */
 
-undefined4 FUN_0042ffc0(ScreenEffect *param_1)
+undefined4 calcChainElementCallback_2(ScreenEffect *param_1)
 
 {
   float fVar1;

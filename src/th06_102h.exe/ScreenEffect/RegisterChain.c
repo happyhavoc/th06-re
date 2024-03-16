@@ -37,15 +37,15 @@ ScreenEffect::RegisterChain(int param_1,int param_2,int param_3,int param_4,int 
       pSVar2 = (ScreenEffect *)&pSVar2->calcChainElement;
     }
     if (param_1 == 0) {
-      calcChainElement = Chain::CreateElem(&g_Chain,FUN_0042f800);
-      drawChainElement = Chain::CreateElem(&g_Chain,FUN_0042fee0);
+      calcChainElement = Chain::CreateElem(&g_Chain,calcChainElementCallback);
+      drawChainElement = Chain::CreateElem(&g_Chain,drawChainCallback);
     }
     else if (param_1 == 1) {
-      calcChainElement = Chain::CreateElem(&g_Chain,FUN_0042ffc0);
+      calcChainElement = Chain::CreateElem(&g_Chain,calcChainElementCallback_2);
     }
     else if (param_1 == 2) {
-      calcChainElement = Chain::CreateElem(&g_Chain,FUN_0042fc80);
-      drawChainElement = Chain::CreateElem(&g_Chain,FUN_0042ff70);
+      calcChainElement = Chain::CreateElem(&g_Chain,calcChainElementCallback_3);
+      drawChainElement = Chain::CreateElem(&g_Chain,drawChainCallback_2);
     }
     calcChainElement->addedCallback = screenEffectAddCallback;
     calcChainElement->deletedCallback = screenEffectDeletedCallback;

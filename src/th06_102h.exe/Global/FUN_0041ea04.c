@@ -1,25 +1,26 @@
 
-undefined4 FUN_0041ea04(undefined4 param_1,undefined4 param_2,int param_3)
+/* WARNING: Unknown calling convention -- yet parameter storage is locked */
+
+char FUN_0041ea04(UINT width,UINT height,D3DFORMAT format)
 
 {
   char cVar1;
-  undefined4 uVar2;
   
-  cVar1 = FUN_0041ea63(param_1,param_2,param_3);
+  cVar1 = FUN_0041ea63(width,height,format);
   if (cVar1 == '\0') {
-    if ((param_3 == 0x19) || (param_3 == 0x1a)) {
-      uVar2 = FUN_0041ea63(param_1,param_2,0x15);
+    if ((format == D3DFMT_A1R5G5B5) || (format == D3DFMT_A4R4G4B4)) {
+      cVar1 = FUN_0041ea63(width,height,D3DFMT_A8R8G8B8);
     }
-    else if (param_3 == 0x17) {
-      uVar2 = FUN_0041ea63(param_1,param_2,0x16);
+    else if (format == D3DFMT_R5G6B5) {
+      cVar1 = FUN_0041ea63(width,height,D3DFMT_X8R8G8B8);
     }
     else {
-      uVar2 = 0;
+      cVar1 = '\0';
     }
   }
   else {
-    uVar2 = 1;
+    cVar1 = '\x01';
   }
-  return uVar2;
+  return cVar1;
 }
 

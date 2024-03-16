@@ -71834,10 +71834,21 @@ struct Laser {
 
 typedef struct ResultScreenUnk3ab0 ResultScreenUnk3ab0, *PResultScreenUnk3ab0;
 
+typedef struct Hscr Hscr, *PHscr;
+
 struct ResultScreenUnk3ab0 {
-    int unk1;
-    struct ResultScreenUnk3ab0 *unk2;
-    void *unk3;
+    struct ResultScreenUnk3ab0 *unk1;
+    struct ResultScreenUnk3ab0 *unk2__ResultScreenUnk3ab0;
+    struct Hscr *unk3;
+};
+
+struct Hscr {
+    struct Th6k base;
+    uint score;
+    byte character; /* range is 0-3. Bottom bit is spellcard, top bit is character (0 = reimu, 2 = marisa) */
+    byte difficulty;
+    byte stage;
+    char name[9];
 };
 
 typedef struct BulletManager BulletManager, *PBulletManager;
@@ -71901,17 +71912,6 @@ struct Item {
 typedef struct ResultScreen ResultScreen, *PResultScreen;
 
 typedef struct ScoreDat ScoreDat, *PScoreDat;
-
-typedef struct Hscr Hscr, *PHscr;
-
-struct Hscr {
-    struct Th6k base;
-    uint score;
-    byte character; /* range is 0-3. Bottom bit is spellcard, top bit is character (0 = reimu, 2 = marisa) */
-    byte difficulty;
-    byte stage;
-    char name[9];
-};
 
 struct ResultScreen {
     struct ScoreDat *scoredat;

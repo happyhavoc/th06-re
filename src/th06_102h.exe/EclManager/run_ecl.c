@@ -960,7 +960,7 @@ switchD_00407544_caseD_2:
         }
         local_88 = local_2dc;
         local_7c = DAT_005a5f94 + (int)(DAT_005a5f94 * g_Gui.ecl_spellcard_related) / 10;
-        FUN_00417458(&g_Gui,local_7c);
+        Gui::FUN_00417458(&g_Gui,local_7c);
         g_GameManager.score = g_GameManager.score + local_7c;
         if (g_GameManager.field7_0x1c == 0) {
           local_80->unk_3e = local_80->unk_3e + 1;

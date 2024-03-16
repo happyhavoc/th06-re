@@ -1,7 +1,7 @@
 
 /* WARNING: Unknown calling convention -- yet parameter storage is locked */
 
-uint FUN_00426100(AnmVm *param_1,AnmVm *param_2,int param_3,int param_4,int *param_5)
+ZunResult FUN_00426100(AnmVm *param_1,AnmVm *param_2,int param_3,int param_4,int *param_5)
 
 {
   undefined4 *puVar1;
@@ -21,7 +21,7 @@ LAB_00426400:
       if (*param_5 + -1 <= param_3) {
         return 0xfffffffe;
       }
-      return 0xffffffff;
+      return ZUN_ERROR;
     }
     puVar1 = (undefined4 *)((int)&param_1[9].uvScrollPos + sVar2 * 0xc);
     puVar1[2] = (int)*psVar3;

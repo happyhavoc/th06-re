@@ -59,9 +59,9 @@ ScoreDat * OpenScore(char *param_1)
 LAB_0042b248:
   pRVar2 = (ResultScreenUnk3ab0 *)_malloc(0xc);
   score_data->unk2 = pRVar2;
-  score_data->unk2->unk2 = (ResultScreenUnk3ab0 *)0x0;
-  score_data->unk2->unk3 = (void *)0x0;
-  score_data->unk2->unk1 = 0;
+  score_data->unk2->unk2__ResultScreenUnk3ab0 = (ResultScreenUnk3ab0 *)0x0;
+  score_data->unk2->unk3 = (Hscr *)0x0;
+  score_data->unk2->unk1 = (ResultScreenUnk3ab0 *)0x0;
   return score_data;
 }
 

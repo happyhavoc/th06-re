@@ -3,7 +3,7 @@ void __thiscall AnmManager::SetupVertexBuffer(AnmManager *this)
 
 {
   int iVar1;
-  RenderVertexInfo *pRVar2;
+  RenderVertexInfo *vertexBufferContents;
   float *local_8;
   
   this->vertexBufferContents[2].position.x = -128.0;
@@ -50,11 +50,11 @@ void __thiscall AnmManager::SetupVertexBuffer(AnmManager *this)
     (*(g_Supervisor.d3dDevice)->lpVtbl->CreateVertexBuffer)
               (g_Supervisor.d3dDevice,0x50,0,0x102,D3DPOOL_MANAGED,&this->vertexBuffer);
     (*this->vertexBuffer->lpVtbl->Lock)(this->vertexBuffer,0,0,(BYTE **)&local_8,0);
-    pRVar2 = this->vertexBufferContents;
+    vertexBufferContents = this->vertexBufferContents;
                     /* memcpy(local_8, this->vertexBufferContents, 0x50); */
     for (iVar1 = 0x14; iVar1 != 0; iVar1 = iVar1 + -1) {
-      *local_8 = (pRVar2->position).x;
-      pRVar2 = (RenderVertexInfo *)&(pRVar2->position).y;
+      *local_8 = (vertexBufferContents->position).x;
+      vertexBufferContents = (RenderVertexInfo *)&(vertexBufferContents->position).y;
       local_8 = local_8 + 1;
     }
     (*this->vertexBuffer->lpVtbl->Unlock)(this->vertexBuffer);

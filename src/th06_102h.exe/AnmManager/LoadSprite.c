@@ -3,13 +3,13 @@ void __thiscall AnmManager::LoadSprite(AnmManager *this,uint spriteIdx,AnmLoaded
 
 {
   int iVar1;
-  AnmLoadedSprite *pAVar2;
+  u32 *loaded_sprite;
   
-  pAVar2 = this->sprites + spriteIdx;
+  loaded_sprite = (u32 *)(this->sprites + spriteIdx);
   for (iVar1 = 0xe; iVar1 != 0; iVar1 = iVar1 + -1) {
-    pAVar2->sourceFileIndex = sprite->sourceFileIndex;
+    *loaded_sprite = sprite->sourceFileIndex;
     sprite = (AnmLoadedSprite *)&sprite->startPixelInclusive;
-    pAVar2 = (AnmLoadedSprite *)&pAVar2->startPixelInclusive;
+    loaded_sprite = loaded_sprite + 1;
   }
   this->sprites[spriteIdx].spriteId = this->maybeLoadedSpriteCount;
   this->maybeLoadedSpriteCount = this->maybeLoadedSpriteCount + 1;

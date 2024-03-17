@@ -17,7 +17,7 @@ undefined4 __thiscall MainMenu::FUN_00437b41(MainMenu *this)
   }
   main_menu = this;
   for (i = 0; i < 8; i = i + 1) {
-    FUN_004377a3(main_menu,i,this->cursor,0xffff0000,0x80300000,122);
+    DrawMenuItem(main_menu,i,this->cursor,0xffff0000,0x80300000,122);
     main_menu = (MainMenu *)&main_menu->field1_0x110;
   }
   if (0x13 < this->stateTimer) {

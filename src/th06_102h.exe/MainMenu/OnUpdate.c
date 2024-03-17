@@ -107,7 +107,7 @@ switchD_004358f7_caseD_2:
     MoveCursor(menu,11);
     vm_memset = (MainMenu *)&menu->keyconfig_anmvm;
     for (i = 0; i < 0xb; i = i + 1) {
-      FUN_004377a3(vm_memset,i,menu->cursor,menu->color2,menu->color1,0x73);
+      DrawMenuItem(vm_memset,i,menu->cursor,menu->color2,menu->color1,0x73);
       vm_memset = (MainMenu *)&vm_memset->field1_0x110;
     }
     for (i = 0; i < 9; i = i + 1) {
@@ -116,7 +116,7 @@ switchD_004358f7_caseD_2:
       }
       else {
         *(uint *)&(vm_memset->vm1).flags = *(uint *)&(vm_memset->vm1).flags | 2;
-        FUN_004377a3(vm_memset,i,menu->cursor,menu->color2,menu->color1,0x73);
+        DrawMenuItem(vm_memset,i,menu->cursor,menu->color2,menu->color1,0x73);
       }
       vm_memset = (MainMenu *)&vm_memset->field1_0x110;
     }
@@ -134,7 +134,7 @@ switchD_004358f7_caseD_2:
           AnmManager::SetActiveSprite(g_AnmManager,&vm_memset->vm1,(int)sVar1 % 10 + 0x100);
         }
         (vm_memset->vm1).anotherSpriteNumber = (vm_memset->vm1).spriteNumber;
-        FUN_004377a3(vm_memset,i / 2,menu->cursor,menu->color2,menu->color1,0x7a);
+        DrawMenuItem(vm_memset,i / 2,menu->cursor,menu->color2,menu->color1,0x7a);
       }
       vm_memset = (MainMenu *)&vm_memset->field1_0x110;
     }

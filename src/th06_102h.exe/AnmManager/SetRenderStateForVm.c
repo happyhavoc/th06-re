@@ -1,5 +1,5 @@
 
-void __thiscall SetRenderStateForVm(AnmManager *this,AnmVm *vm)
+void __thiscall AnmManager::SetRenderStateForVm(AnmManager *this,AnmVm *vm)
 
 {
   if ((uint)this->currentBlendMode != (*(uint *)&vm->flags >> 2 & 1)) {
@@ -31,14 +31,14 @@ void __thiscall SetRenderStateForVm(AnmManager *this,AnmVm *vm)
     }
   }
   else {
-    AnmManager::g_PrimitivesToDrawNoVertexBuf[0].color = (vm->color).color;
-    AnmManager::g_PrimitivesToDrawNoVertexBuf[1].color = (vm->color).color;
-    AnmManager::g_PrimitivesToDrawNoVertexBuf[2].color = (vm->color).color;
-    AnmManager::g_PrimitivesToDrawNoVertexBuf[3].color = (vm->color).color;
-    AnmManager::g_PrimitivesToDrawUnknown[0].diffuse = (vm->color).color;
-    AnmManager::g_PrimitivesToDrawUnknown[1].diffuse = (vm->color).color;
-    AnmManager::g_PrimitivesToDrawUnknown[2].diffuse = (vm->color).color;
-    AnmManager::g_PrimitivesToDrawUnknown[3].diffuse = (vm->color).color;
+    g_PrimitivesToDrawNoVertexBuf[0].color = (vm->color).color;
+    g_PrimitivesToDrawNoVertexBuf[1].color = (vm->color).color;
+    g_PrimitivesToDrawNoVertexBuf[2].color = (vm->color).color;
+    g_PrimitivesToDrawNoVertexBuf[3].color = (vm->color).color;
+    g_PrimitivesToDrawUnknown[0].diffuse = (vm->color).color;
+    g_PrimitivesToDrawUnknown[1].diffuse = (vm->color).color;
+    g_PrimitivesToDrawUnknown[2].diffuse = (vm->color).color;
+    g_PrimitivesToDrawUnknown[3].diffuse = (vm->color).color;
   }
   if (((g_Supervisor.cfg.opts >> 6 & 1) == 0) &&
      ((uint)this->currentZWriteDisable != (*(uint *)&vm->flags >> 0xc & 1))) {

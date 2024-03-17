@@ -1,11 +1,9 @@
 
-/* WARNING: Unknown calling convention -- yet parameter storage is locked */
-
-int FUN_00424ae4(int fileIdx)
+int PlayMidiFile(int fileIdx)
 
 {
+  int result;
   MidiOutput *this;
-  int iVar1;
   
   this = g_Supervisor.midi_output;
   if (g_Supervisor.cfg.musicMode == MIDI) {
@@ -14,11 +12,11 @@ int FUN_00424ae4(int fileIdx)
       MidiOutput::ParseFile(this,fileIdx);
       MidiOutput::Play(this);
     }
-    iVar1 = 0;
+    result = 0;
   }
   else {
-    iVar1 = 1;
+    result = 1;
   }
-  return iVar1;
+  return result;
 }
 

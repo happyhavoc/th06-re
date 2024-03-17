@@ -74399,13 +74399,13 @@ struct unk {
     int unkc;
 };
 
+typedef ushort u16;
+
 typedef float f32;
 
 typedef short i16;
 
 typedef sbyte i8;
-
-typedef ushort u16;
 
 #define _M_IX86 300
 

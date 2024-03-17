@@ -1,5 +1,5 @@
 
-undefined4 __thiscall MainMenu::FUN_00437b41(MainMenu *this)
+undefined4 __thiscall MainMenu::DrawStartMenu(MainMenu *this)
 
 {
   int cursorMove;

@@ -81,7 +81,7 @@ load_menu_rpy:
     if (pressedButton == 0) {
       menu->idleFrames = 0;
 switchD_004358f7_caseD_2:
-      FUN_00437b41(menu);
+      DrawStartMenu(menu);
       if (g_CurFrameInput != 0) {
         menu->idleFrames = 0;
       }

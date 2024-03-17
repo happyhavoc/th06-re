@@ -35,7 +35,7 @@ LAB_0043a516:
         goto LAB_0043a516;
       }
     }
-    param_1->cursor = (uint)(g_GameManager.difficulty == 4);
+    param_1->cursor = (uint)(g_GameManager.difficulty == EXTRA);
   }
 LAB_0043a520:
   if (g_GameManager.field30_0x1823 != 0) {

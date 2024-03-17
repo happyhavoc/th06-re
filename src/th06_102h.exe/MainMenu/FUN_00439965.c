@@ -29,7 +29,7 @@ undefined4 __thiscall MainMenu::FUN_00439965(MainMenu *this)
       local_2c = 6;
     }
     local_14 = local_2c;
-    if ((g_GameManager.difficulty == 0) && (local_2c == 6)) {
+    if ((g_GameManager.difficulty == EASY) && (local_2c == 6)) {
       local_14 = 5;
     }
     for (local_8 = 0; local_8 < (int)local_14; local_8 = local_8 + 1) {

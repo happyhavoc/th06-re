@@ -21,8 +21,8 @@ undefined4 __thiscall MainMenu::DrawStartMenu(MainMenu *this)
     main_menu = (MainMenu *)&main_menu->field1_0x110;
   }
   if (0x13 < this->stateTimer) {
-    if (((g_CurFrameInput & 0x1001) != 0) &&
-       ((g_CurFrameInput & 0x1001) != (g_LastFrameInput & 0x1001))) {
+    if (((g_CurFrameInput & KEY_ENTER) != 0) &&
+       ((g_CurFrameInput & KEY_ENTER) != (g_LastFrameInput & KEY_ENTER))) {
       switch(this->cursor) {
       case 0:
         for (i = 0; i < 0x7a; i = i + 1) {
@@ -30,11 +30,11 @@ undefined4 __thiscall MainMenu::DrawStartMenu(MainMenu *this)
         }
         this->gameState = STATE_DIFFICULTY_LOAD;
         g_GameManager.field30_0x1823 = 0;
-        if (3 < g_GameManager.difficulty) {
-          g_GameManager.difficulty = 1;
+        if (3 < (int)g_GameManager.difficulty) {
+          g_GameManager.difficulty = NORMAL;
         }
-        if (3 < g_Supervisor.cfg.defaultDifficulty) {
-          g_Supervisor.cfg.defaultDifficulty = 1;
+        if (LUNATIC < g_Supervisor.cfg.defaultDifficulty) {
+          g_Supervisor.cfg.defaultDifficulty = NORMAL;
         }
         this->stateTimer = 0;
         this->unk_81fc = 2.0;
@@ -58,7 +58,7 @@ undefined4 __thiscall MainMenu::DrawStartMenu(MainMenu *this)
           }
           this->gameState = STATE_DIFFICULTY_LOAD;
           g_GameManager.field30_0x1823 = 0;
-          g_GameManager.difficulty = 4;
+          g_GameManager.difficulty = EXTRA;
           this->stateTimer = 0;
           this->unk_81fc = 2.0;
           this->maybe_menu_text_color = 0xff000000;
@@ -73,11 +73,11 @@ undefined4 __thiscall MainMenu::DrawStartMenu(MainMenu *this)
           (&this->vm1)[i].pendingInterrupt = 4;
         }
         this->gameState = STATE_DIFFICULTY_LOAD;
-        if (3 < g_GameManager.difficulty) {
-          g_GameManager.difficulty = 1;
+        if (3 < (int)g_GameManager.difficulty) {
+          g_GameManager.difficulty = NORMAL;
         }
-        if (3 < g_Supervisor.cfg.defaultDifficulty) {
-          g_Supervisor.cfg.defaultDifficulty = 1;
+        if (LUNATIC < g_Supervisor.cfg.defaultDifficulty) {
+          g_Supervisor.cfg.defaultDifficulty = NORMAL;
         }
         this->stateTimer = 0;
         this->unk_81fc = 2.0;

@@ -35,7 +35,7 @@ ZunResult __thiscall Supervisor::LoadConfig(Supervisor *this,char *config_file_n
       fclose(pFVar2);
     }
     g_Supervisor.cfg.playSounds = 1;
-    g_Supervisor.cfg.defaultDifficulty = 1;
+    g_Supervisor.cfg.defaultDifficulty = NORMAL;
     g_Supervisor.cfg.windowed = false;
     g_Supervisor.cfg.frameskipConfig = 0;
     g_Supervisor.cfg.controllerMapping.shootButton = g_ControllerMapping.shootButton;
@@ -84,7 +84,7 @@ ZunResult __thiscall Supervisor::LoadConfig(Supervisor *this,char *config_file_n
         fclose(pFVar2);
       }
       g_Supervisor.cfg.playSounds = 1;
-      g_Supervisor.cfg.defaultDifficulty = 1;
+      g_Supervisor.cfg.defaultDifficulty = NORMAL;
       g_Supervisor.cfg.windowed = false;
       g_Supervisor.cfg.frameskipConfig = 0;
       g_Supervisor.cfg.controllerMapping.shootButton = g_ControllerMapping.shootButton;

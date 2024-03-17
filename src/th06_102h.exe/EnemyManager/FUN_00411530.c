@@ -162,7 +162,7 @@ void __thiscall EnemyManager::FUN_00411530(EnemyManager *this)
         }
         break;
       case 8:
-        if (((g_GameManager.difficulty == 0) && (g_GameManager.current_stage == 5)) &&
+        if (((g_GameManager.difficulty == EASY) && (g_GameManager.current_stage == 5)) &&
            (*(short *)((int)this->timeline_instr + 2) == 1)) {
           FUN_00418768((uint)g_GameManager.character * 10 + 3);
         }

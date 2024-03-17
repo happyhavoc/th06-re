@@ -153,8 +153,8 @@ LAB_0041f7c5:
           break;
         case 1:
           switch(g_GameManager.difficulty) {
-          case 0:
-          case 1:
+          case EASY:
+          case NORMAL:
             lVar9 = __ftol2((curItem->position).y);
             if (lVar9 < 0x80) {
               local_e0 = 100000;
@@ -168,7 +168,7 @@ LAB_0041f7c5:
                       (&g_AsciiManager,&curItem->position,local_e0,
                        ((local_e0 < 100000) - 1 & 0xffffff01) - 1);
             break;
-          case 2:
+          case HARD:
             lVar9 = __ftol2((curItem->position).y);
             if (lVar9 < 0x80) {
               local_e4 = 150000;
@@ -182,7 +182,7 @@ LAB_0041f7c5:
                       (&g_AsciiManager,&curItem->position,local_e4,
                        ((local_e4 < 150000) - 1 & 0xffffff01) - 1);
             break;
-          case 3:
+          case LUNATIC:
             lVar9 = __ftol2((curItem->position).y);
             if (lVar9 < 0x80) {
               local_e8 = 200000;
@@ -196,7 +196,7 @@ LAB_0041f7c5:
                       (&g_AsciiManager,&curItem->position,local_e8,
                        ((local_e8 < 200000) - 1 & 0xffffff01) - 1);
             break;
-          case 4:
+          case EXTRA:
             lVar9 = __ftol2((curItem->position).y);
             if (lVar9 < 0x80) {
               local_ec = 300000;

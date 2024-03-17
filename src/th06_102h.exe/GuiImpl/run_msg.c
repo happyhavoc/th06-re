@@ -148,11 +148,11 @@ undefined4 __thiscall GuiImpl::run_msg(GuiImpl *this)
         g_GameManager.field0_0x0 = g_GameManager.score;
         if (g_GameManager.field30_0x1823 == 0) {
           if ((g_GameManager.current_stage < 5) ||
-             ((g_GameManager.difficulty != 0 && (g_GameManager.current_stage == 5)))) {
+             ((g_GameManager.difficulty != EASY && (g_GameManager.current_stage == 5)))) {
             g_Supervisor.curState = 3;
           }
           else if (g_GameManager.field7_0x1c == 0) {
-            if (g_GameManager.difficulty == 4) {
+            if (g_GameManager.difficulty == EXTRA) {
               g_GameManager.unk_1822 = 1;
               g_Supervisor.curState = 7;
             }

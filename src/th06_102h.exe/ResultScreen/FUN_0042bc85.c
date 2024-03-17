@@ -11,7 +11,7 @@ undefined4 __thiscall ResultScreen::FUN_0042bc85(ResultScreen *this)
   
   if (this->field1_0x4 == 0) {
     this->field15_0x24 = (uint)g_GameManager.character;
-    *(int *)&this->field17_0x2c = g_GameManager.difficulty;
+    *(Difficulty *)&this->field17_0x2c = g_GameManager.difficulty;
     local_c = &this->unk_40;
     for (local_8 = 0; local_8 < 0x26; local_8 = local_8 + 1) {
       local_c->pendingInterrupt = (short)*(undefined4 *)&this->field17_0x2c + 3;

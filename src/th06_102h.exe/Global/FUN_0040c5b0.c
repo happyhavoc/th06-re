@@ -31,7 +31,7 @@ void FUN_0040c5b0(Enemy *param_1,AnmRawInstr *param_2)
     local_8 = (param_1->current_context).var2 / 9;
     local_64._0_2_ = 8;
     local_64._72_2_ = 0;
-    if (g_GameManager.difficulty < 2) {
+    if ((int)g_GameManager.difficulty < 2) {
       local_64._68_2_ = 1;
     }
     else {
@@ -89,7 +89,7 @@ void FUN_0040c5b0(Enemy *param_1,AnmRawInstr *param_2)
       local_64._8_4_ = matrix_in.y + (param_1->position).y + local_70;
       local_64._4_4_ = fVar1 + (param_1->position).x + local_74;
       local_64._24_4_ = 2.0;
-      if (((local_8 & 1) != 0) && (g_GameManager.difficulty < 2)) {
+      if (((local_8 & 1) != 0) && ((int)g_GameManager.difficulty < 2)) {
         local_64._16_4_ = local_88;
       }
       local_64._2_2_ = 3;

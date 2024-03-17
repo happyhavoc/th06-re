@@ -37,9 +37,9 @@ ZunResult GameManager::AddedCallback(GameManager *gameManager)
     gameManager->current_power = 0;
     gameManager->num_retries = 0;
     if (5 < gameManager->current_stage) {
-      gameManager->difficulty = 4;
+      gameManager->difficulty = EXTRA;
     }
-    if (gameManager->difficulty < 4) {
+    if ((int)gameManager->difficulty < 4) {
       gameManager->field23_0x181c = 0;
     }
     else {
@@ -185,7 +185,7 @@ ZunResult GameManager::AddedCallback(GameManager *gameManager)
           }
           else {
             GameErrorContextLog(&g_GameErrorContext,
-                                "error : 敵��脳の初期化に失敗しました\n");
+                                "error : 敵頭脳の初期化に失敗しました\n");
             ZVar4 = ZUN_ERROR;
           }
         }

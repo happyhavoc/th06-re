@@ -53,28 +53,28 @@ void Gui::OnDraw(Gui *arg)
                  (char)g_GameManager.bombs_remaining * 1000000);
     }
     local_10.y = local_10.y + 32.0;
-    if (g_GameManager.difficulty == 0) {
+    if (g_GameManager.difficulty == EASY) {
       g_AsciiManager.color = 0xffff8080;
       AsciiManager::AddFormatText(&g_AsciiManager,&local_10,"Easy Rank      * 0.5\n");
     }
-    else if (g_GameManager.difficulty == 1) {
+    else if (g_GameManager.difficulty == NORMAL) {
       g_AsciiManager.color = 0xffff8080;
       AsciiManager::AddFormatText(&g_AsciiManager,&local_10,"Normal Rank    * 1.0\n");
     }
-    else if (g_GameManager.difficulty == 2) {
+    else if (g_GameManager.difficulty == HARD) {
       g_AsciiManager.color = 0xffff8080;
       AsciiManager::AddFormatText(&g_AsciiManager,&local_10,"Hard Rank      * 1.2\n");
     }
-    else if (g_GameManager.difficulty == 3) {
+    else if (g_GameManager.difficulty == LUNATIC) {
       g_AsciiManager.color = 0xffff8080;
       AsciiManager::AddFormatText(&g_AsciiManager,&local_10,"Lunatic Rank   * 1.5\n");
     }
-    else if (g_GameManager.difficulty == 4) {
+    else if (g_GameManager.difficulty == EXTRA) {
       g_AsciiManager.color = 0xffff8080;
       AsciiManager::AddFormatText(&g_AsciiManager,&local_10,"Extra Rank     * 2.0\n");
     }
     local_10.y = local_10.y + 16.0;
-    if ((g_GameManager.difficulty < 4) && (g_GameManager.field30_0x1823 == 0)) {
+    if (((int)g_GameManager.difficulty < 4) && (g_GameManager.field30_0x1823 == 0)) {
       if (g_Supervisor.lifeCount == 3) {
         g_AsciiManager.color = 0xffff8080;
         AsciiManager::AddFormatText(&g_AsciiManager,&local_10,"Player Penalty * 0.5\n");

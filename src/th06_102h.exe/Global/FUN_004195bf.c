@@ -126,18 +126,18 @@ void FUN_004195bf(void)
       local_c = local_c + (char)g_GameManager.lives_remaining * 3000000 +
                 (char)g_GameManager.bombs_remaining * 1000000;
     }
-    if (g_GameManager.difficulty == 0) {
+    if (g_GameManager.difficulty == EASY) {
       local_c = local_c / 2 - (local_c / 2) % 10;
     }
-    else if (g_GameManager.difficulty == 2) {
+    else if (g_GameManager.difficulty == HARD) {
       local_c = (local_c * 0xc) / 10;
       local_c = local_c - local_c % 10;
     }
-    else if (g_GameManager.difficulty == 3) {
+    else if (g_GameManager.difficulty == LUNATIC) {
       local_c = (local_c * 0xf) / 10;
       local_c = local_c - local_c % 10;
     }
-    else if (g_GameManager.difficulty == 4) {
+    else if (g_GameManager.difficulty == EXTRA) {
       local_c = local_c * 2 - (local_c * 2) % 10;
     }
     if (g_Supervisor.lifeCount == 3) {

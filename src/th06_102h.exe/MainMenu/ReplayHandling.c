@@ -198,7 +198,7 @@ LAB_0043877b:
       g_GameManager.field7_0x1c = 1;
       g_Supervisor.framerateMultiplier = 1.0;
       _strcpy(g_GameManager.replay_file,this->replayFilePaths[this->chosenReplay]);
-      g_GameManager.difficulty = (int)this->currentReplay->difficulty;
+      g_GameManager.difficulty = (Difficulty)this->currentReplay->difficulty;
       g_GameManager.character = this->currentReplay->shottype_chara / 2;
       g_GameManager.shottype = this->currentReplay->shottype_chara % 2;
       for (cur = 0; this->currentReplay->stage_score[cur + 1] == (StageReplayData *)0x0;

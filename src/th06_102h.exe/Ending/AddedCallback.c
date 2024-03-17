@@ -34,7 +34,7 @@ ZunResult Ending::AddedCallback(Ending *ending)
     }
   }
   *(undefined *)(shottypeAndCharacter * 0x18 + 0x69cce1 + g_GameManager.difficulty) = 'c';
-  if ((g_GameManager.difficulty == 0) || (g_GameManager.num_retries != 0)) {
+  if ((g_GameManager.difficulty == EASY) || (g_GameManager.num_retries != 0)) {
     if (g_GameManager.character == 0) {
       load_ending = loadEnding(ending,"data/end00b.end");
       if (load_ending != ZUN_SUCCESS) {

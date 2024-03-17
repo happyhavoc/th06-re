@@ -70,7 +70,7 @@ load_menu_rpy:
       g_GameManager._6184_4_ = 0;
       g_Supervisor.framerateMultiplier = 1.0;
       _strcpy(g_GameManager.replay_file,"data/demo/demo00.rpy");
-      g_GameManager.difficulty = 3;
+      g_GameManager.difficulty = LUNATIC;
       g_GameManager.current_stage = 3;
       g_Supervisor.curState = 2;
       return 0;
@@ -240,7 +240,7 @@ switchD_004358f7_caseD_2:
     menu->unk_81fc = 0.0;
     menu->wasActive = menu->isActive;
     menu->isActive = 0;
-    if (g_GameManager.difficulty < 4) {
+    if ((int)g_GameManager.difficulty < 4) {
       for (i = 0; i < 122; i = i + 1) {
         (&menu->vm1)[i].pendingInterrupt = 6;
       }
@@ -260,7 +260,7 @@ switchD_004358f7_caseD_2:
     break;
   case STATE_DIFFICULTY_SELECT:
     vm_memset = (MainMenu *)&menu->field81_0x5610;
-    if (g_GameManager.difficulty < 4) {
+    if ((int)g_GameManager.difficulty < 4) {
       MoveCursor(menu,4);
       for (i = 0; i < 4; i = i + 1) {
         if (i == menu->cursor) {
@@ -317,14 +317,14 @@ switchD_004358f7_caseD_2:
           (&menu->vm1)[i].pendingInterrupt = 7;
         }
         SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,10);
-        if (g_GameManager.difficulty < 4) {
+        if ((int)g_GameManager.difficulty < 4) {
           (&menu->field81_0x5610)[menu->cursor].pendingInterrupt = 8;
           g_GameManager.difficulty = menu->cursor;
           menu->cursor = (uint)g_GameManager.character;
         }
         else {
           (menu->field85_0x5a50).pendingInterrupt = 8;
-          g_GameManager.difficulty = 4;
+          g_GameManager.difficulty = EXTRA;
           maxClearCheck =
                GameManager::hasReachedMaxClears(&g_GameManager,(uint)g_GameManager.character,0);
           if ((maxClearCheck == 0) &&
@@ -337,7 +337,7 @@ switchD_004358f7_caseD_2:
             menu->cursor = (uint)g_GameManager.character;
           }
         }
-        g_Supervisor.cfg.defaultDifficulty = (byte)g_GameManager.difficulty;
+        g_Supervisor.cfg.defaultDifficulty = (DefaultDifficulty)g_GameManager.difficulty;
         vm_memset = (MainMenu *)&menu->field86_0x5b60;
         for (i = 0; i < 2; i = i + 1) {
           if (i != menu->cursor) {
@@ -355,8 +355,8 @@ switchD_004358f7_caseD_2:
         (&menu->vm1)[i].pendingInterrupt = 4;
       }
       SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xb);
-      if (g_GameManager.difficulty < 4) {
-        g_Supervisor.cfg.defaultDifficulty = *(byte *)&menu->cursor;
+      if ((int)g_GameManager.difficulty < 4) {
+        g_Supervisor.cfg.defaultDifficulty = *(DefaultDifficulty *)&menu->cursor;
         if (g_GameManager.field30_0x1823 == 0) {
           menu->cursor = 0;
         }
@@ -381,7 +381,7 @@ LAB_0043666d:
         if (menu->cursor < 0) {
           menu->cursor = menu->cursor + 2;
         }
-        if (((g_GameManager.difficulty == 4) &&
+        if (((g_GameManager.difficulty == EXTRA) &&
             (maxClearCheck = GameManager::hasReachedMaxClears(&g_GameManager,menu->cursor,0),
             maxClearCheck == 0)) &&
            (maxClearCheck = GameManager::hasReachedMaxClears(&g_GameManager,menu->cursor,1),
@@ -413,7 +413,7 @@ LAB_0043666d:
       if (1 < menu->cursor) {
         menu->cursor = menu->cursor + -2;
       }
-      if (((g_GameManager.difficulty != 4) ||
+      if (((g_GameManager.difficulty != EXTRA) ||
           (maxClearCheck = GameManager::hasReachedMaxClears(&g_GameManager,menu->cursor,0),
           maxClearCheck != 0)) ||
          (maxClearCheck = GameManager::hasReachedMaxClears(&g_GameManager,menu->cursor,1),
@@ -464,7 +464,7 @@ LAB_0043666d:
           vm_memset = (MainMenu *)((int)vm_memset + 0x220);
         }
         g_GameManager.character = *(byte *)&menu->cursor;
-        if (g_GameManager.difficulty < 4) {
+        if ((int)g_GameManager.difficulty < 4) {
           menu->cursor = (uint)g_GameManager.shottype;
         }
         else {
@@ -485,7 +485,7 @@ LAB_0043666d:
     else {
       menu->gameState = STATE_DIFFICULTY_SELECT;
       menu->stateTimer = 0;
-      if (g_GameManager.difficulty < 4) {
+      if ((int)g_GameManager.difficulty < 4) {
         for (i = 0; i < 0x7a; i = i + 1) {
           (&menu->vm1)[i].pendingInterrupt = 6;
         }
@@ -508,7 +508,7 @@ LAB_0043666d:
     break;
   case STATE_SHOT_SELECT:
     MoveCursor(menu,2);
-    if ((g_GameManager.difficulty == 4) &&
+    if ((g_GameManager.difficulty == EXTRA) &&
        (maxClearCheck =
              GameManager::hasReachedMaxClears
                        (&g_GameManager,(uint)g_GameManager.character,menu->cursor),
@@ -555,7 +555,7 @@ LAB_0043666d:
            ((g_CurFrameInput & 0x1001) != (g_LastFrameInput & 0x1001))) {
           g_GameManager.shottype = *(byte *)&menu->cursor;
           if (g_GameManager.field30_0x1823 == 0) {
-            if (g_GameManager.difficulty < 4) {
+            if ((int)g_GameManager.difficulty < 4) {
               g_GameManager.current_stage = 0;
             }
             else {
@@ -596,7 +596,7 @@ LAB_0043666d:
             local_b4 = 6;
           }
           local_4c = local_b4;
-          if ((g_GameManager.difficulty == 0) && (local_b4 == 6)) {
+          if ((g_GameManager.difficulty == EASY) && (local_b4 == 6)) {
             local_4c = 5;
           }
           if ((int)local_4c <= menu->cursor) {
@@ -659,7 +659,7 @@ LAB_0043666d:
       chosenStage = 6;
     }
     local_50 = chosenStage;
-    if ((g_GameManager.difficulty == 0) && (chosenStage == 6)) {
+    if ((g_GameManager.difficulty == EASY) && (chosenStage == 6)) {
       local_50 = 5;
     }
     MoveCursor(menu,local_50);
@@ -672,7 +672,7 @@ LAB_0043666d:
 LAB_00436de7:
           g_GameManager.lives_remaining = g_Supervisor.cfg.lifeCount;
           g_GameManager.bombs_remaining = g_Supervisor.cfg.bombCount;
-          if ((g_GameManager.difficulty == 4) || (g_GameManager.field30_0x1823 != 0)) {
+          if ((g_GameManager.difficulty == EXTRA) || (g_GameManager.field30_0x1823 != 0)) {
             g_GameManager.lives_remaining = 2;
             g_GameManager.bombs_remaining = 3;
           }

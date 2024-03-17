@@ -10,7 +10,7 @@ undefined4 __thiscall ResultScreen::FUN_0042d35a(ResultScreen *this)
   if ((0xe < this->unk_8) && (this->unk_8 < 0x11)) {
     local_8 = &this->field74_0x2790;
     g_AsciiManager.color = (this->field74_0x2790).color.color;
-    if (g_GameManager.difficulty < 4) {
+    if ((int)g_GameManager.difficulty < 4) {
       local_34 = (float)g_GameManager.counat / 89500.0;
     }
     else {
@@ -24,7 +24,7 @@ undefined4 __thiscall ResultScreen::FUN_0042d35a(ResultScreen *this)
     AsciiManager::AddString
               (&g_AsciiManager,&local_14,(&PTR_s__Easy_00478504)[g_GameManager.difficulty]);
     local_14.y = local_14.y + 22.0;
-    if ((g_GameManager.difficulty == 0) || (g_GameManager.unk_1822 == 0)) {
+    if ((g_GameManager.difficulty == EASY) || (g_GameManager.unk_1822 == 0)) {
       AsciiManager::AddFormatText
                 (&g_AsciiManager,&local_14,"    %3.2f%%",(double)(local_34 * 100.0));
     }

@@ -2,103 +2,116 @@
 void __thiscall SoundPlayer::LoadSound(SoundPlayer *this,int idx,char *path)
 
 {
-  byte *_Str1;
-  int iVar1;
-  int iVar2;
+  char *soundFileData;
+  int compared;
   HRESULT HVar3;
+  int i;
   uint uVar4;
-  undefined4 *puVar5;
-  DWORD *pDVar6;
+  WAVEFORMATEX *piVar1;
+  DSBUFFERDESC *pDVar6;
+  undefined4 *piVar2;
   undefined4 *puVar7;
+  WAVEFORMATEX wavData;
+  char *soundFileData2;
+  LPVOID AudioPtr1;
+  dword AudioBytes1;
+  DWORD AudioBytes2;
+  LPVOID AudioPtr2;
+  DWORD formatSize;
+  WAVEFORMATEX *wavDataPtr;
+  DSBUFFERDESC dsBuffer;
+  uint stackCookie;
+  char *sFD_Cursor;
+  int fileSize;
   uint unaff_retaddr;
-  char *local_4c;
-  undefined4 *local_48;
-  uint local_44;
-  uint local_40;
-  undefined4 *local_3c;
-  undefined4 local_38;
-  tWAVEFORMATEX local_34;
-  uint local_c;
-  char *local_8;
   
-  local_c = __security_cookie ^ unaff_retaddr;
+  stackCookie = __security_cookie ^ unaff_retaddr;
   if (this->csoundmanager_ptr != (CSoundManager *)0x0) {
     if (this->sound_buffers[idx] != (LPDIRECTSOUNDBUFFER)0x0) {
       (*this->sound_buffers[idx]->lpVtbl->Release)(this->sound_buffers[idx]);
       this->sound_buffers[idx] = (LPDIRECTSOUNDBUFFER)0x0;
     }
-    _Str1 = FileSystem::OpenPath(path,0);
-    if (_Str1 != (byte *)0x0) {
-      iVar1 = _strncmp((char *)_Str1,"RIFF",4);
-      if (iVar1 == 0) {
-        iVar1 = *(int *)(_Str1 + 4);
-        iVar2 = _strncmp((char *)(_Str1 + 8),"WAVE",4);
-        if (iVar2 == 0) {
-          local_34._0_4_ = FUN_004309f0((char *)(_Str1 + 0xc),"fmt ",&local_38,iVar1 + -12);
-          if ((char *)local_34._0_4_ == (char *)0x0) {
+    soundFileData = (char *)FileSystem::OpenPath(path,0);
+    sFD_Cursor = soundFileData;
+    if (soundFileData != (char *)0x0) {
+      compared = _strncmp(soundFileData,"RIFF",4);
+      if (compared == 0) {
+        fileSize = *(int *)(sFD_Cursor + 4);
+        sFD_Cursor = sFD_Cursor + 8;
+        compared = _strncmp(sFD_Cursor,"WAVE",4);
+        if (compared == 0) {
+          sFD_Cursor = sFD_Cursor + 4;
+          wavDataPtr = GetWavFormatData(sFD_Cursor,"fmt ",(int *)&formatSize,fileSize + -12);
+          if (wavDataPtr == (WAVEFORMATEX *)0x0) {
             GameErrorContextLog(&g_GameErrorContext,"Wav ファイルじゃない? %s\n",path);
-            _free(_Str1);
+            _free(soundFileData);
           }
           else {
-            local_34._0_4_ = FUN_004309f0((char *)(_Str1 + 0xc),"data",&local_38,iVar1 + -0xc);
-            if ((char *)local_34._0_4_ == (char *)0x0) {
+            wavData.wFormatTag = wavDataPtr->wFormatTag;
+            wavData.nChannels = wavDataPtr->nChannels;
+            wavData.nSamplesPerSec = wavDataPtr->nSamplesPerSec;
+            wavData.nAvgBytesPerSec = wavDataPtr->nAvgBytesPerSec;
+            wavData.nBlockAlign = wavDataPtr->nBlockAlign;
+            wavData.wBitsPerSample = wavDataPtr->wBitsPerSample;
+            wavData.cbSize = wavDataPtr->cbSize;
+            wavDataPtr = GetWavFormatData(sFD_Cursor,"data",(int *)&formatSize,fileSize + -0xc);
+            if (wavDataPtr == (WAVEFORMATEX *)0x0) {
               GameErrorContextLog(&g_GameErrorContext,"Wav ファイルじゃない? %s\n",path);
-              _free(_Str1);
+              _free(soundFileData);
             }
             else {
-              pDVar6 = &local_34.nSamplesPerSec;
-              for (iVar1 = 9; iVar1 != 0; iVar1 = iVar1 + -1) {
-                *pDVar6 = 0;
-                pDVar6 = pDVar6 + 1;
+              pDVar6 = &dsBuffer;
+              for (i = 9; i != 0; i = i + -1) {
+                pDVar6->dwSize = 0;
+                pDVar6 = (DSBUFFERDESC *)&pDVar6->dwFlags;
               }
-              local_34.nSamplesPerSec = 0x24;
-              local_34.nAvgBytesPerSec = 0x8088;
-              local_34.nBlockAlign = (undefined2)local_38;
-              local_34.wBitsPerSample = local_38._2_2_;
+              dsBuffer.dwSize = 0x24;
+              dsBuffer.dwFlags = 0x8088;
+              dsBuffer.dwBufferBytes = formatSize;
+              dsBuffer.lpwfxFormat = &wavData;
               HVar3 = (*((this->csoundmanager).m_pDS)->lpVtbl->CreateSoundBuffer)
-                                ((this->csoundmanager).m_pDS,
-                                 (LPCDSBUFFERDESC)&local_34.nSamplesPerSec,this->sound_buffers + idx
-                                 ,(LPUNKNOWN)0x0);
+                                ((this->csoundmanager).m_pDS,&dsBuffer,this->sound_buffers + idx,
+                                 (LPUNKNOWN)0x0);
               if (HVar3 < 0) {
-                _free(_Str1);
+                _free(soundFileData);
               }
               else {
                 HVar3 = (*this->sound_buffers[idx]->lpVtbl->Lock)
-                                  (this->sound_buffers[idx],0,local_38,&local_48,&local_44,&local_3c
-                                   ,&local_40,0);
+                                  (this->sound_buffers[idx],0,formatSize,&AudioPtr1,&AudioBytes1,
+                                   &AudioPtr2,&AudioBytes2,0);
                 if (HVar3 < 0) {
-                  _free(_Str1);
+                  _free(soundFileData);
                 }
                 else {
-                  puVar5 = (undefined4 *)local_34._0_4_;
-                  puVar7 = local_48;
-                  for (uVar4 = local_44 >> 2; uVar4 != 0; uVar4 = uVar4 - 1) {
-                    *puVar7 = *puVar5;
-                    puVar5 = puVar5 + 1;
-                    puVar7 = puVar7 + 1;
+                  piVar1 = wavDataPtr;
+                  piVar2 = (undefined4 *)AudioPtr1;
+                  for (uVar4 = AudioBytes1 >> 2; uVar4 != 0; uVar4 = uVar4 - 1) {
+                    *piVar2 = *(undefined4 *)piVar1;
+                    piVar1 = (WAVEFORMATEX *)&piVar1->nSamplesPerSec;
+                    piVar2 = piVar2 + 1;
                   }
-                  for (uVar4 = local_44 & 3; uVar4 != 0; uVar4 = uVar4 - 1) {
-                    *(undefined *)puVar7 = *(undefined *)puVar5;
-                    puVar5 = (undefined4 *)((int)puVar5 + 1);
-                    puVar7 = (undefined4 *)((int)puVar7 + 1);
+                  for (uVar4 = AudioBytes1 & 3; uVar4 != 0; uVar4 = uVar4 - 1) {
+                    *(undefined *)piVar2 = *(undefined *)&piVar1->wFormatTag;
+                    piVar1 = (WAVEFORMATEX *)((int)&piVar1->wFormatTag + 1);
+                    piVar2 = (undefined4 *)((int)piVar2 + 1);
                   }
-                  if (local_40 != 0) {
-                    puVar5 = (undefined4 *)(local_34._0_4_ + local_44);
-                    puVar7 = local_3c;
-                    for (uVar4 = local_40 >> 2; uVar4 != 0; uVar4 = uVar4 - 1) {
-                      *puVar7 = *puVar5;
-                      puVar5 = puVar5 + 1;
+                  if (AudioBytes2 != 0) {
+                    piVar2 = (undefined4 *)((int)&wavDataPtr->wFormatTag + AudioBytes1);
+                    puVar7 = (undefined4 *)AudioPtr2;
+                    for (uVar4 = AudioBytes2 >> 2; uVar4 != 0; uVar4 = uVar4 - 1) {
+                      *puVar7 = *piVar2;
+                      piVar2 = piVar2 + 1;
                       puVar7 = puVar7 + 1;
                     }
-                    for (uVar4 = local_40 & 3; uVar4 != 0; uVar4 = uVar4 - 1) {
-                      *(undefined *)puVar7 = *(undefined *)puVar5;
-                      puVar5 = (undefined4 *)((int)puVar5 + 1);
+                    for (uVar4 = AudioBytes2 & 3; uVar4 != 0; uVar4 = uVar4 - 1) {
+                      *(undefined *)puVar7 = *(undefined *)piVar2;
+                      piVar2 = (undefined4 *)((int)piVar2 + 1);
                       puVar7 = (undefined4 *)((int)puVar7 + 1);
                     }
                   }
                   (*this->sound_buffers[idx]->lpVtbl->Unlock)
-                            (this->sound_buffers[idx],local_48,local_44,local_3c,local_40);
-                  _free(_Str1);
+                            (this->sound_buffers[idx],AudioPtr1,AudioBytes1,AudioPtr2,AudioBytes2);
+                  _free(soundFileData);
                 }
               }
             }
@@ -106,16 +119,16 @@ void __thiscall SoundPlayer::LoadSound(SoundPlayer *this,int idx,char *path)
         }
         else {
           GameErrorContextLog(&g_GameErrorContext,"Wav ファイルじゃない? %s\n",path);
-          _free(_Str1);
+          _free(soundFileData);
         }
       }
       else {
         GameErrorContextLog(&g_GameErrorContext,"Wav ファイルじゃない %s\n",path);
-        _free(_Str1);
+        _free(soundFileData);
       }
     }
   }
-  __security_check_cookie(local_c ^ unaff_retaddr);
+  __security_check_cookie(stackCookie ^ unaff_retaddr);
   return;
 }
 

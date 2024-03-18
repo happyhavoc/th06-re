@@ -1180,6 +1180,27 @@ struct AmsgPair {
 
 typedef struct _s_FuncInfo FuncInfo;
 
+
+/* WARNING! conflicting data type names: /dsound/DSBUFFERDESC - /deps/dsound.h/DSBUFFERDESC */
+
+
+/* WARNING! conflicting data type names: /dsound/LPWAVEFORMATEX - /deps/mmsystem.h/LPWAVEFORMATEX */
+
+
+/* WARNING! conflicting data type names: /dsound/GUID - /GUID */
+
+typedef struct _GUID _GUID, *P_GUID;
+
+struct _GUID {
+    ulong Data1;
+    ushort Data2;
+    ushort Data3;
+    uchar Data4[8];
+};
+
+
+/* WARNING! conflicting data type names: /dsound/_DSBUFFERDESC - /deps/dsound.h/_DSBUFFERDESC */
+
 typedef struct IMAGE_DOS_HEADER IMAGE_DOS_HEADER, *PIMAGE_DOS_HEADER;
 
 struct IMAGE_DOS_HEADER {
@@ -63143,15 +63164,6 @@ typedef FMTID *LPFMTID;
 
 typedef IID *LPIID;
 
-typedef struct _GUID _GUID, *P_GUID;
-
-struct _GUID {
-    ulong Data1;
-    ushort Data2;
-    ushort Data3;
-    uchar Data4[8];
-};
-
 typedef struct _DXFILELOADRESOURCE _DXFILELOADRESOURCE, *P_DXFILELOADRESOURCE;
 
 struct _DXFILELOADRESOURCE {
@@ -74406,6 +74418,9 @@ typedef float f32;
 typedef short i16;
 
 typedef sbyte i8;
+
+
+/* WARNING! conflicting data type names: /d3d8/LPWORD - /deps/WinDef.h/LPWORD */
 
 #define _M_IX86 300
 

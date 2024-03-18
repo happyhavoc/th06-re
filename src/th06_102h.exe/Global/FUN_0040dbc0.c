@@ -33,7 +33,7 @@ void __cdecl FUN_0040dbc0(Enemy *param_1,AnmRawInstr *param_2)
       local_64.position.x = (float)(fVar3 * (float10)fVar2) + 192.0;
       local_64.position.y = (float)(fVar7 * (float10)fVar2) + 224.0;
       local_64.angle1 = local_68 + (param_1->current_context).float1;
-      BulletManager::FUN_004145c0(&g_BulletManager,&local_64);
+      BulletManager::SpawnBullet(&g_BulletManager,&local_64);
       local_68 = 6.283185 / (float)uVar1 + local_68;
     }
   }

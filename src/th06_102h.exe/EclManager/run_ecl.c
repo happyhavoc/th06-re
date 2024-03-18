@@ -26,7 +26,6 @@ undefined4 EclManager::run_ecl(Enemy *enemy)
   EnemyEclContext *pEVar20;
   float *pfVar20;
   float10 fVar21;
-  float10 extraout_ST0;
   float fVar22;
   float fVar23;
   int local_2dc;
@@ -167,9 +166,9 @@ LAB_004074ce:
       (enemy->axis_speed).z = (local_bc * fVar23 + fVar3) - fVar1;
       dVar5 = (double)(enemy->axis_speed).x;
       dVar6 = (double)(enemy->axis_speed).y;
-      FUN_0045be40(SUB84(dVar6,0),(int)((ulonglong)dVar6 >> 0x20),SUB84(dVar5,0),
-                   (int)((ulonglong)dVar5 >> 0x20));
-      enemy->angle = (float)extraout_ST0;
+      fVar23 = FUN_0045be40(SUB84(dVar6,0),(int)((ulonglong)dVar6 >> 0x20),SUB84(dVar5,0),
+                            (int)((ulonglong)dVar5 >> 0x20));
+      enemy->angle = fVar23;
       if ((enemy->move_interp_timer).current < 1) {
         enemy->flags1 = enemy->flags1 & 0xfc;
         fVar23 = (enemy->move_interp_start_pos).z;
@@ -198,7 +197,7 @@ LAB_004074ce:
           (enemy->bullet_props).position.x = (enemy->position).x + (enemy->shoot_offset).x;
           (enemy->bullet_props).position.y = fVar3 + fVar4;
           (enemy->bullet_props).position.z = fVar23 + fVar22;
-          BulletManager::FUN_004145c0(&g_BulletManager,&enemy->bullet_props);
+          BulletManager::SpawnBullet(&g_BulletManager,&enemy->bullet_props);
           (enemy->shoot_interval_timer).current = 0;
           (enemy->shoot_interval_timer).subFrame = 0.0;
           (enemy->shoot_interval_timer).previous = -999;
@@ -582,7 +581,7 @@ switchD_00407544_caseD_2:
     local_10 = (float)instruction->ecl_var_id;
     local_c = instruction->field8_0x10;
     local_8 = instruction->field9_0x14;
-    fVar23 = Player::FUN_00428700(&g_Player,&(enemy->position).x);
+    fVar23 = Player::FUN_00428700(&g_Player,&enemy->position);
     enemy->angle = fVar23 + local_10;
     pfVar15 = Enemy::get_var_float(enemy,&local_c,(undefined4 *)0x0);
     enemy->speed = *pfVar15;
@@ -720,7 +719,7 @@ switchD_00407544_caseD_2:
     piVar14 = Enemy::get_var(enemy,(int *)&local_14,(EclValueType *)0x0);
     local_58->color = *(ushort *)piVar14;
     if ((enemy->flags1 >> 5 & 1) == 0) {
-      BulletManager::FUN_004145c0(&g_BulletManager,local_58);
+      BulletManager::SpawnBullet(&g_BulletManager,local_58);
     }
     break;
   case 0x4c:
@@ -767,7 +766,7 @@ switchD_00407544_caseD_2:
     (enemy->bullet_props).position.x = (enemy->position).x + (enemy->shoot_offset).x;
     (enemy->bullet_props).position.y = fVar3 + fVar4;
     (enemy->bullet_props).position.z = fVar23 + fVar22;
-    BulletManager::FUN_004145c0(&g_BulletManager,&enemy->bullet_props);
+    BulletManager::SpawnBullet(&g_BulletManager,&enemy->bullet_props);
     break;
   case 0x51:
     pfVar15 = Enemy::get_var_float(enemy,bullet_rank_speed_low,(undefined4 *)0x0);
@@ -861,7 +860,8 @@ switchD_00407544_caseD_2:
   case 0x59:
     if (enemy->lasers[instruction->ecl_var_id] != (void *)0x0) {
       fVar23 = Player::FUN_00428700
-                         (&g_Player,(float *)((int)enemy->lasers[instruction->ecl_var_id] + 0x220));
+                         (&g_Player,
+                          (D3DXVECTOR3 *)((int)enemy->lasers[instruction->ecl_var_id] + 0x220));
       pfVar15 = Enemy::get_var_float(enemy,&instruction->field8_0x10,(undefined4 *)0x0);
       *(float *)((int)enemy->lasers[instruction->ecl_var_id] + 0x22c) = fVar23 + *pfVar15;
     }

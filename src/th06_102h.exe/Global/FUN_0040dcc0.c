@@ -25,7 +25,7 @@ void FUN_0040dcc0(Enemy *param_1,AnmRawInstr *param_2)
              (float)fVar3 * local_24 + *(float *)((int)pvVar2 + 0x220);
         (param_1->bullet_props).position.y = (float)fVar4 * local_24 + fVar1;
         (param_1->bullet_props).position.z = 0.0;
-        BulletManager::FUN_004145c0(&g_BulletManager,&param_1->bullet_props);
+        BulletManager::SpawnBullet(&g_BulletManager,&param_1->bullet_props);
       }
       (param_1->current_context).var3 = (param_1->current_context).var3 + 1;
     }

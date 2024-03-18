@@ -42,7 +42,7 @@ void * AnmVm::FUN_00414670(EnemyLaserShooter *laser_shooter)
   local_c[2].currentTimeInScript.current = 1;
   local_c[2].angleVel.x = laser_shooter->angle;
   if (laser_shooter->type == 0) {
-    fVar4 = Player::FUN_00428700(&g_Player,&(laser_shooter->position).x);
+    fVar4 = Player::FUN_00428700(&g_Player,&laser_shooter->position);
     local_c[2].angleVel.x = fVar4 + local_c[2].angleVel.x;
   }
   *(undefined2 *)(local_c[2].matrix.m[0] + 3) = *(undefined2 *)&laser_shooter->field18_0x4c;

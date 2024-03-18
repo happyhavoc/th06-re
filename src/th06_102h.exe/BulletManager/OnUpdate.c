@@ -9,7 +9,6 @@ undefined4 BulletManager::OnUpdate(BulletManager *this)
   int iVar5;
   Bullet *pBVar6;
   float10 fVar7;
-  float10 extraout_ST0;
   float local_260;
   float local_38;
   float local_34;
@@ -132,9 +131,9 @@ switchD_00414a97_caseD_1:
               (bulletsPtr->velocity).z = velZ + (bulletsPtr->velocity).z;
               dVar1 = (double)(bulletsPtr->velocity).x;
               dVar2 = (double)(bulletsPtr->velocity).y;
-              FUN_0045be40(SUB84(dVar2,0),(int)((ulonglong)dVar2 >> 0x20),SUB84(dVar1,0),
-                           (int)((ulonglong)dVar1 >> 0x20));
-              bulletsPtr->angle = (float)extraout_ST0;
+              velZ = FUN_0045be40(SUB84(dVar2,0),(int)((ulonglong)dVar2 >> 0x20),SUB84(dVar1,0),
+                                  (int)((ulonglong)dVar1 >> 0x20));
+              bulletsPtr->angle = velZ;
             }
             else {
               bulletsPtr->ex_flags = bulletsPtr->ex_flags & 0xffef;
@@ -226,7 +225,7 @@ switchD_00414a97_caseD_1:
                   if (bulletsPtr->dir_change__max_times <= bulletsPtr->dir_change__num_times) {
                     bulletsPtr->ex_flags = bulletsPtr->ex_flags & 0xff7f;
                   }
-                  velZ = Player::FUN_00428700(&g_Player,&(bulletsPtr->pos).x);
+                  velZ = Player::FUN_00428700(&g_Player,&bulletsPtr->pos);
                   bulletsPtr->angle = velZ + bulletsPtr->dir_change__rotation_arg;
                   bulletsPtr->speed = bulletsPtr->dir_change__speed_arg;
                   local_10 = bulletsPtr->speed;

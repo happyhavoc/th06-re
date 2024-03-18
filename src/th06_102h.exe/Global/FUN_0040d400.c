@@ -36,7 +36,7 @@ void FUN_0040d400(Enemy *param_1,AnmRawInstr *param_2)
       local_5c.count2 = 1;
       local_5c.flags = 8;
       local_5c.aim_mode = 1;
-      BulletManager::FUN_004145c0(&g_BulletManager,&local_5c);
+      BulletManager::SpawnBullet(&g_BulletManager,&local_5c);
       local_60 = local_60 + 1;
     }
     local_68 = local_68 + 0x5c4;

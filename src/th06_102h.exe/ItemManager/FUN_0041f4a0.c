@@ -65,7 +65,7 @@ void __thiscall ItemManager::FUN_0041f4a0(ItemManager *this)
         if ((curItem->state == 1) ||
            ((0x7f < g_GameManager.current_power &&
             (g_Player.position.y < 128.0 != NAN(g_Player.position.y))))) {
-          fVar7 = Player::FUN_00428700(&g_Player,&(curItem->position).x);
+          fVar7 = Player::FUN_00428700(&g_Player,&curItem->position);
           fVar4 = (float10)fcos((float10)fVar7);
           fVar10 = (float10)fsin((float10)fVar7);
           (curItem->velocity).x = (float)(fVar4 * (float10)8.0);

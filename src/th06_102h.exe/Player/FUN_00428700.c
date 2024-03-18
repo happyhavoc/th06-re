@@ -1,21 +1,19 @@
 
-float __thiscall Player::FUN_00428700(Player *this,float *param_1)
+float __thiscall Player::FUN_00428700(Player *this,D3DXVECTOR3 *pos)
 
 {
-  float fVar1;
-  float fVar2;
-  float10 extraout_ST0;
+  float relX;
+  float relY;
   
-  fVar1 = (this->position).x - *param_1;
-  fVar2 = (this->position).y - param_1[1];
-  if ((NAN(fVar2) == (fVar2 == 0.0)) || (NAN(fVar1) == (fVar1 == 0.0))) {
-    FUN_0045be40(SUB84((double)fVar2,0),(int)((ulonglong)(double)fVar2 >> 0x20),
-                 SUB84((double)fVar1,0),(int)((ulonglong)(double)fVar1 >> 0x20));
-    fVar1 = (float)extraout_ST0;
+  relX = (this->position).x - pos->x;
+  relY = (this->position).y - pos->y;
+  if ((NAN(relY) == (relY == 0.0)) || (NAN(relX) == (relX == 0.0))) {
+    relX = FUN_0045be40(SUB84((double)relY,0),(int)((ulonglong)(double)relY >> 0x20),
+                        SUB84((double)relX,0),(int)((ulonglong)(double)relX >> 0x20));
   }
   else {
-    fVar1 = 1.570796;
+    relX = 1.570796;
   }
-  return fVar1;
+  return relX;
 }
 

@@ -2,12 +2,12 @@
 void FUN_0040b8e0(Enemy *param_1,EclRawInstr *insn)
 
 {
-  float fVar1;
   float10 add_y;
   float fVar2;
   Bullet *bullets;
   int local_8;
   float10 add_x;
+  float fVar1;
   
   bullets = g_BulletManager.bullets;
   fVar1 = insn->field8_0x10;

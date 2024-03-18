@@ -94,7 +94,7 @@ void FUN_0040c5b0(Enemy *param_1,AnmRawInstr *param_2)
       }
       local_64._2_2_ = 3;
       matrix_in.x = fVar1;
-      BulletManager::FUN_004145c0(&g_BulletManager,(EnemyBulletShooter *)local_64);
+      BulletManager::SpawnBullet(&g_BulletManager,(EnemyBulletShooter *)local_64);
       local_88 = local_88 + 0.1745329;
     }
     SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,7);

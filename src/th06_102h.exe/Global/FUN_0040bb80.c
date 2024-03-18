@@ -61,7 +61,7 @@ void FUN_0040bb80(Enemy *param_1,EclRawInstr *param_2)
         fVar2 = (param_1->bullet_props).speed2;
         fVar9 = Rng::GetRandomF32ZeroToOne(&g_Rng);
         (param_1->bullet_props).speed1 = fVar9 * fVar2 + (param_1->bullet_props).speed1;
-        BulletManager::FUN_004145c0(&g_BulletManager,&param_1->bullet_props);
+        BulletManager::SpawnBullet(&g_BulletManager,&param_1->bullet_props);
         (param_1->bullet_props).speed1 = fVar1;
         (param_1->bullet_props).angle1 = (param_1->bullet_props).angle1 - fVar8 * 0.5235988;
       }

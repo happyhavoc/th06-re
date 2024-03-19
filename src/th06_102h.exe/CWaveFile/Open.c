@@ -1,31 +1,31 @@
 
-int __thiscall CWaveFile::Open(CWaveFile *this,LPSTR param_1,undefined4 param_2,DWORD flags)
+int __thiscall CWaveFile::Open(CWaveFile *this,LPSTR path,undefined4 unused,DWORD flags)
 
 {
-  HMMIO pHVar1;
-  int iVar2;
-  _MMIOINFO *p_Var3;
+  HMMIO mmio;
+  int iVar1;
+  _MMIOINFO *mmioInfo_memclear;
   _MMIOINFO mmioInfo;
-  int local_8;
+  int result;
   
   this->m_dwFlags = flags;
   this->m_bIsReadingFromMemory = 0;
   if (this->m_dwFlags == 1) {
-    if (param_1 == (LPSTR)0x0) {
-      local_8 = -0x7ff8ffa9;
+    if (path == (LPSTR)0x0) {
+      result = -0x7ff8ffa9;
     }
     else {
       if (this->m_pwfx != (WAVEFORMATEX *)0x0) {
         _free(this->m_pwfx);
         this->m_pwfx = (WAVEFORMATEX *)0x0;
       }
-      p_Var3 = &mmioInfo;
-      for (iVar2 = 0x12; iVar2 != 0; iVar2 = iVar2 + -1) {
-        p_Var3->dwFlags = 0;
-        p_Var3 = (_MMIOINFO *)&p_Var3->fccIOProc;
+      mmioInfo_memclear = &mmioInfo;
+      for (iVar1 = 0x12; iVar1 != 0; iVar1 = iVar1 + -1) {
+        mmioInfo_memclear->dwFlags = 0;
+        mmioInfo_memclear = (_MMIOINFO *)&mmioInfo_memclear->fccIOProc;
       }
-      pHVar1 = mmioOpenA(param_1,&mmioInfo,0x10000);
-      this->m_hmmio = pHVar1;
+      mmio = mmioOpenA(path,&mmioInfo,MMIO_ALLOCBUF);
+      this->m_hmmio = mmio;
       if (this->m_hmmio == (HMMIO)0x0) {
         switch(mmioInfo.wErrorRet) {
         case 0x10b:
@@ -46,20 +46,20 @@ int __thiscall CWaveFile::Open(CWaveFile *this,LPSTR param_1,undefined4 param_2,
                      );
         }
         DebugPrint2("error : mmioOpen in CWaveFile::Open()\n");
-        local_8 = E_FAIL;
+        result = E_FAIL;
       }
       else {
-        local_8 = ReadMMIO(this);
-        if (local_8 < 0) {
+        result = ReadMMIO(this);
+        if (result < 0) {
           mmioClose(this->m_hmmio,0);
           DebugPrint2("error : ReadOpen in CWaveFile::Open()\n");
-          local_8 = -0x7fffbffb;
+          result = -0x7fffbffb;
         }
         else {
-          local_8 = ResetFile(this,false);
-          if (local_8 < 0) {
+          result = ResetFile(this,false);
+          if (result < 0) {
             DebugPrint2("error : ResetFile in CWaveFile::Open()\n");
-            local_8 = -0x7fffbffb;
+            result = -0x7fffbffb;
           }
           else {
             this->m_dwSize = (this->m_ck).cksize;
@@ -68,6 +68,6 @@ int __thiscall CWaveFile::Open(CWaveFile *this,LPSTR param_1,undefined4 param_2,
       }
     }
   }
-  return local_8;
+  return result;
 }
 

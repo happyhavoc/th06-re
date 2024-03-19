@@ -1,5 +1,5 @@
 
-undefined4 * __thiscall CWaveFile::CWaveFile(CWaveFile *this)
+CWaveFile * __thiscall CWaveFile::CWaveFile(CWaveFile *this)
 
 {
   this->m_pwfx = (WAVEFORMATEX *)0x0;
@@ -8,6 +8,6 @@ undefined4 * __thiscall CWaveFile::CWaveFile(CWaveFile *this)
   this->m_bIsReadingFromMemory = 0;
   this->m_loopEndPoint = 0;
   this->m_loopStartPoint = 0;
-  return &this->m_pwfx;
+  return this;
 }
 

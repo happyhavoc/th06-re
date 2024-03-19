@@ -46,7 +46,7 @@ CSoundManager::CreateStreaming
       local_78 = (CWaveFile *)0x0;
     }
     else {
-      local_78 = (CWaveFile *)CWaveFile::CWaveFile(this_00);
+      local_78 = CWaveFile::CWaveFile(this_00);
     }
     local_8 = 0xffffffff;
     local_1c = local_78;

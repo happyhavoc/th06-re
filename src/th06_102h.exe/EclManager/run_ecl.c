@@ -4,15 +4,7 @@
 undefined4 EclManager::run_ecl(Enemy *enemy)
 
 {
-  float fVar1;
-  float fVar2;
-  float fVar3;
-  float fVar4;
-  double dVar5;
-  double dVar6;
-  short sVar7;
-  float10 fVar8;
-  undefined2 uVar9;
+  undefined2 uVar1;
   uint uVar10;
   uint *puVar11;
   void *pvVar12;
@@ -26,8 +18,8 @@ undefined4 EclManager::run_ecl(Enemy *enemy)
   EnemyEclContext *pEVar20;
   float *pfVar20;
   float10 fVar21;
-  float fVar22;
-  float fVar23;
+  float fVar5;
+  float fVar6;
   int local_2dc;
   byte *local_2cc;
   byte *local_2c0;
@@ -89,7 +81,15 @@ undefined4 EclManager::run_ecl(Enemy *enemy)
   float local_c;
   int local_8;
   EnemyEclContext *current_context;
+  double dVar5;
+  double dVar6;
+  float fVar1;
+  float fVar2;
+  float fVar3;
+  float fVar4;
+  float10 fVar8;
   AnmManager *main_anm_manager;
+  short sVar7;
   
 LAB_004074b1:
   while (instruction = (enemy->current_context).current_instr, -1 < enemy->run_interrupt) {
@@ -117,16 +117,16 @@ LAB_004074ce:
   if ((enemy->current_context).time.current != instruction->time) {
     bVar16 = enemy->flags1 & 3;
     if (bVar16 == 1) {
-      fVar23 = add_normalize_angle(enemy->angle,
-                                   g_Supervisor.effectiveFramerateMultiplier *
-                                   enemy->angular_velocity);
-      enemy->angle = fVar23;
+      fVar6 = add_normalize_angle(enemy->angle,
+                                  g_Supervisor.effectiveFramerateMultiplier *
+                                  enemy->angular_velocity);
+      enemy->angle = fVar6;
       enemy->speed = g_Supervisor.effectiveFramerateMultiplier * enemy->acceleration + enemy->speed;
-      fVar23 = enemy->speed;
+      fVar6 = enemy->speed;
       fVar8 = (float10)fcos((float10)enemy->angle);
       fVar21 = (float10)fsin((float10)enemy->angle);
-      (enemy->axis_speed).x = (float)(fVar8 * (float10)fVar23);
-      (enemy->axis_speed).y = (float)(fVar21 * (float10)fVar23);
+      (enemy->axis_speed).x = (float)(fVar8 * (float10)fVar6);
+      (enemy->axis_speed).y = (float)(fVar21 * (float10)fVar6);
       (enemy->axis_speed).z = 0.0;
     }
     else if (bVar16 == 2) {
@@ -153,8 +153,8 @@ LAB_004074ce:
         local_bc = 1.0 - local_bc;
         local_bc = local_bc * local_bc * local_bc * local_bc;
       }
-      fVar23 = (enemy->move_interp).z;
-      fVar22 = (enemy->move_interp).y;
+      fVar6 = (enemy->move_interp).z;
+      fVar5 = (enemy->move_interp).y;
       fVar3 = (enemy->move_interp_start_pos).z;
       fVar4 = (enemy->move_interp_start_pos).y;
       fVar1 = (enemy->position).z;
@@ -162,22 +162,22 @@ LAB_004074ce:
       (enemy->axis_speed).x =
            (local_bc * (enemy->move_interp).x + (enemy->move_interp_start_pos).x) -
            (enemy->position).x;
-      (enemy->axis_speed).y = (local_bc * fVar22 + fVar4) - fVar2;
-      (enemy->axis_speed).z = (local_bc * fVar23 + fVar3) - fVar1;
+      (enemy->axis_speed).y = (local_bc * fVar5 + fVar4) - fVar2;
+      (enemy->axis_speed).z = (local_bc * fVar6 + fVar3) - fVar1;
       dVar5 = (double)(enemy->axis_speed).x;
       dVar6 = (double)(enemy->axis_speed).y;
-      fVar23 = FUN_0045be40(SUB84(dVar6,0),(int)((ulonglong)dVar6 >> 0x20),SUB84(dVar5,0),
-                            (int)((ulonglong)dVar5 >> 0x20));
-      enemy->angle = fVar23;
+      fVar6 = FUN_0045be40(SUB84(dVar6,0),(int)((ulonglong)dVar6 >> 0x20),SUB84(dVar5,0),
+                           (int)((ulonglong)dVar5 >> 0x20));
+      enemy->angle = fVar6;
       if ((enemy->move_interp_timer).current < 1) {
         enemy->flags1 = enemy->flags1 & 0xfc;
-        fVar23 = (enemy->move_interp_start_pos).z;
-        fVar22 = (enemy->move_interp).z;
+        fVar6 = (enemy->move_interp_start_pos).z;
+        fVar5 = (enemy->move_interp).z;
         fVar3 = (enemy->move_interp_start_pos).y;
         fVar4 = (enemy->move_interp).y;
         (enemy->position).x = (enemy->move_interp_start_pos).x + (enemy->move_interp).x;
         (enemy->position).y = fVar3 + fVar4;
-        (enemy->position).z = fVar23 + fVar22;
+        (enemy->position).z = fVar6 + fVar5;
         (enemy->axis_speed).x = 0.0;
         (enemy->axis_speed).y = 0.0;
         (enemy->axis_speed).z = 0.0;
@@ -190,13 +190,13 @@ LAB_004074ce:
                   (&g_Supervisor,&(enemy->shoot_interval_timer).current,
                    &(enemy->shoot_interval_timer).subFrame);
         if (enemy->shoot_interval <= (enemy->shoot_interval_timer).current) {
-          fVar23 = (enemy->position).z;
-          fVar22 = (enemy->shoot_offset).z;
+          fVar6 = (enemy->position).z;
+          fVar5 = (enemy->shoot_offset).z;
           fVar3 = (enemy->position).y;
           fVar4 = (enemy->shoot_offset).y;
           (enemy->bullet_props).position.x = (enemy->position).x + (enemy->shoot_offset).x;
           (enemy->bullet_props).position.y = fVar3 + fVar4;
-          (enemy->bullet_props).position.z = fVar23 + fVar22;
+          (enemy->bullet_props).position.z = fVar6 + fVar5;
           BulletManager::SpawnBullet(&g_BulletManager,&enemy->bullet_props);
           (enemy->shoot_interval_timer).current = 0;
           (enemy->shoot_interval_timer).subFrame = 0.0;
@@ -206,8 +206,8 @@ LAB_004074ce:
       main_anm_manager = g_AnmManager;
       if (-1 < enemy->anm_ex_left) {
         bVar16 = 0;
-        fVar23 = (enemy->axis_speed).x;
-        if (fVar23 < 0.0 == NAN(fVar23)) {
+        fVar6 = (enemy->axis_speed).x;
+        if (fVar6 < 0.0 == NAN(fVar6)) {
           if (0.0 < (enemy->axis_speed).x) {
             bVar16 = 2;
           }
@@ -284,7 +284,7 @@ LAB_004074ce:
     piVar14 = Enemy::get_var(enemy,&instruction->field9_0x14,(EclValueType *)0x0);
     local_14 = (float)(*piVar14 - 1);
     Enemy::set_var(enemy,bullet_rank_speed_low[2],(int *)&local_14);
-    fVar23 = local_14;
+    fVar6 = local_14;
     goto joined_r0x00407ab4;
   case 4:
   case 5:
@@ -321,8 +321,8 @@ LAB_004074ce:
   case 8:
     pfVar15 = Enemy::get_var_float(enemy,&instruction->field8_0x10,(undefined4 *)0x0);
     local_30 = *pfVar15;
-    fVar23 = Rng::GetRandomF32ZeroToOne(&g_Rng);
-    local_18 = (int)(fVar23 * local_30);
+    fVar6 = Rng::GetRandomF32ZeroToOne(&g_Rng);
+    local_18 = (int)(fVar6 * local_30);
     Enemy::set_var(enemy,instruction->ecl_var_id,&local_18);
     break;
   case 9:
@@ -330,8 +330,8 @@ LAB_004074ce:
     local_34 = *pfVar15;
     pfVar15 = Enemy::get_var_float(enemy,bullet_rank_speed_low + 2,(undefined4 *)0x0);
     local_38 = *pfVar15;
-    fVar23 = Rng::GetRandomF32ZeroToOne(&g_Rng);
-    local_18 = (int)(fVar23 * local_34 + local_38);
+    fVar6 = Rng::GetRandomF32ZeroToOne(&g_Rng);
+    local_18 = (int)(fVar6 * local_34 + local_38);
     Enemy::set_var(enemy,instruction->ecl_var_id,&local_18);
     break;
   case 10:
@@ -425,9 +425,9 @@ LAB_004074ce:
     if ((enemy->current_context).compare_register != 0) break;
     goto switchD_00407544_caseD_2;
   case 0x20:
-    fVar23 = (float)(enemy->current_context).compare_register;
+    fVar6 = (float)(enemy->current_context).compare_register;
 joined_r0x00407ab4:
-    if ((int)fVar23 < 1) break;
+    if ((int)fVar6 < 1) break;
     goto switchD_00407544_caseD_2;
   case 0x21:
     if ((enemy->current_context).compare_register < 0) break;
@@ -534,17 +534,17 @@ switchD_00407544_caseD_2:
     local_10 = (float)instruction->ecl_var_id;
     local_c = instruction->field8_0x10;
     local_8 = instruction->field9_0x14;
-    fVar23 = local_c - local_10;
-    fVar22 = Rng::GetRandomF32ZeroToOne(&g_Rng);
-    enemy->angle = fVar22 * fVar23 + local_10;
+    fVar6 = local_c - local_10;
+    fVar5 = Rng::GetRandomF32ZeroToOne(&g_Rng);
+    enemy->angle = fVar5 * fVar6 + local_10;
     break;
   case 0x32:
     local_10 = (float)instruction->ecl_var_id;
     local_c = instruction->field8_0x10;
     local_8 = instruction->field9_0x14;
-    fVar23 = local_c - local_10;
-    fVar22 = Rng::GetRandomF32ZeroToOne(&g_Rng);
-    enemy->angle = fVar22 * fVar23 + local_10;
+    fVar6 = local_c - local_10;
+    fVar5 = Rng::GetRandomF32ZeroToOne(&g_Rng);
+    enemy->angle = fVar5 * fVar6 + local_10;
     if ((enemy->position).x < (enemy->lower_move_limit).x + 96.0) {
       if (enemy->angle <= 1.570796) {
         if (enemy->angle < -1.570796 != NAN(enemy->angle)) {
@@ -555,9 +555,9 @@ switchD_00407544_caseD_2:
         enemy->angle = 3.141593 - enemy->angle;
       }
     }
-    fVar22 = (enemy->upper_move_limit).x - 96.0;
-    fVar23 = (enemy->position).x;
-    if (fVar22 < fVar23 != (NAN(fVar22) || NAN(fVar23))) {
+    fVar5 = (enemy->upper_move_limit).x - 96.0;
+    fVar6 = (enemy->position).x;
+    if (fVar5 < fVar6 != (NAN(fVar5) || NAN(fVar6))) {
       if ((enemy->angle < 1.570796 == NAN(enemy->angle)) || (enemy->angle < 0.0)) {
         if ((-1.570796 < enemy->angle) && (enemy->angle < 0.0 != (enemy->angle == 0.0))) {
           enemy->angle = -3.141593 - enemy->angle;
@@ -571,9 +571,9 @@ switchD_00407544_caseD_2:
        (enemy->angle < 0.0 != NAN(enemy->angle))) {
       enemy->angle = -enemy->angle;
     }
-    fVar22 = (enemy->upper_move_limit).y - 48.0;
-    fVar23 = (enemy->position).y;
-    if ((fVar22 < fVar23 != (NAN(fVar22) || NAN(fVar23))) && (0.0 < enemy->angle)) {
+    fVar5 = (enemy->upper_move_limit).y - 48.0;
+    fVar6 = (enemy->position).y;
+    if ((fVar5 < fVar6 != (NAN(fVar5) || NAN(fVar6))) && (0.0 < enemy->angle)) {
       enemy->angle = -enemy->angle;
     }
     break;
@@ -581,8 +581,8 @@ switchD_00407544_caseD_2:
     local_10 = (float)instruction->ecl_var_id;
     local_c = instruction->field8_0x10;
     local_8 = instruction->field9_0x14;
-    fVar23 = Player::FUN_00428700(&g_Player,&enemy->position);
-    enemy->angle = fVar23 + local_10;
+    fVar6 = Player::FUN_00428700(&g_Player,&enemy->position);
+    enemy->angle = fVar6 + local_10;
     pfVar15 = Enemy::get_var_float(enemy,&local_c,(undefined4 *)0x0);
     enemy->speed = *pfVar15;
     enemy->flags1 = enemy->flags1 & 0xfc | 1;
@@ -682,17 +682,17 @@ switchD_00407544_caseD_2:
     if ((short)local_58->count2 < 1) {
       local_58->count2 = 1;
     }
-    fVar23 = (enemy->position).z;
-    fVar22 = (enemy->shoot_offset).z;
+    fVar6 = (enemy->position).z;
+    fVar5 = (enemy->shoot_offset).z;
     fVar3 = (enemy->position).y;
     fVar4 = (enemy->shoot_offset).y;
     (local_58->position).x = (enemy->position).x + (enemy->shoot_offset).x;
     (local_58->position).y = fVar3 + fVar4;
-    (local_58->position).z = fVar23 + fVar22;
+    (local_58->position).z = fVar6 + fVar5;
     pfVar15 = Enemy::get_var_float(enemy,(float *)(local_54 + 5),(undefined4 *)0x0);
     local_58->angle1 = *pfVar15;
-    fVar23 = add_normalize_angle(local_58->angle1,0.0);
-    local_58->angle1 = fVar23;
+    fVar6 = add_normalize_angle(local_58->angle1,0.0);
+    local_58->angle1 = fVar6;
     pfVar15 = Enemy::get_var_float(enemy,(float *)(local_54 + 3),(undefined4 *)0x0);
     local_58->speed1 = *pfVar15;
     if ((NAN(local_58->speed1) == (local_58->speed1 == 0.0)) &&
@@ -759,13 +759,13 @@ switchD_00407544_caseD_2:
     enemy->flags1 = enemy->flags1 & 0xdf;
     break;
   case 0x50:
-    fVar23 = (enemy->position).z;
-    fVar22 = (enemy->shoot_offset).z;
+    fVar6 = (enemy->position).z;
+    fVar5 = (enemy->shoot_offset).z;
     fVar3 = (enemy->position).y;
     fVar4 = (enemy->shoot_offset).y;
     (enemy->bullet_props).position.x = (enemy->position).x + (enemy->shoot_offset).x;
     (enemy->bullet_props).position.y = fVar3 + fVar4;
-    (enemy->bullet_props).position.z = fVar23 + fVar22;
+    (enemy->bullet_props).position.z = fVar6 + fVar5;
     BulletManager::SpawnBullet(&g_BulletManager,&enemy->bullet_props);
     break;
   case 0x51:
@@ -810,13 +810,13 @@ switchD_00407544_caseD_2:
   case 0x56:
     local_64 = &instruction->ecl_var_id;
     local_60 = &enemy->laser_props;
-    fVar23 = (enemy->position).z;
-    fVar22 = (enemy->shoot_offset).z;
+    fVar6 = (enemy->position).z;
+    fVar5 = (enemy->shoot_offset).z;
     fVar3 = (enemy->position).y;
     fVar4 = (enemy->shoot_offset).y;
     (enemy->laser_props).position.x = (enemy->position).x + (enemy->shoot_offset).x;
     (enemy->laser_props).position.y = fVar3 + fVar4;
-    (enemy->laser_props).position.z = fVar23 + fVar22;
+    (enemy->laser_props).position.z = fVar6 + fVar5;
     local_60->sprite = *(ushort *)local_64;
     (enemy->laser_props).color = *(ushort *)((int)&instruction->ecl_var_id + 2);
     pfVar15 = Enemy::get_var_float(enemy,&instruction->field8_0x10,(undefined4 *)0x0);
@@ -859,23 +859,23 @@ switchD_00407544_caseD_2:
     break;
   case 0x59:
     if (enemy->lasers[instruction->ecl_var_id] != (void *)0x0) {
-      fVar23 = Player::FUN_00428700
-                         (&g_Player,
-                          (D3DXVECTOR3 *)((int)enemy->lasers[instruction->ecl_var_id] + 0x220));
+      fVar6 = Player::FUN_00428700
+                        (&g_Player,
+                         (D3DXVECTOR3 *)((int)enemy->lasers[instruction->ecl_var_id] + 0x220));
       pfVar15 = Enemy::get_var_float(enemy,&instruction->field8_0x10,(undefined4 *)0x0);
-      *(float *)((int)enemy->lasers[instruction->ecl_var_id] + 0x22c) = fVar23 + *pfVar15;
+      *(float *)((int)enemy->lasers[instruction->ecl_var_id] + 0x22c) = fVar6 + *pfVar15;
     }
     break;
   case 0x5a:
     if (enemy->lasers[instruction->ecl_var_id] != (void *)0x0) {
-      fVar23 = (enemy->position).z;
-      fVar22 = (float)instruction->field10_0x18;
+      fVar6 = (enemy->position).z;
+      fVar5 = (float)instruction->field10_0x18;
       fVar3 = (enemy->position).y;
       fVar4 = (float)instruction->field9_0x14;
       pvVar12 = enemy->lasers[instruction->ecl_var_id];
       *(float *)((int)pvVar12 + 0x220) = (enemy->position).x + instruction->field8_0x10;
       *(float *)((int)pvVar12 + 0x224) = fVar3 + fVar4;
-      *(float *)((int)pvVar12 + 0x228) = fVar23 + fVar22;
+      *(float *)((int)pvVar12 + 0x228) = fVar6 + fVar5;
     }
     break;
   case 0x5b:
@@ -899,7 +899,8 @@ switchD_00407544_caseD_2:
     }
     break;
   case 0x5d:
-    FUN_00417bfd((int)*(short *)&instruction->ecl_var_id,&instruction->field8_0x10);
+    Gui::FUN_00417bfd(&g_Gui,(int)*(short *)&instruction->ecl_var_id,
+                      (char *)&instruction->field8_0x10);
     BOOL_005a5f8c = 1;
     DAT_005a5f90 = 1;
     DAT_005a5f98 = (int)*(short *)((int)&instruction->ecl_var_id + 2);
@@ -914,7 +915,7 @@ switchD_00407544_caseD_2:
     enemy->bullet_rank_amount2_low = 0;
     enemy->bullet_rank_amount2_high = 0;
     iVar17 = DAT_005a5f98;
-    iVar18 = DAT_005a5f98 * 64;
+    iVar18 = DAT_005a5f98 * uVar24;
     local_70 = g_GameManager.catk + DAT_005a5f98;
     csum = 0;
     if (g_GameManager.field7_0x1c == 0) {
@@ -1027,12 +1028,12 @@ switchD_00407544_caseD_2:
       DebugPrint2("error : sub anim overflow\n");
     }
     main_anm_manager = g_AnmManager;
-    fVar23 = bullet_rank_speed_low[1];
-    local_144 = SUB42(fVar23,0) + 0x100;
+    fVar6 = bullet_rank_speed_low[1];
+    local_144 = SUB42(fVar6,0) + 0x100;
     iVar17 = instruction->ecl_var_id;
     enemy->vms[iVar17].anmFileIndex = local_144;
     AnmManager::SetAndExecuteScript
-              (main_anm_manager,enemy->vms + iVar17,main_anm_manager->scripts[(int)fVar23 + 0x100]);
+              (main_anm_manager,enemy->vms + iVar17,main_anm_manager->scripts[(int)fVar6 + 0x100]);
     break;
   case 100:
     local_5c = &instruction->ecl_var_id;
@@ -1086,9 +1087,9 @@ switchD_00407544_caseD_2:
     enemy->flags2 = enemy->flags2 & 0x1f | *(char *)&instruction->ecl_var_id << 5;
     break;
   case 0x6c:
-    uVar9 = *(undefined2 *)((int)&instruction->ecl_var_id + 2);
+    uVar1 = *(undefined2 *)((int)&instruction->ecl_var_id + 2);
     enemy->death_callback_sub = *(undefined2 *)&instruction->ecl_var_id;
-    enemy->interrupts[0] = uVar9;
+    enemy->interrupts[0] = uVar1;
     break;
   case 0x6d:
     *(float *)(enemy->interrupts + (int)instruction->field8_0x10 * 2 + 1) = *bullet_rank_speed_low;
@@ -1133,10 +1134,10 @@ switchD_00407544_caseD_2:
       local_98.x = (enemy->position).x;
       local_98.y = (enemy->position).y;
       local_98.z = (enemy->position).z;
-      fVar23 = Rng::GetRandomF32ZeroToOne(&g_Rng);
-      local_98.x = (fVar23 * 144.0 - 72.0) + local_98.x;
-      fVar23 = Rng::GetRandomF32ZeroToOne(&g_Rng);
-      local_98.y = (fVar23 * 144.0 - 72.0) + local_98.y;
+      fVar6 = Rng::GetRandomF32ZeroToOne(&g_Rng);
+      local_98.x = (fVar6 * 144.0 - 72.0) + local_98.x;
+      fVar6 = Rng::GetRandomF32ZeroToOne(&g_Rng);
+      local_98.y = (fVar6 * 144.0 - 72.0) + local_98.y;
       if (g_GameManager.current_power < 0x80) {
         ItemManager::SpawnItem
                   ((ItemManager *)&g_ItemManager,&local_98,(-(uint)(local_8c != 0) & 0xfffffffe) + 2

@@ -2,15 +2,15 @@
 int __thiscall AnmManager::FUN_00432cc0(AnmManager *this,AnmVm *vm)
 
 {
+  int iVar6;
+  float10 fVar7;
   float fVar1;
   float fVar2;
   float10 fVar3;
-  float yOffset;
-  float xOffset;
   float fVar4;
   float fVar5;
-  int iVar6;
-  float10 fVar7;
+  float xOffset;
+  float yOffset;
   
   fVar1 = (vm->rotation).z;
   if (NAN(fVar1) == (fVar1 == 0.0)) {

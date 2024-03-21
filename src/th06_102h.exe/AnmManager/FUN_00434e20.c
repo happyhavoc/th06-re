@@ -1,6 +1,6 @@
 
 void AnmManager::FUN_00434e20
-               (AnmManager *AnmMgr,AnmVm *vm,undefined4 param_3,undefined4 param_4,char *print_fmt,
+               (AnmManager *AnmMgr,AnmVm *vm,D3DCOLOR color,D3DCOLOR color2,char *print_fmt,
                int param_6)
 
 {
@@ -9,11 +9,8 @@ void AnmManager::FUN_00434e20
   long spriteTextureWidth;
   long spriteSPIYPos;
   long spriteSPIXPos;
-  uint unaff_retaddr;
-  undefined4 uVar1;
-  undefined4 uVar2;
-  undefined *puVar3;
-  char *pcVar4;
+  D3DCOLOR DVar1;
+  D3DCOLOR DVar2;
   char *buf_reference;
   uint font_width;
   char buf [68];
@@ -22,10 +19,13 @@ void AnmManager::FUN_00434e20
   va_list local_8;
   char current_digested_char;
   uint fontWidth;
+  char *pcVar4;
+  undefined *puVar3;
+  uint unaff_retaddr;
   
   local_10 = __security_cookie ^ unaff_retaddr;
   if (vm->fontWidth == '\0') {
-    font_width = 15;
+    font_width = uVar5;
   }
   else {
     font_width = (uint)vm->fontWidth;
@@ -36,14 +36,14 @@ void AnmManager::FUN_00434e20
   puVar3 = &DAT_0046ac10;
   fontHeight = (uint)vm->fontHeight;
   fontWidth = font_width;
-  uVar1 = param_3;
-  uVar2 = param_4;
+  DVar1 = color;
+  DVar2 = color2;
   spriteTextureHeight = __ftol2(vm->sprite->textureHeight);
   spriteTextureWidth = __ftol2(vm->sprite->textureWidth);
   spriteSPIYPos = __ftol2((vm->sprite->startPixelInclusive).y);
   spriteSPIXPos = __ftol2((vm->sprite->startPixelInclusive).x);
   FUN_00434af0(AnmMgr,vm->sprite->sourceFileIndex,spriteSPIXPos,spriteSPIYPos,spriteTextureWidth,
-               spriteTextureHeight,fontWidth,fontHeight,uVar1,uVar2,puVar3);
+               spriteTextureHeight,fontWidth,fontHeight,DVar1,DVar2,puVar3);
   buf_reference = buf;
   do {
     current_digested_char = *buf_reference;
@@ -58,7 +58,7 @@ void AnmManager::FUN_00434e20
   spriteTextureWidth = __ftol2(vm->sprite->textureWidth);
   spriteSPIYPos = __ftol2((vm->sprite->startPixelInclusive).y);
   FUN_00434af0(AnmMgr,vm->sprite->sourceFileIndex,local_c,spriteSPIYPos,spriteTextureWidth,
-               spriteTextureHeight,font_width,fontWidth,param_3,param_4,pcVar4);
+               spriteTextureHeight,font_width,fontWidth,color,color2,pcVar4);
   *(uint *)&vm->flags = *(uint *)&vm->flags | 1;
   __security_check_cookie(local_10 ^ unaff_retaddr);
   return;

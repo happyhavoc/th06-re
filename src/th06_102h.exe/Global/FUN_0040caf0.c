@@ -2,17 +2,17 @@
 void FUN_0040caf0(Enemy *param_1,AnmRawInstr *param_2)
 
 {
-  float fVar1;
   ushort uVar2;
   uint uVar3;
-  float fVar4;
-  double dVar5;
+  float fVar2;
+  double dVar3;
   int local_a0;
   D3DXVECTOR3 local_20;
   float local_14;
   float local_10;
   uint local_c;
   AnmVm *local_8;
+  float fVar1;
   
   if ((param_1->flags3 >> 3 & 1) != 0) {
     Enemy::FUN_004114c0(param_1);
@@ -66,37 +66,37 @@ LAB_0040cc18:
   local_20.x = (param_1->position).x;
   local_20.y = (param_1->position).y;
   local_20.z = (param_1->position).z;
-  dVar5 = cos((double)local_14);
-  local_20.x = (float)dVar5 * local_10 + local_20.x;
-  dVar5 = sin((double)local_14);
-  local_20.y = (float)dVar5 * local_10 + local_20.y;
+  dVar3 = cos((double)local_14);
+  local_20.x = (float)dVar3 * local_10 + local_20.x;
+  dVar3 = sin((double)local_14);
+  local_20.y = (float)dVar3 * local_10 + local_20.y;
   local_8 = EffectManager::FUN_0040ef50(&g_EffectManager,0x13,&local_20,1,0xff3030ff);
-  fVar4 = Rng::GetRandomF32ZeroToOne(&g_Rng);
-  local_8[1].angleVel.x = (fVar4 * 40.0 - 20.0) / 60.0;
+  fVar2 = Rng::GetRandomF32ZeroToOne(&g_Rng);
+  local_8[1].angleVel.x = (fVar2 * 40.0 - 20.0) / 60.0;
   local_8[1].angleVel.y = ((float)local_c * 8.0) / 60.0 - 0.2666667;
   local_8[1].angleVel.z = 0.0;
-  fVar4 = local_8[1].angleVel.z;
+  fVar2 = local_8[1].angleVel.z;
   fVar1 = local_8[1].angleVel.y;
   local_8[1].scaleY = -local_8[1].angleVel.x * 0.008333334;
   local_8[1].scaleX = -fVar1 * 0.008333334;
-  local_8[1].scaleInterpFinalY = -fVar4 * 0.008333334;
+  local_8[1].scaleInterpFinalY = -fVar2 * 0.008333334;
   local_20.x = (param_1->position).x;
   local_20.y = (param_1->position).y;
   local_20.z = (param_1->position).z;
-  dVar5 = cos((double)local_14);
-  local_20.x = local_20.x - (float)dVar5 * local_10;
-  dVar5 = sin((double)local_14);
-  local_20.y = (float)dVar5 * local_10 + local_20.y;
+  dVar3 = cos((double)local_14);
+  local_20.x = local_20.x - (float)dVar3 * local_10;
+  dVar3 = sin((double)local_14);
+  local_20.y = (float)dVar3 * local_10 + local_20.y;
   local_8 = EffectManager::FUN_0040ef50(&g_EffectManager,0x13,&local_20,1,0xff3030ff);
-  fVar4 = Rng::GetRandomF32ZeroToOne(&g_Rng);
-  local_8[1].angleVel.x = (fVar4 * 40.0 - 20.0) / 60.0;
+  fVar2 = Rng::GetRandomF32ZeroToOne(&g_Rng);
+  local_8[1].angleVel.x = (fVar2 * 40.0 - 20.0) / 60.0;
   local_8[1].angleVel.y = ((float)local_c * 8.0) / 60.0 - 0.2666667;
   local_8[1].angleVel.z = 0.0;
-  fVar4 = local_8[1].angleVel.z;
+  fVar2 = local_8[1].angleVel.z;
   fVar1 = local_8[1].angleVel.y;
   local_8[1].scaleY = -local_8[1].angleVel.x * 0.008333334;
   local_8[1].scaleX = -fVar1 * 0.008333334;
-  local_8[1].scaleInterpFinalY = -fVar4 * 0.008333334;
+  local_8[1].scaleInterpFinalY = -fVar2 * 0.008333334;
 LAB_0040cffe:
   (param_1->field64_0xebc).previous = (param_1->field64_0xebc).current;
   Supervisor::TickTimer

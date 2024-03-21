@@ -108,9 +108,7 @@ undefined4 __thiscall GuiImpl::run_msg(GuiImpl *this)
         AnmManager::SetAndExecuteScript(pAVar4,&this->vm2,pAVar4->scripts[0x701]);
         (this->vm2).fontWidth = '\x10';
         (this->vm2).fontHeight = '\x10';
-        AnmManager::FUN_00434c40
-                  (g_AnmManager,&this->vm2,0xe0ffff,0,"♪%s",
-                   g_Stage.stdData + *(int *)((int)(this->msg).current_instr + 4) * 0x80 + 0x90);
+        AnmManager::FUN_00434c40(g_AnmManager,&this->vm2,0xe0ffff,0,"♪%s");
         iVar8 = PlayMidiFile(*(int *)((int)(this->msg).current_instr + 4));
         if (iVar8 != 0) {
           Supervisor::PlayAudio
@@ -128,7 +126,8 @@ undefined4 __thiscall GuiImpl::run_msg(GuiImpl *this)
         AnmManager::FUN_00434c40
                   (g_AnmManager,(this->msg).intro_lines + *(short *)((int)pvVar3 + 6),
                    (this->msg).text_colors_A[*(short *)((int)pvVar3 + 4)],
-                   (this->msg).text_colors_B[*(short *)((int)pvVar3 + 4)],(int)pvVar3 + 8);
+                   (this->msg).text_colors_B[*(short *)((int)pvVar3 + 4)],(char *)((int)pvVar3 + 8))
+        ;
         (this->msg).frames_elapsed_during_pause = 0;
         break;
       case 9:

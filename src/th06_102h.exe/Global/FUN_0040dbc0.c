@@ -2,10 +2,6 @@
 void __cdecl FUN_0040dbc0(Enemy *param_1,AnmRawInstr *param_2)
 
 {
-  uint uVar1;
-  float fVar2;
-  float10 fVar3;
-  ushort uVar4;
   int iVar5;
   EnemyBulletShooter *bullet_props;
   EnemyBulletShooter *pEVar6;
@@ -13,6 +9,10 @@ void __cdecl FUN_0040dbc0(Enemy *param_1,AnmRawInstr *param_2)
   float local_68;
   EnemyBulletShooter local_64;
   int local_8;
+  float fVar2;
+  float10 fVar3;
+  uint uVar1;
+  ushort uVar4;
   
   bullet_props = &param_1->bullet_props;
   pEVar6 = &local_64;

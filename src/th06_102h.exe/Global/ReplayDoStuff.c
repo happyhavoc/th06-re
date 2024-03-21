@@ -63,9 +63,8 @@ void ReplayDoStuff(char *replay_path,char *param_2)
         for (j = 0; (int)j < 7; j = j + 1) {
           if (rpy_manager->data->stage_score[j + 1] != (StageReplayData *)0x0) {
             aiStack_30[j] = local_68;
-            local_68 = local_68 +
-                       (rpy_manager->replay_input_offsets[j] -
-                       (int)rpy_manager->data->stage_score[j + 1]);
+            local_68 = (int)rpy_manager->replayInputAddresses[j] +
+                       (local_68 - (int)rpy_manager->data->stage_score[j + 1]);
           }
         }
         DebugPrint2("%s write ...\n",replay_path);
@@ -119,8 +118,8 @@ void ReplayDoStuff(char *replay_path,char *param_2)
             uStack_75 = (undefined)((uint)pSVar3 >> 0x18);
             for (local_70 = 0;
                 local_70 <
-                rpy_manager->replay_input_offsets[j] - (int)rpy_manager->data->stage_score[j + 1];
-                local_70 = local_70 + 1) {
+                (int)rpy_manager->replayInputAddresses[j] -
+                (int)rpy_manager->data->stage_score[j + 1]; local_70 = local_70 + 1) {
               uStack_78 = SUB43(pSVar3,0);
               local_74 = local_74 + (uint)*(byte *)CONCAT13(uStack_75,uStack_78);
               pSVar3 = (StageReplayData *)(CONCAT13(uStack_75,uStack_78) + 1);
@@ -141,8 +140,8 @@ void ReplayDoStuff(char *replay_path,char *param_2)
             local_84 = rpy_manager->data->stage_score[j + 1];
             for (local_80 = 0;
                 local_80 <
-                rpy_manager->replay_input_offsets[j] - (int)rpy_manager->data->stage_score[j + 1];
-                local_80 = local_80 + 1) {
+                (int)rpy_manager->replayInputAddresses[j] -
+                (int)rpy_manager->data->stage_score[j + 1]; local_80 = local_80 + 1) {
               *(char *)&local_84->score = *(char *)&local_84->score + local_79;
               local_79 = local_79 + '\a';
               local_84 = (StageReplayData *)((int)&local_84->score + 1);
@@ -154,8 +153,8 @@ void ReplayDoStuff(char *replay_path,char *param_2)
         for (j = 0; (int)j < 7; j = j + 1) {
           if (rpy_manager->data->stage_score[j + 1] != (StageReplayData *)0x0) {
             fwrite(rpy_manager->data->stage_score[j + 1],1,
-                   rpy_manager->replay_input_offsets[j] - (int)rpy_manager->data->stage_score[j + 1]
-                   ,_File);
+                   (int)rpy_manager->replayInputAddresses[j] -
+                   (int)rpy_manager->data->stage_score[j + 1],_File);
           }
         }
         fclose(_File);
@@ -163,7 +162,7 @@ void ReplayDoStuff(char *replay_path,char *param_2)
       for (j = 0; (int)j < 7; j = j + 1) {
         if (g_ReplayManager->data->stage_score[j + 1] != (StageReplayData *)0x0) {
           DebugPrint2("Replay Size %d\n",
-                      rpy_manager->replay_input_offsets[j] -
+                      (int)rpy_manager->replayInputAddresses[j] -
                       (int)rpy_manager->data->stage_score[j + 1]);
           _free(g_ReplayManager->data->stage_score[j + 1]);
         }

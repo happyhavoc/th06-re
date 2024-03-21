@@ -225,7 +225,7 @@ ZunResult __fastcall Gui::FUN_00417d29(Gui *gui)
             (g_AnmManager,&gui->impl->vm1,0xe0ffff,0,(char *)(g_Stage.stdData + 0x10),unaff_EDI);
   (gui->impl->vm2).fontWidth = '\x10';
   (gui->impl->vm2).fontHeight = '\x10';
-  AnmManager::FUN_00434c40(g_AnmManager,&gui->impl->vm2,0xe0ffff,0,"♪%s",g_Stage.stdData + 0x90);
+  AnmManager::FUN_00434c40(g_AnmManager,&gui->impl->vm2,0xe0ffff,0,"♪%s");
   (gui->impl->msg).current_msg_idx = 0xffffffff;
   gui->impl->field13_0x2bdc = 0;
   (gui->impl->field15_0x2be4).field2_0x10 = 0;

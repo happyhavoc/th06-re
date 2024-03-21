@@ -1,12 +1,12 @@
 
 uint __thiscall
-FUN_0041ec72(uint *param_1_00,undefined4 param_2,int param_3,int param_4,int param_5)
+FUN_0041ec72(long *param_1_00,undefined4 param_2,int param_3,int param_4,int param_5)
 
 {
-  uint uVar1;
   int iVar2;
   ushort *local_14;
-  int local_c;
+  long local_c;
+  uint uVar1;
   
   iVar2 = param_4 * param_5 * 2;
   local_14 = (ushort *)(param_1_00[8] + param_3 * param_4 * 2);

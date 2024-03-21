@@ -1,13 +1,11 @@
 
-/* WARNING: Unknown calling convention -- yet parameter storage is locked */
-
 void FUN_0040d040(Enemy *param_1,AnmRawInstr *param_2)
 
 {
   int iVar1;
   EnemyLaserShooter *pEVar2;
-  float fVar3;
-  double dVar4;
+  float fVar1;
+  double dVar2;
   int local_e0;
   float local_dc [24];
   float local_7c;
@@ -31,8 +29,8 @@ void FUN_0040d040(Enemy *param_1,AnmRawInstr *param_2)
     local_e0 = local_e0 + -1;
   } while (-1 < local_e0);
   local_68 = param_2->args[3];
-  fVar3 = Rng::GetRandomF32ZeroToOne(&g_Rng);
-  local_7c = fVar3 * 6.283185;
+  fVar1 = Rng::GetRandomF32ZeroToOne(&g_Rng);
+  local_7c = fVar1 * 6.283185;
   for (local_74 = 0; local_74 < 2; local_74 = local_74 + 1) {
     if (local_74 == 0) {
       local_78 = local_7c + -3.141593;
@@ -48,11 +46,11 @@ void FUN_0040d040(Enemy *param_1,AnmRawInstr *param_2)
       local_dc[iVar1 * 3 + 1] = (param_1->position).y;
       local_dc[iVar1 * 3 + 2] = (param_1->position).z;
       iVar1 = local_60;
-      dVar4 = cos((double)local_78);
-      local_dc[local_60 * 3] = (float)dVar4 * local_64 + local_dc[iVar1 * 3];
+      dVar2 = cos((double)local_78);
+      local_dc[local_60 * 3] = (float)dVar2 * local_64 + local_dc[iVar1 * 3];
       iVar1 = local_60;
-      dVar4 = sin((double)local_78);
-      local_dc[local_60 * 3 + 1] = (float)dVar4 * local_64 + local_dc[iVar1 * 3 + 1];
+      dVar2 = sin((double)local_78);
+      local_dc[local_60 * 3 + 1] = (float)dVar2 * local_64 + local_dc[iVar1 * 3 + 1];
       local_78 = local_78 + 0.7853982;
     }
     if (local_74 == 0) {
@@ -109,11 +107,11 @@ void FUN_0040d040(Enemy *param_1,AnmRawInstr *param_2)
           BulletManager::SpawnBullet(&g_BulletManager,&param_1->bullet_props);
         }
         iVar1 = local_60;
-        dVar4 = cos((double)local_78);
-        local_dc[local_60 * 3] = (float)dVar4 * local_64 + local_dc[iVar1 * 3];
+        dVar2 = cos((double)local_78);
+        local_dc[local_60 * 3] = (float)dVar2 * local_64 + local_dc[iVar1 * 3];
         iVar1 = local_60;
-        dVar4 = sin((double)local_78);
-        local_dc[local_60 * 3 + 1] = (float)dVar4 * local_64 + local_dc[iVar1 * 3 + 1];
+        dVar2 = sin((double)local_78);
+        local_dc[local_60 * 3 + 1] = (float)dVar2 * local_64 + local_dc[iVar1 * 3 + 1];
         local_78 = local_78 + 0.7853982;
       }
       local_78 = (local_70 - 6.283185) + local_78;

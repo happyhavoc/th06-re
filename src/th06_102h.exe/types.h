@@ -73515,7 +73515,7 @@ struct ReplayManager {
     undefined field57_0x46;
     undefined field58_0x47;
     struct ReplayDataInput *replay_inputs;
-    int replay_input_offsets[7];
+    struct ReplayDataInput *replayInputAddresses[7];
     struct ChainElem *calc_chain;
     struct ChainElem *draw_chain;
     struct ChainElem *demo_calc_chain;

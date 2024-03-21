@@ -1,66 +1,64 @@
 
-void AnmManager::FUN_00434c40
-               (AnmManager *param_1,int param_2,undefined4 param_3,undefined4 param_4,char *param_5)
+void AnmManager::FUN_00434c40(AnmManager *this,AnmVm *vm,D3DCOLOR color1,D3DCOLOR color2,char *text)
 
 {
-  char cVar1;
   uint fontHeight;
-  long lVar2;
-  long lVar3;
-  long lVar4;
+  long textureHeight;
+  long textureWidth;
+  long yPos;
   long xPos;
-  uint uVar5;
-  uint unaff_retaddr;
-  undefined4 uVar6;
-  undefined4 uVar7;
-  undefined *puVar8;
-  char *pcVar9;
+  D3DCOLOR DVar1;
+  D3DCOLOR DVar2;
   char *local_60;
-  uint local_5c;
-  char local_54 [68];
-  uint local_10;
+  uint fontWidth;
+  char buf [68];
+  uint stackCookie;
   long local_c;
-  va_list local_8;
+  va_list args;
+  uint fontWidth2;
+  char cVar1;
+  char *pcVar9;
+  undefined *puVar8;
+  uint unaff_retaddr;
   
-  local_10 = __security_cookie ^ unaff_retaddr;
-  if (*(char *)(param_2 + 0x10c) == '\0') {
-    local_5c = 0xf;
+  stackCookie = __security_cookie ^ unaff_retaddr;
+  if (vm->fontWidth == '\0') {
+    fontWidth = 0xf;
   }
   else {
-    local_5c = (uint)*(byte *)(param_2 + 0x10c);
+    fontWidth = (uint)vm->fontWidth;
   }
-  local_8 = &stack0x00000018;
-  vsprintf(local_54,param_5,local_8);
-  local_8 = (va_list)0x0;
+  args = &stack0x00000018;
+  vsprintf(buf,text,args);
+  args = (va_list)0x0;
   puVar8 = &DAT_0046ac10;
-  fontHeight = (uint)*(byte *)(param_2 + 0x10d);
-  uVar5 = local_5c;
-  uVar6 = param_3;
-  uVar7 = param_4;
-  lVar2 = __ftol2(*(float *)(*(int *)(param_2 + 0xc0) + 0x14));
-  lVar3 = __ftol2(*(float *)(*(int *)(param_2 + 0xc0) + 0x18));
-  lVar4 = __ftol2(*(float *)(*(int *)(param_2 + 0xc0) + 8));
-  xPos = __ftol2(*(float *)(*(int *)(param_2 + 0xc0) + 4));
-  FUN_00434af0(param_1,**(uint **)(param_2 + 0xc0),xPos,lVar4,lVar3,lVar2,uVar5,fontHeight,uVar6,
-               uVar7,puVar8);
-  local_60 = local_54;
+  fontHeight = (uint)vm->fontHeight;
+  fontWidth2 = fontWidth;
+  DVar1 = color1;
+  DVar2 = color2;
+  textureHeight = __ftol2(vm->sprite->textureHeight);
+  textureWidth = __ftol2(vm->sprite->textureWidth);
+  yPos = __ftol2((vm->sprite->startPixelInclusive).y);
+  xPos = __ftol2((vm->sprite->startPixelInclusive).x);
+  FUN_00434af0(this,vm->sprite->sourceFileIndex,xPos,yPos,textureWidth,textureHeight,fontWidth2,
+               fontHeight,DVar1,DVar2,puVar8);
+  local_60 = buf;
   do {
     cVar1 = *local_60;
     local_60 = local_60 + 1;
   } while (cVar1 != '\0');
-  local_c = __ftol2((*(float *)(*(int *)(param_2 + 0xc0) + 4) +
-                    *(float *)(*(int *)(param_2 + 0xc0) + 0x18)) -
-                    ((float)(ulonglong)(uint)((int)local_60 - (int)(local_54 + 1)) *
-                    (float)(local_5c + 1)) / 2.0);
-  pcVar9 = local_54;
-  uVar5 = (uint)*(byte *)(param_2 + 0x10d);
-  lVar2 = __ftol2(*(float *)(*(int *)(param_2 + 0xc0) + 0x14));
-  lVar3 = __ftol2(*(float *)(*(int *)(param_2 + 0xc0) + 0x18));
-  lVar4 = __ftol2(*(float *)(*(int *)(param_2 + 0xc0) + 8));
-  FUN_00434af0(param_1,**(uint **)(param_2 + 0xc0),local_c,lVar4,lVar3,lVar2,local_5c,uVar5,param_3,
-               param_4,pcVar9);
-  *(uint *)(param_2 + 0x80) = *(uint *)(param_2 + 0x80) | 1;
-  __security_check_cookie(local_10 ^ unaff_retaddr);
+  local_c = __ftol2(((vm->sprite->startPixelInclusive).x + vm->sprite->textureWidth) -
+                    ((float)(ulonglong)(uint)((int)local_60 - (int)(buf + 1)) *
+                    (float)(fontWidth + 1)) / 2.0);
+  pcVar9 = buf;
+  fontHeight = (uint)vm->fontHeight;
+  textureHeight = __ftol2(vm->sprite->textureHeight);
+  textureWidth = __ftol2(vm->sprite->textureWidth);
+  yPos = __ftol2((vm->sprite->startPixelInclusive).y);
+  FUN_00434af0(this,vm->sprite->sourceFileIndex,local_c,yPos,textureWidth,textureHeight,fontWidth,
+               fontHeight,color1,color2,pcVar9);
+  *(uint *)&vm->flags = *(uint *)&vm->flags | 1;
+  __security_check_cookie(stackCookie ^ unaff_retaddr);
   return;
 }
 

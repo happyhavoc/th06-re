@@ -1,9 +1,9 @@
 
-void __thiscall Gui::FUN_004195bf(Gui *this)
+void __thiscall Gui::calculateStageScore(Gui *this)
 
 {
   int iVar1;
-  uint local_c;
+  uint stage_score;
   int local_8;
   GuiImpl *fVar2;
   AnmManager *this_00;
@@ -95,7 +95,7 @@ void __thiscall Gui::FUN_004195bf(Gui *this)
     if (0xf9 < (this->impl->field15_0x2be4).field3_0x14.current) {
       (this->impl->field15_0x2be4).field2_0x10 = 0;
     }
-    FUN_0041b5af();
+    ZunTimer::nextTick(&(this->impl->field15_0x2be4).field3_0x14);
   }
   if ((this->impl->field16_0x2c04).field2_0x10 != 0) {
     if ((this->impl->field16_0x2c04).field3_0x14.current < 0x1e) {
@@ -109,46 +109,46 @@ void __thiscall Gui::FUN_004195bf(Gui *this)
     if (0xb3 < (this->impl->field16_0x2c04).field3_0x14.current) {
       (this->impl->field16_0x2c04).field2_0x10 = 0;
     }
-    FUN_0041b5af();
+    ZunTimer::nextTick(&(this->impl->field16_0x2c04).field3_0x14);
   }
   if ((this->impl->field17_0x2c24).field2_0x10 != 0) {
     if (0x117 < (this->impl->field17_0x2c24).field3_0x14.current) {
       (this->impl->field17_0x2c24).field2_0x10 = 0;
     }
-    FUN_0041b5af();
+    ZunTimer::nextTick(&(this->impl->field17_0x2c24).field3_0x14);
   }
   if (this->impl->field13_0x2bdc == 1) {
-    local_c = (g_GameManager.current_stage * 1000 + g_GameManager.graze_in_stage * 10 +
-              (uint)g_GameManager.current_power * 100) *
-              (uint)g_GameManager.point_items_collected_in_stage;
+    stage_score = (g_GameManager.current_stage * 1000 + g_GameManager.graze_in_stage * 10 +
+                  (uint)g_GameManager.current_power * 100) *
+                  (uint)g_GameManager.point_items_collected_in_stage;
     if (5 < g_GameManager.current_stage) {
-      local_c = local_c + (char)g_GameManager.lives_remaining * 3000000 +
-                (char)g_GameManager.bombs_remaining * 1000000;
+      stage_score = stage_score + (char)g_GameManager.lives_remaining * 3000000 +
+                    (char)g_GameManager.bombs_remaining * 1000000;
     }
     if (g_GameManager.difficulty == EASY) {
-      local_c = (int)local_c / 2 - ((int)local_c / 2) % 10;
+      stage_score = (int)stage_score / 2 - ((int)stage_score / 2) % 10;
     }
     else if (g_GameManager.difficulty == HARD) {
-      iVar1 = (int)(local_c * 0xc) / 10;
-      local_c = iVar1 - iVar1 % 10;
+      iVar1 = (int)(stage_score * 0xc) / 10;
+      stage_score = iVar1 - iVar1 % 10;
     }
     else if (g_GameManager.difficulty == LUNATIC) {
-      iVar1 = (int)(local_c * 0xf) / 10;
-      local_c = iVar1 - iVar1 % 10;
+      iVar1 = (int)(stage_score * 0xf) / 10;
+      stage_score = iVar1 - iVar1 % 10;
     }
     else if (g_GameManager.difficulty == EXTRA) {
-      local_c = local_c * 2 - (int)(local_c * 2) % 10;
+      stage_score = stage_score * 2 - (int)(stage_score * 2) % 10;
     }
     if (g_Supervisor.lifeCount == 3) {
-      iVar1 = (int)(local_c * 5) / 10;
-      local_c = iVar1 - iVar1 % 10;
+      iVar1 = (int)(stage_score * 5) / 10;
+      stage_score = iVar1 - iVar1 % 10;
     }
     else if (g_Supervisor.lifeCount == 4) {
-      iVar1 = (int)(local_c << 1) / 10;
-      local_c = iVar1 - iVar1 % 10;
+      iVar1 = (int)(stage_score << 1) / 10;
+      stage_score = iVar1 - iVar1 % 10;
     }
-    this->impl->stage_score = local_c;
-    g_GameManager.score = g_GameManager.score + local_c;
+    this->impl->stage_score = stage_score;
+    g_GameManager.score = g_GameManager.score + stage_score;
     this->impl->field13_0x2bdc = this->impl->field13_0x2bdc + 1;
   }
   return;

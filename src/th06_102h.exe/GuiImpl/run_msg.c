@@ -177,7 +177,7 @@ undefined4 __thiscall GuiImpl::run_msg(GuiImpl *this)
            (void *)((int)(this->msg).current_instr +
                    *(byte *)((int)(this->msg).current_instr + 3) + 4);
     }
-    FUN_0041b5af();
+    ZunTimer::nextTick(&(this->msg).timer);
 LAB_00418fe0:
     AnmManager::ExecuteScript(g_AnmManager,(this->msg).portraits);
     AnmManager::ExecuteScript(g_AnmManager,(this->msg).portraits + 1);

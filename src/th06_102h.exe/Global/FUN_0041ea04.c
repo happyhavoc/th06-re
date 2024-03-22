@@ -1,7 +1,7 @@
 
 /* WARNING: Unknown calling convention -- yet parameter storage is locked */
 
-char FUN_0041ea04(UINT width,UINT height,D3DFORMAT format)
+bool FUN_0041ea04(UINT width,UINT height,D3DFORMAT format)
 
 {
   char cVar1;
@@ -21,6 +21,6 @@ char FUN_0041ea04(UINT width,UINT height,D3DFORMAT format)
   else {
     cVar1 = '\x01';
   }
-  return cVar1;
+  return (bool)cVar1;
 }
 

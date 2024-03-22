@@ -1,19 +1,19 @@
 
-undefined4 __thiscall MainMenu::FUN_00439965(MainMenu *this)
+undefined4 __thiscall MainMenu::ChoosePracticeLevel(MainMenu *this)
 
 {
   uint local_2c;
-  uint local_28;
-  D3DXVECTOR3 local_20;
+  int local_28;
+  D3DXVECTOR3 text_pos;
   uint local_14;
   int local_10;
-  uint local_c;
-  int local_8;
+  int local_c;
+  int stage_num;
   
   if (this->gameState == STATE_PRACTICE_LVL_SELECT) {
-    local_20.x = 320.0;
-    local_20.y = 200.0;
-    local_20.z = 0.0;
+    text_pos.x = 320.0;
+    text_pos.y = 200.0;
+    text_pos.z = 0.0;
     if (this->stateTimer < 0x1e) {
       local_28 = (this->stateTimer * 0xff) / 0x1e;
     }
@@ -32,18 +32,19 @@ undefined4 __thiscall MainMenu::FUN_00439965(MainMenu *this)
     if ((g_GameManager.difficulty == EASY) && (local_2c == 6)) {
       local_14 = 5;
     }
-    for (local_8 = 0; local_8 < (int)local_14; local_8 = local_8 + 1) {
-      if (local_8 == this->cursor) {
+    for (stage_num = 0; stage_num < (int)local_14; stage_num = stage_num + 1) {
+      if (stage_num == this->cursor) {
         g_AsciiManager.color = local_c << 0x18 | 0xc0f0f0;
       }
       else {
-        g_AsciiManager.color = (local_c >> 1) << 0x18 | 0x80c0c0;
+        g_AsciiManager.color = ((uint)local_c >> 1) << 0x18 | 0x80c0c0;
       }
       AsciiManager::AddFormatText
-                (&g_AsciiManager,&local_20,"STAGE %d  %.9d",local_8 + 1,
+                (&g_AsciiManager,&text_pos,"STAGE %d  %.9d",stage_num + 1,
                  *(undefined4 *)
-                  (local_10 * 0x1e0 + local_8 * 0x50 + 0x69cd3c + g_GameManager.difficulty * 0x14));
-      local_20.y = local_20.y + 24.0;
+                  (local_10 * 0x1e0 + stage_num * 0x50 + 0x69cd3c + g_GameManager.difficulty * 0x14)
+                );
+      text_pos.y = text_pos.y + 24.0;
     }
     g_AsciiManager.color = 0xffffffff;
   }

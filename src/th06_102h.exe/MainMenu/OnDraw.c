@@ -68,7 +68,7 @@ undefined4 MainMenu::OnDraw(MainMenu *param_1)
     if ((0xc < (int)param_1->gameState) && ((int)param_1->gameState < 0x10)) {
       DrawReplayMenu(param_1);
     }
-    FUN_00439965(param_1);
+    ChoosePracticeLevel(param_1);
   }
   return 1;
 }

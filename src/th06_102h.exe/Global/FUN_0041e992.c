@@ -1,24 +1,24 @@
 
-uint __fastcall FUN_0041e992(undefined4 *param_1)
+uint __thiscall FUN_0041e992(void *this)
 
 {
   uint uVar1;
   
-  if (param_1[5] == 0) {
-    uVar1 = (uint)param_1 & 0xffffff00;
+  if (*(int *)((int)this + 0x14) == 0) {
+    uVar1 = (uint)this & 0xffffff00;
   }
   else {
-    SelectObject((HDC)param_1[5],(HGDIOBJ)param_1[6]);
-    DeleteDC((HDC)param_1[5]);
-    DeleteObject((HGDIOBJ)param_1[7]);
-    *param_1 = 0xffffffff;
-    param_1[1] = 0;
-    param_1[2] = 0;
-    param_1[5] = 0;
-    param_1[7] = 0;
-    param_1[6] = 0;
-    param_1[8] = 0;
-    uVar1 = CONCAT31((int3)((uint)param_1 >> 8),1);
+    SelectObject(*(HDC *)((int)this + 0x14),*(HGDIOBJ *)((int)this + 0x18));
+    DeleteDC(*(HDC *)((int)this + 0x14));
+    DeleteObject(*(HGDIOBJ *)((int)this + 0x1c));
+    *(undefined4 *)this = 0xffffffff;
+    *(undefined4 *)((int)this + 4) = 0;
+    *(undefined4 *)((int)this + 8) = 0;
+    *(undefined4 *)((int)this + 0x14) = 0;
+    *(undefined4 *)((int)this + 0x1c) = 0;
+    *(undefined4 *)((int)this + 0x18) = 0;
+    *(undefined4 *)((int)this + 0x20) = 0;
+    uVar1 = CONCAT31((int3)((uint)this >> 8),1);
   }
   return uVar1;
 }

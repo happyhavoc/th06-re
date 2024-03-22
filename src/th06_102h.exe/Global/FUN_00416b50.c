@@ -1,6 +1,4 @@
 
-/* WARNING: Unknown calling convention -- yet parameter storage is locked */
-
 void FUN_00416b50(Bullet *param_1)
 
 {

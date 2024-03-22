@@ -8,7 +8,7 @@ ZunResult __thiscall MainMenu::beginStartup(MainMenu *this)
   int i;
   DWORD time;
   
-  loadTitleAnm = MainMenu::loadTitleAnm(this);
+  loadTitleAnm = ::loadTitleAnm(this);
   if (loadTitleAnm == ZUN_SUCCESS) {
     if (g_Supervisor.startup_time_for_menu_music != 0) {
       time = timeGetTime();

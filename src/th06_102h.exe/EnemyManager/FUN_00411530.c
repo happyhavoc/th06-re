@@ -4,8 +4,9 @@ void __thiscall EnemyManager::FUN_00411530(EnemyManager *this)
 {
   void *pvVar1;
   float fVar2;
-  BOOL BVar3;
-  int iVar4;
+  bool bVar3;
+  BOOL BVar4;
+  undefined3 extraout_var;
   D3DXVECTOR3 local_4c;
   D3DXVECTOR3 local_40;
   float *local_34;
@@ -20,8 +21,8 @@ void __thiscall EnemyManager::FUN_00411530(EnemyManager *this)
   if (this->timeline_instr == (void *)0x0) {
     this->timeline_instr = g_EclManager.timeline;
   }
-  BVar3 = Gui::HasCurrentMsgIdx(&g_Gui);
-  if (((BVar3 == 0) &&
+  BVar4 = Gui::HasCurrentMsgIdx(&g_Gui);
+  if (((BVar4 == 0) &&
       (local_c = (char)g_GameManager.lives_remaining * -0xf0 + 0x960,
       (this->timeline_time).current != (this->timeline_time).previous)) &&
      ((this->timeline_time).current % local_c == 0)) {
@@ -164,16 +165,16 @@ void __thiscall EnemyManager::FUN_00411530(EnemyManager *this)
       case 8:
         if (((g_GameManager.difficulty == EASY) && (g_GameManager.current_stage == 5)) &&
            (*(short *)((int)this->timeline_instr + 2) == 1)) {
-          FUN_00418768((uint)g_GameManager.character * 10 + 3);
+          Gui::FUN_00418768(&g_Gui,(uint)g_GameManager.character * 10 + 3);
         }
         else {
-          FUN_00418768((int)*(short *)((int)this->timeline_instr + 2) +
-                       (uint)g_GameManager.character * 10);
+          Gui::FUN_00418768(&g_Gui,(int)*(short *)((int)this->timeline_instr + 2) +
+                                   (uint)g_GameManager.character * 10);
         }
         break;
       case 9:
-        iVar4 = FUN_00419572();
-        if (iVar4 != 0) {
+        bVar3 = Gui::FUN_00419572(&g_Gui);
+        if (CONCAT31(extraout_var,bVar3) != 0) {
           ZunTimer::Decrement(&this->timeline_time,1);
           return;
         }
@@ -200,8 +201,8 @@ void __thiscall EnemyManager::FUN_00411530(EnemyManager *this)
     this->timeline_instr =
          (void *)((int)*(short *)((int)this->timeline_instr + 6) + (int)this->timeline_instr);
   }
-  BVar3 = Gui::HasCurrentMsgIdx(&g_Gui);
-  if (BVar3 == 0) {
+  BVar4 = Gui::HasCurrentMsgIdx(&g_Gui);
+  if (BVar4 == 0) {
     g_GameManager.counat = g_GameManager.counat + 1;
   }
   return;

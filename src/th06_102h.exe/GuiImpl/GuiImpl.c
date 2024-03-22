@@ -1,5 +1,5 @@
 
-GuiImpl * __thiscall GuiImpl::FUN_0041b34b(GuiImpl *this)
+GuiImpl * __thiscall GuiImpl::GuiImpl(GuiImpl *this)
 
 {
   GuiImpl *local_10;

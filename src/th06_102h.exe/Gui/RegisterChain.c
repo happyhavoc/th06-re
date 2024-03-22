@@ -30,7 +30,7 @@ ZunResult Gui::RegisterChain(void)
       pGStack_20 = (GuiImpl *)0x0;
     }
     else {
-      pGStack_20 = GuiImpl::FUN_0041b34b(this);
+      pGStack_20 = GuiImpl::GuiImpl(this);
     }
     g_Gui.impl = pGStack_20;
   }

@@ -25,7 +25,7 @@ void __thiscall Ending::ParseEndFile(Ending *this)
   int i;
   int unaff_EDI;
   AnmVm *anmvm_ref;
-  int **ppiVar4;
+  undefined4 *puVar4;
   uint unaff_retaddr;
   short local_ac;
   short local_90;
@@ -33,19 +33,20 @@ void __thiscall Ending::ParseEndFile(Ending *this)
   int exec_inner;
   int exec_outer;
   int local_38;
-  int *local_34;
+  char local_34;
+  char acStack_33 [39];
   uint local_c;
   int local_8;
   
   local_c = __security_cookie ^ unaff_retaddr;
   local_8 = 0;
   local_38 = 0;
-  ppiVar4 = &local_34;
+  puVar4 = (undefined4 *)&local_34;
   for (i = 9; i != 0; i = i + -1) {
-    *ppiVar4 = (int *)0x0;
-    ppiVar4 = ppiVar4 + 1;
+    *puVar4 = 0;
+    puVar4 = puVar4 + 1;
   }
-  *(undefined2 *)ppiVar4 = 0;
+  *(undefined2 *)puVar4 = 0;
   if (0 < (this->Timer3).current) {
     ZunTimer::Decrement(&this->Timer3,1);
     if (this->minWaitResetFrames == 0) {
@@ -78,8 +79,8 @@ void __thiscall Ending::ParseEndFile(Ending *this)
       case '\r':
         goto switchD_0040fa32_caseD_0;
       default:
-        *(char *)((int)&local_34 + local_38) = *this->endFileDataPtr;
-        *(char *)((int)&local_34 + local_38 + 1) = this->endFileDataPtr[1];
+        acStack_33[local_38 + -1] = *this->endFileDataPtr;
+        acStack_33[local_38] = this->endFileDataPtr[1];
         local_38 = local_38 + 2;
         this->endFileDataPtr = this->endFileDataPtr + 2;
         pAVar3 = g_AnmManager;
@@ -93,16 +94,16 @@ void __thiscall Ending::ParseEndFile(Ending *this)
                      pAVar3->scripts[i * 2 + local_8 + 0x708]);
           AnmManager::FUN_00434b60
                     (g_AnmManager,&this->AnmVm + local_8 + this->possibly_times_file_parsed * 2,
-                     this->textColor,0xc0d0d0,(int)&local_34,unaff_EDI);
+                     this->textColor,0xc0d0d0,&local_34,unaff_EDI);
           if (local_8 != 0) goto LAB_00410546;
           local_8 = 1;
           local_38 = 0;
-          ppiVar4 = &local_34;
+          puVar4 = (undefined4 *)&local_34;
           for (i = 9; i != 0; i = i + -1) {
-            *ppiVar4 = (int *)0x0;
-            ppiVar4 = ppiVar4 + 1;
+            *puVar4 = 0;
+            puVar4 = puVar4 + 1;
           }
-          *(undefined2 *)ppiVar4 = 0;
+          *(undefined2 *)puVar4 = 0;
         }
         break;
       case '@':
@@ -289,7 +290,7 @@ switchD_0040fa32_caseD_0:
               (pAVar3,&this->AnmVm + local_8 + iVar2 * 2,pAVar3->scripts[i * 2 + local_8 + 0x708]);
     AnmManager::FUN_00434b60
               (g_AnmManager,&this->AnmVm + local_8 + this->possibly_times_file_parsed * 2,
-               this->textColor,0xc0d0d0,(int)&local_34,unaff_EDI);
+               this->textColor,0xc0d0d0,&local_34,unaff_EDI);
   }
   while (((*this->endFileDataPtr == '\n' || (*this->endFileDataPtr == '\0')) ||
          (*this->endFileDataPtr == '\r'))) {

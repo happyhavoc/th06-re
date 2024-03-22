@@ -1,12 +1,11 @@
 
-undefined4 __thiscall Stage::LoadStageData(Stage *this,char *anmpath,char *stdpath)
+ZunResult __thiscall Stage::LoadStageData(Stage *this,char *anmpath,char *stdpath)
 
 {
   StdRawObject *pSVar1;
   ZunResult anm;
-  undefined4 uVar2;
   byte *std;
-  AnmVm *pAVar3;
+  AnmVm *pAVar2;
   StdRawQuadBasic *local_14;
   int local_c;
   int local_8;
@@ -19,7 +18,7 @@ undefined4 __thiscall Stage::LoadStageData(Stage *this,char *anmpath,char *stdpa
       GameErrorContextLog(&g_GameErrorContext,
                           "ステージデータが見つかりません。データが壊れています\n"
                          );
-      uVar2 = 0xffffffff;
+      anm = ZUN_ERROR;
     }
     else {
       this->objectsCount = (int)*(short *)this->stdData;
@@ -30,8 +29,8 @@ undefined4 __thiscall Stage::LoadStageData(Stage *this,char *anmpath,char *stdpa
       for (local_c = 0; local_c < this->objectsCount; local_c = local_c + 1) {
         this->objects[local_c] = (StdRawObject *)(this->stdData + (int)&this->objects[local_c]->id);
       }
-      pAVar3 = (AnmVm *)_malloc(this->quadCount * sizeof(AnmVm));
-      this->quadVms = pAVar3;
+      pAVar2 = (AnmVm *)_malloc(this->quadCount * sizeof(AnmVm));
+      this->quadVms = pAVar2;
       local_8 = 0;
       for (local_c = 0; local_c < this->objectsCount; local_c = local_c + 1) {
         pSVar1 = this->objects[local_c];
@@ -44,12 +43,12 @@ undefined4 __thiscall Stage::LoadStageData(Stage *this,char *anmpath,char *stdpa
           local_8 = local_8 + 1;
         }
       }
-      uVar2 = 0;
+      anm = ZUN_SUCCESS;
     }
   }
   else {
-    uVar2 = 0xffffffff;
+    anm = ZUN_ERROR;
   }
-  return uVar2;
+  return anm;
 }
 

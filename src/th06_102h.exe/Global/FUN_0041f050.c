@@ -2,7 +2,7 @@
 /* WARNING: Inlined function: FUN_0045c3e0 */
 
 void FUN_0041f050(long xPos,long yPos,long spriteWidth,long spriteHeight,long fontHeight,
-                 int fontWidth,COLORREF color1,COLORREF color2,char *param_9,
+                 int fontWidth,COLORREF color1,COLORREF color2,char *string,
                  IDirect3DTexture8 *param_10)
 
 {
@@ -15,7 +15,7 @@ void FUN_0041f050(long xPos,long yPos,long spriteWidth,long spriteHeight,long fo
   HDC pHStack_4c;
   D3DSURFACE_DESC DStack_38;
   HFONT pHStack_18;
-  HDC pHStack_14;
+  HDC hdc;
   void *pvStack_10;
   undefined *puStack_c;
   undefined4 uStack_8;
@@ -23,29 +23,29 @@ void FUN_0041f050(long xPos,long yPos,long spriteWidth,long spriteHeight,long fo
   uStack_8 = 0xffffffff;
   puStack_c = &LAB_004691ad;
   pvStack_10 = ExceptionList;
-  pHStack_14 = (HDC)0x41f05a;
+  hdc = (HDC)0x41f05a;
   ExceptionList = &pvStack_10;
   pHStack_18 = CreateFontA(fontHeight << 1,0,0,0,700,0,0,0,0x80,0,0,4,0x11,"ＭＳ ゴシック");
   FUN_0041e945(auStack_60);
   uStack_8 = 0;
   (*g_BackBufferSurface->lpVtbl->GetDesc)(g_BackBufferSurface,&DStack_38);
   FUN_0041ea04(DStack_38.Width,DStack_38.Height,DStack_38.Format);
-  pHStack_14 = pHStack_4c;
+  hdc = pHStack_4c;
   h = SelectObject(pHStack_4c,pHStack_18);
   FUN_0041ec72(auStack_60,0,0,spriteWidth << 1,fontHeight * 2 + 6);
-  SetBkMode(pHStack_14,1);
+  SetBkMode(hdc,1);
   if (color2 != 0xffffffff) {
-    SetTextColor(pHStack_14,color2);
-    sVar1 = _strlen(param_9);
-    TextOutA(pHStack_14,xPos * 2 + 3,2,param_9,sVar1);
+    SetTextColor(hdc,color2);
+    sVar1 = _strlen(string);
+    TextOutA(hdc,xPos * 2 + 3,2,string,sVar1);
   }
-  SetTextColor(pHStack_14,color1);
-  sVar1 = _strlen(param_9);
-  TextOutA(pHStack_14,xPos << 1,0,param_9,sVar1);
-  SelectObject(pHStack_14,h);
+  SetTextColor(hdc,color1);
+  sVar1 = _strlen(string);
+  TextOutA(hdc,xPos << 1,0,string,sVar1);
+  SelectObject(hdc,h);
   FUN_0041ec72(auStack_60,0,0,spriteWidth << 1,fontHeight * 2 + 6);
   FUN_0041ef11(auStack_60,g_BackBufferSurface);
-  SelectObject(pHStack_14,h);
+  SelectObject(hdc,h);
   DeleteObject(pHStack_18);
   RStack_80.left = 0;
   RStack_80.top = yPos;

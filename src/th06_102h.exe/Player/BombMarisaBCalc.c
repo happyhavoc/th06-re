@@ -40,7 +40,7 @@ void Player::BombMarisaBCalc(Player *param_1)
     }
     else {
       ItemManager::FUN_00420130((ItemManager *)&g_ItemManager);
-      Gui::FUN_00417acd(&g_Gui,0x4a1,"恋符「マスタースパーク」");
+      Gui::string_related(&g_Gui,0x4a1,"恋符「マスタースパーク」");
       (param_1->inner).field1_0x4 = 300;
       (param_1->field35_0x75b4).current = 0x168;
       (param_1->field35_0x75b4).subFrame = 0.0;

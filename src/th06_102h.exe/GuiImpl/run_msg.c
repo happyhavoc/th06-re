@@ -61,7 +61,7 @@ undefined4 __thiscall GuiImpl::run_msg(GuiImpl *this)
         {
           AnmManager::FUN_00434b60
                     (g_AnmManager,(this->msg).dialogue_lines + 1,(this->msg).text_colors_A[*psVar7],
-                     (this->msg).text_colors_B[*psVar7],0x46ac10,unaff_ESI);
+                     (this->msg).text_colors_B[*psVar7]," ",unaff_ESI);
         }
         pAVar4 = g_AnmManager;
         sVar2 = *(short *)((int)pvVar3 + 6);
@@ -76,7 +76,7 @@ undefined4 __thiscall GuiImpl::run_msg(GuiImpl *this)
         AnmManager::FUN_00434b60
                   (g_AnmManager,(this->msg).dialogue_lines + *(short *)((int)pvVar3 + 6),
                    (this->msg).text_colors_A[*psVar7],(this->msg).text_colors_B[*psVar7],
-                   (int)pvVar3 + 8,unaff_ESI);
+                   (char *)((int)pvVar3 + 8),unaff_ESI);
         (this->msg).frames_elapsed_during_pause = 0;
         break;
       case 4:

@@ -79,7 +79,7 @@ LAB_0042508a:
         *(uint *)(this + local_c * 0x110 + 0x23b4) = *(uint *)(this + local_c * 0x110 + 0x23b4) | 2;
         AnmManager::FUN_00434b60
                   (g_AnmManager,(AnmVm *)(this + local_c * 0x110 + 0x2334),0xffe0c0,0x300000,
-                   (int)local_54,unaff_EDI);
+                   (char *)local_54,unaff_EDI);
       }
       *(float *)(this + local_c * 0x110 + 0x23c4) = (float)(local_c % 2) * 248.0 + 96.0;
       *(float *)(this + local_c * 0x110 + 0x23c8) = (float)(local_c / 2 << 4) + 320.0;

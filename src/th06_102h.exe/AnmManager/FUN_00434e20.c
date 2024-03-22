@@ -9,8 +9,8 @@ void AnmManager::FUN_00434e20
   long spriteTextureWidth;
   long spriteSPIYPos;
   long spriteSPIXPos;
+  D3DCOLOR textColor;
   D3DCOLOR DVar1;
-  D3DCOLOR DVar2;
   char *buf_reference;
   uint font_width;
   char buf [68];
@@ -20,7 +20,6 @@ void AnmManager::FUN_00434e20
   char current_digested_char;
   uint fontWidth;
   char *pcVar4;
-  undefined *puVar3;
   uint unaff_retaddr;
   
   local_10 = __security_cookie ^ unaff_retaddr;
@@ -33,17 +32,17 @@ void AnmManager::FUN_00434e20
   local_8 = (va_list)&param_6;
   vsprintf(buf,print_fmt,local_8);
   local_8 = (va_list)0x0;
-  puVar3 = &DAT_0046ac10;
+  pcVar4 = " ";
   fontHeight = (uint)vm->fontHeight;
   fontWidth = font_width;
-  DVar1 = color;
-  DVar2 = color2;
+  textColor = color;
+  DVar1 = color2;
   spriteTextureHeight = __ftol2(vm->sprite->textureHeight);
   spriteTextureWidth = __ftol2(vm->sprite->textureWidth);
   spriteSPIYPos = __ftol2((vm->sprite->startPixelInclusive).y);
   spriteSPIXPos = __ftol2((vm->sprite->startPixelInclusive).x);
   FUN_00434af0(AnmMgr,vm->sprite->sourceFileIndex,spriteSPIXPos,spriteSPIYPos,spriteTextureWidth,
-               spriteTextureHeight,fontWidth,fontHeight,DVar1,DVar2,puVar3);
+               spriteTextureHeight,fontWidth,fontHeight,textColor,DVar1,pcVar4);
   buf_reference = buf;
   do {
     current_digested_char = *buf_reference;

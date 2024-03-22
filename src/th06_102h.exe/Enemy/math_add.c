@@ -15,8 +15,8 @@ void Enemy::math_add(Enemy *param_1,undefined4 out,float *arg1,float *arg2)
     *local_8 = (float)((int)*local_10 + *piVar1);
   }
   else if (local_14 == EVL_VALUE_TYPE_FLOAT) {
-    local_10 = get_var_float(param_1,arg1,(undefined4 *)0x0);
-    pfVar2 = get_var_float(param_1,arg2,(undefined4 *)0x0);
+    local_10 = get_var_float(param_1,arg1,(EclValueType *)0x0);
+    pfVar2 = get_var_float(param_1,arg2,(EclValueType *)0x0);
     *local_8 = *local_10 + *pfVar2;
   }
   return;

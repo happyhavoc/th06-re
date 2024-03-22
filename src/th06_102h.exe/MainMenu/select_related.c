@@ -1,5 +1,5 @@
 
-void MainMenu::FUN_00437672(MainMenu *menu,short param_2,short button_pressed,BOOL param_4)
+void MainMenu::select_related(MainMenu *menu,short param_2,short button_pressed,BOOL param_4)
 
 {
                     /* I'm pretty sure this function handles going to the bottom when you press the

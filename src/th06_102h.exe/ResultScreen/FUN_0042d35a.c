@@ -8,17 +8,17 @@ undefined4 __thiscall ResultScreen::FUN_0042d35a(ResultScreen *this)
   AnmVm *local_8;
   
   if ((0xe < this->unk_8) && (this->unk_8 < 0x11)) {
-    local_8 = &this->field74_0x2790;
-    g_AsciiManager.color = (this->field74_0x2790).color.color;
+    local_8 = &this->field71_0x2790;
+    g_AsciiManager.color = (this->field71_0x2790).color.color;
     if ((int)g_GameManager.difficulty < 4) {
       local_34 = (float)g_GameManager.counat / 89500.0;
     }
     else {
       local_34 = (float)g_GameManager.counat / 39600.0;
     }
-    local_14.z = (this->field74_0x2790).pos.z;
-    local_14.x = (this->field74_0x2790).pos.x + 224.0;
-    local_14.y = (this->field74_0x2790).pos.y + 32.0;
+    local_14.z = (this->field71_0x2790).pos.z;
+    local_14.x = (this->field71_0x2790).pos.x + 224.0;
+    local_14.y = (this->field71_0x2790).pos.y + 32.0;
     AsciiManager::AddFormatText(&g_AsciiManager,&local_14,"%9d");
     local_14.y = local_14.y + 22.0;
     AsciiManager::AddString

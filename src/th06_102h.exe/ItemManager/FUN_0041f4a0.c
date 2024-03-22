@@ -30,9 +30,9 @@ void __thiscall ItemManager::FUN_0041f4a0(ItemManager *this)
     FLOAT_0069e23c = 16.0;
   }
   bVar7 = false;
-  *(undefined4 *)&this[0x201].field_0x4 = 0;
+  this[1].items[1].vm.rotation.y = 0.0;
   local_8 = 0;
-  curItem = (Item *)this;
+  curItem = this->items;
   do {
     if (0x1ff < local_8) {
       if (bVar7) {
@@ -41,7 +41,7 @@ void __thiscall ItemManager::FUN_0041f4a0(ItemManager *this)
       return;
     }
     if (curItem->is_in_use != 0) {
-      *(int *)&this[0x201].field_0x4 = *(int *)&this[0x201].field_0x4 + 1;
+      this[1].items[1].vm.rotation.y = (float)((int)this[1].items[1].vm.rotation.y + 1);
       if (curItem->state == 2) {
         if (0x3b < (curItem->timer).current) {
           if ((curItem->timer).current == 0x3c) {
@@ -115,7 +115,7 @@ LAB_0041f7c5:
         case 0:
           if (g_GameManager.current_power < 0x80) {
             for (local_20 = 0; iVar8 = local_20,
-                *(int *)(&DAT_004766dc + local_20 * 4) <= (int)(uint)g_GameManager.current_power;
+                INT_ARRAY_004766dc[local_20] <= (int)(uint)g_GameManager.current_power;
                 local_20 = local_20 + 1) {
             }
             g_GameManager.power_item_count_for_score = 0;
@@ -127,7 +127,7 @@ LAB_0041f7c5:
             }
             g_GameManager.score = g_GameManager.score + 10;
             g_Gui.flags = g_Gui.flags & 0xffffffcf | 0x20;
-            for (; *(int *)(&DAT_004766dc + local_20 * 4) <= (int)(uint)g_GameManager.current_power;
+            for (; INT_ARRAY_004766dc[local_20] <= (int)(uint)g_GameManager.current_power;
                 local_20 = local_20 + 1) {
             }
             if (local_20 == iVar8) {
@@ -226,7 +226,7 @@ LAB_0041f7c5:
         case 2:
           if (g_GameManager.current_power < 0x80) {
             for (local_28 = 0; iVar8 = local_28,
-                *(int *)(&DAT_004766dc + local_28 * 4) <= (int)(uint)g_GameManager.current_power;
+                INT_ARRAY_004766dc[local_28] <= (int)(uint)g_GameManager.current_power;
                 local_28 = local_28 + 1) {
             }
             g_GameManager.current_power = g_GameManager.current_power + 8;
@@ -237,7 +237,7 @@ LAB_0041f7c5:
             }
             g_Gui.flags = g_Gui.flags & 0xffffffcf | 0x20;
             g_GameManager.score = g_GameManager.score + 10;
-            for (; *(int *)(&DAT_004766dc + local_28 * 4) <= (int)(uint)g_GameManager.current_power;
+            for (; INT_ARRAY_004766dc[local_28] <= (int)(uint)g_GameManager.current_power;
                 local_28 = local_28 + 1) {
             }
             if (local_28 == iVar8) {

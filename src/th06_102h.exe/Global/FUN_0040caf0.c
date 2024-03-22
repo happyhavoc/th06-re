@@ -7,7 +7,7 @@ void FUN_0040caf0(Enemy *param_1,AnmRawInstr *param_2)
   float fVar2;
   double dVar3;
   int local_a0;
-  D3DXVECTOR3 local_20;
+  D3DXVECTOR3 position__related;
   float local_14;
   float local_10;
   uint local_c;
@@ -63,14 +63,14 @@ LAB_0040cc18:
   if (local_10 < -0.7853982 != NAN(local_10)) {
     local_10 = local_10 + 1.570796;
   }
-  local_20.x = (param_1->position).x;
-  local_20.y = (param_1->position).y;
-  local_20.z = (param_1->position).z;
+  position__related.x = (param_1->position).x;
+  position__related.y = (param_1->position).y;
+  position__related.z = (param_1->position).z;
   dVar3 = cos((double)local_14);
-  local_20.x = (float)dVar3 * local_10 + local_20.x;
+  position__related.x = (float)dVar3 * local_10 + position__related.x;
   dVar3 = sin((double)local_14);
-  local_20.y = (float)dVar3 * local_10 + local_20.y;
-  local_8 = EffectManager::FUN_0040ef50(&g_EffectManager,0x13,&local_20,1,0xff3030ff);
+  position__related.y = (float)dVar3 * local_10 + position__related.y;
+  local_8 = EffectManager::FUN_0040ef50(&g_EffectManager,0x13,&position__related,1,0xff3030ff);
   fVar2 = Rng::GetRandomF32ZeroToOne(&g_Rng);
   local_8[1].angleVel.x = (fVar2 * 40.0 - 20.0) / 60.0;
   local_8[1].angleVel.y = ((float)local_c * 8.0) / 60.0 - 0.2666667;
@@ -80,14 +80,14 @@ LAB_0040cc18:
   local_8[1].scaleY = -local_8[1].angleVel.x * 0.008333334;
   local_8[1].scaleX = -fVar1 * 0.008333334;
   local_8[1].scaleInterpFinalY = -fVar2 * 0.008333334;
-  local_20.x = (param_1->position).x;
-  local_20.y = (param_1->position).y;
-  local_20.z = (param_1->position).z;
+  position__related.x = (param_1->position).x;
+  position__related.y = (param_1->position).y;
+  position__related.z = (param_1->position).z;
   dVar3 = cos((double)local_14);
-  local_20.x = local_20.x - (float)dVar3 * local_10;
+  position__related.x = position__related.x - (float)dVar3 * local_10;
   dVar3 = sin((double)local_14);
-  local_20.y = (float)dVar3 * local_10 + local_20.y;
-  local_8 = EffectManager::FUN_0040ef50(&g_EffectManager,0x13,&local_20,1,0xff3030ff);
+  position__related.y = (float)dVar3 * local_10 + position__related.y;
+  local_8 = EffectManager::FUN_0040ef50(&g_EffectManager,0x13,&position__related,1,0xff3030ff);
   fVar2 = Rng::GetRandomF32ZeroToOne(&g_Rng);
   local_8[1].angleVel.x = (fVar2 * 40.0 - 20.0) / 60.0;
   local_8[1].angleVel.y = ((float)local_c * 8.0) / 60.0 - 0.2666667;

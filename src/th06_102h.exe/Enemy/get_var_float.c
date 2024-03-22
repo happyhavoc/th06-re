@@ -1,5 +1,5 @@
 
-float * Enemy::get_var_float(Enemy *param_1,float *param_2,undefined4 *param_3)
+float * Enemy::get_var_float(Enemy *param_1,float *param_2,EclValueType *param_3)
 
 {
   float *pfVar1;

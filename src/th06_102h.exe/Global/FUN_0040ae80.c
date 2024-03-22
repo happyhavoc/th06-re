@@ -10,7 +10,7 @@ void FUN_0040ae80(Enemy *param_1,EclRawInstr *param_2)
   double dVar4;
   
   piVar2 = &param_2->ecl_var_id;
-  pfVar3 = Enemy::get_var_float(param_1,&param_1->angle,(undefined4 *)0x0);
+  pfVar3 = Enemy::get_var_float(param_1,&param_1->angle,(EclValueType *)0x0);
   fVar1 = *pfVar3;
   dVar4 = cos((double)fVar1);
   (param_1->move_interp).x = ((float)dVar4 * param_1->speed * (float)*piVar2) / 2.0;

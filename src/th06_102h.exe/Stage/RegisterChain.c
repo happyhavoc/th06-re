@@ -1,8 +1,8 @@
 
-undefined4 Stage::RegisterChain(uint stage)
+ZunResult Stage::RegisterChain(uint stage)
 
 {
-  undefined4 uVar1;
+  ZunResult ZVar1;
   int iVar2;
   Stage *pSVar3;
   
@@ -32,11 +32,11 @@ undefined4 Stage::RegisterChain(uint stage)
     g_StageOnDrawLowPrioChain.deletedCallback = (ChainLifecycleCallback *)0x0;
     g_StageOnDrawLowPrioChain.arg = &g_Stage;
     Chain::AddToDrawChain(&g_Chain,&g_StageOnDrawLowPrioChain,4);
-    uVar1 = 0;
+    ZVar1 = ZUN_SUCCESS;
   }
   else {
-    uVar1 = 0xffffffff;
+    ZVar1 = ZUN_ERROR;
   }
-  return uVar1;
+  return ZVar1;
 }
 

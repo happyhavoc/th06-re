@@ -9,7 +9,7 @@ void FUN_0040de00(Enemy *param_1,AnmRawInstr *param_2)
   float fVar1;
   float fVar2;
   int local_7c;
-  int local_74;
+  Bullet *local_74;
   AnmVm *local_68;
   int local_64;
   int anm_vm_var3;
@@ -18,19 +18,19 @@ void FUN_0040de00(Enemy *param_1,AnmRawInstr *param_2)
   double dVar2;
   
   anm_vm_var3 = 0;
-  local_74 = 0x5ab5f8;
+  local_74 = g_BulletManager.bullets;
   puVar4 = local_5c;
   for (iVar3 = 0x15; iVar3 != 0; iVar3 = iVar3 + -1) {
     *puVar4 = 0;
     puVar4 = puVar4 + 1;
   }
   for (local_64 = 0; local_64 < 0x280; local_64 = local_64 + 1) {
-    if ((((*(short *)(local_74 + 0x5be) != 0) && (*(short *)(local_74 + 0x5be) != 5)) &&
-        (*(int *)(local_74 + 0xc0) != 0)) && (30.0 <= *(float *)(*(int *)(local_74 + 0xc0) + 0x2c)))
-    {
+    if ((((local_74->state != 0) && (local_74->state != 5)) &&
+        ((local_74->vms).vm0.sprite != (AnmLoadedSprite *)0x0)) &&
+       (30.0 <= ((local_74->vms).vm0.sprite)->heightPx)) {
       anm_vm_var3 = anm_vm_var3 + 1;
-      dVar1 = (double)(*(float *)(local_74 + 0x560) - (param_1->position).x);
-      dVar2 = (double)(*(float *)(local_74 + 0x564) - (param_1->position).y);
+      dVar1 = (double)((local_74->pos).x - (param_1->position).x);
+      dVar2 = (double)((local_74->pos).y - (param_1->position).y);
       fVar1 = FUN_0045be40(SUB84(dVar2,0),(int)((ulonglong)dVar2 >> 0x20),SUB84(dVar1,0),
                            (int)((ulonglong)dVar1 >> 0x20));
       local_68 = (AnmVm *)g_BulletManager.bullets;
@@ -40,14 +40,10 @@ void FUN_0040de00(Enemy *param_1,AnmRawInstr *param_2)
             ((local_68->sprite != (AnmLoadedSprite *)0x0 &&
              ((fVar2 = local_68->sprite->heightPx, fVar2 < 30.0 != NAN(fVar2) &&
               (fVar2 = local_68[5].currentTimeInScript.subFrame, NAN(fVar2) != (fVar2 == 0.0)))))))
-           && (fVar5 = (float10)FUN_0045bc34((double)((local_68[5].angleVel.y -
-                                                      *(float *)(local_74 + 0x560)) *
-                                                      (local_68[5].angleVel.y -
-                                                      *(float *)(local_74 + 0x560)) +
-                                                     (local_68[5].angleVel.z -
-                                                     *(float *)(local_74 + 0x564)) *
-                                                     (local_68[5].angleVel.z -
-                                                     *(float *)(local_74 + 0x564)))),
+           && (fVar5 = (float10)FUN_0045bc34((double)((local_68[5].angleVel.y - (local_74->pos).x) *
+                                                      (local_68[5].angleVel.y - (local_74->pos).x) +
+                                                     (local_68[5].angleVel.z - (local_74->pos).y) *
+                                                     (local_68[5].angleVel.z - (local_74->pos).y))),
               (float)fVar5 < 64.0 != NAN((float)fVar5))) {
           *(ushort *)(local_68[5].matrix.m[2] + 3) = *(ushort *)(local_68[5].matrix.m[2] + 3) | 0x10
           ;
@@ -76,7 +72,7 @@ void FUN_0040de00(Enemy *param_1,AnmRawInstr *param_2)
         local_68 = (AnmVm *)(local_68[5].matrix.m[3] + 2);
       }
     }
-    local_74 = local_74 + 0x5c4;
+    local_74 = local_74 + 1;
   }
   FUN_0040d930(param_1,param_2);
   (param_1->current_context).var3 = anm_vm_var3;

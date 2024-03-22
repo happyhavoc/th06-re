@@ -16,8 +16,8 @@ void Enemy::math_mod(Enemy *param_1,undefined4 param_2,float *param_3,float *par
     *local_8 = (float)((int)*local_10 % *piVar1);
   }
   else if (local_14 == EVL_VALUE_TYPE_FLOAT) {
-    local_10 = get_var_float(param_1,param_3,(undefined4 *)0x0);
-    local_c = get_var_float(param_1,param_4,(undefined4 *)0x0);
+    local_10 = get_var_float(param_1,param_3,(EclValueType *)0x0);
+    local_c = get_var_float(param_1,param_4,(EclValueType *)0x0);
     fVar2 = (float10)FUN_0045be60((double)*local_10,(double)*local_c);
     *local_8 = (float)fVar2;
   }

@@ -18,7 +18,7 @@ void __thiscall MidiOutput::FUN_004223c0(MidiOutput *this)
     tracksPtr->curTrackDataCursor = tracksPtr->trackData;
     tracksPtr->unk18 = tracksPtr->curTrackDataCursor;
     tracksPtr->track_playing = 1;
-    uVar1 = FUN_00421d90((byte **)&tracksPtr->curTrackDataCursor);
+    uVar1 = FUN_00421d90(&tracksPtr->curTrackDataCursor);
     tracksPtr->unk4 = uVar1;
     tracksPtr = tracksPtr + 1;
   }

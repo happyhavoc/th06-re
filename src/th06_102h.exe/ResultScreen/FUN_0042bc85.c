@@ -11,10 +11,10 @@ undefined4 __thiscall ResultScreen::FUN_0042bc85(ResultScreen *this)
   
   if (this->field1_0x4 == 0) {
     this->field15_0x24 = (uint)g_GameManager.character;
-    *(Difficulty *)&this->field17_0x2c = g_GameManager.difficulty;
+    this->field17_0x2c = (int *)g_GameManager.difficulty;
     local_c = &this->unk_40;
     for (local_8 = 0; local_8 < 0x26; local_8 = local_8 + 1) {
-      local_c->pendingInterrupt = (short)*(undefined4 *)&this->field17_0x2c + 3;
+      local_c->pendingInterrupt = (short)this->field17_0x2c + 3;
       local_c = local_c + 1;
     }
     AnmManager::FUN_00434e20
@@ -24,13 +24,13 @@ undefined4 __thiscall ResultScreen::FUN_0042bc85(ResultScreen *this)
       (this->unk_28a0).color.color = 0x80ffffff;
     }
     AnmManager::FUN_00434e20
-              (g_AnmManager,&this->field76_0x29b0,0xffffff,0,
+              (g_AnmManager,&this->field73_0x29b0,0xffffff,0,
                (&PTR_Hakurei_Reimu__Dream__004784dc)[this->field15_0x24 * 2],in_stack_ffffffe0);
     if (g_GameManager.shottype != 1) {
-      (this->field76_0x29b0).color.color = 0x80ffffff;
+      (this->field73_0x29b0).color.color = 0x80ffffff;
     }
     (this->hscr).character = g_GameManager.shottype + (char)this->field15_0x24 * '\x02';
-    (this->hscr).difficulty = this->field17_0x2c;
+    (this->hscr).difficulty = *(byte *)&this->field17_0x2c;
     (this->hscr).score = g_GameManager.score;
     (this->hscr).base.version_ = '\x10';
     (this->hscr).base.magic = 0x52435348;
@@ -43,7 +43,7 @@ undefined4 __thiscall ResultScreen::FUN_0042bc85(ResultScreen *this)
     (this->hscr).base.field_0x9 = 1;
     _strcpy((this->hscr).name,"        ");
     out = &this->hscr;
-    FUN_0042bc2d(this,out,*(int *)&this->field17_0x2c,
+    FUN_0042bc2d(this,out,(int)this->field17_0x2c,
                  (uint)g_GameManager.shottype + this->field15_0x24 * 2);
     if (9 < (int)out) goto LAB_0042c273;
     this->unk_10 = 0;

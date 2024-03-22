@@ -7,8 +7,8 @@ void AnmManager::FUN_00434c40(AnmManager *this,AnmVm *vm,D3DCOLOR color1,D3DCOLO
   long textureWidth;
   long yPos;
   long xPos;
+  D3DCOLOR textColor;
   D3DCOLOR DVar1;
-  D3DCOLOR DVar2;
   char *local_60;
   uint fontWidth;
   char buf [68];
@@ -18,7 +18,6 @@ void AnmManager::FUN_00434c40(AnmManager *this,AnmVm *vm,D3DCOLOR color1,D3DCOLO
   uint fontWidth2;
   char cVar1;
   char *pcVar9;
-  undefined *puVar8;
   uint unaff_retaddr;
   
   stackCookie = __security_cookie ^ unaff_retaddr;
@@ -31,17 +30,17 @@ void AnmManager::FUN_00434c40(AnmManager *this,AnmVm *vm,D3DCOLOR color1,D3DCOLO
   args = &stack0x00000018;
   vsprintf(buf,text,args);
   args = (va_list)0x0;
-  puVar8 = &DAT_0046ac10;
+  pcVar9 = " ";
   fontHeight = (uint)vm->fontHeight;
   fontWidth2 = fontWidth;
-  DVar1 = color1;
-  DVar2 = color2;
+  textColor = color1;
+  DVar1 = color2;
   textureHeight = __ftol2(vm->sprite->textureHeight);
   textureWidth = __ftol2(vm->sprite->textureWidth);
   yPos = __ftol2((vm->sprite->startPixelInclusive).y);
   xPos = __ftol2((vm->sprite->startPixelInclusive).x);
   FUN_00434af0(this,vm->sprite->sourceFileIndex,xPos,yPos,textureWidth,textureHeight,fontWidth2,
-               fontHeight,DVar1,DVar2,puVar8);
+               fontHeight,textColor,DVar1,pcVar9);
   local_60 = buf;
   do {
     cVar1 = *local_60;

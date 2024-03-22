@@ -1,9 +1,9 @@
 
-undefined4 __thiscall EclManager::FUN_00407340(EclManager *this,char *path)
+ZunResult __thiscall EclManager::FUN_00407340(EclManager *this,char *path)
 
 {
   byte *pbVar1;
-  undefined4 uVar2;
+  ZunResult ZVar2;
   int local_8;
   
   pbVar1 = FileSystem::OpenPath(path,0);
@@ -12,7 +12,7 @@ undefined4 __thiscall EclManager::FUN_00407340(EclManager *this,char *path)
     GameErrorContextLog(&g_GameErrorContext,
                         "敵データの読み込みに失敗しました、データが壊れてるか失われています\n"
                        );
-    uVar2 = 0xffffffff;
+    ZVar2 = ZUN_ERROR;
   }
   else {
     *(int *)((int)this->ecl_file + 4) = *(int *)((int)this->ecl_file + 4) + (int)this->ecl_file;
@@ -23,8 +23,8 @@ undefined4 __thiscall EclManager::FUN_00407340(EclManager *this,char *path)
            *(int *)((int)this->sub_table + local_8 * 4) + (int)this->ecl_file;
     }
     this->timeline = *(void **)((int)this->ecl_file + 4);
-    uVar2 = 0;
+    ZVar2 = ZUN_SUCCESS;
   }
-  return uVar2;
+  return ZVar2;
 }
 

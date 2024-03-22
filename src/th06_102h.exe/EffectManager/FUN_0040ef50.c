@@ -1,7 +1,7 @@
 
 AnmVm * __thiscall
 EffectManager::FUN_0040ef50
-          (EffectManager *this,int param_1,D3DXVECTOR3 *param_2,int param_3,D3DCOLOR param_4)
+          (EffectManager *this,int new_position,D3DXVECTOR3 *param_2,int param_3,D3DCOLOR param_4)
 
 {
   int iVar1;
@@ -19,17 +19,17 @@ EffectManager::FUN_0040ef50
     }
     if (effect->in_use_flag == 0) {
       effect->in_use_flag = 1;
-      effect->effect_id = (byte)param_1;
+      effect->effect_id = (byte)new_position;
       (effect->pos1).x = param_2->x;
       (effect->pos1).y = param_2->y;
       (effect->pos1).z = param_2->z;
       anm_manager = g_AnmManager;
-      iVar1 = g_Effects[param_1].anmFileIndex;
+      iVar1 = g_Effects[new_position].anmFileIndex;
       local_10 = (short)iVar1;
       (effect->vm).anmFileIndex = local_10;
       AnmManager::SetAndExecuteScript(anm_manager,&effect->vm,anm_manager->scripts[iVar1]);
       (effect->vm).color.color = param_4;
-      effect->effect_update_callback = g_Effects[param_1].update_callback;
+      effect->effect_update_callback = g_Effects[new_position].update_callback;
       (effect->timer).current = 0;
       (effect->timer).subFrame = 0.0;
       (effect->timer).previous = -999;

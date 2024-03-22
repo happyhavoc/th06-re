@@ -127,7 +127,7 @@ undefined4 __thiscall MainMenu::DrawStartMenu(MainMenu *this)
         }
         this->cursor = 0;
         this->field_0x8230 = g_Supervisor.cfg.colorMode16bit;
-        this->field_0x8231 = g_Supervisor.cfg.windowed;
+        this->field208_0x8231 = g_Supervisor.cfg.windowed;
         this->field_0x8232 = g_Supervisor.cfg.frameskipConfig;
         SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,10);
         break;

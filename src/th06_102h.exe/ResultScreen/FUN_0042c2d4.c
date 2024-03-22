@@ -33,7 +33,7 @@ void __thiscall ResultScreen::FUN_0042c2d4(ResultScreen *this)
       else {
         local_c = 0xc;
       }
-      local_8 = &this->field38_0x150;
+      local_8 = &this->field35_0x150;
       for (local_10 = 0; local_10 < 0x26; local_10 = local_10 + 1) {
         local_8->pendingInterrupt = (short)local_c;
         local_8 = local_8 + 1;
@@ -43,18 +43,18 @@ void __thiscall ResultScreen::FUN_0042c2d4(ResultScreen *this)
       }
       this->unk_10 = 0;
     }
-    local_8 = &this->field53_0x1140;
+    local_8 = &this->field50_0x1140;
     if (this->unk_10 == 0) {
-      (this->field53_0x1140).color.color =
-           (this->field53_0x1140).color.color & 0xff000000 | 0xff6060;
-      (this->field54_0x1250).color.color =
-           (this->field54_0x1250).color.color & 0xff000000 | 0x606060;
+      (this->field50_0x1140).color.color =
+           (this->field50_0x1140).color.color & 0xff000000 | 0xff6060;
+      (this->field51_0x1250).color.color =
+           (this->field51_0x1250).color.color & 0xff000000 | 0x606060;
     }
     else {
-      (this->field53_0x1140).color.color =
-           (this->field53_0x1140).color.color & 0xff000000 | 0x606060;
-      (this->field54_0x1250).color.color =
-           (this->field54_0x1250).color.color & 0xff000000 | 0xff6060;
+      (this->field50_0x1140).color.color =
+           (this->field50_0x1140).color.color & 0xff000000 | 0x606060;
+      (this->field51_0x1250).color.color =
+           (this->field51_0x1250).color.color & 0xff000000 | 0xff6060;
     }
     if (this->field1_0x4 < 0x50) goto LAB_0042d095;
     FUN_0042d18f((ResultScreen *)local_8,this,2);
@@ -192,18 +192,18 @@ void __thiscall ResultScreen::FUN_0042c2d4(ResultScreen *this)
       }
       else {
         if (iVar2 != 0xe) goto LAB_0042d095;
-        local_8 = &this->field53_0x1140;
+        local_8 = &this->field50_0x1140;
         if (this->unk_10 == 0) {
-          (this->field53_0x1140).color.color =
-               (this->field53_0x1140).color.color & 0xff000000 | 0xff6060;
-          (this->field54_0x1250).color.color =
-               (this->field54_0x1250).color.color & 0xff000000 | 0x606060;
+          (this->field50_0x1140).color.color =
+               (this->field50_0x1140).color.color & 0xff000000 | 0xff6060;
+          (this->field51_0x1250).color.color =
+               (this->field51_0x1250).color.color & 0xff000000 | 0x606060;
         }
         else {
-          (this->field53_0x1140).color.color =
-               (this->field53_0x1140).color.color & 0xff000000 | 0x606060;
-          (this->field54_0x1250).color.color =
-               (this->field54_0x1250).color.color & 0xff000000 | 0xff6060;
+          (this->field50_0x1140).color.color =
+               (this->field50_0x1140).color.color & 0xff000000 | 0x606060;
+          (this->field51_0x1250).color.color =
+               (this->field51_0x1250).color.color & 0xff000000 | 0xff6060;
         }
         if (this->field1_0x4 < 0x14) goto LAB_0042d095;
         FUN_0042d18f((ResultScreen *)local_8,this,2);
@@ -218,7 +218,7 @@ void __thiscall ResultScreen::FUN_0042c2d4(ResultScreen *this)
               local_8->pendingInterrupt = 0xf;
               local_8 = local_8 + 1;
             }
-            local_8 = &this->field59_0x17a0 + *(int *)&this->field_0x1c;
+            local_8 = &this->field56_0x17a0 + *(int *)&this->field_0x1c;
             *(undefined2 *)((int)&local_8->matrix + 0x4a) = 0xe;
             this->unk_8 = 0xd;
             goto LAB_0042d095;
@@ -272,7 +272,7 @@ LAB_0042c515:
             local_8->pendingInterrupt = 0xb;
             local_8 = local_8 + 1;
           }
-          local_8 = &this->field59_0x17a0 + *(int *)&this->field_0x1c;
+          local_8 = &this->field56_0x17a0 + *(int *)&this->field_0x1c;
           *(undefined2 *)((int)&local_8->matrix + 0x4a) = 0xe;
           this->unk_8 = 0xe;
         }
@@ -282,7 +282,7 @@ LAB_0042c515:
             local_8->pendingInterrupt = 0xf;
             local_8 = local_8 + 1;
           }
-          local_8 = &this->field59_0x17a0 + *(int *)&this->field_0x1c;
+          local_8 = &this->field56_0x17a0 + *(int *)&this->field_0x1c;
           *(undefined2 *)((int)&local_8->matrix + 0x4a) = 0xe;
           this->unk_8 = 0xd;
         }

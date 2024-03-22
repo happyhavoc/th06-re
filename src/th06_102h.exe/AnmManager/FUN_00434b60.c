@@ -1,6 +1,6 @@
 
 void AnmManager::FUN_00434b60
-               (AnmManager *anm_mgr,AnmVm *vm,D3DCOLOR textColor,undefined4 param_4,int param_5,
+               (AnmManager *anm_mgr,AnmVm *vm,D3DCOLOR textColor,undefined4 param_4,char *param_5,
                int param6)
 
 {
@@ -19,7 +19,7 @@ void AnmManager::FUN_00434b60
   local_c = __security_cookie ^ unaff_retaddr;
   fontWidth = (uint)vm->fontWidth;
   local_8 = &param6;
-  vsprintf(local_4c,(char *)param_5,(va_list)local_8);
+  vsprintf(local_4c,param_5,(va_list)local_8);
   local_8 = (int *)0x0;
   pcVar1 = local_4c;
   fontHeight2 = (uint)vm->fontHeight;

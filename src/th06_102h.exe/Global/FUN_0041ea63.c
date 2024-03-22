@@ -9,7 +9,7 @@ char FUN_0041ea63(UINT width,UINT height,D3DFORMAT format)
   D3DFORMAT *in_ECX;
   void *local_90;
   HBITMAP local_8c;
-  int local_88;
+  D3DFORMAT local_88;
   BITMAPINFO local_84;
   undefined4 local_58;
   undefined4 local_54;
@@ -20,7 +20,7 @@ char FUN_0041ea63(UINT width,UINT height,D3DFORMAT format)
   FUN_0041e992(in_ECX);
   _memset(&local_84,0,0x6c);
   local_88 = FUN_0041ec22(format);
-  if (local_88 == 0) {
+  if (local_88 == D3DFMT_UNKNOWN) {
     cVar1 = '\0';
   }
   else {
@@ -35,7 +35,7 @@ char FUN_0041ea63(UINT width,UINT height,D3DFORMAT format)
       local_84.bmiHeader.biCompression = 3;
       local_84.bmiColors[0] = *(RGBQUAD *)(local_88 + 0xc);
       local_58 = *(undefined4 *)(local_88 + 0x10);
-      local_54 = *(undefined4 *)(local_88 + 0x14);
+      local_54 = *(undefined4 *)(local_88 + D3DFMT_R8G8B8);
       local_50 = *(undefined4 *)(local_88 + 8);
     }
     local_8c = CreateDIBSection((HDC)0x0,&local_84,0,&local_90,(HANDLE)0x0,0);

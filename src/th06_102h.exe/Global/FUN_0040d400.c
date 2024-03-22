@@ -1,47 +1,45 @@
 
-/* WARNING: Unknown calling convention -- yet parameter storage is locked */
-
-void FUN_0040d400(Enemy *param_1,AnmRawInstr *param_2)
+void __cdecl FUN_0040d400(Enemy *param_1,AnmRawInstr *param_2)
 
 {
   int iVar1;
   EnemyBulletShooter *pEVar2;
-  float fVar3;
-  int local_68;
-  int local_64;
-  int local_60;
-  EnemyBulletShooter local_5c;
+  float fVar2;
+  Bullet *bullets;
+  int i;
+  int num_bullets_changed;
+  EnemyBulletShooter new_spawned_bullet;
   
-  local_60 = 0;
-  local_68 = 0x5ab5f8;
-  pEVar2 = &local_5c;
+  num_bullets_changed = 0;
+  bullets = g_BulletManager.bullets;
+  pEVar2 = &new_spawned_bullet;
   for (iVar1 = 0x15; iVar1 != 0; iVar1 = iVar1 + -1) {
     pEVar2->sprite = 0;
     pEVar2->color = 0;
     pEVar2 = (EnemyBulletShooter *)&pEVar2->position;
   }
-  for (local_64 = 0; local_64 < 0x280; local_64 = local_64 + 1) {
-    if ((((*(short *)(local_68 + 0x5be) != 0) && (*(short *)(local_68 + 0x5be) != 5)) &&
-        (*(int *)(local_68 + 0xc0) != 0)) && (30.0 <= *(float *)(*(int *)(local_68 + 0xc0) + 0x2c)))
-    {
-      local_5c.position.x = *(float *)(local_68 + 0x560);
-      local_5c.position.y = *(float *)(local_68 + 0x564);
-      local_5c.position.z = *(float *)(local_68 + 0x568);
-      local_5c.sprite = 3;
-      local_5c.color = 1;
-      fVar3 = Rng::GetRandomF32ZeroToOne(&g_Rng);
-      local_5c.angle1 = fVar3 * 6.283185 - 3.141593;
-      local_5c.speed1 = 0.0;
-      local_5c.count1 = 1;
-      local_5c.count2 = 1;
-      local_5c.flags = 8;
-      local_5c.aim_mode = 1;
-      BulletManager::SpawnBullet(&g_BulletManager,&local_5c);
-      local_60 = local_60 + 1;
+  for (i = 0; i < 640; i = i + 1) {
+    if ((((bullets->state != 0) && (bullets->state != 5)) &&
+        ((bullets->vms).vm0.sprite != (AnmLoadedSprite *)0x0)) &&
+       (30.0 <= ((bullets->vms).vm0.sprite)->heightPx)) {
+      new_spawned_bullet.position.x = (bullets->pos).x;
+      new_spawned_bullet.position.y = (bullets->pos).y;
+      new_spawned_bullet.position.z = (bullets->pos).z;
+      new_spawned_bullet.sprite = 3;
+      new_spawned_bullet.color = 1;
+      fVar2 = Rng::GetRandomF32ZeroToOne(&g_Rng);
+      new_spawned_bullet.angle1 = fVar2 * 6.283185 - 3.141593;
+      new_spawned_bullet.speed1 = 0.0;
+      new_spawned_bullet.count1 = 1;
+      new_spawned_bullet.count2 = 1;
+      new_spawned_bullet.flags = 8;
+      new_spawned_bullet.aim_mode = 1;
+      BulletManager::SpawnBullet(&g_BulletManager,&new_spawned_bullet);
+      num_bullets_changed = num_bullets_changed + 1;
     }
-    local_68 = local_68 + 0x5c4;
+    bullets = bullets + 1;
   }
-  (param_1->current_context).var3 = local_60;
+  (param_1->current_context).var3 = num_bullets_changed;
   return;
 }
 

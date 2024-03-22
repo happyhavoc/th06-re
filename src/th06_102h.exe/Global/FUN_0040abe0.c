@@ -8,12 +8,12 @@ void __cdecl FUN_0040abe0(Enemy *enemy,EclRawInstr *instr)
   double dVar4;
   
   piVar2 = &instr->ecl_var_id;
-  pfVar3 = Enemy::get_var_float(enemy,&instr->field8_0x10,(undefined4 *)0x0);
+  pfVar3 = Enemy::get_var_float(enemy,&instr->float_var_1,(EclValueType *)0x0);
   fVar1 = *pfVar3;
   dVar4 = cos((double)fVar1);
-  (enemy->move_interp).x = ((float)dVar4 * (float)instr->field9_0x14 * (float)*piVar2) / 2.0;
+  (enemy->move_interp).x = ((float)dVar4 * instr->float_var_2 * (float)*piVar2) / 2.0;
   dVar4 = sin((double)fVar1);
-  (enemy->move_interp).y = ((float)dVar4 * (float)instr->field9_0x14 * (float)*piVar2) / 2.0;
+  (enemy->move_interp).y = ((float)dVar4 * instr->float_var_2 * (float)*piVar2) / 2.0;
   (enemy->move_interp).z = 0.0;
   (enemy->move_interp_start_pos).x = (enemy->position).x;
   (enemy->move_interp_start_pos).y = (enemy->position).y;

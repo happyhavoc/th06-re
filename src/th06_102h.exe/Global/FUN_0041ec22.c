@@ -1,20 +1,22 @@
 
-undefined * FUN_0041ec22(int param_1)
+/* WARNING: Unknown calling convention -- yet parameter storage is locked */
+
+D3DFORMAT * FUN_0041ec22(D3DFORMAT format)
 
 {
-  undefined *puVar1;
+  D3DFORMAT *pDVar1;
   int local_8;
   
   for (local_8 = 0;
-      (*(int *)(&DAT_004765b8 + local_8 * 0x18) != -1 &&
-      (*(int *)(&DAT_004765b8 + local_8 * 0x18) != param_1)); local_8 = local_8 + 1) {
+      (D3DFORMAT_ARRAY_004765b8[local_8 * 6] != ~D3DFMT_UNKNOWN &&
+      (D3DFORMAT_ARRAY_004765b8[local_8 * 6] != format)); local_8 = local_8 + 1) {
   }
-  if (param_1 == -1) {
-    puVar1 = (undefined *)0x0;
+  if (format == ~D3DFMT_UNKNOWN) {
+    pDVar1 = (D3DFORMAT *)0x0;
   }
   else {
-    puVar1 = &DAT_004765b8 + local_8 * 0x18;
+    pDVar1 = D3DFORMAT_ARRAY_004765b8 + local_8 * 6;
   }
-  return puVar1;
+  return pDVar1;
 }
 

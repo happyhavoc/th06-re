@@ -126,7 +126,8 @@ LAB_004259f3:
               AnmManager::SetActiveSprite(pAVar3,pAVar1,local_8 + 0x101);
               AnmManager::FUN_00434b60
                         (g_AnmManager,(AnmVm *)((int)param_1 + local_8 * 0x110 + 0x134),0xc0e0ff,
-                         0x302080,*(int *)(param_1 + 1) + 0x40 + local_8 * 0x272,unaff_EDI);
+                         0x302080,(char *)(*(int *)(param_1 + 1) + 0x40 + local_8 * 0x272),unaff_EDI
+                        );
               *(undefined4 *)((int)param_1 + local_8 * 0x110 + 0x1c4) = 0x42ba0000;
               *(float *)((int)param_1 + local_8 * 0x110 + 0x1c8) =
                    ((float)((local_8 + 1) * 0x12) + 104.0) - 20.0;
@@ -174,7 +175,7 @@ LAB_00425c09:
                      *(uint *)((int)param_1 + local_8 * 0x110 + 0x23b4) | 2;
                 AnmManager::FUN_00434b60
                           (g_AnmManager,(AnmVm *)((int)param_1 + local_8 * 0x110 + 0x2334),0xffe0c0,
-                           0x300000,(int)local_5c,unaff_EDI);
+                           0x300000,(char *)local_5c,unaff_EDI);
               }
               *(float *)((int)param_1 + local_8 * 0x110 + 0x23c4) =
                    (float)(local_8 % 2) * 248.0 + 96.0;

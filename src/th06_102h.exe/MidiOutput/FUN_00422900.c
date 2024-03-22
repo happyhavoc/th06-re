@@ -25,7 +25,7 @@ void __thiscall MidiOutput::FUN_00422900(MidiOutput *this,MidiTrack *param_1)
                     /* WARNING: Load size is inaccurate */
   opcode = *param_1->curTrackDataCursor;
   if (opcode < 0x80) {
-    opcode = *(byte *)&param_1->unkc;
+    opcode = param_1->opcode;
   }
   else {
     param_1->curTrackDataCursor = (void *)((int)param_1->curTrackDataCursor + 1);
@@ -58,7 +58,7 @@ void __thiscall MidiOutput::FUN_00422900(MidiOutput *this,MidiTrack *param_1)
       pMVar3 = (MIDIHDR *)_malloc(0x40);
       this->midiHeaders[this->midiHeadersCursor] = pMVar3;
       _Memory = this->midiHeaders[this->midiHeadersCursor];
-      iVar7 = FUN_00421d90((byte **)&param_1->curTrackDataCursor);
+      iVar7 = FUN_00421d90(&param_1->curTrackDataCursor);
       pmVar9 = _Memory;
       for (iVar8 = 0x10; iVar8 != 0; iVar8 = iVar8 + -1) {
         pmVar9->lpData = (LPSTR)0x0;
@@ -96,7 +96,7 @@ void __thiscall MidiOutput::FUN_00422900(MidiOutput *this,MidiTrack *param_1)
                     /* WARNING: Load size is inaccurate */
       cVar1 = *param_1->curTrackDataCursor;
       param_1->curTrackDataCursor = (void *)((int)param_1->curTrackDataCursor + 1);
-      iVar7 = FUN_00421d90((byte **)&param_1->curTrackDataCursor);
+      iVar7 = FUN_00421d90(&param_1->curTrackDataCursor);
       if (cVar1 == '/') {
         param_1->track_playing = 0;
         return;
@@ -218,8 +218,8 @@ void __thiscall MidiOutput::FUN_00422900(MidiOutput *this,MidiTrack *param_1)
   if (opcode < 0xf0) {
     MidiDevice::SendShortMsg(&this->midiOutDev,opcode,arg1,(undefined)arg2);
   }
-  *(byte *)&param_1->unkc = opcode;
-  iVar7 = FUN_00421d90((byte **)&param_1->curTrackDataCursor);
+  param_1->opcode = opcode;
+  iVar7 = FUN_00421d90(&param_1->curTrackDataCursor);
   param_1->unk4 = param_1->unk4 + iVar7;
   return;
 }

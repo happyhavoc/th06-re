@@ -131,8 +131,8 @@ ZunResult GameManager::AddedCallback(GameManager *gameManager)
   }
   g_Rng.generationCount = 0;
   gameManager->field41_0x1a2c = g_Rng.seed;
-  iVar3 = Stage::RegisterChain(gameManager->current_stage);
-  if (iVar3 == 0) {
+  ZVar4 = Stage::RegisterChain(gameManager->current_stage);
+  if (ZVar4 == ZUN_SUCCESS) {
     ZVar4 = Player::RegisterChain(0);
     if (ZVar4 == ZUN_SUCCESS) {
       iVar3 = BulletManager::RegisterChain("data/etama.anm");
@@ -141,9 +141,9 @@ ZunResult GameManager::AddedCallback(GameManager *gameManager)
                           ((&PTR_s_dummy_004764e8)[gameManager->current_stage * 2],
                            (&PTR_s_dummy_004764ec)[gameManager->current_stage * 2]);
         if (ZVar4 == ZUN_SUCCESS) {
-          iVar3 = EclManager::FUN_00407340
+          ZVar4 = EclManager::FUN_00407340
                             (&g_EclManager,(&PTR_s_dummy_004764c4)[gameManager->current_stage]);
-          if (iVar3 == 0) {
+          if (ZVar4 == ZUN_SUCCESS) {
             iVar3 = EffectManager::RegisterChain();
             if (iVar3 == 0) {
               ZVar4 = Gui::RegisterChain();

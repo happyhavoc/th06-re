@@ -1,5 +1,5 @@
 
-void FUN_0040d040(Enemy *param_1,AnmRawInstr *param_2)
+void FUN_0040d040(Enemy *this,AnmRawInstr *param_2)
 
 {
   int iVar1;
@@ -42,9 +42,9 @@ void FUN_0040d040(Enemy *param_1,AnmRawInstr *param_2)
     }
     local_64 = 32.0;
     for (local_60 = 0; iVar1 = local_60, local_60 < 8; local_60 = local_60 + 1) {
-      local_dc[local_60 * 3] = (param_1->position).x;
-      local_dc[iVar1 * 3 + 1] = (param_1->position).y;
-      local_dc[iVar1 * 3 + 2] = (param_1->position).z;
+      local_dc[local_60 * 3] = (this->position).x;
+      local_dc[iVar1 * 3 + 1] = (this->position).y;
+      local_dc[iVar1 * 3 + 2] = (this->position).z;
       iVar1 = local_60;
       dVar2 = cos((double)local_78);
       local_dc[local_60 * 3] = (float)dVar2 * local_64 + local_dc[iVar1 * 3];
@@ -101,10 +101,10 @@ void FUN_0040d040(Enemy *param_1,AnmRawInstr *param_2)
           AnmVm::FUN_00414670(&local_5c);
         }
         else {
-          (param_1->bullet_props).position.x = local_dc[local_60 * 3];
-          (param_1->bullet_props).position.y = local_5c.position.y;
-          (param_1->bullet_props).position.z = local_5c.position.z;
-          BulletManager::SpawnBullet(&g_BulletManager,&param_1->bullet_props);
+          (this->bullet_props).position.x = local_dc[local_60 * 3];
+          (this->bullet_props).position.y = local_5c.position.y;
+          (this->bullet_props).position.z = local_5c.position.z;
+          BulletManager::SpawnBullet(&g_BulletManager,&this->bullet_props);
         }
         iVar1 = local_60;
         dVar2 = cos((double)local_78);

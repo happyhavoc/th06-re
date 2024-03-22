@@ -1,5 +1,5 @@
 
-void __thiscall Gui::FUN_00417acd(Gui *this,uint param_1,char *param_2)
+void __thiscall Gui::string_related(Gui *this,uint param_1,char *param_2)
 
 {
   char cVar1;
@@ -17,7 +17,7 @@ void __thiscall Gui::FUN_00417acd(Gui *this,uint param_1,char *param_2)
   pGVar2 = this->impl;
   (pGVar2->vm5).anmFileIndex = 0x706;
   AnmManager::SetAndExecuteScript(pAVar3,&pGVar2->vm5,pAVar3->scripts[0x706]);
-  AnmManager::FUN_00434b60(g_AnmManager,&this->impl->vm5,0xf0f0ff,0,(int)param_2,in_stack_ffffffcc);
+  AnmManager::FUN_00434b60(g_AnmManager,&this->impl->vm5,0xf0f0ff,0,param_2,in_stack_ffffffcc);
   local_1c = param_2;
   do {
     cVar1 = *local_1c;

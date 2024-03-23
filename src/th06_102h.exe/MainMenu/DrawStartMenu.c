@@ -1,5 +1,5 @@
 
-undefined4 __thiscall MainMenu::DrawStartMenu(MainMenu *this)
+ZunResult __thiscall MainMenu::DrawStartMenu(MainMenu *this)
 
 {
   int cursorMove;
@@ -154,6 +154,6 @@ undefined4 __thiscall MainMenu::DrawStartMenu(MainMenu *this)
       SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xb);
     }
   }
-  return 0;
+  return ZUN_SUCCESS;
 }
 

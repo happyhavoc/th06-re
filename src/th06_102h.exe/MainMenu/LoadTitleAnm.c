@@ -1,5 +1,5 @@
 
-ZunResult loadTitleAnm(MainMenu *menu)
+ZunResult MainMenu::LoadTitleAnm(MainMenu *menu)
 
 {
   ZunResult loadAnm;

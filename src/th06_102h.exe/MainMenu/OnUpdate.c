@@ -52,7 +52,7 @@ undefined4 MainMenu::OnUpdate(MainMenu *menu)
   gameState = menu->gameState;
   switch(gameState) {
   case STATE_STARTUP:
-    startedUp = beginStartup(menu);
+    startedUp = BeginStartup(menu);
     if (startedUp == ZUN_ERROR) {
       return 0;
     }

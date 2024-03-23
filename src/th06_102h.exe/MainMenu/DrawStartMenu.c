@@ -4,7 +4,7 @@ ZunResult __thiscall MainMenu::DrawStartMenu(MainMenu *this)
 {
   int cursorMove;
   int iVar1;
-  MainMenu *main_menu;
+  AnmVm *drawVm;
   int i;
   
   cursorMove = MoveCursor(this,8);
@@ -15,10 +15,11 @@ ZunResult __thiscall MainMenu::DrawStartMenu(MainMenu *this)
       (iVar1 = GameManager::hasReachedMaxClears(&g_GameManager,1,1), iVar1 == 0)))) {
     this->cursor = this->cursor + cursorMove;
   }
-  main_menu = this;
-  for (i = 0; i < 8; i = i + 1) {
-    DrawMenuItem(main_menu,i,this->cursor,0xffff0000,0x80300000,122);
-    main_menu = (MainMenu *)&main_menu->field1_0x110;
+  i = 0;
+  drawVm = &this->vm1;
+  for (; i < 8; i = i + 1) {
+    DrawMenuItem(drawVm,i,this->cursor,0xffff0000,0x80300000,122);
+    drawVm = drawVm + 1;
   }
   if (0x13 < this->stateTimer) {
     if (((g_CurFrameInput & KEY_ENTER) != 0) &&

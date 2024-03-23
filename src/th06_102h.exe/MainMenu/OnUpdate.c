@@ -19,7 +19,7 @@ undefined4 MainMenu::OnUpdate(MainMenu *menu)
   float local_48;
   float refresh_rate;
   short local_28;
-  MainMenu *vm_memset;
+  AnmVm *vm_memset;
   int i;
   float fVar1;
   
@@ -105,38 +105,38 @@ switchD_004358f7_caseD_2:
     break;
   case STATE_KEYCONFIG:
     MoveCursor(menu,11);
-    vm_memset = (MainMenu *)&menu->keyconfig_anmvm;
+    vm_memset = &menu->keyconfig_anmvm;
     for (i = 0; i < 0xb; i = i + 1) {
       DrawMenuItem(vm_memset,i,menu->cursor,menu->color2,menu->color1,0x73);
-      vm_memset = (MainMenu *)&vm_memset->field1_0x110;
+      vm_memset = vm_memset + 1;
     }
     for (i = 0; i < 9; i = i + 1) {
       if (*(short *)((int)(menu->replayFilePaths + -1) + i * 2 + 0x1e0) < 0) {
-        *(uint *)&(vm_memset->vm1).flags = *(uint *)&(vm_memset->vm1).flags & 0xfffffffd;
+        *(uint *)&vm_memset->flags = *(uint *)&vm_memset->flags & 0xfffffffd;
       }
       else {
-        *(uint *)&(vm_memset->vm1).flags = *(uint *)&(vm_memset->vm1).flags | 2;
+        *(uint *)&vm_memset->flags = *(uint *)&vm_memset->flags | 2;
         DrawMenuItem(vm_memset,i,menu->cursor,menu->color2,menu->color1,0x73);
       }
-      vm_memset = (MainMenu *)&vm_memset->field1_0x110;
+      vm_memset = vm_memset + 1;
     }
     for (i = 0; i < 18; i = i + 1) {
       if (*(short *)((int)(menu->replayFilePaths + -1) + (i / 2) * 2 + 0x1e0) < 0) {
-        *(uint *)&(vm_memset->vm1).flags = *(uint *)&(vm_memset->vm1).flags & 0xfffffffd;
+        *(uint *)&vm_memset->flags = *(uint *)&vm_memset->flags & 0xfffffffd;
       }
       else {
-        *(uint *)&(vm_memset->vm1).flags = *(uint *)&(vm_memset->vm1).flags | 2;
+        *(uint *)&vm_memset->flags = *(uint *)&vm_memset->flags | 2;
         sVar1 = *(short *)((int)(menu->replayFilePaths + -1) + (i / 2) * 2 + 0x1e0);
         if (i % 2 == 0) {
-          AnmManager::SetActiveSprite(g_AnmManager,&vm_memset->vm1,(int)sVar1 / 10 + 0x100);
+          AnmManager::SetActiveSprite(g_AnmManager,vm_memset,(int)sVar1 / 10 + 0x100);
         }
         else {
-          AnmManager::SetActiveSprite(g_AnmManager,&vm_memset->vm1,(int)sVar1 % 10 + 0x100);
+          AnmManager::SetActiveSprite(g_AnmManager,vm_memset,(int)sVar1 % 10 + 0x100);
         }
-        (vm_memset->vm1).anotherSpriteNumber = (vm_memset->vm1).spriteNumber;
+        vm_memset->anotherSpriteNumber = vm_memset->spriteNumber;
         DrawMenuItem(vm_memset,i / 2,menu->cursor,menu->color2,menu->color1,0x7a);
       }
-      vm_memset = (MainMenu *)&vm_memset->field1_0x110;
+      vm_memset = vm_memset + 1;
     }
     if (31 < menu->stateTimer) {
       maxClearCheck = joystickcheck_only_called_in_keyconfig();
@@ -232,7 +232,7 @@ switchD_004358f7_caseD_2:
     if (menu->stateTimer != 0x3c) break;
     ZVar1 = loadMenu(menu);
     if (ZVar1 != ZUN_SUCCESS) {
-      GameErrorContextLog(&g_GameErrorContext,"セレクト画面の読み込��に失敗\n");
+      GameErrorContextLog(&g_GameErrorContext,"セレクト画面の読み込みに失敗\n");
       g_Supervisor.curState = 4;
       return 0;
     }
@@ -259,53 +259,53 @@ switchD_004358f7_caseD_2:
     }
     break;
   case STATE_DIFFICULTY_SELECT:
-    vm_memset = (MainMenu *)&menu->field81_0x5610;
+    vm_memset = &menu->field81_0x5610;
     if ((int)g_GameManager.difficulty < 4) {
       MoveCursor(menu,4);
       for (i = 0; i < 4; i = i + 1) {
         if (i == menu->cursor) {
           if ((g_Supervisor.cfg.opts & 1) == 0) {
-            ((D3DCOLORUNION *)&vm_memset->vm1)->color = 0xff000000;
+            (vm_memset->color).color = 0xff000000;
           }
           else {
-            ((D3DCOLORUNION *)&vm_memset->vm1)->color = 0xffffffff;
+            (vm_memset->color).color = 0xffffffff;
           }
-          ((D3DXVECTOR3 *)&vm_memset->vm1)->x = -6.0;
-          ((D3DXVECTOR3 *)&vm_memset->vm1)->y = -6.0;
-          ((D3DXVECTOR3 *)&vm_memset->vm1)->z = 0.0;
+          (vm_memset->pos2).x = -6.0;
+          (vm_memset->pos2).y = -6.0;
+          (vm_memset->pos2).z = 0.0;
         }
         else {
           if ((g_Supervisor.cfg.opts & 1) == 0) {
-            ((D3DCOLORUNION *)&vm_memset->vm1)->color = 0x60000000;
+            (vm_memset->color).color = 0x60000000;
           }
           else {
-            ((D3DCOLORUNION *)&vm_memset->vm1)->color = 0x60ffffff;
+            (vm_memset->color).color = 0x60ffffff;
           }
-          ((D3DXVECTOR3 *)&vm_memset->vm1)->x = 0.0;
-          ((D3DXVECTOR3 *)&vm_memset->vm1)->y = 0.0;
-          ((D3DXVECTOR3 *)&vm_memset->vm1)->z = 0.0;
-          *(ushort *)&vm_memset->vm1 = 0;
+          (vm_memset->pos2).x = 0.0;
+          (vm_memset->pos2).y = 0.0;
+          (vm_memset->pos2).z = 0.0;
+          vm_memset->alphaInterpEndTime = 0;
         }
-        vm_memset = (MainMenu *)((int)vm_memset + 0x110);
+        vm_memset = vm_memset + 1;
       }
-      *(uint *)&vm_memset->vm1 = *(uint *)&vm_memset->vm1 & 0xfffffffd;
+      *(uint *)&vm_memset->flags = *(uint *)&vm_memset->flags & 0xfffffffd;
     }
     else {
       for (i = 0; i < 4; i = i + 1) {
-        *(uint *)&vm_memset->vm1 = *(uint *)&vm_memset->vm1 & 0xfffffffd;
-        vm_memset = (MainMenu *)((int)vm_memset + 0x110);
+        *(uint *)&vm_memset->flags = *(uint *)&vm_memset->flags & 0xfffffffd;
+        vm_memset = vm_memset + 1;
       }
       for (i = 4; i < 5; i = i + 1) {
         if ((g_Supervisor.cfg.opts & 1) == 0) {
-          ((D3DCOLORUNION *)&vm_memset->vm1)->color = 0xff000000;
+          (vm_memset->color).color = 0xff000000;
         }
         else {
-          ((D3DCOLORUNION *)&vm_memset->vm1)->color = 0xffffffff;
+          (vm_memset->color).color = 0xffffffff;
         }
-        ((D3DXVECTOR3 *)&vm_memset->vm1)->x = -6.0;
-        ((D3DXVECTOR3 *)&vm_memset->vm1)->y = -6.0;
-        ((D3DXVECTOR3 *)&vm_memset->vm1)->z = 0.0;
-        vm_memset = (MainMenu *)((int)vm_memset + 0x110);
+        (vm_memset->pos2).x = -6.0;
+        (vm_memset->pos2).y = -6.0;
+        (vm_memset->pos2).z = 0.0;
+        vm_memset = vm_memset + 1;
       }
     }
     if (((g_CurFrameInput & 10) == 0) || ((g_CurFrameInput & 10) == (g_LastFrameInput & 10))) {
@@ -338,13 +338,13 @@ switchD_004358f7_caseD_2:
           }
         }
         g_Supervisor.cfg.defaultDifficulty = (DefaultDifficulty)g_GameManager.difficulty;
-        vm_memset = (MainMenu *)&menu->field86_0x5b60;
+        vm_memset = &menu->field86_0x5b60;
         for (i = 0; i < 2; i = i + 1) {
           if (i != menu->cursor) {
-            *(short *)&vm_memset->vm1 = 0;
-            ((AnmVm *)((int)vm_memset + 0x110))->pendingInterrupt = 0;
+            vm_memset->pendingInterrupt = 0;
+            vm_memset[1].pendingInterrupt = 0;
           }
-          vm_memset = (MainMenu *)((int)vm_memset + 0x220);
+          vm_memset = vm_memset + 2;
         }
       }
     }
@@ -393,17 +393,17 @@ LAB_0043666d:
         }
         else {
           SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xc);
-          vm_memset = (MainMenu *)&menu->field86_0x5b60;
+          vm_memset = &menu->field86_0x5b60;
           for (i = 0; i < 2; i = i + 1) {
             if (i == menu->cursor) {
-              *(short *)&vm_memset->vm1 = 10;
-              ((AnmVm *)((int)vm_memset + 0x110))->pendingInterrupt = 10;
+              vm_memset->pendingInterrupt = 10;
+              vm_memset[1].pendingInterrupt = 10;
             }
             else {
-              *(short *)&vm_memset->vm1 = 0xb;
-              ((AnmVm *)((int)vm_memset + 0x110))->pendingInterrupt = 0xb;
+              vm_memset->pendingInterrupt = 0xb;
+              vm_memset[1].pendingInterrupt = 0xb;
             }
-            vm_memset = (MainMenu *)((int)vm_memset + 0x220);
+            vm_memset = vm_memset + 2;
           }
         }
       }
@@ -419,17 +419,17 @@ LAB_0043666d:
          (maxClearCheck = GameManager::hasReachedMaxClears(&g_GameManager,menu->cursor,1),
          maxClearCheck != 0)) {
         SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xc);
-        vm_memset = (MainMenu *)&menu->field86_0x5b60;
+        vm_memset = &menu->field86_0x5b60;
         for (i = 0; i < 2; i = i + 1) {
           if (i == menu->cursor) {
-            *(short *)&vm_memset->vm1 = 9;
-            ((AnmVm *)((int)vm_memset + 0x110))->pendingInterrupt = 9;
+            vm_memset->pendingInterrupt = 9;
+            vm_memset[1].pendingInterrupt = 9;
           }
           else {
-            *(short *)&vm_memset->vm1 = 0xc;
-            ((AnmVm *)((int)vm_memset + 0x110))->pendingInterrupt = 0xc;
+            vm_memset->pendingInterrupt = 0xc;
+            vm_memset[1].pendingInterrupt = 0xc;
           }
-          vm_memset = (MainMenu *)((int)vm_memset + 0x220);
+          vm_memset = vm_memset + 2;
         }
         goto LAB_0043666d;
       }
@@ -447,21 +447,21 @@ LAB_0043666d:
           (&menu->vm1)[i].pendingInterrupt = 0xd;
         }
         (&menu->field81_0x5610)[g_GameManager.difficulty].pendingInterrupt = 0;
-        vm_memset = (MainMenu *)&menu->field86_0x5b60;
+        vm_memset = &menu->field86_0x5b60;
         for (i = 0; i < 2; i = i + 1) {
           if (i != menu->cursor) {
-            *(short *)&vm_memset->vm1 = 0;
-            ((AnmVm *)((int)vm_memset + 0x110))->pendingInterrupt = 0;
+            vm_memset->pendingInterrupt = 0;
+            vm_memset[1].pendingInterrupt = 0;
           }
-          vm_memset = (MainMenu *)((int)vm_memset + 0x220);
+          vm_memset = vm_memset + 2;
         }
-        vm_memset = (MainMenu *)&menu->field92_0x61c0;
+        vm_memset = &menu->field92_0x61c0;
         for (i = 0; i < 2; i = i + 1) {
           if (i != menu->cursor) {
-            *(short *)&vm_memset->vm1 = 0;
-            ((AnmVm *)((int)vm_memset + 0x110))->pendingInterrupt = 0;
+            vm_memset->pendingInterrupt = 0;
+            vm_memset[1].pendingInterrupt = 0;
           }
-          vm_memset = (MainMenu *)((int)vm_memset + 0x220);
+          vm_memset = vm_memset + 2;
         }
         g_GameManager.character = *(byte *)&menu->cursor;
         if ((int)g_GameManager.difficulty < 4) {
@@ -515,39 +515,38 @@ LAB_0043666d:
        maxClearCheck == 0)) {
       menu->cursor = 1 - menu->cursor;
     }
-    vm_memset = (MainMenu *)&menu->field92_0x61c0;
+    vm_memset = &menu->field92_0x61c0;
     for (i = 0; i < 2; i = i + 1) {
-      *(uint *)&((AnmVm *)((int)vm_memset + 0x110))->flags =
-           *(uint *)&((AnmVm *)((int)vm_memset + 0x110))->flags | 8;
-      vm_memset = (MainMenu *)((int)vm_memset + 0x220);
+      *(uint *)&vm_memset[1].flags = *(uint *)&vm_memset[1].flags | 8;
+      vm_memset = vm_memset + 2;
     }
-    vm_memset = (MainMenu *)(&menu->field92_0x61c0 + (uint)g_GameManager.character * 2);
+    vm_memset = &menu->field92_0x61c0 + (uint)g_GameManager.character * 2;
     for (i = 0; i < 2; i = i + 1) {
-      *(uint *)&vm_memset->vm1 = *(uint *)&vm_memset->vm1 | 8;
-      *(uint *)&vm_memset->vm1 = *(uint *)&vm_memset->vm1 | 1;
+      *(uint *)&vm_memset->flags = *(uint *)&vm_memset->flags | 8;
+      *(uint *)&vm_memset->flags = *(uint *)&vm_memset->flags | 1;
       if (i == menu->cursor) {
         if ((g_Supervisor.cfg.opts & 1) == 0) {
-          ((D3DCOLORUNION *)&vm_memset->vm1)->color = 0xff202020;
+          (vm_memset->color).color = 0xff202020;
         }
         else {
-          ((D3DCOLORUNION *)&vm_memset->vm1)->color = 0xffffffff;
+          (vm_memset->color).color = 0xffffffff;
         }
-        ((D3DXVECTOR3 *)&vm_memset->vm1)->x = -6.0;
-        ((D3DXVECTOR3 *)&vm_memset->vm1)->y = -6.0;
-        ((D3DXVECTOR3 *)&vm_memset->vm1)->z = 0.0;
+        (vm_memset->pos2).x = -6.0;
+        (vm_memset->pos2).y = -6.0;
+        (vm_memset->pos2).z = 0.0;
       }
       else {
         if ((g_Supervisor.cfg.opts & 1) == 0) {
-          ((D3DCOLORUNION *)&vm_memset->vm1)->color = 0xa0000000;
+          (vm_memset->color).color = 0xa0000000;
         }
         else {
-          ((D3DCOLORUNION *)&vm_memset->vm1)->color = 0xa0d0d0d0;
+          (vm_memset->color).color = 0xa0d0d0d0;
         }
-        ((D3DXVECTOR3 *)&vm_memset->vm1)->x = 0.0;
-        ((D3DXVECTOR3 *)&vm_memset->vm1)->y = 0.0;
-        ((D3DXVECTOR3 *)&vm_memset->vm1)->z = 0.0;
+        (vm_memset->pos2).x = 0.0;
+        (vm_memset->pos2).y = 0.0;
+        (vm_memset->pos2).z = 0.0;
       }
-      vm_memset = (MainMenu *)((int)vm_memset + 0x110);
+      vm_memset = vm_memset + 1;
     }
     if (0x1d < menu->stateTimer) {
       if (((g_CurFrameInput & 10) == 0) || ((g_CurFrameInput & 10) == (g_LastFrameInput & 10))) {
@@ -569,21 +568,21 @@ LAB_0043666d:
             (&menu->vm1)[i].pendingInterrupt = 0x13;
           }
           (&menu->field81_0x5610)[g_GameManager.difficulty].pendingInterrupt = 0;
-          vm_memset = (MainMenu *)&menu->field86_0x5b60;
+          vm_memset = &menu->field86_0x5b60;
           for (i = 0; i < 2; i = i + 1) {
             if (i != (uint)g_GameManager.character) {
-              *(short *)&vm_memset->vm1 = 0;
-              ((AnmVm *)((int)vm_memset + 0x110))->pendingInterrupt = 0;
+              vm_memset->pendingInterrupt = 0;
+              vm_memset[1].pendingInterrupt = 0;
             }
-            vm_memset = (MainMenu *)((int)vm_memset + 0x220);
+            vm_memset = vm_memset + 2;
           }
-          vm_memset = (MainMenu *)&menu->field92_0x61c0;
+          vm_memset = &menu->field92_0x61c0;
           for (i = 0; i < 2; i = i + 1) {
             if (i != (uint)g_GameManager.character) {
-              *(short *)&vm_memset->vm1 = 0;
-              ((AnmVm *)((int)vm_memset + 0x110))->pendingInterrupt = 0;
+              vm_memset->pendingInterrupt = 0;
+              vm_memset[1].pendingInterrupt = 0;
             }
-            vm_memset = (MainMenu *)((int)vm_memset + 0x220);
+            vm_memset = vm_memset + 2;
           }
           menu->cursor = g_GameManager.field46_0x1a38;
           if (*(byte *)(((uint)g_GameManager.shottype + (uint)g_GameManager.character * 2) * 0x18 +
@@ -610,25 +609,25 @@ LAB_0043666d:
         for (i = 0; i < 0x7a; i = i + 1) {
           (&menu->vm1)[i].pendingInterrupt = 7;
         }
-        vm_memset = (MainMenu *)&menu->field92_0x61c0;
+        vm_memset = &menu->field92_0x61c0;
         for (i = 0; i < 2; i = i + 1) {
           if (i != (uint)g_GameManager.character) {
-            *(short *)&vm_memset->vm1 = 0;
-            ((AnmVm *)((int)vm_memset + 0x110))->pendingInterrupt = 0;
+            vm_memset->pendingInterrupt = 0;
+            vm_memset[1].pendingInterrupt = 0;
           }
-          vm_memset = (MainMenu *)((int)vm_memset + 0x220);
+          vm_memset = vm_memset + 2;
         }
         (&menu->field81_0x5610)[g_GameManager.difficulty].pendingInterrupt = 0;
         SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xb);
         g_GameManager.shottype = *(byte *)&menu->cursor;
         menu->cursor = (uint)g_GameManager.character;
-        vm_memset = (MainMenu *)&menu->field86_0x5b60;
+        vm_memset = &menu->field86_0x5b60;
         for (i = 0; i < 2; i = i + 1) {
           if (i != menu->cursor) {
-            *(short *)&vm_memset->vm1 = 0;
-            ((AnmVm *)((int)vm_memset + 0x110))->pendingInterrupt = 0;
+            vm_memset->pendingInterrupt = 0;
+            vm_memset[1].pendingInterrupt = 0;
           }
-          vm_memset = (MainMenu *)((int)vm_memset + 0x220);
+          vm_memset = vm_memset + 2;
         }
       }
     }
@@ -748,21 +747,21 @@ LAB_00436de7:
           (&menu->vm1)[i].pendingInterrupt = 13;
         }
         (&menu->field81_0x5610)[g_GameManager.difficulty].pendingInterrupt = 0;
-        vm_memset = (MainMenu *)&menu->field86_0x5b60;
+        vm_memset = &menu->field86_0x5b60;
         for (i = 0; i < 2; i = i + 1) {
           if (i != (uint)g_GameManager.character) {
-            *(short *)&vm_memset->vm1 = 0;
-            ((AnmVm *)((int)vm_memset + 0x110))->pendingInterrupt = 0;
+            vm_memset->pendingInterrupt = 0;
+            vm_memset[1].pendingInterrupt = 0;
           }
-          vm_memset = (MainMenu *)((int)vm_memset + 0x220);
+          vm_memset = vm_memset + 2;
         }
-        vm_memset = (MainMenu *)&menu->field92_0x61c0;
+        vm_memset = &menu->field92_0x61c0;
         for (i = 0; i < 2; i = i + 1) {
           if (i != (uint)g_GameManager.character) {
-            *(short *)&vm_memset->vm1 = 0;
-            ((AnmVm *)((int)vm_memset + 0x110))->pendingInterrupt = 0;
+            vm_memset->pendingInterrupt = 0;
+            vm_memset[1].pendingInterrupt = 0;
           }
-          vm_memset = (MainMenu *)((int)vm_memset + 0x220);
+          vm_memset = vm_memset + 2;
         }
         menu->cursor = (uint)g_GameManager.shottype;
         SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,10);

@@ -26,7 +26,7 @@ void __thiscall Gui::string_related(Gui *this,uint param_1,char *param_2)
   this->field2_0x8 =
        (float)(ulonglong)(uint)(((int)local_1c - (int)(param_2 + 1)) * 0xf) / 2.0 + 16.0;
   g_Supervisor.unk198 = 3;
-  SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xe);
+  SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xe,0);
   return;
 }
 

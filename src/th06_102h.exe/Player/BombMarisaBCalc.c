@@ -54,7 +54,7 @@ void Player::BombMarisaBCalc(Player *param_1)
         pPVar1->field2_0x8 = (param_1->position).z;
         local_c = local_c + 1;
       }
-      SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0x13);
+      SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0x13,0);
       param_1->field18_0x9d4 = 0.3;
       param_1->field17_0x9d0 = 0.3;
     }

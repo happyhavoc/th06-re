@@ -60,7 +60,7 @@ undefined4 __thiscall ResultScreen::FUN_0042bc85(ResultScreen *this)
         this->possibly_selected_character = this->possibly_selected_character + 0x60;
       }
     } while (g_AlphabetList[this->possibly_selected_character] == ' ');
-    SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xc);
+    SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xc,0);
   }
   if ((((g_CurFrameInput & 0x20) != 0) && ((g_CurFrameInput & 0x20) != (g_LastFrameInput & 0x20)))
      || (((g_CurFrameInput & 0x20) != 0 && (g_IsEigthFrameOfHeldInput != 0)))) {
@@ -70,7 +70,7 @@ undefined4 __thiscall ResultScreen::FUN_0042bc85(ResultScreen *this)
         this->possibly_selected_character = this->possibly_selected_character + -0x60;
       }
     } while (g_AlphabetList[this->possibly_selected_character] == ' ');
-    SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xc);
+    SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xc,0);
   }
   if ((((g_CurFrameInput & 0x40) != 0) && ((g_CurFrameInput & 0x40) != (g_LastFrameInput & 0x40)))
      || (((g_CurFrameInput & 0x40) != 0 && (g_IsEigthFrameOfHeldInput != 0)))) {
@@ -83,7 +83,7 @@ undefined4 __thiscall ResultScreen::FUN_0042bc85(ResultScreen *this)
         this->possibly_selected_character = 0xf;
       }
     } while (g_AlphabetList[this->possibly_selected_character] == ' ');
-    SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xc);
+    SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xc,0);
   }
   if ((((g_CurFrameInput & 0x80) != 0) && ((g_CurFrameInput & 0x80) != (g_LastFrameInput & 0x80)))
      || (((g_CurFrameInput & 0x80) != 0 && (g_IsEigthFrameOfHeldInput != 0)))) {
@@ -93,7 +93,7 @@ undefined4 __thiscall ResultScreen::FUN_0042bc85(ResultScreen *this)
         this->possibly_selected_character = this->possibly_selected_character + -0x10;
       }
     } while (g_AlphabetList[this->possibly_selected_character] == ' ');
-    SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xc);
+    SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xc,0);
   }
   if ((((g_CurFrameInput & 0x1001) == 0) ||
       ((g_CurFrameInput & 0x1001) == (g_LastFrameInput & 0x1001))) &&
@@ -111,7 +111,7 @@ LAB_0042c1aa:
         this->unk_10 = this->unk_10 + -1;
         (this->hscr).name[iVar1] = ' ';
       }
-      SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xb);
+      SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xb,0);
     }
     if ((g_CurFrameInput & 8) == 0) {
       return 0;
@@ -133,7 +133,7 @@ LAB_0042c173:
       if ((this->unk_10 < 8) && (this->unk_10 = this->unk_10 + 1, this->unk_10 == 8)) {
         this->possibly_selected_character = 0x5f;
       }
-      SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,10);
+      SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,10,0);
       goto LAB_0042c1aa;
     }
     if (this->possibly_selected_character == 0x5e) {
@@ -141,7 +141,7 @@ LAB_0042c173:
       goto LAB_0042c173;
     }
   }
-  SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xb);
+  SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xb,0);
 LAB_0042c273:
   this->unk_8 = 0xf;
   this->field1_0x4 = 0;

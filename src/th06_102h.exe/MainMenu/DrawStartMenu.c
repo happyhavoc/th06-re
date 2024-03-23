@@ -42,7 +42,7 @@ ZunResult __thiscall MainMenu::DrawStartMenu(MainMenu *this)
         this->maybe_menu_text_color = 0xff000000;
         this->unk_820c = 0;
         this->isActive = 60;
-        SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,10);
+        SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,10,0);
         break;
       case 1:
         cursorMove = GameManager::hasReachedMaxClears(&g_GameManager,0,0);
@@ -51,7 +51,7 @@ ZunResult __thiscall MainMenu::DrawStartMenu(MainMenu *this)
             && (cursorMove = GameManager::hasReachedMaxClears(&g_GameManager,1,0), cursorMove == 0))
            && (cursorMove = GameManager::hasReachedMaxClears(&g_GameManager,1,1), cursorMove == 0))
         {
-          SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xb);
+          SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xb,0);
         }
         else {
           for (i = 0; i < 0x7a; i = i + 1) {
@@ -65,7 +65,7 @@ ZunResult __thiscall MainMenu::DrawStartMenu(MainMenu *this)
           this->maybe_menu_text_color = 0xff000000;
           this->unk_820c = 0;
           this->isActive = 60;
-          SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,10);
+          SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,10,0);
         }
         break;
       case 2:
@@ -85,7 +85,7 @@ ZunResult __thiscall MainMenu::DrawStartMenu(MainMenu *this)
         this->maybe_menu_text_color = 0xff000000;
         this->unk_820c = 0;
         this->isActive = 0x3c;
-        SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,10);
+        SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,10,0);
         break;
       case 3:
         for (i = 0; i < 0x7a; i = i + 1) {
@@ -98,7 +98,7 @@ ZunResult __thiscall MainMenu::DrawStartMenu(MainMenu *this)
         this->maybe_menu_text_color = 0xff000000;
         this->unk_820c = 0;
         this->isActive = 0x3c;
-        SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,10);
+        SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,10,0);
         break;
       case 4:
         for (i = 0; i < 0x7a; i = i + 1) {
@@ -110,7 +110,7 @@ ZunResult __thiscall MainMenu::DrawStartMenu(MainMenu *this)
         this->maybe_menu_text_color = 0xff000000;
         this->unk_820c = 0;
         this->isActive = 0x3c;
-        SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,10);
+        SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,10,0);
         break;
       case 5:
         this->gameState = STATE_MUSIC_ROOM;
@@ -118,7 +118,7 @@ ZunResult __thiscall MainMenu::DrawStartMenu(MainMenu *this)
         for (i = 0; i < 0x7a; i = i + 1) {
           (&this->vm1)[i].pendingInterrupt = 4;
         }
-        SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,10);
+        SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,10,0);
         break;
       case 6:
         this->gameState = STATE_OPTIONS;
@@ -130,7 +130,7 @@ ZunResult __thiscall MainMenu::DrawStartMenu(MainMenu *this)
         this->field_0x8230 = g_Supervisor.cfg.colorMode16bit;
         this->field208_0x8231 = g_Supervisor.cfg.windowed;
         this->field_0x8232 = g_Supervisor.cfg.frameskipConfig;
-        SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,10);
+        SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,10,0);
         break;
       case 7:
         this->gameState = STATE_QUIT;
@@ -138,7 +138,7 @@ ZunResult __thiscall MainMenu::DrawStartMenu(MainMenu *this)
         for (i = 0; i < 0x7a; i = i + 1) {
           (&this->vm1)[i].pendingInterrupt = 4;
         }
-        SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xb);
+        SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xb,0);
       }
     }
     if (((g_CurFrameInput & 0x200) != 0) &&
@@ -148,11 +148,11 @@ ZunResult __thiscall MainMenu::DrawStartMenu(MainMenu *this)
       for (i = 0; i < 0x7a; i = i + 1) {
         (&this->vm1)[i].pendingInterrupt = 4;
       }
-      SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xb);
+      SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xb,0);
     }
     if (((g_CurFrameInput & 10) != 0) && ((g_CurFrameInput & 10) != (g_LastFrameInput & 10))) {
       this->cursor = 7;
-      SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xb);
+      SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xb,0);
     }
   }
   return ZUN_SUCCESS;

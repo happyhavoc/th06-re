@@ -24,7 +24,7 @@ void __thiscall Gui::FUN_00417bfd(Gui *this,int param_1,char *param_2)
   } while (cVar1 != '\0');
   this->blue_spellcard_bar_length =
        (float)(ulonglong)(uint)(((int)local_1c - (int)(param_2 + 1)) * 0xf) / 2.0 + 16.0;
-  SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xe);
+  SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xe,0);
   return;
 }
 

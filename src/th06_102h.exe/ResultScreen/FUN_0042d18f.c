@@ -16,7 +16,7 @@ ResultScreen::FUN_0042d18f(ResultScreen *this,ResultScreen *param_1,int param_2)
       if (param_2 <= param_1->unk_10) {
         param_1->unk_10 = param_1->unk_10 - param_2;
       }
-      SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xc);
+      SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xc,0);
       uVar1 = 1;
     }
   }
@@ -25,7 +25,7 @@ ResultScreen::FUN_0042d18f(ResultScreen *this,ResultScreen *param_1,int param_2)
     if (param_1->unk_10 < 0) {
       param_1->unk_10 = param_1->unk_10 + param_2;
     }
-    SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xc);
+    SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xc,0);
     uVar1 = 1;
   }
   return uVar1;

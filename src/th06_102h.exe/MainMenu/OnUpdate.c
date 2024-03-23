@@ -145,7 +145,7 @@ switchD_004358f7_caseD_2:
         sVar1 = sVar1 + 1;
       }
       if ((sVar1 < 0x20) && (DAT_00478690 != sVar1)) {
-        SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,10);
+        SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,10,0);
         switch(menu->cursor) {
         case 0:
           select_related(menu,sVar1,(menu->controlMapping).shootButton,1);
@@ -205,7 +205,7 @@ switchD_004358f7_caseD_2:
             (&menu->vm1)[local_28].pendingInterrupt = 3;
           }
           menu->cursor = 7;
-          SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xb);
+          SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xb,0);
           g_ControllerMapping.shootButton = (menu->controlMapping).shootButton;
           g_ControllerMapping.bombButton = (menu->controlMapping).bombButton;
           g_ControllerMapping.focusButton = (menu->controlMapping).focusButton;
@@ -316,7 +316,7 @@ switchD_004358f7_caseD_2:
         for (i = 0; i < 0x7a; i = i + 1) {
           (&menu->vm1)[i].pendingInterrupt = 7;
         }
-        SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,10);
+        SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,10,0);
         if ((int)g_GameManager.difficulty < 4) {
           (&menu->field81_0x5610)[menu->cursor].pendingInterrupt = 8;
           g_GameManager.difficulty = menu->cursor;
@@ -354,7 +354,7 @@ switchD_004358f7_caseD_2:
       for (i = 0; i < 0x7a; i = i + 1) {
         (&menu->vm1)[i].pendingInterrupt = 4;
       }
-      SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xb);
+      SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xb,0);
       if ((int)g_GameManager.difficulty < 4) {
         g_Supervisor.cfg.defaultDifficulty = *(DefaultDifficulty *)&menu->cursor;
         if (g_GameManager.field30_0x1823 == 0) {
@@ -392,7 +392,7 @@ LAB_0043666d:
           }
         }
         else {
-          SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xc);
+          SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xc,0);
           vm_memset = &menu->field86_0x5b60;
           for (i = 0; i < 2; i = i + 1) {
             if (i == menu->cursor) {
@@ -418,7 +418,7 @@ LAB_0043666d:
           maxClearCheck != 0)) ||
          (maxClearCheck = GameManager::hasReachedMaxClears(&g_GameManager,menu->cursor,1),
          maxClearCheck != 0)) {
-        SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xc);
+        SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xc,0);
         vm_memset = &menu->field86_0x5b60;
         for (i = 0; i < 2; i = i + 1) {
           if (i == menu->cursor) {
@@ -479,7 +479,7 @@ LAB_0043666d:
             menu->cursor = (uint)g_GameManager.shottype;
           }
         }
-        SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,10);
+        SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,10,0);
       }
     }
     else {
@@ -497,7 +497,7 @@ LAB_0043666d:
         }
         menu->cursor = 0;
       }
-      SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xb);
+      SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xb,0);
     }
     break;
   case STATE_SCORE:
@@ -618,7 +618,7 @@ LAB_0043666d:
           vm_memset = vm_memset + 2;
         }
         (&menu->field81_0x5610)[g_GameManager.difficulty].pendingInterrupt = 0;
-        SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xb);
+        SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xb,0);
         g_GameManager.shottype = *(byte *)&menu->cursor;
         menu->cursor = (uint)g_GameManager.character;
         vm_memset = &menu->field86_0x5b60;
@@ -676,7 +676,7 @@ LAB_00436de7:
             g_GameManager.bombs_remaining = 3;
           }
           g_Supervisor.curState = 2;
-          SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,10);
+          SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,10,0);
           g_GameManager.field7_0x1c = 0;
           local_48 = 0.0;
           if (menu->unk_10ee0 < 2) {
@@ -764,7 +764,7 @@ LAB_00436de7:
           vm_memset = vm_memset + 2;
         }
         menu->cursor = (uint)g_GameManager.shottype;
-        SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,10);
+        SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,10,0);
       }
     }
   }

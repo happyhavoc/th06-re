@@ -36,7 +36,7 @@ void __thiscall ItemManager::FUN_0041f4a0(ItemManager *this)
   do {
     if (0x1ff < local_8) {
       if (bVar7) {
-        SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0x15);
+        SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0x15,0);
       }
       return;
     }
@@ -135,7 +135,7 @@ LAB_0041f7c5:
             }
             else {
               AsciiManager::CreatePopup1(&g_AsciiManager,&curItem->position,-1,0xff80c0ff);
-              SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0x1f);
+              SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0x1f,0);
             }
           }
           else {
@@ -245,7 +245,7 @@ LAB_0041f7c5:
             }
             else {
               AsciiManager::CreatePopup1(&g_AsciiManager,&curItem->position,-1,0xff80c0ff);
-              SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0x1f);
+              SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0x1f,0);
             }
           }
           else {
@@ -271,7 +271,7 @@ LAB_0041f7c5:
           if (g_GameManager.current_power < 0x80) {
             BulletManager::FUN_00414340(&g_BulletManager);
             Gui::FUN_004173d9(&g_Gui,0);
-            SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0x1f);
+            SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0x1f,0);
             AsciiManager::CreatePopup1(&g_AsciiManager,&curItem->position,-1,0xff80c0ff);
           }
           g_GameManager.current_power = 0x80;
@@ -285,7 +285,7 @@ LAB_0041f7c5:
             g_Gui.flags = g_Gui.flags & 0xfffffffc | 2;
           }
           GameManager::IncreaseSubrank(&g_GameManager,200);
-          SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0x1c);
+          SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0x1c,0);
           break;
         case 6:
           local_c = ((int)g_GameManager.graze_in_stage / 3) * 10 + 500;

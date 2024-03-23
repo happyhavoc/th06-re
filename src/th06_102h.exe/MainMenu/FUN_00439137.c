@@ -50,28 +50,28 @@ undefined4 __thiscall MainMenu::FUN_00439137(MainMenu *this)
        || (((g_CurFrameInput & 0x40) != 0 && (g_IsEigthFrameOfHeldInput != 0)))) {
       iVar1 = this->cursor;
       if (iVar1 == 0) {
-        SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xc);
+        SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xc,0);
         if (g_Supervisor.cfg.lifeCount == 0) {
           g_Supervisor.cfg.lifeCount = 5;
         }
         g_Supervisor.cfg.lifeCount = g_Supervisor.cfg.lifeCount - 1;
       }
       else if (iVar1 == 1) {
-        SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xc);
+        SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xc,0);
         if (g_Supervisor.cfg.bombCount == 0) {
           g_Supervisor.cfg.bombCount = 4;
         }
         g_Supervisor.cfg.bombCount = g_Supervisor.cfg.bombCount - 1;
       }
       else if (iVar1 == 2) {
-        SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xc);
+        SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xc,0);
         if (g_Supervisor.cfg.colorMode16bit == 0) {
           g_Supervisor.cfg.colorMode16bit = 2;
         }
         g_Supervisor.cfg.colorMode16bit = g_Supervisor.cfg.colorMode16bit - 1;
       }
       else if (iVar1 == 3) {
-        SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xc);
+        SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xc,0);
         Supervisor::FUN_00424d38(&g_Supervisor);
         if (g_Supervisor.cfg.musicMode == OFF) {
           g_Supervisor.cfg.musicMode = WAV|MIDI;
@@ -81,14 +81,14 @@ undefined4 __thiscall MainMenu::FUN_00439137(MainMenu *this)
         Supervisor::PlayAudio("bgm/th06_01.mid");
       }
       else if (iVar1 == 4) {
-        SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xc);
+        SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xc,0);
         if (g_Supervisor.cfg.playSounds == 0) {
           g_Supervisor.cfg.playSounds = 2;
         }
         g_Supervisor.cfg.playSounds = g_Supervisor.cfg.playSounds - 1;
       }
       else if (iVar1 == 5) {
-        SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xc);
+        SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xc,0);
         if (this->field208_0x8231 == 0) {
           this->field208_0x8231 = 2;
         }
@@ -97,34 +97,34 @@ undefined4 __thiscall MainMenu::FUN_00439137(MainMenu *this)
     }
     if (((g_CurFrameInput & 10) != 0) && ((g_CurFrameInput & 10) != (g_LastFrameInput & 10))) {
       this->cursor = 8;
-      SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xb);
+      SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xb,0);
     }
     if ((((g_CurFrameInput & 0x80) != 0) && ((g_CurFrameInput & 0x80) != (g_LastFrameInput & 0x80)))
        || (((g_CurFrameInput & 0x80) != 0 && (g_IsEigthFrameOfHeldInput != 0)))) {
       iVar1 = this->cursor;
       if (iVar1 == 0) {
-        SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xc);
+        SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xc,0);
         g_Supervisor.cfg.lifeCount = g_Supervisor.cfg.lifeCount + 1;
         if (4 < g_Supervisor.cfg.lifeCount) {
           g_Supervisor.cfg.lifeCount = 0;
         }
       }
       else if (iVar1 == 1) {
-        SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xc);
+        SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xc,0);
         g_Supervisor.cfg.bombCount = g_Supervisor.cfg.bombCount + 1;
         if (3 < g_Supervisor.cfg.bombCount) {
           g_Supervisor.cfg.bombCount = 0;
         }
       }
       else if (iVar1 == 2) {
-        SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xc);
+        SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xc,0);
         g_Supervisor.cfg.colorMode16bit = g_Supervisor.cfg.colorMode16bit + 1;
         if (1 < g_Supervisor.cfg.colorMode16bit) {
           g_Supervisor.cfg.colorMode16bit = 0;
         }
       }
       else if (iVar1 == 3) {
-        SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xc);
+        SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xc,0);
         Supervisor::FUN_00424d38(&g_Supervisor);
         g_Supervisor.cfg.musicMode = g_Supervisor.cfg.musicMode + WAV;
         if (MIDI < g_Supervisor.cfg.musicMode) {
@@ -134,14 +134,14 @@ undefined4 __thiscall MainMenu::FUN_00439137(MainMenu *this)
         Supervisor::PlayAudio("bgm/th06_01.mid");
       }
       else if (iVar1 == 4) {
-        SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xc);
+        SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xc,0);
         g_Supervisor.cfg.playSounds = g_Supervisor.cfg.playSounds + 1;
         if (1 < g_Supervisor.cfg.playSounds) {
           g_Supervisor.cfg.playSounds = 0;
         }
       }
       else if (iVar1 == 5) {
-        SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xc);
+        SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xc,0);
         this->field208_0x8231 = this->field208_0x8231 + 1;
         if (1 < this->field208_0x8231) {
           this->field208_0x8231 = 0;
@@ -170,7 +170,7 @@ undefined4 __thiscall MainMenu::FUN_00439137(MainMenu *this)
           (&this->vm1)[i].pendingInterrupt = 5;
         }
         this->cursor = 0;
-        SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,10);
+        SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,10,0);
         sVar2 = g_ControllerMapping.bombButton;
         (this->controlMapping).shootButton = g_ControllerMapping.shootButton;
         (this->controlMapping).bombButton = sVar2;
@@ -193,7 +193,7 @@ undefined4 __thiscall MainMenu::FUN_00439137(MainMenu *this)
           (&this->vm1)[i].pendingInterrupt = 2;
         }
         this->cursor = 6;
-        SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xb);
+        SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xb,0);
         if (((this->field_0x8230 != g_Supervisor.cfg.colorMode16bit) ||
             ((bool)this->field208_0x8231 != g_Supervisor.cfg.windowed)) ||
            (this->field_0x8232 != g_Supervisor.cfg.frameskipConfig)) {

@@ -190,7 +190,7 @@ switchD_00412938_caseD_2:
     if ((int)uVar5 < 0) {
       uVar5 = (uVar5 - 1 | 0xfffffffe) + 1;
     }
-    SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,uVar5 + 2);
+    SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,uVar5 + 2,0);
     EffectManager::FUN_0040ef50
               (&g_EffectManager,(uint)enemies->death_anm1,&enemies->position,1,0xffffffff);
     EffectManager::FUN_0040ef50
@@ -215,7 +215,7 @@ LAB_00412ce2:
     }
     if (enemies->field43_0xe41 == 0) {
       if (enemies->life < iVar2) {
-        SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0x14);
+        SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0x14,0);
         *(uint *)&(enemies->primary_vm).flags = *(uint *)&(enemies->primary_vm).flags | 8;
         enemies->field43_0xe41 = 4;
       }

@@ -1082,7 +1082,7 @@ switchD_00407544_caseD_2:
     enemy->flags2 = enemy->flags2 & 0xef | (*(byte *)&instruction->ecl_var_id & 1) << 4;
     break;
   case 0x6a:
-    SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,instruction->ecl_var_id);
+    SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,instruction->ecl_var_id,0);
     break;
   case 0x6b:
     enemy->flags2 = enemy->flags2 & 0x1f | *(char *)&instruction->ecl_var_id << 5;

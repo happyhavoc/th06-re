@@ -96,7 +96,7 @@ void FUN_0040c5b0(Enemy *param_1,AnmRawInstr *param_2)
       BulletManager::SpawnBullet(&g_BulletManager,&local_64);
       local_88 = local_88 + 0.1745329;
     }
-    SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,7);
+    SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,7,0);
   }
   (param_1->current_context).var2 = (param_1->current_context).var2 + 1;
   return;

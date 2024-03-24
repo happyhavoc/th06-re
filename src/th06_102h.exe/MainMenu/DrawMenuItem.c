@@ -1,6 +1,7 @@
 
-void DrawMenuItem(AnmVm *vm,int itemNumber,int cursor,uint currentItemColor,uint otherItemColor,
-                 int vm_amount)
+void MainMenu::DrawMenuItem
+               (AnmVm *vm,int itemNumber,int cursor,uint currentItemColor,uint otherItemColor,
+               int vm_amount)
 
 {
   if (itemNumber == cursor) {

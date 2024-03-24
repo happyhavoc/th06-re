@@ -1,7 +1,7 @@
 
 void MainMenu::DrawMenuItem
-               (AnmVm *vm,int itemNumber,int cursor,uint currentItemColor,uint otherItemColor,
-               int vm_amount)
+               (AnmVm *vm,int itemNumber,int cursor,D3DCOLOR currentItemColor,
+               D3DCOLOR otherItemColor,int vm_amount)
 
 {
   if (itemNumber == cursor) {

@@ -30,7 +30,7 @@ int __thiscall MainMenu::FUN_004379e4(MainMenu *this)
     d3d_vec->x = -6.0;
     d3d_vec->y = -6.0;
     d3d_vec->z = 0.0;
-    this->unk_81fc = 0.0;
+    this->unk_81fc = 0;
     this->maybe_menu_text_color = 0x40000000;
     this->unk_820c = 0;
                     /* Seems to only get set once the current menu is active (aka the function has

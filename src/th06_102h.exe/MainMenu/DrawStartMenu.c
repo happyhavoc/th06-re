@@ -38,7 +38,7 @@ ZunResult __thiscall MainMenu::DrawStartMenu(MainMenu *this)
           g_Supervisor.cfg.defaultDifficulty = NORMAL;
         }
         this->stateTimer = 0;
-        this->unk_81fc = 2.0;
+        this->unk_81fc = 1073741824;
         this->maybe_menu_text_color = 0xff000000;
         this->unk_820c = 0;
         this->isActive = 60;
@@ -61,7 +61,7 @@ ZunResult __thiscall MainMenu::DrawStartMenu(MainMenu *this)
           g_GameManager.field30_0x1823 = 0;
           g_GameManager.difficulty = EXTRA;
           this->stateTimer = 0;
-          this->unk_81fc = 2.0;
+          this->unk_81fc = 0x40000000;
           this->maybe_menu_text_color = 0xff000000;
           this->unk_820c = 0;
           this->isActive = 60;
@@ -81,7 +81,7 @@ ZunResult __thiscall MainMenu::DrawStartMenu(MainMenu *this)
           g_Supervisor.cfg.defaultDifficulty = NORMAL;
         }
         this->stateTimer = 0;
-        this->unk_81fc = 2.0;
+        this->unk_81fc = 0x40000000;
         this->maybe_menu_text_color = 0xff000000;
         this->unk_820c = 0;
         this->isActive = 0x3c;
@@ -94,7 +94,7 @@ ZunResult __thiscall MainMenu::DrawStartMenu(MainMenu *this)
         this->gameState = STATE_REPLAY_LOAD;
         g_GameManager.field30_0x1823 = 0;
         this->stateTimer = 0;
-        this->unk_81fc = 2.0;
+        this->unk_81fc = 0x40000000;
         this->maybe_menu_text_color = 0xff000000;
         this->unk_820c = 0;
         this->isActive = 0x3c;
@@ -106,7 +106,7 @@ ZunResult __thiscall MainMenu::DrawStartMenu(MainMenu *this)
         }
         this->gameState = STATE_SCORE;
         this->stateTimer = 0;
-        this->unk_81fc = 2.0;
+        this->unk_81fc = 0x40000000;
         this->maybe_menu_text_color = 0xff000000;
         this->unk_820c = 0;
         this->isActive = 0x3c;

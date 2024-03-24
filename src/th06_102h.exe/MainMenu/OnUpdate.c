@@ -237,7 +237,7 @@ switchD_004358f7_caseD_2:
       return 0;
     }
     menu->gameState = STATE_DIFFICULTY_SELECT;
-    menu->unk_81fc = 0.0;
+    menu->unk_81fc = 0;
     menu->wasActive = menu->isActive;
     menu->isActive = 0;
     if ((int)g_GameManager.difficulty < 4) {

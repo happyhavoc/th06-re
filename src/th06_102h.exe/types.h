@@ -73087,7 +73087,7 @@ struct MainMenu {
     enum GameState gameState;
     int stateTimer;
     int idleFrames;
-    float unk_81fc;
+    int unk_81fc;
     D3DCOLOR maybe_menu_text_color;
     D3DCOLOR color2;
     D3DCOLOR color1;

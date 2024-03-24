@@ -50,7 +50,7 @@ LAB_0043a520:
     param_1->color1 = 0x80ffffff;
     param_1->color2 = 0xffffffff;
   }
-  param_1->unk_81fc = 0.0;
+  param_1->unk_81fc = 0;
   param_1->maybe_menu_text_color = 1073741824;
   param_1->unk_820c = 0;
   param_1->isActive = 0;

@@ -77,7 +77,7 @@ void __thiscall MainMenu::ReplayHandling(MainMenu *this)
         FindClose(replayFileHandle);
         ChangeCWD("../");
         this->replayFilesNum = replayFileIdx;
-        this->unk_81fc = 0.0;
+        this->unk_81fc = 0;
         this->wasActive = this->isActive;
         this->isActive = 0;
         this->gameState = STATE_REPLAY_ANIM;

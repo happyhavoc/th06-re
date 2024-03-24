@@ -73101,9 +73101,9 @@ struct MainMenu {
     struct ControllerMapping controlMapping;
     undefined field205_0x822e;
     undefined field206_0x822f;
-    undefined field207_0x8230;
-    byte field208_0x8231;
-    undefined field209_0x8232;
+    byte colorMode16bit; /* Created by retype action */
+    bool windowed;
+    byte frameskipConfig; /* Created by retype action */
     undefined field210_0x8233;
     struct ChainElem *chain_calc;
     struct ChainElem *chain_draw;

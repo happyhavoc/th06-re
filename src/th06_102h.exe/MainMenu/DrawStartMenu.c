@@ -127,9 +127,9 @@ ZunResult __thiscall MainMenu::DrawStartMenu(MainMenu *this)
           (&this->vm1)[i].pendingInterrupt = 3;
         }
         this->cursor = 0;
-        this->field_0x8230 = g_Supervisor.cfg.colorMode16bit;
-        this->field208_0x8231 = g_Supervisor.cfg.windowed;
-        this->field_0x8232 = g_Supervisor.cfg.frameskipConfig;
+        this->colorMode16bit = g_Supervisor.cfg.colorMode16bit;
+        this->windowed = g_Supervisor.cfg.windowed;
+        this->frameskipConfig = g_Supervisor.cfg.frameskipConfig;
         SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,10,0);
         break;
       case 7:

@@ -42,7 +42,7 @@ undefined4 __thiscall MainMenu::FUN_00439137(MainMenu *this)
   }
   vm_unk = &this->field75_0x4fb0;
   for (i = 0; i < 2; i = i + 1) {
-    setSavedCursorPosition(this,vm_unk,5,i,(uint)this->field208_0x8231);
+    setSavedCursorPosition(this,vm_unk,5,i,(uint)this->windowed);
     vm_unk = vm_unk + 1;
   }
   if (0x1f < this->stateTimer) {
@@ -89,10 +89,10 @@ undefined4 __thiscall MainMenu::FUN_00439137(MainMenu *this)
       }
       else if (iVar1 == 5) {
         SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xc,0);
-        if (this->field208_0x8231 == 0) {
-          this->field208_0x8231 = 2;
+        if (this->windowed == false) {
+          this->windowed = true;
         }
-        this->field208_0x8231 = this->field208_0x8231 - 1;
+        this->windowed = (bool)(this->windowed + -1);
       }
     }
     if (((g_CurFrameInput & 10) != 0) && ((g_CurFrameInput & 10) != (g_LastFrameInput & 10))) {
@@ -142,9 +142,9 @@ undefined4 __thiscall MainMenu::FUN_00439137(MainMenu *this)
       }
       else if (iVar1 == 5) {
         SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xc,0);
-        this->field208_0x8231 = this->field208_0x8231 + 1;
-        if (1 < this->field208_0x8231) {
-          this->field208_0x8231 = 0;
+        this->windowed = (bool)(this->windowed + '\x01');
+        if (true < this->windowed) {
+          this->windowed = false;
         }
       }
     }
@@ -194,11 +194,11 @@ undefined4 __thiscall MainMenu::FUN_00439137(MainMenu *this)
         }
         this->cursor = 6;
         SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xb,0);
-        if (((this->field_0x8230 != g_Supervisor.cfg.colorMode16bit) ||
-            ((bool)this->field208_0x8231 != g_Supervisor.cfg.windowed)) ||
-           (this->field_0x8232 != g_Supervisor.cfg.frameskipConfig)) {
-          g_Supervisor.cfg.windowed = (bool)this->field208_0x8231;
-          g_Supervisor.cfg.frameskipConfig = this->field_0x8232;
+        if (((this->colorMode16bit != g_Supervisor.cfg.colorMode16bit) ||
+            (this->windowed != g_Supervisor.cfg.windowed)) ||
+           (this->frameskipConfig != g_Supervisor.cfg.frameskipConfig)) {
+          g_Supervisor.cfg.windowed = this->windowed;
+          g_Supervisor.cfg.frameskipConfig = this->frameskipConfig;
           g_Supervisor.curState = 5;
           return 1;
         }

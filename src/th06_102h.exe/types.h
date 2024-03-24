@@ -73016,7 +73016,7 @@ struct MainMenu {
     struct AnmVm field119_0x7e70;
     struct AnmVm field120_0x7f80;
     struct AnmVm field121_0x8090;
-    int cursor;
+    uint cursor;
     undefined field123_0x81a4;
     undefined field124_0x81a5;
     undefined field125_0x81a6;

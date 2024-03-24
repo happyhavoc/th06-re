@@ -4,7 +4,7 @@ undefined4 __thiscall MainMenu::FUN_00439137(MainMenu *this)
 {
   AnmVm *vm_unk;
   int i;
-  int iVar1;
+  uint iVar1;
   short sVar2;
   
   MoveCursor(this,9);

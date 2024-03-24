@@ -8,7 +8,7 @@ undefined4 __thiscall MainMenu::ChoosePracticeLevel(MainMenu *this)
   uint local_14;
   int local_10;
   int local_c;
-  int stage_num;
+  uint stage_num;
   
   if (this->gameState == STATE_PRACTICE_LVL_SELECT) {
     text_pos.x = 320.0;
@@ -32,7 +32,7 @@ undefined4 __thiscall MainMenu::ChoosePracticeLevel(MainMenu *this)
     if ((g_GameManager.difficulty == EASY) && (local_2c == 6)) {
       local_14 = 5;
     }
-    for (stage_num = 0; stage_num < (int)local_14; stage_num = stage_num + 1) {
+    for (stage_num = 0; (int)stage_num < (int)local_14; stage_num = stage_num + 1) {
       if (stage_num == this->cursor) {
         g_AsciiManager.color = local_c << 0x18 | 0xc0f0f0;
       }

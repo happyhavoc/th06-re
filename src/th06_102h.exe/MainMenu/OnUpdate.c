@@ -1,6 +1,4 @@
 
-/* WARNING: Type propagation algorithm not settling */
-
 undefined4 MainMenu::OnUpdate(MainMenu *menu)
 
 {
@@ -331,7 +329,7 @@ switchD_004358f7_caseD_2:
              (maxClearCheck =
                    GameManager::hasReachedMaxClears(&g_GameManager,(uint)g_GameManager.character,1),
              maxClearCheck == 0)) {
-            menu->cursor = 1 - (uint)g_GameManager.character;
+            menu->cursor = 1 - g_GameManager.character;
           }
           else {
             menu->cursor = (uint)g_GameManager.character;
@@ -377,8 +375,8 @@ LAB_0043666d:
       if ((((g_CurFrameInput & 0x80) != 0) &&
           ((g_CurFrameInput & 0x80) != (g_LastFrameInput & 0x80))) ||
          (((g_CurFrameInput & 0x80) != 0 && (g_IsEigthFrameOfHeldInput != 0)))) {
-        menu->cursor = menu->cursor + -1;
-        if (menu->cursor < 0) {
+        menu->cursor = menu->cursor - 1;
+        if ((int)menu->cursor < 0) {
           menu->cursor = menu->cursor + 2;
         }
         if (((g_GameManager.difficulty == EXTRA) &&
@@ -387,8 +385,8 @@ LAB_0043666d:
            (maxClearCheck = GameManager::hasReachedMaxClears(&g_GameManager,menu->cursor,1),
            maxClearCheck == 0)) {
           menu->cursor = menu->cursor + 1;
-          if (1 < menu->cursor) {
-            menu->cursor = menu->cursor + -2;
+          if (1 < (int)menu->cursor) {
+            menu->cursor = menu->cursor - 2;
           }
         }
         else {
@@ -410,8 +408,8 @@ LAB_0043666d:
     }
     else {
       menu->cursor = menu->cursor + 1;
-      if (1 < menu->cursor) {
-        menu->cursor = menu->cursor + -2;
+      if (1 < (int)menu->cursor) {
+        menu->cursor = menu->cursor - 2;
       }
       if (((g_GameManager.difficulty != EXTRA) ||
           (maxClearCheck = GameManager::hasReachedMaxClears(&g_GameManager,menu->cursor,0),
@@ -433,8 +431,8 @@ LAB_0043666d:
         }
         goto LAB_0043666d;
       }
-      menu->cursor = menu->cursor + -1;
-      if (menu->cursor < 0) {
+      menu->cursor = menu->cursor - 1;
+      if ((int)menu->cursor < 0) {
         menu->cursor = menu->cursor + 2;
       }
     }
@@ -473,7 +471,7 @@ LAB_0043666d:
                          (&g_GameManager,(uint)g_GameManager.character,(uint)g_GameManager.shottype)
           ;
           if (maxClearCheck == 0) {
-            menu->cursor = 1 - (uint)g_GameManager.shottype;
+            menu->cursor = 1 - g_GameManager.shottype;
           }
           else {
             menu->cursor = (uint)g_GameManager.shottype;
@@ -598,7 +596,7 @@ LAB_0043666d:
           if ((g_GameManager.difficulty == EASY) && (local_b4 == 6)) {
             local_4c = 5;
           }
-          if ((int)local_4c <= menu->cursor) {
+          if ((int)local_4c <= (int)menu->cursor) {
             menu->cursor = 0;
           }
         }

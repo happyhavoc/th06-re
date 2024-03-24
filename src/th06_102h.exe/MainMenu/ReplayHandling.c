@@ -130,7 +130,7 @@ void __thiscall MainMenu::ReplayHandling(MainMenu *this)
             if (this->replayFileData[this->chosenReplay].stage_score[this->cursor + 1] !=
                 (StageReplayData *)0x0) goto LAB_0043877b;
             this->cursor = this->cursor + 1;
-          } while (this->cursor < 7);
+          } while ((int)this->cursor < 7);
           goto LAB_00438bb2;
         }
       }
@@ -157,8 +157,8 @@ LAB_0043877b:
     if (cur < 0) {
       while (this->replayFileData[this->chosenReplay].stage_score[this->cursor + 1] ==
              (StageReplayData *)0x0) {
-        this->cursor = this->cursor + -1;
-        if (this->cursor < 0) {
+        this->cursor = this->cursor - 1;
+        if ((int)this->cursor < 0) {
           this->cursor = 6;
         }
       }
@@ -167,7 +167,7 @@ LAB_0043877b:
       while (this->replayFileData[this->chosenReplay].stage_score[this->cursor + 1] ==
              (StageReplayData *)0x0) {
         this->cursor = this->cursor + 1;
-        if (6 < this->cursor) {
+        if (6 < (int)this->cursor) {
           this->cursor = 0;
         }
       }

@@ -13,22 +13,22 @@ int MainMenu::MoveCursor(MainMenu *menu,int menu_length)
     else {
       menu->cursor = menu->cursor + 1;
       SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xc,0);
-      if (menu->cursor < 0) {
-        menu->cursor = menu_length + -1;
+      if ((int)menu->cursor < 0) {
+        menu->cursor = menu_length - 1;
       }
-      if (menu_length <= menu->cursor) {
+      if (menu_length <= (int)menu->cursor) {
         menu->cursor = 0;
       }
       result = 1;
     }
   }
   else {
-    menu->cursor = menu->cursor + -1;
+    menu->cursor = menu->cursor - 1;
     SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xc,0);
-    if (menu->cursor < 0) {
-      menu->cursor = menu_length + -1;
+    if ((int)menu->cursor < 0) {
+      menu->cursor = menu_length - 1;
     }
-    if (menu_length <= menu->cursor) {
+    if (menu_length <= (int)menu->cursor) {
       menu->cursor = 0;
     }
     result = -1;

@@ -131,7 +131,7 @@ void __thiscall MainMenu::ReplayHandling(MainMenu *this)
                 (StageReplayData *)0x0) goto LAB_0043877b;
             this->cursor = this->cursor + 1;
           } while ((int)this->cursor < 7);
-          goto LAB_00438bb2;
+          goto exit;
         }
       }
 LAB_0043877b:
@@ -212,7 +212,7 @@ LAB_0043877b:
       g_Supervisor.curState = 2;
     }
   }
-LAB_00438bb2:
+exit:
   __security_check_cookie(stackCookie ^ unaff_retaddr);
   return;
 }

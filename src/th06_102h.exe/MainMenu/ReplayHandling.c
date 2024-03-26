@@ -1,9 +1,9 @@
 
-void __thiscall MainMenu::ReplayHandling(MainMenu *this)
+ZunResult __thiscall MainMenu::ReplayHandling(MainMenu *this)
 
 {
   ZunResult ZVar2;
-  BOOL nextFile;
+  int nextFile;
   int _;
   ReplayData *nextReplayData;
   char **headerMemset;
@@ -24,76 +24,75 @@ void __thiscall MainMenu::ReplayHandling(MainMenu *this)
   if (gameState == STATE_REPLAY_LOAD) {
     if (this->stateTimer == 0x3c) {
       ZVar2 = LoadReplayMenu(this);
-      if (ZVar2 == ZUN_SUCCESS) {
-        replayFileIdx = 0;
-        for (cur = 0; cur < 0xf; cur = cur + 1) {
-          sprintf(replayFilePath,"./replay/th6_%.2d.rpy",cur + 1);
-          replayData = (ReplayData *)FileSystem::OpenPath(replayFilePath,1);
+      if (ZVar2 != ZUN_SUCCESS) {
+        GameErrorContextLog(&g_GameErrorContext,"セレクト画面の読み込みに失敗\n");
+        g_Supervisor.curState = 4;
+        ZVar2 = ZUN_SUCCESS;
+        goto exit;
+      }
+      replayFileIdx = 0;
+      for (cur = 0; cur < 0xf; cur = cur + 1) {
+        sprintf(replayFilePath,"./replay/th6_%.2d.rpy",cur + 1);
+        replayData = (ReplayData *)FileSystem::OpenPath(replayFilePath,1);
+        if (replayData != (ReplayData *)0x0) {
+          ZVar2 = validateReplayData(replayData,g_LastFileSize);
+          if (ZVar2 == ZUN_SUCCESS) {
+            _ = 0x14;
+            nextReplayData = replayData;
+            headerMemset = &this->replayFileData[replayFileIdx].magic;
+            for (; _ != 0; _ = _ + -1) {
+              *headerMemset = nextReplayData->magic;
+              nextReplayData = (ReplayData *)&nextReplayData->version;
+              headerMemset = headerMemset + 1;
+            }
+            _strcpy(this->replayFilePaths[replayFileIdx],replayFilePath);
+            sprintf(this->replayFileName[replayFileIdx],"No.%.2d",cur + 1);
+            replayFileIdx = replayFileIdx + 1;
+          }
+          _free(replayData);
+        }
+      }
+      createDirectoryInCWD("./replay");
+      ChangeCWD("./replay");
+      replayFileHandle = FindFirstFileA("th6_ud????.rpy",&replayFileInfo);
+      if (replayFileHandle != (HANDLE)0xffffffff) {
+        for (cur = 0; cur < 0x2d; cur = cur + 1) {
+          replayData = (ReplayData *)FileSystem::OpenPath(replayFileInfo.cFileName,1);
           if (replayData != (ReplayData *)0x0) {
             ZVar2 = validateReplayData(replayData,g_LastFileSize);
             if (ZVar2 == ZUN_SUCCESS) {
-              _ = 0x14;
               nextReplayData = replayData;
-              headerMemset = &this->replayFileData[replayFileIdx].magic;
-              for (; _ != 0; _ = _ + -1) {
-                *headerMemset = nextReplayData->magic;
+              memsetHeader = this->replayFileData + replayFileIdx;
+              for (_ = 0x14; _ != 0; _ = _ + -1) {
+                memsetHeader->magic = nextReplayData->magic;
                 nextReplayData = (ReplayData *)&nextReplayData->version;
-                headerMemset = headerMemset + 1;
+                memsetHeader = (ReplayData *)&memsetHeader->version;
               }
-              _strcpy(this->replayFilePaths[replayFileIdx],replayFilePath);
-              sprintf(this->replayFileName[replayFileIdx],"No.%.2d",cur + 1);
+              sprintf(this->replayFilePaths[replayFileIdx],"./replay/%s",replayFileInfo.cFileName);
+              sprintf(this->replayFileName[replayFileIdx],"User ");
               replayFileIdx = replayFileIdx + 1;
             }
             _free(replayData);
+            nextFile = FindNextFileA(replayFileHandle,&replayFileInfo);
+            if (nextFile == 0) break;
           }
         }
-        createDirectoryInCWD("./replay");
-        ChangeCWD("./replay");
-        replayFileHandle = FindFirstFileA("th6_ud????.rpy",&replayFileInfo);
-        if (replayFileHandle != (HANDLE)0xffffffff) {
-          for (cur = 0; cur < 0x2d; cur = cur + 1) {
-            replayData = (ReplayData *)FileSystem::OpenPath(replayFileInfo.cFileName,1);
-            if (replayData != (ReplayData *)0x0) {
-              ZVar2 = validateReplayData(replayData,g_LastFileSize);
-              if (ZVar2 == ZUN_SUCCESS) {
-                nextReplayData = replayData;
-                memsetHeader = this->replayFileData + replayFileIdx;
-                for (_ = 0x14; _ != 0; _ = _ + -1) {
-                  memsetHeader->magic = nextReplayData->magic;
-                  nextReplayData = (ReplayData *)&nextReplayData->version;
-                  memsetHeader = (ReplayData *)&memsetHeader->version;
-                }
-                sprintf(this->replayFilePaths[replayFileIdx],"./replay/%s",replayFileInfo.cFileName)
-                ;
-                sprintf(this->replayFileName[replayFileIdx],"User ");
-                replayFileIdx = replayFileIdx + 1;
-              }
-              _free(replayData);
-              nextFile = FindNextFileA(replayFileHandle,&replayFileInfo);
-              if (nextFile == 0) break;
-            }
-          }
-        }
-        FindClose(replayFileHandle);
-        ChangeCWD("../");
-        this->replayFilesNum = replayFileIdx;
-        this->unk_81fc = 0;
-        this->wasActive = this->isActive;
-        this->isActive = 0;
-        this->gameState = STATE_REPLAY_ANIM;
-        cur = 0;
-        anmVM = &this->vm1;
+      }
+      FindClose(replayFileHandle);
+      ChangeCWD("../");
+      this->replayFilesNum = replayFileIdx;
+      this->unk_81fc = 0;
+      this->wasActive = this->isActive;
+      this->isActive = 0;
+      this->gameState = STATE_REPLAY_ANIM;
+      cur = 0;
+      anmVM = &this->vm1;
                     /* memset all pending interrupt to 15 */
-        for (; cur < 122; cur = cur + 1) {
-          anmVM->pendingInterrupt = 15;
-          anmVM = anmVM + 1;
-        }
-        this->cursor = 0;
+      for (; cur < 122; cur = cur + 1) {
+        anmVM->pendingInterrupt = 15;
+        anmVM = anmVM + 1;
       }
-      else {
-        GameErrorContextLog(&g_GameErrorContext,"セレクト画面の読み込みに失敗\n");
-        g_Supervisor.curState = 4;
-      }
+      this->cursor = 0;
     }
   }
   else if (gameState == STATE_REPLAY_ANIM) {
@@ -131,6 +130,7 @@ void __thiscall MainMenu::ReplayHandling(MainMenu *this)
                 (StageReplayData *)0x0) goto LAB_0043877b;
             this->cursor = this->cursor + 1;
           } while ((int)this->cursor < 7);
+          ZVar2 = ZUN_SUCCESS;
           goto exit;
         }
       }
@@ -172,29 +172,9 @@ LAB_0043877b:
         }
       }
     }
-    if ((((g_CurFrameInput & 0x1001) == 0) ||
-        ((g_CurFrameInput & 0x1001) == (g_LastFrameInput & 0x1001))) ||
-       (this->currentReplay[this->cursor].stage_score == (StageReplayData **)0xfffffffc)) {
-      if (((g_CurFrameInput & 10) != 0) && ((g_CurFrameInput & 10) != (g_LastFrameInput & 10))) {
-        _free(this->currentReplay);
-        this->currentReplay = (ReplayData *)0x0;
-        this->gameState = STATE_REPLAY_ANIM;
-        this->stateTimer = 0;
-        for (cur = 0; cur < 0x7a; cur = cur + 1) {
-          (&this->vm1)[cur].pendingInterrupt = 4;
-        }
-        SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xb,0);
-        this->gameState = STATE_REPLAY_ANIM;
-        cur = 0;
-        anmVM = &this->vm1;
-        for (; cur < 0x7a; cur = cur + 1) {
-          anmVM->pendingInterrupt = 0xf;
-          anmVM = anmVM + 1;
-        }
-        this->cursor = this->chosenReplay;
-      }
-    }
-    else {
+    if ((((g_CurFrameInput & 0x1001) != 0) &&
+        ((g_CurFrameInput & 0x1001) != (g_LastFrameInput & 0x1001))) &&
+       (this->currentReplay[this->cursor].stage_score != (StageReplayData **)0xfffffffc)) {
       g_GameManager.field7_0x1c = 1;
       g_Supervisor.framerateMultiplier = 1.0;
       _strcpy(g_GameManager.replay_file,this->replayFilePaths[this->chosenReplay]);
@@ -210,10 +190,31 @@ LAB_0043877b:
       this->currentReplay = (ReplayData *)0x0;
       g_GameManager.current_stage = this->cursor;
       g_Supervisor.curState = 2;
+      ZVar2 = 1;
+      goto exit;
+    }
+    if (((g_CurFrameInput & 10) != 0) && ((g_CurFrameInput & 10) != (g_LastFrameInput & 10))) {
+      _free(this->currentReplay);
+      this->currentReplay = (ReplayData *)0x0;
+      this->gameState = STATE_REPLAY_ANIM;
+      this->stateTimer = 0;
+      for (cur = 0; cur < 0x7a; cur = cur + 1) {
+        (&this->vm1)[cur].pendingInterrupt = 4;
+      }
+      SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xb,0);
+      this->gameState = STATE_REPLAY_ANIM;
+      cur = 0;
+      anmVM = &this->vm1;
+      for (; cur < 0x7a; cur = cur + 1) {
+        anmVM->pendingInterrupt = 0xf;
+        anmVM = anmVM + 1;
+      }
+      this->cursor = this->chosenReplay;
     }
   }
+  ZVar2 = ZUN_SUCCESS;
 exit:
   __security_check_cookie(stackCookie ^ unaff_retaddr);
-  return;
+  return ZVar2;
 }
 

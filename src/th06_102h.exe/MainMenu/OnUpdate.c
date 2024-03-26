@@ -6,7 +6,6 @@ undefined4 MainMenu::OnUpdate(MainMenu *menu)
   DWORD time;
   ZunResult startedUp;
   int pressedButton;
-  GameState gameState;
   ZunResult ZVar1;
   int maxClearCheck;
   bool hasLoadedSprite;
@@ -47,8 +46,7 @@ undefined4 MainMenu::OnUpdate(MainMenu *menu)
       menu->unk_10f2c = 0;
     }
   }
-  gameState = menu->gameState;
-  switch(gameState) {
+  switch(menu->gameState) {
   case STATE_STARTUP:
     startedUp = BeginStartup(menu);
     if (startedUp == ZUN_ERROR) {
@@ -634,8 +632,8 @@ LAB_0043666d:
   case STATE_REPLAY_ANIM:
   case STATE_REPLAY_UNLOAD:
   case STATE_REPLAY_SELECT:
-    ReplayHandling(menu);
-    if (gameState != STATE_STARTUP) {
+    ZVar1 = ReplayHandling(menu);
+    if (ZVar1 != ZUN_SUCCESS) {
       return 0;
     }
     break;

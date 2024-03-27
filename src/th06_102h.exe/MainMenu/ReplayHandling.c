@@ -53,8 +53,8 @@ int __thiscall MainMenu::ReplayHandling(MainMenu *this)
           _free(replayData);
         }
       }
-      createDirectoryInCWD("./replay");
-      ChangeCWD("./replay");
+      FileSystem::CreateDirectoryInCWD("./replay");
+      FileSystem::ChangeCWD("./replay");
       replayFileHandle = FindFirstFileA("th6_ud????.rpy",&replayFileInfo);
       if (replayFileHandle != (HANDLE)0xffffffff) {
         for (cur = 0; cur < 0x2d; cur = cur + 1) {
@@ -80,7 +80,7 @@ int __thiscall MainMenu::ReplayHandling(MainMenu *this)
         }
       }
       FindClose(replayFileHandle);
-      ChangeCWD("../");
+      FileSystem::ChangeCWD("../");
       this->replayFilesNum = replayFileIdx;
       this->unk_81fc = 0;
       this->wasActive = this->isActive;

@@ -236,7 +236,7 @@ LAB_0042c515:
       this->field1_0x4 = 0;
     }
     if (this->field1_0x4 == 0) {
-      createDirectoryInCWD("replay");
+      FileSystem::CreateDirectoryInCWD("replay");
       for (local_10 = 0; local_10 < 0xf; local_10 = local_10 + 1) {
         sprintf(local_5c,"./replay/th6_%.2d.rpy",local_10 + 1);
         local_14 = (ReplayData *)FileSystem::OpenPath(local_5c,1);

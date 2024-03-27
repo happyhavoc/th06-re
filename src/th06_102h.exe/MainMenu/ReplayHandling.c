@@ -1,9 +1,10 @@
 
-ZunResult __thiscall MainMenu::ReplayHandling(MainMenu *this)
+int __thiscall MainMenu::ReplayHandling(MainMenu *this)
 
 {
   ZunResult ZVar2;
   int nextFile;
+  int result;
   int _;
   ReplayData *nextReplayData;
   char **headerMemset;
@@ -27,7 +28,7 @@ ZunResult __thiscall MainMenu::ReplayHandling(MainMenu *this)
       if (ZVar2 != ZUN_SUCCESS) {
         GameErrorContextLog(&g_GameErrorContext,"セレクト画面の読み込みに失敗\n");
         g_Supervisor.curState = 4;
-        ZVar2 = ZUN_SUCCESS;
+        result = 0;
         goto exit;
       }
       replayFileIdx = 0;
@@ -130,7 +131,7 @@ ZunResult __thiscall MainMenu::ReplayHandling(MainMenu *this)
                 (StageReplayData *)0x0) goto LAB_0043877b;
             this->cursor = this->cursor + 1;
           } while ((int)this->cursor < 7);
-          ZVar2 = ZUN_SUCCESS;
+          result = 0;
           goto exit;
         }
       }
@@ -190,7 +191,7 @@ LAB_0043877b:
       this->currentReplay = (ReplayData *)0x0;
       g_GameManager.current_stage = this->cursor;
       g_Supervisor.curState = 2;
-      ZVar2 = 1;
+      result = 1;
       goto exit;
     }
     if (((g_CurFrameInput & 10) != 0) && ((g_CurFrameInput & 10) != (g_LastFrameInput & 10))) {
@@ -212,9 +213,9 @@ LAB_0043877b:
       this->cursor = this->chosenReplay;
     }
   }
-  ZVar2 = ZUN_SUCCESS;
+  result = 0;
 exit:
   __security_check_cookie(stackCookie ^ unaff_retaddr);
-  return ZVar2;
+  return result;
 }
 

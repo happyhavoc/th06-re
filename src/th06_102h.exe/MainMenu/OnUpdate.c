@@ -6,8 +6,8 @@ undefined4 MainMenu::OnUpdate(MainMenu *menu)
   DWORD time;
   ZunResult startedUp;
   int pressedButton;
+  int gameState;
   ZunResult ZVar1;
-  int maxClearCheck;
   bool hasLoadedSprite;
   uint chosenStage;
   uint local_b4;
@@ -29,10 +29,10 @@ undefined4 MainMenu::OnUpdate(MainMenu *menu)
     time = timeGetTime();
     timeEndPeriod(1);
     menu->unk_10f2c = menu->unk_10f2c + 1;
-    maxClearCheck = time - menu->time_related;
-    if (maxClearCheck < 700) {
-      if (499 < maxClearCheck) {
-        fVar1 = ((float)menu->unk_10f2c * 1000.0) / (float)maxClearCheck;
+    gameState = time - menu->time_related;
+    if (gameState < 700) {
+      if (499 < gameState) {
+        fVar1 = ((float)menu->unk_10f2c * 1000.0) / (float)gameState;
         if (57.0 <= fVar1) {
           (&menu->field218_0x10ee4)[menu->unk_10ee0] = (float *)fVar1;
           menu->unk_10ee0 = menu->unk_10ee0 + 1;
@@ -88,8 +88,8 @@ switchD_004358f7_caseD_2:
   case STATE_MAIN_MENU:
     goto switchD_004358f7_caseD_2;
   case STATE_OPTIONS:
-    maxClearCheck = FUN_00439137(menu);
-    if (maxClearCheck != 0) {
+    gameState = FUN_00439137(menu);
+    if (gameState != 0) {
       return 0;
     }
     break;
@@ -135,9 +135,9 @@ switchD_004358f7_caseD_2:
       vm_memset = vm_memset + 1;
     }
     if (31 < menu->stateTimer) {
-      maxClearCheck = joystickcheck_only_called_in_keyconfig();
+      gameState = joystickcheck_only_called_in_keyconfig();
       sVar1 = 0;
-      while ((sVar1 < 0x20 && ((*(byte *)(maxClearCheck + sVar1) & 0x80) == 0))) {
+      while ((sVar1 < 0x20 && ((*(byte *)(gameState + sVar1) & 0x80) == 0))) {
         sVar1 = sVar1 + 1;
       }
       if ((sVar1 < 0x20) && (DAT_00478690 != sVar1)) {
@@ -321,12 +321,12 @@ switchD_004358f7_caseD_2:
         else {
           (menu->field85_0x5a50).pendingInterrupt = 8;
           g_GameManager.difficulty = EXTRA;
-          maxClearCheck =
-               GameManager::hasReachedMaxClears(&g_GameManager,(uint)g_GameManager.character,0);
-          if ((maxClearCheck == 0) &&
-             (maxClearCheck =
-                   GameManager::hasReachedMaxClears(&g_GameManager,(uint)g_GameManager.character,1),
-             maxClearCheck == 0)) {
+          gameState = GameManager::hasReachedMaxClears
+                                (&g_GameManager,(uint)g_GameManager.character,0);
+          if ((gameState == 0) &&
+             (gameState = GameManager::hasReachedMaxClears
+                                    (&g_GameManager,(uint)g_GameManager.character,1), gameState == 0
+             )) {
             menu->cursor = 1 - g_GameManager.character;
           }
           else {
@@ -378,10 +378,10 @@ LAB_0043666d:
           menu->cursor = menu->cursor + 2;
         }
         if (((g_GameManager.difficulty == EXTRA) &&
-            (maxClearCheck = GameManager::hasReachedMaxClears(&g_GameManager,menu->cursor,0),
-            maxClearCheck == 0)) &&
-           (maxClearCheck = GameManager::hasReachedMaxClears(&g_GameManager,menu->cursor,1),
-           maxClearCheck == 0)) {
+            (gameState = GameManager::hasReachedMaxClears(&g_GameManager,menu->cursor,0),
+            gameState == 0)) &&
+           (gameState = GameManager::hasReachedMaxClears(&g_GameManager,menu->cursor,1),
+           gameState == 0)) {
           menu->cursor = menu->cursor + 1;
           if (1 < (int)menu->cursor) {
             menu->cursor = menu->cursor - 2;
@@ -410,10 +410,10 @@ LAB_0043666d:
         menu->cursor = menu->cursor - 2;
       }
       if (((g_GameManager.difficulty != EXTRA) ||
-          (maxClearCheck = GameManager::hasReachedMaxClears(&g_GameManager,menu->cursor,0),
-          maxClearCheck != 0)) ||
-         (maxClearCheck = GameManager::hasReachedMaxClears(&g_GameManager,menu->cursor,1),
-         maxClearCheck != 0)) {
+          (gameState = GameManager::hasReachedMaxClears(&g_GameManager,menu->cursor,0),
+          gameState != 0)) ||
+         (gameState = GameManager::hasReachedMaxClears(&g_GameManager,menu->cursor,1),
+         gameState != 0)) {
         SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xc,0);
         vm_memset = &menu->field86_0x5b60;
         for (i = 0; i < 2; i = i + 1) {
@@ -464,11 +464,10 @@ LAB_0043666d:
           menu->cursor = (uint)g_GameManager.shottype;
         }
         else {
-          maxClearCheck =
-               GameManager::hasReachedMaxClears
-                         (&g_GameManager,(uint)g_GameManager.character,(uint)g_GameManager.shottype)
-          ;
-          if (maxClearCheck == 0) {
+          gameState = GameManager::hasReachedMaxClears
+                                (&g_GameManager,(uint)g_GameManager.character,
+                                 (uint)g_GameManager.shottype);
+          if (gameState == 0) {
             menu->cursor = 1 - g_GameManager.shottype;
           }
           else {
@@ -505,10 +504,9 @@ LAB_0043666d:
   case STATE_SHOT_SELECT:
     MoveCursor(menu,2);
     if ((g_GameManager.difficulty == EXTRA) &&
-       (maxClearCheck =
-             GameManager::hasReachedMaxClears
-                       (&g_GameManager,(uint)g_GameManager.character,menu->cursor),
-       maxClearCheck == 0)) {
+       (gameState = GameManager::hasReachedMaxClears
+                              (&g_GameManager,(uint)g_GameManager.character,menu->cursor),
+       gameState == 0)) {
       menu->cursor = 1 - menu->cursor;
     }
     vm_memset = &menu->field92_0x61c0;
@@ -632,8 +630,8 @@ LAB_0043666d:
   case STATE_REPLAY_ANIM:
   case STATE_REPLAY_UNLOAD:
   case STATE_REPLAY_SELECT:
-    ZVar1 = ReplayHandling(menu);
-    if (ZVar1 != ZUN_SUCCESS) {
+    gameState = ReplayHandling(menu);
+    if (gameState != 0) {
       return 0;
     }
     break;

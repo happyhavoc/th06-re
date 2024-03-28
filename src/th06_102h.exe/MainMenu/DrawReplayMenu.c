@@ -37,7 +37,7 @@ undefined4 __thiscall MainMenu::DrawReplayMenu(MainMenu *this)
                         */
     AsciiManager::AddFormatText
               (&g_AsciiManager,&vm_ref[1].pos,"%s %8s  %8s %7s  %7s",this->replayFileName + i,
-               &this->replayFileData[i].field_0x19,&this->replayFileData[i].field_0x10,
+               &this->replayFileData[i].field_0x19,this->replayFileData[i].date,
                (&g_shortCharacterList)[this->replayFileData[i].shottype_chara],
                (&g_difficultyList)[this->replayFileData[i].difficulty]);
     vm_ref = vm_ref + 1;

@@ -22,8 +22,8 @@ ZunResult DemoAddedCallback(ReplayManager *param_1)
       if (param_1->data->stage_score[local_c + 1] != (StageReplayData *)0x0) {
         param_1->data->stage_score[local_c + 1] =
              (StageReplayData *)
-             ((int)param_1->data->stage_score +
-             (int)(param_1->data->stage_score[local_c + 1][-1].replay_inputs + 0xd2e8));
+             (param_1->data->date +
+             (int)(param_1->data->stage_score[local_c + 1][-1].replay_inputs + 0xd2ec));
       }
     }
   }

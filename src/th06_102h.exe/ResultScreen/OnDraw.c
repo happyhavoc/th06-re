@@ -272,10 +272,10 @@ void ResultScreen::OnDraw(ResultScreen *param_1)
       if (param_1->unk_8 == 0xd) {
         AsciiManager::AddFormatText
                   (&g_AsciiManager,&local_40,"No.%.2d %8s %8s %7s %9d",local_14 + 1,
-                   &param_1->field_0x34,&param_1->field_0x5670,
+                   &param_1->field_0x34,param_1->date,
                    (&PTR_s_ReimuA_00478518)
-                   [(uint)g_GameManager.shottype + (uint)g_GameManager.character * 2],
-                   *(undefined4 *)&param_1->field_0x5684);
+                   [(uint)g_GameManager.shottype + (uint)g_GameManager.character * 2],param_1->score
+                  );
         g_AsciiManager.color = 0xfff0f0ff;
         local_24 = 0x20202020;
         local_20 = 0x20202020;

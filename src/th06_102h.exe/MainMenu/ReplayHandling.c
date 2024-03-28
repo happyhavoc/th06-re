@@ -8,7 +8,8 @@ int __thiscall MainMenu::ReplayHandling(MainMenu *this)
   int _;
   ReplayData *nextReplayData;
   char **headerMemset;
-  ReplayData *memsetHeader;
+  ReplayData *replayCopy;
+  MainMenu *this2;
   _WIN32_FIND_DATAA replayFileInfo;
   char replayFilePath [64];
   uint stackCookie;
@@ -63,11 +64,11 @@ int __thiscall MainMenu::ReplayHandling(MainMenu *this)
             ZVar2 = validateReplayData(replayData,g_LastFileSize);
             if (ZVar2 == ZUN_SUCCESS) {
               nextReplayData = replayData;
-              memsetHeader = this->replayFileData + replayFileIdx;
+              replayCopy = this->replayFileData + replayFileIdx;
               for (_ = 0x14; _ != 0; _ = _ + -1) {
-                memsetHeader->magic = nextReplayData->magic;
+                replayCopy->magic = nextReplayData->magic;
                 nextReplayData = (ReplayData *)&nextReplayData->version;
-                memsetHeader = (ReplayData *)&memsetHeader->version;
+                replayCopy = (ReplayData *)&replayCopy->version;
               }
               sprintf(this->replayFilePaths[replayFileIdx],"./replay/%s",replayFileInfo.cFileName);
               sprintf(this->replayFileName[replayFileIdx],"User ");
@@ -122,8 +123,8 @@ int __thiscall MainMenu::ReplayHandling(MainMenu *this)
             if (this->currentReplay->stage_score[cur + 1] != (StageReplayData *)0x0) {
               this->currentReplay->stage_score[cur + 1] =
                    (StageReplayData *)
-                   ((int)this->currentReplay->stage_score +
-                   (int)(this->currentReplay->stage_score[cur + 1][-1].replay_inputs + 0xd2e8));
+                   (this->currentReplay->date +
+                   (int)(this->currentReplay->stage_score[cur + 1][-1].replay_inputs + 0xd2ec));
             }
           }
           do {

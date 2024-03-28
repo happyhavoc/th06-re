@@ -9,7 +9,7 @@ void __thiscall ResultScreen::FUN_0042c2d4(ResultScreen *this)
   uint unaff_retaddr;
   int local_b8;
   int local_b4;
-  char local_a4 [68];
+  char replayPath [68];
   int local_60;
   char local_5c [68];
   uint local_18;
@@ -158,8 +158,8 @@ void __thiscall ResultScreen::FUN_0042c2d4(ResultScreen *this)
             (&this->field_0x34)[local_b4] = 0x20;
           }
           else {
-            sprintf(local_a4,"./replay/th6_%.2d.rpy",*(int *)&this->field_0x1c + 1);
-            SaveReplay(local_a4,&this->field_0x34);
+            sprintf(replayPath,"./replay/th6_%.2d.rpy",*(int *)&this->field_0x1c + 1);
+            SaveReplay(replayPath,&this->field_0x34);
             this->field1_0x4 = 0;
             this->unk_8 = 2;
             local_8 = &this->unk_40;
@@ -263,8 +263,8 @@ LAB_0042c515:
         SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,10,0);
         *(int *)&this->field_0x1c = this->unk_10;
         this->field1_0x4 = 0;
-        FUN_0045d414(&this->field_0x5670);
-        *(uint *)&this->field_0x5684 = g_GameManager.score;
+        setDate(this->date);
+        this->score = g_GameManager.score;
         if ((*(char (*) [4])((int)&this->hscr + this->unk_10 * 0x50 + 0x30) == (char  [4])0x50523654
             ) && (*(short *)((int)&this->hscr + this->unk_10 * 0x50 + 0x34) == 0x102)) {
           local_8 = &this->unk_40;

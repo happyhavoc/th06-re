@@ -68,7 +68,7 @@ ChainCallbackResult Supervisor::OnUpdate(Supervisor *supervisor)
 LAB_004235a0:
       GameManager::CutChain();
       supervisor->curState = 0;
-      ReplayDoStuff((char *)0x0,(char *)0x0);
+      SaveReplay((char *)0x0,(char *)0x0);
 LAB_00423454:
       supervisor->curState = 1;
       (*(g_Supervisor.d3dDevice)->lpVtbl->ResourceManagerDiscardBytes)(g_Supervisor.d3dDevice,0);
@@ -100,7 +100,7 @@ LAB_00423454:
       else if (state == 8) {
         GameManager::CutChain();
         supervisor->curState = 0;
-        ReplayDoStuff((char *)0x0,(char *)0x0);
+        SaveReplay((char *)0x0,(char *)0x0);
         supervisor->curState = 1;
         (*(g_Supervisor.d3dDevice)->lpVtbl->ResourceManagerDiscardBytes)(g_Supervisor.d3dDevice,0);
         ZVar1 = MainMenu::RegisterChain(1);
@@ -129,11 +129,11 @@ LAB_00423454:
   else if (state == 7) {
     if (supervisor->curState == 1) {
       supervisor->curState = 0;
-      ReplayDoStuff((char *)0x0,(char *)0x0);
+      SaveReplay((char *)0x0,(char *)0x0);
       goto LAB_00423454;
     }
     if (supervisor->curState == 4) {
-      ReplayDoStuff((char *)0x0,(char *)0x0);
+      SaveReplay((char *)0x0,(char *)0x0);
       return CHAIN_CALLBACK_RESULT_EXIT_GAME_SUCCESS;
     }
   }

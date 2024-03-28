@@ -159,7 +159,7 @@ void __thiscall ResultScreen::FUN_0042c2d4(ResultScreen *this)
           }
           else {
             sprintf(local_a4,"./replay/th6_%.2d.rpy",*(int *)&this->field_0x1c + 1);
-            ReplayDoStuff(local_a4,&this->field_0x34);
+            SaveReplay(local_a4,&this->field_0x34);
             this->field1_0x4 = 0;
             this->unk_8 = 2;
             local_8 = &this->unk_40;

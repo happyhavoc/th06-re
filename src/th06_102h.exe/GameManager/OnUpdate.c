@@ -10,11 +10,11 @@ ChainCallbackResult GameManager::OnUpdate(GameManager *this)
     if ((g_CurFrameInput != 0) && (g_CurFrameInput != g_LastFrameInput)) {
       g_Supervisor.curState = 1;
     }
-    *(int *)&this->field_0x1828 = *(int *)&this->field_0x1828 + 1;
-    if (*(int *)&this->field_0x1828 == 0xe10) {
+    this->field35_0x1828 = this->field35_0x1828 + 1;
+    if (this->field35_0x1828 == 0xe10) {
       ScreenEffect::RegisterChain(2,0x78,0,0,0);
     }
-    if (0xe87 < *(int *)&this->field_0x1828) {
+    if (0xe87 < this->field35_0x1828) {
       g_Supervisor.curState = 1;
     }
   }

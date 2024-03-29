@@ -25,10 +25,10 @@ ZunResult GameManager::AddedCallback(GameManager *gameManager)
     (gameManager->arcade_region_top_left_pos).y = 16.0;
     (gameManager->arcade_region_size).x = 384.0;
     (gameManager->arcade_region_size).y = 448.0;
-    gameManager->field49_0x1a4c = 8.0;
-    gameManager->field50_0x1a50 = 16.0;
-    gameManager->field51_0x1a54 = 368.0;
-    gameManager->field52_0x1a58 = 416.0;
+    gameManager->field46_0x1a4c = 8.0;
+    gameManager->field47_0x1a50 = 16.0;
+    gameManager->field48_0x1a54 = 368.0;
+    gameManager->field49_0x1a58 = 416.0;
     gameManager->counat = 0;
     gameManager->field0_0x0 = 0;
     gameManager->score = 0;
@@ -130,7 +130,7 @@ ZunResult GameManager::AddedCallback(GameManager *gameManager)
     gameManager->max_rank = DifficultyInfo_ARRAY_00476528[g_GameManager.difficulty].max_rank;
   }
   g_Rng.generationCount = 0;
-  gameManager->field41_0x1a2c = g_Rng.seed;
+  gameManager->field38_0x1a2c = g_Rng.seed;
   ZVar4 = Stage::RegisterChain(gameManager->current_stage);
   if (ZVar4 == ZUN_SUCCESS) {
     ZVar4 = Player::RegisterChain(0);

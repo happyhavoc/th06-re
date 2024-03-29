@@ -69,7 +69,7 @@ undefined4 __thiscall MainMenu::DrawReplayMenu(MainMenu *this)
           g_AsciiManager.color = 0xff808080;
         }
       }
-      if (this->currentReplay->stage_score[i + 1] == (StageReplayData *)0x0) {
+      if (this->currentReplay->stage_score[i] == (StageReplayData *)0x0) {
         AsciiManager::AddFormatText(&g_AsciiManager,&vm_ref[1].pos,"%s ---------");
       }
       else {

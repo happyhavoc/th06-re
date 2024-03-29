@@ -24,7 +24,7 @@ ZunResult MainMenu::RegisterChain(int param_1)
     g_MainMenu.chain_draw = Chain::CreateElem(&g_Chain,OnDraw);
     (g_MainMenu.chain_draw)->arg = &g_MainMenu;
     Chain::AddToDrawChain(&g_Chain,g_MainMenu.chain_draw,0);
-    g_MainMenu.time_related = 0;
+    g_MainMenu.lastFrameTime = 0;
     g_MainMenu.stateTimer = 0x3c;
     g_MainMenu.unk_10f2c = 0;
     ZVar3 = ZUN_SUCCESS;

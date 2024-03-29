@@ -8,6 +8,7 @@ undefined4 MainMenu::OnUpdate(MainMenu *menu)
   int pressedButton;
   int gameState;
   ZunResult ZVar1;
+  int deltaTime;
   bool hasLoadedSprite;
   uint chosenStage;
   uint local_b4;
@@ -20,29 +21,29 @@ undefined4 MainMenu::OnUpdate(MainMenu *menu)
   int i;
   float fVar1;
   
-  if (menu->unk_10ee0 < 0x10) {
+  if (menu->timeRelatedArrSize < 0x10) {
     timeBeginPeriod(1);
-    if (menu->time_related == 0) {
+    if (menu->lastFrameTime == 0) {
       time = timeGetTime();
-      menu->time_related = time;
+      menu->lastFrameTime = time;
     }
     time = timeGetTime();
     timeEndPeriod(1);
     menu->unk_10f2c = menu->unk_10f2c + 1;
-    gameState = time - menu->time_related;
-    if (gameState < 700) {
-      if (499 < gameState) {
-        fVar1 = ((float)menu->unk_10f2c * 1000.0) / (float)gameState;
+    deltaTime = time - menu->lastFrameTime;
+    if (deltaTime < 700) {
+      if (499 < deltaTime) {
+        fVar1 = ((float)menu->unk_10f2c * 1000.0) / (float)deltaTime;
         if (57.0 <= fVar1) {
-          (&menu->field218_0x10ee4)[menu->unk_10ee0] = (float *)fVar1;
-          menu->unk_10ee0 = menu->unk_10ee0 + 1;
+          menu->timeRelatedArr[menu->timeRelatedArrSize] = fVar1;
+          menu->timeRelatedArrSize = menu->timeRelatedArrSize + 1;
         }
-        menu->time_related = time;
+        menu->lastFrameTime = time;
         menu->unk_10f2c = 0;
       }
     }
     else {
-      menu->time_related = time;
+      menu->lastFrameTime = time;
       menu->unk_10f2c = 0;
     }
   }
@@ -63,7 +64,7 @@ undefined4 MainMenu::OnUpdate(MainMenu *menu)
 load_menu_rpy:
       g_GameManager.field7_0x1c = 1;
       g_GameManager.demo_mode = 1;
-      g_GameManager._6184_4_ = 0;
+      g_GameManager.field35_0x1828 = 0;
       g_Supervisor.framerateMultiplier = 1.0;
       _strcpy(g_GameManager.replay_file,"data/demo/demo00.rpy");
       g_GameManager.difficulty = LUNATIC;
@@ -76,7 +77,7 @@ load_menu_rpy:
     pressedButton = FUN_004379e4(menu);
     if (pressedButton == 0) {
       menu->idleFrames = 0;
-switchD_004358f7_caseD_2:
+drawStartMenuCase:
       DrawStartMenu(menu);
       if (g_CurFrameInput != 0) {
         menu->idleFrames = 0;
@@ -86,9 +87,9 @@ switchD_004358f7_caseD_2:
     }
     break;
   case STATE_MAIN_MENU:
-    goto switchD_004358f7_caseD_2;
+    goto drawStartMenuCase;
   case STATE_OPTIONS:
-    gameState = FUN_00439137(menu);
+    gameState = drawOptionsMenu(menu);
     if (gameState != 0) {
       return 0;
     }
@@ -226,7 +227,7 @@ switchD_004358f7_caseD_2:
     break;
   case STATE_DIFFICULTY_LOAD:
     if (menu->stateTimer != 0x3c) break;
-    ZVar1 = loadMenu(menu);
+    ZVar1 = loadDiffCharSelect(menu);
     if (ZVar1 != ZUN_SUCCESS) {
       GameErrorContextLog(&g_GameErrorContext,"セレクト画面の読み込みに失敗\n");
       g_Supervisor.curState = 4;
@@ -578,7 +579,7 @@ LAB_0043666d:
             }
             vm_memset = vm_memset + 2;
           }
-          menu->cursor = g_GameManager.field46_0x1a38;
+          menu->cursor = g_GameManager.field43_0x1a38;
           if (*(byte *)(((uint)g_GameManager.shottype + (uint)g_GameManager.character * 2) * 0x18 +
                         0x69cce1 + g_GameManager.difficulty) < 7) {
             local_b4 = (uint)*(byte *)(((uint)g_GameManager.shottype +
@@ -661,7 +662,7 @@ LAB_0043666d:
         if (((g_CurFrameInput & 0x1001) != 0) &&
            ((g_CurFrameInput & 0x1001) != (g_LastFrameInput & 0x1001))) {
           g_GameManager.current_stage = menu->cursor;
-          g_GameManager.field46_0x1a38 = menu->cursor;
+          g_GameManager.field43_0x1a38 = menu->cursor;
 LAB_00436de7:
           g_GameManager.lives_remaining = g_Supervisor.cfg.lifeCount;
           g_GameManager.bombs_remaining = g_Supervisor.cfg.bombCount;
@@ -673,12 +674,12 @@ LAB_00436de7:
           SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,10,0);
           g_GameManager.field7_0x1c = 0;
           local_48 = 0.0;
-          if (menu->unk_10ee0 < 2) {
+          if (menu->timeRelatedArrSize < 2) {
             local_48 = 60.0;
           }
           else {
-            for (i = 0; i < menu->unk_10ee0; i = i + 1) {
-              local_48 = local_48 + (float)(&menu->field218_0x10ee4)[i];
+            for (i = 0; i < menu->timeRelatedArrSize; i = i + 1) {
+              local_48 = local_48 + menu->timeRelatedArr[i];
             }
             local_48 = local_48 / (float)i;
           }

@@ -1,5 +1,5 @@
 
-ZunResult MainMenu::loadMenu(int param_1)
+ZunResult MainMenu::loadDiffCharSelect(int param_1)
 
 {
   ZunResult loadAnm;

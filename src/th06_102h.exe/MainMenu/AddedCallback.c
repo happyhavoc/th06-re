@@ -71,7 +71,7 @@ LAB_0043a520:
     }
   }
   g_GameManager.demo_mode = 0;
-  g_GameManager._6184_4_ = 0;
+  g_GameManager.field35_0x1828 = 0;
   return 0;
 }
 

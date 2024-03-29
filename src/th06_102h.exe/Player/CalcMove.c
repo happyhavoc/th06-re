@@ -155,26 +155,26 @@ undefined4 __thiscall Player::CalcMove(Player *this)
   pfVar6 = &(this->position).y;
   *pfVar6 = local_c * this->field18_0x9d4 * g_Supervisor.effectiveFramerateMultiplier + *pfVar6;
   fVar1 = (this->position).x;
-  if (fVar1 < g_GameManager.field49_0x1a4c == (NAN(fVar1) || NAN(g_GameManager.field49_0x1a4c))) {
+  if (fVar1 < g_GameManager.field46_0x1a4c == (NAN(fVar1) || NAN(g_GameManager.field46_0x1a4c))) {
     fVar1 = (this->position).x;
-    if (g_GameManager.field49_0x1a4c + g_GameManager.field51_0x1a54 < fVar1 !=
-        (NAN(g_GameManager.field49_0x1a4c + g_GameManager.field51_0x1a54) || NAN(fVar1))) {
-      (this->position).x = g_GameManager.field49_0x1a4c + g_GameManager.field51_0x1a54;
+    if (g_GameManager.field46_0x1a4c + g_GameManager.field48_0x1a54 < fVar1 !=
+        (NAN(g_GameManager.field46_0x1a4c + g_GameManager.field48_0x1a54) || NAN(fVar1))) {
+      (this->position).x = g_GameManager.field46_0x1a4c + g_GameManager.field48_0x1a54;
     }
   }
   else {
-    (this->position).x = g_GameManager.field49_0x1a4c;
+    (this->position).x = g_GameManager.field46_0x1a4c;
   }
   fVar1 = (this->position).y;
-  if (fVar1 < g_GameManager.field50_0x1a50 == (NAN(fVar1) || NAN(g_GameManager.field50_0x1a50))) {
+  if (fVar1 < g_GameManager.field47_0x1a50 == (NAN(fVar1) || NAN(g_GameManager.field47_0x1a50))) {
     fVar1 = (this->position).y;
-    if (g_GameManager.field50_0x1a50 + g_GameManager.field52_0x1a58 < fVar1 !=
-        (NAN(g_GameManager.field50_0x1a50 + g_GameManager.field52_0x1a58) || NAN(fVar1))) {
-      (this->position).y = g_GameManager.field50_0x1a50 + g_GameManager.field52_0x1a58;
+    if (g_GameManager.field47_0x1a50 + g_GameManager.field49_0x1a58 < fVar1 !=
+        (NAN(g_GameManager.field47_0x1a50 + g_GameManager.field49_0x1a58) || NAN(fVar1))) {
+      (this->position).y = g_GameManager.field47_0x1a50 + g_GameManager.field49_0x1a58;
     }
   }
   else {
-    (this->position).y = g_GameManager.field50_0x1a50;
+    (this->position).y = g_GameManager.field47_0x1a50;
   }
   fVar1 = (this->position).z;
   fVar2 = (this->field8_0x488).z;

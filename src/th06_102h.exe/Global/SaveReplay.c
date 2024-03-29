@@ -50,12 +50,12 @@ void SaveReplay(char *replay_path,char *param_2)
         FUN_0042aab0();
         local_68 = (StageReplayData *)0x50;
         for (j = 0; (int)j < 7; j = j + 1) {
-          if (rpy_manager->data->stage_score[j + 1] != (StageReplayData *)0x0) {
-            replayCopy.stage_score[j + 1] = local_68;
+          if (rpy_manager->data->stage_score[j] != (StageReplayData *)0x0) {
+            replayCopy.stage_score[j] = local_68;
             local_68 = (StageReplayData *)
                        ((int)local_68 +
                        ((int)rpy_manager->replayInputAddresses[j] -
-                       (int)rpy_manager->data->stage_score[j + 1]));
+                       (int)rpy_manager->data->stage_score[j]));
           }
         }
         DebugPrint2("%s write ...\n",replay_path);
@@ -72,8 +72,9 @@ void SaveReplay(char *replay_path,char *param_2)
         }
         replayCopy._44_4_ = (1.0 - slowDown) * 100.0;
         replayCopy._40_4_ = (float)replayCopy._44_4_ + 1.12;
-        replayCopy.stage_score[0] = (StageReplayData *)((float)replayCopy._44_4_ + 2.34);
-        rpy_manager->data->stage_score[g_GameManager.current_stage]->score = g_GameManager.score;
+        replayCopy._48_4_ = (float)replayCopy._44_4_ + 2.34;
+        rpy_manager->data->stage_score[g_GameManager.current_stage + -1]->score =
+             g_GameManager.score;
         local_90 = param_2;
         local_94 = &replayCopy.field_0x19;
         do {
@@ -104,13 +105,13 @@ void SaveReplay(char *replay_path,char *param_2)
           uStack_75 = (undefined)((uint)pcVar4 >> 0x18);
         }
         for (j = 0; (int)j < 7; j = j + 1) {
-          if (rpy_manager->data->stage_score[j + 1] != (StageReplayData *)0x0) {
-            pSVar3 = rpy_manager->data->stage_score[j + 1];
+          if (rpy_manager->data->stage_score[j] != (StageReplayData *)0x0) {
+            pSVar3 = rpy_manager->data->stage_score[j];
             uStack_75 = (undefined)((uint)pSVar3 >> 0x18);
             for (local_70 = 0;
                 local_70 <
-                (int)rpy_manager->replayInputAddresses[j] -
-                (int)rpy_manager->data->stage_score[j + 1]; local_70 = local_70 + 1) {
+                (int)rpy_manager->replayInputAddresses[j] - (int)rpy_manager->data->stage_score[j];
+                local_70 = local_70 + 1) {
               uStack_78 = SUB43(pSVar3,0);
               checksum = checksum + *(byte *)CONCAT13(uStack_75,uStack_78);
               pSVar3 = (StageReplayData *)(CONCAT13(uStack_75,uStack_78) + 1);
@@ -127,12 +128,12 @@ void SaveReplay(char *replay_path,char *param_2)
           local_84 = (StageReplayData *)((int)local_84 + 1);
         }
         for (j = 0; (int)j < 7; j = j + 1) {
-          if (rpy_manager->data->stage_score[j + 1] != (StageReplayData *)0x0) {
-            local_84 = rpy_manager->data->stage_score[j + 1];
+          if (rpy_manager->data->stage_score[j] != (StageReplayData *)0x0) {
+            local_84 = rpy_manager->data->stage_score[j];
             for (local_80 = 0;
                 local_80 <
-                (int)rpy_manager->replayInputAddresses[j] -
-                (int)rpy_manager->data->stage_score[j + 1]; local_80 = local_80 + 1) {
+                (int)rpy_manager->replayInputAddresses[j] - (int)rpy_manager->data->stage_score[j];
+                local_80 = local_80 + 1) {
               *(uint8_t *)&local_84->score = *(char *)&local_84->score + local_79;
               local_79 = local_79 + 7;
               local_84 = (StageReplayData *)((int)&local_84->score + 1);
@@ -142,20 +143,20 @@ void SaveReplay(char *replay_path,char *param_2)
         _File = fopen(replay_path,"wb");
         fwrite(&replayCopy,0x50,1,_File);
         for (j = 0; (int)j < 7; j = j + 1) {
-          if (rpy_manager->data->stage_score[j + 1] != (StageReplayData *)0x0) {
-            fwrite(rpy_manager->data->stage_score[j + 1],1,
+          if (rpy_manager->data->stage_score[j] != (StageReplayData *)0x0) {
+            fwrite(rpy_manager->data->stage_score[j],1,
                    (int)rpy_manager->replayInputAddresses[j] -
-                   (int)rpy_manager->data->stage_score[j + 1],_File);
+                   (int)rpy_manager->data->stage_score[j],_File);
           }
         }
         fclose(_File);
       }
       for (j = 0; (int)j < 7; j = j + 1) {
-        if (g_ReplayManager->data->stage_score[j + 1] != (StageReplayData *)0x0) {
+        if (g_ReplayManager->data->stage_score[j] != (StageReplayData *)0x0) {
           DebugPrint2("Replay Size %d\n",
                       (int)rpy_manager->replayInputAddresses[j] -
-                      (int)rpy_manager->data->stage_score[j + 1]);
-          _free(g_ReplayManager->data->stage_score[j + 1]);
+                      (int)rpy_manager->data->stage_score[j]);
+          _free(g_ReplayManager->data->stage_score[j]);
         }
       }
     }

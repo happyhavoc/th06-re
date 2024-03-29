@@ -1,7 +1,5 @@
 
-/* WARNING: Unknown calling convention -- yet parameter storage is locked */
-
-undefined4 MainMenu::OnDraw(MainMenu *param_1)
+undefined4 MainMenu::OnDraw(MainMenu *menu)
 
 {
   float fVar1;
@@ -10,36 +8,34 @@ undefined4 MainMenu::OnDraw(MainMenu *param_1)
   bool bVar4;
   AnmVm *curVm;
   int vmIdx;
-  zRect local_18;
+  zRect window;
   int local_8;
   
-  curVm = &param_1->vm1;
-  local_18.left = 0.0;
-  local_18.top = 0.0;
-  local_18.right = 640.0;
-  local_18.bottom = 480.0;
-  if (param_1->gameState != STATE_STARTUP) {
+  curVm = &menu->vm1;
+  window.left = 0.0;
+  window.top = 0.0;
+  window.right = 640.0;
+  window.bottom = 480.0;
+  if (menu->gameState != STATE_STARTUP) {
     g_AnmManager->currentTexture = (IDirect3DTexture8 *)0x0;
     AnmManager::CopySurfaceToBackBuffer(g_AnmManager,0,0,0,0,0);
-    if (param_1->isActive == 0) {
-      if (param_1->unk_820c != 0) {
-        param_1->unk_820c = param_1->unk_820c - 1;
-        local_8 = (param_1->maybe_menu_text_color >> 0x18) - ((uint)param_1->unk_81fc >> 0x18);
-        DrawSquare(&local_18,
-                   ((local_8 * param_1->unk_820c) / param_1->wasActive +
-                   ((uint)param_1->unk_81fc >> 0x18)) * 0x1000000 |
-                   param_1->maybe_menu_text_color & 0xffffff);
+    if (menu->isActive == 0) {
+      if (menu->unk_820c != 0) {
+        menu->unk_820c = menu->unk_820c - 1;
+        local_8 = (menu->maybe_menu_text_color >> 0x18) - ((uint)menu->unk_81fc >> 0x18);
+        DrawSquare(&window,((local_8 * menu->unk_820c) / menu->wasActive +
+                           ((uint)menu->unk_81fc >> 0x18)) * 0x1000000 |
+                           menu->maybe_menu_text_color & 0xffffff);
       }
     }
     else {
-      if ((int)param_1->unk_820c < (int)param_1->isActive) {
-        param_1->unk_820c = param_1->unk_820c + 1;
+      if ((int)menu->unk_820c < (int)menu->isActive) {
+        menu->unk_820c = menu->unk_820c + 1;
       }
-      local_8 = (param_1->maybe_menu_text_color >> 0x18) - ((uint)param_1->unk_81fc >> 0x18);
-      DrawSquare(&local_18,
-                 ((local_8 * param_1->unk_820c) / param_1->isActive +
-                 ((uint)param_1->unk_81fc >> 0x18)) * 0x1000000 |
-                 param_1->maybe_menu_text_color & 0xffffff);
+      local_8 = (menu->maybe_menu_text_color >> 0x18) - ((uint)menu->unk_81fc >> 0x18);
+      DrawSquare(&window,((local_8 * menu->unk_820c) / menu->isActive +
+                         ((uint)menu->unk_81fc >> 0x18)) * 0x1000000 |
+                         menu->maybe_menu_text_color & 0xffffff);
     }
     for (vmIdx = 0; vmIdx < 0x62; vmIdx = vmIdx + 1) {
       if (curVm->sprite == (AnmLoadedSprite *)0x0) {
@@ -65,10 +61,10 @@ undefined4 MainMenu::OnDraw(MainMenu *param_1)
       }
       curVm = curVm + 1;
     }
-    if ((0xc < (int)param_1->gameState) && ((int)param_1->gameState < 0x10)) {
-      DrawReplayMenu(param_1);
+    if ((0xc < (int)menu->gameState) && ((int)menu->gameState < 0x10)) {
+      DrawReplayMenu(menu);
     }
-    ChoosePracticeLevel(param_1);
+    ChoosePracticeLevel(menu);
   }
   return 1;
 }

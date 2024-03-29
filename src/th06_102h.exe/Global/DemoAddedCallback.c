@@ -19,19 +19,19 @@ ZunResult DemoAddedCallback(ReplayManager *param_1)
       return ZUN_ERROR;
     }
     for (local_c = 0; local_c < 7; local_c = local_c + 1) {
-      if (param_1->data->stage_score[local_c + 1] != (StageReplayData *)0x0) {
-        param_1->data->stage_score[local_c + 1] =
+      if (param_1->data->stage_score[local_c] != (StageReplayData *)0x0) {
+        param_1->data->stage_score[local_c] =
              (StageReplayData *)
              (param_1->data->date +
-             (int)(param_1->data->stage_score[local_c + 1][-1].replay_inputs + 0xd2ec));
+             (int)(param_1->data->stage_score[local_c][-1].replay_inputs + 0xd2ec));
       }
     }
   }
-  if (param_1->data->stage_score[g_GameManager.current_stage] == (StageReplayData *)0x0) {
+  if (param_1->data->stage_score[g_GameManager.current_stage + -1] == (StageReplayData *)0x0) {
     ZVar3 = ZUN_ERROR;
   }
   else {
-    pSVar1 = param_1->data->stage_score[g_GameManager.current_stage];
+    pSVar1 = param_1->data->stage_score[g_GameManager.current_stage + -1];
     g_GameManager.character = (byte)((int)(uint)param_1->data->shottype_chara >> 1);
     g_GameManager.shottype = param_1->data->shottype_chara & 1;
     g_GameManager.difficulty = (Difficulty)param_1->data->difficulty;
@@ -45,8 +45,8 @@ ZunResult DemoAddedCallback(ReplayManager *param_1)
     param_1->replay_inputs = pSVar1->replay_inputs;
     g_GameManager.power_item_count_for_score = pSVar1->power_item_count_for_score;
     if ((1 < g_GameManager.current_stage) &&
-       (param_1->data->stage_score[g_GameManager.current_stage + -1] != (StageReplayData *)0x0)) {
-      g_GameManager.field0_0x0 = param_1->data->stage_score[g_GameManager.current_stage + -1]->score
+       (param_1->data->stage_score[g_GameManager.current_stage + -2] != (StageReplayData *)0x0)) {
+      g_GameManager.field0_0x0 = param_1->data->stage_score[g_GameManager.current_stage + -2]->score
       ;
       g_GameManager.score = g_GameManager.field0_0x0;
     }

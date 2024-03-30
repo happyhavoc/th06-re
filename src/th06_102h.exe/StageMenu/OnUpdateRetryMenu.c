@@ -72,13 +72,14 @@ int __thiscall StageMenu::OnUpdateRetryMenu(StageMenu *this)
     this->vms0[3].pos2.y = 0.0;
     this->vms0[3].pos2.z = 0.0;
     if (3 < this->numFrames) {
-      if ((((g_CurFrameInput & UP) != 0) && ((g_CurFrameInput & UP) != (g_LastFrameInput & UP))) ||
-         (((g_CurFrameInput & DOWN) != 0 && ((g_CurFrameInput & DOWN) != (g_LastFrameInput & DOWN)))
-         )) {
+      if ((((g_CurFrameInput & KEY_UP) != 0) &&
+          ((g_CurFrameInput & KEY_UP) != (g_LastFrameInput & KEY_UP))) ||
+         (((g_CurFrameInput & KEY_DOWN) != 0 &&
+          ((g_CurFrameInput & KEY_DOWN) != (g_LastFrameInput & KEY_DOWN))))) {
         this->curState = 2;
       }
-      if (((g_CurFrameInput & SHOOT) != 0) &&
-         ((g_CurFrameInput & SHOOT) != (g_LastFrameInput & SHOOT))) {
+      if (((g_CurFrameInput & KEY_SHOOT) != 0) &&
+         ((g_CurFrameInput & KEY_SHOOT) != (g_LastFrameInput & KEY_SHOOT))) {
         for (local_8 = 0; local_8 < 4; local_8 = local_8 + 1) {
           this->vms0[local_8].pendingInterrupt = 2;
         }

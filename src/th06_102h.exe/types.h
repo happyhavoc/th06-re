@@ -71345,6 +71345,17 @@ struct ControllerMapping {
     short skipButton;
 };
 
+typedef struct struct struct, *Pstruct;
+
+struct struct {
+    float field0_0x0;
+    float field1_0x4;
+    float field2_0x8;
+    float field3_0xc;
+    void *field4_0x10;
+    void *field5_0x14;
+};
+
 typedef struct Player Player, *PPlayer;
 
 typedef byte u8;
@@ -73068,7 +73079,7 @@ struct MainMenu {
     enum GameState gameState;
     int stateTimer;
     int idleFrames;
-    int unk_81fc;
+    uint unk_81fc;
     D3DCOLOR maybe_menu_text_color;
     D3DCOLOR color2;
     D3DCOLOR color1;
@@ -73457,6 +73468,12 @@ struct GameManager {
     uint min_rank;
     uint subrank;
 };
+
+typedef enum RenderResult {
+    RENDER_RESULT_KEEP_RUNNING=0,
+    RENDER_RESULT_EXIT_SUCCESS=1,
+    RENDER_RESULT_EXIT_ERROR=2
+} RenderResult;
 
 typedef enum SupervisorState {
     SUPERVISOR_STATE_INIT=0,

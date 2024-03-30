@@ -1,5 +1,5 @@
 
-undefined4 __thiscall GameWindow::Render(GameWindow *this)
+RenderResult __thiscall GameWindow::Render(GameWindow *this)
 
 {
   bool bVar1;
@@ -43,13 +43,14 @@ undefined4 __thiscall GameWindow::Render(GameWindow *this)
         local_8 = Chain::RunCalcChain(&g_Chain);
         SoundPlayer::PlaySounds(&g_SoundPlayer);
         if (local_8 == 0) {
-          return 1;
+          return RENDER_RESULT_EXIT_SUCCESS;
         }
         if (local_8 == -1) {
-          return 2;
+          return RENDER_RESULT_EXIT_ERROR;
         }
         this->curFrame = this->curFrame + 1;
 L3:
+                    /* goto L8 */
         if (g_Supervisor.cfg.windowed != false) break;
         if (((g_Supervisor.cfg.opts >> FORCE_60FPS & 1) == 0) || (g_Supervisor.vsyncEnabled == 0)) {
           bVar1 = false;
@@ -57,10 +58,11 @@ L3:
         else {
           bVar1 = true;
         }
+                    /* goto L8 */
         if (bVar1) break;
 L11:
         if (g_Supervisor.cfg.windowed != false) {
-          return 0;
+          return RENDER_RESULT_KEEP_RUNNING;
         }
         if (((g_Supervisor.cfg.opts >> FORCE_60FPS & 1) == 0) || (g_Supervisor.vsyncEnabled == 0)) {
           bVar1 = false;
@@ -69,7 +71,7 @@ L11:
           bVar1 = true;
         }
         if (bVar1) {
-          return 0;
+          return RENDER_RESULT_KEEP_RUNNING;
         }
         if (g_Supervisor.cfg.frameskipConfig < this->curFrame) goto L15;
         Present();
@@ -121,6 +123,6 @@ L15:
     this->curFrame = 0;
     g_TickCountToEffectiveFramerate = g_TickCountToEffectiveFramerate + 1;
   }
-  return 0;
+  return RENDER_RESULT_KEEP_RUNNING;
 }
 

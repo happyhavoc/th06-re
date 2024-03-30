@@ -19,7 +19,8 @@ ChainCallbackResult GameManager::OnUpdate(GameManager *this)
     }
   }
   if ((((this->is_in_retry_menu == 0) && (this->is_in_game_menu == 0)) && (this->demo_mode == 0)) &&
-     (((g_CurFrameInput & MENU) != 0 && ((g_CurFrameInput & MENU) != (g_LastFrameInput & MENU))))) {
+     (((g_CurFrameInput & KEY_MENU) != 0 &&
+      ((g_CurFrameInput & KEY_MENU) != (g_LastFrameInput & KEY_MENU))))) {
     this->is_in_game_menu = 1;
     g_GameManager.arcade_region_top_left_pos.x = 32.0;
     g_GameManager.arcade_region_top_left_pos.y = 16.0;

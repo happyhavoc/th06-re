@@ -3,12 +3,14 @@ int WinMain(HINSTANCE hInstance,HINSTANCE hPrevInstance,LPSTR lpCmdLine,int nSho
 
 {
   AnmManager *_Memory;
-  ZunResult ZVar1;
-  BOOL BVar2;
-  uint uVar3;
+  RenderResult RVar1;
+  ZunResult ZVar2;
+  BOOL BVar3;
+  uint uVar4;
   AnmManager *puVar1;
   BOOL gotMessage;
-  HRESULT HVar4;
+  HRESULT HVar5;
+  undefined3 extraout_var;
   int retCode;
   AnmManager *vbsPtr;
   MSG msg;
@@ -19,20 +21,20 @@ int WinMain(HINSTANCE hInstance,HINSTANCE hPrevInstance,LPSTR lpCmdLine,int nSho
   retCode = CheckForRunningGameInstance();
   if (retCode == 0) {
     g_Supervisor.hInstance = hInstance;
-    ZVar1 = Supervisor::LoadConfig(&g_Supervisor,"東方紅魔郷.cfg");
-    if (ZVar1 == ZUN_SUCCESS) {
-      BVar2 = InitD3dInterface();
-      if (BVar2 == 0) {
+    ZVar2 = Supervisor::LoadConfig(&g_Supervisor,"東方紅魔郷.cfg");
+    if (ZVar2 == ZUN_SUCCESS) {
+      BVar3 = InitD3dInterface();
+      if (BVar3 == 0) {
         SystemParametersInfoA(SPI_GETSCREENSAVEACTIVE,0,&g_GameWindow.screen_save_active,0);
         SystemParametersInfoA(SPI_GETLOWPOWERACTIVE,0,&g_GameWindow.low_power_active,0);
         SystemParametersInfoA(SPI_GETPOWEROFFACTIVE,0,&g_GameWindow.power_off_active,0);
         SystemParametersInfoA(SPI_SETSCREENSAVEACTIVE,0,(PVOID)0x0,2);
         SystemParametersInfoA(SPI_SETLOWPOWERACTIVE,0,(PVOID)0x0,2);
-        uVar3 = SystemParametersInfoA(SPI_SETPOWEROFFACTIVE,0,(PVOID)0x0,2);
+        uVar4 = SystemParametersInfoA(SPI_SETPOWEROFFACTIVE,0,(PVOID)0x0,2);
         while( true ) {
           CreateGameWindow((HINSTANCE)hInstance);
           InitD3dRendering();
-          if (uVar3 != 0) break;
+          if (uVar4 != 0) break;
           SoundPlayer::InitializeDSound(&g_SoundPlayer,(HWND)g_GameWindow.window);
           GetJoystickCaps();
           ResetKeyboard();
@@ -44,8 +46,8 @@ int WinMain(HINSTANCE hInstance,HINSTANCE hPrevInstance,LPSTR lpCmdLine,int nSho
             vbsPtr = AnmManager::AnmManager(puVar1);
           }
           g_AnmManager = vbsPtr;
-          ZVar1 = Supervisor::RegisterChain();
-          if (ZVar1 == ZUN_SUCCESS) {
+          ZVar2 = Supervisor::RegisterChain();
+          if (ZVar2 == ZUN_SUCCESS) {
             if (g_Supervisor.cfg.windowed == false) {
               ShowCursor(0);
             }
@@ -59,19 +61,20 @@ int WinMain(HINSTANCE hInstance,HINSTANCE hPrevInstance,LPSTR lpCmdLine,int nSho
                   TranslateMessage(&msg);
                   DispatchMessageA(&msg);
                 }
-                HVar4 = (*(g_Supervisor.d3dDevice)->lpVtbl->TestCooperativeLevel)
+                HVar5 = (*(g_Supervisor.d3dDevice)->lpVtbl->TestCooperativeLevel)
                                   (g_Supervisor.d3dDevice);
-                if (HVar4 == 0) break;
-                if (HVar4 == D3DERR_DEVICENOTRESET) {
+                if (HVar5 == 0) break;
+                if (HVar5 == D3DERR_DEVICENOTRESET) {
                   AnmManager::ReleaseSurfaces(g_AnmManager);
-                  HVar4 = (*(g_Supervisor.d3dDevice)->lpVtbl->Reset)
+                  HVar5 = (*(g_Supervisor.d3dDevice)->lpVtbl->Reset)
                                     (g_Supervisor.d3dDevice,&g_Supervisor.presentParameters);
-                  if (HVar4 != 0) goto LAB_0042055a;
+                  if (HVar5 != 0) goto LAB_0042055a;
                   InitD3dDevice();
                   g_Supervisor.unk198 = 3;
                 }
               }
-              renderRet = GameWindow::Render(&g_GameWindow);
+              RVar1 = GameWindow::Render(&g_GameWindow);
+              renderRet = CONCAT31(extraout_var,RVar1);
             } while (renderRet == 0);
           }
 LAB_0042055a:
@@ -107,11 +110,11 @@ LAB_0042055a:
           g_GameErrorContext.m_BufferEnd = g_GameErrorContext.m_Buffer;
           g_GameErrorContext.m_Buffer[0] = '\0';
           GameErrorContextLog(&g_GameErrorContext,
-                              "再起動���要するオプションが変更されたので再起動します\n"
+                              "再起動を��するオプションが変更されたので再起動します\n"
                              );
-          uVar3 = (uint)g_Supervisor.cfg.windowed;
-          if (uVar3 == 0) {
-            uVar3 = ShowCursor(1);
+          uVar4 = (uint)g_Supervisor.cfg.windowed;
+          if (uVar4 == 0) {
+            uVar4 = ShowCursor(1);
           }
         }
         GameErrorContext::Flush(&g_GameErrorContext);

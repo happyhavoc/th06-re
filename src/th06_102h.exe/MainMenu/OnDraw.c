@@ -22,20 +22,18 @@ undefined4 MainMenu::OnDraw(MainMenu *menu)
     if (menu->isActive == 0) {
       if (menu->unk_820c != 0) {
         menu->unk_820c = menu->unk_820c - 1;
-        local_8 = (menu->maybe_menu_text_color >> 0x18) - ((uint)menu->unk_81fc >> 0x18);
-        DrawSquare(&window,((local_8 * menu->unk_820c) / menu->wasActive +
-                           ((uint)menu->unk_81fc >> 0x18)) * 0x1000000 |
-                           menu->maybe_menu_text_color & 0xffffff);
+        local_8 = (menu->maybe_menu_text_color >> 0x18) - (menu->unk_81fc >> 0x18);
+        DrawSquare(&window,((local_8 * menu->unk_820c) / menu->wasActive + (menu->unk_81fc >> 0x18))
+                           * 0x1000000 | menu->maybe_menu_text_color & 0xffffff);
       }
     }
     else {
       if ((int)menu->unk_820c < (int)menu->isActive) {
         menu->unk_820c = menu->unk_820c + 1;
       }
-      local_8 = (menu->maybe_menu_text_color >> 0x18) - ((uint)menu->unk_81fc >> 0x18);
-      DrawSquare(&window,((local_8 * menu->unk_820c) / menu->isActive +
-                         ((uint)menu->unk_81fc >> 0x18)) * 0x1000000 |
-                         menu->maybe_menu_text_color & 0xffffff);
+      local_8 = (menu->maybe_menu_text_color >> 0x18) - (menu->unk_81fc >> 0x18);
+      DrawSquare(&window,((local_8 * menu->unk_820c) / menu->isActive + (menu->unk_81fc >> 0x18)) *
+                         0x1000000 | menu->maybe_menu_text_color & 0xffffff);
     }
     for (vmIdx = 0; vmIdx < 0x62; vmIdx = vmIdx + 1) {
       if (curVm->sprite == (AnmLoadedSprite *)0x0) {

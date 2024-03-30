@@ -29,7 +29,7 @@ ushort GetControllerInput(ushort buttons)
     joyResult = joyGetPosEx(0,&pji);
     if (joyResult == 0) {
       shootState = SetButtonFromControllerInputs
-                             (&buttons,g_ControllerMapping.shootButton,SHOOT,pji.dwButtons);
+                             (&buttons,g_ControllerMapping.shootButton,KEY_SHOOT,pji.dwButtons);
       if (g_ControllerMapping.shootButton == g_ControllerMapping.focusButton) {
         if (shootState == 0) {
           if (g_FocusButtonConflictState < 9) {
@@ -49,33 +49,35 @@ ushort GetControllerInput(ushort buttons)
         }
       }
       else {
-        SetButtonFromControllerInputs(&buttons,g_ControllerMapping.focusButton,FOCUS,pji.dwButtons);
+        SetButtonFromControllerInputs
+                  (&buttons,g_ControllerMapping.focusButton,KEY_FOCUS,pji.dwButtons);
       }
       SetButtonFromControllerInputs
-                (&buttons,g_Supervisor.cfg.controllerMapping.bombButton,BOMB,pji.dwButtons);
+                (&buttons,g_Supervisor.cfg.controllerMapping.bombButton,KEY_BOMB,pji.dwButtons);
       SetButtonFromControllerInputs
-                (&buttons,g_Supervisor.cfg.controllerMapping.menuButton,MENU,pji.dwButtons);
+                (&buttons,g_Supervisor.cfg.controllerMapping.menuButton,KEY_MENU,pji.dwButtons);
       SetButtonFromControllerInputs
-                (&buttons,g_Supervisor.cfg.controllerMapping.upButton,UP,pji.dwButtons);
+                (&buttons,g_Supervisor.cfg.controllerMapping.upButton,KEY_UP,pji.dwButtons);
       SetButtonFromControllerInputs
-                (&buttons,g_Supervisor.cfg.controllerMapping.downButton,DOWN,pji.dwButtons);
+                (&buttons,g_Supervisor.cfg.controllerMapping.downButton,KEY_DOWN,pji.dwButtons);
       SetButtonFromControllerInputs
-                (&buttons,g_Supervisor.cfg.controllerMapping.leftButton,LEFT,pji.dwButtons);
+                (&buttons,g_Supervisor.cfg.controllerMapping.leftButton,KEY_LEFT,pji.dwButtons);
       SetButtonFromControllerInputs
-                (&buttons,g_Supervisor.cfg.controllerMapping.rightButton,RIGHT,pji.dwButtons);
+                (&buttons,g_Supervisor.cfg.controllerMapping.rightButton,KEY_RIGHT,pji.dwButtons);
       SetButtonFromControllerInputs
-                (&buttons,g_Supervisor.cfg.controllerMapping.skipButton,0x100,pji.dwButtons);
+                (&buttons,g_Supervisor.cfg.controllerMapping.skipButton,KEY_SKIP,pji.dwButtons);
       joystickXDistance = g_JoystickCaps.wXmax - g_JoystickCaps.wXmin >> 2;
       joystickYDistance = g_JoystickCaps.wYmax - g_JoystickCaps.wYmin >> 2;
       buttons = buttons | -(ushort)((g_JoystickCaps.wXmin + g_JoystickCaps.wXmax >> 1) +
-                                    joystickXDistance < pji.dwXpos) & RIGHT |
+                                    joystickXDistance < pji.dwXpos) & KEY_RIGHT |
                 -(ushort)(pji.dwXpos <
                          (g_JoystickCaps.wXmin + g_JoystickCaps.wXmax >> 1) - joystickXDistance) &
-                LEFT | -(ushort)((g_JoystickCaps.wYmin + g_JoystickCaps.wYmax >> 1) +
-                                 joystickYDistance < pji.dwYpos) & DOWN |
+                KEY_LEFT |
+                -(ushort)((g_JoystickCaps.wYmin + g_JoystickCaps.wYmax >> 1) + joystickYDistance <
+                         pji.dwYpos) & KEY_DOWN |
                 -(ushort)(pji.dwYpos <
                          (g_JoystickCaps.wYmin + g_JoystickCaps.wYmax >> 1) - joystickYDistance) &
-                UP;
+                KEY_UP;
     }
   }
   else {

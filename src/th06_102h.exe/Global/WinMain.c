@@ -63,7 +63,7 @@ int WinMain(HINSTANCE hInstance,HINSTANCE hPrevInstance,LPSTR lpCmdLine,int nSho
                 }
                 HVar5 = (*(g_Supervisor.d3dDevice)->lpVtbl->TestCooperativeLevel)
                                   (g_Supervisor.d3dDevice);
-                if (HVar5 == 0) break;
+                if (HVar5 == D3D_OK) break;
                 if (HVar5 == D3DERR_DEVICENOTRESET) {
                   AnmManager::ReleaseSurfaces(g_AnmManager);
                   HVar5 = (*(g_Supervisor.d3dDevice)->lpVtbl->Reset)
@@ -110,7 +110,7 @@ LAB_0042055a:
           g_GameErrorContext.m_BufferEnd = g_GameErrorContext.m_Buffer;
           g_GameErrorContext.m_Buffer[0] = '\0';
           GameErrorContextLog(&g_GameErrorContext,
-                              "再起動を��するオプションが変更されたので再起動します\n"
+                              "再起動を要するオプションが変更されたので再起動します\n"
                              );
           uVar4 = (uint)g_Supervisor.cfg.windowed;
           if (uVar4 == 0) {

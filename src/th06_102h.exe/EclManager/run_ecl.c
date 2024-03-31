@@ -918,7 +918,7 @@ switchD_00407544_caseD_2:
     iVar18 = DAT_005a5f98 * uVar24;
     local_70 = g_GameManager.catk + DAT_005a5f98;
     csum = 0;
-    if (g_GameManager.field7_0x1c == 0) {
+    if (g_GameManager.unk_0x1c == 0) {
       local_2bc = &instruction->float_var_1;
       local_2c0 = g_GameManager.catk[DAT_005a5f98].name;
       do {
@@ -964,14 +964,14 @@ switchD_00407544_caseD_2:
         score_increese = DAT_005a5f94 + (int)(DAT_005a5f94 * g_Gui.ecl_spellcard_related) / 10;
         Gui::FUN_00417458(&g_Gui,score_increese);
         g_GameManager.score = g_GameManager.score + score_increese;
-        if (g_GameManager.field7_0x1c == 0) {
+        if (g_GameManager.unk_0x1c == 0) {
           local_80->unk_3e = local_80->unk_3e + 1;
           for (local_84 = 4; 0 < local_84; local_84 = local_84 + -1) {
             local_80->name[local_84 + -5] = local_80->name[local_84 + -6];
           }
           local_80->unk_13 = g_GameManager.shottype + g_GameManager.character * '\x02';
         }
-        g_GameManager.field10_0x28 = g_GameManager.field10_0x28 + 1;
+        g_GameManager.unk_0x28 = g_GameManager.unk_0x28 + 1;
       }
       DAT_005a5f90 = 0;
     }

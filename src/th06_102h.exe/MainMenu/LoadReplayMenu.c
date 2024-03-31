@@ -13,7 +13,7 @@ ZunResult MainMenu::LoadReplayMenu(MainMenu *menu)
   if (ZResult == ZUN_SUCCESS) {
     ZResult = AnmManager::LoadAnm(g_AnmManager,0x24,"data/replay00.anm",0x160);
     if (ZResult == ZUN_SUCCESS) {
-      local_c = &menu->field96_0x6600;
+      local_c = menu->vmList + 0x60;
       for (file_idx = 0x160; file_idx < 0x17a; file_idx = file_idx + 1) {
         AnmManager::ExecuteAnmIdx(g_AnmManager,local_c,file_idx);
         *(uint *)&local_c->flags = *(uint *)&local_c->flags & 0xfffffffe;

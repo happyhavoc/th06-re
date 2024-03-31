@@ -10,11 +10,11 @@ ChainCallbackResult GameManager::OnUpdate(GameManager *this)
     if ((g_CurFrameInput != 0) && (g_CurFrameInput != g_LastFrameInput)) {
       g_Supervisor.curState = 1;
     }
-    this->field35_0x1828 = this->field35_0x1828 + 1;
-    if (this->field35_0x1828 == 0xe10) {
+    this->unk_1828 = this->unk_1828 + 1;
+    if (this->unk_1828 == 0xe10) {
       ScreenEffect::RegisterChain(2,0x78,0,0,0);
     }
-    if (0xe87 < this->field35_0x1828) {
+    if (0xe87 < this->unk_1828) {
       g_Supervisor.curState = 1;
     }
   }
@@ -78,14 +78,14 @@ ChainCallbackResult GameManager::OnUpdate(GameManager *this)
         this->field2_0x8 = 0;
         this->field0_0x0 = this->score;
       }
-      if ((-1 < (char)this->field23_0x181c) &&
-         (UINT_ARRAY_004764b0[(char)this->field23_0x181c] <= (uint)this->field0_0x0)) {
+      if ((-1 < (char)this->field25_0x181c) &&
+         (UINT_ARRAY_004764b0[(char)this->field25_0x181c] <= (uint)this->field0_0x0)) {
         if ((char)this->lives_remaining < '\b') {
           this->lives_remaining = this->lives_remaining + 1;
           SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0x1c,0);
         }
         g_Gui.flags = g_Gui.flags & 0xfffffffc | 2;
-        this->field23_0x181c = this->field23_0x181c + 1;
+        this->field25_0x181c = this->field25_0x181c + 1;
         IncreaseSubrank(&g_GameManager,200);
       }
       if (this->high_score < (uint)this->field0_0x0) {

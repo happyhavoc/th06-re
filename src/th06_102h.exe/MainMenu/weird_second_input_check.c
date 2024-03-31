@@ -1,8 +1,8 @@
 
-int __thiscall MainMenu::FUN_004379e4(MainMenu *this)
+ZunResult __thiscall MainMenu::weird_second_input_check(MainMenu *this)
 
 {
-  int result;
+  ZunResult result;
   int i;
   D3DXVECTOR3 *d3d_vec;
   
@@ -18,15 +18,15 @@ int __thiscall MainMenu::FUN_004379e4(MainMenu *this)
     this->stateTimer = 0;
     this->gameState = STATE_MAIN_MENU;
     for (i = 0; i < 122; i = i + 1) {
-      (&this->vm1)[i].pendingInterrupt = 2;
+      this->vmList[i].pendingInterrupt = 2;
     }
     if ((g_Supervisor.cfg.opts & 1) == 0) {
-      (&this->vm1)[this->cursor].color.color = 0xffff0000;
+      this->vmList[this->cursor].color.color = 0xffff0000;
     }
     else {
-      (&this->vm1)[this->cursor].color.color = 0xffffe0e0;
+      this->vmList[this->cursor].color.color = 0xffffe0e0;
     }
-    d3d_vec = &(&this->vm1)[this->cursor].pos2;
+    d3d_vec = &this->vmList[this->cursor].pos2;
     d3d_vec->x = -6.0;
     d3d_vec->y = -6.0;
     d3d_vec->z = 0.0;
@@ -37,7 +37,7 @@ int __thiscall MainMenu::FUN_004379e4(MainMenu *this)
                        been called), 0 when its not ready (loading, or on the title screen), and 60
                        when it is ready and active. */
     this->isActive = 60;
-    result = 0;
+    result = ZUN_SUCCESS;
   }
   return result;
 }

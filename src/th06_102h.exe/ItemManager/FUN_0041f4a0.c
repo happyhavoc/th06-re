@@ -213,7 +213,7 @@ LAB_0041f7c5:
           g_GameManager.score = g_GameManager.score + local_c;
           g_GameManager.point_items_collected_in_stage =
                g_GameManager.point_items_collected_in_stage + 1;
-          g_GameManager.field18_0x1816 = g_GameManager.field18_0x1816 + 1;
+          g_GameManager._6166_2_ = g_GameManager._6166_2_ + 1;
           g_Gui.flags = g_Gui.flags & 0xfffffcff | 0x200;
           fVar7 = (curItem->position).y;
           if (fVar7 < 128.0 == NAN(fVar7)) {

@@ -89,7 +89,7 @@ int __thiscall MainMenu::ReplayHandling(MainMenu *this)
       this->isActive = 0;
       this->gameState = STATE_REPLAY_ANIM;
       cur = 0;
-      anmVM = &this->vm1;
+      anmVM = this->vmList;
                     /* memset all pending interrupt to 15 */
       for (; cur < 122; cur = cur + 1) {
         anmVM->pendingInterrupt = 15;
@@ -106,12 +106,12 @@ int __thiscall MainMenu::ReplayHandling(MainMenu *this)
         if (((g_CurFrameInput & 0x1001) != 0) &&
            ((g_CurFrameInput & 0x1001) != (g_LastFrameInput & 0x1001))) {
           this->gameState = STATE_REPLAY_SELECT;
-          anmVM = &this->field97_0x6710;
+          anmVM = this->vmList + 0x61;
           for (cur = 0; cur < 0x19; cur = cur + 1) {
             anmVM->pendingInterrupt = 0x11;
             anmVM = anmVM + 1;
           }
-          anmVM = &this->field99_0x6930 + this->chosenReplay;
+          anmVM = this->vmList + this->chosenReplay + 99;
           anmVM->pendingInterrupt = 0x10;
           this->stateTimer = 0;
           this->cursor = 0;
@@ -142,7 +142,7 @@ LAB_0043877b:
         this->gameState = STATE_REPLAY_UNLOAD;
         this->stateTimer = 0;
         for (cur = 0; cur < 0x7a; cur = cur + 1) {
-          (&this->vm1)[cur].pendingInterrupt = 4;
+          this->vmList[cur].pendingInterrupt = 4;
         }
         SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xb,0);
         this->cursor = 0;
@@ -178,7 +178,7 @@ LAB_0043877b:
     if ((((g_CurFrameInput & 0x1001) != 0) &&
         ((g_CurFrameInput & 0x1001) != (g_LastFrameInput & 0x1001))) &&
        (this->currentReplay[this->cursor].stage_score != (StageReplayData **)0x0)) {
-      g_GameManager.field7_0x1c = 1;
+      g_GameManager.unk_0x1c = 1;
       g_Supervisor.framerateMultiplier = 1.0;
       _strcpy(g_GameManager.replay_file,this->replayFilePaths[this->chosenReplay]);
       g_GameManager.difficulty = (Difficulty)this->currentReplay->difficulty;
@@ -202,12 +202,12 @@ LAB_0043877b:
       this->gameState = STATE_REPLAY_ANIM;
       this->stateTimer = 0;
       for (cur = 0; cur < 0x7a; cur = cur + 1) {
-        (&this->vm1)[cur].pendingInterrupt = 4;
+        this->vmList[cur].pendingInterrupt = 4;
       }
       SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xb,0);
       this->gameState = STATE_REPLAY_ANIM;
       cur = 0;
-      anmVM = &this->vm1;
+      anmVM = this->vmList;
       for (; cur < 0x7a; cur = cur + 1) {
         anmVM->pendingInterrupt = 0xf;
         anmVM = anmVM + 1;

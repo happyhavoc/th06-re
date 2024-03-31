@@ -16,7 +16,7 @@ ZunResult __thiscall MainMenu::DrawStartMenu(MainMenu *this)
     this->cursor = this->cursor + cursorMove;
   }
   i = 0;
-  drawVm = &this->vm1;
+  drawVm = this->vmList;
   for (; i < 8; i = i + 1) {
     DrawMenuItem(drawVm,i,this->cursor,0xffff0000,0x80300000,122);
     drawVm = drawVm + 1;
@@ -27,10 +27,10 @@ ZunResult __thiscall MainMenu::DrawStartMenu(MainMenu *this)
       switch(this->cursor) {
       case 0:
         for (i = 0; i < 0x7a; i = i + 1) {
-          (&this->vm1)[i].pendingInterrupt = 4;
+          this->vmList[i].pendingInterrupt = 4;
         }
         this->gameState = STATE_DIFFICULTY_LOAD;
-        g_GameManager.field30_0x1823 = 0;
+        g_GameManager.field32_0x1823 = 0;
         if (3 < (int)g_GameManager.difficulty) {
           g_GameManager.difficulty = NORMAL;
         }
@@ -55,10 +55,10 @@ ZunResult __thiscall MainMenu::DrawStartMenu(MainMenu *this)
         }
         else {
           for (i = 0; i < 0x7a; i = i + 1) {
-            (&this->vm1)[i].pendingInterrupt = 4;
+            this->vmList[i].pendingInterrupt = 4;
           }
           this->gameState = STATE_DIFFICULTY_LOAD;
-          g_GameManager.field30_0x1823 = 0;
+          g_GameManager.field32_0x1823 = 0;
           g_GameManager.difficulty = EXTRA;
           this->stateTimer = 0;
           this->unk_81fc = 0x40000000;
@@ -69,9 +69,9 @@ ZunResult __thiscall MainMenu::DrawStartMenu(MainMenu *this)
         }
         break;
       case 2:
-        g_GameManager.field30_0x1823 = 1;
+        g_GameManager.field32_0x1823 = 1;
         for (i = 0; i < 0x7a; i = i + 1) {
-          (&this->vm1)[i].pendingInterrupt = 4;
+          this->vmList[i].pendingInterrupt = 4;
         }
         this->gameState = STATE_DIFFICULTY_LOAD;
         if (3 < (int)g_GameManager.difficulty) {
@@ -89,10 +89,10 @@ ZunResult __thiscall MainMenu::DrawStartMenu(MainMenu *this)
         break;
       case 3:
         for (i = 0; i < 0x7a; i = i + 1) {
-          (&this->vm1)[i].pendingInterrupt = 4;
+          this->vmList[i].pendingInterrupt = 4;
         }
         this->gameState = STATE_REPLAY_LOAD;
-        g_GameManager.field30_0x1823 = 0;
+        g_GameManager.field32_0x1823 = 0;
         this->stateTimer = 0;
         this->unk_81fc = 0x40000000;
         this->maybe_menu_text_color = 0xff000000;
@@ -102,7 +102,7 @@ ZunResult __thiscall MainMenu::DrawStartMenu(MainMenu *this)
         break;
       case 4:
         for (i = 0; i < 0x7a; i = i + 1) {
-          (&this->vm1)[i].pendingInterrupt = 4;
+          this->vmList[i].pendingInterrupt = 4;
         }
         this->gameState = STATE_SCORE;
         this->stateTimer = 0;
@@ -116,7 +116,7 @@ ZunResult __thiscall MainMenu::DrawStartMenu(MainMenu *this)
         this->gameState = STATE_MUSIC_ROOM;
         this->stateTimer = 0;
         for (i = 0; i < 0x7a; i = i + 1) {
-          (&this->vm1)[i].pendingInterrupt = 4;
+          this->vmList[i].pendingInterrupt = 4;
         }
         SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,10,0);
         break;
@@ -124,7 +124,7 @@ ZunResult __thiscall MainMenu::DrawStartMenu(MainMenu *this)
         this->gameState = STATE_OPTIONS;
         this->stateTimer = 0;
         for (i = 0; i < 0x7a; i = i + 1) {
-          (&this->vm1)[i].pendingInterrupt = 3;
+          this->vmList[i].pendingInterrupt = 3;
         }
         this->cursor = 0;
         this->colorMode16bit = g_Supervisor.cfg.colorMode16bit;
@@ -136,7 +136,7 @@ ZunResult __thiscall MainMenu::DrawStartMenu(MainMenu *this)
         this->gameState = STATE_QUIT;
         this->stateTimer = 0;
         for (i = 0; i < 0x7a; i = i + 1) {
-          (&this->vm1)[i].pendingInterrupt = 4;
+          this->vmList[i].pendingInterrupt = 4;
         }
         SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xb,0);
       }
@@ -146,7 +146,7 @@ ZunResult __thiscall MainMenu::DrawStartMenu(MainMenu *this)
       this->gameState = STATE_QUIT;
       this->stateTimer = 0;
       for (i = 0; i < 0x7a; i = i + 1) {
-        (&this->vm1)[i].pendingInterrupt = 4;
+        this->vmList[i].pendingInterrupt = 4;
       }
       SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xb,0);
     }

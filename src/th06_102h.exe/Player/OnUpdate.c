@@ -11,7 +11,7 @@ ChainCallbackResult Player::OnUpdate(Player *param_1)
   uint uVar4;
   int local_8;
   
-  if ((char)g_GameManager.field11_0x2c != '\0') {
+  if ((char)g_GameManager.unk_0x2c != '\0') {
     return CHAIN_CALLBACK_RESULT_CONTINUE;
   }
   for (local_8 = 0; local_8 < 0x20; local_8 = local_8 + 1) {
@@ -26,7 +26,7 @@ ChainCallbackResult Player::OnUpdate(Player *param_1)
          ('\0' < (char)g_GameManager.bombs_remaining)) &&
         (((g_CurFrameInput & 2) != 0 && ((g_CurFrameInput & 2) != (g_LastFrameInput & 2))))) &&
        ((param_1->inner).bombCalc != (void *)0x0)) {
-      g_GameManager.field9_0x24 = g_GameManager.field9_0x24 + 1;
+      g_GameManager.unk_0x24 = g_GameManager.unk_0x24 + 1;
       g_GameManager.bombs_remaining = g_GameManager.bombs_remaining - 1;
       g_Gui.flags = g_Gui.flags & 0xfffffff3 | 8;
       (param_1->inner).field0_0x0 = 1;
@@ -55,7 +55,7 @@ ChainCallbackResult Player::OnUpdate(Player *param_1)
           ItemManager::SpawnItem((ItemManager *)&g_ItemManager,&param_1->position,4,2);
           ItemManager::SpawnItem((ItemManager *)&g_ItemManager,&param_1->position,4,2);
           g_GameManager.current_power = 0;
-          g_GameManager.field23_0x181c = 0xff;
+          g_GameManager.field25_0x181c = 0xff;
         }
         else {
           ItemManager::SpawnItem((ItemManager *)&g_ItemManager,&param_1->position,2,2);
@@ -103,7 +103,7 @@ ChainCallbackResult Player::OnUpdate(Player *param_1)
       goto LAB_00428fa8;
     }
     g_GameManager.lives_remaining = g_GameManager.lives_remaining - 1;
-    if (((int)g_GameManager.difficulty < 4) && (g_GameManager.field30_0x1823 == 0)) {
+    if (((int)g_GameManager.difficulty < 4) && (g_GameManager.field32_0x1823 == 0)) {
       g_GameManager.bombs_remaining = g_Supervisor.bombCount;
     }
     else {

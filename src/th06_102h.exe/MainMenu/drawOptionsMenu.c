@@ -1,5 +1,5 @@
 
-undefined4 __thiscall MainMenu::drawOptionsMenu(MainMenu *this)
+int __thiscall MainMenu::drawOptionsMenu(MainMenu *this)
 
 {
   AnmVm *OptionsVm;
@@ -8,7 +8,7 @@ undefined4 __thiscall MainMenu::drawOptionsMenu(MainMenu *this)
   uint selection;
   
   MoveCursor(this,9);
-  OptionsVm = &this->field8_0x880;
+  OptionsVm = this->vmList + 8;
   for (i = 0; i < 9; i = i + 1) {
     if ((i < 5) || (7 < i)) {
                     /* passing in the same parameter twice. ok */
@@ -16,7 +16,7 @@ undefined4 __thiscall MainMenu::drawOptionsMenu(MainMenu *this)
       OptionsVm = OptionsVm + 1;
     }
     else {
-      setSavedCursorPosition(this,&this->field67_0x4730 + i,i,i,this->cursor);
+      setSavedCursorPosition(this,this->vmList + i + 0x43,i,i,this->cursor);
     }
   }
   for (i = 0; i < 5; i = i + 1) {
@@ -35,12 +35,12 @@ undefined4 __thiscall MainMenu::drawOptionsMenu(MainMenu *this)
     setSavedCursorPosition(this,OptionsVm,4,i,(uint)g_Supervisor.cfg.playSounds);
     OptionsVm = OptionsVm + 1;
   }
-  OptionsVm = &this->field77_0x51d0;
+  OptionsVm = this->vmList + 0x4d;
   for (i = 0; i < 3; i = i + 1) {
     setSavedCursorPosition(this,OptionsVm,3,i,(uint)g_Supervisor.cfg.musicMode);
     OptionsVm = OptionsVm + 1;
   }
-  OptionsVm = &this->field75_0x4fb0;
+  OptionsVm = this->vmList + 0x4b;
   for (i = 0; i < 2; i = i + 1) {
     setSavedCursorPosition(this,OptionsVm,5,i,(uint)this->windowed);
     OptionsVm = OptionsVm + 1;
@@ -167,7 +167,7 @@ undefined4 __thiscall MainMenu::drawOptionsMenu(MainMenu *this)
         this->gameState = STATE_KEYCONFIG;
         this->stateTimer = 0;
         for (i = 0; i < 0x7a; i = i + 1) {
-          (&this->vm1)[i].pendingInterrupt = 5;
+          this->vmList[i].pendingInterrupt = 5;
         }
         this->cursor = 0;
         SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,10,0);
@@ -190,7 +190,7 @@ undefined4 __thiscall MainMenu::drawOptionsMenu(MainMenu *this)
         this->gameState = STATE_MAIN_MENU;
         this->stateTimer = 0;
         for (i = 0; i < 0x7a; i = i + 1) {
-          (&this->vm1)[i].pendingInterrupt = 2;
+          this->vmList[i].pendingInterrupt = 2;
         }
         this->cursor = 6;
         SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xb,0);

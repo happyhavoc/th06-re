@@ -11,7 +11,7 @@ undefined4 MainMenu::OnDraw(MainMenu *menu)
   zRect window;
   int local_8;
   
-  curVm = &menu->vm1;
+  curVm = menu->vmList;
   window.left = 0.0;
   window.top = 0.0;
   window.right = 640.0;

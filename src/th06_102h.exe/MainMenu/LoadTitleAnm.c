@@ -26,10 +26,10 @@ ZunResult MainMenu::LoadTitleAnm(MainMenu *menu)
                     /* Possibly the first 80 vms are reserved for menu stuff? What about the other
                        42 though? */
               for (i = 0; i < 80; i = i + 1) {
-                AnmManager::ExecuteAnmIdx(g_AnmManager,&menu->vm1 + i,i + 0x100);
-                *(uint *)&(&menu->vm1)[i].flags = *(uint *)&(&menu->vm1)[i].flags & 0xfffffffe;
-                (&menu->vm1)[i].anotherSpriteNumber = (&menu->vm1)[i].spriteNumber;
-                *(uint *)&(&menu->vm1)[i].flags = *(uint *)&(&menu->vm1)[i].flags | 0x1000;
+                AnmManager::ExecuteAnmIdx(g_AnmManager,menu->vmList + i,i + 0x100);
+                *(uint *)&menu->vmList[i].flags = *(uint *)&menu->vmList[i].flags & 0xfffffffe;
+                menu->vmList[i].anotherSpriteNumber = menu->vmList[i].spriteNumber;
+                *(uint *)&menu->vmList[i].flags = *(uint *)&menu->vmList[i].flags | 0x1000;
               }
               titleImg = AnmManager::LoadSurface(g_AnmManager,0,"data/title/title00.jpg");
               if (titleImg == ZUN_SUCCESS) {

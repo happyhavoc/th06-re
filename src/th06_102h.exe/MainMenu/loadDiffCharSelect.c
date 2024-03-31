@@ -1,5 +1,5 @@
 
-ZunResult MainMenu::loadDiffCharSelect(int param_1)
+ZunResult MainMenu::loadDiffCharSelect(MainMenu *menu)
 
 {
   ZunResult loadAnm;
@@ -29,7 +29,7 @@ ZunResult MainMenu::loadDiffCharSelect(int param_1)
                   if (loadAnm == ZUN_SUCCESS) {
                     loadAnm = AnmManager::LoadAnm(g_AnmManager,0x23,"data/slpl01b.anm",0x159);
                     if (loadAnm == ZUN_SUCCESS) {
-                      vm = (AnmVm *)(param_1 + 0x5500);
+                      vm = menu->vmList + 0x50;
                       for (i = 0x150; i < 0x160; i = i + 1) {
                         AnmManager::ExecuteAnmIdx(g_AnmManager,vm,i);
                         *(uint *)&vm->flags = *(uint *)&vm->flags & 0xfffffffe;

@@ -25,10 +25,10 @@ ZunResult GameManager::AddedCallback(GameManager *gameManager)
     (gameManager->arcade_region_top_left_pos).y = 16.0;
     (gameManager->arcade_region_size).x = 384.0;
     (gameManager->arcade_region_size).y = 448.0;
-    gameManager->field46_0x1a4c = 8.0;
-    gameManager->field47_0x1a50 = 16.0;
-    gameManager->field48_0x1a54 = 368.0;
-    gameManager->field49_0x1a58 = 416.0;
+    gameManager->field49_0x1a4c = 8.0;
+    gameManager->field50_0x1a50 = 16.0;
+    gameManager->field51_0x1a54 = 368.0;
+    gameManager->field52_0x1a58 = 416.0;
     gameManager->counat = 0;
     gameManager->field0_0x0 = 0;
     gameManager->score = 0;
@@ -40,15 +40,15 @@ ZunResult GameManager::AddedCallback(GameManager *gameManager)
       gameManager->difficulty = EXTRA;
     }
     if ((int)gameManager->difficulty < 4) {
-      gameManager->field23_0x181c = 0;
+      gameManager->field25_0x181c = 0;
     }
     else {
-      gameManager->field23_0x181c = 4;
+      gameManager->field25_0x181c = 4;
     }
     g_GameManager.power_item_count_for_score = 0;
     gameManager->rank = 8;
-    gameManager->field6_0x18 = 0;
-    gameManager->field18_0x1816 = 0;
+    gameManager->unk_0x18 = 0;
+    *(undefined2 *)&gameManager->field_0x1816 = 0;
     local_c = gameManager->catk;
     for (local_10 = 0; local_10 < 0x40; local_10 = local_10 + 1) {
       for (local_14 = 0; local_14 < 0x20; local_14 = local_14 + 1) {
@@ -73,7 +73,7 @@ ZunResult GameManager::AddedCallback(GameManager *gameManager)
     ParseClrd(scoredat,gameManager->clrd);
     pPVar5 = gameManager->pscr;
     ParsePscr(scoredat,pPVar5);
-    if (gameManager->field30_0x1823 != 0) {
+    if (gameManager->field32_0x1823 != 0) {
       pPVar5 = (Pscr *)(g_GameManager.difficulty * 0x14);
       g_GameManager.high_score =
            *(uint *)((int)&pPVar5[((uint)g_GameManager.shottype + (uint)g_GameManager.character * 2)
@@ -84,16 +84,16 @@ ZunResult GameManager::AddedCallback(GameManager *gameManager)
     gameManager->rank = DifficultyInfo_ARRAY_00476564[g_GameManager.difficulty].rank;
     gameManager->min_rank = DifficultyInfo_ARRAY_00476564[g_GameManager.difficulty].min_rank;
     gameManager->max_rank = DifficultyInfo_ARRAY_00476564[g_GameManager.difficulty].max_rank;
-    gameManager->field8_0x20 = 0;
-    gameManager->field9_0x24 = 0;
-    gameManager->field10_0x28 = 0;
+    gameManager->unk_0x20 = 0;
+    gameManager->unk_0x24 = 0;
+    gameManager->unk_0x28 = 0;
   }
   gameManager->subrank = 0;
   gameManager->point_items_collected_in_stage = 0;
   gameManager->graze_in_stage = 0;
   gameManager->is_in_game_menu = 0;
   gameManager->current_stage = gameManager->current_stage + 1;
-  if (g_GameManager.field7_0x1c == 0) {
+  if (g_GameManager.unk_0x1c == 0) {
     iVar3 = (uint)g_GameManager.shottype + (uint)g_GameManager.character * 2;
     if ((gameManager->num_retries == 0) &&
        ((int)(uint)gameManager->clrd[iVar3].difficulty_cleared_with_retries
@@ -107,7 +107,7 @@ ZunResult GameManager::AddedCallback(GameManager *gameManager)
            (char)gameManager->current_stage - 1;
     }
   }
-  if ((gameManager->field30_0x1823 != 0) && (gameManager->current_stage != 1)) {
+  if ((gameManager->field32_0x1823 != 0) && (gameManager->current_stage != 1)) {
     if (gameManager->current_stage == 2) {
       gameManager->current_power = 0x40;
     }
@@ -117,20 +117,20 @@ ZunResult GameManager::AddedCallback(GameManager *gameManager)
   }
   Supervisor::LoadPbg3(&g_Supervisor,4,"紅魔郷CM.dat");
   Supervisor::LoadPbg3(&g_Supervisor,2,"紅魔郷ST.dat");
-  if (g_GameManager.field7_0x1c == 1) {
+  if (g_GameManager.unk_0x1c == 1) {
     iVar3 = ReplayManager::RegisterChain(1,g_GameManager.replay_file);
     if (iVar3 != 0) {
       bVar1 = true;
     }
-    while (UINT_ARRAY_004764b0[(char)gameManager->field23_0x181c] <= (uint)gameManager->field0_0x0)
+    while (UINT_ARRAY_004764b0[(char)gameManager->field25_0x181c] <= (uint)gameManager->field0_0x0)
     {
-      gameManager->field23_0x181c = gameManager->field23_0x181c + 1;
+      gameManager->field25_0x181c = gameManager->field25_0x181c + 1;
     }
     gameManager->min_rank = DifficultyInfo_ARRAY_00476528[g_GameManager.difficulty].min_rank;
     gameManager->max_rank = DifficultyInfo_ARRAY_00476528[g_GameManager.difficulty].max_rank;
   }
   g_Rng.generationCount = 0;
-  gameManager->field38_0x1a2c = g_Rng.seed;
+  *(ushort *)&gameManager->field_0x1a2c = g_Rng.seed;
   ZVar4 = Stage::RegisterChain(gameManager->current_stage);
   if (ZVar4 == ZUN_SUCCESS) {
     ZVar4 = Player::RegisterChain(0);
@@ -148,7 +148,7 @@ ZunResult GameManager::AddedCallback(GameManager *gameManager)
             if (iVar3 == 0) {
               ZVar4 = Gui::RegisterChain();
               if (ZVar4 == ZUN_SUCCESS) {
-                if (g_GameManager.field7_0x1c == 0) {
+                if (g_GameManager.unk_0x1c == 0) {
                   ReplayManager::RegisterChain(0,"replay/th6_00.rpy");
                 }
                 if (g_GameManager.demo_mode == 0) {
@@ -161,7 +161,7 @@ ZunResult GameManager::AddedCallback(GameManager *gameManager)
                   g_Supervisor.unk_frame_related1 = 0.0;
                   g_Supervisor.unk_frames_related2 = 0.0;
                 }
-                *(undefined *)&gameManager->field11_0x2c = 0;
+                *(undefined *)&gameManager->unk_0x2c = 0;
                 gameManager->score = 0;
                 gameManager->unk_1822 = 0;
                 AsciiManager::InitializeVms(&g_AsciiManager);

@@ -229,7 +229,7 @@ LAB_00412ce2:
     }
 LAB_00412dbc:
     FUN_00412e50(enemies);
-    if ((char)g_GameManager.field11_0x2c == '\0') {
+    if ((char)g_GameManager.unk_0x2c == '\0') {
       (enemies->boss_timer).previous = (enemies->boss_timer).current;
       Supervisor::TickTimer
                 (&g_Supervisor,&(enemies->boss_timer).current,&(enemies->boss_timer).subFrame);

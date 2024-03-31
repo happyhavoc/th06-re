@@ -35,7 +35,7 @@ ZunResult DemoAddedCallback(ReplayManager *param_1)
     g_GameManager.character = (byte)((int)(uint)param_1->data->shottype_chara >> 1);
     g_GameManager.shottype = param_1->data->shottype_chara & 1;
     g_GameManager.difficulty = (Difficulty)param_1->data->difficulty;
-    g_GameManager.field18_0x1816 = pSVar1->unk6;
+    g_GameManager._6166_2_ = pSVar1->unk6;
     g_Rng.seed = pSVar1->random_seed;
     g_Rng.generationCount = 0;
     g_GameManager.rank = (uint)pSVar1->rank;

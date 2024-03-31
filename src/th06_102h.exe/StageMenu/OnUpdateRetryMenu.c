@@ -7,13 +7,13 @@ int __thiscall StageMenu::OnUpdateRetryMenu(StageMenu *this)
   short local_3c;
   int local_8;
   
-  if (g_GameManager.field30_0x1823 != 0) {
+  if (g_GameManager.field32_0x1823 != 0) {
     g_GameManager.field0_0x0 = g_GameManager.score;
     g_GameManager.is_in_retry_menu = 0;
     g_Supervisor.curState = 7;
     return 1;
   }
-  if (g_GameManager.field7_0x1c != 0) {
+  if (g_GameManager.unk_0x1c != 0) {
     g_GameManager.field0_0x0 = g_GameManager.score;
     g_GameManager.is_in_retry_menu = 0;
     g_Supervisor.curState = 8;
@@ -136,7 +136,7 @@ int __thiscall StageMenu::OnUpdateRetryMenu(StageMenu *this)
       g_GameManager.point_items_collected_in_stage = 0;
       g_GameManager.lives_remaining = g_Supervisor.lifeCount;
       g_GameManager.bombs_remaining = g_Supervisor.bombCount;
-      g_GameManager.field23_0x181c = 0;
+      g_GameManager.field25_0x181c = 0;
       return 0;
     }
     break;

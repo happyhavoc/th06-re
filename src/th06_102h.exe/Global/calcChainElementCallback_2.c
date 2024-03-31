@@ -10,7 +10,7 @@ undefined4 calcChainElementCallback_2(ScreenEffect *param_1)
   undefined4 uVar2;
   uint uVar3;
   
-  if ((char)g_GameManager.field11_0x2c == '\0') {
+  if ((char)g_GameManager.unk_0x2c == '\0') {
     (param_1->timer).previous = (param_1->timer).current;
     Supervisor::TickTimer(&g_Supervisor,&(param_1->timer).current,&(param_1->timer).subFrame);
     if ((param_1->timer).current < param_1->field5_0x14) {

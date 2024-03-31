@@ -19,15 +19,15 @@ ZunResult __thiscall MainMenu::BeginStartup(MainMenu *this)
       Supervisor::PlayAudio("bgm/th06_01.mid");
     }
     for (i = 0; i < 122; i = i + 1) {
-      (&this->vm1)[i].pendingInterrupt = 1;
-      *(uint *)&(&this->vm1)[i].flags = *(uint *)&(&this->vm1)[i].flags | 8;
+      this->vmList[i].pendingInterrupt = 1;
+      *(uint *)&this->vmList[i].flags = *(uint *)&this->vmList[i].flags | 8;
       if ((g_Supervisor.cfg.opts & 1) == 0) {
-        (&this->vm1)[i].color.color = 0xff000000;
+        this->vmList[i].color.color = 0xff000000;
       }
       else {
-        (&this->vm1)[i].color.color = 0xffffffff;
+        this->vmList[i].color.color = 0xffffffff;
       }
-      pDVar1 = &(&this->vm1)[i].pos2;
+      pDVar1 = &this->vmList[i].pos2;
       pDVar1->x = 0.0;
       pDVar1->y = 0.0;
       pDVar1->z = 0.0;

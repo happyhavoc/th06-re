@@ -7,10 +7,10 @@ undefined4 __thiscall MainMenu::DrawReplayMenu(MainMenu *this)
   AnmVm *vm_ref;
   
   AsciiManager::AddFormatText
-            (&g_AsciiManager,&(this->field98_0x6820).pos,"No.   Name      Date     Player   Rank");
+            (&g_AsciiManager,&this->vmList[0x62].pos,"No.   Name      Date     Player   Rank");
                     /* unsure */
   replay_amount = this->chosenReplay - this->chosenReplay % 15;
-  vm_ref = &this->field98_0x6820;
+  vm_ref = this->vmList + 0x62;
   for (i = replay_amount; ((int)i < replay_amount + 0xf && ((int)i < this->replayFilesNum));
       i = i + 1) {
     if ((g_Supervisor.cfg.opts >> 8 & 1 | g_Supervisor.cfg.opts & 1) == 0) {
@@ -46,10 +46,10 @@ undefined4 __thiscall MainMenu::DrawReplayMenu(MainMenu *this)
     g_AsciiManager.color = 0xffffffff;
     g_AsciiManager.isSelected = 0;
     AsciiManager::AddFormatText
-              (&g_AsciiManager,&(this->field97_0x6710).pos,"       %2.3f%%",
+              (&g_AsciiManager,&this->vmList[0x61].pos,"       %2.3f%%",
                (double)*(float *)&this->currentReplay->field_0x2c);
-    AsciiManager::AddFormatText(&g_AsciiManager,&(this->field114_0x7920).pos,"Stage  LastScore");
-    vm_ref = &this->field114_0x7920;
+    AsciiManager::AddFormatText(&g_AsciiManager,&this->vmList[0x72].pos,"Stage  LastScore");
+    vm_ref = this->vmList + 0x72;
     for (i = 0; (int)i < 7; i = i + 1) {
       if ((g_Supervisor.cfg.opts >> NO_COLOR_COMP & 1 | g_Supervisor.cfg.opts & 1) ==
           USE_D3D_HW_TEXTURE_BLENDING) {

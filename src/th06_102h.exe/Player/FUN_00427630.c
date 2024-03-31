@@ -8,8 +8,8 @@ void __thiscall Player::FUN_00427630(Player *this,float *param_1)
     if ((int)g_GameManager.graze_in_stage < 9999) {
       g_GameManager.graze_in_stage = g_GameManager.graze_in_stage + 1;
     }
-    if ((int)g_GameManager.field6_0x18 < 999999) {
-      g_GameManager.field6_0x18 = g_GameManager.field6_0x18 + 1;
+    if ((int)g_GameManager.unk_0x18 < 999999) {
+      g_GameManager.unk_0x18 = g_GameManager.unk_0x18 + 1;
     }
   }
   local_10.z = ((this->position).z + param_1[2]) * 0.5;

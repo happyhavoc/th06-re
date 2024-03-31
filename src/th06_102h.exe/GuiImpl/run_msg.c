@@ -138,19 +138,19 @@ undefined4 __thiscall GuiImpl::run_msg(GuiImpl *this)
           AnmManager::SetAndExecuteScript(pAVar4,&this->vm9,pAVar4->scripts[0x619]);
         }
         else {
-          g_GameManager.field23_0x181c = 0xff;
+          g_GameManager.field25_0x181c = 0xff;
         }
         break;
       case 10:
         goto LAB_00418fe0;
       case 0xb:
         g_GameManager.field0_0x0 = g_GameManager.score;
-        if (g_GameManager.field30_0x1823 == 0) {
+        if (g_GameManager.field32_0x1823 == 0) {
           if ((g_GameManager.current_stage < 5) ||
              ((g_GameManager.difficulty != EASY && (g_GameManager.current_stage == 5)))) {
             g_Supervisor.curState = 3;
           }
-          else if (g_GameManager.field7_0x1c == 0) {
+          else if (g_GameManager.unk_0x1c == 0) {
             if (g_GameManager.difficulty == EXTRA) {
               g_GameManager.unk_1822 = 1;
               g_Supervisor.curState = 7;

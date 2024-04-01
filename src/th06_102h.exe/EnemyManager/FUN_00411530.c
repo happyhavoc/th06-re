@@ -29,7 +29,7 @@ void __thiscall EnemyManager::FUN_00411530(EnemyManager *this)
     GameManager::IncreaseSubrank(&g_GameManager,100);
   }
                     /* WARNING: Load size is inaccurate */
-  while (fVar2 = g_GameManager.field51_0x1a54, -1 < *this->timeline_instr) {
+  while (fVar2 = g_GameManager.unk_1a54, -1 < *this->timeline_instr) {
                     /* WARNING: Load size is inaccurate */
     if ((this->timeline_time).current == (int)*this->timeline_instr) {
       switch(*(undefined2 *)((int)this->timeline_instr + 4)) {
@@ -77,7 +77,7 @@ void __thiscall EnemyManager::FUN_00411530(EnemyManager *this)
             local_24.x = Rng::GetRandomF32ZeroToOne(&g_Rng);
             local_24.x = local_24.x * fVar2;
           }
-          fVar2 = g_GameManager.field52_0x1a58;
+          fVar2 = g_GameManager.unk_1a58;
           if (local_18[1] < -990.0 != (local_18[1] == -990.0)) {
             local_24.y = Rng::GetRandomF32ZeroToOne(&g_Rng);
             local_24.y = local_24.y * fVar2;
@@ -101,7 +101,7 @@ void __thiscall EnemyManager::FUN_00411530(EnemyManager *this)
             local_30.x = Rng::GetRandomF32ZeroToOne(&g_Rng);
             local_30.x = local_30.x * fVar2;
           }
-          fVar2 = g_GameManager.field52_0x1a58;
+          fVar2 = g_GameManager.unk_1a58;
           if (local_30.y < -990.0 != (local_30.y == -990.0)) {
             local_30.y = Rng::GetRandomF32ZeroToOne(&g_Rng);
             local_30.y = local_30.y * fVar2;
@@ -124,7 +124,7 @@ void __thiscall EnemyManager::FUN_00411530(EnemyManager *this)
             local_40.x = Rng::GetRandomF32ZeroToOne(&g_Rng);
             local_40.x = local_40.x * fVar2;
           }
-          fVar2 = g_GameManager.field52_0x1a58;
+          fVar2 = g_GameManager.unk_1a58;
           if (local_34[1] < -990.0 != (local_34[1] == -990.0)) {
             local_40.y = Rng::GetRandomF32ZeroToOne(&g_Rng);
             local_40.y = local_40.y * fVar2;
@@ -149,7 +149,7 @@ void __thiscall EnemyManager::FUN_00411530(EnemyManager *this)
             local_4c.x = Rng::GetRandomF32ZeroToOne(&g_Rng);
             local_4c.x = local_4c.x * fVar2;
           }
-          fVar2 = g_GameManager.field52_0x1a58;
+          fVar2 = g_GameManager.unk_1a58;
           if (local_4c.y < -990.0 != (local_4c.y == -990.0)) {
             local_4c.y = Rng::GetRandomF32ZeroToOne(&g_Rng);
             local_4c.y = local_4c.y * fVar2;

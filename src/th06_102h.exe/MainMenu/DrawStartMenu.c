@@ -30,7 +30,7 @@ ZunResult __thiscall MainMenu::DrawStartMenu(MainMenu *this)
           this->vmList[i].pendingInterrupt = 4;
         }
         this->gameState = STATE_DIFFICULTY_LOAD;
-        g_GameManager.field32_0x1823 = 0;
+        g_GameManager.unk_1823 = 0;
         if (3 < (int)g_GameManager.difficulty) {
           g_GameManager.difficulty = NORMAL;
         }
@@ -58,7 +58,7 @@ ZunResult __thiscall MainMenu::DrawStartMenu(MainMenu *this)
             this->vmList[i].pendingInterrupt = 4;
           }
           this->gameState = STATE_DIFFICULTY_LOAD;
-          g_GameManager.field32_0x1823 = 0;
+          g_GameManager.unk_1823 = 0;
           g_GameManager.difficulty = EXTRA;
           this->stateTimer = 0;
           this->unk_81fc = 0x40000000;
@@ -69,7 +69,7 @@ ZunResult __thiscall MainMenu::DrawStartMenu(MainMenu *this)
         }
         break;
       case 2:
-        g_GameManager.field32_0x1823 = 1;
+        g_GameManager.unk_1823 = 1;
         for (i = 0; i < 0x7a; i = i + 1) {
           this->vmList[i].pendingInterrupt = 4;
         }
@@ -92,7 +92,7 @@ ZunResult __thiscall MainMenu::DrawStartMenu(MainMenu *this)
           this->vmList[i].pendingInterrupt = 4;
         }
         this->gameState = STATE_REPLAY_LOAD;
-        g_GameManager.field32_0x1823 = 0;
+        g_GameManager.unk_1823 = 0;
         this->stateTimer = 0;
         this->unk_81fc = 0x40000000;
         this->maybe_menu_text_color = 0xff000000;

@@ -33,7 +33,7 @@ ZunResult ResultScreen::RegisterChain(BOOL param_1)
   result_screen->calc_chain->deletedCallback = DeletedCallback;
   result_screen->calc_chain->arg = result_screen;
   if (param_1 != 0) {
-    if (g_GameManager.field32_0x1823 == 0) {
+    if (g_GameManager.unk_1823 == 0) {
       result_screen->unk_8 = 9;
     }
     else {

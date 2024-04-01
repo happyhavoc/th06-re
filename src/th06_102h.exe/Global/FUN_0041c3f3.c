@@ -30,7 +30,7 @@ void FUN_0041c3f3(float param_1)
   local_3c.y = -local_c;
   D3DXMatrixLookAtLH(&g_Supervisor.viewMatrix,&local_3c,&local_30,&local_24);
   dVar1 = _fabs((double)local_8);
-  g_GameManager.field53_0x1a5c = (int)(float)dVar1;
+  g_GameManager.unk_1a5c = (int)(float)dVar1;
   D3DXMatrixPerspectiveFovLH
             (&g_Supervisor.projectionMatrix,local_18,local_14,100.0,param_1 + 10000.0);
   (*(g_Supervisor.d3dDevice)->lpVtbl->SetTransform)

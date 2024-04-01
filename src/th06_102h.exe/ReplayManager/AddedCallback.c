@@ -41,7 +41,7 @@ ZunResult ReplayManager::AddedCallback(ReplayManager *param_1)
   pSVar2->power = (byte)g_GameManager.current_power;
   pSVar2->rank = (byte)g_GameManager.rank;
   pSVar2->unk6 = g_GameManager._6166_2_;
-  pSVar2->random_seed = g_GameManager._6700_2_;
+  pSVar2->random_seed = (ushort)g_GameManager.unk_1a2c;
   pSVar2->power_item_count_for_score = g_GameManager.power_item_count_for_score;
   param_1->replay_inputs = pSVar2->replay_inputs;
   param_1->replay_inputs->frame_num = 0;

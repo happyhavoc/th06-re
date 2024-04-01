@@ -7,7 +7,7 @@ int __thiscall StageMenu::OnUpdateRetryMenu(StageMenu *this)
   short local_3c;
   int local_8;
   
-  if (g_GameManager.field32_0x1823 != 0) {
+  if (g_GameManager.unk_1823 != 0) {
     g_GameManager.field0_0x0 = g_GameManager.score;
     g_GameManager.is_in_retry_menu = 0;
     g_Supervisor.curState = 7;

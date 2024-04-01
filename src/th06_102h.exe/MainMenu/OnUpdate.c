@@ -357,7 +357,7 @@ drawStartMenuCase:
       SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xb,0);
       if ((int)g_GameManager.difficulty < 4) {
         g_Supervisor.cfg.defaultDifficulty = *(DefaultDifficulty *)&menu->cursor;
-        if (g_GameManager.field32_0x1823 == 0) {
+        if (g_GameManager.unk_1823 == 0) {
           menu->cursor = 0;
         }
         else {
@@ -551,7 +551,7 @@ LAB_0043666d:
         if (((g_CurFrameInput & 0x1001) != 0) &&
            ((g_CurFrameInput & 0x1001) != (g_LastFrameInput & 0x1001))) {
           g_GameManager.shottype = *(byte *)&menu->cursor;
-          if (g_GameManager.field32_0x1823 == 0) {
+          if (g_GameManager.unk_1823 == 0) {
             if ((int)g_GameManager.difficulty < 4) {
               g_GameManager.current_stage = 0;
             }
@@ -582,7 +582,7 @@ LAB_0043666d:
             }
             vm_memset = vm_memset + 2;
           }
-          menu->cursor = g_GameManager.field46_0x1a38;
+          menu->cursor = g_GameManager.field43_0x1a38;
           if (*(byte *)(((uint)g_GameManager.shottype + (uint)g_GameManager.character * 2) * 0x18 +
                         0x69cce1 + g_GameManager.difficulty) < 7) {
             local_b4 = (uint)*(byte *)(((uint)g_GameManager.shottype +
@@ -665,11 +665,11 @@ LAB_0043666d:
         if (((g_CurFrameInput & 0x1001) != 0) &&
            ((g_CurFrameInput & 0x1001) != (g_LastFrameInput & 0x1001))) {
           g_GameManager.current_stage = menu->cursor;
-          g_GameManager.field46_0x1a38 = menu->cursor;
+          g_GameManager.field43_0x1a38 = menu->cursor;
 LAB_00436de7:
           g_GameManager.lives_remaining = g_Supervisor.cfg.lifeCount;
           g_GameManager.bombs_remaining = g_Supervisor.cfg.bombCount;
-          if ((g_GameManager.difficulty == EXTRA) || (g_GameManager.field32_0x1823 != 0)) {
+          if ((g_GameManager.difficulty == EXTRA) || (g_GameManager.unk_1823 != 0)) {
             g_GameManager.lives_remaining = 2;
             g_GameManager.bombs_remaining = 3;
           }

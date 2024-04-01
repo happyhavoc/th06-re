@@ -25,10 +25,10 @@ ZunResult GameManager::AddedCallback(GameManager *gameManager)
     (gameManager->arcade_region_top_left_pos).y = 16.0;
     (gameManager->arcade_region_size).x = 384.0;
     (gameManager->arcade_region_size).y = 448.0;
-    gameManager->field49_0x1a4c = 8.0;
-    gameManager->field50_0x1a50 = 16.0;
-    gameManager->field51_0x1a54 = 368.0;
-    gameManager->field52_0x1a58 = 416.0;
+    gameManager->unk_1a4c = 8.0;
+    gameManager->unk_1a50 = 16.0;
+    gameManager->unk_1a54 = 368.0;
+    gameManager->unk_1a58 = 416.0;
     gameManager->counat = 0;
     gameManager->field0_0x0 = 0;
     gameManager->score = 0;
@@ -73,7 +73,7 @@ ZunResult GameManager::AddedCallback(GameManager *gameManager)
     ParseClrd(scoredat,gameManager->clrd);
     pPVar5 = gameManager->pscr;
     ParsePscr(scoredat,pPVar5);
-    if (gameManager->field32_0x1823 != 0) {
+    if (gameManager->unk_1823 != 0) {
       pPVar5 = (Pscr *)(g_GameManager.difficulty * 0x14);
       g_GameManager.high_score =
            *(uint *)((int)&pPVar5[((uint)g_GameManager.shottype + (uint)g_GameManager.character * 2)
@@ -107,7 +107,7 @@ ZunResult GameManager::AddedCallback(GameManager *gameManager)
            (char)gameManager->current_stage - 1;
     }
   }
-  if ((gameManager->field32_0x1823 != 0) && (gameManager->current_stage != 1)) {
+  if ((gameManager->unk_1823 != 0) && (gameManager->current_stage != 1)) {
     if (gameManager->current_stage == 2) {
       gameManager->current_power = 0x40;
     }
@@ -130,7 +130,7 @@ ZunResult GameManager::AddedCallback(GameManager *gameManager)
     gameManager->max_rank = DifficultyInfo_ARRAY_00476528[g_GameManager.difficulty].max_rank;
   }
   g_Rng.generationCount = 0;
-  *(ushort *)&gameManager->field_0x1a2c = g_Rng.seed;
+  *(ushort *)&gameManager->unk_1a2c = g_Rng.seed;
   ZVar4 = Stage::RegisterChain(gameManager->current_stage);
   if (ZVar4 == ZUN_SUCCESS) {
     ZVar4 = Player::RegisterChain(0);

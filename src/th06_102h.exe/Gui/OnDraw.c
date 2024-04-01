@@ -74,7 +74,7 @@ void Gui::OnDraw(Gui *arg)
       AsciiManager::AddFormatText(&g_AsciiManager,&local_10,"Extra Rank     * 2.0\n");
     }
     local_10.y = local_10.y + 16.0;
-    if (((int)g_GameManager.difficulty < 4) && (g_GameManager.field32_0x1823 == 0)) {
+    if (((int)g_GameManager.difficulty < 4) && (g_GameManager.unk_1823 == 0)) {
       if (g_Supervisor.lifeCount == 3) {
         g_AsciiManager.color = 0xffff8080;
         AsciiManager::AddFormatText(&g_AsciiManager,&local_10,"Player Penalty * 0.5\n");

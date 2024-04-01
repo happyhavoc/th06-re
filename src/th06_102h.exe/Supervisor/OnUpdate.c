@@ -12,9 +12,9 @@ ChainCallbackResult Supervisor::OnUpdate(Supervisor *supervisor)
   g_CurFrameInput = GetInput();
   g_IsEigthFrameOfHeldInput = 0;
   if (g_LastFrameInput == g_CurFrameInput) {
-    if ((0x1d < g_NumOfFramesInputsWereHeld) &&
-       (g_IsEigthFrameOfHeldInput = (ushort)((uint)g_NumOfFramesInputsWereHeld % 8 == 0),
-       0x25 < g_NumOfFramesInputsWereHeld)) {
+    if ((0x1d < (ushort)g_NumOfFramesInputsWereHeld) &&
+       (g_IsEigthFrameOfHeldInput = (short)((uint)(ushort)g_NumOfFramesInputsWereHeld % 8 == 0),
+       0x25 < (ushort)g_NumOfFramesInputsWereHeld)) {
       g_NumOfFramesInputsWereHeld = 0x1e;
     }
     g_NumOfFramesInputsWereHeld = g_NumOfFramesInputsWereHeld + 1;

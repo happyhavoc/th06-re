@@ -41,7 +41,7 @@ AnmManager::LoadAnm(AnmManager *this,int anm_index,char *path,int spriteIdxOffse
     }
     if (data->mipmap_name_offset != 0) {
       name = (char *)((int)data->spriteOffsets + data->mipmap_name_offset + -0x40);
-      result = LoadTextureMipmap(this,data->textureIdx,name,data->format,data->color_key);
+      result = LoadTextureAlphaChannel(this,data->textureIdx,name,data->format,data->color_key);
       if (result != ZUN_SUCCESS) {
         GameErrorContextFatal
                   (&g_GameErrorContext,

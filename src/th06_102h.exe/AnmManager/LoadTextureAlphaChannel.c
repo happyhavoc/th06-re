@@ -1,6 +1,6 @@
 
 ZunResult __thiscall
-AnmManager::LoadTextureMipmap
+AnmManager::LoadTextureAlphaChannel
           (AnmManager *this,int texture_index,char *texture_path,int format_index,D3DCOLOR color_key
           )
 

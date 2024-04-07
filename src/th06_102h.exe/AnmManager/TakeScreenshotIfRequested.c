@@ -1,5 +1,5 @@
 
-void __thiscall AnmManager::TakeScrenshotIfRequested(AnmManager *this)
+void __thiscall AnmManager::TakeScreenshotIfRequested(AnmManager *this)
 
 {
   if (-1 < this->screenshot_textureId) {

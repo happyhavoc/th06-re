@@ -1,7 +1,8 @@
 
 undefined4 __thiscall
 Player::FUN_00427190
-          (Player *this,float *param_1,float *param_2,float *param_3,float param_4,int param_5)
+          (Player *this,float *param_1,float *param_2,D3DXVECTOR3 *rotation,float param_4,
+          int param_5)
 
 {
   float fVar1;
@@ -17,15 +18,17 @@ Player::FUN_00427190
   float local_c;
   float local_8;
   
-  local_20 = (this->position).z - param_3[2];
-  local_24 = (this->position).y - param_3[1];
-  local_28 = (this->position).x - *param_3;
+  local_20 = (this->position).z - rotation->z;
+  local_24 = (this->position).y - rotation->y;
+  local_28 = (this->position).x - rotation->x;
   FUN_0041e8d0(&local_1c,&local_28,param_4);
-  local_8 = (param_3[2] + 0.0) - (this->field8_0x488).z;
-  local_c = (local_18 + param_3[1]) - (this->field8_0x488).y;
-  local_10 = (local_1c + *param_3) - (this->field8_0x488).x;
-  fVar1 = local_18 + param_3[1] + (this->field8_0x488).y;
-  fVar2 = local_1c + *param_3 + (this->field8_0x488).x;
+  local_18 = local_18 + rotation->y;
+  local_1c = local_1c + rotation->x;
+  local_8 = (rotation->z + 0.0) - (this->field8_0x488).z;
+  local_c = local_18 - (this->field8_0x488).y;
+  local_10 = local_1c - (this->field8_0x488).x;
+  fVar1 = local_18 + (this->field8_0x488).y;
+  fVar2 = local_1c + (this->field8_0x488).x;
   local_20 = param_1[2] - param_2[2] * 0.5;
   local_24 = param_1[1] - param_2[1] * 0.5;
   local_28 = *param_1 - *param_2 * 0.5;

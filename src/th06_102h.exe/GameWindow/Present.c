@@ -1,5 +1,5 @@
 
-void GameWindow::Present(void)
+void __thiscall GameWindow::Present(GameWindow *this)
 
 {
   HRESULT HVar1;
@@ -13,7 +13,7 @@ void GameWindow::Present(void)
     InitD3dDevice();
     g_Supervisor.unk198 = 2;
   }
-  AnmManager::TakeScrenshotIfRequested(g_AnmManager);
+  AnmManager::TakeScreenshotIfRequested(g_AnmManager);
   if (g_Supervisor.unk198 != 0) {
     g_Supervisor.unk198 = g_Supervisor.unk198 + -1;
   }

@@ -394,7 +394,7 @@ LAB_00414a1a:
           }
           if ((int)local_2c[2].uvScrollPos.x <= (int)local_2c[2].matrix.m[0][2]) {
             Player::FUN_00427190
-                      (&g_Player,&local_38,&local_20,(float *)(local_2c + 2),local_2c[2].angleVel.x,
+                      (&g_Player,&local_38,&local_20,&local_2c[2].rotation,local_2c[2].angleVel.x,
                        (uint)((int)local_2c[2].matrix.m[0][2] % 0xc == 0));
           }
           if ((int)local_2c[2].scaleInterpFinalX <= (int)local_2c[2].matrix.m[0][2]) {
@@ -409,7 +409,7 @@ LAB_00414a1a:
           if (cVar3 == '\x01') {
 LAB_004161bf:
             Player::FUN_00427190
-                      (&g_Player,&local_38,&local_20,(float *)(local_2c + 2),local_2c[2].angleVel.x,
+                      (&g_Player,&local_38,&local_20,&local_2c[2].rotation,local_2c[2].angleVel.x,
                        (uint)((int)local_2c[2].matrix.m[0][2] % 0xc == 0));
             if ((int)local_2c[2].matrix.m[0][2] < (int)local_2c[2].uvScrollPos.y) goto LAB_00416422;
             local_2c[2].matrix.m[0][2] = 0.0;
@@ -441,7 +441,7 @@ LAB_004161bf:
           }
           if ((int)local_2c[2].matrix.m[0][2] < (int)local_2c[2].currentTimeInScript.subFrame) {
             Player::FUN_00427190
-                      (&g_Player,&local_38,&local_20,(float *)(local_2c + 2),local_2c[2].angleVel.x,
+                      (&g_Player,&local_38,&local_20,&local_2c[2].rotation,local_2c[2].angleVel.x,
                        (uint)((int)local_2c[2].matrix.m[0][2] % 0xc == 0));
           }
           if (local_2c[2].currentTimeInScript.previous <= (int)local_2c[2].matrix.m[0][2]) {

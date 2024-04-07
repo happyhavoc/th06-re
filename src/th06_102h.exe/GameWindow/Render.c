@@ -3,10 +3,13 @@ RenderResult __thiscall GameWindow::Render(GameWindow *this)
 
 {
   bool bVar1;
-  DWORD delta;
+  int iVar2;
+  DWORD curtime_reg;
+  GameWindow *this_00;
+  double delta;
   double local_34;
+  double slowdown;
   D3DVIEWPORT8 viewport;
-  int local_8;
   double slowDown;
   
   if (this->lastActiveAppValue != 0) {
@@ -40,12 +43,12 @@ RenderResult __thiscall GameWindow::Render(GameWindow *this)
         g_Supervisor.viewport.Height = 480;
         (*(g_Supervisor.d3dDevice)->lpVtbl->SetViewport)
                   (g_Supervisor.d3dDevice,&g_Supervisor.viewport);
-        local_8 = Chain::RunCalcChain(&g_Chain);
+        iVar2 = Chain::RunCalcChain(&g_Chain);
         SoundPlayer::PlaySounds(&g_SoundPlayer);
-        if (local_8 == 0) {
+        if (iVar2 == 0) {
           return RENDER_RESULT_EXIT_SUCCESS;
         }
-        if (local_8 == -1) {
+        if (iVar2 == -1) {
           return RENDER_RESULT_EXIT_ERROR;
         }
         this->curFrame = this->curFrame + 1;
@@ -73,14 +76,15 @@ L11:
         if (bVar1) {
           return RENDER_RESULT_KEEP_RUNNING;
         }
+        this_00 = this;
         if (g_Supervisor.cfg.frameskipConfig < this->curFrame) goto L15;
-        Present();
+        Present(this);
       }
       if (this->curFrame == 0) goto L11;
       g_Supervisor.framerateMultiplier = 1.0;
       timeBeginPeriod(1);
-      delta = timeGetTime();
-      slowDown = (double)(ulonglong)delta;
+      curtime_reg = timeGetTime();
+      slowDown = (double)(ulonglong)curtime_reg;
       if (slowDown < g_LastFrameTime != (NAN(slowDown) || NAN(g_LastFrameTime))) {
         g_LastFrameTime = slowDown;
       }
@@ -91,32 +95,34 @@ L11:
         g_LastFrameTime = g_LastFrameTime + 16.66666666666667;
         local_34 = local_34 - 16.66666666666667;
       } while (16.66666666666667 <= local_34);
-    } while (this->curFrame <= g_Supervisor.cfg.frameskipConfig);
+      this_00 = (GameWindow *)(uint)g_Supervisor.cfg.frameskipConfig;
+    } while ((GameWindow *)(uint)this->curFrame <= this_00);
 L15:
-    Present();
+    Present(this_00);
     if (NAN(g_Supervisor.framerateMultiplier) == (g_Supervisor.framerateMultiplier == 0.0)) {
       g_Supervisor.effectiveFramerateMultiplier = g_Supervisor.framerateMultiplier;
     }
     else if (1 < (int)g_TickCountToEffectiveFramerate) {
       timeBeginPeriod(1);
-      delta = timeGetTime();
-      if (delta < g_Supervisor.lastFrameTime) {
-        g_Supervisor.lastFrameTime = delta;
+      curtime_reg = timeGetTime();
+      if (curtime_reg < g_Supervisor.lastFrameTime) {
+        g_Supervisor.lastFrameTime = curtime_reg;
       }
-      slowDown = ((((double)(ulonglong)(delta - g_Supervisor.lastFrameTime) * 60.0) / 2.0) / 1000.0)
-                 / (double)(g_Supervisor.cfg.frameskipConfig + 1);
+      slowDown = ((((double)(ulonglong)(curtime_reg - g_Supervisor.lastFrameTime) * 60.0) / 2.0) /
+                 1000.0) / (double)(g_Supervisor.cfg.frameskipConfig + 1);
       if (slowDown < 0.865) {
         if (slowDown < 0.6) {
-          g_Supervisor.effectiveFramerateMultiplier = 0.5;
+          delta = 0.5;
         }
         else {
-          g_Supervisor.effectiveFramerateMultiplier = 0.8;
+          delta = 0.8;
         }
       }
       else {
-        g_Supervisor.effectiveFramerateMultiplier = 1.0;
+        delta = 1.0;
       }
-      g_Supervisor.lastFrameTime = delta;
+      g_Supervisor.effectiveFramerateMultiplier = (float)delta;
+      g_Supervisor.lastFrameTime = curtime_reg;
       timeEndPeriod(1);
       g_TickCountToEffectiveFramerate = 0;
     }

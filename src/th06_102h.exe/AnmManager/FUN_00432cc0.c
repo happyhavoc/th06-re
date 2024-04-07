@@ -29,18 +29,18 @@ int __thiscall AnmManager::FUN_00432cc0(AnmManager *this,AnmVm *vm)
       fVar7 = (float10)fsin(fVar7);
       fVar1 = (float)fVar3;
       fVar2 = (float)fVar7;
-      yOffset = ROUND((vm->pos).x);
-      xOffset = ROUND((vm->pos).y);
+      xOffset = ROUND((vm->pos).x);
+      yOffset = ROUND((vm->pos).y);
       fVar4 = ROUND((vm->sprite->widthPx * vm->scaleX) / 2.0);
       fVar5 = ROUND((vm->sprite->heightPx * vm->scaleY) / 2.0);
-      FUN_00432c80(g_PrimitivesToDrawVertexBuf,-fVar4 - 0.5,-fVar5 - 0.5,fVar2,fVar1,yOffset,xOffset
+      FUN_00432c80(g_PrimitivesToDrawVertexBuf,-fVar4 - 0.5,-fVar5 - 0.5,fVar2,fVar1,xOffset,yOffset
                   );
-      FUN_00432c80(g_PrimitivesToDrawVertexBuf + 1,fVar4 - 0.5,-fVar5 - 0.5,fVar2,fVar1,yOffset,
-                   xOffset);
-      FUN_00432c80(g_PrimitivesToDrawVertexBuf + 2,-fVar4 - 0.5,fVar5 - 0.5,fVar2,fVar1,yOffset,
-                   xOffset);
-      FUN_00432c80(g_PrimitivesToDrawVertexBuf + 3,fVar4 - 0.5,fVar5 - 0.5,fVar2,fVar1,yOffset,
-                   xOffset);
+      FUN_00432c80(g_PrimitivesToDrawVertexBuf + 1,fVar4 - 0.5,-fVar5 - 0.5,fVar2,fVar1,xOffset,
+                   yOffset);
+      FUN_00432c80(g_PrimitivesToDrawVertexBuf + 2,-fVar4 - 0.5,fVar5 - 0.5,fVar2,fVar1,xOffset,
+                   yOffset);
+      FUN_00432c80(g_PrimitivesToDrawVertexBuf + 3,fVar4 - 0.5,fVar5 - 0.5,fVar2,fVar1,xOffset,
+                   yOffset);
       g_PrimitivesToDrawVertexBuf[0].pos.z = (vm->pos).z;
       if ((*(uint *)&vm->flags >> 8 & 1) != 0) {
         g_PrimitivesToDrawVertexBuf[0].pos.x = g_PrimitivesToDrawVertexBuf[0].pos.x + fVar4;

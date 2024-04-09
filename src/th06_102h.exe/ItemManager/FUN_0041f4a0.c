@@ -92,7 +92,7 @@ LAB_0041f7c5:
         if (g_GameManager.arcade_region_size.y + 16.0 < fVar7 !=
             (g_GameManager.arcade_region_size.y + 16.0 == fVar7)) {
           curItem->is_in_use = 0;
-          GameManager::FUN_0041c5fa(&g_GameManager,3);
+          GameManager::DecreaseSubrank(&g_GameManager,3);
           goto LAB_0041f512;
         }
         fVar7 = (curItem->velocity).y;

@@ -59,7 +59,7 @@ void SaveReplay(char *replay_path,char *param_2)
           }
         }
         DebugPrint2("%s write ...\n",replay_path);
-        replayCopy._36_4_ = g_GameManager.field0_0x0;
+        replayCopy._36_4_ = g_GameManager.gui_score;
         slowDown = g_Supervisor.unk_frame_related1 / g_Supervisor.unk_frames_related2 - 0.5;
         slowDown = slowDown + slowDown;
         if (slowDown < 0.0 == NAN(slowDown)) {

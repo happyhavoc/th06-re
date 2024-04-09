@@ -90,7 +90,7 @@ int * Enemy::get_var(Enemy *param_1,int *eclGvarId,EclValueType *valueType)
     if (valueType != (EclValueType *)0x0) {
       *valueType = ECL_VALUE_TYPE_READONLY;
     }
-    pfVar1 = (int *)&g_GameManager.rank;
+    pfVar1 = &g_GameManager.rank;
     break;
   case -0x271d:
     if (valueType != (EclValueType *)0x0) {

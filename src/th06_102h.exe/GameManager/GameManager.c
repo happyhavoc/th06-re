@@ -7,7 +7,7 @@ void __thiscall GameManager::GameManager(GameManager *this)
   
   pGVar2 = this;
   for (iVar1 = 0x6a0; iVar1 != 0; iVar1 = iVar1 + -1) {
-    pGVar2->field0_0x0 = 0;
+    pGVar2->gui_score = 0;
     pGVar2 = (GameManager *)&pGVar2->score;
   }
   (this->arcade_region_top_left_pos).x = 32.0;

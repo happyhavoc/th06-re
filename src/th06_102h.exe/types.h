@@ -73219,7 +73219,7 @@ struct Catk {
 };
 
 struct GameManager {
-    undefined4 field0_0x0;
+    uint gui_score;
     uint score;
     undefined4 field2_0x8;
     uint high_score;
@@ -73272,10 +73272,10 @@ struct GameManager {
     int unk_1a5c;
     D3DXVECTOR3 stage_camera_facing_dir;
     uint counat;
-    uint rank;
-    uint max_rank;
-    uint min_rank;
-    uint subrank;
+    int rank;
+    int max_rank;
+    int min_rank;
+    int subrank;
 };
 
 typedef enum RenderResult {

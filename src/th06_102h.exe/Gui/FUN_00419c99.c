@@ -403,7 +403,7 @@ void __thiscall Gui::FUN_00419c99(Gui *this)
   local_88.x = 496.0;
   local_88.y = 82.0;
   local_88.z = 0.0;
-  AsciiManager::AddFormatText(&g_AsciiManager,&local_88,"%.9d",g_GameManager.field0_0x0);
+  AsciiManager::AddFormatText(&g_AsciiManager,&local_88,"%.9d",g_GameManager.gui_score);
   local_88.x = 496.0;
   local_88.y = 58.0;
   local_88.z = 0.0;

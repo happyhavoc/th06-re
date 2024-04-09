@@ -15,7 +15,7 @@ ZunResult GameManager::AddedCallback(GameManager *gameManager)
   bVar1 = false;
   (*(g_Supervisor.d3dDevice)->lpVtbl->ResourceManagerDiscardBytes)(g_Supervisor.d3dDevice,0);
   if (g_Supervisor.curState == 3) {
-    gameManager->field0_0x0 = gameManager->score;
+    gameManager->gui_score = gameManager->score;
     gameManager->field2_0x8 = 0;
   }
   else {
@@ -30,7 +30,7 @@ ZunResult GameManager::AddedCallback(GameManager *gameManager)
     gameManager->unk_1a54 = 368.0;
     gameManager->unk_1a58 = 416.0;
     gameManager->counat = 0;
-    gameManager->field0_0x0 = 0;
+    gameManager->gui_score = 0;
     gameManager->score = 0;
     gameManager->field2_0x8 = 0;
     gameManager->high_score = 100000;
@@ -122,8 +122,7 @@ ZunResult GameManager::AddedCallback(GameManager *gameManager)
     if (iVar3 != 0) {
       bVar1 = true;
     }
-    while (UINT_ARRAY_004764b0[(char)gameManager->field25_0x181c] <= (uint)gameManager->field0_0x0)
-    {
+    while (UINT_ARRAY_004764b0[(char)gameManager->field25_0x181c] <= gameManager->gui_score) {
       gameManager->field25_0x181c = gameManager->field25_0x181c + 1;
     }
     gameManager->min_rank = DifficultyInfo_ARRAY_00476528[g_GameManager.difficulty].min_rank;
@@ -202,7 +201,7 @@ ZunResult GameManager::AddedCallback(GameManager *gameManager)
     }
     else {
       GameErrorContextLog(&g_GameErrorContext,
-                          "error : プレイヤーの初期化に失敗しました\n");
+                          "error : プレイヤーの初期化に失敗��ました\n");
       ZVar4 = ZUN_ERROR;
     }
   }

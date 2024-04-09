@@ -8,19 +8,19 @@ int __thiscall StageMenu::OnUpdateRetryMenu(StageMenu *this)
   int local_8;
   
   if (g_GameManager.unk_1823 != 0) {
-    g_GameManager.field0_0x0 = g_GameManager.score;
+    g_GameManager.gui_score = g_GameManager.score;
     g_GameManager.is_in_retry_menu = 0;
     g_Supervisor.curState = 7;
     return 1;
   }
   if (g_GameManager.unk_0x1c != 0) {
-    g_GameManager.field0_0x0 = g_GameManager.score;
+    g_GameManager.gui_score = g_GameManager.score;
     g_GameManager.is_in_retry_menu = 0;
     g_Supervisor.curState = 8;
     return 1;
   }
   if ((2 < g_GameManager.num_retries) || (3 < (int)g_GameManager.difficulty)) {
-    g_GameManager.field0_0x0 = g_GameManager.score;
+    g_GameManager.gui_score = g_GameManager.score;
     g_GameManager.is_in_retry_menu = 0;
     g_Supervisor.curState = 7;
     return 1;
@@ -128,7 +128,7 @@ int __thiscall StageMenu::OnUpdateRetryMenu(StageMenu *this)
       }
       g_GameManager.num_retries = g_GameManager.num_retries + 1;
       g_Gui.flags = g_Gui.flags & 0xfffffc00 | 0x2aa;
-      g_GameManager.field0_0x0 = (uint)g_GameManager.num_retries;
+      g_GameManager.gui_score = (uint)g_GameManager.num_retries;
       g_GameManager.score = (uint)g_GameManager.num_retries;
       g_GameManager.field2_0x8 = 0;
       g_GameManager.graze_in_stage = 0;
@@ -149,7 +149,7 @@ int __thiscall StageMenu::OnUpdateRetryMenu(StageMenu *this)
       for (local_8 = 0; local_8 < 4; local_8 = local_8 + 1) {
         *(uint *)&this->vms0[local_8].flags = *(uint *)&this->vms0[local_8].flags & 0xfffffffe;
       }
-      g_GameManager.field0_0x0 = g_GameManager.score;
+      g_GameManager.gui_score = g_GameManager.score;
       return 0;
     }
   }

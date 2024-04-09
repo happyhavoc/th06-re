@@ -36,7 +36,7 @@ ChainCallbackResult Player::OnUpdate(Player *param_1)
       (param_1->inner).field1_0x4 = 999;
       (*(code *)(param_1->inner).bombCalc)(param_1);
       BOOL_005a5f8c = 0;
-      GameManager::FUN_0041c5fa(&g_GameManager,200);
+      GameManager::DecreaseSubrank(&g_GameManager,200);
       _DAT_005a5f9c = DAT_005a5f90;
     }
   }
@@ -72,7 +72,7 @@ ChainCallbackResult Player::OnUpdate(Player *param_1)
           }
         }
         g_Gui.flags = g_Gui.flags & 0xffffffcf | 0x20;
-        GameManager::FUN_0041c5fa(&g_GameManager,0x640);
+        GameManager::DecreaseSubrank(&g_GameManager,0x640);
       }
       goto LAB_00428fa8;
     }

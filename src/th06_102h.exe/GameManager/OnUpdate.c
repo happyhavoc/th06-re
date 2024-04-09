@@ -53,11 +53,11 @@ ChainCallbackResult GameManager::OnUpdate(GameManager *this)
     if (999999999 < this->score) {
       this->score = 999999990;
     }
-    if (this->field0_0x0 != this->score) {
-      if (this->score < (uint)this->field0_0x0) {
-        this->score = this->field0_0x0;
+    if (this->gui_score != this->score) {
+      if (this->score < this->gui_score) {
+        this->score = this->gui_score;
       }
-      local_8 = this->score - this->field0_0x0 >> 5;
+      local_8 = this->score - this->gui_score >> 5;
       if (local_8 < 0x1343e) {
         if (local_8 < 10) {
           local_8 = 10;
@@ -70,16 +70,16 @@ ChainCallbackResult GameManager::OnUpdate(GameManager *this)
       if ((uint)this->field2_0x8 < local_8) {
         this->field2_0x8 = local_8;
       }
-      if (this->score < (uint)(this->field0_0x0 + this->field2_0x8)) {
-        this->field2_0x8 = this->score - this->field0_0x0;
+      if (this->score < this->gui_score + this->field2_0x8) {
+        this->field2_0x8 = this->score - this->gui_score;
       }
-      this->field0_0x0 = this->field0_0x0 + this->field2_0x8;
-      if (this->score <= (uint)this->field0_0x0) {
+      this->gui_score = this->gui_score + this->field2_0x8;
+      if (this->score <= this->gui_score) {
         this->field2_0x8 = 0;
-        this->field0_0x0 = this->score;
+        this->gui_score = this->score;
       }
       if ((-1 < (char)this->field25_0x181c) &&
-         (UINT_ARRAY_004764b0[(char)this->field25_0x181c] <= (uint)this->field0_0x0)) {
+         (UINT_ARRAY_004764b0[(char)this->field25_0x181c] <= this->gui_score)) {
         if ((char)this->lives_remaining < '\b') {
           this->lives_remaining = this->lives_remaining + 1;
           SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0x1c,0);
@@ -88,8 +88,8 @@ ChainCallbackResult GameManager::OnUpdate(GameManager *this)
         this->field25_0x181c = this->field25_0x181c + 1;
         IncreaseSubrank(&g_GameManager,200);
       }
-      if (this->high_score < (uint)this->field0_0x0) {
-        this->high_score = this->field0_0x0;
+      if (this->high_score < this->gui_score) {
+        this->high_score = this->gui_score;
       }
     }
     this->unk_1a30 = this->unk_1a30 + 1;

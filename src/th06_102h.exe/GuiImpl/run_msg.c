@@ -144,7 +144,7 @@ undefined4 __thiscall GuiImpl::run_msg(GuiImpl *this)
       case 10:
         goto LAB_00418fe0;
       case 0xb:
-        g_GameManager.field0_0x0 = g_GameManager.score;
+        g_GameManager.gui_score = g_GameManager.score;
         if (g_GameManager.unk_1823 == 0) {
           if ((g_GameManager.current_stage < 5) ||
              ((g_GameManager.difficulty != EASY && (g_GameManager.current_stage == 5)))) {

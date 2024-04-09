@@ -38,7 +38,7 @@ ZunResult DemoAddedCallback(ReplayManager *param_1)
     g_GameManager._6166_2_ = pSVar1->unk6;
     g_Rng.seed = pSVar1->random_seed;
     g_Rng.generationCount = 0;
-    g_GameManager.rank = (uint)pSVar1->rank;
+    g_GameManager.rank = (int)pSVar1->rank;
     g_GameManager.lives_remaining = pSVar1->lives_remaining;
     g_GameManager.bombs_remaining = pSVar1->bombs_remaining;
     g_GameManager.current_power = (ushort)pSVar1->power;
@@ -46,9 +46,8 @@ ZunResult DemoAddedCallback(ReplayManager *param_1)
     g_GameManager.power_item_count_for_score = pSVar1->power_item_count_for_score;
     if ((1 < g_GameManager.current_stage) &&
        (param_1->data->stage_score[g_GameManager.current_stage + -2] != (StageReplayData *)0x0)) {
-      g_GameManager.field0_0x0 = param_1->data->stage_score[g_GameManager.current_stage + -2]->score
-      ;
-      g_GameManager.score = g_GameManager.field0_0x0;
+      g_GameManager.gui_score = param_1->data->stage_score[g_GameManager.current_stage + -2]->score;
+      g_GameManager.score = g_GameManager.gui_score;
     }
     ZVar3 = ZUN_SUCCESS;
   }

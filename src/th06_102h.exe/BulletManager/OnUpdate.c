@@ -307,12 +307,14 @@ LAB_00415be8:
               local_8 = Player::CalcKillBoxCollision
                                   (&g_Player,&(bulletsPtr->pos).x,&(bulletsPtr->vms).field5_0x550);
               if ((local_8 != 0) && (bulletsPtr->state = 5, local_8 == 2)) {
-                ItemManager::SpawnItem((ItemManager *)&g_ItemManager,&bulletsPtr->pos,6,1);
+                ItemManager::SpawnItem
+                          ((ItemManager *)&g_ItemManager,&bulletsPtr->pos,ITEM_POINT_BULLET,1);
               }
             }
             else if (local_8 == 2) {
               bulletsPtr->state = 5;
-              ItemManager::SpawnItem((ItemManager *)&g_ItemManager,&bulletsPtr->pos,6,1);
+              ItemManager::SpawnItem
+                        ((ItemManager *)&g_ItemManager,&bulletsPtr->pos,ITEM_POINT_BULLET,1);
             }
           }
           else if (bulletsPtr->field21_0x5c3 == 1) goto LAB_00415be8;

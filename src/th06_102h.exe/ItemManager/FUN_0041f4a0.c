@@ -112,7 +112,7 @@ LAB_0041f7c5:
       }
       else {
         switch(curItem->item_type) {
-        case 0:
+        case ITEM_POWER_SMALL:
           if (g_GameManager.current_power < 0x80) {
             for (local_20 = 0; iVar8 = local_20,
                 INT_ARRAY_004766dc[local_20] <= (int)(uint)g_GameManager.current_power;
@@ -151,7 +151,7 @@ LAB_0041f7c5:
           }
           GameManager::IncreaseSubrank(&g_GameManager,1);
           break;
-        case 1:
+        case ITEM_POINT:
           switch(g_GameManager.difficulty) {
           case EASY:
           case NORMAL:
@@ -223,7 +223,7 @@ LAB_0041f7c5:
             GameManager::IncreaseSubrank(&g_GameManager,0x1e);
           }
           break;
-        case 2:
+        case ITEM_POWER_BIG:
           if (g_GameManager.current_power < 0x80) {
             for (local_28 = 0; iVar8 = local_28,
                 INT_ARRAY_004766dc[local_28] <= (int)(uint)g_GameManager.current_power;
@@ -260,14 +260,14 @@ LAB_0041f7c5:
                        ((local_c < 0x3200) - 1 & 0xffffff01) - 1);
           }
           break;
-        case 3:
+        case ITEM_BOMB:
           if ((char)g_GameManager.bombs_remaining < '\b') {
             g_GameManager.bombs_remaining = g_GameManager.bombs_remaining + 1;
             g_Gui.flags = g_Gui.flags & 0xfffffff3 | 8;
           }
           GameManager::IncreaseSubrank(&g_GameManager,5);
           break;
-        case 4:
+        case ITEM_FULL_POWER:
           if (g_GameManager.current_power < 0x80) {
             BulletManager::FUN_00414340(&g_BulletManager);
             Gui::FUN_004173d9(&g_Gui,0);
@@ -279,7 +279,7 @@ LAB_0041f7c5:
           AsciiManager::CreatePopup1(&g_AsciiManager,&curItem->position,1000,0xffffffff);
           g_Gui.flags = g_Gui.flags & 0xffffffcf | 0x20;
           break;
-        case 5:
+        case ITEM_LIFE:
           if ((char)g_GameManager.lives_remaining < '\b') {
             g_GameManager.lives_remaining = g_GameManager.lives_remaining + 1;
             g_Gui.flags = g_Gui.flags & 0xfffffffc | 2;
@@ -287,7 +287,7 @@ LAB_0041f7c5:
           GameManager::IncreaseSubrank(&g_GameManager,200);
           SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0x1c,0);
           break;
-        case 6:
+        case ITEM_POINT_BULLET:
           local_c = ((int)g_GameManager.graze_in_stage / 3) * 10 + 500;
           if (g_Player.inner.field0_0x0 != 0) {
             local_c = 100;

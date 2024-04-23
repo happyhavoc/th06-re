@@ -752,13 +752,24 @@ typedef struct ItemManager ItemManager, *PItemManager;
 
 typedef struct Item Item, *PItem;
 
+typedef enum ItemType {
+    ITEM_POWER_SMALL=0,
+    ITEM_POINT=1,
+    ITEM_POWER_BIG=2,
+    ITEM_BOMB=3,
+    ITEM_FULL_POWER=4,
+    ITEM_LIFE=5,
+    ITEM_POINT_BULLET=6,
+    ITEM_NO_ITEM=255
+} ItemType;
+
 struct Item {
     struct AnmVm vm;
     D3DXVECTOR3 position;
     D3DXVECTOR3 velocity;
     D3DXVECTOR3 unk;
     struct ZunTimer timer;
-    byte item_type;
+    enum ItemType item_type;
     byte is_in_use;
     byte field7_0x142;
     byte state;
@@ -70954,7 +70965,7 @@ struct Enemy {
     byte death_anm1;
     byte death_anm2;
     byte death_anm3;
-    byte item_drop;
+    enum ItemType item_drop;
     byte boss_id;
     byte field43_0xe41;
     struct ZunTimer field44_0xe44;

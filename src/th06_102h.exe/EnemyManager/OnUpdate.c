@@ -145,13 +145,13 @@ LAB_00412a4d:
       }
 switchD_00412938_caseD_2:
       if ((char)enemies->item_drop < '\0') {
-        if (enemies->item_drop == 0xff) {
+        if (enemies->item_drop == ITEM_NO_ITEM) {
           if ((uint)param_1->random_item_spawn_index % 3 == 0) {
             EffectManager::FUN_0040ef50
                       (&g_EffectManager,enemies->death_anm2 + 4,&enemies->position,6,0xffffffff);
             ItemManager::SpawnItem
                       ((ItemManager *)&g_ItemManager,&enemies->position,
-                       (uint)(byte)(&DAT_00476338)[param_1->random_item_table_index],local_8);
+                       BYTE_ARRAY_00476338[param_1->random_item_table_index],local_8);
             param_1->random_item_table_index = param_1->random_item_table_index + 1;
             if (0x1f < param_1->random_item_table_index) {
               param_1->random_item_table_index = 0;
@@ -164,8 +164,7 @@ switchD_00412938_caseD_2:
         EffectManager::FUN_0040ef50
                   (&g_EffectManager,enemies->death_anm2 + 4,&enemies->position,3,0xffffffff);
         ItemManager::SpawnItem
-                  ((ItemManager *)&g_ItemManager,&enemies->position,(int)(char)enemies->item_drop,
-                   local_8);
+                  ((ItemManager *)&g_ItemManager,&enemies->position,enemies->item_drop,local_8);
       }
       if (((enemies->flags2 >> 3 & 1) != 0) && (DAT_005a5f90 == 0)) {
         BulletManager::FUN_00414360(&g_BulletManager,0x3200,0);

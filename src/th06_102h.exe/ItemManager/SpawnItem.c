@@ -1,10 +1,11 @@
 
 void __thiscall
-ItemManager::SpawnItem(ItemManager *this,D3DXVECTOR3 *heading,int itemType,int state)
+ItemManager::SpawnItem(ItemManager *this,D3DXVECTOR3 *heading,ItemType itemType,int state)
 
 {
   AnmManager *this_00;
   float fVar1;
+  undefined3 in_stack_00000009;
   short local_14;
   Item *item;
   int local_8;
@@ -36,7 +37,7 @@ ItemManager::SpawnItem(ItemManager *this,D3DXVECTOR3 *heading,int itemType,int s
   (item->velocity).x = 0.0;
   (item->velocity).y = -2.2;
   (item->velocity).z = 0.0;
-  item->item_type = (byte)itemType;
+  item->item_type = itemType;
   item->state = (byte)state;
   (item->timer).current = 0;
   (item->timer).subFrame = 0.0;
@@ -52,9 +53,9 @@ ItemManager::SpawnItem(ItemManager *this,D3DXVECTOR3 *heading,int itemType,int s
     (item->velocity).z = (item->position).z;
   }
   this_00 = g_AnmManager;
-  local_14 = (short)itemType + 0x215;
+  local_14 = (short)_itemType + 0x215;
   (item->vm).anmFileIndex = local_14;
-  AnmManager::SetAndExecuteScript(this_00,&item->vm,this_00->scripts[itemType + 0x215]);
+  AnmManager::SetAndExecuteScript(this_00,&item->vm,this_00->scripts[_itemType + 0x215]);
   (item->vm).color.color = 0xffffffff;
   item->field7_0x142 = 1;
   return;

@@ -1141,11 +1141,11 @@ switchD_00407544_caseD_2:
       local_98.y = (fVar6 * 144.0 - 72.0) + local_98.y;
       if (g_GameManager.current_power < 0x80) {
         ItemManager::SpawnItem
-                  ((ItemManager *)&g_ItemManager,&local_98,(-(uint)(local_8c != 0) & 0xfffffffe) + 2
-                   ,0);
+                  ((ItemManager *)&g_ItemManager,&local_98,
+                   (-(local_8c != 0) & 0xfeU) + ITEM_POWER_BIG,0);
       }
       else {
-        ItemManager::SpawnItem((ItemManager *)&g_ItemManager,&local_98,1,0);
+        ItemManager::SpawnItem((ItemManager *)&g_ItemManager,&local_98,ITEM_POINT,0);
       }
     }
     break;
@@ -1168,8 +1168,8 @@ switchD_00407544_caseD_2:
     ZunTimer::Increment(&(enemy->current_context).time,*piVar14);
     break;
   case 0x7c:
-    ItemManager::SpawnItem((ItemManager *)&g_ItemManager,&enemy->position,instruction->ecl_var_id,0)
-    ;
+    ItemManager::SpawnItem
+              ((ItemManager *)&g_ItemManager,&enemy->position,(ItemType)instruction->ecl_var_id,0);
     break;
   case 0x7d:
     g_Stage.unpauseFlag = '\x01';

@@ -48,27 +48,37 @@ ChainCallbackResult Player::OnUpdate(Player *param_1)
       param_1->field19_0x9d8 = param_1->field19_0x9d8 + -1;
       if (param_1->field19_0x9d8 == 0) {
         g_GameManager.power_item_count_for_score = 0;
-        if ((char)g_GameManager.lives_remaining < '\x01') {
-          ItemManager::SpawnItem((ItemManager *)&g_ItemManager,&param_1->position,4,2);
-          ItemManager::SpawnItem((ItemManager *)&g_ItemManager,&param_1->position,4,2);
-          ItemManager::SpawnItem((ItemManager *)&g_ItemManager,&param_1->position,4,2);
-          ItemManager::SpawnItem((ItemManager *)&g_ItemManager,&param_1->position,4,2);
-          ItemManager::SpawnItem((ItemManager *)&g_ItemManager,&param_1->position,4,2);
+        if ((char)g_GameManager.lives_remaining < 1) {
+          ItemManager::SpawnItem((ItemManager *)&g_ItemManager,&param_1->position,ITEM_FULL_POWER,2)
+          ;
+          ItemManager::SpawnItem((ItemManager *)&g_ItemManager,&param_1->position,ITEM_FULL_POWER,2)
+          ;
+          ItemManager::SpawnItem((ItemManager *)&g_ItemManager,&param_1->position,ITEM_FULL_POWER,2)
+          ;
+          ItemManager::SpawnItem((ItemManager *)&g_ItemManager,&param_1->position,ITEM_FULL_POWER,2)
+          ;
+          ItemManager::SpawnItem((ItemManager *)&g_ItemManager,&param_1->position,ITEM_FULL_POWER,2)
+          ;
           g_GameManager.current_power = 0;
           g_GameManager.field25_0x181c = 0xff;
         }
         else {
-          ItemManager::SpawnItem((ItemManager *)&g_ItemManager,&param_1->position,2,2);
-          ItemManager::SpawnItem((ItemManager *)&g_ItemManager,&param_1->position,0,2);
-          ItemManager::SpawnItem((ItemManager *)&g_ItemManager,&param_1->position,0,2);
-          ItemManager::SpawnItem((ItemManager *)&g_ItemManager,&param_1->position,0,2);
-          ItemManager::SpawnItem((ItemManager *)&g_ItemManager,&param_1->position,0,2);
-          ItemManager::SpawnItem((ItemManager *)&g_ItemManager,&param_1->position,0,2);
-          if (g_GameManager.current_power < 0x11) {
+          ItemManager::SpawnItem((ItemManager *)&g_ItemManager,&param_1->position,ITEM_POWER_BIG,2);
+          ItemManager::SpawnItem
+                    ((ItemManager *)&g_ItemManager,&param_1->position,ITEM_POWER_SMALL,2);
+          ItemManager::SpawnItem
+                    ((ItemManager *)&g_ItemManager,&param_1->position,ITEM_POWER_SMALL,2);
+          ItemManager::SpawnItem
+                    ((ItemManager *)&g_ItemManager,&param_1->position,ITEM_POWER_SMALL,2);
+          ItemManager::SpawnItem
+                    ((ItemManager *)&g_ItemManager,&param_1->position,ITEM_POWER_SMALL,2);
+          ItemManager::SpawnItem
+                    ((ItemManager *)&g_ItemManager,&param_1->position,ITEM_POWER_SMALL,2);
+          if (g_GameManager.current_power < 17) {
             g_GameManager.current_power = 0;
           }
           else {
-            g_GameManager.current_power = g_GameManager.current_power - 0x10;
+            g_GameManager.current_power = g_GameManager.current_power - 16;
           }
         }
         g_Gui.flags = g_Gui.flags & 0xffffffcf | 0x20;

@@ -1,7 +1,8 @@
 
 undefined4 * __thiscall
 EnemyManager::SpawnEnemy
-          (EnemyManager *this,short param_1,D3DXVECTOR3 *pos,short life,byte item_drop,int score)
+          (EnemyManager *this,short param_1,D3DXVECTOR3 *pos,short life,ItemType item_drop,int score
+          )
 
 {
   int iVar1;

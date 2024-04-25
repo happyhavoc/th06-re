@@ -28,8 +28,8 @@ ZunResult MusicRoom::RegisterChain(void)
   }
   g_MusicRoomCalcChain = Chain::CreateElem(&g_Chain,OnUpdate);
   g_MusicRoomCalcChain->arg = &g_MusicRoomCalcChain;
-  g_MusicRoomCalcChain->addedCallback = FUN_0042564c;
-  g_MusicRoomCalcChain->deletedCallback = FUN_00425d97;
+  g_MusicRoomCalcChain->addedCallback = AddedCallback;
+  g_MusicRoomCalcChain->deletedCallback = DeletedCallback;
   iVar2 = Chain::AddToCalcChain(&g_Chain,g_MusicRoomCalcChain,2);
   if (iVar2 == 0) {
     g_MusicRoomDrawChain = Chain::CreateElem(&g_Chain,OnDraw);

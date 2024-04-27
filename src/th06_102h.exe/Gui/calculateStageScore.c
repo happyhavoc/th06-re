@@ -117,7 +117,7 @@ void __thiscall Gui::calculateStageScore(Gui *this)
     }
     ZunTimer::nextTick(&(this->impl->field17_0x2c24).field3_0x14);
   }
-  if (this->impl->field13_0x2bdc == 1) {
+  if (this->impl->finishedStage == 1) {
     stage_score = (g_GameManager.current_stage * 1000 + g_GameManager.graze_in_stage * 10 +
                   (uint)g_GameManager.current_power * 100) *
                   (uint)g_GameManager.point_items_collected_in_stage;
@@ -149,7 +149,7 @@ void __thiscall Gui::calculateStageScore(Gui *this)
     }
     this->impl->stage_score = stage_score;
     g_GameManager.score = g_GameManager.score + stage_score;
-    this->impl->field13_0x2bdc = this->impl->field13_0x2bdc + 1;
+    this->impl->finishedStage = this->impl->finishedStage + 1;
   }
   return;
 }

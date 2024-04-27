@@ -71233,7 +71233,7 @@ struct GuiImpl {
     struct AnmVm vm8;
     struct AnmVm vm9;
     struct GuiMsgVm msg;
-    uint field13_0x2bdc;
+    uint finishedStage;
     uint stage_score;
     struct GuiImplChildB field15_0x2be4;
     struct GuiImplChildB field16_0x2c04;

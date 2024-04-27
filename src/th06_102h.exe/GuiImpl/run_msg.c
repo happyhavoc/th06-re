@@ -132,7 +132,7 @@ undefined4 __thiscall GuiImpl::run_msg(GuiImpl *this)
         (this->msg).frames_elapsed_during_pause = 0;
         break;
       case 9:
-        this->field13_0x2bdc = 1;
+        this->finishedStage = 1;
         pAVar4 = g_AnmManager;
         if (g_GameManager.current_stage < 6) {
           (this->vm9).anmFileIndex = 0x619;

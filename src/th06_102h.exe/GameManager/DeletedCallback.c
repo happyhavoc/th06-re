@@ -4,7 +4,7 @@ ZunResult GameManager::DeletedCallback(GameManager *param_1)
 {
   (*(g_Supervisor.d3dDevice)->lpVtbl->ResourceManagerDiscardBytes)(g_Supervisor.d3dDevice,0);
   if (g_GameManager.demo_mode == 0) {
-    Supervisor::FUN_00424d38(&g_Supervisor);
+    Supervisor::StopAudio(&g_Supervisor);
   }
   Stage::CutChain();
   CutBulletManagerChains();

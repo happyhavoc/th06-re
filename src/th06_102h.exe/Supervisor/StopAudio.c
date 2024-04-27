@@ -1,5 +1,5 @@
 
-undefined4 __thiscall Supervisor::FUN_00424d38(Supervisor *this)
+ZunResult __thiscall Supervisor::StopAudio(Supervisor *this)
 
 {
   if (g_Supervisor.cfg.musicMode == MIDI) {
@@ -9,10 +9,10 @@ undefined4 __thiscall Supervisor::FUN_00424d38(Supervisor *this)
   }
   else {
     if (g_Supervisor.cfg.musicMode != WAV) {
-      return 0xffffffff;
+      return ZUN_ERROR;
     }
     SoundPlayer::StopBGM(&g_SoundPlayer);
   }
-  return 0;
+  return ZUN_SUCCESS;
 }
 

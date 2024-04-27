@@ -1,5 +1,5 @@
 
-ZunResult MainMenu::loadDiffCharSelect(MainMenu *menu)
+ZunResult MainMenu::LoadDiffCharSelect(MainMenu *menu)
 
 {
   ZunResult loadAnm;

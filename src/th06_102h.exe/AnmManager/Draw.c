@@ -1,8 +1,8 @@
 
-int __thiscall AnmManager::FUN_00432cc0(AnmManager *this,AnmVm *vm)
+ZunResult __thiscall AnmManager::Draw(AnmManager *this,AnmVm *vm)
 
 {
-  int iVar6;
+  ZunResult iVar6;
   float10 fVar7;
   float fVar1;
   float fVar2;
@@ -15,13 +15,13 @@ int __thiscall AnmManager::FUN_00432cc0(AnmManager *this,AnmVm *vm)
   fVar1 = (vm->rotation).z;
   if (NAN(fVar1) == (fVar1 == 0.0)) {
     if ((*(uint *)&vm->flags & 1) == 0) {
-      iVar6 = -1;
+      iVar6 = ZUN_ERROR;
     }
     else if ((*(uint *)&vm->flags >> 1 & 1) == 0) {
-      iVar6 = -1;
+      iVar6 = ZUN_ERROR;
     }
     else if ((vm->color).color == 0) {
-      iVar6 = -1;
+      iVar6 = ZUN_ERROR;
     }
     else {
       fVar7 = (float10)(vm->rotation).z;

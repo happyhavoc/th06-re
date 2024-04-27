@@ -84,7 +84,7 @@ int __thiscall MainMenu::ReplayHandling(MainMenu *this)
       FindClose(replayFileHandle);
       FileSystem::ChangeCWD("../");
       this->replayFilesNum = replayFileIdx;
-      this->unk_81fc = 0;
+      this->minimumOpacity = 0;
       this->wasActive = this->isActive;
       this->isActive = 0;
       this->gameState = STATE_REPLAY_ANIM;

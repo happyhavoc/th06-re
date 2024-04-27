@@ -183,12 +183,12 @@ void __thiscall Gui::FUN_00419c99(Gui *this)
       (local_14->pos).z = 0.49;
       AnmManager::FUN_00432ad0(g_AnmManager,local_14);
     }
-    AnmManager::FUN_00432cc0(g_AnmManager,this->impl->vms + 5);
-    AnmManager::FUN_00432cc0(g_AnmManager,this->impl->vms);
-    AnmManager::FUN_00432cc0(g_AnmManager,this->impl->vms + 1);
-    AnmManager::FUN_00432cc0(g_AnmManager,this->impl->vms + 3);
-    AnmManager::FUN_00432cc0(g_AnmManager,this->impl->vms + 4);
-    AnmManager::FUN_00432cc0(g_AnmManager,this->impl->vms + 2);
+    AnmManager::Draw(g_AnmManager,this->impl->vms + 5);
+    AnmManager::Draw(g_AnmManager,this->impl->vms);
+    AnmManager::Draw(g_AnmManager,this->impl->vms + 1);
+    AnmManager::Draw(g_AnmManager,this->impl->vms + 3);
+    AnmManager::Draw(g_AnmManager,this->impl->vms + 4);
+    AnmManager::Draw(g_AnmManager,this->impl->vms + 2);
     AnmManager::FUN_00432ad0(g_AnmManager,this->impl->vms + 9);
     AnmManager::FUN_00432ad0(g_AnmManager,this->impl->vms + 10);
     AnmManager::FUN_00432ad0(g_AnmManager,this->impl->vms + 0xb);

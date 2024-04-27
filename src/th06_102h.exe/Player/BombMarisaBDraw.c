@@ -25,7 +25,7 @@ void Player::BombMarisaBDraw(Player *param_1)
     (local_8->pos).x = g_GameManager.arcade_region_top_left_pos.x + (local_8->pos).x;
     (local_8->pos).y = g_GameManager.arcade_region_top_left_pos.y + (local_8->pos).y;
     (local_8->pos).z = 0.0;
-    AnmManager::FUN_00432cc0(g_AnmManager,local_8);
+    AnmManager::Draw(g_AnmManager,local_8);
     local_8 = local_8 + 1;
   }
   return;

@@ -1,5 +1,5 @@
 
-undefined4 MainMenu::DeletedCallback(MainMenu *param_1)
+ZunResult MainMenu::DeletedCallback(MainMenu *param_1)
 
 {
   AnmManager *pAVar1;
@@ -19,6 +19,6 @@ undefined4 MainMenu::DeletedCallback(MainMenu *param_1)
   Chain::Cut(&g_Chain,param_1->chain_draw);
   param_1->chain_draw = (ChainElem *)0x0;
   _free(param_1->currentReplay);
-  return 0;
+  return ZUN_SUCCESS;
 }
 

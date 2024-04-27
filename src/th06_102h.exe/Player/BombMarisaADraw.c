@@ -21,7 +21,7 @@ void Player::BombMarisaADraw(Player *param_1)
     (local_8->pos).z = 0.0;
     local_8->scaleX = 3.2;
     local_8->scaleY = 3.2;
-    AnmManager::FUN_00432cc0(g_AnmManager,local_8);
+    AnmManager::Draw(g_AnmManager,local_8);
     piVar2 = (param_1->inner).field8_0xbc + local_c * 3;
     fVar3 = (float)piVar2[2];
     fVar4 = (float)piVar2[1];
@@ -33,7 +33,7 @@ void Player::BombMarisaADraw(Player *param_1)
     (local_8->pos).z = 0.0;
     local_8->scaleX = 2.2;
     local_8->scaleY = 2.2;
-    AnmManager::FUN_00432cc0(g_AnmManager,local_8);
+    AnmManager::Draw(g_AnmManager,local_8);
     piVar2 = (param_1->inner).field8_0xbc + local_c * 3;
     fVar3 = (float)piVar2[2];
     fVar4 = (float)piVar2[1];
@@ -54,7 +54,7 @@ void Player::BombMarisaADraw(Player *param_1)
     (local_8->pos).z = 0.0;
     local_8->scaleX = 1.0;
     local_8->scaleY = 1.0;
-    AnmManager::FUN_00432cc0(g_AnmManager,local_8);
+    AnmManager::Draw(g_AnmManager,local_8);
     local_8 = local_8 + 1;
   }
   return;

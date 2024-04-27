@@ -17,9 +17,9 @@ void ResultScreen::OnDraw(ResultScreen *param_1)
   float local_48;
   int local_44;
   D3DXVECTOR3 local_40;
-  ResultScreenUnk3ab0 *local_34;
+  ScoreListNode *local_34;
   int local_30;
-  ResultScreenUnk3ab0 *local_2c;
+  ScoreListNode *local_2c;
   AnmVm *local_28;
   undefined4 local_24;
   undefined4 local_20;
@@ -100,14 +100,13 @@ void ResultScreen::OnDraw(ResultScreen *param_1)
       AnmManager::FUN_00432ad0(g_AnmManager,&param_1->field73_0x29b0);
       local_40.x = local_40.x - 320.0;
       local_40.y = local_40.y + 18.0;
-      local_2c = param_1->unk_3ab0[(int)param_1->field17_0x2c * 4 + param_1->field15_0x24 * 2].
-                 unk2__ResultScreenUnk3ab0;
-      local_34 = param_1->unk_3ab0[(int)param_1->field17_0x2c * 4 + param_1->field15_0x24 * 2 + 1].
-                 unk2__ResultScreenUnk3ab0;
+      local_2c = param_1->scores[(int)param_1->field17_0x2c * 4 + param_1->field15_0x24 * 2].next;
+      local_34 = param_1->scores[(int)param_1->field17_0x2c * 4 + param_1->field15_0x24 * 2 + 1].
+                 next;
       for (local_14 = 0; local_40.y = local_40.y + 18.0, local_14 < 10; local_14 = local_14 + 1) {
         if (param_1->unk_8 == 9) {
           if (g_GameManager.shottype == 0) {
-            if ((local_2c->unk3->base).field_0x9 == '\0') {
+            if ((local_2c->data->base).field_0x9 == '\0') {
               g_AsciiManager.color = 0x80ffffc0;
             }
             else {
@@ -137,25 +136,25 @@ void ResultScreen::OnDraw(ResultScreen *param_1)
                    (char *)&PTR_g_BulletManager_bullets_421__vms_vm0_posInterpFinal_x_1_0046bdd0,
                    local_14 + 1);
         local_40.x = local_40.x + 36.0;
-        if (local_2c->unk3->stage < 7) {
+        if (local_2c->data->stage < 7) {
           AsciiManager::AddFormatText
-                    (&g_AsciiManager,&local_40,"%8s %9d(%d)",local_2c->unk3->name,
-                     local_2c->unk3->score,(uint)local_2c->unk3->stage);
+                    (&g_AsciiManager,&local_40,"%8s %9d(%d)",local_2c->data->name,
+                     local_2c->data->score,(uint)local_2c->data->stage);
         }
-        else if (local_2c->unk3->stage == 7) {
+        else if (local_2c->data->stage == 7) {
           AsciiManager::AddFormatText
-                    (&g_AsciiManager,&local_40,"%8s %9d(1)",local_2c->unk3->name,
-                     local_2c->unk3->score);
+                    (&g_AsciiManager,&local_40,"%8s %9d(1)",local_2c->data->name,
+                     local_2c->data->score);
         }
         else {
           AsciiManager::AddFormatText
-                    (&g_AsciiManager,&local_40,"%8s %9d(C)",local_2c->unk3->name,
-                     local_2c->unk3->score);
+                    (&g_AsciiManager,&local_40,"%8s %9d(C)",local_2c->data->name,
+                     local_2c->data->score);
         }
         local_40.x = local_40.x + 300.0;
         if (param_1->unk_8 == 9) {
           if (g_GameManager.shottype == 1) {
-            if ((local_34->unk3->base).field_0x9 == '\0') {
+            if ((local_34->data->base).field_0x9 == '\0') {
               g_AsciiManager.color = 0xc0c0c0ff;
             }
             else {
@@ -180,24 +179,24 @@ void ResultScreen::OnDraw(ResultScreen *param_1)
         else {
           g_AsciiManager.color = 0xffc0c0ff;
         }
-        if (local_34->unk3->stage < 7) {
+        if (local_34->data->stage < 7) {
           AsciiManager::AddFormatText
-                    (&g_AsciiManager,&local_40,"%8s %9d(%d)",local_34->unk3->name,
-                     local_34->unk3->score,(uint)local_34->unk3->stage);
+                    (&g_AsciiManager,&local_40,"%8s %9d(%d)",local_34->data->name,
+                     local_34->data->score,(uint)local_34->data->stage);
         }
-        else if (local_34->unk3->stage == 7) {
+        else if (local_34->data->stage == 7) {
           AsciiManager::AddFormatText
-                    (&g_AsciiManager,&local_40,"%8s %9d(1)",local_34->unk3->name,
-                     local_34->unk3->score);
+                    (&g_AsciiManager,&local_40,"%8s %9d(1)",local_34->data->name,
+                     local_34->data->score);
         }
         else {
           AsciiManager::AddFormatText
-                    (&g_AsciiManager,&local_40,"%8s %9d(C)",local_34->unk3->name,
-                     local_34->unk3->score);
+                    (&g_AsciiManager,&local_40,"%8s %9d(C)",local_34->data->name,
+                     local_34->data->score);
         }
         local_40.x = local_40.x - 336.0;
-        local_2c = local_2c->unk2__ResultScreenUnk3ab0;
-        local_34 = local_34->unk2__ResultScreenUnk3ab0;
+        local_2c = local_2c->next;
+        local_34 = local_34->next;
       }
     }
   }

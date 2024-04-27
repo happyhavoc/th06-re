@@ -1,9 +1,9 @@
 
-void Supervisor::PlayAudio(char *path)
+void __thiscall Supervisor::PlayAudio(Supervisor *this,char *path)
 
 {
   char cVar1;
-  MidiOutput *this;
+  MidiOutput *this_00;
   ZunResult ZVar2;
   uint unaff_retaddr;
   char *buf2Ptr;
@@ -15,13 +15,13 @@ void Supervisor::PlayAudio(char *path)
   uint stackCookie;
   char *local_8;
   
-  this = g_Supervisor.midi_output;
+  this_00 = g_Supervisor.midi_output;
   stackCookie = __security_cookie ^ unaff_retaddr;
   if (g_Supervisor.cfg.musicMode == MIDI) {
     if (g_Supervisor.midi_output != (MidiOutput *)0x0) {
       MidiOutput::StopPlayback(g_Supervisor.midi_output);
-      MidiOutput::LoadFile(this,path);
-      MidiOutput::Play(this);
+      MidiOutput::LoadFile(this_00,path);
+      MidiOutput::Play(this_00);
     }
   }
   else if (g_Supervisor.cfg.musicMode == WAV) {

@@ -6,7 +6,6 @@ ZunResult GameManager::AddedCallback(GameManager *gameManager)
   ScoreDat *scoredat;
   int iVar3;
   ZunResult ZVar4;
-  Pscr *pPVar5;
   uint local_14;
   int local_10;
   Catk *local_c;
@@ -64,23 +63,21 @@ ZunResult GameManager::AddedCallback(GameManager *gameManager)
       local_c->unk_3e = 0;
       local_c = local_c + 1;
     }
-    scoredat = OpenScore("score.dat");
+    scoredat = ResultScreen::OpenScore("score.dat");
     g_GameManager.high_score =
-         GetHighScore(scoredat,(ResultScreenUnk3ab0 *)0x0,
+         GetHighScore(scoredat,(ScoreListNode *)0x0,
                       (uint)g_GameManager.shottype + (uint)g_GameManager.character * 2,
                       g_GameManager.difficulty);
     ParseCatk(scoredat,gameManager->catk);
     ParseClrd(scoredat,gameManager->clrd);
-    pPVar5 = gameManager->pscr;
-    ParsePscr(scoredat,pPVar5);
+    ParsePscr(scoredat,gameManager->pscr);
     if (gameManager->unk_1823 != 0) {
-      pPVar5 = (Pscr *)(g_GameManager.difficulty * 0x14);
       g_GameManager.high_score =
-           *(uint *)((int)&pPVar5[((uint)g_GameManager.shottype + (uint)g_GameManager.character * 2)
-                                  * 0x18 + g_GameManager.current_stage * 4].score +
-                    (int)gameManager->pscr);
+           gameManager->pscr
+           [((uint)g_GameManager.shottype + (uint)g_GameManager.character * 2) * 0x18 +
+            g_GameManager.current_stage * 4 + g_GameManager.difficulty].score;
     }
-    ScoreDat::FUN_0042b7dc(pPVar5,scoredat);
+    ScoreDat::Release(scoredat);
     gameManager->rank = DifficultyInfo_ARRAY_00476564[g_GameManager.difficulty].rank;
     gameManager->min_rank = DifficultyInfo_ARRAY_00476564[g_GameManager.difficulty].min_rank;
     gameManager->max_rank = DifficultyInfo_ARRAY_00476564[g_GameManager.difficulty].max_rank;
@@ -151,8 +148,8 @@ ZunResult GameManager::AddedCallback(GameManager *gameManager)
                   ReplayManager::RegisterChain(0,"replay/th6_00.rpy");
                 }
                 if (g_GameManager.demo_mode == 0) {
-                  readMidiFile(1,g_Stage.stdData + 0x310);
-                  Supervisor::PlayAudio((char *)(g_Stage.stdData + 0x290));
+                  AudioUtils::readMidiFile(1,g_Stage.stdData + 0x310);
+                  Supervisor::PlayAudio(&g_Supervisor,(char *)(g_Stage.stdData + 0x290));
                 }
                 gameManager->is_in_retry_menu = 0;
                 gameManager->is_in_menu = 1;
@@ -201,7 +198,7 @@ ZunResult GameManager::AddedCallback(GameManager *gameManager)
     }
     else {
       GameErrorContextLog(&g_GameErrorContext,
-                          "error : プレイヤーの初期化に失敗��ました\n");
+                          "error : プレイヤーの初期化に失敗しました\n");
       ZVar4 = ZUN_ERROR;
     }
   }

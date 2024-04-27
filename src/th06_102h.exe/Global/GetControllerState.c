@@ -1,12 +1,12 @@
 
-void joystickcheck_only_called_in_keyconfig(void)
+byte * GetControllerState(void)
 
 {
   MMRESULT MVar1;
+  int *piVar2;
   int i;
-  undefined4 *puVar2;
   joyinfoex_tag *joyinfo_ptr;
-  undefined4 *puVar3;
+  int *piVar3;
   uint unaff_retaddr;
   int local_160;
   char local_15c;
@@ -18,10 +18,10 @@ void joystickcheck_only_called_in_keyconfig(void)
   joyinfoex_tag joyinfo;
   
   local_48 = __security_cookie ^ unaff_retaddr;
-  puVar2 = &DAT_0069e1b0;
+  piVar2 = g_ControllerData;
   for (i = 32; i != 0; i = i + -1) {
-    *puVar2 = 0;
-    puVar2 = puVar2 + 1;
+    *piVar2 = 0;
+    piVar2 = piVar2 + 1;
   }
   if (g_Supervisor.controller == (LPDIRECTINPUTDEVICE8A)0x0) {
     joyinfo_ptr = &joyinfo;
@@ -36,7 +36,7 @@ void joystickcheck_only_called_in_keyconfig(void)
       local_3c = joyinfo.dwButtons;
       for (local_40 = 0; local_40 < 0x20; local_40 = local_40 + 1) {
         if ((local_3c & 1) != 0) {
-          *(undefined *)((int)&DAT_0069e1b0 + local_40) = 0x80;
+          *(undefined *)((int)g_ControllerData + local_40) = 0x80;
         }
         local_3c = local_3c >> 1;
       }
@@ -59,17 +59,18 @@ void joystickcheck_only_called_in_keyconfig(void)
       (*(g_Supervisor.controller)->lpVtbl->GetDeviceState)(g_Supervisor.controller,0x110,&local_15c)
       ;
       if (-1 < local_44) {
-        puVar2 = (undefined4 *)&local_12c;
-        puVar3 = &DAT_0069e1b0;
+        piVar2 = (int *)&local_12c;
+        piVar3 = g_ControllerData;
         for (i = 0x20; i != 0; i = i + -1) {
-          *puVar3 = *puVar2;
-          puVar2 = puVar2 + 1;
-          puVar3 = puVar3 + 1;
+          *piVar3 = *piVar2;
+          piVar2 = piVar2 + 1;
+          piVar3 = piVar3 + 1;
         }
       }
     }
   }
+  piVar2 = g_ControllerData;
   __security_check_cookie(local_48 ^ unaff_retaddr);
-  return;
+  return (byte *)piVar2;
 }
 

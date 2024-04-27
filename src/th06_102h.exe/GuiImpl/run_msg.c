@@ -112,7 +112,8 @@ undefined4 __thiscall GuiImpl::run_msg(GuiImpl *this)
         iVar8 = PlayMidiFile(*(int *)((int)(this->msg).current_instr + 4));
         if (iVar8 != 0) {
           Supervisor::PlayAudio
-                    ((char *)(g_Stage.stdData +
+                    (&g_Supervisor,
+                     (char *)(g_Stage.stdData +
                              *(int *)((int)(this->msg).current_instr + 4) * 0x80 + 0x290));
         }
         break;

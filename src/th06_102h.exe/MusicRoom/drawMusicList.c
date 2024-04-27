@@ -42,7 +42,7 @@ void __thiscall MusicRoom::drawMusicList(MusicRoom *this)
   if (((g_CurFrameInput & 0x1001) != 0) &&
      ((g_CurFrameInput & 0x1001) != (g_LastFrameInput & 0x1001))) {
     this->musicPtr = this->cursor;
-    Supervisor::PlayAudio(this->field11_0x20 + this->musicPtr * 0x272);
+    Supervisor::PlayAudio(&g_Supervisor,this->field11_0x20 + this->musicPtr * 0x272);
     for (local_c = 0; local_c < 0x10; local_c = local_c + 1) {
       puVar4 = (undefined4 *)&local_54;
       for (iVar3 = 0x10; iVar3 != 0; iVar3 = iVar3 + -1) {

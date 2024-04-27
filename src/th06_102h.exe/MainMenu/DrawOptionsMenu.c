@@ -1,10 +1,9 @@
 
-int __thiscall MainMenu::drawOptionsMenu(MainMenu *this)
+int __thiscall MainMenu::DrawOptionsMenu(MainMenu *this)
 
 {
   AnmVm *OptionsVm;
   int i;
-  short button;
   uint selection;
   
   MoveCursor(this,9);
@@ -72,13 +71,13 @@ int __thiscall MainMenu::drawOptionsMenu(MainMenu *this)
       }
       else if (selection == 3) {
         SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xc,0);
-        Supervisor::FUN_00424d38(&g_Supervisor);
+        Supervisor::StopAudio(&g_Supervisor);
         if (g_Supervisor.cfg.musicMode == OFF) {
           g_Supervisor.cfg.musicMode = WAV|MIDI;
         }
         g_Supervisor.cfg.musicMode = g_Supervisor.cfg.musicMode + ~OFF;
-        isMusicMutedWtf();
-        Supervisor::PlayAudio("bgm/th06_01.mid");
+        Supervisor::SetupMidiPlayback(&g_Supervisor,"bgm/th06_01.mid");
+        Supervisor::PlayAudio(&g_Supervisor,"bgm/th06_01.mid");
       }
       else if (selection == 4) {
         SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xc,0);
@@ -125,13 +124,13 @@ int __thiscall MainMenu::drawOptionsMenu(MainMenu *this)
       }
       else if (selection == 3) {
         SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xc,0);
-        Supervisor::FUN_00424d38(&g_Supervisor);
+        Supervisor::StopAudio(&g_Supervisor);
         g_Supervisor.cfg.musicMode = g_Supervisor.cfg.musicMode + WAV;
         if (MIDI < g_Supervisor.cfg.musicMode) {
           g_Supervisor.cfg.musicMode = OFF;
         }
-        isMusicMutedWtf();
-        Supervisor::PlayAudio("bgm/th06_01.mid");
+        Supervisor::SetupMidiPlayback(&g_Supervisor,"bgm/th06_01.mid");
+        Supervisor::PlayAudio(&g_Supervisor,"bgm/th06_01.mid");
       }
       else if (selection == 4) {
         SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xc,0);
@@ -152,7 +151,7 @@ int __thiscall MainMenu::drawOptionsMenu(MainMenu *this)
        ((g_CurFrameInput & 0x1001) != (g_LastFrameInput & 0x1001))) {
       selection = this->cursor;
       if (selection == 6) {
-        Supervisor::FUN_00424d38(&g_Supervisor);
+        Supervisor::StopAudio(&g_Supervisor);
         g_Supervisor.cfg.lifeCount = 2;
         g_Supervisor.cfg.bombCount = 3;
         g_Supervisor.cfg.musicMode = WAV;
@@ -160,8 +159,8 @@ int __thiscall MainMenu::drawOptionsMenu(MainMenu *this)
         g_Supervisor.cfg.defaultDifficulty = NORMAL;
         g_Supervisor.cfg.windowed = false;
         g_Supervisor.cfg.frameskipConfig = 0;
-        isMusicMutedWtf();
-        Supervisor::PlayAudio("bgm/th06_01.mid");
+        Supervisor::SetupMidiPlayback(&g_Supervisor,"bgm/th06_01.mid");
+        Supervisor::PlayAudio(&g_Supervisor,"bgm/th06_01.mid");
       }
       else if (selection == 7) {
         this->gameState = STATE_KEYCONFIG;
@@ -171,18 +170,11 @@ int __thiscall MainMenu::drawOptionsMenu(MainMenu *this)
         }
         this->cursor = 0;
         SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,10,0);
-        button = g_ControllerMapping.bombButton;
-        (this->controlMapping).shootButton = g_ControllerMapping.shootButton;
-        (this->controlMapping).bombButton = button;
-        button = g_ControllerMapping.menuButton;
-        (this->controlMapping).focusButton = g_ControllerMapping.focusButton;
-        (this->controlMapping).menuButton = button;
-        (this->controlMapping).upButton = g_ControllerMapping.upButton;
-        (this->controlMapping).downButton = g_ControllerMapping.downButton;
-        button = g_ControllerMapping.rightButton;
-        (this->controlMapping).leftButton = g_ControllerMapping.leftButton;
-        (this->controlMapping).rightButton = button;
-        (this->controlMapping).skipButton = g_ControllerMapping.skipButton;
+        *(undefined4 *)this->controlMapping = g_ControllerMapping._0_4_;
+        *(undefined4 *)(this->controlMapping + 2) = g_ControllerMapping._4_4_;
+        *(undefined4 *)(this->controlMapping + 4) = g_ControllerMapping._8_4_;
+        *(undefined4 *)(this->controlMapping + 6) = g_ControllerMapping._12_4_;
+        this->controlMapping[8] = g_ControllerMapping.skipButton;
         g_ControllerMapping.upButton = -1;
         g_ControllerMapping.downButton = -1;
       }

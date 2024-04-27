@@ -1,22 +1,28 @@
 
-undefined4 MainMenu::OnUpdate(MainMenu *menu)
+ChainCallbackResult MainMenu::OnUpdate(MainMenu *menu)
 
 {
   short sVar1;
-  DWORD time;
+  DWORD DVar1;
   ZunResult startedUp;
   int pressedButton;
   int gameState;
+  byte *pvVar3;
   ZunResult ZVar1;
-  int deltaTime;
-  bool hasLoadedSprite;
+  bool bVar2;
   uint chosenStage;
   uint local_b4;
+  D3DXVECTOR3 pos5;
+  D3DXVECTOR3 pos4;
+  D3DXVECTOR3 pos3;
+  D3DXVECTOR3 pos2;
+  D3DXVECTOR3 pos1;
   uint local_50;
   uint local_4c;
   float local_48;
   float refresh_rate;
-  short local_28;
+  ControllerMapping local_40;
+  short svar1;
   AnmVm *vm_memset;
   int i;
   float fVar1;
@@ -24,34 +30,34 @@ undefined4 MainMenu::OnUpdate(MainMenu *menu)
   if (menu->timeRelatedArrSize < 0x10) {
     timeBeginPeriod(1);
     if (menu->lastFrameTime == 0) {
-      time = timeGetTime();
-      menu->lastFrameTime = time;
+      DVar1 = timeGetTime();
+      menu->lastFrameTime = DVar1;
     }
-    time = timeGetTime();
+    DVar1 = timeGetTime();
     timeEndPeriod(1);
-    menu->unk_10f2c = menu->unk_10f2c + 1;
-    deltaTime = time - menu->lastFrameTime;
-    if (deltaTime < 700) {
-      if (499 < deltaTime) {
-        fVar1 = ((float)menu->unk_10f2c * 1000.0) / (float)deltaTime;
+    menu->frameCountForRefreshRateCalc = menu->frameCountForRefreshRateCalc + 1;
+    gameState = DVar1 - menu->lastFrameTime;
+    if (gameState < 700) {
+      if (499 < gameState) {
+        fVar1 = ((float)menu->frameCountForRefreshRateCalc * 1000.0) / (float)gameState;
         if (57.0 <= fVar1) {
           menu->timeRelatedArr[menu->timeRelatedArrSize] = fVar1;
           menu->timeRelatedArrSize = menu->timeRelatedArrSize + 1;
         }
-        menu->lastFrameTime = time;
-        menu->unk_10f2c = 0;
+        menu->lastFrameTime = DVar1;
+        menu->frameCountForRefreshRateCalc = 0;
       }
     }
     else {
-      menu->lastFrameTime = time;
-      menu->unk_10f2c = 0;
+      menu->lastFrameTime = DVar1;
+      menu->frameCountForRefreshRateCalc = 0;
     }
   }
   switch(menu->gameState) {
   case STATE_STARTUP:
     startedUp = BeginStartup(menu);
     if (startedUp == ZUN_ERROR) {
-      return 0;
+      return CHAIN_CALLBACK_RESULT_CONTINUE_AND_REMOVE_JOB;
     }
   case STATE_PRE_INPUT:
     menu->idleFrames = menu->idleFrames + 1;
@@ -70,11 +76,11 @@ load_menu_rpy:
       g_GameManager.difficulty = LUNATIC;
       g_GameManager.current_stage = 3;
       g_Supervisor.curState = 2;
-      return 0;
+      return CHAIN_CALLBACK_RESULT_CONTINUE_AND_REMOVE_JOB;
     }
                     /* Second implementation of input checking, basically does the same thing as
                        above */
-    pressedButton = weird_second_input_check(menu);
+    pressedButton = WeirdSecondInputCheck(menu);
     if (pressedButton == ZUN_SUCCESS) {
       menu->idleFrames = 0;
 drawStartMenuCase:
@@ -89,15 +95,15 @@ drawStartMenuCase:
   case STATE_MAIN_MENU:
     goto drawStartMenuCase;
   case STATE_OPTIONS:
-    gameState = drawOptionsMenu(menu);
+    gameState = DrawOptionsMenu(menu);
     if (gameState != 0) {
-      return 0;
+      return CHAIN_CALLBACK_RESULT_CONTINUE_AND_REMOVE_JOB;
     }
     break;
   case STATE_QUIT:
     if (59 < menu->stateTimer) {
-      g_Supervisor.curState = 4;
-      return 0;
+      g_Supervisor.curState = SUPERVISOR_STATE_EXITSUCCESS;
+      return CHAIN_CALLBACK_RESULT_CONTINUE_AND_REMOVE_JOB;
     }
     break;
   case STATE_KEYCONFIG:
@@ -108,7 +114,7 @@ drawStartMenuCase:
       vm_memset = vm_memset + 1;
     }
     for (i = 0; i < 9; i = i + 1) {
-      if (*(short *)(menu->field16_0x8218 + i * 2 + 4) < 0) {
+      if (menu->controlMapping[i] < 0) {
         *(uint *)&vm_memset->flags = *(uint *)&vm_memset->flags & 0xfffffffd;
       }
       else {
@@ -118,20 +124,18 @@ drawStartMenuCase:
       vm_memset = vm_memset + 1;
     }
     for (i = 0; i < 18; i = i + 1) {
-      if (*(short *)(menu->field16_0x8218 + (i / 2) * 2 + 4) < 0) {
+      if (menu->controlMapping[i / 2] < 0) {
         *(uint *)&vm_memset->flags = *(uint *)&vm_memset->flags & 0xfffffffd;
       }
       else {
         *(uint *)&vm_memset->flags = *(uint *)&vm_memset->flags | 2;
         if (i % 2 == 0) {
           AnmManager::SetActiveSprite
-                    (g_AnmManager,vm_memset,
-                     (int)*(short *)(menu->field16_0x8218 + (i / 2) * 2 + 4) / 10 + 0x100);
+                    (g_AnmManager,vm_memset,(int)menu->controlMapping[i / 2] / 10 + 0x100);
         }
         else {
           AnmManager::SetActiveSprite
-                    (g_AnmManager,vm_memset,
-                     (int)*(short *)(menu->field16_0x8218 + (i / 2) * 2 + 4) % 10 + 0x100);
+                    (g_AnmManager,vm_memset,(int)menu->controlMapping[i / 2] % 10 + 0x100);
         }
         vm_memset->anotherSpriteNumber = vm_memset->spriteNumber;
         DrawMenuItem(vm_memset,i / 2,menu->cursor,menu->color2,menu->color1,0x7a);
@@ -139,105 +143,93 @@ drawStartMenuCase:
       vm_memset = vm_memset + 1;
     }
     if (31 < menu->stateTimer) {
-      gameState = joystickcheck_only_called_in_keyconfig();
+      pvVar3 = GetControllerState();
       sVar1 = 0;
-      while ((sVar1 < 0x20 && ((*(byte *)(gameState + sVar1) & 0x80) == 0))) {
+      while ((sVar1 < 0x20 && ((pvVar3[sVar1] & 0x80) == 0))) {
         sVar1 = sVar1 + 1;
       }
-      if ((sVar1 < 0x20) && (DAT_00478690 != sVar1)) {
+      if ((sVar1 < 0x20) && (g_LastJoystickInput != sVar1)) {
         SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,10,0);
         switch(menu->cursor) {
         case 0:
-          select_related(menu,sVar1,(menu->controlMapping).shootButton,1);
-          (menu->controlMapping).shootButton = sVar1;
+          SelectRelated(menu,sVar1,menu->controlMapping[0],1);
+          menu->controlMapping[0] = sVar1;
           break;
         case 1:
-          select_related(menu,sVar1,(menu->controlMapping).bombButton,0);
-          (menu->controlMapping).bombButton = sVar1;
+          SelectRelated(menu,sVar1,menu->controlMapping[1],0);
+          menu->controlMapping[1] = sVar1;
           break;
         case 2:
-          select_related(menu,sVar1,(menu->controlMapping).focusButton,1);
-          (menu->controlMapping).focusButton = sVar1;
+          SelectRelated(menu,sVar1,menu->controlMapping[2],1);
+          menu->controlMapping[2] = sVar1;
           break;
         case 3:
-          select_related(menu,sVar1,(menu->controlMapping).menuButton,0);
-          (menu->controlMapping).menuButton = sVar1;
+          SelectRelated(menu,sVar1,menu->controlMapping[3],0);
+          menu->controlMapping[3] = sVar1;
           break;
         case 4:
-          select_related(menu,sVar1,(menu->controlMapping).upButton,0);
-          (menu->controlMapping).upButton = sVar1;
+          SelectRelated(menu,sVar1,menu->controlMapping[4],0);
+          menu->controlMapping[4] = sVar1;
           break;
         case 5:
-          select_related(menu,sVar1,(menu->controlMapping).downButton,0);
-          (menu->controlMapping).downButton = sVar1;
+          SelectRelated(menu,sVar1,menu->controlMapping[5],0);
+          menu->controlMapping[5] = sVar1;
           break;
         case 6:
-          select_related(menu,sVar1,(menu->controlMapping).leftButton,0);
-          (menu->controlMapping).leftButton = sVar1;
+          SelectRelated(menu,sVar1,menu->controlMapping[6],0);
+          menu->controlMapping[6] = sVar1;
           break;
         case 7:
-          select_related(menu,sVar1,(menu->controlMapping).rightButton,0);
-          (menu->controlMapping).rightButton = sVar1;
+          SelectRelated(menu,sVar1,menu->controlMapping[7],0);
+          menu->controlMapping[7] = sVar1;
           break;
         case 8:
-          select_related(menu,sVar1,(menu->controlMapping).skipButton,0);
-          (menu->controlMapping).skipButton = sVar1;
+          SelectRelated(menu,sVar1,menu->controlMapping[8],0);
+          menu->controlMapping[8] = sVar1;
         }
       }
-      DAT_00478690 = sVar1;
+      g_LastJoystickInput = sVar1;
       if (((g_CurFrameInput & 0x1001) != 0) &&
          ((g_CurFrameInput & 0x1001) != (g_LastFrameInput & 0x1001))) {
         if (menu->cursor == 9) {
-          (menu->controlMapping).shootButton = 0;
-          (menu->controlMapping).bombButton = 1;
-          (menu->controlMapping).focusButton = 0;
-          (menu->controlMapping).menuButton = -1;
-          (menu->controlMapping).upButton = -1;
-          (menu->controlMapping).downButton = -1;
-          (menu->controlMapping).leftButton = -1;
-          (menu->controlMapping).rightButton = -1;
-          (menu->controlMapping).skipButton = -1;
+          *(undefined4 *)menu->controlMapping = 0x10000;
+          *(undefined4 *)(menu->controlMapping + 2) = 0xffff0000;
+          *(undefined4 *)(menu->controlMapping + 4) = 0xffffffff;
+          *(undefined4 *)(menu->controlMapping + 6) = 0xffffffff;
+          menu->controlMapping[8] = -1;
         }
         else if (menu->cursor == 10) {
           menu->gameState = STATE_OPTIONS;
           menu->stateTimer = 0;
-          for (local_28 = 0; local_28 < 0x7a; local_28 = local_28 + 1) {
-            menu->vmList[local_28].pendingInterrupt = 3;
+          for (svar1 = 0; svar1 < 0x7a; svar1 = svar1 + 1) {
+            menu->vmList[svar1].pendingInterrupt = 3;
           }
           menu->cursor = 7;
           SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xb,0);
-          g_ControllerMapping.shootButton = (menu->controlMapping).shootButton;
-          g_ControllerMapping.bombButton = (menu->controlMapping).bombButton;
-          g_ControllerMapping.focusButton = (menu->controlMapping).focusButton;
-          g_ControllerMapping.menuButton = (menu->controlMapping).menuButton;
-          g_ControllerMapping.upButton = (menu->controlMapping).upButton;
-          g_ControllerMapping.downButton = (menu->controlMapping).downButton;
-          g_ControllerMapping.leftButton = (menu->controlMapping).leftButton;
-          g_ControllerMapping.rightButton = (menu->controlMapping).rightButton;
-          g_ControllerMapping.skipButton = (menu->controlMapping).skipButton;
-          g_Supervisor.cfg.controllerMapping.shootButton = (menu->controlMapping).shootButton;
-          g_Supervisor.cfg.controllerMapping.bombButton = (menu->controlMapping).bombButton;
-          g_Supervisor.cfg.controllerMapping.focusButton = (menu->controlMapping).focusButton;
-          g_Supervisor.cfg.controllerMapping.menuButton = (menu->controlMapping).menuButton;
-          g_Supervisor.cfg.controllerMapping.upButton = (menu->controlMapping).upButton;
-          g_Supervisor.cfg.controllerMapping.downButton = (menu->controlMapping).downButton;
-          g_Supervisor.cfg.controllerMapping.leftButton = (menu->controlMapping).leftButton;
-          g_Supervisor.cfg.controllerMapping.rightButton = (menu->controlMapping).rightButton;
-          g_Supervisor.cfg.controllerMapping.skipButton = (menu->controlMapping).skipButton;
+          g_ControllerMapping._0_4_ = *(undefined4 *)menu->controlMapping;
+          g_ControllerMapping._4_4_ = *(undefined4 *)(menu->controlMapping + 2);
+          g_ControllerMapping._8_4_ = *(undefined4 *)(menu->controlMapping + 4);
+          g_ControllerMapping._12_4_ = *(undefined4 *)(menu->controlMapping + 6);
+          g_ControllerMapping.skipButton = menu->controlMapping[8];
+          g_Supervisor.cfg.controllerMapping._0_4_ = *(undefined4 *)menu->controlMapping;
+          g_Supervisor.cfg.controllerMapping._4_4_ = *(undefined4 *)(menu->controlMapping + 2);
+          g_Supervisor.cfg.controllerMapping._8_4_ = *(undefined4 *)(menu->controlMapping + 4);
+          g_Supervisor.cfg.controllerMapping._12_4_ = *(undefined4 *)(menu->controlMapping + 6);
+          g_Supervisor.cfg.controllerMapping.skipButton = menu->controlMapping[8];
         }
       }
     }
     break;
   case STATE_DIFFICULTY_LOAD:
     if (menu->stateTimer != 0x3c) break;
-    ZVar1 = loadDiffCharSelect(menu);
+    ZVar1 = LoadDiffCharSelect(menu);
     if (ZVar1 != ZUN_SUCCESS) {
       GameErrorContextLog(&g_GameErrorContext,"セレクト画面の読み込みに失敗\n");
       g_Supervisor.curState = 4;
-      return 0;
+      return CHAIN_CALLBACK_RESULT_CONTINUE_AND_REMOVE_JOB;
     }
     menu->gameState = STATE_DIFFICULTY_SELECT;
-    menu->unk_81fc = 0;
+    menu->minimumOpacity = 0;
     menu->wasActive = menu->isActive;
     menu->isActive = 0;
     if ((int)g_GameManager.difficulty < 4) {
@@ -502,7 +494,7 @@ LAB_0043666d:
   case STATE_SCORE:
     if (59 < menu->stateTimer) {
       g_Supervisor.curState = 6;
-      return 0;
+      return CHAIN_CALLBACK_RESULT_CONTINUE_AND_REMOVE_JOB;
     }
     break;
   case STATE_SHOT_SELECT:
@@ -582,7 +574,7 @@ LAB_0043666d:
             }
             vm_memset = vm_memset + 2;
           }
-          menu->cursor = g_GameManager.field43_0x1a38;
+          menu->cursor = g_GameManager.menu_cursor_backup;
           if (*(byte *)(((uint)g_GameManager.shottype + (uint)g_GameManager.character * 2) * 0x18 +
                         0x69cce1 + g_GameManager.difficulty) < 7) {
             local_b4 = (uint)*(byte *)(((uint)g_GameManager.shottype +
@@ -636,13 +628,13 @@ LAB_0043666d:
   case STATE_REPLAY_SELECT:
     gameState = ReplayHandling(menu);
     if (gameState != 0) {
-      return 0;
+      return CHAIN_CALLBACK_RESULT_CONTINUE_AND_REMOVE_JOB;
     }
     break;
   case STATE_MUSIC_ROOM:
     if (0x3b < menu->stateTimer) {
       g_Supervisor.curState = 9;
-      return 0;
+      return CHAIN_CALLBACK_RESULT_CONTINUE_AND_REMOVE_JOB;
     }
     break;
   case STATE_PRACTICE_LVL_SELECT:
@@ -665,7 +657,7 @@ LAB_0043666d:
         if (((g_CurFrameInput & 0x1001) != 0) &&
            ((g_CurFrameInput & 0x1001) != (g_LastFrameInput & 0x1001))) {
           g_GameManager.current_stage = menu->cursor;
-          g_GameManager.field43_0x1a38 = menu->cursor;
+          g_GameManager.menu_cursor_backup = menu->cursor;
 LAB_00436de7:
           g_GameManager.lives_remaining = g_Supervisor.cfg.lifeCount;
           g_GameManager.bombs_remaining = g_Supervisor.cfg.bombCount;
@@ -734,8 +726,8 @@ LAB_00436de7:
           }
           DebugPrint("Reflesh Rate = %f\n",(double)(60.0 / refresh_rate));
           g_Supervisor.framerateMultiplier = refresh_rate;
-          Supervisor::FUN_00424d38(&g_Supervisor);
-          return 0;
+          Supervisor::StopAudio(&g_Supervisor);
+          return CHAIN_CALLBACK_RESULT_CONTINUE_AND_REMOVE_JOB;
         }
       }
       else {
@@ -769,20 +761,19 @@ LAB_00436de7:
   menu->stateTimer = menu->stateTimer + 1;
   for (i = 0; i < 122; i = i + 1) {
     if (menu->vmList[i].sprite == (AnmLoadedSprite *)0x0) {
-      hasLoadedSprite = false;
+      bVar2 = false;
     }
     else if ((menu->vmList[i].sprite)->sourceFileIndex < 0) {
-      hasLoadedSprite = false;
+      bVar2 = false;
     }
     else {
-      hasLoadedSprite =
-           g_AnmManager->textures[(menu->vmList[i].sprite)->sourceFileIndex] !=
-           (IDirect3DTexture8 *)0x0;
+      bVar2 = g_AnmManager->textures[(menu->vmList[i].sprite)->sourceFileIndex] !=
+              (IDirect3DTexture8 *)0x0;
     }
-    if (hasLoadedSprite) {
+    if (bVar2) {
       AnmManager::ExecuteScript(g_AnmManager,menu->vmList + i);
     }
   }
-  return 1;
+  return CHAIN_CALLBACK_RESULT_CONTINUE;
 }
 

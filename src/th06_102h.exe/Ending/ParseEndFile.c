@@ -206,7 +206,7 @@ switchD_0040fa93_caseD_52:
           break;
         case 'm':
                     /* musicplay(file) */
-          Supervisor::PlayAudio(this->endFileDataPtr + 1);
+          Supervisor::PlayAudio(&g_Supervisor,this->endFileDataPtr + 1);
           break;
         case 'r':
                     /* waitreset(minframes, maxframes) */

@@ -31,8 +31,8 @@ ChainCallbackResult Player::OnDrawHighPrio(Player *this)
       *pfVar2 = g_GameManager.arcade_region_top_left_pos.y + *pfVar2;
       this->vm1[0].pos.z = 0.491;
       this->vm1[1].pos.z = 0.491;
-      AnmManager::FUN_00432cc0(g_AnmManager,this->vm1);
-      AnmManager::FUN_00432cc0(g_AnmManager,this->vm1 + 1);
+      AnmManager::Draw(g_AnmManager,this->vm1);
+      AnmManager::Draw(g_AnmManager,this->vm1 + 1);
     }
   }
   return CHAIN_CALLBACK_RESULT_CONTINUE;

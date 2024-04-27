@@ -1,6 +1,4 @@
 
-/* WARNING: Unknown calling convention -- yet parameter storage is locked */
-
 ZunResult MainMenu::RegisterChain(int param_1)
 
 {
@@ -26,7 +24,7 @@ ZunResult MainMenu::RegisterChain(int param_1)
     Chain::AddToDrawChain(&g_Chain,g_MainMenu.chain_draw,0);
     g_MainMenu.lastFrameTime = 0;
     g_MainMenu.stateTimer = 0x3c;
-    g_MainMenu.unk_10f2c = 0;
+    g_MainMenu.frameCountForRefreshRateCalc = 0;
     ZVar3 = ZUN_SUCCESS;
   }
   else {

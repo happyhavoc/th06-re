@@ -1,11 +1,9 @@
 
-/* WARNING: Unknown calling convention -- yet parameter storage is locked */
-
-undefined4 ParseClrd(ScoreDat *scoredat,Clrd *param_2)
+ZunResult ParseClrd(ScoreDat *scoredat,Clrd *param_2)
 
 {
   ushort *puVar1;
-  undefined4 uVar2;
+  ZunResult ZVar2;
   int iVar3;
   Th6k *pTVar4;
   Clrd *pCVar5;
@@ -15,7 +13,7 @@ undefined4 ParseClrd(ScoreDat *scoredat,Clrd *param_2)
   Th6k *local_8;
   
   if (param_2 == (Clrd *)0x0) {
-    uVar2 = 0xffffffff;
+    ZVar2 = ZUN_ERROR;
   }
   else {
     for (local_c = 0; local_c < 4; local_c = local_c + 1) {
@@ -47,8 +45,8 @@ undefined4 ParseClrd(ScoreDat *scoredat,Clrd *param_2)
       puVar1 = &local_8->th6k_len;
       local_8 = (Th6k *)((int)&local_8->magic + (uint)local_8->th6k_len);
     }
-    uVar2 = 0;
+    ZVar2 = ZUN_SUCCESS;
   }
-  return uVar2;
+  return ZVar2;
 }
 

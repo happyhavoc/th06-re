@@ -2,7 +2,7 @@
 void * __thiscall ResultScreen::ResultScreen(ResultScreen *this)
 
 {
-  ResultScreenUnk3ab0 *local_58;
+  ScoreListNode *local_58;
   int local_50;
   AnmVm *vm1;
   int local_34;
@@ -25,11 +25,11 @@ void * __thiscall ResultScreen::ResultScreen(ResultScreen *this)
   }
   AnmVm::AnmVm(&this->unk_39a0);
   local_50 = 0x14;
-  local_58 = this->unk_3ab0;
+  local_58 = this->scores;
   while (local_50 = local_50 + -1, -1 < local_50) {
-    local_58->unk1 = (ResultScreenUnk3ab0 *)0x0;
-    local_58->unk2__ResultScreenUnk3ab0 = (ResultScreenUnk3ab0 *)0x0;
-    local_58->unk3 = (Hscr *)0x0;
+    local_58->prev = (ScoreListNode *)0x0;
+    local_58->next = (ScoreListNode *)0x0;
+    local_58->data = (Hscr *)0x0;
     local_58 = local_58 + 1;
   }
                     /* ?? doesn't this make everything above pointless, it fills the entirety of

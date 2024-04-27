@@ -2,14 +2,12 @@
 undefined4 __thiscall ResultScreen::DeletedCallback(ResultScreen *this,ResultScreen *param_1)
 
 {
-  ResultScreen *pRVar1;
   int local_c;
   int local_8;
   
   if (param_1->scoredat != (ScoreDat *)0x0) {
-    pRVar1 = param_1;
-    WriteScore();
-    ScoreDat::FUN_0042b7dc(pRVar1,param_1->scoredat);
+    WriteScore(param_1);
+    ScoreDat::Release(param_1->scoredat);
   }
   param_1->scoredat = (ScoreDat *)0x0;
   for (local_8 = 0; local_8 < 5; local_8 = local_8 + 1) {

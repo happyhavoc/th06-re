@@ -1,5 +1,5 @@
 
-ZunResult __thiscall MainMenu::weird_second_input_check(MainMenu *this)
+ZunResult __thiscall MainMenu::WeirdSecondInputCheck(MainMenu *this)
 
 {
   ZunResult result;
@@ -30,9 +30,9 @@ ZunResult __thiscall MainMenu::weird_second_input_check(MainMenu *this)
     d3d_vec->x = -6.0;
     d3d_vec->y = -6.0;
     d3d_vec->z = 0.0;
-    this->unk_81fc = 0;
-    this->maybe_menu_text_color = 0x40000000;
-    this->unk_820c = 0;
+    this->minimumOpacity = 0;
+    this->menuTextColor = 0x40000000;
+    this->numFramesSinceActive = 0;
                     /* Seems to only get set once the current menu is active (aka the function has
                        been called), 0 when its not ready (loading, or on the title screen), and 60
                        when it is ready and active. */

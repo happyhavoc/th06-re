@@ -1,5 +1,5 @@
 
-undefined4 __thiscall MainMenu::ChoosePracticeLevel(MainMenu *this)
+ZunResult __thiscall MainMenu::ChoosePracticeLevel(MainMenu *this)
 
 {
   uint local_2c;
@@ -48,6 +48,6 @@ undefined4 __thiscall MainMenu::ChoosePracticeLevel(MainMenu *this)
     }
     g_AsciiManager.color = 0xffffffff;
   }
-  return 0;
+  return ZUN_SUCCESS;
 }
 

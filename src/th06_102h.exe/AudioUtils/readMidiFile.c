@@ -1,5 +1,5 @@
 
-undefined4 readMidiFile(int param_1,char *path)
+undefined4 AudioUtils::readMidiFile(int param_1,char *path)
 
 {
   undefined4 uVar1;

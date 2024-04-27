@@ -16,7 +16,7 @@ ZunResult __thiscall MainMenu::BeginStartup(MainMenu *this)
         time = timeGetTime();
       }
       g_Supervisor.startup_time_for_menu_music = 0;
-      Supervisor::PlayAudio("bgm/th06_01.mid");
+      Supervisor::PlayAudio(&g_Supervisor,"bgm/th06_01.mid");
     }
     for (i = 0; i < 122; i = i + 1) {
       this->vmList[i].pendingInterrupt = 1;

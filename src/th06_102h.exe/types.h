@@ -71117,37 +71117,6 @@ struct EnemyManager {
 
 /* WARNING! conflicting data type names: /th06/test - /test */
 
-typedef struct ResultScreenUnk3ab0 ResultScreenUnk3ab0, *PResultScreenUnk3ab0;
-
-typedef struct Hscr Hscr, *PHscr;
-
-typedef struct Th6k Th6k, *PTh6k;
-
-struct Th6k {
-    uint magic;
-    ushort th6k_len;
-    ushort unk_len;
-    char version?;
-    undefined field4_0x9;
-    undefined field5_0xa;
-    undefined field6_0xb;
-};
-
-struct ResultScreenUnk3ab0 {
-    struct ResultScreenUnk3ab0 *unk1;
-    struct ResultScreenUnk3ab0 *unk2__ResultScreenUnk3ab0;
-    struct Hscr *unk3;
-};
-
-struct Hscr {
-    struct Th6k base;
-    uint score;
-    byte character; /* range is 0-3. Bottom bit is spellcard, top bit is character (0 = reimu, 2 = marisa) */
-    byte difficulty;
-    byte stage;
-    char name[9];
-};
-
 typedef struct BulletManager BulletManager, *PBulletManager;
 
 typedef struct Laser Laser, *PLaser;
@@ -71452,6 +71421,37 @@ struct Chain {
     undefined4 unk;
 };
 
+typedef struct ScoreListNode ScoreListNode, *PScoreListNode;
+
+typedef struct Hscr Hscr, *PHscr;
+
+typedef struct Th6k Th6k, *PTh6k;
+
+struct Th6k {
+    uint magic;
+    ushort th6k_len;
+    ushort unk_len;
+    char version?;
+    undefined field4_0x9;
+    undefined field5_0xa;
+    undefined field6_0xb;
+};
+
+struct ScoreListNode {
+    struct ScoreListNode *prev;
+    struct ScoreListNode *next;
+    struct Hscr *data;
+};
+
+struct Hscr {
+    struct Th6k base;
+    uint score;
+    byte character; /* range is 0-3. Bottom bit is spellcard, top bit is character (0 = reimu, 2 = marisa) */
+    byte difficulty;
+    byte stage;
+    char name[9];
+};
+
 typedef struct zRect zRect, *PzRect;
 
 struct zRect {
@@ -71576,7 +71576,7 @@ struct ResultScreen {
     struct AnmVm field86_0x3780;
     struct AnmVm field87_0x3890;
     struct AnmVm unk_39a0;
-    struct ResultScreenUnk3ab0 unk_3ab0[20];
+    struct ScoreListNode scores[20];
     struct Hscr default_scores[5][4][10];
     struct Hscr hscr;
     undefined field92_0x519c;
@@ -72869,7 +72869,7 @@ struct ScoreDat {
     ushort csum;
     byte unk[4];
     uint data_offset;
-    struct ResultScreenUnk3ab0 *unk2;
+    struct ScoreListNode *scores;
     uint file_length;
 };
 
@@ -72906,15 +72906,15 @@ struct MainMenu {
     enum GameState gameState;
     int stateTimer;
     int idleFrames;
-    uint unk_81fc;
-    D3DCOLOR maybe_menu_text_color;
+    D3DCOLOR minimumOpacity;
+    D3DCOLOR menuTextColor;
     D3DCOLOR color2;
     D3DCOLOR color1;
-    uint unk_820c;
-    uint isActive; /* 60 when menu ready, 0 otherwise */
+    int numFramesSinceActive;
+    int isActive; /* 60 when menu ready, 0 otherwise */
     uint wasActive;
-    undefined field16_0x8218[4];
-    struct ControllerMapping controlMapping;
+    byte field16_0x8218[4];
+    short controlMapping[9];
     undefined field18_0x822e[2];
     byte colorMode16bit; /* Created by retype action */
     bool windowed;
@@ -72933,7 +72933,7 @@ struct MainMenu {
     undefined field33_0x10f26;
     undefined field34_0x10f27;
     uint unk_10f28;
-    uint unk_10f2c;
+    uint frameCountForRefreshRateCalc;
     uint lastFrameTime;
 };
 
@@ -73273,7 +73273,7 @@ struct GameManager {
     int unk_1a2c;
     uint unk_1a30;
     int current_stage;
-    undefined4 field43_0x1a38;
+    int menu_cursor_backup;
     struct D3DXVECTOR2 arcade_region_top_left_pos;
     struct D3DXVECTOR2 arcade_region_size;
     float unk_1a4c;

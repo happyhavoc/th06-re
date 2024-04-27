@@ -1,9 +1,9 @@
 
-ScoreDat * OpenScore(char *param_1)
+ScoreDat * ResultScreen::OpenScore(char *param_1)
 
 {
   ScoreDat *pSVar1;
-  ResultScreenUnk3ab0 *pRVar2;
+  ScoreListNode *pSVar2;
   int local_24;
   byte *local_20;
   int remaining_data;
@@ -57,11 +57,11 @@ ScoreDat * OpenScore(char *param_1)
   score_data->data_offset = 0x14;
   score_data->file_length = 0x14;
 LAB_0042b248:
-  pRVar2 = (ResultScreenUnk3ab0 *)_malloc(0xc);
-  score_data->unk2 = pRVar2;
-  score_data->unk2->unk2__ResultScreenUnk3ab0 = (ResultScreenUnk3ab0 *)0x0;
-  score_data->unk2->unk3 = (Hscr *)0x0;
-  score_data->unk2->unk1 = (ResultScreenUnk3ab0 *)0x0;
+  pSVar2 = (ScoreListNode *)_malloc(0xc);
+  score_data->scores = pSVar2;
+  score_data->scores->next = (ScoreListNode *)0x0;
+  score_data->scores->data = (Hscr *)0x0;
+  score_data->scores->prev = (ScoreListNode *)0x0;
   return score_data;
 }
 

@@ -82,7 +82,7 @@ int __thiscall ResultScreen::AddedCallback(ResultScreen *this,ResultScreen *para
   param_1->scoredat = pSVar3;
   for (difficulty = 0; difficulty < 5; difficulty = difficulty + 1) {
     for (character = 0; character < 4; character = character + 1) {
-      GetHighScore(param_1->scoredat,param_1->unk_3ab0 + difficulty * 4 + character,character,
+      GetHighScore(param_1->scoredat,param_1->scores + difficulty * 4 + character,character,
                    difficulty);
     }
   }

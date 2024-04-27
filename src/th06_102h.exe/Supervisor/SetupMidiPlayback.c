@@ -1,5 +1,5 @@
 
-ZunResult isMusicMutedWtf(void)
+ZunResult __thiscall Supervisor::SetupMidiPlayback(Supervisor *this,char *path)
 
 {
   ZunResult isMuted;

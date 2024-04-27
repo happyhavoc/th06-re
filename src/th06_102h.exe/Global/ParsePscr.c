@@ -1,9 +1,9 @@
 
-undefined4 ParsePscr(ScoreDat *scoredat,Pscr *param_2)
+ZunResult ParsePscr(ScoreDat *scoredat,Pscr *param_2)
 
 {
   Th6k *pTVar1;
-  undefined4 uVar2;
+  ZunResult ZVar2;
   int iVar3;
   Pscr *pPVar4;
   Pscr *pPVar5;
@@ -15,7 +15,7 @@ undefined4 ParsePscr(ScoreDat *scoredat,Pscr *param_2)
   Pscr *local_8;
   
   if (param_2 == (Pscr *)0x0) {
-    uVar2 = 0xffffffff;
+    ZVar2 = ZUN_ERROR;
   }
   else {
     local_8 = param_2;
@@ -51,8 +51,8 @@ undefined4 ParsePscr(ScoreDat *scoredat,Pscr *param_2)
       pTVar1 = &local_c->base;
       local_c = (Pscr *)((int)&(local_c->base).magic + (uint)(local_c->base).th6k_len);
     }
-    uVar2 = 0;
+    ZVar2 = ZUN_SUCCESS;
   }
-  return uVar2;
+  return ZVar2;
 }
 

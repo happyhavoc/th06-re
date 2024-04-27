@@ -1,5 +1,5 @@
 
-undefined4 MainMenu::OnDraw(MainMenu *menu)
+ChainCallbackResult MainMenu::OnDraw(MainMenu *menu)
 
 {
   float fVar1;
@@ -20,20 +20,22 @@ undefined4 MainMenu::OnDraw(MainMenu *menu)
     g_AnmManager->currentTexture = (IDirect3DTexture8 *)0x0;
     AnmManager::CopySurfaceToBackBuffer(g_AnmManager,0,0,0,0,0);
     if (menu->isActive == 0) {
-      if (menu->unk_820c != 0) {
-        menu->unk_820c = menu->unk_820c - 1;
-        local_8 = (menu->maybe_menu_text_color >> 0x18) - (menu->unk_81fc >> 0x18);
-        DrawSquare(&window,((local_8 * menu->unk_820c) / menu->wasActive + (menu->unk_81fc >> 0x18))
-                           * 0x1000000 | menu->maybe_menu_text_color & 0xffffff);
+      if (menu->numFramesSinceActive != 0) {
+        menu->numFramesSinceActive = menu->numFramesSinceActive + -1;
+        local_8 = (menu->menuTextColor >> 0x18) - (menu->minimumOpacity >> 0x18);
+        DrawSquare(&window,((uint)(local_8 * menu->numFramesSinceActive) / menu->wasActive +
+                           (menu->minimumOpacity >> 0x18)) * 0x1000000 |
+                           menu->menuTextColor & 0xffffff);
       }
     }
     else {
-      if ((int)menu->unk_820c < (int)menu->isActive) {
-        menu->unk_820c = menu->unk_820c + 1;
+      if (menu->numFramesSinceActive < menu->isActive) {
+        menu->numFramesSinceActive = menu->numFramesSinceActive + 1;
       }
-      local_8 = (menu->maybe_menu_text_color >> 0x18) - (menu->unk_81fc >> 0x18);
-      DrawSquare(&window,((local_8 * menu->unk_820c) / menu->isActive + (menu->unk_81fc >> 0x18)) *
-                         0x1000000 | menu->maybe_menu_text_color & 0xffffff);
+      local_8 = (menu->menuTextColor >> 0x18) - (menu->minimumOpacity >> 0x18);
+      DrawSquare(&window,((uint)(local_8 * menu->numFramesSinceActive) / (uint)menu->isActive +
+                         (menu->minimumOpacity >> 0x18)) * 0x1000000 |
+                         menu->menuTextColor & 0xffffff);
     }
     for (vmIdx = 0; vmIdx < 0x62; vmIdx = vmIdx + 1) {
       if (curVm->sprite == (AnmLoadedSprite *)0x0) {
@@ -52,7 +54,7 @@ undefined4 MainMenu::OnDraw(MainMenu *menu)
         (curVm->pos).x = (curVm->pos).x + (curVm->pos2).x;
         (curVm->pos).y = (curVm->pos).y + (curVm->pos2).y;
         (curVm->pos).z = (curVm->pos).z + (curVm->pos2).z;
-        AnmManager::FUN_00432cc0(g_AnmManager,curVm);
+        AnmManager::Draw(g_AnmManager,curVm);
         (curVm->pos).x = fVar1;
         (curVm->pos).y = fVar2;
         (curVm->pos).z = fVar3;
@@ -64,6 +66,6 @@ undefined4 MainMenu::OnDraw(MainMenu *menu)
     }
     ChoosePracticeLevel(menu);
   }
-  return 1;
+  return CHAIN_CALLBACK_RESULT_CONTINUE;
 }
 

@@ -1,5 +1,5 @@
 
-undefined4 __thiscall MainMenu::DrawReplayMenu(MainMenu *this)
+ZunResult __thiscall MainMenu::DrawReplayMenu(MainMenu *this)
 
 {
   int replay_amount;
@@ -80,6 +80,6 @@ undefined4 __thiscall MainMenu::DrawReplayMenu(MainMenu *this)
   }
   g_AsciiManager.color = 0xffffffff;
   g_AsciiManager.isSelected = 0;
-  return 0;
+  return ZUN_SUCCESS;
 }
 

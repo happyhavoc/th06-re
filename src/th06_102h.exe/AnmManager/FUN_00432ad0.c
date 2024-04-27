@@ -1,20 +1,20 @@
 
-int __thiscall AnmManager::FUN_00432ad0(AnmManager *this,AnmVm *vm)
+ZunResult __thiscall AnmManager::FUN_00432ad0(AnmManager *this,AnmVm *vm)
 
 {
   float fVar1;
   float fVar2;
   float fVar3;
-  int iVar4;
+  ZunResult ZVar4;
   
   if ((*(uint *)&vm->flags & 1) == 0) {
-    iVar4 = -1;
+    ZVar4 = ZUN_ERROR;
   }
   else if ((*(uint *)&vm->flags >> 1 & 1) == 0) {
-    iVar4 = -1;
+    ZVar4 = ZUN_ERROR;
   }
   else if ((vm->color).color == 0) {
-    iVar4 = -1;
+    ZVar4 = ZUN_ERROR;
   }
   else {
     fVar2 = (vm->sprite->widthPx * vm->scaleX) / 2.0;
@@ -41,8 +41,8 @@ int __thiscall AnmManager::FUN_00432ad0(AnmManager *this,AnmVm *vm)
     g_PrimitivesToDrawVertexBuf[0].pos.y = g_PrimitivesToDrawVertexBuf[1].pos.y;
     g_PrimitivesToDrawVertexBuf[1].pos.x = g_PrimitivesToDrawVertexBuf[3].pos.x;
     g_PrimitivesToDrawVertexBuf[2].pos.y = g_PrimitivesToDrawVertexBuf[3].pos.y;
-    iVar4 = FUN_00432730(this,vm,1);
+    ZVar4 = FUN_00432730(this,vm,1);
   }
-  return iVar4;
+  return ZVar4;
 }
 

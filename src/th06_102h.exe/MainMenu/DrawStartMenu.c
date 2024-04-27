@@ -38,9 +38,9 @@ ZunResult __thiscall MainMenu::DrawStartMenu(MainMenu *this)
           g_Supervisor.cfg.defaultDifficulty = NORMAL;
         }
         this->stateTimer = 0;
-        this->unk_81fc = 1073741824;
-        this->maybe_menu_text_color = 0xff000000;
-        this->unk_820c = 0;
+        this->minimumOpacity = 0x40000000;
+        this->menuTextColor = 0xff000000;
+        this->numFramesSinceActive = 0;
         this->isActive = 60;
         SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,10,0);
         break;
@@ -61,9 +61,9 @@ ZunResult __thiscall MainMenu::DrawStartMenu(MainMenu *this)
           g_GameManager.unk_1823 = 0;
           g_GameManager.difficulty = EXTRA;
           this->stateTimer = 0;
-          this->unk_81fc = 0x40000000;
-          this->maybe_menu_text_color = 0xff000000;
-          this->unk_820c = 0;
+          this->minimumOpacity = 0x40000000;
+          this->menuTextColor = 0xff000000;
+          this->numFramesSinceActive = 0;
           this->isActive = 60;
           SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,10,0);
         }
@@ -81,9 +81,9 @@ ZunResult __thiscall MainMenu::DrawStartMenu(MainMenu *this)
           g_Supervisor.cfg.defaultDifficulty = NORMAL;
         }
         this->stateTimer = 0;
-        this->unk_81fc = 0x40000000;
-        this->maybe_menu_text_color = 0xff000000;
-        this->unk_820c = 0;
+        this->minimumOpacity = 0x40000000;
+        this->menuTextColor = 0xff000000;
+        this->numFramesSinceActive = 0;
         this->isActive = 0x3c;
         SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,10,0);
         break;
@@ -94,9 +94,9 @@ ZunResult __thiscall MainMenu::DrawStartMenu(MainMenu *this)
         this->gameState = STATE_REPLAY_LOAD;
         g_GameManager.unk_1823 = 0;
         this->stateTimer = 0;
-        this->unk_81fc = 0x40000000;
-        this->maybe_menu_text_color = 0xff000000;
-        this->unk_820c = 0;
+        this->minimumOpacity = 0x40000000;
+        this->menuTextColor = 0xff000000;
+        this->numFramesSinceActive = 0;
         this->isActive = 0x3c;
         SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,10,0);
         break;
@@ -106,9 +106,9 @@ ZunResult __thiscall MainMenu::DrawStartMenu(MainMenu *this)
         }
         this->gameState = STATE_SCORE;
         this->stateTimer = 0;
-        this->unk_81fc = 0x40000000;
-        this->maybe_menu_text_color = 0xff000000;
-        this->unk_820c = 0;
+        this->minimumOpacity = 0x40000000;
+        this->menuTextColor = 0xff000000;
+        this->numFramesSinceActive = 0;
         this->isActive = 0x3c;
         SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,10,0);
         break;

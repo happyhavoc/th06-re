@@ -66,7 +66,7 @@ void Player::BombReimuACalc(Player *param_1)
           AnmManager::ExecuteAnmIdx(g_AnmManager,local_14,local_28 + 0x485);
           local_14 = local_14 + 1;
         }
-        SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,SOUND_D,0);
+        SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,SOUND_BOMB_REIMU_A,0);
       }
     }
     param_1->field21_0x9e0 = 3;

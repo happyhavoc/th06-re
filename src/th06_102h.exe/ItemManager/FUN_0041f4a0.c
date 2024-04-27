@@ -135,7 +135,7 @@ LAB_0041f7c5:
             }
             else {
               AsciiManager::CreatePopup1(&g_AsciiManager,&curItem->position,-1,0xff80c0ff);
-              SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,SOUND_1F,0);
+              SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,SOUND_POWERUP,0);
             }
           }
           else {
@@ -245,7 +245,7 @@ LAB_0041f7c5:
             }
             else {
               AsciiManager::CreatePopup1(&g_AsciiManager,&curItem->position,-1,0xff80c0ff);
-              SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,SOUND_1F,0);
+              SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,SOUND_POWERUP,0);
             }
           }
           else {
@@ -271,7 +271,7 @@ LAB_0041f7c5:
           if (g_GameManager.current_power < 0x80) {
             BulletManager::FUN_00414340(&g_BulletManager);
             Gui::FUN_004173d9(&g_Gui,0);
-            SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,SOUND_1F,0);
+            SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,SOUND_POWERUP,0);
             AsciiManager::CreatePopup1(&g_AsciiManager,&curItem->position,-1,0xff80c0ff);
           }
           g_GameManager.current_power = 0x80;
@@ -285,7 +285,7 @@ LAB_0041f7c5:
             g_Gui.flags = g_Gui.flags & 0xfffffffc | 2;
           }
           GameManager::IncreaseSubrank(&g_GameManager,200);
-          SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,SOUND_BOMB_OR_LIFE_PICKUP_I_FORGOR,0);
+          SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,SOUND_1UP,0);
           break;
         case ITEM_POINT_BULLET:
           local_c = ((int)g_GameManager.graze_in_stage / 3) * 10 + 500;

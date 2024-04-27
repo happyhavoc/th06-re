@@ -164,7 +164,7 @@ undefined4 __thiscall ResultScreen::OnUpdate(ResultScreen *this,ResultScreen *re
                 }
               }
               *(undefined4 *)&result_screen->field_0x30 = 0;
-              SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,SOUND_BOMB_OR_LIFE_PICKUP_I_FORGOR,0);
+              SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,SOUND_1UP,0);
             }
           }
           pRVar2 = result_screen;

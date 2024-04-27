@@ -214,7 +214,7 @@ LAB_00412ce2:
     }
     if (enemies->field43_0xe41 == 0) {
       if (enemies->life < iVar2) {
-        SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,SOUND_14,0);
+        SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,SOUND_TOTAL_BOSS_DEATH,0);
         *(uint *)&(enemies->primary_vm).flags = *(uint *)&(enemies->primary_vm).flags | 8;
         enemies->field43_0xe41 = 4;
       }

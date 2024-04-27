@@ -115,7 +115,7 @@ int __thiscall MainMenu::ReplayHandling(MainMenu *this)
           anmVM->pendingInterrupt = 0x10;
           this->stateTimer = 0;
           this->cursor = 0;
-          SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,10,0);
+          SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,SOUND_SELECT,0);
           nextReplayData =
                (ReplayData *)FileSystem::OpenPath(this->replayFilePaths[this->chosenReplay],1);
           this->currentReplay = nextReplayData;
@@ -144,7 +144,7 @@ LAB_0043877b:
         for (cur = 0; cur < 0x7a; cur = cur + 1) {
           this->vmList[cur].pendingInterrupt = 4;
         }
-        SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xb,0);
+        SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,SOUND_BACK,0);
         this->cursor = 0;
       }
     }
@@ -204,7 +204,7 @@ LAB_0043877b:
       for (cur = 0; cur < 0x7a; cur = cur + 1) {
         this->vmList[cur].pendingInterrupt = 4;
       }
-      SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xb,0);
+      SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,SOUND_BACK,0);
       this->gameState = STATE_REPLAY_ANIM;
       cur = 0;
       anmVM = this->vmList;

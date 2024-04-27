@@ -41,9 +41,9 @@ int EffectManager::FUN_0040e920(Effect *param_1)
   local_10.z = local_10.z * fVar2;
   D3DXVec3TransformCoord(&local_10,&local_10,&local_54);
   local_10.z = local_10.z * 6.0;
-  fVar2 = (param_1->field8_0x134).z;
-  fVar1 = (param_1->field8_0x134).y;
-  (param_1->pos1).x = local_10.x + (param_1->field8_0x134).x;
+  fVar2 = (param_1->position).z;
+  fVar1 = (param_1->position).y;
+  (param_1->pos1).x = local_10.x + (param_1->position).x;
   (param_1->pos1).y = local_10.y + fVar1;
   (param_1->pos1).z = local_10.z + fVar2;
   if (param_1->field18_0x17a != 0) {

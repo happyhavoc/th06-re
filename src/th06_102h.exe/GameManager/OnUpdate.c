@@ -82,7 +82,7 @@ ChainCallbackResult GameManager::OnUpdate(GameManager *this)
          (UINT_ARRAY_004764b0[(char)this->field25_0x181c] <= this->gui_score)) {
         if ((char)this->lives_remaining < '\b') {
           this->lives_remaining = this->lives_remaining + 1;
-          SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0x1c,0);
+          SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,SOUND_BOMB_OR_LIFE_PICKUP_I_FORGOR,0);
         }
         g_Gui.flags = g_Gui.flags & 0xfffffffc | 2;
         this->field25_0x181c = this->field25_0x181c + 1;

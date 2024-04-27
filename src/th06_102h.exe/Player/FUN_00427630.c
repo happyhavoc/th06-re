@@ -19,7 +19,7 @@ void __thiscall Player::FUN_00427630(Player *this,float *param_1)
   g_GameManager.score = g_GameManager.score + 500;
   GameManager::IncreaseSubrank(&g_GameManager,6);
   g_Gui.flags = g_Gui.flags & 0xffffff3f | 0x80;
-  SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0x1e,0);
+  SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,SOUND_GRAZE,0);
   return;
 }
 

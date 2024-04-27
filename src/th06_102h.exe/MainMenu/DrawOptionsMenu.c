@@ -49,28 +49,28 @@ int __thiscall MainMenu::DrawOptionsMenu(MainMenu *this)
        || (((g_CurFrameInput & 0x40) != 0 && (g_IsEigthFrameOfHeldInput != 0)))) {
       selection = this->cursor;
       if (selection == 0) {
-        SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xc,0);
+        SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,SOUND_MOVE_MENU,0);
         if (g_Supervisor.cfg.lifeCount == 0) {
           g_Supervisor.cfg.lifeCount = 5;
         }
         g_Supervisor.cfg.lifeCount = g_Supervisor.cfg.lifeCount - 1;
       }
       else if (selection == 1) {
-        SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xc,0);
+        SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,SOUND_MOVE_MENU,0);
         if (g_Supervisor.cfg.bombCount == 0) {
           g_Supervisor.cfg.bombCount = 4;
         }
         g_Supervisor.cfg.bombCount = g_Supervisor.cfg.bombCount - 1;
       }
       else if (selection == 2) {
-        SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xc,0);
+        SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,SOUND_MOVE_MENU,0);
         if (g_Supervisor.cfg.colorMode16bit == 0) {
           g_Supervisor.cfg.colorMode16bit = 2;
         }
         g_Supervisor.cfg.colorMode16bit = g_Supervisor.cfg.colorMode16bit - 1;
       }
       else if (selection == 3) {
-        SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xc,0);
+        SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,SOUND_MOVE_MENU,0);
         Supervisor::StopAudio(&g_Supervisor);
         if (g_Supervisor.cfg.musicMode == OFF) {
           g_Supervisor.cfg.musicMode = WAV|MIDI;
@@ -80,14 +80,14 @@ int __thiscall MainMenu::DrawOptionsMenu(MainMenu *this)
         Supervisor::PlayAudio(&g_Supervisor,"bgm/th06_01.mid");
       }
       else if (selection == 4) {
-        SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xc,0);
+        SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,SOUND_MOVE_MENU,0);
         if (g_Supervisor.cfg.playSounds == 0) {
           g_Supervisor.cfg.playSounds = 2;
         }
         g_Supervisor.cfg.playSounds = g_Supervisor.cfg.playSounds - 1;
       }
       else if (selection == 5) {
-        SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xc,0);
+        SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,SOUND_MOVE_MENU,0);
         if (this->windowed == false) {
           this->windowed = true;
         }
@@ -96,34 +96,34 @@ int __thiscall MainMenu::DrawOptionsMenu(MainMenu *this)
     }
     if (((g_CurFrameInput & 10) != 0) && ((g_CurFrameInput & 10) != (g_LastFrameInput & 10))) {
       this->cursor = 8;
-      SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xb,0);
+      SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,SOUND_BACK,0);
     }
     if ((((g_CurFrameInput & 0x80) != 0) && ((g_CurFrameInput & 0x80) != (g_LastFrameInput & 0x80)))
        || (((g_CurFrameInput & 0x80) != 0 && (g_IsEigthFrameOfHeldInput != 0)))) {
       selection = this->cursor;
       if (selection == 0) {
-        SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xc,0);
+        SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,SOUND_MOVE_MENU,0);
         g_Supervisor.cfg.lifeCount = g_Supervisor.cfg.lifeCount + 1;
         if (4 < g_Supervisor.cfg.lifeCount) {
           g_Supervisor.cfg.lifeCount = 0;
         }
       }
       else if (selection == 1) {
-        SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xc,0);
+        SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,SOUND_MOVE_MENU,0);
         g_Supervisor.cfg.bombCount = g_Supervisor.cfg.bombCount + 1;
         if (3 < g_Supervisor.cfg.bombCount) {
           g_Supervisor.cfg.bombCount = 0;
         }
       }
       else if (selection == 2) {
-        SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xc,0);
+        SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,SOUND_MOVE_MENU,0);
         g_Supervisor.cfg.colorMode16bit = g_Supervisor.cfg.colorMode16bit + 1;
         if (1 < g_Supervisor.cfg.colorMode16bit) {
           g_Supervisor.cfg.colorMode16bit = 0;
         }
       }
       else if (selection == 3) {
-        SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xc,0);
+        SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,SOUND_MOVE_MENU,0);
         Supervisor::StopAudio(&g_Supervisor);
         g_Supervisor.cfg.musicMode = g_Supervisor.cfg.musicMode + WAV;
         if (MIDI < g_Supervisor.cfg.musicMode) {
@@ -133,14 +133,14 @@ int __thiscall MainMenu::DrawOptionsMenu(MainMenu *this)
         Supervisor::PlayAudio(&g_Supervisor,"bgm/th06_01.mid");
       }
       else if (selection == 4) {
-        SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xc,0);
+        SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,SOUND_MOVE_MENU,0);
         g_Supervisor.cfg.playSounds = g_Supervisor.cfg.playSounds + 1;
         if (1 < g_Supervisor.cfg.playSounds) {
           g_Supervisor.cfg.playSounds = 0;
         }
       }
       else if (selection == 5) {
-        SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xc,0);
+        SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,SOUND_MOVE_MENU,0);
         this->windowed = (bool)(this->windowed + '\x01');
         if (true < this->windowed) {
           this->windowed = false;
@@ -169,7 +169,7 @@ int __thiscall MainMenu::DrawOptionsMenu(MainMenu *this)
           this->vmList[i].pendingInterrupt = 5;
         }
         this->cursor = 0;
-        SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,10,0);
+        SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,SOUND_SELECT,0);
         *(undefined4 *)this->controlMapping = g_ControllerMapping._0_4_;
         *(undefined4 *)(this->controlMapping + 2) = g_ControllerMapping._4_4_;
         *(undefined4 *)(this->controlMapping + 4) = g_ControllerMapping._8_4_;
@@ -185,7 +185,7 @@ int __thiscall MainMenu::DrawOptionsMenu(MainMenu *this)
           this->vmList[i].pendingInterrupt = 2;
         }
         this->cursor = 6;
-        SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xb,0);
+        SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,SOUND_BACK,0);
         if (((this->colorMode16bit != g_Supervisor.cfg.colorMode16bit) ||
             (this->windowed != g_Supervisor.cfg.windowed)) ||
            (this->frameskipConfig != g_Supervisor.cfg.frameskipConfig)) {

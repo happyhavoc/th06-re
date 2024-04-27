@@ -70,7 +70,7 @@ void Player::BombReimuBCalc(Player *param_1)
         AnmManager::ExecuteAnmIdx(g_AnmManager,local_c,local_8 + 0x489);
         local_c = local_c + 1;
       }
-      SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,6,0);
+      SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,SOUND_6,0);
       (param_1->inner).field6_0x5c[0].field0_0x0 = (param_1->position).x;
       (param_1->inner).field6_0x5c[0].field1_0x4 = 224.0;
       (param_1->inner).field6_0x5c[0].field2_0x8 = 0.42;

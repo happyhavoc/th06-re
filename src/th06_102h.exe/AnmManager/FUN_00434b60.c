@@ -11,24 +11,24 @@ void AnmManager::FUN_00434b60
   uint fontWidth;
   uint fontHeight2;
   uint unaff_retaddr;
-  char *pcVar1;
   char local_4c [64];
   uint local_c;
-  int *local_8;
+  va_list local_8;
+  char *stringToPrint;
   
   local_c = __security_cookie ^ unaff_retaddr;
   fontWidth = (uint)vm->fontWidth;
-  local_8 = &param6;
-  vsprintf(local_4c,param_5,(va_list)local_8);
-  local_8 = (int *)0x0;
-  pcVar1 = local_4c;
+  local_8 = (va_list)&param6;
+  vsprintf(local_4c,param_5,local_8);
+  local_8 = (va_list)0x0;
+  stringToPrint = local_4c;
   fontHeight2 = (uint)vm->fontHeight;
   spriteHeight = __ftol2(vm->sprite->textureHeight);
   spriteWidth = __ftol2(vm->sprite->textureWidth);
   yPos = __ftol2((vm->sprite->startPixelInclusive).y);
   xPos = __ftol2((vm->sprite->startPixelInclusive).x);
   FUN_00434af0(anm_mgr,vm->sprite->sourceFileIndex,xPos,yPos,spriteWidth,spriteHeight,fontWidth,
-               fontHeight2,textColor,param_4,pcVar1);
+               fontHeight2,textColor,param_4,stringToPrint);
   *(uint *)&vm->flags = *(uint *)&vm->flags | 1;
   __security_check_cookie(local_c ^ unaff_retaddr);
   return;

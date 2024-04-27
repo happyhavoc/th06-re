@@ -149,7 +149,7 @@ drawStartMenuCase:
         sVar1 = sVar1 + 1;
       }
       if ((sVar1 < 0x20) && (g_LastJoystickInput != sVar1)) {
-        SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,10,0);
+        SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,SOUND_SELECT,0);
         switch(menu->cursor) {
         case 0:
           SelectRelated(menu,sVar1,menu->controlMapping[0],1);
@@ -205,7 +205,7 @@ drawStartMenuCase:
             menu->vmList[svar1].pendingInterrupt = 3;
           }
           menu->cursor = 7;
-          SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xb,0);
+          SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,SOUND_BACK,0);
           g_ControllerMapping._0_4_ = *(undefined4 *)menu->controlMapping;
           g_ControllerMapping._4_4_ = *(undefined4 *)(menu->controlMapping + 2);
           g_ControllerMapping._8_4_ = *(undefined4 *)(menu->controlMapping + 4);
@@ -308,7 +308,7 @@ drawStartMenuCase:
         for (i = 0; i < 0x7a; i = i + 1) {
           menu->vmList[i].pendingInterrupt = 7;
         }
-        SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,10,0);
+        SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,SOUND_SELECT,0);
         if ((int)g_GameManager.difficulty < 4) {
           menu->vmList[menu->cursor + 0x51].pendingInterrupt = 8;
           g_GameManager.difficulty = menu->cursor;
@@ -346,7 +346,7 @@ drawStartMenuCase:
       for (i = 0; i < 0x7a; i = i + 1) {
         menu->vmList[i].pendingInterrupt = 4;
       }
-      SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xb,0);
+      SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,SOUND_BACK,0);
       if ((int)g_GameManager.difficulty < 4) {
         g_Supervisor.cfg.defaultDifficulty = *(DefaultDifficulty *)&menu->cursor;
         if (g_GameManager.unk_1823 == 0) {
@@ -384,7 +384,7 @@ LAB_0043666d:
           }
         }
         else {
-          SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xc,0);
+          SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,SOUND_MOVE_MENU,0);
           vm_memset = menu->vmList + 0x56;
           for (i = 0; i < 2; i = i + 1) {
             if (i == menu->cursor) {
@@ -410,7 +410,7 @@ LAB_0043666d:
           gameState != 0)) ||
          (gameState = GameManager::hasReachedMaxClears(&g_GameManager,menu->cursor,1),
          gameState != 0)) {
-        SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xc,0);
+        SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,SOUND_MOVE_MENU,0);
         vm_memset = menu->vmList + 0x56;
         for (i = 0; i < 2; i = i + 1) {
           if (i == menu->cursor) {
@@ -470,7 +470,7 @@ LAB_0043666d:
             menu->cursor = (uint)g_GameManager.shottype;
           }
         }
-        SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,10,0);
+        SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,SOUND_SELECT,0);
       }
     }
     else {
@@ -488,7 +488,7 @@ LAB_0043666d:
         }
         menu->cursor = 0;
       }
-      SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xb,0);
+      SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,SOUND_BACK,0);
     }
     break;
   case STATE_SCORE:
@@ -608,7 +608,7 @@ LAB_0043666d:
           vm_memset = vm_memset + 2;
         }
         menu->vmList[g_GameManager.difficulty + 0x51].pendingInterrupt = 0;
-        SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xb,0);
+        SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,SOUND_BACK,0);
         g_GameManager.shottype = *(byte *)&menu->cursor;
         menu->cursor = (uint)g_GameManager.character;
         vm_memset = menu->vmList + 0x56;
@@ -666,7 +666,7 @@ LAB_00436de7:
             g_GameManager.bombs_remaining = 3;
           }
           g_Supervisor.curState = 2;
-          SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,10,0);
+          SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,SOUND_SELECT,0);
           g_GameManager.unk_0x1c = 0;
           local_48 = 0.0;
           if (menu->timeRelatedArrSize < 2) {
@@ -754,7 +754,7 @@ LAB_00436de7:
           vm_memset = vm_memset + 2;
         }
         menu->cursor = (uint)g_GameManager.shottype;
-        SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,10,0);
+        SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,SOUND_SELECT,0);
       }
     }
   }

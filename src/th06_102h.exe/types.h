@@ -740,6 +740,41 @@ struct GameWindow {
     uint power_off_active;
 };
 
+typedef enum SoundIdx {
+    SOUND_SHOOT=0,
+    SOUND_1=1,
+    SOUND_2=2,
+    SOUND_3=3,
+    SOUND_PICHUN=4,
+    SOUND_5=5,
+    SOUND_6=6,
+    SOUND_7=7,
+    SOUND_8=8,
+    SOUND_SHOOT_BOSS=9,
+    SOUND_SELECT=10,
+    SOUND_BACK=11,
+    SOUND_MOVE_MENU=12,
+    SOUND_D=13,
+    SOUND_BOMB=14,
+    SOUND_F=15,
+    SOUND_BOSS_LASER=16,
+    SOUND_BOSS_LASER_2=17,
+    SOUND_12=18,
+    SOUND_MASTER_SPARK=19,
+    SOUND_14=20,
+    SOUND_15=21,
+    SOUND_16=22,
+    SOUND_17=23,
+    SOUND_18=24,
+    SOUND_WTF_IS_THAT_LMAO=25,
+    SOUND_1A=26,
+    SOUND_1B=27,
+    SOUND_BOMB_OR_LIFE_PICKUP_I_FORGOR=28,
+    SOUND_1D=29,
+    SOUND_GRAZE=30,
+    SOUND_1F=31
+} SoundIdx;
+
 typedef struct SoundBufferIdxVolume SoundBufferIdxVolume, *PSoundBufferIdxVolume;
 
 struct SoundBufferIdxVolume {
@@ -71000,7 +71035,7 @@ struct Effect {
     float field5_0x128;
     float field6_0x12c;
     float field7_0x130;
-    D3DXVECTOR3 field8_0x134;
+    D3DXVECTOR3 position;
     D3DXVECTOR3 pos2;
     struct D3DXQUATERNION field10_0x14c;
     float field11_0x15c;

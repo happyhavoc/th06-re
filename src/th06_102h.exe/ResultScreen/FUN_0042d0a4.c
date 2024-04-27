@@ -8,7 +8,7 @@ void ResultScreen::FUN_0042d0a4(ResultScreen *rs,int param_2)
     if (rs->unk_10 < 0) {
       rs->unk_10 = rs->unk_10 + param_2;
     }
-    SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xc,0);
+    SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,SOUND_MOVE_MENU,0);
   }
   if ((((g_CurFrameInput & 0x20) != 0) && ((g_CurFrameInput & 0x20) != (g_LastFrameInput & 0x20)))
      || (((g_CurFrameInput & 0x20) != 0 && (g_IsEigthFrameOfHeldInput != 0)))) {
@@ -16,7 +16,7 @@ void ResultScreen::FUN_0042d0a4(ResultScreen *rs,int param_2)
     if (param_2 <= rs->unk_10) {
       rs->unk_10 = rs->unk_10 - param_2;
     }
-    SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xc,0);
+    SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,SOUND_MOVE_MENU,0);
   }
   return;
 }

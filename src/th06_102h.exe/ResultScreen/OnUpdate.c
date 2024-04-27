@@ -48,7 +48,7 @@ undefined4 __thiscall ResultScreen::OnUpdate(ResultScreen *this,ResultScreen *re
           }
         }
         if (((g_CurFrameInput & 10) != 0) && ((g_CurFrameInput & 10) != (g_LastFrameInput & 10))) {
-          SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xb,0);
+          SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,SOUND_BACK,0);
           result_screen->unk_8 = 0;
           result_screen->field1_0x4 = 1;
           vm = &result_screen->unk_40;
@@ -164,7 +164,7 @@ undefined4 __thiscall ResultScreen::OnUpdate(ResultScreen *this,ResultScreen *re
                 }
               }
               *(undefined4 *)&result_screen->field_0x30 = 0;
-              SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0x1c,0);
+              SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,SOUND_BOMB_OR_LIFE_PICKUP_I_FORGOR,0);
             }
           }
           pRVar2 = result_screen;
@@ -192,7 +192,7 @@ undefined4 __thiscall ResultScreen::OnUpdate(ResultScreen *this,ResultScreen *re
             }
             if (((g_CurFrameInput & 10) != 0) && ((g_CurFrameInput & 10) != (g_LastFrameInput & 10))
                ) {
-              SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xb,0);
+              SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,SOUND_BACK,0);
               result_screen->unk_8 = 0;
               result_screen->field1_0x4 = 1;
               vm = &result_screen->unk_40;
@@ -271,13 +271,13 @@ undefined4 __thiscall ResultScreen::OnUpdate(ResultScreen *this,ResultScreen *re
               vm = vm + 1;
             }
             result_screen->unk_8 = 2;
-            SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xb,0);
+            SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,SOUND_BACK,0);
           }
         }
       }
       if (((g_CurFrameInput & 10) != 0) && ((g_CurFrameInput & 10) != (g_LastFrameInput & 10))) {
         result_screen->unk_10 = 6;
-        SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xb,0);
+        SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,SOUND_BACK,0);
       }
     }
   }

@@ -12,7 +12,7 @@ int MainMenu::MoveCursor(MainMenu *menu,int menu_length)
     }
     else {
       menu->cursor = menu->cursor + 1;
-      SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xc,0);
+      SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,SOUND_MOVE_MENU,0);
       if ((int)menu->cursor < 0) {
         menu->cursor = menu_length - 1;
       }
@@ -24,7 +24,7 @@ int MainMenu::MoveCursor(MainMenu *menu,int menu_length)
   }
   else {
     menu->cursor = menu->cursor - 1;
-    SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,0xc,0);
+    SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,SOUND_MOVE_MENU,0);
     if ((int)menu->cursor < 0) {
       menu->cursor = menu_length - 1;
     }

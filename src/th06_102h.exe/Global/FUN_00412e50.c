@@ -9,9 +9,9 @@ void FUN_00412e50(Enemy *enemy)
   for (i = 0; i < enemy->effect_idx; i = i + 1) {
     effect = enemy->effect_array[i];
     if (effect != (Effect *)0x0) {
-      (effect->field8_0x134).x = (enemy->position).x;
-      (effect->field8_0x134).y = (enemy->position).y;
-      (effect->field8_0x134).z = (enemy->position).z;
+      (effect->position).x = (enemy->position).x;
+      (effect->position).y = (enemy->position).y;
+      (effect->position).z = (enemy->position).z;
       if (effect->field11_0x15c < enemy->effect_distance !=
           (NAN(effect->field11_0x15c) || NAN(enemy->effect_distance))) {
         effect->field11_0x15c = effect->field11_0x15c + 0.3;

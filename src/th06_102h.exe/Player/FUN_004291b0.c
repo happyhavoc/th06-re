@@ -95,7 +95,7 @@ void Player::FUN_004291b0(Player *param_1)
       (local_18->vm).pos.y = *pfVar7;
       (local_18->vm).pos.z = (local_18->field1_0x110).z;
       if ((local_18->field12_0x150 != 3) &&
-         (iVar6 = GameManager::collision_related
+         (iVar6 = GameManager::IsInbounds
                             ((local_18->field1_0x110).x,(local_18->field1_0x110).y,
                              ((local_18->vm).sprite)->widthPx,((local_18->vm).sprite)->heightPx),
          iVar6 == 0)) {

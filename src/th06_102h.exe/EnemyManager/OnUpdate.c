@@ -36,14 +36,14 @@ undefined4 EnemyManager::OnUpdate(EnemyManager *param_1)
     Enemy::FUN_00413380(enemies);
     Enemy::FUN_00412240(enemies);
     if (((enemies->flags2 >> 2 & 1) == 0) &&
-       (iVar2 = GameManager::collision_related
+       (iVar2 = GameManager::IsInbounds
                           ((enemies->position).x,(enemies->position).y,
                            ((enemies->primary_vm).sprite)->widthPx,
                            ((enemies->primary_vm).sprite)->heightPx), iVar2 != 0)) {
       enemies->flags2 = enemies->flags2 | 4;
     }
     if (((enemies->flags2 >> 2 & 1) == 1) &&
-       (iVar2 = GameManager::collision_related
+       (iVar2 = GameManager::IsInbounds
                           ((enemies->position).x,(enemies->position).y,
                            ((enemies->primary_vm).sprite)->widthPx,
                            ((enemies->primary_vm).sprite)->heightPx), iVar2 == 0)) {

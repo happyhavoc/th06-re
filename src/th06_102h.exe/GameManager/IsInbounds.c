@@ -1,9 +1,8 @@
 
-/* WARNING: Unknown calling convention -- yet parameter storage is locked */
 /* centerX < 0 && (x - (width / 2)) <= VIEW_WIDTH && centerY < 0 && (y - (height / 2)) <=
    VIEW_HEIGHT */
 
-int GameManager::collision_related(float x,float y,float width,float height)
+int GameManager::IsInbounds(float x,float y,float width,float height)
 
 {
   int iVar1;

@@ -156,7 +156,7 @@ switchD_00414a97_caseD_1:
               if ((bulletsPtr->ex_flags & 0x80) == 0) {
                 if ((bulletsPtr->ex_flags & 0x400) == 0) {
                   if (((bulletsPtr->ex_flags & 0x800) != 0) &&
-                     (iVar5 = GameManager::collision_related
+                     (iVar5 = GameManager::IsInbounds
                                         ((bulletsPtr->pos).x,(bulletsPtr->pos).y,
                                          ((bulletsPtr->vms).vm0.sprite)->widthPx,
                                          ((bulletsPtr->vms).vm0.sprite)->heightPx), iVar5 == 0)) {
@@ -183,7 +183,7 @@ switchD_00414a97_caseD_1:
                   }
                 }
                 else {
-                  iVar5 = GameManager::collision_related
+                  iVar5 = GameManager::IsInbounds
                                     ((bulletsPtr->pos).x,(bulletsPtr->pos).y,
                                      ((bulletsPtr->vms).vm0.sprite)->widthPx,
                                      ((bulletsPtr->vms).vm0.sprite)->heightPx);
@@ -291,7 +291,7 @@ switchD_00414a97_caseD_1:
              (bulletsPtr->pos).x;
         (bulletsPtr->pos).y = velY + (bulletsPtr->pos).y;
         (bulletsPtr->pos).z = velZ + (bulletsPtr->pos).z;
-        iVar5 = GameManager::collision_related
+        iVar5 = GameManager::IsInbounds
                           ((bulletsPtr->pos).x,(bulletsPtr->pos).y,
                            ((bulletsPtr->vms).vm0.sprite)->widthPx,
                            ((bulletsPtr->vms).vm0.sprite)->heightPx);

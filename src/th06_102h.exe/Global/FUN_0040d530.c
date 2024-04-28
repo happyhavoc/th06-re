@@ -5,9 +5,9 @@ void FUN_0040d530(Enemy *param_1,AnmRawInstr *param_2)
 
 {
   float fVar1;
-  int iVar2;
-  undefined4 *puVar3;
-  float10 fVar4;
+  float10 fVar2;
+  int iVar3;
+  undefined4 *puVar4;
   float10 fVar5;
   float fVar6;
   Bullet *bullets;
@@ -16,13 +16,13 @@ void FUN_0040d530(Enemy *param_1,AnmRawInstr *param_2)
   undefined4 local_5c [22];
   
   bullets = g_BulletManager.bullets;
-  puVar3 = local_5c;
-  for (iVar2 = 0x15; iVar2 != 0; iVar2 = iVar2 + -1) {
-    *puVar3 = 0;
-    puVar3 = puVar3 + 1;
+  puVar4 = local_5c;
+  for (iVar3 = 0x15; iVar3 != 0; iVar3 = iVar3 + -1) {
+    *puVar4 = 0;
+    puVar4 = puVar4 + 1;
   }
   fVar6 = Rng::GetRandomF32ZeroToOne(&g_Rng);
-  EffectManager::FUN_0040ef50(&g_EffectManager,0xc,&param_1->position,1,0xffffffff);
+  EffectManager::SpawnEffect(&g_EffectManager,0xc,&param_1->position,1,0xffffffff);
   for (local_60 = 0; local_60 < 0x280; local_60 = local_60 + 1) {
     if ((((bullets->state != 0) && (bullets->state != 5)) &&
         ((bullets->vms).vm0.sprite != (AnmLoadedSprite *)0x0)) &&
@@ -46,13 +46,12 @@ void FUN_0040d530(Enemy *param_1,AnmRawInstr *param_2)
         local_64 = 0.0;
       }
       else {
-        fVar4 = (float10)FUN_0045bc34((double)fVar1);
-        local_64 = (float)fVar4;
+        local_64 = FUN_0045bc34(SUB84((double)fVar1,0));
       }
       fVar5 = (float10)((local_64 * 3.141593) / 256.0 + (fVar6 * 6.283185 - 3.141593));
-      fVar4 = (float10)fcos(fVar5);
+      fVar2 = (float10)fcos(fVar5);
       fVar5 = (float10)fsin(fVar5);
-      (bullets->ex_4_acceleration).x = (float)(fVar4 * (float10)0.01);
+      (bullets->ex_4_acceleration).x = (float)(fVar2 * (float10)0.01);
       (bullets->ex_4_acceleration).y = (float)(fVar5 * (float10)0.01);
     }
     bullets = bullets + 1;

@@ -1,5 +1,5 @@
 
-ZunResult __thiscall SoundPlayer::playBGM(SoundPlayer *this,LPDIRECTSOUND8 param_2)
+ZunResult __thiscall SoundPlayer::PlayBGM(SoundPlayer *this,LPDIRECTSOUND8 param_2)
 
 {
   ZunResult result;

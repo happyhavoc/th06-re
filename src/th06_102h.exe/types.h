@@ -70612,6 +70612,53 @@ typedef enum Difficulty {
     EXTRA=4
 } Difficulty;
 
+typedef struct Bullet Bullet, *PBullet;
+
+typedef struct BulletTypeVms BulletTypeVms, *PBulletTypeVms;
+
+struct BulletTypeVms {
+    struct AnmVm vm0;
+    struct AnmVm spawn_effect_short;
+    struct AnmVm spawn_effect_medium;
+    struct AnmVm spawn_effect_long;
+    struct AnmVm spawn_effect_short_with_memset;
+    float field5_0x550;
+    float field6_0x554;
+    undefined field7_0x558;
+    undefined field8_0x559;
+    undefined field9_0x55a;
+    undefined field10_0x55b;
+    byte field11_0x55c;
+    byte field12_0x55d;
+    undefined field13_0x55e;
+    undefined field14_0x55f;
+};
+
+struct Bullet {
+    struct BulletTypeVms vms;
+    D3DXVECTOR3 pos;
+    D3DXVECTOR3 velocity;
+    D3DXVECTOR3 ex_4_acceleration;
+    float speed;
+    float ex_5_float_0;
+    float dir_change__speed_arg;
+    float angle;
+    float ex_5_float_1;
+    float dir_change__rotation_arg;
+    struct ZunTimer timer;
+    int ex_5_int_0;
+    int dir_change__interval;
+    int dir_change__num_times;
+    int dir_change__max_times;
+    ushort ex_flags;
+    ushort color;
+    undefined2 field17_0x5bc;
+    ushort state;
+    ushort field19_0x5c0;
+    byte field20_0x5c2;
+    byte field21_0x5c3;
+};
+
 typedef struct RenderVertexInfo RenderVertexInfo, *PRenderVertexInfo;
 
 struct RenderVertexInfo {
@@ -71067,53 +71114,6 @@ struct EclRawInstr {
     ushort field14_0x20;
 };
 
-typedef struct Bullet Bullet, *PBullet;
-
-typedef struct BulletTypeVms BulletTypeVms, *PBulletTypeVms;
-
-struct BulletTypeVms {
-    struct AnmVm vm0;
-    struct AnmVm spawn_effect_short;
-    struct AnmVm spawn_effect_medium;
-    struct AnmVm spawn_effect_long;
-    struct AnmVm spawn_effect_short_with_memset;
-    float field5_0x550;
-    float field6_0x554;
-    undefined field7_0x558;
-    undefined field8_0x559;
-    undefined field9_0x55a;
-    undefined field10_0x55b;
-    byte field11_0x55c;
-    byte field12_0x55d;
-    undefined field13_0x55e;
-    undefined field14_0x55f;
-};
-
-struct Bullet {
-    struct BulletTypeVms vms;
-    D3DXVECTOR3 pos;
-    D3DXVECTOR3 velocity;
-    D3DXVECTOR3 ex_4_acceleration;
-    float speed;
-    float ex_5_float_0;
-    float dir_change__speed_arg;
-    float angle;
-    float ex_5_float_1;
-    float dir_change__rotation_arg;
-    struct ZunTimer timer;
-    int ex_5_int_0;
-    int dir_change__interval;
-    int dir_change__num_times;
-    int dir_change__max_times;
-    ushort ex_flags;
-    ushort color;
-    undefined2 field17_0x5bc;
-    ushort state;
-    ushort field19_0x5c0;
-    byte field20_0x5c2;
-    byte field21_0x5c3;
-};
-
 typedef struct EnemyManager EnemyManager, *PEnemyManager;
 
 struct EnemyManager {
@@ -71262,7 +71262,7 @@ struct PlayerInner {
     void *bombCalc;
     void *bombDraw;
     undefined field5_0x1c[64];
-    struct PlayerUnknown field6_0x5c[4];
+    struct PlayerUnknown field6_0x5c[4]; /* pubg reference??? */
     undefined field7_0x8c[48];
     int field8_0xbc[8];
     undefined field9_0xdc[64];
@@ -71526,7 +71526,7 @@ struct ResultScreen {
     int field1_0x4;
     int unk_8;
     int field3_0xc;
-    int unk_10;
+    int cursor;
     undefined field5_0x14;
     undefined field6_0x15;
     undefined field7_0x16;
@@ -71593,7 +71593,7 @@ struct ResultScreen {
     struct AnmVm field68_0x2460;
     struct AnmVm field69_0x2570;
     struct AnmVm field70_0x2680;
-    struct AnmVm field71_0x2790;
+    struct AnmVm viewportMaybe;
     struct AnmVm unk_28a0;
     struct AnmVm field73_0x29b0;
     struct AnmVm field74_0x2ac0;
@@ -73273,7 +73273,7 @@ struct GameManager {
     uint graze_in_stage;
     uint unk_0x18;
     uint unk_0x1c;
-    uint unk_0x20;
+    uint deaths;
     uint unk_0x24;
     uint unk_0x28;
     uint unk_0x2c;

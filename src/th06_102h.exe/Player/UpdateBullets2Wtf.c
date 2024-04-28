@@ -1,5 +1,5 @@
 
-void Player::FUN_00429bb0(Player *param_1)
+void Player::UpdateBullets2Wtf(Player *param_1)
 
 {
   float fVar1;
@@ -13,6 +13,7 @@ void Player::FUN_00429bb0(Player *param_1)
         fVar1 = add_normalize_angle(bullets->field8_0x13c,3.141593);
         (bullets->vm).rotation.z = 1.570796 - fVar1;
       }
+                    /* the only difference between functions */
       (bullets->vm).pos.z = 0.4;
       AnmManager::FUN_00433590(g_AnmManager,&bullets->vm);
     }

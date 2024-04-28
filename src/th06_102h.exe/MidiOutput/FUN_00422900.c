@@ -4,10 +4,9 @@ void __thiscall MidiOutput::FUN_00422900(MidiOutput *this,MidiTrack *param_1)
 {
   char cVar1;
   LPMIDIHDR _Memory;
-  bool bVar2;
-  MIDIHDR *pMVar3;
-  LPSTR pCVar4;
-  undefined3 extraout_var;
+  MIDIHDR *pMVar2;
+  LPSTR pCVar3;
+  BOOL BVar4;
   uint uVar5;
   long lVar6;
   int iVar7;
@@ -55,8 +54,8 @@ void __thiscall MidiOutput::FUN_00422900(MidiOutput *this,MidiTrack *param_1)
       if (this->midiHeaders[this->midiHeadersCursor] != (MIDIHDR *)0x0) {
         UnprepareHeader(this,this->midiHeaders[this->midiHeadersCursor]);
       }
-      pMVar3 = (MIDIHDR *)_malloc(0x40);
-      this->midiHeaders[this->midiHeadersCursor] = pMVar3;
+      pMVar2 = (MIDIHDR *)_malloc(0x40);
+      this->midiHeaders[this->midiHeadersCursor] = pMVar2;
       _Memory = this->midiHeaders[this->midiHeadersCursor];
       iVar7 = FUN_00421d90(&param_1->curTrackDataCursor);
       pmVar9 = _Memory;
@@ -64,8 +63,8 @@ void __thiscall MidiOutput::FUN_00422900(MidiOutput *this,MidiTrack *param_1)
         pmVar9->lpData = (LPSTR)0x0;
         pmVar9 = (LPMIDIHDR)&pmVar9->dwBufferLength;
       }
-      pCVar4 = (LPSTR)_malloc(iVar7 + 1);
-      _Memory->lpData = pCVar4;
+      pCVar3 = (LPSTR)_malloc(iVar7 + 1);
+      _Memory->lpData = pCVar3;
       *_Memory->lpData = -0x10;
       _Memory->dwFlags = 0;
       _Memory->dwBufferLength = iVar7 + 1;
@@ -79,8 +78,8 @@ void __thiscall MidiOutput::FUN_00422900(MidiOutput *this,MidiTrack *param_1)
         arg2._1_3_ = (undefined3)iVar8;
         uStack_9 = (undefined)((uint)iVar8 >> 0x18);
       }
-      bVar2 = MidiDevice::FUN_00421b90(&this->midiOutDev,_Memory);
-      if (CONCAT31(extraout_var,bVar2) != 0) {
+      BVar4 = MidiDevice::FUN_00421b90(&this->midiOutDev,_Memory);
+      if (BVar4 != 0) {
         _free(_Memory->lpData);
         _free(_Memory);
         this->midiHeaders[this->midiHeadersCursor] = (MIDIHDR *)0x0;

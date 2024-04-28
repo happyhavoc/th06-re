@@ -1,6 +1,6 @@
 
 undefined4 __thiscall
-ResultScreen::FUN_0042d18f(ResultScreen *this,ResultScreen *param_1,int param_2)
+ResultScreen::MoveCursor_2(ResultScreen *this,ResultScreen *param_1,int param_2)
 
 {
   undefined4 uVar1;
@@ -12,18 +12,18 @@ ResultScreen::FUN_0042d18f(ResultScreen *this,ResultScreen *param_1,int param_2)
       uVar1 = 0;
     }
     else {
-      param_1->unk_10 = param_1->unk_10 + 1;
-      if (param_2 <= param_1->unk_10) {
-        param_1->unk_10 = param_1->unk_10 - param_2;
+      param_1->cursor = param_1->cursor + 1;
+      if (param_2 <= param_1->cursor) {
+        param_1->cursor = param_1->cursor - param_2;
       }
       SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,SOUND_MOVE_MENU,0);
       uVar1 = 1;
     }
   }
   else {
-    param_1->unk_10 = param_1->unk_10 + -1;
-    if (param_1->unk_10 < 0) {
-      param_1->unk_10 = param_1->unk_10 + param_2;
+    param_1->cursor = param_1->cursor + -1;
+    if (param_1->cursor < 0) {
+      param_1->cursor = param_1->cursor + param_2;
     }
     SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,SOUND_MOVE_MENU,0);
     uVar1 = 1;

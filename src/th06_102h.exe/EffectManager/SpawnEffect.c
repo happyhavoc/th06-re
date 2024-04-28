@@ -1,6 +1,6 @@
 
 AnmVm * __thiscall
-EffectManager::FUN_0040ef50
+EffectManager::SpawnEffect
           (EffectManager *this,int new_position,D3DXVECTOR3 *param_2,int param_3,D3DCOLOR param_4)
 
 {

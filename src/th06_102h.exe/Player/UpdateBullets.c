@@ -1,5 +1,5 @@
 
-void Player::update_bullets(Player *this)
+void Player::UpdateBullets(Player *this)
 
 {
   float fVar1;

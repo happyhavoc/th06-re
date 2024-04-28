@@ -52,10 +52,10 @@ void __thiscall Supervisor::PlayAudio(Supervisor *this,char *path)
     SoundPlayer::LoadWav(&g_SoundPlayer,wavName);
     ZVar2 = SoundPlayer::LoadPos(&g_SoundPlayer,wavPos);
     if (ZVar2 < ZUN_SUCCESS) {
-      SoundPlayer::playBGM(&g_SoundPlayer,0);
+      SoundPlayer::PlayBGM(&g_SoundPlayer,0);
     }
     else {
-      SoundPlayer::playBGM(&g_SoundPlayer,1);
+      SoundPlayer::PlayBGM(&g_SoundPlayer,1);
     }
   }
   __security_check_cookie(stackCookie ^ unaff_retaddr);

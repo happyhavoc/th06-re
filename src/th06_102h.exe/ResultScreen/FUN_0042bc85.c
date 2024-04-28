@@ -46,7 +46,7 @@ undefined4 __thiscall ResultScreen::FUN_0042bc85(ResultScreen *this)
     FUN_0042bc2d(this,out,(int)this->field17_0x2c,
                  (uint)g_GameManager.shottype + this->field15_0x24 * 2);
     if (9 < (int)out) goto LAB_0042c273;
-    this->unk_10 = 0;
+    this->cursor = 0;
     _strcpy(&this->field_0x34,"");
   }
   if (this->field1_0x4 < 0x1e) {
@@ -101,14 +101,14 @@ undefined4 __thiscall ResultScreen::FUN_0042bc85(ResultScreen *this)
 LAB_0042c1aa:
     if ((((g_CurFrameInput & 10) != 0) && ((g_CurFrameInput & 10) != (g_LastFrameInput & 10))) ||
        (((g_CurFrameInput & 10) != 0 && (g_IsEigthFrameOfHeldInput != 0)))) {
-      if (this->unk_10 < 8) {
-        iVar1 = this->unk_10;
+      if (this->cursor < 8) {
+        iVar1 = this->cursor;
       }
       else {
         iVar1 = 7;
       }
-      if (0 < this->unk_10) {
-        this->unk_10 = this->unk_10 + -1;
+      if (0 < this->cursor) {
+        this->cursor = this->cursor + -1;
         (this->hscr).name[iVar1] = ' ';
       }
       SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,SOUND_BACK,0);
@@ -121,8 +121,8 @@ LAB_0042c1aa:
     }
   }
   else {
-    if (this->unk_10 < 8) {
-      local_1c = this->unk_10;
+    if (this->cursor < 8) {
+      local_1c = this->cursor;
     }
     else {
       local_1c = 7;
@@ -130,7 +130,7 @@ LAB_0042c1aa:
     if (this->possibly_selected_character < 0x5e) {
       (this->hscr).name[local_1c] = g_AlphabetList[this->possibly_selected_character];
 LAB_0042c173:
-      if ((this->unk_10 < 8) && (this->unk_10 = this->unk_10 + 1, this->unk_10 == 8)) {
+      if ((this->cursor < 8) && (this->cursor = this->cursor + 1, this->cursor == 8)) {
         this->possibly_selected_character = 0x5f;
       }
       SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,SOUND_SELECT,0);

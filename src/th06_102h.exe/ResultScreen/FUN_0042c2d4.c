@@ -41,10 +41,10 @@ void __thiscall ResultScreen::FUN_0042c2d4(ResultScreen *this)
       if (local_c != 9) {
         this->unk_8 = 0xb;
       }
-      this->unk_10 = 0;
+      this->cursor = 0;
     }
     local_8 = &this->field50_0x1140;
-    if (this->unk_10 == 0) {
+    if (this->cursor == 0) {
       (this->field50_0x1140).color.color =
            (this->field50_0x1140).color.color & 0xff000000 | 0xff6060;
       (this->field51_0x1250).color.color =
@@ -57,12 +57,12 @@ void __thiscall ResultScreen::FUN_0042c2d4(ResultScreen *this)
            (this->field51_0x1250).color.color & 0xff000000 | 0xff6060;
     }
     if (this->field1_0x4 < 0x50) goto LAB_0042d095;
-    FUN_0042d18f((ResultScreen *)local_8,this,2);
+    MoveCursor_2((ResultScreen *)local_8,this,2);
     if ((((g_CurFrameInput & 10) == 0) || ((g_CurFrameInput & 10) == (g_LastFrameInput & 10))) &&
        (((g_CurFrameInput & 8) == 0 || ((g_CurFrameInput & 8) == (g_LastFrameInput & 8))))) {
       if (((g_CurFrameInput & 0x1001) == 0) ||
          ((g_CurFrameInput & 0x1001) == (g_LastFrameInput & 0x1001))) goto LAB_0042d095;
-      if (this->unk_10 == 0) goto LAB_0042c515;
+      if (this->cursor == 0) goto LAB_0042c515;
     }
     this->field1_0x4 = 0;
     SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,SOUND_BACK,0);
@@ -144,8 +144,8 @@ void __thiscall ResultScreen::FUN_0042c2d4(ResultScreen *this)
         if ((((g_CurFrameInput & 0x1001) != 0) &&
             ((g_CurFrameInput & 0x1001) != (g_LastFrameInput & 0x1001))) ||
            (((g_CurFrameInput & 0x1001) != 0 && (g_IsEigthFrameOfHeldInput != 0)))) {
-          if (this->unk_10 < 8) {
-            local_b4 = this->unk_10;
+          if (this->cursor < 8) {
+            local_b4 = this->cursor;
           }
           else {
             local_b4 = 7;
@@ -168,21 +168,21 @@ void __thiscall ResultScreen::FUN_0042c2d4(ResultScreen *this)
               local_8 = (AnmVm *)((int)&local_8->matrix + 0xd0);
             }
           }
-          if ((this->unk_10 < 8) && (this->unk_10 = this->unk_10 + 1, this->unk_10 == 8)) {
+          if ((this->cursor < 8) && (this->cursor = this->cursor + 1, this->cursor == 8)) {
             this->possibly_selected_character = 0x5f;
           }
           SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,SOUND_SELECT,0);
         }
         if ((((g_CurFrameInput & 10) != 0) && ((g_CurFrameInput & 10) != (g_LastFrameInput & 10)))
            || (((g_CurFrameInput & 10) != 0 && (g_IsEigthFrameOfHeldInput != 0)))) {
-          if (this->unk_10 < 8) {
-            local_b8 = this->unk_10;
+          if (this->cursor < 8) {
+            local_b8 = this->cursor;
           }
           else {
             local_b8 = 7;
           }
-          if (0 < this->unk_10) {
-            this->unk_10 = this->unk_10 + -1;
+          if (0 < this->cursor) {
+            this->cursor = this->cursor + -1;
             (&this->field_0x34)[local_b8] = 0x20;
           }
           SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,SOUND_BACK,0);
@@ -193,7 +193,7 @@ void __thiscall ResultScreen::FUN_0042c2d4(ResultScreen *this)
       else {
         if (iVar2 != 0xe) goto LAB_0042d095;
         local_8 = &this->field50_0x1140;
-        if (this->unk_10 == 0) {
+        if (this->cursor == 0) {
           (this->field50_0x1140).color.color =
                (this->field50_0x1140).color.color & 0xff000000 | 0xff6060;
           (this->field51_0x1250).color.color =
@@ -206,13 +206,13 @@ void __thiscall ResultScreen::FUN_0042c2d4(ResultScreen *this)
                (this->field51_0x1250).color.color & 0xff000000 | 0xff6060;
         }
         if (this->field1_0x4 < 0x14) goto LAB_0042d095;
-        FUN_0042d18f((ResultScreen *)local_8,this,2);
+        MoveCursor_2((ResultScreen *)local_8,this,2);
         if ((((g_CurFrameInput & 10) == 0) || ((g_CurFrameInput & 10) == (g_LastFrameInput & 10)))
            && (((g_CurFrameInput & 8) == 0 || ((g_CurFrameInput & 8) == (g_LastFrameInput & 8))))) {
           if (((g_CurFrameInput & 0x1001) == 0) ||
              ((g_CurFrameInput & 0x1001) == (g_LastFrameInput & 0x1001))) goto LAB_0042d095;
           this->field1_0x4 = 0;
-          if (this->unk_10 == 0) {
+          if (this->cursor == 0) {
             local_8 = &this->unk_40;
             for (local_10 = 0; local_10 < 0x26; local_10 = local_10 + 1) {
               local_8->pendingInterrupt = 0xf;
@@ -256,17 +256,17 @@ LAB_0042c515:
       }
     }
     if (0x13 < this->field1_0x4) {
-      FUN_0042d0a4(this,15);
-      *(int *)&this->field_0x1c = this->unk_10;
+      MoveCursor(this,15);
+      *(int *)&this->field_0x1c = this->cursor;
       if (((g_CurFrameInput & 0x1001) != 0) &&
          ((g_CurFrameInput & 0x1001) != (g_LastFrameInput & 0x1001))) {
         SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,SOUND_SELECT,0);
-        *(int *)&this->field_0x1c = this->unk_10;
+        *(int *)&this->field_0x1c = this->cursor;
         this->field1_0x4 = 0;
         setDate(this->date);
         this->score = g_GameManager.score;
-        if ((*(char (*) [4])((int)&this->hscr + this->unk_10 * 0x50 + 0x30) == (char  [4])0x50523654
-            ) && (*(short *)((int)&this->hscr + this->unk_10 * 0x50 + 0x34) == 0x102)) {
+        if ((*(char (*) [4])((int)&this->hscr + this->cursor * 0x50 + 0x30) == (char  [4])0x50523654
+            ) && (*(short *)((int)&this->hscr + this->cursor * 0x50 + 0x34) == 0x102)) {
           local_8 = &this->unk_40;
           for (local_10 = 0; local_10 < 0x26; local_10 = local_10 + 1) {
             local_8->pendingInterrupt = 0xb;
@@ -286,7 +286,7 @@ LAB_0042c515:
           *(undefined2 *)((int)&local_8->matrix + 0x4a) = 0xe;
           this->unk_8 = 0xd;
         }
-        this->unk_10 = 0;
+        this->cursor = 0;
         this->possibly_selected_character = 0;
       }
       if (((g_CurFrameInput & 10) != 0) && ((g_CurFrameInput & 10) != (g_LastFrameInput & 10))) {

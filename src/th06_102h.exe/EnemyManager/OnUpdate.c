@@ -87,8 +87,7 @@ undefined4 EnemyManager::OnUpdate(EnemyManager *param_1)
     }
     if ((enemies->flags2 & 1) != 0) {
       local_c = Player::FUN_004264b0
-                          (&g_Player,&(enemies->position).x,&(enemies->hitbox_dimensions).x,&local_8
-                          );
+                          (&g_Player,&enemies->position,&enemies->hitbox_dimensions,&local_8);
       if (0x45 < local_c) {
         local_c = 0x46;
       }
@@ -147,7 +146,7 @@ switchD_00412938_caseD_2:
       if ((char)enemies->item_drop < '\0') {
         if (enemies->item_drop == ITEM_NO_ITEM) {
           if ((uint)param_1->random_item_spawn_index % 3 == 0) {
-            EffectManager::FUN_0040ef50
+            EffectManager::SpawnEffect
                       (&g_EffectManager,enemies->death_anm2 + 4,&enemies->position,6,0xffffffff);
             ItemManager::SpawnItem
                       ((ItemManager *)&g_ItemManager,&enemies->position,
@@ -161,7 +160,7 @@ switchD_00412938_caseD_2:
         }
       }
       else {
-        EffectManager::FUN_0040ef50
+        EffectManager::SpawnEffect
                   (&g_EffectManager,enemies->death_anm2 + 4,&enemies->position,3,0xffffffff);
         ItemManager::SpawnItem
                   ((ItemManager *)&g_ItemManager,&enemies->position,enemies->item_drop,local_8);
@@ -178,11 +177,11 @@ switchD_00412938_caseD_2:
       enemies->flags2 = enemies->flags2 & 0xef;
       enemies->flags2 = enemies->flags2 & 0x1f;
       g_Gui.boss_present = false;
-      EffectManager::FUN_0040ef50
+      EffectManager::SpawnEffect
                 (&g_EffectManager,(uint)enemies->death_anm1,&enemies->position,1,0xffffffff);
-      EffectManager::FUN_0040ef50
+      EffectManager::SpawnEffect
                 (&g_EffectManager,(uint)enemies->death_anm1,&enemies->position,1,0xffffffff);
-      EffectManager::FUN_0040ef50
+      EffectManager::SpawnEffect
                 (&g_EffectManager,(uint)enemies->death_anm1,&enemies->position,1,0xffffffff);
     }
     uVar5 = local_10 & 0x80000001;
@@ -190,9 +189,9 @@ switchD_00412938_caseD_2:
       uVar5 = (uVar5 - 1 | 0xfffffffe) + 1;
     }
     SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,uVar5 + SOUND_2,0);
-    EffectManager::FUN_0040ef50
+    EffectManager::SpawnEffect
               (&g_EffectManager,(uint)enemies->death_anm1,&enemies->position,1,0xffffffff);
-    EffectManager::FUN_0040ef50
+    EffectManager::SpawnEffect
               (&g_EffectManager,enemies->death_anm2 + 4,&enemies->position,4,0xffffffff);
     iVar3._0_2_ = enemies->death_callback_sub;
     iVar3._2_2_ = enemies->interrupts[0];

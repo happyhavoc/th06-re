@@ -35,7 +35,7 @@ void * __thiscall ResultScreen::ResultScreen(ResultScreen *this)
                     /* ?? doesn't this make everything above pointless, it fills the entirety of
                        this with 0. */
   _memset(this,0,0x56b0);
-  this->unk_10 = 1;
+  this->cursor = 1;
   return this;
 }
 

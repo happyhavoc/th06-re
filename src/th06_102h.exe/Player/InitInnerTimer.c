@@ -1,5 +1,5 @@
 
-void Player::FUN_00428630(Player *param_1)
+void Player::InitInnerTimer(Player *param_1)
 
 {
   if ((param_1->field34_0x75a8).current < 0) {

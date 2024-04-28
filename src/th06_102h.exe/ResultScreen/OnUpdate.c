@@ -17,9 +17,9 @@ undefined4 __thiscall ResultScreen::OnUpdate(ResultScreen *this,ResultScreen *re
   if (iVar1 < 9) {
     if (iVar1 == 8) {
       pRVar2 = result_screen;
-      if ((result_screen->field16_0x28 != result_screen->unk_10) &&
+      if ((result_screen->field16_0x28 != result_screen->cursor) &&
          (result_screen->field1_0x4 == 0x14)) {
-        pRVar2 = (ResultScreen *)result_screen->unk_10;
+        pRVar2 = (ResultScreen *)result_screen->cursor;
         result_screen->field16_0x28 = (int)pRVar2;
         for (i = result_screen->field16_0x28 * 10;
             (i < result_screen->field16_0x28 * 10 + 10 && (i < 0x40)); i = i + 1) {
@@ -38,7 +38,7 @@ undefined4 __thiscall ResultScreen::OnUpdate(ResultScreen *this,ResultScreen *re
         }
       }
       if (0x1d < result_screen->field1_0x4) {
-        iVar1 = FUN_0042d18f(pRVar2,result_screen,7);
+        iVar1 = MoveCursor_2(pRVar2,result_screen,7);
         if (iVar1 != 0) {
           result_screen->field1_0x4 = 0;
           vm = &result_screen->unk_40;
@@ -56,8 +56,8 @@ undefined4 __thiscall ResultScreen::OnUpdate(ResultScreen *this,ResultScreen *re
             vm->pendingInterrupt = 1;
             vm = vm + 1;
           }
-          result_screen->field9_0x18 = result_screen->unk_10;
-          result_screen->unk_10 = (int)result_screen->field17_0x2c;
+          result_screen->field9_0x18 = result_screen->cursor;
+          result_screen->cursor = (int)result_screen->field17_0x2c;
         }
       }
     }
@@ -78,7 +78,7 @@ undefined4 __thiscall ResultScreen::OnUpdate(ResultScreen *this,ResultScreen *re
           }
           vm = &result_screen->field35_0x150;
           for (i = 0; i < 7; i = i + 1) {
-            if (i == result_screen->unk_10) {
+            if (i == result_screen->cursor) {
               if ((g_Supervisor.cfg.opts & 1) == 0) {
                 (vm->color).color = 0xff505050;
               }
@@ -168,9 +168,9 @@ undefined4 __thiscall ResultScreen::OnUpdate(ResultScreen *this,ResultScreen *re
             }
           }
           pRVar2 = result_screen;
-          if ((result_screen->field15_0x24 != result_screen->unk_10) &&
+          if ((result_screen->field15_0x24 != result_screen->cursor) &&
              (result_screen->field1_0x4 == 0x14)) {
-            result_screen->field15_0x24 = result_screen->unk_10;
+            result_screen->field15_0x24 = result_screen->cursor;
             AnmManager::FUN_00434e20
                       (g_AnmManager,&result_screen->unk_28a0,0xffffff,0,
                        (&g_CharacterList)[result_screen->field15_0x24 * 2],unaff_EDI);
@@ -181,7 +181,7 @@ undefined4 __thiscall ResultScreen::OnUpdate(ResultScreen *this,ResultScreen *re
             pRVar2 = extraout_ECX;
           }
           if (0x1d < result_screen->field1_0x4) {
-            iVar1 = FUN_0042d18f(pRVar2,result_screen,2);
+            iVar1 = MoveCursor_2(pRVar2,result_screen,2);
             if (iVar1 != 0) {
               result_screen->field1_0x4 = 0;
               vm = &result_screen->unk_40;
@@ -200,17 +200,17 @@ undefined4 __thiscall ResultScreen::OnUpdate(ResultScreen *this,ResultScreen *re
                 vm->pendingInterrupt = 1;
                 vm = vm + 1;
               }
-              *(int *)&result_screen->field_0x14 = result_screen->unk_10;
-              result_screen->unk_10 = (int)result_screen->field17_0x2c;
+              *(int *)&result_screen->field_0x14 = result_screen->cursor;
+              result_screen->cursor = (int)result_screen->field17_0x2c;
             }
           }
         }
         goto LAB_0042e3fb;
       }
-      FUN_0042d0a4(result_screen,7);
+      MoveCursor(result_screen,7);
       vm = &result_screen->field35_0x150;
       for (i = 0; i < 7; i = i + 1) {
-        if (i == result_screen->unk_10) {
+        if (i == result_screen->cursor) {
           if ((g_Supervisor.cfg.opts & 1) == 0) {
             (vm->color).color = 0xff505050;
           }
@@ -237,32 +237,32 @@ undefined4 __thiscall ResultScreen::OnUpdate(ResultScreen *this,ResultScreen *re
       if (((g_CurFrameInput & 0x1001) != 0) &&
          ((g_CurFrameInput & 0x1001) != (g_LastFrameInput & 0x1001))) {
         vm = &result_screen->unk_40;
-        iVar1 = result_screen->unk_10;
+        iVar1 = result_screen->cursor;
         if (-1 < iVar1) {
           if (iVar1 < 5) {
             for (i = 0; i < 0x26; i = i + 1) {
-              vm->pendingInterrupt = (short)result_screen->unk_10 + 3;
+              vm->pendingInterrupt = (short)result_screen->cursor + 3;
               vm = vm + 1;
             }
-            result_screen->field17_0x2c = (int *)result_screen->unk_10;
-            result_screen->unk_8 = result_screen->unk_10 + 3;
+            result_screen->field17_0x2c = (int *)result_screen->cursor;
+            result_screen->unk_8 = result_screen->cursor + 3;
             result_screen->field3_0xc = result_screen->unk_8;
             result_screen->field1_0x4 = 0;
-            result_screen->unk_10 = *(int *)&result_screen->field_0x14;
+            result_screen->cursor = *(int *)&result_screen->field_0x14;
             result_screen->field15_0x24 = -1;
             result_screen->field16_0x28 = -1;
           }
           else if (iVar1 == 5) {
             for (i = 0; i < 0x26; i = i + 1) {
-              vm->pendingInterrupt = (short)result_screen->unk_10 + 3;
+              vm->pendingInterrupt = (short)result_screen->cursor + 3;
               vm = vm + 1;
             }
-            result_screen->field17_0x2c = (int *)result_screen->unk_10;
+            result_screen->field17_0x2c = (int *)result_screen->cursor;
             result_screen->unk_8 = 8;
             result_screen->field3_0xc = result_screen->unk_8;
             result_screen->field1_0x4 = 0;
             result_screen->field15_0x24 = -1;
-            result_screen->unk_10 = result_screen->field9_0x18;
+            result_screen->cursor = result_screen->field9_0x18;
             result_screen->field16_0x28 = -1;
           }
           else if (iVar1 == 6) {
@@ -276,7 +276,7 @@ undefined4 __thiscall ResultScreen::OnUpdate(ResultScreen *this,ResultScreen *re
         }
       }
       if (((g_CurFrameInput & 10) != 0) && ((g_CurFrameInput & 10) != (g_LastFrameInput & 10))) {
-        result_screen->unk_10 = 6;
+        result_screen->cursor = 6;
         SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,SOUND_BACK,0);
       }
     }

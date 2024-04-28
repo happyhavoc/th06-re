@@ -114,8 +114,8 @@ void ResultScreen::OnDraw(ResultScreen *param_1)
               local_24 = 0x20202020;
               local_20 = 0x20202020;
               local_1c = 0;
-              if (param_1->unk_10 < 8) {
-                local_84 = param_1->unk_10;
+              if (param_1->cursor < 8) {
+                local_84 = param_1->cursor;
               }
               else {
                 local_84 = 7;
@@ -162,8 +162,8 @@ void ResultScreen::OnDraw(ResultScreen *param_1)
               local_24 = 0x20202020;
               local_20 = 0x20202020;
               local_1c = 0;
-              if (param_1->unk_10 < 8) {
-                local_8c = param_1->unk_10;
+              if (param_1->cursor < 8) {
+                local_8c = param_1->cursor;
               }
               else {
                 local_8c = 7;
@@ -279,8 +279,8 @@ void ResultScreen::OnDraw(ResultScreen *param_1)
         local_24 = 0x20202020;
         local_20 = 0x20202020;
         local_1c = 0;
-        if (param_1->unk_10 < 8) {
-          local_d0 = param_1->unk_10;
+        if (param_1->cursor < 8) {
+          local_d0 = param_1->cursor;
         }
         else {
           local_d0 = 7;

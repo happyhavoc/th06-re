@@ -5,13 +5,12 @@ void Player::BombReimuACalc(Player *param_1)
   PlayerUnknown *pPVar1;
   D3DXVECTOR3 *pDVar2;
   float fVar3;
-  float fVar4;
-  int iVar5;
-  uint uVar6;
-  float10 fVar7;
-  float fVar8;
-  double dVar9;
-  float fVar10;
+  int iVar4;
+  uint uVar5;
+  float fVar6;
+  float fVar7;
+  double dVar8;
+  float fVar9;
   int local_28;
   float local_24;
   float local_20;
@@ -31,7 +30,7 @@ void Player::BombReimuACalc(Player *param_1)
         *(undefined4 *)((param_1->inner).field5_0x1c + local_10 * 4) = 0;
       }
       ItemManager::FUN_00420130((ItemManager *)&g_ItemManager);
-      EffectManager::FUN_0040ef50(&g_EffectManager,0xc,&param_1->position,1,0xff4040ff);
+      EffectManager::SpawnEffect(&g_EffectManager,0xc,&param_1->position,1,0xff4040ff);
       param_1->field15_0x8b8[8].position1.x = (param_1->position).x;
       param_1->field15_0x8b8[8].position1.y = (param_1->position).y;
       param_1->field15_0x8b8[8].size1.x = 256.0;
@@ -39,29 +38,29 @@ void Player::BombReimuACalc(Player *param_1)
     }
     if ((0x3b < (param_1->inner).field2_0x8.current) && ((param_1->inner).field2_0x8.current < 0xb4)
        ) {
-      uVar6 = (param_1->inner).field2_0x8.current & 0x8000000f;
-      if ((int)uVar6 < 0) {
-        uVar6 = (uVar6 - 1 | 0xfffffff0) + 1;
+      uVar5 = (param_1->inner).field2_0x8.current & 0x8000000f;
+      if ((int)uVar5 < 0) {
+        uVar5 = (uVar5 - 1 | 0xfffffff0) + 1;
       }
-      if ((uVar6 == 0) &&
-         (iVar5 = (param_1->inner).field2_0x8.current + -0x3c,
-         iVar5 = (int)(iVar5 + (iVar5 >> 0x1f & 0xfU)) >> 4, iVar5 != 0)) {
-        *(undefined4 *)((param_1->inner).field5_0x1c + iVar5 * 4) = 1;
-        *(undefined4 *)((param_1->inner).field5_0x1c + iVar5 * 4 + 0x20) = 0x40800000;
-        pPVar1 = (param_1->inner).field6_0x5c + iVar5;
+      if ((uVar5 == 0) &&
+         (iVar4 = (param_1->inner).field2_0x8.current + -0x3c,
+         iVar4 = (int)(iVar4 + (iVar4 >> 0x1f & 0xfU)) >> 4, iVar4 != 0)) {
+        *(undefined4 *)((param_1->inner).field5_0x1c + iVar4 * 4) = 1;
+        *(undefined4 *)((param_1->inner).field5_0x1c + iVar4 * 4 + 0x20) = 0x40800000;
+        pPVar1 = (param_1->inner).field6_0x5c + iVar4;
         pPVar1->field0_0x0 = (param_1->position).x;
         pPVar1->field1_0x4 = (param_1->position).y;
         pPVar1->field2_0x8 = (param_1->position).z;
-        fVar8 = Rng::GetRandomF32ZeroToOne(&g_Rng);
-        fVar8 = fVar8 * 6.283185 - 3.141593;
-        dVar9 = cos((double)fVar8);
-        (param_1->inner).field8_0xbc[iVar5 * 3] =
-             (int)((float)dVar9 * *(float *)((param_1->inner).field5_0x1c + iVar5 * 4 + 0x20));
-        dVar9 = sin((double)fVar8);
-        (param_1->inner).field8_0xbc[iVar5 * 3 + 1] =
-             (int)((float)dVar9 * *(float *)((param_1->inner).field5_0x1c + iVar5 * 4 + 0x20));
-        param_1->field14_0x838[iVar5] = 0;
-        local_14 = (param_1->inner).field10_0x11c + iVar5 * 4;
+        fVar6 = Rng::GetRandomF32ZeroToOne(&g_Rng);
+        fVar6 = fVar6 * 6.283185 - 3.141593;
+        dVar8 = cos((double)fVar6);
+        (param_1->inner).field8_0xbc[iVar4 * 3] =
+             (int)((float)dVar8 * *(float *)((param_1->inner).field5_0x1c + iVar4 * 4 + 0x20));
+        dVar8 = sin((double)fVar6);
+        (param_1->inner).field8_0xbc[iVar4 * 3 + 1] =
+             (int)((float)dVar8 * *(float *)((param_1->inner).field5_0x1c + iVar4 * 4 + 0x20));
+        param_1->field14_0x838[iVar4] = 0;
+        local_14 = (param_1->inner).field10_0x11c + iVar4 * 4;
         for (local_28 = 0; local_28 < 4; local_28 = local_28 + 1) {
           AnmManager::ExecuteAnmIdx(g_AnmManager,local_14,local_28 + 0x485);
           local_14 = local_14 + 1;
@@ -82,35 +81,32 @@ void Player::BombReimuACalc(Player *param_1)
               local_24 = (param_1->position_of_last_enemy_hit).x;
               local_20 = (param_1->position_of_last_enemy_hit).y;
             }
-            fVar8 = (param_1->inner).field6_0x5c[local_10].field0_0x0;
-            fVar3 = (param_1->inner).field6_0x5c[local_10].field1_0x4;
-            fVar7 = (float10)FUN_0045bc34();
-            local_18 = (float)fVar7 /
+            local_24 = local_24 - (param_1->inner).field6_0x5c[local_10].field0_0x0;
+            local_20 = local_20 - (param_1->inner).field6_0x5c[local_10].field1_0x4;
+            local_18 = FUN_0045bc34(SUB84((double)(local_24 * local_24 + local_20 * local_20),0));
+            local_18 = local_18 /
                        (*(float *)((param_1->inner).field5_0x1c + local_10 * 4 + 0x20) / 8.0);
             if (local_18 < 1.0 != NAN(local_18)) {
               local_18 = 1.0;
             }
-            fVar4 = (local_24 - fVar8) / local_18 +
-                    (float)(param_1->inner).field8_0xbc[local_10 * 3];
-            fVar3 = (local_20 - fVar3) / local_18 +
-                    (float)(param_1->inner).field8_0xbc[local_10 * 3 + 1];
-            fVar7 = (float10)FUN_0045bc34((double)(fVar4 * fVar4 + fVar3 * fVar3));
-            fVar8 = (float)fVar7;
-            fVar10 = fVar8;
-            if (10.0 < fVar8) {
-              fVar10 = 10.0;
+            fVar6 = local_24 / local_18 + (float)(param_1->inner).field8_0xbc[local_10 * 3];
+            fVar3 = local_20 / local_18 + (float)(param_1->inner).field8_0xbc[local_10 * 3 + 1];
+            fVar7 = FUN_0045bc34(SUB84((double)(fVar6 * fVar6 + fVar3 * fVar3),0));
+            fVar9 = fVar7;
+            if (10.0 < fVar7) {
+              fVar9 = 10.0;
             }
-            *(float *)((param_1->inner).field5_0x1c + local_10 * 4 + 0x20) = fVar10;
-            fVar10 = *(float *)((param_1->inner).field5_0x1c + local_10 * 4 + 0x20);
-            if (fVar10 < 1.0 != NAN(fVar10)) {
+            *(float *)((param_1->inner).field5_0x1c + local_10 * 4 + 0x20) = fVar9;
+            fVar9 = *(float *)((param_1->inner).field5_0x1c + local_10 * 4 + 0x20);
+            if (fVar9 < 1.0 != NAN(fVar9)) {
               *(undefined4 *)((param_1->inner).field5_0x1c + local_10 * 4 + 0x20) = 0x3f800000;
             }
             (param_1->inner).field8_0xbc[local_10 * 3] =
-                 (int)((fVar4 * *(float *)((param_1->inner).field5_0x1c + local_10 * 4 + 0x20)) /
-                      fVar8);
+                 (int)((fVar6 * *(float *)((param_1->inner).field5_0x1c + local_10 * 4 + 0x20)) /
+                      fVar7);
             (param_1->inner).field8_0xbc[local_10 * 3 + 1] =
                  (int)((fVar3 * *(float *)((param_1->inner).field5_0x1c + local_10 * 4 + 0x20)) /
-                      fVar8);
+                      fVar7);
             param_1->field12_0x638[local_10].x = 48.0;
             param_1->field12_0x638[local_10].y = 48.0;
             pPVar1 = (param_1->inner).field6_0x5c + local_10;
@@ -127,10 +123,10 @@ void Player::BombReimuACalc(Player *param_1)
             param_1->field15_0x8b8[local_10].size1.y = 48.0;
             if ((99 < param_1->field14_0x838[local_10]) ||
                ((param_1->inner).field1_0x4 + -0x1e <= (param_1->inner).field2_0x8.current)) {
-              EffectManager::FUN_0040ef50
+              EffectManager::SpawnEffect
                         (&g_EffectManager,6,(D3DXVECTOR3 *)((param_1->inner).field6_0x5c + local_10)
                          ,8,0xffffffff);
-              EffectManager::FUN_0040ef50
+              EffectManager::SpawnEffect
                         (&g_EffectManager,0xc,
                          (D3DXVECTOR3 *)((param_1->inner).field6_0x5c + local_10),1,0xff4040ff);
               *(undefined4 *)((param_1->inner).field5_0x1c + local_10 * 4) = 2;

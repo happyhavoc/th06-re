@@ -1,21 +1,23 @@
 
-undefined4 __thiscall Player::FUN_00426df0(Player *this,float *param_1,float *param_2)
+undefined4 __thiscall Player::FUN_00426df0(Player *this,D3DXVECTOR3 *param_1,D3DXVECTOR3 *param_2)
 
 {
+  undefined4 uVar7;
+  PlayerRect *local_30;
+  D3DXVECTOR3 local_2c;
+  D3DXVECTOR3 local_20;
+  int local_14;
   float fVar1;
   float fVar2;
   float fVar3;
   float fVar4;
   float fVar5;
   float fVar6;
-  undefined4 uVar7;
-  PlayerRect *local_30;
-  int local_14;
   
-  fVar3 = (*param_1 - *param_2 / 2.0) - 20.0;
-  fVar4 = (param_1[1] - param_2[1] / 2.0) - 20.0;
-  fVar2 = *param_2 / 2.0 + *param_1 + 20.0;
-  fVar5 = param_2[1] / 2.0 + param_1[1] + 20.0;
+  fVar3 = (param_1->x - param_2->x / 2.0) - 20.0;
+  fVar4 = (param_1->y - param_2->y / 2.0) - 20.0;
+  fVar2 = param_2->x / 2.0 + param_1->x + 20.0;
+  fVar5 = param_2->y / 2.0 + param_1->y + 20.0;
   local_30 = this->field15_0x8b8;
   local_14 = 0;
   do {
@@ -30,7 +32,7 @@ undefined4 __thiscall Player::FUN_00426df0(Player *this,float *param_1,float *pa
         uVar7 = 0;
       }
       else {
-        FUN_00427630(this,param_1);
+        Graze(this,param_1);
         uVar7 = 1;
       }
       return uVar7;

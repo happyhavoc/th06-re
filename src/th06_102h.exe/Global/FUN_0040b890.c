@@ -1,12 +1,11 @@
 
-float10 * FUN_0040b890(float *param_1)
+float FUN_0040b890(D3DXVECTOR3 *param_1)
 
 {
-  float10 *pfVar1;
+  float fVar1;
   
-  pfVar1 = (float10 *)
-           FUN_0045bc34((double)(*param_1 * *param_1 + param_1[1] * param_1[1] +
-                                param_1[2] * param_1[2]));
-  return pfVar1;
+  fVar1 = FUN_0045bc34(SUB84((double)(param_1->x * param_1->x + param_1->y * param_1->y +
+                                     param_1->z * param_1->z),0));
+  return fVar1;
 }
 

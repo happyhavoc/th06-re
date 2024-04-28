@@ -3,10 +3,7 @@ int * Enemy::get_var(Enemy *param_1,int *eclGvarId,EclValueType *valueType)
 
 {
   int *pfVar1;
-  float10 extraout_ST0;
-  float local_10;
-  float local_c;
-  float local_8;
+  D3DXVECTOR3 local_10;
   
   if (valueType != (EclValueType *)0x0) {
     *valueType = ECL_VALUE_TYPE_UNDEFINED;
@@ -27,11 +24,10 @@ int * Enemy::get_var(Enemy *param_1,int *eclGvarId,EclValueType *valueType)
     pfVar1 = &param_1->life;
     break;
   case -0x2727:
-    local_8 = g_Player.position.z - (param_1->position).z;
-    local_c = g_Player.position.y - (param_1->position).y;
-    local_10 = g_Player.position.x - (param_1->position).x;
-    FUN_0040b890(&local_10);
-    PLAYER_DISTANCE = (float)extraout_ST0;
+    local_10.z = g_Player.position.z - (param_1->position).z;
+    local_10.y = g_Player.position.y - (param_1->position).y;
+    local_10.x = g_Player.position.x - (param_1->position).x;
+    PLAYER_DISTANCE = FUN_0040b890(&local_10);
     if (valueType != (EclValueType *)0x0) {
       *valueType = ECL_VALUE_TYPE_READONLY;
     }

@@ -8,7 +8,7 @@ undefined4 Player::AddedCallback(Player *this)
   int iVar4;
   struct *psVar5;
   ShottypeData *pSVar6;
-  float10 fVar7;
+  float fVar7;
   PlayerBullet *bullets;
   int bullet_idx;
   
@@ -54,10 +54,10 @@ undefined4 Player::AddedCallback(Player *this)
     psVar5 = (struct *)&psVar5->field1_0x4;
     pSVar6 = (ShottypeData *)&pSVar6->field1_0x4;
   }
-  fVar7 = (float10)FUN_0045bc34(0x4000000000000000);
-  (this->field27_0x9f4).field2_0x8 = (this->field27_0x9f4).field0_0x0 / (float)fVar7;
-  fVar7 = (float10)FUN_0045bc34(0x4000000000000000);
-  (this->field27_0x9f4).field3_0xc = (this->field27_0x9f4).field1_0x4 / (float)fVar7;
+  fVar7 = FUN_0045bc34((double *)0x0);
+  (this->field27_0x9f4).field2_0x8 = (this->field27_0x9f4).field0_0x0 / fVar7;
+  fVar7 = FUN_0045bc34((double *)0x0);
+  (this->field27_0x9f4).field3_0xc = (this->field27_0x9f4).field1_0x4 / fVar7;
   this->field36_0x75c0 = (this->field27_0x9f4).field4_0x10;
   this->field37_0x75c4 = (this->field27_0x9f4).field5_0x14;
   this->field21_0x9e0 = 1;

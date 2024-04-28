@@ -20,7 +20,7 @@ void FUN_0040d770(Enemy *param_1,AnmRawInstr *param_2)
     puVar3 = puVar3 + 1;
   }
   Rng::GetRandomF32ZeroToOne(&g_Rng);
-  EffectManager::FUN_0040ef50(&g_EffectManager,0xc,&param_1->position,1,0xffffffff);
+  EffectManager::SpawnEffect(&g_EffectManager,0xc,&param_1->position,1,0xffffffff);
   for (local_60 = 0; local_60 < 0x280; local_60 = local_60 + 1) {
     if ((((local_64->state != 0) && (local_64->state != 5)) &&
         ((local_64->vms).vm0.sprite != (AnmLoadedSprite *)0x0)) &&

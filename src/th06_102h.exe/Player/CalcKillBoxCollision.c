@@ -26,7 +26,7 @@ undefined4 __thiscall Player::CalcKillBoxCollision(Player *this,float *param_1,f
         uVar7 = 0;
       }
       else if (this->field21_0x9e0 == 0) {
-        FUN_00427770(this);
+        Die(this);
         uVar7 = 1;
       }
       else {

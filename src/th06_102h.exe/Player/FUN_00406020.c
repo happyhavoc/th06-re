@@ -5,13 +5,13 @@ void Player::FUN_00406020(Player *param_1)
   float fVar1;
   long local_38;
   long local_2c;
-  zRect local_18;
+  zRect viewport;
   long local_8;
   
-  local_18.left = 32.0;
-  local_18.top = 16.0;
-  local_18.right = 416.0;
-  local_18.bottom = 464.0;
+  viewport.left = 32.0;
+  viewport.top = 16.0;
+  viewport.right = 416.0;
+  viewport.bottom = 464.0;
   if ((param_1->inner).field2_0x8.current < 0x3c) {
     fVar1 = (((float)(param_1->inner).field2_0x8.current + (param_1->inner).field2_0x8.subFrame) *
             176.0) / 60.0;
@@ -38,7 +38,7 @@ void Player::FUN_00406020(Player *param_1)
     }
     local_8 = local_38;
   }
-  DrawSquare(&local_18,local_8 << 0x18);
+  DrawSquare(&viewport,local_8 << 0x18);
   return;
 }
 

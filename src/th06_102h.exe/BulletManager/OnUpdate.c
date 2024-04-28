@@ -10,13 +10,11 @@ undefined4 BulletManager::OnUpdate(BulletManager *this)
   Bullet *pBVar6;
   float10 fVar7;
   float local_260;
-  float local_38;
-  float local_34;
+  D3DXVECTOR3 local_38;
   AnmVm *local_2c;
   int local_28;
   Bullet *bulletsPtr;
-  float local_20;
-  float local_1c;
+  D3DXVECTOR3 local_20;
   float local_14;
   float local_10;
   int local_c;
@@ -300,7 +298,8 @@ switchD_00414a97_caseD_1:
 LAB_00415b6c:
           if (bulletsPtr->field21_0x5c3 == 0) {
             local_8 = Player::FUN_00426df0
-                                (&g_Player,&(bulletsPtr->pos).x,&(bulletsPtr->vms).field5_0x550);
+                                (&g_Player,&bulletsPtr->pos,
+                                 (D3DXVECTOR3 *)&(bulletsPtr->vms).field5_0x550);
             if (local_8 == 1) {
               bulletsPtr->field21_0x5c3 = 1;
 LAB_00415be8:
@@ -357,11 +356,11 @@ LAB_00414a1a:
         if (velZ < 0.0 != NAN(velZ)) {
           local_2c[2].angleVel.y = 0.0;
         }
-        local_1c = local_2c[2].scaleX / 2.0;
-        local_20 = local_2c[2].angleVel.z - local_2c[2].angleVel.y;
-        local_38 = (local_2c[2].angleVel.z - local_2c[2].angleVel.y) / 2.0 + local_2c[2].angleVel.y
-                   + local_2c[2].rotation.x;
-        local_34 = local_2c[2].rotation.y;
+        local_20.y = local_2c[2].scaleX / 2.0;
+        local_20.x = local_2c[2].angleVel.z - local_2c[2].angleVel.y;
+        local_38.x = (local_2c[2].angleVel.z - local_2c[2].angleVel.y) / 2.0 +
+                     local_2c[2].angleVel.y + local_2c[2].rotation.x;
+        local_38.y = local_2c[2].rotation.y;
         local_2c->scaleX = local_2c[2].scaleX / local_2c->sprite->widthPx;
         local_14 = local_2c[2].angleVel.z - local_2c[2].angleVel.y;
         local_2c->scaleY = local_14 / local_2c->sprite->heightPx;
@@ -384,7 +383,7 @@ LAB_00414a1a:
               local_14 = 1.2;
             }
             local_2c->scaleX = local_14 / 16.0;
-            local_20 = local_14 / 2.0;
+            local_20.x = local_14 / 2.0;
           }
           else {
             local_28 = __ftol2((((float)(int)local_2c[2].matrix.m[0][2] + local_2c[2].matrix.m[0][1]
@@ -430,7 +429,7 @@ LAB_004161bf:
                          (((float)(int)local_2c[2].matrix.m[0][2] + local_2c[2].matrix.m[0][1]) *
                          local_2c[2].scaleX) / (float)local_2c[2].currentTimeInScript.previous;
               local_2c->scaleX = local_14 / 16.0;
-              local_20 = local_14 / 2.0;
+              local_20.x = local_14 / 2.0;
             }
           }
           else {

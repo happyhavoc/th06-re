@@ -81,7 +81,7 @@ ZunResult GameManager::AddedCallback(GameManager *gameManager)
     gameManager->rank = DifficultyInfo_ARRAY_00476564[g_GameManager.difficulty].rank;
     gameManager->min_rank = DifficultyInfo_ARRAY_00476564[g_GameManager.difficulty].min_rank;
     gameManager->max_rank = DifficultyInfo_ARRAY_00476564[g_GameManager.difficulty].max_rank;
-    gameManager->unk_0x20 = 0;
+    gameManager->deaths = 0;
     gameManager->unk_0x24 = 0;
     gameManager->unk_0x28 = 0;
   }

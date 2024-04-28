@@ -283,7 +283,7 @@ switchD_004281aa_caseD_4:
   this->field10_0x4a0[0].y = local_14 + this->field10_0x4a0[0].y;
   this->field10_0x4a0[1].y = local_14 + this->field10_0x4a0[1].y;
   if (((g_CurFrameInput & 1) != 0) && (BVar7 = Gui::HasCurrentMsgIdx(&g_Gui), BVar7 == 0)) {
-    FUN_00428630(this);
+    InitInnerTimer(this);
   }
   this->field31_0xa18 = g_CurFrameInput;
   return 0;

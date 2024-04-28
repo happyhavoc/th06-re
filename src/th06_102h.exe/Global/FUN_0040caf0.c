@@ -70,7 +70,7 @@ LAB_0040cc18:
   position__related.x = (float)dVar3 * local_10 + position__related.x;
   dVar3 = sin((double)local_14);
   position__related.y = (float)dVar3 * local_10 + position__related.y;
-  local_8 = EffectManager::FUN_0040ef50(&g_EffectManager,0x13,&position__related,1,0xff3030ff);
+  local_8 = EffectManager::SpawnEffect(&g_EffectManager,0x13,&position__related,1,0xff3030ff);
   fVar2 = Rng::GetRandomF32ZeroToOne(&g_Rng);
   local_8[1].angleVel.x = (fVar2 * 40.0 - 20.0) / 60.0;
   local_8[1].angleVel.y = ((float)local_c * 8.0) / 60.0 - 0.2666667;
@@ -87,7 +87,7 @@ LAB_0040cc18:
   position__related.x = position__related.x - (float)dVar3 * local_10;
   dVar3 = sin((double)local_14);
   position__related.y = (float)dVar3 * local_10 + position__related.y;
-  local_8 = EffectManager::FUN_0040ef50(&g_EffectManager,0x13,&position__related,1,0xff3030ff);
+  local_8 = EffectManager::SpawnEffect(&g_EffectManager,0x13,&position__related,1,0xff3030ff);
   fVar2 = Rng::GetRandomF32ZeroToOne(&g_Rng);
   local_8[1].angleVel.x = (fVar2 * 40.0 - 20.0) / 60.0;
   local_8[1].angleVel.y = ((float)local_c * 8.0) / 60.0 - 0.2666667;

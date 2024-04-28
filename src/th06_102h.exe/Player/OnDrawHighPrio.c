@@ -5,7 +5,7 @@ ChainCallbackResult Player::OnDrawHighPrio(Player *this)
   D3DXVECTOR3 *pDVar1;
   float *pfVar2;
   
-  update_bullets(this);
+  UpdateBullets(this);
   if (((this->inner).field0_0x0 != 0) && ((this->inner).bombDraw != (void *)0x0)) {
     (*(code *)(this->inner).bombDraw)(this);
   }

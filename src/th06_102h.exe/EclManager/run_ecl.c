@@ -1059,7 +1059,7 @@ switchD_00407544_caseD_2:
   case 0x66:
     local_6c = &instruction->ecl_var_id;
     pEVar13 = (Effect *)
-              EffectManager::FUN_0040ef50
+              EffectManager::SpawnEffect
                         (&g_EffectManager,0xd,&enemy->position,1,
                          *(D3DCOLOR *)(PTR_DAT_00476438 + *local_6c * 4));
     enemy->effect_array[enemy->effect_idx] = pEVar13;
@@ -1126,7 +1126,7 @@ switchD_00407544_caseD_2:
     enemy->flags2 = enemy->flags2 & 0xfe | *(byte *)&instruction->ecl_var_id & 1;
     break;
   case 0x76:
-    EffectManager::FUN_0040ef50
+    EffectManager::SpawnEffect
               (&g_EffectManager,instruction->ecl_var_id,&enemy->position,
                (int)instruction->float_var_1,(D3DCOLOR)instruction->float_var_2);
     break;

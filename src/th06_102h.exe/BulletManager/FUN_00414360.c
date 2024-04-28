@@ -2,41 +2,38 @@
 int __thiscall BulletManager::FUN_00414360(BulletManager *this,int param_1,int param_2)
 
 {
-  float10 fVar1;
   float10 fVar2;
   float local_34;
   Laser *local_2c;
   D3DXVECTOR3 local_28;
-  int local_1c;
+  Bullet *local_1c;
   float local_18;
   int local_14;
   int local_10;
   int local_c;
   int local_8;
+  float10 fVar1;
   
   local_c = 0;
   local_8 = 2000;
   local_10 = 0;
-  local_1c = 0x5ab5f8;
+  local_1c = g_BulletManager.bullets;
   for (local_14 = 0; local_14 < 0x280; local_14 = local_14 + 1) {
-    if (*(short *)(local_1c + 0x5be) != 0) {
+    if (local_1c->state != 0) {
       if (param_2 != 0) {
-        ItemManager::SpawnItem
-                  ((ItemManager *)&g_ItemManager,(D3DXVECTOR3 *)(local_1c + 0x560),ITEM_POINT_BULLET
-                   ,1);
+        ItemManager::SpawnItem((ItemManager *)&g_ItemManager,&local_1c->pos,ITEM_POINT_BULLET,1);
       }
       AsciiManager::CreatePopup1
-                (&g_AsciiManager,(D3DXVECTOR3 *)(local_1c + 0x560),local_8,
-                 ((local_8 < param_1) - 1 & 0xffffff01) - 1);
+                (&g_AsciiManager,&local_1c->pos,local_8,((local_8 < param_1) - 1 & 0xffffff01) - 1);
       local_c = local_c + local_8;
       local_10 = local_10 + 1;
       local_8 = local_8 + 10;
       if (param_1 < local_8) {
         local_8 = param_1;
       }
-      *(undefined2 *)(local_1c + 0x5be) = 5;
+      local_1c->state = 5;
     }
-    local_1c = local_1c + 0x5c4;
+    local_1c = local_1c + 1;
   }
   local_2c = this->lasers;
   for (local_14 = 0; local_14 < 0x40; local_14 = local_14 + 1) {

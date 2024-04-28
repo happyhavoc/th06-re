@@ -76,7 +76,7 @@ void SaveReplay(char *replay_path,char *param_2)
         rpy_manager->data->stage_score[g_GameManager.current_stage + -1]->score =
              g_GameManager.score;
         local_90 = param_2;
-        local_94 = &replayCopy.field_0x19;
+        local_94 = replayCopy.name;
         do {
           cVar1 = *local_90;
           *local_94 = cVar1;

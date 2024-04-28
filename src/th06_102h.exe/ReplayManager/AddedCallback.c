@@ -14,11 +14,7 @@ ZunResult ReplayManager::AddedCallback(ReplayManager *param_1)
     param_1->data->shottype_chara = g_GameManager.shottype + g_GameManager.character * '\x02';
     param_1->data->version = 0x102;
     param_1->data->difficulty = (byte)g_GameManager.difficulty;
-    pRVar1 = param_1->data;
-    pRVar1->field_0x19 = 'N';
-    pRVar1->field_0x1a = 'O';
-    pRVar1->field_0x1b = ' ';
-    pRVar1->field_0x1c = 'N';
+    *(undefined4 *)param_1->data->name = 0x4e204f4e;
     for (local_c = 0; local_c < 7; local_c = local_c + 1) {
       param_1->data->stage_score[local_c] = (StageReplayData *)0x0;
     }

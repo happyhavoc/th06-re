@@ -37,9 +37,9 @@ ZunResult __thiscall MainMenu::DrawReplayMenu(MainMenu *this)
                         */
     AsciiManager::AddFormatText
               (&g_AsciiManager,&vm_ref[1].pos,"%s %8s  %8s %7s  %7s",this->replayFileName + i,
-               &this->replayFileData[i].field_0x19,this->replayFileData[i].date,
-               (&g_shortCharacterList)[this->replayFileData[i].shottype_chara],
-               (&g_difficultyList)[this->replayFileData[i].difficulty]);
+               this->replayFileData[i].name,this->replayFileData[i].date,
+               g_shortCharacterList[this->replayFileData[i].shottype_chara],
+               g_difficultyList[this->replayFileData[i].difficulty]);
     vm_ref = vm_ref + 1;
   }
   if ((this->gameState == STATE_REPLAY_SELECT) && (this->currentReplay != (ReplayData *)0x0)) {
@@ -73,7 +73,7 @@ ZunResult __thiscall MainMenu::DrawReplayMenu(MainMenu *this)
         AsciiManager::AddFormatText(&g_AsciiManager,&vm_ref[1].pos,"%s ---------");
       }
       else {
-        AsciiManager::AddFormatText(&g_AsciiManager,&vm_ref[1].pos,"%s %9d",(&g_stageList)[i]);
+        AsciiManager::AddFormatText(&g_AsciiManager,&vm_ref[1].pos,"%s %9d",g_stageList[i]);
       }
       vm_ref = vm_ref + 1;
     }

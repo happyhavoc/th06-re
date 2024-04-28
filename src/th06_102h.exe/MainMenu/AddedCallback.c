@@ -35,10 +35,10 @@ LAB_0043a516:
     param_1->cursor = (uint)(g_GameManager.difficulty == EXTRA);
   }
 LAB_0043a520:
-  if (g_GameManager.unk_1823 != 0) {
+  if (g_GameManager.is_in_practice_mode != 0) {
     param_1->cursor = 2;
   }
-  g_GameManager.unk_1823 = 0;
+  g_GameManager.is_in_practice_mode = 0;
   if ((g_Supervisor.cfg.opts & 1) == USE_D3D_HW_TEXTURE_BLENDING) {
     param_1->color1 = 0x80004000;
     param_1->color2 = 0xff008000;
@@ -67,7 +67,7 @@ LAB_0043a520:
     }
   }
   g_GameManager.demo_mode = 0;
-  g_GameManager.unk_1828 = 0;
+  g_GameManager.demo_frames = 0;
   return ZUN_SUCCESS;
 }
 

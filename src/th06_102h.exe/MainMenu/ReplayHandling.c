@@ -178,7 +178,7 @@ LAB_0043877b:
     if ((((g_CurFrameInput & 0x1001) != 0) &&
         ((g_CurFrameInput & 0x1001) != (g_LastFrameInput & 0x1001))) &&
        (this->currentReplay[this->cursor].stage_score != (StageReplayData **)0x0)) {
-      g_GameManager.unk_0x1c = 1;
+      g_GameManager.is_in_replay = 1;
       g_Supervisor.framerateMultiplier = 1.0;
       _strcpy(g_GameManager.replay_file,this->replayFilePaths[this->chosenReplay]);
       g_GameManager.difficulty = (Difficulty)this->currentReplay->difficulty;

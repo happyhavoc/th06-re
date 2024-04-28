@@ -15,7 +15,7 @@ ZunResult GameManager::AddedCallback(GameManager *gameManager)
   (*(g_Supervisor.d3dDevice)->lpVtbl->ResourceManagerDiscardBytes)(g_Supervisor.d3dDevice,0);
   if (g_Supervisor.curState == 3) {
     gameManager->gui_score = gameManager->score;
-    gameManager->field2_0x8 = 0;
+    gameManager->score_increment = 0;
   }
   else {
     g_Supervisor.bombCount = g_GameManager.bombs_remaining;
@@ -24,14 +24,14 @@ ZunResult GameManager::AddedCallback(GameManager *gameManager)
     (gameManager->arcade_region_top_left_pos).y = 16.0;
     (gameManager->arcade_region_size).x = 384.0;
     (gameManager->arcade_region_size).y = 448.0;
-    gameManager->unk_1a4c = 8.0;
-    gameManager->unk_1a50 = 16.0;
-    gameManager->unk_1a54 = 368.0;
-    gameManager->unk_1a58 = 416.0;
+    (gameManager->unk_1a4c).x = 8.0;
+    (gameManager->unk_1a4c).y = 16.0;
+    (gameManager->unk_1a54).x = 368.0;
+    (gameManager->unk_1a54).y = 416.0;
     gameManager->counat = 0;
     gameManager->gui_score = 0;
     gameManager->score = 0;
-    gameManager->field2_0x8 = 0;
+    gameManager->score_increment = 0;
     gameManager->high_score = 100000;
     gameManager->current_power = 0;
     gameManager->num_retries = 0;
@@ -39,14 +39,14 @@ ZunResult GameManager::AddedCallback(GameManager *gameManager)
       gameManager->difficulty = EXTRA;
     }
     if ((int)gameManager->difficulty < 4) {
-      gameManager->field25_0x181c = 0;
+      gameManager->extra_lives = 0;
     }
     else {
-      gameManager->field25_0x181c = 4;
+      gameManager->extra_lives = 4;
     }
     g_GameManager.power_item_count_for_score = 0;
     gameManager->rank = 8;
-    gameManager->unk_0x18 = 0;
+    gameManager->graze_in_total = 0;
     *(undefined2 *)&gameManager->field_0x1816 = 0;
     local_c = gameManager->catk;
     for (local_10 = 0; local_10 < 0x40; local_10 = local_10 + 1) {
@@ -71,7 +71,7 @@ ZunResult GameManager::AddedCallback(GameManager *gameManager)
     ParseCatk(scoredat,gameManager->catk);
     ParseClrd(scoredat,gameManager->clrd);
     ParsePscr(scoredat,gameManager->pscr);
-    if (gameManager->unk_1823 != 0) {
+    if (gameManager->is_in_practice_mode != 0) {
       g_GameManager.high_score =
            gameManager->pscr
            [((uint)g_GameManager.shottype + (uint)g_GameManager.character * 2) * 0x18 +
@@ -90,7 +90,7 @@ ZunResult GameManager::AddedCallback(GameManager *gameManager)
   gameManager->graze_in_stage = 0;
   gameManager->is_in_game_menu = 0;
   gameManager->current_stage = gameManager->current_stage + 1;
-  if (g_GameManager.unk_0x1c == 0) {
+  if (g_GameManager.is_in_replay == 0) {
     iVar3 = (uint)g_GameManager.shottype + (uint)g_GameManager.character * 2;
     if ((gameManager->num_retries == 0) &&
        ((int)(uint)gameManager->clrd[iVar3].difficulty_cleared_with_retries
@@ -104,7 +104,7 @@ ZunResult GameManager::AddedCallback(GameManager *gameManager)
            (char)gameManager->current_stage - 1;
     }
   }
-  if ((gameManager->unk_1823 != 0) && (gameManager->current_stage != 1)) {
+  if ((gameManager->is_in_practice_mode != 0) && (gameManager->current_stage != 1)) {
     if (gameManager->current_stage == 2) {
       gameManager->current_power = 0x40;
     }
@@ -114,19 +114,19 @@ ZunResult GameManager::AddedCallback(GameManager *gameManager)
   }
   Supervisor::LoadPbg3(&g_Supervisor,4,"紅魔郷CM.dat");
   Supervisor::LoadPbg3(&g_Supervisor,2,"紅魔郷ST.dat");
-  if (g_GameManager.unk_0x1c == 1) {
+  if (g_GameManager.is_in_replay == 1) {
     iVar3 = ReplayManager::RegisterChain(1,g_GameManager.replay_file);
     if (iVar3 != 0) {
       bVar1 = true;
     }
-    while (UINT_ARRAY_004764b0[(char)gameManager->field25_0x181c] <= gameManager->gui_score) {
-      gameManager->field25_0x181c = gameManager->field25_0x181c + 1;
+    while (EXTRA_LIVES_SCORES[(char)gameManager->extra_lives] <= gameManager->gui_score) {
+      gameManager->extra_lives = gameManager->extra_lives + 1;
     }
     gameManager->min_rank = DifficultyInfo_ARRAY_00476528[g_GameManager.difficulty].min_rank;
     gameManager->max_rank = DifficultyInfo_ARRAY_00476528[g_GameManager.difficulty].max_rank;
   }
   g_Rng.generationCount = 0;
-  *(ushort *)&gameManager->unk_1a2c = g_Rng.seed;
+  *(ushort *)&gameManager->random_seed = g_Rng.seed;
   ZVar4 = Stage::RegisterChain(gameManager->current_stage);
   if (ZVar4 == ZUN_SUCCESS) {
     ZVar4 = Player::RegisterChain(0);
@@ -144,7 +144,7 @@ ZunResult GameManager::AddedCallback(GameManager *gameManager)
             if (iVar3 == 0) {
               ZVar4 = Gui::RegisterChain();
               if (ZVar4 == ZUN_SUCCESS) {
-                if (g_GameManager.unk_0x1c == 0) {
+                if (g_GameManager.is_in_replay == 0) {
                   ReplayManager::RegisterChain(0,"replay/th6_00.rpy");
                 }
                 if (g_GameManager.demo_mode == 0) {
@@ -159,7 +159,7 @@ ZunResult GameManager::AddedCallback(GameManager *gameManager)
                 }
                 *(undefined *)&gameManager->unk_0x2c = 0;
                 gameManager->score = 0;
-                gameManager->unk_1822 = 0;
+                gameManager->is_game_completed = 0;
                 AsciiManager::InitializeVms(&g_AsciiManager);
                 if (bVar1) {
                   g_Supervisor.curState = 1;

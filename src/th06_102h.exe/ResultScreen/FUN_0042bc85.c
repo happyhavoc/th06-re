@@ -34,7 +34,7 @@ undefined4 __thiscall ResultScreen::FUN_0042bc85(ResultScreen *this)
     (this->hscr).score = g_GameManager.score;
     (this->hscr).base.version_ = '\x10';
     (this->hscr).base.magic = 0x52435348;
-    if (g_GameManager.unk_1822 == 0) {
+    if (g_GameManager.is_game_completed == 0) {
       (this->hscr).stage = (byte)g_GameManager.current_stage;
     }
     else {

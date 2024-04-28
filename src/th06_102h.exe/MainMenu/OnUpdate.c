@@ -68,9 +68,9 @@ ChainCallbackResult MainMenu::OnUpdate(MainMenu *menu)
                        signed int, and I'm pretty confident zun just used ints everywhere */
     if (719 < menu->idleFrames) {
 load_menu_rpy:
-      g_GameManager.unk_0x1c = 1;
+      g_GameManager.is_in_replay = 1;
       g_GameManager.demo_mode = 1;
-      g_GameManager.unk_1828 = 0;
+      g_GameManager.demo_frames = 0;
       g_Supervisor.framerateMultiplier = 1.0;
       _strcpy(g_GameManager.replay_file,"data/demo/demo00.rpy");
       g_GameManager.difficulty = LUNATIC;
@@ -349,7 +349,7 @@ drawStartMenuCase:
       SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,SOUND_BACK,0);
       if ((int)g_GameManager.difficulty < 4) {
         g_Supervisor.cfg.defaultDifficulty = *(DefaultDifficulty *)&menu->cursor;
-        if (g_GameManager.unk_1823 == 0) {
+        if (g_GameManager.is_in_practice_mode == 0) {
           menu->cursor = 0;
         }
         else {
@@ -543,7 +543,7 @@ LAB_0043666d:
         if (((g_CurFrameInput & 0x1001) != 0) &&
            ((g_CurFrameInput & 0x1001) != (g_LastFrameInput & 0x1001))) {
           g_GameManager.shottype = *(byte *)&menu->cursor;
-          if (g_GameManager.unk_1823 == 0) {
+          if (g_GameManager.is_in_practice_mode == 0) {
             if ((int)g_GameManager.difficulty < 4) {
               g_GameManager.current_stage = 0;
             }
@@ -661,13 +661,13 @@ LAB_0043666d:
 LAB_00436de7:
           g_GameManager.lives_remaining = g_Supervisor.cfg.lifeCount;
           g_GameManager.bombs_remaining = g_Supervisor.cfg.bombCount;
-          if ((g_GameManager.difficulty == EXTRA) || (g_GameManager.unk_1823 != 0)) {
+          if ((g_GameManager.difficulty == EXTRA) || (g_GameManager.is_in_practice_mode != 0)) {
             g_GameManager.lives_remaining = 2;
             g_GameManager.bombs_remaining = 3;
           }
           g_Supervisor.curState = 2;
           SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,SOUND_SELECT,0);
-          g_GameManager.unk_0x1c = 0;
+          g_GameManager.is_in_replay = 0;
           local_48 = 0.0;
           if (menu->timeRelatedArrSize < 2) {
             local_48 = 60.0;

@@ -60,7 +60,7 @@ ChainCallbackResult Player::OnUpdate(Player *param_1)
           ItemManager::SpawnItem((ItemManager *)&g_ItemManager,&param_1->position,ITEM_FULL_POWER,2)
           ;
           g_GameManager.current_power = 0;
-          g_GameManager.field25_0x181c = 0xff;
+          g_GameManager.extra_lives = 0xff;
         }
         else {
           ItemManager::SpawnItem((ItemManager *)&g_ItemManager,&param_1->position,ITEM_POWER_BIG,2);
@@ -113,7 +113,7 @@ ChainCallbackResult Player::OnUpdate(Player *param_1)
       goto LAB_00428fa8;
     }
     g_GameManager.lives_remaining = g_GameManager.lives_remaining - 1;
-    if (((int)g_GameManager.difficulty < 4) && (g_GameManager.unk_1823 == 0)) {
+    if (((int)g_GameManager.difficulty < 4) && (g_GameManager.is_in_practice_mode == 0)) {
       g_GameManager.bombs_remaining = g_Supervisor.bombCount;
     }
     else {

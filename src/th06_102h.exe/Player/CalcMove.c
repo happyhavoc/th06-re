@@ -155,26 +155,26 @@ undefined4 __thiscall Player::CalcMove(Player *this)
   pfVar6 = &(this->position).y;
   *pfVar6 = local_c * this->field18_0x9d4 * g_Supervisor.effectiveFramerateMultiplier + *pfVar6;
   fVar1 = (this->position).x;
-  if (fVar1 < g_GameManager.unk_1a4c == (NAN(fVar1) || NAN(g_GameManager.unk_1a4c))) {
+  if (fVar1 < g_GameManager.unk_1a4c.x == (NAN(fVar1) || NAN(g_GameManager.unk_1a4c.x))) {
     fVar1 = (this->position).x;
-    if (g_GameManager.unk_1a4c + g_GameManager.unk_1a54 < fVar1 !=
-        (NAN(g_GameManager.unk_1a4c + g_GameManager.unk_1a54) || NAN(fVar1))) {
-      (this->position).x = g_GameManager.unk_1a4c + g_GameManager.unk_1a54;
+    if (g_GameManager.unk_1a4c.x + g_GameManager.unk_1a54.x < fVar1 !=
+        (NAN(g_GameManager.unk_1a4c.x + g_GameManager.unk_1a54.x) || NAN(fVar1))) {
+      (this->position).x = g_GameManager.unk_1a4c.x + g_GameManager.unk_1a54.x;
     }
   }
   else {
-    (this->position).x = g_GameManager.unk_1a4c;
+    (this->position).x = g_GameManager.unk_1a4c.x;
   }
   fVar1 = (this->position).y;
-  if (fVar1 < g_GameManager.unk_1a50 == (NAN(fVar1) || NAN(g_GameManager.unk_1a50))) {
+  if (fVar1 < g_GameManager.unk_1a4c.y == (NAN(fVar1) || NAN(g_GameManager.unk_1a4c.y))) {
     fVar1 = (this->position).y;
-    if (g_GameManager.unk_1a50 + g_GameManager.unk_1a58 < fVar1 !=
-        (NAN(g_GameManager.unk_1a50 + g_GameManager.unk_1a58) || NAN(fVar1))) {
-      (this->position).y = g_GameManager.unk_1a50 + g_GameManager.unk_1a58;
+    if (g_GameManager.unk_1a4c.y + g_GameManager.unk_1a54.y < fVar1 !=
+        (NAN(g_GameManager.unk_1a4c.y + g_GameManager.unk_1a54.y) || NAN(fVar1))) {
+      (this->position).y = g_GameManager.unk_1a4c.y + g_GameManager.unk_1a54.y;
     }
   }
   else {
-    (this->position).y = g_GameManager.unk_1a50;
+    (this->position).y = g_GameManager.unk_1a4c.y;
   }
   fVar1 = (this->position).z;
   fVar2 = (this->field8_0x488).z;

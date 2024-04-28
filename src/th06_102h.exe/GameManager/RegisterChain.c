@@ -9,7 +9,7 @@ ZunResult GameManager::RegisterChain(void)
   g_GameManagerCalcChain.addedCallback = AddedCallback;
   g_GameManagerCalcChain.deletedCallback = DeletedCallback;
   g_GameManagerCalcChain.arg = &g_GameManager;
-  g_GameManager.unk_1a30 = 0;
+  g_GameManager.game_frames = 0;
   iVar1 = Chain::AddToCalcChain(&g_Chain,&g_GameManagerCalcChain,4);
   if (iVar1 == 0) {
     g_GameManagerDrawChain.callback = OnDraw;

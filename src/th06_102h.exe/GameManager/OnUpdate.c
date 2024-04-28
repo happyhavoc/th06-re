@@ -10,11 +10,11 @@ ChainCallbackResult GameManager::OnUpdate(GameManager *this)
     if ((g_CurFrameInput != 0) && (g_CurFrameInput != g_LastFrameInput)) {
       g_Supervisor.curState = 1;
     }
-    this->unk_1828 = this->unk_1828 + 1;
-    if (this->unk_1828 == 0xe10) {
+    this->demo_frames = this->demo_frames + 1;
+    if (this->demo_frames == 0xe10) {
       ScreenEffect::RegisterChain(2,0x78,0,0,0);
     }
-    if (0xe87 < this->unk_1828) {
+    if (0xe87 < this->demo_frames) {
       g_Supervisor.curState = 1;
     }
   }
@@ -67,32 +67,32 @@ ChainCallbackResult GameManager::OnUpdate(GameManager *this)
         local_8 = 0x1343e;
       }
       local_8 = local_8 - local_8 % 10;
-      if ((uint)this->field2_0x8 < local_8) {
-        this->field2_0x8 = local_8;
+      if (this->score_increment < local_8) {
+        this->score_increment = local_8;
       }
-      if (this->score < this->gui_score + this->field2_0x8) {
-        this->field2_0x8 = this->score - this->gui_score;
+      if (this->score < this->gui_score + this->score_increment) {
+        this->score_increment = this->score - this->gui_score;
       }
-      this->gui_score = this->gui_score + this->field2_0x8;
+      this->gui_score = this->gui_score + this->score_increment;
       if (this->score <= this->gui_score) {
-        this->field2_0x8 = 0;
+        this->score_increment = 0;
         this->gui_score = this->score;
       }
-      if ((-1 < (char)this->field25_0x181c) &&
-         (UINT_ARRAY_004764b0[(char)this->field25_0x181c] <= this->gui_score)) {
+      if ((-1 < (char)this->extra_lives) &&
+         (EXTRA_LIVES_SCORES[(char)this->extra_lives] <= this->gui_score)) {
         if ((char)this->lives_remaining < '\b') {
           this->lives_remaining = this->lives_remaining + 1;
           SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,SOUND_1UP,0);
         }
         g_Gui.flags = g_Gui.flags & 0xfffffffc | 2;
-        this->field25_0x181c = this->field25_0x181c + 1;
+        this->extra_lives = this->extra_lives + 1;
         IncreaseSubrank(&g_GameManager,200);
       }
       if (this->high_score < this->gui_score) {
         this->high_score = this->gui_score;
       }
     }
-    this->unk_1a30 = this->unk_1a30 + 1;
+    this->game_frames = this->game_frames + 1;
     CVar1 = CHAIN_CALLBACK_RESULT_CONTINUE;
   }
   return CVar1;

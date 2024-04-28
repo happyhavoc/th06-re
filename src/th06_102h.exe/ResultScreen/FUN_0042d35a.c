@@ -24,7 +24,7 @@ undefined4 __thiscall ResultScreen::FUN_0042d35a(ResultScreen *this)
     AsciiManager::AddString
               (&g_AsciiManager,&strPos,(&PTR_s__Easy_00478504)[g_GameManager.difficulty]);
     strPos.y = strPos.y + 22.0;
-    if ((g_GameManager.difficulty == EASY) || (g_GameManager.unk_1822 == 0)) {
+    if ((g_GameManager.difficulty == EASY) || (g_GameManager.is_game_completed == 0)) {
       AsciiManager::AddFormatText(&g_AsciiManager,&strPos,"    %3.2f%%",(double)(local_34 * 100.0));
     }
     else {

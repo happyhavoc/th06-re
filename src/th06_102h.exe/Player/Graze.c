@@ -8,8 +8,8 @@ void __thiscall Player::Graze(Player *this,D3DXVECTOR3 *param_1)
     if ((int)g_GameManager.graze_in_stage < 9999) {
       g_GameManager.graze_in_stage = g_GameManager.graze_in_stage + 1;
     }
-    if ((int)g_GameManager.unk_0x18 < 999999) {
-      g_GameManager.unk_0x18 = g_GameManager.unk_0x18 + 1;
+    if ((int)g_GameManager.graze_in_total < 999999) {
+      g_GameManager.graze_in_total = g_GameManager.graze_in_total + 1;
     }
   }
   local_10.z = ((this->position).z + param_1->z) * 0.5;

@@ -2,10 +2,6 @@
 undefined4 __thiscall GuiImpl::run_msg(GuiImpl *this)
 
 {
-  AnmVm *pAVar1;
-  short sVar2;
-  void *pvVar3;
-  AnmManager *pAVar4;
   undefined4 uVar5;
   uint uVar6;
   short *psVar7;
@@ -14,6 +10,10 @@ undefined4 __thiscall GuiImpl::run_msg(GuiImpl *this)
   short local_34;
   short local_20;
   short local_14;
+  AnmVm *pAVar1;
+  AnmManager *pAVar4;
+  void *pvVar3;
+  short sVar2;
   
                     /* This is the MSG VM execute function
                         */
@@ -139,21 +139,21 @@ undefined4 __thiscall GuiImpl::run_msg(GuiImpl *this)
           AnmManager::SetAndExecuteScript(pAVar4,&this->vm9,pAVar4->scripts[0x619]);
         }
         else {
-          g_GameManager.field25_0x181c = 0xff;
+          g_GameManager.extra_lives = 0xff;
         }
         break;
       case 10:
         goto LAB_00418fe0;
       case 0xb:
         g_GameManager.gui_score = g_GameManager.score;
-        if (g_GameManager.unk_1823 == 0) {
+        if (g_GameManager.is_in_practice_mode == 0) {
           if ((g_GameManager.current_stage < 5) ||
              ((g_GameManager.difficulty != EASY && (g_GameManager.current_stage == 5)))) {
             g_Supervisor.curState = 3;
           }
-          else if (g_GameManager.unk_0x1c == 0) {
+          else if (g_GameManager.is_in_replay == 0) {
             if (g_GameManager.difficulty == EXTRA) {
-              g_GameManager.unk_1822 = 1;
+              g_GameManager.is_game_completed = 1;
               g_Supervisor.curState = 7;
             }
             else {

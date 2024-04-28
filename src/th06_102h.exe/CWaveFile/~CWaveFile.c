@@ -1,5 +1,5 @@
 
-void __thiscall CWaveFile::operator_delete(CWaveFile *this)
+void __thiscall CWaveFile::~CWaveFile(CWaveFile *this)
 
 {
   Close(this);

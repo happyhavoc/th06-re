@@ -22,10 +22,10 @@ ChainCallbackResult EnemyManager::OnDraw(EnemyManager *param_1)
             pEVar5->vms[0].rotation.z = local_14->angle;
           }
           fVar1 = (local_14->position).z;
-          fVar2 = pEVar5->vms[0].pos2.z;
+          fVar2 = pEVar5->vms[0].offset.z;
           fVar3 = (local_14->position).y;
-          fVar4 = pEVar5->vms[0].pos2.y;
-          pEVar5->vms[0].pos.x = (local_14->position).x + pEVar5->vms[0].pos2.x;
+          fVar4 = pEVar5->vms[0].offset.y;
+          pEVar5->vms[0].pos.x = (local_14->position).x + pEVar5->vms[0].offset.x;
           pEVar5->vms[0].pos.y = fVar3 + fVar4;
           pEVar5->vms[0].pos.z = fVar1 + fVar2;
           pEVar5->vms[0].pos.z = 0.495;
@@ -37,10 +37,10 @@ ChainCallbackResult EnemyManager::OnDraw(EnemyManager *param_1)
         (local_14->primary_vm).rotation.z = local_14->angle;
       }
       fVar1 = (local_14->position).z;
-      fVar2 = (local_14->primary_vm).pos2.z;
+      fVar2 = (local_14->primary_vm).offset.z;
       fVar3 = (local_14->position).y;
-      fVar4 = (local_14->primary_vm).pos2.y;
-      (local_14->primary_vm).pos.x = (local_14->position).x + (local_14->primary_vm).pos2.x;
+      fVar4 = (local_14->primary_vm).offset.y;
+      (local_14->primary_vm).pos.x = (local_14->position).x + (local_14->primary_vm).offset.x;
       (local_14->primary_vm).pos.y = fVar3 + fVar4;
       (local_14->primary_vm).pos.z = fVar1 + fVar2;
       (local_14->primary_vm).pos.z = 0.494;

@@ -262,9 +262,9 @@ drawStartMenuCase:
           else {
             (vm_memset->color).color = 0xffffffff;
           }
-          (vm_memset->pos2).x = -6.0;
-          (vm_memset->pos2).y = -6.0;
-          (vm_memset->pos2).z = 0.0;
+          (vm_memset->offset).x = -6.0;
+          (vm_memset->offset).y = -6.0;
+          (vm_memset->offset).z = 0.0;
         }
         else {
           if ((g_Supervisor.cfg.opts & 1) == 0) {
@@ -273,9 +273,9 @@ drawStartMenuCase:
           else {
             (vm_memset->color).color = 0x60ffffff;
           }
-          (vm_memset->pos2).x = 0.0;
-          (vm_memset->pos2).y = 0.0;
-          (vm_memset->pos2).z = 0.0;
+          (vm_memset->offset).x = 0.0;
+          (vm_memset->offset).y = 0.0;
+          (vm_memset->offset).z = 0.0;
           vm_memset->alphaInterpEndTime = 0;
         }
         vm_memset = vm_memset + 1;
@@ -294,9 +294,9 @@ drawStartMenuCase:
         else {
           (vm_memset->color).color = 0xffffffff;
         }
-        (vm_memset->pos2).x = -6.0;
-        (vm_memset->pos2).y = -6.0;
-        (vm_memset->pos2).z = 0.0;
+        (vm_memset->offset).x = -6.0;
+        (vm_memset->offset).y = -6.0;
+        (vm_memset->offset).z = 0.0;
         vm_memset = vm_memset + 1;
       }
     }
@@ -521,9 +521,9 @@ LAB_0043666d:
         else {
           (vm_memset->color).color = 0xffffffff;
         }
-        (vm_memset->pos2).x = -6.0;
-        (vm_memset->pos2).y = -6.0;
-        (vm_memset->pos2).z = 0.0;
+        (vm_memset->offset).x = -6.0;
+        (vm_memset->offset).y = -6.0;
+        (vm_memset->offset).z = 0.0;
       }
       else {
         if ((g_Supervisor.cfg.opts & 1) == 0) {
@@ -532,9 +532,9 @@ LAB_0043666d:
         else {
           (vm_memset->color).color = 0xa0d0d0d0;
         }
-        (vm_memset->pos2).x = 0.0;
-        (vm_memset->pos2).y = 0.0;
-        (vm_memset->pos2).z = 0.0;
+        (vm_memset->offset).x = 0.0;
+        (vm_memset->offset).y = 0.0;
+        (vm_memset->offset).z = 0.0;
       }
       vm_memset = vm_memset + 1;
     }

@@ -85,9 +85,9 @@ undefined4 __thiscall ResultScreen::OnUpdate(ResultScreen *this,ResultScreen *re
               else {
                 (vm->color).color = 0xffffffff;
               }
-              (vm->pos2).x = -4.0;
-              (vm->pos2).y = -4.0;
-              (vm->pos2).z = 0.0;
+              (vm->offset).x = -4.0;
+              (vm->offset).y = -4.0;
+              (vm->offset).z = 0.0;
             }
             else {
               if ((g_Supervisor.cfg.opts & 1) == 0) {
@@ -96,9 +96,9 @@ undefined4 __thiscall ResultScreen::OnUpdate(ResultScreen *this,ResultScreen *re
               else {
                 (vm->color).color = 0xb0ffffff;
               }
-              (vm->pos2).x = 0.0;
-              (vm->pos2).y = 0.0;
-              (vm->pos2).z = 0.0;
+              (vm->offset).x = 0.0;
+              (vm->offset).y = 0.0;
+              (vm->offset).z = 0.0;
             }
             vm = vm + 1;
           }
@@ -217,9 +217,9 @@ undefined4 __thiscall ResultScreen::OnUpdate(ResultScreen *this,ResultScreen *re
           else {
             (vm->color).color = 0xffffffff;
           }
-          (vm->pos2).x = -4.0;
-          (vm->pos2).y = -4.0;
-          (vm->pos2).z = 0.0;
+          (vm->offset).x = -4.0;
+          (vm->offset).y = -4.0;
+          (vm->offset).z = 0.0;
         }
         else {
           if ((g_Supervisor.cfg.opts & 1) == 0) {
@@ -228,9 +228,9 @@ undefined4 __thiscall ResultScreen::OnUpdate(ResultScreen *this,ResultScreen *re
           else {
             (vm->color).color = 0xb0ffffff;
           }
-          (vm->pos2).x = 0.0;
-          (vm->pos2).y = 0.0;
-          (vm->pos2).z = 0.0;
+          (vm->offset).x = 0.0;
+          (vm->offset).y = 0.0;
+          (vm->offset).z = 0.0;
         }
         vm = vm + 1;
       }

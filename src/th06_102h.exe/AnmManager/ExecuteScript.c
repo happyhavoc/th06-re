@@ -147,9 +147,9 @@ LAB_00433998:
     else {
       fVar5 = (float)local_8->args[2];
       fVar2 = (float)local_8->args[1];
-      (vm->pos2).x = (float)local_8->args[0];
-      (vm->pos2).y = fVar2;
-      (vm->pos2).z = fVar5;
+      (vm->offset).x = (float)local_8->args[0];
+      (vm->offset).y = fVar2;
+      (vm->offset).z = fVar5;
     }
     break;
   case AnmOpcode_PosTimeLinear:
@@ -167,9 +167,9 @@ LAB_00433f53:
       (vm->posInterpInitial).z = (vm->pos).z;
     }
     else {
-      (vm->posInterpInitial).x = (vm->pos2).x;
-      (vm->posInterpInitial).y = (vm->pos2).y;
-      (vm->posInterpInitial).z = (vm->pos2).z;
+      (vm->posInterpInitial).x = (vm->offset).x;
+      (vm->posInterpInitial).y = (vm->offset).y;
+      (vm->posInterpInitial).z = (vm->offset).z;
     }
     fVar5 = (float)local_8->args[2];
     fVar2 = (float)local_8->args[1];
@@ -346,12 +346,12 @@ LAB_00434338:
                       local_3c * (vm->posInterpFinal).z;
       }
       else {
-        (vm->pos2).x = (1.0 - local_3c) * (vm->posInterpInitial).x +
-                       local_3c * (vm->posInterpFinal).x;
-        (vm->pos2).y = (1.0 - local_3c) * (vm->posInterpInitial).y +
-                       local_3c * (vm->posInterpFinal).y;
-        (vm->pos2).z = (1.0 - local_3c) * (vm->posInterpInitial).z +
-                       local_3c * (vm->posInterpFinal).z;
+        (vm->offset).x =
+             (1.0 - local_3c) * (vm->posInterpInitial).x + local_3c * (vm->posInterpFinal).x;
+        (vm->offset).y =
+             (1.0 - local_3c) * (vm->posInterpInitial).y + local_3c * (vm->posInterpFinal).y;
+        (vm->offset).z =
+             (1.0 - local_3c) * (vm->posInterpInitial).z + local_3c * (vm->posInterpFinal).z;
       }
       if ((int)(short)vm->posInterpEndTime <= (vm->posInterpTime).current) {
         vm->posInterpEndTime = 0;

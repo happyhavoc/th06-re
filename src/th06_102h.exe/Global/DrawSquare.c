@@ -1,5 +1,5 @@
 
-void DrawSquare(zRect *rect,D3DCOLOR RectColor)
+void DrawSquare(ZunRect *rect,D3DCOLOR RectColor)
 
 {
   int local_88;

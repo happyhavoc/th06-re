@@ -2,7 +2,7 @@
 void __thiscall Ending::FadingEffect(Ending *this)
 
 {
-  zRect ending_rect;
+  ZunRect ending_rect;
   
   ending_rect.left = 0.0;
   ending_rect.top = 0.0;

@@ -12,9 +12,9 @@ void MainMenu::DrawMenuItem
       AnmManager::SetActiveSprite(g_AnmManager,vm,vm->anotherSpriteNumber + vm_amount);
       (vm->color).color = currentItemColor & 0xff000000 | 0xffffff;
     }
-    (vm->pos2).x = -4.0;
-    (vm->pos2).y = -4.0;
-    (vm->pos2).z = 0.0;
+    (vm->offset).x = -4.0;
+    (vm->offset).y = -4.0;
+    (vm->offset).z = 0.0;
   }
   else {
     if ((g_Supervisor.cfg.opts >> 8 & 1 | g_Supervisor.cfg.opts & 1) == 0) {
@@ -24,9 +24,9 @@ void MainMenu::DrawMenuItem
       AnmManager::SetActiveSprite(g_AnmManager,vm,(int)vm->anotherSpriteNumber);
       (vm->color).color = otherItemColor & 0xff000000 | 0xffffff;
     }
-    (vm->pos2).x = 0.0;
-    (vm->pos2).y = 0.0;
-    (vm->pos2).z = 0.0;
+    (vm->offset).x = 0.0;
+    (vm->offset).y = 0.0;
+    (vm->offset).z = 0.0;
   }
   return;
 }

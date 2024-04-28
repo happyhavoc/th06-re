@@ -69,8 +69,8 @@ void __thiscall SoundPlayer::LoadSound(SoundPlayer *this,int idx,char *path)
               dsBuffer.dwFlags = 0x8088;
               dsBuffer.dwBufferBytes = formatSize;
               dsBuffer.lpwfxFormat = &wavData;
-              HVar3 = (*((this->csoundmanager).m_pDS)->lpVtbl->CreateSoundBuffer)
-                                ((this->csoundmanager).m_pDS,&dsBuffer,this->sound_buffers + idx,
+              HVar3 = (*this->directSoundHdl->lpVtbl->CreateSoundBuffer)
+                                (this->directSoundHdl,&dsBuffer,this->sound_buffers + idx,
                                  (LPUNKNOWN)0x0);
               if (HVar3 < 0) {
                 _free(soundFileData);

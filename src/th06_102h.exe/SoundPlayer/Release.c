@@ -19,18 +19,18 @@ ZunResult __thiscall SoundPlayer::Release(SoundPlayer *this)
     }
     KillTimer((HWND)this->game_window,1);
     StopBGM(this);
-    (this->csoundmanager).m_pDS = (LPDIRECTSOUND8)0x0;
+    this->directSoundHdl = (LPDIRECTSOUND8)0x0;
     (*this->initSoundBuffer->lpVtbl->Stop)(this->initSoundBuffer);
     if (this->initSoundBuffer != (LPDIRECTSOUNDBUFFER)0x0) {
       (*this->initSoundBuffer->lpVtbl->Release)(this->initSoundBuffer);
       this->initSoundBuffer = (LPDIRECTSOUNDBUFFER)0x0;
     }
-    if (this->streamingSound != (CStreamingSound *)0x0) {
-      if (this->streamingSound != (CStreamingSound *)0x0) {
+    if (this->backgroundMusic != (CStreamingSound *)0x0) {
+      if (this->backgroundMusic != (CStreamingSound *)0x0) {
                     /* WARNING: Load size is inaccurate */
-        (**(this->streamingSound->base).vtbl)(1);
+        (**(this->backgroundMusic->base).vtbl)(1);
       }
-      this->streamingSound = (CStreamingSound *)0x0;
+      this->backgroundMusic = (CStreamingSound *)0x0;
     }
     if (this->csoundmanager_ptr != (CSoundManager *)0x0) {
       this_00 = this->csoundmanager_ptr;

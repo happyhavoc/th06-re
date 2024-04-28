@@ -2,23 +2,23 @@
 void __thiscall SoundPlayer::StopBGM(SoundPlayer *this)
 
 {
-  if (this->streamingSound != (CStreamingSound *)0x0) {
-    CSound::Stop(&this->streamingSound->base);
-    if (this->m_hndNotifyThreadHandle != (HANDLE)0x0) {
-      PostThreadMessageA(this->m_dwNotifyThreadId,0x12,0,0);
+  if (this->backgroundMusic != (CStreamingSound *)0x0) {
+    CSound::Stop(&this->backgroundMusic->base);
+    if (this->backgroundMusicThreadHandle != (HANDLE)0x0) {
+      PostThreadMessageA(this->backgroundMusicThreadId,0x12,0,0);
       DebugPrint2("stop m_dwNotifyThreadID\n");
-      WaitForSingleObject(this->m_hndNotifyThreadHandle,0xffffffff);
+      WaitForSingleObject(this->backgroundMusicThreadHandle,0xffffffff);
       DebugPrint2("comp\n");
-      CloseHandle(this->m_hndNotifyThreadHandle);
-      CloseHandle(this->streamingUpdateEvent);
-      this->m_hndNotifyThreadHandle = (HANDLE)0x0;
+      CloseHandle(this->backgroundMusicThreadHandle);
+      CloseHandle(this->backgroundMusicUpdateEvent);
+      this->backgroundMusicThreadHandle = (HANDLE)0x0;
     }
-    if (this->streamingSound != (CStreamingSound *)0x0) {
-      if (this->streamingSound != (CStreamingSound *)0x0) {
+    if (this->backgroundMusic != (CStreamingSound *)0x0) {
+      if (this->backgroundMusic != (CStreamingSound *)0x0) {
                     /* WARNING: Load size is inaccurate */
-        (**(this->streamingSound->base).vtbl)(1);
+        (**(this->backgroundMusic->base).vtbl)(1);
       }
-      this->streamingSound = (CStreamingSound *)0x0;
+      this->backgroundMusic = (CStreamingSound *)0x0;
     }
     DebugPrint2("stop BGM\n");
   }

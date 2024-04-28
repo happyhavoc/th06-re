@@ -5,8 +5,8 @@ ChainCallbackResult Supervisor::OnUpdate(Supervisor *supervisor)
   ZunResult ZVar1;
   int state;
   
-  if (g_SoundPlayer.streamingSound != (CStreamingSound *)0x0) {
-    CStreamingSound::UpdateFadeOut(g_SoundPlayer.streamingSound);
+  if (g_SoundPlayer.backgroundMusic != (CStreamingSound *)0x0) {
+    CStreamingSound::UpdateFadeOut(g_SoundPlayer.backgroundMusic);
   }
   g_LastFrameInput = g_CurFrameInput;
   g_CurFrameInput = GetInput();

@@ -19,7 +19,7 @@ void __thiscall CSound::~CSound(CSound *this)
   if (this->m_pWaveFile != (CWaveFile *)0x0) {
     this_00 = this->m_pWaveFile;
     if (this_00 != (CWaveFile *)0x0) {
-      CWaveFile::operator_delete(this_00);
+      CWaveFile::~CWaveFile(this_00);
       _free(this_00);
     }
     this->m_pWaveFile = (CWaveFile *)0x0;

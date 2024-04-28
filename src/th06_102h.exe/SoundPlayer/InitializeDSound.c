@@ -1,39 +1,40 @@
 
-void __thiscall SoundPlayer::InitializeDSound(SoundPlayer *this,HWND game_window)
+ZunResult __thiscall SoundPlayer::InitializeDSound(SoundPlayer *this,HWND game_window)
 
 {
   CSoundManager *pCVar1;
   int iVar2;
+  ZunResult ZVar3;
   HRESULT res;
-  DSBUFFERDESC *pDVar3;
-  undefined4 *puVar4;
+  DSBUFFERDESC *pDVar4;
+  undefined4 *puVar5;
   uint unaff_retaddr;
   CSoundManager *local_78;
   tWAVEFORMATEX wav_format;
-  undefined4 *local_48;
-  DWORD local_44;
-  DWORD local_40;
-  LPVOID local_3c;
+  undefined4 *audioBuffer1Start;
+  DWORD audioBuffer1Len;
+  DWORD audioBuffer2Len;
+  LPVOID audioBuffer2Start;
   DSBUFFERDESC bufdesc;
   uint local_14;
-  void *local_10;
+  void *exc_list;
   undefined *puStack_c;
-  undefined4 local_8;
+  CSoundManager *mgr;
   
-  local_8 = 0xffffffff;
+  mgr = (CSoundManager *)0xffffffff;
   puStack_c = &LAB_0046928b;
-  local_10 = ExceptionList;
+  exc_list = ExceptionList;
   local_14 = __security_cookie ^ unaff_retaddr;
-  ExceptionList = &local_10;
+  ExceptionList = &exc_list;
   pCVar1 = (CSoundManager *)operator_new(4);
-  local_8 = 0;
+  mgr = (CSoundManager *)0x0;
   if (pCVar1 == (CSoundManager *)0x0) {
     local_78 = (CSoundManager *)0x0;
   }
   else {
     local_78 = (CSoundManager *)CSoundManager::CSoundManager(pCVar1);
   }
-  local_8 = 0xffffffff;
+  mgr = (CSoundManager *)0xffffffff;
   this->csoundmanager_ptr = local_78;
   iVar2 = CSoundManager::Initialize(this->csoundmanager_ptr,game_window,2,2,0xac44,0x10);
   if (iVar2 < 0) {
@@ -47,14 +48,15 @@ void __thiscall SoundPlayer::InitializeDSound(SoundPlayer *this,HWND game_window
       }
       this->csoundmanager_ptr = (CSoundManager *)0x0;
     }
+    ZVar3 = ZUN_ERROR;
   }
   else {
-    (this->csoundmanager).m_pDS = this->csoundmanager_ptr->m_pDS;
-    this->m_hndNotifyThreadHandle = (HANDLE)0x0;
-    pDVar3 = &bufdesc;
+    this->directSoundHdl = this->csoundmanager_ptr->m_pDS;
+    this->backgroundMusicThreadHandle = (HANDLE)0x0;
+    pDVar4 = &bufdesc;
     for (iVar2 = 9; iVar2 != 0; iVar2 = iVar2 + -1) {
-      pDVar3->dwSize = 0;
-      pDVar3 = (DSBUFFERDESC *)&pDVar3->dwFlags;
+      pDVar4->dwSize = 0;
+      pDVar4 = (DSBUFFERDESC *)&pDVar4->dwFlags;
     }
     bufdesc.dwSize = 0x24;
     bufdesc.dwFlags = 0x8008;
@@ -67,29 +69,40 @@ void __thiscall SoundPlayer::InitializeDSound(SoundPlayer *this,HWND game_window
     wav_format.nBlockAlign = 4;
     wav_format.wBitsPerSample = 0x10;
     bufdesc.lpwfxFormat = &wav_format;
-    res = (*((this->csoundmanager).m_pDS)->lpVtbl->CreateSoundBuffer)
-                    ((this->csoundmanager).m_pDS,&bufdesc,&this->initSoundBuffer,(LPUNKNOWN)0x0);
-    if ((-1 < res) &&
-       (res = (*this->initSoundBuffer->lpVtbl->Lock)
-                        (this->initSoundBuffer,0,0x8000,&local_48,&local_44,&local_3c,&local_40,0),
-       -1 < res)) {
-      puVar4 = local_48;
-                    /* memset(buffer, 0, 0x8000); */
-      for (iVar2 = 0x2000; iVar2 != 0; iVar2 = iVar2 + -1) {
-        *puVar4 = 0;
-        puVar4 = puVar4 + 1;
+    res = (*this->directSoundHdl->lpVtbl->CreateSoundBuffer)
+                    (this->directSoundHdl,&bufdesc,&this->initSoundBuffer,(LPUNKNOWN)0x0);
+    if (res < 0) {
+      ZVar3 = ZUN_ERROR;
+    }
+    else {
+      res = (*this->initSoundBuffer->lpVtbl->Lock)
+                      (this->initSoundBuffer,0,0x8000,&audioBuffer1Start,&audioBuffer1Len,
+                       &audioBuffer2Start,&audioBuffer2Len,0);
+      if (res < 0) {
+        ZVar3 = ZUN_ERROR;
       }
-      (*this->initSoundBuffer->lpVtbl->Unlock)
-                (this->initSoundBuffer,local_48,local_44,local_3c,local_40);
-      (*this->initSoundBuffer->lpVtbl->Play)(this->initSoundBuffer,0,0,1);
+      else {
+        puVar5 = audioBuffer1Start;
+                    /* memset(buffer, 0, 0x8000); */
+        for (iVar2 = 0x2000; iVar2 != 0; iVar2 = iVar2 + -1) {
+          *puVar5 = 0;
+          puVar5 = puVar5 + 1;
+        }
+        (*this->initSoundBuffer->lpVtbl->Unlock)
+                  (this->initSoundBuffer,audioBuffer1Start,audioBuffer1Len,audioBuffer2Start,
+                   audioBuffer2Len);
+        (*this->initSoundBuffer->lpVtbl->Play)(this->initSoundBuffer,0,0,1);
                     /* 4 times per second */
-      SetTimer(game_window,0,0xfa,(TIMERPROC)0x0);
-      this->game_window = (HWND)game_window;
-      GameErrorContextLog(&g_GameErrorContext,"DirectSound は正常に初期化されました\n");
+        SetTimer(game_window,0,0xfa,(TIMERPROC)0x0);
+        this->game_window = (HWND)game_window;
+        GameErrorContextLog(&g_GameErrorContext,"DirectSound は正常に初期化されました\n"
+                           );
+        ZVar3 = ZUN_SUCCESS;
+      }
     }
   }
-  ExceptionList = local_10;
+  ExceptionList = exc_list;
   __security_check_cookie(local_14 ^ unaff_retaddr);
-  return;
+  return ZVar3;
 }
 

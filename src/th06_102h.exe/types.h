@@ -96,7 +96,9 @@ struct _s_TryBlockMapEntry {
 
 typedef struct SoundPlayer SoundPlayer, *PSoundPlayer;
 
-typedef struct CSoundManager CSoundManager, *PCSoundManager;
+typedef struct IDirectSound8 IDirectSound8, *PIDirectSound8;
+
+typedef struct IDirectSound8 *LPDIRECTSOUND8;
 
 typedef int i32;
 
@@ -108,6 +110,8 @@ typedef struct HWND__ HWND__, *PHWND__;
 
 typedef struct HWND__ *HWND;
 
+typedef struct CSoundManager CSoundManager, *PCSoundManager;
+
 typedef ulong DWORD;
 
 typedef void *HANDLE;
@@ -116,11 +120,7 @@ typedef uint u32;
 
 typedef struct CStreamingSound CStreamingSound, *PCStreamingSound;
 
-typedef struct IDirectSound8 IDirectSound8, *PIDirectSound8;
-
-typedef struct IDirectSound8 *LPDIRECTSOUND8;
-
-typedef struct IDirectSoundBufferVtbl IDirectSoundBufferVtbl, *PIDirectSoundBufferVtbl;
+typedef struct IDirectSound8Vtbl IDirectSound8Vtbl, *PIDirectSound8Vtbl;
 
 typedef long LONG;
 
@@ -135,11 +135,29 @@ typedef void *LPVOID;
 
 typedef DWORD ULONG;
 
+typedef struct _DSBUFFERDESC _DSBUFFERDESC, *P_DSBUFFERDESC;
+
+typedef struct _DSBUFFERDESC DSBUFFERDESC;
+
+typedef DSBUFFERDESC *LPCDSBUFFERDESC;
+
+typedef struct IUnknown IUnknown, *PIUnknown;
+
+typedef struct IUnknown *LPUNKNOWN;
+
+typedef struct _DSCAPS _DSCAPS, *P_DSCAPS;
+
+typedef struct _DSCAPS *LPDSCAPS;
+
+typedef DWORD *LPDWORD;
+
+typedef GUID *LPCGUID;
+
+typedef struct IDirectSoundBufferVtbl IDirectSoundBufferVtbl, *PIDirectSoundBufferVtbl;
+
 typedef struct _DSBCAPS _DSBCAPS, *P_DSBCAPS;
 
 typedef struct _DSBCAPS *LPDSBCAPS;
-
-typedef DWORD *LPDWORD;
 
 typedef struct tWAVEFORMATEX tWAVEFORMATEX, *PtWAVEFORMATEX;
 
@@ -151,12 +169,6 @@ typedef struct IDirectSound IDirectSound, *PIDirectSound;
 
 typedef struct IDirectSound *LPDIRECTSOUND;
 
-typedef struct _DSBUFFERDESC _DSBUFFERDESC, *P_DSBUFFERDESC;
-
-typedef struct _DSBUFFERDESC DSBUFFERDESC;
-
-typedef DSBUFFERDESC *LPCDSBUFFERDESC;
-
 typedef struct tWAVEFORMATEX WAVEFORMATEX;
 
 typedef WAVEFORMATEX *LPCWAVEFORMATEX;
@@ -165,25 +177,13 @@ typedef struct CSound CSound, *PCSound;
 
 typedef int BOOL;
 
-typedef struct IDirectSound8Vtbl IDirectSound8Vtbl, *PIDirectSound8Vtbl;
-
-typedef struct IUnknown IUnknown, *PIUnknown;
-
-typedef struct IUnknown *LPUNKNOWN;
-
-typedef struct _DSCAPS _DSCAPS, *P_DSCAPS;
-
-typedef struct _DSCAPS *LPDSCAPS;
-
-typedef GUID *LPCGUID;
+typedef struct IUnknownVtbl IUnknownVtbl, *PIUnknownVtbl;
 
 typedef ushort WORD;
 
 typedef struct IDirectSoundVtbl IDirectSoundVtbl, *PIDirectSoundVtbl;
 
 typedef struct CWaveFile CWaveFile, *PCWaveFile;
-
-typedef struct IUnknownVtbl IUnknownVtbl, *PIUnknownVtbl;
 
 typedef struct HMMIO__ HMMIO__, *PHMMIO__;
 
@@ -299,10 +299,6 @@ struct CStreamingSound {
     BOOL m_bFillNextNotificationWithSilence;
 };
 
-struct IDirectSound {
-    struct IDirectSoundVtbl *lpVtbl;
-};
-
 struct _DSCAPS {
     DWORD dwSize;
     DWORD dwFlags;
@@ -330,12 +326,12 @@ struct _DSCAPS {
     DWORD dwReserved2;
 };
 
-struct CSoundManager {
-    LPDIRECTSOUND8 m_pDS;
+struct IDirectSound {
+    struct IDirectSoundVtbl *lpVtbl;
 };
 
 struct SoundPlayer {
-    struct CSoundManager csoundmanager;
+    LPDIRECTSOUND8 directSoundHdl;
     i32 unk_4;
     LPDIRECTSOUNDBUFFER sound_buffers[128];
     LPDIRECTSOUNDBUFFER duplicateSoundBuffers[128];
@@ -343,12 +339,13 @@ struct SoundPlayer {
     LPDIRECTSOUNDBUFFER initSoundBuffer;
     HWND game_window; /* Created by retype action */
     struct CSoundManager *csoundmanager_ptr; /* Created by retype action */
-    DWORD m_dwNotifyThreadId;
-    HANDLE m_hndNotifyThreadHandle;
+    DWORD backgroundMusicThreadId;
+    HANDLE backgroundMusicThreadHandle;
     u32 unk_61c;
     int soundBuffersToPlay[3]; /* Created by retype action */
-    struct CStreamingSound *streamingSound;
-    HANDLE streamingUpdateEvent;
+    struct CStreamingSound *backgroundMusic;
+    HANDLE backgroundMusicUpdateEvent;
+    int field14_0x634;
 };
 
 struct HMMIO__ {
@@ -441,6 +438,10 @@ struct _DSBUFFERDESC {
     DWORD dwReserved;
     LPWAVEFORMATEX lpwfxFormat;
     GUID guid3DAlgorithm;
+};
+
+struct CSoundManager {
+    LPDIRECTSOUND8 m_pDS;
 };
 
 struct IDirectSoundBuffer {
@@ -666,7 +667,7 @@ struct AnmVm {
     D3DCOLOR alphaInterpFinal;
     D3DXVECTOR3 posInterpInitial;
     D3DXVECTOR3 posInterpFinal;
-    D3DXVECTOR3 pos2;
+    D3DXVECTOR3 offset;
     struct ZunTimer posInterpTime;
     int timeOfLastSpriteSet;
     struct ZunTimer alphaInterpTime;
@@ -71487,15 +71488,6 @@ struct Hscr {
     char name[9];
 };
 
-typedef struct zRect zRect, *PzRect;
-
-struct zRect {
-    float left;
-    float top;
-    float right;
-    float bottom;
-};
-
 typedef struct EffectManager EffectManager, *PEffectManager;
 
 struct EffectManager {
@@ -73210,6 +73202,15 @@ struct Supervisor {
     undefined field88_0x3ff;
     uint startup_time_for_menu_music;
     D3DCAPS8 d3dCaps;
+};
+
+typedef struct ZunRect ZunRect, *PZunRect;
+
+struct ZunRect {
+    float left;
+    float top;
+    float right;
+    float bottom;
 };
 
 typedef enum GameConfigurationRenderOpts {

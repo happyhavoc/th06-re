@@ -27,7 +27,7 @@ ZunResult __thiscall MainMenu::BeginStartup(MainMenu *this)
       else {
         this->vmList[i].color.color = 0xffffffff;
       }
-      pDVar1 = &this->vmList[i].pos2;
+      pDVar1 = &this->vmList[i].offset;
       pDVar1->x = 0.0;
       pDVar1->y = 0.0;
       pDVar1->z = 0.0;

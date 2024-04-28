@@ -26,7 +26,7 @@ ZunResult __thiscall MainMenu::WeirdSecondInputCheck(MainMenu *this)
     else {
       this->vmList[this->cursor].color.color = 0xffffe0e0;
     }
-    d3d_vec = &this->vmList[this->cursor].pos2;
+    d3d_vec = &this->vmList[this->cursor].offset;
     d3d_vec->x = -6.0;
     d3d_vec->y = -6.0;
     d3d_vec->z = 0.0;

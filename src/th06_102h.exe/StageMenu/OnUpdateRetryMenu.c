@@ -65,12 +65,12 @@ int __thiscall StageMenu::OnUpdateRetryMenu(StageMenu *this)
     this->vms0[2].scaleX = 1.7;
     this->vms0[3].scaleY = 1.5;
     this->vms0[3].scaleX = 1.5;
-    this->vms0[2].pos2.x = -4.0;
-    this->vms0[2].pos2.y = -4.0;
-    this->vms0[2].pos2.z = 0.0;
-    this->vms0[3].pos2.x = 0.0;
-    this->vms0[3].pos2.y = 0.0;
-    this->vms0[3].pos2.z = 0.0;
+    this->vms0[2].offset.x = -4.0;
+    this->vms0[2].offset.y = -4.0;
+    this->vms0[2].offset.z = 0.0;
+    this->vms0[3].offset.x = 0.0;
+    this->vms0[3].offset.y = 0.0;
+    this->vms0[3].offset.z = 0.0;
     if (3 < this->numFrames) {
       if ((((g_CurFrameInput & KEY_UP) != 0) &&
           ((g_CurFrameInput & KEY_UP) != (g_LastFrameInput & KEY_UP))) ||
@@ -96,12 +96,12 @@ int __thiscall StageMenu::OnUpdateRetryMenu(StageMenu *this)
     this->vms0[2].scaleX = 1.5;
     this->vms0[3].scaleY = 1.7;
     this->vms0[3].scaleX = 1.7;
-    this->vms0[3].pos2.x = -4.0;
-    this->vms0[3].pos2.y = -4.0;
-    this->vms0[3].pos2.z = 0.0;
-    this->vms0[2].pos2.x = 0.0;
-    this->vms0[2].pos2.y = 0.0;
-    this->vms0[2].pos2.z = 0.0;
+    this->vms0[3].offset.x = -4.0;
+    this->vms0[3].offset.y = -4.0;
+    this->vms0[3].offset.z = 0.0;
+    this->vms0[2].offset.x = 0.0;
+    this->vms0[2].offset.y = 0.0;
+    this->vms0[2].offset.z = 0.0;
     if (0x1d < this->numFrames) {
       if ((((g_CurFrameInput & 0x10) != 0) &&
           ((g_CurFrameInput & 0x10) != (g_LastFrameInput & 0x10))) ||

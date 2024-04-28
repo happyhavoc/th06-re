@@ -5,7 +5,7 @@ void Player::FUN_00406020(Player *param_1)
   float fVar1;
   long local_38;
   long local_2c;
-  zRect viewport;
+  ZunRect viewport;
   long local_8;
   
   viewport.left = 32.0;

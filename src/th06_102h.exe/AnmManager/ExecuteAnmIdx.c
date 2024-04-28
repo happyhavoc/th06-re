@@ -6,9 +6,9 @@ void __thiscall AnmManager::ExecuteAnmIdx(AnmManager *this,AnmVm *vm,int anmFile
   (vm->pos).x = 0.0;
   (vm->pos).y = 0.0;
   (vm->pos).z = 0.0;
-  (vm->pos2).x = 0.0;
-  (vm->pos2).y = 0.0;
-  (vm->pos2).z = 0.0;
+  (vm->offset).x = 0.0;
+  (vm->offset).y = 0.0;
+  (vm->offset).z = 0.0;
   vm->fontHeight = 15;
   vm->fontWidth = uVar2;
   SetAndExecuteScript(this,vm,this->scripts[anmFileIdx]);

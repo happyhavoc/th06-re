@@ -6,10 +6,14 @@ ChainCallbackResult MainMenu::OnDraw(MainMenu *menu)
   float fVar2;
   float fVar3;
   bool bVar4;
+  D3DXVECTOR3 *pos;
+  D3DXVECTOR3 *offset;
+  BOOL shouldDraw;
+  AnmManager *mgr;
+  D3DXVECTOR3 posBackup;
   AnmVm *curVm;
   int vmIdx;
-  zRect window;
-  int local_8;
+  ZunRect window;
   
   curVm = menu->vmList;
   window.left = 0.0;
@@ -22,8 +26,8 @@ ChainCallbackResult MainMenu::OnDraw(MainMenu *menu)
     if (menu->isActive == 0) {
       if (menu->numFramesSinceActive != 0) {
         menu->numFramesSinceActive = menu->numFramesSinceActive + -1;
-        local_8 = (menu->menuTextColor >> 0x18) - (menu->minimumOpacity >> 0x18);
-        DrawSquare(&window,((uint)(local_8 * menu->numFramesSinceActive) / menu->wasActive +
+        DrawSquare(&window,((((menu->menuTextColor >> 0x18) - (menu->minimumOpacity >> 0x18)) *
+                            menu->numFramesSinceActive) / menu->wasActive +
                            (menu->minimumOpacity >> 0x18)) * 0x1000000 |
                            menu->menuTextColor & 0xffffff);
       }
@@ -32,8 +36,8 @@ ChainCallbackResult MainMenu::OnDraw(MainMenu *menu)
       if (menu->numFramesSinceActive < menu->isActive) {
         menu->numFramesSinceActive = menu->numFramesSinceActive + 1;
       }
-      local_8 = (menu->menuTextColor >> 0x18) - (menu->minimumOpacity >> 0x18);
-      DrawSquare(&window,((uint)(local_8 * menu->numFramesSinceActive) / (uint)menu->isActive +
+      DrawSquare(&window,((((menu->menuTextColor >> 0x18) - (menu->minimumOpacity >> 0x18)) *
+                          menu->numFramesSinceActive) / (uint)menu->isActive +
                          (menu->minimumOpacity >> 0x18)) * 0x1000000 |
                          menu->menuTextColor & 0xffffff);
     }
@@ -51,9 +55,9 @@ ChainCallbackResult MainMenu::OnDraw(MainMenu *menu)
         fVar1 = (curVm->pos).x;
         fVar2 = (curVm->pos).y;
         fVar3 = (curVm->pos).z;
-        (curVm->pos).x = (curVm->pos).x + (curVm->pos2).x;
-        (curVm->pos).y = (curVm->pos).y + (curVm->pos2).y;
-        (curVm->pos).z = (curVm->pos).z + (curVm->pos2).z;
+        (curVm->pos).x = (curVm->pos).x + (curVm->offset).x;
+        (curVm->pos).y = (curVm->pos).y + (curVm->offset).y;
+        (curVm->pos).z = (curVm->pos).z + (curVm->offset).z;
         AnmManager::Draw(g_AnmManager,curVm);
         (curVm->pos).x = fVar1;
         (curVm->pos).y = fVar2;

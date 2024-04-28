@@ -37,13 +37,13 @@ void Player::BombReimuBCalc(Player *param_1)
           if (uVar8 != 0) {
             param_1->field15_0x8b8[local_8].position1.x =
                  (param_1->inner).field6_0x5c[local_8].field0_0x0 +
-                 (param_1->inner).field10_0x11c[local_8].pos2.x;
+                 (param_1->inner).field10_0x11c[local_8].offset.x;
             param_1->field15_0x8b8[local_8].position1.y =
                  (param_1->inner).field6_0x5c[local_8].field1_0x4 +
-                 (param_1->inner).field10_0x11c[local_8].pos2.y;
+                 (param_1->inner).field10_0x11c[local_8].offset.y;
             param_1->field12_0x638[local_8].x = param_1->field15_0x8b8[local_8].size1.x;
             param_1->field12_0x638[local_8].y = param_1->field15_0x8b8[local_8].size1.y;
-            pDVar1 = &(param_1->inner).field10_0x11c[local_8].pos2;
+            pDVar1 = &(param_1->inner).field10_0x11c[local_8].offset;
             pPVar2 = (param_1->inner).field6_0x5c + local_8;
             fVar4 = pPVar2->field2_0x8;
             fVar5 = pDVar1->z;

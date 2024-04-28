@@ -40,9 +40,9 @@ ZunResult MainMenu::LoadDiffCharSelect(MainMenu *menu)
                         else {
                           (vm->color).color = 0xffffffff;
                         }
-                        (vm->pos2).x = 0.0;
-                        (vm->pos2).y = 0.0;
-                        (vm->pos2).z = 0.0;
+                        (vm->offset).x = 0.0;
+                        (vm->offset).y = 0.0;
+                        (vm->offset).z = 0.0;
                         vm->anotherSpriteNumber = vm->spriteNumber;
                         *(uint *)&vm->flags = *(uint *)&vm->flags | 0x1000;
                         vm = vm + 1;

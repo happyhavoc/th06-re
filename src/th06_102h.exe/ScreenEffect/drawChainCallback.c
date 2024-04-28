@@ -4,7 +4,7 @@
 undefined4 ScreenEffect::drawChainCallback(ScreenEffect *param_1)
 
 {
-  zRect local_14;
+  ZunRect local_14;
   
   local_14.left = 0.0;
   local_14.top = 0.0;

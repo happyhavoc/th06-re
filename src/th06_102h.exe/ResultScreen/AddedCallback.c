@@ -37,9 +37,9 @@ int __thiscall ResultScreen::AddedCallback(ResultScreen *this,ResultScreen *para
       (local_c->pos).x = 0.0;
       (local_c->pos).y = 0.0;
       (local_c->pos).z = 0.0;
-      (local_c->pos2).x = 0.0;
-      (local_c->pos2).y = 0.0;
-      (local_c->pos2).z = 0.0;
+      (local_c->offset).x = 0.0;
+      (local_c->offset).y = 0.0;
+      (local_c->offset).z = 0.0;
       pAVar1 = g_AnmManager;
       local_3c = (short)difficulty + 0x100;
       local_c->anmFileIndex = local_3c;

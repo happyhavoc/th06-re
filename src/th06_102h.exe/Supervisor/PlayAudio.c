@@ -1,5 +1,5 @@
 
-void __thiscall Supervisor::PlayAudio(Supervisor *this,char *path)
+ZunResult __thiscall Supervisor::PlayAudio(Supervisor *this,char *path)
 
 {
   char cVar1;
@@ -24,7 +24,11 @@ void __thiscall Supervisor::PlayAudio(Supervisor *this,char *path)
       MidiOutput::Play(this_00);
     }
   }
-  else if (g_Supervisor.cfg.musicMode == WAV) {
+  else {
+    if (g_Supervisor.cfg.musicMode != WAV) {
+      ZVar2 = ZUN_ERROR;
+      goto LAB_00424d29;
+    }
     pathPtr1 = path;
     buf1Ptr = wavName;
     do {
@@ -58,7 +62,9 @@ void __thiscall Supervisor::PlayAudio(Supervisor *this,char *path)
       SoundPlayer::PlayBGM(&g_SoundPlayer,1);
     }
   }
+  ZVar2 = ZUN_SUCCESS;
+LAB_00424d29:
   __security_check_cookie(stackCookie ^ unaff_retaddr);
-  return;
+  return ZVar2;
 }
 

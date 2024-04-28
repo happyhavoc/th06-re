@@ -9,7 +9,7 @@ ZunResult __thiscall SoundPlayer::InitSoundBuffers(SoundPlayer *this)
   if (this->csoundmanager_ptr == (CSoundManager *)0x0) {
     ZVar1 = ZUN_ERROR;
   }
-  else if ((this->csoundmanager).m_pDS == (LPDIRECTSOUND8)0x0) {
+  else if (this->directSoundHdl == (LPDIRECTSOUND8)0x0) {
     ZVar1 = ZUN_SUCCESS;
   }
   else {
@@ -27,9 +27,8 @@ ZunResult __thiscall SoundPlayer::InitSoundBuffers(SoundPlayer *this)
       }
     }
     for (idx = 0; idx < 0x20; idx = idx + 1) {
-      (*((this->csoundmanager).m_pDS)->lpVtbl->DuplicateSoundBuffer)
-                ((this->csoundmanager).m_pDS,
-                 this->sound_buffers[SOUND_BUFFER_IDX_VOL[idx].buffer_idx],
+      (*this->directSoundHdl->lpVtbl->DuplicateSoundBuffer)
+                (this->directSoundHdl,this->sound_buffers[SOUND_BUFFER_IDX_VOL[idx].buffer_idx],
                  this->duplicateSoundBuffers + idx);
       (*this->duplicateSoundBuffers[idx]->lpVtbl->SetCurrentPosition)
                 (this->duplicateSoundBuffers[idx],0);

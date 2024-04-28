@@ -40,9 +40,9 @@ void ResultScreen::OnDraw(ResultScreen *param_1)
     local_40.x = (local_28->pos).x;
     local_40.y = (local_28->pos).y;
     local_40.z = (local_28->pos).z;
-    (local_28->pos).x = (local_28->pos).x + (local_28->pos2).x;
-    (local_28->pos).y = (local_28->pos).y + (local_28->pos2).y;
-    (local_28->pos).z = (local_28->pos).z + (local_28->pos2).z;
+    (local_28->pos).x = (local_28->pos).x + (local_28->offset).x;
+    (local_28->pos).y = (local_28->pos).y + (local_28->offset).y;
+    (local_28->pos).z = (local_28->pos).z + (local_28->offset).z;
     AnmManager::FUN_00432ad0(g_AnmManager,local_28);
     (local_28->pos).x = local_40.x;
     (local_28->pos).y = local_40.y;

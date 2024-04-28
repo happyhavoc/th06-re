@@ -119,7 +119,7 @@ void Gui::OnDraw(Gui *arg)
     (arg->impl->field17_0x2c24).field0_0x0.y = (arg->impl->field17_0x2c24).field0_0x0.y + 16.0;
     sprintf(&local_34,
             (char *)&
-                    PTR_g_BulletManager_bullets_418__vms_spawn_effect_short_with_memset_pos2_y_3_0046a7f4
+                    PTR_g_BulletManager_bullets_418__vms_spawn_effect_short_with_memset_offset_y_3_0046a7f4
             ,(arg->impl->field17_0x2c24).field1_0xc);
     local_40 = &local_34;
     do {

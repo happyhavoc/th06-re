@@ -4,7 +4,7 @@ int Stage::OnDrawLowPrio(Stage *arg)
 {
   AnmManager *this;
   int iVar1;
-  zRect local_1c;
+  ZunRect local_1c;
   int local_c;
   undefined4 local_8;
   

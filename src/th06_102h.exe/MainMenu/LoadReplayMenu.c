@@ -24,9 +24,9 @@ ZunResult MainMenu::LoadReplayMenu(MainMenu *menu)
         else {
           (local_c->color).color = 0xffffffff;
         }
-        (local_c->pos2).x = 0.0;
-        (local_c->pos2).y = 0.0;
-        (local_c->pos2).z = 0.0;
+        (local_c->offset).x = 0.0;
+        (local_c->offset).y = 0.0;
+        (local_c->offset).z = 0.0;
         local_c->anotherSpriteNumber = local_c->spriteNumber;
         *(uint *)&local_c->flags = *(uint *)&local_c->flags | 0x1000;
         local_c = local_c + 1;

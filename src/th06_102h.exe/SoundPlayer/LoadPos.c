@@ -13,7 +13,7 @@ ZunResult __thiscall SoundPlayer::LoadPos(SoundPlayer *this,char *filepath)
   else if (g_Supervisor.cfg.playSounds == 0) {
     result = ZUN_ERROR;
   }
-  else if (this->streamingSound == (CStreamingSound *)0x0) {
+  else if (this->backgroundMusic == (CStreamingSound *)0x0) {
     result = ZUN_ERROR;
   }
   else {
@@ -22,7 +22,7 @@ ZunResult __thiscall SoundPlayer::LoadPos(SoundPlayer *this,char *filepath)
       result = ZUN_ERROR;
     }
     else {
-      pCVar1 = (this->streamingSound->base).m_pWaveFile;
+      pCVar1 = (this->backgroundMusic->base).m_pWaveFile;
       iVar2 = data[1];
       pCVar1->m_loopStartPoint = *data << 2;
       pCVar1->m_loopEndPoint = iVar2 << 2;

@@ -1,5 +1,5 @@
 
-void CutBulletManagerChains(void)
+void BulletManager::CutChain(void)
 
 {
   Chain::Cut(&g_Chain,&g_BulletManagerCalcChain);

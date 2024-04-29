@@ -7,12 +7,12 @@ ZunResult GameManager::DeletedCallback(GameManager *param_1)
     Supervisor::StopAudio(&g_Supervisor);
   }
   Stage::CutChain();
-  CutBulletManagerChains();
+  BulletManager::CutChain();
   Player::CutChain();
   EnemyManager::CutChain();
   COleDispParams::~COleDispParams((COleDispParams *)&g_EclManager);
   EffectManager::CutChain();
-  FUN_0041b58c();
+  Gui::CutChain();
   FUN_0042aab0();
   param_1->is_in_menu = 0;
   AsciiManager::InitializeVms(&g_AsciiManager);

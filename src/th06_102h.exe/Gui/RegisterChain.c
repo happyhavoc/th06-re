@@ -35,17 +35,17 @@ ZunResult Gui::RegisterChain(void)
     g_Gui.impl = pGStack_20;
   }
   uStack_8 = 0xffffffff;
-  ChainElem_0069bc7c.callback = OnUpdate;
-  ChainElem_0069bc7c.addedCallback = AddedCallback;
-  ChainElem_0069bc7c.deletedCallback = DeletedCallback;
-  ChainElem_0069bc7c.arg = &g_Gui;
-  iVar2 = Chain::AddToCalcChain(&g_Chain,&ChainElem_0069bc7c,0xc);
+  g_GuiCalcChain.callback = OnUpdate;
+  g_GuiCalcChain.addedCallback = AddedCallback;
+  g_GuiCalcChain.deletedCallback = DeletedCallback;
+  g_GuiCalcChain.arg = &g_Gui;
+  iVar2 = Chain::AddToCalcChain(&g_Chain,&g_GuiCalcChain,0xc);
   if (iVar2 == 0) {
-    ChainElem_0069bc5c.callback = OnDraw;
-    ChainElem_0069bc5c.addedCallback = (ChainLifecycleCallback *)0x0;
-    ChainElem_0069bc5c.deletedCallback = (ChainLifecycleCallback *)0x0;
-    ChainElem_0069bc5c.arg = &g_Gui;
-    Chain::AddToDrawChain(&g_Chain,&ChainElem_0069bc5c,0xb);
+    g_GuiDrawChain.callback = OnDraw;
+    g_GuiDrawChain.addedCallback = (ChainLifecycleCallback *)0x0;
+    g_GuiDrawChain.deletedCallback = (ChainLifecycleCallback *)0x0;
+    g_GuiDrawChain.arg = &g_Gui;
+    Chain::AddToDrawChain(&g_Chain,&g_GuiDrawChain,0xb);
     ZVar1 = ZUN_SUCCESS;
   }
   else {

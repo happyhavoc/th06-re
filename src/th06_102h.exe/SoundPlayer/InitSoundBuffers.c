@@ -18,11 +18,11 @@ ZunResult __thiscall SoundPlayer::InitSoundBuffers(SoundPlayer *this)
     }
     for (idx = 0; (int)idx < 0x1a; idx = idx + 1) {
       iVar2 = idx;
-      LoadSound(this,idx,(&g_SFXList)[idx]);
+      LoadSound(this,idx,g_SFXList[idx]);
       if (iVar2 != 0) {
         GameErrorContextLog(&g_GameErrorContext,
                             "error : Sound ファイルが読み込めない データを確認 %s\n"
-                            ,(&g_SFXList)[idx]);
+                            ,g_SFXList[idx]);
         return ZUN_ERROR;
       }
     }

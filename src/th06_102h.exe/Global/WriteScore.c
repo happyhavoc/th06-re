@@ -2,7 +2,7 @@
 /* WARNING: Removing unreachable block (ram,0x0042bb17) */
 /* WARNING: Removing unreachable block (ram,0x0042bb47) */
 
-void WriteScore(void **param_1)
+void WriteScore(ResultScreen *param_1)
 
 {
   byte bVar1;
@@ -19,18 +19,18 @@ void WriteScore(void **param_1)
   Catk *local_24;
   Clrd *local_20;
   int local_1c;
-  void *local_18;
+  ScoreListNode *local_18;
   size_t local_14;
   int local_c;
   int local_8;
   
   _Dst = _malloc(0xa0000);
-  _memcpy(_Dst,*param_1,0x14);
-  param_1[0x1467] = (void *)L'\x4b364854';
-  *(undefined2 *)((int)param_1 + 0x51a2) = 0xc;
-  *(undefined2 *)(param_1 + 0x1468) = 0xc;
-  *(undefined *)(param_1 + 0x1469) = 0x10;
-  _memcpy((void *)((int)_Dst + 0x14),param_1 + 0x1467,0xc);
+  _memcpy(_Dst,param_1->scoredat,0x14);
+  *(undefined4 *)&param_1->field_0x519c = L'\x4b364854';
+  *(undefined2 *)&param_1->field_0x51a2 = 0xc;
+  *(undefined2 *)&param_1->field_0x51a0 = 0xc;
+  param_1->field_0x51a4 = 0x10;
+  _memcpy((void *)((int)_Dst + 0x14),&param_1->field_0x519c,0xc);
   local_14 = 0x20;
   local_8 = 0;
   do {
@@ -97,21 +97,21 @@ void WriteScore(void **param_1)
       return;
     }
     for (local_1c = 0; local_1c < 4; local_1c = local_1c + 1) {
-      local_18 = param_1[local_8 * 0xc + local_1c * 3 + 0xead];
+      local_18 = param_1->scores[local_8 * 4 + local_1c].next;
       local_c = 0;
       do {
-        if (local_18 == (void *)0x0) break;
-        if (**(int **)((int)local_18 + 8) == L'\x52435348') {
-          *(undefined *)(*(int *)((int)local_18 + 8) + 0x10) = (undefined)local_1c;
-          *(undefined *)(*(int *)((int)local_18 + 8) + 0x11) = (undefined)local_8;
-          *(undefined2 *)(*(int *)((int)local_18 + 8) + 6) = 0x1c;
-          *(undefined2 *)(*(int *)((int)local_18 + 8) + 4) = 0x1c;
-          *(undefined *)(*(int *)((int)local_18 + 8) + 8) = 0x10;
-          *(undefined *)(*(int *)((int)local_18 + 8) + 9) = 0;
-          _memcpy((void *)((int)_Dst + local_14),*(void **)((int)local_18 + 8),0x1c);
+        if (local_18 == (ScoreListNode *)0x0) break;
+        if ((local_18->data->base).magic == L'\x52435348') {
+          local_18->data->character = (byte)local_1c;
+          local_18->data->difficulty = (byte)local_8;
+          (local_18->data->base).unk_len = 0x1c;
+          (local_18->data->base).th6k_len = 0x1c;
+          (local_18->data->base).version_ = '\x10';
+          (local_18->data->base).field_0x9 = 0;
+          _memcpy((void *)((int)_Dst + local_14),local_18->data,0x1c);
           local_14 = local_14 + 0x1c;
         }
-        local_18 = *(void **)((int)local_18 + 4);
+        local_18 = local_18->next;
         local_c = local_c + 1;
       } while (local_c < 10);
     }

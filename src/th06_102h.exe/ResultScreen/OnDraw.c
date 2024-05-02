@@ -111,8 +111,14 @@ void ResultScreen::OnDraw(ResultScreen *param_1)
             }
             else {
               g_AsciiManager.color = 0xfff0f0ff;
-              local_24 = 0x20202020;
-              local_20 = 0x20202020;
+              local_24._0_1_ = ' ';
+              local_24._1_1_ = ' ';
+              local_24._2_1_ = ' ';
+              local_24._3_1_ = ' ';
+              local_20._0_1_ = ' ';
+              local_20._1_1_ = ' ';
+              local_20._2_1_ = ' ';
+              local_20._3_1_ = ' ';
               local_1c = 0;
               if (param_1->cursor < 8) {
                 local_84 = param_1->cursor;
@@ -159,8 +165,14 @@ void ResultScreen::OnDraw(ResultScreen *param_1)
             }
             else {
               g_AsciiManager.color = 0xfffff0f0;
-              local_24 = 0x20202020;
-              local_20 = 0x20202020;
+              local_24._0_1_ = ' ';
+              local_24._1_1_ = ' ';
+              local_24._2_1_ = ' ';
+              local_24._3_1_ = ' ';
+              local_20._0_1_ = ' ';
+              local_20._1_1_ = ' ';
+              local_20._2_1_ = ' ';
+              local_20._3_1_ = ' ';
               local_1c = 0;
               if (param_1->cursor < 8) {
                 local_8c = param_1->cursor;
@@ -276,8 +288,14 @@ void ResultScreen::OnDraw(ResultScreen *param_1)
                    [(uint)g_GameManager.shottype + (uint)g_GameManager.character * 2],param_1->score
                   );
         g_AsciiManager.color = 0xfff0f0ff;
-        local_24 = 0x20202020;
-        local_20 = 0x20202020;
+        local_24._0_1_ = ' ';
+        local_24._1_1_ = ' ';
+        local_24._2_1_ = ' ';
+        local_24._3_1_ = ' ';
+        local_20._0_1_ = ' ';
+        local_20._1_1_ = ' ';
+        local_20._2_1_ = ' ';
+        local_20._3_1_ = ' ';
         local_1c = 0;
         if (param_1->cursor < 8) {
           local_d0 = param_1->cursor;

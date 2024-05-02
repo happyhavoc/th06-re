@@ -3,7 +3,6 @@ ZunResult __thiscall SoundPlayer::InitSoundBuffers(SoundPlayer *this)
 
 {
   ZunResult ZVar1;
-  int iVar2;
   uint idx;
   
   if (this->csoundmanager_ptr == (CSoundManager *)0x0) {
@@ -17,9 +16,8 @@ ZunResult __thiscall SoundPlayer::InitSoundBuffers(SoundPlayer *this)
       this->soundBuffersToPlay[idx] = -1;
     }
     for (idx = 0; (int)idx < 0x1a; idx = idx + 1) {
-      iVar2 = idx;
-      LoadSound(this,idx,g_SFXList[idx]);
-      if (iVar2 != 0) {
+      ZVar1 = LoadSound(this,idx,g_SFXList[idx]);
+      if (ZVar1 != ZUN_SUCCESS) {
         GameErrorContextLog(&g_GameErrorContext,
                             "error : Sound ファイルが読み込めない データを確認 %s\n"
                             ,g_SFXList[idx]);

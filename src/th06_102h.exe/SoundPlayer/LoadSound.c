@@ -1,7 +1,8 @@
 
-void __thiscall SoundPlayer::LoadSound(SoundPlayer *this,int idx,char *path)
+ZunResult __thiscall SoundPlayer::LoadSound(SoundPlayer *this,int idx,char *path)
 
 {
+  ZunResult ZVar1;
   char *soundFileData;
   int compared;
   HRESULT HVar3;
@@ -26,14 +27,20 @@ void __thiscall SoundPlayer::LoadSound(SoundPlayer *this,int idx,char *path)
   uint unaff_retaddr;
   
   stackCookie = __security_cookie ^ unaff_retaddr;
-  if (this->csoundmanager_ptr != (CSoundManager *)0x0) {
+  if (this->csoundmanager_ptr == (CSoundManager *)0x0) {
+    ZVar1 = ZUN_SUCCESS;
+  }
+  else {
     if (this->sound_buffers[idx] != (LPDIRECTSOUNDBUFFER)0x0) {
       (*this->sound_buffers[idx]->lpVtbl->Release)(this->sound_buffers[idx]);
       this->sound_buffers[idx] = (LPDIRECTSOUNDBUFFER)0x0;
     }
     soundFileData = (char *)FileSystem::OpenPath(path,0);
     sFD_Cursor = soundFileData;
-    if (soundFileData != (char *)0x0) {
+    if (soundFileData == (char *)0x0) {
+      ZVar1 = ZUN_ERROR;
+    }
+    else {
       compared = _strncmp(soundFileData,"RIFF",4);
       if (compared == 0) {
         fileSize = *(int *)(sFD_Cursor + 4);
@@ -45,6 +52,7 @@ void __thiscall SoundPlayer::LoadSound(SoundPlayer *this,int idx,char *path)
           if (wavDataPtr == (WAVEFORMATEX *)0x0) {
             GameErrorContextLog(&g_GameErrorContext,"Wav ファイルじゃない? %s\n",path);
             _free(soundFileData);
+            ZVar1 = ZUN_ERROR;
           }
           else {
             wavData.wFormatTag = wavDataPtr->wFormatTag;
@@ -58,6 +66,7 @@ void __thiscall SoundPlayer::LoadSound(SoundPlayer *this,int idx,char *path)
             if (wavDataPtr == (WAVEFORMATEX *)0x0) {
               GameErrorContextLog(&g_GameErrorContext,"Wav ファイルじゃない? %s\n",path);
               _free(soundFileData);
+              ZVar1 = ZUN_ERROR;
             }
             else {
               pDVar6 = &dsBuffer;
@@ -74,6 +83,7 @@ void __thiscall SoundPlayer::LoadSound(SoundPlayer *this,int idx,char *path)
                                  (LPUNKNOWN)0x0);
               if (HVar3 < 0) {
                 _free(soundFileData);
+                ZVar1 = ZUN_ERROR;
               }
               else {
                 HVar3 = (*this->sound_buffers[idx]->lpVtbl->Lock)
@@ -81,6 +91,7 @@ void __thiscall SoundPlayer::LoadSound(SoundPlayer *this,int idx,char *path)
                                    &AudioPtr2,&AudioBytes2,0);
                 if (HVar3 < 0) {
                   _free(soundFileData);
+                  ZVar1 = ZUN_ERROR;
                 }
                 else {
                   piVar1 = wavDataPtr;
@@ -112,6 +123,7 @@ void __thiscall SoundPlayer::LoadSound(SoundPlayer *this,int idx,char *path)
                   (*this->sound_buffers[idx]->lpVtbl->Unlock)
                             (this->sound_buffers[idx],AudioPtr1,AudioBytes1,AudioPtr2,AudioBytes2);
                   _free(soundFileData);
+                  ZVar1 = ZUN_SUCCESS;
                 }
               }
             }
@@ -120,15 +132,17 @@ void __thiscall SoundPlayer::LoadSound(SoundPlayer *this,int idx,char *path)
         else {
           GameErrorContextLog(&g_GameErrorContext,"Wav ファイルじゃない? %s\n",path);
           _free(soundFileData);
+          ZVar1 = ZUN_ERROR;
         }
       }
       else {
         GameErrorContextLog(&g_GameErrorContext,"Wav ファイルじゃない %s\n",path);
         _free(soundFileData);
+        ZVar1 = ZUN_ERROR;
       }
     }
   }
   __security_check_cookie(stackCookie ^ unaff_retaddr);
-  return;
+  return ZVar1;
 }
 

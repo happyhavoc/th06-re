@@ -5,10 +5,12 @@ void __thiscall AnmManager::SetRenderStateForVm(AnmManager *this,AnmVm *vm)
   if ((uint)this->currentBlendMode != (*(uint *)&vm->flags >> 2 & 1)) {
     this->currentBlendMode = (byte)(*(uint *)&vm->flags >> 2) & 1;
     if (this->currentBlendMode == '\0') {
-      (*(g_Supervisor.d3dDevice)->lpVtbl->SetRenderState)(g_Supervisor.d3dDevice,D3DRS_DESTBLEND,6);
+      (*(g_Supervisor.d3dDevice)->lpVtbl->SetRenderState)
+                (g_Supervisor.d3dDevice,D3DRS_DESTBLEND,D3DBLEND_INVSRCALPHA);
     }
     else {
-      (*(g_Supervisor.d3dDevice)->lpVtbl->SetRenderState)(g_Supervisor.d3dDevice,D3DRS_DESTBLEND,2);
+      (*(g_Supervisor.d3dDevice)->lpVtbl->SetRenderState)
+                (g_Supervisor.d3dDevice,D3DRS_DESTBLEND,D3DBLEND_ONE);
     }
   }
   if ((((g_Supervisor.cfg.opts & 1) == 0) && ((g_Supervisor.cfg.opts >> 8 & 1) == 0)) &&
@@ -16,14 +18,14 @@ void __thiscall AnmManager::SetRenderStateForVm(AnmManager *this,AnmVm *vm)
     this->currentColorOp = (byte)(*(uint *)&vm->flags >> 3) & 1;
     if (this->currentColorOp == '\0') {
       (*(g_Supervisor.d3dDevice)->lpVtbl->SetTextureStageState)
-                (g_Supervisor.d3dDevice,0,D3DTSS_COLOROP,4);
+                (g_Supervisor.d3dDevice,0,D3DTSS_COLOROP,D3DTOP_MODULATE);
     }
     else {
       (*(g_Supervisor.d3dDevice)->lpVtbl->SetTextureStageState)
-                (g_Supervisor.d3dDevice,0,D3DTSS_COLOROP,7);
+                (g_Supervisor.d3dDevice,0,D3DTSS_COLOROP,D3DTOP_ADD);
     }
   }
-  if ((g_Supervisor.cfg.opts >> 1 & 1) == 0) {
+  if ((g_Supervisor.cfg.opts >> DONT_USE_VERTEX_BUF & 1) == 0) {
     if (this->currentTextureFactor != (vm->color).color) {
       this->currentTextureFactor = (D3DCOLOR)vm->color;
       (*(g_Supervisor.d3dDevice)->lpVtbl->SetRenderState)
@@ -40,7 +42,7 @@ void __thiscall AnmManager::SetRenderStateForVm(AnmManager *this,AnmVm *vm)
     g_PrimitivesToDrawUnknown[2].diffuse = (vm->color).color;
     g_PrimitivesToDrawUnknown[3].diffuse = (vm->color).color;
   }
-  if (((g_Supervisor.cfg.opts >> 6 & 1) == 0) &&
+  if (((g_Supervisor.cfg.opts >> TURN_OFF_DEPTH_TEST & 1) == 0) &&
      ((uint)this->currentZWriteDisable != (*(uint *)&vm->flags >> 0xc & 1))) {
     this->currentZWriteDisable = (byte)(*(uint *)&vm->flags >> 0xc) & 1;
     if (this->currentZWriteDisable == '\0') {

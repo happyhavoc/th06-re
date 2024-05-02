@@ -13,7 +13,7 @@ BOOL __thiscall Pbg3Archive::Load(Pbg3Archive *this,char *path)
   puStack_8 = &LAB_0046934b;
   pvStack_c = ExceptionList;
   ExceptionList = &pvStack_c;
-  iVar1 = ~Pbg3Archive(this);
+  iVar1 = Release(this);
   if (iVar1 != 0) {
     pPVar2 = (Pbg3Parser *)operator_new(0x24);
     uStack_4 = 0;

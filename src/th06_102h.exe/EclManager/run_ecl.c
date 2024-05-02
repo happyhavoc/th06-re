@@ -117,9 +117,9 @@ LAB_004074ce:
   if ((enemy->current_context).time.current != instruction->time) {
     bVar16 = enemy->flags1 & 3;
     if (bVar16 == 1) {
-      fVar6 = add_normalize_angle(enemy->angle,
-                                  g_Supervisor.effectiveFramerateMultiplier *
-                                  enemy->angular_velocity);
+      fVar6 = AddNormalizeAngle(enemy->angle,
+                                g_Supervisor.effectiveFramerateMultiplier * enemy->angular_velocity)
+      ;
       enemy->angle = fVar6;
       enemy->speed = g_Supervisor.effectiveFramerateMultiplier * enemy->acceleration + enemy->speed;
       fVar6 = enemy->speed;
@@ -380,7 +380,7 @@ LAB_004074ce:
   case 0x1a:
     pfVar15 = (float *)Enemy::get_var(enemy,&instruction->ecl_var_id,(EclValueType *)0x0);
     local_18 = (int)*pfVar15;
-    local_18 = (int)add_normalize_angle((float)local_18,0.0);
+    local_18 = (int)AddNormalizeAngle((float)local_18,0.0);
     Enemy::set_var(enemy,instruction->ecl_var_id,&local_18);
     break;
   case 0x1b:
@@ -691,7 +691,7 @@ switchD_00407544_caseD_2:
     (local_58->position).z = fVar6 + fVar5;
     pfVar15 = Enemy::get_var_float(enemy,(float *)(local_54 + 5),(EclValueType *)0x0);
     local_58->angle1 = *pfVar15;
-    fVar6 = add_normalize_angle(local_58->angle1,0.0);
+    fVar6 = AddNormalizeAngle(local_58->angle1,0.0);
     local_58->angle1 = fVar6;
     pfVar15 = Enemy::get_var_float(enemy,(float *)(local_54 + 3),(EclValueType *)0x0);
     local_58->speed1 = *pfVar15;
@@ -1141,11 +1141,10 @@ switchD_00407544_caseD_2:
       local_98.y = (fVar6 * 144.0 - 72.0) + local_98.y;
       if (g_GameManager.current_power < 0x80) {
         ItemManager::SpawnItem
-                  ((ItemManager *)&g_ItemManager,&local_98,
-                   (-(local_8c != 0) & 0xfeU) + ITEM_POWER_BIG,0);
+                  (&g_ItemManager,&local_98,(-(local_8c != 0) & 0xfeU) + ITEM_POWER_BIG,0);
       }
       else {
-        ItemManager::SpawnItem((ItemManager *)&g_ItemManager,&local_98,ITEM_POINT,0);
+        ItemManager::SpawnItem(&g_ItemManager,&local_98,ITEM_POINT,0);
       }
     }
     break;
@@ -1168,8 +1167,7 @@ switchD_00407544_caseD_2:
     ZunTimer::Increment(&(enemy->current_context).time,*piVar14);
     break;
   case 0x7c:
-    ItemManager::SpawnItem
-              ((ItemManager *)&g_ItemManager,&enemy->position,(ItemType)instruction->ecl_var_id,0);
+    ItemManager::SpawnItem(&g_ItemManager,&enemy->position,(ItemType)instruction->ecl_var_id,0);
     break;
   case 0x7d:
     g_Stage.unpauseFlag = '\x01';

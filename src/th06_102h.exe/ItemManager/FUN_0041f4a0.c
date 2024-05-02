@@ -30,7 +30,7 @@ void __thiscall ItemManager::FUN_0041f4a0(ItemManager *this)
     FLOAT_0069e23c = 16.0;
   }
   bVar7 = false;
-  this[1].items[1].vm.rotation.y = 0.0;
+  this->item_count = 0;
   local_8 = 0;
   curItem = this->items;
   do {
@@ -41,7 +41,7 @@ void __thiscall ItemManager::FUN_0041f4a0(ItemManager *this)
       return;
     }
     if (curItem->is_in_use != 0) {
-      this[1].items[1].vm.rotation.y = (float)((int)this[1].items[1].vm.rotation.y + 1);
+      this->item_count = this->item_count + 1;
       if (curItem->state == 2) {
         if (0x3b < (curItem->timer).current) {
           if ((curItem->timer).current == 0x3c) {

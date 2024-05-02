@@ -2,9 +2,9 @@
 void Supervisor::ReleaseBackBuffer(void)
 
 {
-  if (g_BackBufferSurface != (IDirect3DSurface8 *)0x0) {
-    (*g_BackBufferSurface->lpVtbl->Release)(g_BackBufferSurface);
-    g_BackBufferSurface = (IDirect3DSurface8 *)0x0;
+  if (g_TextBufferSurface != (IDirect3DSurface8 *)0x0) {
+    (*g_TextBufferSurface->lpVtbl->Release)(g_TextBufferSurface);
+    g_TextBufferSurface = (IDirect3DSurface8 *)0x0;
   }
   return;
 }

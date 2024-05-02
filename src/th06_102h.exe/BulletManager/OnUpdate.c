@@ -24,7 +24,7 @@ undefined4 BulletManager::OnUpdate(BulletManager *this)
   
   bulletsPtr = this->bullets;
   if ((char)g_GameManager.unk_0x2c == NULL) {
-    ItemManager::FUN_0041f4a0((ItemManager *)&g_ItemManager);
+    ItemManager::FUN_0041f4a0(&g_ItemManager);
     this->bullet_count = 0;
     for (local_c = 0; local_c < 0x280; local_c = local_c + 1) {
       if (bulletsPtr->state == 0) goto LAB_00414a1a;
@@ -101,9 +101,9 @@ switchD_00414a97_caseD_1:
             if ((bulletsPtr->ex_flags & 0x10) == 0) {
               if ((bulletsPtr->ex_flags & 0x20) != 0) {
                 if ((bulletsPtr->timer).current < bulletsPtr->ex_5_int_0) {
-                  velZ = add_normalize_angle(bulletsPtr->angle,
-                                             g_Supervisor.effectiveFramerateMultiplier *
-                                             bulletsPtr->ex_5_float_1);
+                  velZ = AddNormalizeAngle(bulletsPtr->angle,
+                                           g_Supervisor.effectiveFramerateMultiplier *
+                                           bulletsPtr->ex_5_float_1);
                   bulletsPtr->angle = velZ;
                   bulletsPtr->speed =
                        g_Supervisor.effectiveFramerateMultiplier * bulletsPtr->ex_5_float_0 +
@@ -161,7 +161,7 @@ switchD_00414a97_caseD_1:
                     velZ = (bulletsPtr->pos).x;
                     if ((velZ < 0.0 != NAN(velZ)) || (384.0 <= (bulletsPtr->pos).x)) {
                       bulletsPtr->angle = -bulletsPtr->angle - 3.141593;
-                      velZ = add_normalize_angle(bulletsPtr->angle,0.0);
+                      velZ = AddNormalizeAngle(bulletsPtr->angle,0.0);
                       bulletsPtr->angle = velZ;
                     }
                     velZ = (bulletsPtr->pos).y;
@@ -189,7 +189,7 @@ switchD_00414a97_caseD_1:
                     velZ = (bulletsPtr->pos).x;
                     if ((velZ < 0.0 != NAN(velZ)) || (384.0 <= (bulletsPtr->pos).x)) {
                       bulletsPtr->angle = -bulletsPtr->angle - 3.141593;
-                      velZ = add_normalize_angle(bulletsPtr->angle,0.0);
+                      velZ = AddNormalizeAngle(bulletsPtr->angle,0.0);
                       bulletsPtr->angle = velZ;
                     }
                     velZ = (bulletsPtr->pos).y;
@@ -306,14 +306,12 @@ LAB_00415be8:
               local_8 = Player::CalcKillBoxCollision
                                   (&g_Player,&(bulletsPtr->pos).x,&(bulletsPtr->vms).field5_0x550);
               if ((local_8 != 0) && (bulletsPtr->state = 5, local_8 == 2)) {
-                ItemManager::SpawnItem
-                          ((ItemManager *)&g_ItemManager,&bulletsPtr->pos,ITEM_POINT_BULLET,1);
+                ItemManager::SpawnItem(&g_ItemManager,&bulletsPtr->pos,ITEM_POINT_BULLET,1);
               }
             }
             else if (local_8 == 2) {
               bulletsPtr->state = 5;
-              ItemManager::SpawnItem
-                        ((ItemManager *)&g_ItemManager,&bulletsPtr->pos,ITEM_POINT_BULLET,1);
+              ItemManager::SpawnItem(&g_ItemManager,&bulletsPtr->pos,ITEM_POINT_BULLET,1);
             }
           }
           else if (bulletsPtr->field21_0x5c3 == 1) goto LAB_00415be8;

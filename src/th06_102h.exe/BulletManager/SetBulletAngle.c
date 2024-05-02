@@ -99,7 +99,7 @@ BulletManager::SetBulletAngle
     bullet->state = 1;
     bullet->field20_0x5c2 = 1;
     bullet->speed = local_8;
-    fVar12 = add_normalize_angle(bulletAngle,0.0);
+    fVar12 = AddNormalizeAngle(bulletAngle,0.0);
     bullet->angle = fVar12;
     (bullet->pos).x = (bulletProps->position).x;
     (bullet->pos).y = (bulletProps->position).y;

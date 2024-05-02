@@ -19,7 +19,7 @@ void __thiscall BulletManager::FUN_00414160(BulletManager *this,int param_1)
         bullets->state = 5;
       }
       else {
-        ItemManager::SpawnItem((ItemManager *)&g_ItemManager,&bullets->pos,ITEM_POINT_BULLET,1);
+        ItemManager::SpawnItem(&g_ItemManager,&bullets->pos,ITEM_POINT_BULLET,1);
         pBVar3 = bullets;
         for (iVar2 = 0x171; iVar2 != 0; iVar2 = iVar2 + -1) {
           (pBVar3->vms).vm0.rotation.x = 0.0;
@@ -45,7 +45,7 @@ void __thiscall BulletManager::FUN_00414160(BulletManager *this,int param_1)
             local_10.x = (float)fVar1 * local_28 + (lasers->pos).x;
             local_10.y = (float)fVar4 * local_28 + (lasers->pos).y;
             local_10.z = 0.0;
-            ItemManager::SpawnItem((ItemManager *)&g_ItemManager,&local_10,ITEM_POINT_BULLET,1);
+            ItemManager::SpawnItem(&g_ItemManager,&local_10,ITEM_POINT_BULLET,1);
           }
         }
       }

@@ -1,5 +1,5 @@
 
-float add_normalize_angle(float param_1,float param_2)
+float AddNormalizeAngle(float param_1,float param_2)
 
 {
   bool bVar1;

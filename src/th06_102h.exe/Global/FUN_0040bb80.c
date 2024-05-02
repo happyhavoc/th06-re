@@ -25,15 +25,15 @@ void FUN_0040bb80(Enemy *param_1,EclRawInstr *param_2)
       g_PlayerZ = g_Player.position.z;
       fVar8 = Rng::GetRandomF32ZeroToOne(&g_Rng);
       FLOAT_ARRAY_00487edc[0] = fVar8 * 6.283185 - 3.141593;
-      FLOAT_ARRAY_00487edc[1] = add_normalize_angle(FLOAT_ARRAY_00487edc[0],2.513274);
+      FLOAT_ARRAY_00487edc[1] = AddNormalizeAngle(FLOAT_ARRAY_00487edc[0],2.513274);
     }
     if ((param_1->current_context).var2 % 0x1e == 0) {
       FLOAT_ARRAY_00487edc[0] = FLOAT_ARRAY_00487edc[1];
-      FLOAT_ARRAY_00487edc[1] = add_normalize_angle(FLOAT_ARRAY_00487edc[1],2.513274);
-      FLOAT_ARRAY_00487edc[2] = add_normalize_angle(FLOAT_ARRAY_00487edc[1],2.513274);
-      FLOAT_ARRAY_00487edc[3] = add_normalize_angle(FLOAT_ARRAY_00487edc[2],2.513274);
-      FLOAT_ARRAY_00487edc[4] = add_normalize_angle(FLOAT_ARRAY_00487edc[3],2.513274);
-      FLOAT_ARRAY_00487edc[5] = add_normalize_angle(FLOAT_ARRAY_00487edc[4],2.513274);
+      FLOAT_ARRAY_00487edc[1] = AddNormalizeAngle(FLOAT_ARRAY_00487edc[1],2.513274);
+      FLOAT_ARRAY_00487edc[2] = AddNormalizeAngle(FLOAT_ARRAY_00487edc[1],2.513274);
+      FLOAT_ARRAY_00487edc[3] = AddNormalizeAngle(FLOAT_ARRAY_00487edc[2],2.513274);
+      FLOAT_ARRAY_00487edc[4] = AddNormalizeAngle(FLOAT_ARRAY_00487edc[3],2.513274);
+      FLOAT_ARRAY_00487edc[5] = AddNormalizeAngle(FLOAT_ARRAY_00487edc[4],2.513274);
     }
     if ((param_1->current_context).var2 % 6 == 0) {
       fVar8 = (float)(param_1->current_context).var2 / (float)(param_1->current_context).var3;

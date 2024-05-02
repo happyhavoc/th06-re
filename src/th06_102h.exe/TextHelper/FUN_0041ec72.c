@@ -1,22 +1,23 @@
 
 uint __thiscall
-FUN_0041ec72(long *param_1_00,undefined4 param_2,int param_3,int spriteWidth,int fontHeight)
+TextHelper::FUN_0041ec72
+          (TextHelper *this,undefined4 param_1,int param_2,int spriteWidth,int fontHeight)
 
 {
   int doubleArea;
   ushort *local_14;
   long local_c;
-  uint uVar1;
+  D3DFORMAT uVar1;
   
   doubleArea = spriteWidth * fontHeight * 2;
-  local_14 = (ushort *)(param_1_00[8] + param_3 * spriteWidth * 2);
-  uVar1 = *param_1_00;
-  if (uVar1 == 0x15) {
+  local_14 = this->buffer + param_2 * spriteWidth;
+  uVar1 = this->format;
+  if (uVar1 == D3DFMT_A8R8G8B8) {
     for (local_c = 3; local_c < doubleArea; local_c = local_c + 4) {
       *(byte *)((int)local_14 + local_c) = *(byte *)((int)local_14 + local_c) ^ 0xff;
     }
   }
-  else if (uVar1 == 0x19) {
+  else if (uVar1 == D3DFMT_A1R5G5B5) {
     for (local_c = 0; local_c < doubleArea; local_c = local_c + 2) {
       *local_14 = *local_14 & 0x7fff | (*local_14 >> 0xf ^ 1) << 0xf;
       if ((short)*local_14 < 0) {
@@ -44,7 +45,7 @@ FUN_0041ec72(long *param_1_00,undefined4 param_2,int param_3,int spriteWidth,int
     }
   }
   else {
-    if (uVar1 != 0x1a) {
+    if (uVar1 != D3DFMT_A4R4G4B4) {
       return uVar1 & 0xffffff00;
     }
     for (local_c = 1; local_c < doubleArea; local_c = local_c + 2) {

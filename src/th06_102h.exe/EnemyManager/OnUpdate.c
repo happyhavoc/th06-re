@@ -149,7 +149,7 @@ switchD_00412938_caseD_2:
             EffectManager::SpawnEffect
                       (&g_EffectManager,enemies->death_anm2 + 4,&enemies->position,6,0xffffffff);
             ItemManager::SpawnItem
-                      ((ItemManager *)&g_ItemManager,&enemies->position,
+                      (&g_ItemManager,&enemies->position,
                        BYTE_ARRAY_00476338[param_1->random_item_table_index],local_8);
             param_1->random_item_table_index = param_1->random_item_table_index + 1;
             if (0x1f < param_1->random_item_table_index) {
@@ -162,8 +162,7 @@ switchD_00412938_caseD_2:
       else {
         EffectManager::SpawnEffect
                   (&g_EffectManager,enemies->death_anm2 + 4,&enemies->position,3,0xffffffff);
-        ItemManager::SpawnItem
-                  ((ItemManager *)&g_ItemManager,&enemies->position,enemies->item_drop,local_8);
+        ItemManager::SpawnItem(&g_ItemManager,&enemies->position,enemies->item_drop,local_8);
       }
       if (((enemies->flags2 >> 3 & 1) != 0) && (DAT_005a5f90 == 0)) {
         BulletManager::FUN_00414360(&g_BulletManager,0x3200,0);

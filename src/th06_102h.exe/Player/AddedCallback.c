@@ -6,7 +6,7 @@ undefined4 Player::AddedCallback(Player *this)
   AnmManager *pAVar2;
   ZunResult ZVar3;
   int iVar4;
-  struct *psVar5;
+  ShottypeData *pSVar5;
   ShottypeData *pSVar6;
   float fVar7;
   PlayerBullet *bullets;
@@ -47,11 +47,11 @@ undefined4 Player::AddedCallback(Player *this)
   (this->field9_0x494).y = 12.0;
   (this->field9_0x494).z = 5.0;
   this->field28_0xa0c = 0;
-  psVar5 = struct_ARRAY_00476728 + (uint)g_GameManager.shottype + (uint)g_GameManager.character * 2;
+  pSVar5 = SHOT_TYPES + (uint)g_GameManager.shottype + (uint)g_GameManager.character * 2;
   pSVar6 = &this->field27_0x9f4;
   for (iVar4 = 6; iVar4 != 0; iVar4 = iVar4 + -1) {
-    pSVar6->field0_0x0 = psVar5->field0_0x0;
-    psVar5 = (struct *)&psVar5->field1_0x4;
+    pSVar6->field0_0x0 = pSVar5->field0_0x0;
+    pSVar5 = (ShottypeData *)&pSVar5->field1_0x4;
     pSVar6 = (ShottypeData *)&pSVar6->field1_0x4;
   }
   fVar7 = FUN_0045bc34((double *)0x0);

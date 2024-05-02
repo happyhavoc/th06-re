@@ -49,31 +49,21 @@ ChainCallbackResult Player::OnUpdate(Player *param_1)
       if (param_1->field19_0x9d8 == 0) {
         g_GameManager.power_item_count_for_score = 0;
         if ((char)g_GameManager.lives_remaining < 1) {
-          ItemManager::SpawnItem((ItemManager *)&g_ItemManager,&param_1->position,ITEM_FULL_POWER,2)
-          ;
-          ItemManager::SpawnItem((ItemManager *)&g_ItemManager,&param_1->position,ITEM_FULL_POWER,2)
-          ;
-          ItemManager::SpawnItem((ItemManager *)&g_ItemManager,&param_1->position,ITEM_FULL_POWER,2)
-          ;
-          ItemManager::SpawnItem((ItemManager *)&g_ItemManager,&param_1->position,ITEM_FULL_POWER,2)
-          ;
-          ItemManager::SpawnItem((ItemManager *)&g_ItemManager,&param_1->position,ITEM_FULL_POWER,2)
-          ;
+          ItemManager::SpawnItem(&g_ItemManager,&param_1->position,ITEM_FULL_POWER,2);
+          ItemManager::SpawnItem(&g_ItemManager,&param_1->position,ITEM_FULL_POWER,2);
+          ItemManager::SpawnItem(&g_ItemManager,&param_1->position,ITEM_FULL_POWER,2);
+          ItemManager::SpawnItem(&g_ItemManager,&param_1->position,ITEM_FULL_POWER,2);
+          ItemManager::SpawnItem(&g_ItemManager,&param_1->position,ITEM_FULL_POWER,2);
           g_GameManager.current_power = 0;
           g_GameManager.extra_lives = 0xff;
         }
         else {
-          ItemManager::SpawnItem((ItemManager *)&g_ItemManager,&param_1->position,ITEM_POWER_BIG,2);
-          ItemManager::SpawnItem
-                    ((ItemManager *)&g_ItemManager,&param_1->position,ITEM_POWER_SMALL,2);
-          ItemManager::SpawnItem
-                    ((ItemManager *)&g_ItemManager,&param_1->position,ITEM_POWER_SMALL,2);
-          ItemManager::SpawnItem
-                    ((ItemManager *)&g_ItemManager,&param_1->position,ITEM_POWER_SMALL,2);
-          ItemManager::SpawnItem
-                    ((ItemManager *)&g_ItemManager,&param_1->position,ITEM_POWER_SMALL,2);
-          ItemManager::SpawnItem
-                    ((ItemManager *)&g_ItemManager,&param_1->position,ITEM_POWER_SMALL,2);
+          ItemManager::SpawnItem(&g_ItemManager,&param_1->position,ITEM_POWER_BIG,2);
+          ItemManager::SpawnItem(&g_ItemManager,&param_1->position,ITEM_POWER_SMALL,2);
+          ItemManager::SpawnItem(&g_ItemManager,&param_1->position,ITEM_POWER_SMALL,2);
+          ItemManager::SpawnItem(&g_ItemManager,&param_1->position,ITEM_POWER_SMALL,2);
+          ItemManager::SpawnItem(&g_ItemManager,&param_1->position,ITEM_POWER_SMALL,2);
+          ItemManager::SpawnItem(&g_ItemManager,&param_1->position,ITEM_POWER_SMALL,2);
           if (g_GameManager.current_power < 17) {
             g_GameManager.current_power = 0;
           }

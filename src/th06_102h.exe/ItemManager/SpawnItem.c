@@ -10,25 +10,25 @@ ItemManager::SpawnItem(ItemManager *this,D3DXVECTOR3 *heading,ItemType itemType,
   Item *item;
   int local_8;
   
-  item = this->items + (int)this[1].items[1].vm.rotation.x;
+  item = this->items + this->next_index;
   local_8 = 0;
   while( true ) {
     if (0x1ff < local_8) {
       return;
     }
-    this[1].items[1].vm.rotation.x = (float)((int)this[1].items[1].vm.rotation.x + 1);
+    this->next_index = this->next_index + 1;
     if (item->is_in_use == 0) break;
-    if ((int)this[1].items[1].vm.rotation.x < 0x200) {
+    if ((int)this->next_index < 0x200) {
       item = item + 1;
     }
     else {
-      this[1].items[1].vm.rotation.x = 0.0;
+      this->next_index = 0;
       item = this->items;
     }
     local_8 = local_8 + 1;
   }
-  if (0x1ff < (int)this[1].items[1].vm.rotation.x) {
-    this[1].items[1].vm.rotation.x = 0.0;
+  if (0x1ff < (int)this->next_index) {
+    this->next_index = 0;
   }
   item->is_in_use = 1;
   (item->position).x = heading->x;

@@ -317,10 +317,10 @@ drawStartMenuCase:
         else {
           menu->vmList[uVar26].pendingInterrupt = 8;
           g_GameManager.difficulty = EXTRA;
-          gameState = GameManager::hasReachedMaxClears
+          gameState = GameManager::HasReachedMaxClears
                                 (&g_GameManager,(uint)g_GameManager.character,0);
           if ((gameState == 0) &&
-             (gameState = GameManager::hasReachedMaxClears
+             (gameState = GameManager::HasReachedMaxClears
                                     (&g_GameManager,(uint)g_GameManager.character,1), gameState == 0
              )) {
             menu->cursor = 1 - g_GameManager.character;
@@ -374,9 +374,9 @@ LAB_0043666d:
           menu->cursor = menu->cursor + 2;
         }
         if (((g_GameManager.difficulty == EXTRA) &&
-            (gameState = GameManager::hasReachedMaxClears(&g_GameManager,menu->cursor,0),
+            (gameState = GameManager::HasReachedMaxClears(&g_GameManager,menu->cursor,0),
             gameState == 0)) &&
-           (gameState = GameManager::hasReachedMaxClears(&g_GameManager,menu->cursor,1),
+           (gameState = GameManager::HasReachedMaxClears(&g_GameManager,menu->cursor,1),
            gameState == 0)) {
           menu->cursor = menu->cursor + 1;
           if (1 < (int)menu->cursor) {
@@ -406,9 +406,9 @@ LAB_0043666d:
         menu->cursor = menu->cursor - 2;
       }
       if (((g_GameManager.difficulty != EXTRA) ||
-          (gameState = GameManager::hasReachedMaxClears(&g_GameManager,menu->cursor,0),
+          (gameState = GameManager::HasReachedMaxClears(&g_GameManager,menu->cursor,0),
           gameState != 0)) ||
-         (gameState = GameManager::hasReachedMaxClears(&g_GameManager,menu->cursor,1),
+         (gameState = GameManager::HasReachedMaxClears(&g_GameManager,menu->cursor,1),
          gameState != 0)) {
         SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,SOUND_MOVE_MENU,0);
         vm_memset = menu->vmList + 0x56;
@@ -460,7 +460,7 @@ LAB_0043666d:
           menu->cursor = (uint)g_GameManager.shottype;
         }
         else {
-          gameState = GameManager::hasReachedMaxClears
+          gameState = GameManager::HasReachedMaxClears
                                 (&g_GameManager,(uint)g_GameManager.character,
                                  (uint)g_GameManager.shottype);
           if (gameState == 0) {
@@ -500,7 +500,7 @@ LAB_0043666d:
   case STATE_SHOT_SELECT:
     MoveCursor(menu,2);
     if ((g_GameManager.difficulty == EXTRA) &&
-       (gameState = GameManager::hasReachedMaxClears
+       (gameState = GameManager::HasReachedMaxClears
                               (&g_GameManager,(uint)g_GameManager.character,menu->cursor),
        gameState == 0)) {
       menu->cursor = 1 - menu->cursor;

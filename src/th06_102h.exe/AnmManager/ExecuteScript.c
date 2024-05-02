@@ -22,7 +22,7 @@ int __thiscall AnmManager::ExecuteScript(AnmManager *this,AnmVm *vm)
   uint *local_14;
   uint *local_10;
   uint *local_c;
-  AnmRawInstr *local_8;
+  AnmRawInstr *curInstr;
   
   if (vm->currentInstruction == (AnmRawInstr *)0x0) {
     return 1;
@@ -30,33 +30,33 @@ int __thiscall AnmManager::ExecuteScript(AnmManager *this,AnmVm *vm)
   if (vm->pendingInterrupt == 0) goto LAB_00433998;
 LAB_00434098:
   local_24 = (AnmRawInstr *)0x0;
-  for (local_8 = vm->beginingOfScript;
-      (((local_8->opcode != AnmOpcode_InterruptLabel ||
-        ((int)vm->pendingInterrupt != local_8->args[0])) && (local_8->opcode != AnmOpcode_Exit)) &&
-      (local_8->opcode != AnmOpcode_ExitHide));
-      local_8 = (AnmRawInstr *)((int)local_8->args + (uint)local_8->argsCount)) {
-    if ((local_8->opcode == AnmOpcode_InterruptLabel) && (local_8->args[0] == 0xffffffff)) {
-      local_24 = local_8;
+  for (curInstr = vm->beginingOfScript;
+      (((curInstr->opcode != AnmOpcode_InterruptLabel ||
+        ((int)vm->pendingInterrupt != curInstr->args[0])) && (curInstr->opcode != AnmOpcode_Exit))
+      && (curInstr->opcode != AnmOpcode_ExitHide));
+      curInstr = (AnmRawInstr *)((int)curInstr->args + (uint)curInstr->argsCount)) {
+    if ((curInstr->opcode == AnmOpcode_InterruptLabel) && (curInstr->args[0] == 0xffffffff)) {
+      local_24 = curInstr;
     }
   }
   vm->pendingInterrupt = 0;
   *(uint *)&vm->flags = *(uint *)&vm->flags & 0xffffdfff;
-  if (local_8->opcode != AnmOpcode_InterruptLabel) {
+  if (curInstr->opcode != AnmOpcode_InterruptLabel) {
     if (local_24 == (AnmRawInstr *)0x0) {
       ZunTimer::Decrement(&vm->currentTimeInScript,1);
       goto LAB_00434338;
     }
-    local_8 = local_24;
+    curInstr = local_24;
   }
-  vm->currentInstruction = (AnmRawInstr *)((int)local_8->args + (uint)local_8->argsCount);
+  vm->currentInstruction = (AnmRawInstr *)((int)curInstr->args + (uint)curInstr->argsCount);
   (vm->currentTimeInScript).current = (int)(short)vm->currentInstruction->time;
   (vm->currentTimeInScript).subFrame = 0.0;
   (vm->currentTimeInScript).previous = -999;
   *(uint *)&vm->flags = *(uint *)&vm->flags | 1;
 LAB_00433998:
-  local_8 = vm->currentInstruction;
-  if ((vm->currentTimeInScript).current < (int)(short)local_8->time) goto LAB_00434338;
-  switch(local_8->opcode) {
+  curInstr = vm->currentInstruction;
+  if ((vm->currentTimeInScript).current < (int)(short)curInstr->time) goto LAB_00434338;
+  switch(curInstr->opcode) {
   case AnmOpcode_Exit:
     *(uint *)&vm->flags = *(uint *)&vm->flags & 0xfffffffe;
   case AnmOpcode_ExitHide:
@@ -64,18 +64,18 @@ LAB_00433998:
     return 1;
   case AnmOpcode_SetActiveSprite:
     *(uint *)&vm->flags = *(uint *)&vm->flags | 1;
-    SetActiveSprite(this,vm,local_8->args[0] + this->spriteIndices[vm->anmFileIndex]);
+    SetActiveSprite(this,vm,curInstr->args[0] + this->spriteIndices[vm->anmFileIndex]);
     vm->timeOfLastSpriteSet = (vm->currentTimeInScript).current;
     break;
   case AnmOpcode_SetScale:
-    vm->scaleX = (float)local_8->args[0];
-    vm->scaleY = (float)local_8->args[1];
+    vm->scaleX = (float)curInstr->args[0];
+    vm->scaleY = (float)curInstr->args[1];
     break;
   case AnmOpcode_SetAlpha:
-    (vm->color).bytes[3] = (byte)local_8->args[0];
+    (vm->color).bytes[3] = (byte)curInstr->args[0];
     break;
   case AnmOpcode_SetColor:
-    (vm->color).color = (vm->color).color & 0xff000000 | local_8->args[0] & 0xffffff;
+    (vm->color).color = (vm->color).color & 0xff000000 | curInstr->args[0] & 0xffffff;
     break;
   case AnmOpcode_Jump:
     goto switchD_004339dd_caseD_5;
@@ -90,28 +90,28 @@ LAB_00433998:
     vm->scaleY = vm->scaleY * -1.0;
     break;
   case AnmOpcode_SetRotation:
-    (vm->rotation).x = (float)local_8->args[0];
-    (vm->rotation).y = (float)local_8->args[1];
-    local_10 = local_8->args + 2;
+    (vm->rotation).x = (float)curInstr->args[0];
+    (vm->rotation).y = (float)curInstr->args[1];
+    local_10 = curInstr->args + 2;
     (vm->rotation).z = (float)*local_10;
     break;
   case AnmOpcode_SetPosition:
-    (vm->angleVel).x = (float)local_8->args[0];
-    (vm->angleVel).y = (float)local_8->args[1];
-    local_14 = local_8->args + 2;
+    (vm->angleVel).x = (float)curInstr->args[0];
+    (vm->angleVel).y = (float)curInstr->args[1];
+    local_14 = curInstr->args + 2;
     (vm->angleVel).z = (float)*local_14;
     break;
   case AnmOpcode_SetScaleSpeed:
-    vm->scaleInterpFinalX = (float)local_8->args[0];
-    local_18 = local_8->args + 1;
+    vm->scaleInterpFinalX = (float)curInstr->args[0];
+    local_18 = curInstr->args + 1;
     vm->scaleInterpFinalY = (float)*local_18;
     vm->scaleInterpEndTime = 0;
     break;
   case AnmOpcode_Fade:
-    local_20 = local_8->args;
+    local_20 = curInstr->args;
     vm->alphaInterpInitial = (D3DCOLOR)vm->color;
     vm->alphaInterpFinal = (vm->color).color & 0xffffff | *local_20 << 0x18;
-    vm->alphaInterpEndTime = *(ushort *)(local_8->args + 1);
+    vm->alphaInterpEndTime = *(ushort *)(curInstr->args + 1);
     (vm->alphaInterpTime).current = 0;
     (vm->alphaInterpTime).subFrame = 0.0;
     (vm->alphaInterpTime).previous = -999;
@@ -124,8 +124,8 @@ LAB_00433998:
     break;
   case AnmOpcode_SetRandomSprite:
     *(uint *)&vm->flags = *(uint *)&vm->flags | 1;
-    local_c = local_8->args;
-    uVar1 = *(ushort *)(local_8->args + 1);
+    local_c = curInstr->args;
+    uVar1 = *(ushort *)(curInstr->args + 1);
     if (uVar1 == 0) {
       local_e0 = 0;
     }
@@ -138,16 +138,16 @@ LAB_00433998:
     break;
   case AnmOpcode_SetTranslation:
     if ((*(uint *)&vm->flags >> 5 & 1) == 0) {
-      fVar5 = (float)local_8->args[2];
-      fVar2 = (float)local_8->args[1];
-      (vm->pos).x = (float)local_8->args[0];
+      fVar5 = (float)curInstr->args[2];
+      fVar2 = (float)curInstr->args[1];
+      (vm->pos).x = (float)curInstr->args[0];
       (vm->pos).y = fVar2;
       (vm->pos).z = fVar5;
     }
     else {
-      fVar5 = (float)local_8->args[2];
-      fVar2 = (float)local_8->args[1];
-      (vm->offset).x = (float)local_8->args[0];
+      fVar5 = (float)curInstr->args[2];
+      fVar2 = (float)curInstr->args[1];
+      (vm->offset).x = (float)curInstr->args[0];
       (vm->offset).y = fVar2;
       (vm->offset).z = fVar5;
     }
@@ -171,12 +171,12 @@ LAB_00433f53:
       (vm->posInterpInitial).y = (vm->offset).y;
       (vm->posInterpInitial).z = (vm->offset).z;
     }
-    fVar5 = (float)local_8->args[2];
-    fVar2 = (float)local_8->args[1];
-    (vm->posInterpFinal).x = (float)local_8->args[0];
+    fVar5 = (float)curInstr->args[2];
+    fVar2 = (float)curInstr->args[1];
+    (vm->posInterpFinal).x = (float)curInstr->args[0];
     (vm->posInterpFinal).y = fVar2;
     (vm->posInterpFinal).z = fVar5;
-    vm->posInterpEndTime = *(ushort *)(local_8->args + 3);
+    vm->posInterpEndTime = *(ushort *)(curInstr->args + 3);
     (vm->posInterpTime).current = 0;
     (vm->posInterpTime).subFrame = 0.0;
     (vm->posInterpTime).previous = -999;
@@ -189,13 +189,13 @@ LAB_00433f53:
   case AnmOpcode_StopHide:
     goto switchD_004339dd_caseD_18;
   case AnmOpcode_25:
-    *(uint *)&vm->flags = *(uint *)&vm->flags & 0xffffffdf | (local_8->args[0] & 1) << 5;
+    *(uint *)&vm->flags = *(uint *)&vm->flags & 0xffffffdf | (curInstr->args[0] & 1) << 5;
     break;
   case AnmOpcode_SetAutoRotate:
-    vm->autoRotate = *(ushort *)local_8->args;
+    vm->autoRotate = *(ushort *)curInstr->args;
     break;
   case AnmOpcode_27:
-    (vm->uvScrollPos).x = (vm->uvScrollPos).x + (float)local_8->args[0];
+    (vm->uvScrollPos).x = (vm->uvScrollPos).x + (float)curInstr->args[0];
     if ((vm->uvScrollPos).x < 1.0) {
       fVar5 = (vm->uvScrollPos).x;
       if (fVar5 < 0.0 != NAN(fVar5)) {
@@ -207,7 +207,7 @@ LAB_00433f53:
     }
     break;
   case AnmOpcode_28:
-    (vm->uvScrollPos).y = (vm->uvScrollPos).y + (float)local_8->args[0];
+    (vm->uvScrollPos).y = (vm->uvScrollPos).y + (float)curInstr->args[0];
     if ((vm->uvScrollPos).y < 1.0) {
       fVar5 = (vm->uvScrollPos).y;
       if (fVar5 < 0.0 != NAN(fVar5)) {
@@ -219,13 +219,13 @@ LAB_00433f53:
     }
     break;
   case AnmOpcode_SetVisibility:
-    *(uint *)&vm->flags = *(uint *)&vm->flags & 0xfffffffe | local_8->args[0] & 1;
+    *(uint *)&vm->flags = *(uint *)&vm->flags & 0xfffffffe | curInstr->args[0] & 1;
     break;
   case AnmOpcode_30:
-    vm->scaleInterpFinalX = (float)local_8->args[0];
-    vm->scaleInterpFinalY = (float)local_8->args[1];
-    local_1c = local_8->args + 2;
-    vm->scaleInterpEndTime = *(ushort *)local_1c;
+    vm->scaleInterpFinalX = (float)curInstr->args[0];
+    vm->scaleInterpFinalY = (float)curInstr->args[1];
+    local_1c = curInstr->args + 2;
+    vm->scaleInterpEndTime = *(short *)local_1c;
     (vm->scaleInterpTime).current = 0;
     (vm->scaleInterpTime).subFrame = 0.0;
     (vm->scaleInterpTime).previous = -999;
@@ -233,9 +233,9 @@ LAB_00433f53:
     vm->scaleInterpInitialY = vm->scaleY;
     break;
   case AnmOpcode_31:
-    *(uint *)&vm->flags = *(uint *)&vm->flags & 0xffffefff | (local_8->args[0] & 1) << 0xc;
+    *(uint *)&vm->flags = *(uint *)&vm->flags & 0xffffefff | (curInstr->args[0] & 1) << 0xc;
   }
-  vm->currentInstruction = (AnmRawInstr *)((int)local_8->args + (uint)local_8->argsCount);
+  vm->currentInstruction = (AnmRawInstr *)((int)curInstr->args + (uint)curInstr->argsCount);
   goto LAB_00433998;
 switchD_004339dd_caseD_18:
   *(uint *)&vm->flags = *(uint *)&vm->flags & 0xfffffffe;
@@ -246,23 +246,23 @@ switchD_004339dd_caseD_15:
 LAB_00434338:
     fVar5 = (vm->angleVel).x;
     if (NAN(fVar5) == (fVar5 == 0.0)) {
-      fVar5 = add_normalize_angle((vm->rotation).x,
-                                  g_Supervisor.effectiveFramerateMultiplier * (vm->angleVel).x);
+      fVar5 = AddNormalizeAngle((vm->rotation).x,
+                                g_Supervisor.effectiveFramerateMultiplier * (vm->angleVel).x);
       (vm->rotation).x = fVar5;
     }
     fVar5 = (vm->angleVel).y;
     if (NAN(fVar5) == (fVar5 == 0.0)) {
-      fVar5 = add_normalize_angle((vm->rotation).y,
-                                  g_Supervisor.effectiveFramerateMultiplier * (vm->angleVel).y);
+      fVar5 = AddNormalizeAngle((vm->rotation).y,
+                                g_Supervisor.effectiveFramerateMultiplier * (vm->angleVel).y);
       (vm->rotation).y = fVar5;
     }
     fVar5 = (vm->angleVel).z;
     if (NAN(fVar5) == (fVar5 == 0.0)) {
-      fVar5 = add_normalize_angle((vm->rotation).z,
-                                  g_Supervisor.effectiveFramerateMultiplier * (vm->angleVel).z);
+      fVar5 = AddNormalizeAngle((vm->rotation).z,
+                                g_Supervisor.effectiveFramerateMultiplier * (vm->angleVel).z);
       (vm->rotation).z = fVar5;
     }
-    if ((short)vm->scaleInterpEndTime < 1) {
+    if (vm->scaleInterpEndTime < 1) {
       vm->scaleY = g_Supervisor.effectiveFramerateMultiplier * vm->scaleInterpFinalY + vm->scaleY;
       vm->scaleX = g_Supervisor.effectiveFramerateMultiplier * vm->scaleInterpFinalX + vm->scaleX;
     }
@@ -270,13 +270,13 @@ LAB_00434338:
       (vm->scaleInterpTime).previous = (vm->scaleInterpTime).current;
       Supervisor::TickTimer
                 (&g_Supervisor,&(vm->scaleInterpTime).current,&(vm->scaleInterpTime).subFrame);
-      if ((vm->scaleInterpTime).current < (int)(short)vm->scaleInterpEndTime) {
+      if ((vm->scaleInterpTime).current < (int)vm->scaleInterpEndTime) {
         vm->scaleX = (((float)(vm->scaleInterpTime).current + (vm->scaleInterpTime).subFrame) *
                      (vm->scaleInterpFinalX - vm->scaleInterpInitialX)) /
-                     (float)(int)(short)vm->scaleInterpEndTime + vm->scaleInterpInitialX;
+                     (float)(int)vm->scaleInterpEndTime + vm->scaleInterpInitialX;
         vm->scaleY = (((float)(vm->scaleInterpTime).current + (vm->scaleInterpTime).subFrame) *
                      (vm->scaleInterpFinalY - vm->scaleInterpInitialY)) /
-                     (float)(int)(short)vm->scaleInterpEndTime + vm->scaleInterpInitialY;
+                     (float)(int)vm->scaleInterpEndTime + vm->scaleInterpInitialY;
       }
       else {
         vm->scaleY = vm->scaleInterpFinalY;
@@ -368,8 +368,8 @@ LAB_00434338:
   }
   goto LAB_00434098;
 switchD_004339dd_caseD_5:
-  vm->currentInstruction = (AnmRawInstr *)((int)vm->beginingOfScript->args + (local_8->args[0] - 4))
-  ;
+  vm->currentInstruction =
+       (AnmRawInstr *)((int)vm->beginingOfScript->args + (curInstr->args[0] - 4));
   (vm->currentTimeInScript).current = (int)(short)vm->currentInstruction->time;
   goto LAB_00433998;
 }

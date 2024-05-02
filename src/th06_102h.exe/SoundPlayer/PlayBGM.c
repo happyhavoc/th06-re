@@ -1,5 +1,5 @@
 
-ZunResult __thiscall SoundPlayer::PlayBGM(SoundPlayer *this,BOOL param_2)
+ZunResult __thiscall SoundPlayer::PlayBGM(SoundPlayer *this,BOOL isLooping)
 
 {
   ZunResult result;
@@ -18,7 +18,7 @@ ZunResult __thiscall SoundPlayer::PlayBGM(SoundPlayer *this,BOOL param_2)
     }
     else {
       pDSB = (LPDIRECTSOUNDBUFFER)CSound::GetBuffer(&this->backgroundMusic->base,0);
-      iVar2 = CSound::FillBufferWithSound(&this->backgroundMusic->base,pDSB,param_2);
+      iVar2 = CSound::FillBufferWithSound(&this->backgroundMusic->base,pDSB,isLooping);
       if (iVar2 < 0) {
         result = ZUN_ERROR;
       }
@@ -29,7 +29,7 @@ ZunResult __thiscall SoundPlayer::PlayBGM(SoundPlayer *this,BOOL param_2)
         }
         else {
           DebugPrint2("comp\n");
-          this->field14_0x634 = param_2;
+          this->isLooping = isLooping;
           result = ZUN_SUCCESS;
         }
       }

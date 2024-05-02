@@ -16,7 +16,7 @@ void FUN_00412e50(Enemy *enemy)
           (NAN(effect->field11_0x15c) || NAN(enemy->effect_distance))) {
         effect->field11_0x15c = effect->field11_0x15c + 0.3;
       }
-      fVar1 = add_normalize_angle(effect->__angle_related,0.03141593);
+      fVar1 = AddNormalizeAngle(effect->__angle_related,0.03141593);
       effect->__angle_related = fVar1;
     }
   }

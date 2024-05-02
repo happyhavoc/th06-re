@@ -9,10 +9,10 @@ ZunResult __thiscall MainMenu::DrawStartMenu(MainMenu *this)
   
   cursorMove = MoveCursor(this,8);
   if ((((this->cursor == 1) &&
-       (iVar1 = GameManager::hasReachedMaxClears(&g_GameManager,0,0), iVar1 == 0)) &&
-      (iVar1 = GameManager::hasReachedMaxClears(&g_GameManager,0,1), iVar1 == 0)) &&
-     ((iVar1 = GameManager::hasReachedMaxClears(&g_GameManager,1,0), iVar1 == 0 &&
-      (iVar1 = GameManager::hasReachedMaxClears(&g_GameManager,1,1), iVar1 == 0)))) {
+       (iVar1 = GameManager::HasReachedMaxClears(&g_GameManager,0,0), iVar1 == 0)) &&
+      (iVar1 = GameManager::HasReachedMaxClears(&g_GameManager,0,1), iVar1 == 0)) &&
+     ((iVar1 = GameManager::HasReachedMaxClears(&g_GameManager,1,0), iVar1 == 0 &&
+      (iVar1 = GameManager::HasReachedMaxClears(&g_GameManager,1,1), iVar1 == 0)))) {
     this->cursor = this->cursor + cursorMove;
   }
   i = 0;
@@ -45,11 +45,11 @@ ZunResult __thiscall MainMenu::DrawStartMenu(MainMenu *this)
         SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,SOUND_SELECT,0);
         break;
       case 1:
-        cursorMove = GameManager::hasReachedMaxClears(&g_GameManager,0,0);
+        cursorMove = GameManager::HasReachedMaxClears(&g_GameManager,0,0);
         if ((((cursorMove == 0) &&
-             (cursorMove = GameManager::hasReachedMaxClears(&g_GameManager,0,1), cursorMove == 0))
-            && (cursorMove = GameManager::hasReachedMaxClears(&g_GameManager,1,0), cursorMove == 0))
-           && (cursorMove = GameManager::hasReachedMaxClears(&g_GameManager,1,1), cursorMove == 0))
+             (cursorMove = GameManager::HasReachedMaxClears(&g_GameManager,0,1), cursorMove == 0))
+            && (cursorMove = GameManager::HasReachedMaxClears(&g_GameManager,1,0), cursorMove == 0))
+           && (cursorMove = GameManager::HasReachedMaxClears(&g_GameManager,1,1), cursorMove == 0))
         {
           SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,SOUND_BACK,0);
         }

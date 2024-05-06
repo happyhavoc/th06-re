@@ -1,6 +1,7 @@
 
 WAVEFORMATEX *
-GetWavFormatData(char *soundData,char *formatString,int *formatSize,int fileSizeExcludingFormat)
+SoundPlayer::GetWavFormatData
+          (char *soundData,char *formatString,int *formatSize,int fileSizeExcludingFormat)
 
 {
   int iVar1;

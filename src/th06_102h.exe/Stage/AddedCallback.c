@@ -14,8 +14,8 @@ int __thiscall Stage::AddedCallback(Stage *this,Stage *arg)
   (arg->position).z = 0.0;
   arg->spellcardState = NOT_RUNNING;
   arg->skyFogInterpDuration = 0;
-  ZVar1 = LoadStageData(arg,(&PTR_s_dummy_004760e0)[g_GameManager.current_stage * 2],
-                        (&PTR_s_dummy_004760e4)[g_GameManager.current_stage * 2]);
+  ZVar1 = LoadStageData(arg,g_StageFiles[g_GameManager.current_stage].anmFile,
+                        g_StageFiles[g_GameManager.current_stage].stdFile);
   if (ZVar1 == ZUN_SUCCESS) {
     (arg->skyFog).color = 0xff000000;
     (arg->skyFog).nearPlane = 200.0;

@@ -1431,6 +1431,13 @@ struct EnemyManager {
     struct ZunTimer timeline_time;
 };
 
+typedef struct StageFile StageFile, *PStageFile;
+
+struct StageFile {
+    char *anmFile;
+    char *stdFile;
+};
+
 typedef struct BulletManager BulletManager, *PBulletManager;
 
 typedef struct Laser Laser, *PLaser;

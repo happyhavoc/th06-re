@@ -1,5 +1,5 @@
 
-ZunResult __thiscall Gui::ActualCallback(Gui *this)
+ZunResult __thiscall Gui::ActualAddedCallback(Gui *this)
 
 {
   ZunResult loadAnm;

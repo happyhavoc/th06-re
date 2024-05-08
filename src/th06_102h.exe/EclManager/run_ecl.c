@@ -1061,7 +1061,7 @@ switchD_00407544_caseD_2:
     pEVar13 = (Effect *)
               EffectManager::SpawnEffect
                         (&g_EffectManager,0xd,&enemy->position,1,
-                         *(D3DCOLOR *)(PTR_DAT_00476438 + *local_6c * 4));
+                         PTR_EFFECT_RELATED_COLORS_00476438[*local_6c]);
     enemy->effect_array[enemy->effect_idx] = pEVar13;
     pEVar13 = enemy->effect_array[enemy->effect_idx];
     (pEVar13->pos2).x = (float)local_6c[1];

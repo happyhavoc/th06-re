@@ -131,8 +131,8 @@ ZunResult GameManager::AddedCallback(GameManager *gameManager)
   if (ZVar4 == ZUN_SUCCESS) {
     ZVar4 = Player::RegisterChain(0);
     if (ZVar4 == ZUN_SUCCESS) {
-      iVar3 = BulletManager::RegisterChain("data/etama.anm");
-      if (iVar3 == 0) {
+      ZVar4 = BulletManager::RegisterChain("data/etama.anm");
+      if (ZVar4 == ZUN_SUCCESS) {
         ZVar4 = EnemyManager::RegisterChain
                           ((&PTR_s_dummy_004764e8)[gameManager->current_stage * 2],
                            (&PTR_s_dummy_004764ec)[gameManager->current_stage * 2]);

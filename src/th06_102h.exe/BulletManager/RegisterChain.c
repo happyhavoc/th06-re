@@ -1,14 +1,15 @@
 
-int BulletManager::RegisterChain(char *etama_anm_path)
+ZunResult BulletManager::RegisterChain(char *etama_anm_path)
 
 {
   int iVar1;
+  ZunResult ZVar2;
   
   if ((g_Supervisor.cfg.opts & 1) == 0) {
-    PTR_DAT_00476438 = &DAT_00476358;
+    PTR_EFFECT_RELATED_COLORS_00476438 = EFFECT_RELATED_COLORS;
   }
   else {
-    PTR_DAT_00476438 = &DAT_004763c8;
+    PTR_EFFECT_RELATED_COLORS_00476438 = (D3DCOLOR *)&DAT_004763c8;
   }
   InitializeToZero(&g_BulletManager);
   g_BulletManager.etama_anm_filename = etama_anm_path;
@@ -23,11 +24,11 @@ int BulletManager::RegisterChain(char *etama_anm_path)
     g_BulletManagerDrawChain.deletedCallback = (ChainLifecycleCallback *)0x0;
     g_BulletManagerDrawChain.arg = &g_BulletManager;
     Chain::AddToDrawChain(&g_Chain,&g_BulletManagerDrawChain,9);
-    iVar1 = 0;
+    ZVar2 = ZUN_SUCCESS;
   }
   else {
-    iVar1 = -1;
+    ZVar2 = ZUN_ERROR;
   }
-  return iVar1;
+  return ZVar2;
 }
 

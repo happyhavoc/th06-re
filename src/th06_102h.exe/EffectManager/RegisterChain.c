@@ -1,9 +1,9 @@
 
-undefined4 EffectManager::RegisterChain(void)
+ZunResult EffectManager::RegisterChain(void)
 
 {
   int iVar1;
-  undefined4 uVar2;
+  ZunResult ZVar2;
   
   Reset(&g_EffectManager);
   g_EffectManagerCalcChain.callback = OnUpdate;
@@ -17,11 +17,11 @@ undefined4 EffectManager::RegisterChain(void)
     g_EffectManagerOnDrawChain.deletedCallback = (ChainLifecycleCallback *)0x0;
     g_EffectManagerOnDrawChain.arg = &g_EffectManager;
     Chain::AddToDrawChain(&g_Chain,&g_EffectManagerOnDrawChain,8);
-    uVar2 = 0;
+    ZVar2 = ZUN_SUCCESS;
   }
   else {
-    uVar2 = 0xffffffff;
+    ZVar2 = ZUN_ERROR;
   }
-  return uVar2;
+  return ZVar2;
 }
 

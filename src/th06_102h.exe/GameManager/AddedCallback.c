@@ -140,8 +140,8 @@ ZunResult GameManager::AddedCallback(GameManager *gameManager)
           ZVar4 = EclManager::FUN_00407340
                             (&g_EclManager,(&PTR_s_dummy_004764c4)[gameManager->current_stage]);
           if (ZVar4 == ZUN_SUCCESS) {
-            iVar3 = EffectManager::RegisterChain();
-            if (iVar3 == 0) {
+            ZVar4 = EffectManager::RegisterChain();
+            if (ZVar4 == ZUN_SUCCESS) {
               ZVar4 = Gui::RegisterChain();
               if (ZVar4 == ZUN_SUCCESS) {
                 if (g_GameManager.is_in_replay == 0) {

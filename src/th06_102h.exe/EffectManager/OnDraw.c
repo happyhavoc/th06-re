@@ -1,7 +1,7 @@
 
 /* WARNING: Unknown calling convention -- yet parameter storage is locked */
 
-undefined4 EffectManager::OnDraw(EffectManager *param_1)
+ChainCallbackResult EffectManager::OnDraw(EffectManager *param_1)
 
 {
   int local_c;
@@ -17,6 +17,6 @@ undefined4 EffectManager::OnDraw(EffectManager *param_1)
     }
     local_8 = local_8 + 1;
   }
-  return 1;
+  return CHAIN_CALLBACK_RESULT_CONTINUE;
 }
 

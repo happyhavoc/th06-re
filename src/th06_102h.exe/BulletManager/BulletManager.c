@@ -1,5 +1,5 @@
 
-AnmVm * __thiscall BulletManager::BulletManager(BulletManager *this)
+BulletManager * __thiscall BulletManager::BulletManager(BulletManager *this)
 
 {
   Laser *local_60;
@@ -32,6 +32,6 @@ AnmVm * __thiscall BulletManager::BulletManager(BulletManager *this)
   }
   ZunTimer::Initialize(&this->time);
   InitializeToZero(this);
-  return (AnmVm *)this;
+  return this;
 }
 

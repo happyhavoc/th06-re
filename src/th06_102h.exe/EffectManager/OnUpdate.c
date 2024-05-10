@@ -1,5 +1,5 @@
 
-int EffectManager::OnUpdate(EffectManager *param_1)
+ChainCallbackResult EffectManager::OnUpdate(EffectManager *param_1)
 
 {
   int iVar1;
@@ -24,6 +24,6 @@ int EffectManager::OnUpdate(EffectManager *param_1)
     }
     effect = effect + 1;
   }
-  return 1;
+  return CHAIN_CALLBACK_RESULT_CONTINUE;
 }
 

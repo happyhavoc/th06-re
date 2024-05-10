@@ -11,37 +11,37 @@ int __thiscall MainMenu::DrawOptionsMenu(MainMenu *this)
   for (i = 0; i < 9; i = i + 1) {
     if ((i < 5) || (7 < i)) {
                     /* passing in the same parameter twice. ok */
-      setSavedCursorPosition(this,OptionsVm,i,i,this->cursor);
+      ColorMenuItem(this,OptionsVm,i,i,this->cursor);
       OptionsVm = OptionsVm + 1;
     }
     else {
-      setSavedCursorPosition(this,this->vmList + i + 0x43,i,i,this->cursor);
+      ColorMenuItem(this,this->vmList + i + 0x43,i,i,this->cursor);
     }
   }
   for (i = 0; i < 5; i = i + 1) {
-    setSavedCursorPosition(this,OptionsVm,0,i,(uint)g_Supervisor.cfg.lifeCount);
+    ColorMenuItem(this,OptionsVm,0,i,(uint)g_Supervisor.cfg.lifeCount);
     OptionsVm = OptionsVm + 1;
   }
   for (i = 0; i < 4; i = i + 1) {
-    setSavedCursorPosition(this,OptionsVm,1,i,(uint)g_Supervisor.cfg.bombCount);
+    ColorMenuItem(this,OptionsVm,1,i,(uint)g_Supervisor.cfg.bombCount);
     OptionsVm = OptionsVm + 1;
   }
   for (i = 0; i < 2; i = i + 1) {
-    setSavedCursorPosition(this,OptionsVm,2,i,(uint)g_Supervisor.cfg.colorMode16bit);
+    ColorMenuItem(this,OptionsVm,2,i,(uint)g_Supervisor.cfg.colorMode16bit);
     OptionsVm = OptionsVm + 1;
   }
   for (i = 0; i < 2; i = i + 1) {
-    setSavedCursorPosition(this,OptionsVm,4,i,(uint)g_Supervisor.cfg.playSounds);
+    ColorMenuItem(this,OptionsVm,4,i,(uint)g_Supervisor.cfg.playSounds);
     OptionsVm = OptionsVm + 1;
   }
   OptionsVm = this->vmList + 0x4d;
   for (i = 0; i < 3; i = i + 1) {
-    setSavedCursorPosition(this,OptionsVm,3,i,(uint)g_Supervisor.cfg.musicMode);
+    ColorMenuItem(this,OptionsVm,3,i,(uint)g_Supervisor.cfg.musicMode);
     OptionsVm = OptionsVm + 1;
   }
   OptionsVm = this->vmList + 0x4b;
   for (i = 0; i < 2; i = i + 1) {
-    setSavedCursorPosition(this,OptionsVm,5,i,(uint)this->windowed);
+    ColorMenuItem(this,OptionsVm,5,i,(uint)this->windowed);
     OptionsVm = OptionsVm + 1;
   }
   if (0x1f < this->stateTimer) {

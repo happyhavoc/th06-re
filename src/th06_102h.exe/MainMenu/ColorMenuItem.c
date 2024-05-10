@@ -1,6 +1,5 @@
 
-void __thiscall
-MainMenu::setSavedCursorPosition(MainMenu *this,AnmVm *vm,int idx,int idx_2,int itmToCompare)
+void __thiscall MainMenu::ColorMenuItem(MainMenu *this,AnmVm *vm,int idx,int idx_2,int itmToCompare)
 
 {
   if (idx_2 == itmToCompare) {

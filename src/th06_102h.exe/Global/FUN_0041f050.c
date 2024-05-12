@@ -2,7 +2,7 @@
 /* WARNING: Inlined function: FUN_0045c3e0 */
 
 void FUN_0041f050(long xPos,long yPos,long spriteWidth,long spriteHeight,long fontHeight,
-                 int fontWidth,COLORREF color1,COLORREF color2,char *string,
+                 int fontWidth,COLORREF textColor,COLORREF shadowColor,char *string,
                  IDirect3DTexture8 *param_10)
 
 {
@@ -33,12 +33,12 @@ void FUN_0041f050(long xPos,long yPos,long spriteWidth,long spriteHeight,long fo
   h = SelectObject(auStack_60.hdc,font);
   TextHelper::FUN_0041ec72(&auStack_60,0,0,spriteWidth << 1,fontHeight * 2 + 6);
   SetBkMode(hdc,1);
-  if (color2 != 0xffffffff) {
-    SetTextColor(hdc,color2);
+  if (shadowColor != 0xffffffff) {
+    SetTextColor(hdc,shadowColor);
     strLength = _strlen(string);
     TextOutA(hdc,xPos * 2 + 3,2,string,strLength);
   }
-  SetTextColor(hdc,color1);
+  SetTextColor(hdc,textColor);
   strLength = _strlen(string);
   TextOutA(hdc,xPos << 1,0,string,strLength);
   SelectObject(hdc,h);

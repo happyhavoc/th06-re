@@ -7,9 +7,9 @@ int Stage::DeletedCallback(Stage *arg)
     _free(arg->quadVms);
     arg->quadVms = (AnmVm *)0x0;
   }
-  if (arg->stdData != (byte *)0x0) {
+  if (arg->stdData != (RawStdHeader *)0x0) {
     _free(arg->stdData);
-    arg->stdData = (byte *)0x0;
+    arg->stdData = (RawStdHeader *)0x0;
   }
   return 0;
 }

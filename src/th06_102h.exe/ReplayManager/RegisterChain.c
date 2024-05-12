@@ -1,5 +1,5 @@
 
-undefined4 ReplayManager::RegisterChain(int is_demo,char *replay_file)
+ZunResult ReplayManager::RegisterChain(int is_demo,char *replay_file)
 
 {
   ChainElem *pCVar1;
@@ -29,7 +29,7 @@ undefined4 ReplayManager::RegisterChain(int is_demo,char *replay_file)
         local_14->calc_chain->arg = local_14;
         iVar2 = Chain::AddToCalcChain(&g_Chain,local_14->calc_chain,0xf);
         if (iVar2 != 0) {
-          return 0xffffffff;
+          return ZUN_ERROR;
         }
         local_14->demo_calc_chain = (ChainElem *)0x0;
       }
@@ -43,7 +43,7 @@ undefined4 ReplayManager::RegisterChain(int is_demo,char *replay_file)
         local_14->calc_chain->arg = local_14;
         iVar2 = Chain::AddToCalcChain(&g_Chain,local_14->calc_chain,5);
         if (iVar2 != 0) {
-          return 0xffffffff;
+          return ZUN_ERROR;
         }
         pCVar1 = Chain::CreateElem(&g_Chain,DemoOnUpdate);
         local_14->demo_calc_chain = pCVar1;
@@ -61,6 +61,6 @@ undefined4 ReplayManager::RegisterChain(int is_demo,char *replay_file)
       return ZVar3;
     }
   }
-  return 0;
+  return ZUN_SUCCESS;
 }
 

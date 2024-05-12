@@ -1,5 +1,5 @@
 
-ItemManager * __thiscall ItemManager::FUN_0041f230(ItemManager *this)
+ItemManager * __thiscall ItemManager::ItemManager(ItemManager *this)
 
 {
   Item *pAStack_24;

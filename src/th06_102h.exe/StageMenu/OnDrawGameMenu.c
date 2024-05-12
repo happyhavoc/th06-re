@@ -23,11 +23,11 @@ void __thiscall StageMenu::OnDrawGameMenu(StageMenu *this)
         pAVar3 = (AnmVm *)&(pAVar3->rotation).y;
       }
       local_11c._128_4_ = local_11c._128_4_ | 0x1000;
-      AnmManager::FUN_00432ad0(g_AnmManager,&local_11c);
+      AnmManager::DrawNoRotation(g_AnmManager,&local_11c);
     }
     for (local_8 = 0; local_8 < 6; local_8 = local_8 + 1) {
       if ((*(uint *)&this->vms0[local_8].flags & 1) != 0) {
-        AnmManager::FUN_00432ad0(g_AnmManager,this->vms0 + local_8);
+        AnmManager::DrawNoRotation(g_AnmManager,this->vms0 + local_8);
       }
     }
   }

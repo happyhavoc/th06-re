@@ -24,9 +24,9 @@ int * Enemy::get_var(Enemy *param_1,int *eclGvarId,EclValueType *valueType)
     pfVar1 = &param_1->life;
     break;
   case -0x2727:
-    local_10.z = g_Player.position.z - (param_1->position).z;
-    local_10.y = g_Player.position.y - (param_1->position).y;
-    local_10.x = g_Player.position.x - (param_1->position).x;
+    local_10.z = g_Player.positionCenter.z - (param_1->position).z;
+    local_10.y = g_Player.positionCenter.y - (param_1->position).y;
+    local_10.x = g_Player.positionCenter.x - (param_1->position).x;
     PLAYER_DISTANCE = FUN_0040b890(&local_10);
     if (valueType != (EclValueType *)0x0) {
       *valueType = ECL_VALUE_TYPE_READONLY;
@@ -50,19 +50,19 @@ int * Enemy::get_var(Enemy *param_1,int *eclGvarId,EclValueType *valueType)
     if (valueType != (EclValueType *)0x0) {
       *valueType = ECL_VALUE_TYPE_READONLY;
     }
-    pfVar1 = (int *)&g_Player.position.z;
+    pfVar1 = (int *)&g_Player.positionCenter.z;
     break;
   case -0x2723:
     if (valueType != (EclValueType *)0x0) {
       *valueType = ECL_VALUE_TYPE_READONLY;
     }
-    pfVar1 = (int *)&g_Player.position.y;
+    pfVar1 = (int *)&g_Player.positionCenter.y;
     break;
   case -0x2722:
     if (valueType != (EclValueType *)0x0) {
       *valueType = ECL_VALUE_TYPE_READONLY;
     }
-    pfVar1 = (int *)&g_Player.position;
+    pfVar1 = (int *)&g_Player.positionCenter;
     break;
   case -0x2721:
     if (valueType != (EclValueType *)0x0) {

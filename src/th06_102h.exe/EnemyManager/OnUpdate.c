@@ -9,7 +9,7 @@ undefined4 EnemyManager::OnUpdate(EnemyManager *param_1)
   int iVar3;
   BOOL BVar4;
   uint uVar5;
-  Enemy *enemies;
+  Enemy *curEnemy;
   int local_20;
   float local_1c;
   float local_18;
@@ -20,7 +20,7 @@ undefined4 EnemyManager::OnUpdate(EnemyManager *param_1)
   
   local_8 = 0;
   FUN_00411530(param_1);
-  enemies = param_1->enemies;
+  curEnemy = param_1->enemies;
   param_1->enemy_count_real = 0;
   local_10 = 0;
   do {
@@ -31,63 +31,63 @@ undefined4 EnemyManager::OnUpdate(EnemyManager *param_1)
       ;
       return 1;
     }
-    if (-1 < (char)enemies->flags1) goto LAB_00412416;
+    if (-1 < (char)curEnemy->flags1) goto LAB_00412416;
     param_1->enemy_count_real = param_1->enemy_count_real + 1;
-    Enemy::FUN_00413380(enemies);
-    Enemy::FUN_00412240(enemies);
-    if (((enemies->flags2 >> 2 & 1) == 0) &&
+    Enemy::FUN_00413380(curEnemy);
+    Enemy::FUN_00412240(curEnemy);
+    if (((curEnemy->flags2 >> 2 & 1) == 0) &&
        (iVar2 = GameManager::IsInbounds
-                          ((enemies->position).x,(enemies->position).y,
-                           ((enemies->primary_vm).sprite)->widthPx,
-                           ((enemies->primary_vm).sprite)->heightPx), iVar2 != 0)) {
-      enemies->flags2 = enemies->flags2 | 4;
+                          ((curEnemy->position).x,(curEnemy->position).y,
+                           ((curEnemy->primary_vm).sprite)->widthPx,
+                           ((curEnemy->primary_vm).sprite)->heightPx), iVar2 != 0)) {
+      curEnemy->flags2 = curEnemy->flags2 | 4;
     }
-    if (((enemies->flags2 >> 2 & 1) == 1) &&
+    if (((curEnemy->flags2 >> 2 & 1) == 1) &&
        (iVar2 = GameManager::IsInbounds
-                          ((enemies->position).x,(enemies->position).y,
-                           ((enemies->primary_vm).sprite)->widthPx,
-                           ((enemies->primary_vm).sprite)->heightPx), iVar2 == 0)) {
-      enemies->flags1 = enemies->flags1 & 0x7f;
-      Enemy::FUN_004121b0(enemies);
+                          ((curEnemy->position).x,(curEnemy->position).y,
+                           ((curEnemy->primary_vm).sprite)->widthPx,
+                           ((curEnemy->primary_vm).sprite)->heightPx), iVar2 == 0)) {
+      curEnemy->flags1 = curEnemy->flags1 & 0x7f;
+      Enemy::FUN_004121b0(curEnemy);
       goto LAB_00412416;
     }
-    if (-1 < enemies->life_callback_threshold) {
-      Enemy::FUN_00411da0(enemies);
+    if (-1 < curEnemy->life_callback_threshold) {
+      Enemy::FUN_00411da0(curEnemy);
     }
-    if (-1 < enemies->timer_callback_threshold) {
-      Enemy::FUN_00411f40(enemies);
+    if (-1 < curEnemy->timer_callback_threshold) {
+      Enemy::FUN_00411f40(curEnemy);
     }
-    iVar2 = EclManager::run_ecl(enemies);
+    iVar2 = EclManager::run_ecl(curEnemy);
     if (iVar2 == -1) {
-      enemies->flags1 = enemies->flags1 & 0x7f;
-      Enemy::FUN_004121b0(enemies);
+      curEnemy->flags1 = curEnemy->flags1 & 0x7f;
+      Enemy::FUN_004121b0(curEnemy);
       goto LAB_00412416;
     }
-    Enemy::FUN_00412240(enemies);
-    (enemies->primary_vm).color = enemies->color;
-    AnmManager::ExecuteScript(g_AnmManager,&enemies->primary_vm);
-    enemies->color = (enemies->primary_vm).color;
+    Enemy::FUN_00412240(curEnemy);
+    (curEnemy->primary_vm).color = curEnemy->color;
+    AnmManager::ExecuteScript(g_AnmManager,&curEnemy->primary_vm);
+    curEnemy->color = (curEnemy->primary_vm).color;
     for (local_20 = 0; local_20 < 8; local_20 = local_20 + 1) {
-      if ((-1 < enemies->vms[local_20].anmFileIndex) &&
-         (iVar2 = AnmManager::ExecuteScript(g_AnmManager,enemies->vms + local_20), iVar2 != 0)) {
-        enemies->vms[local_20].anmFileIndex = -1;
+      if ((-1 < curEnemy->vms[local_20].anmFileIndex) &&
+         (iVar2 = AnmManager::ExecuteScript(g_AnmManager,curEnemy->vms + local_20), iVar2 != 0)) {
+        curEnemy->vms[local_20].anmFileIndex = -1;
       }
     }
     local_8 = 0;
-    if (((enemies->flags2 >> 2 & 1) == 0) || ((enemies->flags3 >> 3 & 1) != 0)) goto LAB_00412dbc;
-    iVar2 = enemies->life;
-    if (((enemies->flags2 >> 1 & 1) != 0) && ((enemies->flags2 & 1) != 0)) {
-      local_14 = (enemies->hitbox_dimensions).z * 0.6666667;
-      local_18 = (enemies->hitbox_dimensions).y * 0.6666667;
-      local_1c = (enemies->hitbox_dimensions).x * 0.6666667;
-      iVar3 = Player::CalcKillBoxCollision(&g_Player,&(enemies->position).x,&local_1c);
-      if (((iVar3 == 1) && ((enemies->flags2 & 1) != 0)) && ((enemies->flags2 >> 3 & 1) == 0)) {
-        enemies->life = enemies->life + -10;
+    if (((curEnemy->flags2 >> 2 & 1) == 0) || ((curEnemy->flags3 >> 3 & 1) != 0)) goto LAB_00412dbc;
+    iVar2 = curEnemy->life;
+    if (((curEnemy->flags2 >> 1 & 1) != 0) && ((curEnemy->flags2 & 1) != 0)) {
+      local_14 = (curEnemy->hitbox_dimensions).z * 0.6666667;
+      local_18 = (curEnemy->hitbox_dimensions).y * 0.6666667;
+      local_1c = (curEnemy->hitbox_dimensions).x * 0.6666667;
+      iVar3 = Player::CalcKillBoxCollision(&g_Player,&(curEnemy->position).x,&local_1c);
+      if (((iVar3 == 1) && ((curEnemy->flags2 & 1) != 0)) && ((curEnemy->flags2 >> 3 & 1) == 0)) {
+        curEnemy->life = curEnemy->life + -10;
       }
     }
-    if ((enemies->flags2 & 1) != 0) {
+    if ((curEnemy->flags2 & 1) != 0) {
       local_c = Player::FUN_004264b0
-                          (&g_Player,&enemies->position,&enemies->hitbox_dimensions,&local_8);
+                          (&g_Player,&curEnemy->position,&curEnemy->hitbox_dimensions,&local_8);
       if (0x45 < local_c) {
         local_c = 0x46;
       }
@@ -115,41 +115,41 @@ undefined4 EnemyManager::OnUpdate(EnemyManager *param_1)
           local_c = local_c / 3;
         }
       }
-      if ((enemies->flags2 >> 4 & 1) != 0) {
-        enemies->life = enemies->life - local_c;
+      if ((curEnemy->flags2 >> 4 & 1) != 0) {
+        curEnemy->life = curEnemy->life - local_c;
       }
-      fVar1 = (enemies->position).y;
+      fVar1 = (curEnemy->position).y;
       if (g_Player.position_of_last_enemy_hit.y < fVar1 !=
           (NAN(g_Player.position_of_last_enemy_hit.y) || NAN(fVar1))) {
-        g_Player.position_of_last_enemy_hit.x = (enemies->position).x;
-        g_Player.position_of_last_enemy_hit.y = (enemies->position).y;
-        g_Player.position_of_last_enemy_hit.z = (enemies->position).z;
+        g_Player.position_of_last_enemy_hit.x = (curEnemy->position).x;
+        g_Player.position_of_last_enemy_hit.y = (curEnemy->position).y;
+        g_Player.position_of_last_enemy_hit.z = (curEnemy->position).z;
       }
     }
-    if ((0 < enemies->life) || ((enemies->flags2 & 1) == 0)) goto LAB_00412ce2;
-    enemies->life_callback_threshold = -1;
-    enemies->timer_callback_threshold = -1;
-    switch(enemies->flags2 >> 5) {
+    if ((0 < curEnemy->life) || ((curEnemy->flags2 & 1) == 0)) goto LAB_00412ce2;
+    curEnemy->life_callback_threshold = -1;
+    curEnemy->timer_callback_threshold = -1;
+    switch(curEnemy->flags2 >> 5) {
     case 0:
-      g_GameManager.score = g_GameManager.score + enemies->score;
-      enemies->flags1 = enemies->flags1 & 0x7f;
+      g_GameManager.score = g_GameManager.score + curEnemy->score;
+      curEnemy->flags1 = curEnemy->flags1 & 0x7f;
       goto LAB_00412a4d;
     case 1:
-      g_GameManager.score = g_GameManager.score + enemies->score;
-      enemies->flags2 = enemies->flags2 & 0xfe;
+      g_GameManager.score = g_GameManager.score + curEnemy->score;
+      curEnemy->flags2 = curEnemy->flags2 & 0xfe;
 LAB_00412a4d:
-      if ((enemies->flags2 >> 3 & 1) != 0) {
+      if ((curEnemy->flags2 >> 3 & 1) != 0) {
         g_Gui.boss_present = false;
-        Enemy::FUN_004114c0(enemies);
+        Enemy::FUN_004114c0(curEnemy);
       }
 switchD_00412938_caseD_2:
-      if ((char)enemies->item_drop < '\0') {
-        if (enemies->item_drop == ITEM_NO_ITEM) {
+      if ((char)curEnemy->item_drop < '\0') {
+        if (curEnemy->item_drop == ITEM_NO_ITEM) {
           if ((uint)param_1->random_item_spawn_index % 3 == 0) {
             EffectManager::SpawnEffect
-                      (&g_EffectManager,enemies->death_anm2 + 4,&enemies->position,6,0xffffffff);
+                      (&g_EffectManager,curEnemy->death_anm2 + 4,&curEnemy->position,6,0xffffffff);
             ItemManager::SpawnItem
-                      (&g_ItemManager,&enemies->position,
+                      (&g_ItemManager,&curEnemy->position,
                        BYTE_ARRAY_00476338[param_1->random_item_table_index],local_8);
             param_1->random_item_table_index = param_1->random_item_table_index + 1;
             if (0x1f < param_1->random_item_table_index) {
@@ -161,27 +161,27 @@ switchD_00412938_caseD_2:
       }
       else {
         EffectManager::SpawnEffect
-                  (&g_EffectManager,enemies->death_anm2 + 4,&enemies->position,3,0xffffffff);
-        ItemManager::SpawnItem(&g_ItemManager,&enemies->position,enemies->item_drop,local_8);
+                  (&g_EffectManager,curEnemy->death_anm2 + 4,&curEnemy->position,3,0xffffffff);
+        ItemManager::SpawnItem(&g_ItemManager,&curEnemy->position,curEnemy->item_drop,local_8);
       }
-      if (((enemies->flags2 >> 3 & 1) != 0) && (DAT_005a5f90 == 0)) {
+      if (((curEnemy->flags2 >> 3 & 1) != 0) && (DAT_005a5f90 == 0)) {
         BulletManager::FUN_00414360(&g_BulletManager,0x3200,0);
       }
-      enemies->life = 0;
+      curEnemy->life = 0;
       break;
     case 2:
       goto switchD_00412938_caseD_2;
     case 3:
-      enemies->life = 1;
-      enemies->flags2 = enemies->flags2 & 0xef;
-      enemies->flags2 = enemies->flags2 & 0x1f;
+      curEnemy->life = 1;
+      curEnemy->flags2 = curEnemy->flags2 & 0xef;
+      curEnemy->flags2 = curEnemy->flags2 & 0x1f;
       g_Gui.boss_present = false;
       EffectManager::SpawnEffect
-                (&g_EffectManager,(uint)enemies->death_anm1,&enemies->position,1,0xffffffff);
+                (&g_EffectManager,(uint)curEnemy->death_anm1,&curEnemy->position,1,0xffffffff);
       EffectManager::SpawnEffect
-                (&g_EffectManager,(uint)enemies->death_anm1,&enemies->position,1,0xffffffff);
+                (&g_EffectManager,(uint)curEnemy->death_anm1,&curEnemy->position,1,0xffffffff);
       EffectManager::SpawnEffect
-                (&g_EffectManager,(uint)enemies->death_anm1,&enemies->position,1,0xffffffff);
+                (&g_EffectManager,(uint)curEnemy->death_anm1,&curEnemy->position,1,0xffffffff);
     }
     uVar5 = local_10 & 0x80000001;
     if ((int)uVar5 < 0) {
@@ -189,51 +189,53 @@ switchD_00412938_caseD_2:
     }
     SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,uVar5 + SOUND_2,0);
     EffectManager::SpawnEffect
-              (&g_EffectManager,(uint)enemies->death_anm1,&enemies->position,1,0xffffffff);
+              (&g_EffectManager,(uint)curEnemy->death_anm1,&curEnemy->position,1,0xffffffff);
     EffectManager::SpawnEffect
-              (&g_EffectManager,enemies->death_anm2 + 4,&enemies->position,4,0xffffffff);
-    iVar3._0_2_ = enemies->death_callback_sub;
-    iVar3._2_2_ = enemies->interrupts[0];
+              (&g_EffectManager,curEnemy->death_anm2 + 4,&curEnemy->position,4,0xffffffff);
+    iVar3._0_2_ = curEnemy->death_callback_sub;
+    iVar3._2_2_ = curEnemy->interrupts[0];
     if (-1 < iVar3) {
-      enemies->bullet_rank_speed_low = -0.5;
-      enemies->bullet_rank_speed_high = 0.5;
-      enemies->bullet_rank_amount1_low = 0;
-      enemies->bullet_rank_amount1_high = 0;
-      enemies->bullet_rank_amount2_low = 0;
-      enemies->bullet_rank_amount2_high = 0;
-      enemies->stack_depth = 0;
-      EclManager::FUN_00407440(&g_EclManager,&enemies->current_context,enemies->death_callback_sub);
-      enemies->death_callback_sub = -1;
-      enemies->interrupts[0] = -1;
+      curEnemy->bullet_rank_speed_low = -0.5;
+      curEnemy->bullet_rank_speed_high = 0.5;
+      curEnemy->bullet_rank_amount1_low = 0;
+      curEnemy->bullet_rank_amount1_high = 0;
+      curEnemy->bullet_rank_amount2_low = 0;
+      curEnemy->bullet_rank_amount2_high = 0;
+      curEnemy->stack_depth = 0;
+      EclManager::FUN_00407440
+                (&g_EclManager,&curEnemy->current_context,curEnemy->death_callback_sub);
+      curEnemy->death_callback_sub = -1;
+      curEnemy->interrupts[0] = -1;
     }
 LAB_00412ce2:
-    if (((enemies->flags2 >> 3 & 1) != 0) && (BVar4 = Gui::HasCurrentMsgIdx(&g_Gui), BVar4 == 0)) {
-      g_Gui.boss_health_bar1 = (float)enemies->life / (float)enemies->max_life;
+    if (((curEnemy->flags2 >> 3 & 1) != 0) && (BVar4 = Gui::HasCurrentMsgIdx(&g_Gui), BVar4 == 0)) {
+      g_Gui.boss_health_bar1 = (float)curEnemy->life / (float)curEnemy->max_life;
     }
-    if (enemies->field43_0xe41 == 0) {
-      if (enemies->life < iVar2) {
+    if (curEnemy->field43_0xe41 == 0) {
+      if (curEnemy->life < iVar2) {
         SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,SOUND_TOTAL_BOSS_DEATH,0);
-        *(uint *)&(enemies->primary_vm).flags = *(uint *)&(enemies->primary_vm).flags | 8;
-        enemies->field43_0xe41 = 4;
+        *(uint *)&(curEnemy->primary_vm).flags = *(uint *)&(curEnemy->primary_vm).flags | 8;
+        curEnemy->field43_0xe41 = 4;
       }
       else {
-        *(uint *)&(enemies->primary_vm).flags = *(uint *)&(enemies->primary_vm).flags & 0xfffffff7;
+        *(uint *)&(curEnemy->primary_vm).flags = *(uint *)&(curEnemy->primary_vm).flags & 0xfffffff7
+        ;
       }
     }
     else {
-      enemies->field43_0xe41 = enemies->field43_0xe41 - 1;
-      *(uint *)&(enemies->primary_vm).flags = *(uint *)&(enemies->primary_vm).flags & 0xfffffff7;
+      curEnemy->field43_0xe41 = curEnemy->field43_0xe41 - 1;
+      *(uint *)&(curEnemy->primary_vm).flags = *(uint *)&(curEnemy->primary_vm).flags & 0xfffffff7;
     }
 LAB_00412dbc:
-    FUN_00412e50(enemies);
+    FUN_00412e50(curEnemy);
     if ((char)g_GameManager.unk_0x2c == '\0') {
-      (enemies->boss_timer).previous = (enemies->boss_timer).current;
+      (curEnemy->boss_timer).previous = (curEnemy->boss_timer).current;
       Supervisor::TickTimer
-                (&g_Supervisor,&(enemies->boss_timer).current,&(enemies->boss_timer).subFrame);
+                (&g_Supervisor,&(curEnemy->boss_timer).current,&(curEnemy->boss_timer).subFrame);
     }
 LAB_00412416:
     local_10 = local_10 + 1;
-    enemies = enemies + 1;
+    curEnemy = curEnemy + 1;
   } while( true );
 }
 

@@ -8,9 +8,9 @@ void Player::UpdateBullets(Player *this)
   
   bullets = this->bullets;
   for (bullet_idx = 0; bullet_idx < 0x50; bullet_idx = bullet_idx + 1) {
-    if (bullets->field11_0x14e == 1) {
+    if (bullets->bulletState == 1) {
       if ((bullets->vm).autoRotate != 0) {
-        fVar1 = AddNormalizeAngle(bullets->field8_0x13c,3.141593);
+        fVar1 = AddNormalizeAngle((bullets->unk_134).z,3.141593);
         (bullets->vm).rotation.z = 1.570796 - fVar1;
       }
       AnmManager::FUN_00433590(g_AnmManager,&bullets->vm);

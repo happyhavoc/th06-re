@@ -43,7 +43,7 @@ void ResultScreen::OnDraw(ResultScreen *param_1)
     (local_28->pos).x = (local_28->pos).x + (local_28->offset).x;
     (local_28->pos).y = (local_28->pos).y + (local_28->offset).y;
     (local_28->pos).z = (local_28->pos).z + (local_28->offset).z;
-    AnmManager::FUN_00432ad0(g_AnmManager,local_28);
+    AnmManager::DrawNoRotation(g_AnmManager,local_28);
     (local_28->pos).x = local_40.x;
     (local_28->pos).y = local_40.y;
     (local_28->pos).z = local_40.z;
@@ -75,7 +75,7 @@ void ResultScreen::OnDraw(ResultScreen *param_1)
         AsciiManager::AddFormatText(&g_AsciiManager,&local_40,"No.%.2d",local_44 + 1);
         pDVar1 = &(&param_1->unk_28a0)[local_14].pos;
         pDVar1->x = pDVar1->x + 96.0;
-        AnmManager::FUN_00432ad0(g_AnmManager,&param_1->unk_28a0 + local_14);
+        AnmManager::DrawNoRotation(g_AnmManager,&param_1->unk_28a0 + local_14);
         local_40.x = local_40.x + 368.0;
         AsciiManager::AddFormatText
                   (&g_AsciiManager,&local_40,"%3d/%3d",
@@ -92,12 +92,12 @@ void ResultScreen::OnDraw(ResultScreen *param_1)
       (param_1->unk_28a0).pos.x = local_40.x;
       (param_1->unk_28a0).pos.y = local_40.y;
       (param_1->unk_28a0).pos.z = local_40.z;
-      AnmManager::FUN_00432ad0(g_AnmManager,&param_1->unk_28a0);
+      AnmManager::DrawNoRotation(g_AnmManager,&param_1->unk_28a0);
       local_40.x = local_40.x + 320.0;
       (param_1->field73_0x29b0).pos.x = local_40.x;
       (param_1->field73_0x29b0).pos.y = local_40.y;
       (param_1->field73_0x29b0).pos.z = local_40.z;
-      AnmManager::FUN_00432ad0(g_AnmManager,&param_1->field73_0x29b0);
+      AnmManager::DrawNoRotation(g_AnmManager,&param_1->field73_0x29b0);
       local_40.x = local_40.x - 320.0;
       local_40.y = local_40.y + 18.0;
       local_2c = param_1->scores[(int)param_1->field17_0x2c * 4 + param_1->field15_0x24 * 2].next;
@@ -261,7 +261,7 @@ void ResultScreen::OnDraw(ResultScreen *param_1)
   if ((9 < param_1->unk_8) && (param_1->unk_8 < 0xf)) {
     local_28 = &param_1->field49_0x1030;
     for (local_14 = 0; local_14 < 6; local_14 = local_14 + 1) {
-      AnmManager::FUN_00432ad0(g_AnmManager,local_28);
+      AnmManager::DrawNoRotation(g_AnmManager,local_28);
       local_28 = local_28 + 1;
     }
     local_40.x = (param_1->field55_0x1690).pos.x;

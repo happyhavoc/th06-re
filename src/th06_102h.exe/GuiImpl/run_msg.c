@@ -6,7 +6,6 @@ undefined4 __thiscall GuiImpl::run_msg(GuiImpl *this)
   uint uVar6;
   short *psVar7;
   int iVar8;
-  int unaff_ESI;
   short local_34;
   short local_20;
   short local_14;
@@ -59,9 +58,9 @@ undefined4 __thiscall GuiImpl::run_msg(GuiImpl *this)
         psVar7 = (short *)((int)pvVar3 + 4);
         if ((*(short *)((int)pvVar3 + 6) == 0) && (-1 < (this->msg).dialogue_lines[1].anmFileIndex))
         {
-          AnmManager::FUN_00434b60
+          AnmManager::DrawVmTextFmt
                     (g_AnmManager,(this->msg).dialogue_lines + 1,(this->msg).text_colors_A[*psVar7],
-                     (this->msg).text_colors_B[*psVar7]," ",unaff_ESI);
+                     (this->msg).text_colors_B[*psVar7]," ");
         }
         pAVar4 = g_AnmManager;
         sVar2 = *(short *)((int)pvVar3 + 6);
@@ -73,10 +72,10 @@ undefined4 __thiscall GuiImpl::run_msg(GuiImpl *this)
              *(uint8_t *)&(this->msg).font_size;
         (this->msg).dialogue_lines[*(short *)((int)pvVar3 + 6)].fontWidth =
              (this->msg).dialogue_lines[*(short *)((int)pvVar3 + 6)].fontHeight;
-        AnmManager::FUN_00434b60
+        AnmManager::DrawVmTextFmt
                   (g_AnmManager,(this->msg).dialogue_lines + *(short *)((int)pvVar3 + 6),
                    (this->msg).text_colors_A[*psVar7],(this->msg).text_colors_B[*psVar7],
-                   (char *)((int)pvVar3 + 8),unaff_ESI);
+                   (char *)((int)pvVar3 + 8));
         (this->msg).frames_elapsed_during_pause = 0;
         break;
       case 4:
@@ -108,13 +107,17 @@ undefined4 __thiscall GuiImpl::run_msg(GuiImpl *this)
         AnmManager::SetAndExecuteScript(pAVar4,&this->vm2,pAVar4->scripts[0x701]);
         (this->vm2).fontWidth = '\x10';
         (this->vm2).fontHeight = '\x10';
-        AnmManager::FUN_00434c40(g_AnmManager,&this->vm2,0xe0ffff,0,"♪%s");
-        iVar8 = PlayMidiFile(*(int *)((int)(this->msg).current_instr + 4));
+        AnmManager::FUN_00434c40
+                  (g_AnmManager,&this->vm2,0xe0ffff,0,"♪%s",
+                   (g_Stage.stdData)->song1Name +
+                   *(int *)((int)(this->msg).current_instr + 4) * 0x80);
+        iVar8 = Supervisor::PlayMidiFile(&g_Supervisor,*(int *)((int)(this->msg).current_instr + 4))
+        ;
         if (iVar8 != 0) {
           Supervisor::PlayAudio
                     (&g_Supervisor,
-                     (char *)(g_Stage.stdData +
-                             *(int *)((int)(this->msg).current_instr + 4) * 0x80 + 0x290));
+                     (g_Stage.stdData)->song1Path +
+                     *(int *)((int)(this->msg).current_instr + 4) * 0x80);
         }
         break;
       case 8:

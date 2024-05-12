@@ -34,12 +34,12 @@ Player * __thiscall Player::Player(Player *this)
     local_3c = local_3c + -1;
   } while (-1 < local_3c);
   local_48 = 2;
-  local_50 = this->field16_0x9b8;
+  local_50 = this->laserTimer;
   while (local_48 = local_48 + -1, -1 < local_48) {
     ZunTimer::Initialize(local_50);
     local_50 = local_50 + 1;
   }
-  ZunTimer::Initialize(&this->timer_related);
+  ZunTimer::Initialize(&this->focusMovementTimer);
   local_5c = 0x50;
   local_64 = &this->bullets[0].vm;
   while (local_5c = local_5c + -1, -1 < local_5c) {
@@ -47,8 +47,8 @@ Player * __thiscall Player::Player(Player *this)
     ZunTimer::Initialize(&local_64[1].currentTimeInScript);
     local_64 = (AnmVm *)(local_64[1].matrix.m[0] + 3);
   }
-  ZunTimer::Initialize(&this->field34_0x75a8);
-  ZunTimer::Initialize(&this->field35_0x75b4);
+  ZunTimer::Initialize(&this->fireBulletTimer);
+  ZunTimer::Initialize(&this->blinkingPlayerTimer);
   PlayerInner::PlayerInner(&this->inner,(PlayerInner *)this);
   return this;
 }

@@ -10,7 +10,7 @@ void AnmManager::FUN_00434e20
   long spriteSPIYPos;
   long spriteSPIXPos;
   D3DCOLOR textColor;
-  D3DCOLOR DVar1;
+  D3DCOLOR shadowColor;
   char *buf_reference;
   uint font_width;
   char buf [68];
@@ -36,13 +36,13 @@ void AnmManager::FUN_00434e20
   fontHeight = (uint)vm->fontHeight;
   fontWidth = font_width;
   textColor = color;
-  DVar1 = color2;
+  shadowColor = color2;
   spriteTextureHeight = __ftol2(vm->sprite->textureHeight);
   spriteTextureWidth = __ftol2(vm->sprite->textureWidth);
   spriteSPIYPos = __ftol2((vm->sprite->startPixelInclusive).y);
   spriteSPIXPos = __ftol2((vm->sprite->startPixelInclusive).x);
-  FUN_00434af0(AnmMgr,vm->sprite->sourceFileIndex,spriteSPIXPos,spriteSPIYPos,spriteTextureWidth,
-               spriteTextureHeight,fontWidth,fontHeight,textColor,DVar1,pcVar4);
+  DrawText(AnmMgr,vm->sprite->sourceFileIndex,spriteSPIXPos,spriteSPIYPos,spriteTextureWidth,
+           spriteTextureHeight,fontWidth,fontHeight,textColor,shadowColor,pcVar4);
   buf_reference = buf;
   do {
     current_digested_char = *buf_reference;
@@ -56,8 +56,8 @@ void AnmManager::FUN_00434e20
   spriteTextureHeight = __ftol2(vm->sprite->textureHeight);
   spriteTextureWidth = __ftol2(vm->sprite->textureWidth);
   spriteSPIYPos = __ftol2((vm->sprite->startPixelInclusive).y);
-  FUN_00434af0(AnmMgr,vm->sprite->sourceFileIndex,local_c,spriteSPIYPos,spriteTextureWidth,
-               spriteTextureHeight,font_width,fontWidth,color,color2,pcVar4);
+  DrawText(AnmMgr,vm->sprite->sourceFileIndex,local_c,spriteSPIYPos,spriteTextureWidth,
+           spriteTextureHeight,font_width,fontWidth,color,color2,pcVar4);
   *(uint *)&vm->flags = *(uint *)&vm->flags | 1;
   __security_check_cookie(local_10 ^ unaff_retaddr);
   return;

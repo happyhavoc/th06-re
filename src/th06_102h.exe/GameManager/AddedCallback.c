@@ -2,9 +2,9 @@
 ZunResult GameManager::AddedCallback(GameManager *gameManager)
 
 {
+  int iVar1;
   ushort uVar2;
   ScoreDat *scoredat;
-  int iVar3;
   ZunResult ZVar4;
   uint local_14;
   int local_10;
@@ -18,8 +18,8 @@ ZunResult GameManager::AddedCallback(GameManager *gameManager)
     gameManager->score_increment = 0;
   }
   else {
-    g_Supervisor.bombCount = g_GameManager.bombs_remaining;
-    g_Supervisor.lifeCount = g_GameManager.lives_remaining;
+    g_Supervisor.defaultConfig.bombCount = g_GameManager.bombs_remaining;
+    g_Supervisor.defaultConfig.lifeCount = g_GameManager.lives_remaining;
     (gameManager->arcade_region_top_left_pos).x = 32.0;
     (gameManager->arcade_region_top_left_pos).y = 16.0;
     (gameManager->arcade_region_size).x = 384.0;
@@ -47,7 +47,7 @@ ZunResult GameManager::AddedCallback(GameManager *gameManager)
     g_GameManager.power_item_count_for_score = 0;
     gameManager->rank = 8;
     gameManager->graze_in_total = 0;
-    *(undefined2 *)&gameManager->field_0x1816 = 0;
+    gameManager->field19_0x1816 = 0;
     local_c = gameManager->catk;
     for (local_10 = 0; local_10 < 0x40; local_10 = local_10 + 1) {
       for (local_14 = 0; local_14 < 0x20; local_14 = local_14 + 1) {
@@ -78,9 +78,9 @@ ZunResult GameManager::AddedCallback(GameManager *gameManager)
             g_GameManager.current_stage * 4 + g_GameManager.difficulty].score;
     }
     ScoreDat::Release(scoredat);
-    gameManager->rank = DifficultyInfo_ARRAY_00476564[g_GameManager.difficulty].rank;
-    gameManager->min_rank = DifficultyInfo_ARRAY_00476564[g_GameManager.difficulty].min_rank;
-    gameManager->max_rank = DifficultyInfo_ARRAY_00476564[g_GameManager.difficulty].max_rank;
+    gameManager->rank = g_DifficultyInfo[g_GameManager.difficulty].rank;
+    gameManager->min_rank = g_DifficultyInfo[g_GameManager.difficulty].min_rank;
+    gameManager->max_rank = g_DifficultyInfo[g_GameManager.difficulty].max_rank;
     gameManager->deaths = 0;
     gameManager->unk_0x24 = 0;
     gameManager->unk_0x28 = 0;
@@ -91,16 +91,16 @@ ZunResult GameManager::AddedCallback(GameManager *gameManager)
   gameManager->is_in_game_menu = 0;
   gameManager->current_stage = gameManager->current_stage + 1;
   if (g_GameManager.is_in_replay == 0) {
-    iVar3 = (uint)g_GameManager.shottype + (uint)g_GameManager.character * 2;
+    iVar1 = (uint)g_GameManager.shottype + (uint)g_GameManager.character * 2;
     if ((gameManager->num_retries == 0) &&
-       ((int)(uint)gameManager->clrd[iVar3].difficulty_cleared_with_retries
+       ((int)(uint)gameManager->clrd[iVar1].difficulty_cleared_with_retries
                    [g_GameManager.difficulty] < gameManager->current_stage + -1)) {
-      gameManager->clrd[iVar3].difficulty_cleared_with_retries[g_GameManager.difficulty] =
+      gameManager->clrd[iVar1].difficulty_cleared_with_retries[g_GameManager.difficulty] =
            (char)gameManager->current_stage - 1;
     }
-    if ((int)(uint)gameManager->clrd[iVar3].difficulty_cleared_without_retries
+    if ((int)(uint)gameManager->clrd[iVar1].difficulty_cleared_without_retries
                    [g_GameManager.difficulty] < gameManager->current_stage + -1) {
-      gameManager->clrd[iVar3].difficulty_cleared_without_retries[g_GameManager.difficulty] =
+      gameManager->clrd[iVar1].difficulty_cleared_without_retries[g_GameManager.difficulty] =
            (char)gameManager->current_stage - 1;
     }
   }
@@ -115,15 +115,15 @@ ZunResult GameManager::AddedCallback(GameManager *gameManager)
   Supervisor::LoadPbg3(&g_Supervisor,4,"紅魔郷CM.dat");
   Supervisor::LoadPbg3(&g_Supervisor,2,"紅魔郷ST.dat");
   if (g_GameManager.is_in_replay == 1) {
-    iVar3 = ReplayManager::RegisterChain(1,g_GameManager.replay_file);
-    if (iVar3 != 0) {
+    ZVar4 = ReplayManager::RegisterChain(1,g_GameManager.replay_file);
+    if (ZVar4 != ZUN_SUCCESS) {
       bVar1 = true;
     }
-    while (EXTRA_LIVES_SCORES[(char)gameManager->extra_lives] <= gameManager->gui_score) {
+    while (g_ExtraLivesScores[(char)gameManager->extra_lives] <= gameManager->gui_score) {
       gameManager->extra_lives = gameManager->extra_lives + 1;
     }
-    gameManager->min_rank = DifficultyInfo_ARRAY_00476528[g_GameManager.difficulty].min_rank;
-    gameManager->max_rank = DifficultyInfo_ARRAY_00476528[g_GameManager.difficulty].max_rank;
+    gameManager->min_rank = g_DifficultyInfoForReplay[g_GameManager.difficulty].min_rank;
+    gameManager->max_rank = g_DifficultyInfoForReplay[g_GameManager.difficulty].max_rank;
   }
   g_Rng.generationCount = 0;
   *(ushort *)&gameManager->random_seed = g_Rng.seed;
@@ -134,11 +134,10 @@ ZunResult GameManager::AddedCallback(GameManager *gameManager)
       ZVar4 = BulletManager::RegisterChain("data/etama.anm");
       if (ZVar4 == ZUN_SUCCESS) {
         ZVar4 = EnemyManager::RegisterChain
-                          ((&PTR_s_dummy_004764e8)[gameManager->current_stage * 2],
-                           (&PTR_s_dummy_004764ec)[gameManager->current_stage * 2]);
+                          (g_AnmStageFiles[gameManager->current_stage].stageName1,
+                           g_AnmStageFiles[gameManager->current_stage].stageName2);
         if (ZVar4 == ZUN_SUCCESS) {
-          ZVar4 = EclManager::FUN_00407340
-                            (&g_EclManager,(&PTR_s_dummy_004764c4)[gameManager->current_stage]);
+          ZVar4 = EclManager::Load(&g_EclManager,g_EclFiles[gameManager->current_stage]);
           if (ZVar4 == ZUN_SUCCESS) {
             ZVar4 = EffectManager::RegisterChain();
             if (ZVar4 == ZUN_SUCCESS) {
@@ -148,8 +147,8 @@ ZunResult GameManager::AddedCallback(GameManager *gameManager)
                   ReplayManager::RegisterChain(0,"replay/th6_00.rpy");
                 }
                 if (g_GameManager.demo_mode == 0) {
-                  AudioUtils::readMidiFile(1,g_Stage.stdData + 0x310);
-                  Supervisor::PlayAudio(&g_Supervisor,(char *)(g_Stage.stdData + 0x290));
+                  Supervisor::ReadMidiFile(&g_Supervisor,1,(g_Stage.stdData)->song2Path);
+                  Supervisor::PlayAudio(&g_Supervisor,(g_Stage.stdData)->song1Path);
                 }
                 gameManager->is_in_retry_menu = 0;
                 gameManager->is_in_menu = 1;

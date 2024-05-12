@@ -76,12 +76,12 @@ void Gui::OnDraw(Gui *arg)
     }
     stringPos.y = stringPos.y + 16.0;
     if (((int)g_GameManager.difficulty < 4) && (g_GameManager.is_in_practice_mode == 0)) {
-      if (g_Supervisor.lifeCount == 3) {
+      if (g_Supervisor.defaultConfig.lifeCount == 3) {
         g_AsciiManager.color = 0xffff8080;
         AsciiManager::AddFormatText(&g_AsciiManager,&stringPos,"Player Penalty * 0.5\n");
         stringPos.y = stringPos.y + 16.0;
       }
-      else if (g_Supervisor.lifeCount == 4) {
+      else if (g_Supervisor.defaultConfig.lifeCount == 4) {
         g_AsciiManager.color = 0xffff8080;
         AsciiManager::AddFormatText(&g_AsciiManager,&stringPos,"Player Penalty * 0.2\n");
         stringPos.y = stringPos.y + 16.0;

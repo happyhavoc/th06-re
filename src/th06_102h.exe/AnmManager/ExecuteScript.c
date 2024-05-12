@@ -7,15 +7,21 @@ int __thiscall AnmManager::ExecuteScript(AnmManager *this,AnmVm *vm)
   ushort uVar3;
   uint uVar4;
   float fVar5;
-  byte local_120;
-  int local_e0;
+  undefined local_120;
+  int randValue;
+  i32 scaleInterpCurTime;
+  ZunTimer *timer;
+  D3DXVECTOR3 local_84;
+  ushort local_6c;
+  ushort local_6a;
+  uint local_68;
   float local_3c;
   int local_38;
-  long local_34;
-  float local_30;
-  D3DCOLORUNION local_2c;
+  uint local_34;
+  uint local_30;
+  uint local_2c;
   D3DCOLOR local_28;
-  AnmRawInstr *local_24;
+  AnmRawInstr *nextInstr;
   uint *local_20;
   uint *local_1c;
   uint *local_18;
@@ -29,24 +35,24 @@ int __thiscall AnmManager::ExecuteScript(AnmManager *this,AnmVm *vm)
   }
   if (vm->pendingInterrupt == 0) goto LAB_00433998;
 LAB_00434098:
-  local_24 = (AnmRawInstr *)0x0;
+  nextInstr = (AnmRawInstr *)0x0;
   for (curInstr = vm->beginingOfScript;
       (((curInstr->opcode != AnmOpcode_InterruptLabel ||
         ((int)vm->pendingInterrupt != curInstr->args[0])) && (curInstr->opcode != AnmOpcode_Exit))
       && (curInstr->opcode != AnmOpcode_ExitHide));
       curInstr = (AnmRawInstr *)((int)curInstr->args + (uint)curInstr->argsCount)) {
     if ((curInstr->opcode == AnmOpcode_InterruptLabel) && (curInstr->args[0] == 0xffffffff)) {
-      local_24 = curInstr;
+      nextInstr = curInstr;
     }
   }
   vm->pendingInterrupt = 0;
   *(uint *)&vm->flags = *(uint *)&vm->flags & 0xffffdfff;
   if (curInstr->opcode != AnmOpcode_InterruptLabel) {
-    if (local_24 == (AnmRawInstr *)0x0) {
+    if (nextInstr == (AnmRawInstr *)0x0) {
       ZunTimer::Decrement(&vm->currentTimeInScript,1);
       goto LAB_00434338;
     }
-    curInstr = local_24;
+    curInstr = nextInstr;
   }
   vm->currentInstruction = (AnmRawInstr *)((int)curInstr->args + (uint)curInstr->argsCount);
   (vm->currentTimeInScript).current = (int)(short)vm->currentInstruction->time;
@@ -127,13 +133,13 @@ LAB_00433998:
     local_c = curInstr->args;
     uVar1 = *(ushort *)(curInstr->args + 1);
     if (uVar1 == 0) {
-      local_e0 = 0;
+      randValue = 0;
     }
     else {
       uVar3 = Rng::GetRandomU16(&g_Rng);
-      local_e0 = (int)((ulonglong)uVar3 % (ulonglong)(longlong)(int)(uint)uVar1);
+      randValue = (int)((ulonglong)uVar3 % (ulonglong)(longlong)(int)(uint)uVar1);
     }
-    SetActiveSprite(this,vm,*local_c + local_e0 + this->spriteIndices[vm->anmFileIndex]);
+    SetActiveSprite(this,vm,*local_c + randValue + this->spriteIndices[vm->anmFileIndex]);
     vm->timeOfLastSpriteSet = (vm->currentTimeInScript).current;
     break;
   case AnmOpcode_SetTranslation:
@@ -296,29 +302,29 @@ LAB_00434338:
       (vm->alphaInterpTime).previous = (vm->alphaInterpTime).current;
       Supervisor::TickTimer
                 (&g_Supervisor,&(vm->alphaInterpTime).current,&(vm->alphaInterpTime).subFrame);
-      local_2c.color = vm->alphaInterpInitial;
+      local_2c = vm->alphaInterpInitial;
       local_28 = vm->alphaInterpFinal;
-      local_30 = ((float)(vm->alphaInterpTime).current + (vm->alphaInterpTime).subFrame) /
-                 (float)(int)(short)vm->alphaInterpEndTime;
-      if (1.0 <= local_30) {
-        local_30 = 1.0;
+      local_30 = (uint)(((float)(vm->alphaInterpTime).current + (vm->alphaInterpTime).subFrame) /
+                       (float)(int)(short)vm->alphaInterpEndTime);
+      if (1.0 <= (float)local_30) {
+        local_30 = 0x3f800000;
       }
       for (local_38 = 0; local_38 < 4; local_38 = local_38 + 1) {
         local_34 = __ftol2(((float)(uint)*(byte *)((int)&local_28 + local_38) -
-                           (float)(uint)local_2c.bytes[local_38]) * local_30 +
-                           (float)(uint)local_2c.bytes[local_38]);
-        if (local_34 < 0) {
+                           (float)(uint)*(byte *)((int)&local_2c + local_38)) * (float)local_30 +
+                           (float)(uint)*(byte *)((int)&local_2c + local_38));
+        if ((int)local_34 < 0) {
           local_34 = 0;
         }
-        if (local_34 < 0x100) {
-          local_120 = (byte)local_34;
+        if ((int)local_34 < 0x100) {
+          local_120 = (undefined)local_34;
         }
         else {
           local_120 = 0xff;
         }
-        local_2c.bytes[local_38] = local_120;
+        *(undefined *)((int)&local_2c + local_38) = local_120;
       }
-      vm->color = local_2c;
+      (vm->color).color = local_2c;
       if ((int)(short)vm->alphaInterpEndTime <= (vm->alphaInterpTime).current) {
         vm->alphaInterpEndTime = 0;
       }

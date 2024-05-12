@@ -20,9 +20,9 @@ void FUN_0040bb80(Enemy *param_1,EclRawInstr *param_2)
       g_EnemyX = (param_1->position).x;
       g_EnemyY = (param_1->position).y;
       g_EnemyZ = (param_1->position).z;
-      g_PlayerX = g_Player.position.x;
-      g_PlayerY = g_Player.position.y;
-      g_PlayerZ = g_Player.position.z;
+      g_PlayerX = g_Player.positionCenter.x;
+      g_PlayerY = g_Player.positionCenter.y;
+      g_PlayerZ = g_Player.positionCenter.z;
       fVar8 = Rng::GetRandomF32ZeroToOne(&g_Rng);
       FLOAT_ARRAY_00487edc[0] = fVar8 * 6.283185 - 3.141593;
       FLOAT_ARRAY_00487edc[1] = AddNormalizeAngle(FLOAT_ARRAY_00487edc[0],2.513274);

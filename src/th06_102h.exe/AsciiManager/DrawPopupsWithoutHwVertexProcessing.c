@@ -27,7 +27,7 @@ void __thiscall AsciiManager::DrawPopupsWithoutHwVertexProcessing(AsciiManager *
         else {
           (this->vm1).matrix.m[0][0] = 0.1875;
           (this->vm1).matrix.m[1][1] = 0.03125;
-          AnmManager::FUN_00432ad0(g_AnmManager,&this->vm1);
+          AnmManager::DrawNoRotation(g_AnmManager,&this->vm1);
           (this->vm1).matrix.m[0][0] = 0.03125;
           (this->vm1).matrix.m[1][1] = 0.03125;
         }

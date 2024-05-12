@@ -22,8 +22,8 @@ ZunResult __thiscall GuiImpl::FUN_004190ec(GuiImpl *this)
                  g_GameManager.arcade_region_top_left_pos.x) - 16.0;
     local_5c.y = 384.0;
     local_5c.z = 0.0;
-    AnmManager::FUN_00432ad0(g_AnmManager,(this->msg).portraits);
-    AnmManager::FUN_00432ad0(g_AnmManager,(this->msg).portraits + 1);
+    AnmManager::DrawNoRotation(g_AnmManager,(this->msg).portraits);
+    AnmManager::DrawNoRotation(g_AnmManager,(this->msg).portraits + 1);
     if ((g_Supervisor.cfg.opts >> NO_COLOR_COMP & 1) == 0) {
       (*(g_Supervisor.d3dDevice)->lpVtbl->SetTextureStageState)
                 (g_Supervisor.d3dDevice,0,D3DTSS_ALPHAOP,2);
@@ -55,10 +55,10 @@ ZunResult __thiscall GuiImpl::FUN_004190ec(GuiImpl *this)
               (g_Supervisor.d3dDevice,0,D3DTSS_ALPHAARG1,2);
     (*(g_Supervisor.d3dDevice)->lpVtbl->SetTextureStageState)
               (g_Supervisor.d3dDevice,0,D3DTSS_COLORARG1,2);
-    AnmManager::FUN_00432ad0(g_AnmManager,(this->msg).dialogue_lines);
-    AnmManager::FUN_00432ad0(g_AnmManager,(this->msg).dialogue_lines + 1);
-    AnmManager::FUN_00432ad0(g_AnmManager,(this->msg).intro_lines);
-    AnmManager::FUN_00432ad0(g_AnmManager,(this->msg).intro_lines + 1);
+    AnmManager::DrawNoRotation(g_AnmManager,(this->msg).dialogue_lines);
+    AnmManager::DrawNoRotation(g_AnmManager,(this->msg).dialogue_lines + 1);
+    AnmManager::DrawNoRotation(g_AnmManager,(this->msg).intro_lines);
+    AnmManager::DrawNoRotation(g_AnmManager,(this->msg).intro_lines + 1);
     uVar1 = ZUN_SUCCESS;
   }
   return uVar1;

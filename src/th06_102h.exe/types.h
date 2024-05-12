@@ -458,6 +458,14 @@ struct AnmRawInstr {
     uint args[10];
 };
 
+typedef struct PlayerUnknown PlayerUnknown, *PPlayerUnknown;
+
+struct PlayerUnknown {
+    float whatisthis;
+    float field1_0x4;
+    float field2_0x8;
+};
+
 typedef struct ChainElem ChainElem, *PChainElem;
 
 typedef enum ChainCallbackResult {
@@ -1039,6 +1047,31 @@ struct AsciiManagerString {
     undefined4 isGui;
 };
 
+typedef struct StageBgAnmStd StageBgAnmStd, *PStageBgAnmStd;
+
+struct StageBgAnmStd {
+    char *bgAnmPath;
+    char *stageStdPath;
+};
+
+typedef struct CharacterPowerBulletData CharacterPowerBulletData, *PCharacterPowerBulletData;
+
+struct CharacterPowerBulletData {
+    ushort waitBetweenBullets;
+    ushort bulletFrame;
+    float field2_0x4;
+    float field3_0x8;
+    float field4_0xc;
+    float field5_0x10;
+    float field6_0x14;
+    float field7_0x18;
+    ushort field8_0x1c;
+    byte spawnPositionIdx;
+    byte bulletType;
+    ushort field11_0x20;
+    ushort field12_0x22;
+};
+
 typedef enum EclValueType {
     ECL_VALUE_TYPE_INT=0,
     EVL_VALUE_TYPE_FLOAT=1,
@@ -1046,24 +1079,29 @@ typedef enum EclValueType {
     ECL_VALUE_TYPE_UNDEFINED=3
 } EclValueType;
 
+typedef enum FireBulletResult {
+    STOP_SPAWNING=-2,
+    SPAWN_MORE=-1,
+    UNK=0
+} FireBulletResult;
+
 typedef struct PlayerBullet PlayerBullet, *PPlayerBullet;
+
+typedef float f32;
 
 struct PlayerBullet {
     struct AnmVm vm;
-    D3DXVECTOR3 field1_0x110;
-    D3DXVECTOR3 field2_0x11c;
-    float field3_0x128;
-    float field4_0x12c;
-    float field5_0x130;
-    float field6_0x134;
-    float field7_0x138;
-    float field8_0x13c;
-    struct ZunTimer field9_0x140;
-    short field10_0x14c;
-    short field11_0x14e;
-    short field12_0x150;
-    short field13_0x152;
-    short field14_0x154;
+    D3DXVECTOR3 position;
+    D3DXVECTOR3 size;
+    struct D3DXVECTOR2 velocity;
+    f32 sidewaysMotion;
+    D3DXVECTOR3 unk_134;
+    struct ZunTimer unk_140;
+    short unk_14c;
+    short bulletState;
+    short bulletType;
+    short field10_0x152;
+    short field11_0x154;
 };
 
 typedef struct Item Item, *PItem;
@@ -1118,17 +1156,6 @@ struct UnkVars476264 {
     int var1;
     int var2;
     int var3;
-};
-
-typedef struct ShottypeData ShottypeData, *PShottypeData;
-
-struct ShottypeData {
-    float field0_0x0;
-    float field1_0x4;
-    float field2_0x8;
-    float field3_0xc;
-    void *field4_0x10;
-    void *field5_0x14;
 };
 
 typedef struct AsciiManager AsciiManager, *PAsciiManager;
@@ -1583,26 +1610,17 @@ struct GuiImpl {
 
 typedef struct PlayerInner PlayerInner, *PPlayerInner;
 
-typedef struct PlayerUnknown PlayerUnknown, *PPlayerUnknown;
-
-struct PlayerUnknown {
-    float field0_0x0;
-    float field1_0x4;
-    float field2_0x8;
-};
-
 struct PlayerInner {
-    int field0_0x0;
-    int field1_0x4;
-    struct ZunTimer field2_0x8;
+    int isUsingBomb;
+    int unk4;
+    struct ZunTimer unk8;
     void *bombCalc;
     void *bombDraw;
-    undefined field5_0x1c[64];
-    struct PlayerUnknown field6_0x5c[4]; /* pubg reference??? */
-    undefined field7_0x8c[48];
-    int field8_0xbc[8];
-    undefined field9_0xdc[64];
-    struct AnmVm field10_0x11c[32];
+    int unk1c[8];
+    float unk3c[8];
+    D3DXVECTOR3 unk5c[8];
+    D3DXVECTOR3 unkbc[8];
+    struct AnmVm vms[8][4];
 };
 
 typedef struct Pbg3FileName Pbg3FileName, *PPbg3FileName;
@@ -1610,6 +1628,18 @@ typedef struct Pbg3FileName Pbg3FileName, *PPbg3FileName;
 struct Pbg3FileName {
     byte filename[32];
 };
+
+typedef enum PlayerDirection {
+    MOVEMENT_NONE=0,
+    MOVEMENT_UP=1,
+    MOVEMENT_DOWN=2,
+    MOVEMENT_LEFT=3,
+    MOVEMENT_RIGHT=4,
+    MOVEMENT_UP_LEFT=5,
+    MOVEMENT_UP_RIGHT=6,
+    MOVEMENT_DOWN_LEFT=7,
+    MOVEMENT_DOWN_RIGHT=8
+} PlayerDirection;
 
 typedef struct ReplayData ReplayData, *PReplayData;
 
@@ -1706,49 +1736,73 @@ struct GameWindow {
     uint power_off_active;
 };
 
+typedef struct CharacterData CharacterData, *PCharacterData;
+
 typedef struct Player Player, *PPlayer;
 
-typedef byte u8;
+typedef enum PlayerState {
+    PLAYER_STATE_ALIVE=0,
+    PLAYER_STATE_SPAWNING=1,
+    PLAYER_STATE_DEAD=2,
+    PLAYER_STATE_USING_BOMB=3
+} PlayerState;
+
+typedef enum ExtraBulletSpawnState {
+    EXTRA_BULLET_NONE=0,
+    EXTRA_BULLET_UNFOCUSED=1,
+    EXTRA_BULLET_FOCUSING=2,
+    EXTRA_BULLET_FULLY_FOCUSED=3,
+    EXTRA_BULLET_UNFOCUSING=4
+} ExtraBulletSpawnState;
+
+struct CharacterData {
+    float orthogonalMovementSpeed;
+    float orthogonalMovementSpeedFocus;
+    float diagonalMovementSpeed;
+    float diagonalMovementSpeedFocus;
+    FireBulletResult (*fireBulletCallback)(struct Player *, struct PlayerBullet *, u32, u32);
+    FireBulletResult (*fireBulletFocusCallback)(struct Player *, struct PlayerBullet *, u32, u32);
+};
 
 struct Player {
     struct AnmVm vm0;
     struct AnmVm vm1[3];
-    D3DXVECTOR3 position;
-    u8 field3_0x44c[12];
-    D3DXVECTOR3 field4_0x458;
-    D3DXVECTOR3 field5_0x464;
-    D3DXVECTOR3 field6_0x470;
-    D3DXVECTOR3 field7_0x47c;
-    D3DXVECTOR3 field8_0x488;
-    D3DXVECTOR3 field9_0x494;
-    D3DXVECTOR3 field10_0x4a0[2];
-    D3DXVECTOR3 field11_0x4b8[32];
-    D3DXVECTOR3 field12_0x638[32];
-    int field13_0x7b8[32];
-    int field14_0x838[32];
-    struct PlayerRect field15_0x8b8[16];
-    struct ZunTimer field16_0x9b8[2];
-    float field17_0x9d0;
-    float field18_0x9d4;
-    int field19_0x9d8;
-    int field20_0x9dc;
-    byte field21_0x9e0;
-    byte field22_0x9e1;
-    byte field23_0x9e2;
-    byte field24_0x9e3;
-    byte field25_0x9e4;
-    struct ZunTimer timer_related;
-    struct ShottypeData field27_0x9f4;
-    int field28_0xa0c;
-    float field29_0xa10;
-    int field30_0xa14;
-    short field31_0xa18;
+    D3DXVECTOR3 positionCenter;
+    D3DXVECTOR3 unk_44c;
+    D3DXVECTOR3 hitboxTopLeft;
+    D3DXVECTOR3 hitboxBottomRight;
+    D3DXVECTOR3 grabItemTopLeft;
+    D3DXVECTOR3 grabItemBottomRight;
+    D3DXVECTOR3 hitboxSize;
+    D3DXVECTOR3 grabItemSize;
+    D3DXVECTOR3 bulletSpawnPositions[2];
+    D3DXVECTOR3 unk_4b8[32];
+    D3DXVECTOR3 unk_638[32];
+    int unk_7b8[32];
+    int unk_838[32];
+    struct PlayerRect unk_8b8[16];
+    struct ZunTimer laserTimer[2];
+    float horizontalMovementSpeedMultiplierDuringBomb;
+    float verticalMovementSpeedMultiplierDuringBomb;
+    int respawnTimer;
+    int unk_9dc;
+    enum PlayerState playerState;
+    byte unk_9e1;
+    enum ExtraBulletSpawnState extraBulletSpawnState;
+    byte isFocus;
+    byte unk_9e4;
+    struct ZunTimer focusMovementTimer;
+    struct CharacterData characterData;
+    enum PlayerDirection playerDirection;
+    float unk_a10;
+    int unk_a14;
+    short unk_a18;
     D3DXVECTOR3 position_of_last_enemy_hit;
     struct PlayerBullet bullets[80];
-    struct ZunTimer field34_0x75a8;
-    struct ZunTimer field35_0x75b4;
-    void *field36_0x75c0;
-    void *field37_0x75c4;
+    struct ZunTimer fireBulletTimer;
+    struct ZunTimer blinkingPlayerTimer;
+    FireBulletResult (*fireBulletCallback)(struct Player *, struct PlayerBullet *, u32, u32);
+    FireBulletResult (*fireBulletFocusCallback)(struct Player *, struct PlayerBullet *, u32, u32);
     struct PlayerInner inner;
     struct ChainElem *onTick;
     struct ChainElem *onDraw1;
@@ -1771,6 +1825,27 @@ struct Gui {
     float boss_health_bar2;
 };
 
+typedef struct RawStdHeader RawStdHeader, *PRawStdHeader;
+
+typedef ushort u16;
+
+struct RawStdHeader {
+    u16 nbObjects;
+    u16 nbFaces;
+    u32 facesOffset;
+    u32 scriptOffset;
+    u32 unk_c;
+    char stageName[128];
+    char song1Name[128];
+    char song2Name[128];
+    char song3Name[128];
+    char song4Name[128];
+    char song1Path[128];
+    char song2Path[128];
+    char song3Path[128];
+    char song4Path[128];
+};
+
 typedef struct Chain Chain, *PChain;
 
 struct Chain {
@@ -1778,6 +1853,13 @@ struct Chain {
     struct ChainElem drawChain;
     DWORD midiOutputDeviceCount;
     undefined4 unk;
+};
+
+typedef struct StageAnms StageAnms, *PStageAnms;
+
+struct StageAnms {
+    char *stageName1;
+    char *stageName2;
 };
 
 typedef struct ScoreListNode ScoreListNode, *PScoreListNode;
@@ -4392,62 +4474,7 @@ struct Supervisor {
     D3DVIEWPORT8 viewport;
     D3DPRESENT_PARAMETERS presentParameters;
     struct GameConfiguration cfg;
-    undefined field13_0x14c;
-    undefined field14_0x14d;
-    undefined field15_0x14e;
-    undefined field16_0x14f;
-    undefined field17_0x150;
-    undefined field18_0x151;
-    undefined field19_0x152;
-    undefined field20_0x153;
-    undefined field21_0x154;
-    undefined field22_0x155;
-    undefined field23_0x156;
-    undefined field24_0x157;
-    undefined field25_0x158;
-    undefined field26_0x159;
-    undefined field27_0x15a;
-    undefined field28_0x15b;
-    undefined field29_0x15c;
-    undefined field30_0x15d;
-    undefined field31_0x15e;
-    undefined field32_0x15f;
-    undefined field33_0x160;
-    undefined field34_0x161;
-    undefined field35_0x162;
-    undefined field36_0x163;
-    byte lifeCount;
-    byte bombCount;
-    undefined field39_0x166;
-    undefined field40_0x167;
-    undefined field41_0x168;
-    undefined field42_0x169;
-    undefined field43_0x16a;
-    undefined field44_0x16b;
-    undefined field45_0x16c;
-    undefined field46_0x16d;
-    undefined field47_0x16e;
-    undefined field48_0x16f;
-    undefined field49_0x170;
-    undefined field50_0x171;
-    undefined field51_0x172;
-    undefined field52_0x173;
-    undefined field53_0x174;
-    undefined field54_0x175;
-    undefined field55_0x176;
-    undefined field56_0x177;
-    undefined field57_0x178;
-    undefined field58_0x179;
-    undefined field59_0x17a;
-    undefined field60_0x17b;
-    undefined field61_0x17c;
-    undefined field62_0x17d;
-    undefined field63_0x17e;
-    undefined field64_0x17f;
-    undefined field65_0x180;
-    undefined field66_0x181;
-    undefined field67_0x182;
-    undefined field68_0x183;
+    struct GameConfiguration defaultConfig;
     int calcCount;
     int wantedState;
     int curState;
@@ -4467,7 +4494,7 @@ struct Supervisor {
     byte hasD3dHardwareVertexProcessing;
     byte lockableBackbuffer;
     byte colorMode16Bits;
-    undefined field88_0x3ff;
+    undefined field33_0x3ff;
     uint startup_time_for_menu_music;
     D3DCAPS8 d3dCaps;
 };
@@ -5091,8 +5118,7 @@ struct GameManager {
     undefined field16_0x1812;
     undefined field17_0x1813;
     ushort point_items_collected_in_stage;
-    undefined field19_0x1816;
-    undefined field20_0x1817;
+    ushort field19_0x1816;
     byte num_retries;
     byte power_item_count_for_score;
     byte lives_remaining;
@@ -5111,7 +5137,7 @@ struct GameManager {
     byte unk_1827;
     int demo_frames;
     char replay_file[256];
-    undefined field39_0x192c[256];
+    undefined field38_0x192c[256];
     int random_seed;
     uint game_frames;
     int current_stage;
@@ -16781,7 +16807,7 @@ struct StageCameraSky {
 
 struct Stage {
     struct AnmVm *quadVms;
-    byte *stdData;
+    struct RawStdHeader *stdData;
     int quadCount;
     int objectsCount;
     struct StdRawObject **objects;
@@ -16828,9 +16854,7 @@ struct unk {
     int unkc;
 };
 
-typedef ushort u16;
-
-typedef float f32;
+typedef byte u8;
 
 typedef short i16;
 
@@ -16873,61 +16897,6 @@ struct UnknownSub3c {
     int field13_0x34;
     int field14_0x38;
     float field15_0x3c;
-};
-
-typedef struct astruct astruct, *Pastruct;
-
-struct astruct {
-    undefined field0_0x0;
-    undefined field1_0x1;
-    undefined field2_0x2;
-    undefined field3_0x3;
-    undefined field4_0x4;
-    undefined field5_0x5;
-    undefined field6_0x6;
-    undefined field7_0x7;
-    undefined field8_0x8;
-    undefined field9_0x9;
-    undefined field10_0xa;
-    undefined field11_0xb;
-    undefined field12_0xc;
-    undefined field13_0xd;
-    undefined field14_0xe;
-    undefined field15_0xf;
-    undefined field16_0x10;
-    undefined field17_0x11;
-    undefined field18_0x12;
-    undefined field19_0x13;
-    short *field20_0x14;
-    undefined field21_0x18;
-    undefined field22_0x19;
-    undefined field23_0x1a;
-    undefined field24_0x1b;
-    undefined field25_0x1c;
-    undefined field26_0x1d;
-    undefined field27_0x1e;
-    undefined field28_0x1f;
-    undefined field29_0x20;
-    undefined field30_0x21;
-    undefined field31_0x22;
-    undefined field32_0x23;
-    undefined field33_0x24;
-    undefined field34_0x25;
-    undefined field35_0x26;
-    undefined field36_0x27;
-    undefined field37_0x28;
-    undefined field38_0x29;
-    undefined field39_0x2a;
-    undefined field40_0x2b;
-    undefined field41_0x2c;
-    undefined field42_0x2d;
-    undefined field43_0x2e;
-    undefined field44_0x2f;
-    undefined field45_0x30;
-    undefined field46_0x31;
-    undefined field47_0x32;
-    undefined field48_0x33;
-    short *field49_0x34;
 };
 
 typedef struct Unknown Unknown, *PUnknown;
@@ -17003,6 +16972,69 @@ struct Unknown { /* Old variant of AnmVm (TODO remove me) */
     struct AnmLoadedSprite *field67_0xc0;
 };
 
+typedef struct CharacterPowerData CharacterPowerData, *PCharacterPowerData;
+
+struct CharacterPowerData {
+    int numBullets;
+    int power;
+    struct CharacterPowerBulletData *bullets;
+};
+
+typedef struct astruct astruct, *Pastruct;
+
+struct astruct {
+    undefined field0_0x0;
+    undefined field1_0x1;
+    undefined field2_0x2;
+    undefined field3_0x3;
+    undefined field4_0x4;
+    undefined field5_0x5;
+    undefined field6_0x6;
+    undefined field7_0x7;
+    undefined field8_0x8;
+    undefined field9_0x9;
+    undefined field10_0xa;
+    undefined field11_0xb;
+    undefined field12_0xc;
+    undefined field13_0xd;
+    undefined field14_0xe;
+    undefined field15_0xf;
+    undefined field16_0x10;
+    undefined field17_0x11;
+    undefined field18_0x12;
+    undefined field19_0x13;
+    short *field20_0x14;
+    undefined field21_0x18;
+    undefined field22_0x19;
+    undefined field23_0x1a;
+    undefined field24_0x1b;
+    undefined field25_0x1c;
+    undefined field26_0x1d;
+    undefined field27_0x1e;
+    undefined field28_0x1f;
+    undefined field29_0x20;
+    undefined field30_0x21;
+    undefined field31_0x22;
+    undefined field32_0x23;
+    undefined field33_0x24;
+    undefined field34_0x25;
+    undefined field35_0x26;
+    undefined field36_0x27;
+    undefined field37_0x28;
+    undefined field38_0x29;
+    undefined field39_0x2a;
+    undefined field40_0x2b;
+    undefined field41_0x2c;
+    undefined field42_0x2d;
+    undefined field43_0x2e;
+    undefined field44_0x2f;
+    undefined field45_0x30;
+    undefined field46_0x31;
+    undefined field47_0x32;
+    undefined field48_0x33;
+    short *field49_0x34;
+};
+
 typedef struct CD3DXImage CD3DXImage, *PCD3DXImage;
 
 struct CD3DXImage {
@@ -17022,6 +17054,10 @@ struct CD3DXImage {
     undefined4 field13_0x28;
     undefined4 field14_0x2c;
 };
+
+typedef void *__gnuc_va_list;
+
+typedef __gnuc_va_list va_list;
 
 typedef struct IMAGE_DOS_HEADER IMAGE_DOS_HEADER, *PIMAGE_DOS_HEADER;
 
@@ -50937,7 +50973,8 @@ struct _complex {
 
 #define UNDERFLOW 4
 
-typedef char *va_list;
+
+/* WARNING! conflicting data type names: /deps/vadefs.h/va_list - /stdarg.h/va_list */
 
 typedef uint uintptr_t;
 

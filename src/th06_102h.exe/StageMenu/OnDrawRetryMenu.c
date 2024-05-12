@@ -16,7 +16,7 @@ void __thiscall StageMenu::OnDrawRetryMenu(StageMenu *this)
               (g_Supervisor.d3dDevice,(D3DVIEWPORT8 *)0x6c6de0);
     if ((g_Supervisor.lockableBackbuffer != 0) && ((this->curState != 0 || (2 < this->numFrames))))
     {
-      AnmManager::FUN_00432ad0(g_AnmManager,&this->vm1);
+      AnmManager::DrawNoRotation(g_AnmManager,&this->vm1);
     }
     if ((this->curState == 1) || (this->curState == 2)) {
       pAVar2 = this->vms0 + 1;
@@ -29,11 +29,11 @@ void __thiscall StageMenu::OnDrawRetryMenu(StageMenu *this)
       this->vms0[4].pos.x = this->vms0[4].scaleX * 8.0 + this->vms0[4].pos.x;
       this->vms0[4].sprite =
            (AnmLoadedSprite *)((int)g_AnmManager + (0x1e - (uint)g_GameManager.num_retries) * 0x38);
-      AnmManager::FUN_00432ad0(g_AnmManager,this->vms0 + 4);
+      AnmManager::DrawNoRotation(g_AnmManager,this->vms0 + 4);
     }
     for (local_8 = 0; local_8 < 4; local_8 = local_8 + 1) {
       if ((*(uint *)&this->vms0[local_8].flags & 1) != 0) {
-        AnmManager::FUN_00432ad0(g_AnmManager,this->vms0 + local_8);
+        AnmManager::DrawNoRotation(g_AnmManager,this->vms0 + local_8);
       }
     }
   }

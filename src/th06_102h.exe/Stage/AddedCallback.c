@@ -1,9 +1,8 @@
 
-int __thiscall Stage::AddedCallback(Stage *this,Stage *arg)
+ZunResult Stage::AddedCallback(Stage *arg)
 
 {
   ZunResult ZVar1;
-  int iVar2;
   
   (arg->scriptTime).current = 0;
   (arg->scriptTime).subFrame = 0.0;
@@ -37,11 +36,11 @@ int __thiscall Stage::AddedCallback(Stage *this,Stage *arg)
               (g_Supervisor.d3dDevice,D3DRS_FOGSTART,(DWORD)(arg->skyFog).nearPlane);
     (*(g_Supervisor.d3dDevice)->lpVtbl->SetRenderState)
               (g_Supervisor.d3dDevice,D3DRS_FOGEND,(DWORD)(arg->skyFog).farPlane);
-    iVar2 = 0;
+    ZVar1 = ZUN_SUCCESS;
   }
   else {
-    iVar2 = -1;
+    ZVar1 = ZUN_ERROR;
   }
-  return iVar2;
+  return ZVar1;
 }
 

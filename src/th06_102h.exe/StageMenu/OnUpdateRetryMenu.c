@@ -134,8 +134,8 @@ int __thiscall StageMenu::OnUpdateRetryMenu(StageMenu *this)
       g_GameManager.graze_in_stage = 0;
       g_GameManager.current_power = 0;
       g_GameManager.point_items_collected_in_stage = 0;
-      g_GameManager.lives_remaining = g_Supervisor.lifeCount;
-      g_GameManager.bombs_remaining = g_Supervisor.bombCount;
+      g_GameManager.lives_remaining = g_Supervisor.defaultConfig.lifeCount;
+      g_GameManager.bombs_remaining = g_Supervisor.defaultConfig.bombCount;
       g_GameManager.extra_lives = 0;
       return 0;
     }

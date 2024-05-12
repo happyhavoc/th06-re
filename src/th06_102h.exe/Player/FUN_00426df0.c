@@ -18,17 +18,18 @@ undefined4 __thiscall Player::FUN_00426df0(Player *this,D3DXVECTOR3 *param_1,D3D
   fVar4 = (param_1->y - param_2->y / 2.0) - 20.0;
   fVar2 = param_2->x / 2.0 + param_1->x + 20.0;
   fVar5 = param_2->y / 2.0 + param_1->y + 20.0;
-  local_30 = this->field15_0x8b8;
+  local_30 = this->unk_8b8;
   local_14 = 0;
   do {
     if (0xf < local_14) {
-      if ((this->field21_0x9e0 == 2) || (this->field21_0x9e0 == 1)) {
+      if ((this->playerState == PLAYER_STATE_DEAD) || (this->playerState == PLAYER_STATE_SPAWNING))
+      {
         uVar7 = 0;
       }
-      else if ((((fVar2 < (this->field4_0x458).x) ||
-                (fVar2 = (this->field5_0x464).x, fVar2 < fVar3 != (NAN(fVar2) || NAN(fVar3)))) ||
-               (fVar5 < (this->field4_0x458).y)) ||
-              (fVar3 = (this->field5_0x464).y, fVar3 < fVar4 != (NAN(fVar3) || NAN(fVar4)))) {
+      else if ((((fVar2 < (this->hitboxTopLeft).x) ||
+                (fVar2 = (this->hitboxBottomRight).x, fVar2 < fVar3 != (NAN(fVar2) || NAN(fVar3))))
+               || (fVar5 < (this->hitboxTopLeft).y)) ||
+              (fVar3 = (this->hitboxBottomRight).y, fVar3 < fVar4 != (NAN(fVar3) || NAN(fVar4)))) {
         uVar7 = 0;
       }
       else {

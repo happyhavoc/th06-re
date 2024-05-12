@@ -1,5 +1,5 @@
 
-ZunResult __thiscall AnmManager::FUN_00432ad0(AnmManager *this,AnmVm *vm)
+ZunResult __thiscall AnmManager::DrawNoRotation(AnmManager *this,AnmVm *vm)
 
 {
   float fVar1;
@@ -41,7 +41,7 @@ ZunResult __thiscall AnmManager::FUN_00432ad0(AnmManager *this,AnmVm *vm)
     g_PrimitivesToDrawVertexBuf[0].pos.y = g_PrimitivesToDrawVertexBuf[1].pos.y;
     g_PrimitivesToDrawVertexBuf[1].pos.x = g_PrimitivesToDrawVertexBuf[3].pos.x;
     g_PrimitivesToDrawVertexBuf[2].pos.y = g_PrimitivesToDrawVertexBuf[3].pos.y;
-    ZVar4 = FUN_00432730(this,vm,1);
+    ZVar4 = DrawInner(this,vm,1);
   }
   return ZVar4;
 }

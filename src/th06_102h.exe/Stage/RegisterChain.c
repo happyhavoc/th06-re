@@ -11,7 +11,7 @@ ZunResult Stage::RegisterChain(uint stage)
     pSVar3->quadVms = (AnmVm *)0x0;
     pSVar3 = (Stage *)&pSVar3->stdData;
   }
-  g_Stage.stdData = (byte *)0x0;
+  g_Stage.stdData = (RawStdHeader *)0x0;
   g_Stage.timer.current = 0;
   g_Stage.timer.subFrame = 0.0;
   g_Stage.timer.previous = -999;

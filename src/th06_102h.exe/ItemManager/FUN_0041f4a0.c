@@ -25,9 +25,9 @@ void __thiscall ItemManager::FUN_0041f4a0(ItemManager *this)
   
   if ((DAT_0069e240 & 1) == 0) {
     DAT_0069e240 = DAT_0069e240 | 1;
-    FLOAT_0069e234 = 16.0;
-    FLOAT_0069e238 = 16.0;
-    FLOAT_0069e23c = 16.0;
+    g_ItemSize.x = 16.0;
+    g_ItemSize.y = 16.0;
+    g_ItemSize.z = 16.0;
   }
   bVar7 = false;
   this->item_count = 0;
@@ -64,7 +64,7 @@ void __thiscall ItemManager::FUN_0041f4a0(ItemManager *this)
       else {
         if ((curItem->state == 1) ||
            ((0x7f < g_GameManager.current_power &&
-            (g_Player.position.y < 128.0 != NAN(g_Player.position.y))))) {
+            (g_Player.positionCenter.y < 128.0 != NAN(g_Player.positionCenter.y))))) {
           fVar7 = Player::FUN_00428700(&g_Player,&curItem->position);
           fVar4 = (float10)fcos((float10)fVar7);
           fVar10 = (float10)fsin((float10)fVar7);
@@ -104,7 +104,7 @@ LAB_0041f7c5:
                g_Supervisor.effectiveFramerateMultiplier * 0.03 + (curItem->velocity).y;
         }
       }
-      iVar8 = Player::CalcBoxCollision(&curItem->position,&FLOAT_0069e234);
+      iVar8 = Player::CalcBoxCollision(&g_Player,&curItem->position,&g_ItemSize);
       if (iVar8 == 0) {
         (curItem->timer).previous = (curItem->timer).current;
         Supervisor::TickTimer(&g_Supervisor,&(curItem->timer).current,&(curItem->timer).subFrame);
@@ -213,7 +213,7 @@ LAB_0041f7c5:
           g_GameManager.score = g_GameManager.score + local_c;
           g_GameManager.point_items_collected_in_stage =
                g_GameManager.point_items_collected_in_stage + 1;
-          g_GameManager._6166_2_ = g_GameManager._6166_2_ + 1;
+          g_GameManager.field19_0x1816 = g_GameManager.field19_0x1816 + 1;
           g_Gui.flags = g_Gui.flags & 0xfffffcff | 0x200;
           fVar7 = (curItem->position).y;
           if (fVar7 < 128.0 == NAN(fVar7)) {
@@ -289,7 +289,7 @@ LAB_0041f7c5:
           break;
         case ITEM_POINT_BULLET:
           local_c = ((int)g_GameManager.graze_in_stage / 3) * 10 + 500;
-          if (g_Player.inner.field0_0x0 != 0) {
+          if (g_Player.inner.isUsingBomb != 0) {
             local_c = 100;
           }
           g_GameManager.score = g_GameManager.score + local_c;

@@ -1,5 +1,6 @@
 
-void AnmManager::FUN_00434c40(AnmManager *this,AnmVm *vm,D3DCOLOR color1,D3DCOLOR color2,char *text)
+void AnmManager::FUN_00434c40
+               (AnmManager *this,AnmVm *vm,D3DCOLOR textColor,D3DCOLOR shadowColor,char *text,...)
 
 {
   uint fontHeight;
@@ -7,8 +8,8 @@ void AnmManager::FUN_00434c40(AnmManager *this,AnmVm *vm,D3DCOLOR color1,D3DCOLO
   long textureWidth;
   long yPos;
   long xPos;
-  D3DCOLOR textColor;
-  D3DCOLOR DVar1;
+  D3DCOLOR textColor_00;
+  D3DCOLOR shadowColor_00;
   char *local_60;
   uint fontWidth;
   char buf [68];
@@ -33,14 +34,14 @@ void AnmManager::FUN_00434c40(AnmManager *this,AnmVm *vm,D3DCOLOR color1,D3DCOLO
   pcVar9 = " ";
   fontHeight = (uint)vm->fontHeight;
   fontWidth2 = fontWidth;
-  textColor = color1;
-  DVar1 = color2;
+  textColor_00 = textColor;
+  shadowColor_00 = shadowColor;
   textureHeight = __ftol2(vm->sprite->textureHeight);
   textureWidth = __ftol2(vm->sprite->textureWidth);
   yPos = __ftol2((vm->sprite->startPixelInclusive).y);
   xPos = __ftol2((vm->sprite->startPixelInclusive).x);
-  FUN_00434af0(this,vm->sprite->sourceFileIndex,xPos,yPos,textureWidth,textureHeight,fontWidth2,
-               fontHeight,textColor,DVar1,pcVar9);
+  DrawText(this,vm->sprite->sourceFileIndex,xPos,yPos,textureWidth,textureHeight,fontWidth2,
+           fontHeight,textColor_00,shadowColor_00,pcVar9);
   local_60 = buf;
   do {
     cVar1 = *local_60;
@@ -54,8 +55,8 @@ void AnmManager::FUN_00434c40(AnmManager *this,AnmVm *vm,D3DCOLOR color1,D3DCOLO
   textureHeight = __ftol2(vm->sprite->textureHeight);
   textureWidth = __ftol2(vm->sprite->textureWidth);
   yPos = __ftol2((vm->sprite->startPixelInclusive).y);
-  FUN_00434af0(this,vm->sprite->sourceFileIndex,local_c,yPos,textureWidth,textureHeight,fontWidth,
-               fontHeight,color1,color2,pcVar9);
+  DrawText(this,vm->sprite->sourceFileIndex,local_c,yPos,textureWidth,textureHeight,fontWidth,
+           fontHeight,textColor,shadowColor,pcVar9);
   *(uint *)&vm->flags = *(uint *)&vm->flags | 1;
   __security_check_cookie(stackCookie ^ unaff_retaddr);
   return;

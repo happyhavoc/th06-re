@@ -57,7 +57,7 @@ void __thiscall AsciiManager::DrawStrings(AsciiManager *this)
           (this->vm0).sprite = g_AnmManager->sprites + (byte)*local_14 + 0x61;
           (this->vm0).color.color = 0xffffffff;
         }
-        AnmManager::FUN_00432ad0(g_AnmManager,&this->vm0);
+        AnmManager::DrawNoRotation(g_AnmManager,&this->vm0);
         (this->vm0).pos.x = fVar1 + (this->vm0).pos.x;
       }
     }

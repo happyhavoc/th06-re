@@ -39,7 +39,7 @@ void __thiscall ItemManager_conflict2::FUN_00420190(void *this)
         }
         (pAStack_10->color).color = (pAStack_10->color).color & 0xffffff | local_8 << 0x18;
       }
-      AnmManager::FUN_00432ad0(g_AnmManager,pAStack_10);
+      AnmManager::DrawNoRotation(g_AnmManager,pAStack_10);
     }
     pAStack_10 = (AnmVm *)&pAStack_10[1].currentTimeInScript.subFrame;
   }

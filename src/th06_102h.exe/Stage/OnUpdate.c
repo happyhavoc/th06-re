@@ -11,7 +11,7 @@ ChainCallbackResult Stage::OnUpdate(Stage *arg)
   float local_20;
   StdRawInstr *local_c;
   
-  if (arg->stdData != (byte *)0x0) {
+  if (arg->stdData != (RawStdHeader *)0x0) {
     if ((char)g_GameManager.unk_0x2c == '\0') {
       do {
         local_c = arg->beginningOfScript + arg->instructionIndex;

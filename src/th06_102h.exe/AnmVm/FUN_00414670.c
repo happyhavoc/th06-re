@@ -5,7 +5,7 @@ void * AnmVm::FUN_00414670(EnemyLaserShooter *laser_shooter)
 
 {
   ushort uVar1;
-  int iVar2;
+  uint uVar2;
   AnmManager *pAVar3;
   int in_ECX;
   float fVar4;
@@ -31,9 +31,9 @@ void * AnmVm::FUN_00414670(EnemyLaserShooter *laser_shooter)
   AnmManager::SetActiveSprite
             (g_AnmManager,local_c,(int)local_c->spriteNumber + (int)(short)laser_shooter->color);
   pAVar3 = g_AnmManager;
-  iVar2 = *(int *)(&DAT_00476440 + (short)laser_shooter->color * 4);
+  uVar2 = UINT_ARRAY_00476440[(short)laser_shooter->color];
   Initialize(local_c + 1);
-  AnmManager::SetActiveSprite(pAVar3,local_c + 1,iVar2 + 0x28c);
+  AnmManager::SetActiveSprite(pAVar3,local_c + 1,uVar2 + 0x28c);
   *(uint *)&local_c[1].flags = *(uint *)&local_c[1].flags | 4;
   local_c[2].rotation.x = (laser_shooter->position).x;
   local_c[2].rotation.y = (laser_shooter->position).y;

@@ -222,10 +222,11 @@ ZunResult __thiscall Gui::ActualAddedCallback(Gui *this)
   (gui_impl->vm2).anmFileIndex = 0x701;
   AnmManager::SetAndExecuteScript(anm_mgr,&gui_impl->vm2,anm_mgr->scripts[0x701]);
   AnmManager::FUN_00434e20
-            (g_AnmManager,&this->impl->vm1,0xe0ffff,0,(char *)(g_Stage.stdData + 0x10),unaff_EDI);
+            (g_AnmManager,&this->impl->vm1,0xe0ffff,0,(g_Stage.stdData)->stageName,unaff_EDI);
   (this->impl->vm2).fontWidth = '\x10';
   (this->impl->vm2).fontHeight = '\x10';
-  AnmManager::FUN_00434c40(g_AnmManager,&this->impl->vm2,0xe0ffff,0,"♪%s");
+  AnmManager::FUN_00434c40
+            (g_AnmManager,&this->impl->vm2,0xe0ffff,0,"♪%s",(g_Stage.stdData)->song1Name);
   (this->impl->msg).current_msg_idx = 0xffffffff;
   this->impl->finishedStage = 0;
   (this->impl->field15_0x2be4).field2_0x10 = 0;

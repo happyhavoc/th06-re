@@ -1,28 +1,29 @@
 
-undefined4 Player::CalcBoxCollision(float *param_1,float *param_2)
+undefined4 __thiscall
+Player::CalcBoxCollision(Player *this,D3DXVECTOR3 *center,D3DXVECTOR3 *param_2)
 
 {
   float fVar1;
   float fVar2;
-  undefined4 uVar3;
-  int in_ECX;
+  float fVar3;
+  undefined4 uVar4;
   
-  if ((*(char *)(in_ECX + 0x9e0) == '\0') || (*(char *)(in_ECX + 0x9e0) == '\x03')) {
-    fVar1 = param_1[1] - param_2[1] * 0.5;
-    fVar2 = *param_1 - *param_2 * 0.5;
-    if ((*param_2 * 0.5 + *param_1 < *(float *)(in_ECX + 0x470)) ||
-       (((*(float *)(in_ECX + 0x47c) < fVar2 != (NAN(*(float *)(in_ECX + 0x47c)) || NAN(fVar2)) ||
-         (param_2[1] * 0.5 + param_1[1] < *(float *)(in_ECX + 0x474))) ||
-        (*(float *)(in_ECX + 0x480) < fVar1 != (NAN(*(float *)(in_ECX + 0x480)) || NAN(fVar1)))))) {
-      uVar3 = 0;
+  if ((this->playerState == PLAYER_STATE_ALIVE) || (this->playerState == PLAYER_STATE_USING_BOMB)) {
+    fVar3 = center->y - param_2->y * 0.5;
+    fVar2 = center->x - param_2->x * 0.5;
+    if ((param_2->x * 0.5 + center->x < (this->grabItemTopLeft).x) ||
+       (((fVar1 = (this->grabItemBottomRight).x, fVar1 < fVar2 != (NAN(fVar1) || NAN(fVar2)) ||
+         (param_2->y * 0.5 + center->y < (this->grabItemTopLeft).y)) ||
+        (fVar2 = (this->grabItemBottomRight).y, fVar2 < fVar3 != (NAN(fVar2) || NAN(fVar3)))))) {
+      uVar4 = 0;
     }
     else {
-      uVar3 = 1;
+      uVar4 = 1;
     }
   }
   else {
-    uVar3 = 0;
+    uVar4 = 0;
   }
-  return uVar3;
+  return uVar4;
 }
 

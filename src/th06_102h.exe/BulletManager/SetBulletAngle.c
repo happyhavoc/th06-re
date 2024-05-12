@@ -162,14 +162,14 @@ BulletManager::SetBulletAngle
               AnmManager::SetActiveSprite
                         (g_AnmManager,&(bullet->vms).spawn_effect_long,
                          (int)(bullet->vms).spawn_effect_long.spriteNumber +
-                         *(int *)(&DAT_00476480 + (short)bulletProps->color * 4));
+                         UINT_ARRAY_00476480[(short)bulletProps->color]);
             }
           }
           else {
             AnmManager::SetActiveSprite
                       (g_AnmManager,&(bullet->vms).spawn_effect_long,
                        (int)(bullet->vms).spawn_effect_long.spriteNumber +
-                       *(int *)(&DAT_00476440 + (short)bulletProps->color * 4));
+                       UINT_ARRAY_00476440[(short)bulletProps->color]);
           }
           bullet->state = 4;
         }
@@ -200,14 +200,14 @@ BulletManager::SetBulletAngle
             AnmManager::SetActiveSprite
                       (g_AnmManager,&(bullet->vms).spawn_effect_medium,
                        (int)(bullet->vms).spawn_effect_medium.spriteNumber +
-                       *(int *)(&DAT_00476480 + (short)bulletProps->color * 4));
+                       UINT_ARRAY_00476480[(short)bulletProps->color]);
           }
         }
         else {
           AnmManager::SetActiveSprite
                     (g_AnmManager,&(bullet->vms).spawn_effect_medium,
                      (int)(bullet->vms).spawn_effect_medium.spriteNumber +
-                     *(int *)(&DAT_00476440 + (short)bulletProps->color * 4));
+                     UINT_ARRAY_00476440[(short)bulletProps->color]);
         }
         bullet->state = 3;
       }
@@ -238,14 +238,14 @@ BulletManager::SetBulletAngle
           AnmManager::SetActiveSprite
                     (g_AnmManager,&(bullet->vms).spawn_effect_short,
                      (int)(bullet->vms).spawn_effect_short.spriteNumber +
-                     *(int *)(&DAT_00476480 + (short)bulletProps->color * 4));
+                     UINT_ARRAY_00476480[(short)bulletProps->color]);
         }
       }
       else {
         AnmManager::SetActiveSprite
                   (g_AnmManager,&(bullet->vms).spawn_effect_short,
                    (int)(bullet->vms).spawn_effect_short.spriteNumber +
-                   *(int *)(&DAT_00476440 + (short)bulletProps->color * 4));
+                   UINT_ARRAY_00476440[(short)bulletProps->color]);
       }
       bullet->state = 2;
     }
@@ -270,14 +270,14 @@ BulletManager::SetBulletAngle
         AnmManager::SetActiveSprite
                   (g_AnmManager,&(bullet->vms).spawn_effect_short_with_memset,
                    (int)(bullet->vms).spawn_effect_short_with_memset.spriteNumber +
-                   *(int *)(&DAT_00476480 + (short)bulletProps->color * 4));
+                   UINT_ARRAY_00476480[(short)bulletProps->color]);
       }
     }
     else {
       AnmManager::SetActiveSprite
                 (g_AnmManager,&(bullet->vms).spawn_effect_short_with_memset,
                  (int)(bullet->vms).spawn_effect_short_with_memset.spriteNumber +
-                 *(int *)(&DAT_00476440 + (short)bulletProps->color * 4));
+                 UINT_ARRAY_00476440[(short)bulletProps->color]);
     }
     if ((bullet->ex_flags & 0x10) == 0) {
       if ((bullet->ex_flags & 0x20) != 0) {

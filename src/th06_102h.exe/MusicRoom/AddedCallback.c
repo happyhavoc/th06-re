@@ -7,7 +7,6 @@ int __thiscall MusicRoom::AddedCallback(MusicRoom *this,MusicRoom *param_1)
   char *pcVar5;
   int iVar6;
   undefined4 *puVar7;
-  int unaff_EDI;
   MusicRoom *pMVar1;
   undefined4 *puVar8;
   char *local_98;
@@ -125,9 +124,9 @@ breakWhile:
               pAVar1 = param_1->field13_0x134 + local_8;
               AnmVm::Initialize(pAVar1);
               AnmManager::SetActiveSprite(pAVar3,pAVar1,local_8 + 0x101);
-              AnmManager::FUN_00434b60
+              AnmManager::DrawVmTextFmt
                         (g_AnmManager,param_1->field13_0x134 + local_8,0xc0e0ff,0x302080,
-                         param_1->field11_0x20 + local_8 * 0x272 + 0x40,unaff_EDI);
+                         param_1->field11_0x20 + local_8 * 0x272 + 0x40);
               param_1->field13_0x134[local_8].pos.x = 93.0;
               param_1->field13_0x134[local_8].pos.y = ((float)((local_8 + 1) * 0x12) + 104.0) - 20.0
               ;
@@ -173,9 +172,9 @@ LAB_00425c09:
               else {
                 *(uint *)&param_1->field4366_0x2334[local_8].flags =
                      *(uint *)&param_1->field4366_0x2334[local_8].flags | 2;
-                AnmManager::FUN_00434b60
+                AnmManager::DrawVmTextFmt
                           (g_AnmManager,param_1->field4366_0x2334 + local_8,0xffe0c0,0x300000,
-                           &local_5c,unaff_EDI);
+                           &local_5c);
               }
               param_1->field4366_0x2334[local_8].pos.x = (float)(local_8 % 2) * 248.0 + 96.0;
               param_1->field4366_0x2334[local_8].pos.y = (float)(local_8 / 2 << 4) + 320.0;

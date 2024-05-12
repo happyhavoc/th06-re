@@ -1,7 +1,7 @@
 
-void AnmManager::FUN_00434b60
-               (AnmManager *anm_mgr,AnmVm *vm,D3DCOLOR textColor,undefined4 param_4,char *param_5,
-               int param6)
+void AnmManager::DrawVmTextFmt
+               (AnmManager *anm_mgr,AnmVm *vm,D3DCOLOR textColor,D3DCOLOR shadowColor,char *param_5,
+               ...)
 
 {
   long spriteHeight;
@@ -18,7 +18,7 @@ void AnmManager::FUN_00434b60
   
   local_c = __security_cookie ^ unaff_retaddr;
   fontWidth = (uint)vm->fontWidth;
-  local_8 = (va_list)&param6;
+  local_8 = &stack0x00000018;
   vsprintf(local_4c,param_5,local_8);
   local_8 = (va_list)0x0;
   stringToPrint = local_4c;
@@ -27,8 +27,8 @@ void AnmManager::FUN_00434b60
   spriteWidth = __ftol2(vm->sprite->textureWidth);
   yPos = __ftol2((vm->sprite->startPixelInclusive).y);
   xPos = __ftol2((vm->sprite->startPixelInclusive).x);
-  FUN_00434af0(anm_mgr,vm->sprite->sourceFileIndex,xPos,yPos,spriteWidth,spriteHeight,fontWidth,
-               fontHeight2,textColor,param_4,stringToPrint);
+  DrawText(anm_mgr,vm->sprite->sourceFileIndex,xPos,yPos,spriteWidth,spriteHeight,fontWidth,
+           fontHeight2,textColor,shadowColor,stringToPrint);
   *(uint *)&vm->flags = *(uint *)&vm->flags | 1;
   __security_check_cookie(local_c ^ unaff_retaddr);
   return;

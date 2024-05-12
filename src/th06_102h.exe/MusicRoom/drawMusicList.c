@@ -5,7 +5,6 @@ void __thiscall MusicRoom::drawMusicList(MusicRoom *this)
   char *pcVar2;
   int iVar3;
   undefined4 *puVar4;
-  int unaff_EDI;
   undefined4 *puVar5;
   char *local_5c;
   char local_54;
@@ -77,9 +76,8 @@ LAB_0042508a:
       else {
         *(uint *)&this->field4366_0x2334[local_c].flags =
              *(uint *)&this->field4366_0x2334[local_c].flags | 2;
-        AnmManager::FUN_00434b60
-                  (g_AnmManager,this->field4366_0x2334 + local_c,0xffe0c0,0x300000,&local_54,
-                   unaff_EDI);
+        AnmManager::DrawVmTextFmt
+                  (g_AnmManager,this->field4366_0x2334 + local_c,0xffe0c0,0x300000,&local_54);
       }
       this->field4366_0x2334[local_c].pos.x = (float)(local_c % 2) * 248.0 + 96.0;
       this->field4366_0x2334[local_c].pos.y = (float)(local_c / 2 << 4) + 320.0;

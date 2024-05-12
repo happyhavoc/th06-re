@@ -38,10 +38,10 @@ void __thiscall Gui::FUN_0041adf3(Gui *this)
     AnmManager::FUN_00433590(g_AnmManager,&this->impl->vm2);
   }
   if ((*(uint *)&(this->impl->vm3).flags & 1) != 0) {
-    AnmManager::FUN_00432ad0(g_AnmManager,&this->impl->vm3);
+    AnmManager::DrawNoRotation(g_AnmManager,&this->impl->vm3);
   }
   if ((*(uint *)&(this->impl->vm4).flags & 1) != 0) {
-    AnmManager::FUN_00432ad0(g_AnmManager,&this->impl->vm4);
+    AnmManager::DrawNoRotation(g_AnmManager,&this->impl->vm4);
   }
   if ((*(uint *)&(this->impl->vm5).flags & 1) != 0) {
     pGVar1 = this->impl;
@@ -52,8 +52,8 @@ void __thiscall Gui::FUN_0041adf3(Gui *this)
     (this->impl->vm7).pos.x =
          ((((this->field2_0x8 * 16.0) / 15.0) / 2.0 + -128.0) - 16.0) + (this->impl->vm7).pos.x;
     (this->impl->vm7).scaleX = this->field2_0x8 / 14.0;
-    AnmManager::FUN_00432ad0(g_AnmManager,&this->impl->vm7);
-    AnmManager::FUN_00432ad0(g_AnmManager,&this->impl->vm5);
+    AnmManager::DrawNoRotation(g_AnmManager,&this->impl->vm7);
+    AnmManager::DrawNoRotation(g_AnmManager,&this->impl->vm5);
   }
   if ((*(uint *)&(this->impl->vm6).flags & 1) != 0) {
     pGVar1 = this->impl;
@@ -65,8 +65,8 @@ void __thiscall Gui::FUN_0041adf3(Gui *this)
          (128.0 - ((this->blue_spellcard_bar_length * 16.0) / 15.0) / 2.0) + (this->impl->vm8).pos.x
     ;
     (this->impl->vm8).scaleX = this->blue_spellcard_bar_length / 14.0;
-    AnmManager::FUN_00432ad0(g_AnmManager,&this->impl->vm8);
-    AnmManager::FUN_00432ad0(g_AnmManager,&this->impl->vm6);
+    AnmManager::DrawNoRotation(g_AnmManager,&this->impl->vm8);
+    AnmManager::DrawNoRotation(g_AnmManager,&this->impl->vm6);
   }
   if (-1 < (this->impl->vm9).spriteNumber) {
     g_Supervisor.viewport.X = __ftol2(g_GameManager.arcade_region_top_left_pos.x);
@@ -75,7 +75,7 @@ void __thiscall Gui::FUN_0041adf3(Gui *this)
     g_Supervisor.viewport.Height = __ftol2(g_GameManager.arcade_region_size.y);
     (*(g_Supervisor.d3dDevice)->lpVtbl->SetViewport)
               (g_Supervisor.d3dDevice,(D3DVIEWPORT8 *)0x6c6de0);
-    AnmManager::FUN_00432ad0(g_AnmManager,&this->impl->vm9);
+    AnmManager::DrawNoRotation(g_AnmManager,&this->impl->vm9);
   }
   return;
 }

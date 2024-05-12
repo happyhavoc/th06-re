@@ -1,16 +1,16 @@
 
-int PlayMidiFile(int fileIdx)
+int __thiscall Supervisor::PlayMidiFile(Supervisor *this,int fileIdx)
 
 {
   int result;
-  MidiOutput *this;
+  MidiOutput *this_00;
   
-  this = g_Supervisor.midi_output;
+  this_00 = g_Supervisor.midi_output;
   if (g_Supervisor.cfg.musicMode == MIDI) {
     if (g_Supervisor.midi_output != (MidiOutput *)0x0) {
       MidiOutput::StopPlayback(g_Supervisor.midi_output);
-      MidiOutput::ParseFile(this,fileIdx);
-      MidiOutput::Play(this);
+      MidiOutput::ParseFile(this_00,fileIdx);
+      MidiOutput::Play(this_00);
     }
     result = 0;
   }

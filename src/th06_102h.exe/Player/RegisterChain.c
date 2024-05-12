@@ -13,10 +13,10 @@ ZunResult Player::RegisterChain(byte param_1)
     (pPVar3->vm0).rotation.x = 0.0;
     pPVar3 = (Player *)&(pPVar3->vm0).rotation.y;
   }
-  g_Player.field35_0x75b4.current = 0;
-  g_Player.field35_0x75b4.subFrame = 0.0;
-  g_Player.field35_0x75b4.previous = -999;
-  g_Player.field22_0x9e1 = param_1;
+  g_Player.blinkingPlayerTimer.current = 0;
+  g_Player.blinkingPlayerTimer.subFrame = 0.0;
+  g_Player.blinkingPlayerTimer.previous = -999;
+  g_Player.unk_9e1 = param_1;
   g_Player.onTick = Chain::CreateElem(&g_Chain,OnUpdate);
   g_Player.onDraw1 = Chain::CreateElem(&g_Chain,OnDrawHighPrio);
   g_Player.onDraw2 = Chain::CreateElem(&g_Chain,OnDrawLowPrio);

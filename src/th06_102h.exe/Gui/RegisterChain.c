@@ -17,7 +17,7 @@ ZunResult Gui::RegisterChain(void)
   puStack_c = &LAB_0046912f;
   pvStack_10 = ExceptionList;
   ExceptionList = &pvStack_10;
-  if (g_Supervisor.curState != 3) {
+  if (g_Supervisor.curState != SUPERVISOR_STATE_GAMEMANAGER_REINIT) {
     pGVar3 = &g_Gui;
     ExceptionList = &pvStack_10;
     for (iVar2 = 0xb; iVar2 != 0; iVar2 = iVar2 + -1) {

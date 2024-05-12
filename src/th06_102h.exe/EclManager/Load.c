@@ -1,5 +1,5 @@
 
-ZunResult __thiscall EclManager::FUN_00407340(EclManager *this,char *path)
+ZunResult __thiscall EclManager::Load(EclManager *this,char *path)
 
 {
   byte *pbVar1;

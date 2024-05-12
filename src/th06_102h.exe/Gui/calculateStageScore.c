@@ -139,11 +139,11 @@ void __thiscall Gui::calculateStageScore(Gui *this)
     else if (g_GameManager.difficulty == EXTRA) {
       stage_score = stage_score * 2 - (int)(stage_score * 2) % 10;
     }
-    if (g_Supervisor.lifeCount == 3) {
+    if (g_Supervisor.defaultConfig.lifeCount == 3) {
       iVar1 = (int)(stage_score * 5) / 10;
       stage_score = iVar1 - iVar1 % 10;
     }
-    else if (g_Supervisor.lifeCount == 4) {
+    else if (g_Supervisor.defaultConfig.lifeCount == 4) {
       iVar1 = (int)(stage_score << 1) / 10;
       stage_score = iVar1 - iVar1 % 10;
     }

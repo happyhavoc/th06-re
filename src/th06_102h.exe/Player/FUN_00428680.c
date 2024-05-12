@@ -7,8 +7,8 @@ float10 * __thiscall Player::FUN_00428680(Player *this,D3DXVECTOR3 *bulletPos,fl
   float10 *pfVar3;
   undefined2 uVar4;
   
-  fVar1 = bulletPos->x - (this->position).x;
-  fVar2 = bulletPos->y - (this->position).y;
+  fVar1 = bulletPos->x - (this->positionCenter).x;
+  fVar2 = bulletPos->y - (this->positionCenter).y;
   uVar4 = (undefined2)((uint)this >> 0x10);
   pfVar3 = (float10 *)
            CONCAT22(uVar4,(ushort)(fVar2 < 0.0) << 8 | (ushort)NAN(fVar2) << 10 |

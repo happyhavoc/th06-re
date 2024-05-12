@@ -4,7 +4,7 @@ ZunResult __thiscall Stage::LoadStageData(Stage *this,char *anmpath,char *stdpat
 {
   StdRawObject *pSVar1;
   ZunResult anm;
-  byte *std;
+  RawStdHeader *std;
   AnmVm *pAVar2;
   StdRawQuadBasic *local_14;
   int local_c;
@@ -12,22 +12,25 @@ ZunResult __thiscall Stage::LoadStageData(Stage *this,char *anmpath,char *stdpat
   
   anm = AnmManager::LoadAnm(g_AnmManager,4,anmpath,0x300);
   if (anm == ZUN_SUCCESS) {
-    std = FileSystem::OpenPath(stdpath,0);
+    std = (RawStdHeader *)FileSystem::OpenPath(stdpath,0);
     this->stdData = std;
-    if (this->stdData == (byte *)0x0) {
+    if (this->stdData == (RawStdHeader *)0x0) {
       GameErrorContextLog(&g_GameErrorContext,
                           "ステージデータが見つかりません。データが壊れています\n"
                          );
       anm = ZUN_ERROR;
     }
     else {
-      this->objectsCount = (int)*(short *)this->stdData;
-      this->quadCount = (int)*(short *)(this->stdData + 2);
-      this->objectInstances = (StdRawInstance *)(this->stdData + *(int *)(this->stdData + 4));
-      this->beginningOfScript = (StdRawInstr *)(this->stdData + *(int *)(this->stdData + 8));
-      this->objects = (StdRawObject **)(this->stdData + 0x490);
+      this->objectsCount = (int)(short)this->stdData->nbObjects;
+      this->quadCount = (int)(short)this->stdData->nbFaces;
+      this->objectInstances =
+           (StdRawInstance *)(this->stdData->stageName + (this->stdData->facesOffset - 0x10));
+      this->beginningOfScript =
+           (StdRawInstr *)(this->stdData->stageName + (this->stdData->scriptOffset - 0x10));
+      this->objects = (StdRawObject **)(this->stdData + 1);
       for (local_c = 0; local_c < this->objectsCount; local_c = local_c + 1) {
-        this->objects[local_c] = (StdRawObject *)(this->stdData + (int)&this->objects[local_c]->id);
+        this->objects[local_c] =
+             (StdRawObject *)(this->stdData->stageName + (int)(&this->objects[local_c]->id + -8));
       }
       pAVar2 = (AnmVm *)_malloc(this->quadCount * sizeof(AnmVm));
       this->quadVms = pAVar2;

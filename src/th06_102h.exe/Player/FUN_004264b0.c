@@ -43,7 +43,7 @@ Player::FUN_004264b0(Player *this,D3DXVECTOR3 *param_1,D3DXVECTOR3 *param_2,unde
       if ((local_40.y <= fVar2) &&
          (((local_40.x <= fVar1 && (fVar4 < local_30.y == (NAN(fVar4) || NAN(local_30.y)))) &&
           (fVar3 < local_30.x == (NAN(fVar3) || NAN(local_30.x)))))) {
-        if ((this->inner).field0_0x0 == 0) {
+        if ((this->inner).isUsingBomb == 0) {
           local_d4 = (int)*(short *)local_8[1].matrix.m[0];
         }
         else if ((int)*(short *)local_8[1].matrix.m[0] / 3 == 0) {
@@ -82,8 +82,8 @@ Player::FUN_004264b0(Player *this,D3DXVECTOR3 *param_1,D3DXVECTOR3 *param_2,unde
         }
         this_00 = g_AnmManager;
         if (*(short *)(local_8[1].matrix.m[0] + 1) == 3) {
-          this->field25_0x9e4 = this->field25_0x9e4 + 1;
-          if ((this->field25_0x9e4 & 7) == 0) {
+          this->unk_9e4 = this->unk_9e4 + 1;
+          if ((this->unk_9e4 & 7) == 0) {
             local_40.y = param_1->y;
             local_40.z = param_1->z;
             local_40.x = local_8[1].rotation.x;
@@ -108,24 +108,24 @@ Player::FUN_004264b0(Player *this,D3DXVECTOR3 *param_1,D3DXVECTOR3 *param_2,unde
     local_8 = (AnmVm *)(local_8[1].matrix.m[0] + 3);
   }
   for (local_c = 0; local_c < 0x20; local_c = local_c + 1) {
-    fVar3 = this->field12_0x638[local_c].x;
+    fVar3 = this->unk_638[local_c].x;
     if (fVar3 < 0.0 == (fVar3 == 0.0)) {
-      pDVar1 = this->field12_0x638 + local_c;
-      pDVar2 = this->field11_0x4b8 + local_c;
+      pDVar1 = this->unk_638 + local_c;
+      pDVar2 = this->unk_4b8 + local_c;
       local_40.z = pDVar2->z - pDVar1->z * 0.5;
       local_40.y = pDVar2->y - pDVar1->y * 0.5;
       local_40.x = pDVar2->x - pDVar1->x * 0.5;
-      fVar3 = this->field12_0x638[local_c].y * 0.5 + this->field11_0x4b8[local_c].y;
-      fVar4 = this->field12_0x638[local_c].x * 0.5 + this->field11_0x4b8[local_c].x;
+      fVar3 = this->unk_638[local_c].y * 0.5 + this->unk_4b8[local_c].y;
+      fVar4 = this->unk_638[local_c].x * 0.5 + this->unk_4b8[local_c].x;
       if (((local_40.x <= fVar1) && (fVar4 < local_30.x == (NAN(fVar4) || NAN(local_30.x)))) &&
          ((local_40.y <= fVar2 && (fVar3 < local_30.y == (NAN(fVar3) || NAN(local_30.y)))))) {
-        local_34 = local_34 + this->field13_0x7b8[local_c];
-        this->field14_0x838[local_c] = this->field14_0x838[local_c] + this->field13_0x7b8[local_c];
-        this->field25_0x9e4 = this->field25_0x9e4 + 1;
-        if ((this->field25_0x9e4 & 3) == 0) {
+        local_34 = local_34 + this->unk_7b8[local_c];
+        this->unk_838[local_c] = this->unk_838[local_c] + this->unk_7b8[local_c];
+        this->unk_9e4 = this->unk_9e4 + 1;
+        if ((this->unk_9e4 & 3) == 0) {
           EffectManager::SpawnEffect(&g_EffectManager,3,param_1,1,0xffffffff);
         }
-        if (((this->inner).field0_0x0 != 0) && (param_3 != (undefined4 *)0x0)) {
+        if (((this->inner).isUsingBomb != 0) && (param_3 != (undefined4 *)0x0)) {
           *param_3 = 1;
         }
       }

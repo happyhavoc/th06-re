@@ -23,7 +23,6 @@ void __thiscall Ending::ParseEndFile(Ending *this)
   long fadeInFrames;
   long fadeOutFrames;
   int i;
-  int unaff_EDI;
   AnmVm *anmvm_ref;
   undefined4 *puVar4;
   uint unaff_retaddr;
@@ -92,9 +91,9 @@ void __thiscall Ending::ParseEndFile(Ending *this)
           AnmManager::SetAndExecuteScript
                     (pAVar3,&this->AnmVm + local_8 + iVar2 * 2,
                      pAVar3->scripts[i * 2 + local_8 + 0x708]);
-          AnmManager::FUN_00434b60
+          AnmManager::DrawVmTextFmt
                     (g_AnmManager,&this->AnmVm + local_8 + this->possibly_times_file_parsed * 2,
-                     this->textColor,0xc0d0d0,&local_34,unaff_EDI);
+                     this->textColor,0xc0d0d0,&local_34);
           if (local_8 != 0) goto LAB_00410546;
           local_8 = 1;
           local_38 = 0;
@@ -288,9 +287,9 @@ switchD_0040fa32_caseD_0:
     (&this->AnmVm)[local_8 + iVar2 * 2].anmFileIndex = local_90;
     AnmManager::SetAndExecuteScript
               (pAVar3,&this->AnmVm + local_8 + iVar2 * 2,pAVar3->scripts[i * 2 + local_8 + 0x708]);
-    AnmManager::FUN_00434b60
+    AnmManager::DrawVmTextFmt
               (g_AnmManager,&this->AnmVm + local_8 + this->possibly_times_file_parsed * 2,
-               this->textColor,0xc0d0d0,&local_34,unaff_EDI);
+               this->textColor,0xc0d0d0,&local_34);
   }
   while (((*this->endFileDataPtr == '\n' || (*this->endFileDataPtr == '\0')) ||
          (*this->endFileDataPtr == '\r'))) {

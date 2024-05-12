@@ -79,7 +79,7 @@ ChainCallbackResult GameManager::OnUpdate(GameManager *this)
         this->gui_score = this->score;
       }
       if ((-1 < (char)this->extra_lives) &&
-         (EXTRA_LIVES_SCORES[(char)this->extra_lives] <= this->gui_score)) {
+         (g_ExtraLivesScores[(char)this->extra_lives] <= this->gui_score)) {
         if ((char)this->lives_remaining < '\b') {
           this->lives_remaining = this->lives_remaining + 1;
           SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,SOUND_1UP,0);

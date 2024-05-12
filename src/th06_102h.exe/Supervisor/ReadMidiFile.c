@@ -1,18 +1,18 @@
 
-undefined4 AudioUtils::readMidiFile(int param_1,char *path)
+BOOL __thiscall Supervisor::ReadMidiFile(Supervisor *this,int param_1,char *path)
 
 {
-  undefined4 uVar1;
+  BOOL BVar1;
   
   if (g_Supervisor.cfg.musicMode == MIDI) {
     if (g_Supervisor.midi_output != (MidiOutput *)0x0) {
       MidiOutput::ReadFileData(g_Supervisor.midi_output,param_1,path);
     }
-    uVar1 = 0;
+    BVar1 = 0;
   }
   else {
-    uVar1 = 1;
+    BVar1 = 1;
   }
-  return uVar1;
+  return BVar1;
 }
 

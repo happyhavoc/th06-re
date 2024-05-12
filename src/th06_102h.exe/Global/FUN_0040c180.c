@@ -35,8 +35,8 @@ void FUN_0040c180(Enemy *param_1,EclRawInstr *param_2)
           AnmManager::SetActiveSprite
                     (g_AnmManager,(AnmVm *)bullets,
                      (int)(bullets->vms).vm0.anotherSpriteNumber + (int)(short)bullets->color);
-          fVar6 = (bullets->pos).x - g_Player.position.x;
-          fVar2 = (bullets->pos).y - g_Player.position.y;
+          fVar6 = (bullets->pos).x - g_Player.positionCenter.x;
+          fVar2 = (bullets->pos).y - g_Player.positionCenter.y;
           pfVar5 = (float *)FUN_0045bc34(SUB84((double)(fVar6 * fVar6 + fVar2 * fVar2),0));
           if ((float)pfVar5 <= 128.0) {
             fVar6 = Rng::GetRandomF32ZeroToOne(&g_Rng);
@@ -70,8 +70,8 @@ void FUN_0040c180(Enemy *param_1,EclRawInstr *param_2)
           AnmManager::SetActiveSprite
                     (g_AnmManager,(AnmVm *)bullets,
                      (int)(bullets->vms).vm0.anotherSpriteNumber + (int)(short)bullets->color);
-          fVar6 = (bullets->pos).x - g_Player.position.x;
-          fVar2 = (bullets->pos).y - g_Player.position.y;
+          fVar6 = (bullets->pos).x - g_Player.positionCenter.x;
+          fVar2 = (bullets->pos).y - g_Player.positionCenter.y;
           fVar6 = FUN_0045bc34(SUB84((double)(fVar6 * fVar6 + fVar2 * fVar2),0));
           if (fVar6 <= 128.0) {
             fVar6 = Rng::GetRandomF32ZeroToOne(&g_Rng);

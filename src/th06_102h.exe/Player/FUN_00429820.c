@@ -1,44 +1,44 @@
 
-void Player::FUN_00429820(Player *param_1,undefined4 param_2)
+void Player::FUN_00429820(Player *param_1,u32 timer)
 
 {
-  int local_14;
-  PlayerBullet *local_10;
+  FireBulletResult local_14;
+  PlayerBullet *curBullet;
   int local_c;
-  int local_8;
+  u32 idx;
   
-  local_8 = 0;
-  local_10 = param_1->bullets;
+  idx = 0;
+  curBullet = param_1->bullets;
   local_c = 0;
   do {
     if (0x4f < local_c) {
       return;
     }
-    if (local_10->field11_0x14e == 0) {
+    if (curBullet->bulletState == 0) {
       do {
-        if (param_1->field24_0x9e3 == 0) {
-          local_14 = (*(code *)param_1->field36_0x75c0)(param_1,local_10,local_8,param_2);
+        if (param_1->isFocus == 0) {
+          local_14 = (*param_1->fireBulletCallback)(param_1,curBullet,idx,timer);
         }
         else {
-          local_14 = (*(code *)param_1->field37_0x75c4)(param_1,local_10,local_8,param_2);
+          local_14 = (*param_1->fireBulletFocusCallback)(param_1,curBullet,idx,timer);
         }
-        if (-1 < local_14) {
-          (local_10->vm).pos.x = (local_10->field1_0x110).x;
-          (local_10->vm).pos.y = (local_10->field1_0x110).y;
-          (local_10->vm).pos.z = 0.495;
-          local_10->field11_0x14e = 1;
+        if (SPAWN_MORE < local_14) {
+          (curBullet->vm).pos.x = (curBullet->position).x;
+          (curBullet->vm).pos.y = (curBullet->position).y;
+          (curBullet->vm).pos.z = 0.495;
+          curBullet->bulletState = 1;
         }
-        if (local_14 == -2) {
+        if (local_14 == STOP_SPAWNING) {
           return;
         }
-        if (0 < local_14) {
+        if (UNK < local_14) {
           return;
         }
-        local_8 = local_8 + 1;
-      } while (local_14 == -1);
+        idx = idx + 1;
+      } while (local_14 == SPAWN_MORE);
     }
     local_c = local_c + 1;
-    local_10 = local_10 + 1;
+    curBullet = curBullet + 1;
   } while( true );
 }
 

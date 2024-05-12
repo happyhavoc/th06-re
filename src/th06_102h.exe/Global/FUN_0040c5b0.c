@@ -41,9 +41,9 @@ void FUN_0040c5b0(Enemy *param_1,AnmRawInstr *param_2)
     local_64._74_2_ = 0;
     local_64.flags = 0;
     local_78 = 0.5 - ((float)uVar1 * 0.5) / 9.0;
-    matrix_out.z = g_Player.position.z - (param_1->position).z;
-    matrix_out.y = g_Player.position.y - (param_1->position).y;
-    matrix_out.x = g_Player.position.x - (param_1->position).x;
+    matrix_out.z = g_Player.positionCenter.z - (param_1->position).z;
+    matrix_out.y = g_Player.positionCenter.y - (param_1->position).y;
+    matrix_out.x = g_Player.positionCenter.x - (param_1->position).x;
     D3DXVec3Normalize(&matrix_in,&matrix_out);
     if ((uVar1 & 1) == 0) {
       local_90 = 256.0;

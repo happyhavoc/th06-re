@@ -1,5 +1,5 @@
 
-void AnmManager::FUN_00434c40
+void AnmManager::DrawStringFormat
                (AnmManager *this,AnmVm *vm,D3DCOLOR textColor,D3DCOLOR shadowColor,char *text,...)
 
 {

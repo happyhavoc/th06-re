@@ -6,7 +6,7 @@ void FUN_00412e50(Enemy *enemy)
   int i;
   Effect *effect;
   
-  for (i = 0; i < enemy->effect_idx; i = i + 1) {
+  for (i = 0; i < enemy->effectsNum; i = i + 1) {
     effect = enemy->effect_array[i];
     if (effect != (Effect *)0x0) {
       (effect->position).x = (enemy->position).x;

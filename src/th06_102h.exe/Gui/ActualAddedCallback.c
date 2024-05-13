@@ -5,7 +5,6 @@ ZunResult __thiscall Gui::ActualAddedCallback(Gui *this)
   ZunResult loadAnm;
   AnmVm *vm;
   int iVar1;
-  int unaff_EDI;
   short local_14;
   int local_8;
   AnmManager *anm_mgr;
@@ -221,11 +220,10 @@ ZunResult __thiscall Gui::ActualAddedCallback(Gui *this)
   gui_impl = this->impl;
   (gui_impl->vm2).anmFileIndex = 0x701;
   AnmManager::SetAndExecuteScript(anm_mgr,&gui_impl->vm2,anm_mgr->scripts[0x701]);
-  AnmManager::FUN_00434e20
-            (g_AnmManager,&this->impl->vm1,0xe0ffff,0,(g_Stage.stdData)->stageName,unaff_EDI);
+  AnmManager::FUN_00434e20(g_AnmManager,&this->impl->vm1,0xe0ffff,0,(g_Stage.stdData)->stageName);
   (this->impl->vm2).fontWidth = '\x10';
   (this->impl->vm2).fontHeight = '\x10';
-  AnmManager::FUN_00434c40
+  AnmManager::DrawStringFormat
             (g_AnmManager,&this->impl->vm2,0xe0ffff,0,"♪%s",(g_Stage.stdData)->song1Name);
   (this->impl->msg).current_msg_idx = 0xffffffff;
   this->impl->finishedStage = 0;

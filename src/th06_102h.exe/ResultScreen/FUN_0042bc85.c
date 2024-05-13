@@ -3,14 +3,13 @@ undefined4 __thiscall ResultScreen::FUN_0042bc85(ResultScreen *this)
 
 {
   Hscr *out;
-  int in_stack_ffffffe0;
-  int iVar1;
+  int local_20;
   int local_1c;
   AnmVm *local_c;
   int local_8;
   
   if (this->field1_0x4 == 0) {
-    this->field15_0x24 = (uint)g_GameManager.character;
+    this->charUsed = (uint)g_GameManager.character;
     this->field17_0x2c = (int *)g_GameManager.difficulty;
     local_c = &this->unk_40;
     for (local_8 = 0; local_8 < 0x26; local_8 = local_8 + 1) {
@@ -18,18 +17,17 @@ undefined4 __thiscall ResultScreen::FUN_0042bc85(ResultScreen *this)
       local_c = local_c + 1;
     }
     AnmManager::FUN_00434e20
-              (g_AnmManager,&this->unk_28a0,0xffffff,0,(&g_CharacterList)[this->field15_0x24 * 2],
-               in_stack_ffffffe0);
+              (g_AnmManager,&this->unk_28a0,0xffffff,0,(&g_CharacterList)[this->charUsed * 2]);
     if (g_GameManager.shottype != 0) {
       (this->unk_28a0).color.color = 0x80ffffff;
     }
     AnmManager::FUN_00434e20
               (g_AnmManager,&this->field73_0x29b0,0xffffff,0,
-               (&PTR_Hakurei_Reimu__Dream__004784dc)[this->field15_0x24 * 2],in_stack_ffffffe0);
+               (&PTR_Hakurei_Reimu__Dream__004784dc)[this->charUsed * 2]);
     if (g_GameManager.shottype != 1) {
       (this->field73_0x29b0).color.color = 0x80ffffff;
     }
-    (this->hscr).character = g_GameManager.shottype + (char)this->field15_0x24 * '\x02';
+    (this->hscr).character = g_GameManager.shottype + (char)this->charUsed * '\x02';
     (this->hscr).difficulty = *(byte *)&this->field17_0x2c;
     (this->hscr).score = g_GameManager.score;
     (this->hscr).base.version_ = '\x10';
@@ -43,8 +41,8 @@ undefined4 __thiscall ResultScreen::FUN_0042bc85(ResultScreen *this)
     (this->hscr).base.field_0x9 = 1;
     _strcpy((this->hscr).name,"        ");
     out = &this->hscr;
-    FUN_0042bc2d(this,out,(int)this->field17_0x2c,
-                 (uint)g_GameManager.shottype + this->field15_0x24 * 2);
+    FUN_0042bc2d(this,out,(int)this->field17_0x2c,(uint)g_GameManager.shottype + this->charUsed * 2)
+    ;
     if (9 < (int)out) goto LAB_0042c273;
     this->cursor = 0;
     _strcpy(&this->field_0x34,"");
@@ -102,14 +100,14 @@ LAB_0042c1aa:
     if ((((g_CurFrameInput & 10) != 0) && ((g_CurFrameInput & 10) != (g_LastFrameInput & 10))) ||
        (((g_CurFrameInput & 10) != 0 && (g_IsEigthFrameOfHeldInput != 0)))) {
       if (this->cursor < 8) {
-        iVar1 = this->cursor;
+        local_20 = this->cursor;
       }
       else {
-        iVar1 = 7;
+        local_20 = 7;
       }
       if (0 < this->cursor) {
         this->cursor = this->cursor + -1;
-        (this->hscr).name[iVar1] = ' ';
+        (this->hscr).name[local_20] = ' ';
       }
       SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,SOUND_BACK,0);
     }

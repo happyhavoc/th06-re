@@ -1,5 +1,5 @@
 
-void __thiscall Gui::FUN_0041adf3(Gui *this)
+void __thiscall Gui::DrawStageIntro(Gui *this)
 
 {
   GuiImpl *pGVar1;

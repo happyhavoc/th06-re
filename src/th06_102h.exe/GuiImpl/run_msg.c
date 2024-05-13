@@ -107,7 +107,7 @@ undefined4 __thiscall GuiImpl::run_msg(GuiImpl *this)
         AnmManager::SetAndExecuteScript(pAVar4,&this->vm2,pAVar4->scripts[0x701]);
         (this->vm2).fontWidth = '\x10';
         (this->vm2).fontHeight = '\x10';
-        AnmManager::FUN_00434c40
+        AnmManager::DrawStringFormat
                   (g_AnmManager,&this->vm2,0xe0ffff,0,"♪%s",
                    (g_Stage.stdData)->song1Name +
                    *(int *)((int)(this->msg).current_instr + 4) * 0x80);
@@ -127,7 +127,7 @@ undefined4 __thiscall GuiImpl::run_msg(GuiImpl *this)
         pAVar1 = (this->msg).intro_lines + *(short *)((int)pvVar3 + 6);
         pAVar1->anmFileIndex = local_34;
         AnmManager::SetAndExecuteScript(pAVar4,pAVar1,pAVar4->scripts[sVar2 + 0x704]);
-        AnmManager::FUN_00434c40
+        AnmManager::DrawStringFormat
                   (g_AnmManager,(this->msg).intro_lines + *(short *)((int)pvVar3 + 6),
                    (this->msg).text_colors_A[*(short *)((int)pvVar3 + 4)],
                    (this->msg).text_colors_B[*(short *)((int)pvVar3 + 4)],(char *)((int)pvVar3 + 8))

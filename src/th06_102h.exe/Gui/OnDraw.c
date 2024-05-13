@@ -93,7 +93,7 @@ void Gui::OnDraw(Gui *arg)
     g_AsciiManager.color = 0xffffffff;
   }
   GuiImpl::FUN_004190ec(arg->impl);
-  FUN_0041adf3(arg);
+  DrawStageIntro(arg);
   drawGameScene(arg);
   g_AsciiManager.isGui = 1;
   if ((arg->impl->field15_0x2be4).field2_0x10 != 0) {

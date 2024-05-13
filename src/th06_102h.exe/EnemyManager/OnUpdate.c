@@ -33,8 +33,8 @@ undefined4 EnemyManager::OnUpdate(EnemyManager *param_1)
     }
     if (-1 < (char)curEnemy->flags1) goto LAB_00412416;
     param_1->enemy_count_real = param_1->enemy_count_real + 1;
-    Enemy::FUN_00413380(curEnemy);
-    Enemy::FUN_00412240(curEnemy);
+    Enemy::Move(curEnemy);
+    Enemy::ClampPos(curEnemy);
     if (((curEnemy->flags2 >> 2 & 1) == 0) &&
        (iVar2 = GameManager::IsInbounds
                           ((curEnemy->position).x,(curEnemy->position).y,
@@ -63,7 +63,7 @@ undefined4 EnemyManager::OnUpdate(EnemyManager *param_1)
       Enemy::FUN_004121b0(curEnemy);
       goto LAB_00412416;
     }
-    Enemy::FUN_00412240(curEnemy);
+    Enemy::ClampPos(curEnemy);
     (curEnemy->primary_vm).color = curEnemy->color;
     AnmManager::ExecuteScript(g_AnmManager,&curEnemy->primary_vm);
     curEnemy->color = (curEnemy->primary_vm).color;
@@ -140,7 +140,7 @@ undefined4 EnemyManager::OnUpdate(EnemyManager *param_1)
 LAB_00412a4d:
       if ((curEnemy->flags2 >> 3 & 1) != 0) {
         g_Gui.boss_present = false;
-        Enemy::FUN_004114c0(curEnemy);
+        Enemy::ResetEffectArray(curEnemy);
       }
 switchD_00412938_caseD_2:
       if ((char)curEnemy->item_drop < '\0') {

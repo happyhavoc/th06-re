@@ -64,7 +64,7 @@ void Player::BombMarisaBCalc(Player *param_1)
               (&g_Supervisor,&(param_1->inner).unk8.current,&(param_1->inner).unk8.subFrame);
   }
   else {
-    Gui::FUN_00417314(&g_Gui);
+    Gui::ImplVm5SetInterruptToOne(&g_Gui);
     (param_1->inner).isUsingBomb = 0;
     param_1->verticalMovementSpeedMultiplierDuringBomb = 1.0;
     param_1->horizontalMovementSpeedMultiplierDuringBomb = 1.0;

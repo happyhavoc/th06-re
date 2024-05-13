@@ -482,7 +482,7 @@ switchD_00407544_caseD_2:
     (enemy->position).y = *pfVar15;
     pfVar15 = Enemy::get_var_float(enemy,&(enemy->position).z,(EclValueType *)0x0);
     (enemy->position).z = *pfVar15;
-    Enemy::FUN_00412240(enemy);
+    Enemy::ClampPos(enemy);
     break;
   case 0x2c:
     (enemy->axis_speed).x = (float)instruction->ecl_var_id;
@@ -1062,13 +1062,13 @@ switchD_00407544_caseD_2:
               EffectManager::SpawnEffect
                         (&g_EffectManager,0xd,&enemy->position,1,
                          PTR_EFFECT_RELATED_COLORS_00476438[*local_6c]);
-    enemy->effect_array[enemy->effect_idx] = pEVar13;
-    pEVar13 = enemy->effect_array[enemy->effect_idx];
+    enemy->effect_array[enemy->effectsNum] = pEVar13;
+    pEVar13 = enemy->effect_array[enemy->effectsNum];
     (pEVar13->pos2).x = (float)local_6c[1];
     (pEVar13->pos2).y = (float)local_6c[2];
     (pEVar13->pos2).z = (float)local_6c[3];
     enemy->effect_distance = (float)local_6c[4];
-    enemy->effect_idx = enemy->effect_idx + 1;
+    enemy->effectsNum = enemy->effectsNum + 1;
     break;
   case 0x67:
     (enemy->hitbox_dimensions).x = (float)instruction->ecl_var_id;

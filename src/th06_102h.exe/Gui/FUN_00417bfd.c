@@ -16,7 +16,7 @@ void __thiscall Gui::FUN_00417bfd(Gui *this,int param_1,char *param_2)
   iVar2 = this->impl;
   (iVar2->vm6).anmFileIndex = 0x707;
   AnmManager::SetAndExecuteScript(pAVar3,&iVar2->vm6,pAVar3->scripts[0x707]);
-  AnmManager::FUN_00434c40(g_AnmManager,&this->impl->vm6,0xfff0f0,0,param_2);
+  AnmManager::DrawStringFormat(g_AnmManager,&this->impl->vm6,0xfff0f0,0,param_2);
   local_1c = param_2;
   do {
     cVar1 = *local_1c;

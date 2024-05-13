@@ -1,5 +1,5 @@
 
-void __thiscall Enemy::FUN_00412240(Enemy *this)
+void __thiscall Enemy::ClampPos(Enemy *this)
 
 {
   float x1;

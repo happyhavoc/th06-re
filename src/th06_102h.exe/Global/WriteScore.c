@@ -26,11 +26,11 @@ void WriteScore(ResultScreen *param_1)
   
   _Dst = _malloc(0xa0000);
   _memcpy(_Dst,param_1->scoredat,0x14);
-  *(undefined4 *)&param_1->field_0x519c = L'\x4b364854';
-  *(undefined2 *)&param_1->field_0x51a2 = 0xc;
-  *(undefined2 *)&param_1->field_0x51a0 = 0xc;
+  param_1->field92_0x519c = L'\x4b364854';
+  param_1->field94_0x51a2 = 0xc;
+  param_1->field93_0x51a0 = 0xc;
   param_1->field_0x51a4 = 0x10;
-  _memcpy((void *)((int)_Dst + 0x14),&param_1->field_0x519c,0xc);
+  _memcpy((void *)((int)_Dst + 0x14),&param_1->field92_0x519c,0xc);
   local_14 = 0x20;
   local_8 = 0;
   do {

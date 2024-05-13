@@ -15,7 +15,7 @@ void FUN_0040caf0(Enemy *param_1,AnmRawInstr *param_2)
   float fVar1;
   
   if ((param_1->flags3 >> 3 & 1) != 0) {
-    Enemy::FUN_004114c0(param_1);
+    Enemy::ResetEffectArray(param_1);
     return;
   }
   param_1->field63_0xeb8 = param_1->field63_0xeb8 + 0.01745329;

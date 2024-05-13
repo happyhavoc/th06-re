@@ -7,7 +7,6 @@ undefined4 __thiscall ResultScreen::OnUpdate(ResultScreen *this,ResultScreen *re
   ResultScreen *pRVar2;
   ResultScreen *extraout_ECX_00;
   ResultScreen *extraout_ECX_01;
-  int unaff_EDI;
   int local_14;
   int local_10;
   AnmVm *vm;
@@ -167,16 +166,15 @@ undefined4 __thiscall ResultScreen::OnUpdate(ResultScreen *this,ResultScreen *re
             }
           }
           pRVar2 = result_screen;
-          if ((result_screen->field15_0x24 != result_screen->cursor) &&
+          if ((result_screen->charUsed != result_screen->cursor) &&
              (result_screen->field1_0x4 == 0x14)) {
-            result_screen->field15_0x24 = result_screen->cursor;
+            result_screen->charUsed = result_screen->cursor;
             AnmManager::FUN_00434e20
                       (g_AnmManager,&result_screen->unk_28a0,0xffffff,0,
-                       (&g_CharacterList)[result_screen->field15_0x24 * 2],unaff_EDI);
+                       (&g_CharacterList)[result_screen->charUsed * 2]);
             AnmManager::FUN_00434e20
                       (g_AnmManager,&result_screen->field73_0x29b0,0xffffff,0,
-                       (&PTR_Hakurei_Reimu__Dream__004784dc)[result_screen->field15_0x24 * 2],
-                       unaff_EDI);
+                       (&PTR_Hakurei_Reimu__Dream__004784dc)[result_screen->charUsed * 2]);
             pRVar2 = extraout_ECX;
           }
           if (0x1d < result_screen->field1_0x4) {
@@ -248,7 +246,7 @@ undefined4 __thiscall ResultScreen::OnUpdate(ResultScreen *this,ResultScreen *re
             result_screen->field3_0xc = result_screen->unk_8;
             result_screen->field1_0x4 = 0;
             result_screen->cursor = *(int *)&result_screen->field_0x14;
-            result_screen->field15_0x24 = -1;
+            result_screen->charUsed = -1;
             result_screen->field16_0x28 = -1;
           }
           else if (iVar1 == 5) {
@@ -260,7 +258,7 @@ undefined4 __thiscall ResultScreen::OnUpdate(ResultScreen *this,ResultScreen *re
             result_screen->unk_8 = 8;
             result_screen->field3_0xc = result_screen->unk_8;
             result_screen->field1_0x4 = 0;
-            result_screen->field15_0x24 = -1;
+            result_screen->charUsed = -1;
             result_screen->cursor = result_screen->field9_0x18;
             result_screen->field16_0x28 = -1;
           }

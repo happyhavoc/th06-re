@@ -1,5 +1,5 @@
 
-void __thiscall Enemy::FUN_00413380(Enemy *this)
+void __thiscall Enemy::Move(Enemy *this)
 
 {
   if ((this->flags1 >> 6 & 1) == 0) {

@@ -64,7 +64,7 @@ void __thiscall EnemyManager::Initialize(EnemyManager *this)
   (this->template).death_callback_sub = -1;
   (this->template).interrupts[0] = -1;
   (this->template).flags3 = (this->template).flags3 & 0xfe;
-  (this->template).effect_idx = 0;
+  (this->template).effectsNum = 0;
   (this->template).run_interrupt = -1;
   (this->template).life_callback_threshold = -1;
   (this->template).timer_callback_threshold = -1;

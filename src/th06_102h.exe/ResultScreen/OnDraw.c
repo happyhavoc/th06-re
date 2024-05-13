@@ -100,9 +100,8 @@ void ResultScreen::OnDraw(ResultScreen *param_1)
       AnmManager::DrawNoRotation(g_AnmManager,&param_1->field73_0x29b0);
       local_40.x = local_40.x - 320.0;
       local_40.y = local_40.y + 18.0;
-      local_2c = param_1->scores[(int)param_1->field17_0x2c * 4 + param_1->field15_0x24 * 2].next;
-      local_34 = param_1->scores[(int)param_1->field17_0x2c * 4 + param_1->field15_0x24 * 2 + 1].
-                 next;
+      local_2c = param_1->scores[(int)param_1->field17_0x2c * 4 + param_1->charUsed * 2].next;
+      local_34 = param_1->scores[(int)param_1->field17_0x2c * 4 + param_1->charUsed * 2 + 1].next;
       for (local_14 = 0; local_40.y = local_40.y + 18.0, local_14 < 10; local_14 = local_14 + 1) {
         if (param_1->unk_8 == 9) {
           if (g_GameManager.shottype == 0) {

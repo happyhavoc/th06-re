@@ -1,7 +1,6 @@
 
 void AnmManager::FUN_00434e20
-               (AnmManager *AnmMgr,AnmVm *vm,D3DCOLOR color,D3DCOLOR color2,char *print_fmt,
-               int param_6)
+               (AnmManager *AnmMgr,AnmVm *vm,D3DCOLOR color,D3DCOLOR color2,char *print_fmt,...)
 
 {
   uint fontHeight;
@@ -29,7 +28,7 @@ void AnmManager::FUN_00434e20
   else {
     font_width = (uint)vm->fontWidth;
   }
-  local_8 = (va_list)&param_6;
+  local_8 = &stack0x00000018;
   vsprintf(buf,print_fmt,local_8);
   local_8 = (va_list)0x0;
   pcVar4 = " ";

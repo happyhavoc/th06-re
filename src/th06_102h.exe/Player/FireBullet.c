@@ -31,7 +31,7 @@ LAB_00426400:
     pZVar1->subFrame = 0.0;
     pZVar1->previous = -999;
     bullet->field10_0x152 = uVar3;
-    bullet->field11_0x154 = (ushort)bulletData->spawnPositionIdx;
+    bullet->spawnPositionIdx = (ushort)bulletData->spawnPositionIdx;
     bullet->sidewaysMotion = bulletData->field2_0x4;
     (bullet->unk_134).x = bulletData->field3_0x8;
   }

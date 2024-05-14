@@ -77,7 +77,7 @@ void Player::UpdatePlayerBullets(Player *player)
         else if (player->laserTimer[bullet->field10_0x152].current == 1) {
           (bullet->vm).pendingInterrupt = 1;
         }
-        pDVar1 = player->bulletSpawnPositions + bullet->field11_0x154 + -1;
+        pDVar1 = player->bulletSpawnPositions + bullet->spawnPositionIdx + -1;
         (bullet->position).x = pDVar1->x;
         (bullet->position).y = pDVar1->y;
         (bullet->position).z = pDVar1->z;

@@ -1101,7 +1101,7 @@ struct PlayerBullet {
     short bulletState;
     short bulletType;
     short field10_0x152;
-    short field11_0x154;
+    short spawnPositionIdx;
 };
 
 typedef struct Item Item, *PItem;

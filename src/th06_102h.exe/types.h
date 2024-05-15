@@ -1059,16 +1059,16 @@ typedef struct CharacterPowerBulletData CharacterPowerBulletData, *PCharacterPow
 struct CharacterPowerBulletData {
     ushort waitBetweenBullets;
     ushort bulletFrame;
-    float field2_0x4;
+    float sidewaysMotion;
     float field3_0x8;
-    float field4_0xc;
-    float field5_0x10;
-    float field6_0x14;
-    float field7_0x18;
+    float sizeX;
+    float sizeY;
+    float direction;
+    float velocity;
     ushort field8_0x1c;
     byte spawnPositionIdx;
     byte bulletType;
-    ushort field11_0x20;
+    ushort anmFileIdx;
     ushort field12_0x22;
 };
 

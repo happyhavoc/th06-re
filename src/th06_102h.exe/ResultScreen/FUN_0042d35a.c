@@ -2,7 +2,7 @@
 undefined4 __thiscall ResultScreen::FUN_0042d35a(ResultScreen *this)
 
 {
-  float local_34;
+  float completion;
   float local_20;
   D3DXVECTOR3 strPos;
   AnmVm *local_8;
@@ -11,10 +11,10 @@ undefined4 __thiscall ResultScreen::FUN_0042d35a(ResultScreen *this)
     local_8 = &this->viewportMaybe;
     g_AsciiManager.color = (this->viewportMaybe).color.color;
     if ((int)g_GameManager.difficulty < 4) {
-      local_34 = (float)g_GameManager.counat / 89500.0;
+      completion = (float)g_GameManager.counat / 89500.0;
     }
     else {
-      local_34 = (float)g_GameManager.counat / 39600.0;
+      completion = (float)g_GameManager.counat / 39600.0;
     }
     strPos.z = (this->viewportMaybe).pos.z;
     strPos.x = (this->viewportMaybe).pos.x + 224.0;
@@ -25,7 +25,8 @@ undefined4 __thiscall ResultScreen::FUN_0042d35a(ResultScreen *this)
               (&g_AsciiManager,&strPos,(&PTR_s__Easy_00478504)[g_GameManager.difficulty]);
     strPos.y = strPos.y + 22.0;
     if ((g_GameManager.difficulty == EASY) || (g_GameManager.is_game_completed == 0)) {
-      AsciiManager::AddFormatText(&g_AsciiManager,&strPos,"    %3.2f%%",(double)(local_34 * 100.0));
+      AsciiManager::AddFormatText
+                (&g_AsciiManager,&strPos,"    %3.2f%%",(double)(completion * 100.0));
     }
     else {
       AsciiManager::AddFormatText(&g_AsciiManager,&strPos,"      100%%");

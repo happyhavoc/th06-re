@@ -1,5 +1,5 @@
 
-int __thiscall ResultScreen::AddedCallback(ResultScreen *this,ResultScreen *param_1)
+ZunResult ResultScreen::AddedCallback(ResultScreen *param_1)
 
 {
   AnmManager *pAVar1;
@@ -14,23 +14,23 @@ int __thiscall ResultScreen::AddedCallback(ResultScreen *this,ResultScreen *para
   if (param_1->unk_8 != 0x11) {
     ZVar2 = AnmManager::LoadSurface(g_AnmManager,0,"data/result/result.jpg");
     if (ZVar2 != ZUN_SUCCESS) {
-      return -1;
+      return ZUN_ERROR;
     }
     ZVar2 = AnmManager::LoadAnm(g_AnmManager,0x25,"data/result00.anm",0x100);
     if (ZVar2 != ZUN_SUCCESS) {
-      return -1;
+      return ZUN_ERROR;
     }
     ZVar2 = AnmManager::LoadAnm(g_AnmManager,0x26,"data/result01.anm",0x108);
     if (ZVar2 != ZUN_SUCCESS) {
-      return -1;
+      return ZUN_ERROR;
     }
     ZVar2 = AnmManager::LoadAnm(g_AnmManager,0x27,"data/result02.anm",0x10f);
     if (ZVar2 != ZUN_SUCCESS) {
-      return -1;
+      return ZUN_ERROR;
     }
     ZVar2 = AnmManager::LoadAnm(g_AnmManager,0x28,"data/result03.anm",0x125);
     if (ZVar2 != ZUN_SUCCESS) {
-      return -1;
+      return ZUN_ERROR;
     }
     local_c = &param_1->unk_40;
     for (difficulty = 0; difficulty < 0x26; difficulty = difficulty + 1) {
@@ -71,8 +71,8 @@ int __thiscall ResultScreen::AddedCallback(ResultScreen *this,ResultScreen *para
         param_1->default_scores[difficulty][character][idx].base.th6k_len = 0x1c;
         param_1->default_scores[difficulty][character][idx].stage = 1;
         param_1->default_scores[difficulty][character][idx].base.field_0x9 = 0;
-        FUN_0042bc2d(param_1,param_1->default_scores[difficulty][character] + idx,difficulty,
-                     character);
+        LinkScoreEx(param_1,param_1->default_scores[difficulty][character] + idx,difficulty,
+                    character);
         _strcpy(param_1->default_scores[difficulty][character][idx].name,"Nanashi ");
       }
     }
@@ -100,6 +100,6 @@ int __thiscall ResultScreen::AddedCallback(ResultScreen *this,ResultScreen *para
              ) = g_GameManager.score;
   }
   (param_1->unk_39a0).spriteNumber = -1;
-  return 0;
+  return ZUN_SUCCESS;
 }
 

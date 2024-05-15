@@ -901,7 +901,7 @@ switchD_00407544_caseD_2:
   case 0x5d:
     Gui::FUN_00417bfd(&g_Gui,(int)*(short *)&instruction->ecl_var_id,
                       (char *)&instruction->float_var_1);
-    BOOL_005a5f8c = 1;
+    isPlayerAlive = 1;
     DAT_005a5f90 = 1;
     DAT_005a5f98 = (int)*(short *)((int)&instruction->ecl_var_id + 2);
     DAT_005a5f94 = INT_ARRAY_00476120[DAT_005a5f98];
@@ -952,7 +952,7 @@ switchD_00407544_caseD_2:
       Gui::Vm6SetInterruptTo1(&g_Gui);
       if ((DAT_005a5f90 == 1) &&
          (score_increese = BulletManager::FUN_00414360(&g_BulletManager,0x3200,1),
-         BOOL_005a5f8c != 0)) {
+         isPlayerAlive != 0)) {
         local_80 = g_GameManager.catk + DAT_005a5f98;
         if ((int)DAT_005a5f94 < 500000) {
           local_2dc = (int)DAT_005a5f94 / 10;

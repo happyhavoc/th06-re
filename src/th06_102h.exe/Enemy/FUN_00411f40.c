@@ -27,7 +27,7 @@ undefined4 __thiscall Enemy::FUN_00411f40(Enemy *this)
     (this->boss_timer).subFrame = 0.0;
     (this->boss_timer).previous = -999;
     if ((this->flags3 >> 4 & 1) == 0) {
-      BOOL_005a5f8c = 0;
+      isPlayerAlive = 0;
       if (DAT_005a5f90 != 0) {
         DAT_005a5f90 = DAT_005a5f90 + 1;
       }

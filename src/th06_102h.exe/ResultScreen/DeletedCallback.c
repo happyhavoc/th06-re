@@ -2,17 +2,17 @@
 undefined4 __thiscall ResultScreen::DeletedCallback(ResultScreen *this,ResultScreen *param_1)
 
 {
-  int local_c;
-  int local_8;
+  int character;
+  int difficulty;
   
   if (param_1->scoredat != (ScoreDat *)0x0) {
     WriteScore(param_1);
     ScoreDat::Release(param_1->scoredat);
   }
   param_1->scoredat = (ScoreDat *)0x0;
-  for (local_8 = 0; local_8 < 5; local_8 = local_8 + 1) {
-    for (local_c = 0; local_c < 4; local_c = local_c + 1) {
-      FUN_0042bc5b(param_1,local_8,local_c);
+  for (difficulty = 0; difficulty < 5; difficulty = difficulty + 1) {
+    for (character = 0; character < 4; character = character + 1) {
+      FreeScore(param_1,difficulty,character);
     }
   }
   AnmManager::ReleaseAnm(g_AnmManager,0x25);

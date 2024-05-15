@@ -41,8 +41,7 @@ undefined4 __thiscall ResultScreen::FUN_0042bc85(ResultScreen *this)
     (this->hscr).base.field_0x9 = 1;
     _strcpy((this->hscr).name,"        ");
     out = &this->hscr;
-    FUN_0042bc2d(this,out,(int)this->field17_0x2c,(uint)g_GameManager.shottype + this->charUsed * 2)
-    ;
+    LinkScoreEx(this,out,(int)this->field17_0x2c,(uint)g_GameManager.shottype + this->charUsed * 2);
     if (9 < (int)out) goto LAB_0042c273;
     this->cursor = 0;
     _strcpy(&this->field_0x34,"");

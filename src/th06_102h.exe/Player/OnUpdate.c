@@ -33,7 +33,7 @@ ChainCallbackResult Player::OnUpdate(Player *param_1)
       (param_1->inner).unk8.previous = -999;
       (param_1->inner).unk4 = 999;
       (*(code *)(param_1->inner).bombCalc)(param_1);
-      BOOL_005a5f8c = 0;
+      isPlayerAlive = 0;
       GameManager::DecreaseSubrank(&g_GameManager,200);
       DAT_005a5f9c = DAT_005a5f90;
     }

@@ -1,7 +1,6 @@
 
 FireBulletResult
-Player::FireBulletMarisaA
-          (Player *param_1,PlayerBullet *param_2,undefined4 param_3,undefined4 param_4)
+Player::FireBulletMarisaA(Player *param_1,PlayerBullet *param_2,int param_3,int param_4)
 
 {
   FireBulletResult FVar1;

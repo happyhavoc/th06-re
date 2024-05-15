@@ -5,7 +5,7 @@ void __thiscall Player::Die(Player *this)
   ZunTimer *pZVar1;
   int local_8;
   
-  BOOL_005a5f8c = 0;
+  isPlayerAlive = 0;
   EffectManager::SpawnEffect(&g_EffectManager,0xc,&this->positionCenter,1,0xff4040ff);
   EffectManager::SpawnEffect(&g_EffectManager,6,&this->positionCenter,0x10,0xffffffff);
   this->playerState = PLAYER_STATE_DEAD;

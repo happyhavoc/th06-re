@@ -15,7 +15,7 @@ undefined4 ScreenEffect::drawChainCallback(ScreenEffect *param_1)
   g_Supervisor.viewport.Width = 0x280;
   g_Supervisor.viewport.Height = 0x1e0;
   (*(g_Supervisor.d3dDevice)->lpVtbl->SetViewport)(g_Supervisor.d3dDevice,&g_Supervisor.viewport);
-  DrawSquare(&local_14,param_1->field4_0x10 << 0x18 | param_1->field6_0x18);
+  DrawSquare(&local_14,param_1->field4_0x10 << 0x18 | param_1->param3);
   return 1;
 }
 

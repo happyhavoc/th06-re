@@ -1017,15 +1017,15 @@ struct MidiTrack {
 typedef struct ScreenEffect ScreenEffect, *PScreenEffect;
 
 struct ScreenEffect {
-    int field0_0x0;
+    int whichCallback;
     struct ChainElem *calcChainElement;
     struct ChainElem *drawChainElement;
     uint field3_0xc;
     uint field4_0x10;
-    int field5_0x14;
-    int field6_0x18;
-    int field7_0x1c;
-    int field8_0x20;
+    int ticks;
+    int param3;
+    int param4;
+    int param5;
     struct ZunTimer timer;
 };
 

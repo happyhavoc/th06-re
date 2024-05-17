@@ -62,7 +62,7 @@ void Player::BombMarisaACalc(Player *param_1)
         local_c = local_c + 1;
       }
       SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,SOUND_BOMB_REIMARI,0);
-      ScreenEffect::RegisterChain(1,0x78,4,1);
+      ScreenEffect::RegisterChain(1,0x78,4,1,0);
     }
     param_1->playerState = PLAYER_STATE_USING_BOMB;
     (param_1->inner).unk8.previous = (param_1->inner).unk8.current;

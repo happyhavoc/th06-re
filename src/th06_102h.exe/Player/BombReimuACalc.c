@@ -128,7 +128,7 @@ void Player::BombReimuACalc(Player *param_1)
               param_1->unk_8b8[local_10].size1.x = 256.0;
               param_1->unk_8b8[local_10].size1.y = 256.0;
               SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,SOUND_F,0);
-              ScreenEffect::RegisterChain();
+              ScreenEffect::RegisterChain(1,0x10,8,0,0);
             }
           }
         }

@@ -13,10 +13,10 @@ undefined4 calcChainElementCallback_2(ScreenEffect *param_1)
   if ((char)g_GameManager.unk_0x2c == '\0') {
     (param_1->timer).previous = (param_1->timer).current;
     Supervisor::TickTimer(&g_Supervisor,&(param_1->timer).current,&(param_1->timer).subFrame);
-    if ((param_1->timer).current < param_1->field5_0x14) {
+    if ((param_1->timer).current < param_1->ticks) {
       fVar1 = (((float)(param_1->timer).current + (param_1->timer).subFrame) *
-              (float)(param_1->field7_0x1c - param_1->field6_0x18)) / (float)param_1->field5_0x14 +
-              (float)param_1->field6_0x18;
+              (float)(param_1->param4 - param_1->param3)) / (float)param_1->ticks +
+              (float)param_1->param3;
       uVar3 = Rng::GetRandomU32(&g_Rng);
       uVar3 = uVar3 % 3;
       if (uVar3 == 0) {

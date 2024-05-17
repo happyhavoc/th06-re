@@ -1,5 +1,5 @@
 
-undefined4 __thiscall Player::CalcMove(Player *this)
+ZunResult __thiscall Player::HandlePlayerInputs(Player *this)
 
 {
   float fVar1;
@@ -125,30 +125,32 @@ undefined4 __thiscall Player::CalcMove(Player *this)
     }
     verticalSpeed = horizontalSpeed;
   }
-  if ((horizontalSpeed < 0.0 == NAN(horizontalSpeed)) || (this->unk_a10 < 0.0)) {
+  if ((horizontalSpeed < 0.0 == NAN(horizontalSpeed)) || (this->previousHorizontalSpeed < 0.0)) {
     if ((NAN(horizontalSpeed) != (horizontalSpeed == 0.0)) &&
-       (this->unk_a10 < 0.0 != NAN(this->unk_a10))) {
-      (this->vm0).anmFileIndex = 0x402;
-      AnmManager::SetAndExecuteScript(pAVar5,&this->vm0,pAVar5->scripts[0x402]);
+       (this->previousHorizontalSpeed < 0.0 != NAN(this->previousHorizontalSpeed))) {
+      (this->playerVm).anmFileIndex = 0x402;
+      AnmManager::SetAndExecuteScript(pAVar5,&this->playerVm,pAVar5->scripts[0x402]);
     }
   }
   else {
-    (this->vm0).anmFileIndex = 0x401;
-    AnmManager::SetAndExecuteScript(pAVar5,&this->vm0,pAVar5->scripts[0x401]);
+    (this->playerVm).anmFileIndex = 0x401;
+    AnmManager::SetAndExecuteScript(pAVar5,&this->playerVm,pAVar5->scripts[0x401]);
   }
   pAVar5 = g_AnmManager;
-  if ((horizontalSpeed <= 0.0) || (this->unk_a10 < 0.0 == (this->unk_a10 == 0.0))) {
-    if ((NAN(horizontalSpeed) != (horizontalSpeed == 0.0)) && (0.0 < this->unk_a10)) {
-      (this->vm0).anmFileIndex = 0x404;
-      AnmManager::SetAndExecuteScript(pAVar5,&this->vm0,pAVar5->scripts[0x404]);
+  if ((horizontalSpeed <= 0.0) ||
+     (this->previousHorizontalSpeed < 0.0 == (this->previousHorizontalSpeed == 0.0))) {
+    if ((NAN(horizontalSpeed) != (horizontalSpeed == 0.0)) && (0.0 < this->previousHorizontalSpeed))
+    {
+      (this->playerVm).anmFileIndex = 0x404;
+      AnmManager::SetAndExecuteScript(pAVar5,&this->playerVm,pAVar5->scripts[0x404]);
     }
   }
   else {
-    (this->vm0).anmFileIndex = 0x403;
-    AnmManager::SetAndExecuteScript(pAVar5,&this->vm0,pAVar5->scripts[0x403]);
+    (this->playerVm).anmFileIndex = 0x403;
+    AnmManager::SetAndExecuteScript(pAVar5,&this->playerVm,pAVar5->scripts[0x403]);
   }
-  this->unk_a10 = horizontalSpeed;
-  this->unk_a14 = (int)verticalSpeed;
+  this->previousHorizontalSpeed = horizontalSpeed;
+  this->previousVerticalSpeed = verticalSpeed;
   (this->positionCenter).x =
        horizontalSpeed * this->horizontalMovementSpeedMultiplierDuringBomb *
        g_Supervisor.effectiveFramerateMultiplier + (this->positionCenter).x;
@@ -205,34 +207,34 @@ undefined4 __thiscall Player::CalcMove(Player *this)
   (this->grabItemBottomRight).x = (this->positionCenter).x + (this->grabItemSize).x;
   (this->grabItemBottomRight).y = fVar3 + fVar4;
   (this->grabItemBottomRight).z = fVar1 + fVar2;
-  this->bulletSpawnPositions[0].x = (this->positionCenter).x;
-  this->bulletSpawnPositions[0].y = (this->positionCenter).y;
-  this->bulletSpawnPositions[0].z = (this->positionCenter).z;
-  this->bulletSpawnPositions[1].x = (this->positionCenter).x;
-  this->bulletSpawnPositions[1].y = (this->positionCenter).y;
-  this->bulletSpawnPositions[1].z = (this->positionCenter).z;
+  this->orbsPosition[0].x = (this->positionCenter).x;
+  this->orbsPosition[0].y = (this->positionCenter).y;
+  this->orbsPosition[0].z = (this->positionCenter).z;
+  this->orbsPosition[1].x = (this->positionCenter).x;
+  this->orbsPosition[1].y = (this->positionCenter).y;
+  this->orbsPosition[1].z = (this->positionCenter).z;
   local_14 = 0.0;
   local_18 = 0.0;
   if (g_GameManager.current_power < 8) {
-    this->extraBulletSpawnState = EXTRA_BULLET_NONE;
+    this->orbState = ORB_HIDDEN;
   }
-  else if (this->extraBulletSpawnState == EXTRA_BULLET_NONE) {
-    this->extraBulletSpawnState = EXTRA_BULLET_UNFOCUSED;
+  else if (this->orbState == ORB_HIDDEN) {
+    this->orbState = ORB_UNFOCUSED;
   }
-  switch(this->extraBulletSpawnState) {
-  case EXTRA_BULLET_NONE:
+  switch(this->orbState) {
+  case ORB_HIDDEN:
     (this->focusMovementTimer).current = 0;
     (this->focusMovementTimer).subFrame = 0.0;
     (this->focusMovementTimer).previous = -999;
     break;
-  case EXTRA_BULLET_UNFOCUSED:
+  case ORB_UNFOCUSED:
     local_18 = 24.0;
     (this->focusMovementTimer).current = 0;
     (this->focusMovementTimer).subFrame = 0.0;
     (this->focusMovementTimer).previous = -999;
     if (this->isFocus == 0) break;
-    this->extraBulletSpawnState = EXTRA_BULLET_FOCUSING;
-  case EXTRA_BULLET_FOCUSING:
+    this->orbState = ORB_FOCUSING;
+  case ORB_FOCUSING:
     while( true ) {
       (this->focusMovementTimer).previous = (this->focusMovementTimer).current;
       Supervisor::TickTimer
@@ -243,10 +245,10 @@ undefined4 __thiscall Player::CalcMove(Player *this)
       local_14 = (1.0 - fVar1) * 32.0 + -32.0;
       local_18 = fVar1 * fVar1 * -16.0 + 24.0;
       if (7 < (this->focusMovementTimer).current) {
-        this->extraBulletSpawnState = EXTRA_BULLET_FULLY_FOCUSED;
+        this->orbState = ORB_FOCUSED;
       }
       if (this->isFocus != 0) break;
-      this->extraBulletSpawnState = EXTRA_BULLET_UNFOCUSING;
+      this->orbState = ORB_UNFOCUSING;
       (this->focusMovementTimer).current = 8 - (this->focusMovementTimer).current;
       (this->focusMovementTimer).subFrame = 0.0;
       (this->focusMovementTimer).previous = -999;
@@ -260,37 +262,37 @@ switchD_004281aa_caseD_4:
       local_14 = fVar1 * 32.0 + -32.0;
       local_18 = (1.0 - fVar1 * fVar1) * -16.0 + 24.0;
       if (7 < (this->focusMovementTimer).current) {
-        this->extraBulletSpawnState = EXTRA_BULLET_UNFOCUSED;
+        this->orbState = ORB_UNFOCUSED;
       }
       if (this->isFocus == 0) break;
-      this->extraBulletSpawnState = EXTRA_BULLET_FOCUSING;
+      this->orbState = ORB_FOCUSING;
       (this->focusMovementTimer).current = 8 - (this->focusMovementTimer).current;
       (this->focusMovementTimer).subFrame = 0.0;
       (this->focusMovementTimer).previous = -999;
     }
     break;
-  case EXTRA_BULLET_FULLY_FOCUSED:
+  case ORB_FOCUSED:
     local_18 = 8.0;
     local_14 = -32.0;
     (this->focusMovementTimer).current = 0;
     (this->focusMovementTimer).subFrame = 0.0;
     (this->focusMovementTimer).previous = -999;
     if (this->isFocus == 0) {
-      this->extraBulletSpawnState = EXTRA_BULLET_UNFOCUSING;
+      this->orbState = ORB_UNFOCUSING;
       goto switchD_004281aa_caseD_4;
     }
     break;
-  case EXTRA_BULLET_UNFOCUSING:
+  case ORB_UNFOCUSING:
     goto switchD_004281aa_caseD_4;
   }
-  this->bulletSpawnPositions[0].x = this->bulletSpawnPositions[0].x - local_18;
-  this->bulletSpawnPositions[1].x = local_18 + this->bulletSpawnPositions[1].x;
-  this->bulletSpawnPositions[0].y = local_14 + this->bulletSpawnPositions[0].y;
-  this->bulletSpawnPositions[1].y = local_14 + this->bulletSpawnPositions[1].y;
-  if (((g_CurFrameInput & 1) != 0) && (BVar7 = Gui::HasCurrentMsgIdx(&g_Gui), BVar7 == 0)) {
-    InitInnerTimer(this);
+  this->orbsPosition[0].x = this->orbsPosition[0].x - local_18;
+  this->orbsPosition[1].x = local_18 + this->orbsPosition[1].x;
+  this->orbsPosition[0].y = local_14 + this->orbsPosition[0].y;
+  this->orbsPosition[1].y = local_14 + this->orbsPosition[1].y;
+  if (((g_CurFrameInput & KEY_SHOOT) != 0) && (BVar7 = Gui::HasCurrentMsgIdx(&g_Gui), BVar7 == 0)) {
+    StartFireBulletTimer(this);
   }
-  this->unk_a18 = g_CurFrameInput;
-  return 0;
+  this->previousFrameInput = g_CurFrameInput;
+  return ZUN_SUCCESS;
 }
 

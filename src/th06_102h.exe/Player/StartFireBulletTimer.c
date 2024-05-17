@@ -1,5 +1,5 @@
 
-void Player::InitInnerTimer(Player *param_1)
+void Player::StartFireBulletTimer(Player *param_1)
 
 {
   if ((param_1->fireBulletTimer).current < 0) {

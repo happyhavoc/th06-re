@@ -1,5 +1,5 @@
 
-undefined4 screenEffectAddCallback(ScreenEffect *param_1)
+undefined4 AddedCallback(ScreenEffect *param_1)
 
 {
   (param_1->timer).current = 0;

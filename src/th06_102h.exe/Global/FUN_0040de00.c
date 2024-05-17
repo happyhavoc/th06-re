@@ -39,10 +39,10 @@ void FUN_0040de00(Enemy *param_1,AnmRawInstr *param_2)
             (((local_68->vms).vm0.sprite != (AnmLoadedSprite *)0x0 &&
              ((fVar6 = ((local_68->vms).vm0.sprite)->heightPx, fVar6 < 30.0 != NAN(fVar6) &&
               (NAN(local_68->speed) != (local_68->speed == 0.0))))))) &&
-           (fVar6 = FUN_0045bc34(SUB84((double)(((local_68->pos).x - (bullets->pos).x) *
-                                                ((local_68->pos).x - (bullets->pos).x) +
-                                               ((local_68->pos).y - (bullets->pos).y) *
-                                               ((local_68->pos).y - (bullets->pos).y)),0)),
+           (fVar6 = sqrt(SUB84((double)(((local_68->pos).x - (bullets->pos).x) *
+                                        ((local_68->pos).x - (bullets->pos).x) +
+                                       ((local_68->pos).y - (bullets->pos).y) *
+                                       ((local_68->pos).y - (bullets->pos).y)),0)),
            fVar6 < 64.0 != NAN(fVar6))) {
           local_68->ex_flags = local_68->ex_flags | 0x10;
           local_68->speed = 0.01;

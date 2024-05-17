@@ -7,7 +7,7 @@ void FUN_0040d930(Enemy *param_1,AnmRawInstr *param_2)
   if (0 < param_1->life) {
     FUN_0040caf0(param_1,param_2);
     pAVar1 = g_AnmManager;
-    if (g_Player.inner.isUsingBomb == 0) {
+    if (g_Player.bombInfo.isUsingBomb == 0) {
       if ((0 < (param_1->field44_0xe44).current) &&
          (ZunTimer::Decrement(&param_1->field44_0xe44,1), pAVar1 = g_AnmManager,
          (param_1->field44_0xe44).current == 0)) {

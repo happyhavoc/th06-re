@@ -4,7 +4,7 @@ void __thiscall Player::Graze(Player *this,D3DXVECTOR3 *param_1)
 {
   D3DXVECTOR3 local_10;
   
-  if (g_Player.inner.isUsingBomb == 0) {
+  if (g_Player.bombInfo.isUsingBomb == 0) {
     if ((int)g_GameManager.graze_in_stage < 9999) {
       g_GameManager.graze_in_stage = g_GameManager.graze_in_stage + 1;
     }

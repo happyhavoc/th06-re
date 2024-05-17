@@ -1,5 +1,5 @@
 
-void Player::FUN_00429820(Player *param_1,u32 timer)
+void Player::SpawnBullets(Player *param_1,u32 timer)
 
 {
   FireBulletResult local_14;

@@ -1,5 +1,5 @@
 
-void Player::UpdateBullets(Player *this)
+void Player::DrawBullets(Player *this)
 
 {
   float fVar1;

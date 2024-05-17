@@ -8,7 +8,7 @@ void Player::BombMarisaBDraw(Player *param_1)
   AnmVm *local_8;
   
   FUN_00406020(param_1);
-  local_8 = (param_1->inner).vms[0];
+  local_8 = (param_1->bombInfo).vms[0];
   for (local_c = 0; local_c < 4; local_c = local_c + 1) {
     fVar1 = (((float)local_c * 0.6283185) / 3.0 - 3.141593) + 1.256637;
     (local_8->pos).x = (param_1->positionCenter).x;

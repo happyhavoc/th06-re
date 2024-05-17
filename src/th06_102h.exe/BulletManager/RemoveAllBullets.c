@@ -1,5 +1,5 @@
 
-void __thiscall BulletManager::FUN_00414160(BulletManager *this,int param_1)
+void __thiscall BulletManager::RemoveAllBullets(BulletManager *this,int turnIntoItem)
 
 {
   float10 fVar1;
@@ -15,7 +15,7 @@ void __thiscall BulletManager::FUN_00414160(BulletManager *this,int param_1)
   bullets = g_BulletManager.bullets;
   for (index_1 = 0; index_1 < 0x280; index_1 = index_1 + 1) {
     if ((bullets->state != 0) && (bullets->state != 5)) {
-      if (param_1 == 0) {
+      if (turnIntoItem == 0) {
         bullets->state = 5;
       }
       else {
@@ -37,7 +37,7 @@ void __thiscall BulletManager::FUN_00414160(BulletManager *this,int param_1)
         (lasers->timer).current = 0;
         (lasers->timer).subFrame = 0.0;
         (lasers->timer).previous = -999;
-        if (param_1 != 0) {
+        if (turnIntoItem != 0) {
           local_28 = lasers->start_offset;
           fVar1 = (float10)fcos((float10)lasers->angle);
           fVar4 = (float10)fsin((float10)lasers->angle);

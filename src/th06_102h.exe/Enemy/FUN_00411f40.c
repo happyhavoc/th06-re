@@ -27,11 +27,11 @@ undefined4 __thiscall Enemy::FUN_00411f40(Enemy *this)
     (this->boss_timer).subFrame = 0.0;
     (this->boss_timer).previous = -999;
     if ((this->flags3 >> 4 & 1) == 0) {
-      isPlayerAlive = 0;
-      if (DAT_005a5f90 != 0) {
-        DAT_005a5f90 = DAT_005a5f90 + 1;
+      g_RunningSpellcardInfo.capture_spellcard = 0;
+      if (g_RunningSpellcardInfo.is_active != 0) {
+        g_RunningSpellcardInfo.is_active = g_RunningSpellcardInfo.is_active + 1;
       }
-      BulletManager::FUN_00414160(&g_BulletManager,0);
+      BulletManager::RemoveAllBullets(&g_BulletManager,0);
     }
     local_8 = Enemy_ARRAY_004b8898;
     for (local_c = 0; local_c < 0x100; local_c = local_c + 1) {

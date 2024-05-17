@@ -37,18 +37,18 @@ ScreenEffect::RegisterChain(int whichCallback,int ticks,int param_3,int param_4,
       pSVar2 = (ScreenEffect *)&pSVar2->calcChainElement;
     }
     if (whichCallback == 0) {
-      calcChainElement = Chain::CreateElem(&g_Chain,calcChainElementCallback);
-      drawChainElement = Chain::CreateElem(&g_Chain,drawChainCallback);
+      calcChainElement = Chain::CreateElem(&g_Chain,OnUpdateEffect0);
+      drawChainElement = Chain::CreateElem(&g_Chain,OnDrawEffect0);
     }
     else if (whichCallback == 1) {
-      calcChainElement = Chain::CreateElem(&g_Chain,calcChainElementCallback_2);
+      calcChainElement = Chain::CreateElem(&g_Chain,OnUpdateEffect1);
     }
     else if (whichCallback == 2) {
-      calcChainElement = Chain::CreateElem(&g_Chain,calcChainElementCallback_3);
-      drawChainElement = Chain::CreateElem(&g_Chain,drawChainCallback_2);
+      calcChainElement = Chain::CreateElem(&g_Chain,OnUpdateEffect2);
+      drawChainElement = Chain::CreateElem(&g_Chain,OnDrawEffect2);
     }
-    calcChainElement->addedCallback = screenEffectAddCallback;
-    calcChainElement->deletedCallback = screenEffectDeletedCallback;
+    calcChainElement->addedCallback = AddedCallback;
+    calcChainElement->deletedCallback = DeletedCallback;
     calcChainElement->arg = calcChainArgument;
     calcChainArgument->whichCallback = whichCallback;
     calcChainArgument->ticks = ticks;

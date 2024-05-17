@@ -46,7 +46,7 @@ void FUN_0040d530(Enemy *param_1,AnmRawInstr *param_2)
         local_64 = 0.0;
       }
       else {
-        local_64 = FUN_0045bc34(SUB84((double)fVar1,0));
+        local_64 = sqrt(SUB84((double)fVar1,0));
       }
       fVar5 = (float10)((local_64 * 3.141593) / 256.0 + (fVar6 * 6.283185 - 3.141593));
       fVar2 = (float10)fcos(fVar5);

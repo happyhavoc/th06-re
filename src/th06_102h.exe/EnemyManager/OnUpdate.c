@@ -164,7 +164,7 @@ switchD_00412938_caseD_2:
                   (&g_EffectManager,curEnemy->death_anm2 + 4,&curEnemy->position,3,0xffffffff);
         ItemManager::SpawnItem(&g_ItemManager,&curEnemy->position,curEnemy->item_drop,local_8);
       }
-      if (((curEnemy->flags2 >> 3 & 1) != 0) && (DAT_005a5f90 == 0)) {
+      if (((curEnemy->flags2 >> 3 & 1) != 0) && (g_RunningSpellcardInfo.is_active == 0)) {
         BulletManager::FUN_00414360(&g_BulletManager,0x3200,0);
       }
       curEnemy->life = 0;
@@ -228,7 +228,7 @@ LAB_00412ce2:
     }
 LAB_00412dbc:
     FUN_00412e50(curEnemy);
-    if ((char)g_GameManager.unk_0x2c == '\0') {
+    if ((char)g_GameManager.isTimeStopped == '\0') {
       (curEnemy->boss_timer).previous = (curEnemy->boss_timer).current;
       Supervisor::TickTimer
                 (&g_Supervisor,&(curEnemy->boss_timer).current,&(curEnemy->boss_timer).subFrame);

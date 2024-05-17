@@ -1,7 +1,7 @@
 
 /* WARNING: Unknown calling convention -- yet parameter storage is locked */
 
-undefined4 ScreenEffect::drawChainCallback(ScreenEffect *param_1)
+undefined4 ScreenEffect::OnDrawEffect0(ScreenEffect *param_1)
 
 {
   ZunRect local_14;

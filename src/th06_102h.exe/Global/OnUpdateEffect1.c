@@ -3,14 +3,14 @@
 /* WARNING: Removing unreachable block (ram,0x00430173) */
 /* WARNING: Unknown calling convention -- yet parameter storage is locked */
 
-undefined4 calcChainElementCallback_2(ScreenEffect *param_1)
+undefined4 OnUpdateEffect1(ScreenEffect *param_1)
 
 {
   float fVar1;
   undefined4 uVar2;
   uint uVar3;
   
-  if ((char)g_GameManager.unk_0x2c == '\0') {
+  if ((char)g_GameManager.isTimeStopped == '\0') {
     (param_1->timer).previous = (param_1->timer).current;
     Supervisor::TickTimer(&g_Supervisor,&(param_1->timer).current,&(param_1->timer).subFrame);
     if ((param_1->timer).current < param_1->ticks) {

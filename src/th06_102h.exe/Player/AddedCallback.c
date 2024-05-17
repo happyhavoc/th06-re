@@ -19,8 +19,8 @@ ZunResult Player::AddedCallback(Player *this)
       return ZUN_ERROR;
     }
     pAVar2 = g_AnmManager;
-    (this->vm0).anmFileIndex = 0x400;
-    AnmManager::SetAndExecuteScript(pAVar2,&this->vm0,pAVar2->scripts[0x400]);
+    (this->playerVm).anmFileIndex = 0x400;
+    AnmManager::SetAndExecuteScript(pAVar2,&this->playerVm,pAVar2->scripts[0x400]);
   }
   else if (g_GameManager.character == 1) {
     if ((g_Supervisor.curState != SUPERVISOR_STATE_GAMEMANAGER_REINIT) &&
@@ -29,14 +29,14 @@ ZunResult Player::AddedCallback(Player *this)
       return ZUN_ERROR;
     }
     pAVar2 = g_AnmManager;
-    (this->vm0).anmFileIndex = 0x400;
-    AnmManager::SetAndExecuteScript(pAVar2,&this->vm0,pAVar2->scripts[0x400]);
+    (this->playerVm).anmFileIndex = 0x400;
+    AnmManager::SetAndExecuteScript(pAVar2,&this->playerVm,pAVar2->scripts[0x400]);
   }
   (this->positionCenter).x = g_GameManager.arcade_region_size.x / 2.0;
   (this->positionCenter).y = g_GameManager.arcade_region_size.y - 64.0;
   (this->positionCenter).z = 0.49;
-  this->bulletSpawnPositions[0].z = 0.49;
-  this->bulletSpawnPositions[1].z = 0.49;
+  this->orbsPosition[0].z = 0.49;
+  this->orbsPosition[1].z = 0.49;
   for (bullet_idx = 0; bullet_idx < 0x20; bullet_idx = bullet_idx + 1) {
     this->unk_638[bullet_idx].x = 0.0;
   }
@@ -54,25 +54,25 @@ ZunResult Player::AddedCallback(Player *this)
     pCVar5 = (CharacterData *)&pCVar5->orthogonalMovementSpeedFocus;
     pCVar6 = (CharacterData *)&pCVar6->orthogonalMovementSpeedFocus;
   }
-  fVar7 = FUN_0045bc34((double *)0x0);
+  fVar7 = sqrt((double *)0x0);
   (this->characterData).diagonalMovementSpeed =
        (this->characterData).orthogonalMovementSpeed / fVar7;
-  fVar7 = FUN_0045bc34((double *)0x0);
+  fVar7 = sqrt((double *)0x0);
   (this->characterData).diagonalMovementSpeedFocus =
        (this->characterData).orthogonalMovementSpeedFocus / fVar7;
   this->fireBulletCallback = (this->characterData).fireBulletCallback;
   this->fireBulletFocusCallback = (this->characterData).fireBulletFocusCallback;
   this->playerState = PLAYER_STATE_SPAWNING;
-  (this->blinkingPlayerTimer).current = 0x78;
-  (this->blinkingPlayerTimer).subFrame = 0.0;
-  (this->blinkingPlayerTimer).previous = -999;
-  this->extraBulletSpawnState = EXTRA_BULLET_NONE;
+  (this->invulnerabilityTimer).current = 0x78;
+  (this->invulnerabilityTimer).subFrame = 0.0;
+  (this->invulnerabilityTimer).previous = -999;
+  this->orbState = ORB_HIDDEN;
   pAVar2 = g_AnmManager;
-  this->vm1[0].anmFileIndex = 0x480;
-  AnmManager::SetAndExecuteScript(pAVar2,this->vm1,pAVar2->scripts[0x480]);
+  this->orbsVm[0].anmFileIndex = 0x480;
+  AnmManager::SetAndExecuteScript(pAVar2,this->orbsVm,pAVar2->scripts[0x480]);
   pAVar2 = g_AnmManager;
-  this->vm1[1].anmFileIndex = 0x481;
-  AnmManager::SetAndExecuteScript(pAVar2,this->vm1 + 1,pAVar2->scripts[0x481]);
+  this->orbsVm[1].anmFileIndex = 0x481;
+  AnmManager::SetAndExecuteScript(pAVar2,this->orbsVm + 1,pAVar2->scripts[0x481]);
   bullets = this->bullets;
   for (bullet_idx = 0; bullet_idx < 0x50; bullet_idx = bullet_idx + 1) {
     bullets->bulletState = 0;
@@ -81,11 +81,11 @@ ZunResult Player::AddedCallback(Player *this)
   (this->fireBulletTimer).current = -1;
   (this->fireBulletTimer).subFrame = 0.0;
   (this->fireBulletTimer).previous = -999;
-  (this->inner).bombCalc =
+  (this->bombInfo).bombCalc =
        g_BombData[(uint)g_GameManager.shottype + (uint)g_GameManager.character * 2].calc;
-  (this->inner).bombDraw =
+  (this->bombInfo).bombDraw =
        g_BombData[(uint)g_GameManager.shottype + (uint)g_GameManager.character * 2].draw;
-  (this->inner).isUsingBomb = 0;
+  (this->bombInfo).isUsingBomb = 0;
   for (bullet_idx = 0; bullet_idx < 2; bullet_idx = bullet_idx + 1) {
     pZVar1 = this->laserTimer + bullet_idx;
     pZVar1->current = 0;

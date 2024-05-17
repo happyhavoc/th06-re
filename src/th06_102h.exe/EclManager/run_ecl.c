@@ -7,13 +7,13 @@ undefined4 EclManager::run_ecl(Enemy *enemy)
   undefined2 uVar1;
   uint uVar10;
   uint *puVar11;
+  int iVar2;
   void *pvVar12;
   Effect *pEVar13;
   int *piVar14;
   float *pfVar15;
   byte bVar16;
   int iVar17;
-  int iVar18;
   EnemyEclContext *pEVar19;
   EnemyEclContext *pEVar20;
   float *pfVar20;
@@ -725,9 +725,9 @@ switchD_00407544_caseD_2:
   case 0x4c:
     enemy->shoot_interval = instruction->ecl_var_id;
     iVar17 = enemy->shoot_interval / 5;
-    iVar18 = (-enemy->shoot_interval / 5 - iVar17) * g_GameManager.rank;
+    iVar2 = (-enemy->shoot_interval / 5 - iVar17) * g_GameManager.rank;
     enemy->shoot_interval =
-         ((int)(iVar18 + (iVar18 >> 0x1f & 0x1fU)) >> 5) + iVar17 + enemy->shoot_interval;
+         ((int)(iVar2 + (iVar2 >> 0x1f & 0x1fU)) >> 5) + iVar17 + enemy->shoot_interval;
     (enemy->shoot_interval_timer).current = 0;
     (enemy->shoot_interval_timer).subFrame = 0.0;
     (enemy->shoot_interval_timer).previous = -999;
@@ -735,9 +735,9 @@ switchD_00407544_caseD_2:
   case 0x4d:
     enemy->shoot_interval = instruction->ecl_var_id;
     iVar17 = enemy->shoot_interval / 5;
-    iVar18 = (-enemy->shoot_interval / 5 - iVar17) * g_GameManager.rank;
+    iVar2 = (-enemy->shoot_interval / 5 - iVar17) * g_GameManager.rank;
     enemy->shoot_interval =
-         ((int)(iVar18 + (iVar18 >> 0x1f & 0x1fU)) >> 5) + iVar17 + enemy->shoot_interval;
+         ((int)(iVar2 + (iVar2 >> 0x1f & 0x1fU)) >> 5) + iVar17 + enemy->shoot_interval;
     if (enemy->shoot_interval != 0) {
       uVar10 = enemy->shoot_interval;
       if (uVar10 == 0) {
@@ -901,10 +901,10 @@ switchD_00407544_caseD_2:
   case 0x5d:
     Gui::FUN_00417bfd(&g_Gui,(int)*(short *)&instruction->ecl_var_id,
                       (char *)&instruction->float_var_1);
-    isPlayerAlive = 1;
-    DAT_005a5f90 = 1;
-    DAT_005a5f98 = (int)*(short *)((int)&instruction->ecl_var_id + 2);
-    DAT_005a5f94 = INT_ARRAY_00476120[DAT_005a5f98];
+    g_RunningSpellcardInfo.capture_spellcard = 1;
+    g_RunningSpellcardInfo.is_active = 1;
+    g_RunningSpellcardInfo.spellcard_idx = (uint)*(short *)((int)&instruction->ecl_var_id + 2);
+    g_RunningSpellcardInfo.capture_score = INT_ARRAY_00476120[g_RunningSpellcardInfo.spellcard_idx];
     BulletManager::FUN_00414340(&g_BulletManager);
     g_Stage.spellcardState = RUNNING;
     g_Stage.ticksSinceSpellcardStarted = 0;
@@ -914,54 +914,56 @@ switchD_00407544_caseD_2:
     enemy->bullet_rank_amount1_high = 0;
     enemy->bullet_rank_amount2_low = 0;
     enemy->bullet_rank_amount2_high = 0;
-    iVar17 = DAT_005a5f98;
-    iVar18 = DAT_005a5f98 * uVar24;
-    local_70 = g_GameManager.catk + DAT_005a5f98;
+    uVar10 = g_RunningSpellcardInfo.spellcard_idx;
+    iVar17 = g_RunningSpellcardInfo.spellcard_idx * uVar24;
+    local_70 = g_GameManager.catk + g_RunningSpellcardInfo.spellcard_idx;
     csum = 0;
     if (g_GameManager.is_in_replay == 0) {
       local_2bc = &instruction->float_var_1;
-      local_2c0 = g_GameManager.catk[DAT_005a5f98].name;
+      local_2c0 = g_GameManager.catk[g_RunningSpellcardInfo.spellcard_idx].name;
       do {
         bVar16 = *(byte *)local_2bc;
         *local_2c0 = bVar16;
         local_2bc = (float *)((int)local_2bc + 1);
         local_2c0 = local_2c0 + 1;
       } while (bVar16 != 0);
-      local_2cc = g_GameManager.catk[iVar17].name;
+      local_2cc = g_GameManager.catk[uVar10].name;
       do {
         bVar16 = *local_2cc;
         local_2cc = local_2cc + 1;
       } while (bVar16 != 0);
-      for (local_74 = (int)local_2cc - (iVar18 + 0x69bce9); 0 < (int)local_74;
+      for (local_74 = (int)local_2cc - (iVar17 + 0x69bce9); 0 < (int)local_74;
           local_74 = local_74 - 1) {
         csum = csum + (int)(char)local_70->name[local_74 - 1];
       }
-      if ((uint)g_GameManager.catk[iVar17].name_csum != (csum & 0xff)) {
-        g_GameManager.catk[iVar17].unk_3e = 0;
-        g_GameManager.catk[iVar17].num_successes = 0;
-        g_GameManager.catk[iVar17].name_csum = (byte)csum;
+      if ((uint)g_GameManager.catk[uVar10].name_csum != (csum & 0xff)) {
+        g_GameManager.catk[uVar10].unk_3e = 0;
+        g_GameManager.catk[uVar10].num_successes = 0;
+        g_GameManager.catk[uVar10].name_csum = (byte)csum;
       }
-      g_GameManager.catk[iVar17].unk_c = DAT_005a5f94;
-      if ((ushort)g_GameManager.catk[iVar17].num_successes < 9999) {
-        g_GameManager.catk[iVar17].num_successes = g_GameManager.catk[iVar17].num_successes + 1;
+      g_GameManager.catk[uVar10].unk_c = g_RunningSpellcardInfo.capture_score;
+      if ((ushort)g_GameManager.catk[uVar10].num_successes < 9999) {
+        g_GameManager.catk[uVar10].num_successes = g_GameManager.catk[uVar10].num_successes + 1;
       }
     }
     break;
   case 0x5e:
-    if (DAT_005a5f90 != 0) {
+    if (g_RunningSpellcardInfo.is_active != 0) {
       Gui::Vm6SetInterruptTo1(&g_Gui);
-      if ((DAT_005a5f90 == 1) &&
+      if ((g_RunningSpellcardInfo.is_active == 1) &&
          (score_increese = BulletManager::FUN_00414360(&g_BulletManager,0x3200,1),
-         isPlayerAlive != 0)) {
-        local_80 = g_GameManager.catk + DAT_005a5f98;
-        if ((int)DAT_005a5f94 < 500000) {
-          local_2dc = (int)DAT_005a5f94 / 10;
+         g_RunningSpellcardInfo.capture_spellcard != 0)) {
+        local_80 = g_GameManager.catk + g_RunningSpellcardInfo.spellcard_idx;
+        if ((int)g_RunningSpellcardInfo.capture_score < 500000) {
+          local_2dc = (int)g_RunningSpellcardInfo.capture_score / 10;
         }
         else {
           local_2dc = 50000;
         }
         local_88 = local_2dc;
-        score_increese = DAT_005a5f94 + (int)(DAT_005a5f94 * g_Gui.ecl_spellcard_related) / 10;
+        score_increese =
+             g_RunningSpellcardInfo.capture_score +
+             (int)(g_RunningSpellcardInfo.capture_score * g_Gui.ecl_spellcard_related) / 10;
         Gui::FUN_00417458(&g_Gui,score_increese);
         g_GameManager.score = g_GameManager.score + score_increese;
         if (g_GameManager.is_in_replay == 0) {
@@ -973,7 +975,7 @@ switchD_00407544_caseD_2:
         }
         g_GameManager.unk_0x28 = g_GameManager.unk_0x28 + 1;
       }
-      DAT_005a5f90 = 0;
+      g_RunningSpellcardInfo.is_active = 0;
     }
     g_Stage.spellcardState = NOT_RUNNING;
     break;

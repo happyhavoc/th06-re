@@ -11,9 +11,9 @@ void Player::BombReimuBDraw(Player *param_1)
   AnmVm *local_8;
   
   FUN_00406020(param_1);
-  local_8 = (param_1->inner).vms[0];
+  local_8 = (param_1->bombInfo).vms[0];
   for (local_c = 0; local_c < 4; local_c = local_c + 1) {
-    pDVar1 = (param_1->inner).unk5c + local_c;
+    pDVar1 = (param_1->bombInfo).unk5c + local_c;
     fVar2 = pDVar1->z;
     fVar3 = (local_8->offset).z;
     fVar4 = pDVar1->y;

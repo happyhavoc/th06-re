@@ -35,7 +35,7 @@ void Player::UpdatePlayerBullets(Player *player)
               (bullet->unk_134).y = (bullet->unk_134).y + 0.3333333;
               fVar3 = (bullet->velocity).x;
               fVar5 = (bullet->velocity).y;
-              fVar8 = FUN_0045bc34(SUB84((double)(fVar3 * fVar3 + fVar5 * fVar5),0));
+              fVar8 = sqrt(SUB84((double)(fVar3 * fVar3 + fVar5 * fVar5),0));
               (bullet->velocity).x = (fVar3 * (bullet->unk_134).y) / fVar8;
               (bullet->velocity).y = (fVar5 * (bullet->unk_134).y) / fVar8;
             }
@@ -43,14 +43,14 @@ void Player::UpdatePlayerBullets(Player *player)
           else {
             fVar3 = (player->position_of_last_enemy_hit).x - (bullet->position).x;
             fVar5 = (player->position_of_last_enemy_hit).y - (bullet->position).y;
-            local_14 = FUN_0045bc34(SUB84((double)(fVar3 * fVar3 + fVar5 * fVar5),0));
+            local_14 = sqrt(SUB84((double)(fVar3 * fVar3 + fVar5 * fVar5),0));
             local_14 = local_14 / ((bullet->unk_134).y / 4.0);
             if (local_14 < 1.0 != NAN(local_14)) {
               local_14 = 1.0;
             }
             fVar3 = fVar3 / local_14 + (bullet->velocity).x;
             fVar5 = fVar5 / local_14 + (bullet->velocity).y;
-            fVar8 = FUN_0045bc34(SUB84((double)(fVar3 * fVar3 + fVar5 * fVar5),0));
+            fVar8 = sqrt(SUB84((double)(fVar3 * fVar3 + fVar5 * fVar5),0));
             local_38 = fVar8;
             if (10.0 < fVar8) {
               local_38 = 10.0;
@@ -77,7 +77,7 @@ void Player::UpdatePlayerBullets(Player *player)
         else if (player->laserTimer[bullet->field10_0x152].current == 1) {
           (bullet->vm).pendingInterrupt = 1;
         }
-        pDVar1 = player->bulletSpawnPositions + bullet->spawnPositionIdx + -1;
+        pDVar1 = player->orbsPosition + bullet->spawnPositionIdx + -1;
         (bullet->position).x = pDVar1->x;
         (bullet->position).y = pDVar1->y;
         (bullet->position).z = pDVar1->z;

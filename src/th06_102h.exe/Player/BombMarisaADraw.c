@@ -9,9 +9,9 @@ void Player::BombMarisaADraw(Player *param_1)
   AnmVm *local_8;
   
   FUN_00406020(param_1);
-  local_8 = (param_1->inner).vms[0];
+  local_8 = (param_1->bombInfo).vms[0];
   for (local_c = 0; local_c < 8; local_c = local_c + 1) {
-    pDVar1 = (param_1->inner).unk5c + local_c;
+    pDVar1 = (param_1->bombInfo).unk5c + local_c;
     (local_8->pos).x = pDVar1->x;
     (local_8->pos).y = pDVar1->y;
     (local_8->pos).z = pDVar1->z;
@@ -21,7 +21,7 @@ void Player::BombMarisaADraw(Player *param_1)
     local_8->scaleX = 3.2;
     local_8->scaleY = 3.2;
     AnmManager::Draw(g_AnmManager,local_8);
-    pDVar1 = (param_1->inner).unkbc + local_c;
+    pDVar1 = (param_1->bombInfo).unkbc + local_c;
     fVar2 = pDVar1->z;
     fVar3 = pDVar1->y;
     (local_8->pos).x = (local_8->pos).x - pDVar1->x * 6.0;
@@ -33,7 +33,7 @@ void Player::BombMarisaADraw(Player *param_1)
     local_8->scaleX = 2.2;
     local_8->scaleY = 2.2;
     AnmManager::Draw(g_AnmManager,local_8);
-    pDVar1 = (param_1->inner).unkbc + local_c;
+    pDVar1 = (param_1->bombInfo).unkbc + local_c;
     fVar2 = pDVar1->z;
     fVar3 = pDVar1->y;
     (local_8->pos).x = (local_8->pos).x - (pDVar1->x + pDVar1->x);
@@ -42,7 +42,7 @@ void Player::BombMarisaADraw(Player *param_1)
     (local_8->pos).x = (local_8->pos).x + 64.0;
     (local_8->pos).y = (local_8->pos).y + 64.0;
     (local_8->pos).z = 0.0;
-    pDVar1 = (param_1->inner).unkbc + local_c;
+    pDVar1 = (param_1->bombInfo).unkbc + local_c;
     fVar2 = pDVar1->z;
     fVar3 = pDVar1->y;
     (local_8->pos).x = (local_8->pos).x - (pDVar1->x + pDVar1->x);

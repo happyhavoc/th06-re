@@ -1,7 +1,8 @@
 
 FireBulletResult
-Player::FireBullet(Player *player,PlayerBullet *bullet,int bullet_idx,int framesSinceLastBullet_,
-                  CharacterPowerData *powerData)
+Player::FireSingleBullet
+          (Player *player,PlayerBullet *bullet,int bullet_idx,int framesSinceLastBullet_,
+          CharacterPowerData *powerData)
 
 {
   CharacterPowerBulletData *bulletData;
@@ -45,7 +46,7 @@ LAB_00426400:
     (bullet->position).z = (player->positionCenter).z;
   }
   else {
-    pDVar2 = player->bulletSpawnPositions + (bulletData->spawnPositionIdx - 1);
+    pDVar2 = player->orbsPosition + (bulletData->spawnPositionIdx - 1);
     (bullet->position).x = pDVar2->x;
     (bullet->position).y = pDVar2->y;
     (bullet->position).z = pDVar2->z;

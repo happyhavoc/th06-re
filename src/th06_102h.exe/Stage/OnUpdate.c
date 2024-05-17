@@ -12,7 +12,7 @@ ChainCallbackResult Stage::OnUpdate(Stage *arg)
   StdRawInstr *local_c;
   
   if (arg->stdData != (RawStdHeader *)0x0) {
-    if ((char)g_GameManager.unk_0x2c == '\0') {
+    if ((char)g_GameManager.isTimeStopped == '\0') {
       do {
         local_c = arg->beginningOfScript + arg->instructionIndex;
         switch(local_c->field1_0x4) {

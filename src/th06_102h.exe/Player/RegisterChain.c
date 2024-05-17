@@ -10,12 +10,12 @@ ZunResult Player::RegisterChain(byte param_1)
   
   pPVar3 = &g_Player;
   for (iVar2 = 0x263c; iVar2 != 0; iVar2 = iVar2 + -1) {
-    (pPVar3->vm0).rotation.x = 0.0;
-    pPVar3 = (Player *)&(pPVar3->vm0).rotation.y;
+    (pPVar3->playerVm).rotation.x = 0.0;
+    pPVar3 = (Player *)&(pPVar3->playerVm).rotation.y;
   }
-  g_Player.blinkingPlayerTimer.current = 0;
-  g_Player.blinkingPlayerTimer.subFrame = 0.0;
-  g_Player.blinkingPlayerTimer.previous = -999;
+  g_Player.invulnerabilityTimer.current = 0;
+  g_Player.invulnerabilityTimer.subFrame = 0.0;
+  g_Player.invulnerabilityTimer.previous = -999;
   g_Player.unk_9e1 = param_1;
   g_Player.onTick = Chain::CreateElem(&g_Chain,OnUpdate);
   g_Player.onDraw1 = Chain::CreateElem(&g_Chain,OnDrawHighPrio);

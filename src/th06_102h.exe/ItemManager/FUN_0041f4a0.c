@@ -289,7 +289,7 @@ LAB_0041f7c5:
           break;
         case ITEM_POINT_BULLET:
           local_c = ((int)g_GameManager.graze_in_stage / 3) * 10 + 500;
-          if (g_Player.inner.isUsingBomb != 0) {
+          if (g_Player.bombInfo.isUsingBomb != 0) {
             local_c = 100;
           }
           g_GameManager.score = g_GameManager.score + local_c;

@@ -8,7 +8,8 @@ Player::CalcBoxCollision(Player *this,D3DXVECTOR3 *center,D3DXVECTOR3 *param_2)
   float fVar3;
   undefined4 uVar4;
   
-  if ((this->playerState == PLAYER_STATE_ALIVE) || (this->playerState == PLAYER_STATE_USING_BOMB)) {
+  if ((this->playerState == PLAYER_STATE_ALIVE) || (this->playerState == PLAYER_STATE_INVULNERABLE))
+  {
     fVar3 = center->y - param_2->y * 0.5;
     fVar2 = center->x - param_2->x * 0.5;
     if ((param_2->x * 0.5 + center->x < (this->grabItemTopLeft).x) ||

@@ -1,6 +1,5 @@
 
-PlayerInner * __thiscall
-PlayerInner::PlayerInner(PlayerInner *this,PlayerInner *__return_storage_ptr__)
+PlayerBombInfo * __thiscall PlayerInner::PlayerInner(PlayerInner *this)
 
 {
   AnmVm *local_3c;
@@ -8,7 +7,7 @@ PlayerInner::PlayerInner(PlayerInner *this,PlayerInner *__return_storage_ptr__)
   int local_18;
   int local_c;
   
-  ZunTimer::Initialize(&this->unk8);
+  ZunTimer::Initialize((ZunTimer *)(this + 8));
   local_c = 8;
   do {
     local_c = local_c + -1;
@@ -18,11 +17,11 @@ PlayerInner::PlayerInner(PlayerInner *this,PlayerInner *__return_storage_ptr__)
     local_18 = local_18 + -1;
   } while (-1 < local_18);
   local_34 = 0x20;
-  local_3c = this->vms[0];
+  local_3c = (AnmVm *)(this + 0x11c);
   while (local_34 = local_34 + -1, -1 < local_34) {
     AnmVm::AnmVm(local_3c);
     local_3c = local_3c + 1;
   }
-  return this;
+  return (PlayerBombInfo *)this;
 }
 

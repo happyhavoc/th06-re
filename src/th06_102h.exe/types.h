@@ -458,6 +458,14 @@ struct AnmRawInstr {
     uint args[10];
 };
 
+typedef enum OrbState {
+    ORB_HIDDEN=0,
+    ORB_UNFOCUSED=1,
+    ORB_FOCUSING=2,
+    ORB_FOCUSED=3,
+    ORB_UNFOCUSING=4
+} OrbState;
+
 typedef struct PlayerUnknown PlayerUnknown, *PPlayerUnknown;
 
 struct PlayerUnknown {
@@ -577,6 +585,21 @@ struct FileAbstractionVtable {
     DWORD (*Tell)(struct FileAbstraction *);
     DWORD (*GetSize)(struct FileAbstraction *);
     HLOCAL (*ReadRemaining)(struct FileAbstraction *, uint);
+};
+
+typedef struct PlayerBombInfo PlayerBombInfo, *PPlayerBombInfo;
+
+struct PlayerBombInfo {
+    int isUsingBomb;
+    int bombDuration;
+    struct ZunTimer bombTimer;
+    void *bombCalc;
+    void *bombDraw;
+    int reimuABombProjectilesState[8];
+    float unk3c[8];
+    D3DXVECTOR3 unk5c[8];
+    D3DXVECTOR3 unkbc[8];
+    struct AnmVm vms[8][4];
 };
 
 typedef struct SoundPlayer SoundPlayer, *PSoundPlayer;
@@ -1608,21 +1631,6 @@ struct GuiImpl {
     struct GuiImplChildB field17_0x2c24;
 };
 
-typedef struct PlayerInner PlayerInner, *PPlayerInner;
-
-struct PlayerInner {
-    int isUsingBomb;
-    int unk4;
-    struct ZunTimer unk8;
-    void *bombCalc;
-    void *bombDraw;
-    int unk1c[8];
-    float unk3c[8];
-    D3DXVECTOR3 unk5c[8];
-    D3DXVECTOR3 unkbc[8];
-    struct AnmVm vms[8][4];
-};
-
 typedef struct Pbg3FileName Pbg3FileName, *PPbg3FileName;
 
 struct Pbg3FileName {
@@ -1736,6 +1744,16 @@ struct GameWindow {
     uint power_off_active;
 };
 
+typedef struct RunningSpellcardInfo RunningSpellcardInfo, *PRunningSpellcardInfo;
+
+struct RunningSpellcardInfo {
+    BOOL capture_spellcard;
+    BOOL is_active;
+    uint capture_score;
+    uint spellcard_idx;
+    BOOL used_bomb;
+};
+
 typedef struct CharacterData CharacterData, *PCharacterData;
 
 typedef struct Player Player, *PPlayer;
@@ -1744,16 +1762,8 @@ typedef enum PlayerState {
     PLAYER_STATE_ALIVE=0,
     PLAYER_STATE_SPAWNING=1,
     PLAYER_STATE_DEAD=2,
-    PLAYER_STATE_USING_BOMB=3
+    PLAYER_STATE_INVULNERABLE=3
 } PlayerState;
-
-typedef enum ExtraBulletSpawnState {
-    EXTRA_BULLET_NONE=0,
-    EXTRA_BULLET_UNFOCUSED=1,
-    EXTRA_BULLET_FOCUSING=2,
-    EXTRA_BULLET_FULLY_FOCUSED=3,
-    EXTRA_BULLET_UNFOCUSING=4
-} ExtraBulletSpawnState;
 
 struct CharacterData {
     float orthogonalMovementSpeed;
@@ -1765,8 +1775,8 @@ struct CharacterData {
 };
 
 struct Player {
-    struct AnmVm vm0;
-    struct AnmVm vm1[3];
+    struct AnmVm playerVm;
+    struct AnmVm orbsVm[3];
     D3DXVECTOR3 positionCenter;
     D3DXVECTOR3 unk_44c;
     D3DXVECTOR3 hitboxTopLeft;
@@ -1775,7 +1785,7 @@ struct Player {
     D3DXVECTOR3 grabItemBottomRight;
     D3DXVECTOR3 hitboxSize;
     D3DXVECTOR3 grabItemSize;
-    D3DXVECTOR3 bulletSpawnPositions[2];
+    D3DXVECTOR3 orbsPosition[2];
     D3DXVECTOR3 unk_4b8[32];
     D3DXVECTOR3 unk_638[32];
     int unk_7b8[32];
@@ -1785,25 +1795,25 @@ struct Player {
     float horizontalMovementSpeedMultiplierDuringBomb;
     float verticalMovementSpeedMultiplierDuringBomb;
     int respawnTimer;
-    int unk_9dc;
+    int bulletGracePeriod;
     enum PlayerState playerState;
     byte unk_9e1;
-    enum ExtraBulletSpawnState extraBulletSpawnState;
+    enum OrbState orbState;
     byte isFocus;
     byte unk_9e4;
     struct ZunTimer focusMovementTimer;
     struct CharacterData characterData;
     enum PlayerDirection playerDirection;
-    float unk_a10;
-    int unk_a14;
-    short unk_a18;
+    float previousHorizontalSpeed;
+    float previousVerticalSpeed;
+    short previousFrameInput;
     D3DXVECTOR3 position_of_last_enemy_hit;
     struct PlayerBullet bullets[80];
     struct ZunTimer fireBulletTimer;
-    struct ZunTimer blinkingPlayerTimer;
+    struct ZunTimer invulnerabilityTimer;
     FireBulletResult (*fireBulletCallback)(struct Player *, struct PlayerBullet *, u32, u32);
     FireBulletResult (*fireBulletFocusCallback)(struct Player *, struct PlayerBullet *, u32, u32);
-    struct PlayerInner inner;
+    struct PlayerBombInfo bombInfo;
     struct ChainElem *onTick;
     struct ChainElem *onDraw1;
     struct ChainElem *onDraw2;
@@ -5103,9 +5113,9 @@ struct GameManager {
     uint graze_in_total;
     uint is_in_replay;
     uint deaths;
-    uint unk_0x24;
+    uint bombs_used;
     uint unk_0x28;
-    uint unk_0x2c;
+    uint isTimeStopped;
     struct Catk catk[64];
     struct Clrd clrd[4];
     struct Pscr pscr[96];
@@ -16262,6 +16272,13 @@ struct FormatInfo {
     undefined4 green_mask;
     undefined4 blue_mask;
 };
+
+typedef enum PlayerBulletType {
+    BULLET_TYPE_0=0,
+    BULLET_TYPE_1=1,
+    BULLET_TYPE_2=2,
+    BULLET_TYPE_LASER=3
+} PlayerBulletType;
 
 typedef enum SpellcardState {
     NOT_RUNNING=0,

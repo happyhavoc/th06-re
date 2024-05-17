@@ -1,5 +1,5 @@
 
-void __thiscall ItemManager::FUN_00420130(ItemManager *this)
+void __thiscall ItemManager::RemoveAllItems(ItemManager *this)
 
 {
   Item *local_c;

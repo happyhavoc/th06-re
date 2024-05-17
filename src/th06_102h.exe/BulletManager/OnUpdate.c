@@ -23,7 +23,7 @@ undefined4 BulletManager::OnUpdate(BulletManager *this)
   float velZ;
   
   bulletsPtr = this->bullets;
-  if ((char)g_GameManager.unk_0x2c == NULL) {
+  if ((char)g_GameManager.isTimeStopped == NULL) {
     ItemManager::FUN_0041f4a0(&g_ItemManager);
     this->bullet_count = 0;
     for (local_c = 0; local_c < 0x280; local_c = local_c + 1) {

@@ -20,7 +20,7 @@ void FUN_0040c180(Enemy *param_1,EclRawInstr *param_2)
   
   if ((int)param_2->float_var_1 < 2) {
     EffectManager::SpawnEffect(&g_EffectManager,0xc,&param_1->position,1,0xffffffff);
-    g_GameManager.unk_0x2c._0_1_ = *(undefined *)&param_2->float_var_1;
+    g_GameManager.isTimeStopped._0_1_ = *(undefined *)&param_2->float_var_1;
   }
   else {
     local_10 = 0xe;
@@ -37,7 +37,7 @@ void FUN_0040c180(Enemy *param_1,EclRawInstr *param_2)
                      (int)(bullets->vms).vm0.anotherSpriteNumber + (int)(short)bullets->color);
           fVar6 = (bullets->pos).x - g_Player.positionCenter.x;
           fVar2 = (bullets->pos).y - g_Player.positionCenter.y;
-          pfVar5 = (float *)FUN_0045bc34(SUB84((double)(fVar6 * fVar6 + fVar2 * fVar2),0));
+          pfVar5 = (float *)sqrt(SUB84((double)(fVar6 * fVar6 + fVar2 * fVar2),0));
           if ((float)pfVar5 <= 128.0) {
             fVar6 = Rng::GetRandomF32ZeroToOne(&g_Rng);
             Player::FUN_00428680(&g_Player,&bullets->pos,pfVar5);
@@ -72,7 +72,7 @@ void FUN_0040c180(Enemy *param_1,EclRawInstr *param_2)
                      (int)(bullets->vms).vm0.anotherSpriteNumber + (int)(short)bullets->color);
           fVar6 = (bullets->pos).x - g_Player.positionCenter.x;
           fVar2 = (bullets->pos).y - g_Player.positionCenter.y;
-          fVar6 = FUN_0045bc34(SUB84((double)(fVar6 * fVar6 + fVar2 * fVar2),0));
+          fVar6 = sqrt(SUB84((double)(fVar6 * fVar6 + fVar2 * fVar2),0));
           if (fVar6 <= 128.0) {
             fVar6 = Rng::GetRandomF32ZeroToOne(&g_Rng);
             Player::FUN_00428680(&g_Player,&bullets->pos,in_stack_ffffffc4);

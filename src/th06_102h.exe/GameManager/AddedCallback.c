@@ -82,7 +82,7 @@ ZunResult GameManager::AddedCallback(GameManager *gameManager)
     gameManager->min_rank = g_DifficultyInfo[g_GameManager.difficulty].min_rank;
     gameManager->max_rank = g_DifficultyInfo[g_GameManager.difficulty].max_rank;
     gameManager->deaths = 0;
-    gameManager->unk_0x24 = 0;
+    gameManager->bombs_used = 0;
     gameManager->unk_0x28 = 0;
   }
   gameManager->subrank = 0;
@@ -156,7 +156,7 @@ ZunResult GameManager::AddedCallback(GameManager *gameManager)
                   g_Supervisor.unk_frame_related1 = 0.0;
                   g_Supervisor.unk_frames_related2 = 0.0;
                 }
-                *(undefined *)&gameManager->unk_0x2c = 0;
+                *(undefined *)&gameManager->isTimeStopped = 0;
                 gameManager->score = 0;
                 gameManager->is_game_completed = 0;
                 AsciiManager::InitializeVms(&g_AsciiManager);
@@ -168,7 +168,7 @@ ZunResult GameManager::AddedCallback(GameManager *gameManager)
               }
               else {
                 GameErrorContextLog(&g_GameErrorContext,
-                                    "error : 2D表示の初期化に失敗しました\n");
+                                    "error : 2D表示��初期化に失敗しました\n");
                 ZVar4 = ZUN_ERROR;
               }
             }
@@ -197,7 +197,7 @@ ZunResult GameManager::AddedCallback(GameManager *gameManager)
     }
     else {
       GameErrorContextLog(&g_GameErrorContext,
-                          "error : プレイヤーの初期化に失敗しました\n");
+                          "error : プレイヤーの初期化に失敗しま���た\n");
       ZVar4 = ZUN_ERROR;
     }
   }

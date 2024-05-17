@@ -9,17 +9,15 @@ Player * __thiscall Player::Player(Player *this)
   int local_3c;
   int local_30;
   int local_24;
-  Player *local_20;
+  AnmVm *local_20;
   int local_18;
   
-  AnmVm::AnmVm(&this->vm0);
+  AnmVm::AnmVm(&this->playerVm);
   local_18 = 3;
-  local_20 = this;
-  while( true ) {
-    local_20 = (Player *)local_20->vm1;
-    local_18 = local_18 + -1;
-    if (local_18 < 0) break;
-    AnmVm::AnmVm((AnmVm *)local_20);
+  local_20 = this->orbsVm;
+  while (local_18 = local_18 + -1, -1 < local_18) {
+    AnmVm::AnmVm(local_20);
+    local_20 = local_20 + 1;
   }
   local_24 = 2;
   do {
@@ -48,8 +46,8 @@ Player * __thiscall Player::Player(Player *this)
     local_64 = (AnmVm *)(local_64[1].matrix.m[0] + 3);
   }
   ZunTimer::Initialize(&this->fireBulletTimer);
-  ZunTimer::Initialize(&this->blinkingPlayerTimer);
-  PlayerInner::PlayerInner(&this->inner,(PlayerInner *)this);
+  ZunTimer::Initialize(&this->invulnerabilityTimer);
+  PlayerInner::PlayerInner((PlayerInner *)&this->bombInfo);
   return this;
 }
 

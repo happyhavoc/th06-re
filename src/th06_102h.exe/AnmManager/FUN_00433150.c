@@ -60,7 +60,7 @@ int __thiscall AnmManager::FUN_00433150(AnmManager *this,AnmVm *vm)
       local_c4.m[3][1] = -(vm->pos).y - (float)dVar4;
     }
     local_c4.m[3][2] = (vm->pos).z;
-    (*(g_Supervisor.d3dDevice)->lpVtbl->SetTransform)(g_Supervisor.d3dDevice,0x100,&local_c4);
+    (*(g_Supervisor.d3dDevice)->lpVtbl->SetTransform)(g_Supervisor.d3dDevice,D3DTS_WORLD,&local_c4);
     if (this->currentSprite != vm->sprite) {
       this->currentSprite = vm->sprite;
       pDVar2 = &vm->matrix;

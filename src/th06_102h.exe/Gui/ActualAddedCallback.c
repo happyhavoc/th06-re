@@ -31,7 +31,7 @@ ZunResult __thiscall Gui::ActualAddedCallback(Gui *this)
     if (loadAnm != ZUN_SUCCESS) {
       return ZUN_ERROR;
     }
-    (this->impl->vm9).spriteNumber = -1;
+    (this->impl->vm9).activeSpriteIndex = -1;
     if (g_GameManager.character == 0) {
       loadAnm = AnmManager::LoadAnm(g_AnmManager,0xf,"data/face00a.anm",0x4a0);
       if (loadAnm != ZUN_SUCCESS) {

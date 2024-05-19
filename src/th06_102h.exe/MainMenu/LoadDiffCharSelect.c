@@ -43,7 +43,7 @@ ZunResult MainMenu::LoadDiffCharSelect(MainMenu *menu)
                         (vm->offset).x = 0.0;
                         (vm->offset).y = 0.0;
                         (vm->offset).z = 0.0;
-                        vm->anotherSpriteNumber = vm->spriteNumber;
+                        vm->baseSpriteIndex = vm->activeSpriteIndex;
                         *(uint *)&vm->flags = *(uint *)&vm->flags | 0x1000;
                         vm = vm + 1;
                       }

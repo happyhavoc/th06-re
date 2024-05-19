@@ -22,8 +22,8 @@ void __thiscall BulletManager::RemoveAllBullets(BulletManager *this,int turnInto
         ItemManager::SpawnItem(&g_ItemManager,&bullets->pos,ITEM_POINT_BULLET,1);
         pBVar3 = bullets;
         for (iVar2 = 0x171; iVar2 != 0; iVar2 = iVar2 + -1) {
-          (pBVar3->vms).vm0.rotation.x = 0.0;
-          pBVar3 = (Bullet *)&(pBVar3->vms).vm0.rotation.y;
+          (pBVar3->sprites).bulletSprite.rotation.x = 0.0;
+          pBVar3 = (Bullet *)&(pBVar3->sprites).bulletSprite.rotation.y;
         }
       }
     }

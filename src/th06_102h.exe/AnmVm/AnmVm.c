@@ -6,7 +6,7 @@ void __thiscall AnmVm::AnmVm(AnmVm *this)
   ZunTimer::Initialize(&this->scaleInterpTime);
   ZunTimer::Initialize(&this->posInterpTime);
   ZunTimer::Initialize(&this->alphaInterpTime);
-  this->spriteNumber = -1;
+  this->activeSpriteIndex = -1;
   return;
 }
 

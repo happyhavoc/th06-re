@@ -28,13 +28,14 @@ void FUN_0040c180(Enemy *param_1,EclRawInstr *param_2)
     if ((int)g_GameManager.difficulty < 2) {
       for (local_14 = 0; local_14 < 0x280; local_14 = local_14 + 1) {
         if (((bullets->state != 0) && (bullets->state != 5)) &&
-           (((bullets->vms).vm0.sprite != (AnmLoadedSprite *)0x0 &&
-            (((30.0 <= ((bullets->vms).vm0.sprite)->heightPx && (bullets->color != 5)) &&
-             (uVar3 = Rng::GetRandomU16(&g_Rng), (uVar3 & 3) == 0)))))) {
+           (((bullets->sprites).bulletSprite.sprite != (AnmLoadedSprite *)0x0 &&
+            (((30.0 <= ((bullets->sprites).bulletSprite.sprite)->heightPx && (bullets->color != 5))
+             && (uVar3 = Rng::GetRandomU16(&g_Rng), (uVar3 & 3) == 0)))))) {
           bullets->color = 5;
           AnmManager::SetActiveSprite
                     (g_AnmManager,(AnmVm *)bullets,
-                     (int)(bullets->vms).vm0.anotherSpriteNumber + (int)(short)bullets->color);
+                     (int)(bullets->sprites).bulletSprite.baseSpriteIndex +
+                     (int)(short)bullets->color);
           fVar6 = (bullets->pos).x - g_Player.positionCenter.x;
           fVar2 = (bullets->pos).y - g_Player.positionCenter.y;
           pfVar5 = (float *)sqrt(SUB84((double)(fVar6 * fVar6 + fVar2 * fVar2),0));
@@ -63,13 +64,14 @@ void FUN_0040c180(Enemy *param_1,EclRawInstr *param_2)
       local_10 = 0x34;
       for (local_14 = 0; local_14 < 0x280; local_14 = local_14 + 1) {
         if ((((bullets->state != 0) && (bullets->state != 5)) &&
-            ((bullets->vms).vm0.sprite != (AnmLoadedSprite *)0x0)) &&
-           (((30.0 <= ((bullets->vms).vm0.sprite)->heightPx && (bullets->color != 5)) &&
-            (uVar3 = Rng::GetRandomU16(&g_Rng), (uVar3 & 3) == 0)))) {
+            ((bullets->sprites).bulletSprite.sprite != (AnmLoadedSprite *)0x0)) &&
+           (((30.0 <= ((bullets->sprites).bulletSprite.sprite)->heightPx && (bullets->color != 5))
+            && (uVar3 = Rng::GetRandomU16(&g_Rng), (uVar3 & 3) == 0)))) {
           bullets->color = 5;
           AnmManager::SetActiveSprite
                     (g_AnmManager,(AnmVm *)bullets,
-                     (int)(bullets->vms).vm0.anotherSpriteNumber + (int)(short)bullets->color);
+                     (int)(bullets->sprites).bulletSprite.baseSpriteIndex +
+                     (int)(short)bullets->color);
           fVar6 = (bullets->pos).x - g_Player.positionCenter.x;
           fVar2 = (bullets->pos).y - g_Player.positionCenter.y;
           fVar6 = sqrt(SUB84((double)(fVar6 * fVar6 + fVar2 * fVar2),0));

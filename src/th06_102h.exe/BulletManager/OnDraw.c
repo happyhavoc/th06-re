@@ -47,32 +47,32 @@ ChainCallbackResult BulletManager::OnDraw(BulletManager *arg)
   if (g_Supervisor.hasD3dHardwareVertexProcessing == 0) {
     local_20 = arg->bullets;
     for (local_8 = 0; local_8 < 0x280; local_8 = local_8 + 1) {
-      if ((local_20->state != 0) && (0x10 < (local_20->vms).field12_0x55d)) {
+      if ((local_20->state != 0) && (0x10 < (local_20->sprites).unk_55d)) {
         FUN_00416c50(local_20);
       }
       local_20 = local_20 + 1;
     }
     local_20 = arg->bullets;
     for (local_8 = 0; local_8 < 0x280; local_8 = local_8 + 1) {
-      if (((local_20->state != 0) && ((local_20->vms).field12_0x55d == 0x10)) &&
-         (((local_20->vms).vm0.anmFileIndex == 0x201 || ((local_20->vms).vm0.anmFileIndex == 0x203))
-         )) {
+      if (((local_20->state != 0) && ((local_20->sprites).unk_55d == 0x10)) &&
+         (((local_20->sprites).bulletSprite.anmFileIndex == 0x201 ||
+          ((local_20->sprites).bulletSprite.anmFileIndex == 0x203)))) {
         FUN_00416c50(local_20);
       }
       local_20 = local_20 + 1;
     }
     local_20 = arg->bullets;
     for (local_8 = 0; local_8 < 0x280; local_8 = local_8 + 1) {
-      if ((((local_20->state != 0) && ((local_20->vms).field12_0x55d == 0x10)) &&
-          ((local_20->vms).vm0.anmFileIndex != 0x201)) &&
-         ((local_20->vms).vm0.anmFileIndex != 0x203)) {
+      if ((((local_20->state != 0) && ((local_20->sprites).unk_55d == 0x10)) &&
+          ((local_20->sprites).bulletSprite.anmFileIndex != 0x201)) &&
+         ((local_20->sprites).bulletSprite.anmFileIndex != 0x203)) {
         FUN_00416c50(local_20);
       }
       local_20 = local_20 + 1;
     }
     local_20 = arg->bullets;
     for (local_8 = 0; local_8 < 0x280; local_8 = local_8 + 1) {
-      if ((local_20->state != 0) && ((local_20->vms).field12_0x55d == 8)) {
+      if ((local_20->state != 0) && ((local_20->sprites).unk_55d == 8)) {
         FUN_00416c50(local_20);
       }
       local_20 = local_20 + 1;
@@ -81,33 +81,33 @@ ChainCallbackResult BulletManager::OnDraw(BulletManager *arg)
   else {
     local_1c = arg->bullets;
     for (local_8 = 0; local_8 < 0x280; local_8 = local_8 + 1) {
-      if ((local_1c->state != 0) && (0x10 < (local_1c->vms).field12_0x55d)) {
-        FUN_00416b50(local_1c);
+      if ((local_1c->state != 0) && (0x10 < (local_1c->sprites).unk_55d)) {
+        Draw(local_1c);
       }
       local_1c = local_1c + 1;
     }
     local_1c = arg->bullets;
     for (local_8 = 0; local_8 < 0x280; local_8 = local_8 + 1) {
-      if (((local_1c->state != 0) && ((local_1c->vms).field12_0x55d == 0x10)) &&
-         (((local_1c->vms).vm0.anmFileIndex == 0x201 || ((local_1c->vms).vm0.anmFileIndex == 0x203))
-         )) {
-        FUN_00416b50(local_1c);
+      if (((local_1c->state != 0) && ((local_1c->sprites).unk_55d == 0x10)) &&
+         (((local_1c->sprites).bulletSprite.anmFileIndex == 0x201 ||
+          ((local_1c->sprites).bulletSprite.anmFileIndex == 0x203)))) {
+        Draw(local_1c);
       }
       local_1c = local_1c + 1;
     }
     local_1c = arg->bullets;
     for (local_8 = 0; local_8 < 0x280; local_8 = local_8 + 1) {
-      if ((((local_1c->state != 0) && ((local_1c->vms).field12_0x55d == 0x10)) &&
-          ((local_1c->vms).vm0.anmFileIndex != 0x201)) &&
-         ((local_1c->vms).vm0.anmFileIndex != 0x203)) {
-        FUN_00416b50(local_1c);
+      if ((((local_1c->state != 0) && ((local_1c->sprites).unk_55d == 0x10)) &&
+          ((local_1c->sprites).bulletSprite.anmFileIndex != 0x201)) &&
+         ((local_1c->sprites).bulletSprite.anmFileIndex != 0x203)) {
+        Draw(local_1c);
       }
       local_1c = local_1c + 1;
     }
     local_1c = arg->bullets;
     for (local_8 = 0; local_8 < 0x280; local_8 = local_8 + 1) {
-      if ((local_1c->state != 0) && ((local_1c->vms).field12_0x55d == 8)) {
-        FUN_00416b50(local_1c);
+      if ((local_1c->state != 0) && ((local_1c->sprites).unk_55d == 8)) {
+        Draw(local_1c);
       }
       local_1c = local_1c + 1;
     }

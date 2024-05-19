@@ -28,7 +28,7 @@ ZunResult MainMenu::LoadTitleAnm(MainMenu *menu)
               for (i = 0; i < 80; i = i + 1) {
                 AnmManager::ExecuteAnmIdx(g_AnmManager,menu->vmList + i,i + 0x100);
                 *(uint *)&menu->vmList[i].flags = *(uint *)&menu->vmList[i].flags & 0xfffffffe;
-                menu->vmList[i].anotherSpriteNumber = menu->vmList[i].spriteNumber;
+                menu->vmList[i].baseSpriteIndex = menu->vmList[i].activeSpriteIndex;
                 *(uint *)&menu->vmList[i].flags = *(uint *)&menu->vmList[i].flags | 0x1000;
               }
               titleImg = AnmManager::LoadSurface(g_AnmManager,0,"data/title/title00.jpg");

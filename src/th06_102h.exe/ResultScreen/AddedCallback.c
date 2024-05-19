@@ -99,7 +99,7 @@ ZunResult ResultScreen::AddedCallback(ResultScreen *param_1)
               (g_GameManager.current_stage + -1) * 0x50 + 0x69cd3c + g_GameManager.difficulty * 0x14
              ) = g_GameManager.score;
   }
-  (param_1->unk_39a0).spriteNumber = -1;
+  (param_1->unk_39a0).activeSpriteIndex = -1;
   return ZUN_SUCCESS;
 }
 

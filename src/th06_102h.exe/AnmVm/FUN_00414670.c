@@ -29,7 +29,8 @@ void * AnmVm::FUN_00414670(EnemyLaserShooter *laser_shooter)
   local_c->anmFileIndex = local_10;
   AnmManager::SetAndExecuteScript(pAVar3,local_c,pAVar3->scripts[(short)uVar1 + 0x209]);
   AnmManager::SetActiveSprite
-            (g_AnmManager,local_c,(int)local_c->spriteNumber + (int)(short)laser_shooter->color);
+            (g_AnmManager,local_c,(int)local_c->activeSpriteIndex + (int)(short)laser_shooter->color
+            );
   pAVar3 = g_AnmManager;
   uVar2 = UINT_ARRAY_00476440[(short)laser_shooter->color];
   Initialize(local_c + 1);

@@ -6,19 +6,19 @@ BulletManager * __thiscall BulletManager::BulletManager(BulletManager *this)
   int local_58;
   Bullet *local_30;
   int local_28;
-  BulletTypeVms *local_20;
+  BulletTypeSprites *local_20;
   int local_18;
   
   local_18 = 0x10;
   local_20 = this->bullet_type_templates;
   while (local_18 = local_18 + -1, -1 < local_18) {
-    BulletTypeVms::BulletTypeVms(local_20);
+    BulletTypeVms::BulletTypeVms((BulletTypeVms *)local_20);
     local_20 = local_20 + 1;
   }
   local_28 = 0x280;
   local_30 = this->bullets;
   while (local_28 = local_28 + -1, -1 < local_28) {
-    BulletTypeVms::BulletTypeVms(&local_30->vms);
+    BulletTypeVms::BulletTypeVms((BulletTypeVms *)local_30);
     ZunTimer::Initialize(&local_30->timer);
     local_30 = local_30 + 1;
   }

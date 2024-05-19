@@ -17,7 +17,7 @@ void FUN_0040b8e0(Enemy *param_1,EclRawInstr *insn)
       bullets->color = 0xf;
       AnmManager::SetActiveSprite
                 (g_AnmManager,(AnmVm *)bullets,
-                 (int)(bullets->vms).vm0.anotherSpriteNumber + (int)(short)bullets->color);
+                 (int)(bullets->sprites).bulletSprite.baseSpriteIndex + (int)(short)bullets->color);
       if (fVar1 == 0) {
         bullets->speed = 0.0;
         (bullets->velocity).x = 0.0;

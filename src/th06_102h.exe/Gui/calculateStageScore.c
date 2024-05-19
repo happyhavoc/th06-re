@@ -79,9 +79,9 @@ void __thiscall Gui::calculateStageScore(Gui *this)
   AnmManager::ExecuteScript(g_AnmManager,&this->impl->vm5);
   AnmManager::ExecuteScript(g_AnmManager,&this->impl->vm4);
   AnmManager::ExecuteScript(g_AnmManager,&this->impl->vm6);
-  if ((-1 < (this->impl->vm9).spriteNumber) &&
+  if ((-1 < (this->impl->vm9).activeSpriteIndex) &&
      (iVar1 = AnmManager::ExecuteScript(g_AnmManager,&this->impl->vm9), iVar1 != 0)) {
-    (this->impl->vm9).spriteNumber = -1;
+    (this->impl->vm9).activeSpriteIndex = -1;
   }
   if ((this->impl->field15_0x2be4).field2_0x10 != 0) {
     if ((this->impl->field15_0x2be4).field3_0x14.current < 0x1e) {

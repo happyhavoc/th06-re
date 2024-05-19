@@ -4,7 +4,7 @@ ZunResult Player::UpdateFireBulletsTimer(Player *param_1)
 {
   if (-1 < (param_1->fireBulletTimer).current) {
     if (((param_1->fireBulletTimer).current != (param_1->fireBulletTimer).previous) &&
-       (((g_Player.bombInfo.isUsingBomb == 0 || (g_GameManager.character != 1)) ||
+       (((g_Player.bombInfo.isInUse == 0 || (g_GameManager.character != 1)) ||
         (g_GameManager.shottype != 1)))) {
       SpawnBullets(param_1,(param_1->fireBulletTimer).current);
     }

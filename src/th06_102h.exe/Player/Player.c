@@ -12,9 +12,9 @@ Player * __thiscall Player::Player(Player *this)
   AnmVm *local_20;
   int local_18;
   
-  AnmVm::AnmVm(&this->playerVm);
+  AnmVm::AnmVm(&this->playerSprite);
   local_18 = 3;
-  local_20 = this->orbsVm;
+  local_20 = this->orbsSprite;
   while (local_18 = local_18 + -1, -1 < local_18) {
     AnmVm::AnmVm(local_20);
     local_20 = local_20 + 1;

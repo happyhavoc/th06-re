@@ -23,14 +23,15 @@ void FUN_0040d770(Enemy *param_1,AnmRawInstr *param_2)
   EffectManager::SpawnEffect(&g_EffectManager,0xc,&param_1->position,1,0xffffffff);
   for (local_60 = 0; local_60 < 0x280; local_60 = local_60 + 1) {
     if ((((local_64->state != 0) && (local_64->state != 5)) &&
-        ((local_64->vms).vm0.sprite != (AnmLoadedSprite *)0x0)) &&
-       ((fVar5 = ((local_64->vms).vm0.sprite)->heightPx, fVar5 < 30.0 != NAN(fVar5) &&
+        ((local_64->sprites).bulletSprite.sprite != (AnmLoadedSprite *)0x0)) &&
+       ((fVar5 = ((local_64->sprites).bulletSprite.sprite)->heightPx, fVar5 < 30.0 != NAN(fVar5) &&
         (NAN(local_64->speed) != (local_64->speed == 0.0))))) {
       local_64->ex_flags = local_64->ex_flags | 0x10;
       local_64->color = 2;
       AnmManager::SetActiveSprite
                 (g_AnmManager,(AnmVm *)local_64,
-                 (int)(local_64->vms).vm0.anotherSpriteNumber + (int)(short)local_64->color);
+                 (int)(local_64->sprites).bulletSprite.baseSpriteIndex + (int)(short)local_64->color
+                );
       local_64->speed = 0.01;
       (local_64->timer).current = 0;
       (local_64->timer).subFrame = 0.0;

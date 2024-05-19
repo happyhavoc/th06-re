@@ -19,7 +19,7 @@ ChainCallbackResult Player::OnUpdate(Player *param_1)
   for (local_8 = 0; local_8 < 0x10; local_8 = local_8 + 1) {
     param_1->unk_8b8[local_8].size1.x = 0.0;
   }
-  if ((param_1->bombInfo).isUsingBomb == 0) {
+  if ((param_1->bombInfo).isInUse == 0) {
     BVar2 = Gui::HasCurrentMsgIdx(&g_Gui);
     if (((((BVar2 == 0) && (param_1->respawnTimer != 0)) &&
          ('\0' < (char)g_GameManager.bombs_remaining)) &&
@@ -28,7 +28,7 @@ ChainCallbackResult Player::OnUpdate(Player *param_1)
       g_GameManager.bombs_used = g_GameManager.bombs_used + 1;
       g_GameManager.bombs_remaining = g_GameManager.bombs_remaining - 1;
       g_Gui.flags = g_Gui.flags & 0xfffffff3 | 8;
-      (param_1->bombInfo).isUsingBomb = 1;
+      (param_1->bombInfo).isInUse = 1;
       (param_1->bombInfo).bombTimer.current = 0;
       (param_1->bombInfo).bombTimer.subFrame = 0.0;
       (param_1->bombInfo).bombTimer.previous = -999;
@@ -77,12 +77,12 @@ ChainCallbackResult Player::OnUpdate(Player *param_1)
     }
     fVar1 = ((float)(param_1->invulnerabilityTimer).current +
             (param_1->invulnerabilityTimer).subFrame) / 30.0;
-    (param_1->playerVm).scaleY = fVar1 * 3.0 + 1.0;
-    (param_1->playerVm).scaleX = 1.0 - fVar1 * 1.0;
+    (param_1->playerSprite).scaleY = fVar1 * 3.0 + 1.0;
+    (param_1->playerSprite).scaleX = 1.0 - fVar1 * 1.0;
     lVar3 = __ftol2(255.0 - (((float)(param_1->invulnerabilityTimer).current +
                              (param_1->invulnerabilityTimer).subFrame) * 255.0) / 30.0);
-    (param_1->playerVm).color.color = lVar3 << 0x18 | 0xffffff;
-    *(uint *)&(param_1->playerVm).flags = *(uint *)&(param_1->playerVm).flags | 4;
+    (param_1->playerSprite).color.color = lVar3 << 0x18 | 0xffffff;
+    *(uint *)&(param_1->playerSprite).flags = *(uint *)&(param_1->playerSprite).flags | 4;
     param_1->previousHorizontalSpeed = 0.0;
     param_1->previousVerticalSpeed = 0.0;
     if ((param_1->invulnerabilityTimer).current < 0x1e) goto LAB_00428fa8;
@@ -93,11 +93,11 @@ ChainCallbackResult Player::OnUpdate(Player *param_1)
     (param_1->invulnerabilityTimer).current = 0;
     (param_1->invulnerabilityTimer).subFrame = 0.0;
     (param_1->invulnerabilityTimer).previous = -999;
-    (param_1->playerVm).scaleX = 3.0;
-    (param_1->playerVm).scaleY = 3.0;
+    (param_1->playerSprite).scaleX = 3.0;
+    (param_1->playerSprite).scaleY = 3.0;
     this = g_AnmManager;
-    (param_1->playerVm).anmFileIndex = 0x400;
-    AnmManager::SetAndExecuteScript(this,&param_1->playerVm,this->scripts[0x400]);
+    (param_1->playerSprite).anmFileIndex = 0x400;
+    AnmManager::SetAndExecuteScript(this,&param_1->playerSprite,this->scripts[0x400]);
     if ((char)g_GameManager.lives_remaining < '\x01') {
       g_GameManager.is_in_retry_menu = 1;
       goto LAB_00428fa8;
@@ -115,20 +115,20 @@ ChainCallbackResult Player::OnUpdate(Player *param_1)
   param_1->bulletGracePeriod = 0x5a;
   fVar1 = 1.0 - ((float)(param_1->invulnerabilityTimer).current +
                 (param_1->invulnerabilityTimer).subFrame) / 30.0;
-  (param_1->playerVm).scaleY = fVar1 * 2.0 + 1.0;
-  (param_1->playerVm).scaleX = 1.0 - fVar1 * 1.0;
-  *(uint *)&(param_1->playerVm).flags = *(uint *)&(param_1->playerVm).flags | 4;
+  (param_1->playerSprite).scaleY = fVar1 * 2.0 + 1.0;
+  (param_1->playerSprite).scaleX = 1.0 - fVar1 * 1.0;
+  *(uint *)&(param_1->playerSprite).flags = *(uint *)&(param_1->playerSprite).flags | 4;
   param_1->verticalMovementSpeedMultiplierDuringBomb = 1.0;
   param_1->horizontalMovementSpeedMultiplierDuringBomb = 1.0;
-  (param_1->playerVm).color.color =
+  (param_1->playerSprite).color.color =
        ((param_1->invulnerabilityTimer).current * 0xff) / 0x1e << 0x18 | 0xffffff;
   param_1->respawnTimer = 0;
   if (0x1d < (param_1->invulnerabilityTimer).current) {
     param_1->playerState = PLAYER_STATE_INVULNERABLE;
-    (param_1->playerVm).scaleX = 1.0;
-    (param_1->playerVm).scaleY = 1.0;
-    (param_1->playerVm).color.color = 0xffffffff;
-    *(uint *)&(param_1->playerVm).flags = *(uint *)&(param_1->playerVm).flags & 0xfffffffb;
+    (param_1->playerSprite).scaleX = 1.0;
+    (param_1->playerSprite).scaleY = 1.0;
+    (param_1->playerSprite).color.color = 0xffffffff;
+    *(uint *)&(param_1->playerSprite).flags = *(uint *)&(param_1->playerSprite).flags & 0xfffffffb;
     (param_1->invulnerabilityTimer).current = 0xf0;
     (param_1->invulnerabilityTimer).subFrame = 0.0;
     (param_1->invulnerabilityTimer).previous = -999;
@@ -146,8 +146,9 @@ LAB_00428fa8:
       (param_1->invulnerabilityTimer).current = 0;
       (param_1->invulnerabilityTimer).subFrame = 0.0;
       (param_1->invulnerabilityTimer).previous = -999;
-      *(uint *)&(param_1->playerVm).flags = *(uint *)&(param_1->playerVm).flags & 0xfffffff7;
-      (param_1->playerVm).color.color = 0xffffffff;
+      *(uint *)&(param_1->playerSprite).flags = *(uint *)&(param_1->playerSprite).flags & 0xfffffff7
+      ;
+      (param_1->playerSprite).color.color = 0xffffffff;
     }
     else {
       uVar4 = (param_1->invulnerabilityTimer).current & 0x80000007;
@@ -155,12 +156,13 @@ LAB_00428fa8:
         uVar4 = (uVar4 - 1 | 0xfffffff8) + 1;
       }
       if ((int)uVar4 < 2) {
-        *(uint *)&(param_1->playerVm).flags = *(uint *)&(param_1->playerVm).flags | 8;
-        (param_1->playerVm).color.color = 0xff404040;
+        *(uint *)&(param_1->playerSprite).flags = *(uint *)&(param_1->playerSprite).flags | 8;
+        (param_1->playerSprite).color.color = 0xff404040;
       }
       else {
-        *(uint *)&(param_1->playerVm).flags = *(uint *)&(param_1->playerVm).flags & 0xfffffff7;
-        (param_1->playerVm).color.color = 0xffffffff;
+        *(uint *)&(param_1->playerSprite).flags =
+             *(uint *)&(param_1->playerSprite).flags & 0xfffffff7;
+        (param_1->playerSprite).color.color = 0xffffffff;
       }
     }
   }
@@ -174,11 +176,11 @@ LAB_00428fa8:
      ) {
     HandlePlayerInputs(param_1);
   }
-  AnmManager::ExecuteScript(g_AnmManager,&param_1->playerVm);
+  AnmManager::ExecuteScript(g_AnmManager,&param_1->playerSprite);
   UpdatePlayerBullets(param_1);
   if (param_1->orbState != ORB_HIDDEN) {
-    AnmManager::ExecuteScript(g_AnmManager,param_1->orbsVm);
-    AnmManager::ExecuteScript(g_AnmManager,param_1->orbsVm + 1);
+    AnmManager::ExecuteScript(g_AnmManager,param_1->orbsSprite);
+    AnmManager::ExecuteScript(g_AnmManager,param_1->orbsSprite + 1);
   }
   (param_1->position_of_last_enemy_hit).x = -999.0;
   (param_1->position_of_last_enemy_hit).y = -999.0;

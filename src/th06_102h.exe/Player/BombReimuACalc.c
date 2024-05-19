@@ -162,7 +162,7 @@ void Player::BombReimuACalc(Player *param_1)
   }
   else {
     Gui::ImplVm5SetInterruptToOne(&g_Gui);
-    (param_1->bombInfo).isUsingBomb = 0;
+    (param_1->bombInfo).isInUse = 0;
   }
   return;
 }

@@ -6,14 +6,14 @@ void __thiscall ItemManager::FUN_0041f4a0(ItemManager *this)
   long lVar9;
   float10 fVar10;
   float fVar7;
-  int local_ec;
-  int local_e8;
-  int local_e4;
-  int local_e0;
+  uint local_ec;
+  uint local_e8;
+  uint local_e4;
+  uint local_e0;
   int local_28;
   int local_20;
   Item *curItem;
-  int local_c;
+  uint local_c;
   int local_8;
   bool bVar7;
   float fVar1;
@@ -115,7 +115,7 @@ LAB_0041f7c5:
         case ITEM_POWER_SMALL:
           if (g_GameManager.current_power < 0x80) {
             for (local_20 = 0; iVar8 = local_20,
-                INT_ARRAY_004766dc[local_20] <= (int)(uint)g_GameManager.current_power;
+                g_PowerUpThresholds[local_20] <= (int)(uint)g_GameManager.current_power;
                 local_20 = local_20 + 1) {
             }
             g_GameManager.power_item_count_for_score = 0;
@@ -127,7 +127,7 @@ LAB_0041f7c5:
             }
             g_GameManager.score = g_GameManager.score + 10;
             g_Gui.flags = g_Gui.flags & 0xffffffcf | 0x20;
-            for (; INT_ARRAY_004766dc[local_20] <= (int)(uint)g_GameManager.current_power;
+            for (; g_PowerUpThresholds[local_20] <= (int)(uint)g_GameManager.current_power;
                 local_20 = local_20 + 1) {
             }
             if (local_20 == iVar8) {
@@ -143,11 +143,11 @@ LAB_0041f7c5:
             if (0x1e < g_GameManager.power_item_count_for_score) {
               g_GameManager.power_item_count_for_score = 0x1e;
             }
-            local_c = *(int *)(&DAT_00476660 + (char)g_GameManager.power_item_count_for_score * 4);
+            local_c = g_PowerItemScore[(char)g_GameManager.power_item_count_for_score];
             g_GameManager.score = g_GameManager.score + local_c;
             AsciiManager::CreatePopup1
                       (&g_AsciiManager,&curItem->position,local_c,
-                       ((local_c < 0x3200) - 1 & 0xffffff01) - 1);
+                       (((int)local_c < 0x3200) - 1 & 0xffffff01) - 1);
           }
           GameManager::IncreaseSubrank(&g_GameManager,1);
           break;
@@ -166,7 +166,7 @@ LAB_0041f7c5:
             local_c = local_e0;
             AsciiManager::CreatePopup1
                       (&g_AsciiManager,&curItem->position,local_e0,
-                       ((local_e0 < 100000) - 1 & 0xffffff01) - 1);
+                       (((int)local_e0 < 100000) - 1 & 0xffffff01) - 1);
             break;
           case HARD:
             lVar9 = __ftol2((curItem->position).y);
@@ -180,7 +180,7 @@ LAB_0041f7c5:
             local_c = local_e4;
             AsciiManager::CreatePopup1
                       (&g_AsciiManager,&curItem->position,local_e4,
-                       ((local_e4 < 150000) - 1 & 0xffffff01) - 1);
+                       (((int)local_e4 < 150000) - 1 & 0xffffff01) - 1);
             break;
           case LUNATIC:
             lVar9 = __ftol2((curItem->position).y);
@@ -194,7 +194,7 @@ LAB_0041f7c5:
             local_c = local_e8;
             AsciiManager::CreatePopup1
                       (&g_AsciiManager,&curItem->position,local_e8,
-                       ((local_e8 < 200000) - 1 & 0xffffff01) - 1);
+                       (((int)local_e8 < 200000) - 1 & 0xffffff01) - 1);
             break;
           case EXTRA:
             lVar9 = __ftol2((curItem->position).y);
@@ -208,7 +208,7 @@ LAB_0041f7c5:
             local_c = local_ec;
             AsciiManager::CreatePopup1
                       (&g_AsciiManager,&curItem->position,local_ec,
-                       ((local_ec < 300000) - 1 & 0xffffff01) - 1);
+                       (((int)local_ec < 300000) - 1 & 0xffffff01) - 1);
           }
           g_GameManager.score = g_GameManager.score + local_c;
           g_GameManager.point_items_collected_in_stage =
@@ -226,7 +226,7 @@ LAB_0041f7c5:
         case ITEM_POWER_BIG:
           if (g_GameManager.current_power < 0x80) {
             for (local_28 = 0; iVar8 = local_28,
-                INT_ARRAY_004766dc[local_28] <= (int)(uint)g_GameManager.current_power;
+                g_PowerUpThresholds[local_28] <= (int)(uint)g_GameManager.current_power;
                 local_28 = local_28 + 1) {
             }
             g_GameManager.current_power = g_GameManager.current_power + 8;
@@ -237,7 +237,7 @@ LAB_0041f7c5:
             }
             g_Gui.flags = g_Gui.flags & 0xffffffcf | 0x20;
             g_GameManager.score = g_GameManager.score + 10;
-            for (; INT_ARRAY_004766dc[local_28] <= (int)(uint)g_GameManager.current_power;
+            for (; g_PowerUpThresholds[local_28] <= (int)(uint)g_GameManager.current_power;
                 local_28 = local_28 + 1) {
             }
             if (local_28 == iVar8) {
@@ -253,11 +253,11 @@ LAB_0041f7c5:
             if (0x1e < g_GameManager.power_item_count_for_score) {
               g_GameManager.power_item_count_for_score = 0x1e;
             }
-            local_c = *(int *)(&DAT_00476660 + (char)g_GameManager.power_item_count_for_score * 4);
+            local_c = g_PowerItemScore[(char)g_GameManager.power_item_count_for_score];
             g_GameManager.score = g_GameManager.score + local_c;
             AsciiManager::CreatePopup1
                       (&g_AsciiManager,&curItem->position,local_c,
-                       ((local_c < 0x3200) - 1 & 0xffffff01) - 1);
+                       (((int)local_c < 0x3200) - 1 & 0xffffff01) - 1);
           }
           break;
         case ITEM_BOMB:
@@ -289,7 +289,7 @@ LAB_0041f7c5:
           break;
         case ITEM_POINT_BULLET:
           local_c = ((int)g_GameManager.graze_in_stage / 3) * 10 + 500;
-          if (g_Player.bombInfo.isUsingBomb != 0) {
+          if (g_Player.bombInfo.isInUse != 0) {
             local_c = 100;
           }
           g_GameManager.score = g_GameManager.score + local_c;

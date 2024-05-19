@@ -1062,8 +1062,7 @@ switchD_00407544_caseD_2:
     local_6c = &instruction->ecl_var_id;
     pEVar13 = (Effect *)
               EffectManager::SpawnEffect
-                        (&g_EffectManager,0xd,&enemy->position,1,
-                         PTR_EFFECT_RELATED_COLORS_00476438[*local_6c]);
+                        (&g_EffectManager,0xd,&enemy->position,1,g_EffectsColor[*local_6c]);
     enemy->effect_array[enemy->effectsNum] = pEVar13;
     pEVar13 = enemy->effect_array[enemy->effectsNum];
     (pEVar13->pos2).x = (float)local_6c[1];

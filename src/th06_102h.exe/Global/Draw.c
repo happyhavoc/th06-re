@@ -1,21 +1,21 @@
 
-void FUN_00416b50(Bullet *param_1)
+void Draw(Bullet *param_1)
 
 {
   AnmVm *local_8;
   
   switch(param_1->state) {
   case 2:
-    local_8 = &(param_1->vms).spawn_effect_short;
+    local_8 = &(param_1->sprites).spriteSpawnEffectShort;
     break;
   case 3:
-    local_8 = &(param_1->vms).spawn_effect_medium;
+    local_8 = &(param_1->sprites).spriteSpawnEffectMedium;
     break;
   case 4:
-    local_8 = &(param_1->vms).spawn_effect_long;
+    local_8 = &(param_1->sprites).spriteSpawnEffectLong;
     break;
   case 5:
-    local_8 = &(param_1->vms).spawn_effect_short_with_memset;
+    local_8 = &(param_1->sprites).spriteSpawnEffectLongMemset;
     break;
   default:
     local_8 = (AnmVm *)param_1;

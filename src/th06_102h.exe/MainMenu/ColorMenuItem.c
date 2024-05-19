@@ -6,11 +6,11 @@ void __thiscall MainMenu::ColorMenuItem(MainMenu *this,AnmVm *vm,int idx,int idx
     if ((g_Supervisor.cfg.opts >> 8 & 1 | g_Supervisor.cfg.opts & 1) == 0) {
       (vm->color).color = 0x800000ff;
     }
-    else if (vm->anotherSpriteNumber < 0x122) {
-      AnmManager::SetActiveSprite(g_AnmManager,vm,(int)vm->anotherSpriteNumber + 0x7a);
+    else if (vm->baseSpriteIndex < 0x122) {
+      AnmManager::SetActiveSprite(g_AnmManager,vm,(int)vm->baseSpriteIndex + 0x7a);
     }
     else {
-      AnmManager::SetActiveSprite(g_AnmManager,vm,(int)vm->anotherSpriteNumber + 0x73);
+      AnmManager::SetActiveSprite(g_AnmManager,vm,(int)vm->baseSpriteIndex + 0x73);
     }
     (vm->offset).x = -2.0;
     (vm->offset).y = -2.0;
@@ -21,7 +21,7 @@ void __thiscall MainMenu::ColorMenuItem(MainMenu *this,AnmVm *vm,int idx,int idx
       (vm->color).color = 0x80202050;
     }
     else {
-      AnmManager::SetActiveSprite(g_AnmManager,vm,(int)vm->anotherSpriteNumber);
+      AnmManager::SetActiveSprite(g_AnmManager,vm,(int)vm->baseSpriteIndex);
     }
     vm->scaleX = 1.0;
     vm->scaleY = 1.0;

@@ -6,7 +6,7 @@ int __thiscall AnmManager::FUN_00433590(AnmManager *this,AnmVm *vm)
   int iVar2;
   D3DMATRIX *pDVar3;
   float *pfVar4;
-  D3DMATRIX local_c4 [2];
+  D3DMATRIX local_c4;
   D3DMATRIX local_44;
   
   if ((*(uint *)&vm->flags & 1) == 0) {
@@ -26,24 +26,25 @@ int __thiscall AnmManager::FUN_00433590(AnmManager *this,AnmVm *vm)
     }
     else {
       pDVar3 = &vm->matrix;
-      pfVar4 = (float *)local_c4;
+      pfVar4 = (float *)&local_c4;
       for (iVar2 = 0x10; iVar2 != 0; iVar2 = iVar2 + -1) {
         *pfVar4 = pDVar3->m[0][0];
         pDVar3 = (D3DMATRIX *)(pDVar3->m[0] + 1);
         pfVar4 = pfVar4 + 1;
       }
-      local_c4[0].m[3][0] = ROUND((vm->pos).x) - 0.5;
-      local_c4[0].m[3][1] = -ROUND((vm->pos).y) + 0.5;
+      local_c4.m[3][0] = ROUND((vm->pos).x) - 0.5;
+      local_c4.m[3][1] = -ROUND((vm->pos).y) + 0.5;
       if ((*(uint *)&vm->flags >> 8 & 1) != 0) {
-        local_c4[0].m[3][0] = (vm->sprite->widthPx * vm->scaleX) / 2.0 + local_c4[0].m[3][0];
+        local_c4.m[3][0] = (vm->sprite->widthPx * vm->scaleX) / 2.0 + local_c4.m[3][0];
       }
       if ((*(uint *)&vm->flags >> 8 & 2) != 0) {
-        local_c4[0].m[3][1] = local_c4[0].m[3][1] - (vm->sprite->heightPx * vm->scaleY) / 2.0;
+        local_c4.m[3][1] = local_c4.m[3][1] - (vm->sprite->heightPx * vm->scaleY) / 2.0;
       }
-      local_c4[0].m[3][2] = (vm->pos).z;
-      local_c4[0].m[0][0] = local_c4[0].m[0][0] * vm->scaleX;
-      local_c4[0].m[1][1] = -vm->scaleY * local_c4[0].m[1][1];
-      (*(g_Supervisor.d3dDevice)->lpVtbl->SetTransform)(g_Supervisor.d3dDevice,0x100,local_c4);
+      local_c4.m[3][2] = (vm->pos).z;
+      local_c4.m[0][0] = local_c4.m[0][0] * vm->scaleX;
+      local_c4.m[1][1] = -vm->scaleY * local_c4.m[1][1];
+      (*(g_Supervisor.d3dDevice)->lpVtbl->SetTransform)
+                (g_Supervisor.d3dDevice,D3DTS_WORLD,&local_c4);
       if (this->currentSprite != vm->sprite) {
         this->currentSprite = vm->sprite;
         pDVar3 = &vm->matrix;

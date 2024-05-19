@@ -9,39 +9,42 @@ Player::FUN_004264b0
 {
   int local_d4;
   short local_80;
-  D3DXVECTOR3 local_40;
+  D3DXVECTOR3 bulletTopLeft;
   int local_34;
-  D3DXVECTOR3 local_30;
+  D3DXVECTOR3 enemyTopLeft;
   int local_c;
   PlayerBullet *bullet;
-  float fVar1;
-  float fVar2;
-  float fVar3;
-  float fVar4;
+  float bulletBottomRightX;
+  float bulletBottomRightY;
+  float enemyBottomRightX;
+  float enemyBottomRightY;
   D3DXVECTOR3 *pDVar1;
   D3DXVECTOR3 *pDVar2;
   short sVar4;
   AnmManager *this_00;
   
   local_34 = 0;
-  local_30.x = enemyPos->x - enemyHitboxSize->x / 2.0;
-  local_30.y = enemyPos->y - enemyHitboxSize->y / 2.0;
-  fVar1 = enemyHitboxSize->x / 2.0 + enemyPos->x;
-  fVar2 = enemyHitboxSize->y / 2.0 + enemyPos->y;
+  enemyTopLeft.x = enemyPos->x - enemyHitboxSize->x / 2.0;
+  enemyTopLeft.y = enemyPos->y - enemyHitboxSize->y / 2.0;
+  enemyBottomRightX = enemyHitboxSize->x / 2.0 + enemyPos->x;
+  enemyBottomRightY = enemyHitboxSize->y / 2.0 + enemyPos->y;
   bullet = this->bullets;
   if (param_3 != (undefined4 *)0x0) {
     *param_3 = 0;
   }
   for (local_c = 0; local_c < 0x50; local_c = local_c + 1) {
     if ((bullet->bulletState != 0) && ((bullet->bulletState == 1 || (bullet->bulletType == 2)))) {
-      local_40.x = (bullet->position).x - (bullet->size).x / 2.0;
-      local_40.y = (bullet->position).y - (bullet->size).y / 2.0;
-      fVar3 = (bullet->size).x / 2.0 + (bullet->position).x;
-      fVar4 = (bullet->size).y / 2.0 + (bullet->position).y;
-      if ((local_40.y <= fVar2) &&
-         (((local_40.x <= fVar1 && (fVar4 < local_30.y == (NAN(fVar4) || NAN(local_30.y)))) &&
-          (fVar3 < local_30.x == (NAN(fVar3) || NAN(local_30.x)))))) {
-        if ((this->bombInfo).isUsingBomb == 0) {
+      bulletTopLeft.x = (bullet->position).x - (bullet->size).x / 2.0;
+      bulletTopLeft.y = (bullet->position).y - (bullet->size).y / 2.0;
+      bulletBottomRightX = (bullet->size).x / 2.0 + (bullet->position).x;
+      bulletBottomRightY = (bullet->size).y / 2.0 + (bullet->position).y;
+      if ((bulletTopLeft.y <= enemyBottomRightY) &&
+         (((bulletTopLeft.x <= enemyBottomRightX &&
+           (bulletBottomRightY < enemyTopLeft.y == (NAN(bulletBottomRightY) || NAN(enemyTopLeft.y)))
+           ) && (bulletBottomRightX < enemyTopLeft.x ==
+                 (NAN(bulletBottomRightX) || NAN(enemyTopLeft.x)))))) {
+                    /* Bullet is hitting the enemy */
+        if ((this->bombInfo).isInUse == 0) {
           local_d4 = (int)bullet->unk_14c;
         }
         else if ((int)bullet->unk_14c / 3 == 0) {
@@ -82,10 +85,10 @@ Player::FUN_004264b0
         if (bullet->bulletType == 3) {
           this->unk_9e4 = this->unk_9e4 + 1;
           if ((this->unk_9e4 & 7) == 0) {
-            local_40.y = enemyPos->y;
-            local_40.z = enemyPos->z;
-            local_40.x = (bullet->position).x;
-            EffectManager::SpawnEffect(&g_EffectManager,5,&local_40,1,0xffffffff);
+            bulletTopLeft.y = enemyPos->y;
+            bulletTopLeft.z = enemyPos->z;
+            bulletTopLeft.x = (bullet->position).x;
+            EffectManager::SpawnEffect(&g_EffectManager,5,&bulletTopLeft,1,0xffffffff);
           }
         }
         else {
@@ -106,24 +109,27 @@ Player::FUN_004264b0
     bullet = bullet + 1;
   }
   for (local_c = 0; local_c < 0x20; local_c = local_c + 1) {
-    fVar3 = this->unk_638[local_c].x;
-    if (fVar3 < 0.0 == (fVar3 == 0.0)) {
+    bulletBottomRightX = this->unk_638[local_c].x;
+    if (bulletBottomRightX < 0.0 == (bulletBottomRightX == 0.0)) {
       pDVar1 = this->unk_638 + local_c;
       pDVar2 = this->unk_4b8 + local_c;
-      local_40.z = pDVar2->z - pDVar1->z * 0.5;
-      local_40.y = pDVar2->y - pDVar1->y * 0.5;
-      local_40.x = pDVar2->x - pDVar1->x * 0.5;
-      fVar3 = this->unk_638[local_c].y * 0.5 + this->unk_4b8[local_c].y;
-      fVar4 = this->unk_638[local_c].x * 0.5 + this->unk_4b8[local_c].x;
-      if (((local_40.x <= fVar1) && (fVar4 < local_30.x == (NAN(fVar4) || NAN(local_30.x)))) &&
-         ((local_40.y <= fVar2 && (fVar3 < local_30.y == (NAN(fVar3) || NAN(local_30.y)))))) {
+      bulletTopLeft.z = pDVar2->z - pDVar1->z * 0.5;
+      bulletTopLeft.y = pDVar2->y - pDVar1->y * 0.5;
+      bulletTopLeft.x = pDVar2->x - pDVar1->x * 0.5;
+      bulletBottomRightX = this->unk_638[local_c].y * 0.5 + this->unk_4b8[local_c].y;
+      bulletBottomRightY = this->unk_638[local_c].x * 0.5 + this->unk_4b8[local_c].x;
+      if (((bulletTopLeft.x <= enemyBottomRightX) &&
+          (bulletBottomRightY < enemyTopLeft.x == (NAN(bulletBottomRightY) || NAN(enemyTopLeft.x))))
+         && ((bulletTopLeft.y <= enemyBottomRightY &&
+             (bulletBottomRightX < enemyTopLeft.y ==
+              (NAN(bulletBottomRightX) || NAN(enemyTopLeft.y)))))) {
         local_34 = local_34 + this->unk_7b8[local_c];
         this->unk_838[local_c] = this->unk_838[local_c] + this->unk_7b8[local_c];
         this->unk_9e4 = this->unk_9e4 + 1;
         if ((this->unk_9e4 & 3) == 0) {
           EffectManager::SpawnEffect(&g_EffectManager,3,enemyPos,1,0xffffffff);
         }
-        if (((this->bombInfo).isUsingBomb != 0) && (param_3 != (undefined4 *)0x0)) {
+        if (((this->bombInfo).isInUse != 0) && (param_3 != (undefined4 *)0x0)) {
           *param_3 = 1;
         }
       }

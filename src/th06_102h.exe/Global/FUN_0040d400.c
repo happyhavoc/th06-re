@@ -20,8 +20,8 @@ void __cdecl FUN_0040d400(Enemy *param_1,AnmRawInstr *param_2)
   }
   for (i = 0; i < 640; i = i + 1) {
     if ((((bullets->state != 0) && (bullets->state != 5)) &&
-        ((bullets->vms).vm0.sprite != (AnmLoadedSprite *)0x0)) &&
-       (30.0 <= ((bullets->vms).vm0.sprite)->heightPx)) {
+        ((bullets->sprites).bulletSprite.sprite != (AnmLoadedSprite *)0x0)) &&
+       (30.0 <= ((bullets->sprites).bulletSprite.sprite)->heightPx)) {
       new_spawned_bullet.position.x = (bullets->pos).x;
       new_spawned_bullet.position.y = (bullets->pos).y;
       new_spawned_bullet.position.z = (bullets->pos).z;

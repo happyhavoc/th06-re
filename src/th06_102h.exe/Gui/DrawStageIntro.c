@@ -68,7 +68,7 @@ void __thiscall Gui::DrawStageIntro(Gui *this)
     AnmManager::DrawNoRotation(g_AnmManager,&this->impl->vm8);
     AnmManager::DrawNoRotation(g_AnmManager,&this->impl->vm6);
   }
-  if (-1 < (this->impl->vm9).spriteNumber) {
+  if (-1 < (this->impl->vm9).activeSpriteIndex) {
     g_Supervisor.viewport.X = __ftol2(g_GameManager.arcade_region_top_left_pos.x);
     g_Supervisor.viewport.Y = __ftol2(g_GameManager.arcade_region_top_left_pos.y);
     g_Supervisor.viewport.Width = __ftol2(g_GameManager.arcade_region_size.x);

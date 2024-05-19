@@ -10,8 +10,8 @@ ZunResult Player::RegisterChain(byte param_1)
   
   pPVar3 = &g_Player;
   for (iVar2 = 0x263c; iVar2 != 0; iVar2 = iVar2 + -1) {
-    (pPVar3->playerVm).rotation.x = 0.0;
-    pPVar3 = (Player *)&(pPVar3->playerVm).rotation.y;
+    (pPVar3->playerSprite).rotation.x = 0.0;
+    pPVar3 = (Player *)&(pPVar3->playerSprite).rotation.y;
   }
   g_Player.invulnerabilityTimer.current = 0;
   g_Player.invulnerabilityTimer.subFrame = 0.0;

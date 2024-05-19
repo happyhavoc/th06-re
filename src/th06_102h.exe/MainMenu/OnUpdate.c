@@ -137,7 +137,7 @@ drawStartMenuCase:
           AnmManager::SetActiveSprite
                     (g_AnmManager,vm_memset,(int)menu->controlMapping[i / 2] % 10 + 0x100);
         }
-        vm_memset->anotherSpriteNumber = vm_memset->spriteNumber;
+        vm_memset->baseSpriteIndex = vm_memset->activeSpriteIndex;
         DrawMenuItem(vm_memset,i / 2,menu->cursor,menu->color2,menu->color1,0x7a);
       }
       vm_memset = vm_memset + 1;

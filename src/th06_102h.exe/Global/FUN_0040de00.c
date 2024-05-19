@@ -26,8 +26,8 @@ void FUN_0040de00(Enemy *param_1,AnmRawInstr *param_2)
   }
   for (local_64 = 0; local_64 < 0x280; local_64 = local_64 + 1) {
     if ((((bullets->state != 0) && (bullets->state != 5)) &&
-        ((bullets->vms).vm0.sprite != (AnmLoadedSprite *)0x0)) &&
-       (30.0 <= ((bullets->vms).vm0.sprite)->heightPx)) {
+        ((bullets->sprites).bulletSprite.sprite != (AnmLoadedSprite *)0x0)) &&
+       (30.0 <= ((bullets->sprites).bulletSprite.sprite)->heightPx)) {
       anm_vm_var3 = anm_vm_var3 + 1;
       dVar1 = (double)((bullets->pos).x - (param_1->position).x);
       dVar2 = (double)((bullets->pos).y - (param_1->position).y);
@@ -36,14 +36,14 @@ void FUN_0040de00(Enemy *param_1,AnmRawInstr *param_2)
       local_68 = g_BulletManager.bullets;
       for (local_7c = 0; local_7c < 0x280; local_7c = local_7c + 1) {
         if ((((local_68->state != 0) && (local_68->state != 5)) &&
-            (((local_68->vms).vm0.sprite != (AnmLoadedSprite *)0x0 &&
-             ((fVar6 = ((local_68->vms).vm0.sprite)->heightPx, fVar6 < 30.0 != NAN(fVar6) &&
-              (NAN(local_68->speed) != (local_68->speed == 0.0))))))) &&
-           (fVar6 = sqrt(SUB84((double)(((local_68->pos).x - (bullets->pos).x) *
-                                        ((local_68->pos).x - (bullets->pos).x) +
-                                       ((local_68->pos).y - (bullets->pos).y) *
-                                       ((local_68->pos).y - (bullets->pos).y)),0)),
-           fVar6 < 64.0 != NAN(fVar6))) {
+            (((local_68->sprites).bulletSprite.sprite != (AnmLoadedSprite *)0x0 &&
+             ((fVar6 = ((local_68->sprites).bulletSprite.sprite)->heightPx,
+              fVar6 < 30.0 != NAN(fVar6) && (NAN(local_68->speed) != (local_68->speed == 0.0)))))))
+           && (fVar6 = sqrt(SUB84((double)(((local_68->pos).x - (bullets->pos).x) *
+                                           ((local_68->pos).x - (bullets->pos).x) +
+                                          ((local_68->pos).y - (bullets->pos).y) *
+                                          ((local_68->pos).y - (bullets->pos).y)),0)),
+              fVar6 < 64.0 != NAN(fVar6))) {
           local_68->ex_flags = local_68->ex_flags | 0x10;
           local_68->speed = 0.01;
           (local_68->timer).current = 0;
@@ -62,7 +62,8 @@ void FUN_0040de00(Enemy *param_1,AnmRawInstr *param_2)
           local_68->color = local_68->color + 1;
           AnmManager::SetActiveSprite
                     (g_AnmManager,(AnmVm *)local_68,
-                     (int)(local_68->vms).vm0.anotherSpriteNumber + (int)(short)local_68->color);
+                     (int)(local_68->sprites).bulletSprite.baseSpriteIndex +
+                     (int)(short)local_68->color);
         }
         local_68 = local_68 + 1;
       }

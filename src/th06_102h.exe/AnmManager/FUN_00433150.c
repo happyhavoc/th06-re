@@ -1,32 +1,36 @@
 
-int __thiscall AnmManager::FUN_00433150(AnmManager *this,AnmVm *vm)
+/* WARNING: Unable to use type for symbol pfVar4 */
+
+ZunResult __thiscall AnmManager::FUN_00433150(AnmManager *this,AnmVm *vm)
 
 {
-  int iVar1;
-  D3DMATRIX *pDVar2;
-  float *pfVar3;
-  double dVar4;
+  ZunResult ZVar1;
+  int iVar2;
+  D3DMATRIX *pDVar3;
+  float *pfVar5;
+  double dVar6;
   D3DXMATRIX local_c4;
   D3DXMATRIX matrix;
   D3DMATRIX local_44;
+  float *pfVar4;
   float rotation;
   
   if ((*(uint *)&vm->flags & 1) == 0) {
-    iVar1 = -1;
+    ZVar1 = ZUN_ERROR;
   }
   else if ((*(uint *)&vm->flags >> 1 & 1) == 0) {
-    iVar1 = -1;
+    ZVar1 = ZUN_ERROR;
   }
   else if ((vm->color).color == 0) {
-    iVar1 = -1;
+    ZVar1 = ZUN_ERROR;
   }
   else {
-    pDVar2 = &vm->matrix;
-    pfVar3 = (float *)&local_c4;
-    for (iVar1 = 0x10; iVar1 != 0; iVar1 = iVar1 + -1) {
-      *pfVar3 = pDVar2->m[0][0];
-      pDVar2 = (D3DMATRIX *)(pDVar2->m[0] + 1);
-      pfVar3 = pfVar3 + 1;
+    pDVar3 = &vm->matrix;
+    pfVar4 = (float *)&local_c4;
+    for (iVar2 = 0x10; iVar2 != 0; iVar2 = iVar2 + -1) {
+      *pfVar4 = pDVar3->m[0][0];
+      pDVar3 = (D3DMATRIX *)(pDVar3->m[0] + 1);
+      pfVar4 = pfVar4 + 1;
     }
     local_c4.m[0][0] = local_c4.m[0][0] * vm->scaleX;
     local_c4.m[1][1] = -vm->scaleY * local_c4.m[1][1];
@@ -49,26 +53,26 @@ int __thiscall AnmManager::FUN_00433150(AnmManager *this,AnmVm *vm)
       local_c4.m[3][0] = (vm->pos).x;
     }
     else {
-      dVar4 = _fabs((double)((vm->sprite->widthPx * vm->scaleX) / 2.0));
-      local_c4.m[3][0] = (float)dVar4 + (vm->pos).x;
+      dVar6 = _fabs((double)((vm->sprite->widthPx * vm->scaleX) / 2.0));
+      local_c4.m[3][0] = (float)dVar6 + (vm->pos).x;
     }
     if ((*(uint *)&vm->flags >> 8 & 2) == 0) {
       local_c4.m[3][1] = -(vm->pos).y;
     }
     else {
-      dVar4 = _fabs((double)((vm->sprite->heightPx * vm->scaleY) / 2.0));
-      local_c4.m[3][1] = -(vm->pos).y - (float)dVar4;
+      dVar6 = _fabs((double)((vm->sprite->heightPx * vm->scaleY) / 2.0));
+      local_c4.m[3][1] = -(vm->pos).y - (float)dVar6;
     }
     local_c4.m[3][2] = (vm->pos).z;
     (*(g_Supervisor.d3dDevice)->lpVtbl->SetTransform)(g_Supervisor.d3dDevice,D3DTS_WORLD,&local_c4);
     if (this->currentSprite != vm->sprite) {
       this->currentSprite = vm->sprite;
-      pDVar2 = &vm->matrix;
-      pfVar3 = (float *)&local_44;
-      for (iVar1 = 0x10; iVar1 != 0; iVar1 = iVar1 + -1) {
-        *pfVar3 = pDVar2->m[0][0];
-        pDVar2 = (D3DMATRIX *)(pDVar2->m[0] + 1);
-        pfVar3 = pfVar3 + 1;
+      pDVar3 = &vm->matrix;
+      pfVar5 = (float *)&local_44;
+      for (iVar2 = 0x10; iVar2 != 0; iVar2 = iVar2 + -1) {
+        *pfVar5 = pDVar3->m[0][0];
+        pDVar3 = (D3DMATRIX *)(pDVar3->m[0] + 1);
+        pfVar5 = pfVar5 + 1;
       }
       local_44.m[2][0] = (vm->sprite->uvStart).x + (vm->uvScrollPos).x;
       local_44.m[2][1] = (vm->sprite->uvStart).y + (vm->uvScrollPos).y;
@@ -102,8 +106,8 @@ int __thiscall AnmManager::FUN_00433150(AnmManager *this,AnmVm *vm)
       (*(g_Supervisor.d3dDevice)->lpVtbl->DrawPrimitiveUP)
                 (g_Supervisor.d3dDevice,D3DPT_TRIANGLESTRIP,2,g_PrimitivesToDrawUnknown,0x18);
     }
-    iVar1 = 0;
+    ZVar1 = ZUN_SUCCESS;
   }
-  return iVar1;
+  return ZVar1;
 }
 

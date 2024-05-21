@@ -84,7 +84,7 @@ ChainCallbackResult GameManager::OnUpdate(GameManager *this)
           this->lives_remaining = this->lives_remaining + 1;
           SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,SOUND_1UP,0);
         }
-        g_Gui.flags = g_Gui.flags & 0xfffffffc | 2;
+        g_Gui.flags = g_Gui.flags & 0xfffffffc | HAS_REVIVED;
         this->extra_lives = this->extra_lives + 1;
         IncreaseSubrank(&g_GameManager,200);
       }

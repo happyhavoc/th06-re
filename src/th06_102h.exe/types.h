@@ -16706,7 +16706,7 @@ struct StdRawQuadBasic {
 
 struct StdRawObject {
     ushort id;
-    uchar field1_0x2;
+    char field1_0x2;
     uchar flags;
     D3DXVECTOR3 position;
     D3DXVECTOR3 size;
@@ -16863,7 +16863,7 @@ struct Stage {
 };
 
 struct StdRawInstance {
-    ushort id;
+    short id;
     ushort field1_0x2;
     D3DXVECTOR3 position;
 };

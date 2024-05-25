@@ -1,5 +1,5 @@
 
-void __thiscall Gui::drawGameScene(Gui *this)
+void __thiscall Gui::DrawGameScene(Gui *this)
 
 {
   GuiImpl *pGVar1;

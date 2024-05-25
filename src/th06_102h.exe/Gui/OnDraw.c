@@ -1,7 +1,8 @@
 
-void Gui::OnDraw(Gui *arg)
+ChainCallbackResult Gui::OnDraw(Gui *arg)
 
 {
+  ChainCallbackResult CVar1;
   char *local_40;
   char local_34;
   undefined auStack_33 [31];
@@ -94,7 +95,7 @@ void Gui::OnDraw(Gui *arg)
   }
   GuiImpl::DrawDialogue(arg->impl);
   DrawStageElements(arg);
-  drawGameScene(arg);
+  DrawGameScene(arg);
   g_AsciiManager.isGui = 1;
   if ((arg->impl->bonusScore).isShown != 0) {
     g_AsciiManager.color = 0xffffff80;
@@ -135,7 +136,8 @@ void Gui::OnDraw(Gui *arg)
   }
   g_AsciiManager.isGui = 0;
   (*(g_Supervisor.d3dDevice)->lpVtbl->SetRenderState)(g_Supervisor.d3dDevice,D3DRS_ZFUNC,4);
+  CVar1 = CHAIN_CALLBACK_RESULT_CONTINUE;
   __security_check_cookie(local_14 ^ unaff_retaddr);
-  return;
+  return CVar1;
 }
 

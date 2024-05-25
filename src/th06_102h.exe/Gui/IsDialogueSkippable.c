@@ -1,7 +1,7 @@
 
-byte __fastcall Gui::IsDialogueSkippable(Gui *param_1)
+byte __thiscall Gui::IsDialogueSkippable(Gui *this)
 
 {
-  return (param_1->impl->msg).dialogue_skippable;
+  return (this->impl->msg).dialogue_skippable;
 }
 

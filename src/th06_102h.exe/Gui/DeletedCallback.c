@@ -1,5 +1,5 @@
 
-undefined4 Gui::DeletedCallback(Gui *param_1)
+ZunResult Gui::DeletedCallback(Gui *param_1)
 
 {
   AnmManager::ReleaseAnm(g_AnmManager,0x12);
@@ -15,6 +15,6 @@ undefined4 Gui::DeletedCallback(Gui *param_1)
     _free(param_1->impl);
     param_1->impl = (GuiImpl *)0x0;
   }
-  return 0;
+  return ZUN_SUCCESS;
 }
 

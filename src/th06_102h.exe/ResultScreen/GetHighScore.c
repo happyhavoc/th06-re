@@ -1,5 +1,6 @@
 
-uint GetHighScore(ScoreDat *score_dat,ScoreListNode *param_2,int character,int difficulty)
+uint ResultScreen::GetHighScore
+               (ScoreDat *score_dat,ScoreListNode *param_2,int character,int difficulty)
 
 {
   Th6k *pTVar1;
@@ -20,10 +21,10 @@ uint GetHighScore(ScoreDat *score_dat,ScoreListNode *param_2,int character,int d
     if (((((local_8->base).magic == 0x52435348) && ((local_8->base).version_ == 0x10)) &&
         ((uint)local_8->character == character)) && ((uint)local_8->difficulty == difficulty)) {
       if (param_2 == (ScoreListNode *)0x0) {
-        ResultScreen::LinkScore(score_dat->scores,local_8);
+        LinkScore(score_dat->scores,local_8);
       }
       else {
-        ResultScreen::LinkScore(param_2,local_8);
+        LinkScore(param_2,local_8);
       }
     }
     pTVar1 = &local_8->base;

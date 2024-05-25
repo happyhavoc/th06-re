@@ -65,19 +65,20 @@ ZunResult GameManager::AddedCallback(GameManager *gameManager)
     }
     scoredat = ResultScreen::OpenScore("score.dat");
     g_GameManager.high_score =
-         GetHighScore(scoredat,(ScoreListNode *)0x0,
-                      (uint)g_GameManager.shottype + (uint)g_GameManager.character * 2,
-                      g_GameManager.difficulty);
-    ParseCatk(scoredat,gameManager->catk);
-    ParseClrd(scoredat,gameManager->clrd);
-    ParsePscr(scoredat,gameManager->pscr);
+         ResultScreen::GetHighScore
+                   (scoredat,(ScoreListNode *)0x0,
+                    (uint)g_GameManager.shottype + (uint)g_GameManager.character * 2,
+                    g_GameManager.difficulty);
+    ResultScreen::ParseCatk(scoredat,gameManager->catk);
+    ResultScreen::ParseClrd(scoredat,gameManager->clrd);
+    ResultScreen::ParsePscr(scoredat,gameManager->pscr);
     if (gameManager->is_in_practice_mode != 0) {
       g_GameManager.high_score =
            gameManager->pscr
            [((uint)g_GameManager.shottype + (uint)g_GameManager.character * 2) * 0x18 +
             g_GameManager.current_stage * 4 + g_GameManager.difficulty].score;
     }
-    ScoreDat::Release(scoredat);
+    ResultScreen::ReleaseScoreDat(scoredat);
     gameManager->rank = g_DifficultyInfo[g_GameManager.difficulty].rank;
     gameManager->min_rank = g_DifficultyInfo[g_GameManager.difficulty].min_rank;
     gameManager->max_rank = g_DifficultyInfo[g_GameManager.difficulty].max_rank;
@@ -168,7 +169,7 @@ ZunResult GameManager::AddedCallback(GameManager *gameManager)
               }
               else {
                 GameErrorContextLog(&g_GameErrorContext,
-                                    "error : 2D表示の初期��に失敗しました\n");
+                                    "error : 2D表示の初期化に失敗しました\n");
                 ZVar4 = ZUN_ERROR;
               }
             }

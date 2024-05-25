@@ -7,7 +7,7 @@ undefined4 __thiscall ResultScreen::DeletedCallback(ResultScreen *this,ResultScr
   
   if (param_1->scoredat != (ScoreDat *)0x0) {
     WriteScore(param_1);
-    ScoreDat::Release(param_1->scoredat);
+    ReleaseScoreDat(param_1->scoredat);
   }
   param_1->scoredat = (ScoreDat *)0x0;
   for (difficulty = 0; difficulty < 5; difficulty = difficulty + 1) {

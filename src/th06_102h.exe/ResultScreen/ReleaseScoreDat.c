@@ -1,5 +1,5 @@
 
-void ScoreDat::Release(ScoreDat *param_1)
+void ResultScreen::ReleaseScoreDat(ScoreDat *param_1)
 
 {
   ZunFreeArray(param_1->scores);

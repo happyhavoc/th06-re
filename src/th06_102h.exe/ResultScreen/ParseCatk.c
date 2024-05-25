@@ -1,5 +1,5 @@
 
-ZunResult ParseCatk(ScoreDat *score_dat,Catk *out_catk)
+ZunResult ResultScreen::ParseCatk(ScoreDat *score_dat,Catk *out_catk)
 
 {
   Th6k *pTVar1;

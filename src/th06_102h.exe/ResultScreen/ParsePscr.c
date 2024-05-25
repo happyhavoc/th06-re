@@ -1,5 +1,5 @@
 
-ZunResult ParsePscr(ScoreDat *scoredat,Pscr *param_2)
+ZunResult ResultScreen::ParsePscr(ScoreDat *scoredat,Pscr *param_2)
 
 {
   Th6k *pTVar1;

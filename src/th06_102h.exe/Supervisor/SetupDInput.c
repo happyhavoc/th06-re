@@ -74,7 +74,7 @@ ZunResult Supervisor::SetupDInput(Supervisor *param_1)
               (*param_1->controller->lpVtbl->GetCapabilities)
                         (param_1->controller,&g_Supervisor.controllerCaps);
               (*param_1->controller->lpVtbl->EnumObjects)
-                        (param_1->controller,controllerCallback,(LPVOID)0x0,0);
+                        (param_1->controller,ControllerCallback,(LPVOID)0x0,0);
               GameErrorContextLog(&g_GameErrorContext,"有効なパッドを発見しました\n");
             }
             ZVar1 = ZUN_SUCCESS;

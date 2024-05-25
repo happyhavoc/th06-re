@@ -54,9 +54,9 @@ LAB_0043a520:
   param_1->unk_10f28 = 0x10;
   param_1->currentReplay = (ReplayData *)0x0;
   scoredat = ResultScreen::OpenScore("score.dat");
-  ParseClrd(scoredat,g_GameManager.clrd);
-  ParsePscr(scoredat,g_GameManager.pscr);
-  ScoreDat::Release(scoredat);
+  ResultScreen::ParseClrd(scoredat,g_GameManager.clrd);
+  ResultScreen::ParsePscr(scoredat,g_GameManager.pscr);
+  ResultScreen::ReleaseScoreDat(scoredat);
   if (g_GameManager.demo_mode == 0) {
     if (g_Supervisor.startup_time_for_menu_music == 0) {
       Supervisor::PlayAudio(&g_Supervisor,"bgm/th06_01.mid");

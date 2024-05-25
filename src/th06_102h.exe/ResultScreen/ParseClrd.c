@@ -1,5 +1,5 @@
 
-ZunResult ParseClrd(ScoreDat *scoredat,Clrd *param_2)
+ZunResult ResultScreen::ParseClrd(ScoreDat *scoredat,Clrd *param_2)
 
 {
   ushort *puVar1;

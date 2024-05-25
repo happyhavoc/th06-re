@@ -1,5 +1,5 @@
 
-ushort GetControllerInput(ushort buttons)
+ushort Controller::GetControllerInput(ushort buttons)
 
 {
   MMRESULT joyResult;

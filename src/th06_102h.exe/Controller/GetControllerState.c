@@ -1,5 +1,5 @@
 
-byte * GetControllerState(void)
+byte * Controller::GetControllerState(void)
 
 {
   MMRESULT MVar1;

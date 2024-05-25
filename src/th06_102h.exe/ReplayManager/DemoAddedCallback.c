@@ -14,7 +14,7 @@ ZunResult ReplayManager::DemoAddedCallback(ReplayManager *param_1)
     pRVar2 = (ReplayData *)
              FileSystem::OpenPath(param_1->replay_file,(uint)(g_GameManager.demo_mode == 0));
     param_1->data = pRVar2;
-    ZVar3 = validateReplayData(param_1->data,g_LastFileSize);
+    ZVar3 = ValidateReplayData(param_1->data,g_LastFileSize);
     if (ZVar3 != ZUN_SUCCESS) {
       return ZUN_ERROR;
     }

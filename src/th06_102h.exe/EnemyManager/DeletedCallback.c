@@ -1,9 +1,9 @@
 
-undefined4 EnemyManager::DeletedCallback(void)
+ZunResult EnemyManager::DeletedCallback(EnemyManager *mgr)
 
 {
   AnmManager::ReleaseAnm(g_AnmManager,9);
   AnmManager::ReleaseAnm(g_AnmManager,8);
-  return 0;
+  return ZUN_SUCCESS;
 }
 

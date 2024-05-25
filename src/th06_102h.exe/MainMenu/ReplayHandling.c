@@ -38,7 +38,7 @@ int __thiscall MainMenu::ReplayHandling(MainMenu *this)
         sprintf(replayFilePath,"./replay/th6_%.2d.rpy",cur + 1);
         replayData = (ReplayData *)FileSystem::OpenPath(replayFilePath,1);
         if (replayData != (ReplayData *)0x0) {
-          ZVar2 = validateReplayData(replayData,g_LastFileSize);
+          ZVar2 = ValidateReplayData(replayData,g_LastFileSize);
           if (ZVar2 == ZUN_SUCCESS) {
             _ = 0x14;
             nextReplayData = replayData;
@@ -62,7 +62,7 @@ int __thiscall MainMenu::ReplayHandling(MainMenu *this)
         for (cur = 0; cur < 0x2d; cur = cur + 1) {
           replayData = (ReplayData *)FileSystem::OpenPath(replayFileInfo.cFileName,1);
           if (replayData != (ReplayData *)0x0) {
-            ZVar2 = validateReplayData(replayData,g_LastFileSize);
+            ZVar2 = ValidateReplayData(replayData,g_LastFileSize);
             if (ZVar2 == ZUN_SUCCESS) {
               nextReplayData = replayData;
               replayCopy = this->replayFileData + replayFileIdx;
@@ -119,7 +119,7 @@ int __thiscall MainMenu::ReplayHandling(MainMenu *this)
           nextReplayData =
                (ReplayData *)FileSystem::OpenPath(this->replayFilePaths[this->chosenReplay],1);
           this->currentReplay = nextReplayData;
-          validateReplayData(this->currentReplay,g_LastFileSize);
+          ValidateReplayData(this->currentReplay,g_LastFileSize);
           for (cur = 0; cur < 7; cur = cur + 1) {
             if (this->currentReplay->stage_score[cur] != (StageReplayData *)0x0) {
               this->currentReplay->stage_score[cur] =

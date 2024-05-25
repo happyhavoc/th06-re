@@ -1,7 +1,5 @@
 
-/* WARNING: Unknown calling convention -- yet parameter storage is locked */
-
-undefined4 EnemyManager::OnUpdate(EnemyManager *param_1)
+ChainCallbackResult EnemyManager::OnUpdate(EnemyManager *param_1)
 
 {
   float fVar1;
@@ -29,7 +27,7 @@ undefined4 EnemyManager::OnUpdate(EnemyManager *param_1)
       Supervisor::TickTimer
                 (&g_Supervisor,&(param_1->timeline_time).current,&(param_1->timeline_time).subFrame)
       ;
-      return 1;
+      return CHAIN_CALLBACK_RESULT_CONTINUE;
     }
     if (-1 < (char)curEnemy->flags1) goto LAB_00412416;
     param_1->enemy_count_real = param_1->enemy_count_real + 1;

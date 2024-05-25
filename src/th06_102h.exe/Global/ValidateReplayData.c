@@ -1,5 +1,5 @@
 
-ZunResult validateReplayData(ReplayData *data,int size)
+ZunResult ValidateReplayData(ReplayData *data,int size)
 
 {
   ZunResult unpackResult;

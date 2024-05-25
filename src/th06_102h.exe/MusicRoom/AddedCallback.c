@@ -1,5 +1,5 @@
 
-int MusicRoom::AddedCallback(MusicRoom *param_1)
+ZunResult MusicRoom::AddedCallback(MusicRoom *param_1)
 
 {
   ZunResult ZVar4;

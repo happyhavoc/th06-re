@@ -1,5 +1,5 @@
 
-undefined4 MusicRoom::OnDraw(MusicRoom *param_1)
+ChainCallbackResult MusicRoom::OnDraw(MusicRoom *param_1)
 
 {
   D3DXVECTOR3 local_18;
@@ -42,6 +42,6 @@ undefined4 MusicRoom::OnDraw(MusicRoom *param_1)
     AnmManager::DrawNoRotation(g_AnmManager,param_1->field4366_0x2334 + local_8);
   }
   g_AsciiManager.color = 0xffffffff;
-  return 1;
+  return CHAIN_CALLBACK_RESULT_CONTINUE;
 }
 

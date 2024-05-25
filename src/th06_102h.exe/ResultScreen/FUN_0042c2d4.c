@@ -241,7 +241,7 @@ LAB_0042c515:
         sprintf(local_5c,"./replay/th6_%.2d.rpy",local_10 + 1);
         local_14 = (ReplayData *)FileSystem::OpenPath(local_5c,1);
         if (local_14 != (ReplayData *)0x0) {
-          ZVar1 = validateReplayData(local_14,g_LastFileSize);
+          ZVar1 = ValidateReplayData(local_14,g_LastFileSize);
           if (ZVar1 == ZUN_SUCCESS) {
             pRVar3 = local_14;
             ppcVar4 = (char **)((int)&this->hscr + local_10 * 0x50 + 0x30);

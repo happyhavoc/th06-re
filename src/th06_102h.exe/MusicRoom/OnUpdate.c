@@ -1,5 +1,5 @@
 
-undefined4 MusicRoom::OnUpdate(MusicRoom *param_1)
+ChainCallbackResult MusicRoom::OnUpdate(MusicRoom *param_1)
 
 {
   int iVar1;
@@ -11,7 +11,7 @@ undefined4 MusicRoom::OnUpdate(MusicRoom *param_1)
     iVar3 = param_1->field6_0xc;
     if (iVar3 != 0) {
       if ((iVar3 == 1) && (drawMusicList(param_1), iVar3 != 0)) {
-        return 0;
+        return CHAIN_CALLBACK_RESULT_CONTINUE_AND_REMOVE_JOB;
       }
       break;
     }
@@ -24,6 +24,6 @@ undefined4 MusicRoom::OnUpdate(MusicRoom *param_1)
     param_1->field5_0x8 = 0;
   }
   AnmManager::ExecuteScript(g_AnmManager,&param_1->field12_0x24);
-  return 1;
+  return CHAIN_CALLBACK_RESULT_CONTINUE;
 }
 

@@ -41,7 +41,7 @@ void Player::BombMarisaACalc(Player *param_1)
     }
     else {
       ItemManager::RemoveAllItems(&g_ItemManager);
-      Gui::string_related(&g_Gui,0x4a3,"魔符「スターダストレヴァリエ」");
+      Gui::ShowBombNamePortrait(&g_Gui,0x4a3,"魔符「スターダストレヴァリエ」");
       (param_1->bombInfo).bombDuration = 0xfa;
       (param_1->invulnerabilityTimer).current = 300;
       (param_1->invulnerabilityTimer).subFrame = 0.0;

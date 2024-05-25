@@ -1,9 +1,9 @@
 
 /* WARNING: Inlined function: FUN_0045c3e0 */
 
-void FUN_0041f050(long xPos,long yPos,long spriteWidth,long spriteHeight,long fontHeight,
-                 int fontWidth,COLORREF textColor,COLORREF shadowColor,char *string,
-                 IDirect3DTexture8 *param_10)
+void RenderTextToTexture(long xPos,long yPos,long spriteWidth,long spriteHeight,long fontHeight,
+                        int fontWidth,COLORREF textColor,COLORREF shadowColor,char *string,
+                        IDirect3DTexture8 *texture)
 
 {
   HGDIOBJ h;
@@ -54,7 +54,7 @@ void FUN_0041f050(long xPos,long yPos,long spriteWidth,long spriteHeight,long fo
   RStack_70.top = 0;
   RStack_70.right = spriteWidth * 2 + -2;
   RStack_70.bottom = fontHeight * 2 + -2;
-  (*param_10->lpVtbl->GetSurfaceLevel)(param_10,0,&pIStack_84);
+  (*texture->lpVtbl->GetSurfaceLevel)(texture,0,&pIStack_84);
   D3DXLoadSurfaceFromSurface
             (pIStack_84,(PALETTEENTRY *)0x0,&RStack_80,g_TextBufferSurface,(PALETTEENTRY *)0x0,
              &RStack_70,4,0);

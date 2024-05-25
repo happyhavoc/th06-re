@@ -4,7 +4,7 @@ void Enemy::math_atan2(Enemy *param_1,undefined4 param_2,float *param_3,float *p
 
 {
   float *pfVar1;
-  float fVar2;
+  double dVar2;
   EclValueType local_18;
   float *local_14;
   float *local_10;
@@ -17,11 +17,8 @@ void Enemy::math_atan2(Enemy *param_1,undefined4 param_2,float *param_3,float *p
     local_10 = get_var_float(param_1,param_4,(EclValueType *)0x0);
     local_8 = get_var_float(param_1,param_5,(EclValueType *)0x0);
     pfVar1 = get_var_float(param_1,param_6,(EclValueType *)0x0);
-    fVar2 = FUN_0045be40(SUB84((double)(*pfVar1 - *local_10),0),
-                         (int)((ulonglong)(double)(*pfVar1 - *local_10) >> 0x20),
-                         SUB84((double)(*local_8 - *local_14),0),
-                         (int)((ulonglong)(double)(*local_8 - *local_14) >> 0x20));
-    *local_c = fVar2;
+    dVar2 = atan2((double)(*pfVar1 - *local_10),(double)(*local_8 - *local_14));
+    *local_c = (float)dVar2;
   }
   return;
 }

@@ -2,6 +2,8 @@
 void __thiscall Gui::drawGameScene(Gui *this)
 
 {
+  GuiImpl *pGVar1;
+  uint uVar2;
   int local_1e8;
   int local_1c0;
   D3DXVECTOR3 local_190;
@@ -34,15 +36,20 @@ void __thiscall Gui::drawGameScene(Gui *this)
   int local_10;
   float local_c;
   float local_8;
-  GuiImpl *pGVar1;
   
   if (((int)(this->impl->msg).current_msg_idx < 0) &&
-     ((uint)this->boss_present + (uint)this->impl->field1_0x1ba0 != 0)) {
+     ((uint)this->boss_present + (uint)this->impl->bossHealthBarState != 0)) {
     local_14 = this->impl->vms + 0x13;
     AnmManager::DrawNoRotation(g_AnmManager,local_14);
     pGVar1 = this->impl;
     local_14 = pGVar1->vms + 0x15;
-    *(uint *)&pGVar1->vms[0x15].flags = *(uint *)&pGVar1->vms[0x15].flags | 0x300;
+    uVar2._0_2_ = pGVar1->vms[0x15].flags;
+    uVar2._2_1_ = pGVar1->vms[0x15].unk_82[0];
+    uVar2._3_1_ = pGVar1->vms[0x15].unk_82[1];
+    uVar2 = uVar2 | 0x300;
+    pGVar1->vms[0x15].flags = (short)uVar2;
+    pGVar1->vms[0x15].unk_82[0] = (char)(uVar2 >> 0x10);
+    pGVar1->vms[0x15].unk_82[1] = (char)(uVar2 >> 0x18);
     pGVar1->vms[0x15].scaleX = (this->boss_health_bar2 * 288.0) / 14.0;
     pGVar1->vms[0x15].pos.x = 96.0;
     pGVar1->vms[0x15].pos.y = 24.0;
@@ -51,7 +58,7 @@ void __thiscall Gui::drawGameScene(Gui *this)
     local_28.x = 80.0;
     local_28.y = 16.0;
     local_28.z = 0.0;
-    g_AsciiManager.color = this->field4_0x10 << 0x18 | 0xffff80;
+    g_AsciiManager.color = this->unk_10 << 0x18 | 0xffff80;
     AsciiManager::AddFormatText(&g_AsciiManager,&local_28,"%d",this->ecl_set_lives);
     local_28.x = 384.0;
     local_28.y = 16.0;
@@ -72,7 +79,7 @@ void __thiscall Gui::drawGameScene(Gui *this)
     else {
       local_1c = D3DCOLOR_004764a0;
     }
-    g_AsciiManager.color = this->field4_0x10 << 0x18 | local_1c;
+    g_AsciiManager.color = this->unk_10 << 0x18 | local_1c;
     if (this->ecl_spellcard_related < 100) {
       local_1e8 = this->ecl_spellcard_related;
     }

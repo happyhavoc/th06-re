@@ -1,6 +1,6 @@
 
 undefined4 __thiscall
-BulletManager::SetBulletAngle
+BulletManager::SpawnSingleBullet
           (BulletManager *this,EnemyBulletShooter *bulletProps,uint bulletIdx1,int bulletIdx2,
           float angle)
 
@@ -11,12 +11,12 @@ BulletManager::SetBulletAngle
   undefined4 uVar4;
   int iVar5;
   BulletTypeSprites *pBVar6;
-  AnmVm *pAVar7;
-  Bullet *pBVar8;
-  AnmVm *pAVar9;
-  float10 fVar10;
-  float fVar11;
-  float fVar12;
+  AnmVm *from;
+  Bullet *pBVar7;
+  AnmVm *to;
+  float10 fVar8;
+  float fVar9;
+  float fVar10;
   float bulletAngle;
   Bullet *bullet;
   int local_c;
@@ -73,175 +73,175 @@ BulletManager::SetBulletAngle
                     bulletProps->angle1;
       break;
     case 6:
-      fVar12 = bulletProps->angle1;
+      fVar10 = bulletProps->angle1;
       fVar2 = bulletProps->angle2;
-      fVar11 = Rng::GetRandomF32ZeroToOne(&g_Rng);
-      bulletAngle = fVar11 * (fVar12 - fVar2) + bulletProps->angle2;
+      fVar9 = Rng::GetRandomF32ZeroToOne(&g_Rng);
+      bulletAngle = fVar9 * (fVar10 - fVar2) + bulletProps->angle2;
       break;
     case 7:
-      fVar12 = bulletProps->speed1;
+      fVar10 = bulletProps->speed1;
       fVar2 = bulletProps->speed2;
-      fVar11 = Rng::GetRandomF32ZeroToOne(&g_Rng);
-      local_8 = fVar11 * (fVar12 - fVar2) + bulletProps->speed2;
+      fVar9 = Rng::GetRandomF32ZeroToOne(&g_Rng);
+      local_8 = fVar9 * (fVar10 - fVar2) + bulletProps->speed2;
       bulletAngle = (float)bulletIdx2 * bulletProps->angle2 + bulletProps->angle1 +
                     ((float)bulletIdx1 * 6.283185) / (float)(int)(short)bulletProps->count1 + 0.0;
       break;
     case 8:
-      fVar12 = bulletProps->angle1;
+      fVar10 = bulletProps->angle1;
       fVar2 = bulletProps->angle2;
-      fVar11 = Rng::GetRandomF32ZeroToOne(&g_Rng);
-      bulletAngle = fVar11 * (fVar12 - fVar2) + bulletProps->angle2;
-      fVar12 = bulletProps->speed1;
+      fVar9 = Rng::GetRandomF32ZeroToOne(&g_Rng);
+      bulletAngle = fVar9 * (fVar10 - fVar2) + bulletProps->angle2;
+      fVar10 = bulletProps->speed1;
       fVar2 = bulletProps->speed2;
-      fVar11 = Rng::GetRandomF32ZeroToOne(&g_Rng);
-      local_8 = fVar11 * (fVar12 - fVar2) + bulletProps->speed2;
+      fVar9 = Rng::GetRandomF32ZeroToOne(&g_Rng);
+      local_8 = fVar9 * (fVar10 - fVar2) + bulletProps->speed2;
     }
     bullet->state = 1;
-    bullet->field20_0x5c2 = 1;
+    bullet->unk_5c2 = 1;
     bullet->speed = local_8;
-    fVar12 = AddNormalizeAngle(bulletAngle,0.0);
-    bullet->angle = fVar12;
+    fVar10 = AddNormalizeAngle(bulletAngle,0.0);
+    bullet->angle = fVar10;
     (bullet->pos).x = (bulletProps->position).x;
     (bullet->pos).y = (bulletProps->position).y;
     (bullet->pos).z = (bulletProps->position).z;
     (bullet->pos).z = 0.1;
     fVar3 = (float10)fcos((float10)bullet->angle);
-    fVar10 = (float10)fsin((float10)bullet->angle);
+    fVar8 = (float10)fsin((float10)bullet->angle);
     (bullet->velocity).x = (float)(fVar3 * (float10)local_8);
-    (bullet->velocity).y = (float)(fVar10 * (float10)local_8);
+    (bullet->velocity).y = (float)(fVar8 * (float10)local_8);
     bullet->ex_flags = *(ushort *)&bulletProps->flags;
     bullet->color = bulletProps->color;
     pBVar6 = this->bullet_type_templates + (short)bulletProps->sprite;
-    pBVar8 = bullet;
+    pBVar7 = bullet;
     for (iVar5 = 0x44; iVar5 != 0; iVar5 = iVar5 + -1) {
-      (pBVar8->sprites).bulletSprite.rotation.x = (pBVar6->bulletSprite).rotation.x;
+      (pBVar7->sprites).bulletSprite.rotation.x = (pBVar6->bulletSprite).rotation.x;
       pBVar6 = (BulletTypeSprites *)&(pBVar6->bulletSprite).rotation.y;
-      pBVar8 = (Bullet *)&(pBVar8->sprites).bulletSprite.rotation.y;
+      pBVar7 = (Bullet *)&(pBVar7->sprites).bulletSprite.rotation.y;
     }
-    pAVar7 = &this->bullet_type_templates[(short)bulletProps->sprite].spriteSpawnEffectLongMemset;
-    pAVar9 = &(bullet->sprites).spriteSpawnEffectLongMemset;
+    from = &this->bullet_type_templates[(short)bulletProps->sprite].spriteSpawnEffectDonut;
+    to = &(bullet->sprites).spriteSpawnEffectDonut;
     for (iVar5 = 0x44; iVar5 != 0; iVar5 = iVar5 + -1) {
-      (pAVar9->rotation).x = (pAVar7->rotation).x;
-      pAVar7 = (AnmVm *)&(pAVar7->rotation).y;
-      pAVar9 = (AnmVm *)&(pAVar9->rotation).y;
+      (to->rotation).x = (from->rotation).x;
+      from = (AnmVm *)&(from->rotation).y;
+      to = (AnmVm *)&(to->rotation).y;
     }
-    pDVar1 = &this->bullet_type_templates[(short)bulletProps->sprite].size;
-    (bullet->sprites).size.x = pDVar1->x;
-    (bullet->sprites).size.y = pDVar1->y;
-    (bullet->sprites).size.z = pDVar1->z;
+    pDVar1 = &this->bullet_type_templates[(short)bulletProps->sprite].grazeSize;
+    (bullet->sprites).grazeSize.x = pDVar1->x;
+    (bullet->sprites).grazeSize.y = pDVar1->y;
+    (bullet->sprites).grazeSize.z = pDVar1->z;
     (bullet->sprites).unk_55c = this->bullet_type_templates[(short)bulletProps->sprite].unk_55c;
-    (bullet->sprites).unk_55d = this->bullet_type_templates[(short)bulletProps->sprite].unk_55d;
+    (bullet->sprites).height = this->bullet_type_templates[(short)bulletProps->sprite].height;
     if ((bullet->ex_flags & 2) == 0) {
       if ((bullet->ex_flags & 4) == 0) {
         if ((bullet->ex_flags & 8) != 0) {
-          pAVar7 = &this->bullet_type_templates[(short)bulletProps->sprite].spriteSpawnEffectLong;
-          pAVar9 = &(bullet->sprites).spriteSpawnEffectLong;
+          from = &this->bullet_type_templates[(short)bulletProps->sprite].spriteSpawnEffectSlow;
+          to = &(bullet->sprites).spriteSpawnEffectSlow;
           for (iVar5 = 0x44; iVar5 != 0; iVar5 = iVar5 + -1) {
-            (pAVar9->rotation).x = (pAVar7->rotation).x;
-            pAVar7 = (AnmVm *)&(pAVar7->rotation).y;
-            pAVar9 = (AnmVm *)&(pAVar9->rotation).y;
+            (to->rotation).x = (from->rotation).x;
+            from = (AnmVm *)&(from->rotation).y;
+            to = (AnmVm *)&(to->rotation).y;
           }
-          fVar12 = ((bullet->sprites).bulletSprite.sprite)->heightPx;
-          if (fVar12 < 16.0 == (fVar12 == 16.0)) {
-            fVar12 = ((bullet->sprites).bulletSprite.sprite)->heightPx;
-            if (fVar12 < 32.0 == (fVar12 == 32.0)) {
+          fVar10 = ((bullet->sprites).bulletSprite.sprite)->heightPx;
+          if (fVar10 < 16.0 == (fVar10 == 16.0)) {
+            fVar10 = ((bullet->sprites).bulletSprite.sprite)->heightPx;
+            if (fVar10 < 32.0 == (fVar10 == 32.0)) {
               AnmManager::SetActiveSprite
-                        (g_AnmManager,&(bullet->sprites).spriteSpawnEffectLong,
-                         (int)(bullet->sprites).spriteSpawnEffectLong.activeSpriteIndex +
+                        (g_AnmManager,&(bullet->sprites).spriteSpawnEffectSlow,
+                         (int)(bullet->sprites).spriteSpawnEffectSlow.activeSpriteIndex +
                          (int)(short)bulletProps->color);
             }
             else if ((bullet->sprites).bulletSprite.anmFileIndex == 0x207) {
               AnmManager::SetActiveSprite
-                        (g_AnmManager,&(bullet->sprites).spriteSpawnEffectLong,
-                         (int)(bullet->sprites).spriteSpawnEffectLong.activeSpriteIndex + 1);
+                        (g_AnmManager,&(bullet->sprites).spriteSpawnEffectSlow,
+                         (int)(bullet->sprites).spriteSpawnEffectSlow.activeSpriteIndex + 1);
             }
             else {
               AnmManager::SetActiveSprite
-                        (g_AnmManager,&(bullet->sprites).spriteSpawnEffectLong,
-                         (int)(bullet->sprites).spriteSpawnEffectLong.activeSpriteIndex +
+                        (g_AnmManager,&(bullet->sprites).spriteSpawnEffectSlow,
+                         (int)(bullet->sprites).spriteSpawnEffectSlow.activeSpriteIndex +
                          UINT_ARRAY_00476480[(short)bulletProps->color]);
             }
           }
           else {
             AnmManager::SetActiveSprite
-                      (g_AnmManager,&(bullet->sprites).spriteSpawnEffectLong,
-                       (int)(bullet->sprites).spriteSpawnEffectLong.activeSpriteIndex +
+                      (g_AnmManager,&(bullet->sprites).spriteSpawnEffectSlow,
+                       (int)(bullet->sprites).spriteSpawnEffectSlow.activeSpriteIndex +
                        UINT_ARRAY_00476440[(short)bulletProps->color]);
           }
           bullet->state = 4;
         }
       }
       else {
-        pAVar7 = &this->bullet_type_templates[(short)bulletProps->sprite].spriteSpawnEffectMedium;
-        pAVar9 = &(bullet->sprites).spriteSpawnEffectMedium;
+        from = &this->bullet_type_templates[(short)bulletProps->sprite].spriteSpawnEffectNormal;
+        to = &(bullet->sprites).spriteSpawnEffectNormal;
         for (iVar5 = 0x44; iVar5 != 0; iVar5 = iVar5 + -1) {
-          (pAVar9->rotation).x = (pAVar7->rotation).x;
-          pAVar7 = (AnmVm *)&(pAVar7->rotation).y;
-          pAVar9 = (AnmVm *)&(pAVar9->rotation).y;
+          (to->rotation).x = (from->rotation).x;
+          from = (AnmVm *)&(from->rotation).y;
+          to = (AnmVm *)&(to->rotation).y;
         }
-        fVar12 = ((bullet->sprites).bulletSprite.sprite)->heightPx;
-        if (fVar12 < 16.0 == (fVar12 == 16.0)) {
-          fVar12 = ((bullet->sprites).bulletSprite.sprite)->heightPx;
-          if (fVar12 < 32.0 == (fVar12 == 32.0)) {
+        fVar10 = ((bullet->sprites).bulletSprite.sprite)->heightPx;
+        if (fVar10 < 16.0 == (fVar10 == 16.0)) {
+          fVar10 = ((bullet->sprites).bulletSprite.sprite)->heightPx;
+          if (fVar10 < 32.0 == (fVar10 == 32.0)) {
             AnmManager::SetActiveSprite
-                      (g_AnmManager,&(bullet->sprites).spriteSpawnEffectMedium,
-                       (int)(bullet->sprites).spriteSpawnEffectMedium.activeSpriteIndex +
+                      (g_AnmManager,&(bullet->sprites).spriteSpawnEffectNormal,
+                       (int)(bullet->sprites).spriteSpawnEffectNormal.activeSpriteIndex +
                        (int)(short)bulletProps->color);
           }
           else if ((bullet->sprites).bulletSprite.anmFileIndex == 0x207) {
             AnmManager::SetActiveSprite
-                      (g_AnmManager,&(bullet->sprites).spriteSpawnEffectMedium,
-                       (int)(bullet->sprites).spriteSpawnEffectMedium.activeSpriteIndex + 1);
+                      (g_AnmManager,&(bullet->sprites).spriteSpawnEffectNormal,
+                       (int)(bullet->sprites).spriteSpawnEffectNormal.activeSpriteIndex + 1);
           }
           else {
             AnmManager::SetActiveSprite
-                      (g_AnmManager,&(bullet->sprites).spriteSpawnEffectMedium,
-                       (int)(bullet->sprites).spriteSpawnEffectMedium.activeSpriteIndex +
+                      (g_AnmManager,&(bullet->sprites).spriteSpawnEffectNormal,
+                       (int)(bullet->sprites).spriteSpawnEffectNormal.activeSpriteIndex +
                        UINT_ARRAY_00476480[(short)bulletProps->color]);
           }
         }
         else {
           AnmManager::SetActiveSprite
-                    (g_AnmManager,&(bullet->sprites).spriteSpawnEffectMedium,
-                     (int)(bullet->sprites).spriteSpawnEffectMedium.activeSpriteIndex +
+                    (g_AnmManager,&(bullet->sprites).spriteSpawnEffectNormal,
+                     (int)(bullet->sprites).spriteSpawnEffectNormal.activeSpriteIndex +
                      UINT_ARRAY_00476440[(short)bulletProps->color]);
         }
         bullet->state = 3;
       }
     }
     else {
-      pAVar7 = &this->bullet_type_templates[(short)bulletProps->sprite].spriteSpawnEffectShort;
-      pAVar9 = &(bullet->sprites).spriteSpawnEffectShort;
+      from = &this->bullet_type_templates[(short)bulletProps->sprite].spriteSpawnEffectFast;
+      to = &(bullet->sprites).spriteSpawnEffectFast;
       for (iVar5 = 0x44; iVar5 != 0; iVar5 = iVar5 + -1) {
-        (pAVar9->rotation).x = (pAVar7->rotation).x;
-        pAVar7 = (AnmVm *)&(pAVar7->rotation).y;
-        pAVar9 = (AnmVm *)&(pAVar9->rotation).y;
+        (to->rotation).x = (from->rotation).x;
+        from = (AnmVm *)&(from->rotation).y;
+        to = (AnmVm *)&(to->rotation).y;
       }
-      fVar12 = ((bullet->sprites).bulletSprite.sprite)->heightPx;
-      if (fVar12 < 16.0 == (fVar12 == 16.0)) {
-        fVar12 = ((bullet->sprites).bulletSprite.sprite)->heightPx;
-        if (fVar12 < 32.0 == (fVar12 == 32.0)) {
+      fVar10 = ((bullet->sprites).bulletSprite.sprite)->heightPx;
+      if (fVar10 < 16.0 == (fVar10 == 16.0)) {
+        fVar10 = ((bullet->sprites).bulletSprite.sprite)->heightPx;
+        if (fVar10 < 32.0 == (fVar10 == 32.0)) {
           AnmManager::SetActiveSprite
-                    (g_AnmManager,&(bullet->sprites).spriteSpawnEffectShort,
-                     (int)(bullet->sprites).spriteSpawnEffectShort.activeSpriteIndex +
+                    (g_AnmManager,&(bullet->sprites).spriteSpawnEffectFast,
+                     (int)(bullet->sprites).spriteSpawnEffectFast.activeSpriteIndex +
                      (int)(short)bulletProps->color);
         }
         else if ((bullet->sprites).bulletSprite.anmFileIndex == 0x207) {
           AnmManager::SetActiveSprite
-                    (g_AnmManager,&(bullet->sprites).spriteSpawnEffectShort,
-                     (int)(bullet->sprites).spriteSpawnEffectShort.activeSpriteIndex + 1);
+                    (g_AnmManager,&(bullet->sprites).spriteSpawnEffectFast,
+                     (int)(bullet->sprites).spriteSpawnEffectFast.activeSpriteIndex + 1);
         }
         else {
           AnmManager::SetActiveSprite
-                    (g_AnmManager,&(bullet->sprites).spriteSpawnEffectShort,
-                     (int)(bullet->sprites).spriteSpawnEffectShort.activeSpriteIndex +
+                    (g_AnmManager,&(bullet->sprites).spriteSpawnEffectFast,
+                     (int)(bullet->sprites).spriteSpawnEffectFast.activeSpriteIndex +
                      UINT_ARRAY_00476480[(short)bulletProps->color]);
         }
       }
       else {
         AnmManager::SetActiveSprite
-                  (g_AnmManager,&(bullet->sprites).spriteSpawnEffectShort,
-                   (int)(bullet->sprites).spriteSpawnEffectShort.activeSpriteIndex +
+                  (g_AnmManager,&(bullet->sprites).spriteSpawnEffectFast,
+                   (int)(bullet->sprites).spriteSpawnEffectFast.activeSpriteIndex +
                    UINT_ARRAY_00476440[(short)bulletProps->color]);
       }
       bullet->state = 2;
@@ -250,31 +250,31 @@ BulletManager::SetBulletAngle
               (g_AnmManager,(AnmVm *)bullet,
                (int)(bullet->sprites).bulletSprite.activeSpriteIndex +
                (int)(short)bulletProps->color);
-    fVar12 = ((bullet->sprites).bulletSprite.sprite)->heightPx;
-    if (fVar12 < 16.0 == (fVar12 == 16.0)) {
-      fVar12 = ((bullet->sprites).bulletSprite.sprite)->heightPx;
-      if (fVar12 < 32.0 == (fVar12 == 32.0)) {
+    fVar10 = ((bullet->sprites).bulletSprite.sprite)->heightPx;
+    if (fVar10 < 16.0 == (fVar10 == 16.0)) {
+      fVar10 = ((bullet->sprites).bulletSprite.sprite)->heightPx;
+      if (fVar10 < 32.0 == (fVar10 == 32.0)) {
         AnmManager::SetActiveSprite
-                  (g_AnmManager,&(bullet->sprites).spriteSpawnEffectLongMemset,
-                   (int)(bullet->sprites).spriteSpawnEffectLongMemset.activeSpriteIndex +
+                  (g_AnmManager,&(bullet->sprites).spriteSpawnEffectDonut,
+                   (int)(bullet->sprites).spriteSpawnEffectDonut.activeSpriteIndex +
                    (int)(short)bulletProps->color);
       }
       else if ((bullet->sprites).bulletSprite.anmFileIndex == 0x207) {
         AnmManager::SetActiveSprite
-                  (g_AnmManager,&(bullet->sprites).spriteSpawnEffectLongMemset,
-                   (int)(bullet->sprites).spriteSpawnEffectLongMemset.activeSpriteIndex + 1);
+                  (g_AnmManager,&(bullet->sprites).spriteSpawnEffectDonut,
+                   (int)(bullet->sprites).spriteSpawnEffectDonut.activeSpriteIndex + 1);
       }
       else {
         AnmManager::SetActiveSprite
-                  (g_AnmManager,&(bullet->sprites).spriteSpawnEffectLongMemset,
-                   (int)(bullet->sprites).spriteSpawnEffectLongMemset.activeSpriteIndex +
+                  (g_AnmManager,&(bullet->sprites).spriteSpawnEffectDonut,
+                   (int)(bullet->sprites).spriteSpawnEffectDonut.activeSpriteIndex +
                    UINT_ARRAY_00476480[(short)bulletProps->color]);
       }
     }
     else {
       AnmManager::SetActiveSprite
-                (g_AnmManager,&(bullet->sprites).spriteSpawnEffectLongMemset,
-                 (int)(bullet->sprites).spriteSpawnEffectLongMemset.activeSpriteIndex +
+                (g_AnmManager,&(bullet->sprites).spriteSpawnEffectDonut,
+                 (int)(bullet->sprites).spriteSpawnEffectDonut.activeSpriteIndex +
                  UINT_ARRAY_00476440[(short)bulletProps->color]);
     }
     if ((bullet->ex_flags & 0x10) == 0) {
@@ -286,18 +286,18 @@ BulletManager::SetBulletAngle
     }
     else {
       if (bulletProps->ex_floats[1] < -999.0 == (bulletProps->ex_floats[1] == -999.0)) {
-        fVar12 = bulletProps->ex_floats[0];
+        fVar10 = bulletProps->ex_floats[0];
         fVar3 = (float10)fcos((float10)bulletProps->ex_floats[1]);
-        fVar10 = (float10)fsin((float10)bulletProps->ex_floats[1]);
-        (bullet->ex_4_acceleration).x = (float)(fVar3 * (float10)fVar12);
-        (bullet->ex_4_acceleration).y = (float)(fVar10 * (float10)fVar12);
+        fVar8 = (float10)fsin((float10)bulletProps->ex_floats[1]);
+        (bullet->ex_4_acceleration).x = (float)(fVar3 * (float10)fVar10);
+        (bullet->ex_4_acceleration).y = (float)(fVar8 * (float10)fVar10);
       }
       else {
-        fVar12 = bulletProps->ex_floats[0];
+        fVar10 = bulletProps->ex_floats[0];
         fVar3 = (float10)fcos((float10)bulletAngle);
-        fVar10 = (float10)fsin((float10)bulletAngle);
-        (bullet->ex_4_acceleration).x = (float)(fVar3 * (float10)fVar12);
-        (bullet->ex_4_acceleration).y = (float)(fVar10 * (float10)fVar12);
+        fVar8 = (float10)fsin((float10)bulletAngle);
+        (bullet->ex_4_acceleration).x = (float)(fVar3 * (float10)fVar10);
+        (bullet->ex_4_acceleration).y = (float)(fVar8 * (float10)fVar10);
       }
       if (bulletProps->ex_ints[0] < 1) {
         bullet->ex_5_int_0 = 99999;

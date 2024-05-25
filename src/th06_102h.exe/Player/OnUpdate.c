@@ -7,6 +7,11 @@ ChainCallbackResult Player::OnUpdate(Player *param_1)
   BOOL BVar2;
   long lVar3;
   uint uVar4;
+  uint uVar5;
+  uint uVar6;
+  uint uVar7;
+  uint uVar8;
+  uint uVar9;
   f32 scale_factor;
   int local_8;
   
@@ -82,7 +87,13 @@ ChainCallbackResult Player::OnUpdate(Player *param_1)
     lVar3 = __ftol2(255.0 - (((float)(param_1->invulnerabilityTimer).current +
                              (param_1->invulnerabilityTimer).subFrame) * 255.0) / 30.0);
     (param_1->playerSprite).color.color = lVar3 << 0x18 | 0xffffff;
-    *(uint *)&(param_1->playerSprite).flags = *(uint *)&(param_1->playerSprite).flags | 4;
+    uVar5._0_2_ = (param_1->playerSprite).flags;
+    uVar5._2_1_ = (param_1->playerSprite).unk_82[0];
+    uVar5._3_1_ = (param_1->playerSprite).unk_82[1];
+    uVar5 = uVar5 | 4;
+    (param_1->playerSprite).flags = (short)uVar5;
+    (param_1->playerSprite).unk_82[0] = (char)(uVar5 >> 0x10);
+    (param_1->playerSprite).unk_82[1] = (char)(uVar5 >> 0x18);
     param_1->previousHorizontalSpeed = 0.0;
     param_1->previousVerticalSpeed = 0.0;
     if ((param_1->invulnerabilityTimer).current < 0x1e) goto LAB_00428fa8;
@@ -117,7 +128,13 @@ ChainCallbackResult Player::OnUpdate(Player *param_1)
                 (param_1->invulnerabilityTimer).subFrame) / 30.0;
   (param_1->playerSprite).scaleY = fVar1 * 2.0 + 1.0;
   (param_1->playerSprite).scaleX = 1.0 - fVar1 * 1.0;
-  *(uint *)&(param_1->playerSprite).flags = *(uint *)&(param_1->playerSprite).flags | 4;
+  uVar7._0_2_ = (param_1->playerSprite).flags;
+  uVar7._2_1_ = (param_1->playerSprite).unk_82[0];
+  uVar7._3_1_ = (param_1->playerSprite).unk_82[1];
+  uVar7 = uVar7 | 4;
+  (param_1->playerSprite).flags = (short)uVar7;
+  (param_1->playerSprite).unk_82[0] = (char)(uVar7 >> 0x10);
+  (param_1->playerSprite).unk_82[1] = (char)(uVar7 >> 0x18);
   param_1->verticalMovementSpeedMultiplierDuringBomb = 1.0;
   param_1->horizontalMovementSpeedMultiplierDuringBomb = 1.0;
   (param_1->playerSprite).color.color =
@@ -128,7 +145,13 @@ ChainCallbackResult Player::OnUpdate(Player *param_1)
     (param_1->playerSprite).scaleX = 1.0;
     (param_1->playerSprite).scaleY = 1.0;
     (param_1->playerSprite).color.color = 0xffffffff;
-    *(uint *)&(param_1->playerSprite).flags = *(uint *)&(param_1->playerSprite).flags & 0xfffffffb;
+    uVar8._0_2_ = (param_1->playerSprite).flags;
+    uVar8._2_1_ = (param_1->playerSprite).unk_82[0];
+    uVar8._3_1_ = (param_1->playerSprite).unk_82[1];
+    uVar8 = uVar8 & 0xfffffffb;
+    (param_1->playerSprite).flags = (short)uVar8;
+    (param_1->playerSprite).unk_82[0] = (char)(uVar8 >> 0x10);
+    (param_1->playerSprite).unk_82[1] = (char)(uVar8 >> 0x18);
     (param_1->invulnerabilityTimer).current = 0xf0;
     (param_1->invulnerabilityTimer).subFrame = 0.0;
     (param_1->invulnerabilityTimer).previous = -999;
@@ -146,22 +169,38 @@ LAB_00428fa8:
       (param_1->invulnerabilityTimer).current = 0;
       (param_1->invulnerabilityTimer).subFrame = 0.0;
       (param_1->invulnerabilityTimer).previous = -999;
-      *(uint *)&(param_1->playerSprite).flags = *(uint *)&(param_1->playerSprite).flags & 0xfffffff7
-      ;
+      uVar9._0_2_ = (param_1->playerSprite).flags;
+      uVar9._2_1_ = (param_1->playerSprite).unk_82[0];
+      uVar9._3_1_ = (param_1->playerSprite).unk_82[1];
+      uVar9 = uVar9 & 0xfffffff7;
+      (param_1->playerSprite).flags = (short)uVar9;
+      (param_1->playerSprite).unk_82[0] = (char)(uVar9 >> 0x10);
+      (param_1->playerSprite).unk_82[1] = (char)(uVar9 >> 0x18);
       (param_1->playerSprite).color.color = 0xffffffff;
     }
     else {
-      uVar4 = (param_1->invulnerabilityTimer).current & 0x80000007;
-      if ((int)uVar4 < 0) {
-        uVar4 = (uVar4 - 1 | 0xfffffff8) + 1;
+      uVar5 = (param_1->invulnerabilityTimer).current & 0x80000007;
+      if ((int)uVar5 < 0) {
+        uVar5 = (uVar5 - 1 | 0xfffffff8) + 1;
       }
-      if ((int)uVar4 < 2) {
-        *(uint *)&(param_1->playerSprite).flags = *(uint *)&(param_1->playerSprite).flags | 8;
+      if ((int)uVar5 < 2) {
+        uVar4._0_2_ = (param_1->playerSprite).flags;
+        uVar4._2_1_ = (param_1->playerSprite).unk_82[0];
+        uVar4._3_1_ = (param_1->playerSprite).unk_82[1];
+        uVar4 = uVar4 | 8;
+        (param_1->playerSprite).flags = (short)uVar4;
+        (param_1->playerSprite).unk_82[0] = (char)(uVar4 >> 0x10);
+        (param_1->playerSprite).unk_82[1] = (char)(uVar4 >> 0x18);
         (param_1->playerSprite).color.color = 0xff404040;
       }
       else {
-        *(uint *)&(param_1->playerSprite).flags =
-             *(uint *)&(param_1->playerSprite).flags & 0xfffffff7;
+        uVar6._0_2_ = (param_1->playerSprite).flags;
+        uVar6._2_1_ = (param_1->playerSprite).unk_82[0];
+        uVar6._3_1_ = (param_1->playerSprite).unk_82[1];
+        uVar6 = uVar6 & 0xfffffff7;
+        (param_1->playerSprite).flags = (short)uVar6;
+        (param_1->playerSprite).unk_82[0] = (char)(uVar6 >> 0x10);
+        (param_1->playerSprite).unk_82[1] = (char)(uVar6 >> 0x18);
         (param_1->playerSprite).color.color = 0xffffffff;
       }
     }

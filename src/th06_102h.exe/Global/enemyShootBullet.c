@@ -24,7 +24,7 @@ void enemyShootBullet(Enemy *enemy,EclRawInstr *instr)
   randVal2 = Rng::GetRandomF32ZeroToOne(&g_Rng);
   (enemy->bullet_props).position.y =
        (randVal2 * bulletSpeed * 0.75 + (enemy->position).y) - (bulletSpeed * 0.75) / 2.0;
-  BulletManager::SpawnBullet(&g_BulletManager,&enemy->bullet_props);
+  BulletManager::SpawnBulletPattern(&g_BulletManager,&enemy->bullet_props);
   return;
 }
 

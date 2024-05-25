@@ -3,8 +3,10 @@ ZunResult __thiscall MainMenu::BeginStartup(MainMenu *this)
 
 {
   D3DXVECTOR3 *pDVar1;
+  AnmVm *pAVar2;
   ZunResult loadTitleAnm;
   ZunResult result;
+  uint uVar3;
   int i;
   DWORD time;
   
@@ -20,7 +22,15 @@ ZunResult __thiscall MainMenu::BeginStartup(MainMenu *this)
     }
     for (i = 0; i < 122; i = i + 1) {
       this->vmList[i].pendingInterrupt = 1;
-      *(uint *)&this->vmList[i].flags = *(uint *)&this->vmList[i].flags | 8;
+      pAVar2 = this->vmList + i;
+      uVar3._0_2_ = pAVar2->flags;
+      uVar3._2_1_ = pAVar2->unk_82[0];
+      uVar3._3_1_ = pAVar2->unk_82[1];
+      uVar3 = uVar3 | 8;
+      pAVar2 = this->vmList + i;
+      pAVar2->flags = (short)uVar3;
+      pAVar2->unk_82[0] = (char)(uVar3 >> 0x10);
+      pAVar2->unk_82[1] = (char)(uVar3 >> 0x18);
       if ((g_Supervisor.cfg.opts & 1) == 0) {
         this->vmList[i].color.color = 0xff000000;
       }

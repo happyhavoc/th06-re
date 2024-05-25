@@ -2,14 +2,13 @@
 void FUN_0040de00(Enemy *param_1,AnmRawInstr *param_2)
 
 {
-  double dVar1;
-  double dVar2;
-  float10 fVar3;
+  float10 fVar1;
   int iVar3;
   undefined4 *puVar4;
-  float10 fVar4;
-  float fVar5;
-  float fVar6;
+  float10 fVar2;
+  float fVar3;
+  double dVar4;
+  double dVar5;
   int local_7c;
   Bullet *bullets;
   Bullet *local_68;
@@ -29,36 +28,32 @@ void FUN_0040de00(Enemy *param_1,AnmRawInstr *param_2)
         ((bullets->sprites).bulletSprite.sprite != (AnmLoadedSprite *)0x0)) &&
        (30.0 <= ((bullets->sprites).bulletSprite.sprite)->heightPx)) {
       anm_vm_var3 = anm_vm_var3 + 1;
-      dVar1 = (double)((bullets->pos).x - (param_1->position).x);
-      dVar2 = (double)((bullets->pos).y - (param_1->position).y);
-      fVar5 = FUN_0045be40(SUB84(dVar2,0),(int)((ulonglong)dVar2 >> 0x20),SUB84(dVar1,0),
-                           (int)((ulonglong)dVar1 >> 0x20));
+      dVar4 = atan2((double)((bullets->pos).y - (param_1->position).y),
+                    (double)((bullets->pos).x - (param_1->position).x));
       local_68 = g_BulletManager.bullets;
       for (local_7c = 0; local_7c < 0x280; local_7c = local_7c + 1) {
         if ((((local_68->state != 0) && (local_68->state != 5)) &&
             (((local_68->sprites).bulletSprite.sprite != (AnmLoadedSprite *)0x0 &&
-             ((fVar6 = ((local_68->sprites).bulletSprite.sprite)->heightPx,
-              fVar6 < 30.0 != NAN(fVar6) && (NAN(local_68->speed) != (local_68->speed == 0.0)))))))
-           && (fVar6 = sqrt(SUB84((double)(((local_68->pos).x - (bullets->pos).x) *
+             ((fVar3 = ((local_68->sprites).bulletSprite.sprite)->heightPx,
+              fVar3 < 30.0 != NAN(fVar3) && (NAN(local_68->speed) != (local_68->speed == 0.0)))))))
+           && (fVar3 = sqrt(SUB84((double)(((local_68->pos).x - (bullets->pos).x) *
                                            ((local_68->pos).x - (bullets->pos).x) +
                                           ((local_68->pos).y - (bullets->pos).y) *
                                           ((local_68->pos).y - (bullets->pos).y)),0)),
-              fVar6 < 64.0 != NAN(fVar6))) {
+              fVar3 < 64.0 != NAN(fVar3))) {
           local_68->ex_flags = local_68->ex_flags | 0x10;
           local_68->speed = 0.01;
           (local_68->timer).current = 0;
           (local_68->timer).subFrame = 0.0;
           (local_68->timer).previous = -999;
           local_68->ex_5_int_0 = 0x78;
-          dVar1 = (double)((local_68->pos).x - (param_1->position).x);
-          dVar2 = (double)((local_68->pos).y - (param_1->position).y);
-          fVar6 = FUN_0045be40(SUB84(dVar2,0),(int)((ulonglong)dVar2 >> 0x20),SUB84(dVar1,0),
-                               (int)((ulonglong)dVar1 >> 0x20));
-          local_68->angle = (fVar6 - fVar5) * 2.2 + fVar5;
-          fVar3 = (float10)fcos((float10)local_68->angle);
-          fVar4 = (float10)fsin((float10)local_68->angle);
-          (local_68->ex_4_acceleration).x = (float)(fVar3 * (float10)0.01);
-          (local_68->ex_4_acceleration).y = (float)(fVar4 * (float10)0.01);
+          dVar5 = atan2((double)((local_68->pos).y - (param_1->position).y),
+                        (double)((local_68->pos).x - (param_1->position).x));
+          local_68->angle = ((float)dVar5 - (float)dVar4) * 2.2 + (float)dVar4;
+          fVar1 = (float10)fcos((float10)local_68->angle);
+          fVar2 = (float10)fsin((float10)local_68->angle);
+          (local_68->ex_4_acceleration).x = (float)(fVar1 * (float10)0.01);
+          (local_68->ex_4_acceleration).y = (float)(fVar2 * (float10)0.01);
           local_68->color = local_68->color + 1;
           AnmManager::SetActiveSprite
                     (g_AnmManager,(AnmVm *)local_68,

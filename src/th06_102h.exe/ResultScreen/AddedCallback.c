@@ -4,7 +4,8 @@ ZunResult ResultScreen::AddedCallback(ResultScreen *param_1)
 {
   AnmManager *pAVar1;
   ZunResult ZVar2;
-  ScoreDat *pSVar3;
+  uint uVar3;
+  ScoreDat *pSVar4;
   short local_3c;
   int idx;
   int character;
@@ -53,7 +54,13 @@ ZunResult ResultScreen::AddedCallback(ResultScreen *param_1)
       (local_c->pos).x = 0.0;
       (local_c->pos).y = 0.0;
       (local_c->pos).z = 0.0;
-      *(uint *)&local_c->flags = *(uint *)&local_c->flags | 0x300;
+      uVar3._0_2_ = local_c->flags;
+      uVar3._2_1_ = local_c->unk_82[0];
+      uVar3._3_1_ = local_c->unk_82[1];
+      uVar3 = uVar3 | 0x300;
+      local_c->flags = (short)uVar3;
+      local_c->unk_82[0] = (char)(uVar3 >> 0x10);
+      local_c->unk_82[1] = (char)(uVar3 >> 0x18);
       local_c->fontWidth = '\x0f';
       local_c->fontHeight = '\x0f';
       local_c = local_c + 1;
@@ -78,8 +85,8 @@ ZunResult ResultScreen::AddedCallback(ResultScreen *param_1)
     }
   }
   *(undefined4 *)&param_1->field_0x14 = 0;
-  pSVar3 = OpenScore("score.dat");
-  param_1->scoredat = pSVar3;
+  pSVar4 = OpenScore("score.dat");
+  param_1->scoredat = pSVar4;
   for (difficulty = 0; difficulty < 5; difficulty = difficulty + 1) {
     for (character = 0; character < 4; character = character + 1) {
       GetHighScore(param_1->scoredat,param_1->scores + difficulty * 4 + character,character,

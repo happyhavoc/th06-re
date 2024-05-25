@@ -31,12 +31,12 @@ ItemManager::SpawnItem(ItemManager *this,D3DXVECTOR3 *heading,ItemType itemType,
     this->next_index = 0;
   }
   item->is_in_use = 1;
-  (item->position).x = heading->x;
-  (item->position).y = heading->y;
-  (item->position).z = heading->z;
-  (item->velocity).x = 0.0;
-  (item->velocity).y = -2.2;
-  (item->velocity).z = 0.0;
+  (item->currentPosition).x = heading->x;
+  (item->currentPosition).y = heading->y;
+  (item->currentPosition).z = heading->z;
+  (item->startPosition).x = 0.0;
+  (item->startPosition).y = -2.2;
+  (item->startPosition).z = 0.0;
   item->item_type = itemType;
   item->state = (byte)state;
   (item->timer).current = 0;
@@ -44,20 +44,20 @@ ItemManager::SpawnItem(ItemManager *this,D3DXVECTOR3 *heading,ItemType itemType,
   (item->timer).previous = -999;
   if (state == 2) {
     fVar1 = Rng::GetRandomF32ZeroToOne(&g_Rng);
-    (item->unk).x = fVar1 * 288.0 + 48.0;
+    (item->targetPosition).x = fVar1 * 288.0 + 48.0;
     fVar1 = Rng::GetRandomF32ZeroToOne(&g_Rng);
-    (item->unk).y = fVar1 * 192.0 - 64.0;
-    (item->unk).z = 0.0;
-    (item->velocity).x = (item->position).x;
-    (item->velocity).y = (item->position).y;
-    (item->velocity).z = (item->position).z;
+    (item->targetPosition).y = fVar1 * 192.0 - 64.0;
+    (item->targetPosition).z = 0.0;
+    (item->startPosition).x = (item->currentPosition).x;
+    (item->startPosition).y = (item->currentPosition).y;
+    (item->startPosition).z = (item->currentPosition).z;
   }
   this_00 = g_AnmManager;
   local_14 = (short)_itemType + 0x215;
-  (item->vm).anmFileIndex = local_14;
-  AnmManager::SetAndExecuteScript(this_00,&item->vm,this_00->scripts[_itemType + 0x215]);
-  (item->vm).color.color = 0xffffffff;
-  item->field7_0x142 = 1;
+  (item->sprite).anmFileIndex = local_14;
+  AnmManager::SetAndExecuteScript(this_00,&item->sprite,this_00->scripts[_itemType + 0x215]);
+  (item->sprite).color.color = 0xffffffff;
+  item->unk_142 = 1;
   return;
 }
 

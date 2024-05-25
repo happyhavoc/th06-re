@@ -8,8 +8,8 @@ void AnmManager::DrawVmTextFmt
   long spriteWidth;
   long yPos;
   long xPos;
+  uint uVar1;
   uint fontWidth;
-  uint fontHeight2;
   uint unaff_retaddr;
   char local_4c [64];
   uint local_c;
@@ -22,14 +22,20 @@ void AnmManager::DrawVmTextFmt
   vsprintf(local_4c,param_5,local_8);
   local_8 = (va_list)0x0;
   stringToPrint = local_4c;
-  fontHeight2 = (uint)vm->fontHeight;
+  uVar1 = (uint)vm->fontHeight;
   spriteHeight = __ftol2(vm->sprite->textureHeight);
   spriteWidth = __ftol2(vm->sprite->textureWidth);
   yPos = __ftol2((vm->sprite->startPixelInclusive).y);
   xPos = __ftol2((vm->sprite->startPixelInclusive).x);
-  DrawText(anm_mgr,vm->sprite->sourceFileIndex,xPos,yPos,spriteWidth,spriteHeight,fontWidth,
-           fontHeight2,textColor,shadowColor,stringToPrint);
-  *(uint *)&vm->flags = *(uint *)&vm->flags | 1;
+  DrawText(anm_mgr,vm->sprite->sourceFileIndex,xPos,yPos,spriteWidth,spriteHeight,fontWidth,uVar1,
+           textColor,shadowColor,stringToPrint);
+  uVar1._0_2_ = vm->flags;
+  uVar1._2_1_ = vm->unk_82[0];
+  uVar1._3_1_ = vm->unk_82[1];
+  uVar1 = uVar1 | 1;
+  vm->flags = (short)uVar1;
+  vm->unk_82[0] = (char)(uVar1 >> 0x10);
+  vm->unk_82[1] = (char)(uVar1 >> 0x18);
   __security_check_cookie(local_c ^ unaff_retaddr);
   return;
 }

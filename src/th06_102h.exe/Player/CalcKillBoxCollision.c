@@ -1,5 +1,6 @@
 
-undefined4 __thiscall Player::CalcKillBoxCollision(Player *this,float *param_1,float *param_2)
+undefined4 __thiscall
+Player::CalcKillBoxCollision(Player *this,D3DXVECTOR3 *bulletCenter,D3DXVECTOR3 *bulletSize)
 
 {
   float fVar1;
@@ -9,14 +10,15 @@ undefined4 __thiscall Player::CalcKillBoxCollision(Player *this,float *param_1,f
   float fVar5;
   float fVar6;
   undefined4 uVar7;
+  Player *this_backup;
   PlayerRect *local_30;
   int local_14;
   
   local_30 = this->unk_8b8;
-  fVar3 = *param_1 - *param_2 / 2.0;
-  fVar4 = param_1[1] - param_2[1] / 2.0;
-  fVar2 = *param_2 / 2.0 + *param_1;
-  fVar5 = param_2[1] / 2.0 + param_1[1];
+  fVar3 = bulletCenter->x - bulletSize->x / 2.0;
+  fVar4 = bulletCenter->y - bulletSize->y / 2.0;
+  fVar2 = bulletSize->x / 2.0 + bulletCenter->x;
+  fVar5 = bulletSize->y / 2.0 + bulletCenter->y;
   local_14 = 0;
   do {
     if (0xf < local_14) {

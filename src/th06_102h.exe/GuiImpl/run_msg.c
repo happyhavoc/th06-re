@@ -103,12 +103,12 @@ undefined4 __thiscall GuiImpl::run_msg(GuiImpl *this)
         (this->msg).ignore_wait_counter = (this->msg).ignore_wait_counter + 1;
         break;
       case 7:
-        (this->vm2).anmFileIndex = 0x701;
-        AnmManager::SetAndExecuteScript(pAVar4,&this->vm2,pAVar4->scripts[0x701]);
-        (this->vm2).fontWidth = '\x10';
-        (this->vm2).fontHeight = '\x10';
+        (this->songNameSprite).anmFileIndex = 0x701;
+        AnmManager::SetAndExecuteScript(pAVar4,&this->songNameSprite,pAVar4->scripts[0x701]);
+        (this->songNameSprite).fontWidth = '\x10';
+        (this->songNameSprite).fontHeight = '\x10';
         AnmManager::DrawStringFormat
-                  (g_AnmManager,&this->vm2,0xe0ffff,0,"♪%s",
+                  (g_AnmManager,&this->songNameSprite,0xe0ffff,0,"♪%s",
                    (g_Stage.stdData)->song1Name +
                    *(int *)((int)(this->msg).current_instr + 4) * 0x80);
         iVar8 = Supervisor::PlayMidiFile(&g_Supervisor,*(int *)((int)(this->msg).current_instr + 4))
@@ -138,8 +138,8 @@ undefined4 __thiscall GuiImpl::run_msg(GuiImpl *this)
         this->finishedStage = 1;
         pAVar4 = g_AnmManager;
         if (g_GameManager.current_stage < 6) {
-          (this->vm9).anmFileIndex = 0x619;
-          AnmManager::SetAndExecuteScript(pAVar4,&this->vm9,pAVar4->scripts[0x619]);
+          (this->loadingScreenSprite).anmFileIndex = 0x619;
+          AnmManager::SetAndExecuteScript(pAVar4,&this->loadingScreenSprite,pAVar4->scripts[0x619]);
         }
         else {
           g_GameManager.extra_lives = 0xff;

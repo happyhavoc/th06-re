@@ -34,7 +34,7 @@ void __cdecl FUN_0040d400(Enemy *param_1,AnmRawInstr *param_2)
       new_spawned_bullet.count2 = 1;
       new_spawned_bullet.flags = 8;
       new_spawned_bullet.aim_mode = 1;
-      BulletManager::SpawnBullet(&g_BulletManager,&new_spawned_bullet);
+      BulletManager::SpawnBulletPattern(&g_BulletManager,&new_spawned_bullet);
       num_bullets_changed = num_bullets_changed + 1;
     }
     bullets = bullets + 1;

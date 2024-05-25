@@ -93,7 +93,7 @@ void FUN_0040c5b0(Enemy *param_1,AnmRawInstr *param_2)
       }
       local_64.color = 3;
       matrix_in.x = fVar1;
-      BulletManager::SpawnBullet(&g_BulletManager,&local_64);
+      BulletManager::SpawnBulletPattern(&g_BulletManager,&local_64);
       local_88 = local_88 + 0.1745329;
     }
     SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,SOUND_7,0);

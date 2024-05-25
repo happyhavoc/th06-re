@@ -3,6 +3,9 @@ ZunResult MainMenu::LoadDiffCharSelect(MainMenu *menu)
 
 {
   ZunResult loadAnm;
+  uint uVar1;
+  uint uVar2;
+  uint uVar3;
   AnmVm *vm;
   int i;
   
@@ -32,8 +35,20 @@ ZunResult MainMenu::LoadDiffCharSelect(MainMenu *menu)
                       vm = menu->vmList + 0x50;
                       for (i = 0x150; i < 0x160; i = i + 1) {
                         AnmManager::ExecuteAnmIdx(g_AnmManager,vm,i);
-                        *(uint *)&vm->flags = *(uint *)&vm->flags & 0xfffffffe;
-                        *(uint *)&vm->flags = *(uint *)&vm->flags | 8;
+                        uVar1._0_2_ = vm->flags;
+                        uVar1._2_1_ = vm->unk_82[0];
+                        uVar1._3_1_ = vm->unk_82[1];
+                        uVar1 = uVar1 & 0xfffffffe;
+                        vm->flags = (short)uVar1;
+                        vm->unk_82[0] = (char)(uVar1 >> 0x10);
+                        vm->unk_82[1] = (char)(uVar1 >> 0x18);
+                        uVar2._0_2_ = vm->flags;
+                        uVar2._2_1_ = vm->unk_82[0];
+                        uVar2._3_1_ = vm->unk_82[1];
+                        uVar2 = uVar2 | 8;
+                        vm->flags = (short)uVar2;
+                        vm->unk_82[0] = (char)(uVar2 >> 0x10);
+                        vm->unk_82[1] = (char)(uVar2 >> 0x18);
                         if ((g_Supervisor.cfg.opts & 1) == 0) {
                           (vm->color).color = 0xff000000;
                         }
@@ -44,7 +59,13 @@ ZunResult MainMenu::LoadDiffCharSelect(MainMenu *menu)
                         (vm->offset).y = 0.0;
                         (vm->offset).z = 0.0;
                         vm->baseSpriteIndex = vm->activeSpriteIndex;
-                        *(uint *)&vm->flags = *(uint *)&vm->flags | 0x1000;
+                        uVar3._0_2_ = vm->flags;
+                        uVar3._2_1_ = vm->unk_82[0];
+                        uVar3._3_1_ = vm->unk_82[1];
+                        uVar3 = uVar3 | 0x1000;
+                        vm->flags = (short)uVar3;
+                        vm->unk_82[0] = (char)(uVar3 >> 0x10);
+                        vm->unk_82[1] = (char)(uVar3 >> 0x18);
                         vm = vm + 1;
                       }
                       loadAnm = ZUN_SUCCESS;

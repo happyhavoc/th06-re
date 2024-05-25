@@ -9,11 +9,11 @@ undefined4 EnemyManager::OnUpdate(EnemyManager *param_1)
   int iVar3;
   BOOL BVar4;
   uint uVar5;
+  uint uVar6;
+  uint uVar7;
   Enemy *curEnemy;
   int local_20;
-  float local_1c;
-  float local_18;
-  float local_14;
+  D3DXVECTOR3 local_1c;
   int local_10;
   int local_c;
   int local_8;
@@ -77,10 +77,10 @@ undefined4 EnemyManager::OnUpdate(EnemyManager *param_1)
     if (((curEnemy->flags2 >> 2 & 1) == 0) || ((curEnemy->flags3 >> 3 & 1) != 0)) goto LAB_00412dbc;
     iVar2 = curEnemy->life;
     if (((curEnemy->flags2 >> 1 & 1) != 0) && ((curEnemy->flags2 & 1) != 0)) {
-      local_14 = (curEnemy->hitbox_dimensions).z * 0.6666667;
-      local_18 = (curEnemy->hitbox_dimensions).y * 0.6666667;
-      local_1c = (curEnemy->hitbox_dimensions).x * 0.6666667;
-      iVar3 = Player::CalcKillBoxCollision(&g_Player,&(curEnemy->position).x,&local_1c);
+      local_1c.z = (curEnemy->hitbox_dimensions).z * 0.6666667;
+      local_1c.y = (curEnemy->hitbox_dimensions).y * 0.6666667;
+      local_1c.x = (curEnemy->hitbox_dimensions).x * 0.6666667;
+      iVar3 = Player::CalcKillBoxCollision(&g_Player,&curEnemy->position,&local_1c);
       if (((iVar3 == 1) && ((curEnemy->flags2 & 1) != 0)) && ((curEnemy->flags2 >> 3 & 1) == 0)) {
         curEnemy->life = curEnemy->life + -10;
       }
@@ -183,11 +183,11 @@ switchD_00412938_caseD_2:
       EffectManager::SpawnEffect
                 (&g_EffectManager,(uint)curEnemy->death_anm1,&curEnemy->position,1,0xffffffff);
     }
-    uVar5 = local_10 & 0x80000001;
-    if ((int)uVar5 < 0) {
-      uVar5 = (uVar5 - 1 | 0xfffffffe) + 1;
+    uVar6 = local_10 & 0x80000001;
+    if ((int)uVar6 < 0) {
+      uVar6 = (uVar6 - 1 | 0xfffffffe) + 1;
     }
-    SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,uVar5 + SOUND_2,0);
+    SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,uVar6 + SOUND_2,0);
     EffectManager::SpawnEffect
               (&g_EffectManager,(uint)curEnemy->death_anm1,&curEnemy->position,1,0xffffffff);
     EffectManager::SpawnEffect
@@ -214,17 +214,34 @@ LAB_00412ce2:
     if (curEnemy->field43_0xe41 == 0) {
       if (curEnemy->life < iVar2) {
         SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,SOUND_TOTAL_BOSS_DEATH,0);
-        *(uint *)&(curEnemy->primary_vm).flags = *(uint *)&(curEnemy->primary_vm).flags | 8;
+        uVar5._0_2_ = (curEnemy->primary_vm).flags;
+        uVar5._2_1_ = (curEnemy->primary_vm).unk_82[0];
+        uVar5._3_1_ = (curEnemy->primary_vm).unk_82[1];
+        uVar5 = uVar5 | 8;
+        (curEnemy->primary_vm).flags = (short)uVar5;
+        (curEnemy->primary_vm).unk_82[0] = (char)(uVar5 >> 0x10);
+        (curEnemy->primary_vm).unk_82[1] = (char)(uVar5 >> 0x18);
         curEnemy->field43_0xe41 = 4;
       }
       else {
-        *(uint *)&(curEnemy->primary_vm).flags = *(uint *)&(curEnemy->primary_vm).flags & 0xfffffff7
-        ;
+        uVar6._0_2_ = (curEnemy->primary_vm).flags;
+        uVar6._2_1_ = (curEnemy->primary_vm).unk_82[0];
+        uVar6._3_1_ = (curEnemy->primary_vm).unk_82[1];
+        uVar6 = uVar6 & 0xfffffff7;
+        (curEnemy->primary_vm).flags = (short)uVar6;
+        (curEnemy->primary_vm).unk_82[0] = (char)(uVar6 >> 0x10);
+        (curEnemy->primary_vm).unk_82[1] = (char)(uVar6 >> 0x18);
       }
     }
     else {
       curEnemy->field43_0xe41 = curEnemy->field43_0xe41 - 1;
-      *(uint *)&(curEnemy->primary_vm).flags = *(uint *)&(curEnemy->primary_vm).flags & 0xfffffff7;
+      uVar7._0_2_ = (curEnemy->primary_vm).flags;
+      uVar7._2_1_ = (curEnemy->primary_vm).unk_82[0];
+      uVar7._3_1_ = (curEnemy->primary_vm).unk_82[1];
+      uVar7 = uVar7 & 0xfffffff7;
+      (curEnemy->primary_vm).flags = (short)uVar7;
+      (curEnemy->primary_vm).unk_82[0] = (char)(uVar7 >> 0x10);
+      (curEnemy->primary_vm).unk_82[1] = (char)(uVar7 >> 0x18);
     }
 LAB_00412dbc:
     FUN_00412e50(curEnemy);

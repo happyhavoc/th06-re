@@ -40,7 +40,7 @@ void Player::BombMarisaBCalc(Player *param_1)
     }
     else {
       ItemManager::RemoveAllItems(&g_ItemManager);
-      Gui::string_related(&g_Gui,0x4a1,"恋符「マスタースパーク」");
+      Gui::ShowBombNamePortrait(&g_Gui,0x4a1,"恋符「マスタースパーク」");
       (param_1->bombInfo).bombDuration = 300;
       (param_1->invulnerabilityTimer).current = 0x168;
       (param_1->invulnerabilityTimer).subFrame = 0.0;

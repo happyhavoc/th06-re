@@ -355,15 +355,12 @@ struct AnmVm {
     D3DMATRIX matrix;
     union D3DCOLORUNION color;
     enum AnmVmFlags flags;
-    undefined field11_0x82;
-    undefined field12_0x83;
+    undefined unk_82[2];
     ushort alphaInterpEndTime;
     short scaleInterpEndTime;
     ushort autoRotate;
     short pendingInterrupt;
     ushort posInterpEndTime;
-    undefined field18_0x8e;
-    undefined field19_0x8f;
     D3DXVECTOR3 pos;
     float scaleInterpInitialY;
     float scaleInterpInitialX;
@@ -371,8 +368,6 @@ struct AnmVm {
     short activeSpriteIndex;
     short baseSpriteIndex;
     short anmFileIndex;
-    undefined field27_0xb6;
-    undefined field28_0xb7;
     struct AnmRawInstr *beginingOfScript;
     struct AnmRawInstr *currentInstruction;
     struct AnmLoadedSprite *sprite;
@@ -386,21 +381,17 @@ struct AnmVm {
     struct ZunTimer alphaInterpTime;
     uint8_t fontWidth;
     uint8_t fontHeight;
-    undefined field42_0x10e;
-    undefined field43_0x10f;
 };
 
 struct BulletTypeSprites {
     struct AnmVm bulletSprite;
-    struct AnmVm spriteSpawnEffectShort;
-    struct AnmVm spriteSpawnEffectMedium;
-    struct AnmVm spriteSpawnEffectLong;
-    struct AnmVm spriteSpawnEffectLongMemset;
-    D3DXVECTOR3 size;
+    struct AnmVm spriteSpawnEffectFast;
+    struct AnmVm spriteSpawnEffectNormal;
+    struct AnmVm spriteSpawnEffectSlow;
+    struct AnmVm spriteSpawnEffectDonut;
+    D3DXVECTOR3 grazeSize;
     byte unk_55c;
-    byte unk_55d;
-    undefined field8_0x55e;
-    undefined field9_0x55f;
+    byte height;
 };
 
 struct Bullet {
@@ -421,11 +412,11 @@ struct Bullet {
     int dir_change__max_times;
     ushort ex_flags;
     ushort color;
-    undefined2 field17_0x5bc;
+    ushort unk5bc;
     ushort state;
-    ushort field19_0x5c0;
-    byte field20_0x5c2;
-    byte field21_0x5c3;
+    ushort unk_5c0;
+    byte unk_5c2;
+    byte is_grazed;
 };
 
 struct ZunVec2 {
@@ -465,10 +456,10 @@ typedef struct BulletTypeInfo BulletTypeInfo, *PBulletTypeInfo;
 
 struct BulletTypeInfo {
     uint bulletAnmFileIdx;
-    uint bulletSpawnEffectShortAnmFileIdx;
-    uint bulletSpawnEffectMediumAnmFileIdx;
-    uint bulletSpawnEffectLongAnmFileIdx;
-    uint bulletSpawnEffectShortWithMemsetAnmFileIdx;
+    uint bulletSpawnEffectFastAnmFileIdx;
+    uint bulletSpawnEffectNormalAnmFileIdx;
+    uint bulletSpawnEffectSlowAnmFileIdx;
+    uint bulletSpawnEffectDonutAnmFileIdx;
 };
 
 typedef struct PlayerUnknown PlayerUnknown, *PPlayerUnknown;
@@ -1146,14 +1137,14 @@ typedef enum ItemType {
 } ItemType;
 
 struct Item {
-    struct AnmVm vm;
-    D3DXVECTOR3 position;
-    D3DXVECTOR3 velocity;
-    D3DXVECTOR3 unk;
+    struct AnmVm sprite;
+    D3DXVECTOR3 currentPosition;
+    D3DXVECTOR3 startPosition;
+    D3DXVECTOR3 targetPosition;
     struct ZunTimer timer;
     enum ItemType item_type;
     byte is_in_use;
-    byte field7_0x142;
+    byte unk_142;
     byte state;
 };
 
@@ -1593,10 +1584,10 @@ struct MsgRawHeader {
 };
 
 struct GuiImplChildB {
-    D3DXVECTOR3 field0_0x0;
-    int field1_0xc;
-    int field2_0x10;
-    struct ZunTimer field3_0x14;
+    D3DXVECTOR3 pos;
+    int fmtArg;
+    int isShown;
+    struct ZunTimer timer;
 };
 
 struct GuiMsgVm {
@@ -1617,23 +1608,22 @@ struct GuiMsgVm {
 
 struct GuiImpl {
     struct AnmVm vms[26];
-    byte field1_0x1ba0;
-    undefined field2_0x1ba1[3];
-    struct AnmVm vm1;
-    struct AnmVm vm2;
-    struct AnmVm vm3;
-    struct AnmVm vm4;
-    struct AnmVm vm5;
-    struct AnmVm vm6;
-    struct AnmVm vm7;
-    struct AnmVm vm8;
-    struct AnmVm vm9;
+    byte bossHealthBarState;
+    struct AnmVm stageNameSprite;
+    struct AnmVm songNameSprite;
+    struct AnmVm playerSpellcardPortrait;
+    struct AnmVm enemySpellcardPortrait;
+    struct AnmVm bombSpellcardName;
+    struct AnmVm enemySpellcardName;
+    struct AnmVm bombSpellcardBackground;
+    struct AnmVm enemySpellcardBackground;
+    struct AnmVm loadingScreenSprite;
     struct GuiMsgVm msg;
     uint finishedStage;
     uint stage_score;
-    struct GuiImplChildB field15_0x2be4;
-    struct GuiImplChildB field16_0x2c04;
-    struct GuiImplChildB field17_0x2c24;
+    struct GuiImplChildB bonusScore;
+    struct GuiImplChildB fullPowerMode;
+    struct GuiImplChildB spellCardBonus;
 };
 
 typedef struct Pbg3FileName Pbg3FileName, *PPbg3FileName;
@@ -1831,7 +1821,7 @@ struct Gui {
     struct GuiImpl *impl;
     float field2_0x8;
     float blue_spellcard_bar_length;
-    uint field4_0x10;
+    uint unk_10;
     int ecl_set_lives;
     int ecl_spellcard_related;
     int field7_0x1c;
@@ -1868,6 +1858,15 @@ struct Chain {
     struct ChainElem drawChain;
     DWORD midiOutputDeviceCount;
     undefined4 unk;
+};
+
+typedef struct EclRawHeader EclRawHeader, *PEclRawHeader;
+
+struct EclRawHeader {
+    u16 subCount;
+    u16 timelineCount;
+    u32 timelinePtr[3];
+    u32 subTableOffsets[1];
 };
 
 typedef struct StageAnms StageAnms, *PStageAnms;
@@ -5194,8 +5193,8 @@ typedef enum SupervisorState {
 typedef struct EclManager EclManager, *PEclManager;
 
 struct EclManager { /* Size is unknown */
-    void *ecl_file;
-    void *sub_table;
+    struct EclRawHeader *ecl_file;
+    void **sub_table;
     void *timeline;
 };
 
@@ -16877,9 +16876,9 @@ struct unk {
     int unkc;
 };
 
-typedef byte u8;
-
 typedef short i16;
+
+typedef byte u8;
 
 typedef sbyte i8;
 

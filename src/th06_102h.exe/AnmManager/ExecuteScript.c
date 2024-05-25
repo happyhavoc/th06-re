@@ -3,10 +3,35 @@ int __thiscall AnmManager::ExecuteScript(AnmManager *this,AnmVm *vm)
 
 {
   ushort uVar1;
-  float fVar2;
-  ushort uVar3;
+  uint uVar2;
+  uint uVar3;
   uint uVar4;
-  float fVar5;
+  uint uVar5;
+  uint uVar6;
+  uint uVar7;
+  uint uVar8;
+  uint uVar9;
+  uint uVar10;
+  float fVar11;
+  uint uVar12;
+  uint uVar13;
+  uint uVar14;
+  uint uVar15;
+  uint uVar16;
+  uint uVar17;
+  ushort uVar18;
+  uint uVar19;
+  uint uVar20;
+  uint uVar21;
+  uint uVar22;
+  uint uVar23;
+  uint uVar24;
+  uint uVar25;
+  uint uVar26;
+  uint uVar27;
+  uint uVar28;
+  uint uVar29;
+  float fVar30;
   undefined local_120;
   int randValue;
   i32 scaleInterpCurTime;
@@ -46,7 +71,13 @@ LAB_00434098:
     }
   }
   vm->pendingInterrupt = 0;
-  *(uint *)&vm->flags = *(uint *)&vm->flags & 0xffffdfff;
+  uVar29._0_2_ = vm->flags;
+  uVar29._2_1_ = vm->unk_82[0];
+  uVar29._3_1_ = vm->unk_82[1];
+  uVar29 = uVar29 & 0xffffdfff;
+  vm->flags = (short)uVar29;
+  vm->unk_82[0] = (char)(uVar29 >> 0x10);
+  vm->unk_82[1] = (char)(uVar29 >> 0x18);
   if (curInstr->opcode != AnmOpcode_InterruptLabel) {
     if (nextInstr == (AnmRawInstr *)0x0) {
       ZunTimer::Decrement(&vm->currentTimeInScript,1);
@@ -58,18 +89,36 @@ LAB_00434098:
   (vm->currentTimeInScript).current = (int)(short)vm->currentInstruction->time;
   (vm->currentTimeInScript).subFrame = 0.0;
   (vm->currentTimeInScript).previous = -999;
-  *(uint *)&vm->flags = *(uint *)&vm->flags | 1;
+  uVar27._0_2_ = vm->flags;
+  uVar27._2_1_ = vm->unk_82[0];
+  uVar27._3_1_ = vm->unk_82[1];
+  uVar27 = uVar27 | 1;
+  vm->flags = (short)uVar27;
+  vm->unk_82[0] = (char)(uVar27 >> 0x10);
+  vm->unk_82[1] = (char)(uVar27 >> 0x18);
 LAB_00433998:
   curInstr = vm->currentInstruction;
   if ((vm->currentTimeInScript).current < (int)(short)curInstr->time) goto LAB_00434338;
   switch(curInstr->opcode) {
   case AnmOpcode_Exit:
-    *(uint *)&vm->flags = *(uint *)&vm->flags & 0xfffffffe;
+    uVar24._0_2_ = vm->flags;
+    uVar24._2_1_ = vm->unk_82[0];
+    uVar24._3_1_ = vm->unk_82[1];
+    uVar24 = uVar24 & 0xfffffffe;
+    vm->flags = (short)uVar24;
+    vm->unk_82[0] = (char)(uVar24 >> 0x10);
+    vm->unk_82[1] = (char)(uVar24 >> 0x18);
   case AnmOpcode_ExitHide:
     vm->currentInstruction = (AnmRawInstr *)0x0;
     return 1;
   case AnmOpcode_SetActiveSprite:
-    *(uint *)&vm->flags = *(uint *)&vm->flags | 1;
+    uVar28._0_2_ = vm->flags;
+    uVar28._2_1_ = vm->unk_82[0];
+    uVar28._3_1_ = vm->unk_82[1];
+    uVar28 = uVar28 | 1;
+    vm->flags = (short)uVar28;
+    vm->unk_82[0] = (char)(uVar28 >> 0x10);
+    vm->unk_82[1] = (char)(uVar28 >> 0x18);
     SetActiveSprite(this,vm,curInstr->args[0] + this->spriteIndices[vm->anmFileIndex]);
     vm->timeOfLastSpriteSet = (vm->currentTimeInScript).current;
     break;
@@ -86,13 +135,29 @@ LAB_00433998:
   case AnmOpcode_Jump:
     goto switchD_004339dd_caseD_5;
   case AnmOpcode_FlipX:
-    *(uint *)&vm->flags = *(uint *)&vm->flags & 0xffffff3f | (*(uint *)&vm->flags >> 6 & 3 ^ 1) << 6
-    ;
+    uVar2._0_2_ = vm->flags;
+    uVar2._2_1_ = vm->unk_82[0];
+    uVar2._3_1_ = vm->unk_82[1];
+    uVar3._0_2_ = vm->flags;
+    uVar3._2_1_ = vm->unk_82[0];
+    uVar3._3_1_ = vm->unk_82[1];
+    uVar29 = uVar3 & 0xffffff3f | (uVar2 >> 6 & 3 ^ 1) << 6;
+    vm->flags = (short)uVar29;
+    vm->unk_82[0] = (char)(uVar29 >> 0x10);
+    vm->unk_82[1] = (char)(uVar29 >> 0x18);
     vm->scaleX = vm->scaleX * -1.0;
     break;
   case AnmOpcode_FlipY:
-    *(uint *)&vm->flags = *(uint *)&vm->flags & 0xffffff3f | (*(uint *)&vm->flags >> 6 & 3 ^ 2) << 6
-    ;
+    uVar5._0_2_ = vm->flags;
+    uVar5._2_1_ = vm->unk_82[0];
+    uVar5._3_1_ = vm->unk_82[1];
+    uVar6._0_2_ = vm->flags;
+    uVar6._2_1_ = vm->unk_82[0];
+    uVar6._3_1_ = vm->unk_82[1];
+    uVar29 = uVar6 & 0xffffff3f | (uVar5 >> 6 & 3 ^ 2) << 6;
+    vm->flags = (short)uVar29;
+    vm->unk_82[0] = (char)(uVar29 >> 0x10);
+    vm->unk_82[1] = (char)(uVar29 >> 0x18);
     vm->scaleY = vm->scaleY * -1.0;
     break;
   case AnmOpcode_SetRotation:
@@ -123,51 +188,93 @@ LAB_00433998:
     (vm->alphaInterpTime).previous = -999;
     break;
   case AnmOpcode_SetBlendAdditive:
-    *(uint *)&vm->flags = *(uint *)&vm->flags | 4;
+    uVar19._0_2_ = vm->flags;
+    uVar19._2_1_ = vm->unk_82[0];
+    uVar19._3_1_ = vm->unk_82[1];
+    uVar19 = uVar19 | 4;
+    vm->flags = (short)uVar19;
+    vm->unk_82[0] = (char)(uVar19 >> 0x10);
+    vm->unk_82[1] = (char)(uVar19 >> 0x18);
     break;
   case AnmOpcode_SetBlendDefault:
-    *(uint *)&vm->flags = *(uint *)&vm->flags & 0xfffffffb;
+    uVar20._0_2_ = vm->flags;
+    uVar20._2_1_ = vm->unk_82[0];
+    uVar20._3_1_ = vm->unk_82[1];
+    uVar20 = uVar20 & 0xfffffffb;
+    vm->flags = (short)uVar20;
+    vm->unk_82[0] = (char)(uVar20 >> 0x10);
+    vm->unk_82[1] = (char)(uVar20 >> 0x18);
     break;
   case AnmOpcode_SetRandomSprite:
-    *(uint *)&vm->flags = *(uint *)&vm->flags | 1;
+    uVar25._0_2_ = vm->flags;
+    uVar25._2_1_ = vm->unk_82[0];
+    uVar25._3_1_ = vm->unk_82[1];
+    uVar25 = uVar25 | 1;
+    vm->flags = (short)uVar25;
+    vm->unk_82[0] = (char)(uVar25 >> 0x10);
+    vm->unk_82[1] = (char)(uVar25 >> 0x18);
     local_c = curInstr->args;
     uVar1 = *(ushort *)(curInstr->args + 1);
     if (uVar1 == 0) {
       randValue = 0;
     }
     else {
-      uVar3 = Rng::GetRandomU16(&g_Rng);
-      randValue = (int)((ulonglong)uVar3 % (ulonglong)(longlong)(int)(uint)uVar1);
+      uVar18 = Rng::GetRandomU16(&g_Rng);
+      randValue = (int)((ulonglong)uVar18 % (ulonglong)(longlong)(int)(uint)uVar1);
     }
     SetActiveSprite(this,vm,*local_c + randValue + this->spriteIndices[vm->anmFileIndex]);
     vm->timeOfLastSpriteSet = (vm->currentTimeInScript).current;
     break;
   case AnmOpcode_SetTranslation:
-    if ((*(uint *)&vm->flags >> 5 & 1) == 0) {
-      fVar5 = (float)curInstr->args[2];
-      fVar2 = (float)curInstr->args[1];
+    uVar7._0_2_ = vm->flags;
+    uVar7._2_1_ = vm->unk_82[0];
+    uVar7._3_1_ = vm->unk_82[1];
+    if ((uVar7 >> 5 & 1) == 0) {
+      fVar30 = (float)curInstr->args[2];
+      fVar11 = (float)curInstr->args[1];
       (vm->pos).x = (float)curInstr->args[0];
-      (vm->pos).y = fVar2;
-      (vm->pos).z = fVar5;
+      (vm->pos).y = fVar11;
+      (vm->pos).z = fVar30;
     }
     else {
-      fVar5 = (float)curInstr->args[2];
-      fVar2 = (float)curInstr->args[1];
+      fVar30 = (float)curInstr->args[2];
+      fVar11 = (float)curInstr->args[1];
       (vm->offset).x = (float)curInstr->args[0];
-      (vm->offset).y = fVar2;
-      (vm->offset).z = fVar5;
+      (vm->offset).y = fVar11;
+      (vm->offset).z = fVar30;
     }
     break;
   case AnmOpcode_PosTimeLinear:
-    *(uint *)&vm->flags = *(uint *)&vm->flags & 0xfffff3ff;
+    uVar21._0_2_ = vm->flags;
+    uVar21._2_1_ = vm->unk_82[0];
+    uVar21._3_1_ = vm->unk_82[1];
+    uVar21 = uVar21 & 0xfffff3ff;
+    vm->flags = (short)uVar21;
+    vm->unk_82[0] = (char)(uVar21 >> 0x10);
+    vm->unk_82[1] = (char)(uVar21 >> 0x18);
     goto LAB_00433f53;
   case AnmOpcode_PosTimeDecel:
-    *(uint *)&vm->flags = *(uint *)&vm->flags & 0xfffff3ff | 0x400;
+    uVar9._0_2_ = vm->flags;
+    uVar9._2_1_ = vm->unk_82[0];
+    uVar9._3_1_ = vm->unk_82[1];
+    uVar29 = uVar9 & 0xfffff3ff | 0x400;
+    vm->flags = (short)uVar29;
+    vm->unk_82[0] = (char)(uVar29 >> 0x10);
+    vm->unk_82[1] = (char)(uVar29 >> 0x18);
     goto LAB_00433f53;
   case AnmOpcode_PosTimeAccel:
-    *(uint *)&vm->flags = *(uint *)&vm->flags & 0xfffff3ff | 0x800;
+    uVar8._0_2_ = vm->flags;
+    uVar8._2_1_ = vm->unk_82[0];
+    uVar8._3_1_ = vm->unk_82[1];
+    uVar29 = uVar8 & 0xfffff3ff | 0x800;
+    vm->flags = (short)uVar29;
+    vm->unk_82[0] = (char)(uVar29 >> 0x10);
+    vm->unk_82[1] = (char)(uVar29 >> 0x18);
 LAB_00433f53:
-    if ((*(uint *)&vm->flags >> 5 & 1) == 0) {
+    uVar10._0_2_ = vm->flags;
+    uVar10._2_1_ = vm->unk_82[0];
+    uVar10._3_1_ = vm->unk_82[1];
+    if ((uVar10 >> 5 & 1) == 0) {
       (vm->posInterpInitial).x = (vm->pos).x;
       (vm->posInterpInitial).y = (vm->pos).y;
       (vm->posInterpInitial).z = (vm->pos).z;
@@ -177,11 +284,11 @@ LAB_00433f53:
       (vm->posInterpInitial).y = (vm->offset).y;
       (vm->posInterpInitial).z = (vm->offset).z;
     }
-    fVar5 = (float)curInstr->args[2];
-    fVar2 = (float)curInstr->args[1];
+    fVar30 = (float)curInstr->args[2];
+    fVar11 = (float)curInstr->args[1];
     (vm->posInterpFinal).x = (float)curInstr->args[0];
-    (vm->posInterpFinal).y = fVar2;
-    (vm->posInterpFinal).z = fVar5;
+    (vm->posInterpFinal).y = fVar11;
+    (vm->posInterpFinal).z = fVar30;
     vm->posInterpEndTime = *(ushort *)(curInstr->args + 3);
     (vm->posInterpTime).current = 0;
     (vm->posInterpTime).subFrame = 0.0;
@@ -190,12 +297,24 @@ LAB_00433f53:
   case AnmOpcode_Stop:
     goto switchD_004339dd_caseD_15;
   case AnmOpcode_23:
-    *(uint *)&vm->flags = *(uint *)&vm->flags | 0x300;
+    uVar23._0_2_ = vm->flags;
+    uVar23._2_1_ = vm->unk_82[0];
+    uVar23._3_1_ = vm->unk_82[1];
+    uVar23 = uVar23 | 0x300;
+    vm->flags = (short)uVar23;
+    vm->unk_82[0] = (char)(uVar23 >> 0x10);
+    vm->unk_82[1] = (char)(uVar23 >> 0x18);
     break;
   case AnmOpcode_StopHide:
     goto switchD_004339dd_caseD_18;
   case AnmOpcode_25:
-    *(uint *)&vm->flags = *(uint *)&vm->flags & 0xffffffdf | (curInstr->args[0] & 1) << 5;
+    uVar4._0_2_ = vm->flags;
+    uVar4._2_1_ = vm->unk_82[0];
+    uVar4._3_1_ = vm->unk_82[1];
+    uVar29 = uVar4 & 0xffffffdf | (curInstr->args[0] & 1) << 5;
+    vm->flags = (short)uVar29;
+    vm->unk_82[0] = (char)(uVar29 >> 0x10);
+    vm->unk_82[1] = (char)(uVar29 >> 0x18);
     break;
   case AnmOpcode_SetAutoRotate:
     vm->autoRotate = *(ushort *)curInstr->args;
@@ -203,8 +322,8 @@ LAB_00433f53:
   case AnmOpcode_27:
     (vm->uvScrollPos).x = (vm->uvScrollPos).x + (float)curInstr->args[0];
     if ((vm->uvScrollPos).x < 1.0) {
-      fVar5 = (vm->uvScrollPos).x;
-      if (fVar5 < 0.0 != NAN(fVar5)) {
+      fVar30 = (vm->uvScrollPos).x;
+      if (fVar30 < 0.0 != NAN(fVar30)) {
         (vm->uvScrollPos).x = (vm->uvScrollPos).x + 1.0;
       }
     }
@@ -215,8 +334,8 @@ LAB_00433f53:
   case AnmOpcode_28:
     (vm->uvScrollPos).y = (vm->uvScrollPos).y + (float)curInstr->args[0];
     if ((vm->uvScrollPos).y < 1.0) {
-      fVar5 = (vm->uvScrollPos).y;
-      if (fVar5 < 0.0 != NAN(fVar5)) {
+      fVar30 = (vm->uvScrollPos).y;
+      if (fVar30 < 0.0 != NAN(fVar30)) {
         (vm->uvScrollPos).y = (vm->uvScrollPos).y + 1.0;
       }
     }
@@ -225,7 +344,13 @@ LAB_00433f53:
     }
     break;
   case AnmOpcode_SetVisibility:
-    *(uint *)&vm->flags = *(uint *)&vm->flags & 0xfffffffe | curInstr->args[0] & 1;
+    uVar12._0_2_ = vm->flags;
+    uVar12._2_1_ = vm->unk_82[0];
+    uVar12._3_1_ = vm->unk_82[1];
+    uVar29 = uVar12 & 0xfffffffe | curInstr->args[0] & 1;
+    vm->flags = (short)uVar29;
+    vm->unk_82[0] = (char)(uVar29 >> 0x10);
+    vm->unk_82[1] = (char)(uVar29 >> 0x18);
     break;
   case AnmOpcode_30:
     vm->scaleInterpFinalX = (float)curInstr->args[0];
@@ -239,34 +364,52 @@ LAB_00433f53:
     vm->scaleInterpInitialY = vm->scaleY;
     break;
   case AnmOpcode_31:
-    *(uint *)&vm->flags = *(uint *)&vm->flags & 0xffffefff | (curInstr->args[0] & 1) << 0xc;
+    uVar13._0_2_ = vm->flags;
+    uVar13._2_1_ = vm->unk_82[0];
+    uVar13._3_1_ = vm->unk_82[1];
+    uVar29 = uVar13 & 0xffffefff | (curInstr->args[0] & 1) << 0xc;
+    vm->flags = (short)uVar29;
+    vm->unk_82[0] = (char)(uVar29 >> 0x10);
+    vm->unk_82[1] = (char)(uVar29 >> 0x18);
   }
   vm->currentInstruction = (AnmRawInstr *)((int)curInstr->args + (uint)curInstr->argsCount);
   goto LAB_00433998;
 switchD_004339dd_caseD_18:
-  *(uint *)&vm->flags = *(uint *)&vm->flags & 0xfffffffe;
+  uVar26._0_2_ = vm->flags;
+  uVar26._2_1_ = vm->unk_82[0];
+  uVar26._3_1_ = vm->unk_82[1];
+  uVar26 = uVar26 & 0xfffffffe;
+  vm->flags = (short)uVar26;
+  vm->unk_82[0] = (char)(uVar26 >> 0x10);
+  vm->unk_82[1] = (char)(uVar26 >> 0x18);
 switchD_004339dd_caseD_15:
   if (vm->pendingInterrupt == 0) {
-    *(uint *)&vm->flags = *(uint *)&vm->flags | 0x2000;
+    uVar22._0_2_ = vm->flags;
+    uVar22._2_1_ = vm->unk_82[0];
+    uVar22._3_1_ = vm->unk_82[1];
+    uVar22 = uVar22 | 0x2000;
+    vm->flags = (short)uVar22;
+    vm->unk_82[0] = (char)(uVar22 >> 0x10);
+    vm->unk_82[1] = (char)(uVar22 >> 0x18);
     ZunTimer::Decrement(&vm->currentTimeInScript,1);
 LAB_00434338:
-    fVar5 = (vm->angleVel).x;
-    if (NAN(fVar5) == (fVar5 == 0.0)) {
-      fVar5 = AddNormalizeAngle((vm->rotation).x,
-                                g_Supervisor.effectiveFramerateMultiplier * (vm->angleVel).x);
-      (vm->rotation).x = fVar5;
+    fVar30 = (vm->angleVel).x;
+    if (NAN(fVar30) == (fVar30 == 0.0)) {
+      fVar30 = AddNormalizeAngle((vm->rotation).x,
+                                 g_Supervisor.effectiveFramerateMultiplier * (vm->angleVel).x);
+      (vm->rotation).x = fVar30;
     }
-    fVar5 = (vm->angleVel).y;
-    if (NAN(fVar5) == (fVar5 == 0.0)) {
-      fVar5 = AddNormalizeAngle((vm->rotation).y,
-                                g_Supervisor.effectiveFramerateMultiplier * (vm->angleVel).y);
-      (vm->rotation).y = fVar5;
+    fVar30 = (vm->angleVel).y;
+    if (NAN(fVar30) == (fVar30 == 0.0)) {
+      fVar30 = AddNormalizeAngle((vm->rotation).y,
+                                 g_Supervisor.effectiveFramerateMultiplier * (vm->angleVel).y);
+      (vm->rotation).y = fVar30;
     }
-    fVar5 = (vm->angleVel).z;
-    if (NAN(fVar5) == (fVar5 == 0.0)) {
-      fVar5 = AddNormalizeAngle((vm->rotation).z,
-                                g_Supervisor.effectiveFramerateMultiplier * (vm->angleVel).z);
-      (vm->rotation).z = fVar5;
+    fVar30 = (vm->angleVel).z;
+    if (NAN(fVar30) == (fVar30 == 0.0)) {
+      fVar30 = AddNormalizeAngle((vm->rotation).z,
+                                 g_Supervisor.effectiveFramerateMultiplier * (vm->angleVel).z);
+      (vm->rotation).z = fVar30;
     }
     if (vm->scaleInterpEndTime < 1) {
       vm->scaleY = g_Supervisor.effectiveFramerateMultiplier * vm->scaleInterpFinalY + vm->scaleY;
@@ -291,10 +434,16 @@ LAB_00434338:
         vm->scaleInterpFinalY = 0.0;
         vm->scaleInterpFinalX = 0.0;
       }
-      if ((*(uint *)&vm->flags >> 6 & 1) != 0) {
+      uVar14._0_2_ = vm->flags;
+      uVar14._2_1_ = vm->unk_82[0];
+      uVar14._3_1_ = vm->unk_82[1];
+      if ((uVar14 >> 6 & 1) != 0) {
         vm->scaleX = vm->scaleX * -1.0;
       }
-      if ((*(uint *)&vm->flags >> 6 & 2) != 0) {
+      uVar15._0_2_ = vm->flags;
+      uVar15._2_1_ = vm->unk_82[0];
+      uVar15._3_1_ = vm->unk_82[1];
+      if ((uVar15 >> 6 & 2) != 0) {
         vm->scaleY = vm->scaleY * -1.0;
       }
     }
@@ -335,15 +484,21 @@ LAB_00434338:
       if (1.0 <= local_3c) {
         local_3c = 1.0;
       }
-      uVar4 = *(uint *)&vm->flags >> 10 & 3;
-      if (uVar4 == 1) {
+      uVar16._0_2_ = vm->flags;
+      uVar16._2_1_ = vm->unk_82[0];
+      uVar16._3_1_ = vm->unk_82[1];
+      uVar29 = uVar16 >> 10 & 3;
+      if (uVar29 == 1) {
         local_3c = 1.0 - (1.0 - local_3c) * (1.0 - local_3c);
       }
-      else if (uVar4 == 2) {
+      else if (uVar29 == 2) {
         local_3c = 1.0 - local_3c;
         local_3c = 1.0 - local_3c * local_3c * local_3c * local_3c;
       }
-      if ((*(uint *)&vm->flags >> 5 & 1) == 0) {
+      uVar17._0_2_ = vm->flags;
+      uVar17._2_1_ = vm->unk_82[0];
+      uVar17._3_1_ = vm->unk_82[1];
+      if ((uVar17 >> 5 & 1) == 0) {
         (vm->pos).x = (1.0 - local_3c) * (vm->posInterpInitial).x +
                       local_3c * (vm->posInterpFinal).x;
         (vm->pos).y = (1.0 - local_3c) * (vm->posInterpInitial).y +

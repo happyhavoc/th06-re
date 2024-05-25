@@ -21,7 +21,7 @@ void Player::BombReimuACalc(Player *param_1)
   if ((param_1->bombInfo).bombTimer.current < (param_1->bombInfo).bombDuration) {
     if (((param_1->bombInfo).bombTimer.current != (param_1->bombInfo).bombTimer.previous) &&
        ((param_1->bombInfo).bombTimer.current == 0)) {
-      Gui::string_related(&g_Gui,0x4a1,"霊符「夢想封印」");
+      Gui::ShowBombNamePortrait(&g_Gui,0x4a1,"霊符「夢想封印」");
       (param_1->bombInfo).bombDuration = 300;
       (param_1->invulnerabilityTimer).current = 0x168;
       (param_1->invulnerabilityTimer).subFrame = 0.0;

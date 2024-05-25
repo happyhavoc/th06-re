@@ -16,12 +16,12 @@ undefined4 __thiscall ResultScreen::FUN_0042bc85(ResultScreen *this)
       local_c->pendingInterrupt = (short)this->field17_0x2c + 3;
       local_c = local_c + 1;
     }
-    AnmManager::FUN_00434e20
+    AnmManager::DrawStringFormat2
               (g_AnmManager,&this->unk_28a0,0xffffff,0,(&g_CharacterList)[this->charUsed * 2]);
     if (g_GameManager.shottype != 0) {
       (this->unk_28a0).color.color = 0x80ffffff;
     }
-    AnmManager::FUN_00434e20
+    AnmManager::DrawStringFormat2
               (g_AnmManager,&this->field73_0x29b0,0xffffff,0,
                (&PTR_Hakurei_Reimu__Dream__004784dc)[this->charUsed * 2]);
     if (g_GameManager.shottype != 1) {

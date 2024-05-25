@@ -11,47 +11,47 @@ void __thiscall Gui::calculateStageScore(Gui *this)
   for (local_8 = 0; this_00 = g_AnmManager, local_8 < 0x1a; local_8 = local_8 + 1) {
     if ((local_8 == 0x13) && ((int)(this->impl->msg).current_msg_idx < 0)) {
       if (this->boss_present == false) {
-        if (this->impl->field1_0x1ba0 != 0) {
-          if (this->impl->field1_0x1ba0 < 3) {
+        if (this->impl->bossHealthBarState != 0) {
+          if (this->impl->bossHealthBarState < 3) {
             fVar2 = this->impl;
             fVar2->vms[0x13].anmFileIndex = 0x614;
             AnmManager::SetAndExecuteScript(this_00,fVar2->vms + 0x13,this_00->scripts[0x614]);
-            this->impl->field1_0x1ba0 = 3;
+            this->impl->bossHealthBarState = 3;
           }
-          if (this->field4_0x10 == 0) {
-            this->field4_0x10 = 0;
+          if (this->unk_10 == 0) {
+            this->unk_10 = 0;
           }
           else {
-            this->field4_0x10 = this->field4_0x10 - 4;
+            this->unk_10 = this->unk_10 - 4;
           }
           iVar1 = AnmManager::ExecuteScript(g_AnmManager,this->impl->vms + 0x13);
           if (iVar1 != 0) {
-            this->impl->field1_0x1ba0 = 0;
+            this->impl->bossHealthBarState = 0;
             this->boss_health_bar2 = 0.0;
-            this->field4_0x10 = 0;
+            this->unk_10 = 0;
           }
         }
       }
-      else if (this->impl->field1_0x1ba0 == 0) {
+      else if (this->impl->bossHealthBarState == 0) {
         fVar2 = this->impl;
         fVar2->vms[0x13].anmFileIndex = 0x613;
         AnmManager::SetAndExecuteScript(this_00,fVar2->vms + 0x13,this_00->scripts[0x613]);
-        this->impl->field1_0x1ba0 = 1;
-        this->field4_0x10 = 0;
+        this->impl->bossHealthBarState = 1;
+        this->unk_10 = 0;
       }
       else {
         iVar1 = AnmManager::ExecuteScript(g_AnmManager,this->impl->vms + 0x13);
         if (iVar1 != 0) {
-          this->impl->field1_0x1ba0 = 2;
+          this->impl->bossHealthBarState = 2;
         }
-        if (this->field4_0x10 < 0xfc) {
-          this->field4_0x10 = this->field4_0x10 + 4;
+        if (this->unk_10 < 0xfc) {
+          this->unk_10 = this->unk_10 + 4;
         }
         else {
-          this->field4_0x10 = 0xff;
+          this->unk_10 = 0xff;
         }
       }
-      if (1 < this->impl->field1_0x1ba0) {
+      if (1 < this->impl->bossHealthBarState) {
         if (this->boss_health_bar1 <= this->boss_health_bar2) {
           if ((this->boss_health_bar1 < this->boss_health_bar2 !=
                (NAN(this->boss_health_bar1) || NAN(this->boss_health_bar2))) &&
@@ -73,49 +73,50 @@ void __thiscall Gui::calculateStageScore(Gui *this)
       AnmManager::ExecuteScript(g_AnmManager,this->impl->vms + local_8);
     }
   }
-  AnmManager::ExecuteScript(g_AnmManager,&this->impl->vm1);
-  AnmManager::ExecuteScript(g_AnmManager,&this->impl->vm2);
-  AnmManager::ExecuteScript(g_AnmManager,&this->impl->vm3);
-  AnmManager::ExecuteScript(g_AnmManager,&this->impl->vm5);
-  AnmManager::ExecuteScript(g_AnmManager,&this->impl->vm4);
-  AnmManager::ExecuteScript(g_AnmManager,&this->impl->vm6);
-  if ((-1 < (this->impl->vm9).activeSpriteIndex) &&
-     (iVar1 = AnmManager::ExecuteScript(g_AnmManager,&this->impl->vm9), iVar1 != 0)) {
-    (this->impl->vm9).activeSpriteIndex = -1;
+  AnmManager::ExecuteScript(g_AnmManager,&this->impl->stageNameSprite);
+  AnmManager::ExecuteScript(g_AnmManager,&this->impl->songNameSprite);
+  AnmManager::ExecuteScript(g_AnmManager,&this->impl->playerSpellcardPortrait);
+  AnmManager::ExecuteScript(g_AnmManager,&this->impl->bombSpellcardName);
+  AnmManager::ExecuteScript(g_AnmManager,&this->impl->enemySpellcardPortrait);
+  AnmManager::ExecuteScript(g_AnmManager,&this->impl->enemySpellcardName);
+  if ((-1 < (this->impl->loadingScreenSprite).activeSpriteIndex) &&
+     (iVar1 = AnmManager::ExecuteScript(g_AnmManager,&this->impl->loadingScreenSprite), iVar1 != 0))
+  {
+    (this->impl->loadingScreenSprite).activeSpriteIndex = -1;
   }
-  if ((this->impl->field15_0x2be4).field2_0x10 != 0) {
-    if ((this->impl->field15_0x2be4).field3_0x14.current < 0x1e) {
-      (this->impl->field15_0x2be4).field0_0x0.x =
-           (((float)(this->impl->field15_0x2be4).field3_0x14.current +
-            (this->impl->field15_0x2be4).field3_0x14.subFrame) * -312.0) / 30.0 + 416.0;
+  if ((this->impl->bonusScore).isShown != 0) {
+    if ((this->impl->bonusScore).timer.current < 0x1e) {
+      (this->impl->bonusScore).pos.x =
+           (((float)(this->impl->bonusScore).timer.current + (this->impl->bonusScore).timer.subFrame
+            ) * -312.0) / 30.0 + 416.0;
     }
     else {
-      (this->impl->field15_0x2be4).field0_0x0.x = 104.0;
+      (this->impl->bonusScore).pos.x = 104.0;
     }
-    if (0xf9 < (this->impl->field15_0x2be4).field3_0x14.current) {
-      (this->impl->field15_0x2be4).field2_0x10 = 0;
+    if (0xf9 < (this->impl->bonusScore).timer.current) {
+      (this->impl->bonusScore).isShown = 0;
     }
-    ZunTimer::nextTick(&(this->impl->field15_0x2be4).field3_0x14);
+    ZunTimer::nextTick(&(this->impl->bonusScore).timer);
   }
-  if ((this->impl->field16_0x2c04).field2_0x10 != 0) {
-    if ((this->impl->field16_0x2c04).field3_0x14.current < 0x1e) {
-      (this->impl->field16_0x2c04).field0_0x0.x =
-           (((float)(this->impl->field16_0x2c04).field3_0x14.current +
-            (this->impl->field16_0x2c04).field3_0x14.subFrame) * -312.0) / 30.0 + 416.0;
+  if ((this->impl->fullPowerMode).isShown != 0) {
+    if ((this->impl->fullPowerMode).timer.current < 0x1e) {
+      (this->impl->fullPowerMode).pos.x =
+           (((float)(this->impl->fullPowerMode).timer.current +
+            (this->impl->fullPowerMode).timer.subFrame) * -312.0) / 30.0 + 416.0;
     }
     else {
-      (this->impl->field16_0x2c04).field0_0x0.x = 104.0;
+      (this->impl->fullPowerMode).pos.x = 104.0;
     }
-    if (0xb3 < (this->impl->field16_0x2c04).field3_0x14.current) {
-      (this->impl->field16_0x2c04).field2_0x10 = 0;
+    if (0xb3 < (this->impl->fullPowerMode).timer.current) {
+      (this->impl->fullPowerMode).isShown = 0;
     }
-    ZunTimer::nextTick(&(this->impl->field16_0x2c04).field3_0x14);
+    ZunTimer::nextTick(&(this->impl->fullPowerMode).timer);
   }
-  if ((this->impl->field17_0x2c24).field2_0x10 != 0) {
-    if (0x117 < (this->impl->field17_0x2c24).field3_0x14.current) {
-      (this->impl->field17_0x2c24).field2_0x10 = 0;
+  if ((this->impl->spellCardBonus).isShown != 0) {
+    if (0x117 < (this->impl->spellCardBonus).timer.current) {
+      (this->impl->spellCardBonus).isShown = 0;
     }
-    ZunTimer::nextTick(&(this->impl->field17_0x2c24).field3_0x14);
+    ZunTimer::nextTick(&(this->impl->spellCardBonus).timer);
   }
   if (this->impl->finishedStage == 1) {
     stage_score = (g_GameManager.current_stage * 1000 + g_GameManager.graze_in_stage * 10 +

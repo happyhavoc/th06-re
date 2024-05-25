@@ -60,7 +60,7 @@ void Player::BombReimuBCalc(Player *param_1)
     }
     else {
       ItemManager::RemoveAllItems(&g_ItemManager);
-      Gui::string_related(&g_Gui,0x4a3,"夢符「封魔陣」");
+      Gui::ShowBombNamePortrait(&g_Gui,0x4a3,"夢符「封魔陣」");
       (param_1->bombInfo).bombDuration = 0x8c;
       (param_1->invulnerabilityTimer).current = 200;
       (param_1->invulnerabilityTimer).subFrame = 0.0;

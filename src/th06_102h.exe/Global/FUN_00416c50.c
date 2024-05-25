@@ -6,16 +6,16 @@ void FUN_00416c50(Bullet *param_1)
   
   switch(param_1->state) {
   case 2:
-    anmVm = &(param_1->sprites).spriteSpawnEffectShort;
+    anmVm = &(param_1->sprites).spriteSpawnEffectFast;
     break;
   case 3:
-    anmVm = &(param_1->sprites).spriteSpawnEffectMedium;
+    anmVm = &(param_1->sprites).spriteSpawnEffectNormal;
     break;
   case 4:
-    anmVm = &(param_1->sprites).spriteSpawnEffectLong;
+    anmVm = &(param_1->sprites).spriteSpawnEffectSlow;
     break;
   case 5:
-    anmVm = &(param_1->sprites).spriteSpawnEffectLongMemset;
+    anmVm = &(param_1->sprites).spriteSpawnEffectDonut;
     break;
   default:
     anmVm = (AnmVm *)param_1;

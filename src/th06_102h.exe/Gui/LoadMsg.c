@@ -1,5 +1,5 @@
 
-ZunResult __thiscall Gui::FUN_00418665(Gui *gui,char *path)
+ZunResult __thiscall Gui::LoadMsg(Gui *gui,char *path)
 
 {
   MsgRawHeader *msgHeader;

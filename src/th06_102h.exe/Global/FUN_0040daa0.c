@@ -19,7 +19,7 @@ void __cdecl FUN_0040daa0(Enemy *param_1,AnmRawInstr *param_2)
            (param_1->bullet_props).position.y + (param_1->position).y;
       (param_1->bullet_props).position.z =
            (param_1->bullet_props).position.z + (param_1->position).z;
-      BulletManager::SpawnBullet(&g_BulletManager,&param_1->bullet_props);
+      BulletManager::SpawnBulletPattern(&g_BulletManager,&param_1->bullet_props);
     }
   }
   return;

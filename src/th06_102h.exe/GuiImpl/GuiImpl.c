@@ -11,19 +11,19 @@ GuiImpl * __thiscall GuiImpl::GuiImpl(GuiImpl *this)
     AnmVm::AnmVm(local_10->vms);
     local_10 = (GuiImpl *)(local_10->vms + 1);
   }
-  AnmVm::AnmVm(&this->vm1);
-  AnmVm::AnmVm(&this->vm2);
-  AnmVm::AnmVm(&this->vm3);
-  AnmVm::AnmVm(&this->vm4);
-  AnmVm::AnmVm(&this->vm5);
-  AnmVm::AnmVm(&this->vm6);
-  AnmVm::AnmVm(&this->vm7);
-  AnmVm::AnmVm(&this->vm8);
-  AnmVm::AnmVm(&this->vm9);
+  AnmVm::AnmVm(&this->stageNameSprite);
+  AnmVm::AnmVm(&this->songNameSprite);
+  AnmVm::AnmVm(&this->playerSpellcardPortrait);
+  AnmVm::AnmVm(&this->enemySpellcardPortrait);
+  AnmVm::AnmVm(&this->bombSpellcardName);
+  AnmVm::AnmVm(&this->enemySpellcardName);
+  AnmVm::AnmVm(&this->bombSpellcardBackground);
+  AnmVm::AnmVm(&this->enemySpellcardBackground);
+  AnmVm::AnmVm(&this->loadingScreenSprite);
   GuiMsgVm::GuiMsgVm(&this->msg);
-  ZunTimer::Initialize(&(this->field15_0x2be4).field3_0x14);
-  ZunTimer::Initialize(&(this->field16_0x2c04).field3_0x14);
-  ZunTimer::Initialize(&(this->field17_0x2c24).field3_0x14);
+  ZunTimer::Initialize(&(this->bonusScore).timer);
+  ZunTimer::Initialize(&(this->fullPowerMode).timer);
+  ZunTimer::Initialize(&(this->spellCardBonus).timer);
   return this;
 }
 

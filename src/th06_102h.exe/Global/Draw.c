@@ -2,32 +2,32 @@
 void Draw(Bullet *param_1)
 
 {
-  AnmVm *local_8;
+  AnmVm *anmVm;
   
   switch(param_1->state) {
   case 2:
-    local_8 = &(param_1->sprites).spriteSpawnEffectShort;
+    anmVm = &(param_1->sprites).spriteSpawnEffectFast;
     break;
   case 3:
-    local_8 = &(param_1->sprites).spriteSpawnEffectMedium;
+    anmVm = &(param_1->sprites).spriteSpawnEffectNormal;
     break;
   case 4:
-    local_8 = &(param_1->sprites).spriteSpawnEffectLong;
+    anmVm = &(param_1->sprites).spriteSpawnEffectSlow;
     break;
   case 5:
-    local_8 = &(param_1->sprites).spriteSpawnEffectLongMemset;
+    anmVm = &(param_1->sprites).spriteSpawnEffectDonut;
     break;
   default:
-    local_8 = (AnmVm *)param_1;
+    anmVm = (AnmVm *)param_1;
   }
-  (local_8->pos).x = (param_1->pos).x;
-  (local_8->pos).y = (param_1->pos).y;
-  (local_8->pos).z = 0.0;
-  (local_8->color).color = (local_8->color).color & 0xff000000 | 0xffffff;
-  if (local_8->autoRotate != 0) {
-    (local_8->rotation).z = 1.570796 - param_1->angle;
+  (anmVm->pos).x = (param_1->pos).x;
+  (anmVm->pos).y = (param_1->pos).y;
+  (anmVm->pos).z = 0.0;
+  (anmVm->color).color = (anmVm->color).color & 0xff000000 | 0xffffff;
+  if (anmVm->autoRotate != 0) {
+    (anmVm->rotation).z = 1.570796 - param_1->angle;
   }
-  AnmManager::FUN_00433590(g_AnmManager,local_8);
+  AnmManager::FUN_00433590(g_AnmManager,anmVm);
   return;
 }
 

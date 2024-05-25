@@ -2,8 +2,21 @@
 void __thiscall AnmManager::SetRenderStateForVm(AnmManager *this,AnmVm *vm)
 
 {
-  if ((uint)this->currentBlendMode != (*(uint *)&vm->flags >> 2 & 1)) {
-    this->currentBlendMode = (byte)(*(uint *)&vm->flags >> 2) & 1;
+  uint uVar1;
+  uint uVar2;
+  uint uVar3;
+  uint uVar4;
+  uint uVar5;
+  uint uVar6;
+  
+  uVar1._0_2_ = vm->flags;
+  uVar1._2_1_ = vm->unk_82[0];
+  uVar1._3_1_ = vm->unk_82[1];
+  if ((uint)this->currentBlendMode != (uVar1 >> 2 & 1)) {
+    uVar2._0_2_ = vm->flags;
+    uVar2._2_1_ = vm->unk_82[0];
+    uVar2._3_1_ = vm->unk_82[1];
+    this->currentBlendMode = (byte)(uVar2 >> 2) & 1;
     if (this->currentBlendMode == '\0') {
       (*(g_Supervisor.d3dDevice)->lpVtbl->SetRenderState)
                 (g_Supervisor.d3dDevice,D3DRS_DESTBLEND,D3DBLEND_INVSRCALPHA);
@@ -14,8 +27,12 @@ void __thiscall AnmManager::SetRenderStateForVm(AnmManager *this,AnmVm *vm)
     }
   }
   if ((((g_Supervisor.cfg.opts & 1) == 0) && ((g_Supervisor.cfg.opts >> 8 & 1) == 0)) &&
-     ((uint)this->currentColorOp != (*(uint *)&vm->flags >> 3 & 1))) {
-    this->currentColorOp = (byte)(*(uint *)&vm->flags >> 3) & 1;
+     (uVar3._0_2_ = vm->flags, uVar3._2_1_ = vm->unk_82[0], uVar3._3_1_ = vm->unk_82[1],
+     (uint)this->currentColorOp != (uVar3 >> 3 & 1))) {
+    uVar4._0_2_ = vm->flags;
+    uVar4._2_1_ = vm->unk_82[0];
+    uVar4._3_1_ = vm->unk_82[1];
+    this->currentColorOp = (byte)(uVar4 >> 3) & 1;
     if (this->currentColorOp == '\0') {
       (*(g_Supervisor.d3dDevice)->lpVtbl->SetTextureStageState)
                 (g_Supervisor.d3dDevice,0,D3DTSS_COLOROP,D3DTOP_MODULATE);
@@ -43,8 +60,12 @@ void __thiscall AnmManager::SetRenderStateForVm(AnmManager *this,AnmVm *vm)
     g_PrimitivesToDrawUnknown[3].diffuse = (vm->color).color;
   }
   if (((g_Supervisor.cfg.opts >> TURN_OFF_DEPTH_TEST & 1) == 0) &&
-     ((uint)this->currentZWriteDisable != (*(uint *)&vm->flags >> 0xc & 1))) {
-    this->currentZWriteDisable = (byte)(*(uint *)&vm->flags >> 0xc) & 1;
+     (uVar5._0_2_ = vm->flags, uVar5._2_1_ = vm->unk_82[0], uVar5._3_1_ = vm->unk_82[1],
+     (uint)this->currentZWriteDisable != (uVar5 >> 0xc & 1))) {
+    uVar6._0_2_ = vm->flags;
+    uVar6._2_1_ = vm->unk_82[0];
+    uVar6._3_1_ = vm->unk_82[1];
+    this->currentZWriteDisable = (byte)(uVar6 >> 0xc) & 1;
     if (this->currentZWriteDisable == '\0') {
       (*(g_Supervisor.d3dDevice)->lpVtbl->SetRenderState)
                 (g_Supervisor.d3dDevice,D3DRS_ZWRITEENABLE,1);

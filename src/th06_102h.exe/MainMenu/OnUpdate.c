@@ -7,9 +7,18 @@ ChainCallbackResult MainMenu::OnUpdate(MainMenu *menu)
   ZunResult startedUp;
   int pressedButton;
   int gameState;
+  uint uVar2;
+  uint uVar3;
+  uint uVar4;
+  uint uVar5;
   byte *pvVar3;
   ZunResult ZVar1;
-  bool bVar2;
+  uint uVar6;
+  uint uVar7;
+  uint uVar8;
+  uint uVar9;
+  uint uVar10;
+  bool bVar11;
   uint chosenStage;
   uint local_b4;
   D3DXVECTOR3 pos5;
@@ -115,20 +124,44 @@ drawStartMenuCase:
     }
     for (i = 0; i < 9; i = i + 1) {
       if (menu->controlMapping[i] < 0) {
-        *(uint *)&vm_memset->flags = *(uint *)&vm_memset->flags & 0xfffffffd;
+        uVar2._0_2_ = vm_memset->flags;
+        uVar2._2_1_ = vm_memset->unk_82[0];
+        uVar2._3_1_ = vm_memset->unk_82[1];
+        uVar2 = uVar2 & 0xfffffffd;
+        vm_memset->flags = (short)uVar2;
+        vm_memset->unk_82[0] = (char)(uVar2 >> 0x10);
+        vm_memset->unk_82[1] = (char)(uVar2 >> 0x18);
       }
       else {
-        *(uint *)&vm_memset->flags = *(uint *)&vm_memset->flags | 2;
+        uVar3._0_2_ = vm_memset->flags;
+        uVar3._2_1_ = vm_memset->unk_82[0];
+        uVar3._3_1_ = vm_memset->unk_82[1];
+        uVar3 = uVar3 | 2;
+        vm_memset->flags = (short)uVar3;
+        vm_memset->unk_82[0] = (char)(uVar3 >> 0x10);
+        vm_memset->unk_82[1] = (char)(uVar3 >> 0x18);
         DrawMenuItem(vm_memset,i,menu->cursor,menu->color2,menu->color1,0x73);
       }
       vm_memset = vm_memset + 1;
     }
     for (i = 0; i < 18; i = i + 1) {
       if (menu->controlMapping[i / 2] < 0) {
-        *(uint *)&vm_memset->flags = *(uint *)&vm_memset->flags & 0xfffffffd;
+        uVar4._0_2_ = vm_memset->flags;
+        uVar4._2_1_ = vm_memset->unk_82[0];
+        uVar4._3_1_ = vm_memset->unk_82[1];
+        uVar4 = uVar4 & 0xfffffffd;
+        vm_memset->flags = (short)uVar4;
+        vm_memset->unk_82[0] = (char)(uVar4 >> 0x10);
+        vm_memset->unk_82[1] = (char)(uVar4 >> 0x18);
       }
       else {
-        *(uint *)&vm_memset->flags = *(uint *)&vm_memset->flags | 2;
+        uVar5._0_2_ = vm_memset->flags;
+        uVar5._2_1_ = vm_memset->unk_82[0];
+        uVar5._3_1_ = vm_memset->unk_82[1];
+        uVar5 = uVar5 | 2;
+        vm_memset->flags = (short)uVar5;
+        vm_memset->unk_82[0] = (char)(uVar5 >> 0x10);
+        vm_memset->unk_82[1] = (char)(uVar5 >> 0x18);
         if (i % 2 == 0) {
           AnmManager::SetActiveSprite
                     (g_AnmManager,vm_memset,(int)menu->controlMapping[i / 2] / 10 + 0x100);
@@ -280,11 +313,23 @@ drawStartMenuCase:
         }
         vm_memset = vm_memset + 1;
       }
-      *(uint *)&vm_memset->flags = *(uint *)&vm_memset->flags & 0xfffffffd;
+      uVar6._0_2_ = vm_memset->flags;
+      uVar6._2_1_ = vm_memset->unk_82[0];
+      uVar6._3_1_ = vm_memset->unk_82[1];
+      uVar6 = uVar6 & 0xfffffffd;
+      vm_memset->flags = (short)uVar6;
+      vm_memset->unk_82[0] = (char)(uVar6 >> 0x10);
+      vm_memset->unk_82[1] = (char)(uVar6 >> 0x18);
     }
     else {
       for (i = 0; i < 4; i = i + 1) {
-        *(uint *)&vm_memset->flags = *(uint *)&vm_memset->flags & 0xfffffffd;
+        uVar7._0_2_ = vm_memset->flags;
+        uVar7._2_1_ = vm_memset->unk_82[0];
+        uVar7._3_1_ = vm_memset->unk_82[1];
+        uVar7 = uVar7 & 0xfffffffd;
+        vm_memset->flags = (short)uVar7;
+        vm_memset->unk_82[0] = (char)(uVar7 >> 0x10);
+        vm_memset->unk_82[1] = (char)(uVar7 >> 0x18);
         vm_memset = vm_memset + 1;
       }
       for (i = 4; i < 5; i = i + 1) {
@@ -507,13 +552,31 @@ LAB_0043666d:
     }
     vm_memset = menu->vmList + 0x5c;
     for (i = 0; i < 2; i = i + 1) {
-      *(uint *)&vm_memset[1].flags = *(uint *)&vm_memset[1].flags | 8;
+      uVar8._0_2_ = vm_memset[1].flags;
+      uVar8._2_1_ = vm_memset[1].unk_82[0];
+      uVar8._3_1_ = vm_memset[1].unk_82[1];
+      uVar8 = uVar8 | 8;
+      vm_memset[1].flags = (short)uVar8;
+      vm_memset[1].unk_82[0] = (char)(uVar8 >> 0x10);
+      vm_memset[1].unk_82[1] = (char)(uVar8 >> 0x18);
       vm_memset = vm_memset + 2;
     }
     vm_memset = menu->vmList + (uint)g_GameManager.character * 2 + 0x5c;
     for (i = 0; i < 2; i = i + 1) {
-      *(uint *)&vm_memset->flags = *(uint *)&vm_memset->flags | 8;
-      *(uint *)&vm_memset->flags = *(uint *)&vm_memset->flags | 1;
+      uVar9._0_2_ = vm_memset->flags;
+      uVar9._2_1_ = vm_memset->unk_82[0];
+      uVar9._3_1_ = vm_memset->unk_82[1];
+      uVar9 = uVar9 | 8;
+      vm_memset->flags = (short)uVar9;
+      vm_memset->unk_82[0] = (char)(uVar9 >> 0x10);
+      vm_memset->unk_82[1] = (char)(uVar9 >> 0x18);
+      uVar10._0_2_ = vm_memset->flags;
+      uVar10._2_1_ = vm_memset->unk_82[0];
+      uVar10._3_1_ = vm_memset->unk_82[1];
+      uVar10 = uVar10 | 1;
+      vm_memset->flags = (short)uVar10;
+      vm_memset->unk_82[0] = (char)(uVar10 >> 0x10);
+      vm_memset->unk_82[1] = (char)(uVar10 >> 0x18);
       if (i == menu->cursor) {
         if ((g_Supervisor.cfg.opts & 1) == 0) {
           (vm_memset->color).color = 0xff202020;
@@ -761,16 +824,16 @@ LAB_00436de7:
   menu->stateTimer = menu->stateTimer + 1;
   for (i = 0; i < 122; i = i + 1) {
     if (menu->vmList[i].sprite == (AnmLoadedSprite *)0x0) {
-      bVar2 = false;
+      bVar11 = false;
     }
     else if ((menu->vmList[i].sprite)->sourceFileIndex < 0) {
-      bVar2 = false;
+      bVar11 = false;
     }
     else {
-      bVar2 = g_AnmManager->textures[(menu->vmList[i].sprite)->sourceFileIndex] !=
-              (IDirect3DTexture8 *)0x0;
+      bVar11 = g_AnmManager->textures[(menu->vmList[i].sprite)->sourceFileIndex] !=
+               (IDirect3DTexture8 *)0x0;
     }
-    if (bVar2) {
+    if (bVar11) {
       AnmManager::ExecuteScript(g_AnmManager,menu->vmList + i);
     }
   }

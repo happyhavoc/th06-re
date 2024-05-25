@@ -92,46 +92,43 @@ void Gui::OnDraw(Gui *arg)
     ;
     g_AsciiManager.color = 0xffffffff;
   }
-  GuiImpl::FUN_004190ec(arg->impl);
-  DrawStageIntro(arg);
+  GuiImpl::DrawDialogue(arg->impl);
+  DrawStageElements(arg);
   drawGameScene(arg);
   g_AsciiManager.isGui = 1;
-  if ((arg->impl->field15_0x2be4).field2_0x10 != 0) {
+  if ((arg->impl->bonusScore).isShown != 0) {
     g_AsciiManager.color = 0xffffff80;
     AsciiManager::AddFormatText
-              (&g_AsciiManager,&(arg->impl->field15_0x2be4).field0_0x0,"BONUS %8d",
-               (arg->impl->field15_0x2be4).field1_0xc);
+              (&g_AsciiManager,&(arg->impl->bonusScore).pos,"BONUS %8d",
+               (arg->impl->bonusScore).fmtArg);
     g_AsciiManager.color = 0xffffffff;
   }
-  if ((arg->impl->field16_0x2c04).field2_0x10 != 0) {
+  if ((arg->impl->fullPowerMode).isShown != 0) {
     g_AsciiManager.color = 0xffc0b0ff;
     AsciiManager::AddFormatText
-              (&g_AsciiManager,&(arg->impl->field16_0x2c04).field0_0x0,"Full Power Mode!!",
-               (arg->impl->field16_0x2c04).field1_0xc);
+              (&g_AsciiManager,&(arg->impl->fullPowerMode).pos,"Full Power Mode!!",
+               (arg->impl->fullPowerMode).fmtArg);
     g_AsciiManager.color = 0xffffffff;
   }
-  if ((arg->impl->field17_0x2c24).field2_0x10 != 0) {
+  if ((arg->impl->spellCardBonus).isShown != 0) {
     g_AsciiManager.color = 0xffff0000;
-    (arg->impl->field17_0x2c24).field0_0x0.x = 88.0;
-    (arg->impl->field17_0x2c24).field0_0x0.y = 80.0;
+    (arg->impl->spellCardBonus).pos.x = 88.0;
+    (arg->impl->spellCardBonus).pos.y = 80.0;
     AsciiManager::AddFormatText
-              (&g_AsciiManager,&(arg->impl->field17_0x2c24).field0_0x0,"Spell Card Bonus!");
-    (arg->impl->field17_0x2c24).field0_0x0.y = (arg->impl->field17_0x2c24).field0_0x0.y + 16.0;
-    sprintf(&local_34,
-            (char *)&
-                    PTR_g_BulletManager_bullets_418__sprites_spriteSpawnEffectLongMemset_offset_y_3_0046a7f4
-            ,(arg->impl->field17_0x2c24).field1_0xc);
+              (&g_AsciiManager,&(arg->impl->spellCardBonus).pos,"Spell Card Bonus!");
+    (arg->impl->spellCardBonus).pos.y = (arg->impl->spellCardBonus).pos.y + 16.0;
+    sprintf(&local_34,"+%d",(arg->impl->spellCardBonus).fmtArg);
     local_40 = &local_34;
     do {
       cVar1 = *local_40;
       local_40 = local_40 + 1;
     } while (cVar1 != '\0');
-    (arg->impl->field17_0x2c24).field0_0x0.x =
+    (arg->impl->spellCardBonus).pos.x =
          (384.0 - (float)(ulonglong)(uint)((int)local_40 - (int)auStack_33) * 32.0) / 2.0 + 32.0;
     g_AsciiManager.scale.x = 2.0;
     g_AsciiManager.scale.y = 2.0;
     g_AsciiManager.color = 0xffff8080;
-    AsciiManager::AddString(&g_AsciiManager,&(arg->impl->field17_0x2c24).field0_0x0,&local_34);
+    AsciiManager::AddString(&g_AsciiManager,&(arg->impl->spellCardBonus).pos,&local_34);
     g_AsciiManager.scale.x = 1.0;
     g_AsciiManager.scale.y = 1.0;
     g_AsciiManager.color = 0xffffffff;

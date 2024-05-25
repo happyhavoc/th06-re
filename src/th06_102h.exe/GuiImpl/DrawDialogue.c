@@ -1,5 +1,5 @@
 
-ZunResult __thiscall GuiImpl::FUN_004190ec(GuiImpl *this)
+ZunResult __thiscall GuiImpl::DrawDialogue(GuiImpl *this)
 
 {
   ZunResult uVar1;

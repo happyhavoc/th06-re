@@ -2,7 +2,12 @@
 int __thiscall StageMenu::OnUpdateGameMenu(StageMenu *this)
 
 {
-  AnmManager *pAVar1;
+  uint uVar1;
+  uint uVar2;
+  AnmVm *pAVar3;
+  AnmManager *pAVar4;
+  uint uVar5;
+  uint uVar6;
   short local_6c;
   int local_8;
   
@@ -10,7 +15,11 @@ int __thiscall StageMenu::OnUpdateGameMenu(StageMenu *this)
      ((g_CurFrameInput & KEY_MENU) != (g_LastFrameInput & KEY_MENU))) {
     this->curState = 3;
     for (local_8 = 0; local_8 < 6; local_8 = local_8 + 1) {
-      if ((*(uint *)&this->vms0[local_8].flags & 1) != 0) {
+      pAVar3 = this->vms0 + local_8;
+      uVar1._0_2_ = pAVar3->flags;
+      uVar1._2_1_ = pAVar3->unk_82[0];
+      uVar1._3_1_ = pAVar3->unk_82[1];
+      if ((uVar1 & 1) != 0) {
         this->vms0[local_8].pendingInterrupt = 2;
       }
     }
@@ -21,7 +30,11 @@ int __thiscall StageMenu::OnUpdateGameMenu(StageMenu *this)
   {
     this->curState = 6;
     for (local_8 = 0; local_8 < 6; local_8 = local_8 + 1) {
-      if ((*(uint *)&this->vms0[local_8].flags & 1) != 0) {
+      pAVar3 = this->vms0 + local_8;
+      uVar2._0_2_ = pAVar3->flags;
+      uVar2._2_1_ = pAVar3->unk_82[0];
+      uVar2._3_1_ = pAVar3->unk_82[1];
+      if ((uVar2 & 1) != 0) {
         this->vms0[local_8].pendingInterrupt = 2;
       }
     }
@@ -29,26 +42,26 @@ int __thiscall StageMenu::OnUpdateGameMenu(StageMenu *this)
   }
   switch(this->curState) {
   case 0:
-    for (local_8 = 0; pAVar1 = g_AnmManager, local_8 < 6; local_8 = local_8 + 1) {
+    for (local_8 = 0; pAVar4 = g_AnmManager, local_8 < 6; local_8 = local_8 + 1) {
       local_6c = (short)local_8 + 2;
       this->vms0[local_8].anmFileIndex = local_6c;
-      AnmManager::SetAndExecuteScript(pAVar1,this->vms0 + local_8,pAVar1->scripts[local_8 + 2]);
+      AnmManager::SetAndExecuteScript(pAVar4,this->vms0 + local_8,pAVar4->scripts[local_8 + 2]);
     }
     for (local_8 = 0; local_8 < 3; local_8 = local_8 + 1) {
       this->vms0[local_8].pendingInterrupt = 1;
     }
     this->curState = this->curState + 1;
     this->numFrames = 0;
-    pAVar1 = g_AnmManager;
+    pAVar4 = g_AnmManager;
     if (g_Supervisor.lockableBackbuffer != 0) {
       g_AnmManager->screenshot_textureId = 3;
-      pAVar1->screenshot_left = 0x20;
-      pAVar1->screenshot_top = 0x10;
-      pAVar1->screenshot_width = 0x180;
-      pAVar1->screenshot_height = 0x1c0;
-      pAVar1 = g_AnmManager;
+      pAVar4->screenshot_left = 0x20;
+      pAVar4->screenshot_top = 0x10;
+      pAVar4->screenshot_width = 0x180;
+      pAVar4->screenshot_height = 0x1c0;
+      pAVar4 = g_AnmManager;
       (this->vm1).anmFileIndex = 0x718;
-      AnmManager::SetAndExecuteScript(pAVar1,&this->vm1,pAVar1->scripts[0x718]);
+      AnmManager::SetAndExecuteScript(pAVar4,&this->vm1,pAVar4->scripts[0x718]);
       (this->vm1).pos.x = 32.0;
       (this->vm1).pos.y = 16.0;
       (this->vm1).pos.z = 0.0;
@@ -121,7 +134,15 @@ int __thiscall StageMenu::OnUpdateGameMenu(StageMenu *this)
       this->curState = 0;
       g_GameManager.is_in_game_menu = 0;
       for (local_8 = 0; local_8 < 6; local_8 = local_8 + 1) {
-        *(uint *)&this->vms0[local_8].flags = *(uint *)&this->vms0[local_8].flags & 0xfffffffe;
+        pAVar3 = this->vms0 + local_8;
+        uVar6._0_2_ = pAVar3->flags;
+        uVar6._2_1_ = pAVar3->unk_82[0];
+        uVar6._3_1_ = pAVar3->unk_82[1];
+        uVar6 = uVar6 & 0xfffffffe;
+        pAVar3 = this->vms0 + local_8;
+        pAVar3->flags = (short)uVar6;
+        pAVar3->unk_82[0] = (char)(uVar6 >> 0x10);
+        pAVar3->unk_82[1] = (char)(uVar6 >> 0x18);
       }
     }
     break;
@@ -193,7 +214,15 @@ int __thiscall StageMenu::OnUpdateGameMenu(StageMenu *this)
       g_GameManager.is_in_game_menu = 0;
       g_Supervisor.curState = 1;
       for (local_8 = 0; local_8 < 6; local_8 = local_8 + 1) {
-        *(uint *)&this->vms0[local_8].flags = *(uint *)&this->vms0[local_8].flags & 0xfffffffe;
+        pAVar3 = this->vms0 + local_8;
+        uVar5._0_2_ = pAVar3->flags;
+        uVar5._2_1_ = pAVar3->unk_82[0];
+        uVar5._3_1_ = pAVar3->unk_82[1];
+        uVar5 = uVar5 & 0xfffffffe;
+        pAVar3 = this->vms0 + local_8;
+        pAVar3->flags = (short)uVar5;
+        pAVar3->unk_82[0] = (char)(uVar5 >> 0x10);
+        pAVar3->unk_82[1] = (char)(uVar5 >> 0x18);
       }
     }
   }

@@ -5,15 +5,15 @@ void * AnmVm::FUN_00414670(EnemyLaserShooter *laser_shooter)
 
 {
   ushort uVar1;
-  uint uVar2;
-  AnmManager *pAVar3;
+  AnmManager *pAVar2;
   int in_ECX;
+  uint uVar3;
   float fVar4;
   short local_10;
   AnmVm *local_c;
   int local_8;
   
-  pAVar3 = g_AnmManager;
+  pAVar2 = g_AnmManager;
   local_c = (AnmVm *)(in_ECX + 0xec000);
   local_8 = 0;
   while( true ) {
@@ -27,15 +27,21 @@ void * AnmVm::FUN_00414670(EnemyLaserShooter *laser_shooter)
   uVar1 = laser_shooter->sprite;
   local_10 = uVar1 + 0x209;
   local_c->anmFileIndex = local_10;
-  AnmManager::SetAndExecuteScript(pAVar3,local_c,pAVar3->scripts[(short)uVar1 + 0x209]);
+  AnmManager::SetAndExecuteScript(pAVar2,local_c,pAVar2->scripts[(short)uVar1 + 0x209]);
   AnmManager::SetActiveSprite
             (g_AnmManager,local_c,(int)local_c->activeSpriteIndex + (int)(short)laser_shooter->color
             );
-  pAVar3 = g_AnmManager;
-  uVar2 = UINT_ARRAY_00476440[(short)laser_shooter->color];
+  pAVar2 = g_AnmManager;
+  uVar3 = UINT_ARRAY_00476440[(short)laser_shooter->color];
   Initialize(local_c + 1);
-  AnmManager::SetActiveSprite(pAVar3,local_c + 1,uVar2 + 0x28c);
-  *(uint *)&local_c[1].flags = *(uint *)&local_c[1].flags | 4;
+  AnmManager::SetActiveSprite(pAVar2,local_c + 1,uVar3 + 0x28c);
+  uVar3._0_2_ = local_c[1].flags;
+  uVar3._2_1_ = local_c[1].unk_82[0];
+  uVar3._3_1_ = local_c[1].unk_82[1];
+  uVar3 = uVar3 | 4;
+  local_c[1].flags = (short)uVar3;
+  local_c[1].unk_82[0] = (char)(uVar3 >> 0x10);
+  local_c[1].unk_82[1] = (char)(uVar3 >> 0x18);
   local_c[2].rotation.x = (laser_shooter->position).x;
   local_c[2].rotation.y = (laser_shooter->position).y;
   local_c[2].rotation.z = (laser_shooter->position).z;

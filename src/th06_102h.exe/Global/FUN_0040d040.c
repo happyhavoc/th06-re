@@ -104,7 +104,7 @@ void FUN_0040d040(Enemy *this,AnmRawInstr *param_2)
           (this->bullet_props).position.x = local_dc[local_60 * 3];
           (this->bullet_props).position.y = local_5c.position.y;
           (this->bullet_props).position.z = local_5c.position.z;
-          BulletManager::SpawnBullet(&g_BulletManager,&this->bullet_props);
+          BulletManager::SpawnBulletPattern(&g_BulletManager,&this->bullet_props);
         }
         iVar1 = local_60;
         dVar2 = cos((double)local_78);

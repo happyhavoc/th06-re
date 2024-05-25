@@ -12,8 +12,8 @@ AnmManager::DrawText
   if (fontHeight2 < 1) {
     fontHeight2 = 0xf;
   }
-  FUN_0041f050(xPos,yPos,spriteWidth,spriteHeight,fontWidth,fontHeight2,textColor,shadowColor,
-               strToPrint,this->textures[spriteSrcIndex]);
+  RenderTextToTexture(xPos,yPos,spriteWidth,spriteHeight,fontWidth,fontHeight2,textColor,shadowColor
+                      ,strToPrint,this->textures[spriteSrcIndex]);
   return;
 }
 

@@ -1,27 +1,27 @@
 
-byte * Controller::GetControllerState(void)
+int * Controller::GetControllerState(void)
 
 {
+  DWORD_PTR cookie;
   MMRESULT MVar1;
-  int *piVar2;
-  int i;
-  joyinfoex_tag *joyinfo_ptr;
+  HRESULT HVar2;
   int *piVar3;
-  uint unaff_retaddr;
+  int i;
+  int puVar3;
+  joyinfoex_tag *joyinfo_ptr;
+  int *puVar4;
   int local_160;
-  char local_15c;
-  char local_12c;
-  uint local_48;
+  DIJOYSTATE local_15c;
   HRESULT local_44;
   uint local_40;
   uint local_3c;
   joyinfoex_tag joyinfo;
   
-  local_48 = __security_cookie ^ unaff_retaddr;
-  piVar2 = g_ControllerData;
+  cookie = __security_cookie;
+  piVar3 = g_ControllerData;
   for (i = 32; i != 0; i = i + -1) {
-    *piVar2 = 0;
-    piVar2 = piVar2 + 1;
+    *piVar3 = 0;
+    piVar3 = piVar3 + 1;
   }
   if (g_Supervisor.controller == (LPDIRECTINPUTDEVICE8A)0x0) {
     joyinfo_ptr = &joyinfo;
@@ -43,8 +43,8 @@ byte * Controller::GetControllerState(void)
     }
   }
   else {
-    local_44 = (*(g_Supervisor.controller)->lpVtbl->Poll)(g_Supervisor.controller);
-    if (local_44 < 0) {
+    HVar2 = (*(g_Supervisor.controller)->lpVtbl->Poll)(g_Supervisor.controller);
+    if (HVar2 < 0) {
       local_160 = 0;
       DebugPrint2("error : DIERR_INPUTLOST\n");
       local_44 = (*(g_Supervisor.controller)->lpVtbl->Acquire)(g_Supervisor.controller);
@@ -58,19 +58,19 @@ byte * Controller::GetControllerState(void)
     else {
       (*(g_Supervisor.controller)->lpVtbl->GetDeviceState)(g_Supervisor.controller,0x110,&local_15c)
       ;
-      if (-1 < local_44) {
-        piVar2 = (int *)&local_12c;
-        piVar3 = g_ControllerData;
+      if (-1 < HVar2) {
+        puVar3 = (int)local_15c.rgbButtons;
+        puVar4 = g_ControllerData;
         for (i = 0x20; i != 0; i = i + -1) {
-          *piVar3 = *piVar2;
-          piVar2 = piVar2 + 1;
-          piVar3 = piVar3 + 1;
+          *puVar4 = *(int *)puVar3;
+          puVar3 = puVar3 + 4;
+          puVar4 = puVar4 + 1;
         }
       }
     }
   }
-  piVar2 = g_ControllerData;
-  __security_check_cookie(local_48 ^ unaff_retaddr);
-  return (byte *)piVar2;
+  piVar3 = g_ControllerData;
+  __security_check_cookie(cookie);
+  return piVar3;
 }
 

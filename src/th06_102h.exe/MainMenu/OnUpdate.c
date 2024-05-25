@@ -176,7 +176,7 @@ drawStartMenuCase:
       vm_memset = vm_memset + 1;
     }
     if (31 < menu->stateTimer) {
-      pvVar3 = Controller::GetControllerState();
+      pvVar3 = (byte *)Controller::GetControllerState();
       sVar1 = 0;
       while (((short)sVar1 < 0x20 && ((pvVar3[(short)sVar1] & 0x80) == 0))) {
         sVar1 = sVar1 + 1;

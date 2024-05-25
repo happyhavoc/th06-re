@@ -17,12 +17,13 @@ undefined4 __thiscall ResultScreen::FUN_0042bc85(ResultScreen *this)
       local_c = local_c + 1;
     }
     AnmManager::DrawStringFormat2
-              (g_AnmManager,&this->unk_28a0,0xffffff,0,(&g_CharacterList)[this->charUsed * 2]);
+              (g_AnmManager,&this->unk_28a0,(ZunColor)0xffffff,(ZunColor)0x0,
+               (&g_CharacterList)[this->charUsed * 2]);
     if (g_GameManager.shottype != 0) {
       (this->unk_28a0).color.color = 0x80ffffff;
     }
     AnmManager::DrawStringFormat2
-              (g_AnmManager,&this->field73_0x29b0,0xffffff,0,
+              (g_AnmManager,&this->field73_0x29b0,(ZunColor)0xffffff,(ZunColor)0x0,
                (&PTR_Hakurei_Reimu__Dream__004784dc)[this->charUsed * 2]);
     if (g_GameManager.shottype != 1) {
       (this->field73_0x29b0).color.color = 0x80ffffff;

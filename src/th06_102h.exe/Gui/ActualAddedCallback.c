@@ -261,7 +261,8 @@ ZunResult __thiscall Gui::ActualAddedCallback(Gui *this)
   (gui_impl->songNameSprite).anmFileIndex = 0x701;
   AnmManager::SetAndExecuteScript(anm_mgr,&gui_impl->songNameSprite,anm_mgr->scripts[0x701]);
   AnmManager::DrawStringFormat2
-            (g_AnmManager,&this->impl->stageNameSprite,0xe0ffff,0,(g_Stage.stdData)->stageName);
+            (g_AnmManager,&this->impl->stageNameSprite,(ZunColor)0xe0ffff,(ZunColor)0x0,
+             (g_Stage.stdData)->stageName);
   (this->impl->songNameSprite).fontWidth = '\x10';
   (this->impl->songNameSprite).fontHeight = '\x10';
   AnmManager::DrawStringFormat

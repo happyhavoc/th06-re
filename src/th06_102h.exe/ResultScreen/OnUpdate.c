@@ -177,10 +177,10 @@ undefined4 __thiscall ResultScreen::OnUpdate(ResultScreen *this,ResultScreen *re
              (result_screen->field1_0x4 == 0x14)) {
             result_screen->charUsed = result_screen->cursor;
             AnmManager::DrawStringFormat2
-                      (g_AnmManager,&result_screen->unk_28a0,0xffffff,0,
+                      (g_AnmManager,&result_screen->unk_28a0,(ZunColor)0xffffff,(ZunColor)0x0,
                        (&g_CharacterList)[result_screen->charUsed * 2]);
             AnmManager::DrawStringFormat2
-                      (g_AnmManager,&result_screen->field73_0x29b0,0xffffff,0,
+                      (g_AnmManager,&result_screen->field73_0x29b0,(ZunColor)0xffffff,(ZunColor)0x0,
                        (&PTR_Hakurei_Reimu__Dream__004784dc)[result_screen->charUsed * 2]);
             pRVar3 = extraout_ECX;
           }

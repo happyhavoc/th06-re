@@ -1,5 +1,5 @@
 
-int __thiscall MainMenu::DrawOptionsMenu(MainMenu *this)
+int __thiscall MainMenu::OnUpdateOptionsMenu(MainMenu *this)
 
 {
   AnmVm *OptionsVm;

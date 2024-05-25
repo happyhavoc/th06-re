@@ -104,7 +104,7 @@ drawStartMenuCase:
   case STATE_MAIN_MENU:
     goto drawStartMenuCase;
   case STATE_OPTIONS:
-    gameState = DrawOptionsMenu(menu);
+    gameState = OnUpdateOptionsMenu(menu);
     if (gameState != 0) {
       return CHAIN_CALLBACK_RESULT_CONTINUE_AND_REMOVE_JOB;
     }

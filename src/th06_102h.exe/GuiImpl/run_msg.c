@@ -108,7 +108,7 @@ undefined4 __thiscall GuiImpl::run_msg(GuiImpl *this)
         (this->songNameSprite).fontWidth = '\x10';
         (this->songNameSprite).fontHeight = '\x10';
         AnmManager::DrawStringFormat
-                  (g_AnmManager,&this->songNameSprite,0xe0ffff,0,"♪%s",
+                  (g_AnmManager,&this->songNameSprite,(ZunColor)0xe0ffff,(ZunColor)0x0,"♪%s",
                    (g_Stage.stdData)->song1Name +
                    *(int *)((int)(this->msg).current_instr + 4) * 0x80);
         iVar8 = Supervisor::PlayMidiFile(&g_Supervisor,*(int *)((int)(this->msg).current_instr + 4))
@@ -129,9 +129,9 @@ undefined4 __thiscall GuiImpl::run_msg(GuiImpl *this)
         AnmManager::SetAndExecuteScript(pAVar4,pAVar1,pAVar4->scripts[sVar2 + 0x704]);
         AnmManager::DrawStringFormat
                   (g_AnmManager,(this->msg).intro_lines + *(short *)((int)pvVar3 + 6),
-                   (this->msg).text_colors_A[*(short *)((int)pvVar3 + 4)],
-                   (this->msg).text_colors_B[*(short *)((int)pvVar3 + 4)],(char *)((int)pvVar3 + 8))
-        ;
+                   (ZunColor)(this->msg).text_colors_A[*(short *)((int)pvVar3 + 4)],
+                   (ZunColor)(this->msg).text_colors_B[*(short *)((int)pvVar3 + 4)],
+                   (char *)((int)pvVar3 + 8));
         (this->msg).frames_elapsed_during_pause = 0;
         break;
       case 9:

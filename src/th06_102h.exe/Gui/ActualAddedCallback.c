@@ -265,7 +265,7 @@ ZunResult __thiscall Gui::ActualAddedCallback(Gui *this)
   (this->impl->songNameSprite).fontWidth = '\x10';
   (this->impl->songNameSprite).fontHeight = '\x10';
   AnmManager::DrawStringFormat
-            (g_AnmManager,&this->impl->songNameSprite,0xe0ffff,0,"♪%s",
+            (g_AnmManager,&this->impl->songNameSprite,(ZunColor)0xe0ffff,(ZunColor)0x0,"♪%s",
              (g_Stage.stdData)->song1Name);
   (this->impl->msg).current_msg_idx = 0xffffffff;
   this->impl->finishedStage = 0;

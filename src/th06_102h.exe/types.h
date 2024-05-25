@@ -16296,6 +16296,12 @@ typedef enum SpellcardState {
 
 typedef struct Pbg3Archive *FileAbstractionToPbgArchive;
 
+typedef struct ZunColor ZunColor, *PZunColor;
+
+struct ZunColor {
+    u32 color;
+};
+
 typedef enum EclInsn {
     ECL_INSNNOP=0,
     ECL_INSN_NOP=0,

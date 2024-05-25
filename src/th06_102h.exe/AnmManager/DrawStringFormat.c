@@ -1,6 +1,6 @@
 
 void AnmManager::DrawStringFormat
-               (AnmManager *this,AnmVm *vm,D3DCOLOR textColor,D3DCOLOR shadowColor,char *text,...)
+               (AnmManager *this,AnmVm *vm,ZunColor textColor,ZunColor shadowColor,char *text,...)
 
 {
   uint fontHeight;
@@ -8,8 +8,8 @@ void AnmManager::DrawStringFormat
   long textureWidth;
   long yPos;
   long xPos;
-  D3DCOLOR textColor_00;
-  D3DCOLOR shadowColor_00;
+  ZunColor textColor_00;
+  ZunColor shadowColor_00;
   char *local_60;
   uint fontWidth;
   char buf [68];
@@ -34,14 +34,14 @@ void AnmManager::DrawStringFormat
   pcVar9 = " ";
   fontHeight = (uint)vm->fontHeight;
   fontWidth2 = fontWidth;
-  textColor_00 = textColor;
-  shadowColor_00 = shadowColor;
+  textColor_00.color = textColor.color;
+  shadowColor_00.color = shadowColor.color;
   textureHeight = __ftol2(vm->sprite->textureHeight);
   textureWidth = __ftol2(vm->sprite->textureWidth);
   yPos = __ftol2((vm->sprite->startPixelInclusive).y);
   xPos = __ftol2((vm->sprite->startPixelInclusive).x);
   DrawText(this,vm->sprite->sourceFileIndex,xPos,yPos,textureWidth,textureHeight,fontWidth2,
-           fontHeight,textColor_00,shadowColor_00,pcVar9);
+           fontHeight,textColor_00.color,shadowColor_00.color,pcVar9);
   local_60 = buf;
   do {
     cVar1 = *local_60;
@@ -56,7 +56,7 @@ void AnmManager::DrawStringFormat
   textureWidth = __ftol2(vm->sprite->textureWidth);
   yPos = __ftol2((vm->sprite->startPixelInclusive).y);
   DrawText(this,vm->sprite->sourceFileIndex,local_c,yPos,textureWidth,textureHeight,fontWidth,
-           fontHeight,textColor,shadowColor,pcVar9);
+           fontHeight,textColor.color,shadowColor.color,pcVar9);
   fontHeight._0_2_ = vm->flags;
   fontHeight._2_1_ = vm->unk_82[0];
   fontHeight._3_1_ = vm->unk_82[1];

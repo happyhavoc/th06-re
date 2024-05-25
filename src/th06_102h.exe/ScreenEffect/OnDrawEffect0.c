@@ -1,7 +1,5 @@
 
-/* WARNING: Unknown calling convention -- yet parameter storage is locked */
-
-undefined4 ScreenEffect::OnDrawEffect0(ScreenEffect *param_1)
+ChainCallbackResult ScreenEffect::OnDrawEffect0(ScreenEffect *param_1)
 
 {
   ZunRect local_14;
@@ -16,6 +14,6 @@ undefined4 ScreenEffect::OnDrawEffect0(ScreenEffect *param_1)
   g_Supervisor.viewport.Height = 0x1e0;
   (*(g_Supervisor.d3dDevice)->lpVtbl->SetViewport)(g_Supervisor.d3dDevice,&g_Supervisor.viewport);
   DrawSquare(&local_14,param_1->field4_0x10 << 0x18 | param_1->param3);
-  return 1;
+  return CHAIN_CALLBACK_RESULT_CONTINUE;
 }
 

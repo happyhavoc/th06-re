@@ -34,14 +34,14 @@ ChainCallbackResult EnemyManager::OnUpdate(EnemyManager *param_1)
     Enemy::Move(curEnemy);
     Enemy::ClampPos(curEnemy);
     if (((curEnemy->flags2 >> 2 & 1) == 0) &&
-       (iVar2 = GameManager::IsInbounds
+       (iVar2 = GameManager::IsInBounds
                           ((curEnemy->position).x,(curEnemy->position).y,
                            ((curEnemy->primary_vm).sprite)->widthPx,
                            ((curEnemy->primary_vm).sprite)->heightPx), iVar2 != 0)) {
       curEnemy->flags2 = curEnemy->flags2 | 4;
     }
     if (((curEnemy->flags2 >> 2 & 1) == 1) &&
-       (iVar2 = GameManager::IsInbounds
+       (iVar2 = GameManager::IsInBounds
                           ((curEnemy->position).x,(curEnemy->position).y,
                            ((curEnemy->primary_vm).sprite)->widthPx,
                            ((curEnemy->primary_vm).sprite)->heightPx), iVar2 == 0)) {

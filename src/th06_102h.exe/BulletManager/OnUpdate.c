@@ -153,7 +153,7 @@ switchD_00414a97_caseD_1:
               if ((bulletsPtr->ex_flags & 0x80) == 0) {
                 if ((bulletsPtr->ex_flags & 0x400) == 0) {
                   if (((bulletsPtr->ex_flags & 0x800) != 0) &&
-                     (iVar3 = GameManager::IsInbounds
+                     (iVar3 = GameManager::IsInBounds
                                         ((bulletsPtr->pos).x,(bulletsPtr->pos).y,
                                          ((bulletsPtr->sprites).bulletSprite.sprite)->widthPx,
                                          ((bulletsPtr->sprites).bulletSprite.sprite)->heightPx),
@@ -181,7 +181,7 @@ switchD_00414a97_caseD_1:
                   }
                 }
                 else {
-                  iVar3 = GameManager::IsInbounds
+                  iVar3 = GameManager::IsInBounds
                                     ((bulletsPtr->pos).x,(bulletsPtr->pos).y,
                                      ((bulletsPtr->sprites).bulletSprite.sprite)->widthPx,
                                      ((bulletsPtr->sprites).bulletSprite.sprite)->heightPx);
@@ -289,7 +289,7 @@ switchD_00414a97_caseD_1:
              (bulletsPtr->pos).x;
         (bulletsPtr->pos).y = velY + (bulletsPtr->pos).y;
         (bulletsPtr->pos).z = velZ + (bulletsPtr->pos).z;
-        iVar3 = GameManager::IsInbounds
+        iVar3 = GameManager::IsInBounds
                           ((bulletsPtr->pos).x,(bulletsPtr->pos).y,
                            ((bulletsPtr->sprites).bulletSprite.sprite)->widthPx,
                            ((bulletsPtr->sprites).bulletSprite.sprite)->heightPx);

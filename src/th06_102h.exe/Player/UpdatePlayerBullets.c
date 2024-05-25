@@ -97,7 +97,7 @@ void Player::UpdatePlayerBullets(Player *player)
       (bullet->vm).pos.y = *pfVar7;
       (bullet->vm).pos.z = (bullet->position).z;
       if ((bullet->bulletType != 3) &&
-         (iVar6 = GameManager::IsInbounds
+         (iVar6 = GameManager::IsInBounds
                             ((bullet->position).x,(bullet->position).y,
                              ((bullet->vm).sprite)->widthPx,((bullet->vm).sprite)->heightPx),
          iVar6 == 0)) {

@@ -1,8 +1,8 @@
 
-ZunResult __thiscall MainMenu::WeirdSecondInputCheck(MainMenu *this)
+BOOL __thiscall MainMenu::WeirdSecondInputCheck(MainMenu *this)
 
 {
-  ZunResult result;
+  BOOL result;
   int i;
   D3DXVECTOR3 *d3d_vec;
   
@@ -37,7 +37,7 @@ ZunResult __thiscall MainMenu::WeirdSecondInputCheck(MainMenu *this)
                        been called), 0 when its not ready (loading, or on the title screen), and 60
                        when it is ready and active. */
     this->isActive = 60;
-    result = ZUN_SUCCESS;
+    result = 0;
   }
   return result;
 }

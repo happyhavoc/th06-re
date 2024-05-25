@@ -2,7 +2,7 @@
 /* centerX < 0 && (x - (width / 2)) <= VIEW_WIDTH && centerY < 0 && (y - (height / 2)) <=
    VIEW_HEIGHT */
 
-int GameManager::IsInbounds(float x,float y,float width,float height)
+int GameManager::IsInBounds(float x,float y,float width,float height)
 
 {
   int iVar1;

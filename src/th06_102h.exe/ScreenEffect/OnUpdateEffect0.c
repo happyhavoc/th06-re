@@ -1,5 +1,5 @@
 
-uint ScreenEffect::OnUpdateEffect0(ScreenEffect *param_1)
+ChainCallbackResult ScreenEffect::OnUpdateEffect0(ScreenEffect *param_1)
 
 {
   bool bVar1;
@@ -18,6 +18,6 @@ uint ScreenEffect::OnUpdateEffect0(ScreenEffect *param_1)
     (param_1->timer).previous = (param_1->timer).current;
     Supervisor::TickTimer(&g_Supervisor,&(param_1->timer).current,&(param_1->timer).subFrame);
   }
-  return (uint)bVar1;
+  return bVar1;
 }
 

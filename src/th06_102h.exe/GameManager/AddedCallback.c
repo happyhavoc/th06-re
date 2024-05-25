@@ -168,7 +168,7 @@ ZunResult GameManager::AddedCallback(GameManager *gameManager)
               }
               else {
                 GameErrorContextLog(&g_GameErrorContext,
-                                    "error : 2D表示��初期化に失敗しました\n");
+                                    "error : 2D表示の初期��に失敗しました\n");
                 ZVar4 = ZUN_ERROR;
               }
             }
@@ -197,7 +197,7 @@ ZunResult GameManager::AddedCallback(GameManager *gameManager)
     }
     else {
       GameErrorContextLog(&g_GameErrorContext,
-                          "error : プレイヤーの初期化に失敗しま���た\n");
+                          "error : プレイヤーの初期化に失敗しました\n");
       ZVar4 = ZUN_ERROR;
     }
   }

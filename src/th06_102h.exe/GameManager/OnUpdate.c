@@ -41,7 +41,7 @@ ChainCallbackResult GameManager::OnUpdate(GameManager *this)
   g_Supervisor.viewport.Height = __ftol2((this->arcade_region_size).y);
   g_Supervisor.viewport.MinZ = 0.5;
   g_Supervisor.viewport.MaxZ = 1.0;
-  SetupCamera(0);
+  SetupCamera(0.0);
   (*(g_Supervisor.d3dDevice)->lpVtbl->SetViewport)(g_Supervisor.d3dDevice,(D3DVIEWPORT8 *)0x6c6de0);
   (*(g_Supervisor.d3dDevice)->lpVtbl->Clear)
             (g_Supervisor.d3dDevice,0,(D3DRECT *)0x0,D3DCLEAR_ZBUFFER,g_Stage.skyFog.color,1.0,0);

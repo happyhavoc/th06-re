@@ -1,6 +1,6 @@
 
 ScreenEffect *
-ScreenEffect::RegisterChain(int whichCallback,uint ticks,uint param_3,uint param_4,uint param_5)
+ScreenEffect::RegisterChain(uint whichCallback,uint ticks,uint param_3,uint param_4,uint param_5)
 
 {
   int iVar1;

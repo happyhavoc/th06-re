@@ -1,5 +1,5 @@
 
-int Stage::OnDrawLowPrio(Stage *arg)
+ChainCallbackResult Stage::OnDrawLowPrio(Stage *arg)
 
 {
   AnmManager *this;
@@ -41,6 +41,6 @@ int Stage::OnDrawLowPrio(Stage *arg)
   local_8 = 0x44fa0000;
   (*(g_Supervisor.d3dDevice)->lpVtbl->SetRenderState)
             (g_Supervisor.d3dDevice,D3DRS_FOGEND,0x44fa0000);
-  return 1;
+  return CHAIN_CALLBACK_RESULT_CONTINUE;
 }
 

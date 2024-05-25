@@ -1,5 +1,5 @@
 
-undefined4 BulletManager::OnUpdate(BulletManager *this)
+ChainCallbackResult BulletManager::OnUpdate(BulletManager *this)
 
 {
   byte bVar1;
@@ -458,6 +458,6 @@ LAB_00415e08:
     (this->time).previous = (this->time).current;
     Supervisor::TickTimer(&g_Supervisor,&(this->time).current,&(this->time).subFrame);
   }
-  return 1;
+  return CHAIN_CALLBACK_RESULT_CONTINUE;
 }
 

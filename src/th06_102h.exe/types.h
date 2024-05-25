@@ -233,9 +233,7 @@ typedef struct Bullet Bullet, *PBullet;
 
 typedef struct BulletTypeSprites BulletTypeSprites, *PBulletTypeSprites;
 
-typedef struct _D3DVECTOR _D3DVECTOR, *P_D3DVECTOR;
-
-typedef struct _D3DVECTOR D3DXVECTOR3;
+typedef struct D3DXVECTOR3 D3DXVECTOR3, *PD3DXVECTOR3;
 
 typedef struct ZunTimer ZunTimer, *PZunTimer;
 
@@ -317,15 +315,19 @@ typedef enum AnmOpcode {
 
 typedef struct ZunVec2 ZunVec2, *PZunVec2;
 
+struct D3DXVECTOR3 {
+    float x;
+    float y;
+    float z;
+};
+
 union D3DCOLORUNION {
     D3DCOLOR color;
     byte bytes[4];
 };
 
-struct _D3DVECTOR {
-    float x;
-    float y;
-    float z;
+struct _D3DMATRIX {
+    float m[4][4];
 };
 
 struct D3DXVECTOR2 {
@@ -339,13 +341,9 @@ struct ZunTimer {
     int current;
 };
 
-struct _D3DMATRIX {
-    float m[4][4];
-};
-
 struct AnmVm {
-    D3DXVECTOR3 rotation;
-    D3DXVECTOR3 angleVel;
+    struct D3DXVECTOR3 rotation;
+    struct D3DXVECTOR3 angleVel;
     float scaleY;
     float scaleX;
     float scaleInterpFinalY;
@@ -361,7 +359,7 @@ struct AnmVm {
     ushort autoRotate;
     short pendingInterrupt;
     ushort posInterpEndTime;
-    D3DXVECTOR3 pos;
+    struct D3DXVECTOR3 pos;
     float scaleInterpInitialY;
     float scaleInterpInitialX;
     struct ZunTimer scaleInterpTime;
@@ -373,9 +371,9 @@ struct AnmVm {
     struct AnmLoadedSprite *sprite;
     D3DCOLOR alphaInterpInitial;
     D3DCOLOR alphaInterpFinal;
-    D3DXVECTOR3 posInterpInitial;
-    D3DXVECTOR3 posInterpFinal;
-    D3DXVECTOR3 offset;
+    struct D3DXVECTOR3 posInterpInitial;
+    struct D3DXVECTOR3 posInterpFinal;
+    struct D3DXVECTOR3 offset;
     struct ZunTimer posInterpTime;
     int timeOfLastSpriteSet;
     struct ZunTimer alphaInterpTime;
@@ -389,16 +387,16 @@ struct BulletTypeSprites {
     struct AnmVm spriteSpawnEffectNormal;
     struct AnmVm spriteSpawnEffectSlow;
     struct AnmVm spriteSpawnEffectDonut;
-    D3DXVECTOR3 grazeSize;
+    struct D3DXVECTOR3 grazeSize;
     byte unk_55c;
     byte height;
 };
 
 struct Bullet {
     struct BulletTypeSprites sprites;
-    D3DXVECTOR3 pos;
-    D3DXVECTOR3 velocity;
-    D3DXVECTOR3 ex_4_acceleration;
+    struct D3DXVECTOR3 pos;
+    struct D3DXVECTOR3 velocity;
+    struct D3DXVECTOR3 ex_4_acceleration;
     float speed;
     float ex_5_float_0;
     float dir_change__speed_arg;
@@ -502,7 +500,7 @@ struct ChainElem {
 typedef struct RenderVertexInfo RenderVertexInfo, *PRenderVertexInfo;
 
 struct RenderVertexInfo {
-    D3DXVECTOR3 position;
+    struct D3DXVECTOR3 position;
     struct D3DXVECTOR2 textureUV;
 };
 
@@ -593,8 +591,8 @@ struct PlayerBombInfo {
     void *draw;
     int reimuABombProjectilesState[8];
     float unk3c[8];
-    D3DXVECTOR3 unk5c[8];
-    D3DXVECTOR3 unkbc[8];
+    struct D3DXVECTOR3 unk5c[8];
+    struct D3DXVECTOR3 unkbc[8];
     struct AnmVm vms[8][4];
 };
 
@@ -1059,7 +1057,7 @@ typedef struct AsciiManagerString AsciiManagerString, *PAsciiManagerString;
 
 struct AsciiManagerString {
     char text[64];
-    D3DXVECTOR3 position;
+    struct D3DXVECTOR3 position;
     D3DCOLOR color;
     struct D3DXVECTOR2 scale;
     undefined4 isSelected;
@@ -1110,11 +1108,11 @@ typedef float f32;
 
 struct PlayerBullet {
     struct AnmVm vm;
-    D3DXVECTOR3 position;
-    D3DXVECTOR3 size;
+    struct D3DXVECTOR3 position;
+    struct D3DXVECTOR3 size;
     struct D3DXVECTOR2 velocity;
     f32 sidewaysMotion;
-    D3DXVECTOR3 unk_134;
+    struct D3DXVECTOR3 unk_134;
     struct ZunTimer unk_140;
     short unk_14c;
     short bulletState;
@@ -1138,9 +1136,9 @@ typedef enum ItemType {
 
 struct Item {
     struct AnmVm sprite;
-    D3DXVECTOR3 currentPosition;
-    D3DXVECTOR3 startPosition;
-    D3DXVECTOR3 targetPosition;
+    struct D3DXVECTOR3 currentPosition;
+    struct D3DXVECTOR3 startPosition;
+    struct D3DXVECTOR3 targetPosition;
     struct ZunTimer timer;
     enum ItemType item_type;
     byte is_in_use;
@@ -1185,7 +1183,7 @@ typedef struct AsciiManagerPopup AsciiManagerPopup, *PAsciiManagerPopup;
 
 struct AsciiManagerPopup {
     char digits[8];
-    D3DXVECTOR3 position;
+    struct D3DXVECTOR3 position;
     D3DCOLOR color;
     struct ZunTimer timer;
     uchar inUse;
@@ -1268,7 +1266,7 @@ typedef struct D3DXQUATERNION D3DXQUATERNION, *PD3DXQUATERNION;
 struct EnemyBulletShooter {
     ushort sprite;
     ushort color;
-    D3DXVECTOR3 position;
+    struct D3DXVECTOR3 position;
     float angle1;
     float angle2;
     float speed1;
@@ -1313,7 +1311,7 @@ struct EnemyEclContext {
 struct EnemyLaserShooter {
     ushort sprite;
     ushort color;
-    D3DXVECTOR3 position;
+    struct D3DXVECTOR3 position;
     float angle;
     undefined4 field4_0x14;
     float speed;
@@ -1343,16 +1341,16 @@ struct Enemy {
     short death_callback_sub;
     short interrupts[16];
     int run_interrupt;
-    D3DXVECTOR3 position;
-    D3DXVECTOR3 hitbox_dimensions;
-    D3DXVECTOR3 axis_speed;
+    struct D3DXVECTOR3 position;
+    struct D3DXVECTOR3 hitbox_dimensions;
+    struct D3DXVECTOR3 axis_speed;
     float angle;
     float angular_velocity;
     float speed;
     float acceleration;
-    D3DXVECTOR3 shoot_offset;
-    D3DXVECTOR3 move_interp;
-    D3DXVECTOR3 move_interp_start_pos;
+    struct D3DXVECTOR3 shoot_offset;
+    struct D3DXVECTOR3 move_interp;
+    struct D3DXVECTOR3 move_interp_start_pos;
     struct ZunTimer move_interp_timer;
     int move_interp_start_time;
     float bullet_rank_speed_low;
@@ -1403,15 +1401,15 @@ struct Enemy {
 
 struct Effect {
     struct AnmVm vm;
-    D3DXVECTOR3 pos1;
+    struct D3DXVECTOR3 pos1;
     float field2_0x11c;
     float field3_0x120;
     float field4_0x124;
     float field5_0x128;
     float field6_0x12c;
     float field7_0x130;
-    D3DXVECTOR3 position;
-    D3DXVECTOR3 pos2;
+    struct D3DXVECTOR3 position;
+    struct D3DXVECTOR3 pos2;
     struct D3DXQUATERNION field10_0x14c;
     float field11_0x15c;
     float __angle_related;
@@ -1491,7 +1489,7 @@ typedef struct Laser Laser, *PLaser;
 struct Laser {
     struct AnmVm vm0;
     struct AnmVm vm1;
-    D3DXVECTOR3 pos;
+    struct D3DXVECTOR3 pos;
     float angle;
     float start_offset;
     float end_offset;
@@ -1584,7 +1582,7 @@ struct MsgRawHeader {
 };
 
 struct GuiImplChildB {
-    D3DXVECTOR3 pos;
+    struct D3DXVECTOR3 pos;
     int fmtArg;
     int isShown;
     struct ZunTimer timer;
@@ -1772,17 +1770,17 @@ struct CharacterData {
 struct Player {
     struct AnmVm playerSprite;
     struct AnmVm orbsSprite[3];
-    D3DXVECTOR3 positionCenter;
-    D3DXVECTOR3 unk_44c;
-    D3DXVECTOR3 hitboxTopLeft;
-    D3DXVECTOR3 hitboxBottomRight;
-    D3DXVECTOR3 grabItemTopLeft;
-    D3DXVECTOR3 grabItemBottomRight;
-    D3DXVECTOR3 hitboxSize;
-    D3DXVECTOR3 grabItemSize;
-    D3DXVECTOR3 orbsPosition[2];
-    D3DXVECTOR3 unk_4b8[32];
-    D3DXVECTOR3 unk_638[32];
+    struct D3DXVECTOR3 positionCenter;
+    struct D3DXVECTOR3 unk_44c;
+    struct D3DXVECTOR3 hitboxTopLeft;
+    struct D3DXVECTOR3 hitboxBottomRight;
+    struct D3DXVECTOR3 grabItemTopLeft;
+    struct D3DXVECTOR3 grabItemBottomRight;
+    struct D3DXVECTOR3 hitboxSize;
+    struct D3DXVECTOR3 grabItemSize;
+    struct D3DXVECTOR3 orbsPosition[2];
+    struct D3DXVECTOR3 unk_4b8[32];
+    struct D3DXVECTOR3 unk_638[32];
     int unk_7b8[32];
     int unk_838[32];
     struct PlayerRect unk_8b8[16];
@@ -1802,7 +1800,7 @@ struct Player {
     float previousHorizontalSpeed;
     float previousVerticalSpeed;
     short previousFrameInput;
-    D3DXVECTOR3 position_of_last_enemy_hit;
+    struct D3DXVECTOR3 position_of_last_enemy_hit;
     struct PlayerBullet bullets[80];
     struct ZunTimer fireBulletTimer;
     struct ZunTimer invulnerabilityTimer;
@@ -4017,7 +4015,7 @@ typedef enum _D3DLIGHTTYPE {
 
 typedef enum _D3DLIGHTTYPE D3DLIGHTTYPE;
 
-typedef struct _D3DVECTOR D3DVECTOR;
+typedef struct D3DXVECTOR3 D3DVECTOR;
 
 typedef enum _D3DBASISTYPE {
     D3DBASIS_BEZIER=0,
@@ -5162,7 +5160,7 @@ struct GameManager {
     struct D3DXVECTOR2 unk_1a4c;
     struct D3DXVECTOR2 unk_1a54;
     int unk_1a5c;
-    D3DXVECTOR3 stage_camera_facing_dir;
+    struct D3DXVECTOR3 stage_camera_facing_dir;
     uint counat;
     int rank;
     int max_rank;
@@ -16685,7 +16683,7 @@ struct AnmRawSprite {
 typedef struct Vertex_TEX1_DIFFUSE_XYZ Vertex_TEX1_DIFFUSE_XYZ, *PVertex_TEX1_DIFFUSE_XYZ;
 
 struct Vertex_TEX1_DIFFUSE_XYZ {
-    D3DXVECTOR3 position;
+    struct D3DXVECTOR3 position;
     D3DCOLOR diffuse;
     struct D3DXVECTOR2 textureUV;
 };
@@ -16699,7 +16697,7 @@ struct StdRawQuadBasic {
     short byteSize;
     short anmScript;
     short vmIndex;
-    D3DXVECTOR3 position;
+    struct D3DXVECTOR3 position;
     struct D3DXVECTOR2 size;
 };
 
@@ -16707,8 +16705,8 @@ struct StdRawObject {
     ushort id;
     char field1_0x2;
     uchar flags;
-    D3DXVECTOR3 position;
-    D3DXVECTOR3 size;
+    struct D3DXVECTOR3 position;
+    struct D3DXVECTOR3 size;
     struct StdRawQuadBasic firstQuad;
 };
 
@@ -16839,7 +16837,7 @@ struct Stage {
     int instructionIndex;
     struct ZunTimer timer;
     uint stage;
-    D3DXVECTOR3 position;
+    struct D3DXVECTOR3 position;
     struct StageCameraSky skyFog;
     struct StageCameraSky skyFogInterpInitial;
     struct StageCameraSky skyFogInterpFinal;
@@ -16851,20 +16849,20 @@ struct Stage {
     struct AnmVm field20_0x88;
     struct AnmVm field21_0x198;
     uchar unpauseFlag;
-    D3DXVECTOR3 facingDirInterpInitial;
-    D3DXVECTOR3 facingDirInterpFinal;
+    struct D3DXVECTOR3 facingDirInterpInitial;
+    struct D3DXVECTOR3 facingDirInterpFinal;
     int facingDirInterpDuration;
     struct ZunTimer facingDirInterpTimer;
-    D3DXVECTOR3 positionInterpFinal;
+    struct D3DXVECTOR3 positionInterpFinal;
     int positionInterpEndTime;
-    D3DXVECTOR3 positionInterpInitial;
+    struct D3DXVECTOR3 positionInterpInitial;
     int positionInterpStartTime;
 };
 
 struct StdRawInstance {
     short id;
     ushort field1_0x2;
-    D3DXVECTOR3 position;
+    struct D3DXVECTOR3 position;
 };
 
 typedef struct unk unk, *Punk;
@@ -51018,8 +51016,8 @@ struct ID3DXMatrixStackVtbl {
     HRESULT (*LoadMatrix)(struct IDirect3DVolume8 *, D3DXMATRIX *);
     HRESULT (*MultMatrix)(struct IDirect3DVolume8 *, D3DXMATRIX *);
     HRESULT (*MultMatrixLocal)(struct IDirect3DVolume8 *, D3DXMATRIX *);
-    HRESULT (*RotateAxis)(struct IDirect3DVolume8 *, D3DXVECTOR3 *, FLOAT);
-    HRESULT (*RotateAxisLocal)(struct IDirect3DVolume8 *, D3DXVECTOR3 *, FLOAT);
+    HRESULT (*RotateAxis)(struct IDirect3DVolume8 *, struct D3DXVECTOR3 *, FLOAT);
+    HRESULT (*RotateAxisLocal)(struct IDirect3DVolume8 *, struct D3DXVECTOR3 *, FLOAT);
     HRESULT (*RotateYawPitchRoll)(struct IDirect3DVolume8 *, FLOAT, FLOAT, FLOAT);
     HRESULT (*RotateYawPitchRollLocal)(struct IDirect3DVolume8 *, FLOAT, FLOAT, FLOAT);
     HRESULT (*Scale)(struct IDirect3DVolume8 *, FLOAT, FLOAT, FLOAT);
@@ -51055,7 +51053,7 @@ typedef struct D3DXCOLOR *LPD3DXCOLOR;
 
 typedef struct D3DXQUATERNION *LPD3DXQUATERNION;
 
-typedef struct _D3DVECTOR *LPD3DXVECTOR3;
+typedef struct D3DXVECTOR3 *LPD3DXVECTOR3;
 
 typedef struct D3DXVECTOR2 *LPD3DXVECTOR2;
 
@@ -58964,8 +58962,13 @@ typedef struct IDirectSound3DBuffer *LPDIRECTSOUND3DBUFFER;
 
 typedef struct _DSBUFFERDESC *LPDSBUFFERDESC;
 
+typedef struct _D3DVECTOR _D3DVECTOR, *P_D3DVECTOR;
 
-/* WARNING! conflicting data type names: /deps/dsound.h/_D3DVECTOR - /deps/d3d8types.h/_D3DVECTOR */
+struct _D3DVECTOR {
+    float x;
+    float y;
+    float z;
+};
 
 typedef struct IDirectSoundFXWavesReverb *LPDIRECTSOUNDFXWAVESREVERB8;
 

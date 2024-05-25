@@ -1,5 +1,5 @@
 
-int Stage::OnDrawHighPrio(Stage *arg)
+ChainCallbackResult Stage::OnDrawHighPrio(Stage *arg)
 
 {
   int iVar1;
@@ -20,6 +20,6 @@ int Stage::OnDrawHighPrio(Stage *arg)
       FUN_00404970(arg,1);
     }
   }
-  return 1;
+  return CHAIN_CALLBACK_RESULT_CONTINUE;
 }
 

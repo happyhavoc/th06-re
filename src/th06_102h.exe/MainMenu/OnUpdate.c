@@ -2,7 +2,7 @@
 ChainCallbackResult MainMenu::OnUpdate(MainMenu *menu)
 
 {
-  short sVar1;
+  ushort sVar1;
   DWORD DVar1;
   ZunResult startedUp;
   int pressedButton;
@@ -178,10 +178,10 @@ drawStartMenuCase:
     if (31 < menu->stateTimer) {
       pvVar3 = GetControllerState();
       sVar1 = 0;
-      while ((sVar1 < 0x20 && ((pvVar3[sVar1] & 0x80) == 0))) {
+      while (((short)sVar1 < 0x20 && ((pvVar3[(short)sVar1] & 0x80) == 0))) {
         sVar1 = sVar1 + 1;
       }
-      if ((sVar1 < 0x20) && (g_LastJoystickInput != sVar1)) {
+      if (((short)sVar1 < 0x20) && (g_LastJoystickInput != sVar1)) {
         SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,SOUND_SELECT,0);
         switch(menu->cursor) {
         case 0:

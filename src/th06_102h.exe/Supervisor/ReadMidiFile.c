@@ -1,5 +1,5 @@
 
-BOOL __thiscall Supervisor::ReadMidiFile(Supervisor *this,int param_1,char *path)
+BOOL __thiscall Supervisor::ReadMidiFile(Supervisor *this,uint param_1,char *path)
 
 {
   BOOL BVar1;

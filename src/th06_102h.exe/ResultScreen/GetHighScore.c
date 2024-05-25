@@ -1,6 +1,6 @@
 
 uint ResultScreen::GetHighScore
-               (ScoreDat *score_dat,ScoreListNode *param_2,int character,int difficulty)
+               (ScoreDat *score_dat,ScoreListNode *param_2,uint character,uint difficulty)
 
 {
   Th6k *pTVar1;
@@ -19,7 +19,7 @@ uint ResultScreen::GetHighScore
   for (local_c = score_dat->file_length - score_dat->data_offset; 0 < local_c;
       local_c = local_c - (uint)pTVar1->th6k_len) {
     if (((((local_8->base).magic == 0x52435348) && ((local_8->base).version_ == 0x10)) &&
-        ((uint)local_8->character == character)) && ((uint)local_8->difficulty == difficulty)) {
+        (local_8->character == character)) && (local_8->difficulty == difficulty)) {
       if (param_2 == (ScoreListNode *)0x0) {
         LinkScore(score_dat->scores,local_8);
       }

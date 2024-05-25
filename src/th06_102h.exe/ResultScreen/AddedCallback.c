@@ -8,9 +8,9 @@ ZunResult ResultScreen::AddedCallback(ResultScreen *param_1)
   ScoreDat *pSVar4;
   short local_3c;
   int idx;
-  int character;
+  uint character;
   AnmVm *local_c;
-  int difficulty;
+  uint difficulty;
   
   if (param_1->unk_8 != 0x11) {
     ZVar2 = AnmManager::LoadSurface(g_AnmManager,0,"data/result/result.jpg");
@@ -34,7 +34,7 @@ ZunResult ResultScreen::AddedCallback(ResultScreen *param_1)
       return ZUN_ERROR;
     }
     local_c = &param_1->unk_40;
-    for (difficulty = 0; difficulty < 0x26; difficulty = difficulty + 1) {
+    for (difficulty = 0; (int)difficulty < 0x26; difficulty = difficulty + 1) {
       (local_c->pos).x = 0.0;
       (local_c->pos).y = 0.0;
       (local_c->pos).z = 0.0;
@@ -48,7 +48,8 @@ ZunResult ResultScreen::AddedCallback(ResultScreen *param_1)
       local_c = local_c + 1;
     }
     local_c = &param_1->unk_28a0;
-    for (difficulty = 0; pAVar1 = g_AnmManager, difficulty < 0x10; difficulty = difficulty + 1) {
+    for (difficulty = 0; pAVar1 = g_AnmManager, (int)difficulty < 0x10; difficulty = difficulty + 1)
+    {
       AnmVm::Initialize(local_c);
       AnmManager::SetActiveSprite(pAVar1,local_c,difficulty + 0x708);
       (local_c->pos).x = 0.0;
@@ -66,8 +67,8 @@ ZunResult ResultScreen::AddedCallback(ResultScreen *param_1)
       local_c = local_c + 1;
     }
   }
-  for (difficulty = 0; difficulty < 5; difficulty = difficulty + 1) {
-    for (character = 0; character < 4; character = character + 1) {
+  for (difficulty = 0; (int)difficulty < 5; difficulty = difficulty + 1) {
+    for (character = 0; (int)character < 4; character = character + 1) {
       for (idx = 0; idx < 10; idx = idx + 1) {
         param_1->default_scores[difficulty][character][idx].score = idx * -100000 + 1000000;
         param_1->default_scores[difficulty][character][idx].base.magic = (uint)(char  [4])0x53594d44
@@ -87,8 +88,8 @@ ZunResult ResultScreen::AddedCallback(ResultScreen *param_1)
   *(undefined4 *)&param_1->field_0x14 = 0;
   pSVar4 = OpenScore("score.dat");
   param_1->scoredat = pSVar4;
-  for (difficulty = 0; difficulty < 5; difficulty = difficulty + 1) {
-    for (character = 0; character < 4; character = character + 1) {
+  for (difficulty = 0; (int)difficulty < 5; difficulty = difficulty + 1) {
+    for (character = 0; (int)character < 4; character = character + 1) {
       GetHighScore(param_1->scoredat,param_1->scores + difficulty * 4 + character,character,
                    difficulty);
     }

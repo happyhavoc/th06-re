@@ -1,5 +1,5 @@
 
-int Stage::DeletedCallback(Stage *arg)
+ZunResult Stage::DeletedCallback(Stage *arg)
 
 {
   AnmManager::ReleaseAnm(g_AnmManager,4);
@@ -11,6 +11,6 @@ int Stage::DeletedCallback(Stage *arg)
     _free(arg->stdData);
     arg->stdData = (RawStdHeader *)0x0;
   }
-  return 0;
+  return ZUN_SUCCESS;
 }
 

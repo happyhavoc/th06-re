@@ -1,8 +1,8 @@
 
-undefined4 __thiscall GuiImpl::RunMsg(GuiImpl *this)
+ZunResult __thiscall GuiImpl::RunMsg(GuiImpl *this)
 
 {
-  undefined4 uVar5;
+  ZunResult uVar5;
   uint uVar6;
   short *psVar7;
   int iVar8;
@@ -17,7 +17,7 @@ undefined4 __thiscall GuiImpl::RunMsg(GuiImpl *this)
                     /* This is the MSG VM execute function
                         */
   if ((int)(this->msg).current_msg_idx < 0) {
-    uVar5 = 0xffffffff;
+    uVar5 = ZUN_ERROR;
   }
   else {
     if ((this->msg).ignore_wait_counter != 0) {
@@ -35,7 +35,7 @@ undefined4 __thiscall GuiImpl::RunMsg(GuiImpl *this)
       switch(*(undefined *)((int)(this->msg).current_instr + 2)) {
       case 0:
         (this->msg).current_msg_idx = 0xffffffff;
-        return 0xffffffff;
+        return ZUN_ERROR;
       case 1:
         pvVar3 = (this->msg).current_instr;
         psVar7 = (short *)((int)pvVar3 + 4);
@@ -195,7 +195,7 @@ LAB_00418fe0:
       (this->msg).timer.subFrame = 0.0;
       (this->msg).timer.previous = -999;
     }
-    uVar5 = 0;
+    uVar5 = ZUN_SUCCESS;
   }
   return uVar5;
 }

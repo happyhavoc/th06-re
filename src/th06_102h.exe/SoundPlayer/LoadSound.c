@@ -49,7 +49,7 @@ ZunResult __thiscall SoundPlayer::LoadSound(SoundPlayer *this,int idx,char *path
         compared = _strncmp(sFD_Cursor,"WAVE",4);
         if (compared == 0) {
           sFD_Cursor = sFD_Cursor + 4;
-          wavDataPtr = GetWavFormatData((byte *)sFD_Cursor,"fmt ",&formatSize,fileSize + -12);
+          wavDataPtr = GetWavFormatData(sFD_Cursor,"fmt ",&formatSize,fileSize + -12);
           if (wavDataPtr == (WAVEFORMATEX *)0x0) {
             GameErrorContextLog(&g_GameErrorContext,"Wav ファイルじゃない? %s\n",path);
             _free(soundFileData);
@@ -63,7 +63,7 @@ ZunResult __thiscall SoundPlayer::LoadSound(SoundPlayer *this,int idx,char *path
             wavData.nBlockAlign = wavDataPtr->nBlockAlign;
             wavData.wBitsPerSample = wavDataPtr->wBitsPerSample;
             wavData.cbSize = wavDataPtr->cbSize;
-            wavDataPtr = GetWavFormatData((byte *)sFD_Cursor,"data",&formatSize,fileSize + -0xc);
+            wavDataPtr = GetWavFormatData(sFD_Cursor,"data",&formatSize,fileSize + -0xc);
             if (wavDataPtr == (WAVEFORMATEX *)0x0) {
               GameErrorContextLog(&g_GameErrorContext,"Wav ファイルじゃない? %s\n",path);
               _free(soundFileData);

@@ -11,7 +11,7 @@ int * Controller::GetControllerState(void)
   joyinfoex_tag *joyinfo_ptr;
   int *puVar4;
   int local_160;
-  DIJOYSTATE local_15c;
+  DIJOYSTATE2 local_15c;
   HRESULT local_44;
   uint local_40;
   uint local_3c;

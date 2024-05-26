@@ -1576,9 +1576,11 @@ typedef struct GuiImplChildB GuiImplChildB, *PGuiImplChildB;
 
 typedef struct MsgRawHeader MsgRawHeader, *PMsgRawHeader;
 
+typedef struct MsgRawEntry MsgRawEntry, *PMsgRawEntry;
+
 struct MsgRawHeader {
     int num_entries;
-    void *entries;
+    struct MsgRawEntry *entries[1];
 };
 
 struct GuiImplChildB {
@@ -1622,6 +1624,9 @@ struct GuiImpl {
     struct GuiImplChildB bonusScore;
     struct GuiImplChildB fullPowerMode;
     struct GuiImplChildB spellCardBonus;
+};
+
+struct MsgRawEntry {
 };
 
 typedef struct Pbg3FileName Pbg3FileName, *PPbg3FileName;
@@ -16718,28 +16723,17 @@ struct StdRawObject {
 
 typedef struct StdRawInstr StdRawInstr, *PStdRawInstr;
 
-struct StdRawInstr {
-    int field0_0x0;
-    ushort field1_0x4;
-    ushort field2_0x6;
-    undefined field3_0x8;
-    undefined field4_0x9;
-    undefined field5_0xa;
-    undefined field6_0xb;
-    undefined field7_0xc;
-    undefined field8_0xd;
-    undefined field9_0xe;
-    undefined field10_0xf;
-    undefined field11_0x10;
-    undefined field12_0x11;
-    undefined field13_0x12;
-    undefined field14_0x13;
-};
-
 typedef struct StdRawInstrArgs StdRawInstrArgs, *PStdRawInstrArgs;
 
 struct StdRawInstrArgs {
     int values[3];
+};
+
+struct StdRawInstr {
+    int frame;
+    ushort opcode;
+    ushort size;
+    struct StdRawInstrArgs field3_0x8;
 };
 
 typedef struct StdRawHeader StdRawHeader, *PStdRawHeader;
@@ -16867,7 +16861,7 @@ struct Stage {
 
 struct StdRawInstance {
     short id;
-    ushort field1_0x2;
+    ushort unk_2;
     struct D3DXVECTOR3 position;
 };
 

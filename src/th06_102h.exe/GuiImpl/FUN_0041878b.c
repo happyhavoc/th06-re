@@ -15,7 +15,7 @@ void __thiscall GuiImpl::FUN_0041878b(GuiImpl *param_1_00,int param_2)
     }
     (param_1_00->msg).current_msg_idx = param_2;
     (param_1_00->msg).msg_file = pMVar1;
-    (param_1_00->msg).current_instr = (&((param_1_00->msg).msg_file)->entries)[param_2];
+    (param_1_00->msg).current_instr = ((param_1_00->msg).msg_file)->entries[param_2];
     (param_1_00->msg).dialogue_lines[0].anmFileIndex = -1;
     (param_1_00->msg).dialogue_lines[1].anmFileIndex = -1;
     (param_1_00->msg).font_size = 0xf;

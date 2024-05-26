@@ -15,40 +15,40 @@ ChainCallbackResult Stage::OnUpdate(Stage *arg)
     if ((char)g_GameManager.isTimeStopped == '\0') {
       do {
         local_c = arg->beginningOfScript + arg->instructionIndex;
-        switch(local_c->field1_0x4) {
+        switch(local_c->opcode) {
         case 0:
-          if (local_c->field0_0x0 == -1) {
-            (arg->positionInterpInitial).x = *(float *)&local_c->field_0x8;
-            (arg->positionInterpInitial).y = *(float *)&local_c->field_0xc;
-            (arg->positionInterpInitial).z = *(float *)&local_c->field_0x10;
+          if (local_c->frame == -1) {
+            (arg->positionInterpInitial).x = (float)(local_c->field3_0x8).values[0];
+            (arg->positionInterpInitial).y = (float)(local_c->field3_0x8).values[1];
+            (arg->positionInterpInitial).z = (float)(local_c->field3_0x8).values[2];
             (arg->position).x = (arg->positionInterpInitial).x;
             (arg->position).y = (arg->positionInterpInitial).y;
             (arg->position).z = (arg->positionInterpInitial).z;
           }
-          else if (local_c->field0_0x0 <= (arg->scriptTime).current) {
-            fVar2 = *(float *)&local_c->field_0x8;
-            fVar3 = *(float *)&local_c->field_0xc;
-            fVar1 = *(float *)&local_c->field_0x10;
+          else if (local_c->frame <= (arg->scriptTime).current) {
+            fVar2 = (float)(local_c->field3_0x8).values[0];
+            fVar3 = (float)(local_c->field3_0x8).values[1];
+            fVar1 = (float)(local_c->field3_0x8).values[2];
             (arg->position).x = fVar2;
             (arg->position).y = fVar3;
             (arg->position).z = fVar1;
             (arg->positionInterpInitial).x = fVar2;
             (arg->positionInterpInitial).y = fVar3;
             (arg->positionInterpInitial).z = fVar1;
-            arg->positionInterpStartTime = local_c->field0_0x0;
+            arg->positionInterpStartTime = local_c->frame;
             arg->instructionIndex = arg->instructionIndex + 1;
             do {
               pSVar4 = local_c;
               local_c = pSVar4 + 1;
-            } while (pSVar4[1].field1_0x4 != 0);
-            arg->positionInterpEndTime = local_c->field0_0x0;
-            (arg->positionInterpFinal).x = *(float *)&pSVar4[1].field_0x8;
-            (arg->positionInterpFinal).y = *(float *)&pSVar4[1].field_0xc;
-            (arg->positionInterpFinal).z = *(float *)&pSVar4[1].field_0x10;
+            } while (pSVar4[1].opcode != 0);
+            arg->positionInterpEndTime = local_c->frame;
+            (arg->positionInterpFinal).x = (float)pSVar4[1].field3_0x8.values[0];
+            (arg->positionInterpFinal).y = (float)pSVar4[1].field3_0x8.values[1];
+            (arg->positionInterpFinal).z = (float)pSVar4[1].field3_0x8.values[2];
           }
         default:
 switchD_00403892_caseD_6:
-          if (local_c->field0_0x0 != -1) {
+          if (local_c->frame != -1) {
             fVar1 = (((float)(arg->scriptTime).current + (arg->scriptTime).subFrame) -
                     (float)arg->positionInterpStartTime) /
                     (float)(arg->positionInterpEndTime - arg->positionInterpStartTime);
@@ -121,7 +121,7 @@ switchD_00403892_caseD_6:
               arg->skyFogInterpDuration = 0;
             }
           }
-          if (local_c->field1_0x4 != 5) {
+          if (local_c->opcode != 5) {
             (arg->scriptTime).previous = (arg->scriptTime).current;
             Supervisor::TickTimer
                       (&g_Supervisor,&(arg->scriptTime).current,&(arg->scriptTime).subFrame);
@@ -137,10 +137,10 @@ switchD_00403892_caseD_6:
           AnmManager::ExecuteScript(g_AnmManager,&arg->field20_0x88);
           return CHAIN_CALLBACK_RESULT_CONTINUE;
         case 1:
-          if ((arg->scriptTime).current < local_c->field0_0x0) goto switchD_00403892_caseD_6;
-          (arg->skyFog).color = *(D3DCOLOR *)&local_c->field_0x8;
-          (arg->skyFog).nearPlane = *(float *)&local_c->field_0xc;
-          (arg->skyFog).farPlane = *(float *)&local_c->field_0x10;
+          if ((arg->scriptTime).current < local_c->frame) goto switchD_00403892_caseD_6;
+          (arg->skyFog).color = (local_c->field3_0x8).values[0];
+          (arg->skyFog).nearPlane = (float)(local_c->field3_0x8).values[1];
+          (arg->skyFog).farPlane = (float)(local_c->field3_0x8).values[2];
           if (arg->skyFogInterpDuration == 0) {
             (*(g_Supervisor.d3dDevice)->lpVtbl->SetRenderState)
                       (g_Supervisor.d3dDevice,D3DRS_FOGCOLOR,(arg->skyFog).color);
@@ -155,29 +155,29 @@ switchD_00403892_caseD_6:
           (arg->skyFogInterpFinal).color = (arg->skyFog).color;
           break;
         case 2:
-          if ((arg->scriptTime).current < local_c->field0_0x0) goto switchD_00403892_caseD_6;
+          if ((arg->scriptTime).current < local_c->frame) goto switchD_00403892_caseD_6;
           (arg->facingDirInterpInitial).x = (arg->facingDirInterpFinal).x;
           (arg->facingDirInterpInitial).y = (arg->facingDirInterpFinal).y;
           (arg->facingDirInterpInitial).z = (arg->facingDirInterpFinal).z;
-          (arg->facingDirInterpFinal).x = *(float *)&local_c->field_0x8;
-          (arg->facingDirInterpFinal).y = *(float *)&local_c->field_0xc;
-          (arg->facingDirInterpFinal).z = *(float *)&local_c->field_0x10;
+          (arg->facingDirInterpFinal).x = (float)(local_c->field3_0x8).values[0];
+          (arg->facingDirInterpFinal).y = (float)(local_c->field3_0x8).values[1];
+          (arg->facingDirInterpFinal).z = (float)(local_c->field3_0x8).values[2];
           arg->instructionIndex = arg->instructionIndex + 1;
           break;
         case 3:
-          if ((arg->scriptTime).current < local_c->field0_0x0) goto switchD_00403892_caseD_6;
-          arg->facingDirInterpDuration = *(int *)&local_c->field_0x8;
+          if ((arg->scriptTime).current < local_c->frame) goto switchD_00403892_caseD_6;
+          arg->facingDirInterpDuration = (local_c->field3_0x8).values[0];
           (arg->facingDirInterpTimer).current = 0;
           (arg->facingDirInterpTimer).subFrame = 0.0;
           (arg->facingDirInterpTimer).previous = -999;
           arg->instructionIndex = arg->instructionIndex + 1;
           break;
         case 4:
-          if ((arg->scriptTime).current < local_c->field0_0x0) goto switchD_00403892_caseD_6;
+          if ((arg->scriptTime).current < local_c->frame) goto switchD_00403892_caseD_6;
           (arg->skyFogInterpInitial).nearPlane = (arg->skyFog).nearPlane;
           (arg->skyFogInterpInitial).farPlane = (arg->skyFog).farPlane;
           (arg->skyFogInterpInitial).color = (arg->skyFog).color;
-          arg->skyFogInterpDuration = *(int *)&local_c->field_0x8;
+          arg->skyFogInterpDuration = (local_c->field3_0x8).values[0];
           (arg->skyFogInterpTimer).current = 0;
           (arg->skyFogInterpTimer).subFrame = 0.0;
           (arg->skyFogInterpTimer).previous = -999;

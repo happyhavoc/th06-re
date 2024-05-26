@@ -1,5 +1,5 @@
 
-int * Controller::GetControllerState(void)
+byte * Controller::GetControllerState(void)
 
 {
   DWORD_PTR cookie;
@@ -71,6 +71,6 @@ int * Controller::GetControllerState(void)
   }
   piVar3 = g_ControllerData;
   __security_check_cookie(cookie);
-  return piVar3;
+  return (byte *)piVar3;
 }
 

@@ -21,9 +21,10 @@ ZunResult __thiscall Gui::LoadMsg(Gui *gui,char *path)
     (gui->impl->msg).current_msg_idx = 0xffffffff;
     (gui->impl->msg).current_instr = (void *)0x0;
     for (entry = 0; entry < ((gui->impl->msg).msg_file)->num_entries; entry = entry + 1) {
-      (&((gui->impl->msg).msg_file)->entries)[entry] =
-           (void *)((int)&((gui->impl->msg).msg_file)->num_entries +
-                   (int)(&((gui->impl->msg).msg_file)->entries)[entry]);
+      ((gui->impl->msg).msg_file)->entries[entry] =
+           (MsgRawEntry *)
+           ((int)((gui->impl->msg).msg_file)->entries +
+           (int)(((gui->impl->msg).msg_file)->entries[entry] + -4));
     }
     ZVar1 = ZUN_SUCCESS;
   }

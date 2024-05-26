@@ -1,7 +1,7 @@
 
 WAVEFORMATEX *
 SoundPlayer::GetWavFormatData
-          (char *soundData,char *formatString,int *formatSize,int fileSizeExcludingFormat)
+          (byte *soundData,char *formatString,int *formatSize,int fileSizeExcludingFormat)
 
 {
   int iVar1;
@@ -11,7 +11,7 @@ SoundPlayer::GetWavFormatData
       return (WAVEFORMATEX *)0x0;
     }
     *formatSize = *(int *)(soundData + 4);
-    iVar1 = _strncmp(soundData,formatString,4);
+    iVar1 = _strncmp((char *)soundData,formatString,4);
     if (iVar1 == 0) break;
     fileSizeExcludingFormat = fileSizeExcludingFormat - (*formatSize + 8);
     soundData = soundData + *formatSize + 8;

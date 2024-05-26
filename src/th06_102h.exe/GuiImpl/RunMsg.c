@@ -1,5 +1,5 @@
 
-undefined4 __thiscall GuiImpl::run_msg(GuiImpl *this)
+undefined4 __thiscall GuiImpl::RunMsg(GuiImpl *this)
 
 {
   undefined4 uVar5;

@@ -1,5 +1,5 @@
 
-void __thiscall Gui::calculateStageScore(Gui *this)
+void __thiscall Gui::CalculateStageScore(Gui *this)
 
 {
   int iVar1;

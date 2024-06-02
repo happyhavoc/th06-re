@@ -24,8 +24,8 @@ ZunResult GameManager::AddedCallback(GameManager *gameManager)
     (gameManager->arcade_region_top_left_pos).y = 16.0;
     (gameManager->arcade_region_size).x = 384.0;
     (gameManager->arcade_region_size).y = 448.0;
-    (gameManager->unk_1a4c).x = 8.0;
-    (gameManager->unk_1a4c).y = 16.0;
+    (gameManager->playerMovementBoundaries).x = 8.0;
+    (gameManager->playerMovementBoundaries).y = 16.0;
     (gameManager->unk_1a54).x = 368.0;
     (gameManager->unk_1a54).y = 416.0;
     gameManager->counat = 0;
@@ -181,7 +181,7 @@ ZunResult GameManager::AddedCallback(GameManager *gameManager)
           }
           else {
             GameErrorContextLog(&g_GameErrorContext,
-                                "error : 敵頭脳の初期化に失敗しました\n");
+                                "error : 敵頭脳の初期化に失敗���ました\n");
             ZVar4 = ZUN_ERROR;
           }
         }

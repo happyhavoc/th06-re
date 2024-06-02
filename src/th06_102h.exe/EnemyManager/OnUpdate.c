@@ -137,7 +137,7 @@ ChainCallbackResult EnemyManager::OnUpdate(EnemyManager *param_1)
       curEnemy->flags2 = curEnemy->flags2 & 0xfe;
 LAB_00412a4d:
       if ((curEnemy->flags2 >> 3 & 1) != 0) {
-        g_Gui.boss_present = false;
+        g_Gui.boss_health_bar1._0_1_ = 0;
         Enemy::ResetEffectArray(curEnemy);
       }
 switchD_00412938_caseD_2:
@@ -173,7 +173,7 @@ switchD_00412938_caseD_2:
       curEnemy->life = 1;
       curEnemy->flags2 = curEnemy->flags2 & 0xef;
       curEnemy->flags2 = curEnemy->flags2 & 0x1f;
-      g_Gui.boss_present = false;
+      g_Gui.boss_health_bar1._0_1_ = 0;
       EffectManager::SpawnEffect
                 (&g_EffectManager,(uint)curEnemy->death_anm1,&curEnemy->position,1,0xffffffff);
       EffectManager::SpawnEffect
@@ -207,7 +207,7 @@ switchD_00412938_caseD_2:
     }
 LAB_00412ce2:
     if (((curEnemy->flags2 >> 3 & 1) != 0) && (BVar4 = Gui::HasCurrentMsgIdx(&g_Gui), BVar4 == 0)) {
-      g_Gui.boss_health_bar1 = (float)curEnemy->life / (float)curEnemy->max_life;
+      g_Gui.boss_health_bar2 = (float)curEnemy->life / (float)curEnemy->max_life;
     }
     if (curEnemy->field43_0xe41 == 0) {
       if (curEnemy->life < iVar2) {

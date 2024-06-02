@@ -10,7 +10,7 @@ void __thiscall Gui::CalculateStageScore(Gui *this)
   
   for (local_8 = 0; this_00 = g_AnmManager, local_8 < 0x1a; local_8 = local_8 + 1) {
     if ((local_8 == 0x13) && ((int)(this->impl->msg).current_msg_idx < 0)) {
-      if (this->boss_present == false) {
+      if (*(char *)&this->boss_health_bar1 == '\0') {
         if (this->impl->bossHealthBarState != 0) {
           if (this->impl->bossHealthBarState < 3) {
             fVar2 = this->impl;
@@ -18,17 +18,17 @@ void __thiscall Gui::CalculateStageScore(Gui *this)
             AnmManager::SetAndExecuteScript(this_00,fVar2->vms + 0x13,this_00->scripts[0x614]);
             this->impl->bossHealthBarState = 3;
           }
-          if (this->unk_10 == 0) {
-            this->unk_10 = 0;
+          if (this->bossUIOpacity == 0) {
+            this->bossUIOpacity = 0;
           }
           else {
-            this->unk_10 = this->unk_10 - 4;
+            this->bossUIOpacity = this->bossUIOpacity - 4;
           }
           iVar1 = AnmManager::ExecuteScript(g_AnmManager,this->impl->vms + 0x13);
           if (iVar1 != 0) {
             this->impl->bossHealthBarState = 0;
-            this->boss_health_bar2 = 0.0;
-            this->unk_10 = 0;
+            this[1].flags = 0;
+            this->bossUIOpacity = 0;
           }
         }
       }
@@ -37,34 +37,34 @@ void __thiscall Gui::CalculateStageScore(Gui *this)
         fVar2->vms[0x13].anmFileIndex = 0x613;
         AnmManager::SetAndExecuteScript(this_00,fVar2->vms + 0x13,this_00->scripts[0x613]);
         this->impl->bossHealthBarState = 1;
-        this->unk_10 = 0;
+        this->bossUIOpacity = 0;
       }
       else {
         iVar1 = AnmManager::ExecuteScript(g_AnmManager,this->impl->vms + 0x13);
         if (iVar1 != 0) {
           this->impl->bossHealthBarState = 2;
         }
-        if (this->unk_10 < 0xfc) {
-          this->unk_10 = this->unk_10 + 4;
+        if (this->bossUIOpacity < 0xfc) {
+          this->bossUIOpacity = this->bossUIOpacity + 4;
         }
         else {
-          this->unk_10 = 0xff;
+          this->bossUIOpacity = 0xff;
         }
       }
       if (1 < this->impl->bossHealthBarState) {
-        if (this->boss_health_bar1 <= this->boss_health_bar2) {
-          if ((this->boss_health_bar1 < this->boss_health_bar2 !=
-               (NAN(this->boss_health_bar1) || NAN(this->boss_health_bar2))) &&
-             (this->boss_health_bar2 = this->boss_health_bar2 - 0.02,
-             this->boss_health_bar2 < this->boss_health_bar1)) {
-            this->boss_health_bar2 = this->boss_health_bar1;
+        if (this->boss_health_bar2 <= (float)this[1].flags) {
+          if ((this->boss_health_bar2 < (float)this[1].flags !=
+               (NAN(this->boss_health_bar2) || NAN((float)this[1].flags))) &&
+             (this[1].flags = (uint)((float)this[1].flags - 0.02),
+             (float)this[1].flags < this->boss_health_bar2)) {
+            this[1].flags = (uint)this->boss_health_bar2;
           }
         }
         else {
-          this->boss_health_bar2 = this->boss_health_bar2 + 0.01;
-          if (this->boss_health_bar1 < this->boss_health_bar2 !=
-              (NAN(this->boss_health_bar1) || NAN(this->boss_health_bar2))) {
-            this->boss_health_bar2 = this->boss_health_bar1;
+          this[1].flags = (uint)((float)this[1].flags + 0.01);
+          if (this->boss_health_bar2 < (float)this[1].flags !=
+              (NAN(this->boss_health_bar2) || NAN((float)this[1].flags))) {
+            this[1].flags = (uint)this->boss_health_bar2;
           }
         }
       }

@@ -1,5 +1,5 @@
 
-undefined4 __thiscall Stage::FUN_00404860(Stage *this)
+ZunResult __thiscall Stage::UpdateObjects(Stage *this)
 
 {
   AnmVm *vm;
@@ -30,6 +30,6 @@ undefined4 __thiscall Stage::FUN_00404860(Stage *this)
       }
     }
   }
-  return 0;
+  return ZUN_SUCCESS;
 }
 

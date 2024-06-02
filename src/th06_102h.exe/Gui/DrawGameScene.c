@@ -3,7 +3,11 @@ void __thiscall Gui::DrawGameScene(Gui *this)
 
 {
   GuiImpl *pGVar1;
-  uint uVar2;
+  int iVar2;
+  undefined uVar3;
+  undefined2 uVar4;
+  uint uVar5;
+  AnmVm *vm_00;
   int local_1e8;
   int local_1c0;
   D3DXVECTOR3 local_190;
@@ -31,41 +35,39 @@ void __thiscall Gui::DrawGameScene(Gui *this)
   Vertex_DIFFUSE_XYZRWH local_7c [4];
   D3DXVECTOR3 local_28;
   D3DCOLOR local_1c;
-  int local_18;
-  AnmVm *local_14;
-  int local_10;
-  float local_c;
-  float local_8;
+  i32 local_18;
+  AnmVm *vm;
+  i32 idx;
+  f32 xPos;
+  f32 yPos;
   
   if (((int)(this->impl->msg).current_msg_idx < 0) &&
-     ((uint)this->boss_present + (uint)this->impl->bossHealthBarState != 0)) {
-    local_14 = this->impl->vms + 0x13;
-    AnmManager::DrawNoRotation(g_AnmManager,local_14);
+     ((uint)*(byte *)&this->boss_health_bar1 + (uint)this->impl->bossHealthBarState != 0)) {
+    AnmManager::DrawNoRotation(g_AnmManager,this->impl->vms + 0x13);
     pGVar1 = this->impl;
-    local_14 = pGVar1->vms + 0x15;
-    uVar2._0_2_ = pGVar1->vms[0x15].flags;
-    uVar2._2_1_ = pGVar1->vms[0x15].unk_82[0];
-    uVar2._3_1_ = pGVar1->vms[0x15].unk_82[1];
-    uVar2 = uVar2 | 0x300;
-    pGVar1->vms[0x15].flags = (short)uVar2;
-    pGVar1->vms[0x15].unk_82[0] = (char)(uVar2 >> 0x10);
-    pGVar1->vms[0x15].unk_82[1] = (char)(uVar2 >> 0x18);
-    pGVar1->vms[0x15].scaleX = (this->boss_health_bar2 * 288.0) / 14.0;
+    uVar5._0_2_ = pGVar1->vms[0x15].flags;
+    uVar5._2_1_ = pGVar1->vms[0x15].unk_82[0];
+    uVar5._3_1_ = pGVar1->vms[0x15].unk_82[1];
+    uVar5 = uVar5 | 0x300;
+    pGVar1->vms[0x15].flags = (short)uVar5;
+    pGVar1->vms[0x15].unk_82[0] = (char)(uVar5 >> 0x10);
+    pGVar1->vms[0x15].unk_82[1] = (char)(uVar5 >> 0x18);
+    pGVar1->vms[0x15].scaleX = ((float)this[1].flags * 288.0) / 14.0;
     pGVar1->vms[0x15].pos.x = 96.0;
     pGVar1->vms[0x15].pos.y = 24.0;
     pGVar1->vms[0x15].pos.z = 0.0;
-    AnmManager::DrawNoRotation(g_AnmManager,local_14);
+    AnmManager::DrawNoRotation(g_AnmManager,pGVar1->vms + 0x15);
     local_28.x = 80.0;
     local_28.y = 16.0;
     local_28.z = 0.0;
-    g_AsciiManager.color = this->unk_10 << 0x18 | 0xffff80;
+    g_AsciiManager.color = this->bossUIOpacity << 0x18 | 0xffff80;
     AsciiManager::AddFormatText(&g_AsciiManager,&local_28,"%d",this->ecl_set_lives);
     local_28.x = 384.0;
     local_28.y = 16.0;
     local_28.z = 0.0;
-    if (this->ecl_spellcard_related < 0x14) {
-      if (this->ecl_spellcard_related < 10) {
-        if (this->ecl_spellcard_related < 5) {
+    if (this->spellcard_seconds_remaining < 0x14) {
+      if (this->spellcard_seconds_remaining < 10) {
+        if (this->spellcard_seconds_remaining < 5) {
           local_1c = D3DCOLOR_004764ac;
         }
         else {
@@ -79,58 +81,64 @@ void __thiscall Gui::DrawGameScene(Gui *this)
     else {
       local_1c = D3DCOLOR_004764a0;
     }
-    g_AsciiManager.color = this->unk_10 << 0x18 | local_1c;
-    if (this->ecl_spellcard_related < 100) {
-      local_1e8 = this->ecl_spellcard_related;
+    g_AsciiManager.color = this->bossUIOpacity << 0x18 | local_1c;
+    if (this->spellcard_seconds_remaining < 100) {
+      local_1e8 = this->spellcard_seconds_remaining;
     }
     else {
       local_1e8 = 99;
     }
-    local_18 = local_1e8;
-    if ((local_1e8 < 10) && (this->field7_0x1c != this->ecl_spellcard_related)) {
+    if ((local_1e8 < 10) &&
+       (iVar2._0_1_ = this->last_spellcard_seconds_remaining, iVar2._1_1_ = this->boss_present,
+       iVar2._2_2_ = *(undefined2 *)&this->field_0x1e, iVar2 != this->spellcard_seconds_remaining))
+    {
       SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,SOUND_1D,0);
     }
-    AsciiManager::AddFormatText(&g_AsciiManager,&local_28,"%.2d",local_18);
+    AsciiManager::AddFormatText(&g_AsciiManager,&local_28,"%.2d",local_1e8);
     g_AsciiManager.color = 0xffffffff;
-    this->field7_0x1c = this->ecl_spellcard_related;
+    uVar3 = *(undefined *)((int)&this->spellcard_seconds_remaining + 1);
+    uVar4 = *(undefined2 *)((int)&this->spellcard_seconds_remaining + 2);
+    this->last_spellcard_seconds_remaining = *(undefined *)&this->spellcard_seconds_remaining;
+    this->boss_present = (bool)uVar3;
+    *(undefined2 *)&this->field_0x1e = uVar4;
   }
   g_Supervisor.viewport.X = 0;
   g_Supervisor.viewport.Y = 0;
   g_Supervisor.viewport.Width = 0x280;
   g_Supervisor.viewport.Height = 0x1e0;
   (*(g_Supervisor.d3dDevice)->lpVtbl->SetViewport)(g_Supervisor.d3dDevice,&g_Supervisor.viewport);
-  local_14 = this->impl->vms + 6;
+  pGVar1 = this->impl;
   if (((g_Supervisor.cfg.opts >> DISPLAY_MINIMUM_GRAPHICS & 1) == 0) &&
-     (((this->impl->vms[6].currentInstruction != (AnmRawInstr *)0x0 || (g_Supervisor.unk198 != 0))
-      || ((g_Supervisor.cfg.opts >> CLEAR_BACKBUFFER_ON_REFRESH & 1 |
-          g_Supervisor.cfg.opts >> DISPLAY_MINIMUM_GRAPHICS & 1) != 0)))) {
-    for (local_8 = 0.0; local_8 < 464.0 != NAN(local_8); local_8 = local_8 + 32.0) {
-      (local_14->pos).x = 0.0;
-      (local_14->pos).y = local_8;
-      (local_14->pos).z = 0.49;
-      AnmManager::DrawNoRotation(g_AnmManager,local_14);
+     (((pGVar1->vms[6].currentInstruction != (AnmRawInstr *)0x0 || (g_Supervisor.unk198 != 0)) ||
+      ((g_Supervisor.cfg.opts >> CLEAR_BACKBUFFER_ON_REFRESH & 1 |
+       g_Supervisor.cfg.opts >> DISPLAY_MINIMUM_GRAPHICS & 1) != 0)))) {
+    for (yPos = 0.0; yPos < 464.0 != NAN(yPos); yPos = yPos + 32.0) {
+      pGVar1->vms[6].pos.x = 0.0;
+      pGVar1->vms[6].pos.y = yPos;
+      pGVar1->vms[6].pos.z = 0.49;
+      AnmManager::DrawNoRotation(g_AnmManager,pGVar1->vms + 6);
     }
-    for (local_c = 416.0; local_c < 624.0 != NAN(local_c); local_c = local_c + 32.0) {
-      for (local_8 = 0.0; local_8 < 464.0 != NAN(local_8); local_8 = local_8 + 32.0) {
-        (local_14->pos).x = local_c;
-        (local_14->pos).y = local_8;
-        (local_14->pos).z = 0.49;
-        AnmManager::DrawNoRotation(g_AnmManager,local_14);
+    for (xPos = 416.0; xPos < 624.0 != NAN(xPos); xPos = xPos + 32.0) {
+      for (yPos = 0.0; yPos < 464.0 != NAN(yPos); yPos = yPos + 32.0) {
+        pGVar1->vms[6].pos.x = xPos;
+        pGVar1->vms[6].pos.y = yPos;
+        pGVar1->vms[6].pos.z = 0.49;
+        AnmManager::DrawNoRotation(g_AnmManager,pGVar1->vms + 6);
       }
     }
-    local_14 = this->impl->vms + 7;
-    for (local_c = 32.0; local_c < 416.0 != NAN(local_c); local_c = local_c + 32.0) {
-      (local_14->pos).x = local_c;
-      (local_14->pos).y = 0.0;
-      (local_14->pos).z = 0.49;
-      AnmManager::DrawNoRotation(g_AnmManager,local_14);
+    pGVar1 = this->impl;
+    for (xPos = 32.0; xPos < 416.0 != NAN(xPos); xPos = xPos + 32.0) {
+      pGVar1->vms[7].pos.x = xPos;
+      pGVar1->vms[7].pos.y = 0.0;
+      pGVar1->vms[7].pos.z = 0.49;
+      AnmManager::DrawNoRotation(g_AnmManager,pGVar1->vms + 7);
     }
-    local_14 = this->impl->vms + 8;
-    for (local_c = 32.0; local_c < 416.0 != NAN(local_c); local_c = local_c + 32.0) {
-      (local_14->pos).x = local_c;
-      (local_14->pos).y = 464.0;
-      (local_14->pos).z = 0.49;
-      AnmManager::DrawNoRotation(g_AnmManager,local_14);
+    pGVar1 = this->impl;
+    for (xPos = 32.0; xPos < 416.0 != NAN(xPos); xPos = xPos + 32.0) {
+      pGVar1->vms[8].pos.x = xPos;
+      pGVar1->vms[8].pos.y = 464.0;
+      pGVar1->vms[8].pos.z = 0.49;
+      AnmManager::DrawNoRotation(g_AnmManager,pGVar1->vms + 8);
     }
     AnmManager::Draw(g_AnmManager,this->impl->vms + 5);
     AnmManager::Draw(g_AnmManager,this->impl->vms);
@@ -153,75 +161,75 @@ void __thiscall Gui::DrawGameScene(Gui *this)
   }
   if ((g_Supervisor.cfg.opts >> 4 & 1) == 0) {
     pGVar1 = this->impl;
-    local_14 = pGVar1->vms + 0x16;
-    local_c = 496.0;
+    vm_00 = pGVar1->vms + 0x16;
     pGVar1->vms[0x16].pos.x = 496.0;
     pGVar1->vms[0x16].pos.y = 58.0;
     pGVar1->vms[0x16].pos.z = 0.49;
-    AnmManager::DrawNoRotation(g_AnmManager,local_14);
-    (local_14->pos).x = local_c;
-    (local_14->pos).y = 82.0;
-    (local_14->pos).z = 0.49;
-    AnmManager::DrawNoRotation(g_AnmManager,local_14);
+    AnmManager::DrawNoRotation(g_AnmManager,vm_00);
+    pGVar1->vms[0x16].pos.x = 496.0;
+    pGVar1->vms[0x16].pos.y = 82.0;
+    pGVar1->vms[0x16].pos.z = 0.49;
+    AnmManager::DrawNoRotation(g_AnmManager,vm_00);
     if ((this->flags & 3) != 0) {
-      (local_14->pos).x = local_c;
-      (local_14->pos).y = 122.0;
-      (local_14->pos).z = 0.49;
-      AnmManager::DrawNoRotation(g_AnmManager,local_14);
+      pGVar1->vms[0x16].pos.x = 496.0;
+      pGVar1->vms[0x16].pos.y = 122.0;
+      pGVar1->vms[0x16].pos.z = 0.49;
+      AnmManager::DrawNoRotation(g_AnmManager,vm_00);
     }
     if ((this->flags >> 2 & 3) != 0) {
-      (local_14->pos).x = local_c;
-      (local_14->pos).y = 146.0;
-      (local_14->pos).z = 0.49;
-      AnmManager::DrawNoRotation(g_AnmManager,local_14);
+      pGVar1->vms[0x16].pos.x = 496.0;
+      pGVar1->vms[0x16].pos.y = 146.0;
+      pGVar1->vms[0x16].pos.z = 0.49;
+      AnmManager::DrawNoRotation(g_AnmManager,vm_00);
     }
     if ((this->flags >> 4 & 3) != 0) {
-      (local_14->pos).x = local_c;
-      (local_14->pos).y = 186.0;
-      (local_14->pos).z = 0.49;
-      AnmManager::DrawNoRotation(g_AnmManager,local_14);
+      pGVar1->vms[0x16].pos.x = 496.0;
+      pGVar1->vms[0x16].pos.y = 186.0;
+      pGVar1->vms[0x16].pos.z = 0.49;
+      AnmManager::DrawNoRotation(g_AnmManager,vm_00);
     }
     if ((this->flags >> 6 & 3) != 0) {
-      (local_14->pos).x = local_c;
-      (local_14->pos).y = 206.0;
-      (local_14->pos).z = 0.49;
-      AnmManager::DrawNoRotation(g_AnmManager,local_14);
+      pGVar1->vms[0x16].pos.x = 496.0;
+      pGVar1->vms[0x16].pos.y = 206.0;
+      pGVar1->vms[0x16].pos.z = 0.49;
+      AnmManager::DrawNoRotation(g_AnmManager,vm_00);
     }
     if ((this->flags >> 8 & 3) != 0) {
-      (local_14->pos).x = local_c;
-      (local_14->pos).y = 226.0;
-      (local_14->pos).z = 0.49;
-      AnmManager::DrawNoRotation(g_AnmManager,local_14);
+      pGVar1->vms[0x16].pos.x = 496.0;
+      pGVar1->vms[0x16].pos.y = 226.0;
+      pGVar1->vms[0x16].pos.z = 0.49;
+      AnmManager::DrawNoRotation(g_AnmManager,vm_00);
     }
-    (local_14->pos).x = 488.0;
-    (local_14->pos).y = 464.0;
-    (local_14->pos).z = 0.49;
-    AnmManager::DrawNoRotation(g_AnmManager,local_14);
-    (local_14->pos).x = 0.0;
-    (local_14->pos).y = 464.0;
-    (local_14->pos).z = 0.49;
-    AnmManager::DrawNoRotation(g_AnmManager,local_14);
+    pGVar1->vms[0x16].pos.x = 488.0;
+    pGVar1->vms[0x16].pos.y = 464.0;
+    pGVar1->vms[0x16].pos.z = 0.49;
+    AnmManager::DrawNoRotation(g_AnmManager,vm_00);
+    pGVar1->vms[0x16].pos.x = 0.0;
+    pGVar1->vms[0x16].pos.y = 464.0;
+    pGVar1->vms[0x16].pos.z = 0.49;
+    AnmManager::DrawNoRotation(g_AnmManager,vm_00);
   }
-  if (((this->flags & 3) != 0) || ((g_Supervisor.cfg.opts >> 4 & 1) != 0)) {
-    local_14 = this->impl->vms + 0x10;
-    local_c = 496.0;
-    for (local_10 = 0; local_10 < (char)g_GameManager.lives_remaining; local_10 = local_10 + 1) {
-      (local_14->pos).x = local_c;
-      (local_14->pos).y = 122.0;
-      (local_14->pos).z = 0.49;
-      AnmManager::DrawNoRotation(g_AnmManager,local_14);
-      local_c = local_c + 16.0;
+  if (((this->flags & 3) != 0) || ((g_Supervisor.cfg.opts >> DISPLAY_MINIMUM_GRAPHICS & 1) != 0)) {
+    pGVar1 = this->impl;
+    xPos = 496.0;
+    for (idx = 0; idx < (char)g_GameManager.lives_remaining; idx = idx + 1) {
+      pGVar1->vms[0x10].pos.x = xPos;
+      pGVar1->vms[0x10].pos.y = 122.0;
+      pGVar1->vms[0x10].pos.z = 0.49;
+      AnmManager::DrawNoRotation(g_AnmManager,pGVar1->vms + 0x10);
+      xPos = xPos + 16.0;
     }
   }
-  if (((this->flags >> 2 & 3) != 0) || ((g_Supervisor.cfg.opts >> 4 & 1) != 0)) {
-    local_14 = this->impl->vms + 0x11;
-    local_c = 496.0;
-    for (local_10 = 0; local_10 < (char)g_GameManager.bombs_remaining; local_10 = local_10 + 1) {
-      (local_14->pos).x = local_c;
-      (local_14->pos).y = 146.0;
-      (local_14->pos).z = 0.49;
-      AnmManager::DrawNoRotation(g_AnmManager,local_14);
-      local_c = local_c + 16.0;
+  if (((this->flags >> 2 & 3) != 0) ||
+     ((g_Supervisor.cfg.opts >> DISPLAY_MINIMUM_GRAPHICS & 1) != 0)) {
+    pGVar1 = this->impl;
+    xPos = 496.0;
+    for (idx = 0; idx < (char)g_GameManager.bombs_remaining; idx = idx + 1) {
+      pGVar1->vms[0x11].pos.x = xPos;
+      pGVar1->vms[0x11].pos.y = 146.0;
+      pGVar1->vms[0x11].pos.z = 0.49;
+      AnmManager::DrawNoRotation(g_AnmManager,pGVar1->vms + 0x11);
+      xPos = xPos + 16.0;
     }
   }
   if (((this->flags >> 4 & 3) != 0) || ((g_Supervisor.cfg.opts >> 4 & 1) != 0)) {
@@ -286,14 +294,13 @@ void __thiscall Gui::DrawGameScene(Gui *this)
                 (g_Supervisor.d3dDevice,0,D3DTSS_COLORARG1,2);
       if (0x7f < g_GameManager.current_power) {
         pGVar1 = this->impl;
-        local_14 = pGVar1->vms + 0x12;
         local_184.x = 496.0;
         local_184.y = 186.0;
         local_184.z = 0.0;
         pGVar1->vms[0x12].pos.x = 496.0;
         pGVar1->vms[0x12].pos.y = 186.0;
         pGVar1->vms[0x12].pos.z = 0.0;
-        AnmManager::DrawNoRotation(g_AnmManager,local_14);
+        AnmManager::DrawNoRotation(g_AnmManager,pGVar1->vms + 0x12);
       }
     }
     if (g_GameManager.current_power < 0x80) {

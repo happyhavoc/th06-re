@@ -1824,10 +1824,10 @@ struct Gui {
     struct GuiImpl *impl;
     float field2_0x8;
     float blue_spellcard_bar_length;
-    uint unk_10;
+    uint bossUIOpacity;
     int ecl_set_lives;
-    int ecl_spellcard_related;
-    int field7_0x1c;
+    int spellcard_seconds_remaining;
+    byte last_spellcard_seconds_remaining;
     bool boss_present;
     float boss_health_bar1;
     float boss_health_bar2;
@@ -5162,7 +5162,7 @@ struct GameManager {
     int menu_cursor_backup;
     struct D3DXVECTOR2 arcade_region_top_left_pos;
     struct D3DXVECTOR2 arcade_region_size;
-    struct D3DXVECTOR2 unk_1a4c;
+    struct D3DXVECTOR2 playerMovementBoundaries;
     struct D3DXVECTOR2 unk_1a54;
     int unk_1a5c;
     struct D3DXVECTOR3 stage_camera_facing_dir;
@@ -16733,7 +16733,7 @@ struct StdRawInstr {
     int frame;
     ushort opcode;
     ushort size;
-    struct StdRawInstrArgs field3_0x8;
+    struct StdRawInstrArgs args;
 };
 
 typedef struct StdRawHeader StdRawHeader, *PStdRawHeader;
@@ -16846,8 +16846,8 @@ struct Stage {
     byte skyFogNeedsSetup;
     enum SpellcardState spellcardState;
     int ticksSinceSpellcardStarted;
-    struct AnmVm field20_0x88;
-    struct AnmVm field21_0x198;
+    struct AnmVm spellcardBackground;
+    struct AnmVm unk_198;
     uchar unpauseFlag;
     struct D3DXVECTOR3 facingDirInterpInitial;
     struct D3DXVECTOR3 facingDirInterpFinal;

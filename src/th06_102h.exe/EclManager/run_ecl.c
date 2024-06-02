@@ -959,7 +959,7 @@ switchD_00407544_caseD_2:
         local_88 = local_2dc;
         score_increese =
              g_RunningSpellcardInfo.capture_score +
-             (int)(g_RunningSpellcardInfo.capture_score * g_Gui.ecl_spellcard_related) / 10;
+             (int)(g_RunningSpellcardInfo.capture_score * g_Gui.spellcard_seconds_remaining) / 10;
         Gui::FUN_00417458(&g_Gui,score_increese);
         g_GameManager.score = g_GameManager.score + score_increese;
         if (g_GameManager.is_in_replay == 0) {
@@ -1042,14 +1042,14 @@ switchD_00407544_caseD_2:
     break;
   case 0x65:
     if (instruction->ecl_var_id < 0) {
-      g_Gui.boss_present = false;
+      g_Gui.boss_health_bar1._0_1_ = 0;
       (&__enemy_related)[enemy->boss_id] = (Enemy *)0x0;
       enemy->flags2 = enemy->flags2 & 0xf7;
     }
     else {
       (&__enemy_related)[instruction->ecl_var_id] = enemy;
-      g_Gui.boss_present = true;
-      g_Gui.boss_health_bar1 = 1.0;
+      g_Gui.boss_health_bar1._0_1_ = 1;
+      g_Gui.boss_health_bar2 = 1.0;
       enemy->flags2 = enemy->flags2 | 8;
       enemy->boss_id = *(byte *)&instruction->ecl_var_id;
     }

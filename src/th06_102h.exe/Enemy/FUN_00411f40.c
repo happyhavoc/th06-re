@@ -8,7 +8,7 @@ undefined4 __thiscall Enemy::FUN_00411f40(Enemy *this)
   Enemy *local_8;
   
   if ((this->flags2 >> 3 & 1) != 0) {
-    g_Gui.ecl_spellcard_related =
+    g_Gui.spellcard_seconds_remaining =
          (this->timer_callback_threshold - (this->boss_timer).current) / 0x3c;
   }
   if ((this->boss_timer).current < this->timer_callback_threshold) {

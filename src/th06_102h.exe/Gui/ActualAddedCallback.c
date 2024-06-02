@@ -176,10 +176,10 @@ ZunResult __thiscall Gui::ActualAddedCallback(Gui *this)
       AnmManager::SetAndExecuteScript(anm_mgr,vm,anm_mgr->scripts[local_8 + 0x600]);
     }
   }
-  this->boss_present = false;
+  *(undefined *)&this->boss_health_bar1 = 0;
   this->impl->bossHealthBarState = 0;
-  this->boss_health_bar1 = 0.0;
   this->boss_health_bar2 = 0.0;
+  this[1].flags = 0;
   anm_mgr = g_AnmManager;
   gui_impl = this->impl;
   (gui_impl->playerSpellcardPortrait).anmFileIndex = 0x4a1;

@@ -26,10 +26,10 @@ ChainCallbackResult Stage::OnDrawLowPrio(Stage *arg)
   this = g_AnmManager;
   if (0 < (int)arg->spellcardState) {
     if (arg->ticksSinceSpellcardStarted <= (int)(uint)g_Supervisor.cfg.frameskipConfig) {
-      (arg->field20_0x88).anmFileIndex = 0x2b3;
-      AnmManager::SetAndExecuteScript(this,&arg->field20_0x88,this->scripts[0x2b3]);
+      (arg->spellcardBackground).anmFileIndex = 0x2b3;
+      AnmManager::SetAndExecuteScript(this,&arg->spellcardBackground,this->scripts[0x2b3]);
     }
-    AnmManager::Draw(g_AnmManager,&arg->field20_0x88);
+    AnmManager::Draw(g_AnmManager,&arg->spellcardBackground);
   }
   g_Supervisor.viewport.MinZ = 0.0;
   g_Supervisor.viewport.MaxZ = 0.5;

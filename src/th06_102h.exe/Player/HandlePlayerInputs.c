@@ -158,26 +158,30 @@ ZunResult __thiscall Player::HandlePlayerInputs(Player *this)
   *pfVar6 = verticalSpeed * this->verticalMovementSpeedMultiplierDuringBomb *
             g_Supervisor.effectiveFramerateMultiplier + *pfVar6;
   fVar1 = (this->positionCenter).x;
-  if (fVar1 < g_GameManager.unk_1a4c.x == (NAN(fVar1) || NAN(g_GameManager.unk_1a4c.x))) {
+  if (fVar1 < g_GameManager.playerMovementBoundaries.x ==
+      (NAN(fVar1) || NAN(g_GameManager.playerMovementBoundaries.x))) {
     fVar1 = (this->positionCenter).x;
-    if (g_GameManager.unk_1a4c.x + g_GameManager.unk_1a54.x < fVar1 !=
-        (NAN(g_GameManager.unk_1a4c.x + g_GameManager.unk_1a54.x) || NAN(fVar1))) {
-      (this->positionCenter).x = g_GameManager.unk_1a4c.x + g_GameManager.unk_1a54.x;
+    if (g_GameManager.playerMovementBoundaries.x + g_GameManager.unk_1a54.x < fVar1 !=
+        (NAN(g_GameManager.playerMovementBoundaries.x + g_GameManager.unk_1a54.x) || NAN(fVar1))) {
+      (this->positionCenter).x = g_GameManager.playerMovementBoundaries.x + g_GameManager.unk_1a54.x
+      ;
     }
   }
   else {
-    (this->positionCenter).x = g_GameManager.unk_1a4c.x;
+    (this->positionCenter).x = g_GameManager.playerMovementBoundaries.x;
   }
   fVar1 = (this->positionCenter).y;
-  if (fVar1 < g_GameManager.unk_1a4c.y == (NAN(fVar1) || NAN(g_GameManager.unk_1a4c.y))) {
+  if (fVar1 < g_GameManager.playerMovementBoundaries.y ==
+      (NAN(fVar1) || NAN(g_GameManager.playerMovementBoundaries.y))) {
     fVar1 = (this->positionCenter).y;
-    if (g_GameManager.unk_1a4c.y + g_GameManager.unk_1a54.y < fVar1 !=
-        (NAN(g_GameManager.unk_1a4c.y + g_GameManager.unk_1a54.y) || NAN(fVar1))) {
-      (this->positionCenter).y = g_GameManager.unk_1a4c.y + g_GameManager.unk_1a54.y;
+    if (g_GameManager.playerMovementBoundaries.y + g_GameManager.unk_1a54.y < fVar1 !=
+        (NAN(g_GameManager.playerMovementBoundaries.y + g_GameManager.unk_1a54.y) || NAN(fVar1))) {
+      (this->positionCenter).y = g_GameManager.playerMovementBoundaries.y + g_GameManager.unk_1a54.y
+      ;
     }
   }
   else {
-    (this->positionCenter).y = g_GameManager.unk_1a4c.y;
+    (this->positionCenter).y = g_GameManager.playerMovementBoundaries.y;
   }
   fVar1 = (this->positionCenter).z;
   fVar2 = (this->hitboxSize).z;

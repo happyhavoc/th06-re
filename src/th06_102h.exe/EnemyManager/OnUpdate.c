@@ -7,8 +7,6 @@ ChainCallbackResult EnemyManager::OnUpdate(EnemyManager *param_1)
   int iVar3;
   BOOL BVar4;
   uint uVar5;
-  uint uVar6;
-  uint uVar7;
   Enemy *curEnemy;
   int local_20;
   D3DXVECTOR3 local_1c;
@@ -181,11 +179,11 @@ switchD_00412938_caseD_2:
       EffectManager::SpawnEffect
                 (&g_EffectManager,(uint)curEnemy->death_anm1,&curEnemy->position,1,0xffffffff);
     }
-    uVar6 = local_10 & 0x80000001;
-    if ((int)uVar6 < 0) {
-      uVar6 = (uVar6 - 1 | 0xfffffffe) + 1;
+    uVar5 = local_10 & 0x80000001;
+    if ((int)uVar5 < 0) {
+      uVar5 = (uVar5 - 1 | 0xfffffffe) + 1;
     }
-    SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,uVar6 + SOUND_2,0);
+    SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,uVar5 + SOUND_2,0);
     EffectManager::SpawnEffect
               (&g_EffectManager,(uint)curEnemy->death_anm1,&curEnemy->position,1,0xffffffff);
     EffectManager::SpawnEffect
@@ -212,34 +210,16 @@ LAB_00412ce2:
     if (curEnemy->field43_0xe41 == 0) {
       if (curEnemy->life < iVar2) {
         SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,SOUND_TOTAL_BOSS_DEATH,0);
-        uVar5._0_2_ = (curEnemy->primary_vm).flags;
-        uVar5._2_1_ = (curEnemy->primary_vm).unk_82[0];
-        uVar5._3_1_ = (curEnemy->primary_vm).unk_82[1];
-        uVar5 = uVar5 | 8;
-        (curEnemy->primary_vm).flags = (short)uVar5;
-        (curEnemy->primary_vm).unk_82[0] = (char)(uVar5 >> 0x10);
-        (curEnemy->primary_vm).unk_82[1] = (char)(uVar5 >> 0x18);
+        (curEnemy->primary_vm).flags = (curEnemy->primary_vm).flags | AnmVmFlags_3;
         curEnemy->field43_0xe41 = 4;
       }
       else {
-        uVar6._0_2_ = (curEnemy->primary_vm).flags;
-        uVar6._2_1_ = (curEnemy->primary_vm).unk_82[0];
-        uVar6._3_1_ = (curEnemy->primary_vm).unk_82[1];
-        uVar6 = uVar6 & 0xfffffff7;
-        (curEnemy->primary_vm).flags = (short)uVar6;
-        (curEnemy->primary_vm).unk_82[0] = (char)(uVar6 >> 0x10);
-        (curEnemy->primary_vm).unk_82[1] = (char)(uVar6 >> 0x18);
+        (curEnemy->primary_vm).flags = (curEnemy->primary_vm).flags & ~AnmVmFlags_3;
       }
     }
     else {
       curEnemy->field43_0xe41 = curEnemy->field43_0xe41 - 1;
-      uVar7._0_2_ = (curEnemy->primary_vm).flags;
-      uVar7._2_1_ = (curEnemy->primary_vm).unk_82[0];
-      uVar7._3_1_ = (curEnemy->primary_vm).unk_82[1];
-      uVar7 = uVar7 & 0xfffffff7;
-      (curEnemy->primary_vm).flags = (short)uVar7;
-      (curEnemy->primary_vm).unk_82[0] = (char)(uVar7 >> 0x10);
-      (curEnemy->primary_vm).unk_82[1] = (char)(uVar7 >> 0x18);
+      (curEnemy->primary_vm).flags = (curEnemy->primary_vm).flags & ~AnmVmFlags_3;
     }
 LAB_00412dbc:
     FUN_00412e50(curEnemy);

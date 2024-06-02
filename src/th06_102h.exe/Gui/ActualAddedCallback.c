@@ -4,11 +4,7 @@ ZunResult __thiscall Gui::ActualAddedCallback(Gui *this)
 {
   ZunResult loadAnm;
   AnmVm *vm;
-  uint uVar1;
-  uint uVar2;
-  uint uVar3;
-  uint uVar4;
-  int iVar5;
+  int iVar1;
   short local_14;
   int local_8;
   AnmManager *anm_mgr;
@@ -17,13 +13,14 @@ ZunResult __thiscall Gui::ActualAddedCallback(Gui *this)
   anm_mgr = g_AnmManager;
   if (g_Supervisor.curState == SUPERVISOR_STATE_GAMEMANAGER_REINIT) {
     gui_impl = this->impl;
-    (gui_impl->loadingScreenSprite).anmFileIndex = 0x619;
-    AnmManager::SetAndExecuteScript(anm_mgr,&gui_impl->loadingScreenSprite,anm_mgr->scripts[0x619]);
-    (this->impl->loadingScreenSprite).pendingInterrupt = 1;
+    (gui_impl->stageFinishedScoreSprite).anmFileIndex = 0x619;
+    AnmManager::SetAndExecuteScript
+              (anm_mgr,&gui_impl->stageFinishedScoreSprite,anm_mgr->scripts[0x619]);
+    (this->impl->stageFinishedScoreSprite).pendingInterrupt = 1;
   }
   else {
     gui_impl = this->impl;
-    for (iVar5 = 0xb11; iVar5 != 0; iVar5 = iVar5 + -1) {
+    for (iVar1 = 0xb11; iVar1 != 0; iVar1 = iVar1 + -1) {
       gui_impl->vms[0].rotation.x = 0.0;
       gui_impl = (GuiImpl *)&gui_impl->vms[0].rotation.y;
     }
@@ -35,7 +32,7 @@ ZunResult __thiscall Gui::ActualAddedCallback(Gui *this)
     if (loadAnm != ZUN_SUCCESS) {
       return ZUN_ERROR;
     }
-    (this->impl->loadingScreenSprite).activeSpriteIndex = -1;
+    (this->impl->stageFinishedScoreSprite).activeSpriteIndex = -1;
     if (g_GameManager.character == 0) {
       loadAnm = AnmManager::LoadAnm(g_AnmManager,0xf,"data/face00a.anm",0x4a0);
       if (loadAnm != ZUN_SUCCESS) {
@@ -212,42 +209,12 @@ ZunResult __thiscall Gui::ActualAddedCallback(Gui *this)
   (this->impl->bombSpellcardName).currentInstruction = (AnmRawInstr *)0x0;
   (this->impl->enemySpellcardPortrait).currentInstruction = (AnmRawInstr *)0x0;
   (this->impl->enemySpellcardName).currentInstruction = (AnmRawInstr *)0x0;
-  gui_impl = this->impl;
-  uVar1._0_2_ = (gui_impl->playerSpellcardPortrait).flags;
-  uVar1._2_1_ = (gui_impl->playerSpellcardPortrait).unk_82[0];
-  uVar1._3_1_ = (gui_impl->playerSpellcardPortrait).unk_82[1];
-  uVar1 = uVar1 & 0xfffffffe;
-  gui_impl = this->impl;
-  (gui_impl->playerSpellcardPortrait).flags = (short)uVar1;
-  (gui_impl->playerSpellcardPortrait).unk_82[0] = (char)(uVar1 >> 0x10);
-  (gui_impl->playerSpellcardPortrait).unk_82[1] = (char)(uVar1 >> 0x18);
-  gui_impl = this->impl;
-  uVar2._0_2_ = (gui_impl->bombSpellcardName).flags;
-  uVar2._2_1_ = (gui_impl->bombSpellcardName).unk_82[0];
-  uVar2._3_1_ = (gui_impl->bombSpellcardName).unk_82[1];
-  uVar2 = uVar2 & 0xfffffffe;
-  gui_impl = this->impl;
-  (gui_impl->bombSpellcardName).flags = (short)uVar2;
-  (gui_impl->bombSpellcardName).unk_82[0] = (char)(uVar2 >> 0x10);
-  (gui_impl->bombSpellcardName).unk_82[1] = (char)(uVar2 >> 0x18);
-  gui_impl = this->impl;
-  uVar3._0_2_ = (gui_impl->enemySpellcardPortrait).flags;
-  uVar3._2_1_ = (gui_impl->enemySpellcardPortrait).unk_82[0];
-  uVar3._3_1_ = (gui_impl->enemySpellcardPortrait).unk_82[1];
-  uVar3 = uVar3 & 0xfffffffe;
-  gui_impl = this->impl;
-  (gui_impl->enemySpellcardPortrait).flags = (short)uVar3;
-  (gui_impl->enemySpellcardPortrait).unk_82[0] = (char)(uVar3 >> 0x10);
-  (gui_impl->enemySpellcardPortrait).unk_82[1] = (char)(uVar3 >> 0x18);
-  gui_impl = this->impl;
-  uVar4._0_2_ = (gui_impl->enemySpellcardName).flags;
-  uVar4._2_1_ = (gui_impl->enemySpellcardName).unk_82[0];
-  uVar4._3_1_ = (gui_impl->enemySpellcardName).unk_82[1];
-  uVar4 = uVar4 & 0xfffffffe;
-  gui_impl = this->impl;
-  (gui_impl->enemySpellcardName).flags = (short)uVar4;
-  (gui_impl->enemySpellcardName).unk_82[0] = (char)(uVar4 >> 0x10);
-  (gui_impl->enemySpellcardName).unk_82[1] = (char)(uVar4 >> 0x18);
+  (this->impl->playerSpellcardPortrait).flags =
+       (this->impl->playerSpellcardPortrait).flags & ~AnmVmFlags_1;
+  (this->impl->bombSpellcardName).flags = (this->impl->bombSpellcardName).flags & ~AnmVmFlags_1;
+  (this->impl->enemySpellcardPortrait).flags =
+       (this->impl->enemySpellcardPortrait).flags & ~AnmVmFlags_1;
+  (this->impl->enemySpellcardName).flags = (this->impl->enemySpellcardName).flags & ~AnmVmFlags_1;
   (this->impl->bombSpellcardName).fontWidth = '\x0f';
   (this->impl->bombSpellcardName).fontHeight = '\x0f';
   (this->impl->enemySpellcardName).fontWidth = '\x0f';

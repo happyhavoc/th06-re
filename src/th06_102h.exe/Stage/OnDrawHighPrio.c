@@ -14,10 +14,10 @@ ChainCallbackResult Stage::OnDrawHighPrio(Stage *arg)
   (*(g_Supervisor.d3dDevice)->lpVtbl->SetRenderState)
             (g_Supervisor.d3dDevice,D3DRS_FOGEND,(DWORD)(arg->skyFog).farPlane);
   if ((int)arg->spellcardState < 2) {
-    iVar1 = Gui::FUN_004172d3(&g_Gui);
+    iVar1 = Gui::IsStageFinished(&g_Gui);
     if (iVar1 == 0) {
-      FUN_00404970(arg,0);
-      FUN_00404970(arg,1);
+      RenderObjects(arg,0);
+      RenderObjects(arg,1);
     }
   }
   return CHAIN_CALLBACK_RESULT_CONTINUE;

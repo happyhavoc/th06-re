@@ -2,11 +2,9 @@
 void __thiscall Gui::DrawGameScene(Gui *this)
 
 {
-  GuiImpl *pGVar1;
-  int iVar2;
-  undefined uVar3;
-  undefined2 uVar4;
-  uint uVar5;
+  int iVar1;
+  undefined uVar2;
+  undefined2 uVar3;
   AnmVm *vm_00;
   int local_1e8;
   int local_1c0;
@@ -40,18 +38,13 @@ void __thiscall Gui::DrawGameScene(Gui *this)
   i32 idx;
   f32 xPos;
   f32 yPos;
+  GuiImpl *pGVar1;
   
   if (((int)(this->impl->msg).current_msg_idx < 0) &&
      ((uint)*(byte *)&this->boss_health_bar1 + (uint)this->impl->bossHealthBarState != 0)) {
     AnmManager::DrawNoRotation(g_AnmManager,this->impl->vms + 0x13);
     pGVar1 = this->impl;
-    uVar5._0_2_ = pGVar1->vms[0x15].flags;
-    uVar5._2_1_ = pGVar1->vms[0x15].unk_82[0];
-    uVar5._3_1_ = pGVar1->vms[0x15].unk_82[1];
-    uVar5 = uVar5 | 0x300;
-    pGVar1->vms[0x15].flags = (short)uVar5;
-    pGVar1->vms[0x15].unk_82[0] = (char)(uVar5 >> 0x10);
-    pGVar1->vms[0x15].unk_82[1] = (char)(uVar5 >> 0x18);
+    pGVar1->vms[0x15].flags = pGVar1->vms[0x15].flags | (AnmVmFlags_8|AnmVmFlags_9);
     pGVar1->vms[0x15].scaleX = ((float)this[1].flags * 288.0) / 14.0;
     pGVar1->vms[0x15].pos.x = 96.0;
     pGVar1->vms[0x15].pos.y = 24.0;
@@ -89,18 +82,18 @@ void __thiscall Gui::DrawGameScene(Gui *this)
       local_1e8 = 99;
     }
     if ((local_1e8 < 10) &&
-       (iVar2._0_1_ = this->last_spellcard_seconds_remaining, iVar2._1_1_ = this->boss_present,
-       iVar2._2_2_ = *(undefined2 *)&this->field_0x1e, iVar2 != this->spellcard_seconds_remaining))
+       (iVar1._0_1_ = this->last_spellcard_seconds_remaining, iVar1._1_1_ = this->boss_present,
+       iVar1._2_2_ = *(undefined2 *)&this->field_0x1e, iVar1 != this->spellcard_seconds_remaining))
     {
       SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,SOUND_1D,0);
     }
     AsciiManager::AddFormatText(&g_AsciiManager,&local_28,"%.2d",local_1e8);
     g_AsciiManager.color = 0xffffffff;
-    uVar3 = *(undefined *)((int)&this->spellcard_seconds_remaining + 1);
-    uVar4 = *(undefined2 *)((int)&this->spellcard_seconds_remaining + 2);
+    uVar2 = *(undefined *)((int)&this->spellcard_seconds_remaining + 1);
+    uVar3 = *(undefined2 *)((int)&this->spellcard_seconds_remaining + 2);
     this->last_spellcard_seconds_remaining = *(undefined *)&this->spellcard_seconds_remaining;
-    this->boss_present = (bool)uVar3;
-    *(undefined2 *)&this->field_0x1e = uVar4;
+    this->boss_present = (bool)uVar2;
+    *(undefined2 *)&this->field_0x1e = uVar3;
   }
   g_Supervisor.viewport.X = 0;
   g_Supervisor.viewport.Y = 0;

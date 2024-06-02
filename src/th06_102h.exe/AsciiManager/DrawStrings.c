@@ -3,8 +3,6 @@ void __thiscall AsciiManager::DrawStrings(AsciiManager *this)
 
 {
   float fVar1;
-  uint uVar2;
-  uint uVar3;
   int local_18;
   char *local_14;
   AsciiManagerString *local_10;
@@ -12,20 +10,8 @@ void __thiscall AsciiManager::DrawStrings(AsciiManager *this)
   
   local_18 = 1;
   local_10 = this->strings;
-  uVar2._0_2_ = (this->vm0).flags;
-  uVar2._2_1_ = (this->vm0).unk_82[0];
-  uVar2._3_1_ = (this->vm0).unk_82[1];
-  uVar2 = uVar2 | 1;
-  (this->vm0).flags = (short)uVar2;
-  (this->vm0).unk_82[0] = (char)(uVar2 >> 0x10);
-  (this->vm0).unk_82[1] = (char)(uVar2 >> 0x18);
-  uVar3._0_2_ = (this->vm0).flags;
-  uVar3._2_1_ = (this->vm0).unk_82[0];
-  uVar3._3_1_ = (this->vm0).unk_82[1];
-  uVar3 = uVar3 | 0x300;
-  (this->vm0).flags = (short)uVar3;
-  (this->vm0).unk_82[0] = (char)(uVar3 >> 0x10);
-  (this->vm0).unk_82[1] = (char)(uVar3 >> 0x18);
+  (this->vm0).flags = (this->vm0).flags | AnmVmFlags_1;
+  (this->vm0).flags = (this->vm0).flags | (AnmVmFlags_8|AnmVmFlags_9);
   for (local_c = 0; local_c < this->numStrings; local_c = local_c + 1) {
     (this->vm0).pos.x = (local_10->position).x;
     (this->vm0).pos.y = (local_10->position).y;

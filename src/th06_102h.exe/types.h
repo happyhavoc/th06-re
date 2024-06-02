@@ -353,7 +353,6 @@ struct AnmVm {
     D3DMATRIX matrix;
     union D3DCOLORUNION color;
     enum AnmVmFlags flags;
-    undefined unk_82[2];
     ushort alphaInterpEndTime;
     short scaleInterpEndTime;
     ushort autoRotate;
@@ -1617,7 +1616,7 @@ struct GuiImpl {
     struct AnmVm enemySpellcardName;
     struct AnmVm bombSpellcardBackground;
     struct AnmVm enemySpellcardBackground;
-    struct AnmVm loadingScreenSprite;
+    struct AnmVm stageFinishedScoreSprite;
     struct GuiMsgVm msg;
     uint finishedStage;
     uint stage_score;
@@ -5164,7 +5163,7 @@ struct GameManager {
     struct D3DXVECTOR2 arcade_region_size;
     struct D3DXVECTOR2 playerMovementBoundaries;
     struct D3DXVECTOR2 unk_1a54;
-    int unk_1a5c;
+    int fieldOfView;
     struct D3DXVECTOR3 stage_camera_facing_dir;
     uint counat;
     int rank;
@@ -16714,7 +16713,7 @@ struct StdRawQuadBasic {
 
 struct StdRawObject {
     ushort id;
-    char field1_0x2;
+    char zLevel;
     uchar flags;
     struct D3DXVECTOR3 position;
     struct D3DXVECTOR3 size;

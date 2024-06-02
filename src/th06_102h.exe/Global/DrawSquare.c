@@ -3,32 +3,32 @@ void DrawSquare(ZunRect *rect,D3DCOLOR RectColor)
 
 {
   int local_88;
-  Vertex_DIFFUSE_XYZRWH vertexes [4];
+  Vertex_DIFFUSE_XYZRWH vertices [4];
   
   local_88 = 4;
   do {
     local_88 = local_88 + -1;
   } while (-1 < local_88);
-  vertexes[0].pos.y = rect->top;
-  vertexes[0].pos.x = rect->left;
-  vertexes[0].pos.z = 0.0;
-  vertexes[1].pos.y = rect->top;
-  vertexes[1].pos.x = rect->right;
-  vertexes[1].pos.z = 0.0;
-  vertexes[2].pos.y = rect->bottom;
-  vertexes[2].pos.x = rect->left;
-  vertexes[2].pos.z = 0.0;
-  vertexes[3].pos.y = rect->bottom;
-  vertexes[3].pos.x = rect->right;
-  vertexes[3].pos.z = 0.0;
-  vertexes[3].pos.w = 1.0;
-  vertexes[2].pos.w = 1.0;
-  vertexes[1].pos.w = 1.0;
-  vertexes[0].pos.w = 1.0;
-  vertexes[3].diffuse = RectColor;
-  vertexes[2].diffuse = RectColor;
-  vertexes[1].diffuse = RectColor;
-  vertexes[0].diffuse = RectColor;
+  vertices[0].pos.y = rect->top;
+  vertices[0].pos.x = rect->left;
+  vertices[0].pos.z = 0.0;
+  vertices[1].pos.y = rect->top;
+  vertices[1].pos.x = rect->right;
+  vertices[1].pos.z = 0.0;
+  vertices[2].pos.y = rect->bottom;
+  vertices[2].pos.x = rect->left;
+  vertices[2].pos.z = 0.0;
+  vertices[3].pos.y = rect->bottom;
+  vertices[3].pos.x = rect->right;
+  vertices[3].pos.z = 0.0;
+  vertices[3].pos.w = 1.0;
+  vertices[2].pos.w = 1.0;
+  vertices[1].pos.w = 1.0;
+  vertices[0].pos.w = 1.0;
+  vertices[3].diffuse = RectColor;
+  vertices[2].diffuse = RectColor;
+  vertices[1].diffuse = RectColor;
+  vertices[0].diffuse = RectColor;
   if ((g_Supervisor.cfg.opts >> 8 & 1) == 0) {
     (*(g_Supervisor.d3dDevice)->lpVtbl->SetTextureStageState)
               (g_Supervisor.d3dDevice,0,D3DTSS_ALPHAOP,2);
@@ -48,7 +48,7 @@ void DrawSquare(ZunRect *rect,D3DCOLOR RectColor)
   (*(g_Supervisor.d3dDevice)->lpVtbl->SetVertexShader)
             (g_Supervisor.d3dDevice,D3DFVF_DIFFUSE | D3DFVF_XYZRHW);
   (*(g_Supervisor.d3dDevice)->lpVtbl->DrawPrimitiveUP)
-            (g_Supervisor.d3dDevice,D3DPT_TRIANGLESTRIP,2,vertexes,0x14);
+            (g_Supervisor.d3dDevice,D3DPT_TRIANGLESTRIP,2,vertices,0x14);
   g_AnmManager->currentVertexShader = 0xff;
   g_AnmManager->currentSprite = (AnmLoadedSprite *)0x0;
   g_AnmManager->currentTexture = (IDirect3DTexture8 *)0x0;

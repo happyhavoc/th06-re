@@ -138,8 +138,9 @@ ZunResult __thiscall GuiImpl::RunMsg(GuiImpl *this)
         this->finishedStage = 1;
         pAVar4 = g_AnmManager;
         if (g_GameManager.current_stage < 6) {
-          (this->loadingScreenSprite).anmFileIndex = 0x619;
-          AnmManager::SetAndExecuteScript(pAVar4,&this->loadingScreenSprite,pAVar4->scripts[0x619]);
+          (this->stageFinishedScoreSprite).anmFileIndex = 0x619;
+          AnmManager::SetAndExecuteScript
+                    (pAVar4,&this->stageFinishedScoreSprite,pAVar4->scripts[0x619]);
         }
         else {
           g_GameManager.extra_lives = 0xff;

@@ -2,10 +2,9 @@
 void __thiscall StageMenu::OnDrawGameMenu(StageMenu *this)
 
 {
-  uint uVar1;
-  int iVar2;
+  int iVar1;
+  AnmVm *pAVar2;
   AnmVm *pAVar3;
-  AnmVm *pAVar4;
   AnmVm local_11c;
   int local_8;
   
@@ -16,22 +15,18 @@ void __thiscall StageMenu::OnDrawGameMenu(StageMenu *this)
     g_Supervisor.viewport.Height = __ftol2(g_GameManager.arcade_region_size.y);
     (*(g_Supervisor.d3dDevice)->lpVtbl->SetViewport)(g_Supervisor.d3dDevice,&g_Supervisor.viewport);
     if ((g_Supervisor.lockableBackbuffer != 0) && (this->curState != 0)) {
-      pAVar3 = &this->vm1;
-      pAVar4 = &local_11c;
-      for (iVar2 = 0x44; iVar2 != 0; iVar2 = iVar2 + -1) {
-        (pAVar4->rotation).x = (pAVar3->rotation).x;
+      pAVar2 = &this->vm1;
+      pAVar3 = &local_11c;
+      for (iVar1 = 0x44; iVar1 != 0; iVar1 = iVar1 + -1) {
+        (pAVar3->rotation).x = (pAVar2->rotation).x;
+        pAVar2 = (AnmVm *)&(pAVar2->rotation).y;
         pAVar3 = (AnmVm *)&(pAVar3->rotation).y;
-        pAVar4 = (AnmVm *)&(pAVar4->rotation).y;
       }
-      local_11c._128_4_ = local_11c._128_4_ | 0x1000;
+      local_11c.flags = local_11c.flags | AnmVmFlags_12;
       AnmManager::DrawNoRotation(g_AnmManager,&local_11c);
     }
     for (local_8 = 0; local_8 < 6; local_8 = local_8 + 1) {
-      pAVar3 = this->vms0 + local_8;
-      uVar1._0_2_ = pAVar3->flags;
-      uVar1._2_1_ = pAVar3->unk_82[0];
-      uVar1._3_1_ = pAVar3->unk_82[1];
-      if ((uVar1 & 1) != 0) {
+      if ((this->vms0[local_8].flags & AnmVmFlags_1) != AnmVmFlags_None) {
         AnmManager::DrawNoRotation(g_AnmManager,this->vms0 + local_8);
       }
     }

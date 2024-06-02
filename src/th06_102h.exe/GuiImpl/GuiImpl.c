@@ -19,7 +19,7 @@ GuiImpl * __thiscall GuiImpl::GuiImpl(GuiImpl *this)
   AnmVm::AnmVm(&this->enemySpellcardName);
   AnmVm::AnmVm(&this->bombSpellcardBackground);
   AnmVm::AnmVm(&this->enemySpellcardBackground);
-  AnmVm::AnmVm(&this->loadingScreenSprite);
+  AnmVm::AnmVm(&this->stageFinishedScoreSprite);
   GuiMsgVm::GuiMsgVm(&this->msg);
   ZunTimer::Initialize(&(this->bonusScore).timer);
   ZunTimer::Initialize(&(this->fullPowerMode).timer);

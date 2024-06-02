@@ -4,11 +4,7 @@ ZunResult MusicRoom::AddedCallback(MusicRoom *param_1)
 {
   ZunResult ZVar4;
   ZunResult iVar5;
-  uint uVar1;
   char *pcVar5;
-  uint uVar2;
-  uint uVar3;
-  uint uVar4;
   int iVar6;
   undefined4 *puVar7;
   MusicRoom *pMVar1;
@@ -135,15 +131,8 @@ breakWhile:
               param_1->field13_0x134[local_8].pos.y = ((float)((local_8 + 1) * 0x12) + 104.0) - 20.0
               ;
               param_1->field13_0x134[local_8].pos.z = 0.0;
-              pAVar1 = param_1->field13_0x134 + local_8;
-              uVar1._0_2_ = pAVar1->flags;
-              uVar1._2_1_ = pAVar1->unk_82[0];
-              uVar1._3_1_ = pAVar1->unk_82[1];
-              uVar1 = uVar1 | 0x300;
-              pAVar1 = param_1->field13_0x134 + local_8;
-              pAVar1->flags = (short)uVar1;
-              pAVar1->unk_82[0] = (char)(uVar1 >> 0x10);
-              pAVar1->unk_82[1] = (char)(uVar1 >> 0x18);
+              param_1->field13_0x134[local_8].flags =
+                   param_1->field13_0x134[local_8].flags | (AnmVmFlags_8|AnmVmFlags_9);
             }
             for (local_8 = 0; pAVar3 = g_AnmManager, local_8 < 0x10; local_8 = local_8 + 1) {
               pAVar1 = param_1->field4366_0x2334 + local_8;
@@ -177,26 +166,12 @@ LAB_00425c09:
                 if (0x20 < (uint)((int)local_98 - (int)pcVar5)) goto LAB_00425c09;
               }
               if (local_5c == '\0') {
-                pAVar1 = param_1->field4366_0x2334 + local_8;
-                uVar3._0_2_ = pAVar1->flags;
-                uVar3._2_1_ = pAVar1->unk_82[0];
-                uVar3._3_1_ = pAVar1->unk_82[1];
-                uVar3 = uVar3 & 0xfffffffd;
-                pAVar1 = param_1->field4366_0x2334 + local_8;
-                pAVar1->flags = (short)uVar3;
-                pAVar1->unk_82[0] = (char)(uVar3 >> 0x10);
-                pAVar1->unk_82[1] = (char)(uVar3 >> 0x18);
+                param_1->field4366_0x2334[local_8].flags =
+                     param_1->field4366_0x2334[local_8].flags & 0xfffffffd;
               }
               else {
-                pAVar1 = param_1->field4366_0x2334 + local_8;
-                uVar2._0_2_ = pAVar1->flags;
-                uVar2._2_1_ = pAVar1->unk_82[0];
-                uVar2._3_1_ = pAVar1->unk_82[1];
-                uVar2 = uVar2 | 2;
-                pAVar1 = param_1->field4366_0x2334 + local_8;
-                pAVar1->flags = (short)uVar2;
-                pAVar1->unk_82[0] = (char)(uVar2 >> 0x10);
-                pAVar1->unk_82[1] = (char)(uVar2 >> 0x18);
+                param_1->field4366_0x2334[local_8].flags =
+                     param_1->field4366_0x2334[local_8].flags | 2;
                 AnmManager::DrawVmTextFmt
                           (g_AnmManager,param_1->field4366_0x2334 + local_8,0xffe0c0,0x300000,
                            &local_5c);
@@ -204,15 +179,8 @@ LAB_00425c09:
               param_1->field4366_0x2334[local_8].pos.x = (float)(local_8 % 2) * 248.0 + 96.0;
               param_1->field4366_0x2334[local_8].pos.y = (float)(local_8 / 2 << 4) + 320.0;
               param_1->field4366_0x2334[local_8].pos.z = 0.0;
-              pAVar1 = param_1->field4366_0x2334 + local_8;
-              uVar4._0_2_ = pAVar1->flags;
-              uVar4._2_1_ = pAVar1->unk_82[0];
-              uVar4._3_1_ = pAVar1->unk_82[1];
-              uVar4 = uVar4 | 0x300;
-              pAVar1 = param_1->field4366_0x2334 + local_8;
-              pAVar1->flags = (short)uVar4;
-              pAVar1->unk_82[0] = (char)(uVar4 >> 0x10);
-              pAVar1->unk_82[1] = (char)(uVar4 >> 0x18);
+              param_1->field4366_0x2334[local_8].flags =
+                   param_1->field4366_0x2334[local_8].flags | (AnmVmFlags_8|AnmVmFlags_9);
             }
             _free(firstChar);
             iVar5 = ZUN_SUCCESS;

@@ -1,5 +1,5 @@
 
-undefined4 __thiscall Stage::FUN_00404970(Stage *this,int unk)
+ZunResult __thiscall Stage::RenderObjects(Stage *this,int zLevel)
 
 {
   float fVar1;
@@ -25,10 +25,10 @@ undefined4 __thiscall Stage::FUN_00404970(Stage *this,int unk)
   D3DXMatrixIdentity(&worldMatrix);
   do {
     if (instances->id < 0) {
-      return 0;
+      return ZUN_SUCCESS;
     }
     local_58 = this->objects[instances->id];
-    if (local_58->field1_0x2 == unk) {
+    if (local_58->zLevel == zLevel) {
       local_74 = &local_58->firstQuad;
       local_8 = 0;
       worldMatrix.m[3][0] = ((local_58->position).x + (instances->position).x) - (this->position).x;

@@ -18,7 +18,7 @@ void __thiscall AnmVm::Initialize(AnmVm *this)
   this->alphaInterpEndTime = 0;
   (this->color).color = 0xffffffff;
   D3DXMatrixIdentity(&this->matrix);
-  this->flags = AnmVmFlags_0 | AnmVmFlags_1;
+  *(undefined2 *)&this->flags = 3;
   this->autoRotate = 0;
   this->pendingInterrupt = 0;
   this->posInterpEndTime = 0;

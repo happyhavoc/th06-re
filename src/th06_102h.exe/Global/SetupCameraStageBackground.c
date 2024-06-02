@@ -1,5 +1,5 @@
 
-void SetupCamera(float renderDistance)
+void SetupCameraStageBackground(float extraRenderDistance)
 
 {
   double dVar1;
@@ -17,24 +17,22 @@ void SetupCamera(float renderDistance)
   aspectRatio = (float)(ulonglong)g_Supervisor.viewport.Width /
                 (float)(ulonglong)g_Supervisor.viewport.Height;
   fov = 0.5235988;
-                    /* Calculates fov. Seems to be calculated as tan(D3DXToRadians(60) / 2) */
   dVar1 = tan(0.2617993950843811);
-                    /* Returns ~52524.5716512 I believe */
   cameraDistance = viewportMiddleHeight / (float)dVar1;
   upVec.x = 0.0;
   upVec.y = 1.0;
   upVec.z = 0.0;
-  atVec.y = -viewportMiddleHeight + g_GameManager.stage_camera_facing_dir.y;
-  atVec.x = viewportMiddleWidth + g_GameManager.stage_camera_facing_dir.x;
+  atVec.x = viewportMiddleWidth;
+  atVec.y = -viewportMiddleHeight;
   atVec.z = 0.0;
-  eyeVec.z = -cameraDistance * g_GameManager.stage_camera_facing_dir.z;
   eyeVec.x = viewportMiddleWidth;
   eyeVec.y = -viewportMiddleHeight;
+  eyeVec.z = -cameraDistance;
   D3DXMatrixLookAtLH(&g_Supervisor.viewMatrix,&eyeVec,&atVec,&upVec);
   dVar1 = _fabs((double)cameraDistance);
   g_GameManager.fieldOfView = (int)(float)dVar1;
   D3DXMatrixPerspectiveFovLH
-            (&g_Supervisor.projectionMatrix,fov,aspectRatio,100.0,renderDistance + 10000.0);
+            (&g_Supervisor.projectionMatrix,fov,aspectRatio,100.0,extraRenderDistance + 10000.0);
   (*(g_Supervisor.d3dDevice)->lpVtbl->SetTransform)
             (g_Supervisor.d3dDevice,D3DTS_VIEW,&g_Supervisor.viewMatrix);
   (*(g_Supervisor.d3dDevice)->lpVtbl->SetTransform)

@@ -2,10 +2,9 @@
 void __thiscall StageMenu::OnDrawRetryMenu(StageMenu *this)
 
 {
-  uint uVar1;
-  int iVar2;
+  int iVar1;
+  AnmVm *pAVar2;
   AnmVm *pAVar3;
-  AnmVm *pAVar4;
   int local_8;
   
   if (g_GameManager.is_in_retry_menu != 0) {
@@ -20,12 +19,12 @@ void __thiscall StageMenu::OnDrawRetryMenu(StageMenu *this)
       AnmManager::DrawNoRotation(g_AnmManager,&this->vm1);
     }
     if ((this->curState == 1) || (this->curState == 2)) {
-      pAVar3 = this->vms0 + 1;
-      pAVar4 = this->vms0 + 4;
-      for (iVar2 = 0x44; iVar2 != 0; iVar2 = iVar2 + -1) {
-        (pAVar4->rotation).x = (pAVar3->rotation).x;
+      pAVar2 = this->vms0 + 1;
+      pAVar3 = this->vms0 + 4;
+      for (iVar1 = 0x44; iVar1 != 0; iVar1 = iVar1 + -1) {
+        (pAVar3->rotation).x = (pAVar2->rotation).x;
+        pAVar2 = (AnmVm *)&(pAVar2->rotation).y;
         pAVar3 = (AnmVm *)&(pAVar3->rotation).y;
-        pAVar4 = (AnmVm *)&(pAVar4->rotation).y;
       }
       this->vms0[4].pos.x = this->vms0[4].scaleX * 8.0 + this->vms0[4].pos.x;
       this->vms0[4].sprite =
@@ -33,11 +32,7 @@ void __thiscall StageMenu::OnDrawRetryMenu(StageMenu *this)
       AnmManager::DrawNoRotation(g_AnmManager,this->vms0 + 4);
     }
     for (local_8 = 0; local_8 < 4; local_8 = local_8 + 1) {
-      pAVar3 = this->vms0 + local_8;
-      uVar1._0_2_ = pAVar3->flags;
-      uVar1._2_1_ = pAVar3->unk_82[0];
-      uVar1._3_1_ = pAVar3->unk_82[1];
-      if ((uVar1 & 1) != 0) {
+      if ((this->vms0[local_8].flags & AnmVmFlags_1) != AnmVmFlags_None) {
         AnmManager::DrawNoRotation(g_AnmManager,this->vms0 + local_8);
       }
     }

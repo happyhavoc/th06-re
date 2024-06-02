@@ -57,13 +57,7 @@ void AnmManager::DrawStringFormat2
   spriteSPIYPos = __ftol2((vm->sprite->startPixelInclusive).y);
   DrawText(this,vm->sprite->sourceFileIndex,local_c,spriteSPIYPos,spriteTextureWidth,
            spriteTextureHeight,font_width,fontWidth,color.color,color2.color,pcVar4);
-  fontWidth._0_2_ = vm->flags;
-  fontWidth._2_1_ = vm->unk_82[0];
-  fontWidth._3_1_ = vm->unk_82[1];
-  fontWidth = fontWidth | 1;
-  vm->flags = (short)fontWidth;
-  vm->unk_82[0] = (char)(fontWidth >> 0x10);
-  vm->unk_82[1] = (char)(fontWidth >> 0x18);
+  vm->flags = vm->flags | AnmVmFlags_1;
   __security_check_cookie(local_10 ^ unaff_retaddr);
   return;
 }

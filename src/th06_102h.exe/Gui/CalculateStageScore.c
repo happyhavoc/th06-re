@@ -79,10 +79,10 @@ void __thiscall Gui::CalculateStageScore(Gui *this)
   AnmManager::ExecuteScript(g_AnmManager,&this->impl->bombSpellcardName);
   AnmManager::ExecuteScript(g_AnmManager,&this->impl->enemySpellcardPortrait);
   AnmManager::ExecuteScript(g_AnmManager,&this->impl->enemySpellcardName);
-  if ((-1 < (this->impl->loadingScreenSprite).activeSpriteIndex) &&
-     (iVar1 = AnmManager::ExecuteScript(g_AnmManager,&this->impl->loadingScreenSprite), iVar1 != 0))
-  {
-    (this->impl->loadingScreenSprite).activeSpriteIndex = -1;
+  if ((-1 < (this->impl->stageFinishedScoreSprite).activeSpriteIndex) &&
+     (iVar1 = AnmManager::ExecuteScript(g_AnmManager,&this->impl->stageFinishedScoreSprite),
+     iVar1 != 0)) {
+    (this->impl->stageFinishedScoreSprite).activeSpriteIndex = -1;
   }
   if ((this->impl->bonusScore).isShown != 0) {
     if ((this->impl->bonusScore).timer.current < 0x1e) {

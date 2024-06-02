@@ -2,11 +2,7 @@
 void __thiscall MusicRoom::drawMusicList(MusicRoom *this)
 
 {
-  AnmVm *pAVar1;
   char *pcVar2;
-  uint uVar2;
-  uint uVar3;
-  uint uVar4;
   int iVar3;
   undefined4 *puVar4;
   undefined4 *puVar5;
@@ -74,41 +70,18 @@ LAB_0042508a:
         if (0x20 < (uint)((int)local_5c - (int)pcVar2)) goto LAB_0042508a;
       }
       if (local_54 == '\0') {
-        pAVar1 = this->field4366_0x2334 + local_c;
-        uVar3._0_2_ = pAVar1->flags;
-        uVar3._2_1_ = pAVar1->unk_82[0];
-        uVar3._3_1_ = pAVar1->unk_82[1];
-        uVar3 = uVar3 & 0xfffffffd;
-        pAVar1 = this->field4366_0x2334 + local_c;
-        pAVar1->flags = (short)uVar3;
-        pAVar1->unk_82[0] = (char)(uVar3 >> 0x10);
-        pAVar1->unk_82[1] = (char)(uVar3 >> 0x18);
+        this->field4366_0x2334[local_c].flags = this->field4366_0x2334[local_c].flags & 0xfffffffd;
       }
       else {
-        pAVar1 = this->field4366_0x2334 + local_c;
-        uVar2._0_2_ = pAVar1->flags;
-        uVar2._2_1_ = pAVar1->unk_82[0];
-        uVar2._3_1_ = pAVar1->unk_82[1];
-        uVar2 = uVar2 | 2;
-        pAVar1 = this->field4366_0x2334 + local_c;
-        pAVar1->flags = (short)uVar2;
-        pAVar1->unk_82[0] = (char)(uVar2 >> 0x10);
-        pAVar1->unk_82[1] = (char)(uVar2 >> 0x18);
+        this->field4366_0x2334[local_c].flags = this->field4366_0x2334[local_c].flags | 2;
         AnmManager::DrawVmTextFmt
                   (g_AnmManager,this->field4366_0x2334 + local_c,0xffe0c0,0x300000,&local_54);
       }
       this->field4366_0x2334[local_c].pos.x = (float)(local_c % 2) * 248.0 + 96.0;
       this->field4366_0x2334[local_c].pos.y = (float)(local_c / 2 << 4) + 320.0;
       this->field4366_0x2334[local_c].pos.z = 0.0;
-      pAVar1 = this->field4366_0x2334 + local_c;
-      uVar4._0_2_ = pAVar1->flags;
-      uVar4._2_1_ = pAVar1->unk_82[0];
-      uVar4._3_1_ = pAVar1->unk_82[1];
-      uVar4 = uVar4 | 0x300;
-      pAVar1 = this->field4366_0x2334 + local_c;
-      pAVar1->flags = (short)uVar4;
-      pAVar1->unk_82[0] = (char)(uVar4 >> 0x10);
-      pAVar1->unk_82[1] = (char)(uVar4 >> 0x18);
+      this->field4366_0x2334[local_c].flags =
+           this->field4366_0x2334[local_c].flags | (AnmVmFlags_8|AnmVmFlags_9);
     }
   }
   if (((g_CurFrameInput & 10) != 0) && ((g_CurFrameInput & 10) != (g_LastFrameInput & 10))) {

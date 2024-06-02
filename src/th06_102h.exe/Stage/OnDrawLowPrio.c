@@ -9,10 +9,10 @@ ChainCallbackResult Stage::OnDrawLowPrio(Stage *arg)
   undefined4 local_8;
   
   if ((int)arg->spellcardState < 2) {
-    iVar1 = Gui::FUN_004172d3(&g_Gui);
+    iVar1 = Gui::IsStageFinished(&g_Gui);
     if (iVar1 == 0) {
-      FUN_00404970(arg,2);
-      FUN_00404970(arg,3);
+      RenderObjects(arg,2);
+      RenderObjects(arg,3);
       if (arg->spellcardState == RUNNING) {
         local_1c.left = 32.0;
         local_1c.top = 16.0;
@@ -33,7 +33,7 @@ ChainCallbackResult Stage::OnDrawLowPrio(Stage *arg)
   }
   g_Supervisor.viewport.MinZ = 0.0;
   g_Supervisor.viewport.MaxZ = 0.5;
-  FUN_0041c28c(0);
+  SetupCameraStageBackground(0);
   (*(g_Supervisor.d3dDevice)->lpVtbl->SetViewport)(g_Supervisor.d3dDevice,(D3DVIEWPORT8 *)0x6c6de0);
   local_8 = 0x447a0000;
   (*(g_Supervisor.d3dDevice)->lpVtbl->SetRenderState)

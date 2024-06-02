@@ -3,14 +3,14 @@ ChainCallbackResult Stage::OnDrawLowPrio(Stage *arg)
 
 {
   AnmManager *this;
-  int iVar1;
+  BOOL BVar1;
   ZunRect local_1c;
   int local_c;
   undefined4 local_8;
   
   if ((int)arg->spellcardState < 2) {
-    iVar1 = Gui::IsStageFinished(&g_Gui);
-    if (iVar1 == 0) {
+    BVar1 = Gui::IsStageFinished(&g_Gui);
+    if (BVar1 == 0) {
       RenderObjects(arg,2);
       RenderObjects(arg,3);
       if (arg->spellcardState == RUNNING) {

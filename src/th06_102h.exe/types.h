@@ -221,6 +221,8 @@ struct _GUID {
     uchar Data4[8];
 };
 
+typedef int BOOL;
+
 typedef enum Difficulty {
     EASY=0,
     NORMAL=1,
@@ -518,8 +520,6 @@ typedef struct FileAbstractionVtable FileAbstractionVtable, *PFileAbstractionVta
 typedef char CHAR;
 
 typedef CHAR *LPCSTR;
-
-typedef int BOOL;
 
 typedef DWORD *LPDWORD;
 

@@ -1,8 +1,8 @@
 
-undefined4 __thiscall Gui::IsStageFinished(Gui *this)
+BOOL __thiscall Gui::IsStageFinished(Gui *this)
 
 {
-  undefined4 local_c;
+  BOOL local_c;
   
   if (((this->impl->stageFinishedScoreSprite).activeSpriteIndex < 0) ||
      (((this->impl->stageFinishedScoreSprite).flags >> 0xd & 1) == 0)) {

@@ -1,5 +1,5 @@
 
-int __thiscall AnmManager::FUN_00433590(AnmManager *this,AnmVm *vm)
+ZunResult __thiscall AnmManager::Draw2(AnmManager *this,AnmVm *vm)
 
 {
   float fVar1;
@@ -7,8 +7,9 @@ int __thiscall AnmManager::FUN_00433590(AnmManager *this,AnmVm *vm)
   int iVar3;
   D3DMATRIX *pDVar4;
   float *pfVar5;
-  D3DMATRIX local_c4;
-  D3DMATRIX local_44;
+  D3DXMATRIX local_c4;
+  D3DXMATRIX local_84;
+  D3DXMATRIX local_44;
   
   if ((vm->flags & AnmVmFlags_1) == AnmVmFlags_None) {
     ZVar2 = ZUN_ERROR;
@@ -20,7 +21,7 @@ int __thiscall AnmManager::FUN_00433590(AnmManager *this,AnmVm *vm)
     fVar1 = (vm->rotation).x;
     if (((NAN(fVar1) == (fVar1 == 0.0)) || (fVar1 = (vm->rotation).y, NAN(fVar1) == (fVar1 == 0.0)))
        || (fVar1 = (vm->rotation).z, NAN(fVar1) == (fVar1 == 0.0))) {
-      ZVar2 = FUN_00433150(this,vm);
+      ZVar2 = Draw3(this,vm);
     }
     else if ((vm->color).color == 0) {
       ZVar2 = ZUN_ERROR;

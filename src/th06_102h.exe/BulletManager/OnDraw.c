@@ -21,7 +21,7 @@ ChainCallbackResult BulletManager::OnDraw(BulletManager *arg)
       (local_10->vm0).pos.y = (float)fVar3 * fVar1 + (local_10->pos).y;
       (local_10->vm0).pos.z = 0.0;
       local_10->color = -1;
-      AnmManager::FUN_00433150(g_AnmManager,&local_10->vm0);
+      AnmManager::Draw3(g_AnmManager,&local_10->vm0);
       if ((local_10->start_offset < 16.0 != NAN(local_10->start_offset)) ||
          (NAN(local_10->speed) != (local_10->speed == 0.0))) {
         (local_10->vm1).pos.x = (float)fVar2 * local_10->start_offset + (local_10->pos).x;
@@ -38,7 +38,7 @@ ChainCallbackResult BulletManager::OnDraw(BulletManager *arg)
           (local_10->vm1).scaleX = local_10->width / 10.0;
           (local_10->vm1).scaleY = (local_10->vm1).scaleX;
         }
-        AnmManager::FUN_00433150(g_AnmManager,&local_10->vm1);
+        AnmManager::Draw3(g_AnmManager,&local_10->vm1);
       }
     }
     local_10 = local_10 + 1;

@@ -6,14 +6,14 @@ ZunResult __thiscall Stage::RenderObjects(Stage *this,int zLevel)
   FLOAT local_88;
   D3DXVECTOR3 projectSrc;
   undefined4 local_78;
-  StdRawQuadBasic *local_74;
+  StdRawQuadBasic *curQuad;
   D3DXVECTOR3 projectRes;
   D3DXVECTOR3 local_64;
   StdRawObject *local_58;
   D3DMATRIX worldMatrix;
   StdRawInstance *instances;
   int local_10;
-  AnmVm *local_c;
+  AnmVm *curQuadVm;
   undefined4 local_8;
   
   instances = this->objectInstances;
@@ -29,7 +29,7 @@ ZunResult __thiscall Stage::RenderObjects(Stage *this,int zLevel)
     }
     local_58 = this->objects[instances->id];
     if (local_58->zLevel == zLevel) {
-      local_74 = &local_58->firstQuad;
+      curQuad = &local_58->firstQuad;
       local_8 = 0;
       worldMatrix.m[3][0] = ((local_58->position).x + (instances->position).x) - (this->position).x;
       worldMatrix.m[3][1] =
@@ -120,49 +120,49 @@ ZunResult __thiscall Stage::RenderObjects(Stage *this,int zLevel)
         }
       }
       local_78 = 1;
-      for (; -1 < local_74->type;
-          local_74 = (StdRawQuadBasic *)((int)&local_74->type + (int)local_74->byteSize)) {
-        local_c = this->quadVms + local_74->vmIndex;
-        if (local_74->type == 0) {
-          (local_c->pos).x = ((local_74->position).x + (instances->position).x) - (this->position).x
-          ;
-          (local_c->pos).y = ((local_74->position).y + (instances->position).y) - (this->position).y
-          ;
-          (local_c->pos).z = ((local_74->position).z + (instances->position).z) - (this->position).z
-          ;
-          fVar1 = (local_74->size).x;
+      for (; -1 < curQuad->type;
+          curQuad = (StdRawQuadBasic *)((int)&curQuad->type + (int)curQuad->byteSize)) {
+        curQuadVm = this->quadVms + curQuad->vmIndex;
+        if (curQuad->type == 0) {
+          (curQuadVm->pos).x =
+               ((curQuad->position).x + (instances->position).x) - (this->position).x;
+          (curQuadVm->pos).y =
+               ((curQuad->position).y + (instances->position).y) - (this->position).y;
+          (curQuadVm->pos).z =
+               ((curQuad->position).z + (instances->position).z) - (this->position).z;
+          fVar1 = (curQuad->size).x;
           if (NAN(fVar1) == (fVar1 == 0.0)) {
-            local_c->scaleX = (local_74->size).x / local_c->sprite->widthPx;
+            curQuadVm->scaleX = (curQuad->size).x / curQuadVm->sprite->widthPx;
           }
-          fVar1 = (local_74->size).y;
+          fVar1 = (curQuad->size).y;
           if (NAN(fVar1) == (fVar1 == 0.0)) {
-            local_c->scaleY = (local_74->size).y / local_c->sprite->heightPx;
+            curQuadVm->scaleY = (curQuad->size).y / curQuadVm->sprite->heightPx;
           }
-          if (local_c->autoRotate == 2) {
-            fVar1 = (local_74->size).x;
+          if (curQuadVm->autoRotate == 2) {
+            fVar1 = (curQuad->size).x;
             if (NAN(fVar1) == (fVar1 == 0.0)) {
-              local_88 = (local_74->size).x;
+              local_88 = (curQuad->size).x;
             }
             else {
-              local_88 = local_c->sprite->widthPx;
+              local_88 = curQuadVm->sprite->widthPx;
             }
-            worldMatrix.m[3][0] = (local_c->pos).x;
-            worldMatrix.m[3][1] = -(local_c->pos).y;
-            worldMatrix.m[3][2] = (local_c->pos).z;
+            worldMatrix.m[3][0] = (curQuadVm->pos).x;
+            worldMatrix.m[3][1] = -(curQuadVm->pos).y;
+            worldMatrix.m[3][2] = (curQuadVm->pos).z;
             D3DXVec3Project(&projectRes,&projectSrc,&g_Supervisor.viewport,
                             &g_Supervisor.projectionMatrix,&g_Supervisor.viewMatrix,&worldMatrix);
-            worldMatrix.m[3][0] = local_88 * local_c->scaleX + worldMatrix.m[3][0];
+            worldMatrix.m[3][0] = local_88 * curQuadVm->scaleX + worldMatrix.m[3][0];
             D3DXVec3Project(&local_64,&projectSrc,&g_Supervisor.viewport,
                             &g_Supervisor.projectionMatrix,&g_Supervisor.viewMatrix,&worldMatrix);
-            local_c->scaleX = (local_64.x - projectRes.x) / local_88;
-            local_c->scaleY = local_c->scaleX;
-            (local_c->pos).x = projectRes.x;
-            (local_c->pos).y = projectRes.y;
-            (local_c->pos).z = projectRes.z;
-            AnmManager::FUN_00432fa0(g_AnmManager,local_c);
+            curQuadVm->scaleX = (local_64.x - projectRes.x) / local_88;
+            curQuadVm->scaleY = curQuadVm->scaleX;
+            (curQuadVm->pos).x = projectRes.x;
+            (curQuadVm->pos).y = projectRes.y;
+            (curQuadVm->pos).z = projectRes.z;
+            AnmManager::DrawFacingCamera(g_AnmManager,curQuadVm);
           }
           else {
-            AnmManager::FUN_00433150(g_AnmManager,local_c);
+            AnmManager::Draw3(g_AnmManager,curQuadVm);
           }
         }
       }

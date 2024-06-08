@@ -27,7 +27,7 @@ void Draw(Bullet *param_1)
   if (anmVm->autoRotate != 0) {
     (anmVm->rotation).z = 1.570796 - param_1->angle;
   }
-  AnmManager::FUN_00433590(g_AnmManager,anmVm);
+  AnmManager::Draw2(g_AnmManager,anmVm);
   return;
 }
 

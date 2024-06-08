@@ -15,7 +15,7 @@ void Player::DrawBulletExplosions(Player *param_1)
       }
                     /* the only difference between functions */
       (bullets->vm).pos.z = 0.4;
-      AnmManager::FUN_00433590(g_AnmManager,&bullets->vm);
+      AnmManager::Draw2(g_AnmManager,&bullets->vm);
     }
     bullets = bullets + 1;
   }

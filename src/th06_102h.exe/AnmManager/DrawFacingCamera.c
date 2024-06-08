@@ -1,5 +1,5 @@
 
-ZunResult __thiscall AnmManager::FUN_00432fa0(AnmManager *this,AnmVm *vm)
+ZunResult __thiscall AnmManager::DrawFacingCamera(AnmManager *this,AnmVm *vm)
 
 {
   ZunResult result;

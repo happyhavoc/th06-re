@@ -13,7 +13,7 @@ ChainCallbackResult EffectManager::OnDraw(EffectManager *param_1)
       (local_8->vm).pos.x = (local_8->pos1).x;
       (local_8->vm).pos.y = (local_8->pos1).y;
       (local_8->vm).pos.z = (local_8->pos1).z;
-      AnmManager::FUN_00433150(g_AnmManager,&local_8->vm);
+      AnmManager::Draw3(g_AnmManager,&local_8->vm);
     }
     local_8 = local_8 + 1;
   }

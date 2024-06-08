@@ -1,7 +1,7 @@
 
 /* WARNING: Unable to use type for symbol pfVar4 */
 
-ZunResult __thiscall AnmManager::FUN_00433150(AnmManager *this,AnmVm *vm)
+ZunResult __thiscall AnmManager::Draw3(AnmManager *this,AnmVm *vm)
 
 {
   ZunResult ZVar1;
@@ -9,9 +9,9 @@ ZunResult __thiscall AnmManager::FUN_00433150(AnmManager *this,AnmVm *vm)
   D3DMATRIX *pDVar3;
   float *pfVar5;
   double dVar6;
-  D3DXMATRIX local_c4;
-  D3DXMATRIX matrix;
-  D3DMATRIX local_44;
+  D3DXMATRIX worldTransformMatrix;
+  D3DXMATRIX rotationMatrix;
+  D3DXMATRIX local_44;
   float *pfVar4;
   float rotation;
   
@@ -26,45 +26,46 @@ ZunResult __thiscall AnmManager::FUN_00433150(AnmManager *this,AnmVm *vm)
   }
   else {
     pDVar3 = &vm->matrix;
-    pfVar4 = (float *)&local_c4;
+    pfVar4 = (float *)&worldTransformMatrix;
     for (iVar2 = 0x10; iVar2 != 0; iVar2 = iVar2 + -1) {
       *pfVar4 = pDVar3->m[0][0];
       pDVar3 = (D3DMATRIX *)(pDVar3->m[0] + 1);
       pfVar4 = pfVar4 + 1;
     }
-    local_c4.m[0][0] = local_c4.m[0][0] * vm->scaleX;
-    local_c4.m[1][1] = -vm->scaleY * local_c4.m[1][1];
+    worldTransformMatrix.m[0][0] = worldTransformMatrix.m[0][0] * vm->scaleX;
+    worldTransformMatrix.m[1][1] = -vm->scaleY * worldTransformMatrix.m[1][1];
     rotation = (vm->rotation).x;
     if (NAN(rotation) == (rotation == 0.0)) {
-      D3DXMatrixRotationX(&matrix,(vm->rotation).x);
-      D3DXMatrixMultiply(&local_c4,&local_c4,&matrix);
+      D3DXMatrixRotationX(&rotationMatrix,(vm->rotation).x);
+      D3DXMatrixMultiply(&worldTransformMatrix,&worldTransformMatrix,&rotationMatrix);
     }
     rotation = (vm->rotation).y;
     if (NAN(rotation) == (rotation == 0.0)) {
-      D3DXMatrixRotationY(&matrix,(vm->rotation).y);
-      D3DXMatrixMultiply(&local_c4,&local_c4,&matrix);
+      D3DXMatrixRotationY(&rotationMatrix,(vm->rotation).y);
+      D3DXMatrixMultiply(&worldTransformMatrix,&worldTransformMatrix,&rotationMatrix);
     }
     rotation = (vm->rotation).z;
     if (NAN(rotation) == (rotation == 0.0)) {
-      D3DXMatrixRotationZ(&matrix,(vm->rotation).z);
-      D3DXMatrixMultiply(&local_c4,&local_c4,&matrix);
+      D3DXMatrixRotationZ(&rotationMatrix,(vm->rotation).z);
+      D3DXMatrixMultiply(&worldTransformMatrix,&worldTransformMatrix,&rotationMatrix);
     }
     if ((vm->flags >> 8 & 1) == 0) {
-      local_c4.m[3][0] = (vm->pos).x;
+      worldTransformMatrix.m[3][0] = (vm->pos).x;
     }
     else {
       dVar6 = _fabs((double)((vm->sprite->widthPx * vm->scaleX) / 2.0));
-      local_c4.m[3][0] = (float)dVar6 + (vm->pos).x;
+      worldTransformMatrix.m[3][0] = (float)dVar6 + (vm->pos).x;
     }
     if ((vm->flags >> 8 & 2) == 0) {
-      local_c4.m[3][1] = -(vm->pos).y;
+      worldTransformMatrix.m[3][1] = -(vm->pos).y;
     }
     else {
       dVar6 = _fabs((double)((vm->sprite->heightPx * vm->scaleY) / 2.0));
-      local_c4.m[3][1] = -(vm->pos).y - (float)dVar6;
+      worldTransformMatrix.m[3][1] = -(vm->pos).y - (float)dVar6;
     }
-    local_c4.m[3][2] = (vm->pos).z;
-    (*(g_Supervisor.d3dDevice)->lpVtbl->SetTransform)(g_Supervisor.d3dDevice,D3DTS_WORLD,&local_c4);
+    worldTransformMatrix.m[3][2] = (vm->pos).z;
+    (*(g_Supervisor.d3dDevice)->lpVtbl->SetTransform)
+              (g_Supervisor.d3dDevice,D3DTS_WORLD,&worldTransformMatrix);
     if (this->currentSprite != vm->sprite) {
       this->currentSprite = vm->sprite;
       pDVar3 = &vm->matrix;

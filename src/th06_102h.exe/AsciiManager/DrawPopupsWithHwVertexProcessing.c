@@ -24,12 +24,12 @@ void __thiscall AsciiManager::DrawPopupsWithHwVertexProcessing(AsciiManager *thi
       for (local_c = (uint)local_8->characterCount; 0 < (int)local_c; local_c = local_c - 1) {
         (this->vm1).sprite = g_AnmManager->sprites + (byte)*local_14;
         if ((byte)*local_14 < 10) {
-          AnmManager::FUN_00433590(g_AnmManager,&this->vm1);
+          AnmManager::Draw2(g_AnmManager,&this->vm1);
         }
         else {
           (this->vm1).matrix.m[0][0] = 0.1875;
           (this->vm1).matrix.m[1][1] = 0.03125;
-          AnmManager::FUN_00433590(g_AnmManager,&this->vm1);
+          AnmManager::Draw2(g_AnmManager,&this->vm1);
           (this->vm1).matrix.m[0][0] = 0.03125;
           (this->vm1).matrix.m[1][1] = 0.03125;
         }

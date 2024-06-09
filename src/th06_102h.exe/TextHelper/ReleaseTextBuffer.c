@@ -1,5 +1,5 @@
 
-void Supervisor::ReleaseBackBuffer(void)
+void TextHelper::ReleaseTextBuffer(void)
 
 {
   if (g_TextBufferSurface != (IDirect3DSurface8 *)0x0) {

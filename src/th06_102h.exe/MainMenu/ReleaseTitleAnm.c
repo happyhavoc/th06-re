@@ -1,5 +1,5 @@
 
-void MainMenu::ReleaseAnm(void)
+void MainMenu::ReleaseTitleAnm(void)
 
 {
   int local_8;

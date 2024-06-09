@@ -64,7 +64,7 @@ ZunResult Supervisor::AddedCallback(Supervisor *param_1)
       if (ZVar2 == ZUN_SUCCESS) {
         param_1->unk198 = 0;
         AnmManager::SetupVertexBuffer(g_AnmManager);
-        CreateTextBuffer();
+        TextHelper::CreateTextBuffer();
         ReleasePbg3(param_1,0);
         iVar1 = LoadPbg3(&g_Supervisor,1,"紅魔郷MD.dat");
         if (iVar1 == 0) {

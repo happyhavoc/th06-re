@@ -5163,7 +5163,7 @@ struct GameManager {
     struct D3DXVECTOR2 arcade_region_size;
     struct D3DXVECTOR2 playerMovementBoundaries;
     struct D3DXVECTOR2 unk_1a54;
-    int fieldOfView;
+    float cameraDistance;
     struct D3DXVECTOR3 stage_camera_facing_dir;
     uint counat;
     int rank;

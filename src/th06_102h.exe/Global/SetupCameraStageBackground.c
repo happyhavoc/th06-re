@@ -30,7 +30,7 @@ void SetupCameraStageBackground(float extraRenderDistance)
   eyeVec.z = -cameraDistance;
   D3DXMatrixLookAtLH(&g_Supervisor.viewMatrix,&eyeVec,&atVec,&upVec);
   dVar1 = _fabs((double)cameraDistance);
-  g_GameManager.fieldOfView = (int)(float)dVar1;
+  g_GameManager.cameraDistance = (float)dVar1;
   D3DXMatrixPerspectiveFovLH
             (&g_Supervisor.projectionMatrix,fov,aspectRatio,100.0,extraRenderDistance + 10000.0);
   (*(g_Supervisor.d3dDevice)->lpVtbl->SetTransform)

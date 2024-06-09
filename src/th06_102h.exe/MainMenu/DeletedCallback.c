@@ -7,7 +7,7 @@ ZunResult MainMenu::DeletedCallback(MainMenu *param_1)
   int local_8;
   
   (*(g_Supervisor.d3dDevice)->lpVtbl->ResourceManagerDiscardBytes)(g_Supervisor.d3dDevice,0);
-  ReleaseAnm();
+  ReleaseTitleAnm();
   for (local_8 = 0x1b; local_8 < 0x25; local_8 = local_8 + 1) {
     AnmManager::ReleaseAnm(g_AnmManager,local_8);
   }

@@ -34,8 +34,8 @@ EnemyManager::SpawnEnemy
   (local_c->position).x = pos->x;
   (local_c->position).y = pos->y;
   (local_c->position).z = pos->z;
-  EclManager::FUN_00407440(&g_EclManager,&local_c->current_context,param_1);
-  EclManager::run_ecl(local_c);
+  EclManager::CallEclSub(&g_EclManager,&local_c->current_context,param_1);
+  EclManager::RunEcl(&g_EclManager,local_c);
   local_c->color = (local_c->primary_vm).color;
   local_c->item_drop = item_drop;
   if (-1 < life) {

@@ -1,7 +1,7 @@
 
 /* WARNING: Removing unreachable block (ram,0x0042a60a) */
 
-undefined4 FUN_0042a570(ReplayManager *param_1)
+undefined4 ReplayManager::FUN_0042a570(ReplayManager *param_1)
 
 {
   if (g_GameManager.is_in_menu != 0) {

@@ -1,5 +1,5 @@
 
-void __cdecl FUN_0040ad10(Enemy *enemy,EclRawInstr *instr)
+void Enemy::FUN_0040ad10(Enemy *enemy,EclRawInstr *instr)
 
 {
   float fVar1;
@@ -9,11 +9,11 @@ void __cdecl FUN_0040ad10(Enemy *enemy,EclRawInstr *instr)
   float fVar5;
   float *pfVar6;
   
-  pfVar6 = Enemy::get_var_float(enemy,&instr->float_var_1,(EclValueType *)0x0);
+  pfVar6 = GetVarFloat(enemy,&instr->float_var_1,(EclValueType *)0x0);
   fVar3 = *pfVar6;
-  pfVar6 = Enemy::get_var_float(enemy,&instr->float_var_2,(EclValueType *)0x0);
+  pfVar6 = GetVarFloat(enemy,&instr->float_var_2,(EclValueType *)0x0);
   fVar4 = *pfVar6;
-  pfVar6 = Enemy::get_var_float(enemy,&instr->float_var_3,(EclValueType *)0x0);
+  pfVar6 = GetVarFloat(enemy,&instr->float_var_3,(EclValueType *)0x0);
   fVar5 = *pfVar6;
   fVar1 = (enemy->position).z;
   fVar2 = (enemy->position).y;

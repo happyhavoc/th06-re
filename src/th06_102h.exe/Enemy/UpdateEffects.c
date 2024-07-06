@@ -1,5 +1,5 @@
 
-void FUN_00412e50(Enemy *enemy)
+void Enemy::UpdateEffects(Enemy *enemy)
 
 {
   float fVar1;

@@ -1,5 +1,5 @@
 
-void __cdecl FUN_0040abe0(Enemy *enemy,EclRawInstr *instr)
+void Enemy::FUN_0040abe0(Enemy *enemy,EclRawInstr *instr)
 
 {
   float fVar1;
@@ -8,7 +8,7 @@ void __cdecl FUN_0040abe0(Enemy *enemy,EclRawInstr *instr)
   double dVar4;
   
   piVar2 = &instr->ecl_var_id;
-  pfVar3 = Enemy::get_var_float(enemy,&instr->float_var_1,(EclValueType *)0x0);
+  pfVar3 = GetVarFloat(enemy,&instr->float_var_1,(EclValueType *)0x0);
   fVar1 = *pfVar3;
   dVar4 = cos((double)fVar1);
   (enemy->move_interp).x = ((float)dVar4 * instr->float_var_2 * (float)*piVar2) / 2.0;

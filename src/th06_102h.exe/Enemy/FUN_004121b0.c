@@ -9,7 +9,7 @@ void __thiscall Enemy::FUN_004121b0(Enemy *this)
     this->flags2 = this->flags2 & 0xfe;
   }
   if ((this->flags2 >> 3 & 1) != 0) {
-    g_Gui.boss_health_bar1._0_1_ = 0;
+    g_Gui.boss_present = 0;
   }
   if (this->effectsNum != 0) {
     ResetEffectArray(this);

@@ -1,5 +1,5 @@
 
-undefined4 __thiscall
+BOOL __thiscall
 Player::CalcKillBoxCollision(Player *this,D3DXVECTOR3 *bulletCenter,D3DXVECTOR3 *bulletSize)
 
 {
@@ -9,7 +9,7 @@ Player::CalcKillBoxCollision(Player *this,D3DXVECTOR3 *bulletCenter,D3DXVECTOR3 
   float fVar4;
   float fVar5;
   float fVar6;
-  undefined4 uVar7;
+  BOOL BVar7;
   Player *this_backup;
   PlayerRect *local_30;
   int local_14;
@@ -25,16 +25,16 @@ Player::CalcKillBoxCollision(Player *this,D3DXVECTOR3 *bulletCenter,D3DXVECTOR3 
       if ((((fVar2 < (this->hitboxTopLeft).x) || (fVar5 < (this->hitboxTopLeft).y)) ||
           (fVar2 = (this->hitboxBottomRight).x, fVar2 < fVar3 != (NAN(fVar2) || NAN(fVar3)))) ||
          (fVar3 = (this->hitboxBottomRight).y, fVar3 < fVar4 != (NAN(fVar3) || NAN(fVar4)))) {
-        uVar7 = 0;
+        BVar7 = 0;
       }
       else if (this->playerState == PLAYER_STATE_ALIVE) {
         Die(this);
-        uVar7 = 1;
+        BVar7 = 1;
       }
       else {
-        uVar7 = 1;
+        BVar7 = 1;
       }
-      return uVar7;
+      return BVar7;
     }
     fVar1 = (local_30->size1).x;
     if (NAN(fVar1) == (fVar1 == 0.0)) {

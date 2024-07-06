@@ -23,10 +23,10 @@ ChainCallbackResult BulletManager::OnUpdate(BulletManager *this)
   
   bulletsPtr = this->bullets;
   if ((char)g_GameManager.isTimeStopped == NULL) {
-    ItemManager::FUN_0041f4a0(&g_ItemManager);
+    ItemManager::OnUpdate(&g_ItemManager);
     this->bullet_count = 0;
     for (local_c = 0; local_c < 0x280; local_c = local_c + 1) {
-      if (bulletsPtr->state == 0) goto LAB_00414a1a;
+      if (bulletsPtr->state == 0) goto bulletLoopContinue;
       this->bullet_count = this->bullet_count + 1;
       switch(bulletsPtr->state) {
       case 1:
@@ -81,13 +81,13 @@ ChainCallbackResult BulletManager::OnUpdate(BulletManager *this)
             (pBVar4->sprites).bulletSprite.rotation.x = 0.0;
             pBVar4 = (Bullet *)&(pBVar4->sprites).bulletSprite.rotation.y;
           }
-          goto LAB_00414a1a;
+          goto bulletLoopContinue;
         }
       default:
-        goto switchD_00414a97_caseD_5;
+        goto break1_label;
       }
       if (iVar3 == 0) {
-switchD_00414a97_caseD_5:
+break1_label:
         (bulletsPtr->timer).previous = (bulletsPtr->timer).current;
         Supervisor::TickTimer
                   (&g_Supervisor,&(bulletsPtr->timer).current,&(bulletsPtr->timer).subFrame);
@@ -154,7 +154,7 @@ switchD_00414a97_caseD_1:
                 if ((bulletsPtr->ex_flags & 0x400) == 0) {
                   if (((bulletsPtr->ex_flags & 0x800) != 0) &&
                      (iVar3 = GameManager::IsInBounds
-                                        ((bulletsPtr->pos).x,(bulletsPtr->pos).y,
+                                        (&g_GameManager,(bulletsPtr->pos).x,(bulletsPtr->pos).y,
                                          ((bulletsPtr->sprites).bulletSprite.sprite)->widthPx,
                                          ((bulletsPtr->sprites).bulletSprite.sprite)->heightPx),
                      iVar3 == 0)) {
@@ -182,7 +182,7 @@ switchD_00414a97_caseD_1:
                 }
                 else {
                   iVar3 = GameManager::IsInBounds
-                                    ((bulletsPtr->pos).x,(bulletsPtr->pos).y,
+                                    (&g_GameManager,(bulletsPtr->pos).x,(bulletsPtr->pos).y,
                                      ((bulletsPtr->sprites).bulletSprite.sprite)->widthPx,
                                      ((bulletsPtr->sprites).bulletSprite.sprite)->heightPx);
                   if (iVar3 == 0) {
@@ -223,7 +223,7 @@ switchD_00414a97_caseD_1:
                   if (bulletsPtr->dir_change__max_times <= bulletsPtr->dir_change__num_times) {
                     bulletsPtr->ex_flags = bulletsPtr->ex_flags & 0xff7f;
                   }
-                  velZ = Player::FUN_00428700(&g_Player,&bulletsPtr->pos);
+                  velZ = Player::AngleToPlayer(&g_Player,&bulletsPtr->pos);
                   bulletsPtr->angle = velZ + bulletsPtr->dir_change__rotation_arg;
                   bulletsPtr->speed = bulletsPtr->dir_change__speed_arg;
                   local_10 = bulletsPtr->speed;
@@ -290,15 +290,15 @@ switchD_00414a97_caseD_1:
         (bulletsPtr->pos).y = velY + (bulletsPtr->pos).y;
         (bulletsPtr->pos).z = velZ + (bulletsPtr->pos).z;
         iVar3 = GameManager::IsInBounds
-                          ((bulletsPtr->pos).x,(bulletsPtr->pos).y,
+                          (&g_GameManager,(bulletsPtr->pos).x,(bulletsPtr->pos).y,
                            ((bulletsPtr->sprites).bulletSprite.sprite)->widthPx,
                            ((bulletsPtr->sprites).bulletSprite.sprite)->heightPx);
         if (iVar3 != 0) {
           bulletsPtr->unk_5c0 = 0;
 LAB_00415b6c:
           if (bulletsPtr->is_grazed == 0) {
-            local_8 = Player::FUN_00426df0
-                                (&g_Player,&bulletsPtr->pos,&(bulletsPtr->sprites).grazeSize);
+            local_8 = Player::CheckGraze(&g_Player,&bulletsPtr->pos,&(bulletsPtr->sprites).grazeSize
+                                        );
             if (local_8 == 1) {
               bulletsPtr->is_grazed = 1;
 LAB_00415be8:
@@ -315,7 +315,7 @@ LAB_00415be8:
           }
           else if (bulletsPtr->is_grazed == 1) goto LAB_00415be8;
           AnmManager::ExecuteScript(g_AnmManager,(AnmVm *)bulletsPtr);
-          goto switchD_00414a97_caseD_5;
+          goto break1_label;
         }
         if ((((((bulletsPtr->ex_flags & 0x40) == 0) && ((bulletsPtr->ex_flags & 0x100) == 0)) &&
              ((bulletsPtr->ex_flags & 0x80) == 0)) &&
@@ -337,7 +337,7 @@ LAB_00415be8:
           }
         }
       }
-LAB_00414a1a:
+bulletLoopContinue:
       bulletsPtr = bulletsPtr + 1;
     }
     local_2c = this->lasers;

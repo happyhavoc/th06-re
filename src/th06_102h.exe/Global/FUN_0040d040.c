@@ -98,7 +98,7 @@ void FUN_0040d040(Enemy *this,AnmRawInstr *param_2)
           local_5c.field18_0x4c = 2;
           local_5c.type = 1;
           local_5c.start_length = local_5c.end_offset;
-          AnmVm::FUN_00414670(&local_5c);
+          BulletManager::FUN_00414670(&g_BulletManager,&local_5c);
         }
         else {
           (this->bullet_props).position.x = local_dc[local_60 * 3];

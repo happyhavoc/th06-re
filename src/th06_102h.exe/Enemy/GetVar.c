@@ -1,5 +1,5 @@
 
-int * Enemy::get_var(Enemy *param_1,int *eclGvarId,EclValueType *valueType)
+int * Enemy::GetVar(Enemy *param_1,int *eclGvarId,EclValueType *valueType)
 
 {
   int *pfVar1;
@@ -40,7 +40,7 @@ int * Enemy::get_var(Enemy *param_1,int *eclGvarId,EclValueType *valueType)
     pfVar1 = &(param_1->boss_timer).current;
     break;
   case -0x2725:
-    PLAYER_ANGLE = Player::FUN_00428700(&g_Player,&param_1->position);
+    PLAYER_ANGLE = Player::AngleToPlayer(&g_Player,&param_1->position);
     if (valueType != (EclValueType *)0x0) {
       *valueType = ECL_VALUE_TYPE_READONLY;
     }

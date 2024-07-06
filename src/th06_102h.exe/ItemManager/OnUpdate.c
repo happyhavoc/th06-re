@@ -1,5 +1,5 @@
 
-void __thiscall ItemManager::FUN_0041f4a0(ItemManager *this)
+void __thiscall ItemManager::OnUpdate(ItemManager *this)
 
 {
   int iVar8;
@@ -66,7 +66,7 @@ void __thiscall ItemManager::FUN_0041f4a0(ItemManager *this)
         if ((curItem->state == 1) ||
            ((0x7f < g_GameManager.current_power &&
             (g_Player.positionCenter.y < 128.0 != NAN(g_Player.positionCenter.y))))) {
-          fVar7 = Player::FUN_00428700(&g_Player,&curItem->currentPosition);
+          fVar7 = Player::AngleToPlayer(&g_Player,&curItem->currentPosition);
           fVar4 = (float10)fcos((float10)fVar7);
           fVar10 = (float10)fsin((float10)fVar7);
           (curItem->startPosition).x = (float)(fVar4 * (float10)8.0);

@@ -1,5 +1,5 @@
 
-float __thiscall Player::FUN_00428700(Player *this,D3DXVECTOR3 *pos)
+float __thiscall Player::AngleToPlayer(Player *this,D3DXVECTOR3 *pos)
 
 {
   double dVar1;

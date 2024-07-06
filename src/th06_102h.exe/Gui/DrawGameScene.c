@@ -2,9 +2,6 @@
 void __thiscall Gui::DrawGameScene(Gui *this)
 
 {
-  int iVar1;
-  undefined uVar2;
-  undefined2 uVar3;
   AnmVm *vm_00;
   int local_1e8;
   int local_1c0;
@@ -41,11 +38,11 @@ void __thiscall Gui::DrawGameScene(Gui *this)
   GuiImpl *pGVar1;
   
   if (((int)(this->impl->msg).current_msg_idx < 0) &&
-     ((uint)*(byte *)&this->boss_health_bar1 + (uint)this->impl->bossHealthBarState != 0)) {
+     ((uint)this->boss_present + (uint)this->impl->bossHealthBarState != 0)) {
     AnmManager::DrawNoRotation(g_AnmManager,this->impl->vms + 0x13);
     pGVar1 = this->impl;
     pGVar1->vms[0x15].flags = pGVar1->vms[0x15].flags | (AnmVmFlags_8|AnmVmFlags_9);
-    pGVar1->vms[0x15].scaleX = ((float)this[1].flags * 288.0) / 14.0;
+    pGVar1->vms[0x15].scaleX = (this->boss_health_bar2 * 288.0) / 14.0;
     pGVar1->vms[0x15].pos.x = 96.0;
     pGVar1->vms[0x15].pos.y = 24.0;
     pGVar1->vms[0x15].pos.z = 0.0;
@@ -82,18 +79,12 @@ void __thiscall Gui::DrawGameScene(Gui *this)
       local_1e8 = 99;
     }
     if ((local_1e8 < 10) &&
-       (iVar1._0_1_ = this->last_spellcard_seconds_remaining, iVar1._1_1_ = this->boss_present,
-       iVar1._2_2_ = *(undefined2 *)&this->field_0x1e, iVar1 != this->spellcard_seconds_remaining))
-    {
+       (this->last_spellcard_seconds_remaining != this->spellcard_seconds_remaining)) {
       SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,SOUND_1D,0);
     }
     AsciiManager::AddFormatText(&g_AsciiManager,&local_28,"%.2d",local_1e8);
     g_AsciiManager.color = 0xffffffff;
-    uVar2 = *(undefined *)((int)&this->spellcard_seconds_remaining + 1);
-    uVar3 = *(undefined2 *)((int)&this->spellcard_seconds_remaining + 2);
-    this->last_spellcard_seconds_remaining = *(undefined *)&this->spellcard_seconds_remaining;
-    this->boss_present = (bool)uVar2;
-    *(undefined2 *)&this->field_0x1e = uVar3;
+    this->last_spellcard_seconds_remaining = this->spellcard_seconds_remaining;
   }
   g_Supervisor.viewport.X = 0;
   g_Supervisor.viewport.Y = 0;

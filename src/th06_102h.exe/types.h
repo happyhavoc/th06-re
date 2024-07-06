@@ -1063,6 +1063,47 @@ struct AsciiManagerString {
     undefined4 isGui;
 };
 
+typedef struct EffectInfo EffectInfo, *PEffectInfo;
+
+typedef struct Effect Effect, *PEffect;
+
+typedef struct D3DXQUATERNION D3DXQUATERNION, *PD3DXQUATERNION;
+
+struct D3DXQUATERNION {
+    FLOAT x;
+    FLOAT y;
+    FLOAT z;
+    FLOAT w;
+};
+
+struct EffectInfo {
+    int anmFileIndex;
+    int (*update_callback)(struct Effect *);
+};
+
+struct Effect {
+    struct AnmVm vm;
+    struct D3DXVECTOR3 pos1;
+    float field2_0x11c;
+    float field3_0x120;
+    float field4_0x124;
+    float field5_0x128;
+    float field6_0x12c;
+    float field7_0x130;
+    struct D3DXVECTOR3 position;
+    struct D3DXVECTOR3 pos2;
+    struct D3DXQUATERNION field10_0x14c;
+    float field11_0x15c;
+    float __angle_related;
+    struct ZunTimer timer;
+    undefined4 field14_0x170;
+    int (*effect_update_callback)(struct Effect *);
+    byte in_use_flag;
+    byte effect_id;
+    byte field18_0x17a;
+    undefined field19_0x17b;
+};
+
 typedef struct StageBgAnmStd StageBgAnmStd, *PStageBgAnmStd;
 
 struct StageBgAnmStd {
@@ -1221,8 +1262,6 @@ typedef struct EnemyBulletShooter EnemyBulletShooter, *PEnemyBulletShooter;
 
 typedef struct EnemyLaserShooter EnemyLaserShooter, *PEnemyLaserShooter;
 
-typedef struct Effect Effect, *PEffect;
-
 typedef struct EclRawInstr EclRawInstr, *PEclRawInstr;
 
 typedef enum SoundIdx {
@@ -1260,8 +1299,6 @@ typedef enum SoundIdx {
     SOUND_POWERUP=31
 } SoundIdx;
 
-typedef struct D3DXQUATERNION D3DXQUATERNION, *PD3DXQUATERNION;
-
 struct EnemyBulletShooter {
     ushort sprite;
     ushort color;
@@ -1278,13 +1315,6 @@ struct EnemyBulletShooter {
     ushort aim_mode;
     uint flags;
     enum SoundIdx sfx;
-};
-
-struct D3DXQUATERNION {
-    FLOAT x;
-    FLOAT y;
-    FLOAT z;
-    FLOAT w;
 };
 
 struct EnemyEclContext {
@@ -1337,8 +1367,8 @@ struct Enemy {
     struct EnemyEclContext saved_context_stack[8];
     int stack_depth;
     int field5_0xc40;
-    short death_callback_sub;
-    short interrupts[16];
+    int death_callback_sub;
+    int interrupts[8];
     int run_interrupt;
     struct D3DXVECTOR3 position;
     struct D3DXVECTOR3 hitbox_dimensions;
@@ -1374,7 +1404,7 @@ struct Enemy {
     byte death_anm3;
     enum ItemType item_drop;
     byte boss_id;
-    byte field43_0xe41;
+    byte unk_e41;
     struct ZunTimer field44_0xe44;
     byte flags1;
     byte flags2;
@@ -1396,29 +1426,6 @@ struct Enemy {
     int timer_callback_sub;
     float field63_0xeb8;
     struct ZunTimer field64_0xebc;
-};
-
-struct Effect {
-    struct AnmVm vm;
-    struct D3DXVECTOR3 pos1;
-    float field2_0x11c;
-    float field3_0x120;
-    float field4_0x124;
-    float field5_0x128;
-    float field6_0x12c;
-    float field7_0x130;
-    struct D3DXVECTOR3 position;
-    struct D3DXVECTOR3 pos2;
-    struct D3DXQUATERNION field10_0x14c;
-    float field11_0x15c;
-    float __angle_related;
-    struct ZunTimer timer;
-    undefined4 field14_0x170;
-    int (*effect_update_callback)(struct Effect *);
-    byte in_use_flag;
-    byte effect_id;
-    byte field18_0x17a;
-    undefined field19_0x17b;
 };
 
 struct EclRawInstr {
@@ -1455,21 +1462,12 @@ struct EnemyManager {
     undefined field10_0xee5c1;
     undefined field11_0xee5c2;
     undefined field12_0xee5c3;
-    undefined field13_0xee5c4;
-    undefined field14_0xee5c5;
-    undefined field15_0xee5c6;
-    undefined field16_0xee5c7;
+    int spellcard_related;
     int spellcard_capture;
     int spellcard_bonus;
     int spellcard_number;
-    undefined field20_0xee5d4;
-    undefined field21_0xee5d5;
-    undefined field22_0xee5d6;
-    undefined field23_0xee5d7;
-    undefined field24_0xee5d8;
-    undefined field25_0xee5d9;
-    undefined field26_0xee5da;
-    undefined field27_0xee5db;
+    int unk_ee5d4;
+    int unk_ee5d8;
     void *timeline_instr;
     struct ZunTimer timeline_time;
 };
@@ -1818,6 +1816,8 @@ struct Player {
 
 typedef struct Gui Gui, *PGui;
 
+typedef byte u8;
+
 struct Gui {
     uint flags;
     struct GuiImpl *impl;
@@ -1826,9 +1826,9 @@ struct Gui {
     uint bossUIOpacity;
     int ecl_set_lives;
     int spellcard_seconds_remaining;
-    byte last_spellcard_seconds_remaining;
-    bool boss_present;
-    float boss_health_bar1;
+    int last_spellcard_seconds_remaining;
+    u8 boss_present;
+    float boss_health_bar;
     float boss_health_bar2;
 };
 
@@ -1919,7 +1919,7 @@ typedef struct EffectManager EffectManager, *PEffectManager;
 
 struct EffectManager {
     int next_index;
-    struct EffectManager *next;
+    int active_effects;
     struct Effect effects[512];
     struct Effect dummy_effect_for_failed_spawns;
 };
@@ -3486,13 +3486,6 @@ struct DifficultyInfo {
     uint rank;
     uint min_rank;
     uint max_rank;
-};
-
-typedef struct UnknownEffectsVars476298 UnknownEffectsVars476298, *PUnknownEffectsVars476298;
-
-struct UnknownEffectsVars476298 {
-    int anmFileIndex;
-    int (*update_callback)(struct Effect *);
 };
 
 typedef struct Supervisor Supervisor, *PSupervisor;
@@ -16874,8 +16867,6 @@ struct unk {
 };
 
 typedef short i16;
-
-typedef byte u8;
 
 typedef sbyte i8;
 

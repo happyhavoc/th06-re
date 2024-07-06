@@ -48,7 +48,7 @@ Player::FUN_00427190
         uVar5 = 0;
       }
       else {
-        Graze(this,&this->positionCenter);
+        ScoreGraze(this,&this->positionCenter);
         uVar5 = 2;
       }
     }

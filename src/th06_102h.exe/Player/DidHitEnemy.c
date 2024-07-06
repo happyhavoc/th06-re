@@ -3,8 +3,8 @@
 /* WARNING: Removing unreachable block (ram,0x00426be4) */
 
 int __thiscall
-Player::FUN_004264b0
-          (Player *this,D3DXVECTOR3 *enemyPos,D3DXVECTOR3 *enemyHitboxSize,undefined4 *param_3)
+Player::DidHitEnemy(Player *this,D3DXVECTOR3 *enemyPos,D3DXVECTOR3 *enemyHitboxSize,
+                   BOOL *hitWithLazerDuringBomb)
 
 {
   int local_d4;
@@ -29,8 +29,8 @@ Player::FUN_004264b0
   enemyBottomRightX = enemyHitboxSize->x / 2.0 + enemyPos->x;
   enemyBottomRightY = enemyHitboxSize->y / 2.0 + enemyPos->y;
   bullet = this->bullets;
-  if (param_3 != (undefined4 *)0x0) {
-    *param_3 = 0;
+  if (hitWithLazerDuringBomb != (BOOL *)0x0) {
+    *hitWithLazerDuringBomb = 0;
   }
   for (local_c = 0; local_c < 0x50; local_c = local_c + 1) {
     if ((bullet->bulletState != 0) && ((bullet->bulletState == 1 || (bullet->bulletType == 2)))) {
@@ -78,7 +78,7 @@ Player::FUN_004264b0
             (bullet->size).y = 48.0;
           }
           if ((bullet->unk_140).current % 6 == 0) {
-            EffectManager::SpawnEffect(&g_EffectManager,5,&bullet->position,1,0xffffffff);
+            EffectManager::SpawnEffect(&g_EffectManager,5,&bullet->position,1,(ZunColor)0xffffffff);
           }
         }
         this_00 = g_AnmManager;
@@ -88,7 +88,7 @@ Player::FUN_004264b0
             bulletTopLeft.y = enemyPos->y;
             bulletTopLeft.z = enemyPos->z;
             bulletTopLeft.x = (bullet->position).x;
-            EffectManager::SpawnEffect(&g_EffectManager,5,&bulletTopLeft,1,0xffffffff);
+            EffectManager::SpawnEffect(&g_EffectManager,5,&bulletTopLeft,1,(ZunColor)0xffffffff);
           }
         }
         else {
@@ -97,7 +97,7 @@ Player::FUN_004264b0
             local_80 = sVar4 + 0x20;
             (bullet->vm).anmFileIndex = local_80;
             AnmManager::SetAndExecuteScript(this_00,&bullet->vm,this_00->scripts[sVar4 + 0x20]);
-            EffectManager::SpawnEffect(&g_EffectManager,5,&bullet->position,1,0xffffffff);
+            EffectManager::SpawnEffect(&g_EffectManager,5,&bullet->position,1,(ZunColor)0xffffffff);
             (bullet->position).z = 0.1;
           }
           bullet->bulletState = 2;
@@ -127,10 +127,10 @@ Player::FUN_004264b0
         this->unk_838[local_c] = this->unk_838[local_c] + this->unk_7b8[local_c];
         this->unk_9e4 = this->unk_9e4 + 1;
         if ((this->unk_9e4 & 3) == 0) {
-          EffectManager::SpawnEffect(&g_EffectManager,3,enemyPos,1,0xffffffff);
+          EffectManager::SpawnEffect(&g_EffectManager,3,enemyPos,1,(ZunColor)0xffffffff);
         }
-        if (((this->bombInfo).isInUse != 0) && (param_3 != (undefined4 *)0x0)) {
-          *param_3 = 1;
+        if (((this->bombInfo).isInUse != 0) && (hitWithLazerDuringBomb != (BOOL *)0x0)) {
+          *hitWithLazerDuringBomb = 1;
         }
       }
     }

@@ -30,7 +30,8 @@ void Player::BombReimuACalc(Player *param_1)
         (param_1->bombInfo).reimuABombProjectilesState[local_10] = 0;
       }
       ItemManager::RemoveAllItems(&g_ItemManager);
-      EffectManager::SpawnEffect(&g_EffectManager,0xc,&param_1->positionCenter,1,0xff4040ff);
+      EffectManager::SpawnEffect
+                (&g_EffectManager,0xc,&param_1->positionCenter,1,(ZunColor)0xff4040ff);
       param_1->unk_8b8[8].position1.x = (param_1->positionCenter).x;
       param_1->unk_8b8[8].position1.y = (param_1->positionCenter).y;
       param_1->unk_8b8[8].size1.x = 256.0;
@@ -118,9 +119,11 @@ void Player::BombReimuACalc(Player *param_1)
                ((param_1->bombInfo).bombDuration + -0x1e <= (param_1->bombInfo).bombTimer.current))
             {
               EffectManager::SpawnEffect
-                        (&g_EffectManager,6,(param_1->bombInfo).unk5c + local_10,8,0xffffffff);
+                        (&g_EffectManager,6,(param_1->bombInfo).unk5c + local_10,8,
+                         (ZunColor)0xffffffff);
               EffectManager::SpawnEffect
-                        (&g_EffectManager,0xc,(param_1->bombInfo).unk5c + local_10,1,0xff4040ff);
+                        (&g_EffectManager,0xc,(param_1->bombInfo).unk5c + local_10,1,
+                         (ZunColor)0xff4040ff);
               (param_1->bombInfo).reimuABombProjectilesState[local_10] = 2;
               (param_1->bombInfo).vms[local_10][0].pendingInterrupt = 1;
               (param_1->bombInfo).vms[local_10][1].pendingInterrupt = 1;

@@ -4,15 +4,14 @@ void FUN_0040caf0(Enemy *param_1,AnmRawInstr *param_2)
 {
   ushort uVar2;
   uint uVar3;
-  float fVar2;
-  double dVar3;
+  float fVar1;
+  double dVar2;
   int local_a0;
   D3DXVECTOR3 position__related;
   float local_14;
   float local_10;
   uint local_c;
-  AnmVm *local_8;
-  float fVar1;
+  Effect *local_8;
   
   if ((param_1->flags3 >> 3 & 1) != 0) {
     Enemy::ResetEffectArray(param_1);
@@ -66,37 +65,35 @@ LAB_0040cc18:
   position__related.x = (param_1->position).x;
   position__related.y = (param_1->position).y;
   position__related.z = (param_1->position).z;
-  dVar3 = cos((double)local_14);
-  position__related.x = (float)dVar3 * local_10 + position__related.x;
-  dVar3 = sin((double)local_14);
-  position__related.y = (float)dVar3 * local_10 + position__related.y;
-  local_8 = EffectManager::SpawnEffect(&g_EffectManager,0x13,&position__related,1,0xff3030ff);
-  fVar2 = Rng::GetRandomF32ZeroToOne(&g_Rng);
-  local_8[1].angleVel.x = (fVar2 * 40.0 - 20.0) / 60.0;
-  local_8[1].angleVel.y = ((float)local_c * 8.0) / 60.0 - 0.2666667;
-  local_8[1].angleVel.z = 0.0;
-  fVar2 = local_8[1].angleVel.z;
-  fVar1 = local_8[1].angleVel.y;
-  local_8[1].scaleY = -local_8[1].angleVel.x * 0.008333334;
-  local_8[1].scaleX = -fVar1 * 0.008333334;
-  local_8[1].scaleInterpFinalY = -fVar2 * 0.008333334;
+  dVar2 = cos((double)local_14);
+  position__related.x = (float)dVar2 * local_10 + position__related.x;
+  dVar2 = sin((double)local_14);
+  position__related.y = (float)dVar2 * local_10 + position__related.y;
+  local_8 = EffectManager::SpawnEffect
+                      (&g_EffectManager,0x13,&position__related,1,(ZunColor)0xff3030ff);
+  fVar1 = Rng::GetRandomF32ZeroToOne(&g_Rng);
+  local_8->field2_0x11c = (fVar1 * 40.0 - 20.0) / 60.0;
+  local_8->field3_0x120 = ((float)local_c * 8.0) / 60.0 - 0.2666667;
+  local_8->field4_0x124 = 0.0;
+  local_8->field5_0x128 = -local_8->field2_0x11c * 0.008333334;
+  local_8->field6_0x12c = -local_8->field3_0x120 * 0.008333334;
+  local_8->field7_0x130 = -local_8->field4_0x124 * 0.008333334;
   position__related.x = (param_1->position).x;
   position__related.y = (param_1->position).y;
   position__related.z = (param_1->position).z;
-  dVar3 = cos((double)local_14);
-  position__related.x = position__related.x - (float)dVar3 * local_10;
-  dVar3 = sin((double)local_14);
-  position__related.y = (float)dVar3 * local_10 + position__related.y;
-  local_8 = EffectManager::SpawnEffect(&g_EffectManager,0x13,&position__related,1,0xff3030ff);
-  fVar2 = Rng::GetRandomF32ZeroToOne(&g_Rng);
-  local_8[1].angleVel.x = (fVar2 * 40.0 - 20.0) / 60.0;
-  local_8[1].angleVel.y = ((float)local_c * 8.0) / 60.0 - 0.2666667;
-  local_8[1].angleVel.z = 0.0;
-  fVar2 = local_8[1].angleVel.z;
-  fVar1 = local_8[1].angleVel.y;
-  local_8[1].scaleY = -local_8[1].angleVel.x * 0.008333334;
-  local_8[1].scaleX = -fVar1 * 0.008333334;
-  local_8[1].scaleInterpFinalY = -fVar2 * 0.008333334;
+  dVar2 = cos((double)local_14);
+  position__related.x = position__related.x - (float)dVar2 * local_10;
+  dVar2 = sin((double)local_14);
+  position__related.y = (float)dVar2 * local_10 + position__related.y;
+  local_8 = EffectManager::SpawnEffect
+                      (&g_EffectManager,0x13,&position__related,1,(ZunColor)0xff3030ff);
+  fVar1 = Rng::GetRandomF32ZeroToOne(&g_Rng);
+  local_8->field2_0x11c = (fVar1 * 40.0 - 20.0) / 60.0;
+  local_8->field3_0x120 = ((float)local_c * 8.0) / 60.0 - 0.2666667;
+  local_8->field4_0x124 = 0.0;
+  local_8->field5_0x128 = -local_8->field2_0x11c * 0.008333334;
+  local_8->field6_0x12c = -local_8->field3_0x120 * 0.008333334;
+  local_8->field7_0x130 = -local_8->field4_0x124 * 0.008333334;
 LAB_0040cffe:
   (param_1->field64_0xebc).previous = (param_1->field64_0xebc).current;
   Supervisor::TickTimer

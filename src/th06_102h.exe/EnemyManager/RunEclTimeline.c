@@ -1,5 +1,5 @@
 
-void __thiscall EnemyManager::FUN_00411530(EnemyManager *this)
+void __thiscall EnemyManager::RunEclTimeline(EnemyManager *this)
 
 {
   void *pvVar1;
@@ -34,7 +34,7 @@ void __thiscall EnemyManager::FUN_00411530(EnemyManager *this)
     if ((this->timeline_time).current == (int)*this->timeline_instr) {
       switch(*(undefined2 *)((int)this->timeline_instr + 4)) {
       case 0:
-        if (g_Gui.boss_health_bar1._0_1_ == '\0') {
+        if (g_Gui.boss_present == 0) {
           pvVar1 = this->timeline_instr;
           local_10 = (D3DXVECTOR3 *)((int)pvVar1 + 8);
           SpawnEnemy(this,*(short *)((int)this->timeline_instr + 2),local_10,
@@ -43,13 +43,13 @@ void __thiscall EnemyManager::FUN_00411530(EnemyManager *this)
         }
         break;
       case 1:
-        if (g_Gui.boss_health_bar1._0_1_ == '\0') {
+        if (g_Gui.boss_present == 0) {
           SpawnEnemy(this,*(short *)((int)this->timeline_instr + 2),
                      (D3DXVECTOR3 *)((int)this->timeline_instr + 8),-1,0xff,-1);
         }
         break;
       case 2:
-        if (g_Gui.boss_health_bar1._0_1_ == '\0') {
+        if (g_Gui.boss_present == 0) {
           pvVar1 = this->timeline_instr;
           local_14 = (D3DXVECTOR3 *)((int)pvVar1 + 8);
           local_8 = SpawnEnemy(this,*(short *)((int)this->timeline_instr + 2),local_14,
@@ -60,14 +60,14 @@ void __thiscall EnemyManager::FUN_00411530(EnemyManager *this)
         }
         break;
       case 3:
-        if (g_Gui.boss_health_bar1._0_1_ == '\0') {
+        if (g_Gui.boss_present == 0) {
           local_8 = SpawnEnemy(this,*(short *)((int)this->timeline_instr + 2),
                                (D3DXVECTOR3 *)((int)this->timeline_instr + 8),-1,0xff,-1);
           *(byte *)(local_8 + 0x394) = *(byte *)(local_8 + 0x394) | 0x40;
         }
         break;
       case 4:
-        if (g_Gui.boss_health_bar1._0_1_ == '\0') {
+        if (g_Gui.boss_present == 0) {
           pvVar1 = this->timeline_instr;
           local_18 = (float *)((int)pvVar1 + 8);
           local_24.x = *local_18;
@@ -92,7 +92,7 @@ void __thiscall EnemyManager::FUN_00411530(EnemyManager *this)
         }
         break;
       case 5:
-        if (g_Gui.boss_health_bar1._0_1_ == '\0') {
+        if (g_Gui.boss_present == 0) {
           pvVar1 = this->timeline_instr;
           local_30.x = *(float *)((int)pvVar1 + 8);
           local_30.y = *(float *)((int)pvVar1 + 0xc);
@@ -114,7 +114,7 @@ void __thiscall EnemyManager::FUN_00411530(EnemyManager *this)
         }
         break;
       case 6:
-        if (g_Gui.boss_health_bar1._0_1_ == '\0') {
+        if (g_Gui.boss_present == 0) {
           pvVar1 = this->timeline_instr;
           local_34 = (float *)((int)pvVar1 + 8);
           local_40.x = *local_34;
@@ -140,7 +140,7 @@ void __thiscall EnemyManager::FUN_00411530(EnemyManager *this)
         }
         break;
       case 7:
-        if (g_Gui.boss_health_bar1._0_1_ == '\0') {
+        if (g_Gui.boss_present == 0) {
           pvVar1 = this->timeline_instr;
           local_4c.x = *(float *)((int)pvVar1 + 8);
           local_4c.y = *(float *)((int)pvVar1 + 0xc);

@@ -1,8 +1,8 @@
 
-undefined4 __thiscall Player::FUN_00426df0(Player *this,D3DXVECTOR3 *param_1,D3DXVECTOR3 *param_2)
+int __thiscall Player::CheckGraze(Player *this,D3DXVECTOR3 *center,D3DXVECTOR3 *size)
 
 {
-  undefined4 uVar7;
+  int uVar7;
   PlayerRect *local_30;
   D3DXVECTOR3 local_2c;
   D3DXVECTOR3 local_20;
@@ -14,10 +14,10 @@ undefined4 __thiscall Player::FUN_00426df0(Player *this,D3DXVECTOR3 *param_1,D3D
   float fVar5;
   float fVar6;
   
-  fVar3 = (param_1->x - param_2->x / 2.0) - 20.0;
-  fVar4 = (param_1->y - param_2->y / 2.0) - 20.0;
-  fVar2 = param_2->x / 2.0 + param_1->x + 20.0;
-  fVar5 = param_2->y / 2.0 + param_1->y + 20.0;
+  fVar3 = (center->x - size->x / 2.0) - 20.0;
+  fVar4 = (center->y - size->y / 2.0) - 20.0;
+  fVar2 = size->x / 2.0 + center->x + 20.0;
+  fVar5 = size->y / 2.0 + center->y + 20.0;
   local_30 = this->unk_8b8;
   local_14 = 0;
   do {
@@ -33,7 +33,7 @@ undefined4 __thiscall Player::FUN_00426df0(Player *this,D3DXVECTOR3 *param_1,D3D
         uVar7 = 0;
       }
       else {
-        Graze(this,param_1);
+        ScoreGraze(this,center);
         uVar7 = 1;
       }
       return uVar7;

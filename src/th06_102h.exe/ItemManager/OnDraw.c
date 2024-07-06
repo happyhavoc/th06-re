@@ -1,5 +1,5 @@
 
-void __thiscall ItemManager::FUN_00420190(ItemManager *this)
+void __thiscall ItemManager::OnDraw(ItemManager *this)
 
 {
   float fVar1;

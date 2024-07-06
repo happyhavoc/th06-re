@@ -7,10 +7,10 @@ ChainCallbackResult EffectManager::OnUpdate(EffectManager *param_1)
   Effect *effect;
   
   effect = param_1->effects;
-  param_1->next = (EffectManager *)0x0;
+  param_1->active_effects = 0;
   for (effectIdx = 0; effectIdx < 0x200; effectIdx = effectIdx + 1) {
     if (effect->in_use_flag != 0) {
-      param_1->next = (EffectManager *)((int)&param_1->next->next_index + 1);
+      param_1->active_effects = param_1->active_effects + 1;
       if ((effect->effect_update_callback != (EffectUpdateCallback *)0x0) &&
          (iVar1 = (*effect->effect_update_callback)(effect), iVar1 != 1)) {
         effect->in_use_flag = 0;

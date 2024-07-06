@@ -1,6 +1,4 @@
 
-/* WARNING: Unknown calling convention -- yet parameter storage is locked */
-
 ChainCallbackResult EffectManager::OnDraw(EffectManager *param_1)
 
 {

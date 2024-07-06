@@ -62,14 +62,13 @@ void __thiscall EnemyManager::Initialize(EnemyManager *this)
   (this->template).flags2 = (this->template).flags2 | 0x10;
   (this->template).flags2 = (this->template).flags2 & 0x1f;
   (this->template).death_callback_sub = -1;
-  (this->template).interrupts[0] = -1;
   (this->template).flags3 = (this->template).flags3 & 0xfe;
   (this->template).effectsNum = 0;
   (this->template).run_interrupt = -1;
   (this->template).life_callback_threshold = -1;
   (this->template).timer_callback_threshold = -1;
   (this->template).laser_store = 0;
-  (this->template).field43_0xe41 = 0;
+  (this->template).unk_e41 = 0;
   (this->template).flags3 = (this->template).flags3 & 0xfd;
   (this->template).bullet_rank_speed_low = -0.5;
   (this->template).bullet_rank_speed_high = 0.5;

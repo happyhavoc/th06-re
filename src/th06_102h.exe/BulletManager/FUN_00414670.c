@@ -1,20 +1,17 @@
 
-/* WARNING: Unknown calling convention -- yet parameter storage is locked */
-
-void * AnmVm::FUN_00414670(EnemyLaserShooter *laser_shooter)
+void * __thiscall BulletManager::FUN_00414670(BulletManager *this,EnemyLaserShooter *laser_shooter)
 
 {
   ushort uVar1;
   uint uVar2;
   AnmManager *pAVar3;
-  int in_ECX;
   float fVar4;
   short local_10;
   AnmVm *local_c;
   int local_8;
   
   pAVar3 = g_AnmManager;
-  local_c = (AnmVm *)(in_ECX + 0xec000);
+  local_c = &this->lasers[0].vm0;
   local_8 = 0;
   while( true ) {
     if (0x3f < local_8) {
@@ -33,7 +30,7 @@ void * AnmVm::FUN_00414670(EnemyLaserShooter *laser_shooter)
             );
   pAVar3 = g_AnmManager;
   uVar2 = UINT_ARRAY_00476440[(short)laser_shooter->color];
-  Initialize(local_c + 1);
+  AnmVm::Initialize(local_c + 1);
   AnmManager::SetActiveSprite(pAVar3,local_c + 1,uVar2 + 0x28c);
   local_c[1].flags = local_c[1].flags | AnmVmFlags_2;
   local_c[2].rotation.x = (laser_shooter->position).x;
@@ -43,7 +40,7 @@ void * AnmVm::FUN_00414670(EnemyLaserShooter *laser_shooter)
   local_c[2].currentTimeInScript.current = 1;
   local_c[2].angleVel.x = laser_shooter->angle;
   if (laser_shooter->type == 0) {
-    fVar4 = Player::FUN_00428700(&g_Player,&laser_shooter->position);
+    fVar4 = Player::AngleToPlayer(&g_Player,&laser_shooter->position);
     local_c[2].angleVel.x = fVar4 + local_c[2].angleVel.x;
   }
   *(undefined2 *)(local_c[2].matrix.m[0] + 3) = *(undefined2 *)&laser_shooter->field18_0x4c;

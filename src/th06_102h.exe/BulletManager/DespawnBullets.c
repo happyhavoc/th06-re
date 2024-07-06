@@ -1,5 +1,5 @@
 
-int __thiscall BulletManager::FUN_00414360(BulletManager *this,int param_1,int param_2)
+int __thiscall BulletManager::DespawnBullets(BulletManager *this,int param_1,int awardPoints)
 
 {
   float10 fVar2;
@@ -20,7 +20,7 @@ int __thiscall BulletManager::FUN_00414360(BulletManager *this,int param_1,int p
   local_1c = g_BulletManager.bullets;
   for (local_14 = 0; local_14 < 0x280; local_14 = local_14 + 1) {
     if (local_1c->state != 0) {
-      if (param_2 != 0) {
+      if (awardPoints != 0) {
         ItemManager::SpawnItem(&g_ItemManager,&local_1c->pos,ITEM_POINT_BULLET,1);
       }
       AsciiManager::CreatePopup1
@@ -43,7 +43,7 @@ int __thiscall BulletManager::FUN_00414360(BulletManager *this,int param_1,int p
         (local_2c->timer).current = 0;
         (local_2c->timer).subFrame = 0.0;
         (local_2c->timer).previous = -999;
-        if (param_2 != 0) {
+        if (awardPoints != 0) {
           ItemManager::SpawnItem(&g_ItemManager,&local_2c->pos,ITEM_POINT_BULLET,1);
           local_34 = local_2c->start_offset;
           fVar1 = (float10)fcos((float10)local_2c->angle);

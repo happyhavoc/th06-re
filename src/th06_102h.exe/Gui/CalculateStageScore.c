@@ -10,7 +10,7 @@ void __thiscall Gui::CalculateStageScore(Gui *this)
   
   for (local_8 = 0; this_00 = g_AnmManager, local_8 < 0x1a; local_8 = local_8 + 1) {
     if ((local_8 == 0x13) && ((int)(this->impl->msg).current_msg_idx < 0)) {
-      if (*(char *)&this->boss_health_bar1 == '\0') {
+      if (this->boss_present == 0) {
         if (this->impl->bossHealthBarState != 0) {
           if (this->impl->bossHealthBarState < 3) {
             fVar2 = this->impl;
@@ -27,7 +27,7 @@ void __thiscall Gui::CalculateStageScore(Gui *this)
           iVar1 = AnmManager::ExecuteScript(g_AnmManager,this->impl->vms + 0x13);
           if (iVar1 != 0) {
             this->impl->bossHealthBarState = 0;
-            this[1].flags = 0;
+            this->boss_health_bar2 = 0.0;
             this->bossUIOpacity = 0;
           }
         }
@@ -52,19 +52,19 @@ void __thiscall Gui::CalculateStageScore(Gui *this)
         }
       }
       if (1 < this->impl->bossHealthBarState) {
-        if (this->boss_health_bar2 <= (float)this[1].flags) {
-          if ((this->boss_health_bar2 < (float)this[1].flags !=
-               (NAN(this->boss_health_bar2) || NAN((float)this[1].flags))) &&
-             (this[1].flags = (uint)((float)this[1].flags - 0.02),
-             (float)this[1].flags < this->boss_health_bar2)) {
-            this[1].flags = (uint)this->boss_health_bar2;
+        if (this->boss_health_bar <= this->boss_health_bar2) {
+          if ((this->boss_health_bar < this->boss_health_bar2 !=
+               (NAN(this->boss_health_bar) || NAN(this->boss_health_bar2))) &&
+             (this->boss_health_bar2 = this->boss_health_bar2 - 0.02,
+             this->boss_health_bar2 < this->boss_health_bar)) {
+            this->boss_health_bar2 = this->boss_health_bar;
           }
         }
         else {
-          this[1].flags = (uint)((float)this[1].flags + 0.01);
-          if (this->boss_health_bar2 < (float)this[1].flags !=
-              (NAN(this->boss_health_bar2) || NAN((float)this[1].flags))) {
-            this[1].flags = (uint)this->boss_health_bar2;
+          this->boss_health_bar2 = this->boss_health_bar2 + 0.01;
+          if (this->boss_health_bar < this->boss_health_bar2 !=
+              (NAN(this->boss_health_bar) || NAN(this->boss_health_bar2))) {
+            this->boss_health_bar2 = this->boss_health_bar;
           }
         }
       }

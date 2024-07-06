@@ -1,11 +1,11 @@
 
-AnmVm * __thiscall
+Effect * __thiscall
 EffectManager::SpawnEffect
-          (EffectManager *this,int new_position,D3DXVECTOR3 *param_2,int param_3,D3DCOLOR param_4)
+          (EffectManager *this,int new_position,D3DXVECTOR3 *param_2,int param_3,ZunColor param_4)
 
 {
   int iVar1;
-  Effect *dummy_effect_for_failed_spawns;
+  Effect *out_effect;
   short local_10;
   int idx;
   Effect *effect;
@@ -28,7 +28,7 @@ EffectManager::SpawnEffect
       local_10 = (short)iVar1;
       (effect->vm).anmFileIndex = local_10;
       AnmManager::SetAndExecuteScript(anm_manager,&effect->vm,anm_manager->scripts[iVar1]);
-      (effect->vm).color.color = param_4;
+      (effect->vm).color = (D3DCOLORUNION)param_4.color;
       effect->effect_update_callback = g_Effects[new_position].update_callback;
       (effect->timer).current = 0;
       (effect->timer).subFrame = 0.0;
@@ -52,11 +52,11 @@ EffectManager::SpawnEffect
     }
   }
   if (idx < 0x200) {
-    dummy_effect_for_failed_spawns = effect;
+    out_effect = effect;
   }
   else {
-    dummy_effect_for_failed_spawns = &this->dummy_effect_for_failed_spawns;
+    out_effect = &this->dummy_effect_for_failed_spawns;
   }
-  return &dummy_effect_for_failed_spawns->vm;
+  return out_effect;
 }
 

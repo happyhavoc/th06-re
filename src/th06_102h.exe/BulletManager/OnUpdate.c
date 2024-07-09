@@ -9,15 +9,19 @@ ChainCallbackResult BulletManager::OnUpdate(BulletManager *this)
   float10 fVar5;
   double dVar6;
   int local_260;
+  D3DXVECTOR3 *velocity;
+  D3DXVECTOR3 displacementTemp;
+  f32 state2VelocityMul;
+  D3DXVECTOR3 displacement;
   D3DXVECTOR3 local_38;
-  Laser *local_2c;
+  Laser *curLaser;
   int local_28;
   Bullet *bulletsPtr;
   D3DXVECTOR3 local_20;
   float local_14;
   float local_10;
   int local_c;
-  int local_8;
+  BOOL local_8;
   float velY;
   float velZ;
   
@@ -340,120 +344,120 @@ LAB_00415be8:
 bulletLoopContinue:
       bulletsPtr = bulletsPtr + 1;
     }
-    local_2c = this->lasers;
+    curLaser = this->lasers;
     for (local_c = 0; local_c < 0x40; local_c = local_c + 1) {
-      if (local_2c->in_use != 0) {
-        local_2c->end_offset =
-             g_Supervisor.effectiveFramerateMultiplier * local_2c->speed + local_2c->end_offset;
-        if (local_2c->start_length < local_2c->end_offset - local_2c->start_offset) {
-          local_2c->start_offset = local_2c->end_offset - local_2c->start_length;
+      if (curLaser->in_use != 0) {
+        curLaser->end_offset =
+             g_Supervisor.effectiveFramerateMultiplier * curLaser->speed + curLaser->end_offset;
+        if (curLaser->start_length < curLaser->end_offset - curLaser->start_offset) {
+          curLaser->start_offset = curLaser->end_offset - curLaser->start_length;
         }
-        if (local_2c->start_offset < 0.0 != NAN(local_2c->start_offset)) {
-          local_2c->start_offset = 0.0;
+        if (curLaser->start_offset < 0.0 != NAN(curLaser->start_offset)) {
+          curLaser->start_offset = 0.0;
         }
-        local_20.y = local_2c->width / 2.0;
-        local_20.x = local_2c->end_offset - local_2c->start_offset;
-        local_38.x = (local_2c->end_offset - local_2c->start_offset) / 2.0 + local_2c->start_offset
-                     + (local_2c->pos).x;
-        local_38.y = (local_2c->pos).y;
-        (local_2c->vm0).scaleX = local_2c->width / ((local_2c->vm0).sprite)->widthPx;
-        local_14 = local_2c->end_offset - local_2c->start_offset;
-        (local_2c->vm0).scaleY = local_14 / ((local_2c->vm0).sprite)->heightPx;
-        (local_2c->vm0).rotation.z = 1.570796 - local_2c->angle;
-        bVar1 = local_2c->state;
+        local_20.y = curLaser->width / 2.0;
+        local_20.x = curLaser->end_offset - curLaser->start_offset;
+        local_38.x = (curLaser->end_offset - curLaser->start_offset) / 2.0 + curLaser->start_offset
+                     + (curLaser->pos).x;
+        local_38.y = (curLaser->pos).y;
+        (curLaser->vm0).scaleX = curLaser->width / ((curLaser->vm0).sprite)->widthPx;
+        local_14 = curLaser->end_offset - curLaser->start_offset;
+        (curLaser->vm0).scaleY = local_14 / ((curLaser->vm0).sprite)->heightPx;
+        (curLaser->vm0).rotation.z = 1.570796 - curLaser->angle;
+        bVar1 = curLaser->state;
         if (bVar1 == 0) {
-          if ((local_2c->flags & 1U) == 0) {
-            if (local_2c->start_time < 0x1f) {
-              local_260 = local_2c->start_time;
+          if ((curLaser->flags & 1U) == 0) {
+            if (curLaser->start_time < 0x1f) {
+              local_260 = curLaser->start_time;
             }
             else {
               local_260 = 0x1e;
             }
-            if (local_2c->start_time - local_260 < (local_2c->timer).current) {
-              local_14 = (((float)(local_2c->timer).current + (local_2c->timer).subFrame) *
-                         local_2c->width) / (float)local_2c->start_time;
+            if (curLaser->start_time - local_260 < (curLaser->timer).current) {
+              local_14 = (((float)(curLaser->timer).current + (curLaser->timer).subFrame) *
+                         curLaser->width) / (float)curLaser->start_time;
             }
             else {
               local_14 = 1.2;
             }
-            (local_2c->vm0).scaleX = local_14 / 16.0;
+            (curLaser->vm0).scaleX = local_14 / 16.0;
             local_20.x = local_14 / 2.0;
           }
           else {
-            local_28 = __ftol2((((float)(local_2c->timer).current + (local_2c->timer).subFrame) *
-                               255.0) / (float)local_2c->start_time);
+            local_28 = __ftol2((((float)(curLaser->timer).current + (curLaser->timer).subFrame) *
+                               255.0) / (float)curLaser->start_time);
             if (0xff < local_28) {
               local_28 = 0xff;
             }
-            (local_2c->vm0).color.color = local_28 << 0x18;
+            (curLaser->vm0).color.color = local_28 << 0x18;
           }
-          if (local_2c->graze_delay <= (local_2c->timer).current) {
-            Player::FUN_00427190
-                      (&g_Player,&local_38,&local_20,&local_2c->pos,local_2c->angle,
-                       (uint)((local_2c->timer).current % 0xc == 0));
+          if (curLaser->graze_delay <= (curLaser->timer).current) {
+            Player::CalcLaserHitbox
+                      (&g_Player,&local_38,&local_20,&curLaser->pos,curLaser->angle,
+                       (uint)((curLaser->timer).current % 0xc == 0));
           }
-          if (local_2c->start_time <= (local_2c->timer).current) {
-            (local_2c->timer).current = 0;
-            (local_2c->timer).subFrame = 0.0;
-            (local_2c->timer).previous = -999;
-            local_2c->state = local_2c->state + 1;
+          if (curLaser->start_time <= (curLaser->timer).current) {
+            (curLaser->timer).current = 0;
+            (curLaser->timer).subFrame = 0.0;
+            (curLaser->timer).previous = -999;
+            curLaser->state = curLaser->state + 1;
             goto LAB_004161bf;
           }
         }
         else {
           if (bVar1 == 1) {
 LAB_004161bf:
-            Player::FUN_00427190
-                      (&g_Player,&local_38,&local_20,&local_2c->pos,local_2c->angle,
-                       (uint)((local_2c->timer).current % 0xc == 0));
-            if ((local_2c->timer).current < local_2c->duration) goto LAB_00416422;
-            (local_2c->timer).current = 0;
-            (local_2c->timer).subFrame = 0.0;
-            (local_2c->timer).previous = -999;
-            local_2c->state = local_2c->state + 1;
-            if (local_2c->end_time == 0) {
-              local_2c->in_use = 0;
+            Player::CalcLaserHitbox
+                      (&g_Player,&local_38,&local_20,&curLaser->pos,curLaser->angle,
+                       (uint)((curLaser->timer).current % 0xc == 0));
+            if ((curLaser->timer).current < curLaser->duration) goto LAB_00416422;
+            (curLaser->timer).current = 0;
+            (curLaser->timer).subFrame = 0.0;
+            (curLaser->timer).previous = -999;
+            curLaser->state = curLaser->state + 1;
+            if (curLaser->end_time == 0) {
+              curLaser->in_use = 0;
               goto LAB_00415e08;
             }
           }
           else if (bVar1 != 2) goto LAB_00416422;
-          if ((local_2c->flags & 1U) == 0) {
-            if (0 < local_2c->end_time) {
-              local_14 = local_2c->width -
-                         (((float)(local_2c->timer).current + (local_2c->timer).subFrame) *
-                         local_2c->width) / (float)local_2c->end_time;
-              (local_2c->vm0).scaleX = local_14 / 16.0;
+          if ((curLaser->flags & 1U) == 0) {
+            if (0 < curLaser->end_time) {
+              local_14 = curLaser->width -
+                         (((float)(curLaser->timer).current + (curLaser->timer).subFrame) *
+                         curLaser->width) / (float)curLaser->end_time;
+              (curLaser->vm0).scaleX = local_14 / 16.0;
               local_20.x = local_14 / 2.0;
             }
           }
           else {
-            local_28 = __ftol2((((float)(local_2c->timer).current + (local_2c->timer).subFrame) *
-                               255.0) / (float)local_2c->start_time);
+            local_28 = __ftol2((((float)(curLaser->timer).current + (curLaser->timer).subFrame) *
+                               255.0) / (float)curLaser->start_time);
             if (0xff < local_28) {
               local_28 = 0xff;
             }
-            (local_2c->vm0).color.color = local_28 << 0x18;
+            (curLaser->vm0).color.color = local_28 << 0x18;
           }
-          if ((local_2c->timer).current < local_2c->graze_interval) {
-            Player::FUN_00427190
-                      (&g_Player,&local_38,&local_20,&local_2c->pos,local_2c->angle,
-                       (uint)((local_2c->timer).current % 0xc == 0));
+          if ((curLaser->timer).current < curLaser->graze_interval) {
+            Player::CalcLaserHitbox
+                      (&g_Player,&local_38,&local_20,&curLaser->pos,curLaser->angle,
+                       (uint)((curLaser->timer).current % 0xc == 0));
           }
-          if (local_2c->end_time <= (local_2c->timer).current) {
-            local_2c->in_use = 0;
+          if (curLaser->end_time <= (curLaser->timer).current) {
+            curLaser->in_use = 0;
             goto LAB_00415e08;
           }
         }
 LAB_00416422:
-        if (640.0 <= local_2c->start_offset) {
-          local_2c->in_use = 0;
+        if (640.0 <= curLaser->start_offset) {
+          curLaser->in_use = 0;
         }
-        (local_2c->timer).previous = (local_2c->timer).current;
-        Supervisor::TickTimer(&g_Supervisor,&(local_2c->timer).current,&(local_2c->timer).subFrame);
-        AnmManager::ExecuteScript(g_AnmManager,&local_2c->vm0);
+        (curLaser->timer).previous = (curLaser->timer).current;
+        Supervisor::TickTimer(&g_Supervisor,&(curLaser->timer).current,&(curLaser->timer).subFrame);
+        AnmManager::ExecuteScript(g_AnmManager,&curLaser->vm0);
       }
 LAB_00415e08:
-      local_2c = local_2c + 1;
+      curLaser = curLaser + 1;
     }
     (this->time).previous = (this->time).current;
     Supervisor::TickTimer(&g_Supervisor,&(this->time).current,&(this->time).subFrame);

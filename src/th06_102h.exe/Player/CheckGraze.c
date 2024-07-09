@@ -1,8 +1,8 @@
 
-int __thiscall Player::CheckGraze(Player *this,D3DXVECTOR3 *center,D3DXVECTOR3 *size)
+BOOL __thiscall Player::CheckGraze(Player *this,D3DXVECTOR3 *center,D3DXVECTOR3 *size)
 
 {
-  int uVar7;
+  BOOL uVar7;
   PlayerRect *local_30;
   D3DXVECTOR3 local_2c;
   D3DXVECTOR3 local_20;

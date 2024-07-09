@@ -1,8 +1,8 @@
 
 undefined4 __thiscall
-Player::FUN_00427190
-          (Player *this,D3DXVECTOR3 *param_1,D3DXVECTOR3 *param_2,D3DXVECTOR3 *rotation,float angle,
-          int param_5)
+Player::CalcLaserHitbox
+          (Player *this,D3DXVECTOR3 *center,D3DXVECTOR3 *size,D3DXVECTOR3 *rotation,float angle,
+          int canGraze)
 
 {
   undefined4 uVar5;
@@ -23,15 +23,15 @@ Player::FUN_00427190
   fVar4 = fVar2 - (this->hitboxSize).x;
   fVar1 = fVar1 + (this->hitboxSize).y;
   fVar2 = fVar2 + (this->hitboxSize).x;
-  local_28.z = param_1->z - param_2->z * 0.5;
-  local_28.y = param_1->y - param_2->y * 0.5;
-  local_28.x = param_1->x - param_2->x * 0.5;
-  local_1c.z = param_2->z * 0.5 + param_1->z;
-  local_1c.y = param_2->y * 0.5 + param_1->y;
-  local_1c.x = param_2->x * 0.5 + param_1->x;
+  local_28.z = center->z - size->z * 0.5;
+  local_28.y = center->y - size->y * 0.5;
+  local_28.x = center->x - size->x * 0.5;
+  local_1c.z = size->z * 0.5 + center->z;
+  local_1c.y = size->y * 0.5 + center->y;
+  local_1c.x = size->x * 0.5 + center->x;
   if ((((local_1c.x < fVar4) || (fVar2 < local_28.x != (NAN(fVar2) || NAN(local_28.x)))) ||
       (local_1c.y < fVar3)) || (fVar1 < local_28.y != (NAN(fVar1) || NAN(local_28.y)))) {
-    if (param_5 == 0) {
+    if (canGraze == 0) {
       uVar5 = 0;
     }
     else {

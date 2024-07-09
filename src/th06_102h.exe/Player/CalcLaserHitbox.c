@@ -1,11 +1,11 @@
 
-undefined4 __thiscall
+i32 __thiscall
 Player::CalcLaserHitbox
           (Player *this,D3DXVECTOR3 *center,D3DXVECTOR3 *size,D3DXVECTOR3 *rotation,float angle,
           int canGraze)
 
 {
-  undefined4 uVar5;
+  i32 uVar5;
   D3DXVECTOR3 local_28;
   D3DXVECTOR3 local_1c;
   float fVar1;

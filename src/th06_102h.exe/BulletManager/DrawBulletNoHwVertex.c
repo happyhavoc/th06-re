@@ -1,5 +1,5 @@
 
-void FUN_00416c50(Bullet *param_1)
+void BulletManager::DrawBulletNoHwVertex(Bullet *param_1)
 
 {
   AnmVm *anmVm;

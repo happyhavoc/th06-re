@@ -1,5 +1,5 @@
 
-void Draw(Bullet *param_1)
+void BulletManager::DrawBullet(Bullet *param_1)
 
 {
   AnmVm *anmVm;

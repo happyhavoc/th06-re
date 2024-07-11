@@ -1,7 +1,7 @@
 
 Enemy * __thiscall
 EnemyManager::SpawnEnemy
-          (EnemyManager *this,int eclSubId,D3DXVECTOR3 *pos,short life,ItemType item_drop,int score)
+          (EnemyManager *this,int eclSubId,D3DXVECTOR3 *pos,short life,short item_drop,int score)
 
 {
   int iVar1;
@@ -36,7 +36,7 @@ EnemyManager::SpawnEnemy
   EclManager::CallEclSub(&g_EclManager,&local_c->current_context,(short)eclSubId);
   EclManager::RunEcl(&g_EclManager,local_c);
   local_c->color = (local_c->primary_vm).color;
-  local_c->item_drop = item_drop;
+  local_c->item_drop = (ItemType)item_drop;
   if (-1 < life) {
     local_c->life = (int)life;
   }

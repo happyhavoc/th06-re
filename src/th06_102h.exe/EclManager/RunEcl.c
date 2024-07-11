@@ -43,7 +43,7 @@ ZunResult __thiscall EclManager::RunEcl(EclManager *this,Enemy *enemy)
   float local_b0;
   D3DXVECTOR3 local_ac;
   short local_a0;
-  undefined2 local_9e;
+  short local_9e;
   int local_9c;
   D3DXVECTOR3 local_98;
   int local_8c;
@@ -989,8 +989,7 @@ switchD_00407544_caseD_2:
     pfVar15 = Enemy::GetVarFloat(enemy,&local_ac.z,(EclValueType *)0x0);
     local_ac.z = *pfVar15;
     EnemyManager::SpawnEnemy
-              ((EnemyManager *)&g_EnemyManager,(int)local_b0,&local_ac,local_a0,(char)local_9e,
-               local_9c);
+              ((EnemyManager *)&g_EnemyManager,(int)local_b0,&local_ac,local_a0,local_9e,local_9c);
     break;
   case 0x60:
     local_b4 = g_Enemies;

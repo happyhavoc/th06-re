@@ -1,15 +1,15 @@
 
-bool __thiscall Gui::MsgWait(Gui *this)
+BOOL __thiscall Gui::MsgWait(Gui *this)
 
 {
-  bool bVar1;
+  uint uVar1;
   
   if ((this->impl->msg).ignore_wait_counter == 0) {
-    bVar1 = -1 < (int)(this->impl->msg).current_msg_idx;
+    uVar1 = (uint)(-1 < (int)(this->impl->msg).current_msg_idx);
   }
   else {
-    bVar1 = false;
+    uVar1 = 0;
   }
-  return bVar1;
+  return uVar1;
 }
 

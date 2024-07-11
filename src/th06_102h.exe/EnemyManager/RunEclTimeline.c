@@ -4,9 +4,8 @@ void __thiscall EnemyManager::RunEclTimeline(EnemyManager *this)
 {
   EclTimelineInstr *pEVar1;
   FLOAT FVar2;
-  bool bVar3;
+  BOOL BVar3;
   BOOL BVar4;
-  undefined3 extraout_var;
   float fVar5;
   D3DXVECTOR3 local_4c;
   D3DXVECTOR3 local_40;
@@ -22,8 +21,8 @@ void __thiscall EnemyManager::RunEclTimeline(EnemyManager *this)
   if (this->timeline_instr == (EclTimelineInstr *)0x0) {
     this->timeline_instr = (EclTimelineInstr *)g_EclManager.timeline;
   }
-  BVar4 = Gui::HasCurrentMsgIdx(&g_Gui);
-  if (((BVar4 == 0) &&
+  BVar3 = Gui::HasCurrentMsgIdx(&g_Gui);
+  if (((BVar3 == 0) &&
       (local_c = (char)g_GameManager.lives_remaining * -0xf0 + 0x960,
       (this->timeline_time).current != (this->timeline_time).previous)) &&
      ((this->timeline_time).current % local_c == 0)) {
@@ -37,13 +36,13 @@ void __thiscall EnemyManager::RunEclTimeline(EnemyManager *this)
           pEVar1 = this->timeline_instr;
           local_10 = &pEVar1->floatVar1;
           SpawnEnemy(this,(int)this->timeline_instr->arg0,(D3DXVECTOR3 *)local_10,pEVar1->ushortVar1
-                     ,(char)pEVar1->ushortVar2,pEVar1->uintVar);
+                     ,pEVar1->ushortVar2,pEVar1->uintVar);
         }
         break;
       case 1:
         if (g_Gui.boss_present == 0) {
           SpawnEnemy(this,(int)this->timeline_instr->arg0,
-                     (D3DXVECTOR3 *)&this->timeline_instr->floatVar1,-1,0xff,-1);
+                     (D3DXVECTOR3 *)&this->timeline_instr->floatVar1,-1,-1,-1);
         }
         break;
       case 2:
@@ -51,14 +50,14 @@ void __thiscall EnemyManager::RunEclTimeline(EnemyManager *this)
           pEVar1 = this->timeline_instr;
           local_14 = &pEVar1->floatVar1;
           local_8 = SpawnEnemy(this,(int)this->timeline_instr->arg0,(D3DXVECTOR3 *)local_14,
-                               pEVar1->ushortVar1,(char)pEVar1->ushortVar2,pEVar1->uintVar);
+                               pEVar1->ushortVar1,pEVar1->ushortVar2,pEVar1->uintVar);
           local_8->flags1 = local_8->flags1 | 0x40;
         }
         break;
       case 3:
         if (g_Gui.boss_present == 0) {
           local_8 = SpawnEnemy(this,(int)this->timeline_instr->arg0,
-                               (D3DXVECTOR3 *)&this->timeline_instr->floatVar1,-1,0xff,-1);
+                               (D3DXVECTOR3 *)&this->timeline_instr->floatVar1,-1,-1,-1);
           local_8->flags1 = local_8->flags1 | 0x40;
         }
         break;
@@ -83,7 +82,7 @@ void __thiscall EnemyManager::RunEclTimeline(EnemyManager *this)
             local_24.z = local_24.z * 800.0;
           }
           SpawnEnemy(this,(int)this->timeline_instr->arg0,&local_24,*(u16 *)(local_18 + 3),
-                     (char)*(u16 *)((int)local_18 + 0xe),(int)local_18[4]);
+                     *(u16 *)((int)local_18 + 0xe),(int)local_18[4]);
         }
         break;
       case 5:
@@ -105,7 +104,7 @@ void __thiscall EnemyManager::RunEclTimeline(EnemyManager *this)
             fVar5 = Rng::GetRandomF32ZeroToOne(&g_Rng);
             local_30.z = fVar5 * 800.0;
           }
-          SpawnEnemy(this,(int)this->timeline_instr->arg0,&local_30,-1,0xff,-1);
+          SpawnEnemy(this,(int)this->timeline_instr->arg0,&local_30,-1,-1,-1);
         }
         break;
       case 6:
@@ -129,7 +128,7 @@ void __thiscall EnemyManager::RunEclTimeline(EnemyManager *this)
             local_40.z = local_40.z * 800.0;
           }
           local_8 = SpawnEnemy(this,(int)this->timeline_instr->arg0,&local_40,*(u16 *)(local_34 + 3)
-                               ,(char)*(u16 *)((int)local_34 + 0xe),(int)local_34[4]);
+                               ,*(u16 *)((int)local_34 + 0xe),(int)local_34[4]);
           local_8->flags1 = local_8->flags1 | 0x40;
         }
         break;
@@ -152,7 +151,7 @@ void __thiscall EnemyManager::RunEclTimeline(EnemyManager *this)
             fVar5 = Rng::GetRandomF32ZeroToOne(&g_Rng);
             local_4c.z = fVar5 * 800.0;
           }
-          local_8 = SpawnEnemy(this,(int)this->timeline_instr->arg0,&local_4c,-1,0xff,-1);
+          local_8 = SpawnEnemy(this,(int)this->timeline_instr->arg0,&local_4c,-1,-1,-1);
           local_8->flags1 = local_8->flags1 | 0x40;
         }
         break;
@@ -166,8 +165,8 @@ void __thiscall EnemyManager::RunEclTimeline(EnemyManager *this)
         }
         break;
       case 9:
-        bVar3 = Gui::MsgWait(&g_Gui);
-        if (CONCAT31(extraout_var,bVar3) != 0) {
+        BVar4 = Gui::MsgWait(&g_Gui);
+        if (BVar4 != 0) {
           ZunTimer::Decrement(&this->timeline_time,1);
           return;
         }
@@ -192,8 +191,8 @@ void __thiscall EnemyManager::RunEclTimeline(EnemyManager *this)
          (EclTimelineInstr *)
          ((int)&this->timeline_instr->time + (int)(short)this->timeline_instr->size);
   }
-  BVar4 = Gui::HasCurrentMsgIdx(&g_Gui);
-  if (BVar4 == 0) {
+  BVar3 = Gui::HasCurrentMsgIdx(&g_Gui);
+  if (BVar3 == 0) {
     g_GameManager.counat = g_GameManager.counat + 1;
   }
   return;

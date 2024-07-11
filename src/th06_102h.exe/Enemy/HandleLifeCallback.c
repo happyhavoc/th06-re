@@ -1,5 +1,5 @@
 
-BOOL __thiscall Enemy::FUN_00411da0(Enemy *this)
+BOOL __thiscall Enemy::HandleLifeCallback(Enemy *this)
 
 {
   BOOL BVar1;

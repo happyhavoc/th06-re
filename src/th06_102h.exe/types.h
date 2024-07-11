@@ -1448,6 +1448,12 @@ struct EclRawInstr {
 
 typedef struct EnemyManager EnemyManager, *PEnemyManager;
 
+typedef struct EclTimelineInstr EclTimelineInstr, *PEclTimelineInstr;
+
+typedef short i16;
+
+typedef ushort u16;
+
 struct EnemyManager {
     char *stg_enm_anm_filename;
     char *stg_enm2_anm_filename;
@@ -1468,8 +1474,21 @@ struct EnemyManager {
     int spellcard_number;
     int unk_ee5d4;
     int unk_ee5d8;
-    void *timeline_instr;
+    struct EclTimelineInstr *timeline_instr;
     struct ZunTimer timeline_time;
+};
+
+struct EclTimelineInstr {
+    i16 time;
+    i16 arg0;
+    u16 opcode;
+    u16 size;
+    f32 floatVar1;
+    f32 floatVar2;
+    f32 floatVar3;
+    u16 ushortVar1;
+    u16 ushortVar2;
+    u32 uintVar;
 };
 
 typedef struct StageFile StageFile, *PStageFile;
@@ -1833,8 +1852,6 @@ struct Gui {
 };
 
 typedef struct RawStdHeader RawStdHeader, *PRawStdHeader;
-
-typedef ushort u16;
 
 struct RawStdHeader {
     u16 nbObjects;
@@ -5154,8 +5171,8 @@ struct GameManager {
     int menu_cursor_backup;
     struct D3DXVECTOR2 arcade_region_top_left_pos;
     struct D3DXVECTOR2 arcade_region_size;
-    struct D3DXVECTOR2 playerMovementBoundaries;
-    struct D3DXVECTOR2 unk_1a54;
+    struct D3DXVECTOR2 playerMovementAreaTopLeftPos;
+    struct D3DXVECTOR2 playerMovementAreaSize;
     float cameraDistance;
     struct D3DXVECTOR3 stage_camera_facing_dir;
     uint counat;
@@ -16865,8 +16882,6 @@ struct unk {
     int unk8;
     int unkc;
 };
-
-typedef short i16;
 
 typedef sbyte i8;
 

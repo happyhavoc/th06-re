@@ -1,5 +1,5 @@
 
-bool __thiscall Gui::FUN_00419572(Gui *this)
+bool __thiscall Gui::MsgWait(Gui *this)
 
 {
   bool bVar1;

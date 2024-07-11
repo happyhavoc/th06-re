@@ -48,19 +48,19 @@ ChainCallbackResult EnemyManager::OnUpdate(EnemyManager *mgr)
                            ((cur_enemy->primary_vm).sprite)->widthPx,
                            ((cur_enemy->primary_vm).sprite)->heightPx), iVar2 == 0)) {
       cur_enemy->flags1 = cur_enemy->flags1 & 0x7f;
-      Enemy::FUN_004121b0(cur_enemy);
+      Enemy::Despawn(cur_enemy);
       goto LAB_00412416;
     }
     if (-1 < cur_enemy->life_callback_threshold) {
-      Enemy::FUN_00411da0(cur_enemy);
+      Enemy::HandleLifeCallback(cur_enemy);
     }
     if (-1 < cur_enemy->timer_callback_threshold) {
-      Enemy::FUN_00411f40(cur_enemy);
+      Enemy::HandleTimerCallback(cur_enemy);
     }
     ZVar3 = EclManager::RunEcl(&g_EclManager,cur_enemy);
     if (ZVar3 == ZUN_ERROR) {
       cur_enemy->flags1 = cur_enemy->flags1 & 0x7f;
-      Enemy::FUN_004121b0(cur_enemy);
+      Enemy::Despawn(cur_enemy);
       goto LAB_00412416;
     }
     Enemy::ClampPos(cur_enemy);

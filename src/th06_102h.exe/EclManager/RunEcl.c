@@ -989,7 +989,7 @@ switchD_00407544_caseD_2:
     pfVar15 = Enemy::GetVarFloat(enemy,&local_ac.z,(EclValueType *)0x0);
     local_ac.z = *pfVar15;
     EnemyManager::SpawnEnemy
-              ((EnemyManager *)&g_EnemyManager,SUB42(local_b0,0),&local_ac,local_a0,(char)local_9e,
+              ((EnemyManager *)&g_EnemyManager,(int)local_b0,&local_ac,local_a0,(char)local_9e,
                local_9c);
     break;
   case 0x60:

@@ -1,5 +1,5 @@
 
-void __thiscall Enemy::FUN_004121b0(Enemy *this)
+void __thiscall Enemy::Despawn(Enemy *this)
 
 {
   if (this->flags2 >> 5 == 0) {

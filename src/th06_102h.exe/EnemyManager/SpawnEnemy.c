@@ -1,8 +1,7 @@
 
-undefined4 * __thiscall
+Enemy * __thiscall
 EnemyManager::SpawnEnemy
-          (EnemyManager *this,short param_1,D3DXVECTOR3 *pos,short life,ItemType item_drop,int score
-          )
+          (EnemyManager *this,int eclSubId,D3DXVECTOR3 *pos,short life,ItemType item_drop,int score)
 
 {
   int iVar1;
@@ -15,7 +14,7 @@ EnemyManager::SpawnEnemy
   local_8 = 0;
   while( true ) {
     if (0xff < local_8) {
-      return (undefined4 *)local_c;
+      return local_c;
     }
     if (-1 < (char)local_c->flags1) break;
     local_8 = local_8 + 1;
@@ -34,7 +33,7 @@ EnemyManager::SpawnEnemy
   (local_c->position).x = pos->x;
   (local_c->position).y = pos->y;
   (local_c->position).z = pos->z;
-  EclManager::CallEclSub(&g_EclManager,&local_c->current_context,param_1);
+  EclManager::CallEclSub(&g_EclManager,&local_c->current_context,(short)eclSubId);
   EclManager::RunEcl(&g_EclManager,local_c);
   local_c->color = (local_c->primary_vm).color;
   local_c->item_drop = item_drop;
@@ -45,6 +44,6 @@ EnemyManager::SpawnEnemy
     local_c->score = score;
   }
   local_c->max_life = local_c->life;
-  return (undefined4 *)local_c;
+  return local_c;
 }
 

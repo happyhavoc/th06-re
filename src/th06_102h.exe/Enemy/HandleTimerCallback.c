@@ -1,5 +1,5 @@
 
-BOOL __thiscall Enemy::FUN_00411f40(Enemy *this)
+BOOL __thiscall Enemy::HandleTimerCallback(Enemy *this)
 
 {
   BOOL BVar1;

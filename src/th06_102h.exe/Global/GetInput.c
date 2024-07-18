@@ -45,26 +45,26 @@ ushort GetInput(void)
                        0x200 is KEY_Q
                        0x400 is KEY_S
                        0x1000 is KEY_RETURN */
-    buttons = -(ushort)((keyboardState[38] & 0x80U) != 0) & KEY_UP |
-              -(ushort)((keyboardState[40] & 0x80U) != 0) & KEY_DOWN |
-              -(ushort)((keyboardState[37] & 0x80U) != 0) & KEY_LEFT |
-              -(ushort)((keyboardState[39] & 0x80U) != 0) & KEY_RIGHT |
-              -(ushort)((keyboardState[104] & 0x80U) != 0) & KEY_UP |
-              -(ushort)((keyboardState[98] & 0x80U) != 0) & KEY_DOWN |
+    buttons = -(ushort)((keyboardState[0x26] & 0x80U) != 0) & KEY_UP |
+              -(ushort)((keyboardState[0x28] & 0x80U) != 0) & KEY_DOWN |
+              -(ushort)((keyboardState[0x25] & 0x80U) != 0) & KEY_LEFT |
+              -(ushort)((keyboardState[0x27] & 0x80U) != 0) & KEY_RIGHT |
+              -(ushort)((keyboardState[0x68] & 0x80U) != 0) & KEY_UP |
+              -(ushort)((keyboardState[0x62] & 0x80U) != 0) & KEY_DOWN |
               -(ushort)((keyboardState[100] & 0x80U) != 0) & KEY_LEFT |
-              -(ushort)((keyboardState[102] & 0x80U) != 0) & KEY_RIGHT |
-              -(ushort)((keyboardState[103] & 0x80U) != 0) & 0x50 |
-              -(ushort)((keyboardState[105] & 0x80U) != 0) & 0x90 |
-              -(ushort)((keyboardState[97] & 0x80U) != 0) & 0x60 |
+              -(ushort)((keyboardState[0x66] & 0x80U) != 0) & KEY_RIGHT |
+              -(ushort)((keyboardState[0x67] & 0x80U) != 0) & 0x50 |
+              -(ushort)((keyboardState[0x69] & 0x80U) != 0) & 0x90 |
+              -(ushort)((keyboardState[0x61] & 0x80U) != 0) & 0x60 |
               -(ushort)((keyboardState[99] & 0x80U) != 0) & 0xa0 |
-              -(ushort)((keyboardState[36] & 0x80U) != 0) & KEY_HOME |
+              -(ushort)((keyboardState[0x24] & 0x80U) != 0) & KEY_HOME |
               (ushort)((keyboardState._90_2_ & 0x80) != 0) |
               -(ushort)((keyboardState._88_2_ & 0x80) != 0) & KEY_BOMB |
               -(ushort)(((uint)keyboardState._13_4_ >> 0x18 & 0x80) != 0) & KEY_FOCUS |
-              -(ushort)((keyboardState[27] & 0x80U) != 0) & KEY_MENU |
+              -(ushort)((keyboardState[0x1b] & 0x80U) != 0) & KEY_MENU |
               -(ushort)((keyboardState._17_4_ & 0x80) != 0) & KEY_SKIP |
               -(ushort)((keyboardState._81_2_ & 0x80) != 0) & KEY_Q |
-              -(ushort)((keyboardState[83] & 0x80U) != 0) & KEY_S |
+              -(ushort)((keyboardState[0x53] & 0x80U) != 0) & KEY_S |
               -(ushort)((keyboardState._13_4_ & 0x80) != 0) & KEY_RETURN;
   }
   else {
@@ -77,27 +77,27 @@ ushort GetInput(void)
     }
     buttons = -(ushort)((keyboardState._199_4_ & 0x8000) != 0) & 0x10 |
               -(ushort)((keyboardState._208_4_ & 0x80) != 0) & 0x20 |
-              -(ushort)((keyboardState[203] & 0x80U) != 0) & 0x40 |
+              -(ushort)((keyboardState[0xcb] & 0x80U) != 0) & 0x40 |
               -(ushort)((keyboardState._205_2_ & 0x80) != 0) & 0x80 |
-              -(ushort)((keyboardState[72] & 0x80U) != 0) & 0x10 |
-              -(ushort)((keyboardState[80] & 0x80U) != 0) & 0x20 |
-              -(ushort)((keyboardState[75] & 0x80U) != 0) & 0x40 |
+              -(ushort)((keyboardState[0x48] & 0x80U) != 0) & 0x10 |
+              -(ushort)((keyboardState[0x50] & 0x80U) != 0) & 0x20 |
+              -(ushort)((keyboardState[0x4b] & 0x80U) != 0) & 0x40 |
               -(ushort)((keyboardState._77_2_ & 0x80) != 0) & 0x80 |
-              -(ushort)((keyboardState[71] & 0x80U) != 0) & 0x50 |
+              -(ushort)((keyboardState[0x47] & 0x80U) != 0) & 0x50 |
               -(ushort)((keyboardState._73_2_ & 0x80) != 0) & 0x90 |
-              -(ushort)((keyboardState[79] & 0x80U) != 0) & 0x60 |
+              -(ushort)((keyboardState[0x4f] & 0x80U) != 0) & 0x60 |
               -(ushort)((keyboardState._81_2_ & 0x80) != 0) & 0xa0 |
               -(ushort)((keyboardState._199_4_ & 0x80) != 0) & 0x800 |
-              (ushort)((keyboardState[44] & 0x80U) != 0) |
-              -(ushort)((keyboardState[45] & 0x80U) != 0) & 2 |
-              -(ushort)((keyboardState[42] & 0x80U) != 0) & 4 |
+              (ushort)((keyboardState[0x2c] & 0x80U) != 0) |
+              -(ushort)((keyboardState[0x2d] & 0x80U) != 0) & 2 |
+              -(ushort)((keyboardState[0x2a] & 0x80U) != 0) & 4 |
               -(ushort)((keyboardState._54_4_ & 0x80) != 0) & 4 |
               -(ushort)((keyboardState._1_4_ & 0x80) != 0) & 8 |
               -(ushort)((keyboardState._29_2_ & 0x80) != 0) & 0x100 |
               -(ushort)((keyboardState._157_4_ & 0x80) != 0) & 0x100 |
               -(ushort)(((uint)keyboardState._13_4_ >> 0x18 & 0x80) != 0) & 0x200 |
-              -(ushort)((keyboardState[31] & 0x80U) != 0) & 0x400 |
-              -(ushort)((keyboardState[28] & 0x80U) != 0) & 0x1000;
+              -(ushort)((keyboardState[0x1f] & 0x80U) != 0) & 0x400 |
+              -(ushort)((keyboardState[0x1c] & 0x80U) != 0) & 0x1000;
   }
   buttons = Controller::GetControllerInput(buttons);
 LAB_0041e0a5:

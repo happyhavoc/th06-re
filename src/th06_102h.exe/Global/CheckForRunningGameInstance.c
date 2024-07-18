@@ -12,7 +12,7 @@ int CheckForRunningGameInstance(void)
   else {
     DVar2 = GetLastError();
     if (DVar2 == 0xb7) {
-      GameErrorContextFatal(&g_GameErrorContext,"二つは起動でき��せん\n");
+      GameErrorContextFatal(&g_GameErrorContext,"二つは起動できません\n");
       iVar1 = -1;
     }
     else {

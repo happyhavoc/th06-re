@@ -22,7 +22,7 @@ undefined4 __thiscall ResultScreen::FUN_0042d35a(ResultScreen *this)
     AsciiManager::AddFormatText(&g_AsciiManager,&strPos,"%9d");
     strPos.y = strPos.y + 22.0;
     AsciiManager::AddString
-              (&g_AsciiManager,&strPos,(&PTR_s__Easy_00478504)[g_GameManager.difficulty]);
+              (&g_AsciiManager,&strPos,(&PTR_s_Easy_00478504)[g_GameManager.difficulty]);
     strPos.y = strPos.y + 22.0;
     if ((g_GameManager.difficulty == EASY) || (g_GameManager.is_game_completed == 0)) {
       AsciiManager::AddFormatText

@@ -4,16 +4,15 @@ CSoundManager::SetPrimaryBufferFormat
           (CSoundManager *this,DWORD channels,DWORD samples_per_sec,DWORD bits_per_sample)
 
 {
+  DWORD_PTR cookie;
   HRESULT HVar1;
   int iVar2;
   DSBUFFERDESC *pDVar3;
-  uint unaff_retaddr;
   DSBUFFERDESC soundbuf_desc;
-  uint stack_cookie2;
   WAVEFORMATEX wave_format;
   IDirectSoundBuffer *soundbuf;
   
-  stack_cookie2 = __security_cookie ^ unaff_retaddr;
+  cookie = __security_cookie;
   soundbuf = (IDirectSoundBuffer *)0x0;
   if (this->m_pDS == (LPDIRECTSOUND8)0x0) {
     HVar1 = -0x7ffbfe10;
@@ -49,7 +48,7 @@ CSoundManager::SetPrimaryBufferFormat
       }
     }
   }
-  __security_check_cookie(stack_cookie2 ^ unaff_retaddr);
+  __security_check_cookie(cookie);
   return HVar1;
 }
 

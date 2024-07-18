@@ -2,6 +2,7 @@
 ushort Controller::GetControllerInput(ushort buttons)
 
 {
+  DWORD_PTR cookie;
   MMRESULT joyResult;
   DWORD shootState;
   uint joystickXDistance;
@@ -10,14 +11,12 @@ ushort Controller::GetControllerInput(ushort buttons)
   uint joystickYDistance;
   joyinfoex_tag *pjVar2;
   DIJOYSTATE2 *pDVar3;
-  uint unaff_retaddr;
   int retry_count;
   DIJOYSTATE2 js;
-  uint stack_cookie;
   HRESULT hr;
   joyinfoex_tag pji;
   
-  stack_cookie = __security_cookie ^ unaff_retaddr;
+  cookie = __security_cookie;
   if (g_Supervisor.controller == (LPDIRECTINPUTDEVICE8A)0x0) {
     pjVar2 = &pji;
     for (iVar1 = 0xd; iVar1 != 0; iVar1 = iVar1 + -1) {
@@ -150,7 +149,7 @@ ushort Controller::GetControllerInput(ushort buttons)
       }
     }
   }
-  __security_check_cookie(stack_cookie ^ unaff_retaddr);
+  __security_check_cookie(cookie);
   return buttons;
 }
 

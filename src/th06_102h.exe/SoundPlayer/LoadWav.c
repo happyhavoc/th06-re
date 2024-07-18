@@ -78,7 +78,7 @@ ZunResult __thiscall SoundPlayer::LoadWav(SoundPlayer *this,LPSTR path)
                            this->backgroundMusicUpdateEvent);
         if (HVar6 < 0) {
           DebugPrint2(
-                     "error : ストリーミング用サウン���バッファを作成出来ませんでした\n"
+                     "error : ストリーミング用サウンドバッファを作成出来ませんでした\n"
                      );
           unk_err_res_ = 0xffffffff;
           CWaveFile::~CWaveFile(&waveFile);

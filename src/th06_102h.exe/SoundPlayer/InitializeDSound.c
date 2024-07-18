@@ -2,13 +2,13 @@
 ZunResult __thiscall SoundPlayer::InitializeDSound(SoundPlayer *this,HWND game_window)
 
 {
+  DWORD_PTR cookie;
   CSoundManager *pCVar1;
   int iVar2;
   ZunResult ZVar3;
   HRESULT res;
   DSBUFFERDESC *pDVar4;
   undefined4 *puVar5;
-  uint unaff_retaddr;
   CSoundManager *local_78;
   tWAVEFORMATEX wav_format;
   undefined4 *audioBuffer1Start;
@@ -16,15 +16,14 @@ ZunResult __thiscall SoundPlayer::InitializeDSound(SoundPlayer *this,HWND game_w
   DWORD audioBuffer2Len;
   LPVOID audioBuffer2Start;
   DSBUFFERDESC bufdesc;
-  uint local_14;
   void *exc_list;
   undefined *puStack_c;
   CSoundManager *mgr;
   
+  cookie = __security_cookie;
   mgr = (CSoundManager *)0xffffffff;
   puStack_c = &LAB_0046928b;
   exc_list = ExceptionList;
-  local_14 = __security_cookie ^ unaff_retaddr;
   ExceptionList = &exc_list;
   pCVar1 = (CSoundManager *)operator_new(4);
   mgr = (CSoundManager *)0x0;
@@ -102,7 +101,7 @@ ZunResult __thiscall SoundPlayer::InitializeDSound(SoundPlayer *this,HWND game_w
     }
   }
   ExceptionList = exc_list;
-  __security_check_cookie(local_14 ^ unaff_retaddr);
+  __security_check_cookie(cookie);
   return ZVar3;
 }
 

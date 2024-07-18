@@ -38,7 +38,7 @@ void FUN_0040c5b0(Enemy *param_1,AnmRawInstr *param_2)
     }
     local_64.count2 = 1;
     local_64.angle2 = 0.5235988;
-    local_64._74_2_ = 0;
+    local_64.unk_4a = 0;
     local_64.flags = 0;
     local_78 = 0.5 - ((float)uVar1 * 0.5) / 9.0;
     matrix_out.z = g_Player.positionCenter.z - (param_1->position).z;

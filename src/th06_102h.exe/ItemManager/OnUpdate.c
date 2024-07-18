@@ -123,7 +123,7 @@ LAB_0041f7c5:
             g_GameManager.current_power = g_GameManager.current_power + 1;
             if (0x7f < g_GameManager.current_power) {
               g_GameManager.current_power = 0x80;
-              BulletManager::FUN_00414340(&g_BulletManager);
+              BulletManager::TurnAllBulletsIntoPoints(&g_BulletManager);
               Gui::FUN_004173d9(&g_Gui,0);
             }
             g_GameManager.score = g_GameManager.score + 10;
@@ -233,7 +233,7 @@ LAB_0041f7c5:
             g_GameManager.current_power = g_GameManager.current_power + 8;
             if (0x7f < g_GameManager.current_power) {
               g_GameManager.current_power = 0x80;
-              BulletManager::FUN_00414340(&g_BulletManager);
+              BulletManager::TurnAllBulletsIntoPoints(&g_BulletManager);
               Gui::FUN_004173d9(&g_Gui,0);
             }
             g_Gui.flags = g_Gui.flags & 0xffffffcf | 0x20;
@@ -270,7 +270,7 @@ LAB_0041f7c5:
           break;
         case ITEM_FULL_POWER:
           if (g_GameManager.current_power < 0x80) {
-            BulletManager::FUN_00414340(&g_BulletManager);
+            BulletManager::TurnAllBulletsIntoPoints(&g_BulletManager);
             Gui::FUN_004173d9(&g_Gui,0);
             SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,SOUND_POWERUP,0);
             AsciiManager::CreatePopup1(&g_AsciiManager,&curItem->currentPosition,-1,0xff80c0ff);

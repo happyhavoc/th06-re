@@ -95,10 +95,10 @@ void FUN_0040d040(Enemy *this,AnmRawInstr *param_2)
           local_5c.stop_time = 0x10;
           local_5c.graze_delay = 0x32;
           local_5c.graze_distance = 0x10;
-          local_5c.field18_0x4c = 2;
+          local_5c.flags = 2;
           local_5c.type = 1;
           local_5c.start_length = local_5c.end_offset;
-          BulletManager::FUN_00414670(&g_BulletManager,&local_5c);
+          BulletManager::SpawnLaserPattern(&g_BulletManager,&local_5c);
         }
         else {
           (this->bullet_props).position.x = local_dc[local_60 * 3];

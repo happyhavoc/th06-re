@@ -5,7 +5,7 @@ void FUN_0040dcc0(Enemy *param_1,AnmRawInstr *param_2)
 
 {
   float fVar1;
-  void *pvVar2;
+  Laser *pLVar2;
   float10 fVar3;
   float10 fVar4;
   float local_24;
@@ -13,16 +13,14 @@ void FUN_0040dcc0(Enemy *param_1,AnmRawInstr *param_2)
   
   (param_1->current_context).var3 = 0;
   for (local_14 = 0; local_14 < 8; local_14 = local_14 + 1) {
-    if ((param_1->lasers[local_14] != (void *)0x0) &&
-       (*(int *)((int)param_1->lasers[local_14] + 600) != 0)) {
-      pvVar2 = param_1->lasers[local_14];
-      local_24 = *(float *)((int)pvVar2 + 0x230);
-      fVar3 = (float10)fcos((float10)*(float *)((int)pvVar2 + 0x22c));
-      fVar4 = (float10)fsin((float10)*(float *)((int)pvVar2 + 0x22c));
-      for (; local_24 < *(float *)((int)pvVar2 + 0x234); local_24 = local_24 + 48.0) {
-        fVar1 = *(float *)((int)pvVar2 + 0x224);
-        (param_1->bullet_props).position.x =
-             (float)fVar3 * local_24 + *(float *)((int)pvVar2 + 0x220);
+    if ((param_1->lasers[local_14] != (Laser *)0x0) && (param_1->lasers[local_14]->in_use != 0)) {
+      pLVar2 = param_1->lasers[local_14];
+      local_24 = pLVar2->start_offset;
+      fVar3 = (float10)fcos((float10)pLVar2->angle);
+      fVar4 = (float10)fsin((float10)pLVar2->angle);
+      for (; local_24 < pLVar2->end_offset; local_24 = local_24 + 48.0) {
+        fVar1 = (pLVar2->pos).y;
+        (param_1->bullet_props).position.x = (float)fVar3 * local_24 + (pLVar2->pos).x;
         (param_1->bullet_props).position.y = (float)fVar4 * local_24 + fVar1;
         (param_1->bullet_props).position.z = 0.0;
         BulletManager::SpawnBulletPattern(&g_BulletManager,&param_1->bullet_props);

@@ -7,15 +7,15 @@ ZunResult __thiscall EclManager::RunEcl(EclManager *this,Enemy *enemy)
   uint uVar10;
   uint *puVar11;
   int iVar1;
-  void *pvVar12;
+  Laser *pvVar12;
   Effect *pEVar13;
-  int *piVar14;
   float *pfVar15;
   byte bVar16;
   int iVar17;
+  EclRawInstrArgs *pEVar2;
   EnemyEclContext *pEVar19;
   EnemyEclContext *pEVar20;
-  float *pfVar20;
+  int *pfVar20;
   float10 fVar21;
   float fVar5;
   float fVar6;
@@ -40,7 +40,7 @@ ZunResult __thiscall EclManager::RunEcl(EclManager *this,Enemy *enemy)
   float local_bc;
   int local_b8;
   Enemy *local_b4;
-  float local_b0;
+  int local_b0;
   D3DXVECTOR3 local_ac;
   short local_a0;
   short local_9e;
@@ -54,13 +54,13 @@ ZunResult __thiscall EclManager::RunEcl(EclManager *this,Enemy *enemy)
   uint csum;
   uint local_74;
   Catk *local_70;
-  int *local_6c;
+  EclRawInstrArgs *local_6c;
   int local_68;
-  int *local_64;
+  EclRawInstrArgs *local_64;
   EnemyLaserShooter *local_60;
-  int *local_5c;
+  EclRawInstrArgs *local_5c;
   EnemyBulletShooter *local_58;
-  int *local_54;
+  EclRawInstrArgs *local_54;
   float local_50;
   float local_4c;
   int local_48;
@@ -74,7 +74,7 @@ ZunResult __thiscall EclManager::RunEcl(EclManager *this,Enemy *enemy)
   uint local_28;
   uint local_24;
   EclRawInstr *instruction;
-  float *bullet_rank_speed_low;
+  EclRawInstrArgs *args;
   int local_18;
   float local_14;
   float local_10;
@@ -267,26 +267,27 @@ LAB_004074ce:
                &(enemy->current_context).time.subFrame);
     return ZUN_SUCCESS;
   }
-  if (((uint)(byte)instruction->field_0x9 & 1 << ((byte)g_GameManager.difficulty & 0x1f)) == 0)
-  goto switchD_00407544_caseD_7f;
-  bullet_rank_speed_low = (float *)&instruction->ecl_var_id;
+  if (((uint)instruction->skip_insn_on_difficulty & 1 << ((byte)g_GameManager.difficulty & 0x1f)) ==
+      0) goto end_of_loop;
+  args = &instruction->args;
   switch(instruction->opcode) {
   case 1:
     return ZUN_ERROR;
   case 2:
     goto switchD_00407544_caseD_2;
   case 3:
-    piVar14 = Enemy::GetVar(enemy,(int *)&instruction->float_var_2,(EclValueType *)0x0);
-    local_14 = (float)(*piVar14 - 1);
-    Enemy::SetVar(enemy,bullet_rank_speed_low[2],(int *)&local_14);
+    pfVar20 = Enemy::GetVar(enemy,(EclVarId *)&(instruction->args).float_var_2,(EclValueType *)0x0);
+    local_14 = (float)(*pfVar20 - 1);
+    Enemy::SetVar(enemy,(EclVarId)args->float_var_2,&local_14);
     fVar6 = local_14;
     goto joined_r0x00407ab4;
   case 4:
   case 5:
-    Enemy::SetVar(enemy,instruction->ecl_var_id,(int *)&instruction->float_var_1);
+    Enemy::SetVar(enemy,(instruction->args).ecl_var_id,&(instruction->args).float_var_1);
     break;
   case 6:
-    puVar11 = (uint *)Enemy::GetVar(enemy,(int *)&instruction->float_var_1,(EclValueType *)0x0);
+    puVar11 = (uint *)Enemy::GetVar(enemy,(EclVarId *)&(instruction->args).float_var_1,
+                                    (EclValueType *)0x0);
     local_24 = *puVar11;
     if (local_24 == 0) {
       local_29c = 0.0;
@@ -296,13 +297,14 @@ LAB_004074ce:
       local_29c = (float)(uVar10 % local_24);
     }
     local_14 = local_29c;
-    Enemy::SetVar(enemy,instruction->ecl_var_id,(int *)&local_14);
+    Enemy::SetVar(enemy,(instruction->args).ecl_var_id,&local_14);
     break;
   case 7:
-    puVar11 = (uint *)Enemy::GetVar(enemy,(int *)&instruction->float_var_1,(EclValueType *)0x0);
+    puVar11 = (uint *)Enemy::GetVar(enemy,(EclVarId *)&(instruction->args).float_var_1,
+                                    (EclValueType *)0x0);
     local_28 = *puVar11;
-    piVar14 = Enemy::GetVar(enemy,(int *)(bullet_rank_speed_low + 2),(EclValueType *)0x0);
-    local_2c = *piVar14;
+    pfVar20 = Enemy::GetVar(enemy,(EclVarId *)&args->float_var_2,(EclValueType *)0x0);
+    local_2c = *pfVar20;
     if (local_28 == 0) {
       local_2a0 = 0;
     }
@@ -311,78 +313,82 @@ LAB_004074ce:
       local_2a0 = local_2a0 % local_28;
     }
     local_14 = (float)(local_2a0 + local_2c);
-    Enemy::SetVar(enemy,instruction->ecl_var_id,(int *)&local_14);
+    Enemy::SetVar(enemy,(instruction->args).ecl_var_id,&local_14);
     break;
   case 8:
-    pfVar15 = Enemy::GetVarFloat(enemy,&instruction->float_var_1,(EclValueType *)0x0);
+    pfVar15 = Enemy::GetVarFloat(enemy,&(instruction->args).float_var_1,(EclValueType *)0x0);
     local_30 = *pfVar15;
     fVar6 = Rng::GetRandomF32ZeroToOne(&g_Rng);
     local_18 = (int)(fVar6 * local_30);
-    Enemy::SetVar(enemy,instruction->ecl_var_id,&local_18);
+    Enemy::SetVar(enemy,(instruction->args).ecl_var_id,&local_18);
     break;
   case 9:
-    pfVar15 = Enemy::GetVarFloat(enemy,&instruction->float_var_1,(EclValueType *)0x0);
+    pfVar15 = Enemy::GetVarFloat(enemy,&(instruction->args).float_var_1,(EclValueType *)0x0);
     local_34 = *pfVar15;
-    pfVar15 = Enemy::GetVarFloat(enemy,bullet_rank_speed_low + 2,(EclValueType *)0x0);
+    pfVar15 = Enemy::GetVarFloat(enemy,&args->float_var_2,(EclValueType *)0x0);
     local_38 = *pfVar15;
     fVar6 = Rng::GetRandomF32ZeroToOne(&g_Rng);
     local_18 = (int)(fVar6 * local_34 + local_38);
-    Enemy::SetVar(enemy,instruction->ecl_var_id,&local_18);
+    Enemy::SetVar(enemy,(instruction->args).ecl_var_id,&local_18);
     break;
   case 10:
-    Enemy::SetVar(enemy,instruction->ecl_var_id,(int *)&enemy->position);
+    Enemy::SetVar(enemy,(instruction->args).ecl_var_id,&enemy->position);
     break;
   case 0xb:
-    Enemy::SetVar(enemy,instruction->ecl_var_id,(int *)&(enemy->position).y);
+    Enemy::SetVar(enemy,(instruction->args).ecl_var_id,&(enemy->position).y);
     break;
   case 0xc:
-    Enemy::SetVar(enemy,instruction->ecl_var_id,(int *)&(enemy->position).z);
+    Enemy::SetVar(enemy,(instruction->args).ecl_var_id,&(enemy->position).z);
     break;
   case 0xd:
   case 0x14:
-    Enemy::MathAdd(enemy,instruction->ecl_var_id,&instruction->float_var_1,&instruction->float_var_2
-                  );
+    Enemy::MathAdd(enemy,(instruction->args).ecl_var_id,(EclVarId *)&(instruction->args).float_var_1
+                   ,(EclVarId *)&(instruction->args).float_var_2);
     break;
   case 0xe:
   case 0x15:
-    Enemy::MathSub(enemy,instruction->ecl_var_id,&instruction->float_var_1);
+    Enemy::MathSub(enemy,(instruction->args).ecl_var_id,&(instruction->args).float_var_1,
+                   &(instruction->args).float_var_2);
     break;
   case 0xf:
   case 0x16:
-    Enemy::MathMul(enemy,instruction->ecl_var_id,&instruction->float_var_1);
+    Enemy::MathMul(enemy,(instruction->args).ecl_var_id,&(instruction->args).float_var_1,
+                   &(instruction->args).float_var_2);
     break;
   case 0x10:
   case 0x17:
-    Enemy::MathDiv(enemy,instruction->ecl_var_id,&instruction->float_var_1,&instruction->float_var_2
-                  );
+    Enemy::MathDiv(enemy,(instruction->args).ecl_var_id,(EclVarId *)&(instruction->args).float_var_1
+                   ,(EclVarId *)&(instruction->args).float_var_2);
     break;
   case 0x11:
   case 0x18:
-    Enemy::MathMod(enemy,instruction->ecl_var_id,&instruction->float_var_1);
+    Enemy::MathMod(enemy,(instruction->args).ecl_var_id,&(instruction->args).float_var_1,
+                   &(instruction->args).float_var_2);
     break;
   case 0x12:
-    local_3c = Enemy::GetVar(enemy,&instruction->ecl_var_id,(EclValueType *)0x0);
+    local_3c = Enemy::GetVar(enemy,&(instruction->args).ecl_var_id,(EclValueType *)0x0);
     *local_3c = *local_3c + 1;
     break;
   case 0x13:
-    local_40 = Enemy::GetVar(enemy,&instruction->ecl_var_id,(EclValueType *)0x0);
+    local_40 = Enemy::GetVar(enemy,&(instruction->args).ecl_var_id,(EclValueType *)0x0);
     *local_40 = *local_40 + -1;
     break;
   case 0x19:
-    Enemy::math_atan2(enemy,instruction->ecl_var_id,&instruction->float_var_1,
-                      &instruction->float_var_2,&instruction->float_var_3);
+    Enemy::MathAtan2(enemy,(instruction->args).ecl_var_id,&(instruction->args).float_var_1,
+                     &(instruction->args).float_var_2,&(instruction->args).float_var_3,
+                     &(instruction->args).float_var_4);
     break;
   case 0x1a:
-    pfVar15 = (float *)Enemy::GetVar(enemy,&instruction->ecl_var_id,(EclValueType *)0x0);
+    pfVar15 = (float *)Enemy::GetVar(enemy,&(instruction->args).ecl_var_id,(EclValueType *)0x0);
     local_18 = (int)*pfVar15;
     local_18 = (int)AddNormalizeAngle((float)local_18,0.0);
-    Enemy::SetVar(enemy,instruction->ecl_var_id,&local_18);
+    Enemy::SetVar(enemy,(instruction->args).ecl_var_id,&local_18);
     break;
   case 0x1b:
-    piVar14 = Enemy::GetVar(enemy,&instruction->ecl_var_id,(EclValueType *)0x0);
-    local_48 = *piVar14;
-    piVar14 = Enemy::GetVar(enemy,(int *)&instruction->float_var_1,(EclValueType *)0x0);
-    local_44 = *piVar14;
+    pfVar20 = Enemy::GetVar(enemy,&(instruction->args).ecl_var_id,(EclValueType *)0x0);
+    local_48 = *pfVar20;
+    pfVar20 = Enemy::GetVar(enemy,(EclVarId *)&(instruction->args).float_var_1,(EclValueType *)0x0);
+    local_44 = *pfVar20;
     if (local_48 == local_44) {
       local_2a4 = 0;
     }
@@ -392,9 +398,9 @@ LAB_004074ce:
     (enemy->current_context).compare_register = local_2a4;
     break;
   case 0x1c:
-    pfVar15 = Enemy::GetVarFloat(enemy,(float *)&instruction->ecl_var_id,(EclValueType *)0x0);
+    pfVar15 = Enemy::GetVarFloat(enemy,(float *)&instruction->args,(EclValueType *)0x0);
     local_4c = *pfVar15;
-    pfVar15 = Enemy::GetVarFloat(enemy,&instruction->float_var_1,(EclValueType *)0x0);
+    pfVar15 = Enemy::GetVarFloat(enemy,&(instruction->args).float_var_1,(EclValueType *)0x0);
     local_50 = *pfVar15;
     if ((NAN(local_4c) || NAN(local_50)) == (local_4c == local_50)) {
       if (local_4c < local_50 == (NAN(local_4c) || NAN(local_50))) {
@@ -430,47 +436,53 @@ joined_r0x00407ab4:
   case 0x22:
     if ((enemy->current_context).compare_register == 0) break;
 switchD_00407544_caseD_2:
-    (enemy->current_context).time.current = instruction->ecl_var_id;
-    instruction = (EclRawInstr *)((int)&instruction->time + (int)bullet_rank_speed_low[1]);
+    (enemy->current_context).time.current = (instruction->args).ecl_var_id;
+    instruction = (EclRawInstr *)((int)&instruction->time + (int)args->float_var_1);
     goto LAB_004074ce;
   case 0x23:
     goto switchD_00407544_caseD_23;
   case 0x24:
     goto switchD_00407544_caseD_24;
   case 0x25:
-    pfVar15 = (float *)Enemy::GetVar(enemy,(int *)&instruction->float_var_3,(EclValueType *)0x0);
+    pfVar15 = (float *)Enemy::GetVar(enemy,(EclVarId *)&(instruction->args).float_var_3,
+                                     (EclValueType *)0x0);
     local_14 = *pfVar15;
-    if ((int)local_14 < (int)bullet_rank_speed_low[4]) goto switchD_00407544_caseD_23;
+    if ((int)local_14 < (int)args->float_var_4) goto switchD_00407544_caseD_23;
     break;
   case 0x26:
-    pfVar15 = (float *)Enemy::GetVar(enemy,(int *)&instruction->float_var_3,(EclValueType *)0x0);
+    pfVar15 = (float *)Enemy::GetVar(enemy,(EclVarId *)&(instruction->args).float_var_3,
+                                     (EclValueType *)0x0);
     local_14 = *pfVar15;
-    if ((int)local_14 <= (int)bullet_rank_speed_low[4]) goto switchD_00407544_caseD_23;
+    if ((int)local_14 <= (int)args->float_var_4) goto switchD_00407544_caseD_23;
     break;
   case 0x27:
-    pfVar15 = (float *)Enemy::GetVar(enemy,(int *)&instruction->float_var_3,(EclValueType *)0x0);
+    pfVar15 = (float *)Enemy::GetVar(enemy,(EclVarId *)&(instruction->args).float_var_3,
+                                     (EclValueType *)0x0);
     local_14 = *pfVar15;
-    if (local_14 == bullet_rank_speed_low[4]) goto switchD_00407544_caseD_23;
+    if (local_14 == args->float_var_4) goto switchD_00407544_caseD_23;
     break;
   case 0x28:
-    pfVar15 = (float *)Enemy::GetVar(enemy,(int *)&instruction->float_var_3,(EclValueType *)0x0);
+    pfVar15 = (float *)Enemy::GetVar(enemy,(EclVarId *)&(instruction->args).float_var_3,
+                                     (EclValueType *)0x0);
     local_14 = *pfVar15;
-    if ((int)bullet_rank_speed_low[4] < (int)local_14) goto switchD_00407544_caseD_23;
+    if ((int)args->float_var_4 < (int)local_14) goto switchD_00407544_caseD_23;
     break;
   case 0x29:
-    pfVar15 = (float *)Enemy::GetVar(enemy,(int *)&instruction->float_var_3,(EclValueType *)0x0);
+    pfVar15 = (float *)Enemy::GetVar(enemy,(EclVarId *)&(instruction->args).float_var_3,
+                                     (EclValueType *)0x0);
     local_14 = *pfVar15;
-    if ((int)bullet_rank_speed_low[4] <= (int)local_14) goto switchD_00407544_caseD_23;
+    if ((int)args->float_var_4 <= (int)local_14) goto switchD_00407544_caseD_23;
     break;
   case 0x2a:
-    pfVar15 = (float *)Enemy::GetVar(enemy,(int *)&instruction->float_var_3,(EclValueType *)0x0);
+    pfVar15 = (float *)Enemy::GetVar(enemy,(EclVarId *)&(instruction->args).float_var_3,
+                                     (EclValueType *)0x0);
     local_14 = *pfVar15;
-    if (local_14 != bullet_rank_speed_low[4]) goto switchD_00407544_caseD_23;
+    if (local_14 != args->float_var_4) goto switchD_00407544_caseD_23;
     break;
   case 0x2b:
-    (enemy->position).x = (float)instruction->ecl_var_id;
-    (enemy->position).y = instruction->float_var_1;
-    (enemy->position).z = instruction->float_var_2;
+    (enemy->position).x = (float)(instruction->args).ecl_var_id;
+    (enemy->position).y = (instruction->args).float_var_1;
+    (enemy->position).z = (instruction->args).float_var_2;
     pfVar15 = Enemy::GetVarFloat(enemy,&(enemy->position).x,(EclValueType *)0x0);
     (enemy->position).x = *pfVar15;
     pfVar15 = Enemy::GetVarFloat(enemy,&(enemy->position).y,(EclValueType *)0x0);
@@ -480,9 +492,9 @@ switchD_00407544_caseD_2:
     Enemy::ClampPos(enemy);
     break;
   case 0x2c:
-    (enemy->axis_speed).x = (float)instruction->ecl_var_id;
-    (enemy->axis_speed).y = instruction->float_var_1;
-    (enemy->axis_speed).z = instruction->float_var_2;
+    (enemy->axis_speed).x = (float)(instruction->args).ecl_var_id;
+    (enemy->axis_speed).y = (instruction->args).float_var_1;
+    (enemy->axis_speed).z = (instruction->args).float_var_2;
     pfVar15 = Enemy::GetVarFloat(enemy,&(enemy->axis_speed).x,(EclValueType *)0x0);
     (enemy->axis_speed).x = *pfVar15;
     pfVar15 = Enemy::GetVarFloat(enemy,&(enemy->axis_speed).y,(EclValueType *)0x0);
@@ -492,9 +504,9 @@ switchD_00407544_caseD_2:
     enemy->flags1 = enemy->flags1 & 0xfc;
     break;
   case 0x2d:
-    local_10 = (float)instruction->ecl_var_id;
-    local_c = instruction->float_var_1;
-    local_8 = instruction->float_var_2;
+    local_10 = (float)(instruction->args).ecl_var_id;
+    local_c = (instruction->args).float_var_1;
+    local_8 = (instruction->args).float_var_2;
     pfVar15 = Enemy::GetVarFloat(enemy,&local_10,(EclValueType *)0x0);
     enemy->angle = *pfVar15;
     pfVar15 = Enemy::GetVarFloat(enemy,&local_c,(EclValueType *)0x0);
@@ -502,41 +514,41 @@ switchD_00407544_caseD_2:
     enemy->flags1 = enemy->flags1 & 0xfc | 1;
     break;
   case 0x2e:
-    local_10 = (float)instruction->ecl_var_id;
-    local_c = instruction->float_var_1;
-    local_8 = instruction->float_var_2;
+    local_10 = (float)(instruction->args).ecl_var_id;
+    local_c = (instruction->args).float_var_1;
+    local_8 = (instruction->args).float_var_2;
     pfVar15 = Enemy::GetVarFloat(enemy,&local_10,(EclValueType *)0x0);
     enemy->angular_velocity = *pfVar15;
     enemy->flags1 = enemy->flags1 & 0xfc | 1;
     break;
   case 0x2f:
-    local_10 = (float)instruction->ecl_var_id;
-    local_c = instruction->float_var_1;
-    local_8 = instruction->float_var_2;
+    local_10 = (float)(instruction->args).ecl_var_id;
+    local_c = (instruction->args).float_var_1;
+    local_8 = (instruction->args).float_var_2;
     pfVar15 = Enemy::GetVarFloat(enemy,&local_10,(EclValueType *)0x0);
     enemy->speed = *pfVar15;
     enemy->flags1 = enemy->flags1 & 0xfc | 1;
     break;
   case 0x30:
-    local_10 = (float)instruction->ecl_var_id;
-    local_c = instruction->float_var_1;
-    local_8 = instruction->float_var_2;
+    local_10 = (float)(instruction->args).ecl_var_id;
+    local_c = (instruction->args).float_var_1;
+    local_8 = (instruction->args).float_var_2;
     pfVar15 = Enemy::GetVarFloat(enemy,&local_10,(EclValueType *)0x0);
     enemy->acceleration = *pfVar15;
     enemy->flags1 = enemy->flags1 & 0xfc | 1;
     break;
   case 0x31:
-    local_10 = (float)instruction->ecl_var_id;
-    local_c = instruction->float_var_1;
-    local_8 = instruction->float_var_2;
+    local_10 = (float)(instruction->args).ecl_var_id;
+    local_c = (instruction->args).float_var_1;
+    local_8 = (instruction->args).float_var_2;
     fVar6 = local_c - local_10;
     fVar5 = Rng::GetRandomF32ZeroToOne(&g_Rng);
     enemy->angle = fVar5 * fVar6 + local_10;
     break;
   case 0x32:
-    local_10 = (float)instruction->ecl_var_id;
-    local_c = instruction->float_var_1;
-    local_8 = instruction->float_var_2;
+    local_10 = (float)(instruction->args).ecl_var_id;
+    local_c = (instruction->args).float_var_1;
+    local_8 = (instruction->args).float_var_2;
     fVar6 = local_c - local_10;
     fVar5 = Rng::GetRandomF32ZeroToOne(&g_Rng);
     enemy->angle = fVar5 * fVar6 + local_10;
@@ -573,9 +585,9 @@ switchD_00407544_caseD_2:
     }
     break;
   case 0x33:
-    local_10 = (float)instruction->ecl_var_id;
-    local_c = instruction->float_var_1;
-    local_8 = instruction->float_var_2;
+    local_10 = (float)(instruction->args).ecl_var_id;
+    local_c = (instruction->args).float_var_1;
+    local_8 = (instruction->args).float_var_2;
     fVar6 = Player::AngleToPlayer(&g_Player,&enemy->position);
     enemy->angle = fVar6 + local_10;
     pfVar15 = Enemy::GetVarFloat(enemy,&local_c,(EclValueType *)0x0);
@@ -583,62 +595,62 @@ switchD_00407544_caseD_2:
     enemy->flags1 = enemy->flags1 & 0xfc | 1;
     break;
   case 0x34:
-    Enemy::FUN_0040abe0(enemy,instruction);
+    Enemy::MoveDirTime(enemy,instruction);
     enemy->flags1 = enemy->flags1 & 0xe3 | 4;
     break;
   case 0x35:
-    Enemy::FUN_0040abe0(enemy,instruction);
+    Enemy::MoveDirTime(enemy,instruction);
     enemy->flags1 = enemy->flags1 & 0xe3 | 8;
     break;
   case 0x36:
-    Enemy::FUN_0040abe0(enemy,instruction);
+    Enemy::MoveDirTime(enemy,instruction);
     enemy->flags1 = enemy->flags1 & 0xe3 | 0xc;
     break;
   case 0x37:
-    Enemy::FUN_0040abe0(enemy,instruction);
+    Enemy::MoveDirTime(enemy,instruction);
     enemy->flags1 = enemy->flags1 & 0xe3 | 0x10;
     break;
   case 0x38:
-    Enemy::FUN_0040ad10(enemy,instruction);
+    Enemy::MovePositionTime(enemy,instruction);
     enemy->flags1 = enemy->flags1 & 0xe3;
     break;
   case 0x39:
-    Enemy::FUN_0040ad10(enemy,instruction);
+    Enemy::MovePositionTime(enemy,instruction);
     enemy->flags1 = enemy->flags1 & 0xe3 | 4;
     break;
   case 0x3a:
-    Enemy::FUN_0040ad10(enemy,instruction);
+    Enemy::MovePositionTime(enemy,instruction);
     enemy->flags1 = enemy->flags1 & 0xe3 | 8;
     break;
   case 0x3b:
-    Enemy::FUN_0040ad10(enemy,instruction);
+    Enemy::MovePositionTime(enemy,instruction);
     enemy->flags1 = enemy->flags1 & 0xe3 | 0xc;
     break;
   case 0x3c:
-    Enemy::FUN_0040ad10(enemy,instruction);
+    Enemy::MovePositionTime(enemy,instruction);
     enemy->flags1 = enemy->flags1 & 0xe3 | 0x10;
     break;
   case 0x3d:
-    Enemy::FUN_0040ae80(enemy,instruction);
+    Enemy::MoveTime(enemy,instruction);
     enemy->flags1 = enemy->flags1 & 0xe3 | 4;
     break;
   case 0x3e:
-    Enemy::FUN_0040ae80(enemy,instruction);
+    Enemy::MoveTime(enemy,instruction);
     enemy->flags1 = enemy->flags1 & 0xe3 | 8;
     break;
   case 0x3f:
-    Enemy::FUN_0040ae80(enemy,instruction);
+    Enemy::MoveTime(enemy,instruction);
     enemy->flags1 = enemy->flags1 & 0xe3 | 0xc;
     break;
   case 0x40:
-    Enemy::FUN_0040ae80(enemy,instruction);
+    Enemy::MoveTime(enemy,instruction);
     enemy->flags1 = enemy->flags1 & 0xe3 | 0x10;
     break;
   case 0x41:
-    (enemy->lower_move_limit).x = (FLOAT)instruction->ecl_var_id;
-    (enemy->lower_move_limit).y = instruction->float_var_1;
-    (enemy->upper_move_limit).x = instruction->float_var_2;
-    (enemy->upper_move_limit).y = instruction->float_var_3;
+    (enemy->lower_move_limit).x = (FLOAT)(instruction->args).ecl_var_id;
+    (enemy->lower_move_limit).y = (instruction->args).float_var_1;
+    (enemy->upper_move_limit).x = (instruction->args).float_var_2;
+    (enemy->upper_move_limit).y = (instruction->args).float_var_3;
     enemy->flags3 = enemy->flags3 | 1;
     break;
   case 0x42:
@@ -653,12 +665,12 @@ switchD_00407544_caseD_2:
   case 0x49:
   case 0x4a:
   case 0x4b:
-    local_54 = &instruction->ecl_var_id;
+    local_54 = &instruction->args;
     local_58 = &enemy->bullet_props;
-    local_58->sprite = *(ushort *)local_54;
+    local_58->sprite = *(ushort *)&local_54->ecl_var_id;
     (enemy->bullet_props).aim_mode = instruction->opcode - 0x43;
-    piVar14 = Enemy::GetVar(enemy,(int *)&instruction->float_var_1,(EclValueType *)0x0);
-    local_58->count1 = *(ushort *)piVar14;
+    pfVar20 = Enemy::GetVar(enemy,(EclVarId *)&(instruction->args).float_var_1,(EclValueType *)0x0);
+    local_58->count1 = *(ushort *)pfVar20;
     iVar17 = ((int)(short)enemy->bullet_rank_amount1_high -
              (int)(short)enemy->bullet_rank_amount1_low) * g_GameManager.rank;
     local_58->count1 =
@@ -667,8 +679,8 @@ switchD_00407544_caseD_2:
     if ((short)local_58->count1 < 1) {
       local_58->count1 = 1;
     }
-    piVar14 = Enemy::GetVar(enemy,local_54 + 2,(EclValueType *)0x0);
-    local_58->count2 = *(ushort *)piVar14;
+    pfVar20 = Enemy::GetVar(enemy,(EclVarId *)&local_54->float_var_2,(EclValueType *)0x0);
+    local_58->count2 = *(ushort *)pfVar20;
     iVar17 = ((int)(short)enemy->bullet_rank_amount2_high -
              (int)(short)enemy->bullet_rank_amount2_low) * g_GameManager.rank;
     local_58->count2 =
@@ -684,11 +696,11 @@ switchD_00407544_caseD_2:
     (local_58->position).x = (enemy->position).x + (enemy->shoot_offset).x;
     (local_58->position).y = fVar3 + fVar4;
     (local_58->position).z = fVar6 + fVar5;
-    pfVar15 = Enemy::GetVarFloat(enemy,(float *)(local_54 + 5),(EclValueType *)0x0);
+    pfVar15 = Enemy::GetVarFloat(enemy,&local_54->float_var_5,(EclValueType *)0x0);
     local_58->angle1 = *pfVar15;
     fVar6 = AddNormalizeAngle(local_58->angle1,0.0);
     local_58->angle1 = fVar6;
-    pfVar15 = Enemy::GetVarFloat(enemy,(float *)(local_54 + 3),(EclValueType *)0x0);
+    pfVar15 = Enemy::GetVarFloat(enemy,&local_54->float_var_3,(EclValueType *)0x0);
     local_58->speed1 = *pfVar15;
     if ((NAN(local_58->speed1) == (local_58->speed1 == 0.0)) &&
        (local_58->speed1 =
@@ -697,9 +709,9 @@ switchD_00407544_caseD_2:
        local_58->speed1 < 0.3 != NAN(local_58->speed1))) {
       local_58->speed1 = 0.3;
     }
-    pfVar15 = Enemy::GetVarFloat(enemy,(float *)(local_54 + 6),(EclValueType *)0x0);
+    pfVar15 = Enemy::GetVarFloat(enemy,&local_54->float_var_6,(EclValueType *)0x0);
     local_58->angle2 = *pfVar15;
-    pfVar15 = Enemy::GetVarFloat(enemy,(float *)(local_54 + 4),(EclValueType *)0x0);
+    pfVar15 = Enemy::GetVarFloat(enemy,&local_54->float_var_4,(EclValueType *)0x0);
     local_58->speed2 = *pfVar15;
     local_58->speed2 =
          (((enemy->bullet_rank_speed_high - enemy->bullet_rank_speed_low) *
@@ -708,17 +720,17 @@ switchD_00407544_caseD_2:
     if (local_58->speed2 < 0.3 != NAN(local_58->speed2)) {
       local_58->speed2 = 0.3;
     }
-    *(undefined2 *)&local_58->field_0x4a = 0;
-    local_58->flags = local_54[7];
-    local_14 = (float)(int)*(short *)((int)local_54 + 2);
-    piVar14 = Enemy::GetVar(enemy,(int *)&local_14,(EclValueType *)0x0);
-    local_58->color = *(ushort *)piVar14;
+    local_58->unk_4a = 0;
+    local_58->flags = (uint)local_54->float_var_7;
+    local_14 = (float)(int)*(short *)((int)&local_54->ecl_var_id + 2);
+    pfVar20 = Enemy::GetVar(enemy,(EclVarId *)&local_14,(EclValueType *)0x0);
+    local_58->color = *(ushort *)pfVar20;
     if ((enemy->flags1 >> 5 & 1) == 0) {
       BulletManager::SpawnBulletPattern(&g_BulletManager,local_58);
     }
     break;
   case 0x4c:
-    enemy->shoot_interval = instruction->ecl_var_id;
+    enemy->shoot_interval = (instruction->args).ecl_var_id;
     iVar17 = enemy->shoot_interval / 5;
     iVar1 = (-enemy->shoot_interval / 5 - iVar17) * g_GameManager.rank;
     enemy->shoot_interval =
@@ -728,7 +740,7 @@ switchD_00407544_caseD_2:
     (enemy->shoot_interval_timer).previous = -999;
     break;
   case 0x4d:
-    enemy->shoot_interval = instruction->ecl_var_id;
+    enemy->shoot_interval = (instruction->args).ecl_var_id;
     iVar17 = enemy->shoot_interval / 5;
     iVar1 = (-enemy->shoot_interval / 5 - iVar17) * g_GameManager.rank;
     enemy->shoot_interval =
@@ -764,46 +776,46 @@ switchD_00407544_caseD_2:
     BulletManager::SpawnBulletPattern(&g_BulletManager,&enemy->bullet_props);
     break;
   case 0x51:
-    pfVar15 = Enemy::GetVarFloat(enemy,bullet_rank_speed_low,(EclValueType *)0x0);
+    pfVar15 = Enemy::GetVarFloat(enemy,(float *)args,(EclValueType *)0x0);
     (enemy->shoot_offset).x = *pfVar15;
-    pfVar15 = Enemy::GetVarFloat(enemy,bullet_rank_speed_low + 1,(EclValueType *)0x0);
+    pfVar15 = Enemy::GetVarFloat(enemy,&args->float_var_1,(EclValueType *)0x0);
     (enemy->shoot_offset).y = *pfVar15;
-    pfVar15 = Enemy::GetVarFloat(enemy,bullet_rank_speed_low + 2,(EclValueType *)0x0);
+    pfVar15 = Enemy::GetVarFloat(enemy,&args->float_var_2,(EclValueType *)0x0);
     (enemy->shoot_offset).z = *pfVar15;
     break;
   case 0x52:
-    piVar14 = Enemy::GetVar(enemy,(int *)bullet_rank_speed_low,(EclValueType *)0x0);
-    (enemy->bullet_props).ex_ints[0] = *piVar14;
-    piVar14 = Enemy::GetVar(enemy,(int *)(bullet_rank_speed_low + 1),(EclValueType *)0x0);
-    (enemy->bullet_props).ex_ints[1] = *piVar14;
-    piVar14 = Enemy::GetVar(enemy,(int *)(bullet_rank_speed_low + 2),(EclValueType *)0x0);
-    (enemy->bullet_props).ex_ints[2] = *piVar14;
-    piVar14 = Enemy::GetVar(enemy,(int *)(bullet_rank_speed_low + 3),(EclValueType *)0x0);
-    (enemy->bullet_props).ex_ints[3] = *piVar14;
-    pfVar15 = Enemy::GetVarFloat(enemy,bullet_rank_speed_low + 4,(EclValueType *)0x0);
+    pfVar20 = Enemy::GetVar(enemy,&args->ecl_var_id,(EclValueType *)0x0);
+    (enemy->bullet_props).ex_ints[0] = *pfVar20;
+    pfVar20 = Enemy::GetVar(enemy,(EclVarId *)&args->float_var_1,(EclValueType *)0x0);
+    (enemy->bullet_props).ex_ints[1] = *pfVar20;
+    pfVar20 = Enemy::GetVar(enemy,(EclVarId *)&args->float_var_2,(EclValueType *)0x0);
+    (enemy->bullet_props).ex_ints[2] = *pfVar20;
+    pfVar20 = Enemy::GetVar(enemy,(EclVarId *)&args->float_var_3,(EclValueType *)0x0);
+    (enemy->bullet_props).ex_ints[3] = *pfVar20;
+    pfVar15 = Enemy::GetVarFloat(enemy,&args->float_var_4,(EclValueType *)0x0);
     (enemy->bullet_props).ex_floats[0] = *pfVar15;
-    pfVar15 = Enemy::GetVarFloat(enemy,bullet_rank_speed_low + 5,(EclValueType *)0x0);
+    pfVar15 = Enemy::GetVarFloat(enemy,&args->float_var_5,(EclValueType *)0x0);
     (enemy->bullet_props).ex_floats[1] = *pfVar15;
-    pfVar15 = Enemy::GetVarFloat(enemy,bullet_rank_speed_low + 6,(EclValueType *)0x0);
+    pfVar15 = Enemy::GetVarFloat(enemy,&args->float_var_6,(EclValueType *)0x0);
     (enemy->bullet_props).ex_floats[2] = *pfVar15;
-    pfVar15 = Enemy::GetVarFloat(enemy,bullet_rank_speed_low + 7,(EclValueType *)0x0);
+    pfVar15 = Enemy::GetVarFloat(enemy,&args->float_var_7,(EclValueType *)0x0);
     (enemy->bullet_props).ex_floats[3] = *pfVar15;
     break;
   case 0x53:
-    BulletManager::FUN_00414340(&g_BulletManager);
+    BulletManager::TurnAllBulletsIntoPoints(&g_BulletManager);
     break;
   case 0x54:
-    if (instruction->ecl_var_id < 0) {
+    if ((instruction->args).ecl_var_id < 0) {
       (enemy->bullet_props).flags = (enemy->bullet_props).flags & 0xfffffdff;
     }
     else {
-      (enemy->bullet_props).sfx = instruction->ecl_var_id;
+      (enemy->bullet_props).sfx = (instruction->args).ecl_var_id;
       (enemy->bullet_props).flags = (enemy->bullet_props).flags | 0x200;
     }
     break;
   case 0x55:
   case 0x56:
-    local_64 = &instruction->ecl_var_id;
+    local_64 = &instruction->args;
     local_60 = &enemy->laser_props;
     fVar6 = (enemy->position).z;
     fVar5 = (enemy->shoot_offset).z;
@@ -812,70 +824,67 @@ switchD_00407544_caseD_2:
     (enemy->laser_props).position.x = (enemy->position).x + (enemy->shoot_offset).x;
     (enemy->laser_props).position.y = fVar3 + fVar4;
     (enemy->laser_props).position.z = fVar6 + fVar5;
-    local_60->sprite = *(ushort *)local_64;
-    (enemy->laser_props).color = *(ushort *)((int)&instruction->ecl_var_id + 2);
-    pfVar15 = Enemy::GetVarFloat(enemy,&instruction->float_var_1,(EclValueType *)0x0);
+    local_60->sprite = *(ushort *)&local_64->ecl_var_id;
+    (enemy->laser_props).color = *(ushort *)((int)&(instruction->args).ecl_var_id + 2);
+    pfVar15 = Enemy::GetVarFloat(enemy,&(instruction->args).float_var_1,(EclValueType *)0x0);
     local_60->angle = *pfVar15;
-    pfVar15 = Enemy::GetVarFloat(enemy,(float *)(local_64 + 2),(EclValueType *)0x0);
+    pfVar15 = Enemy::GetVarFloat(enemy,&local_64->float_var_2,(EclValueType *)0x0);
     local_60->speed = *pfVar15;
-    pfVar15 = Enemy::GetVarFloat(enemy,(float *)(local_64 + 3),(EclValueType *)0x0);
+    pfVar15 = Enemy::GetVarFloat(enemy,&local_64->float_var_3,(EclValueType *)0x0);
     local_60->start_offset = *pfVar15;
-    pfVar15 = Enemy::GetVarFloat(enemy,(float *)(local_64 + 4),(EclValueType *)0x0);
+    pfVar15 = Enemy::GetVarFloat(enemy,&local_64->float_var_4,(EclValueType *)0x0);
     local_60->end_offset = *pfVar15;
-    pfVar15 = Enemy::GetVarFloat(enemy,(float *)(local_64 + 5),(EclValueType *)0x0);
+    pfVar15 = Enemy::GetVarFloat(enemy,&local_64->float_var_5,(EclValueType *)0x0);
     local_60->start_length = *pfVar15;
-    local_60->width = (float)local_64[6];
-    local_60->start_time = local_64[7];
-    local_60->duration = local_64[8];
-    local_60->stop_time = local_64[9];
-    local_60->graze_delay = local_64[10];
-    local_60->graze_distance = local_64[0xb];
-    local_60->field18_0x4c = local_64[0xc];
+    local_60->width = local_64->float_var_6;
+    local_60->start_time = (int)local_64->float_var_7;
+    local_60->duration = local_64[1].ecl_var_id;
+    local_60->stop_time = *(int *)((int)(local_64 + 1) + 4);
+    local_60->graze_delay = *(int *)((int)(local_64 + 1) + 8);
+    local_60->graze_distance = *(int *)((int)(local_64 + 1) + 0xc);
+    local_60->flags = *(i32 *)((int)(local_64 + 1) + 0x10);
     if (instruction->opcode == 0x56) {
       local_60->type = 0;
     }
     else {
       local_60->type = 1;
     }
-    pvVar12 = BulletManager::FUN_00414670(&g_BulletManager,local_60);
+    pvVar12 = BulletManager::SpawnLaserPattern(&g_BulletManager,local_60);
     enemy->lasers[enemy->laser_store] = pvVar12;
     break;
   case 0x57:
-    piVar14 = Enemy::GetVar(enemy,&instruction->ecl_var_id,(EclValueType *)0x0);
-    enemy->laser_store = *piVar14;
+    pfVar20 = Enemy::GetVar(enemy,&(instruction->args).ecl_var_id,(EclValueType *)0x0);
+    enemy->laser_store = *pfVar20;
     break;
   case 0x58:
-    if (enemy->lasers[instruction->ecl_var_id] != (void *)0x0) {
-      pvVar12 = enemy->lasers[instruction->ecl_var_id];
-      pfVar15 = Enemy::GetVarFloat(enemy,&instruction->float_var_1,(EclValueType *)0x0);
-      *(float *)((int)enemy->lasers[instruction->ecl_var_id] + 0x22c) =
-           *(float *)((int)pvVar12 + 0x22c) + *pfVar15;
+    if (enemy->lasers[(instruction->args).ecl_var_id] != (Laser *)0x0) {
+      pvVar12 = enemy->lasers[(instruction->args).ecl_var_id];
+      pfVar15 = Enemy::GetVarFloat(enemy,&(instruction->args).float_var_1,(EclValueType *)0x0);
+      enemy->lasers[(instruction->args).ecl_var_id]->angle = pvVar12->angle + *pfVar15;
     }
     break;
   case 0x59:
-    if (enemy->lasers[instruction->ecl_var_id] != (void *)0x0) {
-      fVar6 = Player::AngleToPlayer
-                        (&g_Player,
-                         (D3DXVECTOR3 *)((int)enemy->lasers[instruction->ecl_var_id] + 0x220));
-      pfVar15 = Enemy::GetVarFloat(enemy,&instruction->float_var_1,(EclValueType *)0x0);
-      *(float *)((int)enemy->lasers[instruction->ecl_var_id] + 0x22c) = fVar6 + *pfVar15;
+    if (enemy->lasers[(instruction->args).ecl_var_id] != (Laser *)0x0) {
+      fVar6 = Player::AngleToPlayer(&g_Player,&enemy->lasers[(instruction->args).ecl_var_id]->pos);
+      pfVar15 = Enemy::GetVarFloat(enemy,&(instruction->args).float_var_1,(EclValueType *)0x0);
+      enemy->lasers[(instruction->args).ecl_var_id]->angle = fVar6 + *pfVar15;
     }
     break;
   case 0x5a:
-    if (enemy->lasers[instruction->ecl_var_id] != (void *)0x0) {
+    if (enemy->lasers[(instruction->args).ecl_var_id] != (Laser *)0x0) {
       fVar6 = (enemy->position).z;
-      fVar5 = instruction->float_var_3;
+      fVar5 = (instruction->args).float_var_3;
       fVar3 = (enemy->position).y;
-      fVar4 = instruction->float_var_2;
-      pvVar12 = enemy->lasers[instruction->ecl_var_id];
-      *(float *)((int)pvVar12 + 0x220) = (enemy->position).x + instruction->float_var_1;
-      *(float *)((int)pvVar12 + 0x224) = fVar3 + fVar4;
-      *(float *)((int)pvVar12 + 0x228) = fVar6 + fVar5;
+      fVar4 = (instruction->args).float_var_2;
+      pvVar12 = enemy->lasers[(instruction->args).ecl_var_id];
+      (pvVar12->pos).x = (enemy->position).x + (instruction->args).float_var_1;
+      (pvVar12->pos).y = fVar3 + fVar4;
+      (pvVar12->pos).z = fVar6 + fVar5;
     }
     break;
   case 0x5b:
-    if ((enemy->lasers[instruction->ecl_var_id] == (void *)0x0) ||
-       (*(int *)((int)enemy->lasers[instruction->ecl_var_id] + 600) == 0)) {
+    if ((enemy->lasers[(instruction->args).ecl_var_id] == (Laser *)0x0) ||
+       (enemy->lasers[(instruction->args).ecl_var_id]->in_use == 0)) {
       (enemy->current_context).compare_register = 1;
     }
     else {
@@ -883,24 +892,25 @@ switchD_00407544_caseD_2:
     }
     break;
   case 0x5c:
-    if (((enemy->lasers[instruction->ecl_var_id] != (void *)0x0) &&
-        (*(int *)((int)enemy->lasers[instruction->ecl_var_id] + 600) != 0)) &&
-       (*(byte *)((int)enemy->lasers[instruction->ecl_var_id] + 0x26c) < 2)) {
-      *(undefined *)((int)enemy->lasers[instruction->ecl_var_id] + 0x26c) = 2;
-      pvVar12 = enemy->lasers[instruction->ecl_var_id];
-      *(undefined4 *)((int)pvVar12 + 0x264) = 0;
-      *(undefined4 *)((int)pvVar12 + 0x260) = 0;
-      *(undefined4 *)((int)pvVar12 + 0x25c) = 0xfffffc19;
+    if (((enemy->lasers[(instruction->args).ecl_var_id] != (Laser *)0x0) &&
+        (enemy->lasers[(instruction->args).ecl_var_id]->in_use != 0)) &&
+       (enemy->lasers[(instruction->args).ecl_var_id]->state < 2)) {
+      enemy->lasers[(instruction->args).ecl_var_id]->state = 2;
+      pvVar12 = enemy->lasers[(instruction->args).ecl_var_id];
+      (pvVar12->timer).current = 0;
+      (pvVar12->timer).subFrame = 0.0;
+      (pvVar12->timer).previous = -999;
     }
     break;
   case 0x5d:
-    Gui::FUN_00417bfd(&g_Gui,(int)*(short *)&instruction->ecl_var_id,
-                      (char *)&instruction->float_var_1);
+    Gui::ShowSpellcard(&g_Gui,(int)*(short *)&(instruction->args).ecl_var_id,
+                       (char *)&(instruction->args).float_var_1);
     g_RunningSpellcardInfo.capture_spellcard = 1;
     g_RunningSpellcardInfo.is_active = 1;
-    g_RunningSpellcardInfo.spellcard_idx = (uint)*(short *)((int)&instruction->ecl_var_id + 2);
+    g_RunningSpellcardInfo.spellcard_idx =
+         (uint)*(short *)((int)&(instruction->args).ecl_var_id + 2);
     g_RunningSpellcardInfo.capture_score = INT_ARRAY_00476120[g_RunningSpellcardInfo.spellcard_idx];
-    BulletManager::FUN_00414340(&g_BulletManager);
+    BulletManager::TurnAllBulletsIntoPoints(&g_BulletManager);
     g_Stage.spellcardState = RUNNING;
     g_Stage.ticksSinceSpellcardStarted = 0;
     enemy->bullet_rank_speed_low = -0.5;
@@ -914,7 +924,7 @@ switchD_00407544_caseD_2:
     local_70 = g_GameManager.catk + g_RunningSpellcardInfo.spellcard_idx;
     csum = 0;
     if (g_GameManager.is_in_replay == 0) {
-      local_2bc = &instruction->float_var_1;
+      local_2bc = &(instruction->args).float_var_1;
       local_2c0 = g_GameManager.catk[g_RunningSpellcardInfo.spellcard_idx].name;
       do {
         bVar16 = *(byte *)local_2bc;
@@ -975,11 +985,11 @@ switchD_00407544_caseD_2:
     g_Stage.spellcardState = NOT_RUNNING;
     break;
   case 0x5f:
-    pfVar15 = (float *)&instruction->ecl_var_id;
+    pEVar2 = &instruction->args;
     pfVar20 = &local_b0;
     for (iVar17 = 6; iVar17 != 0; iVar17 = iVar17 + -1) {
-      *pfVar20 = *pfVar15;
-      pfVar15 = pfVar15 + 1;
+      *pfVar20 = pEVar2->ecl_var_id;
+      pEVar2 = (EclRawInstrArgs *)&pEVar2->float_var_1;
       pfVar20 = pfVar20 + 1;
     }
     pfVar15 = Enemy::GetVarFloat(enemy,&local_ac.x,(EclValueType *)0x0);
@@ -989,7 +999,7 @@ switchD_00407544_caseD_2:
     pfVar15 = Enemy::GetVarFloat(enemy,&local_ac.z,(EclValueType *)0x0);
     local_ac.z = *pfVar15;
     EnemyManager::SpawnEnemy
-              ((EnemyManager *)&g_EnemyManager,(int)local_b0,&local_ac,local_a0,local_9e,local_9c);
+              ((EnemyManager *)&g_EnemyManager,local_b0,&local_ac,local_a0,local_9e,local_9c);
     break;
   case 0x60:
     local_b4 = g_Enemies;
@@ -1005,125 +1015,125 @@ switchD_00407544_caseD_2:
     }
     break;
   case 0x61:
-    iVar17 = instruction->ecl_var_id;
+    iVar17 = (instruction->args).ecl_var_id;
     local_13c = (short)iVar17 + 0x100;
     (enemy->primary_vm).anmFileIndex = local_13c;
     AnmManager::SetAndExecuteScript
               (main_anm_manager,&enemy->primary_vm,main_anm_manager->scripts[iVar17 + 0x100]);
     break;
   case 0x62:
-    enemy->anm_ex_defaults = *(short *)&instruction->ecl_var_id;
-    enemy->anm_ex_far_left = *(short *)((int)&instruction->ecl_var_id + 2);
-    enemy->anm_ex_far_right = *(short *)&instruction->float_var_1;
-    enemy->anm_ex_left = *(short *)((int)&instruction->float_var_1 + 2);
-    enemy->anm_ex_right = *(short *)&instruction->float_var_2;
+    enemy->anm_ex_defaults = *(short *)&(instruction->args).ecl_var_id;
+    enemy->anm_ex_far_left = *(short *)((int)&(instruction->args).ecl_var_id + 2);
+    enemy->anm_ex_far_right = *(short *)&(instruction->args).float_var_1;
+    enemy->anm_ex_left = *(short *)((int)&(instruction->args).float_var_1 + 2);
+    enemy->anm_ex_right = *(short *)&(instruction->args).float_var_2;
     enemy->anm_ex_flags = 0xff;
     break;
   case 99:
-    if (7 < instruction->ecl_var_id) {
+    if (7 < (instruction->args).ecl_var_id) {
       DebugPrint2("error : sub anim overflow\n");
     }
     main_anm_manager = g_AnmManager;
-    fVar6 = bullet_rank_speed_low[1];
+    fVar6 = args->float_var_1;
     local_144 = SUB42(fVar6,0) + 0x100;
-    iVar17 = instruction->ecl_var_id;
+    iVar17 = (instruction->args).ecl_var_id;
     enemy->vms[iVar17].anmFileIndex = local_144;
     AnmManager::SetAndExecuteScript
               (main_anm_manager,enemy->vms + iVar17,main_anm_manager->scripts[(int)fVar6 + 0x100]);
     break;
   case 100:
-    local_5c = &instruction->ecl_var_id;
-    enemy->death_anm1 = *(byte *)local_5c;
-    enemy->death_anm2 = *(byte *)((int)&instruction->ecl_var_id + 1);
-    enemy->death_anm3 = *(byte *)((int)&instruction->ecl_var_id + 2);
+    local_5c = &instruction->args;
+    enemy->death_anm1 = *(byte *)&local_5c->ecl_var_id;
+    enemy->death_anm2 = *(byte *)((int)&(instruction->args).ecl_var_id + 1);
+    enemy->death_anm3 = *(byte *)((int)&(instruction->args).ecl_var_id + 2);
     break;
   case 0x65:
-    if (instruction->ecl_var_id < 0) {
+    if ((instruction->args).ecl_var_id < 0) {
       g_Gui.boss_present = 0;
-      (&__enemy_related)[enemy->boss_id] = (Enemy *)0x0;
+      g_Bosses[enemy->boss_id] = (Enemy *)0x0;
       enemy->flags2 = enemy->flags2 & 0xf7;
     }
     else {
-      (&__enemy_related)[instruction->ecl_var_id] = enemy;
+      g_Bosses[(instruction->args).ecl_var_id] = enemy;
       g_Gui.boss_present = 1;
       g_Gui.boss_health_bar = 1.0;
       enemy->flags2 = enemy->flags2 | 8;
-      enemy->boss_id = *(byte *)&instruction->ecl_var_id;
+      enemy->boss_id = *(byte *)&(instruction->args).ecl_var_id;
     }
     break;
   case 0x66:
-    local_6c = &instruction->ecl_var_id;
+    local_6c = &instruction->args;
     pEVar13 = EffectManager::SpawnEffect
-                        (&g_EffectManager,0xd,&enemy->position,1,(ZunColor)g_EffectsColor[*local_6c]
-                        );
+                        (&g_EffectManager,0xd,&enemy->position,1,
+                         (ZunColor)g_EffectsColor[local_6c->ecl_var_id]);
     enemy->effect_array[enemy->effectsNum] = pEVar13;
     pEVar13 = enemy->effect_array[enemy->effectsNum];
-    (pEVar13->pos2).x = (float)local_6c[1];
-    (pEVar13->pos2).y = (float)local_6c[2];
-    (pEVar13->pos2).z = (float)local_6c[3];
-    enemy->effect_distance = (float)local_6c[4];
+    (pEVar13->pos2).x = local_6c->float_var_1;
+    (pEVar13->pos2).y = local_6c->float_var_2;
+    (pEVar13->pos2).z = local_6c->float_var_3;
+    enemy->effect_distance = local_6c->float_var_4;
     enemy->effectsNum = enemy->effectsNum + 1;
     break;
   case 0x67:
-    (enemy->hitbox_dimensions).x = (float)instruction->ecl_var_id;
-    (enemy->hitbox_dimensions).y = instruction->float_var_1;
-    (enemy->hitbox_dimensions).z = instruction->float_var_2;
+    (enemy->hitbox_dimensions).x = (float)(instruction->args).ecl_var_id;
+    (enemy->hitbox_dimensions).y = (instruction->args).float_var_1;
+    (enemy->hitbox_dimensions).z = (instruction->args).float_var_2;
     break;
   case 0x68:
-    enemy->flags2 = enemy->flags2 & 0xfd | (*(byte *)&instruction->ecl_var_id & 1) << 1;
+    enemy->flags2 = enemy->flags2 & 0xfd | (*(byte *)&(instruction->args).ecl_var_id & 1) << 1;
     break;
   case 0x69:
-    enemy->flags2 = enemy->flags2 & 0xef | (*(byte *)&instruction->ecl_var_id & 1) << 4;
+    enemy->flags2 = enemy->flags2 & 0xef | (*(byte *)&(instruction->args).ecl_var_id & 1) << 4;
     break;
   case 0x6a:
-    SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,instruction->ecl_var_id,0);
+    SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,(instruction->args).ecl_var_id,0);
     break;
   case 0x6b:
-    enemy->flags2 = enemy->flags2 & 0x1f | *(char *)&instruction->ecl_var_id << 5;
+    enemy->flags2 = enemy->flags2 & 0x1f | *(char *)&(instruction->args).ecl_var_id << 5;
     break;
   case 0x6c:
-    enemy->death_callback_sub = instruction->ecl_var_id;
+    enemy->death_callback_sub = (instruction->args).ecl_var_id;
     break;
   case 0x6d:
-    enemy->interrupts[(int)instruction->float_var_1] = (int)*bullet_rank_speed_low;
+    enemy->interrupts[(int)(instruction->args).float_var_1] = args->ecl_var_id;
     break;
   case 0x6e:
-    enemy->run_interrupt = instruction->ecl_var_id;
+    enemy->run_interrupt = (instruction->args).ecl_var_id;
     goto LAB_0040954d;
   case 0x6f:
-    enemy->max_life = instruction->ecl_var_id;
+    enemy->max_life = (instruction->args).ecl_var_id;
     enemy->life = enemy->max_life;
     break;
   case 0x70:
-    (enemy->boss_timer).current = instruction->ecl_var_id;
+    (enemy->boss_timer).current = (instruction->args).ecl_var_id;
     (enemy->boss_timer).subFrame = 0.0;
     (enemy->boss_timer).previous = -999;
     break;
   case 0x71:
-    enemy->life_callback_threshold = instruction->ecl_var_id;
+    enemy->life_callback_threshold = (instruction->args).ecl_var_id;
     break;
   case 0x72:
-    enemy->life_callback_sub = instruction->ecl_var_id;
+    enemy->life_callback_sub = (instruction->args).ecl_var_id;
     break;
   case 0x73:
-    enemy->timer_callback_threshold = instruction->ecl_var_id;
+    enemy->timer_callback_threshold = (instruction->args).ecl_var_id;
     (enemy->boss_timer).current = 0;
     (enemy->boss_timer).subFrame = 0.0;
     (enemy->boss_timer).previous = -999;
     break;
   case 0x74:
-    enemy->timer_callback_sub = instruction->ecl_var_id;
+    enemy->timer_callback_sub = (instruction->args).ecl_var_id;
     break;
   case 0x75:
-    enemy->flags2 = enemy->flags2 & 0xfe | *(byte *)&instruction->ecl_var_id & 1;
+    enemy->flags2 = enemy->flags2 & 0xfe | *(byte *)&(instruction->args).ecl_var_id & 1;
     break;
   case 0x76:
     EffectManager::SpawnEffect
-              (&g_EffectManager,instruction->ecl_var_id,&enemy->position,
-               (int)instruction->float_var_1,(ZunColor)instruction->float_var_2);
+              (&g_EffectManager,(instruction->args).ecl_var_id,&enemy->position,
+               (int)(instruction->args).float_var_1,(ZunColor)(instruction->args).float_var_2);
     break;
   case 0x77:
-    for (local_8c = 0; local_8c < instruction->ecl_var_id; local_8c = local_8c + 1) {
+    for (local_8c = 0; local_8c < (instruction->args).ecl_var_id; local_8c = local_8c + 1) {
       local_98.x = (enemy->position).x;
       local_98.y = (enemy->position).y;
       local_98.z = (enemy->position).z;
@@ -1141,52 +1151,53 @@ switchD_00407544_caseD_2:
     }
     break;
   case 0x78:
-    enemy->flags3 = enemy->flags3 & 0xfd | (*(byte *)&instruction->ecl_var_id & 1) << 1;
+    enemy->flags3 = enemy->flags3 & 0xfd | (*(byte *)&(instruction->args).ecl_var_id & 1) << 1;
     break;
   case 0x79:
-    (*(code *)(&ECL_EX_INSN)[instruction->ecl_var_id])(enemy,(int)instruction);
+    (*(code *)(&ECL_EX_INSN)[(instruction->args).ecl_var_id])(enemy,(int)instruction);
     break;
   case 0x7a:
-    if (instruction->ecl_var_id < 0) {
+    if ((instruction->args).ecl_var_id < 0) {
       (enemy->current_context).func_set_func = (void *)0x0;
     }
     else {
-      (enemy->current_context).func_set_func = (&ECL_EX_INSN)[instruction->ecl_var_id];
+      (enemy->current_context).func_set_func = (&ECL_EX_INSN)[(instruction->args).ecl_var_id];
     }
     break;
   case 0x7b:
-    piVar14 = Enemy::GetVar(enemy,&instruction->ecl_var_id,(EclValueType *)0x0);
-    ZunTimer::Increment(&(enemy->current_context).time,*piVar14);
+    pfVar20 = Enemy::GetVar(enemy,&(instruction->args).ecl_var_id,(EclValueType *)0x0);
+    ZunTimer::Increment(&(enemy->current_context).time,*pfVar20);
     break;
   case 0x7c:
-    ItemManager::SpawnItem(&g_ItemManager,&enemy->position,(ItemType)instruction->ecl_var_id,0);
+    ItemManager::SpawnItem
+              (&g_ItemManager,&enemy->position,(ItemType)(instruction->args).ecl_var_id,0);
     break;
   case 0x7d:
     g_Stage.unpauseFlag = '\x01';
     break;
   case 0x7e:
-    g_Gui.ecl_set_lives = instruction->ecl_var_id;
+    g_Gui.ecl_set_lives = (instruction->args).ecl_var_id;
     g_GameManager.counat = g_GameManager.counat + 0x708;
     break;
   case 0x80:
-    (enemy->primary_vm).pendingInterrupt = *(short *)&instruction->ecl_var_id;
+    (enemy->primary_vm).pendingInterrupt = *(short *)&(instruction->args).ecl_var_id;
     break;
   case 0x81:
-    enemy->vms[(int)*bullet_rank_speed_low].pendingInterrupt = *(short *)&instruction->float_var_1;
+    enemy->vms[args->ecl_var_id].pendingInterrupt = *(short *)&(instruction->args).float_var_1;
     break;
   case 0x82:
-    enemy->flags3 = enemy->flags3 & 0xfb | (*(byte *)&instruction->ecl_var_id & 1) << 2;
+    enemy->flags3 = enemy->flags3 & 0xfb | (*(byte *)&(instruction->args).ecl_var_id & 1) << 2;
     break;
   case 0x83:
-    enemy->bullet_rank_speed_low = *bullet_rank_speed_low;
-    enemy->bullet_rank_speed_high = instruction->float_var_1;
-    enemy->bullet_rank_amount1_low = *(ushort *)&instruction->float_var_2;
-    enemy->bullet_rank_amount1_high = *(ushort *)&instruction->float_var_3;
-    enemy->bullet_rank_amount2_low = instruction->field11_0x1c;
-    enemy->bullet_rank_amount2_high = instruction->field14_0x20;
+    enemy->bullet_rank_speed_low = (float)args->ecl_var_id;
+    enemy->bullet_rank_speed_high = (instruction->args).float_var_1;
+    enemy->bullet_rank_amount1_low = *(ushort *)&(instruction->args).float_var_2;
+    enemy->bullet_rank_amount1_high = *(ushort *)&(instruction->args).float_var_3;
+    enemy->bullet_rank_amount2_low = *(ushort *)&(instruction->args).float_var_4;
+    enemy->bullet_rank_amount2_high = *(ushort *)&(instruction->args).float_var_5;
     break;
   case 0x84:
-    enemy->flags3 = enemy->flags3 & 0xf7 | (*(byte *)&instruction->ecl_var_id & 1) << 3;
+    enemy->flags3 = enemy->flags3 & 0xf7 | (*(byte *)&(instruction->args).ecl_var_id & 1) << 3;
     break;
   case 0x85:
     enemy->timer_callback_sub = enemy->death_callback_sub;
@@ -1196,13 +1207,13 @@ switchD_00407544_caseD_2:
     break;
   case 0x86:
     for (local_68 = 0; local_68 < 0x20; local_68 = local_68 + 1) {
-      enemy->lasers[local_68] = (void *)0x0;
+      enemy->lasers[local_68] = (Laser *)0x0;
     }
     break;
   case 0x87:
-    enemy->flags3 = enemy->flags3 & 0xef | (*(byte *)&instruction->ecl_var_id & 1) << 4;
+    enemy->flags3 = enemy->flags3 & 0xef | (*(byte *)&(instruction->args).ecl_var_id & 1) << 4;
   }
-switchD_00407544_caseD_7f:
+end_of_loop:
   instruction = (EclRawInstr *)((int)&instruction->time + (int)instruction->offset_to_next);
   goto LAB_004074ce;
 switchD_00407544_caseD_24:
@@ -1219,7 +1230,7 @@ switchD_00407544_caseD_24:
   }
   goto LAB_004074b1;
 switchD_00407544_caseD_23:
-  local_14 = (float)instruction->ecl_var_id;
+  local_14 = (float)(instruction->args).ecl_var_id;
   (enemy->current_context).current_instr =
        (EclRawInstr *)((int)&instruction->time + (int)instruction->offset_to_next);
   if ((enemy->flags3 >> 2 & 1) == 0) {
@@ -1235,8 +1246,8 @@ switchD_00407544_caseD_23:
   if (((enemy->flags3 >> 2 & 1) == 0) && (enemy->stack_depth < 7)) {
     enemy->stack_depth = enemy->stack_depth + 1;
   }
-  (enemy->current_context).var0 = (int)instruction->float_var_1;
-  (enemy->current_context).float0 = instruction->float_var_2;
+  (enemy->current_context).var0 = (int)(instruction->args).float_var_1;
+  (enemy->current_context).float0 = (instruction->args).float_var_2;
   goto LAB_004074b1;
 }
 

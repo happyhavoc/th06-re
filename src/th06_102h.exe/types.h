@@ -1104,6 +1104,34 @@ struct Effect {
     undefined field19_0x17b;
 };
 
+typedef enum EclVarId {
+    ECL_VAR_PLAYER_SHOT=-10025,
+    ECL_VAR_SELF_LIFE=-10024,
+    ECL_VAR_PLAYER_DISTANCE=-10023,
+    ECL_VAR_SELF_TIME=-10022,
+    ECL_VAR_PLAYER_ANGLE=-10021,
+    ECL_VAR_PLAYER_Z=-10020,
+    ECL_VAR_PLAYER_Y=-10019,
+    ECL_VAR_PLAYER_X=-10018,
+    ECL_VAR_SELF_Z=-10017,
+    ECL_VAR_SELF_Y=-10016,
+    ECL_VAR_SELF_X=-10015,
+    ECL_VAR_RANK=-10014,
+    ECL_VAR_DIFFICULTY=-10013,
+    ECL_VAR_IC3=-10012,
+    ECL_VAR_IC2=-10011,
+    ECL_VAR_IC1=-10010,
+    ECL_VAR_IC0=-10009,
+    ECL_VAR_F3=-10008,
+    ECL_VAR_F2=-10007,
+    ECL_VAR_F1=-10006,
+    ECL_VAR_F0=-10005,
+    ECL_VAR_I3=-10004,
+    ECL_VAR_I2=-10003,
+    ECL_VAR_I1=-10002,
+    ECL_VAR_I0=-10001
+} EclVarId;
+
 typedef struct StageBgAnmStd StageBgAnmStd, *PStageBgAnmStd;
 
 struct StageBgAnmStd {
@@ -1207,6 +1235,229 @@ struct Pbg3Archive {
     struct Pbg3Entry *entries;
 };
 
+typedef struct Enemy Enemy, *PEnemy;
+
+typedef struct EnemyEclContext EnemyEclContext, *PEnemyEclContext;
+
+typedef struct EnemyBulletShooter EnemyBulletShooter, *PEnemyBulletShooter;
+
+typedef struct EnemyLaserShooter EnemyLaserShooter, *PEnemyLaserShooter;
+
+typedef struct Laser Laser, *PLaser;
+
+typedef struct EclRawInstr EclRawInstr, *PEclRawInstr;
+
+typedef enum SoundIdx {
+    SOUND_SHOOT=0,
+    SOUND_1=1,
+    SOUND_2=2,
+    SOUND_3=3,
+    SOUND_PICHUN=4,
+    SOUND_5=5,
+    SOUND_BOMB_REIMARI=6,
+    SOUND_7=7,
+    SOUND_8=8,
+    SOUND_SHOOT_BOSS=9,
+    SOUND_SELECT=10,
+    SOUND_BACK=11,
+    SOUND_MOVE_MENU=12,
+    SOUND_BOMB_REIMU_A=13,
+    SOUND_BOMB=14,
+    SOUND_F=15,
+    SOUND_BOSS_LASER=16,
+    SOUND_BOSS_LASER_2=17,
+    SOUND_12=18,
+    SOUND_BOMB_MARISA_B=19,
+    SOUND_TOTAL_BOSS_DEATH=20,
+    SOUND_15=21,
+    SOUND_16=22,
+    SOUND_17=23,
+    SOUND_18=24,
+    SOUND_WTF_IS_THAT_LMAO=25,
+    SOUND_1A=26,
+    SOUND_1B=27,
+    SOUND_1UP=28,
+    SOUND_1D=29,
+    SOUND_GRAZE=30,
+    SOUND_POWERUP=31
+} SoundIdx;
+
+typedef struct EclRawInstrArgs EclRawInstrArgs, *PEclRawInstrArgs;
+
+struct EnemyBulletShooter {
+    ushort sprite;
+    ushort color;
+    struct D3DXVECTOR3 position;
+    float angle1;
+    float angle2;
+    float speed1;
+    float speed2;
+    float ex_floats[4];
+    int ex_ints[4];
+    int field9_0x40;
+    ushort count1;
+    ushort count2;
+    ushort aim_mode;
+    ushort unk_4a;
+    uint flags;
+    enum SoundIdx sfx;
+};
+
+struct EclRawInstrArgs {
+    int ecl_var_id;
+    float float_var_1;
+    float float_var_2;
+    float float_var_3;
+    float float_var_4;
+    float float_var_5;
+    float float_var_6;
+    float float_var_7;
+};
+
+struct EnemyEclContext {
+    struct EclRawInstr *current_instr;
+    struct ZunTimer time;
+    void *func_set_func;
+    int var0;
+    int var1;
+    int var2;
+    int var3;
+    float float0;
+    float float1;
+    float float2;
+    float float3;
+    int var4;
+    int var5;
+    int var6;
+    int var7;
+    int compare_register;
+    ushort sub_id;
+};
+
+struct EnemyLaserShooter {
+    ushort sprite;
+    ushort color;
+    struct D3DXVECTOR3 position;
+    float angle;
+    undefined4 field4_0x14;
+    float speed;
+    undefined4 field6_0x1c;
+    float start_offset;
+    float end_offset;
+    float start_length;
+    float width;
+    int start_time;
+    int duration;
+    int stop_time;
+    int graze_delay;
+    int graze_distance;
+    undefined4 field16_0x44;
+    ushort type;
+    i32 flags;
+    uint field19_0x50;
+};
+
+struct Enemy {
+    struct AnmVm primary_vm;
+    struct AnmVm vms[8];
+    struct EnemyEclContext current_context;
+    struct EnemyEclContext saved_context_stack[8];
+    int stack_depth;
+    int field5_0xc40;
+    int death_callback_sub;
+    int interrupts[8];
+    int run_interrupt;
+    struct D3DXVECTOR3 position;
+    struct D3DXVECTOR3 hitbox_dimensions;
+    struct D3DXVECTOR3 axis_speed;
+    float angle;
+    float angular_velocity;
+    float speed;
+    float acceleration;
+    struct D3DXVECTOR3 shoot_offset;
+    struct D3DXVECTOR3 move_interp;
+    struct D3DXVECTOR3 move_interp_start_pos;
+    struct ZunTimer move_interp_timer;
+    int move_interp_start_time;
+    float bullet_rank_speed_low;
+    float bullet_rank_speed_high;
+    ushort bullet_rank_amount1_low;
+    ushort bullet_rank_amount1_high;
+    ushort bullet_rank_amount2_low;
+    ushort bullet_rank_amount2_high;
+    int life;
+    int max_life;
+    int score;
+    struct ZunTimer boss_timer;
+    union D3DCOLORUNION color;
+    struct EnemyBulletShooter bullet_props;
+    int shoot_interval;
+    struct ZunTimer shoot_interval_timer;
+    struct EnemyLaserShooter laser_props;
+    struct Laser *lasers[32];
+    int laser_store;
+    byte death_anm1;
+    byte death_anm2;
+    byte death_anm3;
+    enum ItemType item_drop;
+    byte boss_id;
+    byte unk_e41;
+    struct ZunTimer field44_0xe44;
+    byte flags1;
+    byte flags2;
+    byte flags3;
+    byte anm_ex_flags;
+    short anm_ex_defaults;
+    short anm_ex_far_left;
+    short anm_ex_far_right;
+    short anm_ex_left;
+    short anm_ex_right;
+    struct D3DXVECTOR2 lower_move_limit;
+    struct D3DXVECTOR2 upper_move_limit;
+    struct Effect *effect_array[12];
+    int effectsNum;
+    float effect_distance;
+    int life_callback_threshold;
+    int life_callback_sub;
+    int timer_callback_threshold;
+    int timer_callback_sub;
+    float field63_0xeb8;
+    struct ZunTimer field64_0xebc;
+};
+
+struct Laser {
+    struct AnmVm vm0;
+    struct AnmVm vm1;
+    struct D3DXVECTOR3 pos;
+    float angle;
+    float start_offset;
+    float end_offset;
+    float start_length;
+    float width;
+    float speed;
+    int start_time;
+    int graze_delay;
+    int duration;
+    int end_time;
+    int graze_interval;
+    int in_use;
+    struct ZunTimer timer;
+    short flags;
+    short color;
+    byte state;
+};
+
+struct EclRawInstr {
+    int time;
+    short opcode;
+    short offset_to_next;
+    byte unk_8;
+    byte skip_insn_on_difficulty;
+    undefined field5_0xa;
+    undefined field6_0xb;
+    struct EclRawInstrArgs args;
+};
+
 typedef struct UnkVars476264 UnkVars476264, *PUnkVars476264;
 
 struct UnkVars476264 {
@@ -1252,198 +1503,6 @@ struct AsciiManager {
     struct StageMenu game_menu;
     struct StageMenu retry_menu;
     struct AsciiManagerPopup popups[515];
-};
-
-typedef struct Enemy Enemy, *PEnemy;
-
-typedef struct EnemyEclContext EnemyEclContext, *PEnemyEclContext;
-
-typedef struct EnemyBulletShooter EnemyBulletShooter, *PEnemyBulletShooter;
-
-typedef struct EnemyLaserShooter EnemyLaserShooter, *PEnemyLaserShooter;
-
-typedef struct EclRawInstr EclRawInstr, *PEclRawInstr;
-
-typedef enum SoundIdx {
-    SOUND_SHOOT=0,
-    SOUND_1=1,
-    SOUND_2=2,
-    SOUND_3=3,
-    SOUND_PICHUN=4,
-    SOUND_5=5,
-    SOUND_BOMB_REIMARI=6,
-    SOUND_7=7,
-    SOUND_8=8,
-    SOUND_SHOOT_BOSS=9,
-    SOUND_SELECT=10,
-    SOUND_BACK=11,
-    SOUND_MOVE_MENU=12,
-    SOUND_BOMB_REIMU_A=13,
-    SOUND_BOMB=14,
-    SOUND_F=15,
-    SOUND_BOSS_LASER=16,
-    SOUND_BOSS_LASER_2=17,
-    SOUND_12=18,
-    SOUND_BOMB_MARISA_B=19,
-    SOUND_TOTAL_BOSS_DEATH=20,
-    SOUND_15=21,
-    SOUND_16=22,
-    SOUND_17=23,
-    SOUND_18=24,
-    SOUND_WTF_IS_THAT_LMAO=25,
-    SOUND_1A=26,
-    SOUND_1B=27,
-    SOUND_1UP=28,
-    SOUND_1D=29,
-    SOUND_GRAZE=30,
-    SOUND_POWERUP=31
-} SoundIdx;
-
-struct EnemyBulletShooter {
-    ushort sprite;
-    ushort color;
-    struct D3DXVECTOR3 position;
-    float angle1;
-    float angle2;
-    float speed1;
-    float speed2;
-    float ex_floats[4];
-    int ex_ints[4];
-    int field9_0x40;
-    ushort count1;
-    ushort count2;
-    ushort aim_mode;
-    uint flags;
-    enum SoundIdx sfx;
-};
-
-struct EnemyEclContext {
-    struct EclRawInstr *current_instr;
-    struct ZunTimer time;
-    void *func_set_func;
-    int var0;
-    int var1;
-    int var2;
-    int var3;
-    float float0;
-    float float1;
-    float float2;
-    float float3;
-    int var4;
-    int var5;
-    int var6;
-    int var7;
-    int compare_register;
-    ushort sub_id;
-};
-
-struct EnemyLaserShooter {
-    ushort sprite;
-    ushort color;
-    struct D3DXVECTOR3 position;
-    float angle;
-    undefined4 field4_0x14;
-    float speed;
-    undefined4 field6_0x1c;
-    float start_offset;
-    float end_offset;
-    float start_length;
-    float width;
-    int start_time;
-    int duration;
-    int stop_time;
-    int graze_delay;
-    int graze_distance;
-    undefined4 field16_0x44;
-    ushort type;
-    uint field18_0x4c;
-    uint field19_0x50;
-};
-
-struct Enemy {
-    struct AnmVm primary_vm;
-    struct AnmVm vms[8];
-    struct EnemyEclContext current_context;
-    struct EnemyEclContext saved_context_stack[8];
-    int stack_depth;
-    int field5_0xc40;
-    int death_callback_sub;
-    int interrupts[8];
-    int run_interrupt;
-    struct D3DXVECTOR3 position;
-    struct D3DXVECTOR3 hitbox_dimensions;
-    struct D3DXVECTOR3 axis_speed;
-    float angle;
-    float angular_velocity;
-    float speed;
-    float acceleration;
-    struct D3DXVECTOR3 shoot_offset;
-    struct D3DXVECTOR3 move_interp;
-    struct D3DXVECTOR3 move_interp_start_pos;
-    struct ZunTimer move_interp_timer;
-    int move_interp_start_time;
-    float bullet_rank_speed_low;
-    float bullet_rank_speed_high;
-    ushort bullet_rank_amount1_low;
-    ushort bullet_rank_amount1_high;
-    ushort bullet_rank_amount2_low;
-    ushort bullet_rank_amount2_high;
-    int life;
-    int max_life;
-    int score;
-    struct ZunTimer boss_timer;
-    union D3DCOLORUNION color;
-    struct EnemyBulletShooter bullet_props;
-    int shoot_interval;
-    struct ZunTimer shoot_interval_timer;
-    struct EnemyLaserShooter laser_props;
-    void *lasers[32];
-    int laser_store;
-    byte death_anm1;
-    byte death_anm2;
-    byte death_anm3;
-    enum ItemType item_drop;
-    byte boss_id;
-    byte unk_e41;
-    struct ZunTimer field44_0xe44;
-    byte flags1;
-    byte flags2;
-    byte flags3;
-    byte anm_ex_flags;
-    short anm_ex_defaults;
-    short anm_ex_far_left;
-    short anm_ex_far_right;
-    short anm_ex_left;
-    short anm_ex_right;
-    struct D3DXVECTOR2 lower_move_limit;
-    struct D3DXVECTOR2 upper_move_limit;
-    struct Effect *effect_array[12];
-    int effectsNum;
-    float effect_distance;
-    int life_callback_threshold;
-    int life_callback_sub;
-    int timer_callback_threshold;
-    int timer_callback_sub;
-    float field63_0xeb8;
-    struct ZunTimer field64_0xebc;
-};
-
-struct EclRawInstr {
-    int time;
-    short opcode;
-    short offset_to_next;
-    undefined field3_0x8;
-    undefined field4_0x9;
-    undefined field5_0xa;
-    undefined field6_0xb;
-    int ecl_var_id;
-    float float_var_1;
-    float float_var_2;
-    float float_var_3;
-    ushort field11_0x1c;
-    undefined field12_0x1e;
-    undefined field13_0x1f;
-    ushort field14_0x20;
 };
 
 typedef struct EnemyManager EnemyManager, *PEnemyManager;
@@ -1499,30 +1558,6 @@ struct StageFile {
 };
 
 typedef struct BulletManager BulletManager, *PBulletManager;
-
-typedef struct Laser Laser, *PLaser;
-
-struct Laser {
-    struct AnmVm vm0;
-    struct AnmVm vm1;
-    struct D3DXVECTOR3 pos;
-    float angle;
-    float start_offset;
-    float end_offset;
-    float start_length;
-    float width;
-    float speed;
-    int start_time;
-    int graze_delay;
-    int duration;
-    int end_time;
-    int graze_interval;
-    int in_use;
-    struct ZunTimer timer;
-    short flags;
-    short color;
-    byte state;
-};
 
 struct BulletManager {
     struct BulletTypeSprites bullet_type_templates[16];

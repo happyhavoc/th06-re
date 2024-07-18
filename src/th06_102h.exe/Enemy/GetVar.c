@@ -1,5 +1,5 @@
 
-int * Enemy::GetVar(Enemy *param_1,int *eclGvarId,EclValueType *valueType)
+int * Enemy::GetVar(Enemy *enemy,EclVarId *eclGvarId,EclValueType *valueType)
 
 {
   int *pfVar1;
@@ -10,161 +10,161 @@ int * Enemy::GetVar(Enemy *param_1,int *eclGvarId,EclValueType *valueType)
   }
   pfVar1 = eclGvarId;
   switch(*eclGvarId) {
-  case -0x2729:
+  case ECL_VAR_PLAYER_SHOT:
     PLAYER_SHOT = (uint)g_GameManager.shottype + (uint)g_GameManager.character * 2;
     if (valueType != (EclValueType *)0x0) {
       *valueType = ECL_VALUE_TYPE_INT;
     }
     pfVar1 = &PLAYER_SHOT;
     break;
-  case -0x2728:
+  case ECL_VAR_SELF_LIFE:
     if (valueType != (EclValueType *)0x0) {
       *valueType = ECL_VALUE_TYPE_INT;
     }
-    pfVar1 = &param_1->life;
+    pfVar1 = &enemy->life;
     break;
-  case -0x2727:
-    local_10.z = g_Player.positionCenter.z - (param_1->position).z;
-    local_10.y = g_Player.positionCenter.y - (param_1->position).y;
-    local_10.x = g_Player.positionCenter.x - (param_1->position).x;
+  case ECL_VAR_PLAYER_DISTANCE:
+    local_10.z = g_Player.positionCenter.z - (enemy->position).z;
+    local_10.y = g_Player.positionCenter.y - (enemy->position).y;
+    local_10.x = g_Player.positionCenter.x - (enemy->position).x;
     PLAYER_DISTANCE = FUN_0040b890(&local_10);
     if (valueType != (EclValueType *)0x0) {
       *valueType = ECL_VALUE_TYPE_READONLY;
     }
     pfVar1 = (int *)&PLAYER_DISTANCE;
     break;
-  case -0x2726:
+  case ECL_VAR_SELF_TIME:
     if (valueType != (EclValueType *)0x0) {
       *valueType = ECL_VALUE_TYPE_INT;
     }
-    pfVar1 = &(param_1->boss_timer).current;
+    pfVar1 = &(enemy->boss_timer).current;
     break;
-  case -0x2725:
-    PLAYER_ANGLE = Player::AngleToPlayer(&g_Player,&param_1->position);
+  case ECL_VAR_PLAYER_ANGLE:
+    PLAYER_ANGLE = Player::AngleToPlayer(&g_Player,&enemy->position);
     if (valueType != (EclValueType *)0x0) {
       *valueType = ECL_VALUE_TYPE_READONLY;
     }
     pfVar1 = (int *)&PLAYER_ANGLE;
     break;
-  case -0x2724:
+  case ECL_VAR_PLAYER_Z:
     if (valueType != (EclValueType *)0x0) {
       *valueType = ECL_VALUE_TYPE_READONLY;
     }
     pfVar1 = (int *)&g_Player.positionCenter.z;
     break;
-  case -0x2723:
+  case ECL_VAR_PLAYER_Y:
     if (valueType != (EclValueType *)0x0) {
       *valueType = ECL_VALUE_TYPE_READONLY;
     }
     pfVar1 = (int *)&g_Player.positionCenter.y;
     break;
-  case -0x2722:
+  case ECL_VAR_PLAYER_X:
     if (valueType != (EclValueType *)0x0) {
       *valueType = ECL_VALUE_TYPE_READONLY;
     }
     pfVar1 = (int *)&g_Player.positionCenter;
     break;
-  case -0x2721:
+  case ECL_VAR_SELF_Z:
     if (valueType != (EclValueType *)0x0) {
       *valueType = EVL_VALUE_TYPE_FLOAT;
     }
-    pfVar1 = (int *)&(param_1->position).z;
+    pfVar1 = (int *)&(enemy->position).z;
     break;
-  case -0x2720:
+  case ECL_VAR_SELF_Y:
     if (valueType != (EclValueType *)0x0) {
       *valueType = EVL_VALUE_TYPE_FLOAT;
     }
-    pfVar1 = (int *)&(param_1->position).y;
+    pfVar1 = (int *)&(enemy->position).y;
     break;
-  case -0x271f:
+  case ECL_VAR_SELF_X:
     if (valueType != (EclValueType *)0x0) {
       *valueType = EVL_VALUE_TYPE_FLOAT;
     }
-    pfVar1 = (int *)&param_1->position;
+    pfVar1 = (int *)&enemy->position;
     break;
-  case -0x271e:
+  case ECL_VAR_RANK:
     if (valueType != (EclValueType *)0x0) {
       *valueType = ECL_VALUE_TYPE_READONLY;
     }
     pfVar1 = &g_GameManager.rank;
     break;
-  case -0x271d:
+  case ECL_VAR_DIFFICULTY:
     if (valueType != (EclValueType *)0x0) {
       *valueType = ECL_VALUE_TYPE_READONLY;
     }
     pfVar1 = (int *)&g_GameManager.difficulty;
     break;
-  case -0x271c:
+  case ECL_VAR_IC3:
     if (valueType != (EclValueType *)0x0) {
       *valueType = ECL_VALUE_TYPE_INT;
     }
-    pfVar1 = &(param_1->current_context).var7;
+    pfVar1 = &(enemy->current_context).var7;
     break;
-  case -0x271b:
+  case ECL_VAR_IC2:
     if (valueType != (EclValueType *)0x0) {
       *valueType = ECL_VALUE_TYPE_INT;
     }
-    pfVar1 = &(param_1->current_context).var6;
+    pfVar1 = &(enemy->current_context).var6;
     break;
-  case -0x271a:
+  case ECL_VAR_IC1:
     if (valueType != (EclValueType *)0x0) {
       *valueType = ECL_VALUE_TYPE_INT;
     }
-    pfVar1 = &(param_1->current_context).var5;
+    pfVar1 = &(enemy->current_context).var5;
     break;
-  case -0x2719:
+  case ECL_VAR_IC0:
     if (valueType != (EclValueType *)0x0) {
       *valueType = ECL_VALUE_TYPE_INT;
     }
-    pfVar1 = &(param_1->current_context).var4;
+    pfVar1 = &(enemy->current_context).var4;
     break;
-  case -0x2718:
+  case ECL_VAR_F3:
     if (valueType != (EclValueType *)0x0) {
       *valueType = EVL_VALUE_TYPE_FLOAT;
     }
-    pfVar1 = (int *)&(param_1->current_context).float3;
+    pfVar1 = (int *)&(enemy->current_context).float3;
     break;
-  case -0x2717:
+  case ECL_VAR_F2:
     if (valueType != (EclValueType *)0x0) {
       *valueType = EVL_VALUE_TYPE_FLOAT;
     }
-    pfVar1 = (int *)&(param_1->current_context).float2;
+    pfVar1 = (int *)&(enemy->current_context).float2;
     break;
-  case -0x2716:
+  case ECL_VAR_F1:
     if (valueType != (EclValueType *)0x0) {
       *valueType = EVL_VALUE_TYPE_FLOAT;
     }
-    pfVar1 = (int *)&(param_1->current_context).float1;
+    pfVar1 = (int *)&(enemy->current_context).float1;
     break;
-  case -0x2715:
+  case ECL_VAR_F0:
     if (valueType != (EclValueType *)0x0) {
       *valueType = EVL_VALUE_TYPE_FLOAT;
     }
-    pfVar1 = (int *)&(param_1->current_context).float0;
+    pfVar1 = (int *)&(enemy->current_context).float0;
     break;
-  case -0x2714:
+  case ECL_VAR_I3:
     if (valueType != (EclValueType *)0x0) {
       *valueType = ECL_VALUE_TYPE_INT;
     }
-    pfVar1 = &(param_1->current_context).var3;
+    pfVar1 = &(enemy->current_context).var3;
     break;
-  case -0x2713:
+  case ECL_VAR_I2:
     if (valueType != (EclValueType *)0x0) {
       *valueType = ECL_VALUE_TYPE_INT;
     }
-    pfVar1 = &(param_1->current_context).var2;
+    pfVar1 = &(enemy->current_context).var2;
     break;
-  case -0x2712:
+  case ECL_VAR_I1:
     if (valueType != (EclValueType *)0x0) {
       *valueType = ECL_VALUE_TYPE_INT;
     }
-    pfVar1 = &(param_1->current_context).var1;
+    pfVar1 = &(enemy->current_context).var1;
     break;
-  case -0x2711:
+  case ECL_VAR_I0:
     if (valueType != (EclValueType *)0x0) {
       *valueType = ECL_VALUE_TYPE_INT;
     }
-    pfVar1 = &(param_1->current_context).var0;
+    pfVar1 = &(enemy->current_context).var0;
   }
   return pfVar1;
 }

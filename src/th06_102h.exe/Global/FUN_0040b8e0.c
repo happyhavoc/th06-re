@@ -10,7 +10,7 @@ void FUN_0040b8e0(Enemy *param_1,EclRawInstr *insn)
   float10 add_x;
   
   bullets = g_BulletManager.bullets;
-  fVar1 = (int)insn->float_var_1;
+  fVar1 = (int)(insn->args).float_var_1;
   EffectManager::SpawnEffect(&g_EffectManager,0xc,&param_1->position,1,(ZunColor)0xffffffff);
   for (local_8 = 0; local_8 < 0x280; local_8 = local_8 + 1) {
     if ((bullets->state != 0) && (bullets->state != 5)) {

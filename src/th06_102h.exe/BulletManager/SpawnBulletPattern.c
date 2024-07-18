@@ -1,5 +1,5 @@
 
-undefined4 __thiscall
+ZunResult __thiscall
 BulletManager::SpawnBulletPattern(BulletManager *this,EnemyBulletShooter *bulletProps)
 
 {
@@ -19,6 +19,6 @@ LAB_0041463b:
   if ((bulletProps->flags & 0x200) != 0) {
     SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,bulletProps->sfx,0);
   }
-  return 0;
+  return ZUN_SUCCESS;
 }
 

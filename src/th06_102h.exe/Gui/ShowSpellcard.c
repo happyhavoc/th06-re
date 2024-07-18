@@ -1,5 +1,5 @@
 
-void __thiscall Gui::FUN_00417bfd(Gui *this,int param_1,char *param_2)
+void __thiscall Gui::ShowSpellcard(Gui *this,int param_1,char *param_2)
 
 {
   char *local_1c;

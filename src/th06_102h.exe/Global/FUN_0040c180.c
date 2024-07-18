@@ -18,9 +18,9 @@ void FUN_0040c180(Enemy *param_1,EclRawInstr *param_2)
   int local_14;
   int local_10;
   
-  if ((int)param_2->float_var_1 < 2) {
+  if ((int)(param_2->args).float_var_1 < 2) {
     EffectManager::SpawnEffect(&g_EffectManager,0xc,&param_1->position,1,(ZunColor)0xffffffff);
-    g_GameManager.isTimeStopped._0_1_ = *(undefined *)&param_2->float_var_1;
+    g_GameManager.isTimeStopped._0_1_ = *(undefined *)&(param_2->args).float_var_1;
   }
   else {
     local_10 = 0xe;

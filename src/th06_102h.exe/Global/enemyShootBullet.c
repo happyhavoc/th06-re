@@ -10,7 +10,7 @@ void enemyShootBullet(Enemy *enemy,EclRawInstr *instr)
   float posY;
   float posZ;
   
-  bulletSpeed = (float)(int)instr->float_var_1;
+  bulletSpeed = (float)(int)(instr->args).float_var_1;
   posZ = (enemy->position).z;
   offZ = (enemy->shoot_offset).z;
   posY = (enemy->position).y;

@@ -6,10 +6,10 @@ ZunResult BulletManager::RegisterChain(char *etama_anm_path)
   ZunResult ZVar2;
   
   if ((g_Supervisor.cfg.opts & 1) == 0) {
-    g_EffectsColor = g_EffectsColorWithTextureBlending;
+    g_BulletColor = g_BulletColorWithTextureBlending;
   }
   else {
-    g_EffectsColor = g_EffectsColorWithoutTextureBlending;
+    g_BulletColor = g_BulletColorWithoutTextureBlending;
   }
   InitializeToZero(&g_BulletManager);
   g_BulletManager.etama_anm_filename = etama_anm_path;

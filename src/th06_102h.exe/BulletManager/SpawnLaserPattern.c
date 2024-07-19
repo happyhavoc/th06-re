@@ -30,7 +30,7 @@ BulletManager::SpawnLaserPattern(BulletManager *this,EnemyLaserShooter *laser_sh
             (g_AnmManager,&laser->vm0,
              (int)(laser->vm0).activeSpriteIndex + (int)(short)laser_shooter->color);
   pAVar3 = g_AnmManager;
-  uVar2 = UINT_ARRAY_00476440[(short)laser_shooter->color];
+  uVar2 = g_LaserColor[(short)laser_shooter->color];
   AnmVm::Initialize(&laser->vm1);
   AnmManager::SetActiveSprite(pAVar3,&laser->vm1,uVar2 + 0x28c);
   (laser->vm1).flags = (laser->vm1).flags | AnmVmFlags_2;

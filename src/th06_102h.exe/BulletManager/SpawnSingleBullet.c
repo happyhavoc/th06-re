@@ -166,7 +166,7 @@ BulletManager::SpawnSingleBullet
             AnmManager::SetActiveSprite
                       (g_AnmManager,&(bullet->sprites).spriteSpawnEffectSlow,
                        (int)(bullet->sprites).spriteSpawnEffectSlow.activeSpriteIndex +
-                       UINT_ARRAY_00476440[(short)bulletProps->color]);
+                       g_LaserColor[(short)bulletProps->color]);
           }
           bullet->state = 4;
         }
@@ -204,7 +204,7 @@ BulletManager::SpawnSingleBullet
           AnmManager::SetActiveSprite
                     (g_AnmManager,&(bullet->sprites).spriteSpawnEffectNormal,
                      (int)(bullet->sprites).spriteSpawnEffectNormal.activeSpriteIndex +
-                     UINT_ARRAY_00476440[(short)bulletProps->color]);
+                     g_LaserColor[(short)bulletProps->color]);
         }
         bullet->state = 3;
       }
@@ -242,7 +242,7 @@ BulletManager::SpawnSingleBullet
         AnmManager::SetActiveSprite
                   (g_AnmManager,&(bullet->sprites).spriteSpawnEffectFast,
                    (int)(bullet->sprites).spriteSpawnEffectFast.activeSpriteIndex +
-                   UINT_ARRAY_00476440[(short)bulletProps->color]);
+                   g_LaserColor[(short)bulletProps->color]);
       }
       bullet->state = 2;
     }
@@ -275,7 +275,7 @@ BulletManager::SpawnSingleBullet
       AnmManager::SetActiveSprite
                 (g_AnmManager,&(bullet->sprites).spriteSpawnEffectDonut,
                  (int)(bullet->sprites).spriteSpawnEffectDonut.activeSpriteIndex +
-                 UINT_ARRAY_00476440[(short)bulletProps->color]);
+                 g_LaserColor[(short)bulletProps->color]);
     }
     if ((bullet->ex_flags & 0x10) == 0) {
       if ((bullet->ex_flags & 0x20) != 0) {

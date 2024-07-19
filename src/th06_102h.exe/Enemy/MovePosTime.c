@@ -1,5 +1,5 @@
 
-void Enemy::MovePositionTime(Enemy *enemy,EclRawInstr *instr)
+void Enemy::MovePosTime(Enemy *enemy,EclRawInstr *instr)
 
 {
   float fVar1;

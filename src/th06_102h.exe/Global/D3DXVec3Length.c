@@ -1,5 +1,5 @@
 
-float FUN_0040b890(D3DXVECTOR3 *param_1)
+float D3DXVec3Length(D3DXVECTOR3 *param_1)
 
 {
   float fVar1;

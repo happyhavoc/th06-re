@@ -27,7 +27,7 @@ int * Enemy::GetVar(Enemy *enemy,EclVarId *eclGvarId,EclValueType *valueType)
     local_10.z = g_Player.positionCenter.z - (enemy->position).z;
     local_10.y = g_Player.positionCenter.y - (enemy->position).y;
     local_10.x = g_Player.positionCenter.x - (enemy->position).x;
-    PLAYER_DISTANCE = FUN_0040b890(&local_10);
+    PLAYER_DISTANCE = D3DXVec3Length(&local_10);
     if (valueType != (EclValueType *)0x0) {
       *valueType = ECL_VALUE_TYPE_READONLY;
     }

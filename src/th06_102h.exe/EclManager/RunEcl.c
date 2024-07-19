@@ -611,23 +611,23 @@ switchD_00407544_caseD_2:
     enemy->flags1 = enemy->flags1 & 0xe3 | 0x10;
     break;
   case 0x38:
-    Enemy::MovePositionTime(enemy,instruction);
+    Enemy::MovePosTime(enemy,instruction);
     enemy->flags1 = enemy->flags1 & 0xe3;
     break;
   case 0x39:
-    Enemy::MovePositionTime(enemy,instruction);
+    Enemy::MovePosTime(enemy,instruction);
     enemy->flags1 = enemy->flags1 & 0xe3 | 4;
     break;
   case 0x3a:
-    Enemy::MovePositionTime(enemy,instruction);
+    Enemy::MovePosTime(enemy,instruction);
     enemy->flags1 = enemy->flags1 & 0xe3 | 8;
     break;
   case 0x3b:
-    Enemy::MovePositionTime(enemy,instruction);
+    Enemy::MovePosTime(enemy,instruction);
     enemy->flags1 = enemy->flags1 & 0xe3 | 0xc;
     break;
   case 0x3c:
-    Enemy::MovePositionTime(enemy,instruction);
+    Enemy::MovePosTime(enemy,instruction);
     enemy->flags1 = enemy->flags1 & 0xe3 | 0x10;
     break;
   case 0x3d:
@@ -1065,7 +1065,7 @@ switchD_00407544_caseD_2:
     local_6c = &instruction->args;
     pEVar13 = EffectManager::SpawnEffect
                         (&g_EffectManager,0xd,&enemy->position,1,
-                         (ZunColor)g_EffectsColor[local_6c->ecl_var_id]);
+                         (ZunColor)g_BulletColor[local_6c->ecl_var_id]);
     enemy->effect_array[enemy->effectsNum] = pEVar13;
     pEVar13 = enemy->effect_array[enemy->effectsNum];
     (pEVar13->pos2).x = local_6c->float_var_1;

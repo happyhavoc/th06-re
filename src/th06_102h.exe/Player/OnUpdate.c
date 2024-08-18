@@ -14,7 +14,7 @@ ChainCallbackResult Player::OnUpdate(Player *param_1)
     return CHAIN_CALLBACK_RESULT_CONTINUE;
   }
   for (local_8 = 0; local_8 < 0x20; local_8 = local_8 + 1) {
-    param_1->unk_638[local_8].x = 0.0;
+    param_1->bomb_region_sizes[local_8].x = 0.0;
   }
   for (local_8 = 0; local_8 < 0x10; local_8 = local_8 + 1) {
     param_1->unk_8b8[local_8].size1.x = 0.0;

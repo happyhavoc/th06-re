@@ -68,7 +68,7 @@ LAB_00426400:
   (bullet->unk_140).subFrame = 0.0;
   (bullet->unk_140).previous = -999;
   bullet->bulletType = (ushort)bulletData->bulletType;
-  bullet->unk_14c = bulletData->field8_0x1c;
+  bullet->damage = bulletData->field8_0x1c;
   if (-1 < (short)bulletData->field12_0x22) {
     SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,(int)(short)bulletData->field12_0x22,0);
   }

@@ -4,6 +4,7 @@ typedef unsigned char    bool;
 typedef unsigned char    byte;
 typedef unsigned int    dword;
 float10
+float4
 typedef unsigned long long    GUID;
 typedef pointer32 ImageBaseOffset32;
 
@@ -589,9 +590,9 @@ struct PlayerBombInfo {
     void *bombCalc;
     void *draw;
     int reimuABombProjectilesState[8];
-    float unk3c[8];
-    struct D3DXVECTOR3 unk5c[8];
-    struct D3DXVECTOR3 unkbc[8];
+    float reimuABombProjectilesRelated[8];
+    struct D3DXVECTOR3 bomb_region_positions[8];
+    struct D3DXVECTOR3 bomb_region_velocities[8];
     struct AnmVm vms[8][4];
 };
 
@@ -1182,7 +1183,7 @@ struct PlayerBullet {
     f32 sidewaysMotion;
     struct D3DXVECTOR3 unk_134;
     struct ZunTimer unk_140;
-    short unk_14c;
+    short damage;
     short bulletState;
     short bulletType;
     short field10_0x152;
@@ -1835,9 +1836,9 @@ struct Player {
     struct D3DXVECTOR3 hitboxSize;
     struct D3DXVECTOR3 grabItemSize;
     struct D3DXVECTOR3 orbsPosition[2];
-    struct D3DXVECTOR3 unk_4b8[32];
-    struct D3DXVECTOR3 unk_638[32];
-    int unk_7b8[32];
+    struct D3DXVECTOR3 bomb_region_positions[32];
+    struct D3DXVECTOR3 bomb_region_sizes[32];
+    int bomb_region_damages[32];
     int unk_838[32];
     struct PlayerRect unk_8b8[16];
     struct ZunTimer laserTimer[2];

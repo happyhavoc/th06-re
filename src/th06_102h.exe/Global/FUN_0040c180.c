@@ -6,14 +6,10 @@ void FUN_0040c180(Enemy *param_1,EclRawInstr *param_2)
 
 {
   float10 fVar1;
-  float fVar2;
-  ushort uVar3;
-  float10 extraout_ST0;
-  float10 fVar4;
-  float10 extraout_ST0_00;
-  float *pfVar5;
-  float fVar6;
-  float *in_stack_ffffffc4;
+  ushort uVar2;
+  float10 fVar3;
+  float fVar4;
+  float fVar5;
   Bullet *bullets;
   int local_14;
   int local_10;
@@ -30,30 +26,29 @@ void FUN_0040c180(Enemy *param_1,EclRawInstr *param_2)
         if (((bullets->state != 0) && (bullets->state != 5)) &&
            (((bullets->sprites).bulletSprite.sprite != (AnmLoadedSprite *)0x0 &&
             (((30.0 <= ((bullets->sprites).bulletSprite.sprite)->heightPx && (bullets->color != 5))
-             && (uVar3 = Rng::GetRandomU16(&g_Rng), (uVar3 & 3) == 0)))))) {
+             && (uVar2 = Rng::GetRandomU16(&g_Rng), (uVar2 & 3) == 0)))))) {
           bullets->color = 5;
           AnmManager::SetActiveSprite
                     (g_AnmManager,(AnmVm *)bullets,
                      (int)(bullets->sprites).bulletSprite.baseSpriteIndex +
                      (int)(short)bullets->color);
-          fVar6 = (bullets->pos).x - g_Player.positionCenter.x;
-          fVar2 = (bullets->pos).y - g_Player.positionCenter.y;
-          pfVar5 = (float *)sqrt(SUB84((double)(fVar6 * fVar6 + fVar2 * fVar2),0));
-          if ((float)pfVar5 <= 128.0) {
-            fVar6 = Rng::GetRandomF32ZeroToOne(&g_Rng);
-            Player::FUN_00428680(&g_Player,&bullets->pos,pfVar5);
-            bullets->angle = (float)(extraout_ST0 + (float10)1.570796 + (float10)(fVar6 * 6.283185))
-            ;
+          fVar4 = (bullets->pos).x - g_Player.positionCenter.x;
+          fVar5 = (bullets->pos).y - g_Player.positionCenter.y;
+          fVar4 = sqrt(SUB84((double)(fVar4 * fVar4 + fVar5 * fVar5),0));
+          if (fVar4 <= 128.0) {
+            fVar4 = Rng::GetRandomF32ZeroToOne(&g_Rng);
+            fVar5 = Player::AngleFromPlayer(&g_Player,&bullets->pos);
+            bullets->angle = fVar5 + 1.570796 + fVar4 * 6.283185;
           }
           else {
-            fVar6 = Rng::GetRandomF32ZeroToOne(&g_Rng);
-            bullets->angle = fVar6 * 2.356194 + 0.7853982;
+            fVar4 = Rng::GetRandomF32ZeroToOne(&g_Rng);
+            bullets->angle = fVar4 * 2.356194 + 0.7853982;
           }
-          fVar6 = bullets->speed;
+          fVar4 = bullets->speed;
           fVar1 = (float10)fcos((float10)bullets->angle);
-          fVar4 = (float10)fsin((float10)bullets->angle);
-          (bullets->velocity).x = (float)(fVar1 * (float10)fVar6);
-          (bullets->velocity).y = (float)(fVar4 * (float10)fVar6);
+          fVar3 = (float10)fsin((float10)bullets->angle);
+          (bullets->velocity).x = (float)(fVar1 * (float10)fVar4);
+          (bullets->velocity).y = (float)(fVar3 * (float10)fVar4);
           local_10 = local_10 + -1;
           if (local_10 == 0) break;
         }
@@ -66,30 +61,29 @@ void FUN_0040c180(Enemy *param_1,EclRawInstr *param_2)
         if ((((bullets->state != 0) && (bullets->state != 5)) &&
             ((bullets->sprites).bulletSprite.sprite != (AnmLoadedSprite *)0x0)) &&
            (((30.0 <= ((bullets->sprites).bulletSprite.sprite)->heightPx && (bullets->color != 5))
-            && (uVar3 = Rng::GetRandomU16(&g_Rng), (uVar3 & 3) == 0)))) {
+            && (uVar2 = Rng::GetRandomU16(&g_Rng), (uVar2 & 3) == 0)))) {
           bullets->color = 5;
           AnmManager::SetActiveSprite
                     (g_AnmManager,(AnmVm *)bullets,
                      (int)(bullets->sprites).bulletSprite.baseSpriteIndex +
                      (int)(short)bullets->color);
-          fVar6 = (bullets->pos).x - g_Player.positionCenter.x;
-          fVar2 = (bullets->pos).y - g_Player.positionCenter.y;
-          fVar6 = sqrt(SUB84((double)(fVar6 * fVar6 + fVar2 * fVar2),0));
-          if (fVar6 <= 128.0) {
-            fVar6 = Rng::GetRandomF32ZeroToOne(&g_Rng);
-            Player::FUN_00428680(&g_Player,&bullets->pos,in_stack_ffffffc4);
-            bullets->angle =
-                 (float)(extraout_ST0_00 + (float10)1.570796 + (float10)(fVar6 * 6.283185));
+          fVar4 = (bullets->pos).x - g_Player.positionCenter.x;
+          fVar5 = (bullets->pos).y - g_Player.positionCenter.y;
+          fVar4 = sqrt(SUB84((double)(fVar4 * fVar4 + fVar5 * fVar5),0));
+          if (fVar4 <= 128.0) {
+            fVar4 = Rng::GetRandomF32ZeroToOne(&g_Rng);
+            fVar5 = Player::AngleFromPlayer(&g_Player,&bullets->pos);
+            bullets->angle = fVar5 + 1.570796 + fVar4 * 6.283185;
           }
           else {
-            fVar6 = Rng::GetRandomF32ZeroToOne(&g_Rng);
-            bullets->angle = fVar6 * 6.283185;
+            fVar4 = Rng::GetRandomF32ZeroToOne(&g_Rng);
+            bullets->angle = fVar4 * 6.283185;
           }
-          fVar6 = bullets->speed;
+          fVar4 = bullets->speed;
           fVar1 = (float10)fcos((float10)bullets->angle);
-          fVar4 = (float10)fsin((float10)bullets->angle);
-          (bullets->velocity).x = (float)(fVar1 * (float10)fVar6);
-          (bullets->velocity).y = (float)(fVar4 * (float10)fVar6);
+          fVar3 = (float10)fsin((float10)bullets->angle);
+          (bullets->velocity).x = (float)(fVar1 * (float10)fVar4);
+          (bullets->velocity).y = (float)(fVar3 * (float10)fVar4);
           local_10 = local_10 + -1;
           if (local_10 == 0) break;
         }

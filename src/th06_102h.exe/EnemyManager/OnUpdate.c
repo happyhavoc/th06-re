@@ -16,7 +16,7 @@ ChainCallbackResult EnemyManager::OnUpdate(EnemyManager *mgr)
   int local_20;
   D3DXVECTOR3 local_1c;
   int local_10;
-  int local_c;
+  int damageTaken;
   int hitWithLazerDuringBomb;
   
   hitWithLazerDuringBomb = 0;
@@ -87,37 +87,38 @@ ChainCallbackResult EnemyManager::OnUpdate(EnemyManager *mgr)
       }
     }
     if ((cur_enemy->flags2 & 1) != 0) {
-      local_c = Player::DidHitEnemy(&g_Player,&cur_enemy->position,&cur_enemy->hitbox_dimensions,
-                                    &hitWithLazerDuringBomb);
-      if (0x45 < local_c) {
-        local_c = 0x46;
+      damageTaken = Player::CalcDamageToEnemy
+                              (&g_Player,&cur_enemy->position,&cur_enemy->hitbox_dimensions,
+                               &hitWithLazerDuringBomb);
+      if (69 < damageTaken) {
+        damageTaken = 70;
       }
-      g_GameManager.score = (local_c / 5) * 10 + g_GameManager.score;
+      g_GameManager.score = (damageTaken / 5) * 10 + g_GameManager.score;
       if (mgr->spellcard_capture != 0) {
         if (hitWithLazerDuringBomb == 0) {
-          if (local_c < 8) {
-            if (local_c != 0) {
-              local_c = 1;
+          if (damageTaken < 8) {
+            if (damageTaken != 0) {
+              damageTaken = 1;
             }
           }
           else {
-            local_c = local_c / 7;
+            damageTaken = damageTaken / 7;
           }
         }
         else if (mgr->unk_ee5d4 == 0) {
-          local_c = 0;
+          damageTaken = 0;
         }
-        else if (local_c < 4) {
-          if (local_c != 0) {
-            local_c = 1;
+        else if (damageTaken < 4) {
+          if (damageTaken != 0) {
+            damageTaken = 1;
           }
         }
         else {
-          local_c = local_c / 3;
+          damageTaken = damageTaken / 3;
         }
       }
       if ((cur_enemy->flags2 >> 4 & 1) != 0) {
-        cur_enemy->life = cur_enemy->life - local_c;
+        cur_enemy->life = cur_enemy->life - damageTaken;
       }
       fVar1 = (cur_enemy->position).y;
       if (g_Player.position_of_last_enemy_hit.y < fVar1 !=

@@ -3,14 +3,15 @@
 /* WARNING: Removing unreachable block (ram,0x00426be4) */
 
 int __thiscall
-Player::DidHitEnemy(Player *this,D3DXVECTOR3 *enemyPos,D3DXVECTOR3 *enemyHitboxSize,
-                   BOOL *hitWithLazerDuringBomb)
+Player::CalcDamageToEnemy
+          (Player *this,D3DXVECTOR3 *enemyPos,D3DXVECTOR3 *enemyHitboxSize,
+          BOOL *hitWithLazerDuringBomb)
 
 {
   int local_d4;
   short local_80;
   D3DXVECTOR3 bulletTopLeft;
-  int local_34;
+  int damage;
   D3DXVECTOR3 enemyTopLeft;
   int local_c;
   PlayerBullet *bullet;
@@ -23,7 +24,7 @@ Player::DidHitEnemy(Player *this,D3DXVECTOR3 *enemyPos,D3DXVECTOR3 *enemyHitboxS
   short sVar4;
   AnmManager *this_00;
   
-  local_34 = 0;
+  damage = 0;
   enemyTopLeft.x = enemyPos->x - enemyHitboxSize->x / 2.0;
   enemyTopLeft.y = enemyPos->y - enemyHitboxSize->y / 2.0;
   enemyBottomRightX = enemyHitboxSize->x / 2.0 + enemyPos->x;
@@ -45,20 +46,20 @@ Player::DidHitEnemy(Player *this,D3DXVECTOR3 *enemyPos,D3DXVECTOR3 *enemyHitboxS
                  (NAN(bulletBottomRightX) || NAN(enemyTopLeft.x)))))) {
                     /* Bullet is hitting the enemy */
         if ((this->bombInfo).isInUse == 0) {
-          local_d4 = (int)bullet->unk_14c;
+          local_d4 = (int)bullet->damage;
         }
-        else if ((int)bullet->unk_14c / 3 == 0) {
+        else if ((int)bullet->damage / 3 == 0) {
           local_d4 = 1;
         }
         else {
-          local_d4 = (int)bullet->unk_14c / 3;
+          local_d4 = (int)bullet->damage / 3;
         }
-        local_34 = local_34 + local_d4;
+        damage = damage + local_d4;
         if (bullet->bulletType == 2) {
-          bullet->unk_14c =
-               (short)((int)((int)bullet->unk_14c + ((int)bullet->unk_14c >> 0x1f & 3U)) >> 2);
-          if (bullet->unk_14c == 0) {
-            bullet->unk_14c = 1;
+          bullet->damage =
+               (short)((int)((int)bullet->damage + ((int)bullet->damage >> 0x1f & 3U)) >> 2);
+          if (bullet->damage == 0) {
+            bullet->damage = 1;
           }
           switch((bullet->vm).anmFileIndex) {
           case 0x441:
@@ -109,22 +110,24 @@ Player::DidHitEnemy(Player *this,D3DXVECTOR3 *enemyPos,D3DXVECTOR3 *enemyHitboxS
     bullet = bullet + 1;
   }
   for (local_c = 0; local_c < 0x20; local_c = local_c + 1) {
-    bulletBottomRightX = this->unk_638[local_c].x;
+    bulletBottomRightX = this->bomb_region_sizes[local_c].x;
     if (bulletBottomRightX < 0.0 == (bulletBottomRightX == 0.0)) {
-      pDVar1 = this->unk_638 + local_c;
-      pDVar2 = this->unk_4b8 + local_c;
+      pDVar1 = this->bomb_region_sizes + local_c;
+      pDVar2 = this->bomb_region_positions + local_c;
       bulletTopLeft.z = pDVar2->z - pDVar1->z * 0.5;
       bulletTopLeft.y = pDVar2->y - pDVar1->y * 0.5;
       bulletTopLeft.x = pDVar2->x - pDVar1->x * 0.5;
-      bulletBottomRightX = this->unk_638[local_c].y * 0.5 + this->unk_4b8[local_c].y;
-      bulletBottomRightY = this->unk_638[local_c].x * 0.5 + this->unk_4b8[local_c].x;
+      bulletBottomRightX =
+           this->bomb_region_sizes[local_c].y * 0.5 + this->bomb_region_positions[local_c].y;
+      bulletBottomRightY =
+           this->bomb_region_sizes[local_c].x * 0.5 + this->bomb_region_positions[local_c].x;
       if (((bulletTopLeft.x <= enemyBottomRightX) &&
           (bulletBottomRightY < enemyTopLeft.x == (NAN(bulletBottomRightY) || NAN(enemyTopLeft.x))))
          && ((bulletTopLeft.y <= enemyBottomRightY &&
              (bulletBottomRightX < enemyTopLeft.y ==
               (NAN(bulletBottomRightX) || NAN(enemyTopLeft.y)))))) {
-        local_34 = local_34 + this->unk_7b8[local_c];
-        this->unk_838[local_c] = this->unk_838[local_c] + this->unk_7b8[local_c];
+        damage = damage + this->bomb_region_damages[local_c];
+        this->unk_838[local_c] = this->unk_838[local_c] + this->bomb_region_damages[local_c];
         this->unk_9e4 = this->unk_9e4 + 1;
         if ((this->unk_9e4 & 3) == 0) {
           EffectManager::SpawnEffect(&g_EffectManager,3,enemyPos,1,(ZunColor)0xffffffff);
@@ -135,6 +138,6 @@ Player::DidHitEnemy(Player *this,D3DXVECTOR3 *enemyPos,D3DXVECTOR3 *enemyHitboxS
       }
     }
   }
-  return local_34;
+  return damage;
 }
 

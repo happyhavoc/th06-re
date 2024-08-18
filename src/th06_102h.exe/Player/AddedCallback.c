@@ -38,7 +38,7 @@ ZunResult Player::AddedCallback(Player *this)
   this->orbsPosition[0].z = 0.49;
   this->orbsPosition[1].z = 0.49;
   for (bullet_idx = 0; bullet_idx < 0x20; bullet_idx = bullet_idx + 1) {
-    this->unk_638[bullet_idx].x = 0.0;
+    this->bomb_region_sizes[bullet_idx].x = 0.0;
   }
   (this->hitboxSize).x = 1.25;
   (this->hitboxSize).y = 1.25;

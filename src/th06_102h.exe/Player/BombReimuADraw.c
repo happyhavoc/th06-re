@@ -15,7 +15,7 @@ void Player::BombReimuADraw(Player *param_1)
   bombInfoVm = (param_1->bombInfo).vms[0];
   for (idx = 0; idx < 8; idx = idx + 1) {
     if ((param_1->bombInfo).reimuABombProjectilesState[idx] != 0) {
-      pDVar1 = (param_1->bombInfo).unk5c + idx;
+      pDVar1 = (param_1->bombInfo).bomb_region_positions + idx;
       fVar2 = pDVar1->z;
       fVar3 = (bombInfoVm->offset).z;
       fVar4 = pDVar1->y;
@@ -28,7 +28,7 @@ void Player::BombReimuADraw(Player *param_1)
       *pfVar6 = g_GameManager.arcade_region_top_left_pos.y + *pfVar6;
       (bombInfoVm->pos).z = 0.0;
       AnmManager::DrawNoRotation(g_AnmManager,bombInfoVm);
-      pDVar1 = (param_1->bombInfo).unk5c + idx;
+      pDVar1 = (param_1->bombInfo).bomb_region_positions + idx;
       fVar2 = pDVar1->z;
       fVar3 = bombInfoVm[1].offset.z;
       fVar4 = pDVar1->y;
@@ -41,7 +41,7 @@ void Player::BombReimuADraw(Player *param_1)
       *pfVar6 = g_GameManager.arcade_region_top_left_pos.y + *pfVar6;
       bombInfoVm[1].pos.z = 0.0;
       AnmManager::DrawNoRotation(g_AnmManager,bombInfoVm + 1);
-      pDVar1 = (param_1->bombInfo).unk5c + idx;
+      pDVar1 = (param_1->bombInfo).bomb_region_positions + idx;
       fVar2 = pDVar1->z;
       fVar3 = bombInfoVm[2].offset.z;
       fVar4 = pDVar1->y;
@@ -54,7 +54,7 @@ void Player::BombReimuADraw(Player *param_1)
       *pfVar6 = g_GameManager.arcade_region_top_left_pos.y + *pfVar6;
       bombInfoVm[2].pos.z = 0.0;
       AnmManager::DrawNoRotation(g_AnmManager,bombInfoVm + 2);
-      pDVar1 = (param_1->bombInfo).unk5c + idx;
+      pDVar1 = (param_1->bombInfo).bomb_region_positions + idx;
       fVar2 = pDVar1->z;
       fVar3 = bombInfoVm[3].offset.z;
       fVar4 = pDVar1->y;

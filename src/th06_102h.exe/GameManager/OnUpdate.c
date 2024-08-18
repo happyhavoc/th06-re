@@ -58,13 +58,13 @@ ChainCallbackResult GameManager::OnUpdate(GameManager *this)
         this->score = this->gui_score;
       }
       local_8 = this->score - this->gui_score >> 5;
-      if (local_8 < 0x1343e) {
+      if (local_8 < 78910) {
         if (local_8 < 10) {
           local_8 = 10;
         }
       }
       else {
-        local_8 = 0x1343e;
+        local_8 = 78910;
       }
       local_8 = local_8 - local_8 % 10;
       if (this->score_increment < local_8) {

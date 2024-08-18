@@ -1,7 +1,7 @@
 
 /* WARNING: Unknown calling convention -- yet parameter storage is locked */
 
-void FUN_0040d530(Enemy *param_1,AnmRawInstr *param_2)
+void Enemy::ExInsStage6Func9(Enemy *param_1,AnmRawInstr *param_2)
 
 {
   float fVar1;
@@ -22,7 +22,7 @@ void FUN_0040d530(Enemy *param_1,AnmRawInstr *param_2)
     puVar4 = puVar4 + 1;
   }
   fVar6 = Rng::GetRandomF32ZeroToOne(&g_Rng);
-  EffectManager::SpawnEffect(&g_EffectManager,0xc,&param_1->position,1,(ZunColor)0xffffffff);
+  EffectManager::SpawnParticles(&g_EffectManager,0xc,&param_1->position,1,(ZunColor)0xffffffff);
   for (local_60 = 0; local_60 < 0x280; local_60 = local_60 + 1) {
     if ((((bullets->state != 0) && (bullets->state != 5)) &&
         ((bullets->sprites).bulletSprite.sprite != (AnmLoadedSprite *)0x0)) &&

@@ -6,8 +6,8 @@ void __thiscall Player::Die(Player *this)
   int local_8;
   
   g_RunningSpellcardInfo.capture_spellcard = 0;
-  EffectManager::SpawnEffect(&g_EffectManager,0xc,&this->positionCenter,1,(ZunColor)0xff4040ff);
-  EffectManager::SpawnEffect(&g_EffectManager,6,&this->positionCenter,0x10,(ZunColor)0xffffffff);
+  EffectManager::SpawnParticles(&g_EffectManager,0xc,&this->positionCenter,1,(ZunColor)0xff4040ff);
+  EffectManager::SpawnParticles(&g_EffectManager,6,&this->positionCenter,0x10,(ZunColor)0xffffffff);
   this->playerState = PLAYER_STATE_DEAD;
   (this->invulnerabilityTimer).current = 0;
   (this->invulnerabilityTimer).subFrame = 0.0;

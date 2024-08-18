@@ -1,5 +1,5 @@
 
-void FUN_0040caf0(Enemy *param_1,AnmRawInstr *param_2)
+void Enemy::ExInsStage6XFunc6(Enemy *param_1,AnmRawInstr *param_2)
 
 {
   ushort uVar2;
@@ -14,7 +14,7 @@ void FUN_0040caf0(Enemy *param_1,AnmRawInstr *param_2)
   Effect *local_8;
   
   if ((param_1->flags3 >> 3 & 1) != 0) {
-    Enemy::ResetEffectArray(param_1);
+    ResetEffectArray(param_1);
     return;
   }
   param_1->field63_0xeb8 = param_1->field63_0xeb8 + 0.01745329;
@@ -69,7 +69,7 @@ LAB_0040cc18:
   position__related.x = (float)dVar2 * local_10 + position__related.x;
   dVar2 = sin((double)local_14);
   position__related.y = (float)dVar2 * local_10 + position__related.y;
-  local_8 = EffectManager::SpawnEffect
+  local_8 = EffectManager::SpawnParticles
                       (&g_EffectManager,0x13,&position__related,1,(ZunColor)0xff3030ff);
   fVar1 = Rng::GetRandomF32ZeroToOne(&g_Rng);
   local_8->field2_0x11c = (fVar1 * 40.0 - 20.0) / 60.0;
@@ -85,7 +85,7 @@ LAB_0040cc18:
   position__related.x = position__related.x - (float)dVar2 * local_10;
   dVar2 = sin((double)local_14);
   position__related.y = (float)dVar2 * local_10 + position__related.y;
-  local_8 = EffectManager::SpawnEffect
+  local_8 = EffectManager::SpawnParticles
                       (&g_EffectManager,0x13,&position__related,1,(ZunColor)0xff3030ff);
   fVar1 = Rng::GetRandomF32ZeroToOne(&g_Rng);
   local_8->field2_0x11c = (fVar1 * 40.0 - 20.0) / 60.0;

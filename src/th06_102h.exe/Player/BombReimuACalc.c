@@ -30,7 +30,7 @@ void Player::BombReimuACalc(Player *param_1)
         (param_1->bombInfo).reimuABombProjectilesState[i] = 0;
       }
       ItemManager::RemoveAllItems(&g_ItemManager);
-      EffectManager::SpawnEffect
+      EffectManager::SpawnParticles
                 (&g_EffectManager,0xc,&param_1->positionCenter,1,(ZunColor)0xff4040ff);
       param_1->unk_8b8[8].position1.x = (param_1->positionCenter).x;
       param_1->unk_8b8[8].position1.y = (param_1->positionCenter).y;
@@ -120,10 +120,10 @@ void Player::BombReimuACalc(Player *param_1)
             if ((99 < param_1->unk_838[i]) ||
                ((param_1->bombInfo).bombDuration + -0x1e <= (param_1->bombInfo).bombTimer.current))
             {
-              EffectManager::SpawnEffect
+              EffectManager::SpawnParticles
                         (&g_EffectManager,6,(param_1->bombInfo).bomb_region_positions + i,8,
                          (ZunColor)0xffffffff);
-              EffectManager::SpawnEffect
+              EffectManager::SpawnParticles
                         (&g_EffectManager,0xc,(param_1->bombInfo).bomb_region_positions + i,1,
                          (ZunColor)0xff4040ff);
               (param_1->bombInfo).reimuABombProjectilesState[i] = 2;

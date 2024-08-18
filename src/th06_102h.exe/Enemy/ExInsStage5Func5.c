@@ -1,5 +1,5 @@
 
-void FUN_0040c5b0(Enemy *param_1,AnmRawInstr *param_2)
+void Enemy::ExInsStage5Func5(Enemy *param_1,AnmRawInstr *param_2)
 
 {
   uint uVar1;

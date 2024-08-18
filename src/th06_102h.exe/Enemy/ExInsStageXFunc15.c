@@ -1,5 +1,5 @@
 
-void FUN_0040de00(Enemy *param_1,AnmRawInstr *param_2)
+void Enemy::ExInsStageXFunc15(Enemy *param_1,AnmRawInstr *param_2)
 
 {
   float10 fVar1;
@@ -65,7 +65,7 @@ void FUN_0040de00(Enemy *param_1,AnmRawInstr *param_2)
     }
     bullets = bullets + 1;
   }
-  FUN_0040d930(param_1,param_2);
+  ExInsStage6XFunc10(param_1,param_2);
   (param_1->current_context).var3 = anm_vm_var3;
   return;
 }

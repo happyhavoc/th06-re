@@ -1,5 +1,5 @@
 
-void enemyShootBullet(Enemy *enemy,EclRawInstr *instr)
+void Enemy::ExInsShootAtRandomArea(Enemy *enemy,EclRawInstr *instr)
 
 {
   float randVal;

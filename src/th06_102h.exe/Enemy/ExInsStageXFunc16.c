@@ -1,5 +1,5 @@
 
-void FUN_0040e1b0(Enemy *this,AnmRawInstr *inst)
+void Enemy::ExInsStageXFunc16(Enemy *this,AnmRawInstr *inst)
 
 {
   float fVar2;

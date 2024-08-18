@@ -79,7 +79,8 @@ Player::CalcDamageToEnemy
             (bullet->size).y = 48.0;
           }
           if ((bullet->unk_140).current % 6 == 0) {
-            EffectManager::SpawnEffect(&g_EffectManager,5,&bullet->position,1,(ZunColor)0xffffffff);
+            EffectManager::SpawnParticles
+                      (&g_EffectManager,5,&bullet->position,1,(ZunColor)0xffffffff);
           }
         }
         this_00 = g_AnmManager;
@@ -89,7 +90,7 @@ Player::CalcDamageToEnemy
             bulletTopLeft.y = enemyPos->y;
             bulletTopLeft.z = enemyPos->z;
             bulletTopLeft.x = (bullet->position).x;
-            EffectManager::SpawnEffect(&g_EffectManager,5,&bulletTopLeft,1,(ZunColor)0xffffffff);
+            EffectManager::SpawnParticles(&g_EffectManager,5,&bulletTopLeft,1,(ZunColor)0xffffffff);
           }
         }
         else {
@@ -98,7 +99,8 @@ Player::CalcDamageToEnemy
             local_80 = sVar4 + 0x20;
             (bullet->vm).anmFileIndex = local_80;
             AnmManager::SetAndExecuteScript(this_00,&bullet->vm,this_00->scripts[sVar4 + 0x20]);
-            EffectManager::SpawnEffect(&g_EffectManager,5,&bullet->position,1,(ZunColor)0xffffffff);
+            EffectManager::SpawnParticles
+                      (&g_EffectManager,5,&bullet->position,1,(ZunColor)0xffffffff);
             (bullet->position).z = 0.1;
           }
           bullet->bulletState = 2;
@@ -130,7 +132,7 @@ Player::CalcDamageToEnemy
         this->unk_838[local_c] = this->unk_838[local_c] + this->bomb_region_damages[local_c];
         this->unk_9e4 = this->unk_9e4 + 1;
         if ((this->unk_9e4 & 3) == 0) {
-          EffectManager::SpawnEffect(&g_EffectManager,3,enemyPos,1,(ZunColor)0xffffffff);
+          EffectManager::SpawnParticles(&g_EffectManager,3,enemyPos,1,(ZunColor)0xffffffff);
         }
         if (((this->bombInfo).isInUse != 0) && (hitWithLazerDuringBomb != (BOOL *)0x0)) {
           *hitWithLazerDuringBomb = 1;

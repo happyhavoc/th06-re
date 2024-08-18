@@ -148,7 +148,7 @@ switchD_00412938_caseD_2:
       if ((char)cur_enemy->item_drop < '\0') {
         if (cur_enemy->item_drop == ITEM_NO_ITEM) {
           if ((uint)mgr->random_item_spawn_index % 3 == 0) {
-            EffectManager::SpawnEffect
+            EffectManager::SpawnParticles
                       (&g_EffectManager,cur_enemy->death_anm2 + 4,&cur_enemy->position,6,
                        (ZunColor)0xffffffff);
             ItemManager::SpawnItem
@@ -163,7 +163,7 @@ switchD_00412938_caseD_2:
         }
       }
       else {
-        EffectManager::SpawnEffect
+        EffectManager::SpawnParticles
                   (&g_EffectManager,cur_enemy->death_anm2 + 4,&cur_enemy->position,3,
                    (ZunColor)0xffffffff);
         ItemManager::SpawnItem
@@ -181,13 +181,13 @@ switchD_00412938_caseD_2:
       cur_enemy->flags2 = cur_enemy->flags2 & 0xef;
       cur_enemy->flags2 = cur_enemy->flags2 & 0x1f;
       g_Gui.boss_present = 0;
-      EffectManager::SpawnEffect
+      EffectManager::SpawnParticles
                 (&g_EffectManager,(uint)cur_enemy->death_anm1,&cur_enemy->position,1,
                  (ZunColor)0xffffffff);
-      EffectManager::SpawnEffect
+      EffectManager::SpawnParticles
                 (&g_EffectManager,(uint)cur_enemy->death_anm1,&cur_enemy->position,1,
                  (ZunColor)0xffffffff);
-      EffectManager::SpawnEffect
+      EffectManager::SpawnParticles
                 (&g_EffectManager,(uint)cur_enemy->death_anm1,&cur_enemy->position,1,
                  (ZunColor)0xffffffff);
     }
@@ -196,10 +196,10 @@ switchD_00412938_caseD_2:
       uVar6 = (uVar6 - 1 | 0xfffffffe) + 1;
     }
     SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,uVar6 + SOUND_2,0);
-    EffectManager::SpawnEffect
+    EffectManager::SpawnParticles
               (&g_EffectManager,(uint)cur_enemy->death_anm1,&cur_enemy->position,1,
                (ZunColor)0xffffffff);
-    EffectManager::SpawnEffect
+    EffectManager::SpawnParticles
               (&g_EffectManager,cur_enemy->death_anm2 + 4,&cur_enemy->position,4,
                (ZunColor)0xffffffff);
     if (-1 < cur_enemy->death_callback_sub) {

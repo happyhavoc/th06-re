@@ -1,5 +1,5 @@
 
-void FUN_0040d040(Enemy *this,AnmRawInstr *param_2)
+void Enemy::ExInsStage6Func7(Enemy *this,AnmRawInstr *param_2)
 
 {
   int iVar1;

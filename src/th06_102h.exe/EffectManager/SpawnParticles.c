@@ -1,7 +1,8 @@
 
 Effect * __thiscall
-EffectManager::SpawnEffect
-          (EffectManager *this,int new_position,D3DXVECTOR3 *param_2,int param_3,ZunColor param_4)
+EffectManager::SpawnParticles
+          (EffectManager *this,int effectId,D3DXVECTOR3 *effectPos,int numParticles,
+          ZunColor particleColor)
 
 {
   int iVar1;
@@ -19,24 +20,24 @@ EffectManager::SpawnEffect
     }
     if (effect->in_use_flag == 0) {
       effect->in_use_flag = 1;
-      effect->effect_id = (byte)new_position;
-      (effect->pos1).x = param_2->x;
-      (effect->pos1).y = param_2->y;
-      (effect->pos1).z = param_2->z;
+      effect->effect_id = (byte)effectId;
+      (effect->pos1).x = effectPos->x;
+      (effect->pos1).y = effectPos->y;
+      (effect->pos1).z = effectPos->z;
       anm_manager = g_AnmManager;
-      iVar1 = g_Effects[new_position].anmFileIndex;
+      iVar1 = g_Effects[effectId].anmFileIndex;
       local_10 = (short)iVar1;
       (effect->vm).anmFileIndex = local_10;
       AnmManager::SetAndExecuteScript(anm_manager,&effect->vm,anm_manager->scripts[iVar1]);
-      (effect->vm).color = (D3DCOLORUNION)param_4.color;
-      effect->effect_update_callback = g_Effects[new_position].update_callback;
+      (effect->vm).color = (D3DCOLORUNION)particleColor.color;
+      effect->effect_update_callback = g_Effects[effectId].update_callback;
       (effect->timer).current = 0;
       (effect->timer).subFrame = 0.0;
       (effect->timer).previous = -999;
       effect->field18_0x17a = 0;
       effect->field_0x17b = 0;
-      param_3 = param_3 + -1;
-      if (param_3 == 0) break;
+      numParticles = numParticles + -1;
+      if (numParticles == 0) break;
       if (this->next_index == 0) {
         effect = this->effects;
       }

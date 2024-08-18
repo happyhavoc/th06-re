@@ -1,11 +1,11 @@
 
-void FUN_0040d930(Enemy *param_1,AnmRawInstr *param_2)
+void Enemy::ExInsStage6XFunc10(Enemy *param_1,AnmRawInstr *param_2)
 
 {
   AnmManager *pAVar1;
   
   if (0 < param_1->life) {
-    FUN_0040caf0(param_1,param_2);
+    ExInsStage6XFunc6(param_1,param_2);
     pAVar1 = g_AnmManager;
     if (g_Player.bombInfo.isInUse == 0) {
       if ((0 < (param_1->field44_0xe44).current) &&

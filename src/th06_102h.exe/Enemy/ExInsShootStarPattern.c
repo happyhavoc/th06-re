@@ -1,5 +1,5 @@
 
-void FUN_0040bb80(Enemy *param_1,EclRawInstr *param_2)
+void Enemy::ExInsShootStarPattern(Enemy *param_1,EclRawInstr *param_2)
 
 {
   float fVar1;

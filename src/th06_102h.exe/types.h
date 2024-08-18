@@ -1551,6 +1551,17 @@ struct EclTimelineInstr {
     u32 uintVar;
 };
 
+typedef struct EclRawInstrEnemyCreateArgs EclRawInstrEnemyCreateArgs, *PEclRawInstrEnemyCreateArgs;
+
+struct EclRawInstrEnemyCreateArgs {
+    i32 subId;
+    struct D3DXVECTOR3 pos;
+    i16 life;
+    i16 itemDrop;
+    i32 score;
+    byte field5_0x18[12];
+};
+
 typedef struct StageFile StageFile, *PStageFile;
 
 struct StageFile {

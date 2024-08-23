@@ -11,9 +11,9 @@ void __thiscall Chain::Chain(Chain *this)
   puStack_c = &LAB_00469148;
   local_10 = ExceptionList;
   ExceptionList = &local_10;
-  ChainElem::ChainElem(&this->calcChain);
+  ChainElem::ChainElem((ChainElem *)this);
   local_8 = 0;
-  ChainElem::ChainElem(&this->drawChain);
+  ChainElem::ChainElem((ChainElem *)&this->drawChain);
   midiOutputDeviceCount = midiOutGetNumDevs();
   this->midiOutputDeviceCount = midiOutputDeviceCount;
   this->unk = 0;

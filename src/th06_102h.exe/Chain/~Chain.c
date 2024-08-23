@@ -10,9 +10,9 @@ void __thiscall Chain::~Chain(Chain *this)
   local_10 = ExceptionList;
   local_8 = 0;
   ExceptionList = &local_10;
-  ChainElem::~ChainElem(&this->drawChain);
+  ChainElem::~ChainElem((ChainElem *)&this->drawChain);
   local_8 = 0xffffffff;
-  ChainElem::~ChainElem(&this->calcChain);
+  ChainElem::~ChainElem((ChainElem *)this);
   ExceptionList = local_10;
   return;
 }

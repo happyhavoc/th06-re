@@ -37,7 +37,7 @@ destroy_elem:
           if (to_remove == (ChainElem *)0x0) {
             return;
           }
-          ChainElem::~ChainElem(to_remove);
+          ChainElem::~ChainElem((ChainElem *)to_remove);
           _free(to_remove);
           return;
         }

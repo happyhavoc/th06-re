@@ -323,13 +323,13 @@ LAB_004074ce:
     break;
   case 0xe:
   case 0x15:
-    Enemy::MathSub(enemy,(instruction->args).ecl_var_id,&(instruction->args).float_var_1,
-                   &(instruction->args).float_var_2);
+    Enemy::MathSub(enemy,(instruction->args).ecl_var_id,(EclVarId *)&(instruction->args).float_var_1
+                   ,(EclVarId *)&(instruction->args).float_var_2);
     break;
   case 0xf:
   case 0x16:
-    Enemy::MathMul(enemy,(instruction->args).ecl_var_id,&(instruction->args).float_var_1,
-                   &(instruction->args).float_var_2);
+    Enemy::MathMul(enemy,(instruction->args).ecl_var_id,(EclVarId *)&(instruction->args).float_var_1
+                   ,(EclVarId *)&(instruction->args).float_var_2);
     break;
   case 0x10:
   case 0x17:
@@ -338,8 +338,8 @@ LAB_004074ce:
     break;
   case 0x11:
   case 0x18:
-    Enemy::MathMod(enemy,(instruction->args).ecl_var_id,&(instruction->args).float_var_1,
-                   &(instruction->args).float_var_2);
+    Enemy::MathMod(enemy,(instruction->args).ecl_var_id,(EclVarId *)&(instruction->args).float_var_1
+                   ,(EclVarId *)&(instruction->args).float_var_2);
     break;
   case 0x12:
     piVar14 = Enemy::GetVar(enemy,&(instruction->args).ecl_var_id,(EclValueType *)0x0);

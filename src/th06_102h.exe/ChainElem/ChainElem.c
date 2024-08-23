@@ -1,15 +1,15 @@
 
-ChainElem * __thiscall Chain::ChainElem::ChainElem(ChainElem *this)
+ChainElem * __thiscall ChainElem::ChainElem(ChainElem *this)
 
 {
-  *(undefined4 *)(this + 0x10) = 0;
-  *(undefined4 *)(this + 0x14) = 0;
-  *(undefined4 *)(this + 4) = 0;
-  *(ChainElem **)(this + 0x18) = this;
-  *(undefined4 *)(this + 8) = 0;
-  *(undefined4 *)(this + 0xc) = 0;
-  *(undefined2 *)this = 0;
-  *(ushort *)(this + 2) = *(ushort *)(this + 2) & 0xfffe;
-  return (ChainElem *)this;
+  this->prev = (ChainElem *)0x0;
+  this->next = (ChainElem *)0x0;
+  this->callback = (ChainCallback *)0x0;
+  this->unkPtr = this;
+  this->addedCallback = (ChainLifecycleCallback *)0x0;
+  this->deletedCallback = (ChainLifecycleCallback *)0x0;
+  this->priority = 0;
+  this->flags = this->flags & 0xfffe;
+  return this;
 }
 

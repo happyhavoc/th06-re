@@ -1,5 +1,5 @@
 
-int EffectManager::FUN_0040e810(Effect *param_1)
+int EffectManager::EffectUpdateCallback3(Effect *param_1)
 
 {
   float fVar1;

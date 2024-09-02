@@ -21,7 +21,7 @@ ZunResult EnemyManager::AddedCallback(EnemyManager *param_1)
       local_10 = Rng::GetRandomU16(&g_Rng);
       local_10 = local_10 % 8;
       param_1->random_item_table_index = local_10;
-      param_1->spellcard_capture = 0;
+      (param_1->spellcardInfo).is_active = 0;
       param_1->timeline_instr = (EclTimelineInstr *)0x0;
       ZVar1 = ZUN_SUCCESS;
     }

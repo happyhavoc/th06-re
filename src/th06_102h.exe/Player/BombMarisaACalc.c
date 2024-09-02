@@ -23,10 +23,10 @@ void Player::BombMarisaACalc(Player *this)
         pDVar2->z = fVar3 + pDVar2->z;
         if (((this->bombInfo).bombTimer.current != (this->bombInfo).bombTimer.previous) &&
            ((this->bombInfo).bombTimer.current % 3 != 0)) {
-          this->unk_8b8[i].position1.x = (this->bombInfo).bomb_region_positions[i].x;
-          this->unk_8b8[i].position1.y = (this->bombInfo).bomb_region_positions[i].y;
-          this->unk_8b8[i].size1.x = 128.0;
-          this->unk_8b8[i].size1.y = 128.0;
+          this->bomb_projectiles[i].pos.x = (this->bombInfo).bomb_region_positions[i].x;
+          this->bomb_projectiles[i].pos.y = (this->bombInfo).bomb_region_positions[i].y;
+          this->bomb_projectiles[i].size.x = 128.0;
+          this->bomb_projectiles[i].size.y = 128.0;
           this->bomb_region_sizes[i].x = 128.0;
           this->bomb_region_sizes[i].y = 128.0;
           pDVar1 = (this->bombInfo).bomb_region_positions + i;

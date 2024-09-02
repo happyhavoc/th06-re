@@ -879,11 +879,12 @@ switchD_00407544_caseD_2:
   case 0x5d:
     Gui::ShowSpellcard(&g_Gui,(int)*(short *)&(instruction->args).ecl_var_id,
                        (char *)&(instruction->args).float_var_1);
-    g_RunningSpellcardInfo.capture_spellcard = 1;
-    g_RunningSpellcardInfo.is_active = 1;
-    g_RunningSpellcardInfo.spellcard_idx =
+    g_EnemyManager.spellcardInfo.is_capturing = 1;
+    g_EnemyManager.spellcardInfo.is_active = 1;
+    g_EnemyManager.spellcardInfo.spellcard_idx =
          (uint)*(short *)((int)&(instruction->args).ecl_var_id + 2);
-    g_RunningSpellcardInfo.capture_score = g_SpellcardScore[g_RunningSpellcardInfo.spellcard_idx];
+    g_EnemyManager.spellcardInfo.capture_score =
+         g_SpellcardScore[g_EnemyManager.spellcardInfo.spellcard_idx];
     BulletManager::TurnAllBulletsIntoPoints(&g_BulletManager);
     g_Stage.spellcardState = RUNNING;
     g_Stage.ticksSinceSpellcardStarted = 0;
@@ -893,12 +894,12 @@ switchD_00407544_caseD_2:
     enemy->bullet_rank_amount1_high = 0;
     enemy->bullet_rank_amount2_low = 0;
     enemy->bullet_rank_amount2_high = 0;
-    uVar2 = g_RunningSpellcardInfo.spellcard_idx;
-    iVar17 = g_RunningSpellcardInfo.spellcard_idx * uVar24;
+    uVar2 = g_EnemyManager.spellcardInfo.spellcard_idx;
+    iVar17 = g_EnemyManager.spellcardInfo.spellcard_idx * uVar24;
     bVar16 = 0;
     if (g_GameManager.is_in_replay == 0) {
       local_2bc = &(instruction->args).float_var_1;
-      local_2c0 = g_GameManager.catk[g_RunningSpellcardInfo.spellcard_idx].name;
+      local_2c0 = g_GameManager.catk[g_EnemyManager.spellcardInfo.spellcard_idx].name;
       do {
         bVar1 = *(byte *)local_2bc;
         *local_2c0 = bVar1;
@@ -920,23 +921,23 @@ switchD_00407544_caseD_2:
         g_GameManager.catk[uVar2].num_successes = 0;
         g_GameManager.catk[uVar2].name_csum = bVar16;
       }
-      g_GameManager.catk[uVar2].unk_c = g_RunningSpellcardInfo.capture_score;
+      g_GameManager.catk[uVar2].unk_c = g_EnemyManager.spellcardInfo.capture_score;
       if ((ushort)g_GameManager.catk[uVar2].num_successes < 9999) {
         g_GameManager.catk[uVar2].num_successes = g_GameManager.catk[uVar2].num_successes + 1;
       }
     }
     break;
   case 0x5e:
-    if (g_RunningSpellcardInfo.is_active != 0) {
+    if (g_EnemyManager.spellcardInfo.is_active != 0) {
       Gui::Vm6SetInterruptTo1(&g_Gui);
-      if ((g_RunningSpellcardInfo.is_active == 1) &&
+      if ((g_EnemyManager.spellcardInfo.is_active == 1) &&
          (BulletManager::DespawnBullets(&g_BulletManager,0x3200,1),
-         uVar2 = g_RunningSpellcardInfo.spellcard_idx, g_RunningSpellcardInfo.capture_spellcard != 0
-         )) {
-        iVar17 = g_RunningSpellcardInfo.spellcard_idx * 0x40 + 0x69bcd0;
-        iVar3 = g_RunningSpellcardInfo.capture_score +
-                (int)(g_RunningSpellcardInfo.capture_score * g_Gui.spellcard_seconds_remaining) / 10
-        ;
+         uVar2 = g_EnemyManager.spellcardInfo.spellcard_idx,
+         g_EnemyManager.spellcardInfo.is_capturing != 0)) {
+        iVar17 = g_EnemyManager.spellcardInfo.spellcard_idx * 0x40 + 0x69bcd0;
+        iVar3 = g_EnemyManager.spellcardInfo.capture_score +
+                (int)(g_EnemyManager.spellcardInfo.capture_score * g_Gui.spellcard_seconds_remaining
+                     ) / 10;
         Gui::ShowSpellcardBonus(&g_Gui,iVar3);
         g_GameManager.score = g_GameManager.score + iVar3;
         if (g_GameManager.is_in_replay == 0) {
@@ -949,7 +950,7 @@ switchD_00407544_caseD_2:
         }
         g_GameManager.unk_0x28 = g_GameManager.unk_0x28 + 1;
       }
-      g_RunningSpellcardInfo.is_active = 0;
+      g_EnemyManager.spellcardInfo.is_active = 0;
     }
     g_Stage.spellcardState = NOT_RUNNING;
     break;
@@ -968,11 +969,11 @@ switchD_00407544_caseD_2:
     pfVar15 = Enemy::GetVarFloat(enemy,&local_b0.pos.z,(EclValueType *)0x0);
     local_b0.pos.z = *pfVar15;
     EnemyManager::SpawnEnemy
-              ((EnemyManager *)&g_EnemyManager,local_b0.subId,&local_b0.pos,local_b0.life,
-               local_b0.itemDrop,local_b0.score);
+              (&g_EnemyManager,local_b0.subId,&local_b0.pos,local_b0.life,local_b0.itemDrop,
+               local_b0.score);
     break;
   case 0x60:
-    local_b4 = g_Enemies;
+    local_b4 = g_EnemyManager.enemies;
     for (local_b8 = 0; local_b8 < 0x100; local_b8 = local_b8 + 1) {
       if (((((char)local_b4->flags1 < '\0') && ((local_b4->flags2 >> 3 & 1) == 0)) &&
           (local_b4->life = 0, (local_b4->flags2 & 1) == 0)) && (-1 < local_b4->death_callback_sub))
@@ -1019,11 +1020,11 @@ switchD_00407544_caseD_2:
   case 0x65:
     if ((instruction->args).ecl_var_id < 0) {
       g_Gui.boss_present = 0;
-      g_Bosses[enemy->boss_id] = (Enemy *)0x0;
+      g_EnemyManager.bosses[enemy->boss_id] = (Enemy *)0x0;
       enemy->flags2 = enemy->flags2 & 0xf7;
     }
     else {
-      g_Bosses[(instruction->args).ecl_var_id] = enemy;
+      g_EnemyManager.bosses[(instruction->args).ecl_var_id] = enemy;
       g_Gui.boss_present = 1;
       g_Gui.boss_health_bar = 1.0;
       enemy->flags2 = enemy->flags2 | 8;

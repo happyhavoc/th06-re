@@ -26,13 +26,13 @@ BOOL __thiscall Enemy::HandleTimerCallback(Enemy *this)
     (this->boss_timer).subFrame = 0.0;
     (this->boss_timer).previous = -999;
     if ((this->flags3 >> 4 & 1) == 0) {
-      g_RunningSpellcardInfo.capture_spellcard = 0;
-      if (g_RunningSpellcardInfo.is_active != 0) {
-        g_RunningSpellcardInfo.is_active = g_RunningSpellcardInfo.is_active + 1;
+      g_EnemyManager.spellcardInfo.is_capturing = 0;
+      if (g_EnemyManager.spellcardInfo.is_active != 0) {
+        g_EnemyManager.spellcardInfo.is_active = g_EnemyManager.spellcardInfo.is_active + 1;
       }
       BulletManager::RemoveAllBullets(&g_BulletManager,0);
     }
-    local_8 = g_Enemies;
+    local_8 = g_EnemyManager.enemies;
     for (local_c = 0; local_c < 0x100; local_c = local_c + 1) {
       if (((((char)local_8->flags1 < '\0') && ((local_8->flags2 >> 3 & 1) == 0)) &&
           (local_8->life = 0, (local_8->flags2 & 1) == 0)) && (-1 < local_8->death_callback_sub)) {

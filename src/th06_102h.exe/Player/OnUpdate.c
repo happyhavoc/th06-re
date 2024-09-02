@@ -17,7 +17,7 @@ ChainCallbackResult Player::OnUpdate(Player *param_1)
     param_1->bomb_region_sizes[local_8].x = 0.0;
   }
   for (local_8 = 0; local_8 < 0x10; local_8 = local_8 + 1) {
-    param_1->unk_8b8[local_8].size1.x = 0.0;
+    param_1->bomb_projectiles[local_8].size.x = 0.0;
   }
   if ((param_1->bombInfo).isInUse == 0) {
     BVar2 = Gui::HasCurrentMsgIdx(&g_Gui);
@@ -34,9 +34,9 @@ ChainCallbackResult Player::OnUpdate(Player *param_1)
       (param_1->bombInfo).bombTimer.previous = -999;
       (param_1->bombInfo).bombDuration = 999;
       (*(code *)(param_1->bombInfo).bombCalc)(param_1);
-      g_RunningSpellcardInfo.capture_spellcard = 0;
+      g_EnemyManager.spellcardInfo.is_capturing = 0;
       GameManager::DecreaseSubrank(&g_GameManager,200);
-      g_RunningSpellcardInfo.used_bomb = g_RunningSpellcardInfo.is_active;
+      g_EnemyManager.spellcardInfo.used_bomb = g_EnemyManager.spellcardInfo.is_active;
     }
   }
   else {

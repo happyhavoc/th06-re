@@ -1,5 +1,5 @@
 
-void ReplayManager::FUN_0042aab0(void)
+void ReplayManager::StopRecording(void)
 
 {
   ReplayManager *rpy_manager;

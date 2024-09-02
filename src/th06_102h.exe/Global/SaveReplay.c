@@ -46,7 +46,7 @@ void SaveReplay(char *replay_path,char *param_2)
           rpy_data = (ReplayData *)&rpy_data->version;
           ppcVar5 = (ReplayData *)&ppcVar5->version;
         }
-        ReplayManager::FUN_0042aab0();
+        ReplayManager::StopRecording();
         local_68 = (StageReplayData *)0x50;
         for (j = 0; (int)j < 7; j = j + 1) {
           if (pRVar1->data->stage_score[j] != (StageReplayData *)0x0) {

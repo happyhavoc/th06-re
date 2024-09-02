@@ -1046,13 +1046,6 @@ struct ScreenEffect {
     struct ZunTimer timer;
 };
 
-typedef struct PlayerRect PlayerRect, *PPlayerRect;
-
-struct PlayerRect {
-    struct D3DXVECTOR2 position1;
-    struct D3DXVECTOR2 size1;
-};
-
 typedef struct AsciiManagerString AsciiManagerString, *PAsciiManagerString;
 
 struct AsciiManagerString {
@@ -1508,11 +1501,21 @@ struct AsciiManager {
 
 typedef struct EnemyManager EnemyManager, *PEnemyManager;
 
+typedef struct RunningSpellcardInfo RunningSpellcardInfo, *PRunningSpellcardInfo;
+
 typedef struct EclTimelineInstr EclTimelineInstr, *PEclTimelineInstr;
 
 typedef short i16;
 
 typedef ushort u16;
+
+struct RunningSpellcardInfo {
+    BOOL is_capturing;
+    BOOL is_active;
+    uint capture_score;
+    uint spellcard_idx;
+    BOOL used_bomb;
+};
 
 struct EnemyManager {
     char *stg_enm_anm_filename;
@@ -1528,11 +1531,7 @@ struct EnemyManager {
     undefined field10_0xee5c1;
     undefined field11_0xee5c2;
     undefined field12_0xee5c3;
-    int spellcard_related;
-    int spellcard_capture;
-    int spellcard_bonus;
-    int spellcard_number;
-    int unk_ee5d4;
+    struct RunningSpellcardInfo spellcardInfo;
     int unk_ee5d8;
     struct EclTimelineInstr *timeline_instr;
     struct ZunTimer timeline_time;
@@ -1805,19 +1804,11 @@ struct GameWindow {
     uint power_off_active;
 };
 
-typedef struct RunningSpellcardInfo RunningSpellcardInfo, *PRunningSpellcardInfo;
-
-struct RunningSpellcardInfo {
-    BOOL capture_spellcard;
-    BOOL is_active;
-    uint capture_score;
-    uint spellcard_idx;
-    BOOL used_bomb;
-};
-
 typedef struct CharacterData CharacterData, *PCharacterData;
 
 typedef struct Player Player, *PPlayer;
+
+typedef struct BombProjectile BombProjectile, *PBombProjectile;
 
 typedef enum PlayerState {
     PLAYER_STATE_ALIVE=0,
@@ -1825,6 +1816,11 @@ typedef enum PlayerState {
     PLAYER_STATE_DEAD=2,
     PLAYER_STATE_INVULNERABLE=3
 } PlayerState;
+
+struct BombProjectile {
+    struct D3DXVECTOR2 pos;
+    struct D3DXVECTOR2 size;
+};
 
 struct CharacterData {
     float orthogonalMovementSpeed;
@@ -1851,7 +1847,7 @@ struct Player {
     struct D3DXVECTOR3 bomb_region_sizes[32];
     int bomb_region_damages[32];
     int unk_838[32];
-    struct PlayerRect unk_8b8[16];
+    struct BombProjectile bomb_projectiles[16];
     struct ZunTimer laserTimer[2];
     float horizontalMovementSpeedMultiplierDuringBomb;
     float verticalMovementSpeedMultiplierDuringBomb;

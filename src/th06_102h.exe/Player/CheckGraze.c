@@ -3,7 +3,7 @@ BOOL __thiscall Player::CheckGraze(Player *this,D3DXVECTOR3 *center,D3DXVECTOR3 
 
 {
   BOOL uVar7;
-  PlayerRect *local_30;
+  BombProjectile *local_30;
   D3DXVECTOR3 local_2c;
   D3DXVECTOR3 local_20;
   int local_14;
@@ -18,7 +18,7 @@ BOOL __thiscall Player::CheckGraze(Player *this,D3DXVECTOR3 *center,D3DXVECTOR3 
   fVar4 = (center->y - size->y / 2.0) - 20.0;
   fVar2 = size->x / 2.0 + center->x + 20.0;
   fVar5 = size->y / 2.0 + center->y + 20.0;
-  local_30 = this->unk_8b8;
+  local_30 = this->bomb_projectiles;
   local_14 = 0;
   do {
     if (0xf < local_14) {
@@ -38,13 +38,13 @@ BOOL __thiscall Player::CheckGraze(Player *this,D3DXVECTOR3 *center,D3DXVECTOR3 
       }
       return uVar7;
     }
-    fVar1 = (local_30->size1).x;
+    fVar1 = (local_30->size).x;
     if (NAN(fVar1) == (fVar1 == 0.0)) {
-      fVar1 = (local_30->size1).x / 2.0 + (local_30->position1).x;
-      fVar6 = (local_30->size1).y / 2.0 + (local_30->position1).y;
-      if ((((local_30->position1).x - (local_30->size1).x / 2.0 <= fVar2) &&
+      fVar1 = (local_30->size).x / 2.0 + (local_30->pos).x;
+      fVar6 = (local_30->size).y / 2.0 + (local_30->pos).y;
+      if ((((local_30->pos).x - (local_30->size).x / 2.0 <= fVar2) &&
           (fVar1 < fVar3 == (NAN(fVar1) || NAN(fVar3)))) &&
-         (((local_30->position1).y - (local_30->size1).y / 2.0 <= fVar5 &&
+         (((local_30->pos).y - (local_30->size).y / 2.0 <= fVar5 &&
           (fVar6 < fVar4 == (NAN(fVar6) || NAN(fVar4)))))) {
         return 2;
       }

@@ -22,14 +22,14 @@ void Player::BombMarisaBCalc(Player *this)
           uVar2 = (uVar2 - 1 | 0xfffffffc) + 1;
         }
         if (uVar2 != 0) {
-          this->unk_8b8[0].position1.x = 192.0;
-          this->unk_8b8[0].position1.y = (this->positionCenter).y / 2.0;
-          this->unk_8b8[0].size1.x = 384.0;
-          this->unk_8b8[0].size1.y = (this->positionCenter).y;
+          this->bomb_projectiles[0].pos.x = 192.0;
+          this->bomb_projectiles[0].pos.y = (this->positionCenter).y / 2.0;
+          this->bomb_projectiles[0].size.x = 384.0;
+          this->bomb_projectiles[0].size.y = (this->positionCenter).y;
           this->bomb_region_sizes[0].x = 384.0;
           this->bomb_region_sizes[0].y = (this->positionCenter).y;
-          this->bomb_region_positions[0].x = this->unk_8b8[0].position1.x;
-          this->bomb_region_positions[0].y = this->unk_8b8[0].position1.y;
+          this->bomb_region_positions[0].x = this->bomb_projectiles[0].pos.x;
+          this->bomb_region_positions[0].y = this->bomb_projectiles[0].pos.y;
           this->bomb_region_damages[0] = 0xc;
         }
       }

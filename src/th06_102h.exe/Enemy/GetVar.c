@@ -11,11 +11,11 @@ int * Enemy::GetVar(Enemy *enemy,EclVarId *eclGvarId,EclValueType *valueType)
   pfVar1 = eclGvarId;
   switch(*eclGvarId) {
   case ECL_VAR_PLAYER_SHOT:
-    PLAYER_SHOT = (uint)g_GameManager.shottype + (uint)g_GameManager.character * 2;
+    g_PlayerShot = (uint)g_GameManager.shottype + (uint)g_GameManager.character * 2;
     if (valueType != (EclValueType *)0x0) {
       *valueType = ECL_VALUE_TYPE_INT;
     }
-    pfVar1 = &PLAYER_SHOT;
+    pfVar1 = &g_PlayerShot;
     break;
   case ECL_VAR_SELF_LIFE:
     if (valueType != (EclValueType *)0x0) {
@@ -27,11 +27,11 @@ int * Enemy::GetVar(Enemy *enemy,EclVarId *eclGvarId,EclValueType *valueType)
     local_10.z = g_Player.positionCenter.z - (enemy->position).z;
     local_10.y = g_Player.positionCenter.y - (enemy->position).y;
     local_10.x = g_Player.positionCenter.x - (enemy->position).x;
-    PLAYER_DISTANCE = D3DXVec3Length(&local_10);
+    g_PlayerDistance = D3DXVec3Length(&local_10);
     if (valueType != (EclValueType *)0x0) {
       *valueType = ECL_VALUE_TYPE_READONLY;
     }
-    pfVar1 = (int *)&PLAYER_DISTANCE;
+    pfVar1 = (int *)&g_PlayerDistance;
     break;
   case ECL_VAR_SELF_TIME:
     if (valueType != (EclValueType *)0x0) {
@@ -40,11 +40,11 @@ int * Enemy::GetVar(Enemy *enemy,EclVarId *eclGvarId,EclValueType *valueType)
     pfVar1 = &(enemy->boss_timer).current;
     break;
   case ECL_VAR_PLAYER_ANGLE:
-    PLAYER_ANGLE = Player::AngleToPlayer(&g_Player,&enemy->position);
+    g_PlayerAngle = Player::AngleToPlayer(&g_Player,&enemy->position);
     if (valueType != (EclValueType *)0x0) {
       *valueType = ECL_VALUE_TYPE_READONLY;
     }
-    pfVar1 = (int *)&PLAYER_ANGLE;
+    pfVar1 = (int *)&g_PlayerAngle;
     break;
   case ECL_VAR_PLAYER_Z:
     if (valueType != (EclValueType *)0x0) {

@@ -18,7 +18,7 @@ BOOL __thiscall Enemy::HandleLifeCallback(Enemy *this)
     this->bullet_rank_amount2_low = 0;
     this->bullet_rank_amount2_high = 0;
     this->stack_depth = 0;
-    local_8 = g_Enemies;
+    local_8 = g_EnemyManager.enemies;
     for (local_c = 0; local_c < 0x100; local_c = local_c + 1) {
       if (((((char)local_8->flags1 < '\0') && ((local_8->flags2 >> 3 & 1) == 0)) &&
           (local_8->life = 0, (local_8->flags2 & 1) == 0)) && (-1 < local_8->death_callback_sub)) {

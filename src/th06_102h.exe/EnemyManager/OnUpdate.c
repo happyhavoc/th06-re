@@ -5,7 +5,7 @@ ChainCallbackResult EnemyManager::OnUpdate(EnemyManager *mgr)
   float fVar1;
   int iVar2;
   ZunResult ZVar3;
-  BOOL BVar4;
+  i32 iVar4;
   BOOL BVar5;
   uint uVar6;
   D3DXVECTOR3 *enemy_hitbox_dimensions;
@@ -81,8 +81,8 @@ ChainCallbackResult EnemyManager::OnUpdate(EnemyManager *mgr)
       local_1c.z = (cur_enemy->hitbox_dimensions).z * 0.6666667;
       local_1c.y = (cur_enemy->hitbox_dimensions).y * 0.6666667;
       local_1c.x = (cur_enemy->hitbox_dimensions).x * 0.6666667;
-      BVar4 = Player::CalcKillBoxCollision(&g_Player,&cur_enemy->position,&local_1c);
-      if (((BVar4 == 1) && ((cur_enemy->flags2 & 1) != 0)) && ((cur_enemy->flags2 >> 3 & 1) == 0)) {
+      iVar4 = Player::CalcKillBoxCollision(&g_Player,&cur_enemy->position,&local_1c);
+      if (((iVar4 == 1) && ((cur_enemy->flags2 & 1) != 0)) && ((cur_enemy->flags2 >> 3 & 1) == 0)) {
         cur_enemy->life = cur_enemy->life + -10;
       }
     }
@@ -94,7 +94,7 @@ ChainCallbackResult EnemyManager::OnUpdate(EnemyManager *mgr)
         damageTaken = 70;
       }
       g_GameManager.score = (damageTaken / 5) * 10 + g_GameManager.score;
-      if (mgr->spellcard_capture != 0) {
+      if ((mgr->spellcardInfo).is_active != 0) {
         if (hitWithLazerDuringBomb == 0) {
           if (damageTaken < 8) {
             if (damageTaken != 0) {
@@ -105,7 +105,7 @@ ChainCallbackResult EnemyManager::OnUpdate(EnemyManager *mgr)
             damageTaken = damageTaken / 7;
           }
         }
-        else if (mgr->unk_ee5d4 == 0) {
+        else if ((mgr->spellcardInfo).used_bomb == 0) {
           damageTaken = 0;
         }
         else if (damageTaken < 4) {
@@ -169,7 +169,7 @@ switchD_00412938_caseD_2:
         ItemManager::SpawnItem
                   (&g_ItemManager,&cur_enemy->position,cur_enemy->item_drop,hitWithLazerDuringBomb);
       }
-      if (((cur_enemy->flags2 >> 3 & 1) != 0) && (g_RunningSpellcardInfo.is_active == 0)) {
+      if (((cur_enemy->flags2 >> 3 & 1) != 0) && (g_EnemyManager.spellcardInfo.is_active == 0)) {
         BulletManager::DespawnBullets(&g_BulletManager,0x3200,0);
       }
       cur_enemy->life = 0;

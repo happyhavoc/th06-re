@@ -32,10 +32,10 @@ void Player::BombReimuACalc(Player *param_1)
       ItemManager::RemoveAllItems(&g_ItemManager);
       EffectManager::SpawnParticles
                 (&g_EffectManager,0xc,&param_1->positionCenter,1,(ZunColor)0xff4040ff);
-      param_1->unk_8b8[8].position1.x = (param_1->positionCenter).x;
-      param_1->unk_8b8[8].position1.y = (param_1->positionCenter).y;
-      param_1->unk_8b8[8].size1.x = 256.0;
-      param_1->unk_8b8[8].size1.y = 256.0;
+      param_1->bomb_projectiles[8].pos.x = (param_1->positionCenter).x;
+      param_1->bomb_projectiles[8].pos.y = (param_1->positionCenter).y;
+      param_1->bomb_projectiles[8].size.x = 256.0;
+      param_1->bomb_projectiles[8].size.y = 256.0;
     }
     if ((59 < (param_1->bombInfo).bombTimer.current) &&
        ((param_1->bombInfo).bombTimer.current < 0xb4)) {
@@ -113,10 +113,10 @@ void Player::BombReimuACalc(Player *param_1)
             pDVar2->y = pDVar1->y;
             pDVar2->z = pDVar1->z;
             param_1->bomb_region_damages[i] = 8;
-            param_1->unk_8b8[i].position1.x = (param_1->bombInfo).bomb_region_positions[i].x;
-            param_1->unk_8b8[i].position1.y = (param_1->bombInfo).bomb_region_positions[i].y;
-            param_1->unk_8b8[i].size1.x = 48.0;
-            param_1->unk_8b8[i].size1.y = 48.0;
+            param_1->bomb_projectiles[i].pos.x = (param_1->bombInfo).bomb_region_positions[i].x;
+            param_1->bomb_projectiles[i].pos.y = (param_1->bombInfo).bomb_region_positions[i].y;
+            param_1->bomb_projectiles[i].size.x = 48.0;
+            param_1->bomb_projectiles[i].size.y = 48.0;
             if ((99 < param_1->unk_838[i]) ||
                ((param_1->bombInfo).bombDuration + -0x1e <= (param_1->bombInfo).bombTimer.current))
             {
@@ -134,8 +134,8 @@ void Player::BombReimuACalc(Player *param_1)
               param_1->bomb_region_sizes[i].x = 256.0;
               param_1->bomb_region_sizes[i].y = 256.0;
               param_1->bomb_region_damages[i] = 200;
-              param_1->unk_8b8[i].size1.x = 256.0;
-              param_1->unk_8b8[i].size1.y = 256.0;
+              param_1->bomb_projectiles[i].size.x = 256.0;
+              param_1->bomb_projectiles[i].size.y = 256.0;
               SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,SOUND_F,0);
               ScreenEffect::RegisterChain(1,0x10,8,0,0);
             }

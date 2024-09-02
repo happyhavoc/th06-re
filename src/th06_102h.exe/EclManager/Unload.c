@@ -1,5 +1,5 @@
 
-void __thiscall EclManager::operator_delete(EclManager *this)
+void __thiscall EclManager::Unload(EclManager *this)
 
 {
   if (this->ecl_file != (EclRawHeader *)0x0) {

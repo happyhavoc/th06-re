@@ -1,5 +1,5 @@
 
-undefined4 * __thiscall MusicRoom::FUN_00425318(MusicRoom *this)
+undefined4 * __thiscall MusicRoom::MusicRoom(MusicRoom *this)
 
 {
   int iVar1;

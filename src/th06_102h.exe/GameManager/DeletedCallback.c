@@ -10,10 +10,10 @@ ZunResult GameManager::DeletedCallback(GameManager *param_1)
   BulletManager::CutChain();
   Player::CutChain();
   EnemyManager::CutChain();
-  EclManager::operator_delete(&g_EclManager);
+  EclManager::Unload(&g_EclManager);
   EffectManager::CutChain();
   Gui::CutChain();
-  ReplayManager::FUN_0042aab0();
+  ReplayManager::StopRecording();
   param_1->is_in_menu = 0;
   AsciiManager::InitializeVms(&g_AsciiManager);
   return ZUN_SUCCESS;

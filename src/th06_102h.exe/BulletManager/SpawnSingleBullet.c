@@ -1,26 +1,25 @@
 
-undefined4 __thiscall
+int __thiscall
 BulletManager::SpawnSingleBullet
-          (BulletManager *this,EnemyBulletShooter *bulletProps,uint bulletIdx1,int bulletIdx2,
+          (BulletManager *this,EnemyBulletShooter *bulletProps,int bulletIdx1,int bulletIdx2,
           float angle)
 
 {
   D3DXVECTOR3 *pDVar1;
   float fVar2;
   float10 fVar3;
-  undefined4 uVar4;
-  int iVar5;
-  BulletTypeSprites *pBVar6;
+  int iVar4;
+  BulletTypeSprites *pBVar5;
   AnmVm *from;
-  Bullet *pBVar7;
+  Bullet *pBVar6;
   AnmVm *to;
-  float10 fVar8;
+  float10 fVar7;
+  float fVar8;
   float fVar9;
-  float fVar10;
   float bulletAngle;
   Bullet *bullet;
   int local_c;
-  float local_8;
+  float bulletSpeed;
   
   bullet = this->bullets + this->next_bullet_index;
   for (local_c = 0; local_c < 0x280; local_c = local_c + 1) {
@@ -36,21 +35,20 @@ BulletManager::SpawnSingleBullet
   }
   if (local_c < 0x280) {
     bulletAngle = 0.0;
-    local_8 = bulletProps->speed1 -
-              ((bulletProps->speed1 - bulletProps->speed2) * (float)bulletIdx2) /
-              (float)(int)(short)bulletProps->count2;
+    bulletSpeed = bulletProps->speed1 -
+                  ((bulletProps->speed1 - bulletProps->speed2) * (float)bulletIdx2) /
+                  (float)(int)(short)bulletProps->count2;
     switch(bulletProps->aim_mode) {
     case 0:
     case 1:
       if ((bulletProps->count1 & 1) == 0) {
-        bulletAngle = bulletProps->angle2 * 0.5 + (float)((int)bulletIdx1 / 2) * bulletProps->angle2
-        ;
+        bulletAngle = bulletProps->angle2 * 0.5 + (float)(bulletIdx1 / 2) * bulletProps->angle2;
       }
       else {
-        bulletAngle = (float)((int)(bulletIdx1 + 1) / 2) * bulletProps->angle2;
+        bulletAngle = (float)((bulletIdx1 + 1) / 2) * bulletProps->angle2;
       }
       bulletAngle = bulletAngle + 0.0;
-      if ((bulletIdx1 & 1) != 0) {
+      if ((bulletIdx1 & 1U) != 0) {
         bulletAngle = bulletAngle * -1.0;
       }
       if (bulletProps->aim_mode == 0) {
@@ -73,54 +71,54 @@ BulletManager::SpawnSingleBullet
                     bulletProps->angle1;
       break;
     case 6:
-      fVar10 = bulletProps->angle1;
+      fVar9 = bulletProps->angle1;
       fVar2 = bulletProps->angle2;
-      fVar9 = Rng::GetRandomF32ZeroToOne(&g_Rng);
-      bulletAngle = fVar9 * (fVar10 - fVar2) + bulletProps->angle2;
+      fVar8 = Rng::GetRandomF32ZeroToOne(&g_Rng);
+      bulletAngle = fVar8 * (fVar9 - fVar2) + bulletProps->angle2;
       break;
     case 7:
-      fVar10 = bulletProps->speed1;
+      fVar9 = bulletProps->speed1;
       fVar2 = bulletProps->speed2;
-      fVar9 = Rng::GetRandomF32ZeroToOne(&g_Rng);
-      local_8 = fVar9 * (fVar10 - fVar2) + bulletProps->speed2;
+      fVar8 = Rng::GetRandomF32ZeroToOne(&g_Rng);
+      bulletSpeed = fVar8 * (fVar9 - fVar2) + bulletProps->speed2;
       bulletAngle = (float)bulletIdx2 * bulletProps->angle2 + bulletProps->angle1 +
                     ((float)bulletIdx1 * 6.283185) / (float)(int)(short)bulletProps->count1 + 0.0;
       break;
     case 8:
-      fVar10 = bulletProps->angle1;
+      fVar9 = bulletProps->angle1;
       fVar2 = bulletProps->angle2;
-      fVar9 = Rng::GetRandomF32ZeroToOne(&g_Rng);
-      bulletAngle = fVar9 * (fVar10 - fVar2) + bulletProps->angle2;
-      fVar10 = bulletProps->speed1;
+      fVar8 = Rng::GetRandomF32ZeroToOne(&g_Rng);
+      bulletAngle = fVar8 * (fVar9 - fVar2) + bulletProps->angle2;
+      fVar9 = bulletProps->speed1;
       fVar2 = bulletProps->speed2;
-      fVar9 = Rng::GetRandomF32ZeroToOne(&g_Rng);
-      local_8 = fVar9 * (fVar10 - fVar2) + bulletProps->speed2;
+      fVar8 = Rng::GetRandomF32ZeroToOne(&g_Rng);
+      bulletSpeed = fVar8 * (fVar9 - fVar2) + bulletProps->speed2;
     }
     bullet->state = 1;
     bullet->unk_5c2 = 1;
-    bullet->speed = local_8;
-    fVar10 = AddNormalizeAngle(bulletAngle,0.0);
-    bullet->angle = fVar10;
+    bullet->speed = bulletSpeed;
+    fVar9 = AddNormalizeAngle(bulletAngle,0.0);
+    bullet->angle = fVar9;
     (bullet->pos).x = (bulletProps->position).x;
     (bullet->pos).y = (bulletProps->position).y;
     (bullet->pos).z = (bulletProps->position).z;
     (bullet->pos).z = 0.1;
     fVar3 = (float10)fcos((float10)bullet->angle);
-    fVar8 = (float10)fsin((float10)bullet->angle);
-    (bullet->velocity).x = (float)(fVar3 * (float10)local_8);
-    (bullet->velocity).y = (float)(fVar8 * (float10)local_8);
+    fVar7 = (float10)fsin((float10)bullet->angle);
+    (bullet->velocity).x = (float)(fVar3 * (float10)bulletSpeed);
+    (bullet->velocity).y = (float)(fVar7 * (float10)bulletSpeed);
     bullet->ex_flags = *(ushort *)&bulletProps->flags;
     bullet->color = bulletProps->color;
-    pBVar6 = this->bullet_type_templates + (short)bulletProps->sprite;
-    pBVar7 = bullet;
-    for (iVar5 = 0x44; iVar5 != 0; iVar5 = iVar5 + -1) {
-      (pBVar7->sprites).bulletSprite.rotation.x = (pBVar6->bulletSprite).rotation.x;
-      pBVar6 = (BulletTypeSprites *)&(pBVar6->bulletSprite).rotation.y;
-      pBVar7 = (Bullet *)&(pBVar7->sprites).bulletSprite.rotation.y;
+    pBVar5 = this->bullet_type_templates + (short)bulletProps->sprite;
+    pBVar6 = bullet;
+    for (iVar4 = 0x44; iVar4 != 0; iVar4 = iVar4 + -1) {
+      (pBVar6->sprites).bulletSprite.rotation.x = (pBVar5->bulletSprite).rotation.x;
+      pBVar5 = (BulletTypeSprites *)&(pBVar5->bulletSprite).rotation.y;
+      pBVar6 = (Bullet *)&(pBVar6->sprites).bulletSprite.rotation.y;
     }
     from = &this->bullet_type_templates[(short)bulletProps->sprite].spriteSpawnEffectDonut;
     to = &(bullet->sprites).spriteSpawnEffectDonut;
-    for (iVar5 = 0x44; iVar5 != 0; iVar5 = iVar5 + -1) {
+    for (iVar4 = 0x44; iVar4 != 0; iVar4 = iVar4 + -1) {
       (to->rotation).x = (from->rotation).x;
       from = (AnmVm *)&(from->rotation).y;
       to = (AnmVm *)&(to->rotation).y;
@@ -136,15 +134,15 @@ BulletManager::SpawnSingleBullet
         if ((bullet->ex_flags & 8) != 0) {
           from = &this->bullet_type_templates[(short)bulletProps->sprite].spriteSpawnEffectSlow;
           to = &(bullet->sprites).spriteSpawnEffectSlow;
-          for (iVar5 = 0x44; iVar5 != 0; iVar5 = iVar5 + -1) {
+          for (iVar4 = 0x44; iVar4 != 0; iVar4 = iVar4 + -1) {
             (to->rotation).x = (from->rotation).x;
             from = (AnmVm *)&(from->rotation).y;
             to = (AnmVm *)&(to->rotation).y;
           }
-          fVar10 = ((bullet->sprites).bulletSprite.sprite)->heightPx;
-          if (fVar10 < 16.0 == (fVar10 == 16.0)) {
-            fVar10 = ((bullet->sprites).bulletSprite.sprite)->heightPx;
-            if (fVar10 < 32.0 == (fVar10 == 32.0)) {
+          fVar9 = ((bullet->sprites).bulletSprite.sprite)->heightPx;
+          if (fVar9 < 16.0 == (fVar9 == 16.0)) {
+            fVar9 = ((bullet->sprites).bulletSprite.sprite)->heightPx;
+            if (fVar9 < 32.0 == (fVar9 == 32.0)) {
               AnmManager::SetActiveSprite
                         (g_AnmManager,&(bullet->sprites).spriteSpawnEffectSlow,
                          (int)(bullet->sprites).spriteSpawnEffectSlow.activeSpriteIndex +
@@ -159,14 +157,14 @@ BulletManager::SpawnSingleBullet
               AnmManager::SetActiveSprite
                         (g_AnmManager,&(bullet->sprites).spriteSpawnEffectSlow,
                          (int)(bullet->sprites).spriteSpawnEffectSlow.activeSpriteIndex +
-                         UINT_ARRAY_00476480[(short)bulletProps->color]);
+                         g_BulletSpriteOffset32Px[(short)bulletProps->color]);
             }
           }
           else {
             AnmManager::SetActiveSprite
                       (g_AnmManager,&(bullet->sprites).spriteSpawnEffectSlow,
                        (int)(bullet->sprites).spriteSpawnEffectSlow.activeSpriteIndex +
-                       g_LaserColor[(short)bulletProps->color]);
+                       g_BulletSpriteOffset16Px[(short)bulletProps->color]);
           }
           bullet->state = 4;
         }
@@ -174,15 +172,15 @@ BulletManager::SpawnSingleBullet
       else {
         from = &this->bullet_type_templates[(short)bulletProps->sprite].spriteSpawnEffectNormal;
         to = &(bullet->sprites).spriteSpawnEffectNormal;
-        for (iVar5 = 0x44; iVar5 != 0; iVar5 = iVar5 + -1) {
+        for (iVar4 = 0x44; iVar4 != 0; iVar4 = iVar4 + -1) {
           (to->rotation).x = (from->rotation).x;
           from = (AnmVm *)&(from->rotation).y;
           to = (AnmVm *)&(to->rotation).y;
         }
-        fVar10 = ((bullet->sprites).bulletSprite.sprite)->heightPx;
-        if (fVar10 < 16.0 == (fVar10 == 16.0)) {
-          fVar10 = ((bullet->sprites).bulletSprite.sprite)->heightPx;
-          if (fVar10 < 32.0 == (fVar10 == 32.0)) {
+        fVar9 = ((bullet->sprites).bulletSprite.sprite)->heightPx;
+        if (fVar9 < 16.0 == (fVar9 == 16.0)) {
+          fVar9 = ((bullet->sprites).bulletSprite.sprite)->heightPx;
+          if (fVar9 < 32.0 == (fVar9 == 32.0)) {
             AnmManager::SetActiveSprite
                       (g_AnmManager,&(bullet->sprites).spriteSpawnEffectNormal,
                        (int)(bullet->sprites).spriteSpawnEffectNormal.activeSpriteIndex +
@@ -197,14 +195,14 @@ BulletManager::SpawnSingleBullet
             AnmManager::SetActiveSprite
                       (g_AnmManager,&(bullet->sprites).spriteSpawnEffectNormal,
                        (int)(bullet->sprites).spriteSpawnEffectNormal.activeSpriteIndex +
-                       UINT_ARRAY_00476480[(short)bulletProps->color]);
+                       g_BulletSpriteOffset32Px[(short)bulletProps->color]);
           }
         }
         else {
           AnmManager::SetActiveSprite
                     (g_AnmManager,&(bullet->sprites).spriteSpawnEffectNormal,
                      (int)(bullet->sprites).spriteSpawnEffectNormal.activeSpriteIndex +
-                     g_LaserColor[(short)bulletProps->color]);
+                     g_BulletSpriteOffset16Px[(short)bulletProps->color]);
         }
         bullet->state = 3;
       }
@@ -212,15 +210,15 @@ BulletManager::SpawnSingleBullet
     else {
       from = &this->bullet_type_templates[(short)bulletProps->sprite].spriteSpawnEffectFast;
       to = &(bullet->sprites).spriteSpawnEffectFast;
-      for (iVar5 = 0x44; iVar5 != 0; iVar5 = iVar5 + -1) {
+      for (iVar4 = 0x44; iVar4 != 0; iVar4 = iVar4 + -1) {
         (to->rotation).x = (from->rotation).x;
         from = (AnmVm *)&(from->rotation).y;
         to = (AnmVm *)&(to->rotation).y;
       }
-      fVar10 = ((bullet->sprites).bulletSprite.sprite)->heightPx;
-      if (fVar10 < 16.0 == (fVar10 == 16.0)) {
-        fVar10 = ((bullet->sprites).bulletSprite.sprite)->heightPx;
-        if (fVar10 < 32.0 == (fVar10 == 32.0)) {
+      fVar9 = ((bullet->sprites).bulletSprite.sprite)->heightPx;
+      if (fVar9 < 16.0 == (fVar9 == 16.0)) {
+        fVar9 = ((bullet->sprites).bulletSprite.sprite)->heightPx;
+        if (fVar9 < 32.0 == (fVar9 == 32.0)) {
           AnmManager::SetActiveSprite
                     (g_AnmManager,&(bullet->sprites).spriteSpawnEffectFast,
                      (int)(bullet->sprites).spriteSpawnEffectFast.activeSpriteIndex +
@@ -235,14 +233,14 @@ BulletManager::SpawnSingleBullet
           AnmManager::SetActiveSprite
                     (g_AnmManager,&(bullet->sprites).spriteSpawnEffectFast,
                      (int)(bullet->sprites).spriteSpawnEffectFast.activeSpriteIndex +
-                     UINT_ARRAY_00476480[(short)bulletProps->color]);
+                     g_BulletSpriteOffset32Px[(short)bulletProps->color]);
         }
       }
       else {
         AnmManager::SetActiveSprite
                   (g_AnmManager,&(bullet->sprites).spriteSpawnEffectFast,
                    (int)(bullet->sprites).spriteSpawnEffectFast.activeSpriteIndex +
-                   g_LaserColor[(short)bulletProps->color]);
+                   g_BulletSpriteOffset16Px[(short)bulletProps->color]);
       }
       bullet->state = 2;
     }
@@ -250,10 +248,10 @@ BulletManager::SpawnSingleBullet
               (g_AnmManager,(AnmVm *)bullet,
                (int)(bullet->sprites).bulletSprite.activeSpriteIndex +
                (int)(short)bulletProps->color);
-    fVar10 = ((bullet->sprites).bulletSprite.sprite)->heightPx;
-    if (fVar10 < 16.0 == (fVar10 == 16.0)) {
-      fVar10 = ((bullet->sprites).bulletSprite.sprite)->heightPx;
-      if (fVar10 < 32.0 == (fVar10 == 32.0)) {
+    fVar9 = ((bullet->sprites).bulletSprite.sprite)->heightPx;
+    if (fVar9 < 16.0 == (fVar9 == 16.0)) {
+      fVar9 = ((bullet->sprites).bulletSprite.sprite)->heightPx;
+      if (fVar9 < 32.0 == (fVar9 == 32.0)) {
         AnmManager::SetActiveSprite
                   (g_AnmManager,&(bullet->sprites).spriteSpawnEffectDonut,
                    (int)(bullet->sprites).spriteSpawnEffectDonut.activeSpriteIndex +
@@ -268,14 +266,14 @@ BulletManager::SpawnSingleBullet
         AnmManager::SetActiveSprite
                   (g_AnmManager,&(bullet->sprites).spriteSpawnEffectDonut,
                    (int)(bullet->sprites).spriteSpawnEffectDonut.activeSpriteIndex +
-                   UINT_ARRAY_00476480[(short)bulletProps->color]);
+                   g_BulletSpriteOffset32Px[(short)bulletProps->color]);
       }
     }
     else {
       AnmManager::SetActiveSprite
                 (g_AnmManager,&(bullet->sprites).spriteSpawnEffectDonut,
                  (int)(bullet->sprites).spriteSpawnEffectDonut.activeSpriteIndex +
-                 g_LaserColor[(short)bulletProps->color]);
+                 g_BulletSpriteOffset16Px[(short)bulletProps->color]);
     }
     if ((bullet->ex_flags & 0x10) == 0) {
       if ((bullet->ex_flags & 0x20) != 0) {
@@ -286,18 +284,18 @@ BulletManager::SpawnSingleBullet
     }
     else {
       if (bulletProps->ex_floats[1] < -999.0 == (bulletProps->ex_floats[1] == -999.0)) {
-        fVar10 = bulletProps->ex_floats[0];
+        fVar9 = bulletProps->ex_floats[0];
         fVar3 = (float10)fcos((float10)bulletProps->ex_floats[1]);
-        fVar8 = (float10)fsin((float10)bulletProps->ex_floats[1]);
-        (bullet->ex_4_acceleration).x = (float)(fVar3 * (float10)fVar10);
-        (bullet->ex_4_acceleration).y = (float)(fVar8 * (float10)fVar10);
+        fVar7 = (float10)fsin((float10)bulletProps->ex_floats[1]);
+        (bullet->ex_4_acceleration).x = (float)(fVar3 * (float10)fVar9);
+        (bullet->ex_4_acceleration).y = (float)(fVar7 * (float10)fVar9);
       }
       else {
-        fVar10 = bulletProps->ex_floats[0];
+        fVar9 = bulletProps->ex_floats[0];
         fVar3 = (float10)fcos((float10)bulletAngle);
-        fVar8 = (float10)fsin((float10)bulletAngle);
-        (bullet->ex_4_acceleration).x = (float)(fVar3 * (float10)fVar10);
-        (bullet->ex_4_acceleration).y = (float)(fVar8 * (float10)fVar10);
+        fVar7 = (float10)fsin((float10)bulletAngle);
+        (bullet->ex_4_acceleration).x = (float)(fVar3 * (float10)fVar9);
+        (bullet->ex_4_acceleration).y = (float)(fVar7 * (float10)fVar9);
       }
       if (bulletProps->ex_ints[0] < 1) {
         bullet->ex_5_int_0 = 99999;
@@ -310,7 +308,7 @@ BulletManager::SpawnSingleBullet
     if ((bullet->ex_flags & 0x1c0) != 0) {
       bullet->dir_change__rotation_arg = bulletProps->ex_floats[0];
       if (bulletProps->ex_floats[1] < 0.0) {
-        bullet->dir_change__speed_arg = local_8;
+        bullet->dir_change__speed_arg = bulletSpeed;
       }
       else {
         bullet->dir_change__speed_arg = bulletProps->ex_floats[1];
@@ -321,7 +319,7 @@ BulletManager::SpawnSingleBullet
     }
     if ((bullet->ex_flags & 0xc00) != 0) {
       if (bulletProps->ex_floats[0] < 0.0) {
-        bullet->dir_change__speed_arg = local_8;
+        bullet->dir_change__speed_arg = bulletSpeed;
       }
       else {
         bullet->dir_change__speed_arg = bulletProps->ex_floats[0];
@@ -329,11 +327,11 @@ BulletManager::SpawnSingleBullet
       bullet->dir_change__max_times = bulletProps->ex_ints[0];
       bullet->dir_change__num_times = 0;
     }
-    uVar4 = 0;
+    iVar4 = 0;
   }
   else {
-    uVar4 = 1;
+    iVar4 = 1;
   }
-  return uVar4;
+  return iVar4;
 }
 

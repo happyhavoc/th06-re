@@ -19,14 +19,14 @@ void Player::BombReimuBCalc(Player *this)
       if ((this->bombInfo).bombTimer.current == 60) {
         ScreenEffect::RegisterChain(1,0x50,0x14,0,0);
       }
-      this->unk_8b8[0].size1.x = 62.0;
-      this->unk_8b8[0].size1.y = 448.0;
-      this->unk_8b8[1].size1.x = 384.0;
-      this->unk_8b8[1].size1.y = 62.0;
-      this->unk_8b8[2].size1.x = 62.0;
-      this->unk_8b8[2].size1.y = 448.0;
-      this->unk_8b8[3].size1.x = 384.0;
-      this->unk_8b8[3].size1.y = 62.0;
+      this->bomb_projectiles[0].size.x = 62.0;
+      this->bomb_projectiles[0].size.y = 448.0;
+      this->bomb_projectiles[1].size.x = 384.0;
+      this->bomb_projectiles[1].size.y = 62.0;
+      this->bomb_projectiles[2].size.x = 62.0;
+      this->bomb_projectiles[2].size.y = 448.0;
+      this->bomb_projectiles[3].size.x = 384.0;
+      this->bomb_projectiles[3].size.y = 62.0;
       for (i = 0; i < 4; i = i + 1) {
         AnmManager::ExecuteScript(g_AnmManager,(this->bombInfo).vms[0] + i);
         if ((this->bombInfo).bombTimer.current != (this->bombInfo).bombTimer.previous) {
@@ -35,12 +35,12 @@ void Player::BombReimuBCalc(Player *this)
             uVar8 = (uVar8 - 1 | 0xfffffffe) + 1;
           }
           if (uVar8 != 0) {
-            this->unk_8b8[i].position1.x =
+            this->bomb_projectiles[i].pos.x =
                  (this->bombInfo).bomb_region_positions[i].x + (this->bombInfo).vms[0][i].offset.x;
-            this->unk_8b8[i].position1.y =
+            this->bomb_projectiles[i].pos.y =
                  (this->bombInfo).bomb_region_positions[i].y + (this->bombInfo).vms[0][i].offset.y;
-            this->bomb_region_sizes[i].x = this->unk_8b8[i].size1.x;
-            this->bomb_region_sizes[i].y = this->unk_8b8[i].size1.y;
+            this->bomb_region_sizes[i].x = this->bomb_projectiles[i].size.x;
+            this->bomb_region_sizes[i].y = this->bomb_projectiles[i].size.y;
             pDVar1 = &(this->bombInfo).vms[0][i].offset;
             pDVar2 = (this->bombInfo).bomb_region_positions + i;
             fVar4 = pDVar2->z;

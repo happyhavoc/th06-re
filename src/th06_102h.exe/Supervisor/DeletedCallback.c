@@ -17,7 +17,7 @@ ZunResult Supervisor::DeletedCallback(Supervisor *param_1)
     this = param_1->midi_output;
     if (this != (MidiOutput *)0x0) {
       MidiOutput::~MidiOutput(this);
-      _free(this);
+      operator_delete(this);
     }
     param_1->midi_output = (MidiOutput *)0x0;
   }

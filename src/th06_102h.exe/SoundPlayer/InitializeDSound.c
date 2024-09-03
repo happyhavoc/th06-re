@@ -43,7 +43,7 @@ ZunResult __thiscall SoundPlayer::InitializeDSound(SoundPlayer *this,HWND game_w
       pCVar1 = this->csoundmanager_ptr;
       if (pCVar1 != (CSoundManager *)0x0) {
         CSoundManager::~CSoundManager(pCVar1);
-        _free(pCVar1);
+        operator_delete(pCVar1);
       }
       this->csoundmanager_ptr = (CSoundManager *)0x0;
     }

@@ -4,7 +4,7 @@ void * __thiscall CStreamingSound::operator_delete(CStreamingSound *this,uint pa
 {
   ~CStreamingSound(this);
   if ((param_1 & 1) != 0) {
-    _free(this);
+    ::operator_delete(this);
   }
   return this;
 }

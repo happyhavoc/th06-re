@@ -99,7 +99,7 @@ CSoundManager::CreateStreaming
               local_50 = (LPDIRECTSOUNDNOTIFY)0x0;
             }
             if (local_18 != (LPCDSBPOSITIONNOTIFY)0x0) {
-              _free(local_18);
+              operator_delete(local_18);
               local_18 = (LPCDSBPOSITIONNOTIFY)0x0;
             }
             HVar1 = E_FAIL;
@@ -110,7 +110,7 @@ CSoundManager::CreateStreaming
               local_50 = (LPDIRECTSOUNDNOTIFY)0x0;
             }
             if (local_18 != (LPCDSBPOSITIONNOTIFY)0x0) {
-              _free(local_18);
+              operator_delete(local_18);
               local_18 = (LPCDSBPOSITIONNOTIFY)0x0;
             }
             this_01 = (CStreamingSound *)operator_new(0x34);

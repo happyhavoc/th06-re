@@ -48,7 +48,7 @@ LAB_0042444e:
       this_00 = this->pbg3Archives[pbg3FileIdx];
       if (this_00 != (Pbg3Archive *)0x0) {
         Pbg3Archive::~Pbg3Archive(this_00);
-        _free(this_00);
+        operator_delete(this_00);
       }
       this->pbg3Archives[pbg3FileIdx] = (Pbg3Archive *)0x0;
       this->pbg3Archives[pbg3FileIdx] = (Pbg3Archive *)0x0;

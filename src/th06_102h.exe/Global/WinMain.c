@@ -2,14 +2,14 @@
 int WinMain(HINSTANCE hInstance,HINSTANCE hPrevInstance,LPSTR lpCmdLine,int nShowCmd)
 
 {
-  AnmManager *_Memory;
-  RenderResult RVar1;
-  ZunResult ZVar2;
-  BOOL BVar3;
-  uint uVar4;
+  AnmManager *pAVar1;
+  RenderResult RVar2;
+  ZunResult ZVar3;
+  BOOL BVar4;
+  uint uVar5;
   AnmManager *puVar1;
   BOOL gotMessage;
-  HRESULT HVar5;
+  HRESULT HVar6;
   undefined3 extraout_var;
   int retCode;
   AnmManager *vbsPtr;
@@ -21,20 +21,20 @@ int WinMain(HINSTANCE hInstance,HINSTANCE hPrevInstance,LPSTR lpCmdLine,int nSho
   retCode = CheckForRunningGameInstance();
   if (retCode == 0) {
     g_Supervisor.hInstance = hInstance;
-    ZVar2 = Supervisor::LoadConfig(&g_Supervisor,"東方紅魔郷.cfg");
-    if (ZVar2 == ZUN_SUCCESS) {
-      BVar3 = InitD3dInterface();
-      if (BVar3 == 0) {
+    ZVar3 = Supervisor::LoadConfig(&g_Supervisor,"東方紅魔郷.cfg");
+    if (ZVar3 == ZUN_SUCCESS) {
+      BVar4 = InitD3dInterface();
+      if (BVar4 == 0) {
         SystemParametersInfoA(SPI_GETSCREENSAVEACTIVE,0,&g_GameWindow.screen_save_active,0);
         SystemParametersInfoA(SPI_GETLOWPOWERACTIVE,0,&g_GameWindow.low_power_active,0);
         SystemParametersInfoA(SPI_GETPOWEROFFACTIVE,0,&g_GameWindow.power_off_active,0);
         SystemParametersInfoA(SPI_SETSCREENSAVEACTIVE,0,(PVOID)0x0,2);
         SystemParametersInfoA(SPI_SETLOWPOWERACTIVE,0,(PVOID)0x0,2);
-        uVar4 = SystemParametersInfoA(SPI_SETPOWEROFFACTIVE,0,(PVOID)0x0,2);
+        uVar5 = SystemParametersInfoA(SPI_SETPOWEROFFACTIVE,0,(PVOID)0x0,2);
         while( true ) {
           CreateGameWindow((HINSTANCE)hInstance);
           InitD3dRendering();
-          if (uVar4 != 0) break;
+          if (uVar5 != 0) break;
           SoundPlayer::InitializeDSound(&g_SoundPlayer,(HWND)g_GameWindow.window);
           GetJoystickCaps();
           ResetKeyboard();
@@ -46,8 +46,8 @@ int WinMain(HINSTANCE hInstance,HINSTANCE hPrevInstance,LPSTR lpCmdLine,int nSho
             vbsPtr = AnmManager::AnmManager(puVar1);
           }
           g_AnmManager = vbsPtr;
-          ZVar2 = Supervisor::RegisterChain();
-          if (ZVar2 == ZUN_SUCCESS) {
+          ZVar3 = Supervisor::RegisterChain();
+          if (ZVar3 == ZUN_SUCCESS) {
             if (g_Supervisor.cfg.windowed == false) {
               ShowCursor(0);
             }
@@ -61,29 +61,29 @@ int WinMain(HINSTANCE hInstance,HINSTANCE hPrevInstance,LPSTR lpCmdLine,int nSho
                   TranslateMessage(&msg);
                   DispatchMessageA(&msg);
                 }
-                HVar5 = (*(g_Supervisor.d3dDevice)->lpVtbl->TestCooperativeLevel)
+                HVar6 = (*(g_Supervisor.d3dDevice)->lpVtbl->TestCooperativeLevel)
                                   (g_Supervisor.d3dDevice);
-                if (HVar5 == D3D_OK) break;
-                if (HVar5 == D3DERR_DEVICENOTRESET) {
+                if (HVar6 == D3D_OK) break;
+                if (HVar6 == D3DERR_DEVICENOTRESET) {
                   AnmManager::ReleaseSurfaces(g_AnmManager);
-                  HVar5 = (*(g_Supervisor.d3dDevice)->lpVtbl->Reset)
+                  HVar6 = (*(g_Supervisor.d3dDevice)->lpVtbl->Reset)
                                     (g_Supervisor.d3dDevice,&g_Supervisor.presentParameters);
-                  if (HVar5 != 0) goto LAB_0042055a;
+                  if (HVar6 != 0) goto LAB_0042055a;
                   InitD3dDevice();
                   g_Supervisor.unk198 = 3;
                 }
               }
-              RVar1 = GameWindow::Render(&g_GameWindow);
-              renderRet = CONCAT31(extraout_var,RVar1);
+              RVar2 = GameWindow::Render(&g_GameWindow);
+              renderRet = CONCAT31(extraout_var,RVar2);
             } while (renderRet == 0);
           }
 LAB_0042055a:
           Chain::Release(&g_Chain);
           SoundPlayer::Release(&g_SoundPlayer);
-          _Memory = g_AnmManager;
+          pAVar1 = g_AnmManager;
           if (g_AnmManager != (AnmManager *)0x0) {
             AnmManager::~AnmManager(g_AnmManager);
-            _free(_Memory);
+            operator_delete(pAVar1);
           }
           g_AnmManager = (AnmManager *)0x0;
           if (g_Supervisor.d3dDevice != (IDirect3DDevice8 *)0x0) {
@@ -112,9 +112,9 @@ LAB_0042055a:
           GameErrorContextLog(&g_GameErrorContext,
                               "再起動を要するオプションが変更されたので再起動します\n"
                              );
-          uVar4 = (uint)g_Supervisor.cfg.windowed;
-          if (uVar4 == 0) {
-            uVar4 = ShowCursor(1);
+          uVar5 = (uint)g_Supervisor.cfg.windowed;
+          if (uVar5 == 0) {
+            uVar5 = ShowCursor(1);
           }
         }
         GameErrorContext::Flush(&g_GameErrorContext);

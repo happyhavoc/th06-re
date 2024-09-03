@@ -11,7 +11,7 @@ undefined4 ReplayManager::DeletedCallback(ReplayManager *param_1)
     param_1->demo_calc_chain = (ChainElem *)0x0;
   }
   _free(g_ReplayManager->data);
-  _free(g_ReplayManager);
+  operator_delete(g_ReplayManager);
   g_ReplayManager = (ReplayManager *)0x0;
   return 0;
 }

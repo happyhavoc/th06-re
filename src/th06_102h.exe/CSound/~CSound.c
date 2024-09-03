@@ -13,14 +13,14 @@ void __thiscall CSound::~CSound(CSound *this)
     }
   }
   if (this->m_apDSBuffer != (LPDIRECTSOUNDBUFFER *)0x0) {
-    _free(this->m_apDSBuffer);
+    ::operator_delete(this->m_apDSBuffer);
     this->m_apDSBuffer = (LPDIRECTSOUNDBUFFER *)0x0;
   }
   if (this->m_pWaveFile != (CWaveFile *)0x0) {
     this_00 = this->m_pWaveFile;
     if (this_00 != (CWaveFile *)0x0) {
       CWaveFile::~CWaveFile(this_00);
-      _free(this_00);
+      ::operator_delete(this_00);
     }
     this->m_pWaveFile = (CWaveFile *)0x0;
   }

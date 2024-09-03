@@ -51,7 +51,7 @@ void __thiscall Chain::ReleaseSingleChain(Chain *this,ChainElem *root)
     tmp2 = tmp->next;
     if (tmp != (ChainElem *)0x0) {
       ChainElem::~ChainElem(tmp);
-      _free(data_storage);
+      operator_delete(data_storage);
     }
     tmp = tmp2;
   }

@@ -24,7 +24,7 @@ undefined4 __thiscall ResultScreen::DeletedCallback(ResultScreen *this,ResultScr
   param_1->draw_chain = (ChainElem *)0x0;
   if (param_1 != (ResultScreen *)0x0) {
     _free(param_1->scoredat);
-    _free(param_1);
+    operator_delete(param_1);
   }
   return 0;
 }

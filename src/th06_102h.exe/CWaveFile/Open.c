@@ -16,7 +16,7 @@ int __thiscall CWaveFile::Open(CWaveFile *this,LPSTR path,undefined4 unused,DWOR
     }
     else {
       if (this->m_pwfx != (WAVEFORMATEX *)0x0) {
-        _free(this->m_pwfx);
+        operator_delete(this->m_pwfx);
         this->m_pwfx = (WAVEFORMATEX *)0x0;
       }
       mmioInfo_memclear = &mmioInfo;

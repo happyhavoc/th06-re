@@ -64,7 +64,7 @@ undefined4 __thiscall CWaveFile::ReadMMIO(CWaveFile *this)
               uVar5 = mmioRead(this->m_hmmio,(HPSTR)(this->m_pwfx + 1),local_2c & 0xffff);
               if (uVar5 != (local_2c & 0xffff)) {
                 if (this->m_pwfx != (WAVEFORMATEX *)0x0) {
-                  _free(this->m_pwfx);
+                  operator_delete(this->m_pwfx);
                   this->m_pwfx = (WAVEFORMATEX *)0x0;
                 }
                 return 0x80004005;
@@ -76,7 +76,7 @@ undefined4 __thiscall CWaveFile::ReadMMIO(CWaveFile *this)
             }
             else {
               if (this->m_pwfx != (WAVEFORMATEX *)0x0) {
-                _free(this->m_pwfx);
+                operator_delete(this->m_pwfx);
                 this->m_pwfx = (WAVEFORMATEX *)0x0;
               }
               uVar2 = 0x80004005;

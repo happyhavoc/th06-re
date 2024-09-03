@@ -10,7 +10,7 @@ undefined4 Ending::DeletedCallback(Ending *ending)
   _free(ending->endFileData);
   Chain::Cut(&g_Chain,ending->chainElem);
   ending->chainElem = (ChainElem *)0x0;
-  _free(ending);
+  operator_delete(ending);
   g_Supervisor.isInEnding = 0;
   Supervisor::ReleasePbg3(&g_Supervisor,5);
   return 0;

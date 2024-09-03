@@ -12,7 +12,7 @@ ZunResult Gui::DeletedCallback(Gui *param_1)
     AnmManager::ReleaseAnm(g_AnmManager,0xf);
     AnmManager::ReleaseAnm(g_AnmManager,0x10);
     AnmManager::ReleaseAnm(g_AnmManager,0x11);
-    _free(param_1->impl);
+    operator_delete(param_1->impl);
     param_1->impl = (GuiImpl *)0x0;
   }
   return ZUN_SUCCESS;

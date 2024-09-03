@@ -9,7 +9,7 @@ undefined4 __thiscall Pbg3Archive::Release(Pbg3Archive *this)
     this->parser = (Pbg3Parser *)0x0;
   }
   if (this->entries != (Pbg3Entry *)0x0) {
-    _free(this->entries);
+    operator_delete(this->entries);
     this->entries = (Pbg3Entry *)0x0;
   }
   _free((void *)this->unk);

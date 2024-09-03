@@ -2,7 +2,7 @@
 ZunResult MusicRoom::DeletedCallback(MusicRoom *param_1)
 
 {
-  _free(param_1->field11_0x20);
+  operator_delete(param_1->field11_0x20);
   param_1->field11_0x20 = (char *)0x0;
   AnmManager::ReleaseSurface(g_AnmManager,0);
   AnmManager::ReleaseAnm(g_AnmManager,0x29);

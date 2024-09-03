@@ -36,7 +36,7 @@ ZunResult __thiscall SoundPlayer::Release(SoundPlayer *this)
       this_00 = this->csoundmanager_ptr;
       if (this_00 != (CSoundManager *)0x0) {
         CSoundManager::~CSoundManager(this_00);
-        _free(this_00);
+        operator_delete(this_00);
       }
       this->csoundmanager_ptr = (CSoundManager *)0x0;
     }

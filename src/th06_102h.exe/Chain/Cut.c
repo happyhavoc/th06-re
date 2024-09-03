@@ -38,7 +38,7 @@ destroy_elem:
             return;
           }
           ChainElem::~ChainElem(to_remove);
-          _free(to_remove);
+          operator_delete(to_remove);
           return;
         }
         if (to_remove->deletedCallback == (ChainLifecycleCallback *)0x0) {

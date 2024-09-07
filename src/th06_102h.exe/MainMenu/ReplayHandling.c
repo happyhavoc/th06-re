@@ -1,5 +1,5 @@
 
-int __thiscall MainMenu::ReplayHandling(MainMenu *this)
+int __thiscall th06::MainMenu::ReplayHandling(MainMenu *this)
 
 {
   ZunResult ZVar2;

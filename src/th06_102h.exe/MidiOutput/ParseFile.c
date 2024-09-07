@@ -2,7 +2,7 @@
 /* WARNING: Inlined function: FUN_00421d70 */
 /* WARNING: Restarted to delay deadcode elimination for space: stack */
 
-void __thiscall MidiOutput::ParseFile(MidiOutput *this,int fileIdx)
+void __thiscall th06::MidiOutput::ParseFile(MidiOutput *this,int fileIdx)
 
 {
   DWORD_PTR cookie;

@@ -1,5 +1,5 @@
 
-ZunResult __thiscall GuiImpl::RunMsg(GuiImpl *this)
+ZunResult __thiscall th06::GuiImpl::RunMsg(GuiImpl *this)
 
 {
   ZunResult uVar5;
@@ -44,13 +44,14 @@ ZunResult __thiscall GuiImpl::RunMsg(GuiImpl *this)
         local_14 = sVar2 + (short)uVar6 + 0x4a0;
         pAVar1 = (this->msg).portraits + *psVar7;
         pAVar1->anmFileIndex = local_14;
-        AnmManager::SetAndExecuteScript(pAVar4,pAVar1,pAVar4->scripts[uVar6 + sVar2 + 0x4a0]);
+        AnmManager::SetAndExecuteScript
+                  ((AnmManager *)pAVar4,pAVar1,pAVar4->scripts[uVar6 + sVar2 + 0x4a0]);
         break;
       case 2:
         pvVar3 = (this->msg).current_instr;
         psVar7 = (short *)((int)pvVar3 + 4);
         AnmManager::SetActiveSprite
-                  (g_AnmManager,(this->msg).portraits + *psVar7,
+                  ((AnmManager *)g_AnmManager,(this->msg).portraits + *psVar7,
                    (int)*(short *)((int)pvVar3 + 6) + (-(uint)(*psVar7 != 0) & 8) + 0x4a0);
         break;
       case 3:
@@ -67,7 +68,7 @@ ZunResult __thiscall GuiImpl::RunMsg(GuiImpl *this)
         local_20 = sVar2 + 0x702;
         pAVar1 = (this->msg).dialogue_lines + *(short *)((int)pvVar3 + 6);
         pAVar1->anmFileIndex = local_20;
-        AnmManager::SetAndExecuteScript(pAVar4,pAVar1,pAVar4->scripts[sVar2 + 0x702]);
+        AnmManager::SetAndExecuteScript((AnmManager *)pAVar4,pAVar1,pAVar4->scripts[sVar2 + 0x702]);
         (this->msg).dialogue_lines[*(short *)((int)pvVar3 + 6)].fontHeight =
              *(uint8_t *)&(this->msg).font_size;
         (this->msg).dialogue_lines[*(short *)((int)pvVar3 + 6)].fontWidth =
@@ -104,7 +105,8 @@ ZunResult __thiscall GuiImpl::RunMsg(GuiImpl *this)
         break;
       case 7:
         (this->songNameSprite).anmFileIndex = 0x701;
-        AnmManager::SetAndExecuteScript(pAVar4,&this->songNameSprite,pAVar4->scripts[0x701]);
+        AnmManager::SetAndExecuteScript
+                  ((AnmManager *)pAVar4,&this->songNameSprite,pAVar4->scripts[0x701]);
         (this->songNameSprite).fontWidth = '\x10';
         (this->songNameSprite).fontHeight = '\x10';
         AnmManager::DrawStringFormat
@@ -126,7 +128,7 @@ ZunResult __thiscall GuiImpl::RunMsg(GuiImpl *this)
         local_34 = sVar2 + 0x704;
         pAVar1 = (this->msg).intro_lines + *(short *)((int)pvVar3 + 6);
         pAVar1->anmFileIndex = local_34;
-        AnmManager::SetAndExecuteScript(pAVar4,pAVar1,pAVar4->scripts[sVar2 + 0x704]);
+        AnmManager::SetAndExecuteScript((AnmManager *)pAVar4,pAVar1,pAVar4->scripts[sVar2 + 0x704]);
         AnmManager::DrawStringFormat
                   (g_AnmManager,(this->msg).intro_lines + *(short *)((int)pvVar3 + 6),
                    (ZunColor)(this->msg).text_colors_A[*(short *)((int)pvVar3 + 4)],
@@ -140,7 +142,7 @@ ZunResult __thiscall GuiImpl::RunMsg(GuiImpl *this)
         if (g_GameManager.current_stage < 6) {
           (this->stageFinishedScoreSprite).anmFileIndex = 0x619;
           AnmManager::SetAndExecuteScript
-                    (pAVar4,&this->stageFinishedScoreSprite,pAVar4->scripts[0x619]);
+                    ((AnmManager *)pAVar4,&this->stageFinishedScoreSprite,pAVar4->scripts[0x619]);
         }
         else {
           g_GameManager.extra_lives = 0xff;

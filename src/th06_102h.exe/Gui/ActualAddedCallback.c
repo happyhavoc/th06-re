@@ -1,5 +1,5 @@
 
-ZunResult __thiscall Gui::ActualAddedCallback(Gui *this)
+ZunResult __thiscall th06::Gui::ActualAddedCallback(Gui *this)
 
 {
   ZunResult loadAnm;
@@ -15,7 +15,7 @@ ZunResult __thiscall Gui::ActualAddedCallback(Gui *this)
     gui_impl = this->impl;
     (gui_impl->stageFinishedScoreSprite).anmFileIndex = 0x619;
     AnmManager::SetAndExecuteScript
-              (anm_mgr,&gui_impl->stageFinishedScoreSprite,anm_mgr->scripts[0x619]);
+              ((AnmManager *)anm_mgr,&gui_impl->stageFinishedScoreSprite,anm_mgr->scripts[0x619]);
     (this->impl->stageFinishedScoreSprite).pendingInterrupt = 1;
   }
   else {
@@ -170,7 +170,7 @@ ZunResult __thiscall Gui::ActualAddedCallback(Gui *this)
       local_14 = (short)local_8 + 0x600;
       vm = this->impl->vms + local_8;
       vm->anmFileIndex = local_14;
-      AnmManager::SetAndExecuteScript(anm_mgr,vm,anm_mgr->scripts[local_8 + 0x600]);
+      AnmManager::SetAndExecuteScript((AnmManager *)anm_mgr,vm,anm_mgr->scripts[local_8 + 0x600]);
     }
   }
   this->boss_present = 0;
@@ -181,30 +181,32 @@ ZunResult __thiscall Gui::ActualAddedCallback(Gui *this)
   gui_impl = this->impl;
   (gui_impl->playerSpellcardPortrait).anmFileIndex = 0x4a1;
   AnmManager::SetAndExecuteScript
-            (anm_mgr,&gui_impl->playerSpellcardPortrait,anm_mgr->scripts[0x4a1]);
+            ((AnmManager *)anm_mgr,&gui_impl->playerSpellcardPortrait,anm_mgr->scripts[0x4a1]);
   anm_mgr = g_AnmManager;
   gui_impl = this->impl;
   (gui_impl->enemySpellcardPortrait).anmFileIndex = 0x4a3;
-  AnmManager::SetAndExecuteScript(anm_mgr,&gui_impl->enemySpellcardPortrait,anm_mgr->scripts[0x4a3])
-  ;
+  AnmManager::SetAndExecuteScript
+            ((AnmManager *)anm_mgr,&gui_impl->enemySpellcardPortrait,anm_mgr->scripts[0x4a3]);
   anm_mgr = g_AnmManager;
   gui_impl = this->impl;
   (gui_impl->bombSpellcardName).anmFileIndex = 0x706;
-  AnmManager::SetAndExecuteScript(anm_mgr,&gui_impl->bombSpellcardName,anm_mgr->scripts[0x706]);
+  AnmManager::SetAndExecuteScript
+            ((AnmManager *)anm_mgr,&gui_impl->bombSpellcardName,anm_mgr->scripts[0x706]);
   anm_mgr = g_AnmManager;
   gui_impl = this->impl;
   (gui_impl->enemySpellcardName).anmFileIndex = 0x707;
-  AnmManager::SetAndExecuteScript(anm_mgr,&gui_impl->enemySpellcardName,anm_mgr->scripts[0x707]);
+  AnmManager::SetAndExecuteScript
+            ((AnmManager *)anm_mgr,&gui_impl->enemySpellcardName,anm_mgr->scripts[0x707]);
   anm_mgr = g_AnmManager;
   gui_impl = this->impl;
   (gui_impl->bombSpellcardBackground).anmFileIndex = 0x617;
   AnmManager::SetAndExecuteScript
-            (anm_mgr,&gui_impl->bombSpellcardBackground,anm_mgr->scripts[0x617]);
+            ((AnmManager *)anm_mgr,&gui_impl->bombSpellcardBackground,anm_mgr->scripts[0x617]);
   anm_mgr = g_AnmManager;
   gui_impl = this->impl;
   (gui_impl->enemySpellcardBackground).anmFileIndex = 0x618;
   AnmManager::SetAndExecuteScript
-            (anm_mgr,&gui_impl->enemySpellcardBackground,anm_mgr->scripts[0x618]);
+            ((AnmManager *)anm_mgr,&gui_impl->enemySpellcardBackground,anm_mgr->scripts[0x618]);
   (this->impl->playerSpellcardPortrait).currentInstruction = (AnmRawInstr *)0x0;
   (this->impl->bombSpellcardName).currentInstruction = (AnmRawInstr *)0x0;
   (this->impl->enemySpellcardPortrait).currentInstruction = (AnmRawInstr *)0x0;
@@ -222,11 +224,13 @@ ZunResult __thiscall Gui::ActualAddedCallback(Gui *this)
   anm_mgr = g_AnmManager;
   gui_impl = this->impl;
   (gui_impl->stageNameSprite).anmFileIndex = 0x700;
-  AnmManager::SetAndExecuteScript(anm_mgr,&gui_impl->stageNameSprite,anm_mgr->scripts[0x700]);
+  AnmManager::SetAndExecuteScript
+            ((AnmManager *)anm_mgr,&gui_impl->stageNameSprite,anm_mgr->scripts[0x700]);
   anm_mgr = g_AnmManager;
   gui_impl = this->impl;
   (gui_impl->songNameSprite).anmFileIndex = 0x701;
-  AnmManager::SetAndExecuteScript(anm_mgr,&gui_impl->songNameSprite,anm_mgr->scripts[0x701]);
+  AnmManager::SetAndExecuteScript
+            ((AnmManager *)anm_mgr,&gui_impl->songNameSprite,anm_mgr->scripts[0x701]);
   AnmManager::DrawStringFormat2
             (g_AnmManager,&this->impl->stageNameSprite,(ZunColor)0xe0ffff,(ZunColor)0x0,
              (g_Stage.stdData)->stageName);

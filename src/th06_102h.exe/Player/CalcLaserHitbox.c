@@ -1,6 +1,6 @@
 
 i32 __thiscall
-Player::CalcLaserHitbox
+th06::Player::CalcLaserHitbox
           (Player *this,D3DXVECTOR3 *center,D3DXVECTOR3 *size,D3DXVECTOR3 *rotation,float angle,
           int canGraze)
 

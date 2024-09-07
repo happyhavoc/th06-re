@@ -1,6 +1,6 @@
 
 void __thiscall
-AnmManager::TranslateRotation
+th06::AnmManager::TranslateRotation
           (AnmManager *this,Vertex_TEX1_XYZRWH *param_1,float width,float height,float param_4,
           float param_5,float xOffset,float yOffset)
 

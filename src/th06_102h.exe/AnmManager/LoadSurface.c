@@ -1,5 +1,5 @@
 
-ZunResult __thiscall AnmManager::LoadSurface(AnmManager *this,int surface_index,char *path)
+ZunResult __thiscall th06::AnmManager::LoadSurface(AnmManager *this,int surface_index,char *path)
 
 {
   byte *data;
@@ -8,7 +8,7 @@ ZunResult __thiscall AnmManager::LoadSurface(AnmManager *this,int surface_index,
   LPDIRECT3DSURFACE8 surface;
   
   if (this->surfaces[surface_index] != (IDirect3DSurface8 *)0x0) {
-    ReleaseSurface(this,surface_index);
+    ReleaseSurface((AnmManager *)this,surface_index);
   }
   data = FileSystem::OpenPath(path,0);
   if (data == (byte *)0x0) {

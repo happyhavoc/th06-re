@@ -1,5 +1,5 @@
 
-ZunResult __thiscall SoundPlayer::LoadPos(SoundPlayer *this,char *filepath)
+ZunResult __thiscall th06::SoundPlayer::LoadPos(SoundPlayer *this,char *filepath)
 
 {
   CWaveFile *pCVar1;

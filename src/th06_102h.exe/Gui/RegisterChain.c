@@ -1,7 +1,7 @@
 
 /* WARNING: Inlined function: FUN_0045c3e0 */
 
-ZunResult Gui::RegisterChain(void)
+ZunResult th06::Gui::RegisterChain(void)
 
 {
   GuiImpl *this;

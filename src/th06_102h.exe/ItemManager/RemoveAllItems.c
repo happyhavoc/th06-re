@@ -1,5 +1,5 @@
 
-void __thiscall ItemManager::RemoveAllItems(ItemManager *this)
+void __thiscall th06::ItemManager::RemoveAllItems(ItemManager *this)
 
 {
   Item *local_c;

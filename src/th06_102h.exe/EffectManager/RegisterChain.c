@@ -1,5 +1,5 @@
 
-ZunResult EffectManager::RegisterChain(void)
+ZunResult th06::EffectManager::RegisterChain(void)
 
 {
   int iVar1;

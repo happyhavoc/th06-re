@@ -1,6 +1,6 @@
 
 undefined4 __thiscall
-ResultScreen::MoveCursor_2(ResultScreen *this,ResultScreen *param_1,int param_2)
+th06::ResultScreen::MoveCursor_2(ResultScreen *this,ResultScreen *param_1,int param_2)
 
 {
   undefined4 uVar1;

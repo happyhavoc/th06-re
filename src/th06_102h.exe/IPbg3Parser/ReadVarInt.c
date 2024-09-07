@@ -1,5 +1,5 @@
 
-uint __thiscall IPbg3Parser::ReadVarInt(IPbg3Parser *this)
+uint __thiscall th06::IPbg3Parser::ReadVarInt(IPbg3Parser *this)
 
 {
   bool bVar1;

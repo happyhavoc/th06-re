@@ -1,5 +1,5 @@
 
-BOOL __thiscall Gui::MsgWait(Gui *this)
+BOOL __thiscall th06::Gui::MsgWait(Gui *this)
 
 {
   uint uVar1;

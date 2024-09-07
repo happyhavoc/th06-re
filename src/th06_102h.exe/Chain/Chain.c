@@ -1,5 +1,5 @@
 
-void __thiscall Chain::Chain(Chain *this)
+void __thiscall th06::Chain::Chain(Chain *this)
 
 {
   UINT midiOutputDeviceCount;

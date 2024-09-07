@@ -1,10 +1,10 @@
 
-void __thiscall AnmManager::ReleaseVertexBuffer(AnmManager *this)
+void __thiscall th06::AnmManager::ReleaseVertexBuffer(AnmManager *this)
 
 {
-  if (this->vertexBuffer != (IDirect3DVertexBuffer8 *)0x0) {
-    (*this->vertexBuffer->lpVtbl->Release)(this->vertexBuffer);
-    this->vertexBuffer = (IDirect3DVertexBuffer8 *)0x0;
+  if (*(int *)(this + 0x210c4) != 0) {
+    (**(code **)(**(int **)(this + 0x210c4) + 8))(*(undefined4 *)(this + 0x210c4));
+    *(undefined4 *)(this + 0x210c4) = 0;
   }
   return;
 }

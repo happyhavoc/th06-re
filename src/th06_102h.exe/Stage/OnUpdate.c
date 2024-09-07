@@ -1,5 +1,5 @@
 
-ChainCallbackResult Stage::OnUpdate(Stage *arg)
+ChainCallbackResult th06::Stage::OnUpdate(Stage *arg)
 
 {
   float fVar1;
@@ -126,7 +126,7 @@ switchD_00403892_caseD_6:
             Supervisor::TickTimer
                       (&g_Supervisor,&(arg->scriptTime).current,&(arg->scriptTime).subFrame);
           }
-          UpdateObjects(arg);
+          UpdateObjects((Stage *)arg);
           if ((int)arg->spellcardState < 1) {
             return CHAIN_CALLBACK_RESULT_CONTINUE;
           }

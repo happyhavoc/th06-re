@@ -1,5 +1,5 @@
 
-bool __thiscall MidiDevice::OpenDevice(MidiDevice *this,uint uDeviceID)
+bool __thiscall th06::MidiDevice::OpenDevice(MidiDevice *this,uint uDeviceID)
 
 {
   MMRESULT MVar1;

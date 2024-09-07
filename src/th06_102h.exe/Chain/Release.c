@@ -1,5 +1,5 @@
 
-void __thiscall Chain::Release(Chain *this)
+void __thiscall th06::Chain::Release(Chain *this)
 
 {
   ReleaseSingleChain(this,&this->calcChain);

@@ -1,5 +1,5 @@
 
-ZunResult GameManager::RegisterChain(void)
+ZunResult th06::GameManager::RegisterChain(void)
 
 {
   int iVar1;

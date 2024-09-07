@@ -1,5 +1,5 @@
 
-ZunResult ResultScreen::AddedCallback(ResultScreen *param_1)
+ZunResult th06::ResultScreen::AddedCallback(ResultScreen *param_1)
 
 {
   AnmManager *pAVar1;
@@ -43,14 +43,15 @@ ZunResult ResultScreen::AddedCallback(ResultScreen *param_1)
       pAVar1 = g_AnmManager;
       local_3c = (short)difficulty + 0x100;
       local_c->anmFileIndex = local_3c;
-      AnmManager::SetAndExecuteScript(pAVar1,local_c,pAVar1->scripts[difficulty + 0x100]);
+      AnmManager::SetAndExecuteScript
+                ((AnmManager *)pAVar1,local_c,pAVar1->scripts[difficulty + 0x100]);
       local_c = local_c + 1;
     }
     local_c = &param_1->unk_28a0;
     for (difficulty = 0; pAVar1 = g_AnmManager, (int)difficulty < 0x10; difficulty = difficulty + 1)
     {
-      AnmVm::Initialize(local_c);
-      AnmManager::SetActiveSprite(pAVar1,local_c,difficulty + 0x708);
+      AnmVm::Initialize((AnmVm *)local_c);
+      AnmManager::SetActiveSprite((AnmManager *)pAVar1,local_c,difficulty + 0x708);
       (local_c->pos).x = 0.0;
       (local_c->pos).y = 0.0;
       (local_c->pos).z = 0.0;

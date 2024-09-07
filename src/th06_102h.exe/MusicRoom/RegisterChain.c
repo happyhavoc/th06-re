@@ -1,7 +1,7 @@
 
 /* WARNING: Inlined function: FUN_0045c3e0 */
 
-ZunResult MusicRoom::RegisterChain(void)
+ZunResult th06::MusicRoom::RegisterChain(void)
 
 {
   ZunResult ZVar1;

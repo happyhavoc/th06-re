@@ -1,5 +1,5 @@
 
-void __thiscall ChainElem::~ChainElem(ChainElem *this)
+void __thiscall th06::ChainElem::~ChainElem(ChainElem *this)
 
 {
   if (this->deletedCallback != (ChainLifecycleCallback *)0x0) {

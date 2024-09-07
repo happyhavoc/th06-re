@@ -1,5 +1,6 @@
 
-bool __thiscall TextHelper::FUN_0041ea04(TextHelper *this,UINT width,UINT height,D3DFORMAT format)
+bool __thiscall
+th06::TextHelper::FUN_0041ea04(TextHelper *this,UINT width,UINT height,D3DFORMAT format)
 
 {
   char cVar1;

@@ -1,6 +1,6 @@
 
 WAVEFORMATEX *
-SoundPlayer::GetWavFormatData
+th06::SoundPlayer::GetWavFormatData
           (byte *soundData,char *formatString,int *formatSize,uint fileSizeExcludingFormat)
 
 {

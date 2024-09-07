@@ -1,5 +1,5 @@
 
-ZunResult __thiscall SoundPlayer::LoadWav(SoundPlayer *this,LPSTR path)
+ZunResult __thiscall th06::SoundPlayer::LoadWav(SoundPlayer *this,LPSTR path)
 
 {
   ushort uVar1;

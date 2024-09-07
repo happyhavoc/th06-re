@@ -1,5 +1,5 @@
 
-void __thiscall BulletManager::RemoveAllBullets(BulletManager *this,int turnIntoItem)
+void __thiscall th06::BulletManager::RemoveAllBullets(BulletManager *this,int turnIntoItem)
 
 {
   float10 fVar1;

@@ -1,5 +1,5 @@
 
-ZunResult EffectManager::AddedCallback(EffectManager *param_1)
+ZunResult th06::EffectManager::AddedCallback(EffectManager *param_1)
 
 {
   ZunResult ZVar1;

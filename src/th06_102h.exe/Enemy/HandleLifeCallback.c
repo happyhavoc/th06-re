@@ -1,5 +1,5 @@
 
-BOOL __thiscall Enemy::HandleLifeCallback(Enemy *this)
+BOOL __thiscall th06::Enemy::HandleLifeCallback(Enemy *this)
 
 {
   BOOL BVar1;

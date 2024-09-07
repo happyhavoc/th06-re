@@ -1,5 +1,5 @@
 
-ZunResult AsciiManager::RegisterChain(void)
+ZunResult th06::AsciiManager::RegisterChain(void)
 
 {
   int iVar1;

@@ -1,5 +1,5 @@
 
-void __thiscall EnemyManager::Initialize(EnemyManager *this)
+void __thiscall th06::EnemyManager::Initialize(EnemyManager *this)
 
 {
   int iVar1;

@@ -1,5 +1,5 @@
 
-int MainMenu::MoveCursor(MainMenu *menu,int menu_length)
+int th06::MainMenu::MoveCursor(MainMenu *menu,int menu_length)
 
 {
   int result;

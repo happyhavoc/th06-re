@@ -1,5 +1,5 @@
 
-uint __thiscall Pbg3Archive::FindEntry(Pbg3Archive *this,char *path)
+uint __thiscall th06::Pbg3Archive::FindEntry(Pbg3Archive *this,char *path)
 
 {
   byte bVar1;

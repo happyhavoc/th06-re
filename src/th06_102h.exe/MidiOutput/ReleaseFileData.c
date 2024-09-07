@@ -1,5 +1,5 @@
 
-void __thiscall MidiOutput::ReleaseFileData(MidiOutput *this,uint param_1)
+void __thiscall th06::MidiOutput::ReleaseFileData(MidiOutput *this,uint param_1)
 
 {
   _free(this->midiFileData[param_1]);

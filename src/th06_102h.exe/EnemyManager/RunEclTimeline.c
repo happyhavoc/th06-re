@@ -1,5 +1,5 @@
 
-void __thiscall EnemyManager::RunEclTimeline(EnemyManager *this)
+void __thiscall th06::EnemyManager::RunEclTimeline(EnemyManager *this)
 
 {
   EclTimelineInstr *pEVar1;

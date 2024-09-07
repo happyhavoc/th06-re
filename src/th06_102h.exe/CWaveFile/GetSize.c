@@ -1,5 +1,5 @@
 
-DWORD __thiscall CWaveFile::GetSize(CWaveFile *this)
+DWORD __thiscall th06::CWaveFile::GetSize(CWaveFile *this)
 
 {
   return this->m_dwSize;

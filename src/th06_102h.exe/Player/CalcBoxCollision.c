@@ -1,5 +1,6 @@
 
-undefined4 __thiscall Player::CalcBoxCollision(Player *this,D3DXVECTOR3 *center,D3DXVECTOR3 *size)
+undefined4 __thiscall
+th06::Player::CalcBoxCollision(Player *this,D3DXVECTOR3 *center,D3DXVECTOR3 *size)
 
 {
   float fVar1;

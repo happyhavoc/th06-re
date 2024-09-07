@@ -1,5 +1,5 @@
 
-AnmVm * __thiscall BulletTypeVms::BulletTypeVms(BulletTypeVms *this)
+AnmVm * __thiscall th06::BulletTypeVms::BulletTypeVms(BulletTypeVms *this)
 
 {
   AnmVm::AnmVm((AnmVm *)this);

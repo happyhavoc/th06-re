@@ -1,5 +1,5 @@
 
-void Player::BombReimuBCalc(Player *this)
+void th06::Player::BombReimuBCalc(Player *this)
 
 {
   D3DXVECTOR3 *pDVar1;
@@ -65,7 +65,7 @@ void Player::BombReimuBCalc(Player *this)
       (this->invulnerabilityTimer).previous = -999;
       local_c = (this->bombInfo).vms[0];
       for (i = 0; i < 4; i = i + 1) {
-        AnmManager::ExecuteAnmIdx(g_AnmManager,local_c,i + 0x489);
+        AnmManager::ExecuteAnmIdx((AnmManager *)g_AnmManager,local_c,i + 0x489);
         local_c = local_c + 1;
       }
       SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,SOUND_BOMB_REIMARI,0);

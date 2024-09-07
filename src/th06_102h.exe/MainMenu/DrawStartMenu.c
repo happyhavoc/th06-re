@@ -1,5 +1,5 @@
 
-ZunResult __thiscall MainMenu::DrawStartMenu(MainMenu *this)
+ZunResult __thiscall th06::MainMenu::DrawStartMenu(MainMenu *this)
 
 {
   int cursorMove;

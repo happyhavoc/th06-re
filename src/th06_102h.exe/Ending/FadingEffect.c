@@ -1,5 +1,5 @@
 
-void __thiscall Ending::FadingEffect(Ending *this)
+void __thiscall th06::Ending::FadingEffect(Ending *this)
 
 {
   ZunRect ending_rect;
@@ -54,7 +54,7 @@ void __thiscall Ending::FadingEffect(Ending *this)
     }
   }
   if ((this->unk_d3dcolor & 0xff000000) != 0) {
-    DrawSquare(&ending_rect,this->unk_d3dcolor);
+    ScreenEffect::DrawSquare(&ending_rect,this->unk_d3dcolor);
   }
   return;
 }

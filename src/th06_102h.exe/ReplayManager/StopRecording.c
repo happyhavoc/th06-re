@@ -1,5 +1,5 @@
 
-void ReplayManager::StopRecording(void)
+void th06::ReplayManager::StopRecording(void)
 
 {
   ReplayManager *rpy_manager;

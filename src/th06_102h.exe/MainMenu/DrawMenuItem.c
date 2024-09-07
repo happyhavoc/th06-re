@@ -1,5 +1,5 @@
 
-void MainMenu::DrawMenuItem
+void th06::MainMenu::DrawMenuItem
                (AnmVm *vm,int itemNumber,int cursor,D3DCOLOR currentItemColor,
                D3DCOLOR otherItemColor,int vm_amount)
 
@@ -9,7 +9,7 @@ void MainMenu::DrawMenuItem
       (vm->color).color = currentItemColor;
     }
     else {
-      AnmManager::SetActiveSprite(g_AnmManager,vm,vm->baseSpriteIndex + vm_amount);
+      AnmManager::SetActiveSprite((AnmManager *)g_AnmManager,vm,vm->baseSpriteIndex + vm_amount);
       (vm->color).color = currentItemColor & 0xff000000 | 0xffffff;
     }
     (vm->offset).x = -4.0;
@@ -21,7 +21,7 @@ void MainMenu::DrawMenuItem
       (vm->color).color = otherItemColor;
     }
     else {
-      AnmManager::SetActiveSprite(g_AnmManager,vm,(int)vm->baseSpriteIndex);
+      AnmManager::SetActiveSprite((AnmManager *)g_AnmManager,vm,(int)vm->baseSpriteIndex);
       (vm->color).color = otherItemColor & 0xff000000 | 0xffffff;
     }
     (vm->offset).x = 0.0;

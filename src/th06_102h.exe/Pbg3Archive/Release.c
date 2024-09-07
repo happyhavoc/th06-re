@@ -1,5 +1,5 @@
 
-undefined4 __thiscall Pbg3Archive::Release(Pbg3Archive *this)
+undefined4 __thiscall th06::Pbg3Archive::Release(Pbg3Archive *this)
 
 {
   this->fileTableOffset = 0;

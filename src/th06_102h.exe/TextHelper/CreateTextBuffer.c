@@ -1,5 +1,5 @@
 
-void TextHelper::CreateTextBuffer(void)
+void th06::TextHelper::CreateTextBuffer(void)
 
 {
   (*(g_Supervisor.d3dDevice)->lpVtbl->CreateImageSurface)

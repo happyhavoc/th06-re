@@ -1,5 +1,5 @@
 
-void __thiscall CWaveFile::~CWaveFile(CWaveFile *this)
+void __thiscall th06::CWaveFile::~CWaveFile(CWaveFile *this)
 
 {
   Close(this);

@@ -1,5 +1,5 @@
 
-ChainCallbackResult EnemyManager::OnDraw(EnemyManager *param_1)
+ChainCallbackResult th06::EnemyManager::OnDraw(EnemyManager *param_1)
 
 {
   float fVar1;
@@ -29,7 +29,7 @@ ChainCallbackResult EnemyManager::OnDraw(EnemyManager *param_1)
           pEVar3->vms[0].pos.y = enemyY + fVar2;
           pEVar3->vms[0].pos.z = enemyZ + fVar1;
           pEVar3->vms[0].pos.z = 0.495;
-          AnmManager::Draw2(g_AnmManager,(AnmVm *)local_c);
+          AnmManager::Draw2((AnmManager *)g_AnmManager,(AnmVm *)local_c);
         }
         pEVar3 = local_c;
       }
@@ -44,7 +44,7 @@ ChainCallbackResult EnemyManager::OnDraw(EnemyManager *param_1)
       (enemy->primary_vm).pos.y = enemyY + fVar2;
       (enemy->primary_vm).pos.z = enemyZ + fVar1;
       (enemy->primary_vm).pos.z = 0.494;
-      AnmManager::Draw2(g_AnmManager,&enemy->primary_vm);
+      AnmManager::Draw2((AnmManager *)g_AnmManager,&enemy->primary_vm);
       for (local_10 = 4; local_10 < 8; local_10 = local_10 + 1) {
         if (-1 < (local_c->primary_vm).anmFileIndex) {
           if ((local_c->primary_vm).autoRotate != 0) {
@@ -58,7 +58,7 @@ ChainCallbackResult EnemyManager::OnDraw(EnemyManager *param_1)
           (local_c->primary_vm).pos.y = enemyY + fVar2;
           (local_c->primary_vm).pos.z = enemyZ + fVar1;
           (local_c->primary_vm).pos.z = 0.495;
-          AnmManager::Draw2(g_AnmManager,&local_c->primary_vm);
+          AnmManager::Draw2((AnmManager *)g_AnmManager,&local_c->primary_vm);
         }
         local_c = (Enemy *)local_c->vms;
       }

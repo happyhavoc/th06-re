@@ -1,5 +1,5 @@
 
-int __thiscall Pbg3Parser::ReadBit(Pbg3Parser *this)
+int __thiscall th06::Pbg3Parser::ReadBit(Pbg3Parser *this)
 
 {
   byte bVar1;

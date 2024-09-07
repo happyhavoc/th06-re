@@ -1,7 +1,8 @@
 
 /* WARNING: Function: __chkstk replaced with injection: alloca_probe */
 
-byte * __thiscall Pbg3Archive::ReadDecompressEntry(Pbg3Archive *this,uint entryIdx,char *filename)
+byte * __thiscall
+th06::Pbg3Archive::ReadDecompressEntry(Pbg3Archive *this,uint entryIdx,char *filename)
 
 {
   DWORD_PTR cookie;

@@ -1,5 +1,5 @@
 
-BOOL __thiscall MidiDevice::FUN_00421b90(MidiDevice *this,LPMIDIHDR param_1)
+BOOL __thiscall th06::MidiDevice::FUN_00421b90(MidiDevice *this,LPMIDIHDR param_1)
 
 {
   BOOL uVar1;

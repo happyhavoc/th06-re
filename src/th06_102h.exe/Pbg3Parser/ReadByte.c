@@ -1,5 +1,5 @@
 
-void __thiscall Pbg3Parser::ReadByte(FileAbstractionToPbg3Parser this)
+void __thiscall th06::Pbg3Parser::ReadByte(FileAbstractionToPbg3Parser this)
 
 {
   uint uVar1;

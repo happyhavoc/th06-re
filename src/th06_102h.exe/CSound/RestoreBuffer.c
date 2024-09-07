@@ -1,5 +1,6 @@
 
-int __thiscall CSound::RestoreBuffer(CSound *this,LPDIRECTSOUNDBUFFER pDSB,BOOL *pbWasRestored)
+int __thiscall
+th06::CSound::RestoreBuffer(CSound *this,LPDIRECTSOUNDBUFFER pDSB,BOOL *pbWasRestored)
 
 {
   int iVar1;

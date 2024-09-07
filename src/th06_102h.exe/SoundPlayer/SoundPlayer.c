@@ -1,5 +1,5 @@
 
-undefined4 * __thiscall SoundPlayer::SoundPlayer(SoundPlayer *this)
+undefined4 * __thiscall th06::SoundPlayer::SoundPlayer(SoundPlayer *this)
 
 {
   int iVar1;

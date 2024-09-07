@@ -1,5 +1,5 @@
 
-void __thiscall Gui::ShowSpellcardBonus(Gui *this,int param_1)
+void __thiscall th06::Gui::ShowSpellcardBonus(Gui *this,int param_1)
 
 {
   GuiImpl *pGVar1;

@@ -1,5 +1,5 @@
 
-DWORD SoundPlayer::BackgroundMusicPlayerThread(LPVOID lpThreadParameter)
+DWORD th06::SoundPlayer::BackgroundMusicPlayerThread(LPVOID lpThreadParameter)
 
 {
   DWORD DVar2;

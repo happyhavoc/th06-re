@@ -1,5 +1,5 @@
 
-ChainCallbackResult Supervisor::OnUpdate(Supervisor *supervisor)
+ChainCallbackResult th06::Supervisor::OnUpdate(Supervisor *supervisor)
 
 {
   ZunResult ZVar1;

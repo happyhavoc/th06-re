@@ -1,5 +1,5 @@
 
-uint __thiscall Pbg3Parser::ReadInt(Pbg3Parser *this,char numBitsAsPowerOf2)
+uint __thiscall th06::Pbg3Parser::ReadInt(Pbg3Parser *this,char numBitsAsPowerOf2)
 
 {
   undefined3 extraout_var;

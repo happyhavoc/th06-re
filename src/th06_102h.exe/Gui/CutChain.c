@@ -1,5 +1,5 @@
 
-void Gui::CutChain(void)
+void th06::Gui::CutChain(void)
 
 {
   Chain::Cut(&g_Chain,&g_GuiCalcChain);

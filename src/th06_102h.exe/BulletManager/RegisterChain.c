@@ -1,5 +1,5 @@
 
-ZunResult BulletManager::RegisterChain(char *etama_anm_path)
+ZunResult th06::BulletManager::RegisterChain(char *etama_anm_path)
 
 {
   int iVar1;

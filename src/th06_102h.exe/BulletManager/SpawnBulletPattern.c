@@ -1,6 +1,6 @@
 
 ZunResult __thiscall
-BulletManager::SpawnBulletPattern(BulletManager *this,EnemyBulletShooter *bulletProps)
+th06::BulletManager::SpawnBulletPattern(BulletManager *this,EnemyBulletShooter *bulletProps)
 
 {
   int iVar1;

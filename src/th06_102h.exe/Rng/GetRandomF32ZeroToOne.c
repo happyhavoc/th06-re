@@ -1,5 +1,5 @@
 
-float __thiscall Rng::GetRandomF32ZeroToOne(Rng *this)
+float __thiscall th06::Rng::GetRandomF32ZeroToOne(Rng *this)
 
 {
   uint uVar1;

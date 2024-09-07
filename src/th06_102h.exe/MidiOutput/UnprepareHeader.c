@@ -1,5 +1,5 @@
 
-ZunResult __thiscall MidiOutput::UnprepareHeader(MidiOutput *this,LPMIDIHDR param_1)
+ZunResult __thiscall th06::MidiOutput::UnprepareHeader(MidiOutput *this,LPMIDIHDR param_1)
 
 {
   MMRESULT MVar1;

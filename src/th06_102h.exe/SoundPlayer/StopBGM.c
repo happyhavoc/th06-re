@@ -1,5 +1,5 @@
 
-void __thiscall SoundPlayer::StopBGM(SoundPlayer *this)
+void __thiscall th06::SoundPlayer::StopBGM(SoundPlayer *this)
 
 {
   if (this->backgroundMusic != (CStreamingSound *)0x0) {

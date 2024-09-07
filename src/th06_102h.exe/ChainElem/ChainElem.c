@@ -1,5 +1,5 @@
 
-ChainElem * __thiscall ChainElem::ChainElem(ChainElem *this)
+ChainElem * __thiscall th06::ChainElem::ChainElem(ChainElem *this)
 
 {
   this->prev = (ChainElem *)0x0;

@@ -1,5 +1,5 @@
 
-ZunResult __thiscall Supervisor::PlayAudio(Supervisor *this,char *path)
+ZunResult __thiscall th06::Supervisor::PlayAudio(Supervisor *this,char *path)
 
 {
   char cVar1;

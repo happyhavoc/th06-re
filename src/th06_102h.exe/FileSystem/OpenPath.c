@@ -1,5 +1,5 @@
 
-byte * FileSystem::OpenPath(char *file_path,int inPbg3)
+byte * th06::FileSystem::OpenPath(char *file_path,int inPbg3)
 
 {
   char *slashPos;

@@ -1,5 +1,5 @@
 
-void Enemy::MoveDirTime(Enemy *enemy,EclRawInstr *instr)
+void th06::Enemy::MoveDirTime(Enemy *enemy,EclRawInstr *instr)
 
 {
   float fVar1;

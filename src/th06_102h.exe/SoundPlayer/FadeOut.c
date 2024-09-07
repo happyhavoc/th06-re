@@ -1,5 +1,5 @@
 
-void __thiscall SoundPlayer::FadeOut(SoundPlayer *this,float fadeOutSeconds)
+void __thiscall th06::SoundPlayer::FadeOut(SoundPlayer *this,float fadeOutSeconds)
 
 {
   CStreamingSound *pCVar1;

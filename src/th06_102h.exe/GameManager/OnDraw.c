@@ -1,5 +1,5 @@
 
-ChainCallbackResult GameManager::OnDraw(GameManager *param_1)
+ChainCallbackResult th06::GameManager::OnDraw(GameManager *param_1)
 
 {
   if (param_1->is_in_game_menu != 0) {

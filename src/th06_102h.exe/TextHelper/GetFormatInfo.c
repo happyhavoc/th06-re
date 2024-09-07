@@ -1,5 +1,5 @@
 
-FormatInfo * __thiscall TextHelper::GetFormatInfo(TextHelper *this,D3DFORMAT format)
+FormatInfo * __thiscall th06::TextHelper::GetFormatInfo(TextHelper *this,D3DFORMAT format)
 
 {
   FormatInfo *pFVar1;

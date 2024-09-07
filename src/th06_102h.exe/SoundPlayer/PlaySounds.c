@@ -1,5 +1,5 @@
 
-void __thiscall SoundPlayer::PlaySounds(SoundPlayer *this)
+void __thiscall th06::SoundPlayer::PlaySounds(SoundPlayer *this)
 
 {
   int iVar1;

@@ -1,5 +1,5 @@
 
-BOOL __thiscall MainMenu::WeirdSecondInputCheck(MainMenu *this)
+BOOL __thiscall th06::MainMenu::WeirdSecondInputCheck(MainMenu *this)
 
 {
   BOOL result;

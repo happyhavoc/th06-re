@@ -1,20 +1,22 @@
 
 void __thiscall
-AnmManager::TakeScreenshot(AnmManager *this,int textureId,int left,int top,int width,int height)
+th06::AnmManager::TakeScreenshot
+          (AnmManager *this,int textureId,int left,int top,int width,int height)
 
 {
   HRESULT HVar1;
+  int iVar2;
   LPDIRECT3DSURFACE8 sourceSurface;
   LPDIRECT3DSURFACE8 destSurface;
   RECT rect;
   
-  if ((this->textures[textureId] != (IDirect3DTexture8 *)0x0) &&
+  if ((*(int *)(this + textureId * 4 + 0x1c110) != 0) &&
      (HVar1 = (*(g_Supervisor.d3dDevice)->lpVtbl->GetBackBuffer)
                         (g_Supervisor.d3dDevice,0,D3DBACKBUFFER_TYPE_MONO,&sourceSurface),
      HVar1 == 0)) {
-    HVar1 = (*this->textures[textureId]->lpVtbl->GetSurfaceLevel)
-                      (this->textures[textureId],0,&destSurface);
-    if (HVar1 == 0) {
+    iVar2 = (**(code **)(**(int **)(this + textureId * 4 + 0x1c110) + 0x3c))
+                      (*(undefined4 *)(this + textureId * 4 + 0x1c110),0,&destSurface);
+    if (iVar2 == 0) {
       rect.left = left;
       rect.top = top;
       rect.right = left + width;

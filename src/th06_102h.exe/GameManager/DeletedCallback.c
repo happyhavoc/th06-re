@@ -1,5 +1,5 @@
 
-ZunResult GameManager::DeletedCallback(GameManager *param_1)
+ZunResult th06::GameManager::DeletedCallback(GameManager *param_1)
 
 {
   (*(g_Supervisor.d3dDevice)->lpVtbl->ResourceManagerDiscardBytes)(g_Supervisor.d3dDevice,0);

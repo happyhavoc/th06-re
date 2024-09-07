@@ -1,5 +1,5 @@
 
-void __thiscall ItemManager::OnUpdate(ItemManager *this)
+void __thiscall th06::ItemManager::OnUpdate(ItemManager *this)
 
 {
   int iVar8;

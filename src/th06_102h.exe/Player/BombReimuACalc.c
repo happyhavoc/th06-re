@@ -1,5 +1,5 @@
 
-void Player::BombReimuACalc(Player *param_1)
+void th06::Player::BombReimuACalc(Player *param_1)
 
 {
   D3DXVECTOR3 *pDVar1;
@@ -63,7 +63,7 @@ void Player::BombReimuACalc(Player *param_1)
         param_1->unk_838[iVar4] = 0;
         local_14 = (param_1->bombInfo).vms[iVar4];
         for (local_28 = 0; local_28 < 4; local_28 = local_28 + 1) {
-          AnmManager::ExecuteAnmIdx(g_AnmManager,local_14,local_28 + 0x485);
+          AnmManager::ExecuteAnmIdx((AnmManager *)g_AnmManager,local_14,local_28 + 0x485);
           local_14 = local_14 + 1;
         }
         SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,SOUND_BOMB_REIMU_A,0);

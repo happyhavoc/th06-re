@@ -1,5 +1,5 @@
 
-uint ResultScreen::GetHighScore
+uint th06::ResultScreen::GetHighScore
                (ScoreDat *score_dat,ScoreListNode *param_2,uint character,uint difficulty)
 
 {

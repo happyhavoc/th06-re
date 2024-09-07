@@ -1,7 +1,7 @@
 
 /* WARNING: Unknown calling convention -- yet parameter storage is locked */
 
-void Enemy::ExInsStageXFunc14(Enemy *param_1,AnmRawInstr *param_2)
+void th06::Enemy::ExInsStageXFunc14(Enemy *param_1,AnmRawInstr *param_2)
 
 {
   float fVar1;

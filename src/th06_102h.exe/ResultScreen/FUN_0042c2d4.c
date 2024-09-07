@@ -1,5 +1,5 @@
 
-void __thiscall ResultScreen::FUN_0042c2d4(ResultScreen *this)
+void __thiscall th06::ResultScreen::FUN_0042c2d4(ResultScreen *this)
 
 {
   ZunResult ZVar1;

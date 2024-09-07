@@ -1,5 +1,5 @@
 
-ZunResult MainMenu::DeletedCallback(MainMenu *param_1)
+ZunResult th06::MainMenu::DeletedCallback(MainMenu *param_1)
 
 {
   AnmManager *pAVar1;
@@ -9,9 +9,9 @@ ZunResult MainMenu::DeletedCallback(MainMenu *param_1)
   (*(g_Supervisor.d3dDevice)->lpVtbl->ResourceManagerDiscardBytes)(g_Supervisor.d3dDevice,0);
   ReleaseTitleAnm();
   for (local_8 = 0x1b; local_8 < 0x25; local_8 = local_8 + 1) {
-    AnmManager::ReleaseAnm(g_AnmManager,local_8);
+    AnmManager::ReleaseAnm((AnmManager *)g_AnmManager,local_8);
   }
-  AnmManager::ReleaseSurface(g_AnmManager,0);
+  AnmManager::ReleaseSurface((AnmManager *)g_AnmManager,0);
   pAVar1 = g_AnmManager;
   for (local_c = 0; local_c < 0x7a; local_c = local_c + 1) {
     pAVar1->scripts[local_c + 0x100] = (AnmRawInstr *)0x0;

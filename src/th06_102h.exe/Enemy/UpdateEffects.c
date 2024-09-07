@@ -1,5 +1,5 @@
 
-void Enemy::UpdateEffects(Enemy *enemy)
+void th06::Enemy::UpdateEffects(Enemy *enemy)
 
 {
   float fVar1;

@@ -1,5 +1,5 @@
 
-ZunResult MainMenu::LoadReplayMenu(MainMenu *menu)
+ZunResult th06::MainMenu::LoadReplayMenu(MainMenu *menu)
 
 {
   ZunResult ZResult;
@@ -7,7 +7,7 @@ ZunResult MainMenu::LoadReplayMenu(MainMenu *menu)
   int file_idx;
   
   for (file_idx = 0x15; file_idx < 0x1b; file_idx = file_idx + 1) {
-    AnmManager::ReleaseAnm(g_AnmManager,file_idx);
+    AnmManager::ReleaseAnm((AnmManager *)g_AnmManager,file_idx);
   }
   ZResult = AnmManager::LoadSurface(g_AnmManager,0,"data/title/select00.jpg");
   if (ZResult == ZUN_SUCCESS) {
@@ -15,7 +15,7 @@ ZunResult MainMenu::LoadReplayMenu(MainMenu *menu)
     if (ZResult == ZUN_SUCCESS) {
       local_c = menu->vmList + 0x60;
       for (file_idx = 0x160; file_idx < 0x17a; file_idx = file_idx + 1) {
-        AnmManager::ExecuteAnmIdx(g_AnmManager,local_c,file_idx);
+        AnmManager::ExecuteAnmIdx((AnmManager *)g_AnmManager,local_c,file_idx);
         local_c->flags = local_c->flags & ~AnmVmFlags_1;
         local_c->flags = local_c->flags | AnmVmFlags_3;
         if ((g_Supervisor.cfg.opts & 1) == 0) {

@@ -1,5 +1,5 @@
 
-ZunResult __thiscall SoundPlayer::PlayBGM(SoundPlayer *this,BOOL isLooping)
+ZunResult __thiscall th06::SoundPlayer::PlayBGM(SoundPlayer *this,BOOL isLooping)
 
 {
   ZunResult result;

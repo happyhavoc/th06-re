@@ -1,5 +1,5 @@
 
-RenderResult __thiscall GameWindow::Render(GameWindow *this)
+RenderResult __thiscall th06::GameWindow::Render(GameWindow *this)
 
 {
   bool bVar1;

@@ -1,5 +1,5 @@
 
-EnemyManager * __thiscall EnemyManager::EnemyManager(EnemyManager *this)
+EnemyManager * __thiscall th06::EnemyManager::EnemyManager(EnemyManager *this)
 
 {
   Enemy *local_94;

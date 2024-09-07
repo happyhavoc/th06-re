@@ -1,6 +1,7 @@
 
 int __thiscall
-CSound::FillBufferWithSound(CSound *this,LPDIRECTSOUNDBUFFER pDSB,BOOL bRepeatWavIfBufferLarger)
+th06::CSound::FillBufferWithSound
+          (CSound *this,LPDIRECTSOUNDBUFFER pDSB,BOOL bRepeatWavIfBufferLarger)
 
 {
   char cVar1;

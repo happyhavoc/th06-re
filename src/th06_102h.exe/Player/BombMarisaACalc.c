@@ -1,5 +1,5 @@
 
-void Player::BombMarisaACalc(Player *this)
+void th06::Player::BombMarisaACalc(Player *this)
 
 {
   D3DXVECTOR3 *pDVar1;
@@ -48,7 +48,7 @@ void Player::BombMarisaACalc(Player *this)
       (this->invulnerabilityTimer).previous = -999;
       local_c = (this->bombInfo).vms[0];
       for (i = 0; i < 8; i = i + 1) {
-        AnmManager::ExecuteAnmIdx(g_AnmManager,local_c,i % 3 + 0x405);
+        AnmManager::ExecuteAnmIdx((AnmManager *)g_AnmManager,local_c,i % 3 + 0x405);
         pDVar1 = (this->bombInfo).bomb_region_positions + i;
         pDVar1->x = (this->positionCenter).x;
         pDVar1->y = (this->positionCenter).y;

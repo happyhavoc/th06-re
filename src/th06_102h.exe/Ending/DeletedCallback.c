@@ -1,12 +1,12 @@
 
-undefined4 Ending::DeletedCallback(Ending *ending)
+undefined4 th06::Ending::DeletedCallback(Ending *ending)
 
 {
-  AnmManager::ReleaseAnm(g_AnmManager,44);
-  AnmManager::ReleaseAnm(g_AnmManager,45);
-  AnmManager::ReleaseAnm(g_AnmManager,46);
+  AnmManager::ReleaseAnm((AnmManager *)g_AnmManager,44);
+  AnmManager::ReleaseAnm((AnmManager *)g_AnmManager,45);
+  AnmManager::ReleaseAnm((AnmManager *)g_AnmManager,46);
   g_Supervisor.curState = 7;
-  AnmManager::ReleaseSurface(g_AnmManager,0);
+  AnmManager::ReleaseSurface((AnmManager *)g_AnmManager,0);
   _free(ending->endFileData);
   Chain::Cut(&g_Chain,ending->chainElem);
   ending->chainElem = (ChainElem *)0x0;

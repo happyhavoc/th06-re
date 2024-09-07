@@ -1,5 +1,5 @@
 
-void __thiscall BulletManager::InitializeToZero(BulletManager *this)
+void __thiscall th06::BulletManager::InitializeToZero(BulletManager *this)
 
 {
   int iVar1;

@@ -1,5 +1,5 @@
 
-void __thiscall AsciiManager::DrawStrings(AsciiManager *this)
+void __thiscall th06::AsciiManager::DrawStrings(AsciiManager *this)
 
 {
   float fVar1;

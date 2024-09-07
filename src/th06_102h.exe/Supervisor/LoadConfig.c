@@ -1,5 +1,5 @@
 
-ZunResult __thiscall Supervisor::LoadConfig(Supervisor *this,char *config_file_name)
+ZunResult __thiscall th06::Supervisor::LoadConfig(Supervisor *this,char *config_file_name)
 
 {
   undefined2 uVar1;

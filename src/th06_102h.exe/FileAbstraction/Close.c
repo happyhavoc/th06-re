@@ -1,5 +1,5 @@
 
-void __thiscall FileAbstraction::Close(FileAbstraction *this)
+void __thiscall th06::FileAbstraction::Close(FileAbstraction *this)
 
 {
   if (this->handle != (HANDLE)0xffffffff) {

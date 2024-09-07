@@ -1,5 +1,5 @@
 
-int AsciiManager::AddedCallback(AsciiManager *arg)
+int th06::AsciiManager::AddedCallback(AsciiManager *arg)
 
 {
   ZunResult res;

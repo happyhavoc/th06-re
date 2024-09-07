@@ -1,24 +1,24 @@
 
-ZunResult __thiscall Stage::UpdateObjects(Stage *this)
+ZunResult __thiscall th06::Stage::UpdateObjects(Stage *this)
 
 {
   AnmVm *vm;
-  StdRawQuadBasic *objQuad;
+  short *objQuad;
   int objIdx;
   int local_c;
-  StdRawObject *obj;
+  int obj;
   
-  for (objIdx = 0; objIdx < this->objectsCount; objIdx = objIdx + 1) {
-    obj = this->objects[objIdx];
-    if ((obj->flags & 1) != 0) {
+  for (objIdx = 0; objIdx < *(int *)(this + 0xc); objIdx = objIdx + 1) {
+    obj = *(int *)(*(int *)(this + 0x10) + objIdx * 4);
+    if ((*(byte *)(obj + 3) & 1) != 0) {
       local_c = 0;
-      for (objQuad = &obj->firstQuad; -1 < objQuad->type;
-          objQuad = (StdRawQuadBasic *)((int)&objQuad->type + (int)objQuad->byteSize)) {
-        vm = this->quadVms + objQuad->vmIndex;
-        if (objQuad->type == 0) {
+      for (objQuad = (short *)(obj + 0x1c); -1 < *objQuad;
+          objQuad = (short *)((int)objQuad + (int)objQuad[1])) {
+        vm = (AnmVm *)(objQuad[3] * 0x110 + *(int *)this);
+        if (*objQuad == 0) {
           AnmManager::ExecuteScript(g_AnmManager,vm);
         }
-        else if (objQuad->type == 1) {
+        else if (*objQuad == 1) {
           AnmManager::ExecuteScript(g_AnmManager,vm);
         }
         if (vm->currentInstruction != (AnmRawInstr *)0x0) {
@@ -26,7 +26,7 @@ ZunResult __thiscall Stage::UpdateObjects(Stage *this)
         }
       }
       if (local_c == 0) {
-        obj->flags = obj->flags & 0xfe;
+        *(byte *)(obj + 3) = *(byte *)(obj + 3) & 0xfe;
       }
     }
   }

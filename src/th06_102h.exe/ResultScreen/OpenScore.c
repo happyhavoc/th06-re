@@ -1,5 +1,5 @@
 
-ScoreDat * ResultScreen::OpenScore(char *param_1)
+ScoreDat * th06::ResultScreen::OpenScore(char *param_1)
 
 {
   ScoreDat *pSVar1;

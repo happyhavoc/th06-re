@@ -1,5 +1,5 @@
 
-void __thiscall CSoundManager::~CSoundManager(CSoundManager *this)
+void __thiscall th06::CSoundManager::~CSoundManager(CSoundManager *this)
 
 {
   if (this->m_pDS != (LPDIRECTSOUND8)0x0) {

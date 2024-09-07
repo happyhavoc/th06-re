@@ -1,5 +1,5 @@
 
-ZunResult ScreenEffect::AddedCallback(ScreenEffect *param_1)
+ZunResult th06::ScreenEffect::AddedCallback(ScreenEffect *param_1)
 
 {
   (param_1->timer).current = 0;

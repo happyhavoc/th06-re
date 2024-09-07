@@ -1,5 +1,5 @@
 
-uint __thiscall TextHelper::CopyTextToSurface(TextHelper *this,IDirect3DSurface8 *param_1)
+uint __thiscall th06::TextHelper::CopyTextToSurface(TextHelper *this,IDirect3DSurface8 *param_1)
 
 {
   uint uVar1;

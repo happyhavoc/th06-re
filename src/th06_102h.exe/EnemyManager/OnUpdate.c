@@ -1,5 +1,5 @@
 
-ChainCallbackResult EnemyManager::OnUpdate(EnemyManager *mgr)
+ChainCallbackResult th06::EnemyManager::OnUpdate(EnemyManager *mgr)
 
 {
   float fVar1;

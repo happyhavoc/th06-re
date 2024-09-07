@@ -1,5 +1,5 @@
 
-void Supervisor::DrawFpsCounter(void)
+void th06::Supervisor::DrawFpsCounter(void)
 
 {
   D3DXVECTOR3 local_20;

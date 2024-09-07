@@ -1,7 +1,7 @@
 
 /* WARNING: Unknown calling convention -- yet parameter storage is locked */
 
-undefined4 ReplayManager::OnUpdate(ReplayManager *param_1)
+undefined4 th06::ReplayManager::OnUpdate(ReplayManager *param_1)
 
 {
   ushort uVar1;

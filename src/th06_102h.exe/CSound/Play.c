@@ -1,5 +1,5 @@
 
-int __thiscall CSound::Play(CSound *this,DWORD dwPriority,DWORD dwFlags)
+int __thiscall th06::CSound::Play(CSound *this,DWORD dwPriority,DWORD dwFlags)
 
 {
   int iVar1;

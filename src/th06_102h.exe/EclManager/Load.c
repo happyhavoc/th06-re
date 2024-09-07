@@ -1,5 +1,5 @@
 
-ZunResult __thiscall EclManager::Load(EclManager *this,char *path)
+ZunResult __thiscall th06::EclManager::Load(EclManager *this,char *path)
 
 {
   EclRawHeader *pEVar1;

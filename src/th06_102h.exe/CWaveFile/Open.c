@@ -1,5 +1,5 @@
 
-int __thiscall CWaveFile::Open(CWaveFile *this,LPSTR path,undefined4 unused,DWORD flags)
+int __thiscall th06::CWaveFile::Open(CWaveFile *this,LPSTR path,undefined4 unused,DWORD flags)
 
 {
   HMMIO mmio;

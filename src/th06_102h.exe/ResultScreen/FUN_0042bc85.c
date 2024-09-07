@@ -1,5 +1,5 @@
 
-undefined4 __thiscall ResultScreen::FUN_0042bc85(ResultScreen *this)
+undefined4 __thiscall th06::ResultScreen::FUN_0042bc85(ResultScreen *this)
 
 {
   Hscr *out;

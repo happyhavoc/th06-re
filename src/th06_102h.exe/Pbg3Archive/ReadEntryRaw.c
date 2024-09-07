@@ -1,6 +1,6 @@
 
 byte * __thiscall
-Pbg3Archive::ReadEntryRaw(Pbg3Archive *this,int *out_size,int *out_checksum,int entry)
+th06::Pbg3Archive::ReadEntryRaw(Pbg3Archive *this,int *out_size,int *out_checksum,int entry)
 
 {
   int iVar1;

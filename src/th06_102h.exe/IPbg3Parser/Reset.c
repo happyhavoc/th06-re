@@ -1,5 +1,5 @@
 
-void __thiscall IPbg3Parser::Reset(IPbg3Parser *this)
+void __thiscall th06::IPbg3Parser::Reset(IPbg3Parser *this)
 
 {
   this->bitIdxInCurByte = 0x80;

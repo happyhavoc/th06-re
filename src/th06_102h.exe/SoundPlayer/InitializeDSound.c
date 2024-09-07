@@ -1,5 +1,5 @@
 
-ZunResult __thiscall SoundPlayer::InitializeDSound(SoundPlayer *this,HWND game_window)
+ZunResult __thiscall th06::SoundPlayer::InitializeDSound(SoundPlayer *this,HWND game_window)
 
 {
   DWORD_PTR cookie;

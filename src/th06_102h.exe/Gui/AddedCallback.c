@@ -1,5 +1,5 @@
 
-ZunResult Gui::AddedCallback(Gui *param_1)
+ZunResult th06::Gui::AddedCallback(Gui *param_1)
 
 {
   ZunResult ZVar1;

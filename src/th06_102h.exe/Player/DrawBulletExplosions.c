@@ -1,5 +1,5 @@
 
-void Player::DrawBulletExplosions(Player *param_1)
+void th06::Player::DrawBulletExplosions(Player *param_1)
 
 {
   float fVar1;
@@ -15,7 +15,7 @@ void Player::DrawBulletExplosions(Player *param_1)
       }
                     /* the only difference between functions */
       (bullets->vm).pos.z = 0.4;
-      AnmManager::Draw2(g_AnmManager,&bullets->vm);
+      AnmManager::Draw2((AnmManager *)g_AnmManager,&bullets->vm);
     }
     bullets = bullets + 1;
   }

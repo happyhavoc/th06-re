@@ -1,5 +1,5 @@
 
-void __thiscall ZunTimer::Decrement(ZunTimer *this,int value)
+void __thiscall th06::ZunTimer::Decrement(ZunTimer *this,int value)
 
 {
   if (g_Supervisor.framerateMultiplier <= 0.99) {

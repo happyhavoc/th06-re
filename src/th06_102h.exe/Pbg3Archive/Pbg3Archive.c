@@ -1,5 +1,5 @@
 
-void __thiscall Pbg3Archive::Pbg3Archive(Pbg3Archive *this)
+void __thiscall th06::Pbg3Archive::Pbg3Archive(Pbg3Archive *this)
 
 {
   this->fileTableOffset = 0;

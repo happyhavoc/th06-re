@@ -1,5 +1,5 @@
 
-void __thiscall Gui::CalculateStageScore(Gui *this)
+void __thiscall th06::Gui::CalculateStageScore(Gui *this)
 
 {
   int iVar1;
@@ -15,7 +15,8 @@ void __thiscall Gui::CalculateStageScore(Gui *this)
           if (this->impl->bossHealthBarState < 3) {
             fVar2 = this->impl;
             fVar2->vms[0x13].anmFileIndex = 0x614;
-            AnmManager::SetAndExecuteScript(this_00,fVar2->vms + 0x13,this_00->scripts[0x614]);
+            AnmManager::SetAndExecuteScript
+                      ((AnmManager *)this_00,fVar2->vms + 0x13,this_00->scripts[0x614]);
             this->impl->bossHealthBarState = 3;
           }
           if (this->bossUIOpacity == 0) {
@@ -35,7 +36,8 @@ void __thiscall Gui::CalculateStageScore(Gui *this)
       else if (this->impl->bossHealthBarState == 0) {
         fVar2 = this->impl;
         fVar2->vms[0x13].anmFileIndex = 0x613;
-        AnmManager::SetAndExecuteScript(this_00,fVar2->vms + 0x13,this_00->scripts[0x613]);
+        AnmManager::SetAndExecuteScript
+                  ((AnmManager *)this_00,fVar2->vms + 0x13,this_00->scripts[0x613]);
         this->impl->bossHealthBarState = 1;
         this->bossUIOpacity = 0;
       }

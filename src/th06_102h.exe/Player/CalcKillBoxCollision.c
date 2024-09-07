@@ -1,6 +1,6 @@
 
 i32 __thiscall
-Player::CalcKillBoxCollision(Player *this,D3DXVECTOR3 *bulletCenter,D3DXVECTOR3 *bulletSize)
+th06::Player::CalcKillBoxCollision(Player *this,D3DXVECTOR3 *bulletCenter,D3DXVECTOR3 *bulletSize)
 
 {
   float fVar1;

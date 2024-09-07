@@ -1,5 +1,5 @@
 
-void __thiscall Ending::ParseEndFile(Ending *this)
+void __thiscall th06::Ending::ParseEndFile(Ending *this)
 
 {
   float fVar1;
@@ -89,7 +89,7 @@ void __thiscall Ending::ParseEndFile(Ending *this)
           iVar2 = this->possibly_times_file_parsed;
           (&this->AnmVm)[local_8 + iVar2 * 2].anmFileIndex = local_ac;
           AnmManager::SetAndExecuteScript
-                    (pAVar3,&this->AnmVm + local_8 + iVar2 * 2,
+                    ((AnmManager *)pAVar3,&this->AnmVm + local_8 + iVar2 * 2,
                      pAVar3->scripts[i * 2 + local_8 + 0x708]);
           AnmManager::DrawVmTextFmt
                     (g_AnmManager,&this->AnmVm + local_8 + this->possibly_times_file_parsed * 2,
@@ -189,8 +189,10 @@ switchD_0040fa93_caseD_52:
           anmUnk = readEndFileParameter(this);
           anmScriptIdx = readEndFileParameter(this);
           anmSpriteIdx = readEndFileParameter(this);
-          AnmManager::ExecuteAnmIdx(g_AnmManager,&this->AnmVm + anmUnk,anmScriptIdx + 0x600);
-          AnmManager::SetActiveSprite(g_AnmManager,&this->AnmVm + anmUnk,anmSpriteIdx + 0x600);
+          AnmManager::ExecuteAnmIdx
+                    ((AnmManager *)g_AnmManager,&this->AnmVm + anmUnk,anmScriptIdx + 0x600);
+          AnmManager::SetActiveSprite
+                    ((AnmManager *)g_AnmManager,&this->AnmVm + anmUnk,anmSpriteIdx + 0x600);
           break;
         case 'b':
                     /* background(jpg_file) */
@@ -286,7 +288,8 @@ switchD_0040fa32_caseD_0:
     iVar2 = this->possibly_times_file_parsed;
     (&this->AnmVm)[local_8 + iVar2 * 2].anmFileIndex = local_90;
     AnmManager::SetAndExecuteScript
-              (pAVar3,&this->AnmVm + local_8 + iVar2 * 2,pAVar3->scripts[i * 2 + local_8 + 0x708]);
+              ((AnmManager *)pAVar3,&this->AnmVm + local_8 + iVar2 * 2,
+               pAVar3->scripts[i * 2 + local_8 + 0x708]);
     AnmManager::DrawVmTextFmt
               (g_AnmManager,&this->AnmVm + local_8 + this->possibly_times_file_parsed * 2,
                this->textColor,0xc0d0d0,&local_34);

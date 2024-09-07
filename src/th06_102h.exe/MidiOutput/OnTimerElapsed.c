@@ -1,5 +1,5 @@
 
-void __thiscall MidiOutput::OnTimerElapsed(MidiOutput *this)
+void __thiscall th06::MidiOutput::OnTimerElapsed(MidiOutput *this)
 
 {
   bool bVar1;

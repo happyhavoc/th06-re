@@ -1,6 +1,6 @@
 
 undefined4 __thiscall
-CWaveFile::Read(CWaveFile *this,undefined4 *param_1,uint dwSizeToRead,uint *pdwSizeRead)
+th06::CWaveFile::Read(CWaveFile *this,undefined4 *param_1,uint dwSizeToRead,uint *pdwSizeRead)
 
 {
   undefined4 uVar1;

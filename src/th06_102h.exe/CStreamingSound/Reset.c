@@ -1,5 +1,5 @@
 
-HRESULT __thiscall CStreamingSound::Reset(CStreamingSound *this)
+HRESULT __thiscall th06::CStreamingSound::Reset(CStreamingSound *this)
 
 {
   HRESULT HVar1;

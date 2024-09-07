@@ -1,5 +1,5 @@
 
-ZunResult Player::AddedCallback(Player *this)
+ZunResult th06::Player::AddedCallback(Player *this)
 
 {
   ZunTimer *pZVar1;
@@ -20,7 +20,8 @@ ZunResult Player::AddedCallback(Player *this)
     }
     pAVar2 = g_AnmManager;
     (this->playerSprite).anmFileIndex = 0x400;
-    AnmManager::SetAndExecuteScript(pAVar2,&this->playerSprite,pAVar2->scripts[0x400]);
+    AnmManager::SetAndExecuteScript((AnmManager *)pAVar2,&this->playerSprite,pAVar2->scripts[0x400])
+    ;
   }
   else if (g_GameManager.character == 1) {
     if ((g_Supervisor.curState != SUPERVISOR_STATE_GAMEMANAGER_REINIT) &&
@@ -30,7 +31,8 @@ ZunResult Player::AddedCallback(Player *this)
     }
     pAVar2 = g_AnmManager;
     (this->playerSprite).anmFileIndex = 0x400;
-    AnmManager::SetAndExecuteScript(pAVar2,&this->playerSprite,pAVar2->scripts[0x400]);
+    AnmManager::SetAndExecuteScript((AnmManager *)pAVar2,&this->playerSprite,pAVar2->scripts[0x400])
+    ;
   }
   (this->positionCenter).x = g_GameManager.arcade_region_size.x / 2.0;
   (this->positionCenter).y = g_GameManager.arcade_region_size.y - 64.0;
@@ -69,10 +71,10 @@ ZunResult Player::AddedCallback(Player *this)
   this->orbState = ORB_HIDDEN;
   pAVar2 = g_AnmManager;
   this->orbsSprite[0].anmFileIndex = 0x480;
-  AnmManager::SetAndExecuteScript(pAVar2,this->orbsSprite,pAVar2->scripts[0x480]);
+  AnmManager::SetAndExecuteScript((AnmManager *)pAVar2,this->orbsSprite,pAVar2->scripts[0x480]);
   pAVar2 = g_AnmManager;
   this->orbsSprite[1].anmFileIndex = 0x481;
-  AnmManager::SetAndExecuteScript(pAVar2,this->orbsSprite + 1,pAVar2->scripts[0x481]);
+  AnmManager::SetAndExecuteScript((AnmManager *)pAVar2,this->orbsSprite + 1,pAVar2->scripts[0x481]);
   bullets = this->bullets;
   for (bullet_idx = 0; bullet_idx < 0x50; bullet_idx = bullet_idx + 1) {
     bullets->bulletState = 0;

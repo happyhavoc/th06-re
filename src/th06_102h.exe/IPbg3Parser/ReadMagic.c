@@ -1,5 +1,5 @@
 
-int __thiscall IPbg3Parser::ReadMagic(IPbg3Parser *this)
+int __thiscall th06::IPbg3Parser::ReadMagic(IPbg3Parser *this)
 
 {
   int iVar1;

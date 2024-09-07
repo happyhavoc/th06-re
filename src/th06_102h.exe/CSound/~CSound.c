@@ -1,5 +1,5 @@
 
-void __thiscall CSound::~CSound(CSound *this)
+void __thiscall th06::CSound::~CSound(CSound *this)
 
 {
   CWaveFile *this_00;

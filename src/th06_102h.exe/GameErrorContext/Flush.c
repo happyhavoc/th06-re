@@ -1,5 +1,5 @@
 
-void __thiscall GameErrorContext::Flush(GameErrorContext *this)
+void __thiscall th06::GameErrorContext::Flush(GameErrorContext *this)
 
 {
   FILE *_File;

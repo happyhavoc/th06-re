@@ -1,5 +1,5 @@
 
-ZunResult __thiscall Gui::LoadMsg(Gui *gui,char *path)
+ZunResult __thiscall th06::Gui::LoadMsg(Gui *gui,char *path)
 
 {
   MsgRawHeader *msgHeader;

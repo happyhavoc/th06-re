@@ -1,5 +1,5 @@
 
-BOOL __thiscall Pbg3Archive::Load(Pbg3Archive *this,char *path)
+BOOL __thiscall th06::Pbg3Archive::Load(Pbg3Archive *this,char *path)
 
 {
   int iVar1;

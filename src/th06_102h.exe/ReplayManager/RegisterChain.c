@@ -1,5 +1,5 @@
 
-ZunResult ReplayManager::RegisterChain(int is_demo,char *replay_file)
+ZunResult th06::ReplayManager::RegisterChain(int is_demo,char *replay_file)
 
 {
   ChainElem *pCVar1;

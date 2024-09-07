@@ -1,5 +1,5 @@
 
-void __thiscall Pbg3Parser::~Pbg3Parser(Pbg3Parser *this)
+void __thiscall th06::Pbg3Parser::~Pbg3Parser(Pbg3Parser *this)
 
 {
   Pbg3FileAbstraction *this_00;

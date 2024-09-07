@@ -1,6 +1,6 @@
 
 HRESULT __thiscall
-CSoundManager::CreateStreaming
+th06::CSoundManager::CreateStreaming
           (CSoundManager *this,CStreamingSound **ppStreamingSound,LPSTR strWaveFileName,
           DWORD dwCreationFlags,GUID guid3DAlgorithm,DWORD dwNotifyCount,DWORD dwNotifySize,
           HANDLE hEventNotify)

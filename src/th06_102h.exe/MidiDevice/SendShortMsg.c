@@ -1,6 +1,6 @@
 
 bool __thiscall
-MidiDevice::SendShortMsg
+th06::MidiDevice::SendShortMsg
           (MidiDevice *this,undefined firstByte,undefined secondByte,undefined thirdByte)
 
 {

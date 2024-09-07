@@ -1,7 +1,7 @@
 
 /* WARNING: Inlined function: FUN_0045c3e0 */
 
-int __thiscall Supervisor::LoadPbg3(Supervisor *this,int pbg3FileIdx,char *filename)
+int __thiscall th06::Supervisor::LoadPbg3(Supervisor *this,int pbg3FileIdx,char *filename)
 
 {
   byte bVar1;

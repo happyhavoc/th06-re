@@ -1,5 +1,6 @@
 
-int __thiscall CStreamingSound::HandleWaveStreamNotification(CStreamingSound *this,int param_1)
+int __thiscall
+th06::CStreamingSound::HandleWaveStreamNotification(CStreamingSound *this,int param_1)
 
 {
   char cVar1;

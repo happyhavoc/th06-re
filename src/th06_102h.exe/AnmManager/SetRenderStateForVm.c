@@ -1,5 +1,5 @@
 
-void __thiscall AnmManager::SetRenderStateForVm(AnmManager *this,AnmVm *vm)
+void __thiscall th06::AnmManager::SetRenderStateForVm(AnmManager *this,AnmVm *vm)
 
 {
   if ((uint)this->currentBlendMode != (vm->flags >> 2 & 1)) {

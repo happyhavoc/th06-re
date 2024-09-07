@@ -1,5 +1,5 @@
 
-ZunResult __thiscall Supervisor::SetupMidiPlayback(Supervisor *this,char *path)
+ZunResult __thiscall th06::Supervisor::SetupMidiPlayback(Supervisor *this,char *path)
 
 {
   ZunResult isMuted;

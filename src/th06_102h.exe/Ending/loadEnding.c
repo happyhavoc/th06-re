@@ -1,5 +1,5 @@
 
-ZunResult __thiscall Ending::loadEnding(Ending *ending,char *endFilePath)
+ZunResult __thiscall th06::Ending::loadEnding(Ending *ending,char *endFilePath)
 
 {
   byte *pbVar1;

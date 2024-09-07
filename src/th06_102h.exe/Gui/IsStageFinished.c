@@ -1,5 +1,5 @@
 
-BOOL __thiscall Gui::IsStageFinished(Gui *this)
+BOOL __thiscall th06::Gui::IsStageFinished(Gui *this)
 
 {
   BOOL local_c;

@@ -1,5 +1,5 @@
 
-ChainCallbackResult Player::OnDrawHighPrio(Player *this)
+ChainCallbackResult th06::Player::OnDrawHighPrio(Player *this)
 
 {
   D3DXVECTOR3 *pDVar1;
@@ -35,8 +35,8 @@ ChainCallbackResult Player::OnDrawHighPrio(Player *this)
       *pfVar2 = g_GameManager.arcade_region_top_left_pos.y + *pfVar2;
       this->orbsSprite[0].pos.z = 0.491;
       this->orbsSprite[1].pos.z = 0.491;
-      AnmManager::Draw(g_AnmManager,this->orbsSprite);
-      AnmManager::Draw(g_AnmManager,this->orbsSprite + 1);
+      AnmManager::Draw((AnmManager *)g_AnmManager,this->orbsSprite);
+      AnmManager::Draw((AnmManager *)g_AnmManager,this->orbsSprite + 1);
     }
   }
   return CHAIN_CALLBACK_RESULT_CONTINUE;

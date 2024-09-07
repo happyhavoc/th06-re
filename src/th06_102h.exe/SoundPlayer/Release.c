@@ -1,5 +1,5 @@
 
-ZunResult __thiscall SoundPlayer::Release(SoundPlayer *this)
+ZunResult __thiscall th06::SoundPlayer::Release(SoundPlayer *this)
 
 {
   CSoundManager *this_00;

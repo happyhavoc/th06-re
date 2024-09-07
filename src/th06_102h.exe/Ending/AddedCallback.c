@@ -1,7 +1,7 @@
 
 /* WARNING: Unknown calling convention -- yet parameter storage is locked */
 
-ZunResult Ending::AddedCallback(Ending *ending)
+ZunResult th06::Ending::AddedCallback(Ending *ending)
 
 {
   ZunResult load_ending;

@@ -1,5 +1,5 @@
 
-int * Enemy::GetVar(Enemy *enemy,EclVarId *eclGvarId,EclValueType *valueType)
+int * th06::Enemy::GetVar(Enemy *enemy,EclVarId *eclGvarId,EclValueType *valueType)
 
 {
   int *pfVar1;
@@ -66,19 +66,19 @@ int * Enemy::GetVar(Enemy *enemy,EclVarId *eclGvarId,EclValueType *valueType)
     break;
   case ECL_VAR_SELF_Z:
     if (valueType != (EclValueType *)0x0) {
-      *valueType = EVL_VALUE_TYPE_FLOAT;
+      *valueType = ECL_VALUE_TYPE_FLOAT;
     }
     pfVar1 = (int *)&(enemy->position).z;
     break;
   case ECL_VAR_SELF_Y:
     if (valueType != (EclValueType *)0x0) {
-      *valueType = EVL_VALUE_TYPE_FLOAT;
+      *valueType = ECL_VALUE_TYPE_FLOAT;
     }
     pfVar1 = (int *)&(enemy->position).y;
     break;
   case ECL_VAR_SELF_X:
     if (valueType != (EclValueType *)0x0) {
-      *valueType = EVL_VALUE_TYPE_FLOAT;
+      *valueType = ECL_VALUE_TYPE_FLOAT;
     }
     pfVar1 = (int *)&enemy->position;
     break;
@@ -120,25 +120,25 @@ int * Enemy::GetVar(Enemy *enemy,EclVarId *eclGvarId,EclValueType *valueType)
     break;
   case ECL_VAR_F3:
     if (valueType != (EclValueType *)0x0) {
-      *valueType = EVL_VALUE_TYPE_FLOAT;
+      *valueType = ECL_VALUE_TYPE_FLOAT;
     }
     pfVar1 = (int *)&(enemy->current_context).float3;
     break;
   case ECL_VAR_F2:
     if (valueType != (EclValueType *)0x0) {
-      *valueType = EVL_VALUE_TYPE_FLOAT;
+      *valueType = ECL_VALUE_TYPE_FLOAT;
     }
     pfVar1 = (int *)&(enemy->current_context).float2;
     break;
   case ECL_VAR_F1:
     if (valueType != (EclValueType *)0x0) {
-      *valueType = EVL_VALUE_TYPE_FLOAT;
+      *valueType = ECL_VALUE_TYPE_FLOAT;
     }
     pfVar1 = (int *)&(enemy->current_context).float1;
     break;
   case ECL_VAR_F0:
     if (valueType != (EclValueType *)0x0) {
-      *valueType = EVL_VALUE_TYPE_FLOAT;
+      *valueType = ECL_VALUE_TYPE_FLOAT;
     }
     pfVar1 = (int *)&(enemy->current_context).float0;
     break;

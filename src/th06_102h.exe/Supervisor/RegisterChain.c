@@ -1,5 +1,5 @@
 
-ZunResult Supervisor::RegisterChain(void)
+ZunResult th06::Supervisor::RegisterChain(void)
 
 {
   ChainElem *pCVar1;

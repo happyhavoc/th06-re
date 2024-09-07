@@ -1,5 +1,5 @@
 
-undefined4 __thiscall CWaveFile::ResetFile(CWaveFile *this,bool loop)
+undefined4 __thiscall th06::CWaveFile::ResetFile(CWaveFile *this,bool loop)
 
 {
   LONG LVar1;

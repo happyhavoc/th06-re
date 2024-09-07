@@ -1,7 +1,7 @@
 
 /* WARNING: Inlined function: FUN_0045c3e0 */
 
-ZunResult ResultScreen::RegisterChain(BOOL param_1)
+ZunResult th06::ResultScreen::RegisterChain(BOOL param_1)
 
 {
   ResultScreen *this;

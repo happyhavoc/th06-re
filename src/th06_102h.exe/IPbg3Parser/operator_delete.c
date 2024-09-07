@@ -1,5 +1,5 @@
 
-Pbg3Parser * __thiscall IPbg3Parser::operator_delete(IPbg3Parser *this,byte param_1)
+Pbg3Parser * __thiscall th06::IPbg3Parser::operator_delete(IPbg3Parser *this,byte param_1)
 
 {
   this->vtbl = &IPBG3PARSER_VTBL;

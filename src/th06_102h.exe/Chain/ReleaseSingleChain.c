@@ -1,5 +1,5 @@
 
-void __thiscall Chain::ReleaseSingleChain(Chain *this,ChainElem *root)
+void __thiscall th06::Chain::ReleaseSingleChain(Chain *this,ChainElem *root)
 
 {
   ChainElem *data_storage;

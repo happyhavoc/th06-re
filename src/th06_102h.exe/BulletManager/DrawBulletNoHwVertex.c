@@ -1,5 +1,5 @@
 
-void BulletManager::DrawBulletNoHwVertex(Bullet *param_1)
+void th06::BulletManager::DrawBulletNoHwVertex(Bullet *param_1)
 
 {
   AnmVm *anmVm;
@@ -27,7 +27,7 @@ void BulletManager::DrawBulletNoHwVertex(Bullet *param_1)
   if (anmVm->autoRotate != 0) {
     (anmVm->rotation).z = 1.570796 - param_1->angle;
   }
-  AnmManager::Draw(g_AnmManager,anmVm);
+  AnmManager::Draw((AnmManager *)g_AnmManager,anmVm);
   return;
 }
 

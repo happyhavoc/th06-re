@@ -1,5 +1,5 @@
 
-void __thiscall FileAbstraction::~FileAbstraction(FileAbstraction *this)
+void __thiscall th06::FileAbstraction::~FileAbstraction(FileAbstraction *this)
 
 {
   this->vtbl = &FileAbstractionVtable_0046cbe8;

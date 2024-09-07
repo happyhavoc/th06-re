@@ -1,6 +1,6 @@
 
 void __thiscall
-AsciiManager::CreatePopup2(AsciiManager *this,D3DXVECTOR3 *position,int value,D3DCOLOR color)
+th06::AsciiManager::CreatePopup2(AsciiManager *this,D3DXVECTOR3 *position,int value,D3DCOLOR color)
 
 {
   int characterCount;

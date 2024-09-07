@@ -1,5 +1,5 @@
 
-ChainCallbackResult AsciiManager::OnUpdate(AsciiManager *arg)
+ChainCallbackResult th06::AsciiManager::OnUpdate(AsciiManager *arg)
 
 {
   AsciiManagerPopup *curPopup;

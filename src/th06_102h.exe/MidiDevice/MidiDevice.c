@@ -1,5 +1,5 @@
 
-undefined4 * __thiscall MidiDevice::MidiDevice(MidiDevice *this)
+undefined4 * __thiscall th06::MidiDevice::MidiDevice(MidiDevice *this)
 
 {
   this->handle = (HMIDIOUT)0x0;

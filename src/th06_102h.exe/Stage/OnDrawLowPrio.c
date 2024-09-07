@@ -1,5 +1,5 @@
 
-ChainCallbackResult Stage::OnDrawLowPrio(Stage *arg)
+ChainCallbackResult th06::Stage::OnDrawLowPrio(Stage *arg)
 
 {
   AnmManager *this;
@@ -11,15 +11,15 @@ ChainCallbackResult Stage::OnDrawLowPrio(Stage *arg)
   if ((int)arg->spellcardState < 2) {
     BVar1 = Gui::IsStageFinished(&g_Gui);
     if (BVar1 == 0) {
-      RenderObjects(arg,2);
-      RenderObjects(arg,3);
+      RenderObjects((Stage *)arg,2);
+      RenderObjects((Stage *)arg,3);
       if (arg->spellcardState == RUNNING) {
         local_1c.left = 32.0;
         local_1c.top = 16.0;
         local_1c.right = 416.0;
         local_1c.bottom = 464.0;
         local_c = (arg->ticksSinceSpellcardStarted * 0xff) / 0x3c;
-        DrawSquare(&local_1c,local_c << 0x18);
+        ScreenEffect::DrawSquare(&local_1c,local_c << 0x18);
       }
     }
   }
@@ -27,9 +27,10 @@ ChainCallbackResult Stage::OnDrawLowPrio(Stage *arg)
   if (0 < (int)arg->spellcardState) {
     if (arg->ticksSinceSpellcardStarted <= (int)(uint)g_Supervisor.cfg.frameskipConfig) {
       (arg->spellcardBackground).anmFileIndex = 0x2b3;
-      AnmManager::SetAndExecuteScript(this,&arg->spellcardBackground,this->scripts[0x2b3]);
+      AnmManager::SetAndExecuteScript
+                ((AnmManager *)this,&arg->spellcardBackground,this->scripts[0x2b3]);
     }
-    AnmManager::Draw(g_AnmManager,&arg->spellcardBackground);
+    AnmManager::Draw((AnmManager *)g_AnmManager,&arg->spellcardBackground);
   }
   g_Supervisor.viewport.MinZ = 0.0;
   g_Supervisor.viewport.MaxZ = 0.5;

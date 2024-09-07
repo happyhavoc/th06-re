@@ -1,5 +1,5 @@
 
-ChainCallbackResult Supervisor::OnDraw(Supervisor *self)
+ChainCallbackResult th06::Supervisor::OnDraw(Supervisor *self)
 
 {
   g_AnmManager->currentVertexShader = 0xff;

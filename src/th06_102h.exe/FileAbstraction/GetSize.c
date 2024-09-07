@@ -1,5 +1,5 @@
 
-DWORD __thiscall FileAbstraction::GetSize(FileAbstraction *this)
+DWORD __thiscall th06::FileAbstraction::GetSize(FileAbstraction *this)
 
 {
   DWORD DVar1;

@@ -1,5 +1,5 @@
 
-ZunResult __thiscall MainMenu::ChoosePracticeLevel(MainMenu *this)
+ZunResult __thiscall th06::MainMenu::ChoosePracticeLevel(MainMenu *this)
 
 {
   uint stage;

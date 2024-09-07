@@ -1,6 +1,6 @@
 
 int __thiscall
-CSoundManager::Initialize
+th06::CSoundManager::Initialize
           (CSoundManager *this,HWND hWnd,DWORD dwCoopLevel,DWORD dwPrimaryChannels,int dwPrimaryFreq
           ,DWORD dwPrimaryBitRate)
 

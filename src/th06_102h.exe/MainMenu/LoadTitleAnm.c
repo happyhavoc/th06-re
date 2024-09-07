@@ -1,5 +1,5 @@
 
-ZunResult MainMenu::LoadTitleAnm(MainMenu *menu)
+ZunResult th06::MainMenu::LoadTitleAnm(MainMenu *menu)
 
 {
   ZunResult loadAnm;
@@ -9,7 +9,7 @@ ZunResult MainMenu::LoadTitleAnm(MainMenu *menu)
   
   Supervisor::LoadPbg3(&g_Supervisor,3,"紅魔郷TL.dat");
   for (i = 0x1b; i < 0x25; i = i + 1) {
-    AnmManager::ReleaseAnm(g_AnmManager,i);
+    AnmManager::ReleaseAnm((AnmManager *)g_AnmManager,i);
   }
   loadAnm = AnmManager::LoadAnm(g_AnmManager,0x15,"data/title01.anm",0x100);
   if (loadAnm == ZUN_SUCCESS) {
@@ -26,7 +26,7 @@ ZunResult MainMenu::LoadTitleAnm(MainMenu *menu)
                     /* Possibly the first 80 vms are reserved for menu stuff? What about the other
                        42 though? */
               for (i = 0; i < 80; i = i + 1) {
-                AnmManager::ExecuteAnmIdx(g_AnmManager,menu->vmList + i,i + 0x100);
+                AnmManager::ExecuteAnmIdx((AnmManager *)g_AnmManager,menu->vmList + i,i + 0x100);
                 menu->vmList[i].flags = menu->vmList[i].flags & ~AnmVmFlags_1;
                 menu->vmList[i].baseSpriteIndex = menu->vmList[i].activeSpriteIndex;
                 menu->vmList[i].flags = menu->vmList[i].flags | AnmVmFlags_12;

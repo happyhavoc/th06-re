@@ -1,5 +1,5 @@
 
-byte * Controller::GetControllerState(void)
+byte * th06::Controller::GetControllerState(void)
 
 {
   DWORD_PTR cookie;

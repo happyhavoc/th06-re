@@ -1,5 +1,5 @@
 
-ZunResult MusicRoom::AddedCallback(MusicRoom *param_1)
+ZunResult th06::MusicRoom::AddedCallback(MusicRoom *param_1)
 
 {
   ZunResult ZVar4;
@@ -36,7 +36,8 @@ ZunResult MusicRoom::AddedCallback(MusicRoom *param_1)
         pAVar3 = g_AnmManager;
         if (ZVar4 == ZUN_SUCCESS) {
           (param_1->field12_0x24).anmFileIndex = 0x100;
-          AnmManager::SetAndExecuteScript(pAVar3,&param_1->field12_0x24,pAVar3->scripts[0x100]);
+          AnmManager::SetAndExecuteScript
+                    ((AnmManager *)pAVar3,&param_1->field12_0x24,pAVar3->scripts[0x100]);
           param_1->field5_0x8 = 0;
           firstChar = (char *)FileSystem::OpenPath("data/musiccmt.txt",0);
           currChar = firstChar;
@@ -122,8 +123,8 @@ breakWhile:
             for (local_8 = 0; pAVar3 = g_AnmManager, local_8 < param_1->field10_0x1c;
                 local_8 = local_8 + 1) {
               pAVar1 = param_1->field13_0x134 + local_8;
-              AnmVm::Initialize(pAVar1);
-              AnmManager::SetActiveSprite(pAVar3,pAVar1,local_8 + 0x101);
+              AnmVm::Initialize((AnmVm *)pAVar1);
+              AnmManager::SetActiveSprite((AnmManager *)pAVar3,pAVar1,local_8 + 0x101);
               AnmManager::DrawVmTextFmt
                         (g_AnmManager,param_1->field13_0x134 + local_8,0xc0e0ff,0x302080,
                          param_1->field11_0x20 + local_8 * 0x272 + 0x40);
@@ -136,8 +137,8 @@ breakWhile:
             }
             for (local_8 = 0; pAVar3 = g_AnmManager, local_8 < 0x10; local_8 = local_8 + 1) {
               pAVar1 = param_1->field4366_0x2334 + local_8;
-              AnmVm::Initialize(pAVar1);
-              AnmManager::SetActiveSprite(pAVar3,pAVar1,local_8 + 0x708);
+              AnmVm::Initialize((AnmVm *)pAVar1);
+              AnmManager::SetActiveSprite((AnmManager *)pAVar3,pAVar1,local_8 + 0x708);
               puVar7 = (undefined4 *)&local_5c;
               for (iVar6 = 0x10; iVar6 != 0; iVar6 = iVar6 + -1) {
                 *puVar7 = 0;

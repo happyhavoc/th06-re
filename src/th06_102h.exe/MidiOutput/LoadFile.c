@@ -1,5 +1,5 @@
 
-ZunResult __thiscall MidiOutput::LoadFile(MidiOutput *this,char *midiPath)
+ZunResult __thiscall th06::MidiOutput::LoadFile(MidiOutput *this,char *midiPath)
 
 {
   int iVar1;

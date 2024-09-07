@@ -1,5 +1,5 @@
 
-void __thiscall GameManager::GameManager(GameManager *this)
+void __thiscall th06::GameManager::GameManager(GameManager *this)
 
 {
   int iVar1;

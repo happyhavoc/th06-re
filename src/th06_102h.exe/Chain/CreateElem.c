@@ -1,5 +1,5 @@
 
-ChainElem * __thiscall Chain::CreateElem(Chain *this,ChainCallback *callback)
+ChainElem * __thiscall th06::Chain::CreateElem(Chain *this,ChainCallback *callback)
 
 {
   ChainElem *this_00;

@@ -1,5 +1,5 @@
 
-int __thiscall FileAbstraction::Open(FileAbstraction *this,LPCSTR filename,char *mode)
+int __thiscall th06::FileAbstraction::Open(FileAbstraction *this,LPCSTR filename,char *mode)
 
 {
   char cVar1;

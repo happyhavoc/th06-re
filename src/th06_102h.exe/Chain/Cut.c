@@ -1,5 +1,5 @@
 
-void __thiscall Chain::Cut(Chain *this,ChainElem *to_remove)
+void __thiscall th06::Chain::Cut(Chain *this,ChainElem *to_remove)
 
 {
   ChainLifecycleCallback *pCVar1;

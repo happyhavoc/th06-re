@@ -1,5 +1,5 @@
 
-ZunResult __thiscall MainMenu::DrawReplayMenu(MainMenu *this)
+ZunResult __thiscall th06::MainMenu::DrawReplayMenu(MainMenu *this)
 
 {
   int replay_amount;

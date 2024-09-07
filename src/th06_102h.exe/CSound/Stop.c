@@ -1,5 +1,5 @@
 
-uint __thiscall CSound::Stop(CSound *this)
+uint __thiscall th06::CSound::Stop(CSound *this)
 
 {
   uint uVar1;

@@ -1,6 +1,6 @@
 
 ZunResult __thiscall
-AnmManager::LoadAnm(AnmManager *this,int anm_index,char *path,int spriteIdxOffset)
+th06::AnmManager::LoadAnm(AnmManager *this,int anm_index,char *path,int spriteIdxOffset)
 
 {
   AnmRawEntry *data;
@@ -12,7 +12,7 @@ AnmManager::LoadAnm(AnmManager *this,int anm_index,char *path,int spriteIdxOffse
   int spriteIndex;
   AnmRawEntry *anm;
   
-  ReleaseAnm(this,anm_index);
+  ReleaseAnm((AnmManager *)this,anm_index);
   data = (AnmRawEntry *)FileSystem::OpenPath(path,0);
   this->anmFiles[anm_index] = data;
   data = this->anmFiles[anm_index];
@@ -27,10 +27,10 @@ AnmManager::LoadAnm(AnmManager *this,int anm_index,char *path,int spriteIdxOffse
     data->textureIdx = anm_index;
     name = (char *)((int)data->spriteOffsets + data->name_offset + -0x40);
     if (*name == '@') {
-      CreateEmptyTexture(this,data->textureIdx,data->width,data->height,data->format);
+      CreateEmptyTexture((AnmManager *)this,data->textureIdx,data->width,data->height,data->format);
     }
     else {
-      result = LoadTexture(this,data->textureIdx,name,data->format,data->color_key);
+      result = LoadTexture((AnmManager *)this,data->textureIdx,name,data->format,data->color_key);
       if (result != ZUN_SUCCESS) {
         GameErrorContextFatal
                   (&g_GameErrorContext,
@@ -41,7 +41,8 @@ AnmManager::LoadAnm(AnmManager *this,int anm_index,char *path,int spriteIdxOffse
     }
     if (data->mipmap_name_offset != 0) {
       name = (char *)((int)data->spriteOffsets + data->mipmap_name_offset + -0x40);
-      result = LoadTextureAlphaChannel(this,data->textureIdx,name,data->format,data->color_key);
+      result = LoadTextureAlphaChannel
+                         ((AnmManager *)this,data->textureIdx,name,data->format,data->color_key);
       if (result != ZUN_SUCCESS) {
         GameErrorContextFatal
                   (&g_GameErrorContext,
@@ -62,7 +63,7 @@ AnmManager::LoadAnm(AnmManager *this,int anm_index,char *path,int spriteIdxOffse
       loadedSprite.endPixelInclusive.y = (rawSprite->offset).y + (rawSprite->size).y;
       loadedSprite.textureWidth = (float)data->width;
       loadedSprite.textureHeight = (float)data->height;
-      LoadSprite(this,rawSprite->id + spriteIdxOffset,&loadedSprite);
+      LoadSprite((AnmManager *)this,rawSprite->id + spriteIdxOffset,&loadedSprite);
       curSprite = curSprite + 1;
     }
     for (spriteIndex = 0; spriteIndex < data->numScripts; spriteIndex = spriteIndex + 1) {

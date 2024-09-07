@@ -1,5 +1,5 @@
 
-ChainCallbackResult AsciiManager::OnDrawMenus(AsciiManager *arg)
+ChainCallbackResult th06::AsciiManager::OnDrawMenus(AsciiManager *arg)
 
 {
   DrawStrings(arg);

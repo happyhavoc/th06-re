@@ -1,10 +1,10 @@
 
 void __thiscall
-AnmManager::SetAndExecuteScript(AnmManager *this,AnmVm *vm,AnmRawInstr *beginingOfScript)
+th06::AnmManager::SetAndExecuteScript(AnmManager *this,AnmVm *vm,AnmRawInstr *beginingOfScript)
 
 {
   vm->flags = vm->flags & ~(AnmVmFlags_6|AnmVmFlags_7);
-  AnmVm::Initialize(vm);
+  AnmVm::Initialize((AnmVm *)vm);
   vm->beginingOfScript = beginingOfScript;
   vm->currentInstruction = vm->beginingOfScript;
   (vm->currentTimeInScript).current = 0;
@@ -12,7 +12,7 @@ AnmManager::SetAndExecuteScript(AnmManager *this,AnmVm *vm,AnmRawInstr *begining
   (vm->currentTimeInScript).previous = -999;
   vm->flags = vm->flags & ~AnmVmFlags_1;
   if (beginingOfScript != (AnmRawInstr *)0x0) {
-    ExecuteScript(this,vm);
+    ExecuteScript((AnmManager *)this,vm);
   }
   return;
 }

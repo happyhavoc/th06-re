@@ -1,5 +1,5 @@
 
-ZunResult __thiscall AnmManager::DrawNoRotation(AnmManager *this,AnmVm *vm)
+ZunResult __thiscall th06::AnmManager::DrawNoRotation(AnmManager *this,AnmVm *vm)
 
 {
   float fVar1;

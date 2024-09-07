@@ -1,5 +1,5 @@
 
-void __thiscall Gui::DrawGameScene(Gui *this)
+void __thiscall th06::Gui::DrawGameScene(Gui *this)
 
 {
   AnmVm *vm_00;
@@ -124,12 +124,12 @@ void __thiscall Gui::DrawGameScene(Gui *this)
       pGVar1->vms[8].pos.z = 0.49;
       AnmManager::DrawNoRotation(g_AnmManager,pGVar1->vms + 8);
     }
-    AnmManager::Draw(g_AnmManager,this->impl->vms + 5);
-    AnmManager::Draw(g_AnmManager,this->impl->vms);
-    AnmManager::Draw(g_AnmManager,this->impl->vms + 1);
-    AnmManager::Draw(g_AnmManager,this->impl->vms + 3);
-    AnmManager::Draw(g_AnmManager,this->impl->vms + 4);
-    AnmManager::Draw(g_AnmManager,this->impl->vms + 2);
+    AnmManager::Draw((AnmManager *)g_AnmManager,this->impl->vms + 5);
+    AnmManager::Draw((AnmManager *)g_AnmManager,this->impl->vms);
+    AnmManager::Draw((AnmManager *)g_AnmManager,this->impl->vms + 1);
+    AnmManager::Draw((AnmManager *)g_AnmManager,this->impl->vms + 3);
+    AnmManager::Draw((AnmManager *)g_AnmManager,this->impl->vms + 4);
+    AnmManager::Draw((AnmManager *)g_AnmManager,this->impl->vms + 2);
     AnmManager::DrawNoRotation(g_AnmManager,this->impl->vms + 9);
     AnmManager::DrawNoRotation(g_AnmManager,this->impl->vms + 10);
     AnmManager::DrawNoRotation(g_AnmManager,this->impl->vms + 0xb);

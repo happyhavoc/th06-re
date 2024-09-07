@@ -1,5 +1,5 @@
 
-ZunResult Stage::RegisterChain(uint stage)
+ZunResult th06::Stage::RegisterChain(uint stage)
 
 {
   ZunResult ZVar1;

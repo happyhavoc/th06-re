@@ -1,5 +1,5 @@
 
-ZunResult __thiscall SoundPlayer::LoadSound(SoundPlayer *this,int idx,char *path)
+ZunResult __thiscall th06::SoundPlayer::LoadSound(SoundPlayer *this,int idx,char *path)
 
 {
   WORD WVar1;

@@ -1,5 +1,6 @@
 
-ZunResult __thiscall EclManager::CallEclSub(EclManager *this,EnemyEclContext *param_1,short sub_id)
+ZunResult __thiscall
+th06::EclManager::CallEclSub(EclManager *this,EnemyEclContext *param_1,short sub_id)
 
 {
   param_1->current_instr = (EclRawInstr *)this->sub_table[sub_id];

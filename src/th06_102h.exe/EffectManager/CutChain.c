@@ -1,5 +1,5 @@
 
-void EffectManager::CutChain(void)
+void th06::EffectManager::CutChain(void)
 
 {
   Chain::Cut(&g_Chain,&g_EffectManagerCalcChain);

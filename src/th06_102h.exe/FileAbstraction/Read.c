@@ -1,6 +1,6 @@
 
 BOOL __thiscall
-FileAbstraction::Read(FileAbstraction *this,byte *data,DWORD dataLen,LPDWORD numBytesRead)
+th06::FileAbstraction::Read(FileAbstraction *this,byte *data,DWORD dataLen,LPDWORD numBytesRead)
 
 {
   BOOL BVar1;

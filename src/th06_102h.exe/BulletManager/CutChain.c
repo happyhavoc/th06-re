@@ -1,5 +1,5 @@
 
-void BulletManager::CutChain(void)
+void th06::BulletManager::CutChain(void)
 
 {
   Chain::Cut(&g_Chain,&g_BulletManagerCalcChain);

@@ -2,7 +2,7 @@
 /* WARNING: Removing unreachable block (ram,0x004132b0) */
 /* WARNING: Removing unreachable block (ram,0x004132ea) */
 
-ZunResult EnemyManager::AddedCallback(EnemyManager *param_1)
+ZunResult th06::EnemyManager::AddedCallback(EnemyManager *param_1)
 
 {
   ZunResult ZVar1;

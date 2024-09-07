@@ -1,5 +1,5 @@
 
-int __thiscall Supervisor::PlayMidiFile(Supervisor *this,int fileIdx)
+int __thiscall th06::Supervisor::PlayMidiFile(Supervisor *this,int fileIdx)
 
 {
   int result;

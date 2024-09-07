@@ -1,5 +1,5 @@
 
-undefined4 __thiscall ResultScreen::FUN_0042d292(ResultScreen *this)
+undefined4 __thiscall th06::ResultScreen::FUN_0042d292(ResultScreen *this)
 
 {
   if (this->unk_8 == 0xf) {

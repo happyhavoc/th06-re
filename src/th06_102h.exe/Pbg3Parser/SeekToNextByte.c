@@ -1,5 +1,5 @@
 
-undefined4 __thiscall Pbg3Parser::SeekToNextByte(Pbg3Parser *this)
+undefined4 __thiscall th06::Pbg3Parser::SeekToNextByte(Pbg3Parser *this)
 
 {
   byte bVar1;

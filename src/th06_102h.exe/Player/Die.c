@@ -1,5 +1,5 @@
 
-void __thiscall Player::Die(Player *this)
+void __thiscall th06::Player::Die(Player *this)
 
 {
   ZunTimer *pZVar1;

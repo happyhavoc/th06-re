@@ -1,7 +1,7 @@
 
 /* WARNING: Restarted to delay deadcode elimination for space: stack */
 
-ZunResult __thiscall EclManager::RunEcl(EclManager *this,Enemy *enemy)
+ZunResult __thiscall th06::EclManager::RunEcl(EclManager *this,Enemy *enemy)
 
 {
   byte bVar1;
@@ -193,7 +193,7 @@ LAB_004074ce:
               local_268 = sVar7 + 0x100;
               (enemy->primary_vm).anmFileIndex = local_268;
               AnmManager::SetAndExecuteScript
-                        (main_anm_manager,&enemy->primary_vm,
+                        ((AnmManager *)main_anm_manager,&enemy->primary_vm,
                          main_anm_manager->scripts[sVar7 + 0x100]);
             }
             else if (enemy->anm_ex_flags == 1) {
@@ -201,7 +201,7 @@ LAB_004074ce:
               local_270 = sVar7 + 0x100;
               (enemy->primary_vm).anmFileIndex = local_270;
               AnmManager::SetAndExecuteScript
-                        (main_anm_manager,&enemy->primary_vm,
+                        ((AnmManager *)main_anm_manager,&enemy->primary_vm,
                          main_anm_manager->scripts[sVar7 + 0x100]);
             }
             else {
@@ -209,7 +209,7 @@ LAB_004074ce:
               local_278 = sVar7 + 0x100;
               (enemy->primary_vm).anmFileIndex = local_278;
               AnmManager::SetAndExecuteScript
-                        (main_anm_manager,&enemy->primary_vm,
+                        ((AnmManager *)main_anm_manager,&enemy->primary_vm,
                          main_anm_manager->scripts[sVar7 + 0x100]);
             }
           }
@@ -218,16 +218,16 @@ LAB_004074ce:
             local_280 = sVar7 + 0x100;
             (enemy->primary_vm).anmFileIndex = local_280;
             AnmManager::SetAndExecuteScript
-                      (main_anm_manager,&enemy->primary_vm,main_anm_manager->scripts[sVar7 + 0x100])
-            ;
+                      ((AnmManager *)main_anm_manager,&enemy->primary_vm,
+                       main_anm_manager->scripts[sVar7 + 0x100]);
           }
           else if (bVar16 == 2) {
             sVar7 = enemy->anm_ex_right;
             local_288 = sVar7 + 0x100;
             (enemy->primary_vm).anmFileIndex = local_288;
             AnmManager::SetAndExecuteScript
-                      (main_anm_manager,&enemy->primary_vm,main_anm_manager->scripts[sVar7 + 0x100])
-            ;
+                      ((AnmManager *)main_anm_manager,&enemy->primary_vm,
+                       main_anm_manager->scripts[sVar7 + 0x100]);
           }
           enemy->anm_ex_flags = bVar16;
         }
@@ -990,7 +990,8 @@ switchD_00407544_caseD_2:
     local_13c = (short)iVar17 + 0x100;
     (enemy->primary_vm).anmFileIndex = local_13c;
     AnmManager::SetAndExecuteScript
-              (main_anm_manager,&enemy->primary_vm,main_anm_manager->scripts[iVar17 + 0x100]);
+              ((AnmManager *)main_anm_manager,&enemy->primary_vm,
+               main_anm_manager->scripts[iVar17 + 0x100]);
     break;
   case 0x62:
     enemy->anm_ex_defaults = *(short *)&(instruction->args).ecl_var_id;
@@ -1010,7 +1011,8 @@ switchD_00407544_caseD_2:
     iVar17 = (instruction->args).ecl_var_id;
     enemy->vms[iVar17].anmFileIndex = local_144;
     AnmManager::SetAndExecuteScript
-              (main_anm_manager,enemy->vms + iVar17,main_anm_manager->scripts[(int)fVar6 + 0x100]);
+              ((AnmManager *)main_anm_manager,enemy->vms + iVar17,
+               main_anm_manager->scripts[(int)fVar6 + 0x100]);
     break;
   case 100:
     enemy->death_anm1 = *(byte *)&(instruction->args).ecl_var_id;

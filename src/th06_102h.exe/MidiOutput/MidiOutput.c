@@ -1,5 +1,5 @@
 
-undefined4 * __thiscall MidiOutput::MidiOutput(MidiOutput *this)
+undefined4 * __thiscall th06::MidiOutput::MidiOutput(MidiOutput *this)
 
 {
   int local_18;

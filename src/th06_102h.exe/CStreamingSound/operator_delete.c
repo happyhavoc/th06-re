@@ -1,5 +1,5 @@
 
-void * __thiscall CStreamingSound::operator_delete(CStreamingSound *this,uint param_1)
+void * __thiscall th06::CStreamingSound::operator_delete(CStreamingSound *this,uint param_1)
 
 {
   ~CStreamingSound(this);

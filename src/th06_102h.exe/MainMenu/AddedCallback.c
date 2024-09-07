@@ -1,5 +1,5 @@
 
-ZunResult MainMenu::AddedCallback(MainMenu *param_1)
+ZunResult th06::MainMenu::AddedCallback(MainMenu *param_1)
 
 {
   AnmManager *pAVar1;

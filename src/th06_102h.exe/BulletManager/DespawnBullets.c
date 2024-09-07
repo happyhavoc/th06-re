@@ -1,5 +1,5 @@
 
-int __thiscall BulletManager::DespawnBullets(BulletManager *this,int param_1,int awardPoints)
+int __thiscall th06::BulletManager::DespawnBullets(BulletManager *this,int param_1,int awardPoints)
 
 {
   float10 fVar2;

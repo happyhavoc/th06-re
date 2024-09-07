@@ -1,5 +1,5 @@
 
-int __thiscall ZunTimer::nextTick(ZunTimer *this)
+int __thiscall th06::ZunTimer::nextTick(ZunTimer *this)
 
 {
   this->previous = this->current;

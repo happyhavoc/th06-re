@@ -1,5 +1,5 @@
 
-ZunResult Player::UpdateFireBulletsTimer(Player *param_1)
+ZunResult th06::Player::UpdateFireBulletsTimer(Player *param_1)
 
 {
   if (-1 < (param_1->fireBulletTimer).current) {

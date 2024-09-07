@@ -1,6 +1,6 @@
 
 uint __thiscall
-TextHelper::FUN_0041ec72
+th06::TextHelper::FUN_0041ec72
           (TextHelper *this,undefined4 param_1,int param_2,int spriteWidth,int fontHeight)
 
 {

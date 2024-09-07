@@ -1,5 +1,5 @@
 
-void __thiscall AsciiManager::AddString(AsciiManager *this,D3DXVECTOR3 *position,char *text)
+void __thiscall th06::AsciiManager::AddString(AsciiManager *this,D3DXVECTOR3 *position,char *text)
 
 {
   char cVar1;

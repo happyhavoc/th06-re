@@ -1,5 +1,5 @@
 
-ZunResult Player::RegisterChain(byte param_1)
+ZunResult th06::Player::RegisterChain(byte param_1)
 
 {
   ZunResult ZVar1;

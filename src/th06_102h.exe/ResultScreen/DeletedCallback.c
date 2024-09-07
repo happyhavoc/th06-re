@@ -1,5 +1,5 @@
 
-undefined4 __thiscall ResultScreen::DeletedCallback(ResultScreen *this,ResultScreen *param_1)
+undefined4 __thiscall th06::ResultScreen::DeletedCallback(ResultScreen *this,ResultScreen *param_1)
 
 {
   int character;
@@ -15,11 +15,11 @@ undefined4 __thiscall ResultScreen::DeletedCallback(ResultScreen *this,ResultScr
       FreeScore(param_1,difficulty,character);
     }
   }
-  AnmManager::ReleaseAnm(g_AnmManager,0x25);
-  AnmManager::ReleaseAnm(g_AnmManager,0x26);
-  AnmManager::ReleaseAnm(g_AnmManager,0x27);
-  AnmManager::ReleaseAnm(g_AnmManager,0x28);
-  AnmManager::ReleaseSurface(g_AnmManager,0);
+  AnmManager::ReleaseAnm((AnmManager *)g_AnmManager,0x25);
+  AnmManager::ReleaseAnm((AnmManager *)g_AnmManager,0x26);
+  AnmManager::ReleaseAnm((AnmManager *)g_AnmManager,0x27);
+  AnmManager::ReleaseAnm((AnmManager *)g_AnmManager,0x28);
+  AnmManager::ReleaseSurface((AnmManager *)g_AnmManager,0);
   Chain::Cut(&g_Chain,param_1->draw_chain);
   param_1->draw_chain = (ChainElem *)0x0;
   if (param_1 != (ResultScreen *)0x0) {

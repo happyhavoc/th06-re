@@ -1,5 +1,5 @@
 
-ChainCallbackResult BulletManager::OnUpdate(BulletManager *this)
+ChainCallbackResult th06::BulletManager::OnUpdate(BulletManager *this)
 
 {
   byte bVar1;

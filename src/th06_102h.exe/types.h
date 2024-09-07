@@ -1153,7 +1153,7 @@ struct CharacterPowerBulletData {
 
 typedef enum EclValueType {
     ECL_VALUE_TYPE_INT=0,
-    EVL_VALUE_TYPE_FLOAT=1,
+    ECL_VALUE_TYPE_FLOAT=1,
     ECL_VALUE_TYPE_READONLY=2,
     ECL_VALUE_TYPE_UNDEFINED=3
 } EclValueType;
@@ -1478,8 +1478,8 @@ struct AsciiManagerPopup {
 struct StageMenu { /* This is a menu that appears when we are in-game. There are two: the normal menu (when you hit the menu button) and the retry menu (when you die with no lives remaining) */
     int curState;
     int numFrames;
-    struct AnmVm vms0[6];
-    struct AnmVm vm1;
+    struct AnmVm menuSprites[6];
+    struct AnmVm menuBackground;
 };
 
 struct AsciiManager {

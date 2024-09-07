@@ -1,5 +1,5 @@
 
-void __thiscall AnmManager::ReleaseTexture(AnmManager *this,int texture_index)
+void __thiscall th06::AnmManager::ReleaseTexture(AnmManager *this,int texture_index)
 
 {
   if (this->textures[texture_index] != (IDirect3DTexture8 *)0x0) {

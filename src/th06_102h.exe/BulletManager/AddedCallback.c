@@ -1,7 +1,7 @@
 
 /* WARNING: Type propagation algorithm not settling */
 
-ZunResult BulletManager::AddedCallback(BulletManager *arg)
+ZunResult th06::BulletManager::AddedCallback(BulletManager *arg)
 
 {
   AnmVm *pAVar1;
@@ -34,32 +34,32 @@ ZunResult BulletManager::AddedCallback(BulletManager *arg)
     local_c = (short)uVar3;
     arg->bullet_type_templates[local_8].bulletSprite.anmFileIndex = local_c;
     AnmManager::SetAndExecuteScript
-              (anmManager,&arg->bullet_type_templates[local_8].bulletSprite,
+              ((AnmManager *)anmManager,&arg->bullet_type_templates[local_8].bulletSprite,
                anmManager->scripts[uVar3]);
     anmManager = g_AnmManager;
     uVar3 = g_BulletTypeInfos[local_8].bulletSpawnEffectFastAnmFileIdx;
     pAVar1 = &arg->bullet_type_templates[local_8].spriteSpawnEffectFast;
     local_18 = (short)uVar3;
     pAVar1->anmFileIndex = local_18;
-    AnmManager::SetAndExecuteScript(anmManager,pAVar1,anmManager->scripts[uVar3]);
+    AnmManager::SetAndExecuteScript((AnmManager *)anmManager,pAVar1,anmManager->scripts[uVar3]);
     anmManager = g_AnmManager;
     uVar3 = g_BulletTypeInfos[local_8].bulletSpawnEffectNormalAnmFileIdx;
     pAVar1 = &arg->bullet_type_templates[local_8].spriteSpawnEffectNormal;
     local_24 = (short)uVar3;
     pAVar1->anmFileIndex = local_24;
-    AnmManager::SetAndExecuteScript(anmManager,pAVar1,anmManager->scripts[uVar3]);
+    AnmManager::SetAndExecuteScript((AnmManager *)anmManager,pAVar1,anmManager->scripts[uVar3]);
     anmManager = g_AnmManager;
     uVar3 = g_BulletTypeInfos[local_8].bulletSpawnEffectSlowAnmFileIdx;
     pAVar1 = &arg->bullet_type_templates[local_8].spriteSpawnEffectSlow;
     local_30 = (short)uVar3;
     pAVar1->anmFileIndex = local_30;
-    AnmManager::SetAndExecuteScript(anmManager,pAVar1,anmManager->scripts[uVar3]);
+    AnmManager::SetAndExecuteScript((AnmManager *)anmManager,pAVar1,anmManager->scripts[uVar3]);
     anmManager = g_AnmManager;
     uVar3 = g_BulletTypeInfos[local_8].bulletSpawnEffectDonutAnmFileIdx;
     pAVar1 = &arg->bullet_type_templates[local_8].spriteSpawnEffectDonut;
     local_3c = (short)uVar3;
     pAVar1->anmFileIndex = local_3c;
-    AnmManager::SetAndExecuteScript(anmManager,pAVar1,anmManager->scripts[uVar3]);
+    AnmManager::SetAndExecuteScript((AnmManager *)anmManager,pAVar1,anmManager->scripts[uVar3]);
     arg->bullet_type_templates[local_8].bulletSprite.baseSpriteIndex =
          arg->bullet_type_templates[local_8].bulletSprite.activeSpriteIndex;
     lVar5 = __ftol2((arg->bullet_type_templates[local_8].bulletSprite.sprite)->heightPx);

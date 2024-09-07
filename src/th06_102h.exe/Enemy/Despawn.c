@@ -1,5 +1,5 @@
 
-void __thiscall Enemy::Despawn(Enemy *this)
+void __thiscall th06::Enemy::Despawn(Enemy *this)
 
 {
   if (this->flags2 >> 5 == 0) {

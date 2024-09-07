@@ -1,5 +1,5 @@
 
-ZunResult __thiscall MainMenu::BeginStartup(MainMenu *this)
+ZunResult __thiscall th06::MainMenu::BeginStartup(MainMenu *this)
 
 {
   D3DXVECTOR3 *pDVar1;

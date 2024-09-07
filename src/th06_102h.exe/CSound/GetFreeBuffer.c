@@ -1,5 +1,5 @@
 
-LPDIRECTSOUNDBUFFER __thiscall CSound::GetFreeBuffer(CSound *this)
+LPDIRECTSOUNDBUFFER __thiscall th06::CSound::GetFreeBuffer(CSound *this)
 
 {
   LPDIRECTSOUNDBUFFER pIVar1;

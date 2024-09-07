@@ -1,5 +1,5 @@
 
-void __thiscall MusicRoom::drawMusicList(MusicRoom *this)
+void __thiscall th06::MusicRoom::drawMusicList(MusicRoom *this)
 
 {
   char *pcVar2;

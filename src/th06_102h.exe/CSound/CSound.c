@@ -1,7 +1,8 @@
 
 undefined4 * __thiscall
-CSound::CSound(CSound *this,LPDIRECTSOUNDBUFFER *apDSBuffer,DWORD dwDSBufferSize,uint dwNumBuffers,
-              CWaveFile *pWaveFile)
+th06::CSound::CSound
+          (CSound *this,LPDIRECTSOUNDBUFFER *apDSBuffer,DWORD dwDSBufferSize,uint dwNumBuffers,
+          CWaveFile *pWaveFile)
 
 {
   LPDIRECTSOUNDBUFFER *ppIVar1;

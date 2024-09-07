@@ -1,6 +1,7 @@
 
-void Enemy::MathAtan2(Enemy *enemy,EclVarId out_var,float *param_3,float *param_4,float *param_5,
-                     float *param_6)
+void th06::Enemy::MathAtan2
+               (Enemy *enemy,EclVarId out_var,float *param_3,float *param_4,float *param_5,
+               float *param_6)
 
 {
   float *pfVar1;
@@ -12,7 +13,7 @@ void Enemy::MathAtan2(Enemy *enemy,EclVarId out_var,float *param_3,float *param_
   float *local_8;
   
   local_c = (float *)GetVar(enemy,&out_var,&local_18);
-  if (local_18 == EVL_VALUE_TYPE_FLOAT) {
+  if (local_18 == ECL_VALUE_TYPE_FLOAT) {
     local_14 = GetVarFloat(enemy,param_3,(EclValueType *)0x0);
     local_10 = GetVarFloat(enemy,param_4,(EclValueType *)0x0);
     local_8 = GetVarFloat(enemy,param_5,(EclValueType *)0x0);

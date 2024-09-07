@@ -1,5 +1,5 @@
 
-ZunResult __thiscall MidiOutput::StopPlayback(MidiOutput *this)
+ZunResult __thiscall th06::MidiOutput::StopPlayback(MidiOutput *this)
 
 {
   ZunResult ZVar1;

@@ -1,5 +1,5 @@
 
-byte __thiscall FileAbstraction::ReadByte(FileAbstraction *this)
+byte __thiscall th06::FileAbstraction::ReadByte(FileAbstraction *this)
 
 {
   BOOL readRes;

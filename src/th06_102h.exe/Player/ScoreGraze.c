@@ -1,5 +1,5 @@
 
-void __thiscall Player::ScoreGraze(Player *this,D3DXVECTOR3 *param_1)
+void __thiscall th06::Player::ScoreGraze(Player *this,D3DXVECTOR3 *param_1)
 
 {
   D3DXVECTOR3 local_10;

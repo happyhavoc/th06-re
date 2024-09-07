@@ -1,5 +1,5 @@
 
-BOOL __thiscall Player::CheckGraze(Player *this,D3DXVECTOR3 *center,D3DXVECTOR3 *size)
+BOOL __thiscall th06::Player::CheckGraze(Player *this,D3DXVECTOR3 *center,D3DXVECTOR3 *size)
 
 {
   BOOL uVar7;

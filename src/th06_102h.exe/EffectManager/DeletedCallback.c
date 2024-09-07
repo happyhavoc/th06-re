@@ -1,8 +1,8 @@
 
-ZunResult EffectManager::DeletedCallback(EffectManager *p)
+ZunResult th06::EffectManager::DeletedCallback(EffectManager *p)
 
 {
-  AnmManager::ReleaseAnm(g_AnmManager,0xb);
+  AnmManager::ReleaseAnm((AnmManager *)g_AnmManager,0xb);
   return ZUN_SUCCESS;
 }
 

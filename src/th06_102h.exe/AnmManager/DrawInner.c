@@ -1,5 +1,5 @@
 
-int __thiscall AnmManager::DrawInner(AnmManager *this,AnmVm *vm,int param_3)
+int __thiscall th06::AnmManager::DrawInner(AnmManager *this,AnmVm *vm,int param_3)
 
 {
   if (param_3 != 0) {

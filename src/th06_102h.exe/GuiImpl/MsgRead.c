@@ -1,5 +1,5 @@
 
-void __thiscall GuiImpl::MsgRead(GuiImpl *param_1_00,int msgIdx)
+void __thiscall th06::GuiImpl::MsgRead(GuiImpl *param_1_00,int msgIdx)
 
 {
   MsgRawHeader *pMVar1;

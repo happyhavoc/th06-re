@@ -1,5 +1,5 @@
 
-undefined4 * __thiscall TextHelper::FUN_0041e945(TextHelper *this)
+undefined4 * __thiscall th06::TextHelper::FUN_0041e945(TextHelper *this)
 
 {
   this->format = ~D3DFMT_UNKNOWN;

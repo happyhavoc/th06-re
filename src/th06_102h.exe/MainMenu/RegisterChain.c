@@ -1,5 +1,5 @@
 
-ZunResult MainMenu::RegisterChain(int param_1)
+ZunResult th06::MainMenu::RegisterChain(int param_1)
 
 {
   UINT UVar1;

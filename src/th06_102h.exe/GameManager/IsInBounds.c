@@ -2,7 +2,8 @@
 /* centerX < 0 && (x - (width / 2)) <= VIEW_WIDTH && centerY < 0 && (y - (height / 2)) <=
    VIEW_HEIGHT */
 
-int __thiscall GameManager::IsInBounds(GameManager *this,float x,float y,float width,float height)
+int __thiscall
+th06::GameManager::IsInBounds(GameManager *this,float x,float y,float width,float height)
 
 {
   int iVar1;

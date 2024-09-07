@@ -1,5 +1,5 @@
 
-void __thiscall Enemy::ClampPos(Enemy *this)
+void __thiscall th06::Enemy::ClampPos(Enemy *this)
 
 {
   float x1;

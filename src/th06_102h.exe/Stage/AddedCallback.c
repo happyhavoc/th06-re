@@ -1,5 +1,5 @@
 
-ZunResult Stage::AddedCallback(Stage *arg)
+ZunResult th06::Stage::AddedCallback(Stage *arg)
 
 {
   ZunResult ZVar1;
@@ -13,7 +13,7 @@ ZunResult Stage::AddedCallback(Stage *arg)
   (arg->position).z = 0.0;
   arg->spellcardState = NOT_RUNNING;
   arg->skyFogInterpDuration = 0;
-  ZVar1 = LoadStageData(arg,g_StageFiles[g_GameManager.current_stage].anmFile,
+  ZVar1 = LoadStageData((Stage *)arg,g_StageFiles[g_GameManager.current_stage].anmFile,
                         g_StageFiles[g_GameManager.current_stage].stdFile);
   if (ZVar1 == ZUN_SUCCESS) {
     (arg->skyFog).color = 0xff000000;

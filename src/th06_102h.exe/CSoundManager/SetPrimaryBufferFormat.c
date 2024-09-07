@@ -1,6 +1,6 @@
 
 HRESULT __thiscall
-CSoundManager::SetPrimaryBufferFormat
+th06::CSoundManager::SetPrimaryBufferFormat
           (CSoundManager *this,DWORD channels,DWORD samples_per_sec,DWORD bits_per_sample)
 
 {

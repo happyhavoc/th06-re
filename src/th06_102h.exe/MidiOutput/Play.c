@@ -1,5 +1,5 @@
 
-ZunResult __thiscall MidiOutput::Play(MidiOutput *this)
+ZunResult __thiscall th06::MidiOutput::Play(MidiOutput *this)
 
 {
   ZunResult ZVar1;

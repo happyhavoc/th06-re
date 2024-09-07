@@ -1,5 +1,5 @@
 
-ZunResult __thiscall MidiDevice::Close(MidiDevice *this)
+ZunResult __thiscall th06::MidiDevice::Close(MidiDevice *this)
 
 {
   ZunResult ZVar1;

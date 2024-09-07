@@ -1,5 +1,5 @@
 
-void EnemyManager::CutChain(void)
+void th06::EnemyManager::CutChain(void)
 
 {
   Chain::Cut(&g_Chain,&ChainElem_005a5fb4);

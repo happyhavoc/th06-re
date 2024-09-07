@@ -1,5 +1,5 @@
 
-void GameManager::CutChain(void)
+void th06::GameManager::CutChain(void)
 
 {
   Chain::Cut(&g_Chain,&g_GameManagerCalcChain);

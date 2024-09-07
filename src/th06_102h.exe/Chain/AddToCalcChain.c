@@ -1,5 +1,5 @@
 
-ZunResult __thiscall Chain::AddToCalcChain(Chain *this,ChainElem *elem,int priority)
+ZunResult __thiscall th06::Chain::AddToCalcChain(Chain *this,ChainElem *elem,int priority)
 
 {
   ZunResult ZVar1;

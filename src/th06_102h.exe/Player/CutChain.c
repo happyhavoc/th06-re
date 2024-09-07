@@ -1,5 +1,5 @@
 
-void Player::CutChain(void)
+void th06::Player::CutChain(void)
 
 {
   Chain::Cut(&g_Chain,g_Player.onTick);

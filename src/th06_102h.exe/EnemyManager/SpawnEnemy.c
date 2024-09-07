@@ -1,6 +1,6 @@
 
 Enemy * __thiscall
-EnemyManager::SpawnEnemy
+th06::EnemyManager::SpawnEnemy
           (EnemyManager *this,int eclSubId,D3DXVECTOR3 *pos,short life,short item_drop,int score)
 
 {

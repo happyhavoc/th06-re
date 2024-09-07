@@ -1,5 +1,5 @@
 
-HLOCAL __thiscall FileAbstraction::ReadWholeFile(FileAbstraction *this,uint maxSize)
+HLOCAL __thiscall th06::FileAbstraction::ReadWholeFile(FileAbstraction *this,uint maxSize)
 
 {
   SIZE_T dataLen;

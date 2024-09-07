@@ -1,5 +1,5 @@
 
-ushort __thiscall Rng::GetRandomU16(Rng *this)
+ushort __thiscall th06::Rng::GetRandomU16(Rng *this)
 
 {
   ushort uVar1;

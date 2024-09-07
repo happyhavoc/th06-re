@@ -1,5 +1,5 @@
 
-CWaveFile * __thiscall CWaveFile::CWaveFile(CWaveFile *this)
+CWaveFile * __thiscall th06::CWaveFile::CWaveFile(CWaveFile *this)
 
 {
   this->m_pwfx = (WAVEFORMATEX *)0x0;

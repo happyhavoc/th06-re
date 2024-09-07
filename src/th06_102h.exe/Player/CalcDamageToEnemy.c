@@ -3,7 +3,7 @@
 /* WARNING: Removing unreachable block (ram,0x00426be4) */
 
 int __thiscall
-Player::CalcDamageToEnemy
+th06::Player::CalcDamageToEnemy
           (Player *this,D3DXVECTOR3 *enemyPos,D3DXVECTOR3 *enemyHitboxSize,
           BOOL *hitWithLazerDuringBomb)
 
@@ -98,7 +98,8 @@ Player::CalcDamageToEnemy
             sVar4 = (bullet->vm).anmFileIndex;
             local_80 = sVar4 + 0x20;
             (bullet->vm).anmFileIndex = local_80;
-            AnmManager::SetAndExecuteScript(this_00,&bullet->vm,this_00->scripts[sVar4 + 0x20]);
+            AnmManager::SetAndExecuteScript
+                      ((AnmManager *)this_00,&bullet->vm,this_00->scripts[sVar4 + 0x20]);
             EffectManager::SpawnParticles
                       (&g_EffectManager,5,&bullet->position,1,(ZunColor)0xffffffff);
             (bullet->position).z = 0.1;

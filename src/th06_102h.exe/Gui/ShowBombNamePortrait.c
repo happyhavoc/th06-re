@@ -1,5 +1,5 @@
 
-void __thiscall Gui::ShowBombNamePortrait(Gui *this,uint sprite,char *bombName)
+void __thiscall th06::Gui::ShowBombNamePortrait(Gui *this,uint sprite,char *bombName)
 
 {
   char cVar1;
@@ -10,12 +10,15 @@ void __thiscall Gui::ShowBombNamePortrait(Gui *this,uint sprite,char *bombName)
   pAVar3 = g_AnmManager;
   pGVar2 = this->impl;
   (pGVar2->playerSpellcardPortrait).anmFileIndex = 0x4a1;
-  AnmManager::SetAndExecuteScript(pAVar3,&pGVar2->playerSpellcardPortrait,pAVar3->scripts[0x4a1]);
-  AnmManager::SetActiveSprite(g_AnmManager,&this->impl->playerSpellcardPortrait,sprite);
+  AnmManager::SetAndExecuteScript
+            ((AnmManager *)pAVar3,&pGVar2->playerSpellcardPortrait,pAVar3->scripts[0x4a1]);
+  AnmManager::SetActiveSprite
+            ((AnmManager *)g_AnmManager,&this->impl->playerSpellcardPortrait,sprite);
   pAVar3 = g_AnmManager;
   pGVar2 = this->impl;
   (pGVar2->bombSpellcardName).anmFileIndex = 0x706;
-  AnmManager::SetAndExecuteScript(pAVar3,&pGVar2->bombSpellcardName,pAVar3->scripts[0x706]);
+  AnmManager::SetAndExecuteScript
+            ((AnmManager *)pAVar3,&pGVar2->bombSpellcardName,pAVar3->scripts[0x706]);
   AnmManager::DrawVmTextFmt(g_AnmManager,&this->impl->bombSpellcardName,0xf0f0ff,0,bombName);
   local_1c = bombName;
   do {

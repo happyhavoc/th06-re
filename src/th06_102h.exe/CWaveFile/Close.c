@@ -1,5 +1,5 @@
 
-undefined4 __thiscall CWaveFile::Close(CWaveFile *this)
+undefined4 __thiscall th06::CWaveFile::Close(CWaveFile *this)
 
 {
   if (this->m_dwFlags == 1) {

@@ -1,5 +1,5 @@
 
-DWORD __thiscall FileAbstraction::Tell(FileAbstraction *this)
+DWORD __thiscall th06::FileAbstraction::Tell(FileAbstraction *this)
 
 {
   DWORD DVar1;

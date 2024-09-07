@@ -1,6 +1,6 @@
 
 BOOL __thiscall
-FileAbstraction::Write(FileAbstraction *this,LPCVOID data,DWORD dataLen,LPDWORD outWritten)
+th06::FileAbstraction::Write(FileAbstraction *this,LPCVOID data,DWORD dataLen,LPDWORD outWritten)
 
 {
   BOOL BVar1;

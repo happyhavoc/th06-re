@@ -1,5 +1,5 @@
 
-ChainCallbackResult Gui::OnDraw(Gui *arg)
+ChainCallbackResult th06::Gui::OnDraw(Gui *arg)
 
 {
   ChainCallbackResult CVar1;

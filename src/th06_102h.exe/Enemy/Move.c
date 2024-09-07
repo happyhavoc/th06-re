@@ -1,5 +1,5 @@
 
-void __thiscall Enemy::Move(Enemy *this)
+void __thiscall th06::Enemy::Move(Enemy *this)
 
 {
   if ((this->flags1 >> 6 & 1) == 0) {

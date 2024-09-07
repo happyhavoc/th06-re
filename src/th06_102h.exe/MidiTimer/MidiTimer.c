@@ -1,5 +1,5 @@
 
-undefined4 * __thiscall MidiTimer::MidiTimer(MidiTimer *this)
+undefined4 * __thiscall th06::MidiTimer::MidiTimer(MidiTimer *this)
 
 {
   this->vtbl = (MidiOutputVtbl *)&PTR__AnmManager_0046b564;

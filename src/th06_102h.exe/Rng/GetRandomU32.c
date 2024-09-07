@@ -1,5 +1,5 @@
 
-undefined4 __thiscall Rng::GetRandomU32(Rng *this)
+undefined4 __thiscall th06::Rng::GetRandomU32(Rng *this)
 
 {
   ushort uVar1;

@@ -1,5 +1,5 @@
 
-BOOL __thiscall Pbg3Archive::ParseHeader(Pbg3Archive *this)
+BOOL __thiscall th06::Pbg3Archive::ParseHeader(Pbg3Archive *this)
 
 {
   int magic;

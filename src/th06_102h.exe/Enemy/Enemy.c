@@ -1,5 +1,5 @@
 
-AnmVm * __thiscall Enemy::Enemy(Enemy *this)
+AnmVm * __thiscall th06::Enemy::Enemy(Enemy *this)
 
 {
   int iVar1;
@@ -10,11 +10,11 @@ AnmVm * __thiscall Enemy::Enemy(Enemy *this)
   AnmVm *local_20;
   int local_18;
   
-  AnmVm::AnmVm(&this->primary_vm);
+  AnmVm::AnmVm((AnmVm *)this);
   local_18 = 8;
   local_20 = this->vms;
   while (local_18 = local_18 + -1, -1 < local_18) {
-    AnmVm::AnmVm(local_20);
+    AnmVm::AnmVm((AnmVm *)local_20);
     local_20 = local_20 + 1;
   }
   ZunTimer::Initialize(&(this->current_context).time);

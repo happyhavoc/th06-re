@@ -1,5 +1,5 @@
 
-ChainCallbackResult EffectManager::OnUpdate(EffectManager *param_1)
+ChainCallbackResult th06::EffectManager::OnUpdate(EffectManager *param_1)
 
 {
   int iVar1;

@@ -1,5 +1,5 @@
 
-int __thiscall Pbg3Parser::ReadByteAlignedData(Pbg3Parser *this,byte *data,DWORD bytesToRead)
+int __thiscall th06::Pbg3Parser::ReadByteAlignedData(Pbg3Parser *this,byte *data,DWORD bytesToRead)
 
 {
   BOOL BVar1;

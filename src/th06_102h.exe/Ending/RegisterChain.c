@@ -1,5 +1,5 @@
 
-ZunResult Ending::RegisterChain(void)
+ZunResult th06::Ending::RegisterChain(void)
 
 {
   Ending *this;

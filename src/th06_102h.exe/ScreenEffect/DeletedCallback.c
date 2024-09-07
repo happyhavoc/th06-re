@@ -1,5 +1,5 @@
 
-ZunResult ScreenEffect::DeletedCallback(ScreenEffect *screen_effect)
+ZunResult th06::ScreenEffect::DeletedCallback(ScreenEffect *screen_effect)
 
 {
   screen_effect->calcChainElement->deletedCallback = (ChainLifecycleCallback *)0x0;

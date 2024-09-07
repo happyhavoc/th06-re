@@ -1,7 +1,7 @@
 
 /* WARNING: Unknown calling convention -- yet parameter storage is locked */
 
-undefined4 ReplayManager::DeletedCallback(ReplayManager *param_1)
+undefined4 th06::ReplayManager::DeletedCallback(ReplayManager *param_1)
 
 {
   Chain::Cut(&g_Chain,param_1->draw_chain);

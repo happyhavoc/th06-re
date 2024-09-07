@@ -1,5 +1,5 @@
 
-void ResultScreen::MoveCursor(ResultScreen *rs,int length)
+void th06::ResultScreen::MoveCursor(ResultScreen *rs,int length)
 
 {
   if ((((g_CurFrameInput & 0x10) != 0) && ((g_CurFrameInput & 0x10) != (g_LastFrameInput & 0x10)))

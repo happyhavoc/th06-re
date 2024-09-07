@@ -1,5 +1,5 @@
 
-ZunResult __thiscall AnmManager::DrawFacingCamera(AnmManager *this,AnmVm *vm)
+ZunResult __thiscall th06::AnmManager::DrawFacingCamera(AnmManager *this,AnmVm *vm)
 
 {
   ZunResult result;
@@ -41,7 +41,7 @@ ZunResult __thiscall AnmManager::DrawFacingCamera(AnmManager *this,AnmVm *vm)
     g_PrimitivesToDrawVertexBuf[0].pos.y = g_PrimitivesToDrawVertexBuf[1].pos.y;
     g_PrimitivesToDrawVertexBuf[1].pos.x = g_PrimitivesToDrawVertexBuf[3].pos.x;
     g_PrimitivesToDrawVertexBuf[2].pos.y = g_PrimitivesToDrawVertexBuf[3].pos.y;
-    result = DrawInner(this,vm,0);
+    result = DrawInner((AnmManager *)this,vm,0);
   }
   return result;
 }

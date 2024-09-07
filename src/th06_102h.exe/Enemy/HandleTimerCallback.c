@@ -1,5 +1,5 @@
 
-BOOL __thiscall Enemy::HandleTimerCallback(Enemy *this)
+BOOL __thiscall th06::Enemy::HandleTimerCallback(Enemy *this)
 
 {
   BOOL BVar1;

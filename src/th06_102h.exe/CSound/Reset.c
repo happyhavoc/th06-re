@@ -1,5 +1,5 @@
 
-uint __thiscall CSound::Reset(CSound *this)
+uint __thiscall th06::CSound::Reset(CSound *this)
 
 {
   uint uVar1;

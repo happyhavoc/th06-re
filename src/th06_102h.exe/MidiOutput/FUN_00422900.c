@@ -1,5 +1,5 @@
 
-void __thiscall MidiOutput::FUN_00422900(MidiOutput *this,MidiTrack *param_1)
+void __thiscall th06::MidiOutput::FUN_00422900(MidiOutput *this,MidiTrack *param_1)
 
 {
   char cVar1;

@@ -1,5 +1,5 @@
 
-void __thiscall Supervisor::ReleasePbg3(Supervisor *this,int idx)
+void __thiscall th06::Supervisor::ReleasePbg3(Supervisor *this,int idx)
 
 {
   Pbg3Archive *this_00;

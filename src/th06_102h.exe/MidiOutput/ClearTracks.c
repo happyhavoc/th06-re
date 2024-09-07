@@ -1,5 +1,5 @@
 
-void __thiscall MidiOutput::ClearTracks(MidiOutput *this)
+void __thiscall th06::MidiOutput::ClearTracks(MidiOutput *this)
 
 {
   int local_8;

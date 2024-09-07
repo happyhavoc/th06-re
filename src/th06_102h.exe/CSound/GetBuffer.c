@@ -1,5 +1,5 @@
 
-LPDIRECTSOUNDBUFFER __thiscall CSound::GetBuffer(CSound *this,DWORD dwIndex)
+LPDIRECTSOUNDBUFFER __thiscall th06::CSound::GetBuffer(CSound *this,DWORD dwIndex)
 
 {
   LPDIRECTSOUNDBUFFER pIVar1;

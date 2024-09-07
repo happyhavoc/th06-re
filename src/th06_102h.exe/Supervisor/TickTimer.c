@@ -1,5 +1,5 @@
 
-void __thiscall Supervisor::TickTimer(Supervisor *this,int *frames,float *subframes)
+void __thiscall th06::Supervisor::TickTimer(Supervisor *this,int *frames,float *subframes)
 
 {
   if (this->framerateMultiplier < 0.99 == (this->framerateMultiplier == 0.99)) {

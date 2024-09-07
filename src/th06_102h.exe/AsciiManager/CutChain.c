@@ -1,5 +1,5 @@
 
-void AsciiManager::CutChain(void)
+void th06::AsciiManager::CutChain(void)
 
 {
   Chain::Cut(&g_Chain,&g_AsciiManagerCalcChain);

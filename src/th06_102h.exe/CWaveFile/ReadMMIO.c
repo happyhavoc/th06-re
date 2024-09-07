@@ -1,5 +1,5 @@
 
-undefined4 __thiscall CWaveFile::ReadMMIO(CWaveFile *this)
+undefined4 __thiscall th06::CWaveFile::ReadMMIO(CWaveFile *this)
 
 {
   MMRESULT MVar1;

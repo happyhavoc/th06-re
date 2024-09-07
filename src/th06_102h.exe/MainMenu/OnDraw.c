@@ -1,5 +1,5 @@
 
-ChainCallbackResult MainMenu::OnDraw(MainMenu *menu)
+ChainCallbackResult th06::MainMenu::OnDraw(MainMenu *menu)
 
 {
   float fVar1;
@@ -22,11 +22,12 @@ ChainCallbackResult MainMenu::OnDraw(MainMenu *menu)
   window.bottom = 480.0;
   if (menu->gameState != STATE_STARTUP) {
     g_AnmManager->currentTexture = (IDirect3DTexture8 *)0x0;
-    AnmManager::CopySurfaceToBackBuffer(g_AnmManager,0,0,0,0,0);
+    AnmManager::CopySurfaceToBackBuffer((AnmManager *)g_AnmManager,0,0,0,0,0);
     if (menu->isActive == 0) {
       if (menu->numFramesSinceActive != 0) {
         menu->numFramesSinceActive = menu->numFramesSinceActive + -1;
-        DrawSquare(&window,((((menu->menuTextColor >> 0x18) - (menu->minimumOpacity >> 0x18)) *
+        ScreenEffect::DrawSquare
+                  (&window,((((menu->menuTextColor >> 0x18) - (menu->minimumOpacity >> 0x18)) *
                             menu->numFramesSinceActive) / menu->wasActive +
                            (menu->minimumOpacity >> 0x18)) * 0x1000000 |
                            menu->menuTextColor & 0xffffff);
@@ -36,7 +37,8 @@ ChainCallbackResult MainMenu::OnDraw(MainMenu *menu)
       if (menu->numFramesSinceActive < menu->isActive) {
         menu->numFramesSinceActive = menu->numFramesSinceActive + 1;
       }
-      DrawSquare(&window,((((menu->menuTextColor >> 0x18) - (menu->minimumOpacity >> 0x18)) *
+      ScreenEffect::DrawSquare
+                (&window,((((menu->menuTextColor >> 0x18) - (menu->minimumOpacity >> 0x18)) *
                           menu->numFramesSinceActive) / (uint)menu->isActive +
                          (menu->minimumOpacity >> 0x18)) * 0x1000000 |
                          menu->menuTextColor & 0xffffff);
@@ -58,7 +60,7 @@ ChainCallbackResult MainMenu::OnDraw(MainMenu *menu)
         (curVm->pos).x = (curVm->pos).x + (curVm->offset).x;
         (curVm->pos).y = (curVm->pos).y + (curVm->offset).y;
         (curVm->pos).z = (curVm->pos).z + (curVm->offset).z;
-        AnmManager::Draw(g_AnmManager,curVm);
+        AnmManager::Draw((AnmManager *)g_AnmManager,curVm);
         (curVm->pos).x = fVar1;
         (curVm->pos).y = fVar2;
         (curVm->pos).z = fVar3;

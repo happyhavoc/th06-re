@@ -1,6 +1,6 @@
 
 int __thiscall
-BulletManager::SpawnSingleBullet
+th06::BulletManager::SpawnSingleBullet
           (BulletManager *this,EnemyBulletShooter *bulletProps,int bulletIdx1,int bulletIdx2,
           float angle)
 
@@ -144,25 +144,25 @@ BulletManager::SpawnSingleBullet
             fVar9 = ((bullet->sprites).bulletSprite.sprite)->heightPx;
             if (fVar9 < 32.0 == (fVar9 == 32.0)) {
               AnmManager::SetActiveSprite
-                        (g_AnmManager,&(bullet->sprites).spriteSpawnEffectSlow,
+                        ((AnmManager *)g_AnmManager,&(bullet->sprites).spriteSpawnEffectSlow,
                          (int)(bullet->sprites).spriteSpawnEffectSlow.activeSpriteIndex +
                          (int)(short)bulletProps->color);
             }
             else if ((bullet->sprites).bulletSprite.anmFileIndex == 0x207) {
               AnmManager::SetActiveSprite
-                        (g_AnmManager,&(bullet->sprites).spriteSpawnEffectSlow,
+                        ((AnmManager *)g_AnmManager,&(bullet->sprites).spriteSpawnEffectSlow,
                          (int)(bullet->sprites).spriteSpawnEffectSlow.activeSpriteIndex + 1);
             }
             else {
               AnmManager::SetActiveSprite
-                        (g_AnmManager,&(bullet->sprites).spriteSpawnEffectSlow,
+                        ((AnmManager *)g_AnmManager,&(bullet->sprites).spriteSpawnEffectSlow,
                          (int)(bullet->sprites).spriteSpawnEffectSlow.activeSpriteIndex +
                          g_BulletSpriteOffset32Px[(short)bulletProps->color]);
             }
           }
           else {
             AnmManager::SetActiveSprite
-                      (g_AnmManager,&(bullet->sprites).spriteSpawnEffectSlow,
+                      ((AnmManager *)g_AnmManager,&(bullet->sprites).spriteSpawnEffectSlow,
                        (int)(bullet->sprites).spriteSpawnEffectSlow.activeSpriteIndex +
                        g_BulletSpriteOffset16Px[(short)bulletProps->color]);
           }
@@ -182,25 +182,25 @@ BulletManager::SpawnSingleBullet
           fVar9 = ((bullet->sprites).bulletSprite.sprite)->heightPx;
           if (fVar9 < 32.0 == (fVar9 == 32.0)) {
             AnmManager::SetActiveSprite
-                      (g_AnmManager,&(bullet->sprites).spriteSpawnEffectNormal,
+                      ((AnmManager *)g_AnmManager,&(bullet->sprites).spriteSpawnEffectNormal,
                        (int)(bullet->sprites).spriteSpawnEffectNormal.activeSpriteIndex +
                        (int)(short)bulletProps->color);
           }
           else if ((bullet->sprites).bulletSprite.anmFileIndex == 0x207) {
             AnmManager::SetActiveSprite
-                      (g_AnmManager,&(bullet->sprites).spriteSpawnEffectNormal,
+                      ((AnmManager *)g_AnmManager,&(bullet->sprites).spriteSpawnEffectNormal,
                        (int)(bullet->sprites).spriteSpawnEffectNormal.activeSpriteIndex + 1);
           }
           else {
             AnmManager::SetActiveSprite
-                      (g_AnmManager,&(bullet->sprites).spriteSpawnEffectNormal,
+                      ((AnmManager *)g_AnmManager,&(bullet->sprites).spriteSpawnEffectNormal,
                        (int)(bullet->sprites).spriteSpawnEffectNormal.activeSpriteIndex +
                        g_BulletSpriteOffset32Px[(short)bulletProps->color]);
           }
         }
         else {
           AnmManager::SetActiveSprite
-                    (g_AnmManager,&(bullet->sprites).spriteSpawnEffectNormal,
+                    ((AnmManager *)g_AnmManager,&(bullet->sprites).spriteSpawnEffectNormal,
                      (int)(bullet->sprites).spriteSpawnEffectNormal.activeSpriteIndex +
                      g_BulletSpriteOffset16Px[(short)bulletProps->color]);
         }
@@ -220,32 +220,32 @@ BulletManager::SpawnSingleBullet
         fVar9 = ((bullet->sprites).bulletSprite.sprite)->heightPx;
         if (fVar9 < 32.0 == (fVar9 == 32.0)) {
           AnmManager::SetActiveSprite
-                    (g_AnmManager,&(bullet->sprites).spriteSpawnEffectFast,
+                    ((AnmManager *)g_AnmManager,&(bullet->sprites).spriteSpawnEffectFast,
                      (int)(bullet->sprites).spriteSpawnEffectFast.activeSpriteIndex +
                      (int)(short)bulletProps->color);
         }
         else if ((bullet->sprites).bulletSprite.anmFileIndex == 0x207) {
           AnmManager::SetActiveSprite
-                    (g_AnmManager,&(bullet->sprites).spriteSpawnEffectFast,
+                    ((AnmManager *)g_AnmManager,&(bullet->sprites).spriteSpawnEffectFast,
                      (int)(bullet->sprites).spriteSpawnEffectFast.activeSpriteIndex + 1);
         }
         else {
           AnmManager::SetActiveSprite
-                    (g_AnmManager,&(bullet->sprites).spriteSpawnEffectFast,
+                    ((AnmManager *)g_AnmManager,&(bullet->sprites).spriteSpawnEffectFast,
                      (int)(bullet->sprites).spriteSpawnEffectFast.activeSpriteIndex +
                      g_BulletSpriteOffset32Px[(short)bulletProps->color]);
         }
       }
       else {
         AnmManager::SetActiveSprite
-                  (g_AnmManager,&(bullet->sprites).spriteSpawnEffectFast,
+                  ((AnmManager *)g_AnmManager,&(bullet->sprites).spriteSpawnEffectFast,
                    (int)(bullet->sprites).spriteSpawnEffectFast.activeSpriteIndex +
                    g_BulletSpriteOffset16Px[(short)bulletProps->color]);
       }
       bullet->state = 2;
     }
     AnmManager::SetActiveSprite
-              (g_AnmManager,(AnmVm *)bullet,
+              ((AnmManager *)g_AnmManager,(AnmVm *)bullet,
                (int)(bullet->sprites).bulletSprite.activeSpriteIndex +
                (int)(short)bulletProps->color);
     fVar9 = ((bullet->sprites).bulletSprite.sprite)->heightPx;
@@ -253,25 +253,25 @@ BulletManager::SpawnSingleBullet
       fVar9 = ((bullet->sprites).bulletSprite.sprite)->heightPx;
       if (fVar9 < 32.0 == (fVar9 == 32.0)) {
         AnmManager::SetActiveSprite
-                  (g_AnmManager,&(bullet->sprites).spriteSpawnEffectDonut,
+                  ((AnmManager *)g_AnmManager,&(bullet->sprites).spriteSpawnEffectDonut,
                    (int)(bullet->sprites).spriteSpawnEffectDonut.activeSpriteIndex +
                    (int)(short)bulletProps->color);
       }
       else if ((bullet->sprites).bulletSprite.anmFileIndex == 0x207) {
         AnmManager::SetActiveSprite
-                  (g_AnmManager,&(bullet->sprites).spriteSpawnEffectDonut,
+                  ((AnmManager *)g_AnmManager,&(bullet->sprites).spriteSpawnEffectDonut,
                    (int)(bullet->sprites).spriteSpawnEffectDonut.activeSpriteIndex + 1);
       }
       else {
         AnmManager::SetActiveSprite
-                  (g_AnmManager,&(bullet->sprites).spriteSpawnEffectDonut,
+                  ((AnmManager *)g_AnmManager,&(bullet->sprites).spriteSpawnEffectDonut,
                    (int)(bullet->sprites).spriteSpawnEffectDonut.activeSpriteIndex +
                    g_BulletSpriteOffset32Px[(short)bulletProps->color]);
       }
     }
     else {
       AnmManager::SetActiveSprite
-                (g_AnmManager,&(bullet->sprites).spriteSpawnEffectDonut,
+                ((AnmManager *)g_AnmManager,&(bullet->sprites).spriteSpawnEffectDonut,
                  (int)(bullet->sprites).spriteSpawnEffectDonut.activeSpriteIndex +
                  g_BulletSpriteOffset16Px[(short)bulletProps->color]);
     }

@@ -1,5 +1,5 @@
 
-PlayerBombInfo * __thiscall PlayerInner::PlayerInner(PlayerInner *this)
+PlayerBombInfo * __thiscall th06::PlayerInner::PlayerInner(PlayerInner *this)
 
 {
   AnmVm *local_3c;
@@ -20,7 +20,7 @@ PlayerBombInfo * __thiscall PlayerInner::PlayerInner(PlayerInner *this)
   local_3c = (AnmVm *)(this + 0x11c);
   while (local_34 = local_34 + -1, -1 < local_34) {
     AnmVm::AnmVm(local_3c);
-    local_3c = local_3c + 1;
+    local_3c = local_3c + 0x110;
   }
   return (PlayerBombInfo *)this;
 }

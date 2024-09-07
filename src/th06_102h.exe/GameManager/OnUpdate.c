@@ -1,5 +1,5 @@
 
-ChainCallbackResult GameManager::OnUpdate(GameManager *this)
+ChainCallbackResult th06::GameManager::OnUpdate(GameManager *this)
 
 {
   ChainCallbackResult CVar1;

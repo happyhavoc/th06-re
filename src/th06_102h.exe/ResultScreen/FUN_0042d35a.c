@@ -1,5 +1,5 @@
 
-undefined4 __thiscall ResultScreen::FUN_0042d35a(ResultScreen *this)
+undefined4 __thiscall th06::ResultScreen::FUN_0042d35a(ResultScreen *this)
 
 {
   float completion;

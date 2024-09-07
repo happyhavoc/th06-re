@@ -1,5 +1,6 @@
 
-void MainMenu::SelectRelated(MainMenu *menu,ushort btn_pressed,ushort old_mapping,BOOL param_4)
+void th06::MainMenu::SelectRelated
+               (MainMenu *menu,ushort btn_pressed,ushort old_mapping,BOOL param_4)
 
 {
                     /* I'm pretty sure this function handles going to the bottom when you press the

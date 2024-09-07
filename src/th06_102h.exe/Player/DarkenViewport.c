@@ -1,5 +1,5 @@
 
-void Player::DarkenViewport(Player *player)
+void th06::Player::DarkenViewport(Player *player)
 
 {
   long local_38;
@@ -40,7 +40,7 @@ void Player::DarkenViewport(Player *player)
     }
     local_8 = local_38;
   }
-  DrawSquare(&viewport,local_8 << 24);
+  ScreenEffect::DrawSquare(&viewport,local_8 << 24);
   return;
 }
 

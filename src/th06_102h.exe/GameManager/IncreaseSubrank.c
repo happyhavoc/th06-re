@@ -1,5 +1,5 @@
 
-void __thiscall GameManager::IncreaseSubrank(GameManager *this,int amount)
+void __thiscall th06::GameManager::IncreaseSubrank(GameManager *this,int amount)
 
 {
   this->subrank = this->subrank + amount;

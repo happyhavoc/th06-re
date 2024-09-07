@@ -1,5 +1,5 @@
 
-undefined4 __thiscall CStreamingSound::UpdateFadeOut(CStreamingSound *this)
+undefined4 __thiscall th06::CStreamingSound::UpdateFadeOut(CStreamingSound *this)
 
 {
   if ((this->base).m_dwIsFadingOut != 0) {

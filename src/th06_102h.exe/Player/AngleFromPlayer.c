@@ -1,5 +1,5 @@
 
-float __thiscall Player::AngleFromPlayer(Player *this,D3DXVECTOR3 *bulletPos)
+float __thiscall th06::Player::AngleFromPlayer(Player *this,D3DXVECTOR3 *bulletPos)
 
 {
   double dVar1;

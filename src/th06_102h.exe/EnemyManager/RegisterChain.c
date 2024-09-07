@@ -1,5 +1,5 @@
 
-ZunResult EnemyManager::RegisterChain(char *stgEnm1,char *stgEnm2)
+ZunResult th06::EnemyManager::RegisterChain(char *stgEnm1,char *stgEnm2)
 
 {
   int iVar1;

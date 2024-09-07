@@ -1,13 +1,13 @@
 
-void __thiscall AsciiManager::AsciiManager(AsciiManager *this)
+void __thiscall th06::AsciiManager::AsciiManager(AsciiManager *this)
 
 {
   AsciiManagerPopup *local_88;
   int local_80;
   int local_28;
   
-  AnmVm::AnmVm(&this->vm0);
-  AnmVm::AnmVm(&this->vm1);
+  AnmVm::AnmVm((AnmVm *)this);
+  AnmVm::AnmVm((AnmVm *)&this->vm1);
   local_28 = 0x100;
   do {
     local_28 = local_28 + -1;

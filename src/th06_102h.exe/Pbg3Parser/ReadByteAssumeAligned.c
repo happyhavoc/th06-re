@@ -1,5 +1,5 @@
 
-byte __thiscall Pbg3Parser::ReadByteAssumeAligned(Pbg3Parser *this)
+byte __thiscall th06::Pbg3Parser::ReadByteAssumeAligned(Pbg3Parser *this)
 
 {
   uint uVar1;

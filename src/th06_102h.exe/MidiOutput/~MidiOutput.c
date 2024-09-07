@@ -1,5 +1,5 @@
 
-void __thiscall MidiOutput::~MidiOutput(MidiOutput *this)
+void __thiscall th06::MidiOutput::~MidiOutput(MidiOutput *this)
 
 {
   uint local_14;

@@ -1,5 +1,5 @@
 
-void Enemy::SetVar(Enemy *enemy,EclVarId lhs,void *rhs)
+void th06::Enemy::SetVar(Enemy *enemy,EclVarId lhs,void *rhs)
 
 {
   int *piVar1;
@@ -11,7 +11,7 @@ void Enemy::SetVar(Enemy *enemy,EclVarId lhs,void *rhs)
   if (local_10 == ECL_VALUE_TYPE_INT) {
     *piVar1 = *local_c;
   }
-  else if (local_10 == EVL_VALUE_TYPE_FLOAT) {
+  else if (local_10 == ECL_VALUE_TYPE_FLOAT) {
     *piVar1 = *local_c;
   }
   return;

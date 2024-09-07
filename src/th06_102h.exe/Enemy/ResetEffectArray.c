@@ -1,5 +1,5 @@
 
-void Enemy::ResetEffectArray(Enemy *param_1)
+void th06::Enemy::ResetEffectArray(Enemy *param_1)
 
 {
   int idx;

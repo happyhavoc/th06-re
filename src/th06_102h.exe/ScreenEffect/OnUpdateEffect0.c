@@ -1,5 +1,5 @@
 
-ChainCallbackResult ScreenEffect::OnUpdateEffect0(ScreenEffect *param_1)
+ChainCallbackResult th06::ScreenEffect::OnUpdateEffect0(ScreenEffect *param_1)
 
 {
   bool bVar1;

@@ -1,6 +1,6 @@
 
 undefined4 * __thiscall
-CStreamingSound::CStreamingSound
+th06::CStreamingSound::CStreamingSound
           (CStreamingSound *this,LPDIRECTSOUNDBUFFER pDSBuffer,DWORD pDSBufferSize,
           CWaveFile *pWaveFile,DWORD dwNotifySize)
 

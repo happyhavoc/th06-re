@@ -1,5 +1,6 @@
 
-void __thiscall MainMenu::ColorMenuItem(MainMenu *this,AnmVm *vm,int idx,int idx_2,int itmToCompare)
+void __thiscall
+th06::MainMenu::ColorMenuItem(MainMenu *this,AnmVm *vm,int idx,int idx_2,int itmToCompare)
 
 {
   if (idx_2 == itmToCompare) {
@@ -7,10 +8,10 @@ void __thiscall MainMenu::ColorMenuItem(MainMenu *this,AnmVm *vm,int idx,int idx
       (vm->color).color = 0x800000ff;
     }
     else if (vm->baseSpriteIndex < 0x122) {
-      AnmManager::SetActiveSprite(g_AnmManager,vm,(int)vm->baseSpriteIndex + 0x7a);
+      AnmManager::SetActiveSprite((AnmManager *)g_AnmManager,vm,(int)vm->baseSpriteIndex + 0x7a);
     }
     else {
-      AnmManager::SetActiveSprite(g_AnmManager,vm,(int)vm->baseSpriteIndex + 0x73);
+      AnmManager::SetActiveSprite((AnmManager *)g_AnmManager,vm,(int)vm->baseSpriteIndex + 0x73);
     }
     (vm->offset).x = -2.0;
     (vm->offset).y = -2.0;
@@ -21,7 +22,7 @@ void __thiscall MainMenu::ColorMenuItem(MainMenu *this,AnmVm *vm,int idx,int idx
       (vm->color).color = 0x80202050;
     }
     else {
-      AnmManager::SetActiveSprite(g_AnmManager,vm,(int)vm->baseSpriteIndex);
+      AnmManager::SetActiveSprite((AnmManager *)g_AnmManager,vm,(int)vm->baseSpriteIndex);
     }
     vm->scaleX = 1.0;
     vm->scaleY = 1.0;

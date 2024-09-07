@@ -1,5 +1,6 @@
 
-UINT __thiscall MidiTimer::FUN_00421c90(MidiTimer *this,UINT delay,LPTIMECALLBACK cb,DWORD_PTR data)
+UINT __thiscall
+th06::MidiTimer::FUN_00421c90(MidiTimer *this,UINT delay,LPTIMECALLBACK cb,DWORD_PTR data)
 
 {
   MMRESULT MVar1;

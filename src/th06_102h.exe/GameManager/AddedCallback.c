@@ -1,5 +1,5 @@
 
-ZunResult GameManager::AddedCallback(GameManager *gameManager)
+ZunResult th06::GameManager::AddedCallback(GameManager *gameManager)
 
 {
   int iVar1;

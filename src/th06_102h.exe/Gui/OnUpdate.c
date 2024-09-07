@@ -1,5 +1,5 @@
 
-ChainCallbackResult Gui::OnUpdate(Gui *param_1)
+ChainCallbackResult th06::Gui::OnUpdate(Gui *param_1)
 
 {
   if ((char)g_GameManager.isTimeStopped == '\0') {

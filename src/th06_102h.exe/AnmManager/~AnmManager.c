@@ -1,5 +1,5 @@
 
-void __thiscall AnmManager::~AnmManager(AnmManager *this)
+void __thiscall th06::AnmManager::~AnmManager(AnmManager *this)
 
 {
   return;

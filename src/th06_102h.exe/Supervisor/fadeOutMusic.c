@@ -1,5 +1,5 @@
 
-undefined4 __thiscall Supervisor::fadeOutMusic(Supervisor *this,float fadeOutSeconds)
+undefined4 __thiscall th06::Supervisor::fadeOutMusic(Supervisor *this,float fadeOutSeconds)
 
 {
   long lVar1;

@@ -1,5 +1,5 @@
 
-void * __thiscall CSound::operator_delete(CSound *this,uint param_1)
+void * __thiscall th06::CSound::operator_delete(CSound *this,uint param_1)
 
 {
   ~CSound(this);

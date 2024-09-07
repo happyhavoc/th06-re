@@ -1,6 +1,6 @@
 
 Laser * __thiscall
-BulletManager::SpawnLaserPattern(BulletManager *this,EnemyLaserShooter *laser_shooter)
+th06::BulletManager::SpawnLaserPattern(BulletManager *this,EnemyLaserShooter *laser_shooter)
 
 {
   ushort uVar1;
@@ -25,14 +25,15 @@ BulletManager::SpawnLaserPattern(BulletManager *this,EnemyLaserShooter *laser_sh
   uVar1 = laser_shooter->sprite;
   local_10 = uVar1 + 0x209;
   (laser->vm0).anmFileIndex = local_10;
-  AnmManager::SetAndExecuteScript(pAVar3,&laser->vm0,pAVar3->scripts[(short)uVar1 + 0x209]);
+  AnmManager::SetAndExecuteScript
+            ((AnmManager *)pAVar3,&laser->vm0,pAVar3->scripts[(short)uVar1 + 0x209]);
   AnmManager::SetActiveSprite
-            (g_AnmManager,&laser->vm0,
+            ((AnmManager *)g_AnmManager,&laser->vm0,
              (int)(laser->vm0).activeSpriteIndex + (int)(short)laser_shooter->color);
   pAVar3 = g_AnmManager;
   uVar2 = g_BulletSpriteOffset16Px[(short)laser_shooter->color];
-  AnmVm::Initialize(&laser->vm1);
-  AnmManager::SetActiveSprite(pAVar3,&laser->vm1,uVar2 + 0x28c);
+  AnmVm::Initialize((AnmVm *)&laser->vm1);
+  AnmManager::SetActiveSprite((AnmManager *)pAVar3,&laser->vm1,uVar2 + 0x28c);
   (laser->vm1).flags = (laser->vm1).flags | AnmVmFlags_2;
   (laser->pos).x = (laser_shooter->position).x;
   (laser->pos).y = (laser_shooter->position).y;

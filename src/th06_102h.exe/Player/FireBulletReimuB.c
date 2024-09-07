@@ -1,6 +1,6 @@
 
 FireBulletResult
-Player::FireBulletReimuB(Player *param_1,PlayerBullet *param_2,uint param_3,uint param_4)
+th06::Player::FireBulletReimuB(Player *param_1,PlayerBullet *param_2,uint param_3,uint param_4)
 
 {
   FireBulletResult FVar1;

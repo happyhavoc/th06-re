@@ -1,5 +1,5 @@
 
-undefined4 __thiscall ResultScreen::OnUpdate(ResultScreen *this,ResultScreen *result_screen)
+undefined4 __thiscall th06::ResultScreen::OnUpdate(ResultScreen *this,ResultScreen *result_screen)
 
 {
   int iVar1;

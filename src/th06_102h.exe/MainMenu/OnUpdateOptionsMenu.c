@@ -1,5 +1,5 @@
 
-int __thiscall MainMenu::OnUpdateOptionsMenu(MainMenu *this)
+int __thiscall th06::MainMenu::OnUpdateOptionsMenu(MainMenu *this)
 
 {
   AnmVm *OptionsVm;

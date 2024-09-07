@@ -1,5 +1,5 @@
 
-undefined4 Ending::OnUpdate(Ending *ending)
+undefined4 th06::Ending::OnUpdate(Ending *ending)
 
 {
   int in_EAX;

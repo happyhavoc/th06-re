@@ -1,5 +1,5 @@
 
-void __thiscall SoundPlayer::PlaySoundByIdx(SoundPlayer *this,SoundIdx soundIdx,int unused)
+void __thiscall th06::SoundPlayer::PlaySoundByIdx(SoundPlayer *this,SoundIdx soundIdx,int unused)
 
 {
   int local_8;

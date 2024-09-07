@@ -1,5 +1,5 @@
 
-int __thiscall Chain::RunCalcChain(Chain *this)
+int __thiscall th06::Chain::RunCalcChain(Chain *this)
 
 {
   ChainCallbackResult CVar1;

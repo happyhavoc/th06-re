@@ -1,5 +1,5 @@
 
-ChainCallbackResult ScreenEffect::OnDrawEffect0(ScreenEffect *param_1)
+ChainCallbackResult th06::ScreenEffect::OnDrawEffect0(ScreenEffect *param_1)
 
 {
   ZunRect local_14;

@@ -1,5 +1,5 @@
 
-void Player::UpdatePlayerBullets(Player *player)
+void th06::Player::UpdatePlayerBullets(Player *player)
 
 {
   D3DXVECTOR3 *pDVar1;

@@ -1,5 +1,5 @@
 
-void Enemy::ExInsStage6XFunc6(Enemy *param_1,AnmRawInstr *param_2)
+void th06::Enemy::ExInsStage6XFunc6(Enemy *param_1,AnmRawInstr *param_2)
 
 {
   ushort uVar2;

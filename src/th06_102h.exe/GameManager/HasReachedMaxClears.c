@@ -1,7 +1,7 @@
 
 /* Not entirely sure about this function, seems to not influence any other behavior */
 
-int __thiscall GameManager::HasReachedMaxClears(GameManager *this,int character,int shottype)
+int __thiscall th06::GameManager::HasReachedMaxClears(GameManager *this,int character,int shottype)
 
 {
   int hasMaxClears;

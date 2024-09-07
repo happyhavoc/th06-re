@@ -1,5 +1,5 @@
 
-ZunResult __thiscall Chain::AddToDrawChain(Chain *this,ChainElem *param_2,int param_3)
+ZunResult __thiscall th06::Chain::AddToDrawChain(Chain *this,ChainElem *param_2,int param_3)
 
 {
   ZunResult ZVar1;

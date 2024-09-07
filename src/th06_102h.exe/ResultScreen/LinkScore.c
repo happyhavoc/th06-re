@@ -1,5 +1,5 @@
 
-int ResultScreen::LinkScore(ScoreListNode *prevnode,Hscr *param_2)
+int th06::ResultScreen::LinkScore(ScoreListNode *prevnode,Hscr *param_2)
 
 {
   ScoreListNode *newnode;

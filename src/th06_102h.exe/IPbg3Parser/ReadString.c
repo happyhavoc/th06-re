@@ -1,5 +1,5 @@
 
-BOOL __thiscall IPbg3Parser::ReadString(IPbg3Parser *this,char *out,uint maxSize)
+BOOL __thiscall th06::IPbg3Parser::ReadString(IPbg3Parser *this,char *out,uint maxSize)
 
 {
   char b;

@@ -1,5 +1,5 @@
 
-ushort Controller::GetControllerInput(ushort buttons)
+ushort th06::Controller::GetControllerInput(ushort buttons)
 
 {
   DWORD_PTR cookie;

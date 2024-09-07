@@ -1,5 +1,5 @@
 
-undefined4 __thiscall MidiOutput::ReadFileData(MidiOutput *this,int param_1,char *path)
+undefined4 __thiscall th06::MidiOutput::ReadFileData(MidiOutput *this,int param_1,char *path)
 
 {
   undefined4 uVar1;

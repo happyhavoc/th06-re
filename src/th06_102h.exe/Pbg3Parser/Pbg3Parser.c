@@ -1,5 +1,5 @@
 
-Pbg3Parser * __thiscall Pbg3Parser::Pbg3Parser(Pbg3Parser *this)
+Pbg3Parser * __thiscall th06::Pbg3Parser::Pbg3Parser(Pbg3Parser *this)
 
 {
   void *local_c;

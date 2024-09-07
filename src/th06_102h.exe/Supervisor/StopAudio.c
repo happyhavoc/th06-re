@@ -1,5 +1,5 @@
 
-ZunResult __thiscall Supervisor::StopAudio(Supervisor *this)
+ZunResult __thiscall th06::Supervisor::StopAudio(Supervisor *this)
 
 {
   if (g_Supervisor.cfg.musicMode == MIDI) {

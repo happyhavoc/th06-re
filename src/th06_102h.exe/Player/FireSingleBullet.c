@@ -1,6 +1,6 @@
 
 FireBulletResult
-Player::FireSingleBullet
+th06::Player::FireSingleBullet
           (Player *player,PlayerBullet *bullet,int bullet_idx,int framesSinceLastBullet_,
           CharacterPowerData *powerData)
 
@@ -39,7 +39,8 @@ LAB_00426400:
   anmManager = g_AnmManager;
   uVar3 = bulletData->anmFileIdx;
   (bullet->vm).anmFileIndex = uVar3;
-  AnmManager::SetAndExecuteScript(anmManager,&bullet->vm,anmManager->scripts[(short)uVar3]);
+  AnmManager::SetAndExecuteScript
+            ((AnmManager *)anmManager,&bullet->vm,anmManager->scripts[(short)uVar3]);
   if (bulletData->spawnPositionIdx == 0) {
     (bullet->position).x = (player->positionCenter).x;
     (bullet->position).y = (player->positionCenter).y;

@@ -1,5 +1,5 @@
 
-void __thiscall Gui::MsgRead(Gui *this,int param_1)
+void __thiscall th06::Gui::MsgRead(Gui *this,int param_1)
 
 {
   GuiImpl::MsgRead(this->impl,param_1);

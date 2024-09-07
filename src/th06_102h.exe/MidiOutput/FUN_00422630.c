@@ -1,5 +1,5 @@
 
-undefined4 __thiscall MidiOutput::FUN_00422630(MidiOutput *this,uint param_1)
+undefined4 __thiscall th06::MidiOutput::FUN_00422630(MidiOutput *this,uint param_1)
 
 {
   this->unk2c8 = 0.0;

@@ -1,5 +1,5 @@
 
-void __thiscall EffectManager::Reset(EffectManager *this)
+void __thiscall th06::EffectManager::Reset(EffectManager *this)
 
 {
   int iVar1;

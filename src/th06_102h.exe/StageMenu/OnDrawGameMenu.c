@@ -1,5 +1,5 @@
 
-void __thiscall StageMenu::OnDrawGameMenu(StageMenu *this)
+void __thiscall th06::StageMenu::OnDrawGameMenu(StageMenu *this)
 
 {
   int iVar1;
@@ -15,7 +15,7 @@ void __thiscall StageMenu::OnDrawGameMenu(StageMenu *this)
     g_Supervisor.viewport.Height = __ftol2(g_GameManager.arcade_region_size.y);
     (*(g_Supervisor.d3dDevice)->lpVtbl->SetViewport)(g_Supervisor.d3dDevice,&g_Supervisor.viewport);
     if ((g_Supervisor.lockableBackbuffer != 0) && (this->curState != 0)) {
-      pAVar2 = &this->vm1;
+      pAVar2 = &this->menuBackground;
       pAVar3 = &local_11c;
       for (iVar1 = 0x44; iVar1 != 0; iVar1 = iVar1 + -1) {
         (pAVar3->rotation).x = (pAVar2->rotation).x;
@@ -26,8 +26,8 @@ void __thiscall StageMenu::OnDrawGameMenu(StageMenu *this)
       AnmManager::DrawNoRotation(g_AnmManager,&local_11c);
     }
     for (local_8 = 0; local_8 < 6; local_8 = local_8 + 1) {
-      if ((this->vms0[local_8].flags & AnmVmFlags_1) != AnmVmFlags_None) {
-        AnmManager::DrawNoRotation(g_AnmManager,this->vms0 + local_8);
+      if ((this->menuSprites[local_8].flags & AnmVmFlags_1) != AnmVmFlags_None) {
+        AnmManager::DrawNoRotation(g_AnmManager,this->menuSprites + local_8);
       }
     }
   }

@@ -1,30 +1,30 @@
 
-AnmManager * __thiscall AnmManager::AnmManager(AnmManager *this)
+AnmManager * __thiscall th06::AnmManager::AnmManager(AnmManager *this)
 
 {
   int iVar1;
-  AnmManager *pAVar2;
+  undefined4 *puVar2;
   int local_1c;
   int sprite_index;
   
-  AnmVm::AnmVm(&this->virtualMachine);
+  AnmVm::AnmVm((AnmVm *)(this + 0x1c000));
   local_1c = 4;
   do {
     local_1c = local_1c + -1;
   } while (-1 < local_1c);
-  this->maybeLoadedSpriteCount = 0;
-  pAVar2 = this;
+  *(undefined4 *)(this + 0x1c930) = 0;
+  puVar2 = (undefined4 *)this;
                     /* memset(this, 0, sizeof(this));
                        
                        Yes, this makes everything that happened above useless.
                        
                        Could this be UB? Probably? */
   for (iVar1 = 0x844b; iVar1 != 0; iVar1 = iVar1 + -1) {
-    pAVar2->sprites[0].sourceFileIndex = 0;
-    pAVar2 = (AnmManager *)&pAVar2->sprites[0].startPixelInclusive;
+    *puVar2 = 0;
+    puVar2 = puVar2 + 1;
   }
   for (sprite_index = 0; sprite_index < 0x800; sprite_index = sprite_index + 1) {
-    this->sprites[sprite_index].sourceFileIndex = -1;
+    *(undefined4 *)(this + sprite_index * 0x38) = 0xffffffff;
   }
   g_PrimitivesToDrawVertexBuf[3].pos.w = 1.0;
   g_PrimitivesToDrawVertexBuf[2].pos.w = 1.0;
@@ -50,14 +50,14 @@ AnmManager * __thiscall AnmManager::AnmManager(AnmManager *this)
   g_PrimitivesToDrawNoVertexBuf[2].textureUV.y = 1.0;
   g_PrimitivesToDrawNoVertexBuf[3].textureUV.x = 1.0;
   g_PrimitivesToDrawNoVertexBuf[3].textureUV.y = 1.0;
-  this->vertexBuffer = (IDirect3DVertexBuffer8 *)0x0;
-  this->currentTexture = (IDirect3DTexture8 *)0x0;
-  this->currentBlendMode = '\0';
-  this->currentColorOp = '\0';
-  this->currentTextureFactor = 1;
-  this->currentVertexShader = '\0';
-  this->currentZWriteDisable = '\0';
-  this->screenshot_textureId = -1;
-  return this;
+  *(undefined4 *)(this + 0x210c4) = 0;
+  *(undefined4 *)(this + 0x210b8) = 0;
+  this[0x210bc] = (AnmManager)0x0;
+  this[0x210bd] = (AnmManager)0x0;
+  *(undefined4 *)(this + 0x210b4) = 1;
+  this[0x210be] = (AnmManager)0x0;
+  this[0x210bf] = (AnmManager)0x0;
+  *(undefined4 *)(this + 0x21118) = 0xffffffff;
+  return (AnmManager *)this;
 }
 

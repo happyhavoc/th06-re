@@ -1,5 +1,5 @@
 
-int __thiscall FileAbstraction::Seek(FileAbstraction *this,LONG amount,DWORD mode)
+int __thiscall th06::FileAbstraction::Seek(FileAbstraction *this,LONG amount,DWORD mode)
 
 {
   if (this->handle == (HANDLE)0xffffffff) {

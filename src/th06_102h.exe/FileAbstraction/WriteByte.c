@@ -1,5 +1,5 @@
 
-byte __thiscall FileAbstraction::WriteByte(FileAbstraction *this,byte b)
+byte __thiscall th06::FileAbstraction::WriteByte(FileAbstraction *this,byte b)
 
 {
   BOOL BVar1;

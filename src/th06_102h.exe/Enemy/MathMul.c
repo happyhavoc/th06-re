@@ -1,5 +1,5 @@
 
-void Enemy::MathMul(Enemy *param_1,EclVarId out,EclVarId *arg1,EclVarId *arg2)
+void th06::Enemy::MathMul(Enemy *param_1,EclVarId out,EclVarId *arg1,EclVarId *arg2)
 
 {
   int *piVar1;
@@ -17,7 +17,7 @@ void Enemy::MathMul(Enemy *param_1,EclVarId out,EclVarId *arg1,EclVarId *arg2)
     piVar1 = GetVar(param_1,arg2,(EclValueType *)0x0);
     *local_8 = (float)((int)*local_10 * *piVar1);
   }
-  else if (local_14 == EVL_VALUE_TYPE_FLOAT) {
+  else if (local_14 == ECL_VALUE_TYPE_FLOAT) {
     local_10 = GetVarFloat(param_1,(float *)arg1,(EclValueType *)0x0);
     pfVar2 = GetVarFloat(param_1,(float *)arg2,(EclValueType *)0x0);
     *local_8 = *local_10 * *pfVar2;

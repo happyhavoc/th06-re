@@ -1,5 +1,5 @@
 
-void __thiscall AnmManager::ExecuteAnmIdx(AnmManager *this,AnmVm *vm,int anmFileIdx)
+void __thiscall th06::AnmManager::ExecuteAnmIdx(AnmManager *this,AnmVm *vm,int anmFileIdx)
 
 {
   vm->anmFileIndex = (short)anmFileIdx;
@@ -11,7 +11,7 @@ void __thiscall AnmManager::ExecuteAnmIdx(AnmManager *this,AnmVm *vm,int anmFile
   (vm->offset).z = 0.0;
   vm->fontHeight = 15;
   vm->fontWidth = uVar2;
-  SetAndExecuteScript(this,vm,this->scripts[anmFileIdx]);
+  SetAndExecuteScript((AnmManager *)this,vm,*(AnmRawInstr **)(this + anmFileIdx * 4 + 0x1c934));
   return;
 }
 

@@ -1,5 +1,5 @@
 
-void Stage::CutChain(void)
+void th06::Stage::CutChain(void)
 
 {
   Chain::Cut(&g_Chain,&g_StageCalcChain);

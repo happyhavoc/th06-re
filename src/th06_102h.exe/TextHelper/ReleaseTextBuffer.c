@@ -1,5 +1,5 @@
 
-void TextHelper::ReleaseTextBuffer(void)
+void th06::TextHelper::ReleaseTextBuffer(void)
 
 {
   if (g_TextBufferSurface != (IDirect3DSurface8 *)0x0) {

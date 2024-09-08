@@ -92,7 +92,7 @@ th06::AnmManager::LoadTextureAlphaChannel
       }
     }
     else {
-      GameErrorContextFatal
+      GameErrorContext::Fatal
                 (&g_GameErrorContext,"error : イメージがαを持っていません\n");
     }
     if (texture_src != (IDirect3DTexture8 *)0x0) {

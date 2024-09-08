@@ -1,5 +1,5 @@
 
-ushort th06::GetJoystickCaps(void)
+ushort th06::Controller::GetJoystickCaps(void)
 
 {
   MMRESULT MVar1;
@@ -12,8 +12,8 @@ ushort th06::GetJoystickCaps(void)
     joyGetDevCapsA(0,&g_JoystickCaps,0x194);
   }
   else {
-    GameErrorContextLog(&g_GameErrorContext,
-                        "使えるパッドが存在しないようです、残念\n");
+    GameErrorContext::Log
+              (&g_GameErrorContext,"使えるパッドが存在しないようです、残念\n");
   }
   return (ushort)(MVar1 != 0);
 }

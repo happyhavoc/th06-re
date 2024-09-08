@@ -1,5 +1,5 @@
 
-ushort th06::GetInput(void)
+ushort th06::Controller::GetInput(void)
 
 {
   DWORD_PTR cookie;
@@ -72,7 +72,7 @@ ushort th06::GetInput(void)
                     (g_Supervisor.keyboard,0x100,keyboardState);
     if (res == -0x7ff8ffe2) {
       (*(g_Supervisor.keyboard)->lpVtbl->Acquire)(g_Supervisor.keyboard);
-      buttons = Controller::GetControllerInput(0);
+      buttons = GetControllerInput(0);
       goto LAB_0041e0a5;
     }
     buttons = -(ushort)((keyboardState._199_4_ & 0x8000) != 0) & 0x10 |
@@ -99,7 +99,7 @@ ushort th06::GetInput(void)
               -(ushort)((keyboardState[0x1f] & 0x80U) != 0) & 0x400 |
               -(ushort)((keyboardState[0x1c] & 0x80U) != 0) & 0x1000;
   }
-  buttons = Controller::GetControllerInput(buttons);
+  buttons = GetControllerInput(buttons);
 LAB_0041e0a5:
   __security_check_cookie(cookie);
   return buttons;

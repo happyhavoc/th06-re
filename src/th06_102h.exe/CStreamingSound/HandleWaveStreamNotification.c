@@ -24,7 +24,7 @@ th06::CStreamingSound::HandleWaveStreamNotification(CStreamingSound *this,int pa
   else {
     local_20 = CSound::RestoreBuffer(&this->base,*(this->base).m_apDSBuffer,&local_18);
     if (local_20 < 0) {
-      DebugPrint2("error : RestoreBuffer in HandleWaveStreamNotification\n");
+      utils::DebugPrint2("error : RestoreBuffer in HandleWaveStreamNotification\n");
     }
     else if (local_18 == 0) {
       local_c = (undefined4 *)0x0;
@@ -33,13 +33,13 @@ th06::CStreamingSound::HandleWaveStreamNotification(CStreamingSound *this,int pa
                            (*(this->base).m_apDSBuffer,this->m_dwNextWriteOffset,
                             this->m_dwNotifySize,&local_c,&local_24,&local_14,&local_8,0);
       if (local_20 < 0) {
-        DebugPrint2("error : Buffer->Lock in HandleWaveStreamNotification\n");
+        utils::DebugPrint2("error : Buffer->Lock in HandleWaveStreamNotification\n");
       }
       else if (local_14 == (LPVOID)0x0) {
         if (this->m_bFillNextNotificationWithSilence == 0) {
           local_20 = CWaveFile::Read((this->base).m_pWaveFile,local_c,local_24,&local_10);
           if (local_20 < 0) {
-            DebugPrint2("error : m_pWaveFile->Read in HandleWaveStreamNotification\n");
+            utils::DebugPrint2("error : m_pWaveFile->Read in HandleWaveStreamNotification\n");
             return local_20;
           }
         }
@@ -74,14 +74,17 @@ th06::CStreamingSound::HandleWaveStreamNotification(CStreamingSound *this,int pa
             for (local_2c = local_10; local_2c < local_24; local_2c = local_2c + local_10) {
               local_20 = CWaveFile::ResetFile((this->base).m_pWaveFile,true);
               if (local_20 < 0) {
-                DebugPrint2("error : m_pWaveFile->ResetFile in HandleWaveStreamNotification\n");
+                utils::DebugPrint2(
+                                  "error : m_pWaveFile->ResetFile in HandleWaveStreamNotification\n"
+                                  );
                 return local_20;
               }
               local_20 = CWaveFile::Read((this->base).m_pWaveFile,
                                          (undefined4 *)((int)local_c + local_2c),local_24 - local_2c
                                          ,&local_10);
               if (local_20 < 0) {
-                DebugPrint2("error : m_pWaveFile->Read(+) in HandleWaveStreamNotification\n");
+                utils::DebugPrint2("error : m_pWaveFile->Read(+) in HandleWaveStreamNotification\n")
+                ;
                 return local_20;
               }
             }
@@ -92,9 +95,9 @@ th06::CStreamingSound::HandleWaveStreamNotification(CStreamingSound *this,int pa
         local_20 = (*(*(this->base).m_apDSBuffer)->lpVtbl->GetCurrentPosition)
                              (*(this->base).m_apDSBuffer,&local_28,(LPDWORD)0x0);
         if (local_20 < 0) {
-          DebugPrint2(
-                     "error : m_apDSBuffer[0]->GetCurrentPosition in HandleWaveStreamNotification\n"
-                     );
+          utils::DebugPrint2(
+                            "error : m_apDSBuffer[0]->GetCurrentPosition in HandleWaveStreamNotification\n"
+                            );
         }
         else {
           if (local_28 < this->m_dwLastPlayPos) {
@@ -123,7 +126,7 @@ th06::CStreamingSound::HandleWaveStreamNotification(CStreamingSound *this,int pa
     else {
       local_20 = CSound::FillBufferWithSound(&this->base,*(this->base).m_apDSBuffer,0);
       if (local_20 < 0) {
-        DebugPrint2("error : FillBufferWithSound in HandleWaveStreamNotification\n");
+        utils::DebugPrint2("error : FillBufferWithSound in HandleWaveStreamNotification\n");
       }
       else {
         local_20 = 0;

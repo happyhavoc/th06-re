@@ -1,5 +1,5 @@
 
-void th06::SetViewport(D3DCOLOR color)
+void th06::ScreenEffect::SetViewport(D3DCOLOR color)
 
 {
   g_Supervisor.viewport.X = 0;

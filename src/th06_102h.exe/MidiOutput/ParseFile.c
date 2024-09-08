@@ -33,9 +33,9 @@ void __thiscall th06::MidiOutput::ParseFile(MidiOutput *this,int fileIdx)
   ClearTracks(this);
   file_char = this->midiFileData[fileIdx];
   if (file_char == (byte *)0x0) {
-    DebugPrint2(
-               "error : まだMIDIが読み込まれていないのに再生しようとしている\n"
-               );
+    utils::DebugPrint2(
+                      "error : まだMIDIが読み込まれていないのに再生しようとしている\n"
+                      );
   }
   else {
                     /* Read midi header chunk

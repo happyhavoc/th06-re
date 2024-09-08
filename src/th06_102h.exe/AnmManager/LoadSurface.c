@@ -12,7 +12,7 @@ ZunResult __thiscall th06::AnmManager::LoadSurface(AnmManager *this,int surface_
   }
   data = FileSystem::OpenPath(path,0);
   if (data == (byte *)0x0) {
-    GameErrorContextFatal(&g_GameErrorContext,"%sが読み込めないです。\n",path);
+    GameErrorContext::Fatal(&g_GameErrorContext,"%sが読み込めないです。\n",path);
     ZVar1 = ZUN_ERROR;
   }
   else {

@@ -97,7 +97,7 @@ th06::BulletManager::SpawnSingleBullet
     bullet->state = 1;
     bullet->unk_5c2 = 1;
     bullet->speed = bulletSpeed;
-    fVar9 = AddNormalizeAngle(bulletAngle,0.0);
+    fVar9 = utils::AddNormalizeAngle(bulletAngle,0.0);
     bullet->angle = fVar9;
     (bullet->pos).x = (bulletProps->position).x;
     (bullet->pos).y = (bulletProps->position).y;

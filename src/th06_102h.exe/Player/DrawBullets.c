@@ -10,7 +10,7 @@ void th06::Player::DrawBullets(Player *this)
   for (bullet_idx = 0; bullet_idx < 0x50; bullet_idx = bullet_idx + 1) {
     if (bullets->bulletState == BULLET_STATE_FIRED) {
       if ((bullets->vm).autoRotate != 0) {
-        fVar1 = AddNormalizeAngle((bullets->unk_134).z,3.141593);
+        fVar1 = utils::AddNormalizeAngle((bullets->unk_134).z,3.141593);
         (bullets->vm).rotation.z = 1.570796 - fVar1;
       }
       AnmManager::Draw2((AnmManager *)g_AnmManager,&bullets->vm);

@@ -15,9 +15,10 @@ ZunResult __thiscall th06::Stage::LoadStageData(Stage *this,char *anmpath,char *
     std = FileSystem::OpenPath(stdpath,0);
     *(byte **)(this + 4) = std;
     if (*(int *)(this + 4) == 0) {
-      GameErrorContextLog(&g_GameErrorContext,
-                          "ステージデータが見つかりません。データが壊れています\n"
-                         );
+      GameErrorContext::Log
+                (&g_GameErrorContext,
+                 "ステージデータが見つかりません。データが壊れています\n")
+      ;
       anm = ZUN_ERROR;
     }
     else {

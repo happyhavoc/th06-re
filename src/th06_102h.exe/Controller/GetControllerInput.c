@@ -83,12 +83,12 @@ ushort th06::Controller::GetControllerInput(ushort buttons)
     stateHr = (*(g_Supervisor.controller)->lpVtbl->Poll)(g_Supervisor.controller);
     if (stateHr < 0) {
       retry_count = 0;
-      DebugPrint2("error : DIERR_INPUTLOST\n");
+      utils::DebugPrint2("error : DIERR_INPUTLOST\n");
       hr = (*(g_Supervisor.controller)->lpVtbl->Acquire)(g_Supervisor.controller);
       do {
         if (hr != -0x7ff8ffe2) break;
         hr = (*(g_Supervisor.controller)->lpVtbl->Acquire)(g_Supervisor.controller);
-        DebugPrint2("error : DIERR_INPUTLOST %d\n",retry_count);
+        utils::DebugPrint2("error : DIERR_INPUTLOST %d\n",retry_count);
         retry_count = retry_count + 1;
       } while (retry_count < 400);
     }

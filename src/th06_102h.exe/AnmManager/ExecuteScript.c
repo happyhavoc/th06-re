@@ -252,20 +252,23 @@ switchD_004339dd_caseD_15:
 LAB_00434338:
     fVar5 = (vm->angleVel).x;
     if (NAN(fVar5) == (fVar5 == 0.0)) {
-      fVar5 = AddNormalizeAngle((vm->rotation).x,
-                                g_Supervisor.effectiveFramerateMultiplier * (vm->angleVel).x);
+      fVar5 = utils::AddNormalizeAngle
+                        ((vm->rotation).x,
+                         g_Supervisor.effectiveFramerateMultiplier * (vm->angleVel).x);
       (vm->rotation).x = fVar5;
     }
     fVar5 = (vm->angleVel).y;
     if (NAN(fVar5) == (fVar5 == 0.0)) {
-      fVar5 = AddNormalizeAngle((vm->rotation).y,
-                                g_Supervisor.effectiveFramerateMultiplier * (vm->angleVel).y);
+      fVar5 = utils::AddNormalizeAngle
+                        ((vm->rotation).y,
+                         g_Supervisor.effectiveFramerateMultiplier * (vm->angleVel).y);
       (vm->rotation).y = fVar5;
     }
     fVar5 = (vm->angleVel).z;
     if (NAN(fVar5) == (fVar5 == 0.0)) {
-      fVar5 = AddNormalizeAngle((vm->rotation).z,
-                                g_Supervisor.effectiveFramerateMultiplier * (vm->angleVel).z);
+      fVar5 = utils::AddNormalizeAngle
+                        ((vm->rotation).z,
+                         g_Supervisor.effectiveFramerateMultiplier * (vm->angleVel).z);
       (vm->rotation).z = fVar5;
     }
     if (vm->scaleInterpEndTime < 1) {

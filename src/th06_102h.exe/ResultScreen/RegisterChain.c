@@ -26,7 +26,7 @@ ZunResult th06::ResultScreen::RegisterChain(BOOL param_1)
     result_screen = (ResultScreen *)ResultScreen(this);
   }
   uStack_8 = 0xffffffff;
-  DebugPrint("counat = %d\n",g_GameManager.counat);
+  utils::DebugPrint("counat = %d\n",g_GameManager.counat);
   pCVar1 = Chain::CreateElem(&g_Chain,OnUpdate);
   result_screen->calc_chain = pCVar1;
   result_screen->calc_chain->addedCallback = AddedCallback;

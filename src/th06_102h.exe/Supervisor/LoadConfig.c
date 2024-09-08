@@ -28,7 +28,7 @@ ZunResult __thiscall th06::Supervisor::LoadConfig(Supervisor *this,char *config_
     pFVar2 = fopen("bgm/th06_01.wav","rb");
     if (pFVar2 == (FILE *)0x0) {
       g_Supervisor.cfg.musicMode = MIDI;
-      DebugPrint("wave データが無いので、midi にします\n");
+      utils::DebugPrint("wave データが無いので、midi にします\n");
     }
     else {
       g_Supervisor.cfg.musicMode = WAV;
@@ -47,9 +47,9 @@ ZunResult __thiscall th06::Supervisor::LoadConfig(Supervisor *this,char *config_
     g_Supervisor.cfg.controllerMapping.leftButton = g_ControllerMapping.leftButton;
     g_Supervisor.cfg.controllerMapping.rightButton = g_ControllerMapping.rightButton;
     g_Supervisor.cfg.controllerMapping.skipButton = g_ControllerMapping.skipButton;
-    GameErrorContextLog(&g_GameErrorContext,
-                        "コンフィグデータが見つからないので初期化しました\n"
-                       );
+    GameErrorContext::Log
+              (&g_GameErrorContext,
+               "コンフィグデータが見つからないので初期化しました\n");
   }
   else {
     puVar5 = (undefined4 *)_Memory;
@@ -77,7 +77,7 @@ ZunResult __thiscall th06::Supervisor::LoadConfig(Supervisor *this,char *config_
       pFVar2 = fopen("bgm/th06_01.wav","rb");
       if (pFVar2 == (FILE *)0x0) {
         g_Supervisor.cfg.musicMode = MIDI;
-        DebugPrint("wave データが無いので、midi にします\n");
+        utils::DebugPrint("wave データが無いので、midi にします\n");
       }
       else {
         g_Supervisor.cfg.musicMode = WAV;
@@ -97,9 +97,10 @@ ZunResult __thiscall th06::Supervisor::LoadConfig(Supervisor *this,char *config_
       g_Supervisor.cfg.controllerMapping.rightButton = g_ControllerMapping.rightButton;
       g_Supervisor.cfg.controllerMapping.skipButton = g_ControllerMapping.skipButton;
       g_Supervisor.cfg.opts = 1;
-      GameErrorContextLog(&g_GameErrorContext,
-                          "コンフィグデータが破壊されていたので再初期化しました\n"
-                         );
+      GameErrorContext::Log
+                (&g_GameErrorContext,
+                 "コンフィグデータが破壊されていたので再初期化しました\n")
+      ;
     }
     g_ControllerMapping.shootButton = g_Supervisor.cfg.controllerMapping.shootButton;
     g_ControllerMapping.bombButton = g_Supervisor.cfg.controllerMapping.bombButton;
@@ -113,56 +114,56 @@ ZunResult __thiscall th06::Supervisor::LoadConfig(Supervisor *this,char *config_
     _free(_Memory);
   }
   if (((this->cfg).opts >> 1 & 1) != 0) {
-    GameErrorContextLog(&g_GameErrorContext,"頂点バッファの使用を抑制します\n");
+    GameErrorContext::Log(&g_GameErrorContext,"頂点バッファの使用を抑制します\n");
   }
   if (((this->cfg).opts >> 10 & 1) != 0) {
-    GameErrorContextLog(&g_GameErrorContext,"フォグの使用を抑制します\n");
+    GameErrorContext::Log(&g_GameErrorContext,"フォグの使用を抑制します\n");
   }
   if (((this->cfg).opts >> 2 & 1) != 0) {
-    GameErrorContextLog(&g_GameErrorContext,"16Bit のテクスチャの使用を強制します\n")
-    ;
+    GameErrorContext::Log
+              (&g_GameErrorContext,"16Bit のテクスチャの使用を強制します\n");
   }
   if (((this->cfg).opts >> 3 & 1 | (this->cfg).opts >> 4 & 1) != 0) {
-    GameErrorContextLog(&g_GameErrorContext,"バックバッファの消去を強制します\n");
+    GameErrorContext::Log(&g_GameErrorContext,"バックバッファの消去を強制します\n");
   }
   if (((this->cfg).opts >> 4 & 1) != 0) {
-    GameErrorContextLog(&g_GameErrorContext,
-                        "ゲーム周りのアイテムの描画を抑制します\n");
+    GameErrorContext::Log
+              (&g_GameErrorContext,"ゲーム周りのアイテムの描画を抑制します\n");
   }
   if (((this->cfg).opts >> 5 & 1) != 0) {
-    GameErrorContextLog(&g_GameErrorContext,"グーローシェーディングを抑制します\n")
-    ;
+    GameErrorContext::Log
+              (&g_GameErrorContext,"グーローシェーディングを抑制します\n");
   }
   if (((this->cfg).opts >> 6 & 1) != 0) {
-    GameErrorContextLog(&g_GameErrorContext,"デプステストを抑制します\n");
+    GameErrorContext::Log(&g_GameErrorContext,"デプステストを抑制します\n");
   }
   if (((this->cfg).opts >> 7 & 1) != 0) {
-    GameErrorContextLog(&g_GameErrorContext,"６０フレーム強制モードにします\n");
+    GameErrorContext::Log(&g_GameErrorContext,"６０フレーム強制モードにします\n");
     this->vsyncEnabled = 0;
   }
   if (((this->cfg).opts >> 8 & 1) != 0) {
-    GameErrorContextLog(&g_GameErrorContext,"テクスチャの色合成を抑制しますn");
+    GameErrorContext::Log(&g_GameErrorContext,"テクスチャの色合成を抑制しますn");
   }
   if (((this->cfg).opts >> 8 & 1) != 0) {
-    GameErrorContextLog(&g_GameErrorContext,"ウィンドウモードで起動します\n");
+    GameErrorContext::Log(&g_GameErrorContext,"ウィンドウモードで起動します\n");
   }
   if (((this->cfg).opts >> 9 & 1) != 0) {
-    GameErrorContextLog(&g_GameErrorContext,
-                        "リファレンスラスタライザを強制します\n");
+    GameErrorContext::Log
+              (&g_GameErrorContext,"リファレンスラスタライザを強制します\n");
   }
   if (((this->cfg).opts >> 0xb & 1) != 0) {
-    GameErrorContextLog(&g_GameErrorContext,
-                        "パッド、キーボードの入力に DirectInput を使用しません\n"
-                       );
+    GameErrorContext::Log
+              (&g_GameErrorContext,
+               "パッド、キーボードの入力に DirectInput を使用しません\n");
   }
   iVar4 = FileSystem::WriteDataToFile(config_file_name,&g_Supervisor.cfg,0x38);
   if (iVar4 == 0) {
     ZVar3 = ZUN_SUCCESS;
   }
   else {
-    GameErrorContextFatal
+    GameErrorContext::Fatal
               (&g_GameErrorContext,"ファイルが書き出せません %s\n",config_file_name);
-    GameErrorContextFatal
+    GameErrorContext::Fatal
               (&g_GameErrorContext,
                "フォルダが書込み禁止属性になっているか、ディスクがいっぱいいっぱいになってませんか？\n"
               );

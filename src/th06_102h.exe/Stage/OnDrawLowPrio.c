@@ -34,7 +34,7 @@ ChainCallbackResult th06::Stage::OnDrawLowPrio(Stage *arg)
   }
   g_Supervisor.viewport.MinZ = 0.0;
   g_Supervisor.viewport.MaxZ = 0.5;
-  SetupCameraStageBackground(0.0);
+  GameManager::SetupCameraStageBackground(0.0);
   (*(g_Supervisor.d3dDevice)->lpVtbl->SetViewport)(g_Supervisor.d3dDevice,(D3DVIEWPORT8 *)0x6c6de0);
   local_8 = 0x447a0000;
   (*(g_Supervisor.d3dDevice)->lpVtbl->SetRenderState)

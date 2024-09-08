@@ -40,10 +40,10 @@ byte * th06::FileSystem::OpenPath(char *file_path,int inPbg3)
     }
   }
   if (entryIdx < 0) {
-    DebugPrint2("%s Load ... \n",file_path);
+    utils::DebugPrint2("%s Load ... \n",file_path);
     f = fopen(file_path,"rb");
     if (f == (FILE *)0x0) {
-      DebugPrint2("error : %s is not found.\n",file_path);
+      utils::DebugPrint2("error : %s is not found.\n",file_path);
       buf = (byte *)0x0;
     }
     else {
@@ -57,7 +57,7 @@ byte * th06::FileSystem::OpenPath(char *file_path,int inPbg3)
     }
   }
   else {
-    DebugPrint2("%s Decode ... \n",filename);
+    utils::DebugPrint2("%s Decode ... \n",filename);
     buf = Pbg3Archive::ReadDecompressEntry(g_Pbg3Archives[pbg3Idx],entryIdx,filename);
     g_LastFileSize = Pbg3Archive::GetEntrySize(g_Pbg3Archives[pbg3Idx],entryIdx);
   }

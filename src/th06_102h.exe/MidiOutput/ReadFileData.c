@@ -11,7 +11,8 @@ undefined4 __thiscall th06::MidiOutput::ReadFileData(MidiOutput *this,int param_
     pbVar2 = FileSystem::OpenPath(path,0);
     this->midiFileData[param_1] = pbVar2;
     if (this->midiFileData[param_1] == (byte *)0x0) {
-      GameErrorContextLog(&g_GameErrorContext,"error : MIDI File が読み込めない %s \n",path);
+      GameErrorContext::Log
+                (&g_GameErrorContext,"error : MIDI File が読み込めない %s \n",path);
       uVar1 = 0xffffffff;
     }
     else {

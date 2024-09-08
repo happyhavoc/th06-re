@@ -1,7 +1,7 @@
 
 /* WARNING: This is an inlined function */
 
-undefined2 FUN_00421d70(undefined4 param_1)
+undefined2 th06::MidiOutput::FUN_00421d70(undefined4 param_1)
 
 {
   undefined2 local_8;

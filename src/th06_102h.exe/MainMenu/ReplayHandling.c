@@ -28,7 +28,7 @@ int __thiscall th06::MainMenu::ReplayHandling(MainMenu *this)
     if (this->stateTimer == 0x3c) {
       ZVar2 = LoadReplayMenu(this);
       if (ZVar2 != ZUN_SUCCESS) {
-        GameErrorContextLog(&g_GameErrorContext,"セレクト画面の読み込みに失敗\n");
+        GameErrorContext::Log(&g_GameErrorContext,"セレクト画面の読み込みに失敗\n");
         g_Supervisor.curState = 4;
         result = 0;
         goto exit;

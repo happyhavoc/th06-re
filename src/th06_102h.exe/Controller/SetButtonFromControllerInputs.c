@@ -1,5 +1,5 @@
 
-DWORD th06::SetButtonFromControllerInputs
+DWORD th06::Controller::SetButtonFromControllerInputs
                 (WORD *outButtons,short controllerButtonToTest,DWORD touhouButton,DWORD inputButtons
                 )
 

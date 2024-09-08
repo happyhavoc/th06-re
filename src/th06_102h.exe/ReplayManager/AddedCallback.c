@@ -27,7 +27,7 @@ ZunResult th06::ReplayManager::AddedCallback(ReplayManager *param_1)
     pSVar2->score = g_GameManager.score;
   }
   if (param_1->data->stage_score[g_GameManager.current_stage + -1] != (StageReplayData *)0x0) {
-    DebugPrint2("error : replay.cpp");
+    utils::DebugPrint2("error : replay.cpp");
   }
   pSVar2 = (StageReplayData *)_malloc(0x69780);
   param_1->data->stage_score[g_GameManager.current_stage + -1] = pSVar2;

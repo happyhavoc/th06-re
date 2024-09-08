@@ -1,5 +1,5 @@
 
-void th06::SetupCamera(float renderDistance)
+void th06::GameManager::SetupCamera(float renderDistance)
 
 {
   float fVar1;

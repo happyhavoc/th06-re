@@ -37,8 +37,9 @@ ZunResult __thiscall th06::SoundPlayer::InitializeDSound(SoundPlayer *this,HWND 
   this->csoundmanager_ptr = local_78;
   iVar2 = CSoundManager::Initialize(this->csoundmanager_ptr,game_window,2,2,0xac44,0x10);
   if (iVar2 < 0) {
-    GameErrorContextLog(&g_GameErrorContext,
-                        "DirectSound オブジェクトの初期化が失敗したよ\n");
+    GameErrorContext::Log
+              (&g_GameErrorContext,"DirectSound オブジェクトの初期化が失敗したよ\n")
+    ;
     if (this->csoundmanager_ptr != (CSoundManager *)0x0) {
       pCVar1 = this->csoundmanager_ptr;
       if (pCVar1 != (CSoundManager *)0x0) {
@@ -94,8 +95,8 @@ ZunResult __thiscall th06::SoundPlayer::InitializeDSound(SoundPlayer *this,HWND 
                     /* 4 times per second */
         SetTimer(game_window,0,0xfa,(TIMERPROC)0x0);
         this->game_window = (HWND)game_window;
-        GameErrorContextLog(&g_GameErrorContext,"DirectSound は正常に初期化されました\n"
-                           );
+        GameErrorContext::Log
+                  (&g_GameErrorContext,"DirectSound は正常に初期化されました\n");
         ZVar3 = ZUN_SUCCESS;
       }
     }

@@ -5,7 +5,7 @@ ZunResult __thiscall th06::Chain::AddToDrawChain(Chain *this,ChainElem *param_2,
   ZunResult ZVar1;
   ChainElem *local_8;
   
-  DebugPrint2("add draw chain (pri = %d)\n",param_3);
+  utils::DebugPrint2("add draw chain (pri = %d)\n",param_3);
   param_2->priority = (short)param_3;
   for (local_8 = &this->drawChain;
       (local_8->next != (ChainElem *)0x0 && (local_8->priority <= param_3)); local_8 = local_8->next

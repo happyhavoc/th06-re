@@ -33,11 +33,11 @@ th06::CWaveFile::Read(CWaveFile *this,undefined4 *param_1,uint dwSizeToRead,uint
           if (local_54.pchNext == local_54.pchEndRead) {
             MVar2 = mmioAdvance(this->m_hmmio,&local_54,0);
             if (MVar2 != 0) {
-              DebugPrint2("error :\t%s(%s)\n","zwave.cpp",0x433);
+              utils::DebugPrint2("error :\t%s(%s)\n","zwave.cpp",0x433);
               return 0x80004005;
             }
             if (local_54.pchNext == local_54.pchEndRead) {
-              DebugPrint2("error :\t%s(%s)\n","zwave.cpp",0x437);
+              utils::DebugPrint2("error :\t%s(%s)\n","zwave.cpp",0x437);
               return 0x80004005;
             }
           }
@@ -52,12 +52,12 @@ th06::CWaveFile::Read(CWaveFile *this,undefined4 *param_1,uint dwSizeToRead,uint
           uVar1 = 0;
         }
         else {
-          DebugPrint2("error :\t%s(%s)\n","zwave.cpp",0x440);
+          utils::DebugPrint2("error :\t%s(%s)\n","zwave.cpp",0x440);
           uVar1 = 0x80004005;
         }
       }
       else {
-        DebugPrint2("error :\t%s(%s)\n","zwave.cpp",0x424);
+        utils::DebugPrint2("error :\t%s(%s)\n","zwave.cpp",0x424);
         uVar1 = 0x80004005;
       }
     }

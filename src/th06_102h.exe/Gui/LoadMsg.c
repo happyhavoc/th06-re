@@ -12,9 +12,10 @@ ZunResult __thiscall th06::Gui::LoadMsg(Gui *gui,char *path)
   msgHeader = (MsgRawHeader *)FileSystem::OpenPath(path,0);
   (gui->impl->msg).msg_file = msgHeader;
   if ((gui->impl->msg).msg_file == (MsgRawHeader *)0x0) {
-    GameErrorContextLog(&g_GameErrorContext,
-                        "error : メッセージファイル %s が読み込めませんでした\n"
-                        ,path,gui,pGVar2);
+    GameErrorContext::Log
+              (&g_GameErrorContext,
+               "error : メッセージファイル %s が読み込めませんでした\n",path,gui
+               ,pGVar2);
     ZVar1 = ZUN_ERROR;
   }
   else {

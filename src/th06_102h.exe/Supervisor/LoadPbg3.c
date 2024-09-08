@@ -42,7 +42,7 @@ LAB_0042444e:
     }
     local_8 = -1;
     this->pbg3Archives[pbg3FileIdx] = f;
-    DebugPrint("%s open ...\n",filename);
+    utils::DebugPrint("%s open ...\n",filename);
     BVar2 = Pbg3Archive::Load(this->pbg3Archives[pbg3FileIdx],filename);
     if (BVar2 == 0) {
       this_00 = this->pbg3Archives[pbg3FileIdx];
@@ -65,7 +65,7 @@ LAB_0042444e:
       sprintf(acStack_98,"ver%.4x.dat",0x102);
       uStack_14 = Pbg3Archive::FindEntry(this->pbg3Archives[pbg3FileIdx],acStack_98);
       if ((int)uStack_14 < 0) {
-        GameErrorContextFatal
+        GameErrorContext::Fatal
                   (&g_GameErrorContext,"error : データのバージョンが違います\n");
         iVar3 = 1;
         goto LAB_00424634;

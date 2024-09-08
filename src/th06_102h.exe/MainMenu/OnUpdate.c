@@ -226,7 +226,7 @@ drawStartMenuCase:
     if (menu->stateTimer != 0x3c) break;
     ZVar1 = LoadDiffCharSelect(menu);
     if (ZVar1 != ZUN_SUCCESS) {
-      GameErrorContextLog(&g_GameErrorContext,"セレクト画面の読み込みに失敗\n");
+      GameErrorContext::Log(&g_GameErrorContext,"セレクト画面の読み込みに失敗\n");
       g_Supervisor.curState = 4;
       return CHAIN_CALLBACK_RESULT_CONTINUE_AND_REMOVE_JOB;
     }
@@ -726,7 +726,7 @@ LAB_00436de7:
           else {
             refresh_rate = 0.375;
           }
-          DebugPrint("Reflesh Rate = %f\n",(double)(60.0 / refresh_rate));
+          utils::DebugPrint("Reflesh Rate = %f\n",(double)(60.0 / refresh_rate));
           g_Supervisor.framerateMultiplier = refresh_rate;
           Supervisor::StopAudio(&g_Supervisor);
           return CHAIN_CALLBACK_RESULT_CONTINUE_AND_REMOVE_JOB;

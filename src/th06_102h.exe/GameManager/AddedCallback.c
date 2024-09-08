@@ -168,43 +168,46 @@ ZunResult th06::GameManager::AddedCallback(GameManager *gameManager)
                 ZVar4 = ZUN_SUCCESS;
               }
               else {
-                GameErrorContextLog(&g_GameErrorContext,
-                                    "error : 2D表示の初期化に失敗しました\n");
+                GameErrorContext::Log
+                          (&g_GameErrorContext,"error : 2D表示の初期化に失敗しました\n"
+                          );
                 ZVar4 = ZUN_ERROR;
               }
             }
             else {
-              GameErrorContextLog(&g_GameErrorContext,
-                                  "error : エフェクトの初期化に失敗しました\n");
+              GameErrorContext::Log
+                        (&g_GameErrorContext,
+                         "error : エフェクトの初期化に失敗しました\n");
               ZVar4 = ZUN_ERROR;
             }
           }
           else {
-            GameErrorContextLog(&g_GameErrorContext,
-                                "error : 敵頭脳の初期化に失敗しました\n");
+            GameErrorContext::Log
+                      (&g_GameErrorContext,"error : 敵頭脳の初期化に失敗しました\n");
             ZVar4 = ZUN_ERROR;
           }
         }
         else {
-          GameErrorContextLog(&g_GameErrorContext,"error : 敵の初期化に失敗しました\n");
+          GameErrorContext::Log
+                    (&g_GameErrorContext,"error : 敵の初期化に失敗しました\n");
           ZVar4 = ZUN_ERROR;
         }
       }
       else {
-        GameErrorContextLog(&g_GameErrorContext,"error : 敵弾の初期化に失敗しました\n")
-        ;
+        GameErrorContext::Log
+                  (&g_GameErrorContext,"error : 敵弾の初期化に失敗しました\n");
         ZVar4 = ZUN_ERROR;
       }
     }
     else {
-      GameErrorContextLog(&g_GameErrorContext,
-                          "error : プレイヤーの初期化に失敗しました\n");
+      GameErrorContext::Log
+                (&g_GameErrorContext,"error : プレイヤーの初期化に失敗しました\n");
       ZVar4 = ZUN_ERROR;
     }
   }
   else {
-    GameErrorContextLog(&g_GameErrorContext,
-                        "error : 背景データの初期化に失敗しました\n");
+    GameErrorContext::Log
+              (&g_GameErrorContext,"error : 背景データの初期化に失敗しました\n");
     ZVar4 = ZUN_ERROR;
   }
   return ZVar4;

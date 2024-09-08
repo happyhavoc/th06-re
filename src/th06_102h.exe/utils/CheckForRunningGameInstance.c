@@ -1,5 +1,5 @@
 
-int th06::CheckForRunningGameInstance(void)
+int th06::utils::CheckForRunningGameInstance(void)
 
 {
   int iVar1;
@@ -12,7 +12,7 @@ int th06::CheckForRunningGameInstance(void)
   else {
     DVar2 = GetLastError();
     if (DVar2 == 0xb7) {
-      GameErrorContextFatal(&g_GameErrorContext,"二つは起動できません\n");
+      GameErrorContext::Fatal(&g_GameErrorContext,"二つは起動できません\n");
       iVar1 = -1;
     }
     else {

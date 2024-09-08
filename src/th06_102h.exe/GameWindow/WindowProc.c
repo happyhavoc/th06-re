@@ -1,5 +1,5 @@
 
-LRESULT th06::WindowProc(HWND hWnd,uint uMsg,WPARAM wParam,LPMIDIHDR lParam)
+LRESULT th06::GameWindow::WindowProc(HWND hWnd,uint uMsg,WPARAM wParam,LPMIDIHDR lParam)
 
 {
   HCURSOR pHVar1;

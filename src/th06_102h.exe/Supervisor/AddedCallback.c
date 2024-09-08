@@ -75,8 +75,8 @@ ZunResult th06::Supervisor::AddedCallback(Supervisor *param_1)
         }
       }
       else {
-        GameErrorContextLog(&g_GameErrorContext,"error : 文字の初期化に失敗しました\n")
-        ;
+        GameErrorContext::Log
+                  (&g_GameErrorContext,"error : 文字の初期化に失敗しました\n");
         ZVar2 = ZUN_ERROR;
       }
     }

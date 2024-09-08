@@ -41,10 +41,10 @@ ZunResult __thiscall th06::SoundPlayer::LoadWav(SoundPlayer *this,LPSTR path)
   }
   else {
     StopBGM(this);
-    DebugPrint2("load BGM\n");
+    utils::DebugPrint2("load BGM\n");
     iVar2 = CWaveFile::Open(&waveFile,path,0,1);
     if (iVar2 < 0) {
-      DebugPrint2("error : wav file load error %s\n",path);
+      utils::DebugPrint2("error : wav file load error %s\n",path);
       CWaveFile::Close(&waveFile);
       unk_err_res_ = 0xffffffff;
       CWaveFile::~CWaveFile(&waveFile);
@@ -77,15 +77,15 @@ ZunResult __thiscall th06::SoundPlayer::LoadWav(SoundPlayer *this,LPSTR path)
                            (GUID)ZEXT816(0),4,uVar4 - uVar4 % (uint)uVar1,
                            this->backgroundMusicUpdateEvent);
         if (HVar6 < 0) {
-          DebugPrint2(
-                     "error : ストリーミング用サウンドバッファを作成出来ませんでした\n"
-                     );
+          utils::DebugPrint2(
+                            "error : ストリーミング用サウンドバッファを作成出来ませんでした\n"
+                            );
           unk_err_res_ = 0xffffffff;
           CWaveFile::~CWaveFile(&waveFile);
           exit_status = ZUN_ERROR;
         }
         else {
-          DebugPrint2("comp\n");
+          utils::DebugPrint2("comp\n");
           DVar3 = timeGetTime();
           cur_time2 = DVar3;
           while ((cur_time2 < DVar3 + 100 && (DVar3 <= cur_time2))) {

@@ -91,9 +91,9 @@ LAB_004074ce:
   if ((enemy->current_context).time.current != instruction->time) {
     bVar16 = enemy->flags1 & 3;
     if (bVar16 == 1) {
-      fVar6 = AddNormalizeAngle(enemy->angle,
-                                g_Supervisor.effectiveFramerateMultiplier * enemy->angular_velocity)
-      ;
+      fVar6 = utils::AddNormalizeAngle
+                        (enemy->angle,
+                         g_Supervisor.effectiveFramerateMultiplier * enemy->angular_velocity);
       enemy->angle = fVar6;
       enemy->speed = g_Supervisor.effectiveFramerateMultiplier * enemy->acceleration + enemy->speed;
       fVar6 = enemy->speed;
@@ -357,7 +357,7 @@ LAB_004074ce:
   case 0x1a:
     pfVar15 = (float *)Enemy::GetVar(enemy,&(instruction->args).ecl_var_id,(EclValueType *)0x0);
     local_18 = (int)*pfVar15;
-    local_18 = (int)AddNormalizeAngle((float)local_18,0.0);
+    local_18 = (int)utils::AddNormalizeAngle((float)local_18,0.0);
     Enemy::SetVar(enemy,(instruction->args).ecl_var_id,&local_18);
     break;
   case 0x1b:
@@ -671,7 +671,7 @@ switchD_00407544_caseD_2:
     (enemy->bullet_props).position.z = fVar6 + fVar5;
     pfVar15 = Enemy::GetVarFloat(enemy,&(instruction->args).float_var_5,(EclValueType *)0x0);
     (enemy->bullet_props).angle1 = *pfVar15;
-    fVar6 = AddNormalizeAngle((enemy->bullet_props).angle1,0.0);
+    fVar6 = utils::AddNormalizeAngle((enemy->bullet_props).angle1,0.0);
     (enemy->bullet_props).angle1 = fVar6;
     pfVar15 = Enemy::GetVarFloat(enemy,&(instruction->args).float_var_3,(EclValueType *)0x0);
     (enemy->bullet_props).speed1 = *pfVar15;
@@ -1003,7 +1003,7 @@ switchD_00407544_caseD_2:
     break;
   case 99:
     if (7 < (instruction->args).ecl_var_id) {
-      DebugPrint2("error : sub anim overflow\n");
+      utils::DebugPrint2("error : sub anim overflow\n");
     }
     main_anm_manager = g_AnmManager;
     fVar6 = (instruction->args).float_var_1;
@@ -1190,7 +1190,7 @@ end_of_loop:
   goto LAB_004074ce;
 switchD_00407544_caseD_24:
   if ((enemy->flags3 >> 2 & 1) != 0) {
-    DebugPrint2("error : no Stack Ret\n");
+    utils::DebugPrint2("error : no Stack Ret\n");
   }
   enemy->stack_depth = enemy->stack_depth + -1;
   current_context = enemy->saved_context_stack + enemy->stack_depth;

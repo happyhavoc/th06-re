@@ -9,7 +9,7 @@ ZunResult th06::MainMenu::RegisterChain(int param_1)
   _memset(&g_MainMenu,0,0x10f34);
   g_GameManager.is_in_game_menu = 0;
   UVar1 = (*(g_Supervisor.d3dDevice)->lpVtbl->GetAvailableTextureMem)(g_Supervisor.d3dDevice);
-  DebugPrint("Debug : title 開始 VRAM = %d\n",UVar1);
+  utils::DebugPrint("Debug : title 開始 VRAM = %d\n",UVar1);
   g_MainMenu.gameState = -(uint)(param_1 != 0) & STATE_REPLAY_LOAD;
   g_Supervisor.framerateMultiplier = 0.0;
   g_MainMenu.chain_calc = Chain::CreateElem(&g_Chain,OnUpdate);

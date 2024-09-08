@@ -1,5 +1,5 @@
 
-void th06::ResetKeyboard(void)
+void th06::Controller::ResetKeyboard(void)
 
 {
   DWORD_PTR cookie;

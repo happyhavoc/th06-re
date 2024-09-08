@@ -9,7 +9,7 @@ ChainCallbackResult th06::Supervisor::OnUpdate(Supervisor *supervisor)
     CStreamingSound::UpdateFadeOut(g_SoundPlayer.backgroundMusic);
   }
   g_LastFrameInput = g_CurFrameInput;
-  g_CurFrameInput = GetInput();
+  g_CurFrameInput = Controller::GetInput();
   g_IsEigthFrameOfHeldInput = 0;
   if (g_LastFrameInput == g_CurFrameInput) {
     if ((0x1d < (ushort)g_NumOfFramesInputsWereHeld) &&

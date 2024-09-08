@@ -1,5 +1,5 @@
 
-void th06::InitD3dRendering(void)
+void th06::GameWindow::InitD3dRendering(void)
 
 {
   bool bVar1;
@@ -35,14 +35,16 @@ void th06::InitD3dRendering(void)
       if ((display_mode.Format == D3DFMT_X8R8G8B8) || (display_mode.Format == D3DFMT_A8R8G8B8)) {
         present_params.BackBufferFormat = D3DFMT_X8R8G8B8;
         g_Supervisor.cfg.colorMode16bit = 0;
-        GameErrorContextLog(&g_GameErrorContext,
-                            "初回起動、画面を 32Bits で初期化しました\n");
+        GameErrorContext::Log
+                  (&g_GameErrorContext,"初回起動、画面を 32Bits で初期化しました\n")
+        ;
       }
       else {
         present_params.BackBufferFormat = D3DFMT_R5G6B5;
         g_Supervisor.cfg.colorMode16bit = 1;
-        GameErrorContextLog(&g_GameErrorContext,
-                            "初回起動、画面を 16Bits で初期化しました\n");
+        GameErrorContext::Log
+                  (&g_GameErrorContext,"初回起動、画面を 16Bits で初期化しました\n")
+        ;
       }
     }
     else if (g_Supervisor.cfg.colorMode16bit == 0) {
@@ -57,8 +59,8 @@ void th06::InitD3dRendering(void)
     else {
       present_params.FullScreen_RefreshRateInHz = 60;
       present_params.FullScreen_PresentationInterval = D3DPRESENT_INTERVAL_ONE;
-      GameErrorContextLog(&g_GameErrorContext,
-                          "リフレッシュレートを60Hzに変更します\n");
+      GameErrorContext::Log
+                (&g_GameErrorContext,"リフレッシュレートを60Hzに変更します\n");
     }
     if (g_Supervisor.cfg.frameskipConfig == 0) {
       present_params.SwapEffect = D3DSWAPEFFECT_FLIP;
@@ -93,20 +95,20 @@ void th06::InitD3dRendering(void)
                          D3DCREATE_HARDWARE_VERTEXPROCESSING,&present_params,&g_Supervisor.d3dDevice
                         );
       if (-1 < HVar2) {
-        GameErrorContextLog(&g_GameErrorContext,"T&L HAL で動作しま〜す\n");
+        GameErrorContext::Log(&g_GameErrorContext,"T&L HAL で動作しま〜す\n");
         g_Supervisor.hasD3dHardwareVertexProcessing = 1;
         goto LAB_004211ab;
       }
-      GameErrorContextLog(&g_GameErrorContext,"T&L HAL は使用できないようです\n");
+      GameErrorContext::Log(&g_GameErrorContext,"T&L HAL は使用できないようです\n");
       HVar2 = (*(g_Supervisor.d3dIface)->lpVtbl->CreateDevice)
                         (g_Supervisor.d3dIface,0,D3DDEVTYPE_HAL,g_GameWindow.window,
                          D3DCREATE_SOFTWARE_VERTEXPROCESSING,&present_params,&g_Supervisor.d3dDevice
                         );
       if (HVar2 < 0) {
-        GameErrorContextLog(&g_GameErrorContext,"HAL も使用できないようです\n");
+        GameErrorContext::Log(&g_GameErrorContext,"HAL も使用できないようです\n");
         goto LAB_00421077;
       }
-      GameErrorContextLog(&g_GameErrorContext,"HAL で動作します\n");
+      GameErrorContext::Log(&g_GameErrorContext,"HAL で動作します\n");
 LAB_00421190:
       g_Supervisor.hasD3dHardwareVertexProcessing = 0;
 LAB_004211ab:
@@ -132,9 +134,10 @@ LAB_004211ab:
                 (g_Supervisor.d3dDevice,&g_Supervisor.d3dCaps);
       if (((g_Supervisor.cfg.opts & 1) == 0) &&
          ((g_Supervisor.d3dCaps.TextureOpCaps & D3DTEXOPCAPS_ADD) == 0)) {
-        GameErrorContextLog(&g_GameErrorContext,
-                            "D3DTEXOPCAPS_ADD をサポートしていません、色加算エミュレートモードで動作します\n"
-                           );
+        GameErrorContext::Log
+                  (&g_GameErrorContext,
+                   "D3DTEXOPCAPS_ADD をサポートしていません、色加算エミュレートモードで動作します\n"
+                  );
         g_Supervisor.cfg.opts = g_Supervisor.cfg.opts | 1;
       }
       if (((g_Supervisor.cfg.opts >> FORCE_60FPS & 1) == 0) || (g_Supervisor.vsyncEnabled == 0)) {
@@ -145,9 +148,10 @@ LAB_004211ab:
       }
       if ((bVar1) &&
          ((g_Supervisor.d3dCaps.PresentationIntervals & D3DPRESENT_INTERVAL_IMMEDIATE) == 0)) {
-        GameErrorContextLog(&g_GameErrorContext,
-                            "ビデオカードが非同期フリップをサポートしていません、Force60Frameで動作できません\n"
-                           );
+        GameErrorContext::Log
+                  (&g_GameErrorContext,
+                   "ビデオカードが非同期フリップをサポートしていません、Force60Frameで動作できません\n"
+                  );
         g_Supervisor.cfg.opts = g_Supervisor.cfg.opts & 0xffffff7f;
       }
       if (((g_Supervisor.cfg.opts >> FORCE_16BIT_COLOR_MODE & 1) == 0) &&
@@ -161,13 +165,14 @@ LAB_004211ab:
         else {
           g_Supervisor.colorMode16Bits = 0;
           g_Supervisor.cfg.opts = g_Supervisor.cfg.opts | 4;
-          GameErrorContextLog(&g_GameErrorContext,
-                              "D3DFMT_A8R8G8B8 をサポートしていません、減色モードで動作します\n"
-                             );
+          GameErrorContext::Log
+                    (&g_GameErrorContext,
+                     "D3DFMT_A8R8G8B8 をサポートしていません、減色モードで動作します\n"
+                    );
         }
       }
       InitD3dDevice();
-      SetViewport(0);
+      ScreenEffect::SetViewport(0);
       g_GameWindow.isAppClosing = 0;
       g_Supervisor.lastFrameTime = 0;
       g_Supervisor.framerateMultiplier = 0.0;
@@ -178,15 +183,16 @@ LAB_00421077:
                       (g_Supervisor.d3dIface,0,D3DDEVTYPE_REF,g_GameWindow.window,
                        D3DCREATE_SOFTWARE_VERTEXPROCESSING,&present_params,&g_Supervisor.d3dDevice);
     if (-1 < HVar2) {
-      GameErrorContextLog(&g_GameErrorContext,
-                          "REF で動作しますが、重すぎて恐らくゲームになりません...\n"
-                         );
+      GameErrorContext::Log
+                (&g_GameErrorContext,
+                 "REF で動作しますが、重すぎて恐らくゲームになりません...\n"
+                );
       using_d3d_hal = using_d3d_hal & 0xffffff00;
       goto LAB_00421190;
     }
     if (((g_Supervisor.cfg.opts >> FORCE_60FPS & 1) == 0) || (g_Supervisor.vsyncEnabled != 0)) {
       if (present_params.Flags != 1) {
-        GameErrorContextFatal
+        GameErrorContext::Fatal
                   (&g_GameErrorContext,
                    "Direct3D の初期化に失敗、これではゲームは出来ません\n");
         if (g_Supervisor.d3dIface != (IDirect3D8 *)0x0) {
@@ -195,15 +201,17 @@ LAB_00421077:
         }
         return;
       }
-      GameErrorContextLog(&g_GameErrorContext,
-                          "バックバッファをロック不可能にしてみます\n");
+      GameErrorContext::Log
+                (&g_GameErrorContext,
+                 "バックバッファをロック不可能にしてみます\n");
       present_params.Flags = 0;
       g_Supervisor.lockableBackbuffer = 0;
     }
     else {
-      GameErrorContextLog(&g_GameErrorContext,
-                          "リフレッシュレートが変更できません、vsync 非同期に変更します\n"
-                         );
+      GameErrorContext::Log
+                (&g_GameErrorContext,
+                 "リフレッシュレートが変更できません、vsync 非同期に変更します\n"
+                );
       present_params.FullScreen_RefreshRateInHz = 0;
       g_Supervisor.vsyncEnabled = 1;
       present_params.FullScreen_PresentationInterval = 0x80000000;

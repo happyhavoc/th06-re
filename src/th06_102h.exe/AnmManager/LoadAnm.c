@@ -17,7 +17,7 @@ th06::AnmManager::LoadAnm(AnmManager *this,int anm_index,char *path,int spriteId
   this->anmFiles[anm_index] = data;
   data = this->anmFiles[anm_index];
   if (data == (AnmRawEntry *)0x0) {
-    GameErrorContextFatal
+    GameErrorContext::Fatal
               (&g_GameErrorContext,
                "スプライトアニメ %s が読み込めません。データが失われてるか壊れています\n"
                ,path);
@@ -32,7 +32,7 @@ th06::AnmManager::LoadAnm(AnmManager *this,int anm_index,char *path,int spriteId
     else {
       result = LoadTexture((AnmManager *)this,data->textureIdx,name,data->format,data->color_key);
       if (result != ZUN_SUCCESS) {
-        GameErrorContextFatal
+        GameErrorContext::Fatal
                   (&g_GameErrorContext,
                    "テクスチャ %s が読み込めません。データが失われてるか壊れています\n"
                    ,name);
@@ -44,7 +44,7 @@ th06::AnmManager::LoadAnm(AnmManager *this,int anm_index,char *path,int spriteId
       result = LoadTextureAlphaChannel
                          ((AnmManager *)this,data->textureIdx,name,data->format,data->color_key);
       if (result != ZUN_SUCCESS) {
-        GameErrorContextFatal
+        GameErrorContext::Fatal
                   (&g_GameErrorContext,
                    "テクスチャ %s が読み込めません。データが失われてるか壊れています\n"
                    ,name);

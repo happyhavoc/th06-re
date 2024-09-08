@@ -1,5 +1,5 @@
 
-void th06::InitD3dDevice(void)
+void th06::GameWindow::InitD3dDevice(void)
 
 {
   if ((g_Supervisor.cfg.opts >> 6 & 1) == 0) {

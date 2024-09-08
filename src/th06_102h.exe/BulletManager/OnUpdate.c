@@ -107,9 +107,10 @@ switchD_00414a97_caseD_1:
             if ((bulletsPtr->ex_flags & 0x10) == 0) {
               if ((bulletsPtr->ex_flags & 0x20) != 0) {
                 if ((bulletsPtr->timer).current < bulletsPtr->ex_5_int_0) {
-                  velZ = AddNormalizeAngle(bulletsPtr->angle,
-                                           g_Supervisor.effectiveFramerateMultiplier *
-                                           bulletsPtr->ex_5_float_1);
+                  velZ = utils::AddNormalizeAngle
+                                   (bulletsPtr->angle,
+                                    g_Supervisor.effectiveFramerateMultiplier *
+                                    bulletsPtr->ex_5_float_1);
                   bulletsPtr->angle = velZ;
                   bulletsPtr->speed =
                        g_Supervisor.effectiveFramerateMultiplier * bulletsPtr->ex_5_float_0 +
@@ -165,7 +166,7 @@ switchD_00414a97_caseD_1:
                     velZ = (bulletsPtr->pos).x;
                     if ((velZ < 0.0 != NAN(velZ)) || (384.0 <= (bulletsPtr->pos).x)) {
                       bulletsPtr->angle = -bulletsPtr->angle - 3.141593;
-                      velZ = AddNormalizeAngle(bulletsPtr->angle,0.0);
+                      velZ = utils::AddNormalizeAngle(bulletsPtr->angle,0.0);
                       bulletsPtr->angle = velZ;
                     }
                     velZ = (bulletsPtr->pos).y;
@@ -193,7 +194,7 @@ switchD_00414a97_caseD_1:
                     velZ = (bulletsPtr->pos).x;
                     if ((velZ < 0.0 != NAN(velZ)) || (384.0 <= (bulletsPtr->pos).x)) {
                       bulletsPtr->angle = -bulletsPtr->angle - 3.141593;
-                      velZ = AddNormalizeAngle(bulletsPtr->angle,0.0);
+                      velZ = utils::AddNormalizeAngle(bulletsPtr->angle,0.0);
                       bulletsPtr->angle = velZ;
                     }
                     velZ = (bulletsPtr->pos).y;

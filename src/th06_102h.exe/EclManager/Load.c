@@ -9,9 +9,10 @@ ZunResult __thiscall th06::EclManager::Load(EclManager *this,char *path)
   pEVar1 = (EclRawHeader *)FileSystem::OpenPath(path,0);
   this->ecl_file = pEVar1;
   if (this->ecl_file == (EclRawHeader *)0x0) {
-    GameErrorContextLog(&g_GameErrorContext,
-                        "敵データの読み込みに失敗しました、データが壊れてるか失われています\n"
-                       );
+    GameErrorContext::Log
+              (&g_GameErrorContext,
+               "敵データの読み込みに失敗しました、データが壊れてるか失われています\n"
+              );
     ZVar2 = ZUN_ERROR;
   }
   else {

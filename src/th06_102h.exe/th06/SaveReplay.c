@@ -56,7 +56,7 @@ void th06::SaveReplay(char *replay_path,char *param_2)
                        ((int)pRVar1->replayInputAddresses[j] - (int)pRVar1->data->stage_score[j]));
           }
         }
-        DebugPrint2("%s write ...\n",replay_path);
+        utils::DebugPrint2("%s write ...\n",replay_path);
         replayCopy._36_4_ = g_GameManager.gui_score;
         slowDown = g_Supervisor.unk_frame_related1 / g_Supervisor.unk_frames_related2 - 0.5;
         slowDown = slowDown + slowDown;
@@ -147,8 +147,9 @@ void th06::SaveReplay(char *replay_path,char *param_2)
       }
       for (j = 0; (int)j < 7; j = j + 1) {
         if (g_ReplayManager->data->stage_score[j] != (StageReplayData *)0x0) {
-          DebugPrint2("Replay Size %d\n",
-                      (int)pRVar1->replayInputAddresses[j] - (int)pRVar1->data->stage_score[j]);
+          utils::DebugPrint2("Replay Size %d\n",
+                             (int)pRVar1->replayInputAddresses[j] -
+                             (int)pRVar1->data->stage_score[j]);
           _free(g_ReplayManager->data->stage_score[j]);
         }
       }

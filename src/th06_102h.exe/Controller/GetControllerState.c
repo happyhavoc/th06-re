@@ -46,12 +46,12 @@ byte * th06::Controller::GetControllerState(void)
     HVar2 = (*(g_Supervisor.controller)->lpVtbl->Poll)(g_Supervisor.controller);
     if (HVar2 < 0) {
       local_160 = 0;
-      DebugPrint2("error : DIERR_INPUTLOST\n");
+      utils::DebugPrint2("error : DIERR_INPUTLOST\n");
       local_44 = (*(g_Supervisor.controller)->lpVtbl->Acquire)(g_Supervisor.controller);
       do {
         if (local_44 != -0x7ff8ffe2) break;
         local_44 = (*(g_Supervisor.controller)->lpVtbl->Acquire)(g_Supervisor.controller);
-        DebugPrint2("error : DIERR_INPUTLOST %d\n",local_160);
+        utils::DebugPrint2("error : DIERR_INPUTLOST %d\n",local_160);
         local_160 = local_160 + 1;
       } while (local_160 < 400);
     }

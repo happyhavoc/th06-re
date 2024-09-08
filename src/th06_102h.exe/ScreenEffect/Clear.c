@@ -1,5 +1,5 @@
 
-void th06::Clear(D3DCOLOR param_1)
+void th06::ScreenEffect::Clear(D3DCOLOR param_1)
 
 {
   HRESULT HVar1;

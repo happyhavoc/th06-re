@@ -10,9 +10,10 @@ ZunResult __thiscall th06::Ending::loadEnding(Ending *ending,char *endFilePath)
   pbVar1 = FileSystem::OpenPath(endFilePath,0);
   ending->endFileData = (char *)pbVar1;
   if (ending->endFileData == (char *)0x0) {
-    GameErrorContextLog(&g_GameErrorContext,
-                        "error : エンディングファイルが読み込めない、ファイルが破壊されています\n"
-                       );
+    GameErrorContext::Log
+              (&g_GameErrorContext,
+               "error : エンディングファイルが読み込めない、ファイルが破壊されています\n"
+              );
     result = ZUN_ERROR;
   }
   else {

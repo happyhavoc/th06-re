@@ -1,5 +1,5 @@
 
-void th06::SetupCameraStageBackground(float extraRenderDistance)
+void th06::GameManager::SetupCameraStageBackground(float extraRenderDistance)
 
 {
   double dVar1;

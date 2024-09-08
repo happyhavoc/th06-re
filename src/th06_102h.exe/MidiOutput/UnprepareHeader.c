@@ -6,10 +6,10 @@ ZunResult __thiscall th06::MidiOutput::UnprepareHeader(MidiOutput *this,LPMIDIHD
   int local_c;
   
   if (param_1 == (LPMIDIHDR)0x0) {
-    DebugPrint2("error :\n");
+    utils::DebugPrint2("error :\n");
   }
   if ((this->midiOutDev).handle == (HMIDIOUT)0x0) {
-    DebugPrint2("error :\n");
+    utils::DebugPrint2("error :\n");
   }
   local_c = 0;
   while( true ) {
@@ -22,7 +22,7 @@ ZunResult __thiscall th06::MidiOutput::UnprepareHeader(MidiOutput *this,LPMIDIHD
   this->midiHeaders[local_c] = (MIDIHDR *)0x0;
   MVar1 = midiOutUnprepareHeader((this->midiOutDev).handle,param_1,0x40);
   if (MVar1 != 0) {
-    DebugPrint2("error :\n");
+    utils::DebugPrint2("error :\n");
   }
   _free(param_1->lpData);
   _free(param_1);

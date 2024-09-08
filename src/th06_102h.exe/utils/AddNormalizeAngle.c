@@ -1,5 +1,5 @@
 
-float th06::AddNormalizeAngle(float param_1,float param_2)
+float th06::utils::AddNormalizeAngle(float param_1,float param_2)
 
 {
   bool bVar1;

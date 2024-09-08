@@ -5,7 +5,7 @@ ZunResult __thiscall th06::Chain::AddToCalcChain(Chain *this,ChainElem *elem,int
   ZunResult ZVar1;
   ChainElem *cur;
   
-  DebugPrint2("add calc chain (pri = %d)\n",priority);
+  utils::DebugPrint2("add calc chain (pri = %d)\n",priority);
   elem->priority = (short)priority;
   for (cur = &this->calcChain; (cur->next != (ChainElem *)0x0 && (cur->priority <= priority));
       cur = cur->next) {

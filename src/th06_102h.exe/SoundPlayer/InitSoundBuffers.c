@@ -18,9 +18,10 @@ ZunResult __thiscall th06::SoundPlayer::InitSoundBuffers(SoundPlayer *this)
     for (idx = 0; (int)idx < 0x1a; idx = idx + 1) {
       ZVar1 = LoadSound(this,idx,g_SFXList[idx]);
       if (ZVar1 != ZUN_SUCCESS) {
-        GameErrorContextLog(&g_GameErrorContext,
-                            "error : Sound ファイルが読み込めない データを確認 %s\n"
-                            ,g_SFXList[idx]);
+        GameErrorContext::Log
+                  (&g_GameErrorContext,
+                   "error : Sound ファイルが読み込めない データを確認 %s\n",
+                   g_SFXList[idx]);
         return ZUN_ERROR;
       }
     }

@@ -1,5 +1,5 @@
 
-DWORD th06::SetButtonFromDirectInputJoystate
+DWORD th06::Controller::SetButtonFromDirectInputJoystate
                 (WORD *outButtons,short controllerButtonToTest,DWORD touhouButton,BYTE *inputButtons
                 )
 

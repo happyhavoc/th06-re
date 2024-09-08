@@ -1,5 +1,5 @@
 
-void th06::CreateGameWindow(HINSTANCE instance)
+void th06::GameWindow::CreateGameWindow(HINSTANCE instance)
 
 {
   int iVar1;

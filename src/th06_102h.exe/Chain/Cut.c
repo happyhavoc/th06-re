@@ -17,10 +17,10 @@ void __thiscall th06::Chain::Cut(Chain *this,ChainElem *to_remove)
       if (cur_elem == to_remove) {
 destroy_elem:
         if (isDrawChain) {
-          DebugPrint2("draw cut Chain (Pri = %d)\n",(int)to_remove->priority);
+          utils::DebugPrint2("draw cut Chain (Pri = %d)\n",(int)to_remove->priority);
         }
         else {
-          DebugPrint2("calc cut Chain (Pri = %d)\n",(int)to_remove->priority);
+          utils::DebugPrint2("calc cut Chain (Pri = %d)\n",(int)to_remove->priority);
         }
         if (to_remove->prev == (ChainElem *)0x0) {
           return;

@@ -51,7 +51,7 @@ ZunResult __thiscall th06::SoundPlayer::LoadSound(SoundPlayer *this,int idx,char
           sFD_Cursor = sFD_Cursor + 4;
           wavDataPtr = GetWavFormatData((byte *)sFD_Cursor,"fmt ",&formatSize,fileSize - uVar2);
           if (wavDataPtr == (WAVEFORMATEX *)0x0) {
-            GameErrorContextLog(&g_GameErrorContext,"Wav ファイルじゃない? %s\n",path);
+            GameErrorContext::Log(&g_GameErrorContext,"Wav ファイルじゃない? %s\n",path);
             _free(soundFileData);
             ZVar2 = ZUN_ERROR;
           }
@@ -65,7 +65,7 @@ ZunResult __thiscall th06::SoundPlayer::LoadSound(SoundPlayer *this,int idx,char
             wavData.cbSize = wavDataPtr->cbSize;
             wavDataPtr = GetWavFormatData((byte *)sFD_Cursor,"data",&formatSize,fileSize - 0xc);
             if (wavDataPtr == (WAVEFORMATEX *)0x0) {
-              GameErrorContextLog(&g_GameErrorContext,"Wav ファイルじゃない? %s\n",path);
+              GameErrorContext::Log(&g_GameErrorContext,"Wav ファイルじゃない? %s\n",path);
               _free(soundFileData);
               ZVar2 = ZUN_ERROR;
             }
@@ -135,13 +135,13 @@ ZunResult __thiscall th06::SoundPlayer::LoadSound(SoundPlayer *this,int idx,char
           }
         }
         else {
-          GameErrorContextLog(&g_GameErrorContext,"Wav ファイルじゃない? %s\n",path);
+          GameErrorContext::Log(&g_GameErrorContext,"Wav ファイルじゃない? %s\n",path);
           _free(soundFileData);
           ZVar2 = ZUN_ERROR;
         }
       }
       else {
-        GameErrorContextLog(&g_GameErrorContext,"Wav ファイルじゃない %s\n",path);
+        GameErrorContext::Log(&g_GameErrorContext,"Wav ファイルじゃない %s\n",path);
         _free(soundFileData);
         ZVar2 = ZUN_ERROR;
       }

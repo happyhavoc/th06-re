@@ -7,7 +7,7 @@ ZunResult __thiscall th06::SoundPlayer::PlayBGM(SoundPlayer *this,BOOL isLooping
   LPDIRECTSOUNDBUFFER pDSB;
   int iVar2;
   
-  DebugPrint2("play BGM\n");
+  utils::DebugPrint2("play BGM\n");
   if (this->backgroundMusic == (CStreamingSound *)0x0) {
     result = ZUN_ERROR;
   }
@@ -28,7 +28,7 @@ ZunResult __thiscall th06::SoundPlayer::PlayBGM(SoundPlayer *this,BOOL isLooping
           result = ZUN_ERROR;
         }
         else {
-          DebugPrint2("comp\n");
+          utils::DebugPrint2("comp\n");
           this->isLooping = isLooping;
           result = ZUN_SUCCESS;
         }

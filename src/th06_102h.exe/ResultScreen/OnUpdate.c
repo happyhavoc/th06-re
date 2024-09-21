@@ -24,13 +24,14 @@ undefined4 __thiscall th06::ResultScreen::OnUpdate(ResultScreen *this,ResultScre
             (i < result_screen->field16_0x28 * 10 + 10 && (i < 0x40)); i = i + 1) {
           if (g_GameManager.catk[i].num_successes == 0) {
             AnmManager::DrawVmTextFmt
-                      (g_AnmManager,&result_screen->unk_28a0 + i % 10,0xffffff,0,"？？？？？");
+                      (g_AnmManager,&result_screen->unk_28a0 + i % 10,(ZunColor)0xffffff,
+                       (ZunColor)0x0,"？？？？？");
             pRVar2 = extraout_ECX_00;
           }
           else {
             AnmManager::DrawVmTextFmt
-                      (g_AnmManager,&result_screen->unk_28a0 + i % 10,0xffffff,0,
-                       (char *)g_GameManager.catk[i].name);
+                      (g_AnmManager,&result_screen->unk_28a0 + i % 10,(ZunColor)0xffffff,
+                       (ZunColor)0x0,(char *)g_GameManager.catk[i].name);
             pRVar2 = extraout_ECX_01;
           }
         }

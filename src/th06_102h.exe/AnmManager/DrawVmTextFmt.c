@@ -1,6 +1,6 @@
 
 void th06::AnmManager::DrawVmTextFmt
-               (AnmManager *anm_mgr,AnmVm *vm,D3DCOLOR textColor,D3DCOLOR shadowColor,char *param_5,
+               (AnmManager *anm_mgr,AnmVm *vm,ZunColor textColor,ZunColor shadowColor,char *param_5,
                ...)
 
 {
@@ -28,7 +28,7 @@ void th06::AnmManager::DrawVmTextFmt
   yPos = __ftol2((vm->sprite->startPixelInclusive).y);
   xPos = __ftol2((vm->sprite->startPixelInclusive).x);
   DrawText(anm_mgr,vm->sprite->sourceFileIndex,xPos,yPos,spriteWidth,spriteHeight,fontWidth,
-           fontHeight2,textColor,shadowColor,stringToPrint);
+           fontHeight2,textColor.color,shadowColor.color,stringToPrint);
   vm->flags = vm->flags | AnmVmFlags_1;
   __security_check_cookie(local_c ^ unaff_retaddr);
   return;

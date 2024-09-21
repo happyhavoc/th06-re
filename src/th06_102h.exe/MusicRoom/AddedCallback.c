@@ -125,8 +125,8 @@ breakWhile:
               AnmVm::Initialize(pAVar1);
               AnmManager::SetActiveSprite(pAVar3,pAVar1,local_8 + 0x101);
               AnmManager::DrawVmTextFmt
-                        (g_AnmManager,param_1->field13_0x134 + local_8,0xc0e0ff,0x302080,
-                         param_1->field11_0x20 + local_8 * 0x272 + 0x40);
+                        (g_AnmManager,param_1->field13_0x134 + local_8,(ZunColor)0xc0e0ff,
+                         (ZunColor)0x302080,param_1->field11_0x20 + local_8 * 0x272 + 0x40);
               param_1->field13_0x134[local_8].pos.x = 93.0;
               param_1->field13_0x134[local_8].pos.y = ((float)((local_8 + 1) * 0x12) + 104.0) - 20.0
               ;
@@ -173,8 +173,8 @@ LAB_00425c09:
                 param_1->field4366_0x2334[local_8].flags =
                      param_1->field4366_0x2334[local_8].flags | 2;
                 AnmManager::DrawVmTextFmt
-                          (g_AnmManager,param_1->field4366_0x2334 + local_8,0xffe0c0,0x300000,
-                           &local_5c);
+                          (g_AnmManager,param_1->field4366_0x2334 + local_8,(ZunColor)0xffe0c0,
+                           (ZunColor)0x300000,&local_5c);
               }
               param_1->field4366_0x2334[local_8].pos.x = (float)(local_8 % 2) * 248.0 + 96.0;
               param_1->field4366_0x2334[local_8].pos.y = (float)(local_8 / 2 << 4) + 320.0;

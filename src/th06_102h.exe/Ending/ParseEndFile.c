@@ -93,7 +93,7 @@ void __thiscall th06::Ending::ParseEndFile(Ending *this)
                      pAVar3->scripts[i * 2 + local_8 + 0x708]);
           AnmManager::DrawVmTextFmt
                     (g_AnmManager,&this->AnmVm + local_8 + this->possibly_times_file_parsed * 2,
-                     this->textColor,0xc0d0d0,&local_34);
+                     (ZunColor)this->textColor,(ZunColor)0xc0d0d0,&local_34);
           if (local_8 != 0) goto LAB_00410546;
           local_8 = 1;
           local_38 = 0;
@@ -289,7 +289,7 @@ switchD_0040fa32_caseD_0:
               (pAVar3,&this->AnmVm + local_8 + iVar2 * 2,pAVar3->scripts[i * 2 + local_8 + 0x708]);
     AnmManager::DrawVmTextFmt
               (g_AnmManager,&this->AnmVm + local_8 + this->possibly_times_file_parsed * 2,
-               this->textColor,0xc0d0d0,&local_34);
+               (ZunColor)this->textColor,(ZunColor)0xc0d0d0,&local_34);
   }
   while (((*this->endFileDataPtr == '\n' || (*this->endFileDataPtr == '\0')) ||
          (*this->endFileDataPtr == '\r'))) {

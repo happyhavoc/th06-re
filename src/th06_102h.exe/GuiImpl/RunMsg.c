@@ -60,8 +60,9 @@ ZunResult __thiscall th06::GuiImpl::RunMsg(GuiImpl *this)
            (-1 < (this->msg).dialogue_lines[1].anmFileIndex)) {
           AnmManager::DrawVmTextFmt
                     (g_AnmManager,(this->msg).dialogue_lines + 1,
-                     (this->msg).text_colors_A[(short)(psVar7->textDialogue).textColor],
-                     (this->msg).text_colors_B[(short)(psVar7->textDialogue).textColor]," ");
+                     (ZunColor)(this->msg).text_colors_A[(short)(psVar7->textDialogue).textColor],
+                     (ZunColor)(this->msg).text_colors_B[(short)(psVar7->textDialogue).textColor],
+                     " ");
         }
         pAVar4 = g_AnmManager;
         sVar2 = (pvVar3->args).textDialogue.textLine;
@@ -76,9 +77,9 @@ ZunResult __thiscall th06::GuiImpl::RunMsg(GuiImpl *this)
         AnmManager::DrawVmTextFmt
                   (g_AnmManager,
                    (this->msg).dialogue_lines + (short)(pvVar3->args).portraitAnmScript.anmScriptIdx
-                   ,(this->msg).text_colors_A[(short)(psVar7->portraitAnmScript).portrait],
-                   (this->msg).text_colors_B[(short)(psVar7->portraitAnmScript).portrait],
-                   (pvVar3->args).textDialogue.text);
+                   ,(ZunColor)(this->msg).text_colors_A[(short)(psVar7->portraitAnmScript).portrait]
+                   ,(ZunColor)(this->msg).text_colors_B[(short)(psVar7->portraitAnmScript).portrait]
+                   ,(pvVar3->args).textDialogue.text);
         (this->msg).frames_elapsed_during_pause = 0;
         break;
       case 4:

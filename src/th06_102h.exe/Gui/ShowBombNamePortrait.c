@@ -16,7 +16,8 @@ void __thiscall th06::Gui::ShowBombNamePortrait(Gui *this,uint sprite,char *bomb
   pGVar2 = this->impl;
   (pGVar2->bombSpellcardName).anmFileIndex = 0x706;
   AnmManager::SetAndExecuteScript(pAVar3,&pGVar2->bombSpellcardName,pAVar3->scripts[0x706]);
-  AnmManager::DrawVmTextFmt(g_AnmManager,&this->impl->bombSpellcardName,0xf0f0ff,0,bombName);
+  AnmManager::DrawVmTextFmt
+            (g_AnmManager,&this->impl->bombSpellcardName,(ZunColor)0xf0f0ff,(ZunColor)0x0,bombName);
   local_1c = bombName;
   do {
     cVar1 = *local_1c;

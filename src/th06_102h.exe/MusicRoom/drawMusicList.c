@@ -75,7 +75,8 @@ LAB_0042508a:
       else {
         this->field4366_0x2334[local_c].flags = this->field4366_0x2334[local_c].flags | 2;
         AnmManager::DrawVmTextFmt
-                  (g_AnmManager,this->field4366_0x2334 + local_c,0xffe0c0,0x300000,&local_54);
+                  (g_AnmManager,this->field4366_0x2334 + local_c,(ZunColor)0xffe0c0,
+                   (ZunColor)0x300000,&local_54);
       }
       this->field4366_0x2334[local_c].pos.x = (float)(local_c % 2) * 248.0 + 96.0;
       this->field4366_0x2334[local_c].pos.y = (float)(local_c / 2 << 4) + 320.0;

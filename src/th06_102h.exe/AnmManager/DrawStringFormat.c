@@ -40,8 +40,8 @@ void th06::AnmManager::DrawStringFormat
   textureWidth = __ftol2(vm->sprite->textureWidth);
   yPos = __ftol2((vm->sprite->startPixelInclusive).y);
   xPos = __ftol2((vm->sprite->startPixelInclusive).x);
-  DrawText(this,vm->sprite->sourceFileIndex,xPos,yPos,textureWidth,textureHeight,fontWidth2,
-           fontHeight,textColor_00.color,shadowColor_00.color,pcVar9);
+  DrawTextToSprite(this,vm->sprite->sourceFileIndex,xPos,yPos,textureWidth,textureHeight,fontWidth2,
+                   fontHeight,textColor_00,shadowColor_00,pcVar9);
   local_60 = buf;
   do {
     cVar1 = *local_60;
@@ -55,8 +55,8 @@ void th06::AnmManager::DrawStringFormat
   textureHeight = __ftol2(vm->sprite->textureHeight);
   textureWidth = __ftol2(vm->sprite->textureWidth);
   yPos = __ftol2((vm->sprite->startPixelInclusive).y);
-  DrawText(this,vm->sprite->sourceFileIndex,local_c,yPos,textureWidth,textureHeight,fontWidth,
-           fontHeight,textColor.color,shadowColor.color,pcVar9);
+  DrawTextToSprite(this,vm->sprite->sourceFileIndex,local_c,yPos,textureWidth,textureHeight,
+                   fontWidth,fontHeight,textColor,shadowColor,pcVar9);
   vm->flags = vm->flags | AnmVmFlags_1;
   __security_check_cookie(stackCookie ^ unaff_retaddr);
   return;

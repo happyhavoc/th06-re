@@ -3,7 +3,7 @@
 
 void th06::RenderTextToTexture
                (long xPos,long yPos,long spriteWidth,long spriteHeight,long fontHeight,int fontWidth
-               ,COLORREF textColor,COLORREF shadowColor,char *string,IDirect3DTexture8 *texture)
+               ,COLORREF textColor,COLORREF shadowColor,char *string,IDirect3DTexture8 *outTexture)
 
 {
   HGDIOBJ h;
@@ -54,7 +54,7 @@ void th06::RenderTextToTexture
   RStack_70.top = 0;
   RStack_70.right = spriteWidth * 2 + -2;
   RStack_70.bottom = fontHeight * 2 + -2;
-  (*texture->lpVtbl->GetSurfaceLevel)(texture,0,&pIStack_84);
+  (*outTexture->lpVtbl->GetSurfaceLevel)(outTexture,0,&pIStack_84);
   D3DXLoadSurfaceFromSurface
             (pIStack_84,(PALETTEENTRY *)0x0,&RStack_80,g_TextBufferSurface,(PALETTEENTRY *)0x0,
              &RStack_70,4,0);

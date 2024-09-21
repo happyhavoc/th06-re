@@ -8,7 +8,7 @@ ZunResult __thiscall th06::AnmManager::LoadSurface(AnmManager *this,int surface_
   LPDIRECT3DSURFACE8 surface;
   
   if (this->surfaces[surface_index] != (IDirect3DSurface8 *)0x0) {
-    ReleaseSurface((AnmManager *)this,surface_index);
+    ReleaseSurface(this,surface_index);
   }
   data = FileSystem::OpenPath(path,0);
   if (data == (byte *)0x0) {

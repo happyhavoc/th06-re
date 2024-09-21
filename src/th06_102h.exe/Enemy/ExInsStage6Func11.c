@@ -29,7 +29,7 @@ void th06::Enemy::ExInsStage6Func11(Enemy *param_1,AnmRawInstr *param_2)
       local_64->ex_flags = local_64->ex_flags | 0x10;
       local_64->color = 2;
       AnmManager::SetActiveSprite
-                ((AnmManager *)g_AnmManager,(AnmVm *)local_64,
+                (g_AnmManager,(AnmVm *)local_64,
                  (int)(local_64->sprites).bulletSprite.baseSpriteIndex + (int)(short)local_64->color
                 );
       local_64->speed = 0.01;

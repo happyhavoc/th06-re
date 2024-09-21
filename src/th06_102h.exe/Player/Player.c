@@ -2,7 +2,7 @@
 Player * __thiscall th06::Player::Player(Player *this)
 
 {
-  PlayerBullet *local_64;
+  AnmVm *local_64;
   int local_5c;
   ZunTimer *local_50;
   int local_48;
@@ -12,11 +12,11 @@ Player * __thiscall th06::Player::Player(Player *this)
   AnmVm *local_20;
   int local_18;
   
-  AnmVm::AnmVm((AnmVm *)this);
+  AnmVm::AnmVm(&this->playerSprite);
   local_18 = 3;
   local_20 = this->orbsSprite;
   while (local_18 = local_18 + -1, -1 < local_18) {
-    AnmVm::AnmVm((AnmVm *)local_20);
+    AnmVm::AnmVm(local_20);
     local_20 = local_20 + 1;
   }
   local_24 = 2;
@@ -39,11 +39,11 @@ Player * __thiscall th06::Player::Player(Player *this)
   }
   ZunTimer::Initialize(&this->focusMovementTimer);
   local_5c = 0x50;
-  local_64 = this->bullets;
+  local_64 = &this->bullets[0].vm;
   while (local_5c = local_5c + -1, -1 < local_5c) {
-    AnmVm::AnmVm((AnmVm *)local_64);
-    ZunTimer::Initialize(&local_64->unk_140);
-    local_64 = local_64 + 1;
+    AnmVm::AnmVm(local_64);
+    ZunTimer::Initialize(&local_64[1].currentTimeInScript);
+    local_64 = (AnmVm *)(local_64[1].matrix.m[0] + 3);
   }
   ZunTimer::Initialize(&this->fireBulletTimer);
   ZunTimer::Initialize(&this->invulnerabilityTimer);

@@ -6,7 +6,7 @@ th06::AnmManager::CreateEmptyTexture
 {
   D3DXCreateTexture(g_Supervisor.d3dDevice,width,height,1,0,
                     g_TextureFormatD3D8Mapping[textureFormat],D3DPOOL_MANAGED,
-                    (LPDIRECT3DTEXTURE8 *)(this + textureIdx * 4 + 0x1c110));
+                    this->textures + textureIdx);
   return ZUN_SUCCESS;
 }
 

@@ -13,16 +13,16 @@ void th06::Player::UpdatePlayerBullets(Player *player)
   float fVar8;
   float local_38;
   PlayerBullet *bullet;
-  float local_14;
-  int local_10;
+  float vecLength;
+  int idx;
   
-  for (local_10 = 0; local_10 < 2; local_10 = local_10 + 1) {
-    if (player->laserTimer[local_10].current != 0) {
-      ZunTimer::Decrement(player->laserTimer + local_10,1);
+  for (idx = 0; idx < 2; idx = idx + 1) {
+    if (player->laserTimer[idx].current != 0) {
+      ZunTimer::Decrement(player->laserTimer + idx,1);
     }
   }
   bullet = player->bullets;
-  for (local_10 = 0; local_10 < 0x50; local_10 = local_10 + 1) {
+  for (idx = 0; idx < 0x50; idx = idx + 1) {
     if (bullet->bulletState != 0) {
       sVar4 = bullet->bulletType;
       if (sVar4 == 1) {
@@ -43,13 +43,13 @@ void th06::Player::UpdatePlayerBullets(Player *player)
           else {
             fVar3 = (player->position_of_last_enemy_hit).x - (bullet->position).x;
             fVar5 = (player->position_of_last_enemy_hit).y - (bullet->position).y;
-            local_14 = sqrt(SUB84((double)(fVar3 * fVar3 + fVar5 * fVar5),0));
-            local_14 = local_14 / ((bullet->unk_134).y / 4.0);
-            if (local_14 < 1.0 != NAN(local_14)) {
-              local_14 = 1.0;
+            vecLength = sqrt(SUB84((double)(fVar3 * fVar3 + fVar5 * fVar5),0));
+            vecLength = vecLength / ((bullet->unk_134).y / 4.0);
+            if (vecLength < 1.0 != NAN(vecLength)) {
+              vecLength = 1.0;
             }
-            fVar3 = fVar3 / local_14 + (bullet->velocity).x;
-            fVar5 = fVar5 / local_14 + (bullet->velocity).y;
+            fVar3 = fVar3 / vecLength + (bullet->velocity).x;
+            fVar5 = fVar5 / vecLength + (bullet->velocity).y;
             fVar8 = sqrt(SUB84((double)(fVar3 * fVar3 + fVar5 * fVar5),0));
             local_38 = fVar8;
             if (10.0 < fVar8) {

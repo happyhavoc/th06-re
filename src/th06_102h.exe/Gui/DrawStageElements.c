@@ -11,7 +11,7 @@ void __thiscall th06::Gui::DrawStageElements(Gui *this)
     local_10.y = 198.0;
     local_10.z = 0.0;
     if (g_GameManager.demo_mode == 0) {
-      AnmManager::Draw2((AnmManager *)g_AnmManager,&this->impl->stageNameSprite);
+      AnmManager::Draw2(g_AnmManager,&this->impl->stageNameSprite);
       g_AsciiManager.color = (this->impl->stageNameSprite).color.color & 0xff000000 | 0xffff40;
       if (g_GameManager.current_stage < 6) {
         local_10.x = 168.0;
@@ -36,7 +36,7 @@ void __thiscall th06::Gui::DrawStageElements(Gui *this)
   }
   if ((((this->impl->songNameSprite).flags & AnmVmFlags_1) != AnmVmFlags_None) &&
      (g_GameManager.demo_mode == 0)) {
-    AnmManager::Draw2((AnmManager *)g_AnmManager,&this->impl->songNameSprite);
+    AnmManager::Draw2(g_AnmManager,&this->impl->songNameSprite);
   }
   if (((this->impl->playerSpellcardPortrait).flags & AnmVmFlags_1) != AnmVmFlags_None) {
     AnmManager::DrawNoRotation(g_AnmManager,&this->impl->playerSpellcardPortrait);

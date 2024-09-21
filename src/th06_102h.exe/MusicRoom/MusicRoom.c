@@ -14,19 +14,19 @@ undefined4 * __thiscall th06::MusicRoom::MusicRoom(MusicRoom *this)
   local_18 = 1;
   local_20 = &this->field12_0x24;
   while (local_18 = local_18 + -1, -1 < local_18) {
-    AnmVm::AnmVm((AnmVm *)local_20);
+    AnmVm::AnmVm(local_20);
     local_20 = local_20 + 1;
   }
   local_34 = 0x20;
   local_3c = this->field13_0x134;
   while (local_34 = local_34 + -1, -1 < local_34) {
-    AnmVm::AnmVm((AnmVm *)local_3c);
+    AnmVm::AnmVm(local_3c);
     local_3c = local_3c + 1;
   }
   local_50 = 0x10;
   local_58 = this->field4366_0x2334;
   while (local_50 = local_50 + -1, -1 < local_50) {
-    AnmVm::AnmVm((AnmVm *)local_58);
+    AnmVm::AnmVm(local_58);
     local_58 = local_58 + 1;
   }
   pMVar2 = this;

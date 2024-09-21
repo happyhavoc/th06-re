@@ -40,9 +40,8 @@ void th06::AnmManager::DrawStringFormat2
   spriteTextureWidth = __ftol2(vm->sprite->textureWidth);
   spriteSPIYPos = __ftol2((vm->sprite->startPixelInclusive).y);
   spriteSPIXPos = __ftol2((vm->sprite->startPixelInclusive).x);
-  DrawText((AnmManager *)this,vm->sprite->sourceFileIndex,spriteSPIXPos,spriteSPIYPos,
-           spriteTextureWidth,spriteTextureHeight,fontWidth,fontHeight,textColor.color,
-           shadowColor.color,pcVar4);
+  DrawText(this,vm->sprite->sourceFileIndex,spriteSPIXPos,spriteSPIYPos,spriteTextureWidth,
+           spriteTextureHeight,fontWidth,fontHeight,textColor.color,shadowColor.color,pcVar4);
   buf_reference = buf;
   do {
     current_digested_char = *buf_reference;
@@ -56,7 +55,7 @@ void th06::AnmManager::DrawStringFormat2
   spriteTextureHeight = __ftol2(vm->sprite->textureHeight);
   spriteTextureWidth = __ftol2(vm->sprite->textureWidth);
   spriteSPIYPos = __ftol2((vm->sprite->startPixelInclusive).y);
-  DrawText((AnmManager *)this,vm->sprite->sourceFileIndex,local_c,spriteSPIYPos,spriteTextureWidth,
+  DrawText(this,vm->sprite->sourceFileIndex,local_c,spriteSPIYPos,spriteTextureWidth,
            spriteTextureHeight,font_width,fontWidth,color.color,color2.color,pcVar4);
   vm->flags = vm->flags | AnmVmFlags_1;
   __security_check_cookie(local_10 ^ unaff_retaddr);

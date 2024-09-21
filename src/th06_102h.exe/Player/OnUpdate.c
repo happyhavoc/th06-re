@@ -97,7 +97,7 @@ ChainCallbackResult th06::Player::OnUpdate(Player *param_1)
     (param_1->playerSprite).scaleY = 3.0;
     this = g_AnmManager;
     (param_1->playerSprite).anmFileIndex = 0x400;
-    AnmManager::SetAndExecuteScript((AnmManager *)this,&param_1->playerSprite,this->scripts[0x400]);
+    AnmManager::SetAndExecuteScript(this,&param_1->playerSprite,this->scripts[0x400]);
     if ((char)g_GameManager.lives_remaining < '\x01') {
       g_GameManager.is_in_retry_menu = 1;
       goto LAB_00428fa8;

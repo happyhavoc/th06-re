@@ -48,7 +48,7 @@ void th06::Player::BombMarisaACalc(Player *this)
       (this->invulnerabilityTimer).previous = -999;
       local_c = (this->bombInfo).vms[0];
       for (i = 0; i < 8; i = i + 1) {
-        AnmManager::ExecuteAnmIdx((AnmManager *)g_AnmManager,local_c,i % 3 + 0x405);
+        AnmManager::ExecuteAnmIdx(g_AnmManager,local_c,i % 3 + 0x405);
         pDVar1 = (this->bombInfo).bomb_region_positions + i;
         pDVar1->x = (this->positionCenter).x;
         pDVar1->y = (this->positionCenter).y;
@@ -71,7 +71,7 @@ void th06::Player::BombMarisaACalc(Player *this)
                &(this->bombInfo).bombTimer.subFrame);
   }
   else {
-    Gui::ImplVm5SetInterruptToOne(&g_Gui);
+    Gui::EndPlayerSpellcard(&g_Gui);
     (this->bombInfo).isInUse = 0;
   }
   return;

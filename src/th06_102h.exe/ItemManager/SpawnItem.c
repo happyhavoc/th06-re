@@ -55,8 +55,7 @@ th06::ItemManager::SpawnItem(ItemManager *this,D3DXVECTOR3 *heading,ItemType ite
   this_00 = g_AnmManager;
   local_14 = (short)_itemType + 0x215;
   (item->sprite).anmFileIndex = local_14;
-  AnmManager::SetAndExecuteScript
-            ((AnmManager *)this_00,&item->sprite,this_00->scripts[_itemType + 0x215]);
+  AnmManager::SetAndExecuteScript(this_00,&item->sprite,this_00->scripts[_itemType + 0x215]);
   (item->sprite).color.color = 0xffffffff;
   item->unk_142 = 1;
   return;

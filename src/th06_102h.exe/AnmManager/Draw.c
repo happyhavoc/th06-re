@@ -33,14 +33,14 @@ ZunResult __thiscall th06::AnmManager::Draw(AnmManager *this,AnmVm *vm)
       yOffset = ROUND((vm->pos).y);
       fVar4 = ROUND((vm->sprite->widthPx * vm->scaleX) / 2.0);
       fVar5 = ROUND((vm->sprite->heightPx * vm->scaleY) / 2.0);
-      TranslateRotation((AnmManager *)this,g_PrimitivesToDrawVertexBuf,-fVar4 - 0.5,-fVar5 - 0.5,
-                        zSine,zCosine,xOffset,yOffset);
-      TranslateRotation((AnmManager *)this,g_PrimitivesToDrawVertexBuf + 1,fVar4 - 0.5,-fVar5 - 0.5,
-                        zSine,zCosine,xOffset,yOffset);
-      TranslateRotation((AnmManager *)this,g_PrimitivesToDrawVertexBuf + 2,-fVar4 - 0.5,fVar5 - 0.5,
-                        zSine,zCosine,xOffset,yOffset);
-      TranslateRotation((AnmManager *)this,g_PrimitivesToDrawVertexBuf + 3,fVar4 - 0.5,fVar5 - 0.5,
-                        zSine,zCosine,xOffset,yOffset);
+      TranslateRotation(this,g_PrimitivesToDrawVertexBuf,-fVar4 - 0.5,-fVar5 - 0.5,zSine,zCosine,
+                        xOffset,yOffset);
+      TranslateRotation(this,g_PrimitivesToDrawVertexBuf + 1,fVar4 - 0.5,-fVar5 - 0.5,zSine,zCosine,
+                        xOffset,yOffset);
+      TranslateRotation(this,g_PrimitivesToDrawVertexBuf + 2,-fVar4 - 0.5,fVar5 - 0.5,zSine,zCosine,
+                        xOffset,yOffset);
+      TranslateRotation(this,g_PrimitivesToDrawVertexBuf + 3,fVar4 - 0.5,fVar5 - 0.5,zSine,zCosine,
+                        xOffset,yOffset);
       g_PrimitivesToDrawVertexBuf[0].pos.z = (vm->pos).z;
       if ((vm->flags >> 8 & 1) != 0) {
         g_PrimitivesToDrawVertexBuf[0].pos.x = g_PrimitivesToDrawVertexBuf[0].pos.x + fVar4;
@@ -57,11 +57,11 @@ ZunResult __thiscall th06::AnmManager::Draw(AnmManager *this,AnmVm *vm)
       g_PrimitivesToDrawVertexBuf[1].pos.z = g_PrimitivesToDrawVertexBuf[0].pos.z;
       g_PrimitivesToDrawVertexBuf[2].pos.z = g_PrimitivesToDrawVertexBuf[0].pos.z;
       g_PrimitivesToDrawVertexBuf[3].pos.z = g_PrimitivesToDrawVertexBuf[0].pos.z;
-      iVar6 = DrawInner((AnmManager *)this,vm,0);
+      iVar6 = DrawInner(this,vm,0);
     }
   }
   else {
-    iVar6 = DrawNoRotation((AnmManager *)this,vm);
+    iVar6 = DrawNoRotation(this,vm);
   }
   return iVar6;
 }

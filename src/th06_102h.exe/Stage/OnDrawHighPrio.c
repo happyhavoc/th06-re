@@ -16,8 +16,8 @@ ChainCallbackResult th06::Stage::OnDrawHighPrio(Stage *arg)
   if ((int)arg->spellcardState < 2) {
     BVar1 = Gui::IsStageFinished(&g_Gui);
     if (BVar1 == 0) {
-      RenderObjects((Stage *)arg,0);
-      RenderObjects((Stage *)arg,1);
+      RenderObjects(arg,0);
+      RenderObjects(arg,1);
     }
   }
   return CHAIN_CALLBACK_RESULT_CONTINUE;

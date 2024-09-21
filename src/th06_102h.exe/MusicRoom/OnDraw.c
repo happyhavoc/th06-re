@@ -11,7 +11,7 @@ ChainCallbackResult th06::MusicRoom::OnDraw(MusicRoom *param_1)
   local_c = '\x7f';
   local_b = 0;
   g_AnmManager->currentTexture = (IDirect3DTexture8 *)0x0;
-  AnmManager::CopySurfaceToBackBuffer((AnmManager *)g_AnmManager,0,0,0,0,0);
+  AnmManager::CopySurfaceToBackBuffer(g_AnmManager,0,0,0,0,0);
   AnmManager::DrawNoRotation(g_AnmManager,&param_1->field12_0x24);
   for (local_8 = param_1->listingOffset; local_8 < param_1->listingOffset + 10;
       local_8 = local_8 + 1) {

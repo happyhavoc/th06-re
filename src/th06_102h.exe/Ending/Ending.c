@@ -11,7 +11,7 @@ Ending * __thiscall th06::Ending::Ending(Ending *this)
   vm_list_length = 16;
   vm_ref = &this->AnmVm;
   while (vm_list_length = vm_list_length + -1, -1 < vm_list_length) {
-    AnmVm::AnmVm((AnmVm *)vm_ref);
+    AnmVm::AnmVm(vm_ref);
     vm_ref = vm_ref + 1;
   }
   ZunTimer::Initialize(&this->Timer1);

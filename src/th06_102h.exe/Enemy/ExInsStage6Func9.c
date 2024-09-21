@@ -31,7 +31,7 @@ void th06::Enemy::ExInsStage6Func9(Enemy *param_1,AnmRawInstr *param_2)
       bullets->ex_flags = bullets->ex_flags | 0x10;
       bullets->color = 2;
       AnmManager::SetActiveSprite
-                ((AnmManager *)g_AnmManager,(AnmVm *)bullets,
+                (g_AnmManager,(AnmVm *)bullets,
                  (int)(bullets->sprites).bulletSprite.baseSpriteIndex + (int)(short)bullets->color);
       bullets->speed = 0.01;
       (bullets->timer).current = 0;

@@ -5,11 +5,11 @@ ZunResult th06::Supervisor::DeletedCallback(Supervisor *param_1)
   MidiOutput *this;
   int local_8;
   
-  AnmManager::ReleaseVertexBuffer((AnmManager *)g_AnmManager);
+  AnmManager::ReleaseVertexBuffer(g_AnmManager);
   for (local_8 = 0; local_8 < 0x10; local_8 = local_8 + 1) {
     ReleasePbg3(param_1,local_8);
   }
-  AnmManager::ReleaseAnm((AnmManager *)g_AnmManager,0);
+  AnmManager::ReleaseAnm(g_AnmManager,0);
   AsciiManager::CutChain();
   SoundPlayer::StopBGM(&g_SoundPlayer);
   if (param_1->midi_output != (MidiOutput *)0x0) {

@@ -25,8 +25,8 @@ BulletManager * __thiscall th06::BulletManager::BulletManager(BulletManager *thi
   local_58 = 0x40;
   local_60 = this->lasers;
   while (local_58 = local_58 + -1, -1 < local_58) {
-    AnmVm::AnmVm((AnmVm *)local_60);
-    AnmVm::AnmVm((AnmVm *)&local_60->vm1);
+    AnmVm::AnmVm(&local_60->vm0);
+    AnmVm::AnmVm(&local_60->vm1);
     ZunTimer::Initialize(&local_60->timer);
     local_60 = local_60 + 1;
   }

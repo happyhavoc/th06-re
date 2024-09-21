@@ -22,7 +22,7 @@ void __thiscall th06::AsciiManager::DrawPopupsWithoutHwVertexProcessing(AsciiMan
       for (local_c = (uint)local_8->characterCount; 0 < (int)local_c; local_c = local_c - 1) {
         (this->vm1).sprite = g_AnmManager->sprites + (byte)*local_14;
         if ((byte)*local_14 < 10) {
-          AnmManager::Draw2((AnmManager *)g_AnmManager,&this->vm1);
+          AnmManager::Draw2(g_AnmManager,&this->vm1);
         }
         else {
           (this->vm1).matrix.m[0][0] = 0.1875;

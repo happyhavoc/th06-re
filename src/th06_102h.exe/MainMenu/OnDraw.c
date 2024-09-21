@@ -22,7 +22,7 @@ ChainCallbackResult th06::MainMenu::OnDraw(MainMenu *menu)
   window.bottom = 480.0;
   if (menu->gameState != STATE_STARTUP) {
     g_AnmManager->currentTexture = (IDirect3DTexture8 *)0x0;
-    AnmManager::CopySurfaceToBackBuffer((AnmManager *)g_AnmManager,0,0,0,0,0);
+    AnmManager::CopySurfaceToBackBuffer(g_AnmManager,0,0,0,0,0);
     if (menu->isActive == 0) {
       if (menu->numFramesSinceActive != 0) {
         menu->numFramesSinceActive = menu->numFramesSinceActive + -1;
@@ -60,7 +60,7 @@ ChainCallbackResult th06::MainMenu::OnDraw(MainMenu *menu)
         (curVm->pos).x = (curVm->pos).x + (curVm->offset).x;
         (curVm->pos).y = (curVm->pos).y + (curVm->offset).y;
         (curVm->pos).z = (curVm->pos).z + (curVm->offset).z;
-        AnmManager::Draw((AnmManager *)g_AnmManager,curVm);
+        AnmManager::Draw(g_AnmManager,curVm);
         (curVm->pos).x = fVar1;
         (curVm->pos).y = fVar2;
         (curVm->pos).z = fVar3;

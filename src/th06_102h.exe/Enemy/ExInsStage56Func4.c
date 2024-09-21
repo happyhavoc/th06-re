@@ -29,7 +29,7 @@ void th06::Enemy::ExInsStage56Func4(Enemy *param_1,EclRawInstr *param_2)
              && (uVar2 = Rng::GetRandomU16(&g_Rng), (uVar2 & 3) == 0)))))) {
           bullets->color = 5;
           AnmManager::SetActiveSprite
-                    ((AnmManager *)g_AnmManager,(AnmVm *)bullets,
+                    (g_AnmManager,(AnmVm *)bullets,
                      (int)(bullets->sprites).bulletSprite.baseSpriteIndex +
                      (int)(short)bullets->color);
           fVar4 = (bullets->pos).x - g_Player.positionCenter.x;
@@ -64,7 +64,7 @@ void th06::Enemy::ExInsStage56Func4(Enemy *param_1,EclRawInstr *param_2)
             && (uVar2 = Rng::GetRandomU16(&g_Rng), (uVar2 & 3) == 0)))) {
           bullets->color = 5;
           AnmManager::SetActiveSprite
-                    ((AnmManager *)g_AnmManager,(AnmVm *)bullets,
+                    (g_AnmManager,(AnmVm *)bullets,
                      (int)(bullets->sprites).bulletSprite.baseSpriteIndex +
                      (int)(short)bullets->color);
           fVar4 = (bullets->pos).x - g_Player.positionCenter.x;

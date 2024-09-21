@@ -2,27 +2,27 @@
 void __thiscall th06::AnmVm::Initialize(AnmVm *this)
 
 {
-  *(undefined4 *)(this + 0x2c) = 0;
-  *(undefined4 *)(this + 0x28) = 0;
-  *(undefined4 *)(this + 0x24) = 0;
-  *(undefined4 *)(this + 0x20) = 0;
-  *(undefined4 *)(this + 0x14) = 0;
-  *(undefined4 *)(this + 0x10) = 0;
-  *(undefined4 *)(this + 0xc) = 0;
-  *(undefined4 *)(this + 8) = 0;
-  *(undefined4 *)(this + 4) = 0;
-  *(undefined4 *)this = 0;
-  *(undefined4 *)(this + 0x1c) = 0x3f800000;
-  *(undefined4 *)(this + 0x18) = 0x3f800000;
-  *(undefined2 *)(this + 0x86) = 0;
-  *(undefined2 *)(this + 0x84) = 0;
-  *(undefined4 *)(this + 0x7c) = 0xffffffff;
-  D3DXMatrixIdentity((D3DMATRIX *)(this + 0x3c));
-  *(undefined2 *)(this + 0x80) = 3;
-  *(undefined2 *)(this + 0x88) = 0;
-  *(undefined2 *)(this + 0x8a) = 0;
-  *(undefined2 *)(this + 0x8c) = 0;
-  ZunTimer::Initialize((ZunTimer *)(this + 0x30));
+  (this->uvScrollPos).y = 0.0;
+  (this->uvScrollPos).x = 0.0;
+  this->scaleInterpFinalX = 0.0;
+  this->scaleInterpFinalY = 0.0;
+  (this->angleVel).z = 0.0;
+  (this->angleVel).y = 0.0;
+  (this->angleVel).x = 0.0;
+  (this->rotation).z = 0.0;
+  (this->rotation).y = 0.0;
+  (this->rotation).x = 0.0;
+  this->scaleX = 1.0;
+  this->scaleY = 1.0;
+  this->scaleInterpEndTime = 0;
+  this->alphaInterpEndTime = 0;
+  (this->color).color = 0xffffffff;
+  D3DXMatrixIdentity(&this->matrix);
+  *(undefined2 *)&this->flags = 3;
+  this->autoRotate = 0;
+  this->pendingInterrupt = 0;
+  this->posInterpEndTime = 0;
+  ZunTimer::Initialize(&this->currentTimeInScript);
   return;
 }
 

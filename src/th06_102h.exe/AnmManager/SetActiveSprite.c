@@ -4,12 +4,12 @@ ZunResult __thiscall th06::AnmManager::SetActiveSprite(AnmManager *this,AnmVm *v
 {
   ZunResult res;
   
-  if (*(int *)(this + sprite_index * 0x38) < 0) {
+  if (this->sprites[sprite_index].sourceFileIndex < 0) {
     res = ZUN_ERROR;
   }
   else {
     vm->activeSpriteIndex = (short)sprite_index;
-    vm->sprite = (AnmLoadedSprite *)(this + sprite_index * 0x38);
+    vm->sprite = this->sprites + sprite_index;
     D3DXMatrixIdentity(&vm->matrix);
     (vm->matrix).m[0][0] = vm->sprite->widthPx / vm->sprite->textureWidth;
     (vm->matrix).m[1][1] = vm->sprite->heightPx / vm->sprite->textureHeight;

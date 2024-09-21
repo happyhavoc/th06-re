@@ -98,8 +98,7 @@ th06::Player::CalcDamageToEnemy
             sVar4 = (bullet->vm).anmFileIndex;
             local_80 = sVar4 + 0x20;
             (bullet->vm).anmFileIndex = local_80;
-            AnmManager::SetAndExecuteScript
-                      ((AnmManager *)this_00,&bullet->vm,this_00->scripts[sVar4 + 0x20]);
+            AnmManager::SetAndExecuteScript(this_00,&bullet->vm,this_00->scripts[sVar4 + 0x20]);
             EffectManager::SpawnParticles
                       (&g_EffectManager,5,&bullet->position,1,(ZunColor)0xffffffff);
             (bullet->position).z = 0.1;

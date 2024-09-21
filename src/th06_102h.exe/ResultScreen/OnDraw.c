@@ -35,7 +35,7 @@ void th06::ResultScreen::OnDraw(ResultScreen *param_1)
   g_Supervisor.viewport.Width = 0x280;
   g_Supervisor.viewport.Height = 0x1e0;
   (*(g_Supervisor.d3dDevice)->lpVtbl->SetViewport)(g_Supervisor.d3dDevice,&g_Supervisor.viewport);
-  AnmManager::CopySurfaceToBackBuffer((AnmManager *)g_AnmManager,0,0,0,0,0);
+  AnmManager::CopySurfaceToBackBuffer(g_AnmManager,0,0,0,0,0);
   for (local_14 = 0; local_14 < 0x26; local_14 = local_14 + 1) {
     local_40.x = (local_28->pos).x;
     local_40.y = (local_28->pos).y;

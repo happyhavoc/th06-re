@@ -126,7 +126,7 @@ switchD_00403892_caseD_6:
             Supervisor::TickTimer
                       (&g_Supervisor,&(arg->scriptTime).current,&(arg->scriptTime).subFrame);
           }
-          UpdateObjects((Stage *)arg);
+          UpdateObjects(arg);
           if ((int)arg->spellcardState < 1) {
             return CHAIN_CALLBACK_RESULT_CONTINUE;
           }

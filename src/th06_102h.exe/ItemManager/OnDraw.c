@@ -21,8 +21,7 @@ void __thiscall th06::ItemManager::OnDraw(ItemManager *this)
       if (fVar1 < -8.0 == NAN(fVar1)) {
         if (pIStack_10->unk_142 == 0) {
           AnmManager::SetActiveSprite
-                    ((AnmManager *)g_AnmManager,&pIStack_10->sprite,
-                     (int)(char)pIStack_10->item_type + 0x200);
+                    (g_AnmManager,&pIStack_10->sprite,(int)(char)pIStack_10->item_type + 0x200);
           pIStack_10->unk_142 = 1;
           (pIStack_10->sprite).color.color = 0xffffffff;
         }
@@ -31,8 +30,7 @@ void __thiscall th06::ItemManager::OnDraw(ItemManager *this)
         (pIStack_10->sprite).pos.y = g_GameManager.arcade_region_top_left_pos.y + 8.0;
         if (pIStack_10->unk_142 != 0) {
           AnmManager::SetActiveSprite
-                    ((AnmManager *)g_AnmManager,&pIStack_10->sprite,
-                     (int)(char)pIStack_10->item_type + 0x207);
+                    (g_AnmManager,&pIStack_10->sprite,(int)(char)pIStack_10->item_type + 0x207);
           pIStack_10->unk_142 = 0;
         }
         lVar2 = __ftol2(((8.0 - (pIStack_10->currentPosition).y) * 255.0) / 128.0);

@@ -70,8 +70,7 @@ LAB_00433998:
     return 1;
   case AnmOpcode_SetActiveSprite:
     vm->flags = vm->flags | AnmVmFlags_1;
-    SetActiveSprite((AnmManager *)this,vm,curInstr->args[0] + this->spriteIndices[vm->anmFileIndex])
-    ;
+    SetActiveSprite(this,vm,curInstr->args[0] + this->spriteIndices[vm->anmFileIndex]);
     vm->timeOfLastSpriteSet = (vm->currentTimeInScript).current;
     break;
   case AnmOpcode_SetScale:
@@ -138,8 +137,7 @@ LAB_00433998:
       uVar3 = Rng::GetRandomU16(&g_Rng);
       randValue = (int)((ulonglong)uVar3 % (ulonglong)(longlong)(int)(uint)uVar1);
     }
-    SetActiveSprite((AnmManager *)this,vm,
-                    *local_c + randValue + this->spriteIndices[vm->anmFileIndex]);
+    SetActiveSprite(this,vm,*local_c + randValue + this->spriteIndices[vm->anmFileIndex]);
     vm->timeOfLastSpriteSet = (vm->currentTimeInScript).current;
     break;
   case AnmOpcode_SetTranslation:

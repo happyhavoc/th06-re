@@ -1,5 +1,5 @@
 
-undefined4 __thiscall th06::Supervisor::fadeOutMusic(Supervisor *this,float fadeOutSeconds)
+ZunResult __thiscall th06::Supervisor::FadeOutMusic(Supervisor *this,float fadeOutSeconds)
 
 {
   long lVar1;
@@ -12,7 +12,7 @@ undefined4 __thiscall th06::Supervisor::fadeOutMusic(Supervisor *this,float fade
   }
   else {
     if (g_Supervisor.cfg.musicMode != WAV) {
-      return 0xffffffff;
+      return ZUN_ERROR;
     }
     if (NAN(this->effectiveFramerateMultiplier) == (this->effectiveFramerateMultiplier == 0.0)) {
       if (this->effectiveFramerateMultiplier <= 1.0) {
@@ -26,6 +26,6 @@ undefined4 __thiscall th06::Supervisor::fadeOutMusic(Supervisor *this,float fade
       SoundPlayer::FadeOut(&g_SoundPlayer,fadeOutSeconds);
     }
   }
-  return 0;
+  return ZUN_SUCCESS;
 }
 

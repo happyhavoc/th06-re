@@ -20,7 +20,7 @@ void th06::Player::BombMarisaADraw(Player *param_1)
     (local_8->pos).z = 0.0;
     local_8->scaleX = 3.2;
     local_8->scaleY = 3.2;
-    AnmManager::Draw((AnmManager *)g_AnmManager,local_8);
+    AnmManager::Draw(g_AnmManager,local_8);
     pDVar1 = (param_1->bombInfo).bomb_region_velocities + local_c;
     fVar2 = pDVar1->z;
     fVar3 = pDVar1->y;
@@ -32,7 +32,7 @@ void th06::Player::BombMarisaADraw(Player *param_1)
     (local_8->pos).z = 0.0;
     local_8->scaleX = 2.2;
     local_8->scaleY = 2.2;
-    AnmManager::Draw((AnmManager *)g_AnmManager,local_8);
+    AnmManager::Draw(g_AnmManager,local_8);
     pDVar1 = (param_1->bombInfo).bomb_region_velocities + local_c;
     fVar2 = pDVar1->z;
     fVar3 = pDVar1->y;
@@ -53,7 +53,7 @@ void th06::Player::BombMarisaADraw(Player *param_1)
     (local_8->pos).z = 0.0;
     local_8->scaleX = 1.0;
     local_8->scaleY = 1.0;
-    AnmManager::Draw((AnmManager *)g_AnmManager,local_8);
+    AnmManager::Draw(g_AnmManager,local_8);
     local_8 = local_8 + 1;
   }
   return;

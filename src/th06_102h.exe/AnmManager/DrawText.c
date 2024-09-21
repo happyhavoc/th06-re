@@ -13,7 +13,7 @@ th06::AnmManager::DrawText
     fontHeight2 = 0xf;
   }
   RenderTextToTexture(xPos,yPos,spriteWidth,spriteHeight,fontWidth,fontHeight2,textColor,shadowColor
-                      ,strToPrint,*(IDirect3DTexture8 **)(this + spriteSrcIndex * 4 + 0x1c110));
+                      ,strToPrint,this->textures[spriteSrcIndex]);
   return;
 }
 

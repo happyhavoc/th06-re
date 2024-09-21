@@ -7,7 +7,7 @@ ZunResult th06::MainMenu::LoadDiffCharSelect(MainMenu *menu)
   int i;
   
   for (i = 0x15; i < 0x1b; i = i + 1) {
-    AnmManager::ReleaseAnm((AnmManager *)g_AnmManager,i);
+    AnmManager::ReleaseAnm(g_AnmManager,i);
   }
   loadAnm = AnmManager::LoadSurface(g_AnmManager,0,"data/title/select00.jpg");
   if (loadAnm == ZUN_SUCCESS) {
@@ -31,7 +31,7 @@ ZunResult th06::MainMenu::LoadDiffCharSelect(MainMenu *menu)
                     if (loadAnm == ZUN_SUCCESS) {
                       vm = menu->vmList + 0x50;
                       for (i = 0x150; i < 0x160; i = i + 1) {
-                        AnmManager::ExecuteAnmIdx((AnmManager *)g_AnmManager,vm,i);
+                        AnmManager::ExecuteAnmIdx(g_AnmManager,vm,i);
                         vm->flags = vm->flags & ~AnmVmFlags_1;
                         vm->flags = vm->flags | AnmVmFlags_3;
                         if ((g_Supervisor.cfg.opts & 1) == 0) {

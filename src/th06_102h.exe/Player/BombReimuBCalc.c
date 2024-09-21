@@ -65,7 +65,7 @@ void th06::Player::BombReimuBCalc(Player *this)
       (this->invulnerabilityTimer).previous = -999;
       local_c = (this->bombInfo).vms[0];
       for (i = 0; i < 4; i = i + 1) {
-        AnmManager::ExecuteAnmIdx((AnmManager *)g_AnmManager,local_c,i + 0x489);
+        AnmManager::ExecuteAnmIdx(g_AnmManager,local_c,i + 0x489);
         local_c = local_c + 1;
       }
       SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,SOUND_BOMB_REIMARI,0);
@@ -90,7 +90,7 @@ void th06::Player::BombReimuBCalc(Player *this)
                &(this->bombInfo).bombTimer.subFrame);
   }
   else {
-    Gui::ImplVm5SetInterruptToOne(&g_Gui);
+    Gui::EndPlayerSpellcard(&g_Gui);
     (this->bombInfo).isInUse = 0;
   }
   return;

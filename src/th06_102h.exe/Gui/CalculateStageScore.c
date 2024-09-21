@@ -15,8 +15,7 @@ void __thiscall th06::Gui::CalculateStageScore(Gui *this)
           if (this->impl->bossHealthBarState < 3) {
             fVar2 = this->impl;
             fVar2->vms[0x13].anmFileIndex = 0x614;
-            AnmManager::SetAndExecuteScript
-                      ((AnmManager *)this_00,fVar2->vms + 0x13,this_00->scripts[0x614]);
+            AnmManager::SetAndExecuteScript(this_00,fVar2->vms + 0x13,this_00->scripts[0x614]);
             this->impl->bossHealthBarState = 3;
           }
           if (this->bossUIOpacity == 0) {
@@ -36,8 +35,7 @@ void __thiscall th06::Gui::CalculateStageScore(Gui *this)
       else if (this->impl->bossHealthBarState == 0) {
         fVar2 = this->impl;
         fVar2->vms[0x13].anmFileIndex = 0x613;
-        AnmManager::SetAndExecuteScript
-                  ((AnmManager *)this_00,fVar2->vms + 0x13,this_00->scripts[0x613]);
+        AnmManager::SetAndExecuteScript(this_00,fVar2->vms + 0x13,this_00->scripts[0x613]);
         this->impl->bossHealthBarState = 1;
         this->bossUIOpacity = 0;
       }
@@ -98,7 +96,7 @@ void __thiscall th06::Gui::CalculateStageScore(Gui *this)
     if (0xf9 < (this->impl->bonusScore).timer.current) {
       (this->impl->bonusScore).isShown = 0;
     }
-    ZunTimer::nextTick(&(this->impl->bonusScore).timer);
+    ZunTimer::NextTick(&(this->impl->bonusScore).timer);
   }
   if ((this->impl->fullPowerMode).isShown != 0) {
     if ((this->impl->fullPowerMode).timer.current < 0x1e) {
@@ -112,13 +110,13 @@ void __thiscall th06::Gui::CalculateStageScore(Gui *this)
     if (0xb3 < (this->impl->fullPowerMode).timer.current) {
       (this->impl->fullPowerMode).isShown = 0;
     }
-    ZunTimer::nextTick(&(this->impl->fullPowerMode).timer);
+    ZunTimer::NextTick(&(this->impl->fullPowerMode).timer);
   }
   if ((this->impl->spellCardBonus).isShown != 0) {
     if (0x117 < (this->impl->spellCardBonus).timer.current) {
       (this->impl->spellCardBonus).isShown = 0;
     }
-    ZunTimer::nextTick(&(this->impl->spellCardBonus).timer);
+    ZunTimer::NextTick(&(this->impl->spellCardBonus).timer);
   }
   if (this->impl->finishedStage == 1) {
     stage_score = (g_GameManager.current_stage * 1000 + g_GameManager.graze_in_stage * 10 +

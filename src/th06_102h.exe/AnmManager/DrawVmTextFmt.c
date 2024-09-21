@@ -27,8 +27,8 @@ void th06::AnmManager::DrawVmTextFmt
   spriteWidth = __ftol2(vm->sprite->textureWidth);
   yPos = __ftol2((vm->sprite->startPixelInclusive).y);
   xPos = __ftol2((vm->sprite->startPixelInclusive).x);
-  DrawText((AnmManager *)anm_mgr,vm->sprite->sourceFileIndex,xPos,yPos,spriteWidth,spriteHeight,
-           fontWidth,fontHeight2,textColor,shadowColor,stringToPrint);
+  DrawText(anm_mgr,vm->sprite->sourceFileIndex,xPos,yPos,spriteWidth,spriteHeight,fontWidth,
+           fontHeight2,textColor,shadowColor,stringToPrint);
   vm->flags = vm->flags | AnmVmFlags_1;
   __security_check_cookie(local_c ^ unaff_retaddr);
   return;

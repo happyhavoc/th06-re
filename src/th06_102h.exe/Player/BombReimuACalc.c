@@ -63,7 +63,7 @@ void th06::Player::BombReimuACalc(Player *param_1)
         param_1->unk_838[iVar4] = 0;
         local_14 = (param_1->bombInfo).vms[iVar4];
         for (local_28 = 0; local_28 < 4; local_28 = local_28 + 1) {
-          AnmManager::ExecuteAnmIdx((AnmManager *)g_AnmManager,local_14,local_28 + 0x485);
+          AnmManager::ExecuteAnmIdx(g_AnmManager,local_14,local_28 + 0x485);
           local_14 = local_14 + 1;
         }
         SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,SOUND_BOMB_REIMU_A,0);
@@ -168,7 +168,7 @@ void th06::Player::BombReimuACalc(Player *param_1)
                &(param_1->bombInfo).bombTimer.subFrame);
   }
   else {
-    Gui::ImplVm5SetInterruptToOne(&g_Gui);
+    Gui::EndPlayerSpellcard(&g_Gui);
     (param_1->bombInfo).isInUse = 0;
   }
   return;

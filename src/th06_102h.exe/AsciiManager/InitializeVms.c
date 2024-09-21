@@ -16,11 +16,11 @@ void __thiscall th06::AsciiManager::InitializeVms(AsciiManager *this)
   (this->scale).y = 1.0;
   (this->vm1).flags = (this->vm1).flags | (AnmVmFlags_8|AnmVmFlags_9);
   pAVar1 = g_AnmManager;
-  AnmVm::Initialize((AnmVm *)&this->vm1);
-  AnmManager::SetActiveSprite((AnmManager *)pAVar1,&this->vm1,0);
+  AnmVm::Initialize(&this->vm1);
+  AnmManager::SetActiveSprite(pAVar1,&this->vm1,0);
   pAVar1 = g_AnmManager;
-  AnmVm::Initialize((AnmVm *)this);
-  AnmManager::SetActiveSprite((AnmManager *)pAVar1,&this->vm0,0x20);
+  AnmVm::Initialize(&this->vm0);
+  AnmManager::SetActiveSprite(pAVar1,&this->vm0,0x20);
   (this->vm1).pos.z = 0.1;
   this->isSelected = 0;
   return;

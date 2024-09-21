@@ -4,7 +4,7 @@ th06::AnmManager::SetAndExecuteScript(AnmManager *this,AnmVm *vm,AnmRawInstr *be
 
 {
   vm->flags = vm->flags & ~(AnmVmFlags_6|AnmVmFlags_7);
-  AnmVm::Initialize((AnmVm *)vm);
+  AnmVm::Initialize(vm);
   vm->beginingOfScript = beginingOfScript;
   vm->currentInstruction = vm->beginingOfScript;
   (vm->currentTimeInScript).current = 0;
@@ -12,7 +12,7 @@ th06::AnmManager::SetAndExecuteScript(AnmManager *this,AnmVm *vm,AnmRawInstr *be
   (vm->currentTimeInScript).previous = -999;
   vm->flags = vm->flags & ~AnmVmFlags_1;
   if (beginingOfScript != (AnmRawInstr *)0x0) {
-    ExecuteScript((AnmManager *)this,vm);
+    ExecuteScript(this,vm);
   }
   return;
 }

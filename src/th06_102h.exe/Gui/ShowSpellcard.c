@@ -10,16 +10,13 @@ void __thiscall th06::Gui::ShowSpellcard(Gui *this,int spellcardSprite,char *spe
   pAVar3 = g_AnmManager;
   iVar2 = this->impl;
   (iVar2->enemySpellcardPortrait).anmFileIndex = 0x4a3;
-  AnmManager::SetAndExecuteScript
-            ((AnmManager *)pAVar3,&iVar2->enemySpellcardPortrait,pAVar3->scripts[0x4a3]);
+  AnmManager::SetAndExecuteScript(pAVar3,&iVar2->enemySpellcardPortrait,pAVar3->scripts[0x4a3]);
   AnmManager::SetActiveSprite
-            ((AnmManager *)g_AnmManager,&this->impl->enemySpellcardPortrait,spellcardSprite + 0x4a8)
-  ;
+            (g_AnmManager,&this->impl->enemySpellcardPortrait,spellcardSprite + 0x4a8);
   pAVar3 = g_AnmManager;
   iVar2 = this->impl;
   (iVar2->enemySpellcardName).anmFileIndex = 0x707;
-  AnmManager::SetAndExecuteScript
-            ((AnmManager *)pAVar3,&iVar2->enemySpellcardName,pAVar3->scripts[0x707]);
+  AnmManager::SetAndExecuteScript(pAVar3,&iVar2->enemySpellcardName,pAVar3->scripts[0x707]);
   AnmManager::DrawStringFormat
             (g_AnmManager,&this->impl->enemySpellcardName,(ZunColor)0xfff0f0,(ZunColor)0x0,
              spellcardName);

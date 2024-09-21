@@ -28,8 +28,7 @@ th06::EffectManager::SpawnParticles
       iVar1 = g_Effects[effectId].anmFileIndex;
       local_10 = (short)iVar1;
       (effect->vm).anmFileIndex = local_10;
-      AnmManager::SetAndExecuteScript
-                ((AnmManager *)anm_manager,&effect->vm,anm_manager->scripts[iVar1]);
+      AnmManager::SetAndExecuteScript(anm_manager,&effect->vm,anm_manager->scripts[iVar1]);
       (effect->vm).color = (D3DCOLORUNION)particleColor.color;
       effect->effect_update_callback = g_Effects[effectId].update_callback;
       (effect->timer).current = 0;

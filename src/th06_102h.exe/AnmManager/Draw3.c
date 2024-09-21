@@ -66,8 +66,8 @@ ZunResult __thiscall th06::AnmManager::Draw3(AnmManager *this,AnmVm *vm)
     worldTransformMatrix.m[3][2] = (vm->pos).z;
     (*(g_Supervisor.d3dDevice)->lpVtbl->SetTransform)
               (g_Supervisor.d3dDevice,D3DTS_WORLD,&worldTransformMatrix);
-    if (*(AnmLoadedSprite **)(this + 0x210c0) != vm->sprite) {
-      *(AnmLoadedSprite **)(this + 0x210c0) = vm->sprite;
+    if (this->currentSprite != vm->sprite) {
+      this->currentSprite = vm->sprite;
       pDVar3 = &vm->matrix;
       pfVar5 = (float *)&local_44;
       for (iVar2 = 0x10; iVar2 != 0; iVar2 = iVar2 + -1) {
@@ -79,27 +79,26 @@ ZunResult __thiscall th06::AnmManager::Draw3(AnmManager *this,AnmVm *vm)
       local_44.m[2][1] = (vm->sprite->uvStart).y + (vm->uvScrollPos).y;
       (*(g_Supervisor.d3dDevice)->lpVtbl->SetTransform)
                 (g_Supervisor.d3dDevice,D3DTS_TEXTURE0,&local_44);
-      if (*(int *)(this + 0x210b8) != *(int *)(this + vm->sprite->sourceFileIndex * 4 + 0x1c110)) {
-        *(undefined4 *)(this + 0x210b8) =
-             *(undefined4 *)(this + vm->sprite->sourceFileIndex * 4 + 0x1c110);
+      if (this->currentTexture != this->textures[vm->sprite->sourceFileIndex]) {
+        this->currentTexture = this->textures[vm->sprite->sourceFileIndex];
         (*(g_Supervisor.d3dDevice)->lpVtbl->SetTexture)
-                  (g_Supervisor.d3dDevice,0,*(IDirect3DBaseTexture8 **)(this + 0x210b8));
+                  (g_Supervisor.d3dDevice,0,(IDirect3DBaseTexture8 *)this->currentTexture);
       }
     }
-    if (this[0x210be] != (AnmManager)0x3) {
+    if (this->currentVertexShader != '\x03') {
       if ((g_Supervisor.cfg.opts >> 1 & 1) == 0) {
         (*(g_Supervisor.d3dDevice)->lpVtbl->SetVertexShader)
                   (g_Supervisor.d3dDevice,D3DFVF_TEX1 | D3DFVF_XYZ);
         (*(g_Supervisor.d3dDevice)->lpVtbl->SetStreamSource)
-                  (g_Supervisor.d3dDevice,0,*(IDirect3DVertexBuffer8 **)(this + 0x210c4),0x14);
+                  (g_Supervisor.d3dDevice,0,this->vertexBuffer,0x14);
       }
       else {
         (*(g_Supervisor.d3dDevice)->lpVtbl->SetVertexShader)
                   (g_Supervisor.d3dDevice,D3DFVF_TEX1 | D3DFVF_DIFFUSE | D3DFVF_XYZ);
       }
-      this[0x210be] = (AnmManager)0x3;
+      this->currentVertexShader = '\x03';
     }
-    SetRenderStateForVm((AnmManager *)this,vm);
+    SetRenderStateForVm(this,vm);
     if ((g_Supervisor.cfg.opts >> DONT_USE_VERTEX_BUF & 1) == 0) {
       (*(g_Supervisor.d3dDevice)->lpVtbl->DrawPrimitive)
                 (g_Supervisor.d3dDevice,D3DPT_TRIANGLESTRIP,0,2);

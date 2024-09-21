@@ -1229,6 +1229,16 @@ struct Pbg3Archive {
     struct Pbg3Entry *entries;
 };
 
+typedef struct MsgRawInstrArgTextDialogue MsgRawInstrArgTextDialogue, *PMsgRawInstrArgTextDialogue;
+
+typedef ushort u16;
+
+struct MsgRawInstrArgTextDialogue {
+    u16 textColor;
+    u16 textLine;
+    char text[1];
+};
+
 typedef struct Enemy Enemy, *PEnemy;
 
 typedef struct EnemyEclContext EnemyEclContext, *PEnemyEclContext;
@@ -1507,8 +1517,6 @@ typedef struct EclTimelineInstr EclTimelineInstr, *PEclTimelineInstr;
 
 typedef short i16;
 
-typedef ushort u16;
-
 struct RunningSpellcardInfo {
     BOOL is_capturing;
     BOOL is_active;
@@ -1638,11 +1646,20 @@ typedef struct GuiImplChildB GuiImplChildB, *PGuiImplChildB;
 
 typedef struct MsgRawHeader MsgRawHeader, *PMsgRawHeader;
 
-typedef struct MsgRawEntry MsgRawEntry, *PMsgRawEntry;
+typedef struct MsgRawInstr MsgRawInstr, *PMsgRawInstr;
+
+typedef union MsgRawInstrArgs MsgRawInstrArgs, *PMsgRawInstrArgs;
+
+typedef struct MsgRawInstrArgPortraitAnmScript MsgRawInstrArgPortraitAnmScript, *PMsgRawInstrArgPortraitAnmScript;
 
 struct MsgRawHeader {
     int num_entries;
-    struct MsgRawEntry *entries[1];
+    struct MsgRawInstr *entries[1];
+};
+
+struct MsgRawInstrArgPortraitAnmScript {
+    u16 portrait;
+    u16 anmScriptIdx;
 };
 
 struct GuiImplChildB {
@@ -1654,7 +1671,7 @@ struct GuiImplChildB {
 
 struct GuiMsgVm {
     struct MsgRawHeader *msg_file;
-    void *current_instr;
+    struct MsgRawInstr *current_instr;
     uint current_msg_idx;
     struct ZunTimer timer;
     int frames_elapsed_during_pause;
@@ -1688,7 +1705,16 @@ struct GuiImpl {
     struct GuiImplChildB spellCardBonus;
 };
 
-struct MsgRawEntry {
+union MsgRawInstrArgs {
+    struct MsgRawInstrArgPortraitAnmScript portraitAnmScript;
+    struct MsgRawInstrArgTextDialogue textDialogue;
+};
+
+struct MsgRawInstr {
+    u16 time;
+    byte opcode;
+    byte argsize;
+    union MsgRawInstrArgs args;
 };
 
 typedef struct Pbg3FileName Pbg3FileName, *PPbg3FileName;
@@ -1931,6 +1957,12 @@ struct EclRawHeader {
     u32 subTableOffsets[1];
 };
 
+typedef struct MsgRawEntry MsgRawEntry, *PMsgRawEntry;
+
+struct MsgRawEntry {
+    struct MsgRawInstr *instr;
+};
+
 typedef struct StageAnms StageAnms, *PStageAnms;
 
 struct StageAnms {
@@ -1967,6 +1999,101 @@ struct Hscr {
     byte difficulty;
     byte stage;
     char name[9];
+};
+
+typedef struct Stage Stage, *PStage;
+
+typedef struct StdRawObject StdRawObject, *PStdRawObject;
+
+typedef struct StdRawInstance StdRawInstance, *PStdRawInstance;
+
+typedef struct StdRawInstr StdRawInstr, *PStdRawInstr;
+
+typedef struct StageCameraSky StageCameraSky, *PStageCameraSky;
+
+typedef enum SpellcardState {
+    NOT_RUNNING=0,
+    RUNNING=1,
+    RAN_FOR_60_FRAMES=2
+} SpellcardState;
+
+typedef struct StdRawQuadBasic StdRawQuadBasic, *PStdRawQuadBasic;
+
+typedef struct StdRawInstrArgs StdRawInstrArgs, *PStdRawInstrArgs;
+
+struct StdRawQuadBasic {
+    short type;
+    short byteSize;
+    short anmScript;
+    short vmIndex;
+    struct D3DXVECTOR3 position;
+    struct D3DXVECTOR2 size;
+};
+
+struct StdRawInstrArgs {
+    int values[3];
+};
+
+struct StdRawInstr {
+    int frame;
+    ushort opcode;
+    ushort size;
+    struct StdRawInstrArgs args;
+};
+
+struct StdRawObject {
+    ushort id;
+    char zLevel;
+    uchar flags;
+    struct D3DXVECTOR3 position;
+    struct D3DXVECTOR3 size;
+    struct StdRawQuadBasic firstQuad;
+};
+
+struct StageCameraSky {
+    float nearPlane;
+    float farPlane;
+    D3DCOLOR color;
+};
+
+struct Stage {
+    struct AnmVm *quadVms;
+    struct RawStdHeader *stdData;
+    int quadCount;
+    int objectsCount;
+    struct StdRawObject **objects;
+    struct StdRawInstance *objectInstances;
+    struct StdRawInstr *beginningOfScript;
+    struct ZunTimer scriptTime;
+    int instructionIndex;
+    struct ZunTimer timer;
+    uint stage;
+    struct D3DXVECTOR3 position;
+    struct StageCameraSky skyFog;
+    struct StageCameraSky skyFogInterpInitial;
+    struct StageCameraSky skyFogInterpFinal;
+    int skyFogInterpDuration;
+    struct ZunTimer skyFogInterpTimer;
+    byte skyFogNeedsSetup;
+    enum SpellcardState spellcardState;
+    int ticksSinceSpellcardStarted;
+    struct AnmVm spellcardBackground;
+    struct AnmVm unk_198;
+    uchar unpauseFlag;
+    struct D3DXVECTOR3 facingDirInterpInitial;
+    struct D3DXVECTOR3 facingDirInterpFinal;
+    int facingDirInterpDuration;
+    struct ZunTimer facingDirInterpTimer;
+    struct D3DXVECTOR3 positionInterpFinal;
+    int positionInterpEndTime;
+    struct D3DXVECTOR3 positionInterpInitial;
+    int positionInterpStartTime;
+};
+
+struct StdRawInstance {
+    short id;
+    ushort unk_2;
+    struct D3DXVECTOR3 position;
 };
 
 typedef enum BulletState {
@@ -5251,6 +5378,67 @@ struct EclManager { /* Size is unknown */
     struct EclRawHeader *ecl_file;
     void **sub_table;
     void *timeline;
+};
+
+typedef struct AnmManager AnmManager, *PAnmManager;
+
+typedef struct AnmRawEntry AnmRawEntry, *PAnmRawEntry;
+
+typedef struct AnmRawScript AnmRawScript, *PAnmRawScript;
+
+struct AnmRawScript {
+    uint id;
+    struct AnmRawInstr *firstInstruction;
+};
+
+struct AnmManager {
+    struct AnmLoadedSprite sprites[2048];
+    struct AnmVm virtualMachine;
+    struct IDirect3DTexture8 *textures[264];
+    void *imageDataArray[256];
+    int maybeLoadedSpriteCount;
+    struct AnmRawInstr *scripts[2048];
+    int spriteIndices[2048];
+    struct AnmRawEntry *anmFiles[128]; /* Created by retype action */
+    uint anmFilesSpriteIndexOffsets[128];
+    struct IDirect3DSurface8 *surfaces[32];
+    struct IDirect3DSurface8 *surfacesBis[32];
+    D3DXIMAGE_INFO surfaceSourceInfo[32];
+    D3DCOLOR currentTextureFactor;
+    struct IDirect3DTexture8 *currentTexture;
+    uchar currentBlendMode;
+    uchar currentColorOp;
+    uchar currentVertexShader;
+    uchar currentZWriteDisable;
+    struct AnmLoadedSprite *currentSprite;
+    struct IDirect3DVertexBuffer8 *vertexBuffer;
+    struct RenderVertexInfo vertexBufferContents[4];
+    int screenshot_textureId;
+    int screenshot_left;
+    int screenshot_top;
+    int screenshot_width;
+    int screenshot_height;
+};
+
+struct AnmRawEntry {
+    int numSprites;
+    int numScripts;
+    int textureIdx;
+    int width;
+    int height;
+    int format;
+    int color_key;
+    int name_offset;
+    int spriteIdxOffset;
+    int mipmap_name_offset;
+    int version;
+    int unk3;
+    int texture_offset;
+    int has_data;
+    int next_offset;
+    int unk4;
+    uint spriteOffsets[10];
+    struct AnmRawScript scripts[10];
 };
 
 typedef struct MusicRoom MusicRoom, *PMusicRoom;
@@ -16345,12 +16533,6 @@ typedef enum PlayerBulletType {
     BULLET_TYPE_LASER=3
 } PlayerBulletType;
 
-typedef enum SpellcardState {
-    NOT_RUNNING=0,
-    RUNNING=1,
-    RAN_FOR_60_FRAMES=2
-} SpellcardState;
-
 typedef struct Pbg3Archive *FileAbstractionToPbgArchive;
 
 typedef struct ZunColor ZunColor, *PZunColor;
@@ -16632,13 +16814,6 @@ typedef enum EclInsn {
 
 typedef struct Pbg3Parser *FileAbstractionToPbg3Parser;
 
-typedef struct AnmRawScript AnmRawScript, *PAnmRawScript;
-
-struct AnmRawScript {
-    uint id;
-    struct AnmRawInstr *firstInstruction;
-};
-
 typedef struct Vertex_TEX1_XYZRWH Vertex_TEX1_XYZRWH, *PVertex_TEX1_XYZRWH;
 
 typedef struct D3DXVECTOR4 D3DXVECTOR4, *PD3DXVECTOR4;
@@ -16670,71 +16845,6 @@ struct Vertex_TEX1_DIFFUSE_XYZRWH {
     struct D3DXVECTOR2 textureUV;
 };
 
-typedef struct AnmManager AnmManager, *PAnmManager;
-
-typedef struct AnmRawEntry AnmRawEntry, *PAnmRawEntry;
-
-struct AnmManager {
-    struct AnmLoadedSprite sprites[2048];
-    struct AnmVm virtualMachine;
-    struct IDirect3DTexture8 *textures[264];
-    void *imageDataArray[256];
-    int maybeLoadedSpriteCount;
-    struct AnmRawInstr *scripts[2048];
-    int spriteIndices[2048];
-    struct AnmRawEntry *anmFiles[128]; /* Created by retype action */
-    uint anmFilesSpriteIndexOffsets[128];
-    struct IDirect3DSurface8 *surfaces[32];
-    struct IDirect3DSurface8 *surfacesBis[32];
-    D3DXIMAGE_INFO surfaceSourceInfo[32];
-    D3DCOLOR currentTextureFactor;
-    struct IDirect3DTexture8 *currentTexture;
-    uchar currentBlendMode;
-    uchar currentColorOp;
-    uchar currentVertexShader;
-    uchar currentZWriteDisable;
-    struct AnmLoadedSprite *currentSprite;
-    struct IDirect3DVertexBuffer8 *vertexBuffer;
-    struct RenderVertexInfo vertexBufferContents[4];
-    int screenshot_textureId;
-    int screenshot_left;
-    int screenshot_top;
-    int screenshot_width;
-    int screenshot_height;
-};
-
-struct AnmRawEntry {
-    int numSprites;
-    int numScripts;
-    int textureIdx;
-    int width;
-    int height;
-    int format;
-    int color_key;
-    int name_offset;
-    int spriteIdxOffset;
-    int mipmap_name_offset;
-    int version;
-    int unk3;
-    int texture_offset;
-    int has_data;
-    int next_offset;
-    int unk4;
-    uint spriteOffsets[10];
-    struct AnmRawScript scripts[10];
-};
-
-typedef struct AnmRawTexture AnmRawTexture, *PAnmRawTexture;
-
-struct AnmRawTexture {
-    uint magic;
-    ushort zero;
-    ushort format;
-    ushort width;
-    ushort height;
-    uint size;
-};
-
 typedef struct AnmRawSprite AnmRawSprite, *PAnmRawSprite;
 
 struct AnmRawSprite {
@@ -16751,41 +16861,15 @@ struct Vertex_TEX1_DIFFUSE_XYZ {
     struct D3DXVECTOR2 textureUV;
 };
 
-typedef struct StdRawObject StdRawObject, *PStdRawObject;
+typedef struct AnmRawTexture AnmRawTexture, *PAnmRawTexture;
 
-typedef struct StdRawQuadBasic StdRawQuadBasic, *PStdRawQuadBasic;
-
-struct StdRawQuadBasic {
-    short type;
-    short byteSize;
-    short anmScript;
-    short vmIndex;
-    struct D3DXVECTOR3 position;
-    struct D3DXVECTOR2 size;
-};
-
-struct StdRawObject {
-    ushort id;
-    char zLevel;
-    uchar flags;
-    struct D3DXVECTOR3 position;
-    struct D3DXVECTOR3 size;
-    struct StdRawQuadBasic firstQuad;
-};
-
-typedef struct StdRawInstr StdRawInstr, *PStdRawInstr;
-
-typedef struct StdRawInstrArgs StdRawInstrArgs, *PStdRawInstrArgs;
-
-struct StdRawInstrArgs {
-    int values[3];
-};
-
-struct StdRawInstr {
-    int frame;
-    ushort opcode;
-    ushort size;
-    struct StdRawInstrArgs args;
+struct AnmRawTexture {
+    uint magic;
+    ushort zero;
+    ushort format;
+    ushort width;
+    ushort height;
+    uint size;
 };
 
 typedef struct StdRawHeader StdRawHeader, *PStdRawHeader;
@@ -16863,58 +16947,6 @@ struct StdRawHeader {
     undefined field69_0x4cd;
     undefined field70_0x4ce;
     undefined field71_0x4cf;
-};
-
-typedef struct Stage Stage, *PStage;
-
-typedef struct StdRawInstance StdRawInstance, *PStdRawInstance;
-
-typedef struct StageCameraSky StageCameraSky, *PStageCameraSky;
-
-struct StageCameraSky {
-    float nearPlane;
-    float farPlane;
-    D3DCOLOR color;
-};
-
-struct Stage {
-    struct AnmVm *quadVms;
-    struct RawStdHeader *stdData;
-    int quadCount;
-    int objectsCount;
-    struct StdRawObject **objects;
-    struct StdRawInstance *objectInstances;
-    struct StdRawInstr *beginningOfScript;
-    struct ZunTimer scriptTime;
-    int instructionIndex;
-    struct ZunTimer timer;
-    uint stage;
-    struct D3DXVECTOR3 position;
-    struct StageCameraSky skyFog;
-    struct StageCameraSky skyFogInterpInitial;
-    struct StageCameraSky skyFogInterpFinal;
-    int skyFogInterpDuration;
-    struct ZunTimer skyFogInterpTimer;
-    byte skyFogNeedsSetup;
-    enum SpellcardState spellcardState;
-    int ticksSinceSpellcardStarted;
-    struct AnmVm spellcardBackground;
-    struct AnmVm unk_198;
-    uchar unpauseFlag;
-    struct D3DXVECTOR3 facingDirInterpInitial;
-    struct D3DXVECTOR3 facingDirInterpFinal;
-    int facingDirInterpDuration;
-    struct ZunTimer facingDirInterpTimer;
-    struct D3DXVECTOR3 positionInterpFinal;
-    int positionInterpEndTime;
-    struct D3DXVECTOR3 positionInterpInitial;
-    int positionInterpStartTime;
-};
-
-struct StdRawInstance {
-    short id;
-    ushort unk_2;
-    struct D3DXVECTOR3 position;
 };
 
 typedef struct unk unk, *Punk;

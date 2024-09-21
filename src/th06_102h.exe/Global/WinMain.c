@@ -43,7 +43,7 @@ int WinMain(HINSTANCE hInstance,HINSTANCE hPrevInstance,LPSTR lpCmdLine,int nSho
             vbsPtr = (AnmManager *)0x0;
           }
           else {
-            vbsPtr = th06::AnmManager::AnmManager((AnmManager *)puVar1);
+            vbsPtr = th06::AnmManager::AnmManager(puVar1);
           }
           g_AnmManager = vbsPtr;
           ZVar3 = th06::Supervisor::RegisterChain();
@@ -65,7 +65,7 @@ int WinMain(HINSTANCE hInstance,HINSTANCE hPrevInstance,LPSTR lpCmdLine,int nSho
                                   (g_Supervisor.d3dDevice);
                 if (HVar6 == D3D_OK) break;
                 if (HVar6 == D3DERR_DEVICENOTRESET) {
-                  th06::AnmManager::ReleaseSurfaces((AnmManager *)g_AnmManager);
+                  th06::AnmManager::ReleaseSurfaces(g_AnmManager);
                   HVar6 = (*(g_Supervisor.d3dDevice)->lpVtbl->Reset)
                                     (g_Supervisor.d3dDevice,&g_Supervisor.presentParameters);
                   if (HVar6 != 0) goto LAB_0042055a;
@@ -82,7 +82,7 @@ LAB_0042055a:
           th06::SoundPlayer::Release(&g_SoundPlayer);
           pAVar1 = g_AnmManager;
           if (g_AnmManager != (AnmManager *)0x0) {
-            th06::AnmManager::~AnmManager((AnmManager *)g_AnmManager);
+            th06::AnmManager::~AnmManager(g_AnmManager);
             operator_delete(pAVar1);
           }
           g_AnmManager = (AnmManager *)0x0;

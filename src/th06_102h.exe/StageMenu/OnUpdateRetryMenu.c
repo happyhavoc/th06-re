@@ -33,13 +33,13 @@ int __thiscall th06::StageMenu::OnUpdateRetryMenu(StageMenu *this)
           local_3c = (short)local_8 + 8;
           this->menuSprites[local_8].anmFileIndex = local_3c;
           AnmManager::SetAndExecuteScript
-                    ((AnmManager *)pAVar1,this->menuSprites + local_8,pAVar1->scripts[local_8 + 8]);
+                    (pAVar1,this->menuSprites + local_8,pAVar1->scripts[local_8 + 8]);
         }
         else {
           local_48 = (short)local_8 + 4;
           this->menuSprites[local_8].anmFileIndex = local_48;
           AnmManager::SetAndExecuteScript
-                    ((AnmManager *)pAVar1,this->menuSprites + local_8,pAVar1->scripts[local_8 + 4]);
+                    (pAVar1,this->menuSprites + local_8,pAVar1->scripts[local_8 + 4]);
         }
         this->menuSprites[local_8].pendingInterrupt = 1;
       }
@@ -51,8 +51,7 @@ int __thiscall th06::StageMenu::OnUpdateRetryMenu(StageMenu *this)
         pAVar1->screenshot_height = 0x1c0;
         pAVar1 = g_AnmManager;
         (this->menuBackground).anmFileIndex = 0x718;
-        AnmManager::SetAndExecuteScript
-                  ((AnmManager *)pAVar1,&this->menuBackground,pAVar1->scripts[0x718]);
+        AnmManager::SetAndExecuteScript(pAVar1,&this->menuBackground,pAVar1->scripts[0x718]);
         (this->menuBackground).pos.x = 32.0;
         (this->menuBackground).pos.y = 16.0;
         (this->menuBackground).pos.z = 0.0;

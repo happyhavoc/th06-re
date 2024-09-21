@@ -13,7 +13,7 @@ void th06::Player::DrawBullets(Player *this)
         fVar1 = utils::AddNormalizeAngle((bullets->unk_134).z,3.141593);
         (bullets->vm).rotation.z = 1.570796 - fVar1;
       }
-      AnmManager::Draw2((AnmManager *)g_AnmManager,&bullets->vm);
+      AnmManager::Draw2(g_AnmManager,&bullets->vm);
     }
     bullets = bullets + 1;
   }

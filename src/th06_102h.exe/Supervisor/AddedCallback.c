@@ -26,21 +26,21 @@ ZunResult th06::Supervisor::AddedCallback(Supervisor *param_1)
   iVar1 = LoadPbg3(param_1,0,"紅魔郷IN.dat");
   if (iVar1 == 0) {
     AnmManager::LoadSurface(g_AnmManager,0,"data/title/th06logo.jpg");
-    AnmManager::CopySurfaceToBackBuffer((AnmManager *)g_AnmManager,0,0,0,0,0);
+    AnmManager::CopySurfaceToBackBuffer(g_AnmManager,0,0,0,0,0);
     HVar3 = (*(g_Supervisor.d3dDevice)->lpVtbl->Present)
                       (g_Supervisor.d3dDevice,(RECT *)0x0,(RECT *)0x0,(HWND)0x0,(RGNDATA *)0x0);
     if (HVar3 < 0) {
       (*(g_Supervisor.d3dDevice)->lpVtbl->Reset)
                 (g_Supervisor.d3dDevice,&g_Supervisor.presentParameters);
     }
-    AnmManager::CopySurfaceToBackBuffer((AnmManager *)g_AnmManager,0,0,0,0,0);
+    AnmManager::CopySurfaceToBackBuffer(g_AnmManager,0,0,0,0,0);
     HVar3 = (*(g_Supervisor.d3dDevice)->lpVtbl->Present)
                       (g_Supervisor.d3dDevice,(RECT *)0x0,(RECT *)0x0,(HWND)0x0,(RGNDATA *)0x0);
     if (HVar3 < 0) {
       (*(g_Supervisor.d3dDevice)->lpVtbl->Reset)
                 (g_Supervisor.d3dDevice,&g_Supervisor.presentParameters);
     }
-    AnmManager::ReleaseSurface((AnmManager *)g_AnmManager,0);
+    AnmManager::ReleaseSurface(g_AnmManager,0);
     DVar4 = timeGetTime();
     param_1->startup_time_for_menu_music = DVar4;
     SetupDInput(param_1);
@@ -63,7 +63,7 @@ ZunResult th06::Supervisor::AddedCallback(Supervisor *param_1)
       ZVar2 = AsciiManager::RegisterChain();
       if (ZVar2 == ZUN_SUCCESS) {
         param_1->unk198 = 0;
-        AnmManager::SetupVertexBuffer((AnmManager *)g_AnmManager);
+        AnmManager::SetupVertexBuffer(g_AnmManager);
         TextHelper::CreateTextBuffer();
         ReleasePbg3(param_1,0);
         iVar1 = LoadPbg3(&g_Supervisor,1,"紅魔郷MD.dat");

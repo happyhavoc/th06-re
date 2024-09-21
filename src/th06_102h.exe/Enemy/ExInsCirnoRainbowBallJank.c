@@ -16,7 +16,7 @@ void th06::Enemy::ExInsCirnoRainbowBallJank(Enemy *param_1,EclRawInstr *insn)
     if ((bullets->state != 0) && (bullets->state != 5)) {
       bullets->color = 0xf;
       AnmManager::SetActiveSprite
-                ((AnmManager *)g_AnmManager,(AnmVm *)bullets,
+                (g_AnmManager,(AnmVm *)bullets,
                  (int)(bullets->sprites).bulletSprite.baseSpriteIndex + (int)(short)bullets->color);
       if (fVar1 == 0) {
         bullets->speed = 0.0;

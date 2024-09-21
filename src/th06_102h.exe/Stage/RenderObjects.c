@@ -2,20 +2,21 @@
 ZunResult __thiscall th06::Stage::RenderObjects(Stage *this,int zLevel)
 
 {
-  float local_88;
+  float fVar1;
+  FLOAT local_88;
   D3DXVECTOR3 projectSrc;
   undefined4 local_78;
-  short *curQuad;
+  StdRawQuadBasic *curQuad;
   D3DXVECTOR3 projectRes;
   D3DXVECTOR3 local_64;
-  int local_58;
+  StdRawObject *local_58;
   D3DMATRIX worldMatrix;
-  short *instances;
+  StdRawInstance *instances;
   int local_10;
   AnmVm *curQuadVm;
   undefined4 local_8;
   
-  instances = *(short **)(this + 0x14);
+  instances = this->objectInstances;
   local_10 = 0;
   local_78 = 0;
   projectSrc.x = 0.0;
@@ -23,27 +24,26 @@ ZunResult __thiscall th06::Stage::RenderObjects(Stage *this,int zLevel)
   projectSrc.z = 0.0;
   D3DXMatrixIdentity(&worldMatrix);
   do {
-    if (*instances < 0) {
+    if (instances->id < 0) {
       return ZUN_SUCCESS;
     }
-    local_58 = *(int *)(*(int *)(this + 0x10) + *instances * 4);
-    if (*(char *)(local_58 + 2) == zLevel) {
-      curQuad = (short *)(local_58 + 0x1c);
+    local_58 = this->objects[instances->id];
+    if (local_58->zLevel == zLevel) {
+      curQuad = &local_58->firstQuad;
       local_8 = 0;
-      worldMatrix.m[3][0] =
-           (*(float *)(local_58 + 4) + *(float *)(instances + 2)) - *(float *)(this + 0x3c);
+      worldMatrix.m[3][0] = ((local_58->position).x + (instances->position).x) - (this->position).x;
       worldMatrix.m[3][1] =
-           -((*(float *)(local_58 + 8) + *(float *)(instances + 4)) - *(float *)(this + 0x40));
+           -(((local_58->position).y + (instances->position).y) - (this->position).y);
       worldMatrix.m[3][2] =
-           ((*(float *)(local_58 + 0xc) + *(float *)(instances + 6)) - *(float *)(this + 0x44)) +
-           *(float *)(local_58 + 0x18);
+           (((local_58->position).z + (instances->position).z) - (this->position).z) +
+           (local_58->size).z;
       D3DXVec3Project(&projectRes,&projectSrc,&g_Supervisor.viewport,&g_Supervisor.projectionMatrix,
                       &g_Supervisor.viewMatrix,&worldMatrix);
       if ((projectRes.y < (float)(ulonglong)g_Supervisor.viewport.Y) ||
          (projectRes.y < (float)(ulonglong)(g_Supervisor.viewport.Y + g_Supervisor.viewport.Height)
           == (projectRes.y ==
              (float)(ulonglong)(g_Supervisor.viewport.Y + g_Supervisor.viewport.Height)))) {
-        worldMatrix.m[3][1] = worldMatrix.m[3][1] - *(float *)(local_58 + 0x14);
+        worldMatrix.m[3][1] = worldMatrix.m[3][1] - (local_58->size).y;
         D3DXVec3Project(&projectRes,&projectSrc,&g_Supervisor.viewport,
                         &g_Supervisor.projectionMatrix,&g_Supervisor.viewMatrix,&worldMatrix);
         if ((projectRes.y < (float)(ulonglong)g_Supervisor.viewport.Y) ||
@@ -51,7 +51,7 @@ ZunResult __thiscall th06::Stage::RenderObjects(Stage *this,int zLevel)
             (float)(ulonglong)(g_Supervisor.viewport.Y + g_Supervisor.viewport.Height) ==
             (projectRes.y ==
             (float)(ulonglong)(g_Supervisor.viewport.Y + g_Supervisor.viewport.Height)))) {
-          worldMatrix.m[3][2] = worldMatrix.m[3][2] - *(float *)(local_58 + 0x18);
+          worldMatrix.m[3][2] = worldMatrix.m[3][2] - (local_58->size).z;
           D3DXVec3Project(&projectRes,&projectSrc,&g_Supervisor.viewport,
                           &g_Supervisor.projectionMatrix,&g_Supervisor.viewMatrix,&worldMatrix);
           if ((projectRes.y < (float)(ulonglong)g_Supervisor.viewport.Y) ||
@@ -59,7 +59,7 @@ ZunResult __thiscall th06::Stage::RenderObjects(Stage *this,int zLevel)
               (float)(ulonglong)(g_Supervisor.viewport.Y + g_Supervisor.viewport.Height) ==
               (projectRes.y ==
               (float)(ulonglong)(g_Supervisor.viewport.Y + g_Supervisor.viewport.Height)))) {
-            worldMatrix.m[3][1] = worldMatrix.m[3][1] + *(float *)(local_58 + 0x14);
+            worldMatrix.m[3][1] = worldMatrix.m[3][1] + (local_58->size).y;
             D3DXVec3Project(&projectRes,&projectSrc,&g_Supervisor.viewport,
                             &g_Supervisor.projectionMatrix,&g_Supervisor.viewMatrix,&worldMatrix);
             if ((projectRes.y < (float)(ulonglong)g_Supervisor.viewport.Y) ||
@@ -68,14 +68,13 @@ ZunResult __thiscall th06::Stage::RenderObjects(Stage *this,int zLevel)
                 (projectRes.y ==
                 (float)(ulonglong)(g_Supervisor.viewport.Y + g_Supervisor.viewport.Height)))) {
               worldMatrix.m[3][0] =
-                   ((*(float *)(local_58 + 4) + *(float *)(instances + 2)) - *(float *)(this + 0x3c)
-                   ) + *(float *)(local_58 + 0x10);
+                   (((local_58->position).x + (instances->position).x) - (this->position).x) +
+                   (local_58->size).x;
               worldMatrix.m[3][1] =
-                   -((*(float *)(local_58 + 8) + *(float *)(instances + 4)) -
-                    *(float *)(this + 0x40));
+                   -(((local_58->position).y + (instances->position).y) - (this->position).y);
               worldMatrix.m[3][2] =
-                   ((*(float *)(local_58 + 0xc) + *(float *)(instances + 6)) -
-                   *(float *)(this + 0x44)) + *(float *)(local_58 + 0x18);
+                   (((local_58->position).z + (instances->position).z) - (this->position).z) +
+                   (local_58->size).z;
               D3DXVec3Project(&projectRes,&projectSrc,&g_Supervisor.viewport,
                               &g_Supervisor.projectionMatrix,&g_Supervisor.viewMatrix,&worldMatrix);
               if ((projectRes.y < (float)(ulonglong)g_Supervisor.viewport.Y) ||
@@ -83,7 +82,7 @@ ZunResult __thiscall th06::Stage::RenderObjects(Stage *this,int zLevel)
                   (float)(ulonglong)(g_Supervisor.viewport.Y + g_Supervisor.viewport.Height) ==
                   (projectRes.y ==
                   (float)(ulonglong)(g_Supervisor.viewport.Y + g_Supervisor.viewport.Height)))) {
-                worldMatrix.m[3][1] = worldMatrix.m[3][1] - *(float *)(local_58 + 0x14);
+                worldMatrix.m[3][1] = worldMatrix.m[3][1] - (local_58->size).y;
                 D3DXVec3Project(&projectRes,&projectSrc,&g_Supervisor.viewport,
                                 &g_Supervisor.projectionMatrix,&g_Supervisor.viewMatrix,&worldMatrix
                                );
@@ -92,7 +91,7 @@ ZunResult __thiscall th06::Stage::RenderObjects(Stage *this,int zLevel)
                     (float)(ulonglong)(g_Supervisor.viewport.Y + g_Supervisor.viewport.Height) ==
                     (projectRes.y ==
                     (float)(ulonglong)(g_Supervisor.viewport.Y + g_Supervisor.viewport.Height)))) {
-                  worldMatrix.m[3][2] = worldMatrix.m[3][2] - *(float *)(local_58 + 0x18);
+                  worldMatrix.m[3][2] = worldMatrix.m[3][2] - (local_58->size).z;
                   D3DXVec3Project(&projectRes,&projectSrc,&g_Supervisor.viewport,
                                   &g_Supervisor.projectionMatrix,&g_Supervisor.viewMatrix,
                                   &worldMatrix);
@@ -102,7 +101,7 @@ ZunResult __thiscall th06::Stage::RenderObjects(Stage *this,int zLevel)
                       (projectRes.y ==
                       (float)(ulonglong)(g_Supervisor.viewport.Y + g_Supervisor.viewport.Height))))
                   {
-                    worldMatrix.m[3][1] = worldMatrix.m[3][1] + *(float *)(local_58 + 0x14);
+                    worldMatrix.m[3][1] = worldMatrix.m[3][1] + (local_58->size).y;
                     D3DXVec3Project(&projectRes,&projectSrc,&g_Supervisor.viewport,
                                     &g_Supervisor.projectionMatrix,&g_Supervisor.viewMatrix,
                                     &worldMatrix);
@@ -121,24 +120,28 @@ ZunResult __thiscall th06::Stage::RenderObjects(Stage *this,int zLevel)
         }
       }
       local_78 = 1;
-      for (; -1 < *curQuad; curQuad = (short *)((int)curQuad + (int)curQuad[1])) {
-        curQuadVm = (AnmVm *)(curQuad[3] * 0x110 + *(int *)this);
-        if (*curQuad == 0) {
+      for (; -1 < curQuad->type;
+          curQuad = (StdRawQuadBasic *)((int)&curQuad->type + (int)curQuad->byteSize)) {
+        curQuadVm = this->quadVms + curQuad->vmIndex;
+        if (curQuad->type == 0) {
           (curQuadVm->pos).x =
-               (*(float *)(curQuad + 4) + *(float *)(instances + 2)) - *(float *)(this + 0x3c);
+               ((curQuad->position).x + (instances->position).x) - (this->position).x;
           (curQuadVm->pos).y =
-               (*(float *)(curQuad + 6) + *(float *)(instances + 4)) - *(float *)(this + 0x40);
+               ((curQuad->position).y + (instances->position).y) - (this->position).y;
           (curQuadVm->pos).z =
-               (*(float *)(curQuad + 8) + *(float *)(instances + 6)) - *(float *)(this + 0x44);
-          if (NAN(*(float *)(curQuad + 10)) == (*(float *)(curQuad + 10) == 0.0)) {
-            curQuadVm->scaleX = *(float *)(curQuad + 10) / curQuadVm->sprite->widthPx;
+               ((curQuad->position).z + (instances->position).z) - (this->position).z;
+          fVar1 = (curQuad->size).x;
+          if (NAN(fVar1) == (fVar1 == 0.0)) {
+            curQuadVm->scaleX = (curQuad->size).x / curQuadVm->sprite->widthPx;
           }
-          if (NAN(*(float *)(curQuad + 0xc)) == (*(float *)(curQuad + 0xc) == 0.0)) {
-            curQuadVm->scaleY = *(float *)(curQuad + 0xc) / curQuadVm->sprite->heightPx;
+          fVar1 = (curQuad->size).y;
+          if (NAN(fVar1) == (fVar1 == 0.0)) {
+            curQuadVm->scaleY = (curQuad->size).y / curQuadVm->sprite->heightPx;
           }
           if (curQuadVm->autoRotate == 2) {
-            if (NAN(*(float *)(curQuad + 10)) == (*(float *)(curQuad + 10) == 0.0)) {
-              local_88 = *(float *)(curQuad + 10);
+            fVar1 = (curQuad->size).x;
+            if (NAN(fVar1) == (fVar1 == 0.0)) {
+              local_88 = (curQuad->size).x;
             }
             else {
               local_88 = curQuadVm->sprite->widthPx;
@@ -156,17 +159,17 @@ ZunResult __thiscall th06::Stage::RenderObjects(Stage *this,int zLevel)
             (curQuadVm->pos).x = projectRes.x;
             (curQuadVm->pos).y = projectRes.y;
             (curQuadVm->pos).z = projectRes.z;
-            AnmManager::DrawFacingCamera((AnmManager *)g_AnmManager,curQuadVm);
+            AnmManager::DrawFacingCamera(g_AnmManager,curQuadVm);
           }
           else {
-            AnmManager::Draw3((AnmManager *)g_AnmManager,curQuadVm);
+            AnmManager::Draw3(g_AnmManager,curQuadVm);
           }
         }
       }
       local_10 = local_10 + 1;
     }
 LAB_00405197:
-    instances = instances + 8;
+    instances = instances + 1;
   } while( true );
 }
 

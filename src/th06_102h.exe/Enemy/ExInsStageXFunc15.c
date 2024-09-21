@@ -56,7 +56,7 @@ void th06::Enemy::ExInsStageXFunc15(Enemy *param_1,AnmRawInstr *param_2)
           (local_68->ex_4_acceleration).y = (float)(fVar2 * (float10)0.01);
           local_68->color = local_68->color + 1;
           AnmManager::SetActiveSprite
-                    ((AnmManager *)g_AnmManager,(AnmVm *)local_68,
+                    (g_AnmManager,(AnmVm *)local_68,
                      (int)(local_68->sprites).bulletSprite.baseSpriteIndex +
                      (int)(short)local_68->color);
         }

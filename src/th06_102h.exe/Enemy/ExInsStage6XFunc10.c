@@ -13,8 +13,7 @@ void th06::Enemy::ExInsStage6XFunc10(Enemy *param_1,AnmRawInstr *param_2)
          (param_1->field44_0xe44).current == 0)) {
         if (param_1->anm_ex_left < 0) {
           (param_1->primary_vm).anmFileIndex = 0x1a0;
-          AnmManager::SetAndExecuteScript
-                    ((AnmManager *)pAVar1,&param_1->primary_vm,pAVar1->scripts[0x1a0]);
+          AnmManager::SetAndExecuteScript(pAVar1,&param_1->primary_vm,pAVar1->scripts[0x1a0]);
           param_1->anm_ex_left = 0xa1;
         }
         param_1->flags2 = param_1->flags2 | 1;
@@ -23,8 +22,7 @@ void th06::Enemy::ExInsStage6XFunc10(Enemy *param_1,AnmRawInstr *param_2)
     else {
       if (-1 < param_1->anm_ex_left) {
         (param_1->primary_vm).anmFileIndex = 0x1a5;
-        AnmManager::SetAndExecuteScript
-                  ((AnmManager *)pAVar1,&param_1->primary_vm,pAVar1->scripts[0x1a5]);
+        AnmManager::SetAndExecuteScript(pAVar1,&param_1->primary_vm,pAVar1->scripts[0x1a5]);
         param_1->anm_ex_left = -1;
       }
       param_1->flags2 = param_1->flags2 & 0xfe;

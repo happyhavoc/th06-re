@@ -129,14 +129,12 @@ ZunResult __thiscall th06::Player::HandlePlayerInputs(Player *this)
     if ((NAN(horizontalSpeed) != (horizontalSpeed == 0.0)) &&
        (this->previousHorizontalSpeed < 0.0 != NAN(this->previousHorizontalSpeed))) {
       (this->playerSprite).anmFileIndex = 0x402;
-      AnmManager::SetAndExecuteScript
-                ((AnmManager *)pAVar5,&this->playerSprite,pAVar5->scripts[0x402]);
+      AnmManager::SetAndExecuteScript(pAVar5,&this->playerSprite,pAVar5->scripts[0x402]);
     }
   }
   else {
     (this->playerSprite).anmFileIndex = 0x401;
-    AnmManager::SetAndExecuteScript((AnmManager *)pAVar5,&this->playerSprite,pAVar5->scripts[0x401])
-    ;
+    AnmManager::SetAndExecuteScript(pAVar5,&this->playerSprite,pAVar5->scripts[0x401]);
   }
   pAVar5 = g_AnmManager;
   if ((horizontalSpeed <= 0.0) ||
@@ -144,14 +142,12 @@ ZunResult __thiscall th06::Player::HandlePlayerInputs(Player *this)
     if ((NAN(horizontalSpeed) != (horizontalSpeed == 0.0)) && (0.0 < this->previousHorizontalSpeed))
     {
       (this->playerSprite).anmFileIndex = 0x404;
-      AnmManager::SetAndExecuteScript
-                ((AnmManager *)pAVar5,&this->playerSprite,pAVar5->scripts[0x404]);
+      AnmManager::SetAndExecuteScript(pAVar5,&this->playerSprite,pAVar5->scripts[0x404]);
     }
   }
   else {
     (this->playerSprite).anmFileIndex = 0x403;
-    AnmManager::SetAndExecuteScript((AnmManager *)pAVar5,&this->playerSprite,pAVar5->scripts[0x403])
-    ;
+    AnmManager::SetAndExecuteScript(pAVar5,&this->playerSprite,pAVar5->scripts[0x403]);
   }
   this->previousHorizontalSpeed = horizontalSpeed;
   this->previousVerticalSpeed = verticalSpeed;

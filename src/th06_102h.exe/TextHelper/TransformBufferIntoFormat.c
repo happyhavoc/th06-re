@@ -1,7 +1,7 @@
 
 uint __thiscall
-th06::TextHelper::FUN_0041ec72
-          (TextHelper *this,undefined4 param_1,int param_2,int spriteWidth,int fontHeight)
+th06::TextHelper::TransformBufferIntoFormat
+          (TextHelper *this,int x,int y,int spriteWidth,int fontHeight)
 
 {
   int doubleArea;
@@ -10,7 +10,7 @@ th06::TextHelper::FUN_0041ec72
   D3DFORMAT uVar1;
   
   doubleArea = spriteWidth * fontHeight * 2;
-  local_14 = this->buffer + param_2 * spriteWidth;
+  local_14 = this->buffer + y * spriteWidth;
   uVar1 = this->format;
   if (uVar1 == D3DFMT_A8R8G8B8) {
     for (local_c = 3; local_c < doubleArea; local_c = local_c + 4) {

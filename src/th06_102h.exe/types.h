@@ -16516,7 +16516,7 @@ struct HDC__ {
 
 struct FormatInfo {
     D3DFORMAT format;
-    int size;
+    int bitCount;
     undefined4 alpha_mask;
     undefined4 red_mask;
     undefined4 green_mask;

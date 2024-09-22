@@ -28,10 +28,11 @@ void th06::TextHelper::RenderTextToTexture
   TextHelper(&textHelper);
   uStack_8 = 0;
   (*g_TextBufferSurface->lpVtbl->GetDesc)(g_TextBufferSurface,&textSurfaceDesc);
-  FUN_0041ea04(&textHelper,textSurfaceDesc.Width,textSurfaceDesc.Height,textSurfaceDesc.Format);
+  AllocateBufferWithFallback
+            (&textHelper,textSurfaceDesc.Width,textSurfaceDesc.Height,textSurfaceDesc.Format);
   hdc = textHelper.hdc;
   h = SelectObject(textHelper.hdc,font);
-  FUN_0041ec72(&textHelper,0,0,spriteWidth << 1,fontHeight * 2 + 6);
+  TransformBufferIntoFormat(&textHelper,0,0,spriteWidth << 1,fontHeight * 2 + 6);
   SetBkMode(hdc,1);
   if (shadowColor.color != 0xffffffff) {
     SetTextColor(hdc,shadowColor.color);
@@ -42,7 +43,7 @@ void th06::TextHelper::RenderTextToTexture
   strLength = _strlen(string);
   TextOutA(hdc,xPos << 1,0,string,strLength);
   SelectObject(hdc,h);
-  FUN_0041ec72(&textHelper,0,0,spriteWidth << 1,fontHeight * 2 + 6);
+  TransformBufferIntoFormat(&textHelper,0,0,spriteWidth << 1,fontHeight * 2 + 6);
   CopyTextToSurface(&textHelper,g_TextBufferSurface);
   SelectObject(hdc,h);
   DeleteObject(font);

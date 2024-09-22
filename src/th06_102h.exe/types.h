@@ -16502,10 +16502,7 @@ struct TextHelper { /* Helper to draw text in ANM */
     D3DFORMAT format;
     undefined4 width;
     undefined4 height;
-    undefined field3_0xc;
-    undefined field4_0xd;
-    undefined field5_0xe;
-    undefined field6_0xf;
+    u32 imageSizeInBytes; /* Created by retype action */
     struct FormatInfo *formatInfo;
     HDC hdc;
     HGDIOBJ gdiobj;

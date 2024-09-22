@@ -1,5 +1,5 @@
 
-uint __thiscall th06::TextHelper::FUN_0041e992(TextHelper *this)
+uint __thiscall th06::TextHelper::Release(TextHelper *this)
 
 {
   uint uVar1;

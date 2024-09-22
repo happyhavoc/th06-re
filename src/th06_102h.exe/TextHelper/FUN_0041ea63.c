@@ -1,9 +1,9 @@
 
-char __thiscall
+bool __thiscall
 th06::TextHelper::FUN_0041ea63(TextHelper *this,UINT width,UINT height,D3DFORMAT format)
 
 {
-  char cVar1;
+  bool bVar1;
   HGDIOBJ pvVar2;
   ushort *local_90;
   HBITMAP local_8c;
@@ -15,11 +15,11 @@ th06::TextHelper::FUN_0041ea63(TextHelper *this,UINT width,UINT height,D3DFORMAT
   HDC local_c;
   FormatInfo *local_8;
   
-  FUN_0041e992(this);
+  Release(this);
   _memset(&local_84,0,0x6c);
   local_88 = GetFormatInfo(this,format);
   if (local_88 == (FormatInfo *)0x0) {
-    cVar1 = '\0';
+    bVar1 = false;
   }
   else {
     local_8 = (FormatInfo *)((((int)(width * local_88->size) / 8 + 3) / 4) * 4);
@@ -38,7 +38,7 @@ th06::TextHelper::FUN_0041ea63(TextHelper *this,UINT width,UINT height,D3DFORMAT
     }
     local_8c = CreateDIBSection((HDC)0x0,&local_84,0,&local_90,(HANDLE)0x0,0);
     if (local_8c == (HBITMAP)0x0) {
-      cVar1 = '\0';
+      bVar1 = false;
     }
     else {
       _memset(local_90,0,local_84.bmiHeader.biSizeImage);
@@ -47,15 +47,15 @@ th06::TextHelper::FUN_0041ea63(TextHelper *this,UINT width,UINT height,D3DFORMAT
       this->hdc = local_c;
       this->gdiobj2 = local_8c;
       this->buffer = local_90;
-      *(DWORD *)&this->field_0xc = local_84.bmiHeader.biSizeImage;
+      this->imageSizeInBytes = local_84.bmiHeader.biSizeImage;
       this->gdiobj = pvVar2;
       this->width = width;
       this->height = height;
       this->format = format;
       this->formatInfo = local_8;
-      cVar1 = '\x01';
+      bVar1 = true;
     }
   }
-  return cVar1;
+  return bVar1;
 }
 

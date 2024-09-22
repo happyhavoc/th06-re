@@ -1,9 +1,9 @@
 
 /* WARNING: Inlined function: FUN_0045c3e0 */
 
-void th06::RenderTextToTexture
-               (long xPos,long yPos,long spriteWidth,long spriteHeight,long fontHeight,int fontWidth
-               ,COLORREF textColor,COLORREF shadowColor,char *string,IDirect3DTexture8 *outTexture)
+void th06::TextHelper::RenderTextToTexture
+               (int xPos,int yPos,int spriteWidth,int spriteHeight,int fontHeight,int fontWidth,
+               ZunColor textColor,ZunColor shadowColor,char *string,IDirect3DTexture8 *outTexture)
 
 {
   HGDIOBJ h;
@@ -11,8 +11,8 @@ void th06::RenderTextToTexture
   LPDIRECT3DSURFACE8 pIStack_84;
   RECT RStack_80;
   RECT RStack_70;
-  TextHelper auStack_60;
-  D3DSURFACE_DESC DStack_38;
+  TextHelper textHelper;
+  D3DSURFACE_DESC textSurfaceDesc;
   HFONT font;
   HDC hdc;
   void *pvStack_10;
@@ -25,25 +25,25 @@ void th06::RenderTextToTexture
   hdc = (HDC)0x41f05a;
   ExceptionList = &pvStack_10;
   font = CreateFontA(fontHeight << 1,0,0,0,700,0,0,0,0x80,0,0,4,0x11,"ＭＳ ゴシック");
-  TextHelper::FUN_0041e945(&auStack_60);
+  TextHelper(&textHelper);
   uStack_8 = 0;
-  (*g_TextBufferSurface->lpVtbl->GetDesc)(g_TextBufferSurface,&DStack_38);
-  TextHelper::FUN_0041ea04(&auStack_60,DStack_38.Width,DStack_38.Height,DStack_38.Format);
-  hdc = auStack_60.hdc;
-  h = SelectObject(auStack_60.hdc,font);
-  TextHelper::FUN_0041ec72(&auStack_60,0,0,spriteWidth << 1,fontHeight * 2 + 6);
+  (*g_TextBufferSurface->lpVtbl->GetDesc)(g_TextBufferSurface,&textSurfaceDesc);
+  FUN_0041ea04(&textHelper,textSurfaceDesc.Width,textSurfaceDesc.Height,textSurfaceDesc.Format);
+  hdc = textHelper.hdc;
+  h = SelectObject(textHelper.hdc,font);
+  FUN_0041ec72(&textHelper,0,0,spriteWidth << 1,fontHeight * 2 + 6);
   SetBkMode(hdc,1);
-  if (shadowColor != 0xffffffff) {
-    SetTextColor(hdc,shadowColor);
+  if (shadowColor.color != 0xffffffff) {
+    SetTextColor(hdc,shadowColor.color);
     strLength = _strlen(string);
     TextOutA(hdc,xPos * 2 + 3,2,string,strLength);
   }
-  SetTextColor(hdc,textColor);
+  SetTextColor(hdc,textColor.color);
   strLength = _strlen(string);
   TextOutA(hdc,xPos << 1,0,string,strLength);
   SelectObject(hdc,h);
-  TextHelper::FUN_0041ec72(&auStack_60,0,0,spriteWidth << 1,fontHeight * 2 + 6);
-  TextHelper::CopyTextToSurface(&auStack_60,g_TextBufferSurface);
+  FUN_0041ec72(&textHelper,0,0,spriteWidth << 1,fontHeight * 2 + 6);
+  CopyTextToSurface(&textHelper,g_TextBufferSurface);
   SelectObject(hdc,h);
   DeleteObject(font);
   RStack_80.left = 0;
@@ -63,7 +63,7 @@ void th06::RenderTextToTexture
     pIStack_84 = (IDirect3DSurface8 *)0x0;
   }
   uStack_8 = 0xffffffff;
-  TextHelper::FUN_0041e981(&auStack_60);
+  ~TextHelper(&textHelper);
   ExceptionList = pvStack_10;
   return;
 }

@@ -1,6 +1,6 @@
 
 bool __thiscall
-th06::TextHelper::TryAllocateBuffer(TextHelper *this,UINT width,UINT height,D3DFORMAT format)
+th06::TextHelper::TryAllocateBuffer(TextHelper *this,int width,int height,D3DFORMAT format)
 
 {
   bool bVar1;
@@ -13,7 +13,7 @@ th06::TextHelper::TryAllocateBuffer(TextHelper *this,UINT width,UINT height,D3DF
   undefined4 local_54;
   undefined4 local_50;
   HDC local_c;
-  FormatInfo *local_8;
+  int local_8;
   
   ReleaseBuffer(this);
   _memset(&local_84,0,0x6c);
@@ -22,13 +22,13 @@ th06::TextHelper::TryAllocateBuffer(TextHelper *this,UINT width,UINT height,D3DF
     bVar1 = false;
   }
   else {
-    local_8 = (FormatInfo *)((((int)(width * local_88->bitCount) / 8 + 3) / 4) * 4);
+    local_8 = (((width * local_88->bitCount) / 8 + 3) / 4) * 4;
     local_84.bmiHeader.biSize = 0x6c;
     local_84.bmiHeader.biWidth = width;
     local_84.bmiHeader.biHeight = -(height + 1);
     local_84.bmiHeader.biPlanes = 1;
     local_84.bmiHeader.biBitCount = *(WORD *)&local_88->bitCount;
-    local_84.bmiHeader.biSizeImage = height * (int)local_8;
+    local_84.bmiHeader.biSizeImage = height * local_8;
     if ((format != D3DFMT_X1R5G5B5) && (format != D3DFMT_X8R8G8B8)) {
       local_84.bmiHeader.biCompression = 3;
       local_84.bmiColors[0] = (RGBQUAD)local_88->red_mask;
@@ -52,7 +52,7 @@ th06::TextHelper::TryAllocateBuffer(TextHelper *this,UINT width,UINT height,D3DF
       this->width = width;
       this->height = height;
       this->format = format;
-      this->formatInfo = local_8;
+      this->imageWidthInBytes = local_8;
       bVar1 = true;
     }
   }

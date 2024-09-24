@@ -1,23 +1,22 @@
 
-uint __thiscall
-th06::TextHelper::TransformBufferIntoFormat
-          (TextHelper *this,int x,int y,int spriteWidth,int fontHeight)
+bool __thiscall
+th06::TextHelper::InvertAlpha(TextHelper *this,int x,int y,int spriteWidth,int fontHeight)
 
 {
+  D3DFORMAT DVar1;
   int doubleArea;
   ushort *local_14;
   long local_c;
-  D3DFORMAT uVar1;
   
   doubleArea = spriteWidth * fontHeight * 2;
   local_14 = this->buffer + y * spriteWidth;
-  uVar1 = this->format;
-  if (uVar1 == D3DFMT_A8R8G8B8) {
+  DVar1 = this->format;
+  if (DVar1 == D3DFMT_A8R8G8B8) {
     for (local_c = 3; local_c < doubleArea; local_c = local_c + 4) {
       *(byte *)((int)local_14 + local_c) = *(byte *)((int)local_14 + local_c) ^ 0xff;
     }
   }
-  else if (uVar1 == D3DFMT_A1R5G5B5) {
+  else if (DVar1 == D3DFMT_A1R5G5B5) {
     for (local_c = 0; local_c < doubleArea; local_c = local_c + 2) {
       *local_14 = *local_14 & 0x7fff | (*local_14 >> 0xf ^ 1) << 0xf;
       if ((short)*local_14 < 0) {
@@ -45,13 +44,13 @@ th06::TextHelper::TransformBufferIntoFormat
     }
   }
   else {
-    if (uVar1 != D3DFMT_A4R4G4B4) {
-      return uVar1 & 0xffffff00;
+    if (DVar1 != D3DFMT_A4R4G4B4) {
+      return false;
     }
     for (local_c = 1; local_c < doubleArea; local_c = local_c + 2) {
       *(byte *)((int)local_14 + local_c) = *(byte *)((int)local_14 + local_c) ^ 0xf0;
     }
   }
-  return CONCAT31((int3)((uint)local_c >> 8),1);
+  return true;
 }
 

@@ -1,7 +1,6 @@
 
 bool __thiscall
-th06::TextHelper::AllocateBufferWithFallback
-          (TextHelper *this,UINT width,UINT height,D3DFORMAT format)
+th06::TextHelper::AllocateBufferWithFallback(TextHelper *this,int width,int height,D3DFORMAT format)
 
 {
   bool bVar1;

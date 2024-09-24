@@ -32,7 +32,7 @@ void th06::TextHelper::RenderTextToTexture
             (&textHelper,textSurfaceDesc.Width,textSurfaceDesc.Height,textSurfaceDesc.Format);
   hdc = textHelper.hdc;
   h = SelectObject(textHelper.hdc,font);
-  TransformBufferIntoFormat(&textHelper,0,0,spriteWidth << 1,fontHeight * 2 + 6);
+  InvertAlpha(&textHelper,0,0,spriteWidth << 1,fontHeight * 2 + 6);
   SetBkMode(hdc,1);
   if (shadowColor.color != 0xffffffff) {
     SetTextColor(hdc,shadowColor.color);
@@ -43,7 +43,7 @@ void th06::TextHelper::RenderTextToTexture
   strLength = _strlen(string);
   TextOutA(hdc,xPos << 1,0,string,strLength);
   SelectObject(hdc,h);
-  TransformBufferIntoFormat(&textHelper,0,0,spriteWidth << 1,fontHeight * 2 + 6);
+  InvertAlpha(&textHelper,0,0,spriteWidth << 1,fontHeight * 2 + 6);
   CopyTextToSurface(&textHelper,g_TextBufferSurface);
   SelectObject(hdc,h);
   DeleteObject(font);

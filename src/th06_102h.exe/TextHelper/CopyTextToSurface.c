@@ -1,20 +1,19 @@
 
-uint __thiscall th06::TextHelper::CopyTextToSurface(TextHelper *this,IDirect3DSurface8 *param_1)
+bool __thiscall th06::TextHelper::CopyTextToSurface(TextHelper *this,IDirect3DSurface8 *param_1)
 
 {
-  uint uVar1;
-  HRESULT HVar2;
+  bool bVar1;
+  HRESULT uVar1;
   D3DLOCKED_RECT local_50;
   ushort *srcBuf;
   D3DSURFACE_DESC local_44;
-  FormatInfo *srcWidthBytes;
+  size_t srcWidthBytes;
   int curHeight;
   RECT local_1c;
-  int dstWidthBytes;
   void *dstBuf;
   
   if (this->gdiobj2 == (HGDIOBJ)0x0) {
-    uVar1 = 0;
+    bVar1 = false;
   }
   else {
     (*param_1->lpVtbl->GetDesc)(param_1,&local_44);
@@ -24,24 +23,23 @@ uint __thiscall th06::TextHelper::CopyTextToSurface(TextHelper *this,IDirect3DSu
     local_1c.bottom = this->height;
     uVar1 = (*param_1->lpVtbl->LockRect)(param_1,&local_50,&local_1c,0);
     if (uVar1 == 0) {
-      dstWidthBytes = local_50.Pitch;
-      srcWidthBytes = this->formatInfo;
+      srcWidthBytes = this->imageWidthInBytes;
       srcBuf = this->buffer;
       dstBuf = local_50.pBits;
       if (local_44.Format == this->format) {
-        for (curHeight = 0; curHeight < (int)this->height; curHeight = curHeight + 1) {
-          _memcpy(dstBuf,srcBuf,(size_t)srcWidthBytes);
-          srcBuf = (ushort *)((int)srcBuf + (int)srcWidthBytes);
-          dstBuf = (void *)((int)dstBuf + dstWidthBytes);
+        for (curHeight = 0; curHeight < this->height; curHeight = curHeight + 1) {
+          _memcpy(dstBuf,srcBuf,srcWidthBytes);
+          srcBuf = (ushort *)((int)srcBuf + srcWidthBytes);
+          dstBuf = (void *)((int)dstBuf + local_50.Pitch);
         }
       }
-      HVar2 = (*param_1->lpVtbl->UnlockRect)(param_1);
-      uVar1 = CONCAT31((int3)((uint)HVar2 >> 8),1);
+      (*param_1->lpVtbl->UnlockRect)(param_1);
+      bVar1 = true;
     }
     else {
-      uVar1 = uVar1 & 0xffffff00;
+      bVar1 = false;
     }
   }
-  return uVar1;
+  return bVar1;
 }
 

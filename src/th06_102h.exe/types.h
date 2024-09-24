@@ -16490,8 +16490,6 @@ struct BombData {
 
 typedef struct TextHelper TextHelper, *PTextHelper;
 
-typedef struct FormatInfo FormatInfo, *PFormatInfo;
-
 typedef struct HDC__ HDC__, *PHDC__;
 
 typedef struct HDC__ *HDC;
@@ -16500,10 +16498,10 @@ typedef void *HGDIOBJ;
 
 struct TextHelper { /* Helper to draw text in ANM */
     D3DFORMAT format;
-    undefined4 width;
-    undefined4 height;
+    int width;
+    int height;
     u32 imageSizeInBytes; /* Created by retype action */
-    struct FormatInfo *formatInfo;
+    INT imageWidthInBytes;
     HDC hdc;
     HGDIOBJ gdiobj;
     HGDIOBJ gdiobj2;
@@ -16514,6 +16512,15 @@ struct HDC__ {
     int unused;
 };
 
+typedef enum PlayerBulletType {
+    BULLET_TYPE_0=0,
+    BULLET_TYPE_1=1,
+    BULLET_TYPE_2=2,
+    BULLET_TYPE_LASER=3
+} PlayerBulletType;
+
+typedef struct FormatInfo FormatInfo, *PFormatInfo;
+
 struct FormatInfo {
     D3DFORMAT format;
     int bitCount;
@@ -16522,13 +16529,6 @@ struct FormatInfo {
     undefined4 green_mask;
     undefined4 blue_mask;
 };
-
-typedef enum PlayerBulletType {
-    BULLET_TYPE_0=0,
-    BULLET_TYPE_1=1,
-    BULLET_TYPE_2=2,
-    BULLET_TYPE_LASER=3
-} PlayerBulletType;
 
 typedef struct Pbg3Archive *FileAbstractionToPbgArchive;
 

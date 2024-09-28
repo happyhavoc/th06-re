@@ -1,5 +1,5 @@
 
-void __thiscall th06::Gui::CalculateStageScore(Gui *this)
+void __thiscall th06::Gui::UpdateStageElements(Gui *this)
 
 {
   int iVar1;

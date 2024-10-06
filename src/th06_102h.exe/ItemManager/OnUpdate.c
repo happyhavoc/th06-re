@@ -2,7 +2,8 @@
 void __thiscall th06::ItemManager::OnUpdate(ItemManager *this)
 
 {
-  int iVar8;
+  int iVar1;
+  i32 iVar8;
   long lVar9;
   float10 fVar10;
   float fVar7;
@@ -115,7 +116,7 @@ LAB_0041f7c5:
         switch(curItem->item_type) {
         case ITEM_POWER_SMALL:
           if (g_GameManager.current_power < 0x80) {
-            for (local_20 = 0; iVar8 = local_20,
+            for (local_20 = 0; iVar1 = local_20,
                 g_PowerUpThresholds[local_20] <= (int)(uint)g_GameManager.current_power;
                 local_20 = local_20 + 1) {
             }
@@ -131,7 +132,7 @@ LAB_0041f7c5:
             for (; g_PowerUpThresholds[local_20] <= (int)(uint)g_GameManager.current_power;
                 local_20 = local_20 + 1) {
             }
-            if (local_20 == iVar8) {
+            if (local_20 == iVar1) {
               AsciiManager::CreatePopup1(&g_AsciiManager,&curItem->currentPosition,10,0xffffffff);
             }
             else {
@@ -226,7 +227,7 @@ LAB_0041f7c5:
           break;
         case ITEM_POWER_BIG:
           if (g_GameManager.current_power < 0x80) {
-            for (local_28 = 0; iVar8 = local_28,
+            for (local_28 = 0; iVar1 = local_28,
                 g_PowerUpThresholds[local_28] <= (int)(uint)g_GameManager.current_power;
                 local_28 = local_28 + 1) {
             }
@@ -241,7 +242,7 @@ LAB_0041f7c5:
             for (; g_PowerUpThresholds[local_28] <= (int)(uint)g_GameManager.current_power;
                 local_28 = local_28 + 1) {
             }
-            if (local_28 == iVar8) {
+            if (local_28 == iVar1) {
               AsciiManager::CreatePopup1(&g_AsciiManager,&curItem->currentPosition,10,0xffffffff);
             }
             else {

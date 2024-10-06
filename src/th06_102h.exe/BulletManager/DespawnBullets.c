@@ -63,7 +63,7 @@ int __thiscall th06::BulletManager::DespawnBullets(BulletManager *this,int param
   }
   g_GameManager.score = g_GameManager.score + local_c;
   if (local_c != 0) {
-    Gui::FUN_0041735a(&g_Gui,local_c);
+    Gui::ShowBonusScore(&g_Gui,local_c);
   }
   return local_c;
 }

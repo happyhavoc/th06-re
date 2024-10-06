@@ -1,5 +1,5 @@
 
-void __thiscall th06::Gui::FUN_0041735a(Gui *this,int param_1)
+void __thiscall th06::Gui::ShowBonusScore(Gui *this,int param_1)
 
 {
   GuiImpl *pGVar1;

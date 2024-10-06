@@ -1,5 +1,5 @@
 
-void __thiscall th06::Gui::FUN_004173d9(Gui *gui,int param_2)
+void __thiscall th06::Gui::ShowFullPowerMode(Gui *gui,int param_2)
 
 {
   GuiImpl *iVar1;

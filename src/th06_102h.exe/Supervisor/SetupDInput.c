@@ -28,7 +28,7 @@ ZunResult th06::Supervisor::SetupDInput(Supervisor *param_1)
         ZVar1 = ZUN_ERROR;
       }
       else {
-        HVar3 = (*param_1->keyboard->lpVtbl->SetDataFormat)(param_1->keyboard,&DATA_FORMAT);
+        HVar3 = (*param_1->keyboard->lpVtbl->SetDataFormat)(param_1->keyboard,&c_dfDIKeyboard);
         if (HVar3 < 0) {
           if (param_1->keyboard != (LPDIRECTINPUTDEVICE8A)0x0) {
             (*param_1->keyboard->lpVtbl->Release)(param_1->keyboard);
@@ -67,8 +67,7 @@ ZunResult th06::Supervisor::SetupDInput(Supervisor *param_1)
                       (param_1->directInput,DI8DEVCLASS_GAMECTRL,Controller::EnumGameControllersCb,
                        (LPVOID)0x0,1);
             if (param_1->controller != (LPDIRECTINPUTDEVICE8A)0x0) {
-              (*param_1->controller->lpVtbl->SetDataFormat)
-                        (param_1->controller,&CONTROLLER_DATA_FORMAT);
+              (*param_1->controller->lpVtbl->SetDataFormat)(param_1->controller,&c_dfDIJoystick2);
               (*param_1->controller->lpVtbl->SetCooperativeLevel)
                         (param_1->controller,(HWND)param_1->hwndGameWindow,5);
               g_Supervisor.controllerCaps.dwSize = 0x2c;

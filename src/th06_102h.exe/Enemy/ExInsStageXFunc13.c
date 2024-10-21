@@ -1,5 +1,5 @@
 
-void __cdecl th06::Enemy::ExInsStageXFunc13(Enemy *param_1,AnmRawInstr *param_2)
+void __cdecl th06::Enemy::ExInsStageXFunc13(Enemy *param_1,EclRawInstr *param_2)
 
 {
   int iVar5;
@@ -11,7 +11,7 @@ void __cdecl th06::Enemy::ExInsStageXFunc13(Enemy *param_1,AnmRawInstr *param_2)
   int local_8;
   float fVar2;
   float10 fVar3;
-  uint uVar1;
+  float uVar1;
   ushort uVar4;
   
   bullet_props = &param_1->bullet_props;
@@ -23,7 +23,7 @@ void __cdecl th06::Enemy::ExInsStageXFunc13(Enemy *param_1,AnmRawInstr *param_2)
     bullet_props = (EnemyBulletShooter *)&bullet_props->position;
     pEVar6 = (EnemyBulletShooter *)&pEVar6->position;
   }
-  uVar1 = param_2->args[3];
+  uVar1 = (param_2->args).float_var_1;
   local_68 = (param_1->current_context).float2;
   if ((param_1->current_context).var3 % 6 == 0) {
     for (local_8 = 0; local_8 < (int)uVar1; local_8 = local_8 + 1) {
@@ -34,7 +34,7 @@ void __cdecl th06::Enemy::ExInsStageXFunc13(Enemy *param_1,AnmRawInstr *param_2)
       local_64.position.y = (float)(fVar7 * (float10)fVar2) + 224.0;
       local_64.angle1 = local_68 + (param_1->current_context).float1;
       BulletManager::SpawnBulletPattern(&g_BulletManager,&local_64);
-      local_68 = 6.283185 / (float)uVar1 + local_68;
+      local_68 = 6.283185 / (float)(int)uVar1 + local_68;
     }
   }
   (param_1->current_context).var3 = (param_1->current_context).var3 + 1;

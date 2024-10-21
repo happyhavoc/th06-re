@@ -1,5 +1,5 @@
 
-void __cdecl th06::Enemy::ExInsStage6Func7(Enemy *this,AnmRawInstr *param_2)
+void __cdecl th06::Enemy::ExInsStage6Func7(Enemy *this,EclRawInstr *param_2)
 
 {
   int iVar1;
@@ -13,7 +13,7 @@ void __cdecl th06::Enemy::ExInsStage6Func7(Enemy *this,AnmRawInstr *param_2)
   int local_74;
   float local_70;
   int local_6c;
-  uint local_68;
+  float local_68;
   float local_64;
   int local_60;
   EnemyLaserShooter local_5c;
@@ -28,7 +28,7 @@ void __cdecl th06::Enemy::ExInsStage6Func7(Enemy *this,AnmRawInstr *param_2)
   do {
     local_e0 = local_e0 + -1;
   } while (-1 < local_e0);
-  local_68 = param_2->args[3];
+  local_68 = (param_2->args).float_var_1;
   fVar1 = Rng::GetRandomF32ZeroToOne(&g_Rng);
   local_7c = fVar1 * 6.283185;
   for (local_74 = 0; local_74 < 2; local_74 = local_74 + 1) {
@@ -71,7 +71,7 @@ void __cdecl th06::Enemy::ExInsStage6Func7(Enemy *this,AnmRawInstr *param_2)
         local_5c.position.y = local_dc[local_60 * 3 + 1];
         local_5c.position.z = local_dc[local_60 * 3 + 2];
         local_5c.sprite = 1;
-        if (local_68 == 0) {
+        if (local_68 == 0.0) {
           if ((int)g_GameManager.difficulty < 2) {
             local_5c.color = 2;
           }

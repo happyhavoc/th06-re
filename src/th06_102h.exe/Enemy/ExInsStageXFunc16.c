@@ -1,5 +1,5 @@
 
-void __cdecl th06::Enemy::ExInsStageXFunc16(Enemy *this,AnmRawInstr *inst)
+void __cdecl th06::Enemy::ExInsStageXFunc16(Enemy *this,EclRawInstr *inst)
 
 {
   float fVar2;
@@ -10,7 +10,7 @@ void __cdecl th06::Enemy::ExInsStageXFunc16(Enemy *this,AnmRawInstr *inst)
   if (MAX_BOSS_TIME < (this->boss_timer).current) {
     local_8 = 0;
   }
-  if (inst->args[3] == 0) {
+  if ((inst->args).float_var_1 == 0.0) {
     (this->current_context).float3 = 2.0 - ((float)local_8 * 1.0) / 6000.0;
     (this->current_context).var5 = (local_8 * 0xf0) / 6000 + 0x28;
   }

@@ -1,5 +1,5 @@
 
-void th06::Enemy::ExInsStage6XFunc10(Enemy *param_1,AnmRawInstr *param_2)
+void __cdecl th06::Enemy::ExInsStage6XFunc10(Enemy *param_1,AnmRawInstr *param_2)
 
 {
   AnmManager *pAVar1;

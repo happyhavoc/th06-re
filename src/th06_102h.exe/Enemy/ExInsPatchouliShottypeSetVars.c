@@ -1,5 +1,5 @@
 
-void th06::Enemy::ExInsPatchouliShottypeSetVars(Enemy *param_1,EclRawInstr *param_2)
+void __cdecl th06::Enemy::ExInsPatchouliShottypeSetVars(Enemy *param_1,EclRawInstr *param_2)
 
 {
   (param_1->current_context).var1 =

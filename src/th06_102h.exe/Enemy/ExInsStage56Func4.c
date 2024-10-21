@@ -2,7 +2,7 @@
 /* WARNING: Removing unreachable block (ram,0x0040c27a) */
 /* WARNING: Removing unreachable block (ram,0x0040c464) */
 
-void th06::Enemy::ExInsStage56Func4(Enemy *param_1,EclRawInstr *param_2)
+void __cdecl th06::Enemy::ExInsStage56Func4(Enemy *param_1,EclRawInstr *param_2)
 
 {
   float10 fVar1;

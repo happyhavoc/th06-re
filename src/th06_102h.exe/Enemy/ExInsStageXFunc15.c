@@ -1,5 +1,5 @@
 
-void th06::Enemy::ExInsStageXFunc15(Enemy *param_1,AnmRawInstr *param_2)
+void __cdecl th06::Enemy::ExInsStageXFunc15(Enemy *param_1,AnmRawInstr *param_2)
 
 {
   float10 fVar1;

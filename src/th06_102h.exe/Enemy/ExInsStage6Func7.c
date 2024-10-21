@@ -1,5 +1,5 @@
 
-void th06::Enemy::ExInsStage6Func7(Enemy *this,AnmRawInstr *param_2)
+void __cdecl th06::Enemy::ExInsStage6Func7(Enemy *this,AnmRawInstr *param_2)
 
 {
   int iVar1;

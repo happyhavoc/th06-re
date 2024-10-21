@@ -1,5 +1,5 @@
 
-void th06::Enemy::ExInsStageXFunc16(Enemy *this,AnmRawInstr *inst)
+void __cdecl th06::Enemy::ExInsStageXFunc16(Enemy *this,AnmRawInstr *inst)
 
 {
   float fVar2;

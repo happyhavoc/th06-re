@@ -1,5 +1,5 @@
 
-void th06::Enemy::ExInsStage5Func5(Enemy *param_1,AnmRawInstr *param_2)
+void __cdecl th06::Enemy::ExInsStage5Func5(Enemy *param_1,AnmRawInstr *param_2)
 
 {
   uint uVar1;

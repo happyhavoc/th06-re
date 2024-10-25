@@ -1,5 +1,5 @@
 
-void __cdecl th06::Enemy::ExInsShootStarPattern(Enemy *param_1,EclRawInstr *param_2)
+void th06::Enemy::ExInsShootStarPattern(Enemy *param_1,EclRawInstr *param_2)
 
 {
   float fVar1;
@@ -15,41 +15,41 @@ void __cdecl th06::Enemy::ExInsShootStarPattern(Enemy *param_1,EclRawInstr *para
   
   if ((param_1->current_context).var2 < (param_1->current_context).var3) {
     if ((param_1->current_context).var2 == 0) {
-      g_EnemyX = (param_1->position).x;
-      g_EnemyY = (param_1->position).y;
-      g_EnemyZ = (param_1->position).z;
-      g_PlayerX = g_Player.positionCenter.x;
-      g_PlayerY = g_Player.positionCenter.y;
-      g_PlayerZ = g_Player.positionCenter.z;
+      g_EnemyPosition.x = (param_1->position).x;
+      g_EnemyPosition.y = (param_1->position).y;
+      g_EnemyPosition.z = (param_1->position).z;
+      g_PlayerPosition.x = g_Player.positionCenter.x;
+      g_PlayerPosition.y = g_Player.positionCenter.y;
+      g_PlayerPosition.z = g_Player.positionCenter.z;
       fVar8 = Rng::GetRandomF32ZeroToOne(&g_Rng);
-      FLOAT_ARRAY_00487edc[0] = fVar8 * 6.283185 - 3.141593;
-      FLOAT_ARRAY_00487edc[1] = utils::AddNormalizeAngle(FLOAT_ARRAY_00487edc[0],2.513274);
+      g_StarAngleTable[0] = fVar8 * 6.283185 - 3.141593;
+      g_StarAngleTable[1] = utils::AddNormalizeAngle(g_StarAngleTable[0],2.513274);
     }
     if ((param_1->current_context).var2 % 0x1e == 0) {
-      FLOAT_ARRAY_00487edc[0] = FLOAT_ARRAY_00487edc[1];
-      FLOAT_ARRAY_00487edc[1] = utils::AddNormalizeAngle(FLOAT_ARRAY_00487edc[1],2.513274);
-      FLOAT_ARRAY_00487edc[2] = utils::AddNormalizeAngle(FLOAT_ARRAY_00487edc[1],2.513274);
-      FLOAT_ARRAY_00487edc[3] = utils::AddNormalizeAngle(FLOAT_ARRAY_00487edc[2],2.513274);
-      FLOAT_ARRAY_00487edc[4] = utils::AddNormalizeAngle(FLOAT_ARRAY_00487edc[3],2.513274);
-      FLOAT_ARRAY_00487edc[5] = utils::AddNormalizeAngle(FLOAT_ARRAY_00487edc[4],2.513274);
+      g_StarAngleTable[0] = g_StarAngleTable[1];
+      g_StarAngleTable[1] = utils::AddNormalizeAngle(g_StarAngleTable[1],2.513274);
+      g_StarAngleTable[2] = utils::AddNormalizeAngle(g_StarAngleTable[1],2.513274);
+      g_StarAngleTable[3] = utils::AddNormalizeAngle(g_StarAngleTable[2],2.513274);
+      g_StarAngleTable[4] = utils::AddNormalizeAngle(g_StarAngleTable[3],2.513274);
+      g_StarAngleTable[5] = utils::AddNormalizeAngle(g_StarAngleTable[4],2.513274);
     }
     if ((param_1->current_context).var2 % 6 == 0) {
       fVar8 = (float)(param_1->current_context).var2 / (float)(param_1->current_context).var3;
       fVar4 = fVar8 * 0.1;
-      fVar6 = (g_PlayerY - g_EnemyY) * fVar4 + g_EnemyY;
-      fVar4 = (g_PlayerX - g_EnemyX) * fVar4 + g_EnemyX;
+      fVar6 = (g_PlayerPosition.y - g_EnemyPosition.y) * fVar4 + g_EnemyPosition.y;
+      fVar4 = (g_PlayerPosition.x - g_EnemyPosition.x) * fVar4 + g_EnemyPosition.x;
       fVar8 = fVar8 + 0.5;
       (param_1->bullet_props).angle1 = fVar8 * 1.047198;
       for (local_8 = 0; local_8 < 5; local_8 = local_8 + 1) {
         fVar5 = (float)((param_1->current_context).var2 % 0x1e) / 30.0;
         fVar2 = (param_1->current_context).float3;
-        fVar3 = (float10)fcos((float10)FLOAT_ARRAY_00487edc[local_8]);
-        fVar7 = (float10)fsin((float10)FLOAT_ARRAY_00487edc[local_8]);
+        fVar3 = (float10)fcos((float10)g_StarAngleTable[local_8]);
+        fVar7 = (float10)fsin((float10)g_StarAngleTable[local_8]);
         fVar1 = (float)(fVar3 * (float10)fVar2);
         fVar2 = (float)(fVar7 * (float10)fVar2);
         fVar9 = (param_1->current_context).float3;
-        fVar3 = (float10)fcos((float10)FLOAT_ARRAY_00487edc[local_8 + 1]);
-        fVar7 = (float10)fsin((float10)FLOAT_ARRAY_00487edc[local_8 + 1]);
+        fVar3 = (float10)fcos((float10)g_StarAngleTable[local_8 + 1]);
+        fVar7 = (float10)fsin((float10)g_StarAngleTable[local_8 + 1]);
         (param_1->bullet_props).position.x =
              fVar4 + ((float)(fVar3 * (float10)fVar9) - fVar1) * fVar5 + fVar1;
         (param_1->bullet_props).position.y =

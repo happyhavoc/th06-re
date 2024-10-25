@@ -1,5 +1,5 @@
 
-void __cdecl th06::Enemy::ExInsStageXFunc13(Enemy *param_1,EclRawInstr *param_2)
+void th06::Enemy::ExInsStageXFunc13(Enemy *param_1,EclRawInstr *param_2)
 
 {
   int iVar5;
@@ -17,9 +17,9 @@ void __cdecl th06::Enemy::ExInsStageXFunc13(Enemy *param_1,EclRawInstr *param_2)
   bullet_props = &param_1->bullet_props;
   pEVar6 = &local_64;
   for (iVar5 = 0x15; iVar5 != 0; iVar5 = iVar5 + -1) {
-    uVar4 = bullet_props->color;
+    uVar4 = bullet_props->spriteOffset;
     pEVar6->sprite = bullet_props->sprite;
-    pEVar6->color = uVar4;
+    pEVar6->spriteOffset = uVar4;
     bullet_props = (EnemyBulletShooter *)&bullet_props->position;
     pEVar6 = (EnemyBulletShooter *)&pEVar6->position;
   }

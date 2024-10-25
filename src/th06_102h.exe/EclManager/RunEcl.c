@@ -700,7 +700,7 @@ switchD_00407544_caseD_2:
     (enemy->bullet_props).flags = (uint)(instruction->args).float_var_7;
     local_14 = (float)(int)*(short *)((int)&(instruction->args).ecl_var_id + 2);
     piVar14 = Enemy::GetVar(enemy,(EclVarId *)&local_14,(EclValueType *)0x0);
-    (enemy->bullet_props).color = *(ushort *)piVar14;
+    (enemy->bullet_props).spriteOffset = *(ushort *)piVar14;
     if ((enemy->flags1 >> 5 & 1) == 0) {
       BulletManager::SpawnBulletPattern(&g_BulletManager,&enemy->bullet_props);
     }
@@ -799,7 +799,7 @@ switchD_00407544_caseD_2:
     (enemy->laser_props).position.y = fVar3 + fVar4;
     (enemy->laser_props).position.z = fVar6 + fVar5;
     (enemy->laser_props).sprite = *(ushort *)&(instruction->args).ecl_var_id;
-    (enemy->laser_props).color = *(ushort *)((int)&(instruction->args).ecl_var_id + 2);
+    (enemy->laser_props).spriteOffset = *(ushort *)((int)&(instruction->args).ecl_var_id + 2);
     pfVar15 = Enemy::GetVarFloat(enemy,&(instruction->args).float_var_1,(EclValueType *)0x0);
     (enemy->laser_props).angle = *pfVar15;
     pfVar15 = Enemy::GetVarFloat(enemy,&(instruction->args).float_var_2,(EclValueType *)0x0);

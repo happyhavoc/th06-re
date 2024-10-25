@@ -1,5 +1,5 @@
 
-void th06::Rotate(D3DXVECTOR3 *out_data,D3DXVECTOR3 *point,float angle)
+void th06::utils::Rotate(D3DXVECTOR3 *out_data,D3DXVECTOR3 *point,float angle)
 
 {
   double dVar1;

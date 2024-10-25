@@ -34,7 +34,7 @@ th06::EffectManager::SpawnParticles
       (effect->timer).current = 0;
       (effect->timer).subFrame = 0.0;
       (effect->timer).previous = -999;
-      effect->field18_0x17a = 0;
+      effect->field14_0x17a = 0;
       effect->field_0x17b = 0;
       numParticles = numParticles + -1;
       if (numParticles == 0) break;

@@ -28,16 +28,16 @@ th06::BulletManager::SpawnLaserPattern(BulletManager *this,EnemyLaserShooter *la
   AnmManager::SetAndExecuteScript(pAVar3,&laser->vm0,pAVar3->scripts[(short)uVar1 + 0x209]);
   AnmManager::SetActiveSprite
             (g_AnmManager,&laser->vm0,
-             (int)(laser->vm0).activeSpriteIndex + (int)(short)laser_shooter->color);
+             (int)(laser->vm0).activeSpriteIndex + (int)(short)laser_shooter->spriteOffset);
   pAVar3 = g_AnmManager;
-  uVar2 = g_BulletSpriteOffset16Px[(short)laser_shooter->color];
+  uVar2 = g_BulletSpriteOffset16Px[(short)laser_shooter->spriteOffset];
   AnmVm::Initialize(&laser->vm1);
   AnmManager::SetActiveSprite(pAVar3,&laser->vm1,uVar2 + 0x28c);
   (laser->vm1).flags = (laser->vm1).flags | AnmVmFlags_2;
   (laser->pos).x = (laser_shooter->position).x;
   (laser->pos).y = (laser_shooter->position).y;
   (laser->pos).z = (laser_shooter->position).z;
-  laser->color = laser_shooter->color;
+  laser->color = laser_shooter->spriteOffset;
   laser->in_use = 1;
   laser->angle = laser_shooter->angle;
   if (laser_shooter->type == 0) {

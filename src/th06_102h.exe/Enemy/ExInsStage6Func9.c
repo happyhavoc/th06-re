@@ -1,23 +1,24 @@
 
-void __cdecl th06::Enemy::ExInsStage6Func9(Enemy *param_1,EclRawInstr *param_2)
+void th06::Enemy::ExInsStage6Func9(Enemy *param_1,EclRawInstr *param_2)
 
 {
   float fVar1;
   float10 fVar2;
   int iVar3;
-  undefined4 *puVar4;
+  EnemyBulletShooter *pEVar4;
   float10 fVar5;
   float fVar6;
   Bullet *bullets;
   float local_64;
   int local_60;
-  undefined4 local_5c [22];
+  EnemyBulletShooter local_5c;
   
   bullets = g_BulletManager.bullets;
-  puVar4 = local_5c;
+  pEVar4 = &local_5c;
   for (iVar3 = 0x15; iVar3 != 0; iVar3 = iVar3 + -1) {
-    *puVar4 = 0;
-    puVar4 = puVar4 + 1;
+    pEVar4->sprite = 0;
+    pEVar4->spriteOffset = 0;
+    pEVar4 = (EnemyBulletShooter *)&pEVar4->position;
   }
   fVar6 = Rng::GetRandomF32ZeroToOne(&g_Rng);
   EffectManager::SpawnParticles(&g_EffectManager,0xc,&param_1->position,1,(ZunColor)0xffffffff);
@@ -27,10 +28,10 @@ void __cdecl th06::Enemy::ExInsStage6Func9(Enemy *param_1,EclRawInstr *param_2)
        ((fVar1 = ((bullets->sprites).bulletSprite.sprite)->heightPx, fVar1 < 30.0 != NAN(fVar1) &&
         (NAN(bullets->speed) != (bullets->speed == 0.0))))) {
       bullets->ex_flags = bullets->ex_flags | 0x10;
-      bullets->color = 2;
+      bullets->spriteOffset = 2;
       AnmManager::SetActiveSprite
                 (g_AnmManager,(AnmVm *)bullets,
-                 (int)(bullets->sprites).bulletSprite.baseSpriteIndex + (int)(short)bullets->color);
+                 (int)(bullets->sprites).bulletSprite.baseSpriteIndex + (int)bullets->spriteOffset);
       bullets->speed = 0.01;
       (bullets->timer).current = 0;
       (bullets->timer).subFrame = 0.0;

@@ -16,7 +16,7 @@ th06::Player::CalcLaserHitbox
   local_28.z = (this->positionCenter).z - rotation->z;
   local_28.y = (this->positionCenter).y - rotation->y;
   local_28.x = (this->positionCenter).x - rotation->x;
-  Rotate(&local_1c,&local_28,angle);
+  utils::Rotate(&local_1c,&local_28,angle);
   fVar1 = local_1c.y + rotation->y;
   fVar2 = local_1c.x + rotation->x;
   fVar3 = fVar1 - (this->hitboxSize).y;

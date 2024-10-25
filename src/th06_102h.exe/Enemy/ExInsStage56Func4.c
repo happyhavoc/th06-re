@@ -2,7 +2,7 @@
 /* WARNING: Removing unreachable block (ram,0x0040c27a) */
 /* WARNING: Removing unreachable block (ram,0x0040c464) */
 
-void __cdecl th06::Enemy::ExInsStage56Func4(Enemy *param_1,EclRawInstr *param_2)
+void th06::Enemy::ExInsStage56Func4(Enemy *param_1,EclRawInstr *param_2)
 
 {
   float10 fVar1;
@@ -25,13 +25,14 @@ void __cdecl th06::Enemy::ExInsStage56Func4(Enemy *param_1,EclRawInstr *param_2)
       for (local_14 = 0; local_14 < 0x280; local_14 = local_14 + 1) {
         if (((bullets->state != 0) && (bullets->state != 5)) &&
            (((bullets->sprites).bulletSprite.sprite != (AnmLoadedSprite *)0x0 &&
-            (((30.0 <= ((bullets->sprites).bulletSprite.sprite)->heightPx && (bullets->color != 5))
-             && (uVar2 = Rng::GetRandomU16(&g_Rng), (uVar2 & 3) == 0)))))) {
-          bullets->color = 5;
+            (((30.0 <= ((bullets->sprites).bulletSprite.sprite)->heightPx &&
+              (bullets->spriteOffset != 5)) && (uVar2 = Rng::GetRandomU16(&g_Rng), (uVar2 & 3) == 0)
+             ))))) {
+          bullets->spriteOffset = 5;
           AnmManager::SetActiveSprite
                     (g_AnmManager,(AnmVm *)bullets,
                      (int)(bullets->sprites).bulletSprite.baseSpriteIndex +
-                     (int)(short)bullets->color);
+                     (int)bullets->spriteOffset);
           fVar4 = (bullets->pos).x - g_Player.positionCenter.x;
           fVar5 = (bullets->pos).y - g_Player.positionCenter.y;
           fVar4 = sqrt(SUB84((double)(fVar4 * fVar4 + fVar5 * fVar5),0));
@@ -60,13 +61,14 @@ void __cdecl th06::Enemy::ExInsStage56Func4(Enemy *param_1,EclRawInstr *param_2)
       for (local_14 = 0; local_14 < 0x280; local_14 = local_14 + 1) {
         if ((((bullets->state != 0) && (bullets->state != 5)) &&
             ((bullets->sprites).bulletSprite.sprite != (AnmLoadedSprite *)0x0)) &&
-           (((30.0 <= ((bullets->sprites).bulletSprite.sprite)->heightPx && (bullets->color != 5))
-            && (uVar2 = Rng::GetRandomU16(&g_Rng), (uVar2 & 3) == 0)))) {
-          bullets->color = 5;
+           (((30.0 <= ((bullets->sprites).bulletSprite.sprite)->heightPx &&
+             (bullets->spriteOffset != 5)) && (uVar2 = Rng::GetRandomU16(&g_Rng), (uVar2 & 3) == 0))
+           )) {
+          bullets->spriteOffset = 5;
           AnmManager::SetActiveSprite
                     (g_AnmManager,(AnmVm *)bullets,
                      (int)(bullets->sprites).bulletSprite.baseSpriteIndex +
-                     (int)(short)bullets->color);
+                     (int)bullets->spriteOffset);
           fVar4 = (bullets->pos).x - g_Player.positionCenter.x;
           fVar5 = (bullets->pos).y - g_Player.positionCenter.y;
           fVar4 = sqrt(SUB84((double)(fVar4 * fVar4 + fVar5 * fVar5),0));

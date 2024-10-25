@@ -12,9 +12,9 @@ void th06::Enemy::UpdateEffects(Enemy *enemy)
       (effect->position).x = (enemy->position).x;
       (effect->position).y = (enemy->position).y;
       (effect->position).z = (enemy->position).z;
-      if (effect->field11_0x15c < enemy->effect_distance !=
-          (NAN(effect->field11_0x15c) || NAN(enemy->effect_distance))) {
-        effect->field11_0x15c = effect->field11_0x15c + 0.3;
+      if (effect->field7_0x15c < enemy->effect_distance !=
+          (NAN(effect->field7_0x15c) || NAN(enemy->effect_distance))) {
+        effect->field7_0x15c = effect->field7_0x15c + 0.3;
       }
       fVar1 = utils::AddNormalizeAngle(effect->__angle_related,0.03141593);
       effect->__angle_related = fVar1;

@@ -1,5 +1,5 @@
 
-void __cdecl th06::Enemy::ExInsStage5Func5(Enemy *param_1,EclRawInstr *param_2)
+void th06::Enemy::ExInsStage5Func5(Enemy *param_1,EclRawInstr *param_2)
 
 {
   uint uVar1;
@@ -12,9 +12,7 @@ void __cdecl th06::Enemy::ExInsStage5Func5(Enemy *param_1,EclRawInstr *param_2)
   float local_88;
   D3DXVECTOR3 matrix_in;
   float local_78;
-  float local_74;
-  float local_70;
-  float local_6c;
+  D3DXVECTOR3 local_74;
   float local_68;
   EnemyBulletShooter local_64;
   int local_c;
@@ -24,7 +22,7 @@ void __cdecl th06::Enemy::ExInsStage5Func5(Enemy *param_1,EclRawInstr *param_2)
     ppEVar3 = &local_64;
     for (iVar2 = 0x15; iVar2 != 0; iVar2 = iVar2 + -1) {
       ppEVar3->sprite = 0;
-      ppEVar3->color = 0;
+      ppEVar3->spriteOffset = 0;
       ppEVar3 = (EnemyBulletShooter *)&ppEVar3->position;
     }
     uVar1 = (param_1->current_context).var2 / 9;
@@ -54,9 +52,9 @@ void __cdecl th06::Enemy::ExInsStage5Func5(Enemy *param_1,EclRawInstr *param_2)
     matrix_out.x = matrix_out.x * local_78;
     matrix_out.y = matrix_out.y * local_78;
     matrix_out.z = matrix_out.z * local_78;
-    local_6c = matrix_out.z + matrix_in.z * local_90;
-    local_70 = matrix_out.y + matrix_in.y * local_90;
-    local_74 = matrix_out.x + matrix_in.x * local_90;
+    local_74.z = matrix_out.z + matrix_in.z * local_90;
+    local_74.y = matrix_out.y + matrix_in.y * local_90;
+    local_74.x = matrix_out.x + matrix_in.x * local_90;
     matrix_in.z = -(matrix_in.z * local_90);
     matrix_in.y = -(matrix_in.y * local_90);
     matrix_in.x = -(matrix_in.x * local_90);
@@ -64,34 +62,32 @@ void __cdecl th06::Enemy::ExInsStage5Func5(Enemy *param_1,EclRawInstr *param_2)
     dVar2 = cos(0.7853981852531433);
     local_8c = (float)dVar2;
     dVar2 = sin((double)local_78);
-    local_68 = (float)dVar2;
     matrix_out.x = matrix_in.x;
     matrix_out.y = matrix_in.y;
     matrix_out.z = matrix_in.z;
-    fVar1 = matrix_in.y * local_68;
-    matrix_in.y = matrix_in.y * local_8c + -matrix_in.x * local_68;
+    fVar1 = matrix_in.y * (float)dVar2;
+    matrix_in.y = matrix_in.y * local_8c + -matrix_in.x * (float)dVar2;
     local_78 = -0.1745329;
     matrix_in.x = fVar1 + matrix_in.x * local_8c;
     dVar2 = cos(-0.1745329350233078);
     local_8c = (float)dVar2;
     dVar2 = sin((double)local_78);
-    local_68 = (float)dVar2;
     local_64.angle1 = 0.0;
     local_88 = -0.7853982;
     for (local_c = 0; local_c < 9; local_c = local_c + 1) {
       matrix_out.x = matrix_in.x;
       matrix_out.y = matrix_in.y;
       matrix_out.z = matrix_in.z;
-      fVar1 = matrix_in.y * local_68 + matrix_in.x * local_8c;
-      matrix_in.y = matrix_in.y * local_8c + -matrix_in.x * local_68;
-      local_64.position.z = matrix_in.z + (param_1->position).z + local_6c;
-      local_64.position.y = matrix_in.y + (param_1->position).y + local_70;
-      local_64.position.x = fVar1 + (param_1->position).x + local_74;
+      fVar1 = matrix_in.y * (float)dVar2 + matrix_in.x * local_8c;
+      matrix_in.y = matrix_in.y * local_8c + -matrix_in.x * (float)dVar2;
+      local_64.position.z = matrix_in.z + (param_1->position).z + local_74.z;
+      local_64.position.y = matrix_in.y + (param_1->position).y + local_74.y;
+      local_64.position.x = fVar1 + (param_1->position).x + local_74.x;
       local_64.speed1 = 2.0;
       if (((uVar1 & 1) != 0) && ((int)g_GameManager.difficulty < 2)) {
         local_64.angle1 = local_88;
       }
-      local_64.color = 3;
+      local_64.spriteOffset = 3;
       matrix_in.x = fVar1;
       BulletManager::SpawnBulletPattern(&g_BulletManager,&local_64);
       local_88 = local_88 + 0.1745329;

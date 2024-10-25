@@ -29,18 +29,18 @@ AnmVm * __thiscall th06::Enemy::Enemy(Enemy *this)
   pEVar2 = &this->bullet_props;
   for (iVar1 = 0x15; iVar1 != 0; iVar1 = iVar1 + -1) {
     pEVar2->sprite = 0;
-    pEVar2->color = 0;
+    pEVar2->spriteOffset = 0;
     pEVar2 = (EnemyBulletShooter *)&pEVar2->position;
   }
   ZunTimer::Initialize(&this->shoot_interval_timer);
   pEVar3 = &this->laser_props;
   for (iVar1 = 0x15; iVar1 != 0; iVar1 = iVar1 + -1) {
     pEVar3->sprite = 0;
-    pEVar3->color = 0;
+    pEVar3->spriteOffset = 0;
     pEVar3 = (EnemyLaserShooter *)&pEVar3->position;
   }
-  ZunTimer::Initialize(&this->field44_0xe44);
-  ZunTimer::Initialize(&this->field64_0xebc);
+  ZunTimer::Initialize(&this->exInsFunc10Timer);
+  ZunTimer::Initialize(&this->exInsFunc6Timer);
   return &this->primary_vm;
 }
 

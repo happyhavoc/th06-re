@@ -411,7 +411,7 @@ struct Bullet {
     int dir_change__num_times;
     int dir_change__max_times;
     ushort ex_flags;
-    ushort color;
+    short spriteOffset;
     ushort unk5bc;
     ushort state;
     ushort unk_5c0;
@@ -1078,24 +1078,20 @@ struct EffectInfo {
 struct Effect {
     struct AnmVm vm;
     struct D3DXVECTOR3 pos1;
-    float field2_0x11c;
-    float field3_0x120;
-    float field4_0x124;
-    float field5_0x128;
-    float field6_0x12c;
-    float field7_0x130;
+    struct D3DXVECTOR3 field2_0x11c;
+    struct D3DXVECTOR3 field3_0x128;
     struct D3DXVECTOR3 position;
     struct D3DXVECTOR3 pos2;
-    struct D3DXQUATERNION field10_0x14c;
-    float field11_0x15c;
+    struct D3DXQUATERNION field6_0x14c;
+    float field7_0x15c;
     float __angle_related;
     struct ZunTimer timer;
-    undefined4 field14_0x170;
+    undefined4 field10_0x170;
     int (*effect_update_callback)(struct Effect *);
     byte in_use_flag;
     byte effect_id;
-    byte field18_0x17a;
-    undefined field19_0x17b;
+    byte field14_0x17a;
+    undefined field15_0x17b;
 };
 
 typedef enum EclVarId {
@@ -1290,7 +1286,7 @@ typedef struct EclRawInstrArgs EclRawInstrArgs, *PEclRawInstrArgs;
 
 struct EnemyBulletShooter {
     ushort sprite;
-    ushort color;
+    ushort spriteOffset;
     struct D3DXVECTOR3 position;
     float angle1;
     float angle2;
@@ -1340,7 +1336,7 @@ struct EnemyEclContext {
 
 struct EnemyLaserShooter {
     ushort sprite;
-    ushort color;
+    ushort spriteOffset;
     struct D3DXVECTOR3 position;
     float angle;
     undefined4 field4_0x14;
@@ -1406,7 +1402,7 @@ struct Enemy {
     enum ItemType item_drop;
     byte boss_id;
     byte unk_e41;
-    struct ZunTimer field44_0xe44;
+    struct ZunTimer exInsFunc10Timer;
     byte flags1;
     byte flags2;
     byte flags3;
@@ -1425,8 +1421,8 @@ struct Enemy {
     int life_callback_sub;
     int timer_callback_threshold;
     int timer_callback_sub;
-    float field63_0xeb8;
-    struct ZunTimer field64_0xebc;
+    float exInsFunc6Angle;
+    struct ZunTimer exInsFunc6Timer;
 };
 
 struct Laser {

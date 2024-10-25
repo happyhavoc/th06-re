@@ -1,5 +1,5 @@
 
-void __cdecl th06::Enemy::ExInsStage6Func8(Enemy *param_1,EclRawInstr *param_2)
+void th06::Enemy::ExInsStage6Func8(Enemy *param_1,EclRawInstr *param_2)
 
 {
   int iVar1;
@@ -15,7 +15,7 @@ void __cdecl th06::Enemy::ExInsStage6Func8(Enemy *param_1,EclRawInstr *param_2)
   pEVar2 = &new_spawned_bullet;
   for (iVar1 = 0x15; iVar1 != 0; iVar1 = iVar1 + -1) {
     pEVar2->sprite = 0;
-    pEVar2->color = 0;
+    pEVar2->spriteOffset = 0;
     pEVar2 = (EnemyBulletShooter *)&pEVar2->position;
   }
   for (i = 0; i < 640; i = i + 1) {
@@ -26,7 +26,7 @@ void __cdecl th06::Enemy::ExInsStage6Func8(Enemy *param_1,EclRawInstr *param_2)
       new_spawned_bullet.position.y = (bullets->pos).y;
       new_spawned_bullet.position.z = (bullets->pos).z;
       new_spawned_bullet.sprite = 3;
-      new_spawned_bullet.color = 1;
+      new_spawned_bullet.spriteOffset = 1;
       fVar2 = Rng::GetRandomF32ZeroToOne(&g_Rng);
       new_spawned_bullet.angle1 = fVar2 * 6.283185 - 3.141593;
       new_spawned_bullet.speed1 = 0.0;

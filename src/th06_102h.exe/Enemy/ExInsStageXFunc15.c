@@ -1,10 +1,10 @@
 
-void __cdecl th06::Enemy::ExInsStageXFunc15(Enemy *param_1,EclRawInstr *param_2)
+void th06::Enemy::ExInsStageXFunc15(Enemy *param_1,EclRawInstr *param_2)
 
 {
   float10 fVar1;
   int iVar3;
-  undefined4 *puVar4;
+  EnemyBulletShooter *puVar4;
   float10 fVar2;
   float fVar3;
   double dVar4;
@@ -14,14 +14,15 @@ void __cdecl th06::Enemy::ExInsStageXFunc15(Enemy *param_1,EclRawInstr *param_2)
   Bullet *local_68;
   int local_64;
   int anm_vm_var3;
-  undefined4 local_5c [22];
+  EnemyBulletShooter local_5c;
   
   anm_vm_var3 = 0;
   bullets = g_BulletManager.bullets;
-  puVar4 = local_5c;
+  puVar4 = &local_5c;
   for (iVar3 = 0x15; iVar3 != 0; iVar3 = iVar3 + -1) {
-    *puVar4 = 0;
-    puVar4 = puVar4 + 1;
+    puVar4->sprite = 0;
+    puVar4->spriteOffset = 0;
+    puVar4 = (EnemyBulletShooter *)&puVar4->position;
   }
   for (local_64 = 0; local_64 < 0x280; local_64 = local_64 + 1) {
     if ((((bullets->state != 0) && (bullets->state != 5)) &&
@@ -54,11 +55,11 @@ void __cdecl th06::Enemy::ExInsStageXFunc15(Enemy *param_1,EclRawInstr *param_2)
           fVar2 = (float10)fsin((float10)local_68->angle);
           (local_68->ex_4_acceleration).x = (float)(fVar1 * (float10)0.01);
           (local_68->ex_4_acceleration).y = (float)(fVar2 * (float10)0.01);
-          local_68->color = local_68->color + 1;
+          local_68->spriteOffset = local_68->spriteOffset + 1;
           AnmManager::SetActiveSprite
                     (g_AnmManager,(AnmVm *)local_68,
                      (int)(local_68->sprites).bulletSprite.baseSpriteIndex +
-                     (int)(short)local_68->color);
+                     (int)local_68->spriteOffset);
         }
         local_68 = local_68 + 1;
       }

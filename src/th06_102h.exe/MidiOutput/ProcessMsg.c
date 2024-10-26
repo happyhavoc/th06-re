@@ -1,5 +1,5 @@
 
-void __thiscall th06::MidiOutput::FUN_00422900(MidiOutput *this,MidiTrack *param_1)
+void __thiscall th06::MidiOutput::ProcessMsg(MidiOutput *this,MidiTrack *param_1)
 
 {
   char cVar1;
@@ -131,26 +131,23 @@ void __thiscall th06::MidiOutput::FUN_00422900(MidiOutput *this,MidiTrack *param
   case 0x90:
     if ((arg2 & 0xff) != 0) {
       arg1 = arg1 + this->unk2c4;
-      this->unk144
-      [((int)(CONCAT12(opcode,CONCAT11(opcode,arg1)) & 0xff) >> 3) +
-       (uint)(opcode & 0xffff0f) * 0x17 + 0x10] =
-           this->unk144
-           [((int)(CONCAT12(opcode,CONCAT11(opcode,arg1)) & 0xff) >> 3) +
-            (uint)(opcode & 0xffff0f) * 0x17 + 0x10] | (byte)(1 << (arg1 & 7));
+      this->channels[opcode & 0xffff0f].keyPressedFlags
+      [(int)(CONCAT12(opcode,CONCAT11(opcode,arg1)) & 0xff) >> 3] =
+           this->channels[opcode & 0xffff0f].keyPressedFlags
+           [(int)(CONCAT12(opcode,CONCAT11(opcode,arg1)) & 0xff) >> 3] | (byte)(1 << (arg1 & 7));
       break;
     }
   case 0x80:
     arg1 = arg1 + this->unk2c4;
-    this->unk144
-    [((int)(CONCAT12(opcode,CONCAT11(opcode,arg1)) & 0xff) >> 3) + (uint)(opcode & 0xffff0f) * 0x17
-     + 0x10] = this->unk144
-               [((int)(CONCAT12(opcode,CONCAT11(opcode,arg1)) & 0xff) >> 3) +
-                (uint)(opcode & 0xffff0f) * 0x17 + 0x10] & ~(byte)(1 << (arg1 & 7));
+    this->channels[opcode & 0xffff0f].keyPressedFlags
+    [(int)(CONCAT12(opcode,CONCAT11(opcode,arg1)) & 0xff) >> 3] =
+         this->channels[opcode & 0xffff0f].keyPressedFlags
+         [(int)(CONCAT12(opcode,CONCAT11(opcode,arg1)) & 0xff) >> 3] & ~(byte)(1 << (arg1 & 7));
     break;
   case 0xb0:
     switch(arg1) {
     case 0:
-      this->unk144[(uint)(opcode & 0xffff0f) * 0x17 + 0x21] = (undefined)arg2;
+      this->channels[opcode & 0xffff0f].instrumentBank = (byte)arg2;
       break;
     case 2:
       local_2c = this->tracks;
@@ -189,8 +186,8 @@ void __thiscall th06::MidiOutput::FUN_00422900(MidiOutput *this,MidiTrack *param
       this->unk134 = this->unk2fc;
       break;
     case 7:
-      this->unk144[(uint)(opcode & 0xffff0f) * 0x17 + 0x25] = (undefined)arg2;
-      lVar6 = __ftol2((float)(arg2 & 0xff) * this->unk2c8);
+      this->channels[opcode & 0xffff0f].channelVolume = (byte)arg2;
+      lVar6 = __ftol2((float)(arg2 & 0xff) * this->fadeOutVolumeMultiplier);
       bStack_14 = (byte)lVar6;
       if (lVar6 < 0) {
         bStack_14 = 0;
@@ -198,24 +195,24 @@ void __thiscall th06::MidiOutput::FUN_00422900(MidiOutput *this,MidiTrack *param
       else if (0x7f < lVar6) {
         bStack_14 = 0x7f;
       }
-      this->unk144[((CONCAT11(bStack_14,opcode) & 0xffff0f) & 0xff) * 0x17 + 0x26] = bStack_14;
+      this->channels[(CONCAT11(bStack_14,opcode) & 0xffff0f) & 0xff].modifiedVolume = bStack_14;
       arg2 = (uint)bStack_14;
       break;
     case 10:
-      this->unk144[(uint)(opcode & 0xffff0f) * 0x17 + 0x22] = (undefined)arg2;
+      this->channels[opcode & 0xffff0f].pan = (byte)arg2;
       break;
     case 0x5b:
-      this->unk144[(uint)(opcode & 0xffff0f) * 0x17 + 0x23] = (undefined)arg2;
+      this->channels[opcode & 0xffff0f].effectOneDepth = (byte)arg2;
       break;
     case 0x5d:
-      this->unk144[(uint)(opcode & 0xffff0f) * 0x17 + 0x24] = (undefined)arg2;
+      this->channels[opcode & 0xffff0f].effectThreeDepth = (byte)arg2;
     }
     break;
   case 0xc0:
-    this->unk144[(uint)(opcode & 0xffff0f) * 0x17 + 0x20] = arg1;
+    this->channels[opcode & 0xffff0f].instrument = arg1;
   }
   if (opcode < 0xf0) {
-    MidiDevice::SendShortMsg(&this->midiOutDev,opcode,arg1,(undefined)arg2);
+    MidiDevice::SendShortMsg(&this->midiOutDev,opcode,arg1,(byte)arg2);
   }
   param_1->opcode = opcode;
   iVar7 = FUN_00421d90(&param_1->curTrackDataCursor);

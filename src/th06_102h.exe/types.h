@@ -931,6 +931,8 @@ typedef struct MidiTrack MidiTrack, *PMidiTrack;
 
 typedef struct MidiDevice MidiDevice, *PMidiDevice;
 
+typedef struct MidiChannel MidiChannel, *PMidiChannel;
+
 typedef struct MidiOutputVtbl MidiOutputVtbl, *PMidiOutputVtbl;
 
 typedef struct timecaps_tag timecaps_tag, *Ptimecaps_tag;
@@ -961,6 +963,17 @@ struct MidiDevice {
     undefined4 deviceID;
 };
 
+struct MidiChannel {
+    byte keyPressedFlags[16]; /* 1 bit per key, 128 keys */
+    byte instrument;
+    byte instrumentBank;
+    byte pan;
+    byte effectOneDepth;
+    byte effectThreeDepth;
+    byte channelVolume;
+    byte modifiedVolume; /* Clamped and modified for fade out */
+};
+
 struct MidiOutput {
     struct MidiTimer timer;
     MIDIHDR *midiHeaders[32];
@@ -977,20 +990,21 @@ struct MidiOutput {
     uint unk134;
     struct MidiTrack *tracks;
     struct MidiDevice midiOutDev;
-    undefined unk144[384];
+    byte unk144[16];
+    struct MidiChannel channels[16]; /* Most values only ever written, never read */
     byte unk2c4;
-    undefined field17_0x2c5;
-    undefined field18_0x2c6;
-    undefined field19_0x2c7;
-    float unk2c8;
-    uint unk2cc;
+    undefined field18_0x2c5;
+    undefined field19_0x2c6;
+    undefined field20_0x2c7;
+    float fadeOutVolumeMultiplier;
+    uint fadeOutLastSetVolume;
     uint unk2d0;
     uint unk2d4;
     uint unk2d8;
     uint unk2dc;
-    uint unk2e0;
-    uint unk2e4;
-    uint unk2e8;
+    uint fadeOutFlag;
+    int fadeOutInterval;
+    int fadeOutElapsedMS;
     int unk2ec;
     uint unk2f0;
     uint unk2f4;

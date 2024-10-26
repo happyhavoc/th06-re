@@ -21,13 +21,13 @@ undefined4 * __thiscall th06::MidiOutput::MidiOutput(MidiOutput *this)
   this->unk120 = 0;
   this->num_tracks = 0;
   this->unk2c4 = 0;
-  this->unk2c8 = 0.0;
-  this->unk2cc = 0;
+  this->fadeOutVolumeMultiplier = 0.0;
+  this->fadeOutLastSetVolume = 0;
   this->unk2d0 = 0;
   this->unk2d4 = 0;
   this->unk2d8 = 0;
   this->unk2dc = 0;
-  this->unk2e0 = 0;
+  this->fadeOutFlag = 0;
   for (local_14 = 0; local_14 < 0x20; local_14 = local_14 + 1) {
     this->midiFileData[local_14] = (byte *)0x0;
   }

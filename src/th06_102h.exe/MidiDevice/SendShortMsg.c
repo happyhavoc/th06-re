@@ -1,15 +1,14 @@
 
 bool __thiscall
-th06::MidiDevice::SendShortMsg
-          (MidiDevice *this,undefined firstByte,undefined secondByte,undefined thirdByte)
+th06::MidiDevice::SendShortMsg(MidiDevice *this,byte firstByte,byte secondByte,byte thirdByte)
 
 {
-  undefined4 uVar1;
+  DWORD DVar1;
   MMRESULT MVar2;
   bool bVar3;
-  undefined4 local_8;
+  DWORD local_8;
   
-  uVar1 = local_8;
+  DVar1 = local_8;
   if (this->handle == (HMIDIOUT)0x0) {
     bVar3 = false;
   }

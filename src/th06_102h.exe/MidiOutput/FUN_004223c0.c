@@ -7,9 +7,9 @@ void __thiscall th06::MidiOutput::FUN_004223c0(MidiOutput *this)
   int local_8;
   
   tracksPtr = this->tracks;
-  this->unk2c8 = 1.0;
+  this->fadeOutVolumeMultiplier = 1.0;
   this->unk2dc = 0;
-  this->unk2e0 = 0;
+  this->fadeOutFlag = 0;
   this->unk128 = 0;
   this->unk12c = 0;
   this->unk130 = 0;

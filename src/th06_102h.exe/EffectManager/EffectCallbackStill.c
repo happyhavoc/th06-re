@@ -1,5 +1,5 @@
 
-int th06::EffectManager::EffectUpdateCallback3(Effect *param_1)
+int th06::EffectManager::EffectCallbackStill(Effect *param_1)
 
 {
   float fVar1;

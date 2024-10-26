@@ -1,5 +1,5 @@
 
-int th06::EffectManager::EffectUpdateCallback6(Effect *param_1)
+int th06::EffectManager::EffectCallbackAttract(Effect *param_1)
 
 {
   float fVar1;
@@ -21,7 +21,7 @@ int th06::EffectManager::EffectUpdateCallback6(Effect *param_1)
     (param_1->pos2).y = (float)dVar6;
     (param_1->pos2).z = 0.0;
   }
-  fVar4 = 256.0 - (((float)(param_1->timer).current + (param_1->timer).subFrame) * 256.0) / 240.0;
+  fVar4 = 256.0 - (((float)(param_1->timer).current + (param_1->timer).subFrame) * 256.0) / 60.0;
   fVar5 = (param_1->pos2).z;
   fVar1 = (param_1->pos2).y;
   fVar2 = (param_1->position).z;

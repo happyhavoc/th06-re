@@ -2,14 +2,14 @@
 ChainCallbackResult th06::Ending::OnUpdate(Ending *ending)
 
 {
-  int in_EAX;
+  i32 iVar1;
   int i;
   int local_8;
   
   local_8 = 0;
   while( true ) {
-    ParseEndFile(ending);
-    if (in_EAX != 0) {
+    iVar1 = ParseEndFile(ending);
+    if (iVar1 != 0) {
       return CHAIN_CALLBACK_RESULT_CONTINUE_AND_REMOVE_JOB;
     }
     for (i = 0; i < 16; i = i + 1) {
@@ -19,8 +19,7 @@ ChainCallbackResult th06::Ending::OnUpdate(Ending *ending)
     }
     if (((*(int *)&ending->unk_dependent_on_clrd == 0) || ((g_CurFrameInput & 0x100) == 0)) ||
        (3 < local_8)) break;
-    in_EAX = local_8 + 1;
-    local_8 = in_EAX;
+    local_8 = local_8 + 1;
   }
   return CHAIN_CALLBACK_RESULT_CONTINUE;
 }

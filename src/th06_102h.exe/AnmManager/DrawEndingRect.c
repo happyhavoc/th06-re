@@ -1,7 +1,7 @@
 
 void __thiscall
 th06::AnmManager::DrawEndingRect
-          (AnmManager *this,int surfaceIdx,LONG rectX,LONG rectY,int rectLeft,int rectTop,int width,
+          (AnmManager *this,int surfaceIdx,int rectX,int rectY,int rectLeft,int rectTop,int width,
           int height)
 
 {

@@ -1,5 +1,5 @@
 
-void __thiscall th06::Ending::ParseEndFile(Ending *this)
+i32 __thiscall th06::Ending::ParseEndFile(Ending *this)
 
 {
   float fVar1;
@@ -22,9 +22,10 @@ void __thiscall th06::Ending::ParseEndFile(Ending *this)
   long fadeOutBlackFrames;
   long fadeInFrames;
   long fadeOutFrames;
+  i32 iVar4;
   int i;
   AnmVm *anmvm_ref;
-  undefined4 *puVar4;
+  undefined4 *puVar5;
   uint unaff_retaddr;
   short local_ac;
   short local_90;
@@ -40,12 +41,12 @@ void __thiscall th06::Ending::ParseEndFile(Ending *this)
   local_c = __security_cookie ^ unaff_retaddr;
   local_8 = 0;
   local_38 = 0;
-  puVar4 = (undefined4 *)&local_34;
+  puVar5 = (undefined4 *)&local_34;
   for (i = 9; i != 0; i = i + -1) {
-    *puVar4 = 0;
-    puVar4 = puVar4 + 1;
+    *puVar5 = 0;
+    puVar5 = puVar5 + 1;
   }
-  *(undefined2 *)puVar4 = 0;
+  *(undefined2 *)puVar5 = 0;
   if (0 < (this->Timer3).current) {
     ZunTimer::Decrement(&this->Timer3,1);
     if (this->minWaitResetFrames == 0) {
@@ -97,12 +98,12 @@ void __thiscall th06::Ending::ParseEndFile(Ending *this)
           if (local_8 != 0) goto LAB_00410546;
           local_8 = 1;
           local_38 = 0;
-          puVar4 = (undefined4 *)&local_34;
+          puVar5 = (undefined4 *)&local_34;
           for (i = 9; i != 0; i = i + -1) {
-            *puVar4 = 0;
-            puVar4 = puVar4 + 1;
+            *puVar5 = 0;
+            puVar5 = puVar5 + 1;
           }
-          *(undefined2 *)puVar4 = 0;
+          *(undefined2 *)puVar5 = 0;
         }
         break;
       case '@':
@@ -161,6 +162,7 @@ void __thiscall th06::Ending::ParseEndFile(Ending *this)
             }
             goto switchD_0040fa93_caseD_52;
           }
+          iVar4 = -1;
           goto endParsing;
         case 'M':
                     /* musicfade(duration) */
@@ -195,7 +197,10 @@ switchD_0040fa93_caseD_52:
         case 'b':
                     /* background(jpg_file) */
           backgroundSurface = AnmManager::LoadSurface(g_AnmManager,0,this->endFileDataPtr + 1);
-          if (backgroundSurface != ZUN_SUCCESS) goto endParsing;
+          if (backgroundSurface != ZUN_SUCCESS) {
+            iVar4 = -1;
+            goto endParsing;
+          }
           break;
         case 'c':
                     /* color(bgr_color) */
@@ -254,6 +259,7 @@ switchD_0040fa93_caseD_52:
           }
           goto LAB_00410546;
         case 'z':
+          iVar4 = -1;
           goto endParsing;
         }
         while ((*this->endFileDataPtr != '\n' && (*this->endFileDataPtr != '\r'))) {
@@ -318,8 +324,9 @@ LAB_00410546:
     (this->anmTimer4).subFrame = 0.0;
     (this->anmTimer4).current = 0;
   }
+  iVar4 = 0;
 endParsing:
   __security_check_cookie(local_c ^ unaff_retaddr);
-  return;
+  return iVar4;
 }
 

@@ -115,7 +115,7 @@ i32 __thiscall th06::Ending::ParseEndFile(Ending *this)
           this->endFileDataPtr = this->endFileDataPtr + 1;
           this->fadeType = 1;
           this->timeFading = 0;
-          fadeInBlackFrames = readEndFileParameter(this);
+          fadeInBlackFrames = ReadEndFileParameter(this);
           this->fadeFrames = fadeInBlackFrames;
           break;
         case '1':
@@ -123,7 +123,7 @@ i32 __thiscall th06::Ending::ParseEndFile(Ending *this)
           this->endFileDataPtr = this->endFileDataPtr + 1;
           this->fadeType = 2;
           this->timeFading = 0;
-          fadeOutBlackFrames = readEndFileParameter(this);
+          fadeOutBlackFrames = ReadEndFileParameter(this);
           this->fadeFrames = fadeOutBlackFrames;
           break;
         case '2':
@@ -131,7 +131,7 @@ i32 __thiscall th06::Ending::ParseEndFile(Ending *this)
           this->endFileDataPtr = this->endFileDataPtr + 1;
           this->fadeType = 3;
           this->timeFading = 0;
-          fadeInFrames = readEndFileParameter(this);
+          fadeInFrames = ReadEndFileParameter(this);
           this->fadeFrames = fadeInFrames;
           break;
         case '3':
@@ -139,7 +139,7 @@ i32 __thiscall th06::Ending::ParseEndFile(Ending *this)
           this->endFileDataPtr = this->endFileDataPtr + 1;
           this->fadeType = 4;
           this->timeFading = 0;
-          fadeOutFrames = readEndFileParameter(this);
+          fadeOutFrames = ReadEndFileParameter(this);
           this->fadeFrames = fadeOutFrames;
           break;
         case 'F':
@@ -167,7 +167,7 @@ i32 __thiscall th06::Ending::ParseEndFile(Ending *this)
         case 'M':
                     /* musicfade(duration) */
           this->endFileDataPtr = this->endFileDataPtr + 1;
-          musicFadeFrames = readEndFileParameter(this);
+          musicFadeFrames = ReadEndFileParameter(this);
           Supervisor::FadeOutMusic(&g_Supervisor,(float)musicFadeFrames);
           break;
         case 'R':
@@ -181,16 +181,16 @@ switchD_0040fa93_caseD_52:
         case 'V':
                     /* scrollbg(distance, duration) */
           this->endFileDataPtr = this->endFileDataPtr + 1;
-          scrollBGDistance = readEndFileParameter(this);
-          scrollBGDuration = readEndFileParameter(this);
+          scrollBGDistance = ReadEndFileParameter(this);
+          scrollBGDuration = ReadEndFileParameter(this);
           (this->anmTimer4).current = (int)((float)scrollBGDistance / (float)scrollBGDuration);
           break;
         case 'a':
                     /* anm(???, script_index?, sprite_index?) */
           this->endFileDataPtr = this->endFileDataPtr + 1;
-          anmUnk = readEndFileParameter(this);
-          anmScriptIdx = readEndFileParameter(this);
-          anmSpriteIdx = readEndFileParameter(this);
+          anmUnk = ReadEndFileParameter(this);
+          anmScriptIdx = ReadEndFileParameter(this);
+          anmSpriteIdx = ReadEndFileParameter(this);
           AnmManager::ExecuteAnmIdx(g_AnmManager,&this->AnmVm + anmUnk,anmScriptIdx + 0x600);
           AnmManager::SetActiveSprite(g_AnmManager,&this->AnmVm + anmUnk,anmSpriteIdx + 0x600);
           break;
@@ -205,7 +205,7 @@ switchD_0040fa93_caseD_52:
         case 'c':
                     /* color(bgr_color) */
           this->endFileDataPtr = this->endFileDataPtr + 1;
-          newColor = readEndFileParameter(this);
+          newColor = ReadEndFileParameter(this);
           this->textColor = newColor;
           break;
         case 'm':
@@ -215,11 +215,11 @@ switchD_0040fa93_caseD_52:
         case 'r':
                     /* waitreset(minframes, maxframes) */
           this->endFileDataPtr = this->endFileDataPtr + 1;
-          maxWRFrames = readEndFileParameter(this);
+          maxWRFrames = ReadEndFileParameter(this);
           (this->Timer3).current = maxWRFrames;
           (this->Timer3).subFrame = 0.0;
           (this->Timer3).previous = -999;
-          minWRFrames = readEndFileParameter(this);
+          minWRFrames = ReadEndFileParameter(this);
           this->minWaitResetFrames = minWRFrames;
           while ((*this->endFileDataPtr != '\n' && (*this->endFileDataPtr != '\r'))) {
             this->endFileDataPtr = this->endFileDataPtr + 1;
@@ -231,25 +231,25 @@ switchD_0040fa93_caseD_52:
         case 's':
                     /* setdelay(line2Delay, topLineDelay) */
           this->endFileDataPtr = this->endFileDataPtr + 1;
-          anmUnk = readEndFileParameter(this);
+          anmUnk = ReadEndFileParameter(this);
           this->line2Delay = anmUnk;
-          anmUnk = readEndFileParameter(this);
+          anmUnk = ReadEndFileParameter(this);
           this->topLineDelay = anmUnk;
           break;
         case 'v':
                     /* setscroll(newVertCoordinate) */
           this->endFileDataPtr = this->endFileDataPtr + 1;
-          newVertCoordinate = readEndFileParameter(this);
+          newVertCoordinate = ReadEndFileParameter(this);
           (this->anmTimer4).subFrame = (float)newVertCoordinate;
           break;
         case 'w':
                     /* wait(maxFrames, minFrames) */
           this->endFileDataPtr = this->endFileDataPtr + 1;
-          maxFrames = readEndFileParameter(this);
+          maxFrames = ReadEndFileParameter(this);
           (this->Timer2).current = maxFrames;
           (this->Timer2).subFrame = 0.0;
           (this->Timer2).previous = -999;
-          minFrames = readEndFileParameter(this);
+          minFrames = ReadEndFileParameter(this);
           this->minWaitFrames = minFrames;
           while ((*this->endFileDataPtr != '\n' && (*this->endFileDataPtr != '\r'))) {
             this->endFileDataPtr = this->endFileDataPtr + 1;

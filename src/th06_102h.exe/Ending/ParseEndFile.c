@@ -143,7 +143,7 @@ void __thiscall th06::Ending::ParseEndFile(Ending *this)
           break;
         case 'F':
                     /* exec(endfile) */
-          backgroundSurface = loadEnding(this,this->endFileDataPtr + 1);
+          backgroundSurface = LoadEnding(this,this->endFileDataPtr + 1);
           if (backgroundSurface == ZUN_SUCCESS) {
             local_38 = 0;
             local_8 = 0;

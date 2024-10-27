@@ -34,25 +34,25 @@ ZunResult th06::Ending::AddedCallback(Ending *ending)
   *(undefined *)(shottypeAndCharacter * 0x18 + 0x69cce1 + g_GameManager.difficulty) = 'c';
   if ((g_GameManager.difficulty == EASY) || (g_GameManager.num_retries != 0)) {
     if (g_GameManager.character == 0) {
-      load_ending = loadEnding(ending,"data/end00b.end");
+      load_ending = LoadEnding(ending,"data/end00b.end");
       if (load_ending != ZUN_SUCCESS) {
         return ZUN_ERROR;
       }
     }
     else if ((g_GameManager.character == 1) &&
-            (load_ending = loadEnding(ending,"data/end10b.end"), load_ending != ZUN_SUCCESS)) {
+            (load_ending = LoadEnding(ending,"data/end10b.end"), load_ending != ZUN_SUCCESS)) {
       return ZUN_ERROR;
     }
   }
   else if (g_GameManager.character == 0) {
     if (g_GameManager.shottype == 0) {
-      load_ending = loadEnding(ending,"data/end00.end");
+      load_ending = LoadEnding(ending,"data/end00.end");
       if (load_ending != ZUN_SUCCESS) {
         return ZUN_ERROR;
       }
     }
     else {
-      load_ending = loadEnding(ending,"data/end01.end");
+      load_ending = LoadEnding(ending,"data/end01.end");
       if (load_ending != ZUN_SUCCESS) {
         return ZUN_ERROR;
       }
@@ -60,13 +60,13 @@ ZunResult th06::Ending::AddedCallback(Ending *ending)
   }
   else if (g_GameManager.character == 1) {
     if (g_GameManager.shottype == 0) {
-      load_ending = loadEnding(ending,"data/end10.end");
+      load_ending = LoadEnding(ending,"data/end10.end");
       if (load_ending != ZUN_SUCCESS) {
         return ZUN_ERROR;
       }
     }
     else {
-      load_ending = loadEnding(ending,"data/end11.end");
+      load_ending = LoadEnding(ending,"data/end11.end");
       if (load_ending != ZUN_SUCCESS) {
         return ZUN_ERROR;
       }

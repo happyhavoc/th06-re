@@ -39,14 +39,14 @@ void __thiscall th06::MidiOutput::OnTimerElapsed(MidiOutput *this)
       this->unk128 = uVar2 + 1;
       this->unk12c = this->unk12c + (uint)(0xfffffffe < uVar2);
       if (!bVar1) {
-        FUN_004223c0(this);
+        LoadTracks(this);
       }
       return;
     }
-    if (this->tracks[local_8].track_playing != 0) {
+    if (this->tracks[local_8].trackPlaying != 0) {
       bVar1 = true;
-      while (this->tracks[local_8].track_playing != 0) {
-        uVar2 = this->tracks[local_8].unk4;
+      while (this->tracks[local_8].trackPlaying != 0) {
+        uVar2 = this->tracks[local_8].trackLengthMaybe;
         uVar3 = (int)uVar2 >> 0x1f;
         if ((local_10 < uVar3) || ((local_10 <= uVar3 && (local_14 < uVar2)))) break;
         ProcessMsg(this,this->tracks + local_8);

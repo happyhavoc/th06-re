@@ -1032,8 +1032,8 @@ struct HMIDIOUT__ {
 };
 
 struct MidiTrack {
-    uint track_playing;
-    uint unk4;
+    uint trackPlaying;
+    uint trackLengthMaybe;
     uint track_length;
     byte opcode;
     undefined field4_0xd;
@@ -1041,7 +1041,7 @@ struct MidiTrack {
     undefined field6_0xf;
     void *trackData;
     void *curTrackDataCursor;
-    void *unk18;
+    void *startTrackDataMaybe;
     uint unk1c;
 };
 

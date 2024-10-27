@@ -1,6 +1,4 @@
 
-/* WARNING: Unknown calling convention -- yet parameter storage is locked */
-
 ZunResult th06::Ending::AddedCallback(Ending *ending)
 
 {

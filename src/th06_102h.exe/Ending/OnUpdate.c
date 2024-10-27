@@ -1,5 +1,5 @@
 
-undefined4 th06::Ending::OnUpdate(Ending *ending)
+ChainCallbackResult th06::Ending::OnUpdate(Ending *ending)
 
 {
   int in_EAX;
@@ -10,7 +10,7 @@ undefined4 th06::Ending::OnUpdate(Ending *ending)
   while( true ) {
     ParseEndFile(ending);
     if (in_EAX != 0) {
-      return 0;
+      return CHAIN_CALLBACK_RESULT_CONTINUE_AND_REMOVE_JOB;
     }
     for (i = 0; i < 16; i = i + 1) {
       if ((&ending->AnmVm)[i].anmFileIndex != 0) {
@@ -22,6 +22,6 @@ undefined4 th06::Ending::OnUpdate(Ending *ending)
     in_EAX = local_8 + 1;
     local_8 = in_EAX;
   }
-  return 1;
+  return CHAIN_CALLBACK_RESULT_CONTINUE;
 }
 

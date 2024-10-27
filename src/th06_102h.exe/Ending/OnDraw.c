@@ -1,5 +1,5 @@
 
-undefined4 th06::Ending::OnDraw(Ending *ending)
+ChainCallbackResult th06::Ending::OnDraw(Ending *ending)
 
 {
   long subFrame;
@@ -19,6 +19,6 @@ undefined4 th06::Ending::OnDraw(Ending *ending)
     }
   }
   FadingEffect(ending);
-  return 1;
+  return CHAIN_CALLBACK_RESULT_CONTINUE;
 }
 

@@ -1,5 +1,5 @@
 
-undefined4 th06::Ending::DeletedCallback(Ending *ending)
+ZunResult th06::Ending::DeletedCallback(Ending *ending)
 
 {
   AnmManager::ReleaseAnm(g_AnmManager,44);
@@ -13,6 +13,6 @@ undefined4 th06::Ending::DeletedCallback(Ending *ending)
   operator_delete(ending);
   g_Supervisor.isInEnding = 0;
   Supervisor::ReleasePbg3(&g_Supervisor,5);
-  return 0;
+  return ZUN_SUCCESS;
 }
 

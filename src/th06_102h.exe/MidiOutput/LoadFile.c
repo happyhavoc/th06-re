@@ -2,18 +2,17 @@
 ZunResult __thiscall th06::MidiOutput::LoadFile(MidiOutput *this,char *midiPath)
 
 {
-  int iVar1;
-  ZunResult ZVar2;
+  ZunResult ZVar1;
   
-  iVar1 = ReadFileData(this,0x1f,midiPath);
-  if (iVar1 == 0) {
+  ZVar1 = ReadFileData(this,0x1f,midiPath);
+  if (ZVar1 == ZUN_SUCCESS) {
     ParseFile(this,0x1f);
     ReleaseFileData(this,0x1f);
-    ZVar2 = ZUN_SUCCESS;
+    ZVar1 = ZUN_SUCCESS;
   }
   else {
-    ZVar2 = ZUN_ERROR;
+    ZVar1 = ZUN_ERROR;
   }
-  return ZVar2;
+  return ZVar1;
 }
 

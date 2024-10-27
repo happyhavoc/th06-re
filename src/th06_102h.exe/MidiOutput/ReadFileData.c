@@ -1,27 +1,27 @@
 
-undefined4 __thiscall th06::MidiOutput::ReadFileData(MidiOutput *this,int param_1,char *path)
+ZunResult __thiscall th06::MidiOutput::ReadFileData(MidiOutput *this,uint idx,char *path)
 
 {
-  undefined4 uVar1;
+  ZunResult ZVar1;
   byte *pbVar2;
   
   if (g_Supervisor.cfg.musicMode == MIDI) {
     StopPlayback(this);
-    ReleaseFileData(this,param_1);
+    ReleaseFileData(this,idx);
     pbVar2 = FileSystem::OpenPath(path,0);
-    this->midiFileData[param_1] = pbVar2;
-    if (this->midiFileData[param_1] == (byte *)0x0) {
+    this->midiFileData[idx] = pbVar2;
+    if (this->midiFileData[idx] == (byte *)0x0) {
       GameErrorContext::Log
                 (&g_GameErrorContext,"error : MIDI File が読み込めない %s \n",path);
-      uVar1 = 0xffffffff;
+      ZVar1 = ZUN_ERROR;
     }
     else {
-      uVar1 = 0;
+      ZVar1 = ZUN_SUCCESS;
     }
   }
   else {
-    uVar1 = 0;
+    ZVar1 = ZUN_SUCCESS;
   }
-  return uVar1;
+  return ZVar1;
 }
 

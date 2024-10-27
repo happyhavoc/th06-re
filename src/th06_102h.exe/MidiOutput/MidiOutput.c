@@ -1,5 +1,5 @@
 
-undefined4 * __thiscall th06::MidiOutput::MidiOutput(MidiOutput *this)
+MidiOutput * __thiscall th06::MidiOutput::MidiOutput(MidiOutput *this)
 
 {
   int local_18;
@@ -36,6 +36,6 @@ undefined4 * __thiscall th06::MidiOutput::MidiOutput(MidiOutput *this)
   }
   this->midiHeadersCursor = 0;
   ExceptionList = local_10;
-  return (undefined4 *)this;
+  return this;
 }
 

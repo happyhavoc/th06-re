@@ -50,7 +50,7 @@ ZunResult th06::Supervisor::AddedCallback(Supervisor *param_1)
       pMStack_24 = (MidiOutput *)0x0;
     }
     else {
-      pMStack_24 = (MidiOutput *)MidiOutput::MidiOutput(this);
+      pMStack_24 = MidiOutput::MidiOutput(this);
     }
     isMidiOutputAllocated_usedByUnwind = 0xffffffff;
     param_1->midi_output = pMStack_24;

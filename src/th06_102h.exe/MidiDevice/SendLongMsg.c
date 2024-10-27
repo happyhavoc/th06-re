@@ -1,5 +1,5 @@
 
-BOOL __thiscall th06::MidiDevice::FUN_00421b90(MidiDevice *this,LPMIDIHDR param_1)
+BOOL __thiscall th06::MidiDevice::SendLongMsg(MidiDevice *this,LPMIDIHDR pmh)
 
 {
   BOOL uVar1;
@@ -9,9 +9,9 @@ BOOL __thiscall th06::MidiDevice::FUN_00421b90(MidiDevice *this,LPMIDIHDR param_
     uVar1 = 0;
   }
   else {
-    MVar1 = midiOutPrepareHeader(this->handle,param_1,0x40);
+    MVar1 = midiOutPrepareHeader(this->handle,pmh,0x40);
     if (MVar1 == 0) {
-      MVar1 = midiOutLongMsg(this->handle,param_1,0x40);
+      MVar1 = midiOutLongMsg(this->handle,pmh,0x40);
       uVar1 = (BOOL)(MVar1 != 0);
     }
     else {

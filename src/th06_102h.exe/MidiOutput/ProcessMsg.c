@@ -3,7 +3,7 @@ void __thiscall th06::MidiOutput::ProcessMsg(MidiOutput *this,MidiTrack *param_1
 
 {
   char cVar1;
-  LPMIDIHDR _Memory;
+  LPMIDIHDR pmh;
   MIDIHDR *pMVar2;
   LPSTR pCVar3;
   BOOL BVar4;
@@ -56,32 +56,32 @@ void __thiscall th06::MidiOutput::ProcessMsg(MidiOutput *this,MidiTrack *param_1
       }
       pMVar2 = (MIDIHDR *)_malloc(0x40);
       this->midiHeaders[this->midiHeadersCursor] = pMVar2;
-      _Memory = this->midiHeaders[this->midiHeadersCursor];
+      pmh = this->midiHeaders[this->midiHeadersCursor];
       iVar7 = FUN_00421d90(&param_1->curTrackDataCursor);
-      pmVar9 = _Memory;
+      pmVar9 = pmh;
       for (iVar8 = 0x10; iVar8 != 0; iVar8 = iVar8 + -1) {
         pmVar9->lpData = (LPSTR)0x0;
         pmVar9 = (LPMIDIHDR)&pmVar9->dwBufferLength;
       }
       pCVar3 = (LPSTR)_malloc(iVar7 + 1);
-      _Memory->lpData = pCVar3;
-      *_Memory->lpData = -0x10;
-      _Memory->dwFlags = 0;
-      _Memory->dwBufferLength = iVar7 + 1;
+      pmh->lpData = pCVar3;
+      *pmh->lpData = -0x10;
+      pmh->dwFlags = 0;
+      pmh->dwBufferLength = iVar7 + 1;
       arg2 = arg2 & 0xff;
       uStack_9 = 0;
       while (CONCAT13(uStack_9,arg2._1_3_) < iVar7) {
                     /* WARNING: Load size is inaccurate */
-        _Memory->lpData[CONCAT13(uStack_9,arg2._1_3_) + 1] = *param_1->curTrackDataCursor;
+        pmh->lpData[CONCAT13(uStack_9,arg2._1_3_) + 1] = *param_1->curTrackDataCursor;
         param_1->curTrackDataCursor = (void *)((int)param_1->curTrackDataCursor + 1);
         iVar8 = CONCAT13(uStack_9,arg2._1_3_) + 1;
         arg2._1_3_ = (undefined3)iVar8;
         uStack_9 = (undefined)((uint)iVar8 >> 0x18);
       }
-      BVar4 = MidiDevice::FUN_00421b90(&this->midiOutDev,_Memory);
+      BVar4 = MidiDevice::SendLongMsg(&this->midiOutDev,pmh);
       if (BVar4 != 0) {
-        _free(_Memory->lpData);
-        _free(_Memory);
+        _free(pmh->lpData);
+        _free(pmh);
         this->midiHeaders[this->midiHeadersCursor] = (MIDIHDR *)0x0;
       }
       this->midiHeadersCursor = this->midiHeadersCursor + 1;

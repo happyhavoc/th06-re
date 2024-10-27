@@ -1,21 +1,28 @@
 
 bool __thiscall
-th06::MidiDevice::SendShortMsg(MidiDevice *this,byte firstByte,byte secondByte,byte thirdByte)
+th06::MidiDevice::SendShortMsg(MidiDevice *this,byte midiStatus,byte firstByte,byte secondByte)
 
 {
-  DWORD DVar1;
-  MMRESULT MVar2;
-  bool bVar3;
-  DWORD local_8;
+  BYTE aBVar1 [4];
+  MMRESULT res;
+  bool hasError;
+  BYTE dwMsg [4];
   
-  DVar1 = local_8;
+  aBVar1 = dwMsg;
   if (this->handle == (HMIDIOUT)0x0) {
-    bVar3 = false;
+    hasError = false;
   }
   else {
-    MVar2 = midiOutShortMsg(this->handle,local_8);
-    bVar3 = MVar2 != 0;
+    dwMsg[1] = firstByte;
+    dwMsg[0] = midiStatus;
+                    /* Ghidra is drunk here:
+                       - Order is wrong (should be 0, 1, 2)
+                       - dwMsg[3] is never set. */
+    dwMsg[3] = aBVar1[3];
+    dwMsg[2] = secondByte;
+    res = midiOutShortMsg(this->handle,(DWORD)dwMsg);
+    hasError = res != 0;
   }
-  return bVar3;
+  return hasError;
 }
 

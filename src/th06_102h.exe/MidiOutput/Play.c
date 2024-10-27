@@ -10,7 +10,7 @@ ZunResult __thiscall th06::MidiOutput::Play(MidiOutput *this)
   else {
     FUN_004223c0(this);
     MidiDevice::OpenDevice(&this->midiOutDev,0xffffffff);
-    MidiTimer::FUN_00421c90(&this->timer,1,(LPTIMECALLBACK)0x0,0);
+    MidiTimer::StartTimer(&this->timer,1,(LPTIMECALLBACK)0x0,0);
     ZVar1 = ZUN_SUCCESS;
   }
   return ZVar1;

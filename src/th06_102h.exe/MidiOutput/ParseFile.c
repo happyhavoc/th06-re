@@ -2,29 +2,30 @@
 /* WARNING: Inlined function: Ntohs */
 /* WARNING: Restarted to delay deadcode elimination for space: stack */
 
-void __thiscall th06::MidiOutput::ParseFile(MidiOutput *this,int fileIdx)
+ZunResult __thiscall th06::MidiOutput::ParseFile(MidiOutput *this,int fileIdx)
 
 {
   DWORD_PTR cookie;
+  ZunResult result;
   MidiTrack *pMVar1;
-  void *pvVar2;
-  uint uVar3;
-  int iVar4;
+  void *trackData;
+  uint uVar2;
+  int iVar3;
+  undefined4 *puVar4;
   undefined4 *puVar5;
-  undefined4 *puVar6;
   ushort uStackY_58;
   undefined local_3c;
   undefined uStack_3b;
   undefined uStack_3a;
   undefined uStack_39;
-  size_t local_38;
+  size_t trackLength;
   int hdrLenLe;
   undefined local_20;
   undefined uStack_1f;
   undefined uStack_1e;
   undefined uStack_1d;
   undefined *endOfHeader;
-  int curDivision;
+  int trackIdx;
   byte *file_data;
   undefined2 format;
   undefined4 hdrLenBe;
@@ -36,6 +37,7 @@ void __thiscall th06::MidiOutput::ParseFile(MidiOutput *this,int fileIdx)
     utils::DebugPrint2(
                       "error : まだMIDIが読み込まれていないのに再生しようとしている\n"
                       );
+    result = ZUN_ERROR;
   }
   else {
                     /* Read midi header chunk
@@ -70,18 +72,18 @@ void __thiscall th06::MidiOutput::ParseFile(MidiOutput *this,int fileIdx)
                     /* Allocate this->divisions * 32 bytes. */
     pMVar1 = (MidiTrack *)_malloc(this->num_tracks << 5);
     this->tracks = pMVar1;
-                    /* memset(this->samples, 0, this->divisions * sizeof(MidiSample)); */
+                    /* memset(this->tracks, 0, this->num_tracks * sizeof(MidiTrack)); */
     pMVar1 = this->tracks;
-    for (uVar3 = (uint)(this->num_tracks << 5) >> 2; uVar3 != 0; uVar3 = uVar3 - 1) {
+    for (uVar2 = (uint)(this->num_tracks << 5) >> 2; uVar2 != 0; uVar2 = uVar2 - 1) {
       pMVar1->trackPlaying = 0;
       pMVar1 = (MidiTrack *)&pMVar1->trackLengthOther;
     }
                     /* memset again??? */
-    for (iVar4 = 0; iVar4 != 0; iVar4 = iVar4 + -1) {
+    for (iVar3 = 0; iVar3 != 0; iVar3 = iVar3 + -1) {
       *(undefined *)&pMVar1->trackPlaying = 0;
       pMVar1 = (MidiTrack *)((int)&pMVar1->trackPlaying + 1);
     }
-    for (curDivision = 0; curDivision < this->num_tracks; curDivision = curDivision + 1) {
+    for (trackIdx = 0; trackIdx < this->num_tracks; trackIdx = trackIdx + 1) {
                     /* Read a track (MTrk) chunk.
                        
                        First, read the length of the chunk
@@ -90,32 +92,33 @@ void __thiscall th06::MidiOutput::ParseFile(MidiOutput *this,int fileIdx)
       uStack_39 = (undefined)((uint)hdrLenBe >> 0x18);
       uStack_3a = (undefined)((uint)hdrLenBe >> 0x10);
       uStack_3b = (undefined)((uint)hdrLenBe >> 8);
-      local_38._0_3_ = CONCAT12(uStack_3b,CONCAT11(uStack_3a,uStack_39));
+      trackLength._0_3_ = CONCAT12(uStack_3b,CONCAT11(uStack_3a,uStack_39));
       local_3c = (undefined)hdrLenBe;
-      local_38 = CONCAT13(local_3c,(uint3)local_38);
-      this->tracks[curDivision].track_length = local_38;
-      pvVar2 = _malloc(local_38);
-      this->tracks[curDivision].trackData = pvVar2;
-      this->tracks[curDivision].trackPlaying = 1;
-      puVar5 = (undefined4 *)(endOfHeader + 8);
-      puVar6 = (undefined4 *)this->tracks[curDivision].trackData;
-                    /* memcpy(this->samples[curDivision].trackData, endOfHeader + 8,
-                       this->samples[curDivision].track_length); */
-      for (uVar3 = local_38 >> 2; uVar3 != 0; uVar3 = uVar3 - 1) {
-        *puVar6 = *puVar5;
+      trackLength = CONCAT13(local_3c,(uint3)trackLength);
+      this->tracks[trackIdx].track_length = trackLength;
+      trackData = _malloc(trackLength);
+      this->tracks[trackIdx].trackData = trackData;
+      this->tracks[trackIdx].trackPlaying = 1;
+      puVar4 = (undefined4 *)(endOfHeader + 8);
+      puVar5 = (undefined4 *)this->tracks[trackIdx].trackData;
+                    /* memcpy(this->tracks[trackIdx].trackData, endOfHeader + 8,
+                       this->tracks[curDivision].trackLength); */
+      for (uVar2 = trackLength >> 2; uVar2 != 0; uVar2 = uVar2 - 1) {
+        *puVar5 = *puVar4;
+        puVar4 = puVar4 + 1;
         puVar5 = puVar5 + 1;
-        puVar6 = puVar6 + 1;
       }
-      for (uVar3 = (uint3)local_38 & 3; uVar3 != 0; uVar3 = uVar3 - 1) {
-        *(undefined *)puVar6 = *(undefined *)puVar5;
+      for (uVar2 = (uint3)trackLength & 3; uVar2 != 0; uVar2 = uVar2 - 1) {
+        *(undefined *)puVar5 = *(undefined *)puVar4;
+        puVar4 = (undefined4 *)((int)puVar4 + 1);
         puVar5 = (undefined4 *)((int)puVar5 + 1);
-        puVar6 = (undefined4 *)((int)puVar6 + 1);
       }
-      endOfHeader = (undefined *)((int)(endOfHeader + 8) + local_38);
+      endOfHeader = (undefined *)((int)(endOfHeader + 8) + trackLength);
     }
     this->unk120 = 1000000;
+    result = ZUN_SUCCESS;
   }
   __security_check_cookie(cookie);
-  return;
+  return result;
 }
 

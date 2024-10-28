@@ -1,5 +1,5 @@
 
-int th06::MidiOutput::SkipLongMsgAndGetSize(void *curTrackDataCursor)
+int th06::MidiOutput::SkipVariableLength(void *curTrackDataCursor)
 
 {
   int iVar2;

@@ -105,15 +105,17 @@ void __thiscall th06::MidiOutput::ProcessMsg(MidiOutput *this,MidiTrack *param_1
         }
                     /* Set Tempo */
         if (cVar1 == 0x51) {
-          uVar9 = __allmul(this->unk128,this->unk12c,this->divisons,this->divisons >> 0x1f);
+          uVar9 = __allmul(*(undefined4 *)&this->unk128,*(undefined4 *)((int)&this->unk128 + 4),
+                           this->divisons,this->divisons >> 0x1f);
           uVar9 = __allmul(uVar9,1000,0);
           uVar9 = __aulldiv(uVar9,this->unk120,this->unk120 >> 0x1f);
-          uVar4 = this->unk130;
-          this->unk130 = uVar4 + (uint)uVar9;
-          this->unk134 = this->unk134 + (int)((ulonglong)uVar9 >> 0x20) +
-                         (uint)CARRY4(uVar4,(uint)uVar9);
-          this->unk128 = 0;
-          this->unk12c = 0;
+          uVar4 = *(uint *)&this->unk130;
+          iVar7 = *(int *)((int)&this->unk130 + 4);
+          *(uint *)&this->unk130 = uVar4 + (uint)uVar9;
+          *(uint *)((int)&this->unk130 + 4) =
+               iVar7 + (int)((ulonglong)uVar9 >> 0x20) + (uint)CARRY4(uVar4,(uint)uVar9);
+          *(undefined4 *)&this->unk128 = 0;
+          *(undefined4 *)((int)&this->unk128 + 4) = 0;
           this->unk120 = 0;
           arg2 = arg2 & 0xff;
           uStack_9 = 0;
@@ -165,17 +167,17 @@ void __thiscall th06::MidiOutput::ProcessMsg(MidiOutput *this,MidiTrack *param_1
       uStack_9 = 0;
       while (CONCAT13(uStack_9,arg2._1_3_) < this->num_tracks) {
         local_2c->startTrackDataMaybe = local_2c->curTrackDataCursor;
-        local_2c->unk1c = local_2c->trackLengthMaybe;
+        local_2c->unk1c = local_2c->trackLengthOther;
         iVar6 = CONCAT13(uStack_9,arg2._1_3_) + 1;
         arg2._1_3_ = (undefined3)iVar6;
         local_2c = local_2c + 1;
         uStack_9 = (undefined)((uint)iVar6 >> 0x18);
       }
       this->unk2ec = this->unk120;
-      this->unk2f0 = this->unk128;
-      this->unk2f4 = this->unk12c;
-      this->unk2f8 = this->unk130;
-      this->unk2fc = this->unk134;
+      this->unk2f0 = *(uint *)&this->unk128;
+      this->unk2f4 = *(uint *)((int)&this->unk128 + 4);
+      this->unk2f8 = *(uint *)&this->unk130;
+      this->unk2fc = *(uint *)((int)&this->unk130 + 4);
       break;
     case 4:
                     /* Foot controller */
@@ -184,17 +186,17 @@ void __thiscall th06::MidiOutput::ProcessMsg(MidiOutput *this,MidiTrack *param_1
       uStack_9 = 0;
       while (CONCAT13(uStack_9,arg2._1_3_) < this->num_tracks) {
         local_30->curTrackDataCursor = local_30->startTrackDataMaybe;
-        local_30->trackLengthMaybe = local_30->unk1c;
+        local_30->trackLengthOther = local_30->unk1c;
         iVar6 = CONCAT13(uStack_9,arg2._1_3_) + 1;
         arg2._1_3_ = (undefined3)iVar6;
         local_30 = local_30 + 1;
         uStack_9 = (undefined)((uint)iVar6 >> 0x18);
       }
       this->unk120 = this->unk2ec;
-      this->unk128 = this->unk2f0;
-      this->unk12c = this->unk2f4;
-      this->unk130 = this->unk2f8;
-      this->unk134 = this->unk2fc;
+      *(uint *)&this->unk128 = this->unk2f0;
+      *(uint *)((int)&this->unk128 + 4) = this->unk2f4;
+      *(uint *)&this->unk130 = this->unk2f8;
+      *(uint *)((int)&this->unk130 + 4) = this->unk2fc;
       break;
     case 7:
                     /* Channel Volume */
@@ -232,7 +234,7 @@ void __thiscall th06::MidiOutput::ProcessMsg(MidiOutput *this,MidiTrack *param_1
   }
   param_1->opcode = opcode;
   iVar6 = SkipVariableLength((u8 **)&param_1->curTrackDataCursor);
-  param_1->trackLengthMaybe = param_1->trackLengthMaybe + iVar6;
+  param_1->trackLengthOther = param_1->trackLengthOther + iVar6;
   return;
 }
 

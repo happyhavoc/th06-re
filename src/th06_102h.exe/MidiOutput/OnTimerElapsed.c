@@ -2,21 +2,23 @@
 void __thiscall th06::MidiOutput::OnTimerElapsed(MidiOutput *this)
 
 {
-  bool bVar1;
-  uint uVar2;
+  int iVar1;
+  bool bVar2;
   uint uVar3;
-  undefined8 uVar4;
+  uint uVar4;
+  undefined8 uVar5;
   uint local_14;
   uint local_10;
   int local_8;
   
-  bVar1 = false;
-  uVar4 = __allmul(this->unk128,this->unk12c,this->divisons,this->divisons >> 0x1f);
-  uVar4 = __allmul(uVar4,1000,0);
-  uVar4 = __aulldiv(uVar4,this->unk120,this->unk120 >> 0x1f);
-  local_14 = this->unk130 + (uint)uVar4;
-  local_10 = this->unk134 + (int)((ulonglong)uVar4 >> 0x20) + (uint)CARRY4(this->unk130,(uint)uVar4)
-  ;
+  bVar2 = false;
+  uVar5 = __allmul(*(undefined4 *)&this->unk128,*(undefined4 *)((int)&this->unk128 + 4),
+                   this->divisons,this->divisons >> 0x1f);
+  uVar5 = __allmul(uVar5,1000,0);
+  uVar5 = __aulldiv(uVar5,this->unk120,this->unk120 >> 0x1f);
+  local_14 = *(uint *)&this->unk130 + (uint)uVar5;
+  local_10 = *(int *)((int)&this->unk130 + 4) + (int)((ulonglong)uVar5 >> 0x20) +
+             (uint)CARRY4(*(uint *)&this->unk130,(uint)uVar5);
   if (this->fadeOutFlag != 0) {
     if (this->fadeOutInterval <= this->fadeOutElapsedMS) {
       this->fadeOutVolumeMultiplier = 0.0;
@@ -24,38 +26,40 @@ void __thiscall th06::MidiOutput::OnTimerElapsed(MidiOutput *this)
     }
     this->fadeOutVolumeMultiplier =
          1.0 - (float)this->fadeOutElapsedMS / (float)this->fadeOutInterval;
-    uVar2 = __ftol2(this->fadeOutVolumeMultiplier * 128.0);
-    if (uVar2 != this->fadeOutLastSetVolume) {
+    uVar3 = __ftol2(this->fadeOutVolumeMultiplier * 128.0);
+    if (uVar3 != this->fadeOutLastSetVolume) {
       FadeOutSetVolume(this,0);
     }
-    uVar2 = __ftol2(this->fadeOutVolumeMultiplier * 128.0);
-    this->fadeOutLastSetVolume = uVar2;
+    uVar3 = __ftol2(this->fadeOutVolumeMultiplier * 128.0);
+    this->fadeOutLastSetVolume = uVar3;
     this->fadeOutElapsedMS = this->fadeOutElapsedMS + 1;
   }
   local_8 = 0;
   do {
     if (this->num_tracks <= local_8) {
-      uVar2 = this->unk128;
-      this->unk128 = uVar2 + 1;
-      this->unk12c = this->unk12c + (uint)(0xfffffffe < uVar2);
-      if (!bVar1) {
+      uVar3 = *(uint *)&this->unk128;
+      iVar1 = *(int *)((int)&this->unk128 + 4);
+      *(uint *)&this->unk128 = uVar3 + 1;
+      *(uint *)((int)&this->unk128 + 4) = iVar1 + (uint)(0xfffffffe < uVar3);
+      if (!bVar2) {
         LoadTracks(this);
       }
       return;
     }
     if (this->tracks[local_8].trackPlaying != 0) {
-      bVar1 = true;
+      bVar2 = true;
       while (this->tracks[local_8].trackPlaying != 0) {
-        uVar2 = this->tracks[local_8].trackLengthMaybe;
-        uVar3 = (int)uVar2 >> 0x1f;
-        if ((local_10 < uVar3) || ((local_10 <= uVar3 && (local_14 < uVar2)))) break;
+        uVar3 = this->tracks[local_8].trackLengthOther;
+        uVar4 = (int)uVar3 >> 0x1f;
+        if ((local_10 < uVar4) || ((local_10 <= uVar4 && (local_14 < uVar3)))) break;
         ProcessMsg(this,this->tracks + local_8);
-        uVar4 = __allmul(this->unk128,this->unk12c,this->divisons,this->divisons >> 0x1f);
-        uVar4 = __allmul(uVar4,1000,0);
-        uVar4 = __aulldiv(uVar4,this->unk120,this->unk120 >> 0x1f);
-        local_14 = this->unk130 + (uint)uVar4;
-        local_10 = this->unk134 + (int)((ulonglong)uVar4 >> 0x20) +
-                   (uint)CARRY4(this->unk130,(uint)uVar4);
+        uVar5 = __allmul(*(undefined4 *)&this->unk128,*(undefined4 *)((int)&this->unk128 + 4),
+                         this->divisons,this->divisons >> 0x1f);
+        uVar5 = __allmul(uVar5,1000,0);
+        uVar5 = __aulldiv(uVar5,this->unk120,this->unk120 >> 0x1f);
+        local_14 = *(uint *)&this->unk130 + (uint)uVar5;
+        local_10 = *(int *)((int)&this->unk130 + 4) + (int)((ulonglong)uVar5 >> 0x20) +
+                   (uint)CARRY4(*(uint *)&this->unk130,(uint)uVar5);
       }
     }
     local_8 = local_8 + 1;

@@ -74,7 +74,7 @@ void __thiscall th06::MidiOutput::ParseFile(MidiOutput *this,int fileIdx)
     pMVar1 = this->tracks;
     for (uVar3 = (uint)(this->num_tracks << 5) >> 2; uVar3 != 0; uVar3 = uVar3 - 1) {
       pMVar1->trackPlaying = 0;
-      pMVar1 = (MidiTrack *)&pMVar1->trackLengthMaybe;
+      pMVar1 = (MidiTrack *)&pMVar1->trackLengthOther;
     }
                     /* memset again??? */
     for (iVar4 = 0; iVar4 != 0; iVar4 = iVar4 + -1) {

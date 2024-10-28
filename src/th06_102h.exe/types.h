@@ -984,18 +984,16 @@ struct MidiOutput {
     int divisons;
     int unk120;
     undefined4 unk124;
-    uint unk128;
-    uint unk12c;
-    uint unk130;
-    uint unk134;
+    double unk128;
+    double unk130;
     struct MidiTrack *tracks;
     struct MidiDevice midiOutDev;
     byte unk144[16];
     struct MidiChannel channels[16]; /* Most values only ever written, never read */
     byte unk2c4;
-    undefined field18_0x2c5;
-    undefined field19_0x2c6;
-    undefined field20_0x2c7;
+    undefined field16_0x2c5;
+    undefined field17_0x2c6;
+    undefined field18_0x2c7;
     float fadeOutVolumeMultiplier;
     uint fadeOutLastSetVolume;
     uint unk2d0;
@@ -1033,7 +1031,7 @@ struct HMIDIOUT__ {
 
 struct MidiTrack {
     uint trackPlaying;
-    uint trackLengthMaybe;
+    uint trackLengthOther;
     uint track_length;
     byte opcode;
     undefined field4_0xd;

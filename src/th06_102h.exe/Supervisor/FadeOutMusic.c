@@ -2,12 +2,12 @@
 ZunResult __thiscall th06::Supervisor::FadeOutMusic(Supervisor *this,float fadeOutSeconds)
 
 {
-  long lVar1;
+  uint ms;
   
   if (g_Supervisor.cfg.musicMode == MIDI) {
     if (g_Supervisor.midi_output != (MidiOutput *)0x0) {
-      lVar1 = __ftol2(fadeOutSeconds * 1000.0);
-      MidiOutput::SetFadeOut(g_Supervisor.midi_output,lVar1);
+      ms = __ftol2(fadeOutSeconds * 1000.0);
+      MidiOutput::SetFadeOut(g_Supervisor.midi_output,ms);
     }
   }
   else {

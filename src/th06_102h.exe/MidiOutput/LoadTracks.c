@@ -18,7 +18,7 @@ void __thiscall th06::MidiOutput::LoadTracks(MidiOutput *this)
     tracksPtr->curTrackDataCursor = tracksPtr->trackData;
     tracksPtr->startTrackDataMaybe = tracksPtr->curTrackDataCursor;
     tracksPtr->trackPlaying = 1;
-    uVar1 = SkipVariableLength(&tracksPtr->curTrackDataCursor);
+    uVar1 = SkipVariableLength((u8 **)&tracksPtr->curTrackDataCursor);
     tracksPtr->trackLengthMaybe = uVar1;
     tracksPtr = tracksPtr + 1;
   }

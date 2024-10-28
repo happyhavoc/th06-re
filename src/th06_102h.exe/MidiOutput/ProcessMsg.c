@@ -57,7 +57,7 @@ void __thiscall th06::MidiOutput::ProcessMsg(MidiOutput *this,MidiTrack *param_1
       pMVar1 = (MIDIHDR *)_malloc(0x40);
       this->midiHeaders[this->midiHeadersCursor] = pMVar1;
       pmh = this->midiHeaders[this->midiHeadersCursor];
-      iVar6 = SkipVariableLength(&param_1->curTrackDataCursor);
+      iVar6 = SkipVariableLength((u8 **)&param_1->curTrackDataCursor);
       pmVar8 = pmh;
       for (iVar7 = 0x10; iVar7 != 0; iVar7 = iVar7 + -1) {
         pmVar8->lpData = (LPSTR)0x0;
@@ -97,7 +97,7 @@ void __thiscall th06::MidiOutput::ProcessMsg(MidiOutput *this,MidiTrack *param_1
                     /* WARNING: Load size is inaccurate */
         cVar1 = *param_1->curTrackDataCursor;
         param_1->curTrackDataCursor = (void *)((int)param_1->curTrackDataCursor + 1);
-        iVar6 = SkipVariableLength(&param_1->curTrackDataCursor);
+        iVar6 = SkipVariableLength((u8 **)&param_1->curTrackDataCursor);
                     /* End of Track */
         if (cVar1 == 0x2f) {
           param_1->trackPlaying = 0;
@@ -231,7 +231,7 @@ void __thiscall th06::MidiOutput::ProcessMsg(MidiOutput *this,MidiTrack *param_1
     MidiDevice::SendShortMsg(&this->midiOutDev,opcode,arg1,(byte)arg2);
   }
   param_1->opcode = opcode;
-  iVar6 = SkipVariableLength(&param_1->curTrackDataCursor);
+  iVar6 = SkipVariableLength((u8 **)&param_1->curTrackDataCursor);
   param_1->trackLengthMaybe = param_1->trackLengthMaybe + iVar6;
   return;
 }

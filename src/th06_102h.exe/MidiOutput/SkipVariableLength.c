@@ -1,23 +1,20 @@
 
-int th06::MidiOutput::SkipVariableLength(void *curTrackDataCursor)
+int th06::MidiOutput::SkipVariableLength(u8 **curTrackDataCursor)
 
 {
-  int iVar2;
-  undefined3 uStack_8;
-  undefined uStack_5;
-  byte bVar1;
+  uint length;
+  uint length_alias;
+  byte tmp;
   
-  uStack_8 = 0;
-  uStack_5 = 0;
+  length_alias._0_3_ = 0;
+  length_alias._3_1_ = 0;
   do {
-                    /* WARNING: Load size is inaccurate */
-    bVar1 = **curTrackDataCursor;
-                    /* WARNING: Load size is inaccurate */
-    *(int *)curTrackDataCursor = *curTrackDataCursor + 1;
-    iVar2 = CONCAT13(uStack_5,uStack_8) * 0x80 + (bVar1 & 0x7f);
-    uStack_8 = (undefined3)iVar2;
-    uStack_5 = (undefined)((uint)iVar2 >> 0x18);
-  } while ((bVar1 & 0x80) != 0);
-  return iVar2;
+    tmp = **curTrackDataCursor;
+    *curTrackDataCursor = *curTrackDataCursor + 1;
+    length = CONCAT13(length_alias._3_1_,(undefined3)length_alias) * 0x80 + (tmp & 0x7f);
+    length_alias._0_3_ = (undefined3)length;
+    length_alias._3_1_ = (undefined)(length >> 0x18);
+  } while ((tmp & 0x80) != 0);
+  return length;
 }
 

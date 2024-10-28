@@ -25,16 +25,16 @@ ZunResult th06::Ending::RegisterChain(void)
   }
   local_8 = -1;
   createChain = Chain::CreateElem(&g_Chain,OnUpdate);
-  *(ChainElem **)endingChainElem = createChain;
-  (*(ChainElem **)endingChainElem)->arg = endingChainElem;
-  (*(ChainElem **)endingChainElem)->addedCallback = AddedCallback;
-  (*(ChainElem **)endingChainElem)->deletedCallback = DeletedCallback;
-  iVar1 = Chain::AddToCalcChain(&g_Chain,*(ChainElem **)endingChainElem,3);
+  endingChainElem->calcChain = createChain;
+  endingChainElem->calcChain->arg = endingChainElem;
+  endingChainElem->calcChain->addedCallback = AddedCallback;
+  endingChainElem->calcChain->deletedCallback = DeletedCallback;
+  iVar1 = Chain::AddToCalcChain(&g_Chain,endingChainElem->calcChain,3);
   if (iVar1 == 0) {
     createChain = Chain::CreateElem(&g_Chain,OnDraw);
-    endingChainElem->chainElem = createChain;
-    endingChainElem->chainElem->arg = endingChainElem;
-    Chain::AddToDrawChain(&g_Chain,endingChainElem->chainElem,1);
+    endingChainElem->drawChain = createChain;
+    endingChainElem->drawChain->arg = endingChainElem;
+    Chain::AddToDrawChain(&g_Chain,endingChainElem->drawChain,1);
     result = ZUN_SUCCESS;
   }
   else {

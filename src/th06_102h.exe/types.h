@@ -1600,34 +1600,16 @@ struct BulletManager {
 
 typedef struct Ending Ending, *PEnding;
 
+typedef int ZunBool;
+
 struct Ending {
-    undefined field0_0x0;
-    undefined field1_0x1;
-    undefined field2_0x2;
-    undefined field3_0x3;
-    struct ChainElem *chainElem;
-    struct ZunTimer anmTimer4;
-    struct AnmVm AnmVm;
-    struct AnmVm field7_0x124;
-    struct AnmVm field8_0x234;
-    struct AnmVm field9_0x344;
-    struct AnmVm field10_0x454;
-    struct AnmVm field11_0x564;
-    struct AnmVm field12_0x674;
-    struct AnmVm field13_0x784;
-    struct AnmVm field14_0x894;
-    struct AnmVm field15_0x9a4;
-    struct AnmVm field16_0xab4;
-    struct AnmVm field17_0xbc4;
-    struct AnmVm field18_0xcd4;
-    struct AnmVm field19_0xde4;
-    struct AnmVm field20_0xef4;
-    struct AnmVm field21_0x1004;
+    struct ChainElem *calcChain;
+    struct ChainElem *drawChain;
+    struct ZunVec2 backgroundPos;
+    float backgroundScrollSpeed;
+    struct AnmVm sprites[16];
     char *endFileData;
-    undefined1 unk_dependent_on_clrd;
-    undefined field24_0x1119;
-    undefined field25_0x111a;
-    undefined field26_0x111b;
+    ZunBool hasSeenEnding;
     struct ZunTimer Timer1;
     struct ZunTimer Timer2;
     struct ZunTimer Timer3;
@@ -1635,13 +1617,10 @@ struct Ending {
     long minWaitFrames;
     long line2Delay;
     long topLineDelay;
-    undefined field34_0x1150;
-    undefined field35_0x1151;
-    undefined field36_0x1152;
-    undefined field37_0x1153;
+    int unk_1150;
     int possibly_times_file_parsed;
     long textColor;
-    D3DCOLOR unk_d3dcolor;
+    D3DCOLOR endingFadeRectColor;
     int timeFading;
     long fadeFrames;
     int fadeType;

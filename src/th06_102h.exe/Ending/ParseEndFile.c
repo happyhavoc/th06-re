@@ -49,7 +49,7 @@ ZunResult __thiscall th06::Ending::ParseEndFile(Ending *this)
     if (this->minWaitResetFrames == 0) {
       if ((((g_CurFrameInput & 0x1001) != 0) &&
           ((g_CurFrameInput & 0x1001) != (g_LastFrameInput & 0x1001))) ||
-         ((*(int *)&this->unk_dependent_on_clrd != 0 && ((g_CurFrameInput & 0x100) != 0)))) {
+         ((this->hasSeenEnding != 0 && ((g_CurFrameInput & 0x100) != 0)))) {
         (this->Timer3).current = 0;
         (this->Timer3).subFrame = 0.0;
         (this->Timer3).previous = -999;
@@ -60,7 +60,7 @@ ZunResult __thiscall th06::Ending::ParseEndFile(Ending *this)
       this->minWaitResetFrames = this->minWaitResetFrames + -1;
     }
     if (0 < (this->Timer3).current) goto LAB_00410546;
-    anmvm_ref = &this->AnmVm;
+    anmvm_ref = this->sprites;
     for (anmUnk = 1088; anmUnk != 0; anmUnk = anmUnk + -1) {
       (anmvm_ref->rotation).x = 0.0;
       anmvm_ref = (AnmVm *)&(anmvm_ref->rotation).y;
@@ -85,12 +85,12 @@ ZunResult __thiscall th06::Ending::ParseEndFile(Ending *this)
           anmUnk = this->possibly_times_file_parsed;
           local_ac = (short)local_8 + 1800 + (short)anmUnk * 2;
           anmScriptIdx = this->possibly_times_file_parsed;
-          (&this->AnmVm)[local_8 + anmScriptIdx * 2].anmFileIndex = local_ac;
+          this->sprites[local_8 + anmScriptIdx * 2].anmFileIndex = local_ac;
           AnmManager::SetAndExecuteScript
-                    (pAVar2,&this->AnmVm + local_8 + anmScriptIdx * 2,
+                    (pAVar2,this->sprites + local_8 + anmScriptIdx * 2,
                      pAVar2->scripts[anmUnk * 2 + local_8 + 0x708]);
           AnmManager::DrawVmTextFmt
-                    (g_AnmManager,&this->AnmVm + local_8 + this->possibly_times_file_parsed * 2,
+                    (g_AnmManager,this->sprites + local_8 + this->possibly_times_file_parsed * 2,
                      (ZunColor)this->textColor,(ZunColor)0xc0d0d0,&local_34);
           if (local_8 != 0) goto LAB_00410546;
           local_8 = 1;
@@ -152,7 +152,7 @@ ZunResult __thiscall th06::Ending::ParseEndFile(Ending *this)
                        Clrd->difficulty_cleared_without_retries */
                 if ((*(char *)(exec_outer * 0x18 + 0x69ccdc + exec_inner) == 99) ||
                    (*(char *)(exec_outer * 0x18 + 0x69cce1 + exec_inner) == 99)) {
-                  *(undefined4 *)&this->unk_dependent_on_clrd = 1;
+                  this->hasSeenEnding = 1;
                   break;
                 }
               }
@@ -172,7 +172,7 @@ switchD_0040fa93_caseD_52:
                     /* staffroll()
                        Assumingly this clears the entire anm stack allocated for Ending. */
           for (staffroll_loop = 0; staffroll_loop < 16; staffroll_loop = staffroll_loop + 1) {
-            (&this->AnmVm)[staffroll_loop].anmFileIndex = 0;
+            this->sprites[staffroll_loop].anmFileIndex = 0;
           }
           break;
         case 'V':
@@ -180,7 +180,7 @@ switchD_0040fa93_caseD_52:
           this->endFileDataPtr = this->endFileDataPtr + 1;
           scrollBGDistance = ReadEndFileParameter(this);
           scrollBGDuration = ReadEndFileParameter(this);
-          (this->anmTimer4).current = (int)((float)scrollBGDistance / (float)scrollBGDuration);
+          this->backgroundScrollSpeed = (float)scrollBGDistance / (float)scrollBGDuration;
           break;
         case 'a':
                     /* anm(???, script_index?, sprite_index?) */
@@ -188,8 +188,8 @@ switchD_0040fa93_caseD_52:
           anmUnk = ReadEndFileParameter(this);
           anmScriptIdx = ReadEndFileParameter(this);
           anmSpriteIdx = ReadEndFileParameter(this);
-          AnmManager::ExecuteAnmIdx(g_AnmManager,&this->AnmVm + anmUnk,anmScriptIdx + 0x600);
-          AnmManager::SetActiveSprite(g_AnmManager,&this->AnmVm + anmUnk,anmSpriteIdx + 0x600);
+          AnmManager::ExecuteAnmIdx(g_AnmManager,this->sprites + anmUnk,anmScriptIdx + 0x600);
+          AnmManager::SetActiveSprite(g_AnmManager,this->sprites + anmUnk,anmSpriteIdx + 0x600);
           break;
         case 'b':
                     /* background(jpg_file) */
@@ -237,7 +237,7 @@ switchD_0040fa93_caseD_52:
                     /* setscroll(newVertCoordinate) */
           this->endFileDataPtr = this->endFileDataPtr + 1;
           newVertCoordinate = ReadEndFileParameter(this);
-          (this->anmTimer4).subFrame = (float)newVertCoordinate;
+          (this->backgroundPos).y = (float)newVertCoordinate;
           break;
         case 'w':
                     /* wait(maxFrames, minFrames) */
@@ -272,7 +272,7 @@ switchD_0040fa93_caseD_52:
   if (this->minWaitFrames == 0) {
     if ((((g_CurFrameInput & 0x1001) != 0) &&
         ((g_CurFrameInput & 0x1001) != (g_LastFrameInput & 0x1001))) ||
-       ((*(int *)&this->unk_dependent_on_clrd != 0 && ((g_CurFrameInput & 0x100) != 0)))) {
+       ((this->hasSeenEnding != 0 && ((g_CurFrameInput & 0x100) != 0)))) {
       (this->Timer2).current = 0;
       (this->Timer2).subFrame = 0.0;
       (this->Timer2).previous = -999;
@@ -287,12 +287,12 @@ switchD_0040fa32_caseD_0:
     anmUnk = this->possibly_times_file_parsed;
     local_90 = (short)local_8 + 0x708 + (short)anmUnk * 2;
     anmScriptIdx = this->possibly_times_file_parsed;
-    (&this->AnmVm)[local_8 + anmScriptIdx * 2].anmFileIndex = local_90;
+    this->sprites[local_8 + anmScriptIdx * 2].anmFileIndex = local_90;
     AnmManager::SetAndExecuteScript
-              (pAVar2,&this->AnmVm + local_8 + anmScriptIdx * 2,
+              (pAVar2,this->sprites + local_8 + anmScriptIdx * 2,
                pAVar2->scripts[anmUnk * 2 + local_8 + 0x708]);
     AnmManager::DrawVmTextFmt
-              (g_AnmManager,&this->AnmVm + local_8 + this->possibly_times_file_parsed * 2,
+              (g_AnmManager,this->sprites + local_8 + this->possibly_times_file_parsed * 2,
                (ZunColor)this->textColor,(ZunColor)0xc0d0d0,&local_34);
   }
   while (((*this->endFileDataPtr == '\n' || (*this->endFileDataPtr == '\0')) ||
@@ -316,11 +316,11 @@ switchD_0040fa32_caseD_0:
 LAB_00410546:
   (this->Timer1).previous = (this->Timer1).current;
   Supervisor::TickTimer(&g_Supervisor,&(this->Timer1).current,&(this->Timer1).subFrame);
-  (this->anmTimer4).subFrame = (this->anmTimer4).subFrame - (float)(this->anmTimer4).current;
-  fVar1 = (this->anmTimer4).subFrame;
+  (this->backgroundPos).y = (this->backgroundPos).y - this->backgroundScrollSpeed;
+  fVar1 = (this->backgroundPos).y;
   if (fVar1 < 0.0 != (fVar1 == 0.0)) {
-    (this->anmTimer4).subFrame = 0.0;
-    (this->anmTimer4).current = 0;
+    (this->backgroundPos).y = 0.0;
+    this->backgroundScrollSpeed = 0.0;
   }
   backgroundSurface = ZUN_SUCCESS;
 endParsing:

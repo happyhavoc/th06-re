@@ -9,7 +9,7 @@ Ending * __thiscall th06::Ending::Ending(Ending *this)
   
                     /* Init all 16 vms. */
   vm_list_length = 16;
-  vm_ref = &this->AnmVm;
+  vm_ref = this->sprites;
   while (vm_list_length = vm_list_length + -1, -1 < vm_list_length) {
     AnmVm::AnmVm(vm_ref);
     vm_ref = vm_ref + 1;
@@ -20,8 +20,8 @@ Ending * __thiscall th06::Ending::Ending(Ending *this)
   pEVar2 = this;
                     /* memset? */
   for (iVar1 = 1116; iVar1 != 0; iVar1 = iVar1 + -1) {
-    *(undefined4 *)pEVar2 = 0;
-    pEVar2 = (Ending *)&pEVar2->chainElem;
+    pEVar2->calcChain = (ChainElem *)0x0;
+    pEVar2 = (Ending *)&pEVar2->drawChain;
   }
   this->line2Delay = 8;
   (this->Timer2).current = 0;
@@ -30,9 +30,9 @@ Ending * __thiscall th06::Ending::Ending(Ending *this)
   (this->Timer1).current = 0;
   (this->Timer1).subFrame = 0.0;
   (this->Timer1).previous = -999;
-  (this->anmTimer4).previous = 0;
-  (this->anmTimer4).subFrame = 0.0;
-  (this->anmTimer4).current = 0;
+  (this->backgroundPos).x = 0.0;
+  (this->backgroundPos).y = 0.0;
+  this->backgroundScrollSpeed = 0.0;
   return this;
 }
 

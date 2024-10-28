@@ -1,14 +1,13 @@
 
-i32 __thiscall th06::Ending::ParseEndFile(Ending *this)
+ZunResult __thiscall th06::Ending::ParseEndFile(Ending *this)
 
 {
   float fVar1;
-  int iVar2;
-  AnmManager *pAVar3;
+  AnmManager *pAVar2;
   ZunResult backgroundSurface;
-  long anmUnk;
-  long anmScriptIdx;
-  long anmSpriteIdx;
+  int anmUnk;
+  int anmScriptIdx;
+  int anmSpriteIdx;
   long scrollBGDistance;
   long scrollBGDuration;
   long newVertCoordinate;
@@ -22,10 +21,8 @@ i32 __thiscall th06::Ending::ParseEndFile(Ending *this)
   long fadeOutBlackFrames;
   long fadeInFrames;
   long fadeOutFrames;
-  i32 iVar4;
-  int i;
   AnmVm *anmvm_ref;
-  undefined4 *puVar5;
+  undefined4 *puVar3;
   uint unaff_retaddr;
   short local_ac;
   short local_90;
@@ -41,12 +38,12 @@ i32 __thiscall th06::Ending::ParseEndFile(Ending *this)
   local_c = __security_cookie ^ unaff_retaddr;
   local_8 = 0;
   local_38 = 0;
-  puVar5 = (undefined4 *)&local_34;
-  for (i = 9; i != 0; i = i + -1) {
-    *puVar5 = 0;
-    puVar5 = puVar5 + 1;
+  puVar3 = (undefined4 *)&local_34;
+  for (anmUnk = 9; anmUnk != 0; anmUnk = anmUnk + -1) {
+    *puVar3 = 0;
+    puVar3 = puVar3 + 1;
   }
-  *(undefined2 *)puVar5 = 0;
+  *(undefined2 *)puVar3 = 0;
   if (0 < (this->Timer3).current) {
     ZunTimer::Decrement(&this->Timer3,1);
     if (this->minWaitResetFrames == 0) {
@@ -64,7 +61,7 @@ i32 __thiscall th06::Ending::ParseEndFile(Ending *this)
     }
     if (0 < (this->Timer3).current) goto LAB_00410546;
     anmvm_ref = &this->AnmVm;
-    for (i = 1088; i != 0; i = i + -1) {
+    for (anmUnk = 1088; anmUnk != 0; anmUnk = anmUnk + -1) {
       (anmvm_ref->rotation).x = 0.0;
       anmvm_ref = (AnmVm *)&(anmvm_ref->rotation).y;
     }
@@ -72,7 +69,7 @@ i32 __thiscall th06::Ending::ParseEndFile(Ending *this)
   }
   if ((this->Timer2).current < 1) {
     do {
-      pAVar3 = g_AnmManager;
+      pAVar2 = g_AnmManager;
       switch(*this->endFileDataPtr) {
       case '\0':
       case '\n':
@@ -83,27 +80,27 @@ i32 __thiscall th06::Ending::ParseEndFile(Ending *this)
         acStack_33[local_38] = this->endFileDataPtr[1];
         local_38 = local_38 + 2;
         this->endFileDataPtr = this->endFileDataPtr + 2;
-        pAVar3 = g_AnmManager;
+        pAVar2 = g_AnmManager;
         if (31 < local_38) {
-          i = this->possibly_times_file_parsed;
-          local_ac = (short)local_8 + 1800 + (short)i * 2;
-          iVar2 = this->possibly_times_file_parsed;
-          (&this->AnmVm)[local_8 + iVar2 * 2].anmFileIndex = local_ac;
+          anmUnk = this->possibly_times_file_parsed;
+          local_ac = (short)local_8 + 1800 + (short)anmUnk * 2;
+          anmScriptIdx = this->possibly_times_file_parsed;
+          (&this->AnmVm)[local_8 + anmScriptIdx * 2].anmFileIndex = local_ac;
           AnmManager::SetAndExecuteScript
-                    (pAVar3,&this->AnmVm + local_8 + iVar2 * 2,
-                     pAVar3->scripts[i * 2 + local_8 + 0x708]);
+                    (pAVar2,&this->AnmVm + local_8 + anmScriptIdx * 2,
+                     pAVar2->scripts[anmUnk * 2 + local_8 + 0x708]);
           AnmManager::DrawVmTextFmt
                     (g_AnmManager,&this->AnmVm + local_8 + this->possibly_times_file_parsed * 2,
                      (ZunColor)this->textColor,(ZunColor)0xc0d0d0,&local_34);
           if (local_8 != 0) goto LAB_00410546;
           local_8 = 1;
           local_38 = 0;
-          puVar5 = (undefined4 *)&local_34;
-          for (i = 9; i != 0; i = i + -1) {
-            *puVar5 = 0;
-            puVar5 = puVar5 + 1;
+          puVar3 = (undefined4 *)&local_34;
+          for (anmUnk = 9; anmUnk != 0; anmUnk = anmUnk + -1) {
+            *puVar3 = 0;
+            puVar3 = puVar3 + 1;
           }
-          *(undefined2 *)puVar5 = 0;
+          *(undefined2 *)puVar3 = 0;
         }
         break;
       case '@':
@@ -162,7 +159,7 @@ i32 __thiscall th06::Ending::ParseEndFile(Ending *this)
             }
             goto switchD_0040fa93_caseD_52;
           }
-          iVar4 = -1;
+          backgroundSurface = ZUN_ERROR;
           goto endParsing;
         case 'M':
                     /* musicfade(duration) */
@@ -198,7 +195,7 @@ switchD_0040fa93_caseD_52:
                     /* background(jpg_file) */
           backgroundSurface = AnmManager::LoadSurface(g_AnmManager,0,this->endFileDataPtr + 1);
           if (backgroundSurface != ZUN_SUCCESS) {
-            iVar4 = -1;
+            backgroundSurface = ZUN_ERROR;
             goto endParsing;
           }
           break;
@@ -259,7 +256,7 @@ switchD_0040fa93_caseD_52:
           }
           goto LAB_00410546;
         case 'z':
-          iVar4 = -1;
+          backgroundSurface = ZUN_ERROR;
           goto endParsing;
         }
         while ((*this->endFileDataPtr != '\n' && (*this->endFileDataPtr != '\r'))) {
@@ -287,12 +284,13 @@ switchD_0040fa93_caseD_52:
   goto LAB_00410546;
 switchD_0040fa32_caseD_0:
   if (local_38 != 0) {
-    i = this->possibly_times_file_parsed;
-    local_90 = (short)local_8 + 0x708 + (short)i * 2;
-    iVar2 = this->possibly_times_file_parsed;
-    (&this->AnmVm)[local_8 + iVar2 * 2].anmFileIndex = local_90;
+    anmUnk = this->possibly_times_file_parsed;
+    local_90 = (short)local_8 + 0x708 + (short)anmUnk * 2;
+    anmScriptIdx = this->possibly_times_file_parsed;
+    (&this->AnmVm)[local_8 + anmScriptIdx * 2].anmFileIndex = local_90;
     AnmManager::SetAndExecuteScript
-              (pAVar3,&this->AnmVm + local_8 + iVar2 * 2,pAVar3->scripts[i * 2 + local_8 + 0x708]);
+              (pAVar2,&this->AnmVm + local_8 + anmScriptIdx * 2,
+               pAVar2->scripts[anmUnk * 2 + local_8 + 0x708]);
     AnmManager::DrawVmTextFmt
               (g_AnmManager,&this->AnmVm + local_8 + this->possibly_times_file_parsed * 2,
                (ZunColor)this->textColor,(ZunColor)0xc0d0d0,&local_34);
@@ -324,9 +322,9 @@ LAB_00410546:
     (this->anmTimer4).subFrame = 0.0;
     (this->anmTimer4).current = 0;
   }
-  iVar4 = 0;
+  backgroundSurface = ZUN_SUCCESS;
 endParsing:
   __security_check_cookie(local_c ^ unaff_retaddr);
-  return iVar4;
+  return backgroundSurface;
 }
 

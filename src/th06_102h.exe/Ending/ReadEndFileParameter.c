@@ -1,5 +1,5 @@
 
-long __thiscall th06::Ending::ReadEndFileParameter(Ending *this)
+int __thiscall th06::Ending::ReadEndFileParameter(Ending *this)
 
 {
   long read_result;

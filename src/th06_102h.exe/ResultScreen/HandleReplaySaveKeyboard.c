@@ -1,5 +1,5 @@
 
-void __thiscall th06::ResultScreen::FUN_0042c2d4(ResultScreen *this)
+void __thiscall th06::ResultScreen::HandleReplaySaveKeyboard(ResultScreen *this)
 
 {
   ZunResult ZVar1;
@@ -19,7 +19,7 @@ void __thiscall th06::ResultScreen::FUN_0042c2d4(ResultScreen *this)
   AnmVm *local_8;
   
   local_18 = __security_cookie ^ unaff_retaddr;
-  iVar2 = this->unk_8;
+  iVar2 = this->resultScreenState;
   if (iVar2 == 10) {
     if (this->field1_0x4 == 0x3c) {
       if (g_GameManager.num_retries == 0) {
@@ -39,7 +39,7 @@ void __thiscall th06::ResultScreen::FUN_0042c2d4(ResultScreen *this)
         local_8 = local_8 + 1;
       }
       if (local_c != 9) {
-        this->unk_8 = 0xb;
+        this->resultScreenState = 0xb;
       }
       this->cursor = 0;
     }
@@ -66,7 +66,7 @@ void __thiscall th06::ResultScreen::FUN_0042c2d4(ResultScreen *this)
     }
     this->field1_0x4 = 0;
     SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,SOUND_BACK,0);
-    this->unk_8 = 2;
+    this->resultScreenState = 2;
     local_8 = &this->unk_40;
     for (local_10 = 0; local_10 < 0x26; local_10 = local_10 + 1) {
       *(undefined2 *)((int)&local_8->matrix + 0x4a) = 2;
@@ -82,7 +82,7 @@ void __thiscall th06::ResultScreen::FUN_0042c2d4(ResultScreen *this)
       {
         this->field1_0x4 = 0;
         SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,SOUND_BACK,0);
-        this->unk_8 = 2;
+        this->resultScreenState = 2;
         local_8 = &this->unk_40;
         for (local_10 = 0; local_10 < 0x26; local_10 = local_10 + 1) {
           *(undefined2 *)((int)&local_8->matrix + 0x4a) = 2;
@@ -161,7 +161,7 @@ void __thiscall th06::ResultScreen::FUN_0042c2d4(ResultScreen *this)
             sprintf(replayPath,"./replay/th6_%.2d.rpy",*(int *)&this->field_0x1c + 1);
             SaveReplay(replayPath,&this->field_0x34);
             this->field1_0x4 = 0;
-            this->unk_8 = 2;
+            this->resultScreenState = 2;
             local_8 = &this->unk_40;
             for (local_10 = 0; local_10 < 0x26; local_10 = local_10 + 1) {
               *(undefined2 *)((int)&local_8->matrix + 0x4a) = 2;
@@ -220,14 +220,14 @@ void __thiscall th06::ResultScreen::FUN_0042c2d4(ResultScreen *this)
             }
             local_8 = &this->field56_0x17a0 + *(int *)&this->field_0x1c;
             *(undefined2 *)((int)&local_8->matrix + 0x4a) = 0xe;
-            this->unk_8 = 0xd;
+            this->resultScreenState = 0xd;
             goto LAB_0042d095;
           }
         }
       }
 LAB_0042c515:
       SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,SOUND_SELECT,0);
-      this->unk_8 = 0xc;
+      this->resultScreenState = 0xc;
       local_8 = &this->unk_40;
       for (local_10 = 0; local_10 < 0x26; local_10 = local_10 + 1) {
         *(undefined2 *)((int)&local_8->matrix + 0x4a) = 10;
@@ -274,7 +274,7 @@ LAB_0042c515:
           }
           local_8 = &this->field56_0x17a0 + *(int *)&this->field_0x1c;
           *(undefined2 *)((int)&local_8->matrix + 0x4a) = 0xe;
-          this->unk_8 = 0xe;
+          this->resultScreenState = 0xe;
         }
         else {
           local_8 = &this->unk_40;
@@ -284,14 +284,14 @@ LAB_0042c515:
           }
           local_8 = &this->field56_0x17a0 + *(int *)&this->field_0x1c;
           *(undefined2 *)((int)&local_8->matrix + 0x4a) = 0xe;
-          this->unk_8 = 0xd;
+          this->resultScreenState = 0xd;
         }
         this->cursor = 0;
         this->possibly_selected_character = 0;
       }
       if (((g_CurFrameInput & 10) != 0) && ((g_CurFrameInput & 10) != (g_LastFrameInput & 10))) {
         SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,SOUND_BACK,0);
-        this->unk_8 = 10;
+        this->resultScreenState = 10;
         local_8 = &this->unk_40;
         for (local_10 = 0; local_10 < 0x26; local_10 = local_10 + 1) {
           *(undefined2 *)((int)&local_8->matrix + 0x4a) = 2;

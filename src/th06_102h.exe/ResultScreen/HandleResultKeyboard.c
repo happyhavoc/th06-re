@@ -1,5 +1,5 @@
 
-undefined4 __thiscall th06::ResultScreen::FUN_0042bc85(ResultScreen *this)
+undefined4 __thiscall th06::ResultScreen::HandleResultKeyboard(ResultScreen *this)
 
 {
   Hscr *out;
@@ -10,10 +10,10 @@ undefined4 __thiscall th06::ResultScreen::FUN_0042bc85(ResultScreen *this)
   
   if (this->field1_0x4 == 0) {
     this->charUsed = (uint)g_GameManager.character;
-    this->field17_0x2c = (int *)g_GameManager.difficulty;
+    this->diffPlayed = (int *)g_GameManager.difficulty;
     local_c = &this->unk_40;
     for (local_8 = 0; local_8 < 0x26; local_8 = local_8 + 1) {
-      local_c->pendingInterrupt = (short)this->field17_0x2c + 3;
+      local_c->pendingInterrupt = (short)this->diffPlayed + 3;
       local_c = local_c + 1;
     }
     AnmManager::DrawStringFormat2
@@ -29,7 +29,7 @@ undefined4 __thiscall th06::ResultScreen::FUN_0042bc85(ResultScreen *this)
       (this->field73_0x29b0).color.color = 0x80ffffff;
     }
     (this->hscr).character = g_GameManager.shottype + (char)this->charUsed * '\x02';
-    (this->hscr).difficulty = *(byte *)&this->field17_0x2c;
+    (this->hscr).difficulty = *(byte *)&this->diffPlayed;
     (this->hscr).score = g_GameManager.score;
     (this->hscr).base.version_ = '\x10';
     (this->hscr).base.magic = 0x52435348;
@@ -42,7 +42,7 @@ undefined4 __thiscall th06::ResultScreen::FUN_0042bc85(ResultScreen *this)
     (this->hscr).base.field_0x9 = 1;
     _strcpy((this->hscr).name,"        ");
     out = &this->hscr;
-    LinkScoreEx(this,out,(int)this->field17_0x2c,(uint)g_GameManager.shottype + this->charUsed * 2);
+    LinkScoreEx(this,out,(int)this->diffPlayed,(uint)g_GameManager.shottype + this->charUsed * 2);
     if (9 < (int)out) goto LAB_0042c273;
     this->cursor = 0;
     _strcpy(&this->field_0x34,"");
@@ -141,7 +141,7 @@ LAB_0042c173:
   }
   SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,SOUND_BACK,0);
 LAB_0042c273:
-  this->unk_8 = 0xf;
+  this->resultScreenState = 0xf;
   this->field1_0x4 = 0;
   local_c = &this->unk_40;
   for (local_8 = 0; local_8 < 0x26; local_8 = local_8 + 1) {

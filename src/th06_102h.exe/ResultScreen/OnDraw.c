@@ -100,10 +100,10 @@ void th06::ResultScreen::OnDraw(ResultScreen *param_1)
       AnmManager::DrawNoRotation(g_AnmManager,&param_1->field73_0x29b0);
       local_40.x = local_40.x - 320.0;
       local_40.y = local_40.y + 18.0;
-      local_2c = param_1->scores[(int)param_1->field17_0x2c * 4 + param_1->charUsed * 2].next;
-      local_34 = param_1->scores[(int)param_1->field17_0x2c * 4 + param_1->charUsed * 2 + 1].next;
+      local_2c = param_1->scores[(int)param_1->diffPlayed * 4 + param_1->charUsed * 2].next;
+      local_34 = param_1->scores[(int)param_1->diffPlayed * 4 + param_1->charUsed * 2 + 1].next;
       for (local_14 = 0; local_40.y = local_40.y + 18.0, local_14 < 10; local_14 = local_14 + 1) {
-        if (param_1->unk_8 == 9) {
+        if (param_1->resultScreenState == 9) {
           if (g_GameManager.shottype == 0) {
             if ((local_2c->data->base).field_0x9 == '\0') {
               g_AsciiManager.color = 0x80ffffc0;
@@ -158,7 +158,7 @@ void th06::ResultScreen::OnDraw(ResultScreen *param_1)
                      local_2c->data->score);
         }
         local_40.x = local_40.x + 300.0;
-        if (param_1->unk_8 == 9) {
+        if (param_1->resultScreenState == 9) {
           if (g_GameManager.shottype == 1) {
             if ((local_34->data->base).field_0x9 == '\0') {
               g_AsciiManager.color = 0xc0c0c0ff;
@@ -212,7 +212,7 @@ void th06::ResultScreen::OnDraw(ResultScreen *param_1)
       }
     }
   }
-  if ((param_1->unk_8 == 9) || (param_1->unk_8 == 0xd)) {
+  if ((param_1->resultScreenState == 9) || (param_1->resultScreenState == 0xd)) {
     local_40.x = 160.0;
     local_40.y = 356.0;
     local_40.z = 0.0;
@@ -258,7 +258,7 @@ void th06::ResultScreen::OnDraw(ResultScreen *param_1)
   }
   g_AsciiManager.scale.x = 1.0;
   g_AsciiManager.scale.y = 1.0;
-  if ((9 < param_1->unk_8) && (param_1->unk_8 < 0xf)) {
+  if ((9 < param_1->resultScreenState) && (param_1->resultScreenState < 0xf)) {
     local_28 = &param_1->field49_0x1030;
     for (local_14 = 0; local_14 < 6; local_14 = local_14 + 1) {
       AnmManager::DrawNoRotation(g_AnmManager,local_28);
@@ -280,7 +280,7 @@ void th06::ResultScreen::OnDraw(ResultScreen *param_1)
       else {
         g_AsciiManager.color = 0xff808080;
       }
-      if (param_1->unk_8 == 0xd) {
+      if (param_1->resultScreenState == 0xd) {
         AsciiManager::AddFormatText
                   (&g_AsciiManager,&local_40,"No.%.2d %8s %8s %7s %9d",local_14 + 1,
                    &param_1->field_0x34,param_1->date,
@@ -324,7 +324,7 @@ void th06::ResultScreen::OnDraw(ResultScreen *param_1)
     }
   }
   g_AsciiManager.color = 0xffffffff;
-  FUN_0042d35a(param_1);
+  DrawFinalStats(param_1);
   __security_check_cookie(local_18 ^ unaff_retaddr);
   return;
 }

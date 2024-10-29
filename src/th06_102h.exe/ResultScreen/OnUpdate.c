@@ -12,7 +12,7 @@ undefined4 __thiscall th06::ResultScreen::OnUpdate(ResultScreen *this,ResultScre
   AnmVm *vm;
   int i;
   
-  iVar1 = result_screen->unk_8;
+  iVar1 = result_screen->resultScreenState;
   if (iVar1 < 9) {
     if (iVar1 == 8) {
       pRVar2 = result_screen;
@@ -42,13 +42,13 @@ undefined4 __thiscall th06::ResultScreen::OnUpdate(ResultScreen *this,ResultScre
           result_screen->field1_0x4 = 0;
           vm = &result_screen->unk_40;
           for (i = 0; i < 38; i = i + 1) {
-            vm->pendingInterrupt = (short)result_screen->field17_0x2c + 3;
+            vm->pendingInterrupt = (short)result_screen->diffPlayed + 3;
             vm = vm + 1;
           }
         }
         if (((g_CurFrameInput & 10) != 0) && ((g_CurFrameInput & 10) != (g_LastFrameInput & 10))) {
           SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,SOUND_BACK,0);
-          result_screen->unk_8 = 0;
+          result_screen->resultScreenState = 0;
           result_screen->field1_0x4 = 1;
           vm = &result_screen->unk_40;
           for (i = 0; i < 0x26; i = i + 1) {
@@ -56,7 +56,7 @@ undefined4 __thiscall th06::ResultScreen::OnUpdate(ResultScreen *this,ResultScre
             vm = vm + 1;
           }
           result_screen->field9_0x18 = result_screen->cursor;
-          result_screen->cursor = (int)result_screen->field17_0x2c;
+          result_screen->cursor = (int)result_screen->diffPlayed;
         }
       }
     }
@@ -103,7 +103,7 @@ undefined4 __thiscall th06::ResultScreen::OnUpdate(ResultScreen *this,ResultScre
           }
         }
         if (result_screen->field1_0x4 < 0x14) goto LAB_0042e3fb;
-        result_screen->unk_8 = result_screen->unk_8 + 1;
+        result_screen->resultScreenState = result_screen->resultScreenState + 1;
         result_screen->field1_0x4 = 0;
       }
       else if (iVar1 != 1) {
@@ -184,14 +184,14 @@ undefined4 __thiscall th06::ResultScreen::OnUpdate(ResultScreen *this,ResultScre
               result_screen->field1_0x4 = 0;
               vm = &result_screen->unk_40;
               for (i = 0; i < 0x26; i = i + 1) {
-                vm->pendingInterrupt = (short)result_screen->field17_0x2c + 3;
+                vm->pendingInterrupt = (short)result_screen->diffPlayed + 3;
                 vm = vm + 1;
               }
             }
             if (((g_CurFrameInput & 10) != 0) && ((g_CurFrameInput & 10) != (g_LastFrameInput & 10))
                ) {
               SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,SOUND_BACK,0);
-              result_screen->unk_8 = 0;
+              result_screen->resultScreenState = 0;
               result_screen->field1_0x4 = 1;
               vm = &result_screen->unk_40;
               for (i = 0; i < 38; i = i + 1) {
@@ -199,7 +199,7 @@ undefined4 __thiscall th06::ResultScreen::OnUpdate(ResultScreen *this,ResultScre
                 vm = vm + 1;
               }
               *(int *)&result_screen->field_0x14 = result_screen->cursor;
-              result_screen->cursor = (int)result_screen->field17_0x2c;
+              result_screen->cursor = (int)result_screen->diffPlayed;
             }
           }
         }
@@ -242,9 +242,9 @@ undefined4 __thiscall th06::ResultScreen::OnUpdate(ResultScreen *this,ResultScre
               vm->pendingInterrupt = (short)result_screen->cursor + 3;
               vm = vm + 1;
             }
-            result_screen->field17_0x2c = (int *)result_screen->cursor;
-            result_screen->unk_8 = result_screen->cursor + 3;
-            result_screen->field3_0xc = result_screen->unk_8;
+            result_screen->diffPlayed = (int *)result_screen->cursor;
+            result_screen->resultScreenState = result_screen->cursor + 3;
+            result_screen->field3_0xc = result_screen->resultScreenState;
             result_screen->field1_0x4 = 0;
             result_screen->cursor = *(int *)&result_screen->field_0x14;
             result_screen->charUsed = -1;
@@ -255,9 +255,9 @@ undefined4 __thiscall th06::ResultScreen::OnUpdate(ResultScreen *this,ResultScre
               vm->pendingInterrupt = (short)result_screen->cursor + 3;
               vm = vm + 1;
             }
-            result_screen->field17_0x2c = (int *)result_screen->cursor;
-            result_screen->unk_8 = 8;
-            result_screen->field3_0xc = result_screen->unk_8;
+            result_screen->diffPlayed = (int *)result_screen->cursor;
+            result_screen->resultScreenState = 8;
+            result_screen->field3_0xc = result_screen->resultScreenState;
             result_screen->field1_0x4 = 0;
             result_screen->charUsed = -1;
             result_screen->cursor = result_screen->field9_0x18;
@@ -268,7 +268,7 @@ undefined4 __thiscall th06::ResultScreen::OnUpdate(ResultScreen *this,ResultScre
               vm->pendingInterrupt = 2;
               vm = vm + 1;
             }
-            result_screen->unk_8 = 2;
+            result_screen->resultScreenState = 2;
             SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,SOUND_BACK,0);
           }
         }
@@ -280,15 +280,15 @@ undefined4 __thiscall th06::ResultScreen::OnUpdate(ResultScreen *this,ResultScre
     }
   }
   else if (iVar1 == 9) {
-    FUN_0042bc85(result_screen);
+    HandleResultKeyboard(result_screen);
   }
   else if (9 < iVar1) {
     if (iVar1 < 0xf) {
-      FUN_0042c2d4(result_screen);
+      HandleReplaySaveKeyboard(result_screen);
     }
     else if (0xe < iVar1) {
       if (iVar1 < 0x11) {
-        FUN_0042d292(result_screen);
+        CheckConfirmButton(result_screen);
       }
       else if (iVar1 == 0x11) {
         g_Supervisor.curState = 1;

@@ -11,7 +11,7 @@ ZunResult th06::ResultScreen::AddedCallback(ResultScreen *param_1)
   AnmVm *local_c;
   uint difficulty;
   
-  if (param_1->unk_8 != 0x11) {
+  if (param_1->resultScreenState != 0x11) {
     ZVar2 = AnmManager::LoadSurface(g_AnmManager,0,"data/result/result.jpg");
     if (ZVar2 != ZUN_SUCCESS) {
       return ZUN_ERROR;
@@ -87,12 +87,12 @@ ZunResult th06::ResultScreen::AddedCallback(ResultScreen *param_1)
                    difficulty);
     }
   }
-  if ((param_1->unk_8 != 9) && (param_1->unk_8 != 0x11)) {
+  if ((param_1->resultScreenState != 9) && (param_1->resultScreenState != 0x11)) {
     ParseCatk(param_1->scoredat,g_GameManager.catk);
     ParseClrd(param_1->scoredat,g_GameManager.clrd);
     ParsePscr(param_1->scoredat,g_GameManager.pscr);
   }
-  if ((param_1->unk_8 == 0x11) &&
+  if ((param_1->resultScreenState == 0x11) &&
      (*(uint *)(((uint)g_GameManager.shottype + (uint)g_GameManager.character * 2) * 0x1e0 +
                 (g_GameManager.current_stage + -1) * 0x50 + 0x69cd3c +
                g_GameManager.difficulty * 0x14) < g_GameManager.score)) {

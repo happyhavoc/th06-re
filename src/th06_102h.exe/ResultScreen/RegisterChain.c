@@ -34,10 +34,10 @@ ZunResult th06::ResultScreen::RegisterChain(BOOL param_1)
   result_screen->calc_chain->arg = result_screen;
   if (param_1 != 0) {
     if (g_GameManager.is_in_practice_mode == 0) {
-      result_screen->unk_8 = 9;
+      result_screen->resultScreenState = 9;
     }
     else {
-      result_screen->unk_8 = 0x11;
+      result_screen->resultScreenState = 0x11;
     }
   }
   iVar2 = Chain::AddToCalcChain(&g_Chain,result_screen->calc_chain,0xd);

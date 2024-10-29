@@ -2125,7 +2125,7 @@ typedef struct ScoreDat ScoreDat, *PScoreDat;
 struct ResultScreen {
     struct ScoreDat *scoredat;
     int field1_0x4;
-    int unk_8;
+    int resultScreenState;
     int field3_0xc;
     int cursor;
     undefined field5_0x14;
@@ -2140,7 +2140,7 @@ struct ResultScreen {
     int possibly_selected_character;
     int charUsed;
     int field16_0x28;
-    int *field17_0x2c;
+    int *diffPlayed;
     undefined field18_0x30;
     undefined field19_0x31;
     undefined field20_0x32;

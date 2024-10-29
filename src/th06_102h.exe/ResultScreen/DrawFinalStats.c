@@ -1,5 +1,5 @@
 
-undefined4 __thiscall th06::ResultScreen::FUN_0042d35a(ResultScreen *this)
+undefined4 __thiscall th06::ResultScreen::DrawFinalStats(ResultScreen *this)
 
 {
   float completion;
@@ -7,7 +7,7 @@ undefined4 __thiscall th06::ResultScreen::FUN_0042d35a(ResultScreen *this)
   D3DXVECTOR3 strPos;
   AnmVm *local_8;
   
-  if ((0xe < this->unk_8) && (this->unk_8 < 0x11)) {
+  if ((0xe < this->resultScreenState) && (this->resultScreenState < 0x11)) {
     local_8 = &this->viewportMaybe;
     g_AsciiManager.color = (this->viewportMaybe).color.color;
     if ((int)g_GameManager.difficulty < 4) {

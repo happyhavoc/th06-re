@@ -1,5 +1,5 @@
 
-undefined4 __thiscall th06::ResultScreen::OnUpdate(ResultScreen *this,ResultScreen *result_screen)
+ChainCallbackResult th06::ResultScreen::OnUpdate(ResultScreen *result_screen)
 
 {
   int iVar1;
@@ -110,7 +110,7 @@ undefined4 __thiscall th06::ResultScreen::OnUpdate(ResultScreen *this,ResultScre
         if (iVar1 == 2) {
           if (0x3b < result_screen->field1_0x4) {
             g_Supervisor.curState = 1;
-            return 0;
+            return CHAIN_CALLBACK_RESULT_CONTINUE_AND_REMOVE_JOB;
           }
         }
         else if (2 < iVar1) {
@@ -292,7 +292,7 @@ undefined4 __thiscall th06::ResultScreen::OnUpdate(ResultScreen *this,ResultScre
       }
       else if (iVar1 == 0x11) {
         g_Supervisor.curState = 1;
-        return 0;
+        return CHAIN_CALLBACK_RESULT_CONTINUE_AND_REMOVE_JOB;
       }
     }
   }
@@ -303,6 +303,6 @@ LAB_0042e3fb:
     vm = vm + 1;
   }
   result_screen->field1_0x4 = result_screen->field1_0x4 + 1;
-  return 1;
+  return CHAIN_CALLBACK_RESULT_CONTINUE;
 }
 

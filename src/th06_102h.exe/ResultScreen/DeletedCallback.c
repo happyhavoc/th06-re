@@ -1,18 +1,18 @@
 
-undefined4 __thiscall th06::ResultScreen::DeletedCallback(ResultScreen *this,ResultScreen *param_1)
+ZunResult th06::ResultScreen::DeletedCallback(ResultScreen *resultScreen)
 
 {
   int character;
   int difficulty;
   
-  if (param_1->scoredat != (ScoreDat *)0x0) {
-    WriteScore(param_1);
-    ReleaseScoreDat(param_1->scoredat);
+  if (resultScreen->scoredat != (ScoreDat *)0x0) {
+    WriteScore(resultScreen);
+    ReleaseScoreDat(resultScreen->scoredat);
   }
-  param_1->scoredat = (ScoreDat *)0x0;
+  resultScreen->scoredat = (ScoreDat *)0x0;
   for (difficulty = 0; difficulty < 5; difficulty = difficulty + 1) {
     for (character = 0; character < 4; character = character + 1) {
-      FreeScore(param_1,difficulty,character);
+      FreeScore(resultScreen,difficulty,character);
     }
   }
   AnmManager::ReleaseAnm(g_AnmManager,0x25);
@@ -20,12 +20,12 @@ undefined4 __thiscall th06::ResultScreen::DeletedCallback(ResultScreen *this,Res
   AnmManager::ReleaseAnm(g_AnmManager,0x27);
   AnmManager::ReleaseAnm(g_AnmManager,0x28);
   AnmManager::ReleaseSurface(g_AnmManager,0);
-  Chain::Cut(&g_Chain,param_1->draw_chain);
-  param_1->draw_chain = (ChainElem *)0x0;
-  if (param_1 != (ResultScreen *)0x0) {
-    _free(param_1->scoredat);
-    operator_delete(param_1);
+  Chain::Cut(&g_Chain,resultScreen->draw_chain);
+  resultScreen->draw_chain = (ChainElem *)0x0;
+  if (resultScreen != (ResultScreen *)0x0) {
+    _free(resultScreen->scoredat);
+    operator_delete(resultScreen);
   }
-  return 0;
+  return ZUN_SUCCESS;
 }
 

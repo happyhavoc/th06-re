@@ -1,12 +1,12 @@
 
 /* WARNING: Restarted to delay deadcode elimination for space: stack */
-/* WARNING: Unknown calling convention -- yet parameter storage is locked */
 
-void th06::ResultScreen::OnDraw(ResultScreen *param_1)
+ChainCallbackResult th06::ResultScreen::OnDraw(ResultScreen *param_1)
 
 {
   D3DXVECTOR3 *pDVar1;
   float fVar2;
+  ChainCallbackResult CVar3;
   uint unaff_retaddr;
   int local_d0;
   int local_8c;
@@ -325,7 +325,8 @@ void th06::ResultScreen::OnDraw(ResultScreen *param_1)
   }
   g_AsciiManager.color = 0xffffffff;
   DrawFinalStats(param_1);
+  CVar3 = CHAIN_CALLBACK_RESULT_CONTINUE;
   __security_check_cookie(local_18 ^ unaff_retaddr);
-  return;
+  return CVar3;
 }
 

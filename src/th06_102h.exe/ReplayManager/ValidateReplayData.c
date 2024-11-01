@@ -1,11 +1,11 @@
 
-ZunResult th06::ValidateReplayData(ReplayData *data,int size)
+ZunResult th06::ReplayManager::ValidateReplayData(ReplayData *data,int size)
 
 {
   ZunResult unpackResult;
-  uint8_t *local_1c;
+  byte *local_1c;
   uint checksum_base;
-  char *cur_byte;
+  byte *cur_byte;
   byte obf_offset;
   int idx;
   
@@ -15,7 +15,7 @@ ZunResult th06::ValidateReplayData(ReplayData *data,int size)
   else {
                     /* "T6RP" magic bytes */
     if ((char  [4])data->magic == (char  [4])0x50523654) {
-      cur_byte = &data->field_0xf;
+      cur_byte = &data->rng_value3;
       obf_offset = data->key;
       for (idx = 0; idx < size + -0xf; idx = idx + 1) {
         *cur_byte = *cur_byte - obf_offset;

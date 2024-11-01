@@ -32,13 +32,13 @@ undefined4 __thiscall th06::ResultScreen::DrawFinalStats(ResultScreen *this)
       AsciiManager::AddFormatText(&g_AsciiManager,&strPos,"      100%%");
     }
     strPos.y = strPos.y + 22.0;
-    AsciiManager::AddFormatText(&g_AsciiManager,&strPos,"%9d");
+    AsciiManager::AddFormatText(&g_AsciiManager,&strPos,"%9d",(uint)g_GameManager.num_retries);
     strPos.y = strPos.y + 22.0;
-    AsciiManager::AddFormatText(&g_AsciiManager,&strPos,"%9d");
+    AsciiManager::AddFormatText(&g_AsciiManager,&strPos,"%9d",g_GameManager.deaths);
     strPos.y = strPos.y + 22.0;
-    AsciiManager::AddFormatText(&g_AsciiManager,&strPos,"%9d");
+    AsciiManager::AddFormatText(&g_AsciiManager,&strPos,"%9d",g_GameManager.bombs_used);
     strPos.y = strPos.y + 22.0;
-    AsciiManager::AddFormatText(&g_AsciiManager,&strPos,"%9d");
+    AsciiManager::AddFormatText(&g_AsciiManager,&strPos,"%9d",g_GameManager.spell_cards_captured);
     local_20 = g_Supervisor.unk_frame_related1 / g_Supervisor.unk_frames_related2 - 0.5;
     local_20 = local_20 + local_20;
     if (local_20 < 0.0 == NAN(local_20)) {
@@ -51,7 +51,7 @@ undefined4 __thiscall th06::ResultScreen::DrawFinalStats(ResultScreen *this)
     }
     strPos.y = strPos.y + 22.0;
     AsciiManager::AddFormatText
-              (&g_AsciiManager,&strPos,"    %3.2f%%",(double)((1.0 - local_20) * 100.0));
+              (&g_AsciiManager,&strPos,"    %3.2f%%",SUB84((double)((1.0 - local_20) * 100.0),0));
     g_AsciiManager.color = 0xffffffff;
   }
   return 0;

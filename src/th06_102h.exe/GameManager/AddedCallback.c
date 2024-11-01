@@ -47,7 +47,7 @@ ZunResult th06::GameManager::AddedCallback(GameManager *gameManager)
     g_GameManager.power_item_count_for_score = 0;
     gameManager->rank = 8;
     gameManager->graze_in_total = 0;
-    gameManager->field19_0x1816 = 0;
+    gameManager->point_items_collected = 0;
     local_c = gameManager->catk;
     for (local_10 = 0; local_10 < 0x40; local_10 = local_10 + 1) {
       for (local_14 = 0; local_14 < 0x20; local_14 = local_14 + 1) {
@@ -84,7 +84,7 @@ ZunResult th06::GameManager::AddedCallback(GameManager *gameManager)
     gameManager->max_rank = g_DifficultyInfo[g_GameManager.difficulty].max_rank;
     gameManager->deaths = 0;
     gameManager->bombs_used = 0;
-    gameManager->unk_0x28 = 0;
+    gameManager->spell_cards_captured = 0;
   }
   gameManager->subrank = 0;
   gameManager->point_items_collected_in_stage = 0;

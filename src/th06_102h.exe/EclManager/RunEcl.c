@@ -948,7 +948,7 @@ switchD_00407544_caseD_2:
           g_GameManager.catk[uVar2].unk_13 =
                g_GameManager.shottype + g_GameManager.character * '\x02';
         }
-        g_GameManager.unk_0x28 = g_GameManager.unk_0x28 + 1;
+        g_GameManager.spell_cards_captured = g_GameManager.spell_cards_captured + 1;
       }
       g_EnemyManager.spellcardInfo.is_active = 0;
     }

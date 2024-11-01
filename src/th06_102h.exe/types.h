@@ -1726,8 +1726,6 @@ typedef struct ReplayData ReplayData, *PReplayData;
 
 typedef uint uint32_t;
 
-typedef ushort uint16_t;
-
 typedef struct StageReplayData StageReplayData, *PStageReplayData;
 
 typedef struct ReplayDataInput ReplayDataInput, *PReplayDataInput;
@@ -1744,38 +1742,26 @@ struct ReplayData {
     byte shottype_chara;
     byte difficulty;
     uint32_t checksum;
-    uint16_t padding_bytes;
+    uint8_t rng_value1;
+    uint8_t rng_value2;
     uint8_t key;
-    undefined field7_0xf;
-    char date[8];
-    undefined field9_0x18;
+    byte rng_value3;
+    char date[9];
     char name[8];
     undefined field11_0x21;
     undefined field12_0x22;
     undefined field13_0x23;
-    undefined field14_0x24;
-    undefined field15_0x25;
-    undefined field16_0x26;
-    undefined field17_0x27;
-    undefined field18_0x28;
-    undefined field19_0x29;
-    undefined field20_0x2a;
-    undefined field21_0x2b;
-    undefined field22_0x2c;
-    undefined field23_0x2d;
-    undefined field24_0x2e;
-    undefined field25_0x2f;
-    undefined field26_0x30;
-    undefined field27_0x31;
-    undefined field28_0x32;
-    undefined field29_0x33;
-    struct StageReplayData *stage_score[7];
+    int score;
+    float slowdown_rate2;
+    float slowdown_rate;
+    float slowdown_rate3;
+    struct StageReplayData *stage_replay_data[7];
 };
 
 struct StageReplayData {
     uint score;
     ushort random_seed;
-    ushort unk6;
+    ushort point_items_collected;
     byte power;
     byte lives_remaining;
     byte bombs_remaining;
@@ -5242,7 +5228,7 @@ struct GameManager {
     uint is_in_replay;
     uint deaths;
     uint bombs_used;
-    uint unk_0x28;
+    uint spell_cards_captured;
     uint isTimeStopped;
     struct Catk catk[64];
     struct Clrd clrd[4];
@@ -5251,7 +5237,7 @@ struct GameManager {
     undefined field16_0x1812;
     undefined field17_0x1813;
     ushort point_items_collected_in_stage;
-    ushort field19_0x1816;
+    ushort point_items_collected;
     byte num_retries;
     byte power_item_count_for_score;
     byte lives_remaining;
@@ -85300,4 +85286,6 @@ typedef struct _s_ThrowInfo _s_ThrowInfo, *P_s_ThrowInfo;
 
 struct _s_ThrowInfo { /* PlaceHolder Structure */
 };
+
+typedef ushort uint16_t;
 

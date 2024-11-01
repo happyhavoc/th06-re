@@ -159,7 +159,7 @@ void __thiscall th06::ResultScreen::HandleReplaySaveKeyboard(ResultScreen *this)
           }
           else {
             sprintf(replayPath,"./replay/th6_%.2d.rpy",*(int *)&this->field_0x1c + 1);
-            SaveReplay(replayPath,&this->field_0x34);
+            ReplayManager::SaveReplay(replayPath,&this->field_0x34);
             this->field1_0x4 = 0;
             this->resultScreenState = 2;
             local_8 = &this->unk_40;
@@ -241,7 +241,7 @@ LAB_0042c515:
         sprintf(local_5c,"./replay/th6_%.2d.rpy",local_10 + 1);
         local_14 = (ReplayData *)FileSystem::OpenPath(local_5c,1);
         if (local_14 != (ReplayData *)0x0) {
-          ZVar1 = ValidateReplayData(local_14,g_LastFileSize);
+          ZVar1 = ReplayManager::ValidateReplayData(local_14,g_LastFileSize);
           if (ZVar1 == ZUN_SUCCESS) {
             pRVar3 = local_14;
             ppcVar4 = (char **)((int)&this->hscr + local_10 * 0x50 + 0x30);

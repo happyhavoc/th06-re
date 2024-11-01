@@ -21,7 +21,7 @@ ZunResult th06::Supervisor::DeletedCallback(Supervisor *param_1)
     }
     param_1->midi_output = (MidiOutput *)0x0;
   }
-  SaveReplay((char *)0x0,(char *)0x0);
+  ReplayManager::SaveReplay((char *)0x0,(char *)0x0);
   TextHelper::ReleaseTextBuffer();
   if (param_1->keyboard != (LPDIRECTINPUTDEVICE8A)0x0) {
     (*param_1->keyboard->lpVtbl->Unacquire)(param_1->keyboard);

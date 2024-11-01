@@ -47,7 +47,7 @@ ZunResult __thiscall th06::MainMenu::DrawReplayMenu(MainMenu *this)
     g_AsciiManager.isSelected = 0;
     AsciiManager::AddFormatText
               (&g_AsciiManager,&this->vmList[0x61].pos,"       %2.3f%%",
-               (double)*(float *)&this->currentReplay->field_0x2c);
+               (double)this->currentReplay->slowdown_rate);
     AsciiManager::AddFormatText(&g_AsciiManager,&this->vmList[0x72].pos,"Stage  LastScore");
     vm_ref = this->vmList + 0x72;
     for (i = 0; (int)i < 7; i = i + 1) {
@@ -69,7 +69,7 @@ ZunResult __thiscall th06::MainMenu::DrawReplayMenu(MainMenu *this)
           g_AsciiManager.color = 0xff808080;
         }
       }
-      if (this->currentReplay->stage_score[i] == (StageReplayData *)0x0) {
+      if (this->currentReplay->stage_replay_data[i] == (StageReplayData *)0x0) {
         AsciiManager::AddFormatText(&g_AsciiManager,&vm_ref[1].pos,"%s ---------");
       }
       else {

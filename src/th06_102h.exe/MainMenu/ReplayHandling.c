@@ -38,7 +38,7 @@ int __thiscall th06::MainMenu::ReplayHandling(MainMenu *this)
         sprintf(replayFilePath,"./replay/th6_%.2d.rpy",cur + 1);
         replayData = (ReplayData *)FileSystem::OpenPath(replayFilePath,1);
         if (replayData != (ReplayData *)0x0) {
-          ZVar2 = ValidateReplayData(replayData,g_LastFileSize);
+          ZVar2 = ReplayManager::ValidateReplayData(replayData,g_LastFileSize);
           if (ZVar2 == ZUN_SUCCESS) {
             _ = 0x14;
             nextReplayData = replayData;
@@ -62,7 +62,7 @@ int __thiscall th06::MainMenu::ReplayHandling(MainMenu *this)
         for (cur = 0; cur < 0x2d; cur = cur + 1) {
           replayData = (ReplayData *)FileSystem::OpenPath(replayFileInfo.cFileName,1);
           if (replayData != (ReplayData *)0x0) {
-            ZVar2 = ValidateReplayData(replayData,g_LastFileSize);
+            ZVar2 = ReplayManager::ValidateReplayData(replayData,g_LastFileSize);
             if (ZVar2 == ZUN_SUCCESS) {
               nextReplayData = replayData;
               replayCopy = this->replayFileData + replayFileIdx;
@@ -119,17 +119,17 @@ int __thiscall th06::MainMenu::ReplayHandling(MainMenu *this)
           nextReplayData =
                (ReplayData *)FileSystem::OpenPath(this->replayFilePaths[this->chosenReplay],1);
           this->currentReplay = nextReplayData;
-          ValidateReplayData(this->currentReplay,g_LastFileSize);
+          ReplayManager::ValidateReplayData(this->currentReplay,g_LastFileSize);
           for (cur = 0; cur < 7; cur = cur + 1) {
-            if (this->currentReplay->stage_score[cur] != (StageReplayData *)0x0) {
-              this->currentReplay->stage_score[cur] =
+            if (this->currentReplay->stage_replay_data[cur] != (StageReplayData *)0x0) {
+              this->currentReplay->stage_replay_data[cur] =
                    (StageReplayData *)
                    (this->currentReplay->date +
-                   (int)(this->currentReplay->stage_score[cur][-1].replay_inputs + 0xd2ec));
+                   (int)(this->currentReplay->stage_replay_data[cur][-1].replay_inputs + 0xd2ec));
             }
           }
           do {
-            if (this->replayFileData[this->chosenReplay].stage_score[this->cursor] !=
+            if (this->replayFileData[this->chosenReplay].stage_replay_data[this->cursor] !=
                 (StageReplayData *)0x0) goto LAB_0043877b;
             this->cursor = this->cursor + 1;
           } while ((int)this->cursor < 7);
@@ -158,7 +158,7 @@ LAB_0043877b:
   else if ((gameState == STATE_REPLAY_SELECT) && (0x27 < this->stateTimer)) {
     cur = MoveCursor(this,7);
     if (cur < 0) {
-      while (this->replayFileData[this->chosenReplay].stage_score[this->cursor] ==
+      while (this->replayFileData[this->chosenReplay].stage_replay_data[this->cursor] ==
              (StageReplayData *)0x0) {
         this->cursor = this->cursor - 1;
         if ((int)this->cursor < 0) {
@@ -167,7 +167,7 @@ LAB_0043877b:
       }
     }
     else if (0 < cur) {
-      while (this->replayFileData[this->chosenReplay].stage_score[this->cursor] ==
+      while (this->replayFileData[this->chosenReplay].stage_replay_data[this->cursor] ==
              (StageReplayData *)0x0) {
         this->cursor = this->cursor + 1;
         if (6 < (int)this->cursor) {
@@ -177,18 +177,18 @@ LAB_0043877b:
     }
     if ((((g_CurFrameInput & 0x1001) != 0) &&
         ((g_CurFrameInput & 0x1001) != (g_LastFrameInput & 0x1001))) &&
-       (this->currentReplay[this->cursor].stage_score != (StageReplayData **)0x0)) {
+       (this->currentReplay[this->cursor].stage_replay_data != (StageReplayData **)0x0)) {
       g_GameManager.is_in_replay = 1;
       g_Supervisor.framerateMultiplier = 1.0;
       _strcpy(g_GameManager.replay_file,this->replayFilePaths[this->chosenReplay]);
       g_GameManager.difficulty = (Difficulty)this->currentReplay->difficulty;
       g_GameManager.character = this->currentReplay->shottype_chara / 2;
       g_GameManager.shottype = this->currentReplay->shottype_chara % 2;
-      for (cur = 0; this->currentReplay->stage_score[cur] == (StageReplayData *)0x0; cur = cur + 1)
-      {
+      for (cur = 0; this->currentReplay->stage_replay_data[cur] == (StageReplayData *)0x0;
+          cur = cur + 1) {
       }
-      g_GameManager.lives_remaining = this->currentReplay->stage_score[cur]->lives_remaining;
-      g_GameManager.bombs_remaining = this->currentReplay->stage_score[cur]->bombs_remaining;
+      g_GameManager.lives_remaining = this->currentReplay->stage_replay_data[cur]->lives_remaining;
+      g_GameManager.bombs_remaining = this->currentReplay->stage_replay_data[cur]->bombs_remaining;
       _free(this->currentReplay);
       this->currentReplay = (ReplayData *)0x0;
       g_GameManager.current_stage = this->cursor;

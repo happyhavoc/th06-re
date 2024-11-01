@@ -1,7 +1,5 @@
 
-/* WARNING: Unknown calling convention -- yet parameter storage is locked */
-
-undefined4 th06::ReplayManager::DeletedCallback(ReplayManager *param_1)
+ZunResult th06::ReplayManager::DeletedCallback(ReplayManager *param_1)
 
 {
   Chain::Cut(&g_Chain,param_1->draw_chain);
@@ -13,6 +11,6 @@ undefined4 th06::ReplayManager::DeletedCallback(ReplayManager *param_1)
   _free(g_ReplayManager->data);
   operator_delete(g_ReplayManager);
   g_ReplayManager = (ReplayManager *)0x0;
-  return 0;
+  return ZUN_SUCCESS;
 }
 

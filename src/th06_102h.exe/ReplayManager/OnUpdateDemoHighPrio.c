@@ -1,7 +1,7 @@
 
 /* WARNING: Removing unreachable block (ram,0x0042a60a) */
 
-undefined4 th06::ReplayManager::OnUpdateDemoHighPrio(ReplayManager *param_1)
+ChainCallbackResult th06::ReplayManager::OnUpdateDemoHighPrio(ReplayManager *param_1)
 
 {
   if (g_GameManager.is_in_menu != 0) {
@@ -23,6 +23,6 @@ undefined4 th06::ReplayManager::OnUpdateDemoHighPrio(ReplayManager *param_1)
     }
     param_1->frame_id = param_1->frame_id + 1;
   }
-  return 1;
+  return CHAIN_CALLBACK_RESULT_CONTINUE;
 }
 

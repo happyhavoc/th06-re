@@ -1,7 +1,5 @@
 
-/* WARNING: Unknown calling convention -- yet parameter storage is locked */
-
-undefined4 th06::ReplayManager::OnUpdate(ReplayManager *param_1)
+ChainCallbackResult th06::ReplayManager::OnUpdate(ReplayManager *param_1)
 
 {
   ushort uVar1;
@@ -16,6 +14,6 @@ undefined4 th06::ReplayManager::OnUpdate(ReplayManager *param_1)
     }
     param_1->frame_id = param_1->frame_id + 1;
   }
-  return 1;
+  return CHAIN_CALLBACK_RESULT_CONTINUE;
 }
 

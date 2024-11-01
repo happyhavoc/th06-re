@@ -1,7 +1,7 @@
 
-undefined4 th06::ReplayManager::OnDraw(void)
+ChainCallbackResult th06::ReplayManager::OnDraw(void)
 
 {
-  return 1;
+  return CHAIN_CALLBACK_RESULT_CONTINUE;
 }
 

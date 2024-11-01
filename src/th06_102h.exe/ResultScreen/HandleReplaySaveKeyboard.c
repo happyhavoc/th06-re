@@ -57,7 +57,7 @@ void __thiscall th06::ResultScreen::HandleReplaySaveKeyboard(ResultScreen *this)
            (this->field51_0x1250).color.color & 0xff000000 | 0xff6060;
     }
     if (this->field1_0x4 < 0x50) goto LAB_0042d095;
-    MoveCursor_2((ResultScreen *)local_8,this,2);
+    MoveCursorHorizontally(this,2);
     if ((((g_CurFrameInput & 10) == 0) || ((g_CurFrameInput & 10) == (g_LastFrameInput & 10))) &&
        (((g_CurFrameInput & 8) == 0 || ((g_CurFrameInput & 8) == (g_LastFrameInput & 8))))) {
       if (((g_CurFrameInput & 0x1001) == 0) ||
@@ -69,8 +69,8 @@ void __thiscall th06::ResultScreen::HandleReplaySaveKeyboard(ResultScreen *this)
     this->resultScreenState = 2;
     local_8 = &this->unk_40;
     for (local_10 = 0; local_10 < 0x26; local_10 = local_10 + 1) {
-      *(undefined2 *)((int)&local_8->matrix + 0x4a) = 2;
-      local_8 = (AnmVm *)((int)&local_8->matrix + 0xd0);
+      local_8->pendingInterrupt = 2;
+      local_8 = local_8 + 1;
     }
   }
   else {
@@ -85,8 +85,8 @@ void __thiscall th06::ResultScreen::HandleReplaySaveKeyboard(ResultScreen *this)
         this->resultScreenState = 2;
         local_8 = &this->unk_40;
         for (local_10 = 0; local_10 < 0x26; local_10 = local_10 + 1) {
-          *(undefined2 *)((int)&local_8->matrix + 0x4a) = 2;
-          local_8 = (AnmVm *)((int)&local_8->matrix + 0xd0);
+          local_8->pendingInterrupt = 2;
+          local_8 = local_8 + 1;
         }
       }
       goto LAB_0042d095;
@@ -164,8 +164,8 @@ void __thiscall th06::ResultScreen::HandleReplaySaveKeyboard(ResultScreen *this)
             this->resultScreenState = 2;
             local_8 = &this->unk_40;
             for (local_10 = 0; local_10 < 0x26; local_10 = local_10 + 1) {
-              *(undefined2 *)((int)&local_8->matrix + 0x4a) = 2;
-              local_8 = (AnmVm *)((int)&local_8->matrix + 0xd0);
+              local_8->pendingInterrupt = 2;
+              local_8 = local_8 + 1;
             }
           }
           if ((this->cursor < 8) && (this->cursor = this->cursor + 1, this->cursor == 8)) {
@@ -206,7 +206,7 @@ void __thiscall th06::ResultScreen::HandleReplaySaveKeyboard(ResultScreen *this)
                (this->field51_0x1250).color.color & 0xff000000 | 0xff6060;
         }
         if (this->field1_0x4 < 0x14) goto LAB_0042d095;
-        MoveCursor_2((ResultScreen *)local_8,this,2);
+        MoveCursorHorizontally(this,2);
         if ((((g_CurFrameInput & 10) == 0) || ((g_CurFrameInput & 10) == (g_LastFrameInput & 10)))
            && (((g_CurFrameInput & 8) == 0 || ((g_CurFrameInput & 8) == (g_LastFrameInput & 8))))) {
           if (((g_CurFrameInput & 0x1001) == 0) ||
@@ -219,7 +219,7 @@ void __thiscall th06::ResultScreen::HandleReplaySaveKeyboard(ResultScreen *this)
               local_8 = local_8 + 1;
             }
             local_8 = &this->field56_0x17a0 + *(int *)&this->field_0x1c;
-            *(undefined2 *)((int)&local_8->matrix + 0x4a) = 0xe;
+            local_8->pendingInterrupt = 0xe;
             this->resultScreenState = 0xd;
             goto LAB_0042d095;
           }
@@ -230,8 +230,8 @@ LAB_0042c515:
       this->resultScreenState = 0xc;
       local_8 = &this->unk_40;
       for (local_10 = 0; local_10 < 0x26; local_10 = local_10 + 1) {
-        *(undefined2 *)((int)&local_8->matrix + 0x4a) = 10;
-        local_8 = (AnmVm *)((int)&local_8->matrix + 0xd0);
+        local_8->pendingInterrupt = 10;
+        local_8 = local_8 + 1;
       }
       this->field1_0x4 = 0;
     }
@@ -273,7 +273,7 @@ LAB_0042c515:
             local_8 = local_8 + 1;
           }
           local_8 = &this->field56_0x17a0 + *(int *)&this->field_0x1c;
-          *(undefined2 *)((int)&local_8->matrix + 0x4a) = 0xe;
+          local_8->pendingInterrupt = 0xe;
           this->resultScreenState = 0xe;
         }
         else {
@@ -283,7 +283,7 @@ LAB_0042c515:
             local_8 = local_8 + 1;
           }
           local_8 = &this->field56_0x17a0 + *(int *)&this->field_0x1c;
-          *(undefined2 *)((int)&local_8->matrix + 0x4a) = 0xe;
+          local_8->pendingInterrupt = 0xe;
           this->resultScreenState = 0xd;
         }
         this->cursor = 0;
@@ -294,8 +294,8 @@ LAB_0042c515:
         this->resultScreenState = 10;
         local_8 = &this->unk_40;
         for (local_10 = 0; local_10 < 0x26; local_10 = local_10 + 1) {
-          *(undefined2 *)((int)&local_8->matrix + 0x4a) = 2;
-          local_8 = (AnmVm *)((int)&local_8->matrix + 0xd0);
+          local_8->pendingInterrupt = 2;
+          local_8 = local_8 + 1;
         }
         this->field1_0x4 = 0;
       }

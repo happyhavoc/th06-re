@@ -3,10 +3,7 @@ ChainCallbackResult th06::ResultScreen::OnUpdate(ResultScreen *result_screen)
 
 {
   int iVar1;
-  ResultScreen *extraout_ECX;
-  ResultScreen *pRVar2;
-  ResultScreen *extraout_ECX_00;
-  ResultScreen *extraout_ECX_01;
+  ZunBool ZVar2;
   int local_14;
   int local_10;
   AnmVm *vm;
@@ -15,30 +12,26 @@ ChainCallbackResult th06::ResultScreen::OnUpdate(ResultScreen *result_screen)
   iVar1 = result_screen->resultScreenState;
   if (iVar1 < 9) {
     if (iVar1 == 8) {
-      pRVar2 = result_screen;
       if ((result_screen->field16_0x28 != result_screen->cursor) &&
          (result_screen->field1_0x4 == 0x14)) {
-        pRVar2 = (ResultScreen *)result_screen->cursor;
-        result_screen->field16_0x28 = (int)pRVar2;
+        result_screen->field16_0x28 = result_screen->cursor;
         for (i = result_screen->field16_0x28 * 10;
             (i < result_screen->field16_0x28 * 10 + 10 && (i < 0x40)); i = i + 1) {
           if (g_GameManager.catk[i].num_successes == 0) {
             AnmManager::DrawVmTextFmt
                       (g_AnmManager,&result_screen->unk_28a0 + i % 10,(ZunColor)0xffffff,
                        (ZunColor)0x0,"？？？？？");
-            pRVar2 = extraout_ECX_00;
           }
           else {
             AnmManager::DrawVmTextFmt
                       (g_AnmManager,&result_screen->unk_28a0 + i % 10,(ZunColor)0xffffff,
                        (ZunColor)0x0,(char *)g_GameManager.catk[i].name);
-            pRVar2 = extraout_ECX_01;
           }
         }
       }
       if (0x1d < result_screen->field1_0x4) {
-        iVar1 = MoveCursor_2(pRVar2,result_screen,7);
-        if (iVar1 != 0) {
+        ZVar2 = MoveCursorHorizontally(result_screen,7);
+        if (ZVar2 != 0) {
           result_screen->field1_0x4 = 0;
           vm = &result_screen->unk_40;
           for (i = 0; i < 38; i = i + 1) {
@@ -166,7 +159,6 @@ ChainCallbackResult th06::ResultScreen::OnUpdate(ResultScreen *result_screen)
               SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,SOUND_1UP,0);
             }
           }
-          pRVar2 = result_screen;
           if ((result_screen->charUsed != result_screen->cursor) &&
              (result_screen->field1_0x4 == 0x14)) {
             result_screen->charUsed = result_screen->cursor;
@@ -176,11 +168,10 @@ ChainCallbackResult th06::ResultScreen::OnUpdate(ResultScreen *result_screen)
             AnmManager::DrawStringFormat2
                       (g_AnmManager,&result_screen->field73_0x29b0,(ZunColor)0xffffff,(ZunColor)0x0,
                        (&PTR_Hakurei_Reimu__Dream__004784dc)[result_screen->charUsed * 2]);
-            pRVar2 = extraout_ECX;
           }
           if (0x1d < result_screen->field1_0x4) {
-            iVar1 = MoveCursor_2(pRVar2,result_screen,2);
-            if (iVar1 != 0) {
+            ZVar2 = MoveCursorHorizontally(result_screen,2);
+            if (ZVar2 != 0) {
               result_screen->field1_0x4 = 0;
               vm = &result_screen->unk_40;
               for (i = 0; i < 0x26; i = i + 1) {

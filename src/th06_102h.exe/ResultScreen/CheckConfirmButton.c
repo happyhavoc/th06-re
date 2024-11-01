@@ -1,5 +1,5 @@
 
-undefined4 __thiscall th06::ResultScreen::CheckConfirmButton(ResultScreen *this)
+ZunResult __thiscall th06::ResultScreen::CheckConfirmButton(ResultScreen *this)
 
 {
   if (this->resultScreenState == 0xf) {
@@ -17,6 +17,6 @@ undefined4 __thiscall th06::ResultScreen::CheckConfirmButton(ResultScreen *this)
     this->field1_0x4 = 0x3b;
     this->resultScreenState = 10;
   }
-  return 0;
+  return ZUN_SUCCESS;
 }
 

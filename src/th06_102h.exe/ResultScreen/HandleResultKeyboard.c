@@ -1,5 +1,5 @@
 
-undefined4 __thiscall th06::ResultScreen::HandleResultKeyboard(ResultScreen *this)
+void __thiscall th06::ResultScreen::HandleResultKeyboard(ResultScreen *this)
 
 {
   Hscr *out;
@@ -48,7 +48,7 @@ undefined4 __thiscall th06::ResultScreen::HandleResultKeyboard(ResultScreen *thi
     _strcpy(&this->field_0x34,"");
   }
   if (this->field1_0x4 < 0x1e) {
-    return 0;
+    return;
   }
   if ((((g_CurFrameInput & 0x10) != 0) && ((g_CurFrameInput & 0x10) != (g_LastFrameInput & 0x10)))
      || (((g_CurFrameInput & 0x10) != 0 && (g_IsEigthFrameOfHeldInput != 0)))) {
@@ -112,10 +112,10 @@ LAB_0042c1aa:
       SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,SOUND_BACK,0);
     }
     if ((g_CurFrameInput & 8) == 0) {
-      return 0;
+      return;
     }
     if ((g_CurFrameInput & 8) == (g_LastFrameInput & 8)) {
-      return 0;
+      return;
     }
   }
   else {
@@ -149,6 +149,6 @@ LAB_0042c273:
     local_c = local_c + 1;
   }
   _strcpy(&this->field_0x34,(this->hscr).name);
-  return 0;
+  return;
 }
 

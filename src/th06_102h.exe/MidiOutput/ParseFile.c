@@ -115,7 +115,7 @@ ZunResult __thiscall th06::MidiOutput::ParseFile(MidiOutput *this,int fileIdx)
       }
       currentCursor = (undefined *)((int)(currentCursor + 8) + trackLength);
     }
-    this->unk120 = 1000000;
+    this->tempo = 1000000;
     result = ZUN_SUCCESS;
   }
   __security_check_cookie(cookie);

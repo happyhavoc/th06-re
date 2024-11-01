@@ -108,7 +108,7 @@ void __thiscall th06::MidiOutput::ProcessMsg(MidiOutput *this,MidiTrack *param_1
           uVar9 = __allmul(*(undefined4 *)&this->unk128,*(undefined4 *)((int)&this->unk128 + 4),
                            this->divisons,this->divisons >> 0x1f);
           uVar9 = __allmul(uVar9,1000,0);
-          uVar9 = __aulldiv(uVar9,this->unk120,this->unk120 >> 0x1f);
+          uVar9 = __aulldiv(uVar9,this->tempo,this->tempo >> 0x1f);
           uVar4 = *(uint *)&this->unk130;
           iVar7 = *(int *)((int)&this->unk130 + 4);
           *(uint *)&this->unk130 = uVar4 + (uint)uVar9;
@@ -116,12 +116,12 @@ void __thiscall th06::MidiOutput::ProcessMsg(MidiOutput *this,MidiTrack *param_1
                iVar7 + (int)((ulonglong)uVar9 >> 0x20) + (uint)CARRY4(uVar4,(uint)uVar9);
           *(undefined4 *)&this->unk128 = 0;
           *(undefined4 *)((int)&this->unk128 + 4) = 0;
-          this->unk120 = 0;
+          this->tempo = 0;
           arg2 = arg2 & 0xff;
           uStack_9 = 0;
           while (CONCAT13(uStack_9,arg2._1_3_) < iVar6) {
                     /* WARNING: Load size is inaccurate */
-            this->unk120 = this->unk120 * 0x100 + (uint)*param_1->curTrackDataCursor + this->unk120;
+            this->tempo = this->tempo * 0x100 + (uint)*param_1->curTrackDataCursor + this->tempo;
             param_1->curTrackDataCursor = (void *)((int)param_1->curTrackDataCursor + 1);
             iVar7 = CONCAT13(uStack_9,arg2._1_3_) + 1;
             arg2._1_3_ = (undefined3)iVar7;
@@ -173,7 +173,7 @@ void __thiscall th06::MidiOutput::ProcessMsg(MidiOutput *this,MidiTrack *param_1
         local_2c = local_2c + 1;
         uStack_9 = (undefined)((uint)iVar6 >> 0x18);
       }
-      this->unk2ec = this->unk120;
+      this->unk2ec = this->tempo;
       this->unk2f0 = *(uint *)&this->unk128;
       this->unk2f4 = *(uint *)((int)&this->unk128 + 4);
       this->unk2f8 = *(uint *)&this->unk130;
@@ -192,7 +192,7 @@ void __thiscall th06::MidiOutput::ProcessMsg(MidiOutput *this,MidiTrack *param_1
         local_30 = local_30 + 1;
         uStack_9 = (undefined)((uint)iVar6 >> 0x18);
       }
-      this->unk120 = this->unk2ec;
+      this->tempo = this->unk2ec;
       *(uint *)&this->unk128 = this->unk2f0;
       *(uint *)((int)&this->unk128 + 4) = this->unk2f4;
       *(uint *)&this->unk130 = this->unk2f8;

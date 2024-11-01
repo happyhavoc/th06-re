@@ -15,7 +15,7 @@ void __thiscall th06::MidiOutput::OnTimerElapsed(MidiOutput *this)
   uVar5 = __allmul(*(undefined4 *)&this->unk128,*(undefined4 *)((int)&this->unk128 + 4),
                    this->divisons,this->divisons >> 0x1f);
   uVar5 = __allmul(uVar5,1000,0);
-  uVar5 = __aulldiv(uVar5,this->unk120,this->unk120 >> 0x1f);
+  uVar5 = __aulldiv(uVar5,this->tempo,this->tempo >> 0x1f);
   local_14 = *(uint *)&this->unk130 + (uint)uVar5;
   local_10 = *(int *)((int)&this->unk130 + 4) + (int)((ulonglong)uVar5 >> 0x20) +
              (uint)CARRY4(*(uint *)&this->unk130,(uint)uVar5);
@@ -56,7 +56,7 @@ void __thiscall th06::MidiOutput::OnTimerElapsed(MidiOutput *this)
         uVar5 = __allmul(*(undefined4 *)&this->unk128,*(undefined4 *)((int)&this->unk128 + 4),
                          this->divisons,this->divisons >> 0x1f);
         uVar5 = __allmul(uVar5,1000,0);
-        uVar5 = __aulldiv(uVar5,this->unk120,this->unk120 >> 0x1f);
+        uVar5 = __aulldiv(uVar5,this->tempo,this->tempo >> 0x1f);
         local_14 = *(uint *)&this->unk130 + (uint)uVar5;
         local_10 = *(int *)((int)&this->unk130 + 4) + (int)((ulonglong)uVar5 >> 0x20) +
                    (uint)CARRY4(*(uint *)&this->unk130,(uint)uVar5);

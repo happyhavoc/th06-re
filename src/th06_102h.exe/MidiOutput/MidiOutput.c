@@ -18,7 +18,7 @@ MidiOutput * __thiscall th06::MidiOutput::MidiOutput(MidiOutput *this)
   MidiDevice::MidiDevice(&this->midiOutDev);
   this->tracks = (MidiTrack *)0x0;
   this->divisons = 0;
-  this->unk120 = 0;
+  this->tempo = 0;
   this->num_tracks = 0;
   this->unk2c4 = 0;
   this->fadeOutVolumeMultiplier = 0.0;

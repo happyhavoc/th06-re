@@ -982,7 +982,7 @@ struct MidiOutput {
     int num_tracks;
     undefined4 format;
     int divisons;
-    int unk120;
+    int tempo;
     undefined4 unk124;
     double unk128;
     double unk130;

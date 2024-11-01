@@ -34,9 +34,9 @@ ZunResult th06::ReplayManager::RegisterChain(int is_demo,char *replay_file)
         local_14->demo_calc_chain = (ChainElem *)0x0;
       }
       else if (is_demo == 1) {
-        pCVar1 = Chain::CreateElem(&g_Chain,FUN_0042a570);
+        pCVar1 = Chain::CreateElem(&g_Chain,OnUpdateDemoHighPrio);
         local_14->calc_chain = pCVar1;
-        local_14->calc_chain->addedCallback = DemoAddedCallback;
+        local_14->calc_chain->addedCallback = AddedCallbackDemo;
         local_14->calc_chain->deletedCallback = DeletedCallback;
         pCVar1 = Chain::CreateElem(&g_Chain,OnDraw);
         local_14->draw_chain = pCVar1;
@@ -45,7 +45,7 @@ ZunResult th06::ReplayManager::RegisterChain(int is_demo,char *replay_file)
         if (iVar2 != 0) {
           return ZUN_ERROR;
         }
-        pCVar1 = Chain::CreateElem(&g_Chain,DemoOnUpdate);
+        pCVar1 = Chain::CreateElem(&g_Chain,OnUpdateDemoLowPrio);
         local_14->demo_calc_chain = pCVar1;
         local_14->demo_calc_chain->arg = local_14;
         Chain::AddToCalcChain(&g_Chain,local_14->demo_calc_chain,0x10);
@@ -57,7 +57,7 @@ ZunResult th06::ReplayManager::RegisterChain(int is_demo,char *replay_file)
       AddedCallback(g_ReplayManager);
     }
     else if (is_demo == 1) {
-      ZVar3 = DemoAddedCallback(g_ReplayManager);
+      ZVar3 = AddedCallbackDemo(g_ReplayManager);
       return ZVar3;
     }
   }

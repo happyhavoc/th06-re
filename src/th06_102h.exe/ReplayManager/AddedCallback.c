@@ -42,7 +42,7 @@ ZunResult th06::ReplayManager::AddedCallback(ReplayManager *param_1)
   param_1->replay_inputs = pSVar2->replay_inputs;
   param_1->replay_inputs->frame_num = 0;
   param_1->replay_inputs->input_key = 0;
-  param_1->field56_0x44 = 0;
+  param_1->unk_44 = 0;
   return ZUN_SUCCESS;
 }
 

@@ -1,5 +1,5 @@
 
-ChainCallbackResult th06::ReplayManager::DemoOnUpdate(ReplayManager *param_1)
+ChainCallbackResult th06::ReplayManager::OnUpdateDemoLowPrio(ReplayManager *param_1)
 
 {
   byte bVar1;

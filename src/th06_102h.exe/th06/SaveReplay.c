@@ -53,7 +53,7 @@ void th06::SaveReplay(char *replay_path,char *param_2)
             replayCopy.stage_score[j] = local_68;
             local_68 = (StageReplayData *)
                        ((int)local_68 +
-                       ((int)pRVar1->replayInputAddresses[j] - (int)pRVar1->data->stage_score[j]));
+                       ((int)pRVar1->replayInputByStage[j] - (int)pRVar1->data->stage_score[j]));
           }
         }
         utils::DebugPrint2("%s write ...\n",replay_path);
@@ -106,7 +106,7 @@ void th06::SaveReplay(char *replay_path,char *param_2)
             pSVar3 = pRVar1->data->stage_score[j];
             uStack_75 = (undefined)((uint)pSVar3 >> 0x18);
             for (local_70 = 0;
-                local_70 < (int)pRVar1->replayInputAddresses[j] - (int)pRVar1->data->stage_score[j];
+                local_70 < (int)pRVar1->replayInputByStage[j] - (int)pRVar1->data->stage_score[j];
                 local_70 = local_70 + 1) {
               uStack_78 = SUB43(pSVar3,0);
               checksum = checksum + *(byte *)CONCAT13(uStack_75,uStack_78);
@@ -127,7 +127,7 @@ void th06::SaveReplay(char *replay_path,char *param_2)
           if (pRVar1->data->stage_score[j] != (StageReplayData *)0x0) {
             local_84 = pRVar1->data->stage_score[j];
             for (local_80 = 0;
-                local_80 < (int)pRVar1->replayInputAddresses[j] - (int)pRVar1->data->stage_score[j];
+                local_80 < (int)pRVar1->replayInputByStage[j] - (int)pRVar1->data->stage_score[j];
                 local_80 = local_80 + 1) {
               *(uint8_t *)&local_84->score = *(char *)&local_84->score + local_79;
               local_79 = local_79 + 7;
@@ -140,7 +140,7 @@ void th06::SaveReplay(char *replay_path,char *param_2)
         for (j = 0; (int)j < 7; j = j + 1) {
           if (pRVar1->data->stage_score[j] != (StageReplayData *)0x0) {
             fwrite(pRVar1->data->stage_score[j],1,
-                   (int)pRVar1->replayInputAddresses[j] - (int)pRVar1->data->stage_score[j],_File);
+                   (int)pRVar1->replayInputByStage[j] - (int)pRVar1->data->stage_score[j],_File);
           }
         }
         fclose(_File);
@@ -148,8 +148,8 @@ void th06::SaveReplay(char *replay_path,char *param_2)
       for (j = 0; (int)j < 7; j = j + 1) {
         if (g_ReplayManager->data->stage_score[j] != (StageReplayData *)0x0) {
           utils::DebugPrint2("Replay Size %d\n",
-                             (int)pRVar1->replayInputAddresses[j] -
-                             (int)pRVar1->data->stage_score[j]);
+                             (int)pRVar1->replayInputByStage[j] - (int)pRVar1->data->stage_score[j])
+          ;
           _free(g_ReplayManager->data->stage_score[j]);
         }
       }

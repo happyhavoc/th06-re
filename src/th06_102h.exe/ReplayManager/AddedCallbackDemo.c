@@ -1,7 +1,7 @@
 
 /* WARNING: Removing unreachable block (ram,0x0042a940) */
 
-ZunResult th06::ReplayManager::DemoAddedCallback(ReplayManager *param_1)
+ZunResult th06::ReplayManager::AddedCallbackDemo(ReplayManager *param_1)
 
 {
   ReplayData *pRVar2;

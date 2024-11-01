@@ -106,7 +106,7 @@ LAB_0041f7c5:
                g_Supervisor.effectiveFramerateMultiplier * 0.03 + (curItem->startPosition).y;
         }
       }
-      iVar8 = Player::CalcBoxCollision(&g_Player,&curItem->currentPosition,&g_ItemSize);
+      iVar8 = Player::CalcItemBoxCollision(&g_Player,&curItem->currentPosition,&g_ItemSize);
       if (iVar8 == 0) {
         (curItem->timer).previous = (curItem->timer).current;
         Supervisor::TickTimer(&g_Supervisor,&(curItem->timer).current,&(curItem->timer).subFrame);

@@ -1,5 +1,6 @@
 
-i32 __thiscall th06::Player::CalcBoxCollision(Player *this,D3DXVECTOR3 *center,D3DXVECTOR3 *size)
+i32 __thiscall
+th06::Player::CalcItemBoxCollision(Player *this,D3DXVECTOR3 *center,D3DXVECTOR3 *size)
 
 {
   float fVar1;

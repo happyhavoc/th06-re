@@ -12,7 +12,7 @@ void th06::ReplayManager::StopRecording(void)
     rpy_manager->replay_inputs = rpy_manager->replay_inputs + 1;
     rpy_manager->replay_inputs->frame_num = 9999999;
     rpy_manager->replay_inputs->input_key = 0;
-    rpy_manager->replayInputAddresses[g_GameManager.current_stage + -1] =
+    rpy_manager->replayInputByStage[g_GameManager.current_stage + -1] =
          rpy_manager->replay_inputs + 1;
   }
   return;

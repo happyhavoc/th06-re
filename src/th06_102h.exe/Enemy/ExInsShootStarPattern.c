@@ -18,9 +18,9 @@ void th06::Enemy::ExInsShootStarPattern(Enemy *param_1,EclRawInstr *param_2)
       g_EnemyPosition.x = (param_1->position).x;
       g_EnemyPosition.y = (param_1->position).y;
       g_EnemyPosition.z = (param_1->position).z;
-      g_PlayerPosition.x = g_Player.positionCenter.x;
-      g_PlayerPosition.y = g_Player.positionCenter.y;
-      g_PlayerPosition.z = g_Player.positionCenter.z;
+      g_PlayerPosition.x = (float)g_MusicRoom._14456_4_;
+      g_PlayerPosition.y = (float)g_MusicRoom._14460_4_;
+      g_PlayerPosition.z = (float)g_MusicRoom._14464_4_;
       fVar8 = Rng::GetRandomF32ZeroToOne(&g_Rng);
       g_StarAngleTable[0] = fVar8 * 6.283185 - 3.141593;
       g_StarAngleTable[1] = utils::AddNormalizeAngle(g_StarAngleTable[0],2.513274);

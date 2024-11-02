@@ -39,9 +39,9 @@ void th06::Enemy::ExInsStage5Func5(Enemy *param_1,EclRawInstr *param_2)
     local_64.unk_4a = 0;
     local_64.flags = 0;
     local_78 = 0.5 - ((float)uVar1 * 0.5) / 9.0;
-    matrix_out.z = g_Player.positionCenter.z - (param_1->position).z;
-    matrix_out.y = g_Player.positionCenter.y - (param_1->position).y;
-    matrix_out.x = g_Player.positionCenter.x - (param_1->position).x;
+    matrix_out.z = (float)g_MusicRoom._14464_4_ - (param_1->position).z;
+    matrix_out.y = (float)g_MusicRoom._14460_4_ - (param_1->position).y;
+    matrix_out.x = (float)g_MusicRoom._14456_4_ - (param_1->position).x;
     D3DXVec3Normalize(&matrix_in,&matrix_out);
     if ((uVar1 & 1) == 0) {
       local_90 = 256.0;

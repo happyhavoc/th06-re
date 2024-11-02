@@ -81,15 +81,16 @@ ChainCallbackResult th06::EnemyManager::OnUpdate(EnemyManager *mgr)
       local_1c.z = (cur_enemy->hitbox_dimensions).z * 0.6666667;
       local_1c.y = (cur_enemy->hitbox_dimensions).y * 0.6666667;
       local_1c.x = (cur_enemy->hitbox_dimensions).x * 0.6666667;
-      iVar4 = Player::CalcKillBoxCollision(&g_Player,&cur_enemy->position,&local_1c);
+      iVar4 = Player::CalcKillBoxCollision
+                        ((Player *)&g_MusicRoom.field_0x3438,&cur_enemy->position,&local_1c);
       if (((iVar4 == 1) && ((cur_enemy->flags2 & 1) != 0)) && ((cur_enemy->flags2 >> 3 & 1) == 0)) {
         cur_enemy->life = cur_enemy->life + -10;
       }
     }
     if ((cur_enemy->flags2 & 1) != 0) {
       damageTaken = Player::CalcDamageToEnemy
-                              (&g_Player,&cur_enemy->position,&cur_enemy->hitbox_dimensions,
-                               &hitWithLazerDuringBomb);
+                              ((Player *)&g_MusicRoom.field_0x3438,&cur_enemy->position,
+                               &cur_enemy->hitbox_dimensions,&hitWithLazerDuringBomb);
       if (69 < damageTaken) {
         damageTaken = 70;
       }
@@ -121,11 +122,11 @@ ChainCallbackResult th06::EnemyManager::OnUpdate(EnemyManager *mgr)
         cur_enemy->life = cur_enemy->life - damageTaken;
       }
       fVar1 = (cur_enemy->position).y;
-      if (g_Player.position_of_last_enemy_hit.y < fVar1 !=
-          (NAN(g_Player.position_of_last_enemy_hit.y) || NAN(fVar1))) {
-        g_Player.position_of_last_enemy_hit.x = (cur_enemy->position).x;
-        g_Player.position_of_last_enemy_hit.y = (cur_enemy->position).y;
-        g_Player.position_of_last_enemy_hit.z = (cur_enemy->position).z;
+      if ((float)g_MusicRoom._15960_4_ < fVar1 != (NAN((float)g_MusicRoom._15960_4_) || NAN(fVar1)))
+      {
+        g_MusicRoom._15956_4_ = (cur_enemy->position).x;
+        g_MusicRoom._15960_4_ = (cur_enemy->position).y;
+        g_MusicRoom._15964_4_ = (cur_enemy->position).z;
       }
     }
     if ((0 < cur_enemy->life) || ((cur_enemy->flags2 & 1) == 0)) goto LAB_00412ce2;

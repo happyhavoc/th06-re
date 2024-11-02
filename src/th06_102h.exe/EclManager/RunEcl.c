@@ -563,7 +563,7 @@ switchD_00407544_caseD_2:
     local_10 = (float)(instruction->args).ecl_var_id;
     local_c = (instruction->args).float_var_1;
     local_8 = (instruction->args).float_var_2;
-    fVar6 = Player::AngleToPlayer(&g_Player,&enemy->position);
+    fVar6 = Player::AngleToPlayer((Player *)&g_MusicRoom.field_0x3438,&enemy->position);
     enemy->angle = fVar6 + local_10;
     pfVar15 = Enemy::GetVarFloat(enemy,&local_c,(EclValueType *)0x0);
     enemy->speed = *pfVar15;
@@ -839,7 +839,9 @@ switchD_00407544_caseD_2:
     break;
   case 0x59:
     if (enemy->lasers[(instruction->args).ecl_var_id] != (Laser *)0x0) {
-      fVar6 = Player::AngleToPlayer(&g_Player,&enemy->lasers[(instruction->args).ecl_var_id]->pos);
+      fVar6 = Player::AngleToPlayer
+                        ((Player *)&g_MusicRoom.field_0x3438,
+                         &enemy->lasers[(instruction->args).ecl_var_id]->pos);
       pfVar15 = Enemy::GetVarFloat(enemy,&(instruction->args).float_var_1,(EclValueType *)0x0);
       enemy->lasers[(instruction->args).ecl_var_id]->angle = fVar6 + *pfVar15;
     }

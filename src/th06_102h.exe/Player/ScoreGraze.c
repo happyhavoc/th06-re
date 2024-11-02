@@ -1,10 +1,12 @@
 
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
 void __thiscall th06::Player::ScoreGraze(Player *this,D3DXVECTOR3 *param_1)
 
 {
   D3DXVECTOR3 local_10;
   
-  if (g_Player.bombInfo.isInUse == 0) {
+  if (_DAT_006d1bf0 == 0) {
     if ((int)g_GameManager.graze_in_stage < 9999) {
       g_GameManager.graze_in_stage = g_GameManager.graze_in_stage + 1;
     }

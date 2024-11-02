@@ -1,4 +1,6 @@
 
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
 void th06::Enemy::ExInsStage6XFunc10(Enemy *param_1,EclRawInstr *param_2)
 
 {
@@ -7,7 +9,7 @@ void th06::Enemy::ExInsStage6XFunc10(Enemy *param_1,EclRawInstr *param_2)
   if (0 < param_1->life) {
     ExInsStage6XFunc6(param_1,param_2);
     pAVar1 = g_AnmManager;
-    if (g_Player.bombInfo.isInUse == 0) {
+    if (_DAT_006d1bf0 == 0) {
       if ((0 < (param_1->exInsFunc10Timer).current) &&
          (ZunTimer::Decrement(&param_1->exInsFunc10Timer,1), pAVar1 = g_AnmManager,
          (param_1->exInsFunc10Timer).current == 0)) {

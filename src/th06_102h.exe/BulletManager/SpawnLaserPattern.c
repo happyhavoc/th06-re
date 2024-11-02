@@ -41,7 +41,7 @@ th06::BulletManager::SpawnLaserPattern(BulletManager *this,EnemyLaserShooter *la
   laser->in_use = 1;
   laser->angle = laser_shooter->angle;
   if (laser_shooter->type == 0) {
-    fVar4 = Player::AngleToPlayer(&g_Player,&laser_shooter->position);
+    fVar4 = Player::AngleToPlayer((Player *)&g_MusicRoom.field_0x3438,&laser_shooter->position);
     laser->angle = fVar4 + laser->angle;
   }
   laser->flags = *(short *)&laser_shooter->flags;

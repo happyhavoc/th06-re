@@ -1,4 +1,6 @@
 
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
 void __thiscall th06::ItemManager::OnUpdate(ItemManager *this)
 
 {
@@ -66,8 +68,9 @@ void __thiscall th06::ItemManager::OnUpdate(ItemManager *this)
       else {
         if ((curItem->state == 1) ||
            ((0x7f < g_GameManager.current_power &&
-            (g_Player.positionCenter.y < 128.0 != NAN(g_Player.positionCenter.y))))) {
-          fVar7 = Player::AngleToPlayer(&g_Player,&curItem->currentPosition);
+            ((float)g_MusicRoom._14460_4_ < 128.0 != NAN((float)g_MusicRoom._14460_4_))))) {
+          fVar7 = Player::AngleToPlayer
+                            ((Player *)&g_MusicRoom.field_0x3438,&curItem->currentPosition);
           fVar4 = (float10)fcos((float10)fVar7);
           fVar10 = (float10)fsin((float10)fVar7);
           (curItem->startPosition).x = (float)(fVar4 * (float10)8.0);
@@ -106,7 +109,8 @@ LAB_0041f7c5:
                g_Supervisor.effectiveFramerateMultiplier * 0.03 + (curItem->startPosition).y;
         }
       }
-      iVar8 = Player::CalcItemBoxCollision(&g_Player,&curItem->currentPosition,&g_ItemSize);
+      iVar8 = Player::CalcItemBoxCollision
+                        ((Player *)&g_MusicRoom.field_0x3438,&curItem->currentPosition,&g_ItemSize);
       if (iVar8 == 0) {
         (curItem->timer).previous = (curItem->timer).current;
         Supervisor::TickTimer(&g_Supervisor,&(curItem->timer).current,&(curItem->timer).subFrame);
@@ -291,7 +295,7 @@ LAB_0041f7c5:
           break;
         case ITEM_POINT_BULLET:
           local_c = ((int)g_GameManager.graze_in_stage / 3) * 10 + 500;
-          if (g_Player.bombInfo.isInUse != 0) {
+          if (_DAT_006d1bf0 != 0) {
             local_c = 100;
           }
           g_GameManager.score = g_GameManager.score + local_c;

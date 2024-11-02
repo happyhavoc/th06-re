@@ -1,32 +1,34 @@
 
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
 ZunResult th06::Player::RegisterChain(byte param_1)
 
 {
   ZunResult ZVar1;
   int iVar2;
-  Player *pPVar3;
+  undefined4 *puVar3;
   
-  pPVar3 = &g_Player;
+  puVar3 = (undefined4 *)&g_MusicRoom.field_0x3438;
   for (iVar2 = 0x263c; iVar2 != 0; iVar2 = iVar2 + -1) {
-    (pPVar3->playerSprite).rotation.x = 0.0;
-    pPVar3 = (Player *)&(pPVar3->playerSprite).rotation.y;
+    *puVar3 = 0;
+    puVar3 = puVar3 + 1;
   }
-  g_Player.invulnerabilityTimer.current = 0;
-  g_Player.invulnerabilityTimer.subFrame = 0.0;
-  g_Player.invulnerabilityTimer.previous = -999;
-  g_Player.unk_9e1 = param_1;
-  g_Player.onTick = Chain::CreateElem(&g_Chain,OnUpdate);
-  g_Player.onDraw1 = Chain::CreateElem(&g_Chain,OnDrawHighPrio);
-  g_Player.onDraw2 = Chain::CreateElem(&g_Chain,OnDrawLowPrio);
-  (g_Player.onTick)->arg = &g_Player;
-  (g_Player.onDraw1)->arg = &g_Player;
-  (g_Player.onDraw2)->arg = &g_Player;
-  (g_Player.onTick)->addedCallback = AddedCallback;
-  (g_Player.onTick)->deletedCallback = DeletedCallback;
-  iVar2 = Chain::AddToCalcChain(&g_Chain,g_Player.onTick,7);
+  _DAT_006d1be4 = 0;
+  _DAT_006d1be0 = 0;
+  _DAT_006d1bdc = 0xfffffc19;
+  g_MusicRoom._15897_1_ = param_1;
+  _DAT_006d3f0c = Chain::CreateElem(&g_Chain,OnUpdate);
+  _DAT_006d3f10 = Chain::CreateElem(&g_Chain,OnDrawHighPrio);
+  _DAT_006d3f14 = Chain::CreateElem(&g_Chain,OnDrawLowPrio);
+  _DAT_006d3f0c->arg = &g_MusicRoom.field_0x3438;
+  _DAT_006d3f10->arg = &g_MusicRoom.field_0x3438;
+  _DAT_006d3f14->arg = &g_MusicRoom.field_0x3438;
+  _DAT_006d3f0c->addedCallback = AddedCallback;
+  _DAT_006d3f0c->deletedCallback = DeletedCallback;
+  iVar2 = Chain::AddToCalcChain(&g_Chain,_DAT_006d3f0c,7);
   if (iVar2 == 0) {
-    Chain::AddToDrawChain(&g_Chain,g_Player.onDraw1,5);
-    Chain::AddToDrawChain(&g_Chain,g_Player.onDraw2,7);
+    Chain::AddToDrawChain(&g_Chain,_DAT_006d3f10,5);
+    Chain::AddToDrawChain(&g_Chain,_DAT_006d3f14,7);
     ZVar1 = ZUN_SUCCESS;
   }
   else {

@@ -1,15 +1,17 @@
 
-ZunResult __cdecl th06::MusicRoom::DeletedCallback(MusicRoom *param_1)
+ZunResult __cdecl th06::MusicRoom::DeletedCallback(MusicRoom *musicRoom)
 
 {
-  operator_delete(param_1->field11_0x20);
-  param_1->field11_0x20 = (char *)0x0;
+                    /* Considering the fact that this uses operator_delete, this definitely is not a
+                       char* */
+  operator_delete(musicRoom->musicRoomPtr);
+  musicRoom->musicRoomPtr = (MusicRoom *)0x0;
   AnmManager::ReleaseSurface(g_AnmManager,0);
   AnmManager::ReleaseAnm(g_AnmManager,0x29);
   AnmManager::ReleaseAnm(g_AnmManager,0x2a);
   AnmManager::ReleaseAnm(g_AnmManager,0x2b);
-  Chain::Cut(&g_Chain,param_1->calc_chain);
-  param_1->calc_chain = (ChainElem *)0x0;
+  Chain::Cut(&g_Chain,musicRoom->draw_chain);
+  musicRoom->draw_chain = (ChainElem *)0x0;
   return ZUN_SUCCESS;
 }
 

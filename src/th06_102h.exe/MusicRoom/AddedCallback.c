@@ -1,28 +1,29 @@
 
-ZunResult __cdecl th06::MusicRoom::AddedCallback(MusicRoom *param_1)
+ZunResult __cdecl th06::MusicRoom::AddedCallback(MusicRoom *musicRoom)
 
 {
   ZunResult ZVar4;
-  ZunResult iVar5;
+  ZunResult return;
   char *pcVar5;
   int iVar6;
+  int iVar1;
   undefined4 *puVar7;
   MusicRoom *pMVar1;
   undefined4 *puVar8;
   char *local_98;
-  MusicRoom *local_8c;
+  MusicRoom *musicRoomObj;
   MusicRoom *local_78;
   int local_70;
   char local_5c;
   uint local_1c;
-  char *firstChar;
-  int local_14;
+  byte *firstChar;
+  MusicRoom *local_14;
   char *currChar;
   int local_c;
-  int local_8;
+  int offset;
+  AnmManager *anmMgr;
   char cVar2;
-  AnmVm *pAVar1;
-  AnmManager *pAVar3;
+  AnmVm *curSprite;
   uint unaff_retaddr;
   
   local_1c = __security_cookie ^ unaff_retaddr;
@@ -33,56 +34,64 @@ ZunResult __cdecl th06::MusicRoom::AddedCallback(MusicRoom *param_1)
       ZVar4 = AnmManager::LoadAnm(g_AnmManager,0x2a,"data/music01.anm",0x101);
       if (ZVar4 == ZUN_SUCCESS) {
         ZVar4 = AnmManager::LoadAnm(g_AnmManager,0x2b,"data/music02.anm",0x111);
-        pAVar3 = g_AnmManager;
+        anmMgr = g_AnmManager;
         if (ZVar4 == ZUN_SUCCESS) {
-          (param_1->field12_0x24).anmFileIndex = 0x100;
-          AnmManager::SetAndExecuteScript(pAVar3,&param_1->field12_0x24,pAVar3->scripts[0x100]);
-          param_1->field5_0x8 = 0;
-          firstChar = (char *)FileSystem::OpenPath("data/musiccmt.txt",0);
-          currChar = firstChar;
-          if ((byte *)firstChar == (byte *)0x0) {
-            iVar5 = ZUN_ERROR;
+          (musicRoom->mainVM).anmFileIndex = 0x100;
+          AnmManager::SetAndExecuteScript(anmMgr,&musicRoom->mainVM,anmMgr->scripts[0x100]);
+          musicRoom->field2_0x8 = 0;
+          firstChar = FileSystem::OpenPath("data/musiccmt.txt",0);
+          currChar = (char *)firstChar;
+                    /* If we couldn't read the file (OpenPath returning NULL)
+                        */
+          if (firstChar == (byte *)0x0) {
+            return = ZUN_ERROR;
           }
           else {
-            local_8c = (MusicRoom *)operator_new(0x4e40);
-            if (local_8c == (MusicRoom *)0x0) {
-              local_8c = (MusicRoom *)0x0;
+            musicRoomObj = (MusicRoom *)operator_new(0x4e40);
+            if (musicRoomObj == (MusicRoom *)0x0) {
+              musicRoomObj = (MusicRoom *)0x0;
             }
             else {
               local_70 = 0x20;
-              local_78 = local_8c;
+              local_78 = musicRoomObj;
               while (local_70 = local_70 + -1, -1 < local_70) {
                 pMVar1 = local_78;
                 for (iVar6 = 0x9c; iVar6 != 0; iVar6 = iVar6 + -1) {
-                  *(undefined4 *)pMVar1 = 0;
-                  pMVar1 = (MusicRoom *)&pMVar1->calc_chain;
+                  pMVar1->calc_chain = (ChainElem *)0x0;
+                  pMVar1 = (MusicRoom *)&pMVar1->draw_chain;
                 }
-                *(undefined2 *)pMVar1 = 0;
-                local_78 = (MusicRoom *)((int)&local_78->field13_0x134[1].uvScrollPos.y + 2);
+                *(undefined2 *)&pMVar1->calc_chain = 0;
+                local_78 = (MusicRoom *)((int)&local_78->anmArray[1].uvScrollPos.y + 2);
               }
             }
-            param_1->field11_0x20 = (char *)local_8c;
-            local_8 = -1;
-            while ((int)currChar - (int)firstChar < g_LastFileSize) {
+            musicRoom->musicRoomPtr = musicRoomObj;
+            offset = -1;
+            iVar6 = offset;
+            while (offset = iVar6, iVar6 = offset, (int)currChar - (int)firstChar < g_LastFileSize)
+            {
               if (*currChar == '@') {
                 currChar = currChar + 1;
-                local_8 = local_8 + 1;
-                local_14 = 0;
+                iVar6 = offset + 1;
+                local_14 = (MusicRoom *)0x0;
                 while ((*currChar != '\n' && (*currChar != '\r'))) {
-                  param_1->field11_0x20[local_14 + local_8 * 0x272] = *currChar;
+                  *(char *)((int)local_14->anmArray +
+                           (int)musicRoom->musicRoomPtr->anmArray + offset * 0x272 + 10) = *currChar
+                  ;
                   currChar = currChar + 1;
-                  local_14 = local_14 + 1;
+                  local_14 = (MusicRoom *)((int)&local_14->calc_chain + 1);
                   if (g_LastFileSize <= (int)currChar - (int)firstChar) goto breakWhile;
                 }
                 while ((*currChar == '\n' || (*currChar == '\r'))) {
                   currChar = currChar + 1;
                   if (g_LastFileSize <= (int)currChar - (int)firstChar) goto breakWhile;
                 }
-                local_14 = 0;
+                local_14 = (MusicRoom *)0x0;
                 while ((*currChar != '\n' && (*currChar != '\r'))) {
-                  param_1->field11_0x20[local_14 + local_8 * 0x272 + 0x40] = *currChar;
+                  *(char *)((int)local_14->anmArray +
+                           (int)musicRoom->musicRoomPtr->anmArray + offset * 0x272 + 0x4a) =
+                       *currChar;
                   currChar = currChar + 1;
-                  local_14 = local_14 + 1;
+                  local_14 = (MusicRoom *)((int)&local_14->calc_chain + 1);
                   if (g_LastFileSize <= (int)currChar - (int)firstChar) goto breakWhile;
                 }
                 while ((*currChar == '\n' && (*currChar == '\r'))) {
@@ -92,18 +101,20 @@ ZunResult __cdecl th06::MusicRoom::AddedCallback(MusicRoom *param_1)
                 local_c = 0;
                 while ((local_c < 8 && (*currChar != '@'))) {
                   puVar7 = (undefined4 *)
-                           (param_1->field11_0x20 + local_c * 0x42 + local_8 * 0x272 + 0x62);
-                  for (iVar6 = 0x10; iVar6 != 0; iVar6 = iVar6 + -1) {
+                           ((int)musicRoom->musicRoomPtr->anmArray +
+                           local_c * 0x42 + offset * 0x272 + 0x1a0);
+                  for (iVar1 = 0x10; iVar1 != 0; iVar1 = iVar1 + -1) {
                     *puVar7 = 0;
                     puVar7 = puVar7 + 1;
                   }
                   *(undefined2 *)puVar7 = 0;
-                  local_14 = 0;
+                  local_14 = (MusicRoom *)0x0;
                   while ((*currChar != '\n' && (*currChar != '\r'))) {
-                    param_1->field11_0x20[local_c * 0x42 + 0x62 + local_14 + local_8 * 0x272] =
-                         *currChar;
+                    *(char *)((int)local_14->anmArray +
+                             (int)musicRoom->musicRoomPtr->anmArray +
+                             local_c * 0x42 + offset * 0x272 + 0x6c) = *currChar;
                     currChar = currChar + 1;
-                    local_14 = local_14 + 1;
+                    local_14 = (MusicRoom *)((int)&local_14->calc_chain + 1);
                     if (g_LastFileSize <= (int)currChar - (int)firstChar) goto breakWhile;
                   }
                   while ((*currChar == '\n' || (*currChar == '\r'))) {
@@ -118,36 +129,37 @@ ZunResult __cdecl th06::MusicRoom::AddedCallback(MusicRoom *param_1)
               }
             }
 breakWhile:
-            param_1->field10_0x1c = local_8 + 1;
-            for (local_8 = 0; pAVar3 = g_AnmManager, local_8 < param_1->field10_0x1c;
-                local_8 = local_8 + 1) {
-              pAVar1 = param_1->field13_0x134 + local_8;
-              AnmVm::Initialize(pAVar1);
-              AnmManager::SetActiveSprite(pAVar3,pAVar1,local_8 + 0x101);
+            offset = iVar6;
+            musicRoom->currOffset = offset + 1;
+            for (offset = 0; anmMgr = g_AnmManager, offset < musicRoom->currOffset;
+                offset = offset + 1) {
+              curSprite = musicRoom->anmArray + offset;
+              AnmVm::Initialize(curSprite);
+              AnmManager::SetActiveSprite(anmMgr,curSprite,offset + 0x101);
               AnmManager::DrawVmTextFmt
-                        (g_AnmManager,param_1->field13_0x134 + local_8,(ZunColor)0xc0e0ff,
-                         (ZunColor)0x302080,param_1->field11_0x20 + local_8 * 0x272 + 0x40);
-              param_1->field13_0x134[local_8].pos.x = 93.0;
-              param_1->field13_0x134[local_8].pos.y = ((float)((local_8 + 1) * 0x12) + 104.0) - 20.0
-              ;
-              param_1->field13_0x134[local_8].pos.z = 0.0;
-              param_1->field13_0x134[local_8].flags =
-                   param_1->field13_0x134[local_8].flags | (AnmVmFlags_8|AnmVmFlags_9);
+                        (g_AnmManager,musicRoom->anmArray + offset,(ZunColor)0xc0e0ff,
+                         (ZunColor)0x302080,
+                         (char *)((int)&musicRoom->musicRoomPtr->mainVM + offset * 0x272 + 0x1c));
+              musicRoom->anmArray[offset].pos.x = 93.0;
+              musicRoom->anmArray[offset].pos.y = ((float)((offset + 1) * 0x12) + 104.0) - 20.0;
+              musicRoom->anmArray[offset].pos.z = 0.0;
+              musicRoom->anmArray[offset].flags =
+                   musicRoom->anmArray[offset].flags | (AnmVmFlags_8|AnmVmFlags_9);
             }
-            for (local_8 = 0; pAVar3 = g_AnmManager, local_8 < 0x10; local_8 = local_8 + 1) {
-              pAVar1 = param_1->field4366_0x2334 + local_8;
-              AnmVm::Initialize(pAVar1);
-              AnmManager::SetActiveSprite(pAVar3,pAVar1,local_8 + 0x708);
+            for (offset = 0; anmMgr = g_AnmManager, offset < 0x10; offset = offset + 1) {
+              curSprite = musicRoom->anmArray2 + offset;
+              AnmVm::Initialize(curSprite);
+              AnmManager::SetActiveSprite(anmMgr,curSprite,offset + 0x708);
               puVar7 = (undefined4 *)&local_5c;
               for (iVar6 = 0x10; iVar6 != 0; iVar6 = iVar6 + -1) {
                 *puVar7 = 0;
                 puVar7 = puVar7 + 1;
               }
-              if (local_8 % 2 == 0) {
+              if (offset % 2 == 0) {
 LAB_00425c09:
                 puVar7 = (undefined4 *)
-                         (param_1->field11_0x20 + (local_8 % 2) * 0x20 + (local_8 / 2) * 0x42 + 0x62
-                         );
+                         ((int)&(musicRoom->musicRoomPtr->mainVM).matrix +
+                         (offset % 2) * 0x20 + (offset / 2) * 0x42 + 2);
                 puVar8 = (undefined4 *)&local_5c;
                 for (iVar6 = 8; iVar6 != 0; iVar6 = iVar6 + -1) {
                   *puVar8 = *puVar7;
@@ -156,8 +168,8 @@ LAB_00425c09:
                 }
               }
               else {
-                local_98 = param_1->field11_0x20 +
-                           (local_8 / 2) * 0x42 + param_1->musicPtr * 0x272 + 0x62;
+                local_98 = (char *)((int)&musicRoom->musicRoomPtr->mainVM +
+                                   (offset / 2) * 0x42 + musicRoom->musicPtr * 0x272 + 0x3e);
                 pcVar5 = local_98 + 1;
                 do {
                   cVar2 = *local_98;
@@ -166,42 +178,41 @@ LAB_00425c09:
                 if (0x20 < (uint)((int)local_98 - (int)pcVar5)) goto LAB_00425c09;
               }
               if (local_5c == '\0') {
-                param_1->field4366_0x2334[local_8].flags =
-                     param_1->field4366_0x2334[local_8].flags & 0xfffffffd;
+                musicRoom->anmArray2[offset].flags = musicRoom->anmArray2[offset].flags & 0xfffffffd
+                ;
               }
               else {
-                param_1->field4366_0x2334[local_8].flags =
-                     param_1->field4366_0x2334[local_8].flags | 2;
+                musicRoom->anmArray2[offset].flags = musicRoom->anmArray2[offset].flags | 2;
                 AnmManager::DrawVmTextFmt
-                          (g_AnmManager,param_1->field4366_0x2334 + local_8,(ZunColor)0xffe0c0,
+                          (g_AnmManager,musicRoom->anmArray2 + offset,(ZunColor)0xffe0c0,
                            (ZunColor)0x300000,&local_5c);
               }
-              param_1->field4366_0x2334[local_8].pos.x = (float)(local_8 % 2) * 248.0 + 96.0;
-              param_1->field4366_0x2334[local_8].pos.y = (float)(local_8 / 2 << 4) + 320.0;
-              param_1->field4366_0x2334[local_8].pos.z = 0.0;
-              param_1->field4366_0x2334[local_8].flags =
-                   param_1->field4366_0x2334[local_8].flags | (AnmVmFlags_8|AnmVmFlags_9);
+              musicRoom->anmArray2[offset].pos.x = (float)(offset % 2) * 248.0 + 96.0;
+              musicRoom->anmArray2[offset].pos.y = (float)(offset / 2 << 4) + 320.0;
+              musicRoom->anmArray2[offset].pos.z = 0.0;
+              musicRoom->anmArray2[offset].flags =
+                   musicRoom->anmArray2[offset].flags | (AnmVmFlags_8|AnmVmFlags_9);
             }
             _free(firstChar);
-            iVar5 = ZUN_SUCCESS;
+            return = ZUN_SUCCESS;
           }
         }
         else {
-          iVar5 = ZUN_ERROR;
+          return = ZUN_ERROR;
         }
       }
       else {
-        iVar5 = ZUN_ERROR;
+        return = ZUN_ERROR;
       }
     }
     else {
-      iVar5 = ZUN_ERROR;
+      return = ZUN_ERROR;
     }
   }
   else {
-    iVar5 = ZUN_ERROR;
+    return = ZUN_ERROR;
   }
   __security_check_cookie(local_1c ^ unaff_retaddr);
-  return iVar5;
+  return return;
 }
 

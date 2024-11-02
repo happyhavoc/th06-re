@@ -4,9 +4,9 @@
 ZunResult th06::MusicRoom::RegisterChain(void)
 
 {
-  ZunResult ZVar1;
-  int iVar2;
-  ChainElem **ppCVar3;
+  ZunResult result;
+  int iVar1;
+  MusicRoom *pMVar2;
   void *pvStack_10;
   undefined *puStack_c;
   undefined4 uStack_8;
@@ -14,33 +14,35 @@ ZunResult th06::MusicRoom::RegisterChain(void)
   puStack_c = &LAB_00469238;
   pvStack_10 = ExceptionList;
   ExceptionList = &pvStack_10;
-  if ((DAT_006ca624 & 1) == 0) {
-    DAT_006ca624 = DAT_006ca624 | 1;
+  if ((g_MusicRoom._13364_4_ & 1) == 0) {
+    g_MusicRoom._13364_4_ = g_MusicRoom._13364_4_ | 1;
     uStack_8 = 0;
     ExceptionList = &pvStack_10;
-    MusicRoom((MusicRoom *)&g_MusicRoomCalcChain);
+    MusicRoom(&g_MusicRoom);
   }
   uStack_8 = 0xffffffff;
-  ppCVar3 = &g_MusicRoomCalcChain;
-  for (iVar2 = 0xd0d; iVar2 != 0; iVar2 = iVar2 + -1) {
-    *ppCVar3 = (ChainElem *)0x0;
-    ppCVar3 = ppCVar3 + 1;
+  pMVar2 = &g_MusicRoom;
+                    /* Overwriting the calc chain memory with draw chain info..? Might be a hack to
+                       use less memory, not sure. */
+  for (iVar1 = 0xd0d; iVar1 != 0; iVar1 = iVar1 + -1) {
+    pMVar2->calc_chain = (ChainElem *)0x0;
+    pMVar2 = (MusicRoom *)&pMVar2->draw_chain;
   }
-  g_MusicRoomCalcChain = Chain::CreateElem(&g_Chain,OnUpdate);
-  g_MusicRoomCalcChain->arg = &g_MusicRoomCalcChain;
-  g_MusicRoomCalcChain->addedCallback = AddedCallback;
-  g_MusicRoomCalcChain->deletedCallback = DeletedCallback;
-  iVar2 = Chain::AddToCalcChain(&g_Chain,g_MusicRoomCalcChain,2);
-  if (iVar2 == 0) {
-    g_MusicRoomDrawChain = Chain::CreateElem(&g_Chain,OnDraw);
-    g_MusicRoomDrawChain->arg = &g_MusicRoomCalcChain;
-    Chain::AddToDrawChain(&g_Chain,g_MusicRoomDrawChain,0);
-    ZVar1 = ZUN_SUCCESS;
+  g_MusicRoom.calc_chain = Chain::CreateElem(&g_Chain,OnUpdate);
+  (g_MusicRoom.calc_chain)->arg = &g_MusicRoom;
+  (g_MusicRoom.calc_chain)->addedCallback = AddedCallback;
+  (g_MusicRoom.calc_chain)->deletedCallback = DeletedCallback;
+  iVar1 = Chain::AddToCalcChain(&g_Chain,g_MusicRoom.calc_chain,2);
+  if (iVar1 == 0) {
+    g_MusicRoom.draw_chain = Chain::CreateElem(&g_Chain,OnDraw);
+    (g_MusicRoom.draw_chain)->arg = &g_MusicRoom;
+    Chain::AddToDrawChain(&g_Chain,g_MusicRoom.draw_chain,0);
+    result = ZUN_SUCCESS;
   }
   else {
-    ZVar1 = ZUN_ERROR;
+    result = ZUN_ERROR;
   }
   ExceptionList = pvStack_10;
-  return ZVar1;
+  return result;
 }
 

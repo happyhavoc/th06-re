@@ -24,9 +24,9 @@ int * th06::Enemy::GetVar(Enemy *enemy,EclVarId *eclGvarId,EclValueType *valueTy
     pfVar1 = &enemy->life;
     break;
   case ECL_VAR_PLAYER_DISTANCE:
-    local_10.z = g_Player.positionCenter.z - (enemy->position).z;
-    local_10.y = g_Player.positionCenter.y - (enemy->position).y;
-    local_10.x = g_Player.positionCenter.x - (enemy->position).x;
+    local_10.z = (float)g_MusicRoom._14464_4_ - (enemy->position).z;
+    local_10.y = (float)g_MusicRoom._14460_4_ - (enemy->position).y;
+    local_10.x = (float)g_MusicRoom._14456_4_ - (enemy->position).x;
     g_PlayerDistance = D3DXVec3Length(&local_10);
     if (valueType != (EclValueType *)0x0) {
       *valueType = ECL_VALUE_TYPE_READONLY;
@@ -40,7 +40,7 @@ int * th06::Enemy::GetVar(Enemy *enemy,EclVarId *eclGvarId,EclValueType *valueTy
     pfVar1 = &(enemy->boss_timer).current;
     break;
   case ECL_VAR_PLAYER_ANGLE:
-    g_PlayerAngle = Player::AngleToPlayer(&g_Player,&enemy->position);
+    g_PlayerAngle = Player::AngleToPlayer((Player *)&g_MusicRoom.field_0x3438,&enemy->position);
     if (valueType != (EclValueType *)0x0) {
       *valueType = ECL_VALUE_TYPE_READONLY;
     }
@@ -50,19 +50,19 @@ int * th06::Enemy::GetVar(Enemy *enemy,EclVarId *eclGvarId,EclValueType *valueTy
     if (valueType != (EclValueType *)0x0) {
       *valueType = ECL_VALUE_TYPE_READONLY;
     }
-    pfVar1 = (int *)&g_Player.positionCenter.z;
+    pfVar1 = (int *)&g_MusicRoom.field_0x3880;
     break;
   case ECL_VAR_PLAYER_Y:
     if (valueType != (EclValueType *)0x0) {
       *valueType = ECL_VALUE_TYPE_READONLY;
     }
-    pfVar1 = (int *)&g_Player.positionCenter.y;
+    pfVar1 = (int *)&g_MusicRoom.field_0x387c;
     break;
   case ECL_VAR_PLAYER_X:
     if (valueType != (EclValueType *)0x0) {
       *valueType = ECL_VALUE_TYPE_READONLY;
     }
-    pfVar1 = (int *)&g_Player.positionCenter;
+    pfVar1 = (int *)&g_MusicRoom.field_0x3878;
     break;
   case ECL_VAR_SELF_Z:
     if (valueType != (EclValueType *)0x0) {

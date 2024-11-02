@@ -4,20 +4,20 @@ ChainCallbackResult __cdecl th06::MusicRoom::OnUpdate(MusicRoom *musicRoom)
 {
   int iVar1;
   ZunResult ZVar2;
-  int iVar3;
+  int shouldDraw;
   
-  iVar1 = musicRoom->field3_0xc;
+  iVar1 = musicRoom->drawMusicList;
   do {
-    iVar3 = musicRoom->field3_0xc;
-    if (iVar3 != 0) {
-      if ((iVar3 == 1) && (DrawMusicList(musicRoom), iVar3 != 0)) {
+    shouldDraw = musicRoom->drawMusicList;
+    if (shouldDraw != 0) {
+      if ((shouldDraw == 1) && (DrawMusicList(musicRoom), shouldDraw != 0)) {
         return CHAIN_CALLBACK_RESULT_CONTINUE_AND_REMOVE_JOB;
       }
       break;
     }
     ZVar2 = FUN_00424e8f(musicRoom);
   } while (ZVar2 != ZUN_SUCCESS);
-  if (iVar1 == musicRoom->field3_0xc) {
+  if (iVar1 == musicRoom->drawMusicList) {
     musicRoom->field2_0x8 = musicRoom->field2_0x8 + 1;
   }
   else {

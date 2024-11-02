@@ -1,6 +1,7 @@
 
 /* WARNING: Removing unreachable block (ram,0x0040c27a) */
 /* WARNING: Removing unreachable block (ram,0x0040c464) */
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
 
 void th06::Enemy::ExInsStage56Func4(Enemy *param_1,EclRawInstr *param_2)
 
@@ -33,12 +34,12 @@ void th06::Enemy::ExInsStage56Func4(Enemy *param_1,EclRawInstr *param_2)
                     (g_AnmManager,(AnmVm *)bullets,
                      (int)(bullets->sprites).bulletSprite.baseSpriteIndex +
                      (int)bullets->spriteOffset);
-          fVar4 = (bullets->pos).x - (float)g_MusicRoom._14456_4_;
-          fVar5 = (bullets->pos).y - (float)g_MusicRoom._14460_4_;
+          fVar4 = (bullets->pos).x - _DAT_006caa68;
+          fVar5 = (bullets->pos).y - _DAT_006caa6c;
           fVar4 = sqrt(SUB84((double)(fVar4 * fVar4 + fVar5 * fVar5),0));
           if (fVar4 <= 128.0) {
             fVar4 = Rng::GetRandomF32ZeroToOne(&g_Rng);
-            fVar5 = Player::AngleFromPlayer((Player *)&g_MusicRoom.field_0x3438,&bullets->pos);
+            fVar5 = Player::AngleFromPlayer((Player *)&g_Player,&bullets->pos);
             bullets->angle = fVar5 + 1.570796 + fVar4 * 6.283185;
           }
           else {
@@ -69,12 +70,12 @@ void th06::Enemy::ExInsStage56Func4(Enemy *param_1,EclRawInstr *param_2)
                     (g_AnmManager,(AnmVm *)bullets,
                      (int)(bullets->sprites).bulletSprite.baseSpriteIndex +
                      (int)bullets->spriteOffset);
-          fVar4 = (bullets->pos).x - (float)g_MusicRoom._14456_4_;
-          fVar5 = (bullets->pos).y - (float)g_MusicRoom._14460_4_;
+          fVar4 = (bullets->pos).x - _DAT_006caa68;
+          fVar5 = (bullets->pos).y - _DAT_006caa6c;
           fVar4 = sqrt(SUB84((double)(fVar4 * fVar4 + fVar5 * fVar5),0));
           if (fVar4 <= 128.0) {
             fVar4 = Rng::GetRandomF32ZeroToOne(&g_Rng);
-            fVar5 = Player::AngleFromPlayer((Player *)&g_MusicRoom.field_0x3438,&bullets->pos);
+            fVar5 = Player::AngleFromPlayer((Player *)&g_Player,&bullets->pos);
             bullets->angle = fVar5 + 1.570796 + fVar4 * 6.283185;
           }
           else {

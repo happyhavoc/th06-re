@@ -1,4 +1,6 @@
 
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
 void th06::Enemy::ExInsStage5Func5(Enemy *param_1,EclRawInstr *param_2)
 
 {
@@ -39,9 +41,9 @@ void th06::Enemy::ExInsStage5Func5(Enemy *param_1,EclRawInstr *param_2)
     local_64.unk_4a = 0;
     local_64.flags = 0;
     local_78 = 0.5 - ((float)uVar1 * 0.5) / 9.0;
-    matrix_out.z = (float)g_MusicRoom._14464_4_ - (param_1->position).z;
-    matrix_out.y = (float)g_MusicRoom._14460_4_ - (param_1->position).y;
-    matrix_out.x = (float)g_MusicRoom._14456_4_ - (param_1->position).x;
+    matrix_out.z = _DAT_006caa70 - (param_1->position).z;
+    matrix_out.y = _DAT_006caa6c - (param_1->position).y;
+    matrix_out.x = _DAT_006caa68 - (param_1->position).x;
     D3DXVec3Normalize(&matrix_in,&matrix_out);
     if ((uVar1 & 1) == 0) {
       local_90 = 256.0;

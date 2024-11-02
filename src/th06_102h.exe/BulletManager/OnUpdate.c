@@ -228,8 +228,7 @@ switchD_00414a97_caseD_1:
                   if (bulletsPtr->dir_change__max_times <= bulletsPtr->dir_change__num_times) {
                     bulletsPtr->ex_flags = bulletsPtr->ex_flags & 0xff7f;
                   }
-                  velZ = Player::AngleToPlayer((Player *)&g_MusicRoom.field_0x3438,&bulletsPtr->pos)
-                  ;
+                  velZ = Player::AngleToPlayer((Player *)&g_Player,&bulletsPtr->pos);
                   bulletsPtr->angle = velZ + bulletsPtr->dir_change__rotation_arg;
                   bulletsPtr->speed = bulletsPtr->dir_change__speed_arg;
                   local_10 = bulletsPtr->speed;
@@ -303,13 +302,13 @@ switchD_00414a97_caseD_1:
           bulletsPtr->unk_5c0 = 0;
 LAB_00415b6c:
           if (bulletsPtr->is_grazed == 0) {
-            local_8 = Player::CheckGraze((Player *)&g_MusicRoom.field_0x3438,&bulletsPtr->pos,
+            local_8 = Player::CheckGraze((Player *)&g_Player,&bulletsPtr->pos,
                                          &(bulletsPtr->sprites).grazeSize);
             if (local_8 == 1) {
               bulletsPtr->is_grazed = 1;
 LAB_00415be8:
               local_8 = Player::CalcKillBoxCollision
-                                  ((Player *)&g_MusicRoom.field_0x3438,&bulletsPtr->pos,
+                                  ((Player *)&g_Player,&bulletsPtr->pos,
                                    &(bulletsPtr->sprites).grazeSize);
               if ((local_8 != 0) && (bulletsPtr->state = 5, local_8 == 2)) {
                 ItemManager::SpawnItem(&g_ItemManager,&bulletsPtr->pos,ITEM_POINT_BULLET,1);
@@ -396,8 +395,8 @@ bulletLoopContinue:
           }
           if (curLaser->graze_delay <= (curLaser->timer).current) {
             Player::CalcLaserHitbox
-                      ((Player *)&g_MusicRoom.field_0x3438,&local_38,&local_20,&curLaser->pos,
-                       curLaser->angle,(uint)((curLaser->timer).current % 0xc == 0));
+                      ((Player *)&g_Player,&local_38,&local_20,&curLaser->pos,curLaser->angle,
+                       (uint)((curLaser->timer).current % 0xc == 0));
           }
           if (curLaser->start_time <= (curLaser->timer).current) {
             (curLaser->timer).current = 0;
@@ -411,8 +410,8 @@ bulletLoopContinue:
           if (bVar1 == 1) {
 LAB_004161bf:
             Player::CalcLaserHitbox
-                      ((Player *)&g_MusicRoom.field_0x3438,&local_38,&local_20,&curLaser->pos,
-                       curLaser->angle,(uint)((curLaser->timer).current % 0xc == 0));
+                      ((Player *)&g_Player,&local_38,&local_20,&curLaser->pos,curLaser->angle,
+                       (uint)((curLaser->timer).current % 0xc == 0));
             if ((curLaser->timer).current < curLaser->duration) goto LAB_00416422;
             (curLaser->timer).current = 0;
             (curLaser->timer).subFrame = 0.0;
@@ -443,8 +442,8 @@ LAB_004161bf:
           }
           if ((curLaser->timer).current < curLaser->graze_interval) {
             Player::CalcLaserHitbox
-                      ((Player *)&g_MusicRoom.field_0x3438,&local_38,&local_20,&curLaser->pos,
-                       curLaser->angle,(uint)((curLaser->timer).current % 0xc == 0));
+                      ((Player *)&g_Player,&local_38,&local_20,&curLaser->pos,curLaser->angle,
+                       (uint)((curLaser->timer).current % 0xc == 0));
           }
           if (curLaser->end_time <= (curLaser->timer).current) {
             curLaser->in_use = 0;

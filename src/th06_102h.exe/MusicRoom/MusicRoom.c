@@ -4,7 +4,7 @@ MusicRoom * __thiscall th06::MusicRoom::MusicRoom(MusicRoom *this)
 {
   int iVar1;
   MusicRoom *pMVar2;
-  AnmVm *local_58;
+  MusicRoom *local_58;
   int local_50;
   AnmVm *local_3c;
   int local_34;
@@ -24,10 +24,10 @@ MusicRoom * __thiscall th06::MusicRoom::MusicRoom(MusicRoom *this)
     local_3c = local_3c + 1;
   }
   local_50 = 16;
-  local_58 = this->anmArray2;
+  local_58 = this + 1;
   while (local_50 = local_50 + -1, -1 < local_50) {
-    AnmVm::AnmVm(local_58);
-    local_58 = local_58 + 1;
+    AnmVm::AnmVm((AnmVm *)local_58);
+    local_58 = (MusicRoom *)&(local_58->mainVM).offset.z;
   }
   pMVar2 = this;
   for (iVar1 = 3341; iVar1 != 0; iVar1 = iVar1 + -1) {

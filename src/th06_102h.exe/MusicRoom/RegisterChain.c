@@ -15,8 +15,8 @@ ZunResult th06::MusicRoom::RegisterChain(void)
   puStack_c = &LAB_00469238;
   pvStack_10 = ExceptionList;
   ExceptionList = &pvStack_10;
-  if ((g_MusicRoom.hasConstructed & 1) == 0) {
-    g_MusicRoom.hasConstructed = g_MusicRoom.hasConstructed | 1;
+  if ((MRHasConstructed & 1) == 0) {
+    MRHasConstructed = MRHasConstructed | 1;
     uStack_8 = 0;
     ExceptionList = &pvStack_10;
     MusicRoom(&g_MusicRoom);

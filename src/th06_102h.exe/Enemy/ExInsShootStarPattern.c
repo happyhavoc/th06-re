@@ -1,4 +1,6 @@
 
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
 void th06::Enemy::ExInsShootStarPattern(Enemy *param_1,EclRawInstr *param_2)
 
 {
@@ -18,9 +20,9 @@ void th06::Enemy::ExInsShootStarPattern(Enemy *param_1,EclRawInstr *param_2)
       g_EnemyPosition.x = (param_1->position).x;
       g_EnemyPosition.y = (param_1->position).y;
       g_EnemyPosition.z = (param_1->position).z;
-      g_PlayerPosition.x = (float)g_MusicRoom._14456_4_;
-      g_PlayerPosition.y = (float)g_MusicRoom._14460_4_;
-      g_PlayerPosition.z = (float)g_MusicRoom._14464_4_;
+      g_PlayerPosition.x = _DAT_006caa68;
+      g_PlayerPosition.y = _DAT_006caa6c;
+      g_PlayerPosition.z = _DAT_006caa70;
       fVar8 = Rng::GetRandomF32ZeroToOne(&g_Rng);
       g_StarAngleTable[0] = fVar8 * 6.283185 - 3.141593;
       g_StarAngleTable[1] = utils::AddNormalizeAngle(g_StarAngleTable[0],2.513274);

@@ -147,9 +147,10 @@ breakWhile:
                    musicRoom->anmArray[offset].flags | (AnmVmFlags_8|AnmVmFlags_9);
             }
             for (offset = 0; anmMgr = g_AnmManager, offset < 0x10; offset = offset + 1) {
-              curSprite = musicRoom->anmArray2 + offset;
-              AnmVm::Initialize(curSprite);
-              AnmManager::SetActiveSprite(anmMgr,curSprite,offset + 0x708);
+              iVar6 = offset * 0x44;
+              AnmVm::Initialize((AnmVm *)(&musicRoom[1].calc_chain + iVar6));
+              AnmManager::SetActiveSprite
+                        (anmMgr,(AnmVm *)(&musicRoom[1].calc_chain + iVar6),offset + 0x708);
               puVar7 = (undefined4 *)&local_5c;
               for (iVar6 = 0x10; iVar6 != 0; iVar6 = iVar6 + -1) {
                 *puVar7 = 0;
@@ -178,20 +179,21 @@ LAB_00425c09:
                 if (0x20 < (uint)((int)local_98 - (int)pcVar5)) goto LAB_00425c09;
               }
               if (local_5c == '\0') {
-                musicRoom->anmArray2[offset].flags = musicRoom->anmArray2[offset].flags & 0xfffffffd
-                ;
+                (&musicRoom[1].mainVM)[offset].matrix.m[2][0] =
+                     (float)((uint)(&musicRoom[1].mainVM)[offset].matrix.m[2][0] & 0xfffffffd);
               }
               else {
-                musicRoom->anmArray2[offset].flags = musicRoom->anmArray2[offset].flags | 2;
+                (&musicRoom[1].mainVM)[offset].matrix.m[2][0] =
+                     (float)((uint)(&musicRoom[1].mainVM)[offset].matrix.m[2][0] | 2);
                 AnmManager::DrawVmTextFmt
-                          (g_AnmManager,musicRoom->anmArray2 + offset,(ZunColor)0xffe0c0,
-                           (ZunColor)0x300000,&local_5c);
+                          (g_AnmManager,(AnmVm *)(&musicRoom[1].calc_chain + offset * 0x44),
+                           (ZunColor)0xffe0c0,(ZunColor)0x300000,&local_5c);
               }
-              musicRoom->anmArray2[offset].pos.x = (float)(offset % 2) * 248.0 + 96.0;
-              musicRoom->anmArray2[offset].pos.y = (float)(offset / 2 << 4) + 320.0;
-              musicRoom->anmArray2[offset].pos.z = 0.0;
-              musicRoom->anmArray2[offset].flags =
-                   musicRoom->anmArray2[offset].flags | (AnmVmFlags_8|AnmVmFlags_9);
+              (&musicRoom[1].mainVM)[offset].matrix.m[3][0] = (float)(offset % 2) * 248.0 + 96.0;
+              (&musicRoom[1].mainVM)[offset].matrix.m[3][1] = (float)(offset / 2 << 4) + 320.0;
+              (&musicRoom[1].mainVM)[offset].matrix.m[3][2] = 0.0;
+              (&musicRoom[1].mainVM)[offset].matrix.m[2][0] =
+                   (float)((uint)(&musicRoom[1].mainVM)[offset].matrix.m[2][0] | 0x300);
             }
             _free(firstChar);
             return = ZUN_SUCCESS;

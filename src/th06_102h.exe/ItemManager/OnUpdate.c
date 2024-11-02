@@ -67,10 +67,9 @@ void __thiscall th06::ItemManager::OnUpdate(ItemManager *this)
       }
       else {
         if ((curItem->state == 1) ||
-           ((0x7f < g_GameManager.current_power &&
-            ((float)g_MusicRoom._14460_4_ < 128.0 != NAN((float)g_MusicRoom._14460_4_))))) {
-          fVar7 = Player::AngleToPlayer
-                            ((Player *)&g_MusicRoom.field_0x3438,&curItem->currentPosition);
+           ((0x7f < g_GameManager.current_power && (_DAT_006caa6c < 128.0 != NAN(_DAT_006caa6c)))))
+        {
+          fVar7 = Player::AngleToPlayer((Player *)&g_Player,&curItem->currentPosition);
           fVar4 = (float10)fcos((float10)fVar7);
           fVar10 = (float10)fsin((float10)fVar7);
           (curItem->startPosition).x = (float)(fVar4 * (float10)8.0);
@@ -110,7 +109,7 @@ LAB_0041f7c5:
         }
       }
       iVar8 = Player::CalcItemBoxCollision
-                        ((Player *)&g_MusicRoom.field_0x3438,&curItem->currentPosition,&g_ItemSize);
+                        ((Player *)&g_Player,&curItem->currentPosition,&g_ItemSize);
       if (iVar8 == 0) {
         (curItem->timer).previous = (curItem->timer).current;
         Supervisor::TickTimer(&g_Supervisor,&(curItem->timer).current,&(curItem->timer).subFrame);

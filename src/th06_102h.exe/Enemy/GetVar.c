@@ -1,4 +1,6 @@
 
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
 int * th06::Enemy::GetVar(Enemy *enemy,EclVarId *eclGvarId,EclValueType *valueType)
 
 {
@@ -24,9 +26,9 @@ int * th06::Enemy::GetVar(Enemy *enemy,EclVarId *eclGvarId,EclValueType *valueTy
     pfVar1 = &enemy->life;
     break;
   case ECL_VAR_PLAYER_DISTANCE:
-    local_10.z = (float)g_MusicRoom._14464_4_ - (enemy->position).z;
-    local_10.y = (float)g_MusicRoom._14460_4_ - (enemy->position).y;
-    local_10.x = (float)g_MusicRoom._14456_4_ - (enemy->position).x;
+    local_10.z = _DAT_006caa70 - (enemy->position).z;
+    local_10.y = _DAT_006caa6c - (enemy->position).y;
+    local_10.x = _DAT_006caa68 - (enemy->position).x;
     g_PlayerDistance = D3DXVec3Length(&local_10);
     if (valueType != (EclValueType *)0x0) {
       *valueType = ECL_VALUE_TYPE_READONLY;
@@ -40,7 +42,7 @@ int * th06::Enemy::GetVar(Enemy *enemy,EclVarId *eclGvarId,EclValueType *valueTy
     pfVar1 = &(enemy->boss_timer).current;
     break;
   case ECL_VAR_PLAYER_ANGLE:
-    g_PlayerAngle = Player::AngleToPlayer((Player *)&g_MusicRoom.field_0x3438,&enemy->position);
+    g_PlayerAngle = Player::AngleToPlayer((Player *)&g_Player,&enemy->position);
     if (valueType != (EclValueType *)0x0) {
       *valueType = ECL_VALUE_TYPE_READONLY;
     }
@@ -50,19 +52,19 @@ int * th06::Enemy::GetVar(Enemy *enemy,EclVarId *eclGvarId,EclValueType *valueTy
     if (valueType != (EclValueType *)0x0) {
       *valueType = ECL_VALUE_TYPE_READONLY;
     }
-    pfVar1 = (int *)&g_MusicRoom.field_0x3880;
+    pfVar1 = (int *)&DAT_006caa70;
     break;
   case ECL_VAR_PLAYER_Y:
     if (valueType != (EclValueType *)0x0) {
       *valueType = ECL_VALUE_TYPE_READONLY;
     }
-    pfVar1 = (int *)&g_MusicRoom.field_0x387c;
+    pfVar1 = (int *)&DAT_006caa6c;
     break;
   case ECL_VAR_PLAYER_X:
     if (valueType != (EclValueType *)0x0) {
       *valueType = ECL_VALUE_TYPE_READONLY;
     }
-    pfVar1 = (int *)&g_MusicRoom.field_0x3878;
+    pfVar1 = (int *)&DAT_006caa68;
     break;
   case ECL_VAR_SELF_Z:
     if (valueType != (EclValueType *)0x0) {

@@ -39,7 +39,8 @@ ChainCallbackResult __cdecl th06::MusicRoom::OnDraw(MusicRoom *musicRoom)
     AsciiManager::AddFormatText(&g_AsciiManager,&vec,"%2d.",listOffset + 1);
   }
   for (listOffset = 0; listOffset < 16; listOffset = listOffset + 1) {
-    AnmManager::DrawNoRotation(g_AnmManager,musicRoom->anmArray2 + listOffset);
+    AnmManager::DrawNoRotation(g_AnmManager,(AnmVm *)(&musicRoom[1].calc_chain + listOffset * 0x44))
+    ;
   }
   g_AsciiManager.color = 0xffffffff;
   return CHAIN_CALLBACK_RESULT_CONTINUE;

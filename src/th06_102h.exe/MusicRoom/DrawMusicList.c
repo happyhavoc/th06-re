@@ -73,19 +73,21 @@ LAB_0042508a:
         if (32 < (uint)((int)local_5c - (int)pcVar2)) goto LAB_0042508a;
       }
       if (buf == '\0') {
-        this->anmArray2[vmIterator].flags = this->anmArray2[vmIterator].flags & 0xfffffffd;
+        (&this[1].mainVM)[vmIterator].matrix.m[2][0] =
+             (float)((uint)(&this[1].mainVM)[vmIterator].matrix.m[2][0] & 0xfffffffd);
       }
       else {
-        this->anmArray2[vmIterator].flags = this->anmArray2[vmIterator].flags | 2;
+        (&this[1].mainVM)[vmIterator].matrix.m[2][0] =
+             (float)((uint)(&this[1].mainVM)[vmIterator].matrix.m[2][0] | 2);
         AnmManager::DrawVmTextFmt
-                  (g_AnmManager,this->anmArray2 + vmIterator,(ZunColor)0xffe0c0,(ZunColor)0x300000,
-                   &buf);
+                  (g_AnmManager,(AnmVm *)(&this[1].calc_chain + vmIterator * 0x44),
+                   (ZunColor)0xffe0c0,(ZunColor)0x300000,&buf);
       }
-      this->anmArray2[vmIterator].pos.x = (float)(vmIterator % 2) * 248.0 + 96.0;
-      this->anmArray2[vmIterator].pos.y = (float)(vmIterator / 2 << 4) + 320.0;
-      this->anmArray2[vmIterator].pos.z = 0.0;
-      this->anmArray2[vmIterator].flags =
-           this->anmArray2[vmIterator].flags | (AnmVmFlags_8|AnmVmFlags_9);
+      (&this[1].mainVM)[vmIterator].matrix.m[3][0] = (float)(vmIterator % 2) * 248.0 + 96.0;
+      (&this[1].mainVM)[vmIterator].matrix.m[3][1] = (float)(vmIterator / 2 << 4) + 320.0;
+      (&this[1].mainVM)[vmIterator].matrix.m[3][2] = 0.0;
+      (&this[1].mainVM)[vmIterator].matrix.m[2][0] =
+           (float)((uint)(&this[1].mainVM)[vmIterator].matrix.m[2][0] | 0x300);
     }
   }
                     /* Exit Condition? */

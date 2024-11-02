@@ -38,15 +38,15 @@ th06::ScreenEffect::RegisterChain
       pSVar2 = (ScreenEffect *)&pSVar2->calcChainElement;
     }
     if (whichCallback == 0) {
-      calcChainElement = Chain::CreateElem(&g_Chain,OnUpdateEffect0);
-      drawChainElement = Chain::CreateElem(&g_Chain,OnDrawEffect0);
+      calcChainElement = Chain::CreateElem(&g_Chain,CalcFadeIn);
+      drawChainElement = Chain::CreateElem(&g_Chain,DrawFadeIn);
     }
     else if (whichCallback == 1) {
-      calcChainElement = Chain::CreateElem(&g_Chain,OnUpdateEffect1);
+      calcChainElement = Chain::CreateElem(&g_Chain,ShakeScreen);
     }
     else if (whichCallback == 2) {
-      calcChainElement = Chain::CreateElem(&g_Chain,OnUpdateEffect2);
-      drawChainElement = Chain::CreateElem(&g_Chain,OnDrawEffect2);
+      calcChainElement = Chain::CreateElem(&g_Chain,CalcFadeOut);
+      drawChainElement = Chain::CreateElem(&g_Chain,DrawFadeOut);
     }
     calcChainElement->addedCallback = AddedCallback;
     calcChainElement->deletedCallback = DeletedCallback;

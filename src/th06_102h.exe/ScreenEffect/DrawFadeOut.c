@@ -1,5 +1,5 @@
 
-ChainCallbackResult th06::ScreenEffect::OnDrawEffect2(ScreenEffect *param_1)
+ChainCallbackResult th06::ScreenEffect::DrawFadeOut(ScreenEffect *param_1)
 
 {
   ZunRect local_14;

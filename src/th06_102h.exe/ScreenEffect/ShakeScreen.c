@@ -1,13 +1,12 @@
 
 /* WARNING: Removing unreachable block (ram,0x004300e2) */
 /* WARNING: Removing unreachable block (ram,0x00430173) */
-/* WARNING: Unknown calling convention -- yet parameter storage is locked */
 
-undefined4 th06::OnUpdateEffect1(ScreenEffect *param_1)
+ChainCallbackResult th06::ScreenEffect::ShakeScreen(ScreenEffect *param_1)
 
 {
   float fVar1;
-  undefined4 uVar2;
+  ChainCallbackResult CVar2;
   uint uVar3;
   
   if ((char)g_GameManager.isTimeStopped == '\0') {
@@ -45,14 +44,14 @@ undefined4 th06::OnUpdateEffect1(ScreenEffect *param_1)
         g_GameManager.arcade_region_top_left_pos.y = 16.0;
         g_GameManager.arcade_region_size.y = 448.0 - fVar1;
       }
-      uVar2 = 1;
+      CVar2 = CHAIN_CALLBACK_RESULT_CONTINUE;
     }
     else {
       g_GameManager.arcade_region_top_left_pos.x = 32.0;
       g_GameManager.arcade_region_top_left_pos.y = 16.0;
       g_GameManager.arcade_region_size.x = 384.0;
       g_GameManager.arcade_region_size.y = 448.0;
-      uVar2 = 0;
+      CVar2 = CHAIN_CALLBACK_RESULT_CONTINUE_AND_REMOVE_JOB;
     }
   }
   else {
@@ -60,8 +59,8 @@ undefined4 th06::OnUpdateEffect1(ScreenEffect *param_1)
     g_GameManager.arcade_region_top_left_pos.y = 16.0;
     g_GameManager.arcade_region_size.x = 384.0;
     g_GameManager.arcade_region_size.y = 448.0;
-    uVar2 = 1;
+    CVar2 = CHAIN_CALLBACK_RESULT_CONTINUE;
   }
-  return uVar2;
+  return CVar2;
 }
 

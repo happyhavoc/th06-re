@@ -10,7 +10,7 @@ ChainCallbackResult th06::MusicRoom::OnUpdate(MusicRoom *param_1)
   do {
     iVar3 = param_1->field6_0xc;
     if (iVar3 != 0) {
-      if ((iVar3 == 1) && (drawMusicList(param_1), iVar3 != 0)) {
+      if ((iVar3 == 1) && (DrawMusicList(param_1), iVar3 != 0)) {
         return CHAIN_CALLBACK_RESULT_CONTINUE_AND_REMOVE_JOB;
       }
       break;

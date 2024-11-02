@@ -1,5 +1,5 @@
 
-undefined4 * __thiscall th06::MusicRoom::MusicRoom(MusicRoom *this)
+MusicRoom * __thiscall th06::MusicRoom::MusicRoom(MusicRoom *this)
 
 {
   int iVar1;
@@ -34,6 +34,6 @@ undefined4 * __thiscall th06::MusicRoom::MusicRoom(MusicRoom *this)
     pMVar2->calc_chain = (ChainElem *)0x0;
     pMVar2 = (MusicRoom *)&pMVar2->draw_chain;
   }
-  return &this->calc_chain;
+  return this;
 }
 

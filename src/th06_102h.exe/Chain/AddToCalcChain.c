@@ -1,8 +1,8 @@
 
-ZunResult __thiscall th06::Chain::AddToCalcChain(Chain *this,ChainElem *elem,int priority)
+int __thiscall th06::Chain::AddToCalcChain(Chain *this,ChainElem *elem,int priority)
 
 {
-  ZunResult ZVar1;
+  int ZVar1;
   ChainElem *cur;
   
   utils::DebugPrint2("add calc chain (pri = %d)\n",priority);
@@ -24,7 +24,7 @@ ZunResult __thiscall th06::Chain::AddToCalcChain(Chain *this,ChainElem *elem,int
     cur->next = elem;
   }
   if (elem->addedCallback == (ChainLifecycleCallback *)0x0) {
-    ZVar1 = ZUN_SUCCESS;
+    ZVar1 = 0;
   }
   else {
     ZVar1 = (*elem->addedCallback)(elem->arg);

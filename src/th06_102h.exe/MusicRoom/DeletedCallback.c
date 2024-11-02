@@ -2,8 +2,6 @@
 ZunResult __cdecl th06::MusicRoom::DeletedCallback(MusicRoom *musicRoom)
 
 {
-                    /* Considering the fact that this uses operator_delete, this definitely is not a
-                       char* */
   operator_delete(musicRoom->musicRoomPtr);
   musicRoom->musicRoomPtr = (MusicRoom *)0x0;
   AnmManager::ReleaseSurface(g_AnmManager,0);

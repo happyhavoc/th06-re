@@ -5377,6 +5377,7 @@ struct MusicRoom {
     struct MusicRoom *musicRoomPtr;
     struct AnmVm mainVM;
     struct AnmVm anmArray[32];
+    struct AnmVm anmArray2[16];
 };
 
 typedef struct BombData BombData, *PBombData;

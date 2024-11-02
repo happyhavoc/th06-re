@@ -1,5 +1,5 @@
 
-ChainCallbackResult th06::MusicRoom::OnDraw(MusicRoom *param_1)
+ChainCallbackResult __cdecl th06::MusicRoom::OnDraw(MusicRoom *param_1)
 
 {
   D3DXVECTOR3 local_18;

@@ -1,5 +1,5 @@
 
-ZunResult th06::MusicRoom::DeletedCallback(MusicRoom *param_1)
+ZunResult __cdecl th06::MusicRoom::DeletedCallback(MusicRoom *param_1)
 
 {
   operator_delete(param_1->field11_0x20);

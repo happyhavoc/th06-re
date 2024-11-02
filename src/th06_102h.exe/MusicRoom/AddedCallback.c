@@ -1,5 +1,5 @@
 
-ZunResult th06::MusicRoom::AddedCallback(MusicRoom *param_1)
+ZunResult __cdecl th06::MusicRoom::AddedCallback(MusicRoom *param_1)
 
 {
   ZunResult ZVar4;

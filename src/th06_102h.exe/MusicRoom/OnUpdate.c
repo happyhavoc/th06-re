@@ -1,5 +1,5 @@
 
-ChainCallbackResult th06::MusicRoom::OnUpdate(MusicRoom *param_1)
+ChainCallbackResult __cdecl th06::MusicRoom::OnUpdate(MusicRoom *param_1)
 
 {
   int iVar1;

@@ -52,10 +52,10 @@ th06::ScreenEffect::RegisterChain
     calcChainElement->deletedCallback = DeletedCallback;
     calcChainElement->arg = calcChainArgument;
     calcChainArgument->whichCallback = whichCallback;
-    calcChainArgument->ticks = ticks;
-    calcChainArgument->param3 = param_3;
-    calcChainArgument->param4 = param_4;
-    calcChainArgument->param5 = param_5;
+    calcChainArgument->effectLength = ticks;
+    calcChainArgument->genericParam = param_3;
+    calcChainArgument->shakinessParam = param_4;
+    calcChainArgument->unusedParam = param_5;
     iVar1 = Chain::AddToCalcChain(&g_Chain,calcChainElement,0xe);
     if (iVar1 == 0) {
       if (drawChainElement != (ChainElem *)0x0) {

@@ -1049,12 +1049,12 @@ struct ScreenEffect {
     int whichCallback;
     struct ChainElem *calcChainElement;
     struct ChainElem *drawChainElement;
-    uint field3_0xc;
-    uint field4_0x10;
-    int ticks;
-    int param3;
-    int param4;
-    int param5;
+    uint unused;
+    int fadeAlpha;
+    int effectLength;
+    int genericParam;
+    int shakinessParam;
+    int unusedParam;
     struct ZunTimer timer;
 };
 

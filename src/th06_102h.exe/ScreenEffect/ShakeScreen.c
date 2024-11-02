@@ -12,10 +12,10 @@ ChainCallbackResult th06::ScreenEffect::ShakeScreen(ScreenEffect *param_1)
   if ((char)g_GameManager.isTimeStopped == '\0') {
     (param_1->timer).previous = (param_1->timer).current;
     Supervisor::TickTimer(&g_Supervisor,&(param_1->timer).current,&(param_1->timer).subFrame);
-    if ((param_1->timer).current < param_1->ticks) {
+    if ((param_1->timer).current < param_1->effectLength) {
       fVar1 = (((float)(param_1->timer).current + (param_1->timer).subFrame) *
-              (float)(param_1->param4 - param_1->param3)) / (float)param_1->ticks +
-              (float)param_1->param3;
+              (float)(param_1->shakinessParam - param_1->genericParam)) /
+              (float)param_1->effectLength + (float)param_1->genericParam;
       uVar3 = Rng::GetRandomU32(&g_Rng);
       uVar3 = uVar3 % 3;
       if (uVar3 == 0) {

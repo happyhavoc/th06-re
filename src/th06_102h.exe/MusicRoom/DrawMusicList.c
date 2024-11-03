@@ -42,8 +42,8 @@ void __thiscall th06::MusicRoom::DrawMusicList(MusicRoom *this)
      ((g_CurFrameInput & 0x1001) != (g_LastFrameInput & 0x1001))) {
     this->musicPtr = this->cursor;
     Supervisor::PlayAudio
-              (&g_Supervisor,(char *)((int)&this->musicRoomPtr->calc_chain + this->musicPtr * 0x272)
-              );
+              (&g_Supervisor,
+               (char *)((int)this->musicRoomPtr->mainVM + this->musicPtr * 0x272 + -0x24));
     for (vmIterator = 0; vmIterator < 16; vmIterator = vmIterator + 1) {
       puVar4 = (undefined4 *)&buf;
       for (vmIterator2 = 16; vmIterator2 != 0; vmIterator2 = vmIterator2 + -1) {
@@ -53,7 +53,7 @@ void __thiscall th06::MusicRoom::DrawMusicList(MusicRoom *this)
       if (vmIterator % 2 == 0) {
 LAB_0042508a:
         puVar4 = (undefined4 *)
-                 ((int)&this->musicRoomPtr->mainVM +
+                 ((int)this->musicRoomPtr->mainVM +
                  (vmIterator % 2) * 0x20 + (vmIterator / 2) * 0x42 + this->musicPtr * 0x272 + 0x3e);
         puVar5 = (undefined4 *)&buf;
         for (vmIterator2 = 8; vmIterator2 != 0; vmIterator2 = vmIterator2 + -1) {
@@ -63,7 +63,7 @@ LAB_0042508a:
         }
       }
       else {
-        local_5c = (char *)((int)&this->musicRoomPtr->mainVM +
+        local_5c = (char *)((int)this->musicRoomPtr->mainVM +
                            (vmIterator / 2) * 0x42 + this->musicPtr * 0x272 + 0x3e);
         pcVar2 = local_5c + 1;
         do {

@@ -36,8 +36,8 @@ ZunResult __cdecl th06::MusicRoom::AddedCallback(MusicRoom *musicRoom)
         ZVar4 = AnmManager::LoadAnm(g_AnmManager,0x2b,"data/music02.anm",0x111);
         anmMgr = g_AnmManager;
         if (ZVar4 == ZUN_SUCCESS) {
-          (musicRoom->mainVM).anmFileIndex = 0x100;
-          AnmManager::SetAndExecuteScript(anmMgr,&musicRoom->mainVM,anmMgr->scripts[0x100]);
+          musicRoom->mainVM[0].anmFileIndex = 0x100;
+          AnmManager::SetAndExecuteScript(anmMgr,musicRoom->mainVM,anmMgr->scripts[0x100]);
           musicRoom->field2_0x8 = 0;
           firstChar = FileSystem::OpenPath("data/musiccmt.txt",0);
           currChar = (char *)firstChar;
@@ -139,7 +139,7 @@ breakWhile:
               AnmManager::DrawVmTextFmt
                         (g_AnmManager,musicRoom->anmArray + offset,(ZunColor)0xc0e0ff,
                          (ZunColor)0x302080,
-                         (char *)((int)&musicRoom->musicRoomPtr->mainVM + offset * 0x272 + 0x1c));
+                         (char *)((int)musicRoom->musicRoomPtr->mainVM + offset * 0x272 + 0x1c));
               musicRoom->anmArray[offset].pos.x = 93.0;
               musicRoom->anmArray[offset].pos.y = ((float)((offset + 1) * 0x12) + 104.0) - 20.0;
               musicRoom->anmArray[offset].pos.z = 0.0;
@@ -158,7 +158,7 @@ breakWhile:
               if (offset % 2 == 0) {
 LAB_00425c09:
                 puVar7 = (undefined4 *)
-                         ((int)&(musicRoom->musicRoomPtr->mainVM).matrix +
+                         ((int)&musicRoom->musicRoomPtr->mainVM[0].matrix +
                          (offset % 2) * 0x20 + (offset / 2) * 0x42 + 2);
                 puVar8 = (undefined4 *)&local_5c;
                 for (iVar6 = 8; iVar6 != 0; iVar6 = iVar6 + -1) {
@@ -168,7 +168,7 @@ LAB_00425c09:
                 }
               }
               else {
-                local_98 = (char *)((int)&musicRoom->musicRoomPtr->mainVM +
+                local_98 = (char *)((int)musicRoom->musicRoomPtr->mainVM +
                                    (offset / 2) * 0x42 + musicRoom->musicPtr * 0x272 + 0x3e);
                 pcVar5 = local_98 + 1;
                 do {

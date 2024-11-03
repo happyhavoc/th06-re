@@ -5375,7 +5375,7 @@ struct MusicRoom {
     int listingOffset;
     int currOffset;
     struct MusicRoom *musicRoomPtr;
-    struct AnmVm mainVM;
+    struct AnmVm mainVM[1];
     struct AnmVm anmArray[32];
     struct AnmVm anmArray2[16];
 };

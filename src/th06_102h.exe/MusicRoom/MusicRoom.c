@@ -12,7 +12,7 @@ MusicRoom * __thiscall th06::MusicRoom::MusicRoom(MusicRoom *this)
   int local_18;
   
   local_18 = 1;
-  local_20 = &this->mainVM;
+  local_20 = this->mainVM;
   while (local_18 = local_18 + -1, -1 < local_18) {
     AnmVm::AnmVm(local_20);
     local_20 = local_20 + 1;

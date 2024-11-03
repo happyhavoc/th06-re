@@ -12,7 +12,7 @@ ChainCallbackResult __cdecl th06::MusicRoom::OnDraw(MusicRoom *musicRoom)
   local_b = 0;
   g_AnmManager->currentTexture = (IDirect3DTexture8 *)0x0;
   AnmManager::CopySurfaceToBackBuffer(g_AnmManager,0,0,0,0,0);
-  AnmManager::DrawNoRotation(g_AnmManager,&musicRoom->mainVM);
+  AnmManager::DrawNoRotation(g_AnmManager,musicRoom->mainVM);
   for (listOffset = musicRoom->listingOffset; listOffset < musicRoom->listingOffset + 10;
       listOffset = listOffset + 1) {
     if (musicRoom->cursor == listOffset) {

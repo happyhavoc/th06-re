@@ -23,7 +23,7 @@ ChainCallbackResult __cdecl th06::MusicRoom::OnUpdate(MusicRoom *musicRoom)
   else {
     musicRoom->field2_0x8 = 0;
   }
-  AnmManager::ExecuteScript(g_AnmManager,&musicRoom->mainVM);
+  AnmManager::ExecuteScript(g_AnmManager,musicRoom->mainVM);
   return CHAIN_CALLBACK_RESULT_CONTINUE;
 }
 

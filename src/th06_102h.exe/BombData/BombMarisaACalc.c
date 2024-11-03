@@ -1,5 +1,5 @@
 
-void th06::Player::BombMarisaACalc(Player *this)
+void th06::BombData::BombMarisaACalc(Player *this)
 
 {
   D3DXVECTOR3 *pDVar1;

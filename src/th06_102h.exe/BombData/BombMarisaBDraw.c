@@ -1,5 +1,5 @@
 
-void th06::Player::BombMarisaBDraw(Player *param_1)
+void th06::BombData::BombMarisaBDraw(Player *param_1)
 
 {
   float fVar1;

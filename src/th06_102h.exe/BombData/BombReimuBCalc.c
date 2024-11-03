@@ -1,5 +1,5 @@
 
-void th06::Player::BombReimuBCalc(Player *this)
+void th06::BombData::BombReimuBCalc(Player *this)
 
 {
   D3DXVECTOR3 *pDVar1;

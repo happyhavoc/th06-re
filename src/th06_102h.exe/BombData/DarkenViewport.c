@@ -1,5 +1,5 @@
 
-void th06::Player::DarkenViewport(Player *player)
+void th06::BombData::DarkenViewport(Player *player)
 
 {
   long local_38;

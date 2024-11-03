@@ -82,7 +82,7 @@ void th06::ReplayManager::SaveReplay(char *replay_path,char *param_2)
           local_90 = local_90 + 1;
           local_94 = local_94 + 1;
         } while (cVar1 != '\0');
-        setDate(replayCopy.date);
+        strdate(replayCopy.date);
         rng = Rng::GetRandomU16(&g_Rng);
         replayCopy.key = (char)((uint)rng % 0x80) + '@';
         rng = Rng::GetRandomU16(&g_Rng);

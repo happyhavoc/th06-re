@@ -236,7 +236,7 @@ LAB_0042c515:
       this->field1_0x4 = 0;
     }
     if (this->field1_0x4 == 0) {
-      FileSystem::CreateDirectoryInCWD("replay");
+      _mkdir("replay");
       for (local_10 = 0; local_10 < 0xf; local_10 = local_10 + 1) {
         sprintf(local_5c,"./replay/th6_%.2d.rpy",local_10 + 1);
         local_14 = (ReplayData *)FileSystem::OpenPath(local_5c,1);
@@ -263,7 +263,7 @@ LAB_0042c515:
         SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,SOUND_SELECT,0);
         *(int *)&this->field_0x1c = this->cursor;
         this->field1_0x4 = 0;
-        setDate(this->date);
+        strdate(this->date);
         this->score = g_GameManager.score;
         if ((*(char (*) [4])((int)&this->hscr + this->cursor * 0x50 + 0x30) == (char  [4])0x50523654
             ) && (*(short *)((int)&this->hscr + this->cursor * 0x50 + 0x34) == 0x102)) {

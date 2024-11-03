@@ -1,8 +1,9 @@
 
-void __thiscall th06::MusicRoom::DrawMusicList(MusicRoom *this)
+uint __thiscall th06::MusicRoom::DrawMusicList(MusicRoom *this)
 
 {
   char *pcVar2;
+  uint uVar1;
   int vmIterator2;
   undefined4 *puVar4;
   undefined4 *puVar5;
@@ -89,10 +90,14 @@ LAB_0042508a:
     }
   }
                     /* Exit Condition? */
-  if (((g_CurFrameInput & 10) != 0) && ((g_CurFrameInput & 10) != (g_LastFrameInput & 10))) {
+  if (((g_CurFrameInput & 10) == 0) || ((g_CurFrameInput & 10) == (g_LastFrameInput & 10))) {
+    uVar1 = 0;
+  }
+  else {
     g_Supervisor.curState = 1;
+    uVar1 = 1;
   }
   __security_check_cookie(local_10 ^ unaff_retaddr);
-  return;
+  return uVar1;
 }
 

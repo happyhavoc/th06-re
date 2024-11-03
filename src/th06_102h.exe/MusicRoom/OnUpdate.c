@@ -4,13 +4,13 @@ ChainCallbackResult __cdecl th06::MusicRoom::OnUpdate(MusicRoom *musicRoom)
 {
   int iVar1;
   ZunResult ZVar2;
-  int shouldDraw;
+  uint shouldDraw;
   
   iVar1 = musicRoom->drawMusicList;
   do {
-    shouldDraw = musicRoom->drawMusicList;
-    if (shouldDraw != 0) {
-      if ((shouldDraw == 1) && (DrawMusicList(musicRoom), shouldDraw != 0)) {
+    if (musicRoom->drawMusicList != 0) {
+      if ((musicRoom->drawMusicList == 1) &&
+         (shouldDraw = DrawMusicList(musicRoom), shouldDraw != 0)) {
         return CHAIN_CALLBACK_RESULT_CONTINUE_AND_REMOVE_JOB;
       }
       break;

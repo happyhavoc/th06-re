@@ -49,15 +49,16 @@ ChainCallbackResult th06::ResultScreen::OnDraw(ResultScreen *param_1)
     (local_28->pos).z = local_40.z;
     local_28 = local_28 + 1;
   }
-  local_28 = &param_1->field48_0xf20;
-  fVar2 = (param_1->field48_0xf20).pos.x;
+  local_28 = &param_1->field32_0xf20;
+  fVar2 = (param_1->field32_0xf20).pos.x;
   if (fVar2 < 640.0 != NAN(fVar2)) {
     if (param_1->field3_0xc == 8) {
-      local_40.x = (param_1->field48_0xf20).pos.x;
-      local_40.z = (param_1->field48_0xf20).pos.z;
-      local_40.y = (param_1->field48_0xf20).pos.y + 16.0;
+      local_40.x = (param_1->field32_0xf20).pos.x;
+      local_40.z = (param_1->field32_0xf20).pos.z;
+      local_40.y = (param_1->field32_0xf20).pos.y + 16.0;
       for (local_14 = 0;
-          (local_14 < 10 && (local_44 = param_1->field16_0x28 * 10 + local_14, local_44 < 0x40));
+          (local_14 < 10 &&
+          (local_44 = param_1->lastSpellcardSelected * 10 + local_14, local_44 < 0x40));
           local_14 = local_14 + 1) {
         pDVar1 = &(&param_1->unk_28a0)[local_14].pos;
         pDVar1->x = local_40.x;
@@ -86,22 +87,22 @@ ChainCallbackResult th06::ResultScreen::OnDraw(ResultScreen *param_1)
       }
     }
     else {
-      local_40.x = (param_1->field48_0xf20).pos.x;
-      local_40.y = (param_1->field48_0xf20).pos.y;
-      local_40.z = (param_1->field48_0xf20).pos.z;
+      local_40.x = (param_1->field32_0xf20).pos.x;
+      local_40.y = (param_1->field32_0xf20).pos.y;
+      local_40.z = (param_1->field32_0xf20).pos.z;
       (param_1->unk_28a0).pos.x = local_40.x;
       (param_1->unk_28a0).pos.y = local_40.y;
       (param_1->unk_28a0).pos.z = local_40.z;
       AnmManager::DrawNoRotation(g_AnmManager,&param_1->unk_28a0);
       local_40.x = local_40.x + 320.0;
-      (param_1->field73_0x29b0).pos.x = local_40.x;
-      (param_1->field73_0x29b0).pos.y = local_40.y;
-      (param_1->field73_0x29b0).pos.z = local_40.z;
-      AnmManager::DrawNoRotation(g_AnmManager,&param_1->field73_0x29b0);
+      (param_1->field57_0x29b0).pos.x = local_40.x;
+      (param_1->field57_0x29b0).pos.y = local_40.y;
+      (param_1->field57_0x29b0).pos.z = local_40.z;
+      AnmManager::DrawNoRotation(g_AnmManager,&param_1->field57_0x29b0);
       local_40.x = local_40.x - 320.0;
       local_40.y = local_40.y + 18.0;
-      local_2c = param_1->scores[(int)param_1->diffPlayed * 4 + param_1->charUsed * 2].next;
-      local_34 = param_1->scores[(int)param_1->diffPlayed * 4 + param_1->charUsed * 2 + 1].next;
+      local_2c = param_1->scores[param_1->diffPlayed * 4 + param_1->charUsed * 2].next;
+      local_34 = param_1->scores[param_1->diffPlayed * 4 + param_1->charUsed * 2 + 1].next;
       for (local_14 = 0; local_40.y = local_40.y + 18.0, local_14 < 10; local_14 = local_14 + 1) {
         if (param_1->resultScreenState == 9) {
           if (g_GameManager.shottype == 0) {
@@ -221,11 +222,11 @@ ChainCallbackResult th06::ResultScreen::OnDraw(ResultScreen *param_1)
         local_48 = 0.0;
         if (param_1->possibly_selected_character == local_14 * 0x10 + local_30) {
           g_AsciiManager.color = 0xffffffc0;
-          if (param_1->field1_0x4 % 0x40 < 0x20) {
-            local_48 = ((float)(param_1->field1_0x4 % 0x20) * 0.8) / 32.0 + 1.2;
+          if (param_1->frameTimer % 0x40 < 0x20) {
+            local_48 = ((float)(param_1->frameTimer % 0x20) * 0.8) / 32.0 + 1.2;
           }
           else {
-            local_48 = 2.0 - ((float)(param_1->field1_0x4 % 0x20) * 0.8) / 32.0;
+            local_48 = 2.0 - ((float)(param_1->frameTimer % 0x20) * 0.8) / 32.0;
           }
           g_AsciiManager.scale.y = local_48;
           local_48 = -(local_48 - 1.0) * 8.0;
@@ -259,22 +260,22 @@ ChainCallbackResult th06::ResultScreen::OnDraw(ResultScreen *param_1)
   g_AsciiManager.scale.x = 1.0;
   g_AsciiManager.scale.y = 1.0;
   if ((9 < param_1->resultScreenState) && (param_1->resultScreenState < 0xf)) {
-    local_28 = &param_1->field49_0x1030;
+    local_28 = &param_1->field33_0x1030;
     for (local_14 = 0; local_14 < 6; local_14 = local_14 + 1) {
       AnmManager::DrawNoRotation(g_AnmManager,local_28);
       local_28 = local_28 + 1;
     }
-    local_40.x = (param_1->field55_0x1690).pos.x;
-    local_40.y = (param_1->field55_0x1690).pos.y;
-    local_40.z = (param_1->field55_0x1690).pos.z;
-    local_28 = &param_1->field56_0x17a0;
+    local_40.x = (param_1->field39_0x1690).pos.x;
+    local_40.y = (param_1->field39_0x1690).pos.y;
+    local_40.z = (param_1->field39_0x1690).pos.z;
+    local_28 = &param_1->field40_0x17a0;
     AsciiManager::AddFormatText(&g_AsciiManager,&local_40,"No.   Name     Date     Player Score");
     for (local_14 = 0; local_14 < 0xf; local_14 = local_14 + 1) {
       local_40.x = (local_28->pos).x;
       local_40.y = (local_28->pos).y;
       local_40.z = (local_28->pos).z;
       local_28 = local_28 + 1;
-      if (local_14 == *(int *)&param_1->field_0x1c) {
+      if (local_14 == param_1->field7_0x1c) {
         g_AsciiManager.color = 0xffff8080;
       }
       else {
@@ -283,10 +284,10 @@ ChainCallbackResult th06::ResultScreen::OnDraw(ResultScreen *param_1)
       if (param_1->resultScreenState == 0xd) {
         AsciiManager::AddFormatText
                   (&g_AsciiManager,&local_40,"No.%.2d %8s %8s %7s %9d",local_14 + 1,
-                   &param_1->field_0x34,param_1->date,
+                   param_1->replayname,(param_1->defaultReplay).date,
                    (&PTR_s_ReimuA_00478518)
-                   [(uint)g_GameManager.shottype + (uint)g_GameManager.character * 2],param_1->score
-                  );
+                   [(uint)g_GameManager.shottype + (uint)g_GameManager.character * 2],
+                   (param_1->defaultReplay).score);
         g_AsciiManager.color = 0xfff0f0ff;
         local_24._0_1_ = ' ';
         local_24._1_1_ = ' ';
@@ -306,15 +307,13 @@ ChainCallbackResult th06::ResultScreen::OnDraw(ResultScreen *param_1)
         *(undefined *)((int)&local_24 + local_d0) = 0x5f;
         AsciiManager::AddFormatText(&g_AsciiManager,&local_40,"      %8s",&local_24);
       }
-      else if ((*(char (*) [4])((int)&param_1->hscr + local_14 * 0x50 + 0x30) ==
-                (char  [4])0x50523654) &&
-              (*(short *)((int)&param_1->hscr + local_14 * 0x50 + 0x34) == 0x102)) {
+      else if (((char  [4])param_1->replays[local_14].magic == (char  [4])0x50523654) &&
+              (param_1->replays[local_14].version == 0x102)) {
         AsciiManager::AddFormatText
                   (&g_AsciiManager,&local_40,"No.%.2d %8s %8s %7s %9d",local_14 + 1,
-                   (int)&param_1->hscr + local_14 * 0x50 + 0x49,
-                   (int)&param_1->hscr + local_14 * 0x50 + 0x40,
-                   (&PTR_s_ReimuA_00478518)[*(byte *)((int)&param_1->hscr + local_14 * 0x50 + 0x36)]
-                   ,*(undefined4 *)((int)&param_1->hscr + local_14 * 0x50 + 0x54));
+                   param_1->replays[local_14].name,param_1->replays[local_14].date,
+                   (&PTR_s_ReimuA_00478518)[param_1->replays[local_14].shottype_chara],
+                   param_1->replays[local_14].score);
       }
       else {
         AsciiManager::AddFormatText

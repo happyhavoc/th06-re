@@ -1,11 +1,11 @@
 
-void __thiscall th06::ResultScreen::HandleReplaySaveKeyboard(ResultScreen *this)
+int __thiscall th06::ResultScreen::HandleReplaySaveKeyboard(ResultScreen *this)
 
 {
   ZunResult ZVar1;
   int iVar2;
   ReplayData *pRVar3;
-  char **ppcVar4;
+  ReplayData *pRVar4;
   uint unaff_retaddr;
   int local_b8;
   int local_b4;
@@ -21,7 +21,7 @@ void __thiscall th06::ResultScreen::HandleReplaySaveKeyboard(ResultScreen *this)
   local_18 = __security_cookie ^ unaff_retaddr;
   iVar2 = this->resultScreenState;
   if (iVar2 == 10) {
-    if (this->field1_0x4 == 0x3c) {
+    if (this->frameTimer == 0x3c) {
       if (g_GameManager.num_retries == 0) {
         if (g_Supervisor.framerateMultiplier < 0.99 == NAN(g_Supervisor.framerateMultiplier)) {
           local_c = 9;
@@ -33,7 +33,7 @@ void __thiscall th06::ResultScreen::HandleReplaySaveKeyboard(ResultScreen *this)
       else {
         local_c = 0xc;
       }
-      local_8 = &this->field35_0x150;
+      local_8 = &this->field19_0x150;
       for (local_10 = 0; local_10 < 0x26; local_10 = local_10 + 1) {
         local_8->pendingInterrupt = (short)local_c;
         local_8 = local_8 + 1;
@@ -43,20 +43,20 @@ void __thiscall th06::ResultScreen::HandleReplaySaveKeyboard(ResultScreen *this)
       }
       this->cursor = 0;
     }
-    local_8 = &this->field50_0x1140;
+    local_8 = &this->field34_0x1140;
     if (this->cursor == 0) {
-      (this->field50_0x1140).color.color =
-           (this->field50_0x1140).color.color & 0xff000000 | 0xff6060;
-      (this->field51_0x1250).color.color =
-           (this->field51_0x1250).color.color & 0xff000000 | 0x606060;
+      (this->field34_0x1140).color.color =
+           (this->field34_0x1140).color.color & 0xff000000 | 0xff6060;
+      (this->field35_0x1250).color.color =
+           (this->field35_0x1250).color.color & 0xff000000 | 0x606060;
     }
     else {
-      (this->field50_0x1140).color.color =
-           (this->field50_0x1140).color.color & 0xff000000 | 0x606060;
-      (this->field51_0x1250).color.color =
-           (this->field51_0x1250).color.color & 0xff000000 | 0xff6060;
+      (this->field34_0x1140).color.color =
+           (this->field34_0x1140).color.color & 0xff000000 | 0x606060;
+      (this->field35_0x1250).color.color =
+           (this->field35_0x1250).color.color & 0xff000000 | 0xff6060;
     }
-    if (this->field1_0x4 < 0x50) goto LAB_0042d095;
+    if (this->frameTimer < 0x50) goto LAB_0042d095;
     MoveCursorHorizontally(this,2);
     if ((((g_CurFrameInput & 10) == 0) || ((g_CurFrameInput & 10) == (g_LastFrameInput & 10))) &&
        (((g_CurFrameInput & 8) == 0 || ((g_CurFrameInput & 8) == (g_LastFrameInput & 8))))) {
@@ -64,7 +64,7 @@ void __thiscall th06::ResultScreen::HandleReplaySaveKeyboard(ResultScreen *this)
          ((g_CurFrameInput & 0x1001) == (g_LastFrameInput & 0x1001))) goto LAB_0042d095;
       if (this->cursor == 0) goto LAB_0042c515;
     }
-    this->field1_0x4 = 0;
+    this->frameTimer = 0;
     SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,SOUND_BACK,0);
     this->resultScreenState = 2;
     local_8 = &this->unk_40;
@@ -75,12 +75,12 @@ void __thiscall th06::ResultScreen::HandleReplaySaveKeyboard(ResultScreen *this)
   }
   else {
     if (iVar2 == 0xb) {
-      if ((0x13 < this->field1_0x4) &&
+      if ((0x13 < this->frameTimer) &&
          ((((g_CurFrameInput & 0x1001) != 0 &&
            ((g_CurFrameInput & 0x1001) != (g_LastFrameInput & 0x1001))) ||
           (((g_CurFrameInput & 10) != 0 && ((g_CurFrameInput & 10) != (g_LastFrameInput & 10)))))))
       {
-        this->field1_0x4 = 0;
+        this->frameTimer = 0;
         SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,SOUND_BACK,0);
         this->resultScreenState = 2;
         local_8 = &this->unk_40;
@@ -93,7 +93,7 @@ void __thiscall th06::ResultScreen::HandleReplaySaveKeyboard(ResultScreen *this)
     }
     if (iVar2 != 0xc) {
       if (iVar2 == 0xd) {
-        if (this->field1_0x4 < 0x1e) goto LAB_0042d095;
+        if (this->frameTimer < 0x1e) goto LAB_0042d095;
         if ((((g_CurFrameInput & 0x10) != 0) &&
             ((g_CurFrameInput & 0x10) != (g_LastFrameInput & 0x10))) ||
            (((g_CurFrameInput & 0x10) != 0 && (g_IsEigthFrameOfHeldInput != 0)))) {
@@ -152,15 +152,15 @@ void __thiscall th06::ResultScreen::HandleReplaySaveKeyboard(ResultScreen *this)
           }
           local_60 = local_b4;
           if (this->possibly_selected_character < 0x5e) {
-            (&this->field_0x34)[local_b4] = g_AlphabetList[this->possibly_selected_character];
+            this->replayname[local_b4] = g_AlphabetList[this->possibly_selected_character];
           }
           else if (this->possibly_selected_character == 0x5e) {
-            (&this->field_0x34)[local_b4] = 0x20;
+            this->replayname[local_b4] = ' ';
           }
           else {
-            sprintf(replayPath,"./replay/th6_%.2d.rpy",*(int *)&this->field_0x1c + 1);
-            ReplayManager::SaveReplay(replayPath,&this->field_0x34);
-            this->field1_0x4 = 0;
+            sprintf(replayPath,"./replay/th6_%.2d.rpy",this->field7_0x1c + 1);
+            ReplayManager::SaveReplay(replayPath,this->replayname);
+            this->frameTimer = 0;
             this->resultScreenState = 2;
             local_8 = &this->unk_40;
             for (local_10 = 0; local_10 < 0x26; local_10 = local_10 + 1) {
@@ -183,7 +183,7 @@ void __thiscall th06::ResultScreen::HandleReplaySaveKeyboard(ResultScreen *this)
           }
           if (0 < this->cursor) {
             this->cursor = this->cursor + -1;
-            (&this->field_0x34)[local_b8] = 0x20;
+            this->replayname[local_b8] = ' ';
           }
           SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,SOUND_BACK,0);
         }
@@ -192,33 +192,33 @@ void __thiscall th06::ResultScreen::HandleReplaySaveKeyboard(ResultScreen *this)
       }
       else {
         if (iVar2 != 0xe) goto LAB_0042d095;
-        local_8 = &this->field50_0x1140;
+        local_8 = &this->field34_0x1140;
         if (this->cursor == 0) {
-          (this->field50_0x1140).color.color =
-               (this->field50_0x1140).color.color & 0xff000000 | 0xff6060;
-          (this->field51_0x1250).color.color =
-               (this->field51_0x1250).color.color & 0xff000000 | 0x606060;
+          (this->field34_0x1140).color.color =
+               (this->field34_0x1140).color.color & 0xff000000 | 0xff6060;
+          (this->field35_0x1250).color.color =
+               (this->field35_0x1250).color.color & 0xff000000 | 0x606060;
         }
         else {
-          (this->field50_0x1140).color.color =
-               (this->field50_0x1140).color.color & 0xff000000 | 0x606060;
-          (this->field51_0x1250).color.color =
-               (this->field51_0x1250).color.color & 0xff000000 | 0xff6060;
+          (this->field34_0x1140).color.color =
+               (this->field34_0x1140).color.color & 0xff000000 | 0x606060;
+          (this->field35_0x1250).color.color =
+               (this->field35_0x1250).color.color & 0xff000000 | 0xff6060;
         }
-        if (this->field1_0x4 < 0x14) goto LAB_0042d095;
+        if (this->frameTimer < 0x14) goto LAB_0042d095;
         MoveCursorHorizontally(this,2);
         if ((((g_CurFrameInput & 10) == 0) || ((g_CurFrameInput & 10) == (g_LastFrameInput & 10)))
            && (((g_CurFrameInput & 8) == 0 || ((g_CurFrameInput & 8) == (g_LastFrameInput & 8))))) {
           if (((g_CurFrameInput & 0x1001) == 0) ||
              ((g_CurFrameInput & 0x1001) == (g_LastFrameInput & 0x1001))) goto LAB_0042d095;
-          this->field1_0x4 = 0;
+          this->frameTimer = 0;
           if (this->cursor == 0) {
             local_8 = &this->unk_40;
             for (local_10 = 0; local_10 < 0x26; local_10 = local_10 + 1) {
               local_8->pendingInterrupt = 0xf;
               local_8 = local_8 + 1;
             }
-            local_8 = &this->field56_0x17a0 + *(int *)&this->field_0x1c;
+            local_8 = &this->field40_0x17a0 + this->field7_0x1c;
             local_8->pendingInterrupt = 0xe;
             this->resultScreenState = 0xd;
             goto LAB_0042d095;
@@ -233,9 +233,9 @@ LAB_0042c515:
         local_8->pendingInterrupt = 10;
         local_8 = local_8 + 1;
       }
-      this->field1_0x4 = 0;
+      this->frameTimer = 0;
     }
-    if (this->field1_0x4 == 0) {
+    if (this->frameTimer == 0) {
       _mkdir("replay");
       for (local_10 = 0; local_10 < 0xf; local_10 = local_10 + 1) {
         sprintf(local_5c,"./replay/th6_%.2d.rpy",local_10 + 1);
@@ -244,35 +244,35 @@ LAB_0042c515:
           ZVar1 = ReplayManager::ValidateReplayData(local_14,g_LastFileSize);
           if (ZVar1 == ZUN_SUCCESS) {
             pRVar3 = local_14;
-            ppcVar4 = (char **)((int)&this->hscr + local_10 * 0x50 + 0x30);
+            pRVar4 = this->replays + local_10;
             for (iVar2 = 0x14; iVar2 != 0; iVar2 = iVar2 + -1) {
-              *ppcVar4 = pRVar3->magic;
+              pRVar4->magic = pRVar3->magic;
               pRVar3 = (ReplayData *)&pRVar3->version;
-              ppcVar4 = ppcVar4 + 1;
+              pRVar4 = (ReplayData *)&pRVar4->version;
             }
           }
           _free(local_14);
         }
       }
     }
-    if (0x13 < this->field1_0x4) {
+    if (0x13 < this->frameTimer) {
       MoveCursor(this,15);
-      *(int *)&this->field_0x1c = this->cursor;
+      this->field7_0x1c = this->cursor;
       if (((g_CurFrameInput & 0x1001) != 0) &&
          ((g_CurFrameInput & 0x1001) != (g_LastFrameInput & 0x1001))) {
         SoundPlayer::PlaySoundByIdx(&g_SoundPlayer,SOUND_SELECT,0);
-        *(int *)&this->field_0x1c = this->cursor;
-        this->field1_0x4 = 0;
-        strdate(this->date);
-        this->score = g_GameManager.score;
-        if ((*(char (*) [4])((int)&this->hscr + this->cursor * 0x50 + 0x30) == (char  [4])0x50523654
-            ) && (*(short *)((int)&this->hscr + this->cursor * 0x50 + 0x34) == 0x102)) {
+        this->field7_0x1c = this->cursor;
+        this->frameTimer = 0;
+        strdate((this->defaultReplay).date);
+        (this->defaultReplay).score = g_GameManager.score;
+        if (((char  [4])this->replays[this->cursor].magic == (char  [4])0x50523654) &&
+           (this->replays[this->cursor].version == 0x102)) {
           local_8 = &this->unk_40;
           for (local_10 = 0; local_10 < 0x26; local_10 = local_10 + 1) {
             local_8->pendingInterrupt = 0xb;
             local_8 = local_8 + 1;
           }
-          local_8 = &this->field56_0x17a0 + *(int *)&this->field_0x1c;
+          local_8 = &this->field40_0x17a0 + this->field7_0x1c;
           local_8->pendingInterrupt = 0xe;
           this->resultScreenState = 0xe;
         }
@@ -282,7 +282,7 @@ LAB_0042c515:
             local_8->pendingInterrupt = 0xf;
             local_8 = local_8 + 1;
           }
-          local_8 = &this->field56_0x17a0 + *(int *)&this->field_0x1c;
+          local_8 = &this->field40_0x17a0 + this->field7_0x1c;
           local_8->pendingInterrupt = 0xe;
           this->resultScreenState = 0xd;
         }
@@ -297,12 +297,13 @@ LAB_0042c515:
           local_8->pendingInterrupt = 2;
           local_8 = local_8 + 1;
         }
-        this->field1_0x4 = 0;
+        this->frameTimer = 0;
       }
     }
   }
 LAB_0042d095:
+  iVar2 = 0;
   __security_check_cookie(local_18 ^ unaff_retaddr);
-  return;
+  return iVar2;
 }
 

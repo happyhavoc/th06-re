@@ -78,7 +78,7 @@ ZunResult th06::ResultScreen::AddedCallback(ResultScreen *param_1)
       }
     }
   }
-  *(undefined4 *)&param_1->field_0x14 = 0;
+  param_1->field5_0x14 = 0;
   pSVar3 = OpenScore("score.dat");
   param_1->scoredat = pSVar3;
   for (difficulty = 0; (int)difficulty < 5; difficulty = difficulty + 1) {

@@ -1,8 +1,9 @@
 
+/* WARNING: Unable to use type for symbol pmh */
+
 void __thiscall th06::MidiOutput::ProcessMsg(MidiOutput *this,MidiTrack *track)
 
 {
-  LPMIDIHDR pmh;
   uint uVar1;
   MIDIHDR *pMVar2;
   LPSTR pCVar3;
@@ -11,8 +12,9 @@ void __thiscall th06::MidiOutput::ProcessMsg(MidiOutput *this,MidiTrack *track)
   long lVar5;
   int iVar6;
   int iVar7;
-  LPMIDIHDR pmVar8;
-  undefined8 uVar9;
+  MIDIHDR *pmVar8;
+  longlong lVar8;
+  ulonglong uVar9;
   MidiTrack *local_30;
   MidiTrack *local_2c;
   byte arg1;
@@ -20,6 +22,7 @@ void __thiscall th06::MidiOutput::ProcessMsg(MidiOutput *this,MidiTrack *track)
   byte bStack_14;
   undefined4 arg2;
   undefined uStack_9;
+  LPMIDIHDR pmh;
   byte cVar1;
   
   opcode = *track->curTrackDataCursor;
@@ -55,11 +58,13 @@ void __thiscall th06::MidiOutput::ProcessMsg(MidiOutput *this,MidiTrack *track)
       pMVar2 = (MIDIHDR *)_malloc(0x40);
       this->midiHeaders[this->midiHeadersCursor] = pMVar2;
       pmh = this->midiHeaders[this->midiHeadersCursor];
+                    /* memcpy(pmh, SkipVariableLenth(&track->curTrackDataCursor), sizeof(MIDIHDR))
+                        */
       iVar6 = SkipVariableLength(&track->curTrackDataCursor);
       pmVar8 = pmh;
       for (iVar7 = 0x10; iVar7 != 0; iVar7 = iVar7 + -1) {
         pmVar8->lpData = (LPSTR)0x0;
-        pmVar8 = (LPMIDIHDR)&pmVar8->dwBufferLength;
+        pmVar8 = (MIDIHDR *)&pmVar8->dwBufferLength;
       }
       pCVar3 = (LPSTR)_malloc(iVar6 + 1);
       pmh->lpData = pCVar3;
@@ -101,15 +106,14 @@ void __thiscall th06::MidiOutput::ProcessMsg(MidiOutput *this,MidiTrack *track)
         }
                     /* Set Tempo */
         if (cVar1 == 0x51) {
-          uVar9 = __allmul(*(undefined4 *)&this->volume,*(undefined4 *)((int)&this->volume + 4),
-                           this->divisons,this->divisons >> 0x1f);
-          uVar9 = __allmul(uVar9,1000,0);
-          uVar9 = __aulldiv(uVar9,this->tempo,this->tempo >> 0x1f);
+          lVar8 = __allmul((longlong)this->volume,(longlong)this->divisons);
+          uVar9 = __allmul(lVar8,1000);
+          uVar9 = __aulldiv(uVar9,(longlong)this->tempo);
           uVar1 = *(uint *)&this->unk130;
           iVar7 = *(int *)((int)&this->unk130 + 4);
           *(uint *)&this->unk130 = uVar1 + (uint)uVar9;
           *(uint *)((int)&this->unk130 + 4) =
-               iVar7 + (int)((ulonglong)uVar9 >> 0x20) + (uint)CARRY4(uVar1,(uint)uVar9);
+               iVar7 + (int)(uVar9 >> 0x20) + (uint)CARRY4(uVar1,(uint)uVar9);
           *(undefined4 *)&this->volume = 0;
           *(undefined4 *)((int)&this->volume + 4) = 0;
           this->tempo = 0;

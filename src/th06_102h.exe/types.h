@@ -1026,7 +1026,7 @@ struct MidiOutput {
     int tempo;
     undefined4 unk124;
     double volume;
-    double unk130;
+    longlong unk130;
     struct MidiTrack *tracks;
     struct MidiDevice midiOutDev;
     byte unk144[16];

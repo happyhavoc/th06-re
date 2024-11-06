@@ -943,6 +943,47 @@ typedef ulong ULONG_PTR;
 
 typedef ULONG_PTR DWORD_PTR;
 
+typedef enum MidiOpcode {
+    OPCODE_CHANNEL_1=1,
+    OPCODE_CHANNEL_2=2,
+    OPCODE_CHANNEL_3=3,
+    OPCODE_CHANNEL_4=4,
+    OPCODE_CHANNEL_5=5,
+    OPCODE_CHANNEL_6=6,
+    OPCODE_CHANNEL_7=7,
+    OPCODE_CHANNEL_8=8,
+    OPCODE_CHANNEL_9=9,
+    OPCODE_CHANNEL_A=10,
+    OPCODE_CHANNEL_B=11,
+    OPCODE_CHANNEL_C=12,
+    OPCODE_CHANNEL_D=13,
+    OPCODE_CHANNEL_E=14,
+    OPCODE_CHANNEL_F=15,
+    OPCODE_NOTE_OFF=128,
+    OPCODE_NOTE_ON=144,
+    OPCODE_POLYPHONIC_AFTERTOUCH=160,
+    OPCODE_MODE_CHANGE=176 /* in the docs it says control/mode */,
+    OPCODE_PROGRAM_CHANGE=192,
+    OPCODE_CHANNEL_AFTERTOUCH=208,
+    OPCODE_PITCH_BEND_CHANGE=224,
+    OPCODE_SYSTEM_EXCLUSIVE=240,
+    OPCODE_MIDI_TIME_CODE_QTR_FRAME=241,
+    OPCODE_SONG_POSITION_POINTER=242,
+    OPCODE_SONG_SELECT=243,
+    OPCODE_RESERVED_F4=244,
+    OPCODE_RESERVED_F5=245,
+    OPCODE_TUNE_REQUEST=246,
+    OPCODE_END_OF_SYSEX=247,
+    OPCODE_TIMING_CLOCK=248,
+    OPCODE_RESERVED_F9=249,
+    OPCODE_START=250,
+    OPCODE_CONTINUE=251,
+    OPCODE_STOP=252,
+    OPCODE_RESERVED_FD=253,
+    OPCODE_ACTIVE_SENSING=254,
+    OPCODE_SYSTEM_RESET=255
+} MidiOpcode;
+
 typedef struct HMIDIOUT__ HMIDIOUT__, *PHMIDIOUT__;
 
 typedef struct HMIDIOUT__ *HMIDIOUT;
@@ -984,7 +1025,7 @@ struct MidiOutput {
     int divisons;
     int tempo;
     undefined4 unk124;
-    double unk128;
+    double volume;
     double unk130;
     struct MidiTrack *tracks;
     struct MidiDevice midiOutDev;
@@ -1033,12 +1074,12 @@ struct MidiTrack {
     uint trackPlaying;
     uint trackLengthOther;
     uint track_length;
-    byte opcode;
+    enum MidiOpcode opcode;
     undefined field4_0xd;
     undefined field5_0xe;
     undefined field6_0xf;
     void *trackData;
-    void *curTrackDataCursor;
+    byte *curTrackDataCursor;
     void *startTrackDataMaybe;
     uint unk1c;
 };

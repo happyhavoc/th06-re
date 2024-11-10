@@ -2,7 +2,7 @@
 /* WARNING: Removing unreachable block (ram,0x0042bb17) */
 /* WARNING: Removing unreachable block (ram,0x0042bb47) */
 
-void th06::WriteScore(ResultScreen *param_1)
+void th06::ResultScreen::WriteScore(ResultScreen *param_1)
 
 {
   byte bVar1;

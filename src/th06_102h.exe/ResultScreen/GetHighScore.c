@@ -10,7 +10,7 @@ uint th06::ResultScreen::GetHighScore
   Hscr *local_8;
   
   if (param_2 == (ScoreListNode *)0x0) {
-    ZunFreeArray(score_dat->scores);
+    FreeAllScores(score_dat->scores);
     score_dat->scores->next = (ScoreListNode *)0x0;
     score_dat->scores->data = (Hscr *)0x0;
     score_dat->scores->prev = (ScoreListNode *)0x0;

@@ -16,19 +16,19 @@ ChainCallbackResult __cdecl th06::MusicRoom::OnDraw(MusicRoom *musicRoom)
   for (listOffset = musicRoom->listingOffset; listOffset < musicRoom->listingOffset + 10;
       listOffset = listOffset + 1) {
     if (musicRoom->cursor == listOffset) {
-      musicRoom->anmArray[listOffset].color.color = 0xffffffff;
+      musicRoom->titleSprites[listOffset].color.color = 0xffffffff;
       g_AsciiManager.color = 0xffffffff;
     }
     else {
-      musicRoom->anmArray[listOffset].color.color = 0xe0808080;
+      musicRoom->titleSprites[listOffset].color.color = 0xe0808080;
       g_AsciiManager.color = 0xe0808080;
     }
-    musicRoom->anmArray[listOffset].pos.x = 93.0;
-    musicRoom->anmArray[listOffset].pos.y =
+    musicRoom->titleSprites[listOffset].pos.x = 93.0;
+    musicRoom->titleSprites[listOffset].pos.y =
          ((float)(((listOffset + 1) - musicRoom->listingOffset) * 0x12) + 104.0) - 20.0;
-    musicRoom->anmArray[listOffset].pos.z = 0.0;
-    AnmManager::DrawNoRotation(g_AnmManager,musicRoom->anmArray + listOffset);
-    songSprite = &musicRoom->anmArray[listOffset].pos;
+    musicRoom->titleSprites[listOffset].pos.z = 0.0;
+    AnmManager::DrawNoRotation(g_AnmManager,musicRoom->titleSprites + listOffset);
+    songSprite = &musicRoom->titleSprites[listOffset].pos;
     vec.y = songSprite->y;
     vec.z = songSprite->z;
     vec.x = songSprite->x - 60.0;
@@ -39,7 +39,7 @@ ChainCallbackResult __cdecl th06::MusicRoom::OnDraw(MusicRoom *musicRoom)
     AsciiManager::AddFormatText(&g_AsciiManager,&vec,"%2d.",listOffset + 1);
   }
   for (listOffset = 0; listOffset < 16; listOffset = listOffset + 1) {
-    AnmManager::DrawNoRotation(g_AnmManager,musicRoom->anmArray2 + listOffset);
+    AnmManager::DrawNoRotation(g_AnmManager,musicRoom->descriptionSprites + listOffset);
   }
   g_AsciiManager.color = 0xffffffff;
   return CHAIN_CALLBACK_RESULT_CONTINUE;

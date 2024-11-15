@@ -1916,6 +1916,14 @@ struct Player {
     struct ChainElem *onDraw2;
 };
 
+typedef struct TrackDescriptor TrackDescriptor, *PTrackDescriptor;
+
+struct TrackDescriptor {
+    char path[64];
+    char title[34];
+    char description[8][66];
+};
+
 typedef struct Gui Gui, *PGui;
 
 typedef byte u8;
@@ -3918,14 +3926,6 @@ struct ZunRect {
     float bottom;
 };
 
-typedef struct MusicRoomInnerItem MusicRoomInnerItem, *PMusicRoomInnerItem;
-
-struct MusicRoomInnerItem {
-    char path[64];
-    char title[100];
-    char description[66][7];
-};
-
 typedef struct Pbg3File Pbg3File, *PPbg3File;
 
 struct Pbg3File { /* PlaceHolder Class Structure */
@@ -4131,12 +4131,6 @@ struct AnmRawEntry {
 
 typedef struct MusicRoom MusicRoom, *PMusicRoom;
 
-typedef struct MusicRoomInner MusicRoomInner, *PMusicRoomInner;
-
-struct MusicRoomInner {
-    struct MusicRoomInnerItem item[32];
-};
-
 struct MusicRoom {
     struct ChainElem *calc_chain;
     struct ChainElem *draw_chain;
@@ -4145,11 +4139,11 @@ struct MusicRoom {
     int cursor;
     int musicPtr;
     int listingOffset;
-    int currOffset;
-    struct MusicRoomInner *musicRoomInnerDataPtr;
+    int numDescriptors;
+    struct TrackDescriptor *trackDescriptors;
     struct AnmVm mainVM[1];
-    struct AnmVm anmArray[32];
-    struct AnmVm anmArray2[16];
+    struct AnmVm titleSprites[32];
+    struct AnmVm descriptionSprites[16];
 };
 
 typedef struct BombData BombData, *PBombData;

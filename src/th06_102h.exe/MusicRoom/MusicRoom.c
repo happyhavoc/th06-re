@@ -18,13 +18,13 @@ MusicRoom * __thiscall th06::MusicRoom::MusicRoom(MusicRoom *this)
     local_20 = local_20 + 1;
   }
   local_34 = 32;
-  local_3c = this->anmArray;
+  local_3c = this->titleSprites;
   while (local_34 = local_34 + -1, -1 < local_34) {
     AnmVm::AnmVm(local_3c);
     local_3c = local_3c + 1;
   }
   local_50 = 16;
-  local_58 = this->anmArray2;
+  local_58 = this->descriptionSprites;
   while (local_50 = local_50 + -1, -1 < local_50) {
     AnmVm::AnmVm(local_58);
     local_58 = local_58 + 1;

@@ -5,8 +5,8 @@ uint __thiscall th06::MusicRoom::DrawMusicList(MusicRoom *this)
   char *pcVar2;
   uint uVar1;
   int vmIterator2;
-  undefined4 *puVar4;
-  undefined4 *puVar5;
+  i32 *local_EDI_385;
+  i32 *puVar5;
   char *local_5c;
   char buf;
   uint local_10;
@@ -42,30 +42,27 @@ uint __thiscall th06::MusicRoom::DrawMusicList(MusicRoom *this)
   if (((g_CurFrameInput & 0x1001) != 0) &&
      ((g_CurFrameInput & 0x1001) != (g_LastFrameInput & 0x1001))) {
     this->musicPtr = this->cursor;
-    Supervisor::PlayAudio
-              (&g_Supervisor,
-               (char *)((int)this->musicRoomPtr->mainVM + this->musicPtr * 0x272 + -0x24));
+    Supervisor::PlayAudio(&g_Supervisor,this->musicRoomInnerDataPtr->item[this->musicPtr].path);
     for (vmIterator = 0; vmIterator < 16; vmIterator = vmIterator + 1) {
-      puVar4 = (undefined4 *)&buf;
+      local_EDI_385 = (i32 *)&buf;
       for (vmIterator2 = 16; vmIterator2 != 0; vmIterator2 = vmIterator2 + -1) {
-        *puVar4 = 0;
-        puVar4 = puVar4 + 1;
+        *local_EDI_385 = 0;
+        local_EDI_385 = local_EDI_385 + 1;
       }
       if (vmIterator % 2 == 0) {
 LAB_0042508a:
-        puVar4 = (undefined4 *)
-                 ((int)this->musicRoomPtr->mainVM +
-                 (vmIterator % 2) * 0x20 + (vmIterator / 2) * 0x42 + this->musicPtr * 0x272 + 0x3e);
-        puVar5 = (undefined4 *)&buf;
+        pcVar2 = this->musicRoomInnerDataPtr->item[this->musicPtr].title +
+                 (vmIterator % 2) * 0x20 + (vmIterator / 2) * 0x42 + 0x22;
+        puVar5 = (i32 *)&buf;
         for (vmIterator2 = 8; vmIterator2 != 0; vmIterator2 = vmIterator2 + -1) {
-          *puVar5 = *puVar4;
-          puVar4 = puVar4 + 1;
+          *puVar5 = *(i32 *)pcVar2;
+          pcVar2 = pcVar2 + 4;
           puVar5 = puVar5 + 1;
         }
       }
       else {
-        local_5c = (char *)((int)this->musicRoomPtr->mainVM +
-                           (vmIterator / 2) * 0x42 + this->musicPtr * 0x272 + 0x3e);
+        local_5c = this->musicRoomInnerDataPtr->item[this->musicPtr].title +
+                   (vmIterator / 2) * 0x42 + 0x22;
         pcVar2 = local_5c + 1;
         do {
           cVar1 = *local_5c;

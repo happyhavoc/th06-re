@@ -18,10 +18,10 @@ ChainCallbackResult __cdecl th06::MusicRoom::OnUpdate(MusicRoom *musicRoom)
     ZVar2 = FUN_00424e8f(musicRoom);
   } while (ZVar2 != ZUN_SUCCESS);
   if (iVar1 == musicRoom->drawMusicList) {
-    musicRoom->field2_0x8 = musicRoom->field2_0x8 + 1;
+    musicRoom->unk_0x8 = musicRoom->unk_0x8 + 1;
   }
   else {
-    musicRoom->field2_0x8 = 0;
+    musicRoom->unk_0x8 = 0;
   }
   AnmManager::ExecuteScript(g_AnmManager,musicRoom->mainVM);
   return CHAIN_CALLBACK_RESULT_CONTINUE;

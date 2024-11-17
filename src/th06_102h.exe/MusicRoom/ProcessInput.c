@@ -1,9 +1,9 @@
 
-uint __thiscall th06::MusicRoom::DrawMusicList(MusicRoom *this)
+ZunBool __thiscall th06::MusicRoom::ProcessInput(MusicRoom *this)
 
 {
   char *pcVar1;
-  uint uVar2;
+  ZunBool ZVar2;
   int vmIterator2;
   char *puVar4;
   i32 *local_EDI_385;
@@ -41,8 +41,8 @@ uint __thiscall th06::MusicRoom::DrawMusicList(MusicRoom *this)
   }
   if (((g_CurFrameInput & 0x1001) != 0) &&
      ((g_CurFrameInput & 0x1001) != (g_LastFrameInput & 0x1001))) {
-    this->musicPtr = this->cursor;
-    Supervisor::PlayAudio(&g_Supervisor,this->trackDescriptors[this->musicPtr].path);
+    this->selectedSongIndex = this->cursor;
+    Supervisor::PlayAudio(&g_Supervisor,this->trackDescriptors[this->selectedSongIndex].path);
     for (vmIterator = 0; vmIterator < 16; vmIterator = vmIterator + 1) {
       local_EDI_385 = (i32 *)&buf;
       for (vmIterator2 = 16; vmIterator2 != 0; vmIterator2 = vmIterator2 + -1) {
@@ -51,7 +51,7 @@ uint __thiscall th06::MusicRoom::DrawMusicList(MusicRoom *this)
       }
       if (vmIterator % 2 == 0) {
 LAB_0042508a:
-        puVar4 = this->trackDescriptors[this->musicPtr].description[vmIterator / 2] +
+        puVar4 = this->trackDescriptors[this->selectedSongIndex].description[vmIterator / 2] +
                  (vmIterator % 2) * 0x20;
         puVar5 = (i32 *)&buf;
         for (vmIterator2 = 8; vmIterator2 != 0; vmIterator2 = vmIterator2 + -1) {
@@ -61,7 +61,7 @@ LAB_0042508a:
         }
       }
       else {
-        local_5c = this->trackDescriptors[this->musicPtr].description + vmIterator / 2;
+        local_5c = this->trackDescriptors[this->selectedSongIndex].description + vmIterator / 2;
         puVar4 = *local_5c;
         do {
           pcVar1 = *local_5c;
@@ -86,15 +86,15 @@ LAB_0042508a:
            this->descriptionSprites[vmIterator].flags | (AnmVmFlags_8|AnmVmFlags_9);
     }
   }
-                    /* Exit Condition? */
+                    /* Return true when input to quit the menu is given, false otherwise */
   if (((g_CurFrameInput & 10) == 0) || ((g_CurFrameInput & 10) == (g_LastFrameInput & 10))) {
-    uVar2 = 0;
+    ZVar2 = 0;
   }
   else {
     g_Supervisor.curState = 1;
-    uVar2 = 1;
+    ZVar2 = 1;
   }
   __security_check_cookie(local_10 ^ unaff_retaddr);
-  return uVar2;
+  return ZVar2;
 }
 

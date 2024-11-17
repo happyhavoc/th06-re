@@ -4134,10 +4134,10 @@ typedef struct MusicRoom MusicRoom, *PMusicRoom;
 struct MusicRoom {
     struct ChainElem *calc_chain;
     struct ChainElem *draw_chain;
-    int unk_0x8;
-    int drawMusicList;
+    int waitFramesCounter; /* Counts frames since last change in enableInput state */
+    int enableInput; /* Probably interpreted as a bool, but uses a switch statment? */
     int cursor;
-    int musicPtr;
+    int selectedSongIndex;
     int listingOffset;
     int numDescriptors;
     struct TrackDescriptor *trackDescriptors;

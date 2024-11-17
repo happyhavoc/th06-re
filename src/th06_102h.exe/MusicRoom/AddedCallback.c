@@ -37,7 +37,7 @@ ZunResult __cdecl th06::MusicRoom::AddedCallback(MusicRoom *musicRoom)
         if (ZVar4 == ZUN_SUCCESS) {
           musicRoom->mainVM[0].anmFileIndex = 0x100;
           AnmManager::SetAndExecuteScript(anmMgr,musicRoom->mainVM,anmMgr->scripts[0x100]);
-          musicRoom->unk_0x8 = 0;
+          musicRoom->waitFramesCounter = 0;
           firstChar = FileSystem::OpenPath("data/musiccmt.txt",0);
           currChar = (char *)firstChar;
                     /* If we couldn't read the file (OpenPath returning NULL)
@@ -162,8 +162,8 @@ LAB_00425c09:
                 }
               }
               else {
-                local_98 = musicRoom->trackDescriptors[musicRoom->musicPtr].description + offset / 2
-                ;
+                local_98 = musicRoom->trackDescriptors[musicRoom->selectedSongIndex].description +
+                           offset / 2;
                 puVar7 = *local_98;
                 do {
                   pcVar1 = *local_98;

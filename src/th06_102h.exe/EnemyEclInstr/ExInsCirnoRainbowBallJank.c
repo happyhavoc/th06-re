@@ -1,5 +1,5 @@
 
-void th06::Enemy::ExInsCirnoRainbowBallJank(Enemy *param_1,EclRawInstr *insn)
+void th06::EnemyEclInstr::ExInsCirnoRainbowBallJank(Enemy *param_1,EclRawInstr *insn)
 
 {
   float10 add_y;

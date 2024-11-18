@@ -1,5 +1,6 @@
 
-void th06::Enemy::MathDiv(Enemy *param_1,EclVarId param_2,EclVarId *param_3,EclVarId *param_4)
+void th06::EnemyEclInstr::MathDiv
+               (Enemy *param_1,EclVarId param_2,EclVarId *param_3,EclVarId *param_4)
 
 {
   int *piVar1;

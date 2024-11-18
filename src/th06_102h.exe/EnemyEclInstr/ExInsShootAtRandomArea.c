@@ -1,5 +1,5 @@
 
-void th06::Enemy::ExInsShootAtRandomArea(Enemy *enemy,EclRawInstr *instr)
+void th06::EnemyEclInstr::ExInsShootAtRandomArea(Enemy *enemy,EclRawInstr *instr)
 
 {
   float randVal;

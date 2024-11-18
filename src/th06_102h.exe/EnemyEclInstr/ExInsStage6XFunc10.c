@@ -1,7 +1,7 @@
 
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
 
-void th06::Enemy::ExInsStage6XFunc10(Enemy *param_1,EclRawInstr *param_2)
+void th06::EnemyEclInstr::ExInsStage6XFunc10(Enemy *param_1,EclRawInstr *param_2)
 
 {
   AnmManager *pAVar1;

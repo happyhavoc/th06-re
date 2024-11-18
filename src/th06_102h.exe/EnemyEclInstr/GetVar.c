@@ -1,7 +1,7 @@
 
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
 
-int * th06::Enemy::GetVar(Enemy *enemy,EclVarId *eclGvarId,EclValueType *valueType)
+int * th06::EnemyEclInstr::GetVar(Enemy *enemy,EclVarId *eclGvarId,EclValueType *valueType)
 
 {
   int *pfVar1;

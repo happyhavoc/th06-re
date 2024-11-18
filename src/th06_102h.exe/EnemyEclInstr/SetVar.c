@@ -1,5 +1,5 @@
 
-void th06::Enemy::SetVar(Enemy *enemy,EclVarId lhs,void *rhs)
+void th06::EnemyEclInstr::SetVar(Enemy *enemy,EclVarId lhs,void *rhs)
 
 {
   int *piVar1;

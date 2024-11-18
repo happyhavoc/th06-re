@@ -1,5 +1,5 @@
 
-void th06::Enemy::MoveTime(Enemy *param_1,EclRawInstr *param_2)
+void th06::EnemyEclInstr::MoveTime(Enemy *param_1,EclRawInstr *param_2)
 
 {
   float fVar1;

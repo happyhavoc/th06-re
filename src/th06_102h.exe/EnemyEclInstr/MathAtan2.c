@@ -1,5 +1,5 @@
 
-void th06::Enemy::MathAtan2
+void th06::EnemyEclInstr::MathAtan2
                (Enemy *enemy,EclVarId out_var,float *param_3,float *param_4,float *param_5,
                float *param_6)
 

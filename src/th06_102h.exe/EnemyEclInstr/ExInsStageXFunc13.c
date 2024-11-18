@@ -1,5 +1,5 @@
 
-void th06::Enemy::ExInsStageXFunc13(Enemy *param_1,EclRawInstr *param_2)
+void th06::EnemyEclInstr::ExInsStageXFunc13(Enemy *param_1,EclRawInstr *param_2)
 
 {
   int iVar5;

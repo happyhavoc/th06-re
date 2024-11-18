@@ -1,5 +1,5 @@
 
-void th06::Enemy::ExInsStage4Func12(Enemy *param_1,EclRawInstr *param_2)
+void th06::EnemyEclInstr::ExInsStage4Func12(Enemy *param_1,EclRawInstr *param_2)
 
 {
   D3DXVECTOR3 *pDVar1;

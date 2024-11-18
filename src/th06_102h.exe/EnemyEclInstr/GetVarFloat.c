@@ -1,5 +1,5 @@
 
-float * th06::Enemy::GetVarFloat(Enemy *param_1,float *param_2,EclValueType *param_3)
+float * th06::EnemyEclInstr::GetVarFloat(Enemy *param_1,float *param_2,EclValueType *param_3)
 
 {
   float *pfVar1;

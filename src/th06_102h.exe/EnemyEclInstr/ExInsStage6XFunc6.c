@@ -1,5 +1,5 @@
 
-void th06::Enemy::ExInsStage6XFunc6(Enemy *param_1,EclRawInstr *param_2)
+void th06::EnemyEclInstr::ExInsStage6XFunc6(Enemy *param_1,EclRawInstr *param_2)
 
 {
   ushort uVar2;
@@ -15,7 +15,7 @@ void th06::Enemy::ExInsStage6XFunc6(Enemy *param_1,EclRawInstr *param_2)
   float fVar1;
   
   if ((param_1->flags3 >> 3 & 1) != 0) {
-    ResetEffectArray(param_1);
+    Enemy::ResetEffectArray(param_1);
     return;
   }
   param_1->exInsFunc6Angle = param_1->exInsFunc6Angle + 0.01745329;

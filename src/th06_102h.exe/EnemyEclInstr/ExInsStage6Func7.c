@@ -1,5 +1,5 @@
 
-void th06::Enemy::ExInsStage6Func7(Enemy *this,EclRawInstr *param_2)
+void th06::EnemyEclInstr::ExInsStage6Func7(Enemy *this,EclRawInstr *param_2)
 
 {
   float fVar1;

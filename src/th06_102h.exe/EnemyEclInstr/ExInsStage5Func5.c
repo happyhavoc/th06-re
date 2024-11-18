@@ -1,7 +1,7 @@
 
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
 
-void th06::Enemy::ExInsStage5Func5(Enemy *param_1,EclRawInstr *param_2)
+void th06::EnemyEclInstr::ExInsStage5Func5(Enemy *param_1,EclRawInstr *param_2)
 
 {
   uint uVar1;

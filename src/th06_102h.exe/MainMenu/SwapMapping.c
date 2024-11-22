@@ -1,10 +1,13 @@
 
-void th06::MainMenu::SelectRelated
-               (MainMenu *menu,ushort btn_pressed,ushort old_mapping,BOOL param_4)
+/* When setting a controller button in the mapping, if that button was already bound to another
+   action, then that other action will take the old button of the action that was changed.
+   
+   To make it clearer: Imagine A is bound to FOCUS, and X to SHOOT. If I change FOCUS to be X, then
+   this function will automatically swap SHOOT to be A. */
+
+void th06::MainMenu::SwapMapping(MainMenu *menu,ushort btn_pressed,ushort old_mapping,BOOL param_4)
 
 {
-                    /* I'm pretty sure this function handles going to the bottom when you press the
-                       bomb button or escape */
   if ((param_4 == 0) && (menu->controlMapping[0] == btn_pressed)) {
     menu->controlMapping[0] = old_mapping;
   }

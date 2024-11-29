@@ -384,14 +384,14 @@ struct AnmVm {
 };
 
 struct BulletTypeSprites {
-    struct AnmVm bulletSprite;
+    struct AnmVm spriteBullet;
     struct AnmVm spriteSpawnEffectFast;
     struct AnmVm spriteSpawnEffectNormal;
     struct AnmVm spriteSpawnEffectSlow;
     struct AnmVm spriteSpawnEffectDonut;
     struct D3DXVECTOR3 grazeSize;
     byte unk_55c;
-    byte height;
+    byte bulletHeight;
 };
 
 struct Bullet {
@@ -451,16 +451,6 @@ typedef enum OrbState {
     ORB_FOCUSED=3,
     ORB_UNFOCUSING=4
 } OrbState;
-
-typedef struct BulletTypeInfo BulletTypeInfo, *PBulletTypeInfo;
-
-struct BulletTypeInfo {
-    uint bulletAnmFileIdx;
-    uint bulletSpawnEffectFastAnmFileIdx;
-    uint bulletSpawnEffectNormalAnmFileIdx;
-    uint bulletSpawnEffectSlowAnmFileIdx;
-    uint bulletSpawnEffectDonutAnmFileIdx;
-};
 
 typedef struct PlayerUnknown PlayerUnknown, *PPlayerUnknown;
 
@@ -2021,6 +2011,12 @@ struct Hscr {
     byte difficulty;
     byte stage;
     char name[9];
+};
+
+typedef struct BulletTypeVms BulletTypeVms, *PBulletTypeVms;
+
+struct BulletTypeVms {
+    struct AnmVm vmList[5];
 };
 
 typedef struct Stage Stage, *PStage;

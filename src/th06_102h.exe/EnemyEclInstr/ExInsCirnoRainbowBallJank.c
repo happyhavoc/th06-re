@@ -17,7 +17,7 @@ void th06::EnemyEclInstr::ExInsCirnoRainbowBallJank(Enemy *param_1,EclRawInstr *
       bullets->spriteOffset = 0xf;
       AnmManager::SetActiveSprite
                 (g_AnmManager,(AnmVm *)bullets,
-                 (int)(bullets->sprites).bulletSprite.baseSpriteIndex + (int)bullets->spriteOffset);
+                 (int)(bullets->sprites).spriteBullet.baseSpriteIndex + (int)bullets->spriteOffset);
       if (fVar1 == 0) {
         bullets->speed = 0.0;
         (bullets->velocity).x = 0.0;

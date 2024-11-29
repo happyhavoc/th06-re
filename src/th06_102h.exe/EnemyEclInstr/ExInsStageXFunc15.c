@@ -26,16 +26,16 @@ void th06::EnemyEclInstr::ExInsStageXFunc15(Enemy *param_1,EclRawInstr *param_2)
   }
   for (local_64 = 0; local_64 < 0x280; local_64 = local_64 + 1) {
     if ((((bullets->state != 0) && (bullets->state != 5)) &&
-        ((bullets->sprites).bulletSprite.sprite != (AnmLoadedSprite *)0x0)) &&
-       (30.0 <= ((bullets->sprites).bulletSprite.sprite)->heightPx)) {
+        ((bullets->sprites).spriteBullet.sprite != (AnmLoadedSprite *)0x0)) &&
+       (30.0 <= ((bullets->sprites).spriteBullet.sprite)->heightPx)) {
       anm_vm_var3 = anm_vm_var3 + 1;
       dVar4 = atan2((double)((bullets->pos).y - (param_1->position).y),
                     (double)((bullets->pos).x - (param_1->position).x));
       local_68 = g_BulletManager.bullets;
       for (local_7c = 0; local_7c < 0x280; local_7c = local_7c + 1) {
         if ((((local_68->state != 0) && (local_68->state != 5)) &&
-            (((local_68->sprites).bulletSprite.sprite != (AnmLoadedSprite *)0x0 &&
-             ((fVar3 = ((local_68->sprites).bulletSprite.sprite)->heightPx,
+            (((local_68->sprites).spriteBullet.sprite != (AnmLoadedSprite *)0x0 &&
+             ((fVar3 = ((local_68->sprites).spriteBullet.sprite)->heightPx,
               fVar3 < 30.0 != NAN(fVar3) && (NAN(local_68->speed) != (local_68->speed == 0.0)))))))
            && (fVar3 = sqrt(SUB84((double)(((local_68->pos).x - (bullets->pos).x) *
                                            ((local_68->pos).x - (bullets->pos).x) +
@@ -58,7 +58,7 @@ void th06::EnemyEclInstr::ExInsStageXFunc15(Enemy *param_1,EclRawInstr *param_2)
           local_68->spriteOffset = local_68->spriteOffset + 1;
           AnmManager::SetActiveSprite
                     (g_AnmManager,(AnmVm *)local_68,
-                     (int)(local_68->sprites).bulletSprite.baseSpriteIndex +
+                     (int)(local_68->sprites).spriteBullet.baseSpriteIndex +
                      (int)local_68->spriteOffset);
         }
         local_68 = local_68 + 1;

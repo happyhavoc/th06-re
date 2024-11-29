@@ -47,32 +47,32 @@ ChainCallbackResult th06::BulletManager::OnDraw(BulletManager *arg)
   if (g_Supervisor.hasD3dHardwareVertexProcessing == 0) {
     local_20 = arg->bullets;
     for (local_8 = 0; local_8 < 0x280; local_8 = local_8 + 1) {
-      if ((local_20->state != 0) && (0x10 < (local_20->sprites).height)) {
+      if ((local_20->state != 0) && (0x10 < (local_20->sprites).bulletHeight)) {
         DrawBulletNoHwVertex(local_20);
       }
       local_20 = local_20 + 1;
     }
     local_20 = arg->bullets;
     for (local_8 = 0; local_8 < 0x280; local_8 = local_8 + 1) {
-      if (((local_20->state != 0) && ((local_20->sprites).height == 0x10)) &&
-         (((local_20->sprites).bulletSprite.anmFileIndex == 0x201 ||
-          ((local_20->sprites).bulletSprite.anmFileIndex == 0x203)))) {
+      if (((local_20->state != 0) && ((local_20->sprites).bulletHeight == 0x10)) &&
+         (((local_20->sprites).spriteBullet.anmFileIndex == 0x201 ||
+          ((local_20->sprites).spriteBullet.anmFileIndex == 0x203)))) {
         DrawBulletNoHwVertex(local_20);
       }
       local_20 = local_20 + 1;
     }
     local_20 = arg->bullets;
     for (local_8 = 0; local_8 < 0x280; local_8 = local_8 + 1) {
-      if ((((local_20->state != 0) && ((local_20->sprites).height == 0x10)) &&
-          ((local_20->sprites).bulletSprite.anmFileIndex != 0x201)) &&
-         ((local_20->sprites).bulletSprite.anmFileIndex != 0x203)) {
+      if ((((local_20->state != 0) && ((local_20->sprites).bulletHeight == 0x10)) &&
+          ((local_20->sprites).spriteBullet.anmFileIndex != 0x201)) &&
+         ((local_20->sprites).spriteBullet.anmFileIndex != 0x203)) {
         DrawBulletNoHwVertex(local_20);
       }
       local_20 = local_20 + 1;
     }
     local_20 = arg->bullets;
     for (local_8 = 0; local_8 < 0x280; local_8 = local_8 + 1) {
-      if ((local_20->state != 0) && ((local_20->sprites).height == 8)) {
+      if ((local_20->state != 0) && ((local_20->sprites).bulletHeight == 8)) {
         DrawBulletNoHwVertex(local_20);
       }
       local_20 = local_20 + 1;
@@ -81,32 +81,32 @@ ChainCallbackResult th06::BulletManager::OnDraw(BulletManager *arg)
   else {
     local_1c = arg->bullets;
     for (local_8 = 0; local_8 < 0x280; local_8 = local_8 + 1) {
-      if ((local_1c->state != 0) && (0x10 < (local_1c->sprites).height)) {
+      if ((local_1c->state != 0) && (0x10 < (local_1c->sprites).bulletHeight)) {
         DrawBullet(local_1c);
       }
       local_1c = local_1c + 1;
     }
     local_1c = arg->bullets;
     for (local_8 = 0; local_8 < 0x280; local_8 = local_8 + 1) {
-      if (((local_1c->state != 0) && ((local_1c->sprites).height == 0x10)) &&
-         (((local_1c->sprites).bulletSprite.anmFileIndex == 0x201 ||
-          ((local_1c->sprites).bulletSprite.anmFileIndex == 0x203)))) {
+      if (((local_1c->state != 0) && ((local_1c->sprites).bulletHeight == 0x10)) &&
+         (((local_1c->sprites).spriteBullet.anmFileIndex == 0x201 ||
+          ((local_1c->sprites).spriteBullet.anmFileIndex == 0x203)))) {
         DrawBullet(local_1c);
       }
       local_1c = local_1c + 1;
     }
     local_1c = arg->bullets;
     for (local_8 = 0; local_8 < 0x280; local_8 = local_8 + 1) {
-      if ((((local_1c->state != 0) && ((local_1c->sprites).height == 0x10)) &&
-          ((local_1c->sprites).bulletSprite.anmFileIndex != 0x201)) &&
-         ((local_1c->sprites).bulletSprite.anmFileIndex != 0x203)) {
+      if ((((local_1c->state != 0) && ((local_1c->sprites).bulletHeight == 0x10)) &&
+          ((local_1c->sprites).spriteBullet.anmFileIndex != 0x201)) &&
+         ((local_1c->sprites).spriteBullet.anmFileIndex != 0x203)) {
         DrawBullet(local_1c);
       }
       local_1c = local_1c + 1;
     }
     local_1c = arg->bullets;
     for (local_8 = 0; local_8 < 0x280; local_8 = local_8 + 1) {
-      if ((local_1c->state != 0) && ((local_1c->sprites).height == 8)) {
+      if ((local_1c->state != 0) && ((local_1c->sprites).bulletHeight == 8)) {
         DrawBullet(local_1c);
       }
       local_1c = local_1c + 1;

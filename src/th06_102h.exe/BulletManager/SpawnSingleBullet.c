@@ -112,9 +112,9 @@ th06::BulletManager::SpawnSingleBullet
     pBVar5 = this->bullet_type_templates + (short)bulletProps->sprite;
     pBVar6 = bullet;
     for (iVar4 = 0x44; iVar4 != 0; iVar4 = iVar4 + -1) {
-      (pBVar6->sprites).bulletSprite.rotation.x = (pBVar5->bulletSprite).rotation.x;
-      pBVar5 = (BulletTypeSprites *)&(pBVar5->bulletSprite).rotation.y;
-      pBVar6 = (Bullet *)&(pBVar6->sprites).bulletSprite.rotation.y;
+      (pBVar6->sprites).spriteBullet.rotation.x = (pBVar5->spriteBullet).rotation.x;
+      pBVar5 = (BulletTypeSprites *)&(pBVar5->spriteBullet).rotation.y;
+      pBVar6 = (Bullet *)&(pBVar6->sprites).spriteBullet.rotation.y;
     }
     from = &this->bullet_type_templates[(short)bulletProps->sprite].spriteSpawnEffectDonut;
     to = &(bullet->sprites).spriteSpawnEffectDonut;
@@ -128,7 +128,8 @@ th06::BulletManager::SpawnSingleBullet
     (bullet->sprites).grazeSize.y = pDVar1->y;
     (bullet->sprites).grazeSize.z = pDVar1->z;
     (bullet->sprites).unk_55c = this->bullet_type_templates[(short)bulletProps->sprite].unk_55c;
-    (bullet->sprites).height = this->bullet_type_templates[(short)bulletProps->sprite].height;
+    (bullet->sprites).bulletHeight =
+         this->bullet_type_templates[(short)bulletProps->sprite].bulletHeight;
     if ((bullet->ex_flags & 2) == 0) {
       if ((bullet->ex_flags & 4) == 0) {
         if ((bullet->ex_flags & 8) != 0) {
@@ -139,16 +140,16 @@ th06::BulletManager::SpawnSingleBullet
             from = (AnmVm *)&(from->rotation).y;
             to = (AnmVm *)&(to->rotation).y;
           }
-          fVar9 = ((bullet->sprites).bulletSprite.sprite)->heightPx;
+          fVar9 = ((bullet->sprites).spriteBullet.sprite)->heightPx;
           if (fVar9 < 16.0 == (fVar9 == 16.0)) {
-            fVar9 = ((bullet->sprites).bulletSprite.sprite)->heightPx;
+            fVar9 = ((bullet->sprites).spriteBullet.sprite)->heightPx;
             if (fVar9 < 32.0 == (fVar9 == 32.0)) {
               AnmManager::SetActiveSprite
                         (g_AnmManager,&(bullet->sprites).spriteSpawnEffectSlow,
                          (int)(bullet->sprites).spriteSpawnEffectSlow.activeSpriteIndex +
                          (int)(short)bulletProps->spriteOffset);
             }
-            else if ((bullet->sprites).bulletSprite.anmFileIndex == 0x207) {
+            else if ((bullet->sprites).spriteBullet.anmFileIndex == 0x207) {
               AnmManager::SetActiveSprite
                         (g_AnmManager,&(bullet->sprites).spriteSpawnEffectSlow,
                          (int)(bullet->sprites).spriteSpawnEffectSlow.activeSpriteIndex + 1);
@@ -177,16 +178,16 @@ th06::BulletManager::SpawnSingleBullet
           from = (AnmVm *)&(from->rotation).y;
           to = (AnmVm *)&(to->rotation).y;
         }
-        fVar9 = ((bullet->sprites).bulletSprite.sprite)->heightPx;
+        fVar9 = ((bullet->sprites).spriteBullet.sprite)->heightPx;
         if (fVar9 < 16.0 == (fVar9 == 16.0)) {
-          fVar9 = ((bullet->sprites).bulletSprite.sprite)->heightPx;
+          fVar9 = ((bullet->sprites).spriteBullet.sprite)->heightPx;
           if (fVar9 < 32.0 == (fVar9 == 32.0)) {
             AnmManager::SetActiveSprite
                       (g_AnmManager,&(bullet->sprites).spriteSpawnEffectNormal,
                        (int)(bullet->sprites).spriteSpawnEffectNormal.activeSpriteIndex +
                        (int)(short)bulletProps->spriteOffset);
           }
-          else if ((bullet->sprites).bulletSprite.anmFileIndex == 0x207) {
+          else if ((bullet->sprites).spriteBullet.anmFileIndex == 0x207) {
             AnmManager::SetActiveSprite
                       (g_AnmManager,&(bullet->sprites).spriteSpawnEffectNormal,
                        (int)(bullet->sprites).spriteSpawnEffectNormal.activeSpriteIndex + 1);
@@ -215,16 +216,16 @@ th06::BulletManager::SpawnSingleBullet
         from = (AnmVm *)&(from->rotation).y;
         to = (AnmVm *)&(to->rotation).y;
       }
-      fVar9 = ((bullet->sprites).bulletSprite.sprite)->heightPx;
+      fVar9 = ((bullet->sprites).spriteBullet.sprite)->heightPx;
       if (fVar9 < 16.0 == (fVar9 == 16.0)) {
-        fVar9 = ((bullet->sprites).bulletSprite.sprite)->heightPx;
+        fVar9 = ((bullet->sprites).spriteBullet.sprite)->heightPx;
         if (fVar9 < 32.0 == (fVar9 == 32.0)) {
           AnmManager::SetActiveSprite
                     (g_AnmManager,&(bullet->sprites).spriteSpawnEffectFast,
                      (int)(bullet->sprites).spriteSpawnEffectFast.activeSpriteIndex +
                      (int)(short)bulletProps->spriteOffset);
         }
-        else if ((bullet->sprites).bulletSprite.anmFileIndex == 0x207) {
+        else if ((bullet->sprites).spriteBullet.anmFileIndex == 0x207) {
           AnmManager::SetActiveSprite
                     (g_AnmManager,&(bullet->sprites).spriteSpawnEffectFast,
                      (int)(bullet->sprites).spriteSpawnEffectFast.activeSpriteIndex + 1);
@@ -246,18 +247,18 @@ th06::BulletManager::SpawnSingleBullet
     }
     AnmManager::SetActiveSprite
               (g_AnmManager,(AnmVm *)bullet,
-               (int)(bullet->sprites).bulletSprite.activeSpriteIndex +
+               (int)(bullet->sprites).spriteBullet.activeSpriteIndex +
                (int)(short)bulletProps->spriteOffset);
-    fVar9 = ((bullet->sprites).bulletSprite.sprite)->heightPx;
+    fVar9 = ((bullet->sprites).spriteBullet.sprite)->heightPx;
     if (fVar9 < 16.0 == (fVar9 == 16.0)) {
-      fVar9 = ((bullet->sprites).bulletSprite.sprite)->heightPx;
+      fVar9 = ((bullet->sprites).spriteBullet.sprite)->heightPx;
       if (fVar9 < 32.0 == (fVar9 == 32.0)) {
         AnmManager::SetActiveSprite
                   (g_AnmManager,&(bullet->sprites).spriteSpawnEffectDonut,
                    (int)(bullet->sprites).spriteSpawnEffectDonut.activeSpriteIndex +
                    (int)(short)bulletProps->spriteOffset);
       }
-      else if ((bullet->sprites).bulletSprite.anmFileIndex == 0x207) {
+      else if ((bullet->sprites).spriteBullet.anmFileIndex == 0x207) {
         AnmManager::SetActiveSprite
                   (g_AnmManager,&(bullet->sprites).spriteSpawnEffectDonut,
                    (int)(bullet->sprites).spriteSpawnEffectDonut.activeSpriteIndex + 1);

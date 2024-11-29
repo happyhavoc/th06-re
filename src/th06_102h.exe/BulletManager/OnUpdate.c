@@ -82,8 +82,8 @@ ChainCallbackResult th06::BulletManager::OnUpdate(BulletManager *this)
           pBVar4 = bulletsPtr;
                     /* memset(bulletsPtr, 0, 369) */
           for (iVar3 = 0x171; iVar3 != 0; iVar3 = iVar3 + -1) {
-            (pBVar4->sprites).bulletSprite.rotation.x = 0.0;
-            pBVar4 = (Bullet *)&(pBVar4->sprites).bulletSprite.rotation.y;
+            (pBVar4->sprites).spriteBullet.rotation.x = 0.0;
+            pBVar4 = (Bullet *)&(pBVar4->sprites).spriteBullet.rotation.y;
           }
           goto bulletLoopContinue;
         }
@@ -160,8 +160,8 @@ switchD_00414a97_caseD_1:
                   if (((bulletsPtr->ex_flags & 0x800) != 0) &&
                      (iVar3 = GameManager::IsInBounds
                                         (&g_GameManager,(bulletsPtr->pos).x,(bulletsPtr->pos).y,
-                                         ((bulletsPtr->sprites).bulletSprite.sprite)->widthPx,
-                                         ((bulletsPtr->sprites).bulletSprite.sprite)->heightPx),
+                                         ((bulletsPtr->sprites).spriteBullet.sprite)->widthPx,
+                                         ((bulletsPtr->sprites).spriteBullet.sprite)->heightPx),
                      iVar3 == 0)) {
                     velZ = (bulletsPtr->pos).x;
                     if ((velZ < 0.0 != NAN(velZ)) || (384.0 <= (bulletsPtr->pos).x)) {
@@ -188,8 +188,8 @@ switchD_00414a97_caseD_1:
                 else {
                   iVar3 = GameManager::IsInBounds
                                     (&g_GameManager,(bulletsPtr->pos).x,(bulletsPtr->pos).y,
-                                     ((bulletsPtr->sprites).bulletSprite.sprite)->widthPx,
-                                     ((bulletsPtr->sprites).bulletSprite.sprite)->heightPx);
+                                     ((bulletsPtr->sprites).spriteBullet.sprite)->widthPx,
+                                     ((bulletsPtr->sprites).spriteBullet.sprite)->heightPx);
                   if (iVar3 == 0) {
                     velZ = (bulletsPtr->pos).x;
                     if ((velZ < 0.0 != NAN(velZ)) || (384.0 <= (bulletsPtr->pos).x)) {
@@ -296,8 +296,8 @@ switchD_00414a97_caseD_1:
         (bulletsPtr->pos).z = velZ + (bulletsPtr->pos).z;
         iVar3 = GameManager::IsInBounds
                           (&g_GameManager,(bulletsPtr->pos).x,(bulletsPtr->pos).y,
-                           ((bulletsPtr->sprites).bulletSprite.sprite)->widthPx,
-                           ((bulletsPtr->sprites).bulletSprite.sprite)->heightPx);
+                           ((bulletsPtr->sprites).spriteBullet.sprite)->widthPx,
+                           ((bulletsPtr->sprites).spriteBullet.sprite)->heightPx);
         if (iVar3 != 0) {
           bulletsPtr->unk_5c0 = 0;
 LAB_00415b6c:
@@ -329,8 +329,8 @@ LAB_00415be8:
            (bulletsPtr->unk_5c0 == 0)) {
           pBVar4 = bulletsPtr;
           for (iVar3 = 0x171; iVar3 != 0; iVar3 = iVar3 + -1) {
-            (pBVar4->sprites).bulletSprite.rotation.x = 0.0;
-            pBVar4 = (Bullet *)&(pBVar4->sprites).bulletSprite.rotation.y;
+            (pBVar4->sprites).spriteBullet.rotation.x = 0.0;
+            pBVar4 = (Bullet *)&(pBVar4->sprites).spriteBullet.rotation.y;
           }
         }
         else {
@@ -338,8 +338,8 @@ LAB_00415be8:
           if (bulletsPtr->unk_5c0 < 0x100) goto LAB_00415b6c;
           pBVar4 = bulletsPtr;
           for (iVar3 = 0x171; iVar3 != 0; iVar3 = iVar3 + -1) {
-            (pBVar4->sprites).bulletSprite.rotation.x = 0.0;
-            pBVar4 = (Bullet *)&(pBVar4->sprites).bulletSprite.rotation.y;
+            (pBVar4->sprites).spriteBullet.rotation.x = 0.0;
+            pBVar4 = (Bullet *)&(pBVar4->sprites).spriteBullet.rotation.y;
           }
         }
       }

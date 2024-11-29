@@ -24,14 +24,14 @@ void th06::EnemyEclInstr::ExInsStage6Func9(Enemy *param_1,EclRawInstr *param_2)
   EffectManager::SpawnParticles(&g_EffectManager,0xc,&param_1->position,1,(ZunColor)0xffffffff);
   for (local_60 = 0; local_60 < 0x280; local_60 = local_60 + 1) {
     if ((((bullets->state != 0) && (bullets->state != 5)) &&
-        ((bullets->sprites).bulletSprite.sprite != (AnmLoadedSprite *)0x0)) &&
-       ((fVar1 = ((bullets->sprites).bulletSprite.sprite)->heightPx, fVar1 < 30.0 != NAN(fVar1) &&
+        ((bullets->sprites).spriteBullet.sprite != (AnmLoadedSprite *)0x0)) &&
+       ((fVar1 = ((bullets->sprites).spriteBullet.sprite)->heightPx, fVar1 < 30.0 != NAN(fVar1) &&
         (NAN(bullets->speed) != (bullets->speed == 0.0))))) {
       bullets->ex_flags = bullets->ex_flags | 0x10;
       bullets->spriteOffset = 2;
       AnmManager::SetActiveSprite
                 (g_AnmManager,(AnmVm *)bullets,
-                 (int)(bullets->sprites).bulletSprite.baseSpriteIndex + (int)bullets->spriteOffset);
+                 (int)(bullets->sprites).spriteBullet.baseSpriteIndex + (int)bullets->spriteOffset);
       bullets->speed = 0.01;
       (bullets->timer).current = 0;
       (bullets->timer).subFrame = 0.0;

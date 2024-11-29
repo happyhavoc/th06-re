@@ -140,7 +140,7 @@ ChainCallbackResult th06::ResultScreen::OnDraw(ResultScreen *param_1)
         AsciiManager::AddFormatText
                   (&g_AsciiManager,&local_40,
                    (char *)&
-                           PTR_g_BulletManager_bullets_421__sprites_bulletSprite_posInterpFinal_x_1_0046bdd0
+                           PTR_g_BulletManager_bullets_421__sprites_spriteBullet_posInterpFinal_x_1_0046bdd0
                    ,local_14 + 1);
         local_40.x = local_40.x + 36.0;
         if (local_2c->data->stage < 7) {

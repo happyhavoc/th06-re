@@ -47,7 +47,7 @@ Player * __thiscall th06::Player::Player(Player *this)
   }
   ZunTimer::Initialize(&this->fireBulletTimer);
   ZunTimer::Initialize(&this->invulnerabilityTimer);
-  PlayerInner::PlayerInner((PlayerInner *)&this->bombInfo);
+  PlayerBombInfo::PlayerBombInfo(&this->bombInfo);
   return this;
 }
 

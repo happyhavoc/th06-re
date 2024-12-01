@@ -1,5 +1,5 @@
 
-undefined4 th06::Controller::EnumGameControllersCb(int param_1)
+undefined4 th06::Supervisor::EnumGameControllersCb(int param_1)
 
 {
   HRESULT HVar1;

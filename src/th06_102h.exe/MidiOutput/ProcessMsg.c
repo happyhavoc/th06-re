@@ -58,9 +58,8 @@ void __thiscall th06::MidiOutput::ProcessMsg(MidiOutput *this,MidiTrack *track)
       pMVar2 = (MIDIHDR *)_malloc(0x40);
       this->midiHeaders[this->midiHeadersCursor] = pMVar2;
       pmh = this->midiHeaders[this->midiHeadersCursor];
-                    /* memcpy(pmh, SkipVariableLenth(&track->curTrackDataCursor), sizeof(MIDIHDR))
-                        */
       iVar6 = SkipVariableLength(&track->curTrackDataCursor);
+                    /* memset(pmh, 0, sizeof(MIDIHDR)) */
       pmVar8 = pmh;
       for (iVar7 = 0x10; iVar7 != 0; iVar7 = iVar7 + -1) {
         pmVar8->lpData = (LPSTR)0x0;

@@ -64,8 +64,8 @@ ZunResult th06::Supervisor::SetupDInput(Supervisor *param_1)
             GameErrorContext::Log
                       (&g_GameErrorContext,"DirectInput は正常に初期化されました\n");
             (*param_1->directInput->lpVtbl->EnumDevices)
-                      (param_1->directInput,DI8DEVCLASS_GAMECTRL,Controller::EnumGameControllersCb,
-                       (LPVOID)0x0,1);
+                      (param_1->directInput,DI8DEVCLASS_GAMECTRL,EnumGameControllersCb,(LPVOID)0x0,1
+                      );
             if (param_1->controller != (LPDIRECTINPUTDEVICE8A)0x0) {
               (*param_1->controller->lpVtbl->SetDataFormat)(param_1->controller,&c_dfDIJoystick2);
               (*param_1->controller->lpVtbl->SetCooperativeLevel)
@@ -74,7 +74,7 @@ ZunResult th06::Supervisor::SetupDInput(Supervisor *param_1)
               (*param_1->controller->lpVtbl->GetCapabilities)
                         (param_1->controller,&g_Supervisor.controllerCaps);
               (*param_1->controller->lpVtbl->EnumObjects)
-                        (param_1->controller,Controller::ControllerCallback,(LPVOID)0x0,0);
+                        (param_1->controller,ControllerCallback,(LPVOID)0x0,0);
               GameErrorContext::Log(&g_GameErrorContext,"有効なパッドを発見しました\n")
               ;
             }

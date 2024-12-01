@@ -1,5 +1,5 @@
 
-undefined4 th06::Controller::ControllerCallback(LPCDIDEVICEOBJECTINSTANCE param_1)
+undefined4 th06::Supervisor::ControllerCallback(LPCDIDEVICEOBJECTINSTANCE param_1)
 
 {
   HRESULT HVar1;

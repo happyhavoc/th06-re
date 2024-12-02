@@ -4616,6 +4616,65 @@ struct unk {
     int unkc;
 };
 
+typedef struct CMyFont CMyFont, *PCMyFont;
+
+typedef struct ID3DXFont ID3DXFont, *PID3DXFont;
+
+typedef struct ID3DXFont *LPD3DXFONT;
+
+typedef struct ID3DXFontVtbl ID3DXFontVtbl, *PID3DXFontVtbl;
+
+typedef struct IDirect3DDevice8 *LPDIRECT3DDEVICE8;
+
+typedef struct tagLOGFONTA tagLOGFONTA, *PtagLOGFONTA;
+
+typedef struct tagLOGFONTA LOGFONTA;
+
+typedef LOGFONTA LOGFONT;
+
+typedef struct tagRECT *LPRECT;
+
+typedef wchar_t WCHAR;
+
+typedef WCHAR *LPCWSTR;
+
+struct tagLOGFONTA {
+    LONG lfHeight;
+    LONG lfWidth;
+    LONG lfEscapement;
+    LONG lfOrientation;
+    LONG lfWeight;
+    BYTE lfItalic;
+    BYTE lfUnderline;
+    BYTE lfStrikeOut;
+    BYTE lfCharSet;
+    BYTE lfOutPrecision;
+    BYTE lfClipPrecision;
+    BYTE lfQuality;
+    BYTE lfPitchAndFamily;
+    CHAR lfFaceName[32];
+};
+
+struct CMyFont {
+    LPD3DXFONT m_lpFont;
+};
+
+struct ID3DXFont {
+    struct ID3DXFontVtbl *lpVtbl;
+};
+
+struct ID3DXFontVtbl {
+    HRESULT (*QueryInterface)(struct IDirect3DVolume8 *, IID *, LPVOID *);
+    ULONG (*AddRef)(struct IDirect3DVolume8 *);
+    ULONG (*Release)(struct IDirect3DVolume8 *);
+    HRESULT (*GetDevice)(struct IDirect3DVolume8 *, LPDIRECT3DDEVICE8 *);
+    HRESULT (*GetLogFont)(struct IDirect3DVolume8 *, LOGFONT *);
+    HRESULT (*Begin)(struct IDirect3DVolume8 *);
+    INT (*DrawTextA)(struct IDirect3DVolume8 *, LPCSTR, INT, LPRECT, DWORD, D3DCOLOR);
+    INT (*DrawTextW)(struct IDirect3DVolume8 *, LPCWSTR, INT, LPRECT, DWORD, D3DCOLOR);
+    HRESULT (*End)(struct IDirect3DVolume8 *);
+};
+
 typedef sbyte i8;
 
 typedef WORD *LPWORD;
@@ -4939,8 +4998,6 @@ typedef struct _iobuf FILE;
 
 typedef struct DIDEVICEINSTANCE_DX3W DIDEVICEINSTANCE_DX3W, *PDIDEVICEINSTANCE_DX3W;
 
-typedef wchar_t WCHAR;
-
 struct DIDEVICEINSTANCE_DX3W {
     DWORD dwSize;
     GUID guidInstance;
@@ -5230,8 +5287,6 @@ typedef struct IDirectInputDeviceW *LPDIRECTINPUTDEVICEW;
 typedef struct DIDEVICEINSTANCEW *LPCDIDEVICEINSTANCEW;
 
 typedef BOOL (*LPDIENUMDEVICESCALLBACKW)(LPCDIDEVICEINSTANCEW, LPVOID);
-
-typedef WCHAR *LPCWSTR;
 
 struct IDirectInput2WVtbl {
     HRESULT (*QueryInterface)(struct IDirectInput2W *, IID *, LPVOID *);
@@ -18113,8 +18168,6 @@ typedef struct ID3DXRenderToEnvMap ID3DXRenderToEnvMap, *PID3DXRenderToEnvMap;
 
 typedef struct ID3DXRenderToEnvMapVtbl ID3DXRenderToEnvMapVtbl, *PID3DXRenderToEnvMapVtbl;
 
-typedef struct IDirect3DDevice8 *LPDIRECT3DDEVICE8;
-
 typedef struct _D3DXRTE_DESC _D3DXRTE_DESC, *P_D3DXRTE_DESC;
 
 typedef struct _D3DXRTE_DESC D3DXRTE_DESC;
@@ -18195,53 +18248,6 @@ struct ID3DXRenderToSurfaceVtbl {
     HRESULT (*GetDesc)(struct IDirect3DVolume8 *, D3DXRTS_DESC *);
     HRESULT (*BeginScene)(struct IDirect3DVolume8 *, LPDIRECT3DSURFACE8, D3DVIEWPORT8 *);
     HRESULT (*EndScene)(struct IDirect3DVolume8 *);
-};
-
-typedef struct ID3DXFont ID3DXFont, *PID3DXFont;
-
-typedef struct ID3DXFont *LPD3DXFONT;
-
-typedef struct ID3DXFontVtbl ID3DXFontVtbl, *PID3DXFontVtbl;
-
-typedef struct tagLOGFONTA tagLOGFONTA, *PtagLOGFONTA;
-
-typedef struct tagLOGFONTA LOGFONTA;
-
-typedef LOGFONTA LOGFONT;
-
-typedef struct tagRECT *LPRECT;
-
-struct tagLOGFONTA {
-    LONG lfHeight;
-    LONG lfWidth;
-    LONG lfEscapement;
-    LONG lfOrientation;
-    LONG lfWeight;
-    BYTE lfItalic;
-    BYTE lfUnderline;
-    BYTE lfStrikeOut;
-    BYTE lfCharSet;
-    BYTE lfOutPrecision;
-    BYTE lfClipPrecision;
-    BYTE lfQuality;
-    BYTE lfPitchAndFamily;
-    CHAR lfFaceName[32];
-};
-
-struct ID3DXFont {
-    struct ID3DXFontVtbl *lpVtbl;
-};
-
-struct ID3DXFontVtbl {
-    HRESULT (*QueryInterface)(struct IDirect3DVolume8 *, IID *, LPVOID *);
-    ULONG (*AddRef)(struct IDirect3DVolume8 *);
-    ULONG (*Release)(struct IDirect3DVolume8 *);
-    HRESULT (*GetDevice)(struct IDirect3DVolume8 *, LPDIRECT3DDEVICE8 *);
-    HRESULT (*GetLogFont)(struct IDirect3DVolume8 *, LOGFONT *);
-    HRESULT (*Begin)(struct IDirect3DVolume8 *);
-    INT (*DrawTextA)(struct IDirect3DVolume8 *, LPCSTR, INT, LPRECT, DWORD, D3DCOLOR);
-    INT (*DrawTextW)(struct IDirect3DVolume8 *, LPCWSTR, INT, LPRECT, DWORD, D3DCOLOR);
-    HRESULT (*End)(struct IDirect3DVolume8 *);
 };
 
 typedef struct ID3DXSprite ID3DXSprite, *PID3DXSprite;

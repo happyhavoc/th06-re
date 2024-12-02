@@ -1100,6 +1100,1101 @@ struct AsciiManagerString {
     undefined4 isGui;
 };
 
+typedef struct CMyFont CMyFont, *PCMyFont;
+
+typedef struct ID3DXFont ID3DXFont, *PID3DXFont;
+
+typedef struct ID3DXFont *LPD3DXFONT;
+
+typedef struct ID3DXFontVtbl ID3DXFontVtbl, *PID3DXFontVtbl;
+
+typedef struct IDirect3DVolume8 IDirect3DVolume8, *PIDirect3DVolume8;
+
+typedef struct IDirect3DDevice8 IDirect3DDevice8, *PIDirect3DDevice8;
+
+typedef struct IDirect3DDevice8 *LPDIRECT3DDEVICE8;
+
+typedef struct tagLOGFONTA tagLOGFONTA, *PtagLOGFONTA;
+
+typedef struct tagLOGFONTA LOGFONTA;
+
+typedef LOGFONTA LOGFONT;
+
+typedef int INT;
+
+typedef struct tagRECT tagRECT, *PtagRECT;
+
+typedef struct tagRECT *LPRECT;
+
+typedef wchar_t WCHAR;
+
+typedef WCHAR *LPCWSTR;
+
+typedef struct IDirect3DVolume8Vtbl IDirect3DVolume8Vtbl, *PIDirect3DVolume8Vtbl;
+
+typedef struct _D3DVOLUME_DESC _D3DVOLUME_DESC, *P_D3DVOLUME_DESC;
+
+typedef struct _D3DVOLUME_DESC D3DVOLUME_DESC;
+
+typedef struct _D3DLOCKED_BOX _D3DLOCKED_BOX, *P_D3DLOCKED_BOX;
+
+typedef struct _D3DLOCKED_BOX D3DLOCKED_BOX;
+
+typedef struct _D3DBOX _D3DBOX, *P_D3DBOX;
+
+typedef struct _D3DBOX D3DBOX;
+
+typedef struct IDirect3DDevice8Vtbl IDirect3DDevice8Vtbl, *PIDirect3DDevice8Vtbl;
+
+typedef struct IDirect3D8 IDirect3D8, *PIDirect3D8;
+
+typedef struct _D3DCAPS8 _D3DCAPS8, *P_D3DCAPS8;
+
+typedef struct _D3DCAPS8 D3DCAPS8;
+
+typedef struct _D3DDISPLAYMODE _D3DDISPLAYMODE, *P_D3DDISPLAYMODE;
+
+typedef struct _D3DDISPLAYMODE D3DDISPLAYMODE;
+
+typedef struct _D3DDEVICE_CREATION_PARAMETERS _D3DDEVICE_CREATION_PARAMETERS, *P_D3DDEVICE_CREATION_PARAMETERS;
+
+typedef struct _D3DDEVICE_CREATION_PARAMETERS D3DDEVICE_CREATION_PARAMETERS;
+
+typedef struct IDirect3DSurface8 IDirect3DSurface8, *PIDirect3DSurface8;
+
+typedef struct _D3DPRESENT_PARAMETERS_ _D3DPRESENT_PARAMETERS_, *P_D3DPRESENT_PARAMETERS_;
+
+typedef struct _D3DPRESENT_PARAMETERS_ D3DPRESENT_PARAMETERS;
+
+typedef struct IDirect3DSwapChain8 IDirect3DSwapChain8, *PIDirect3DSwapChain8;
+
+typedef struct tagRECT RECT;
+
+typedef struct _RGNDATA _RGNDATA, *P_RGNDATA;
+
+typedef struct _RGNDATA RGNDATA;
+
+typedef enum _D3DBACKBUFFER_TYPE {
+    D3DBACKBUFFER_TYPE_MONO=0,
+    D3DBACKBUFFER_TYPE_LEFT=1,
+    D3DBACKBUFFER_TYPE_RIGHT=2,
+    D3DBACKBUFFER_TYPE_FORCE_DWORD=2147483647
+} _D3DBACKBUFFER_TYPE;
+
+typedef enum _D3DBACKBUFFER_TYPE D3DBACKBUFFER_TYPE;
+
+typedef struct _D3DRASTER_STATUS _D3DRASTER_STATUS, *P_D3DRASTER_STATUS;
+
+typedef struct _D3DRASTER_STATUS D3DRASTER_STATUS;
+
+typedef struct _D3DGAMMARAMP _D3DGAMMARAMP, *P_D3DGAMMARAMP;
+
+typedef struct _D3DGAMMARAMP D3DGAMMARAMP;
+
+typedef enum _D3DPOOL {
+    D3DPOOL_DEFAULT=0,
+    D3DPOOL_MANAGED=1,
+    D3DPOOL_SYSTEMMEM=2,
+    D3DPOOL_FORCE_DWORD=2147483647
+} _D3DPOOL;
+
+typedef enum _D3DPOOL D3DPOOL;
+
+typedef struct IDirect3DTexture8 IDirect3DTexture8, *PIDirect3DTexture8;
+
+typedef struct IDirect3DVolumeTexture8 IDirect3DVolumeTexture8, *PIDirect3DVolumeTexture8;
+
+typedef struct IDirect3DCubeTexture8 IDirect3DCubeTexture8, *PIDirect3DCubeTexture8;
+
+typedef struct IDirect3DVertexBuffer8 IDirect3DVertexBuffer8, *PIDirect3DVertexBuffer8;
+
+typedef struct IDirect3DIndexBuffer8 IDirect3DIndexBuffer8, *PIDirect3DIndexBuffer8;
+
+typedef enum _D3DMULTISAMPLE_TYPE {
+    D3DMULTISAMPLE_NONE=0,
+    D3DMULTISAMPLE_2_SAMPLES=2,
+    D3DMULTISAMPLE_3_SAMPLES=3,
+    D3DMULTISAMPLE_4_SAMPLES=4,
+    D3DMULTISAMPLE_5_SAMPLES=5,
+    D3DMULTISAMPLE_6_SAMPLES=6,
+    D3DMULTISAMPLE_7_SAMPLES=7,
+    D3DMULTISAMPLE_8_SAMPLES=8,
+    D3DMULTISAMPLE_9_SAMPLES=9,
+    D3DMULTISAMPLE_10_SAMPLES=10,
+    D3DMULTISAMPLE_11_SAMPLES=11,
+    D3DMULTISAMPLE_12_SAMPLES=12,
+    D3DMULTISAMPLE_13_SAMPLES=13,
+    D3DMULTISAMPLE_14_SAMPLES=14,
+    D3DMULTISAMPLE_15_SAMPLES=15,
+    D3DMULTISAMPLE_16_SAMPLES=16,
+    D3DMULTISAMPLE_FORCE_DWORD=2147483647
+} _D3DMULTISAMPLE_TYPE;
+
+typedef enum _D3DMULTISAMPLE_TYPE D3DMULTISAMPLE_TYPE;
+
+typedef struct tagPOINT tagPOINT, *PtagPOINT;
+
+typedef struct tagPOINT POINT;
+
+typedef struct IDirect3DBaseTexture8 IDirect3DBaseTexture8, *PIDirect3DBaseTexture8;
+
+typedef struct _D3DRECT _D3DRECT, *P_D3DRECT;
+
+typedef struct _D3DRECT D3DRECT;
+
+typedef enum _D3DTRANSFORMSTATETYPE {
+    D3DTS_VIEW=2,
+    D3DTS_PROJECTION=3,
+    D3DTS_TEXTURE0=16,
+    D3DTS_TEXTURE1=17,
+    D3DTS_TEXTURE2=18,
+    D3DTS_TEXTURE3=19,
+    D3DTS_TEXTURE4=20,
+    D3DTS_TEXTURE5=21,
+    D3DTS_TEXTURE6=22,
+    D3DTS_TEXTURE7=23,
+    D3DTS_FORCE_DWORD=2147483647
+} _D3DTRANSFORMSTATETYPE;
+
+typedef enum _D3DTRANSFORMSTATETYPE D3DTRANSFORMSTATETYPE;
+
+typedef struct _D3DVIEWPORT8 _D3DVIEWPORT8, *P_D3DVIEWPORT8;
+
+typedef struct _D3DVIEWPORT8 D3DVIEWPORT8;
+
+typedef struct _D3DMATERIAL8 _D3DMATERIAL8, *P_D3DMATERIAL8;
+
+typedef struct _D3DMATERIAL8 D3DMATERIAL8;
+
+typedef struct _D3DLIGHT8 _D3DLIGHT8, *P_D3DLIGHT8;
+
+typedef struct _D3DLIGHT8 D3DLIGHT8;
+
+typedef enum _D3DRENDERSTATETYPE {
+    D3DRS_ZENABLE=7,
+    D3DRS_FILLMODE=8,
+    D3DRS_SHADEMODE=9,
+    D3DRS_LINEPATTERN=10,
+    D3DRS_ZWRITEENABLE=14,
+    D3DRS_ALPHATESTENABLE=15,
+    D3DRS_LASTPIXEL=16,
+    D3DRS_SRCBLEND=19,
+    D3DRS_DESTBLEND=20,
+    D3DRS_CULLMODE=22,
+    D3DRS_ZFUNC=23,
+    D3DRS_ALPHAREF=24,
+    D3DRS_ALPHAFUNC=25,
+    D3DRS_DITHERENABLE=26,
+    D3DRS_ALPHABLENDENABLE=27,
+    D3DRS_FOGENABLE=28,
+    D3DRS_SPECULARENABLE=29,
+    D3DRS_ZVISIBLE=30,
+    D3DRS_FOGCOLOR=34,
+    D3DRS_FOGTABLEMODE=35,
+    D3DRS_FOGSTART=36,
+    D3DRS_FOGEND=37,
+    D3DRS_FOGDENSITY=38,
+    D3DRS_EDGEANTIALIAS=40,
+    D3DRS_ZBIAS=47,
+    D3DRS_RANGEFOGENABLE=48,
+    D3DRS_STENCILENABLE=52,
+    D3DRS_STENCILFAIL=53,
+    D3DRS_STENCILZFAIL=54,
+    D3DRS_STENCILPASS=55,
+    D3DRS_STENCILFUNC=56,
+    D3DRS_STENCILREF=57,
+    D3DRS_STENCILMASK=58,
+    D3DRS_STENCILWRITEMASK=59,
+    D3DRS_TEXTUREFACTOR=60,
+    D3DRS_WRAP0=128,
+    D3DRS_WRAP1=129,
+    D3DRS_WRAP2=130,
+    D3DRS_WRAP3=131,
+    D3DRS_WRAP4=132,
+    D3DRS_WRAP5=133,
+    D3DRS_WRAP6=134,
+    D3DRS_WRAP7=135,
+    D3DRS_CLIPPING=136,
+    D3DRS_LIGHTING=137,
+    D3DRS_AMBIENT=139,
+    D3DRS_FOGVERTEXMODE=140,
+    D3DRS_COLORVERTEX=141,
+    D3DRS_LOCALVIEWER=142,
+    D3DRS_NORMALIZENORMALS=143,
+    D3DRS_DIFFUSEMATERIALSOURCE=145,
+    D3DRS_SPECULARMATERIALSOURCE=146,
+    D3DRS_AMBIENTMATERIALSOURCE=147,
+    D3DRS_EMISSIVEMATERIALSOURCE=148,
+    D3DRS_VERTEXBLEND=151,
+    D3DRS_CLIPPLANEENABLE=152,
+    D3DRS_SOFTWAREVERTEXPROCESSING=153,
+    D3DRS_POINTSIZE=154,
+    D3DRS_POINTSIZE_MIN=155,
+    D3DRS_POINTSPRITEENABLE=156,
+    D3DRS_POINTSCALEENABLE=157,
+    D3DRS_POINTSCALE_A=158,
+    D3DRS_POINTSCALE_B=159,
+    D3DRS_POINTSCALE_C=160,
+    D3DRS_MULTISAMPLEANTIALIAS=161,
+    D3DRS_MULTISAMPLEMASK=162,
+    D3DRS_PATCHEDGESTYLE=163,
+    D3DRS_PATCHSEGMENTS=164,
+    D3DRS_DEBUGMONITORTOKEN=165,
+    D3DRS_POINTSIZE_MAX=166,
+    D3DRS_INDEXEDVERTEXBLENDENABLE=167,
+    D3DRS_COLORWRITEENABLE=168,
+    D3DRS_TWEENFACTOR=170,
+    D3DRS_BLENDOP=171,
+    D3DRS_FORCE_DWORD=2147483647
+} _D3DRENDERSTATETYPE;
+
+typedef enum _D3DRENDERSTATETYPE D3DRENDERSTATETYPE;
+
+typedef enum _D3DSTATEBLOCKTYPE {
+    D3DSBT_ALL=1,
+    D3DSBT_PIXELSTATE=2,
+    D3DSBT_VERTEXSTATE=3,
+    D3DSBT_FORCE_DWORD=2147483647
+} _D3DSTATEBLOCKTYPE;
+
+typedef enum _D3DSTATEBLOCKTYPE D3DSTATEBLOCKTYPE;
+
+typedef struct _D3DCLIPSTATUS8 _D3DCLIPSTATUS8, *P_D3DCLIPSTATUS8;
+
+typedef struct _D3DCLIPSTATUS8 D3DCLIPSTATUS8;
+
+typedef enum _D3DTEXTURESTAGESTATETYPE {
+    D3DTSS_COLOROP=1,
+    D3DTSS_COLORARG1=2,
+    D3DTSS_COLORARG2=3,
+    D3DTSS_ALPHAOP=4,
+    D3DTSS_ALPHAARG1=5,
+    D3DTSS_ALPHAARG2=6,
+    D3DTSS_BUMPENVMAT00=7,
+    D3DTSS_BUMPENVMAT01=8,
+    D3DTSS_BUMPENVMAT10=9,
+    D3DTSS_BUMPENVMAT11=10,
+    D3DTSS_TEXCOORDINDEX=11,
+    D3DTSS_ADDRESSU=13,
+    D3DTSS_ADDRESSV=14,
+    D3DTSS_BORDERCOLOR=15,
+    D3DTSS_MAGFILTER=16,
+    D3DTSS_MINFILTER=17,
+    D3DTSS_MIPFILTER=18,
+    D3DTSS_MIPMAPLODBIAS=19,
+    D3DTSS_MAXMIPLEVEL=20,
+    D3DTSS_MAXANISOTROPY=21,
+    D3DTSS_BUMPENVLSCALE=22,
+    D3DTSS_BUMPENVLOFFSET=23,
+    D3DTSS_TEXTURETRANSFORMFLAGS=24,
+    D3DTSS_ADDRESSW=25,
+    D3DTSS_COLORARG0=26,
+    D3DTSS_ALPHAARG0=27,
+    D3DTSS_RESULTARG=28,
+    D3DTSS_FORCE_DWORD=2147483647
+} _D3DTEXTURESTAGESTATETYPE;
+
+typedef enum _D3DTEXTURESTAGESTATETYPE D3DTEXTURESTAGESTATETYPE;
+
+typedef struct tagPALETTEENTRY tagPALETTEENTRY, *PtagPALETTEENTRY;
+
+typedef struct tagPALETTEENTRY PALETTEENTRY;
+
+typedef enum _D3DPRIMITIVETYPE {
+    D3DPT_POINTLIST=1,
+    D3DPT_LINELIST=2,
+    D3DPT_LINESTRIP=3,
+    D3DPT_TRIANGLELIST=4,
+    D3DPT_TRIANGLESTRIP=5,
+    D3DPT_TRIANGLEFAN=6,
+    D3DPT_FORCE_DWORD=2147483647
+} _D3DPRIMITIVETYPE;
+
+typedef enum _D3DPRIMITIVETYPE D3DPRIMITIVETYPE;
+
+typedef struct _D3DRECTPATCH_INFO _D3DRECTPATCH_INFO, *P_D3DRECTPATCH_INFO;
+
+typedef struct _D3DRECTPATCH_INFO D3DRECTPATCH_INFO;
+
+typedef struct _D3DTRIPATCH_INFO _D3DTRIPATCH_INFO, *P_D3DTRIPATCH_INFO;
+
+typedef struct _D3DTRIPATCH_INFO D3DTRIPATCH_INFO;
+
+typedef enum _D3DRESOURCETYPE {
+    D3DRTYPE_SURFACE=1,
+    D3DRTYPE_VOLUME=2,
+    D3DRTYPE_TEXTURE=3,
+    D3DRTYPE_VOLUMETEXTURE=4,
+    D3DRTYPE_CUBETEXTURE=5,
+    D3DRTYPE_VERTEXBUFFER=6,
+    D3DRTYPE_INDEXBUFFER=7,
+    D3DRTYPE_FORCE_DWORD=2147483647
+} _D3DRESOURCETYPE;
+
+typedef enum _D3DRESOURCETYPE D3DRESOURCETYPE;
+
+typedef struct IDirect3D8Vtbl IDirect3D8Vtbl, *PIDirect3D8Vtbl;
+
+typedef struct _D3DADAPTER_IDENTIFIER8 _D3DADAPTER_IDENTIFIER8, *P_D3DADAPTER_IDENTIFIER8;
+
+typedef struct _D3DADAPTER_IDENTIFIER8 D3DADAPTER_IDENTIFIER8;
+
+typedef enum _D3DDEVTYPE {
+    D3DDEVTYPE_HAL=1,
+    D3DDEVTYPE_REF=2,
+    D3DDEVTYPE_SW=3,
+    D3DDEVTYPE_FORCE_DWORD=2147483647
+} _D3DDEVTYPE;
+
+typedef enum _D3DDEVTYPE D3DDEVTYPE;
+
+typedef struct HMONITOR__ HMONITOR__, *PHMONITOR__;
+
+typedef struct HMONITOR__ *HMONITOR;
+
+typedef struct IDirect3DSurface8Vtbl IDirect3DSurface8Vtbl, *PIDirect3DSurface8Vtbl;
+
+typedef struct _D3DSURFACE_DESC _D3DSURFACE_DESC, *P_D3DSURFACE_DESC;
+
+typedef struct _D3DSURFACE_DESC D3DSURFACE_DESC;
+
+typedef struct _D3DLOCKED_RECT _D3DLOCKED_RECT, *P_D3DLOCKED_RECT;
+
+typedef struct _D3DLOCKED_RECT D3DLOCKED_RECT;
+
+typedef enum _D3DSWAPEFFECT {
+    D3DSWAPEFFECT_DISCARD=1,
+    D3DSWAPEFFECT_FLIP=2,
+    D3DSWAPEFFECT_COPY=3,
+    D3DSWAPEFFECT_COPY_VSYNC=4,
+    D3DSWAPEFFECT_FORCE_DWORD=2147483647
+} _D3DSWAPEFFECT;
+
+typedef enum _D3DSWAPEFFECT D3DSWAPEFFECT;
+
+typedef struct IDirect3DSwapChain8Vtbl IDirect3DSwapChain8Vtbl, *PIDirect3DSwapChain8Vtbl;
+
+typedef struct _RGNDATAHEADER _RGNDATAHEADER, *P_RGNDATAHEADER;
+
+typedef struct _RGNDATAHEADER RGNDATAHEADER;
+
+typedef struct IDirect3DTexture8Vtbl IDirect3DTexture8Vtbl, *PIDirect3DTexture8Vtbl;
+
+typedef struct IDirect3DVolumeTexture8Vtbl IDirect3DVolumeTexture8Vtbl, *PIDirect3DVolumeTexture8Vtbl;
+
+typedef struct IDirect3DCubeTexture8Vtbl IDirect3DCubeTexture8Vtbl, *PIDirect3DCubeTexture8Vtbl;
+
+typedef enum _D3DCUBEMAP_FACES {
+    D3DCUBEMAP_FACE_POSITIVE_X=0,
+    D3DCUBEMAP_FACE_NEGATIVE_X=1,
+    D3DCUBEMAP_FACE_POSITIVE_Y=2,
+    D3DCUBEMAP_FACE_NEGATIVE_Y=3,
+    D3DCUBEMAP_FACE_POSITIVE_Z=4,
+    D3DCUBEMAP_FACE_NEGATIVE_Z=5,
+    D3DCUBEMAP_FACE_FORCE_DWORD=2147483647
+} _D3DCUBEMAP_FACES;
+
+typedef enum _D3DCUBEMAP_FACES D3DCUBEMAP_FACES;
+
+typedef struct IDirect3DVertexBuffer8Vtbl IDirect3DVertexBuffer8Vtbl, *PIDirect3DVertexBuffer8Vtbl;
+
+typedef struct _D3DVERTEXBUFFER_DESC _D3DVERTEXBUFFER_DESC, *P_D3DVERTEXBUFFER_DESC;
+
+typedef struct _D3DVERTEXBUFFER_DESC D3DVERTEXBUFFER_DESC;
+
+typedef struct IDirect3DIndexBuffer8Vtbl IDirect3DIndexBuffer8Vtbl, *PIDirect3DIndexBuffer8Vtbl;
+
+typedef struct _D3DINDEXBUFFER_DESC _D3DINDEXBUFFER_DESC, *P_D3DINDEXBUFFER_DESC;
+
+typedef struct _D3DINDEXBUFFER_DESC D3DINDEXBUFFER_DESC;
+
+typedef struct IDirect3DBaseTexture8Vtbl IDirect3DBaseTexture8Vtbl, *PIDirect3DBaseTexture8Vtbl;
+
+typedef struct _D3DCOLORVALUE _D3DCOLORVALUE, *P_D3DCOLORVALUE;
+
+typedef struct _D3DCOLORVALUE D3DCOLORVALUE;
+
+typedef enum _D3DLIGHTTYPE {
+    D3DLIGHT_POINT=1,
+    D3DLIGHT_SPOT=2,
+    D3DLIGHT_DIRECTIONAL=3,
+    D3DLIGHT_FORCE_DWORD=2147483647
+} _D3DLIGHTTYPE;
+
+typedef enum _D3DLIGHTTYPE D3DLIGHTTYPE;
+
+typedef struct D3DXVECTOR3 D3DVECTOR;
+
+typedef enum _D3DBASISTYPE {
+    D3DBASIS_BEZIER=0,
+    D3DBASIS_BSPLINE=1,
+    D3DBASIS_INTERPOLATE=2,
+    D3DBASIS_FORCE_DWORD=2147483647
+} _D3DBASISTYPE;
+
+typedef enum _D3DBASISTYPE D3DBASISTYPE;
+
+typedef enum _D3DORDERTYPE {
+    D3DORDER_LINEAR=1,
+    D3DORDER_CUBIC=3,
+    D3DORDER_QUINTIC=5,
+    D3DORDER_FORCE_DWORD=2147483647
+} _D3DORDERTYPE;
+
+typedef enum _D3DORDERTYPE D3DORDERTYPE;
+
+typedef union _LARGE_INTEGER _LARGE_INTEGER, *P_LARGE_INTEGER;
+
+typedef union _LARGE_INTEGER LARGE_INTEGER;
+
+typedef struct _struct_7 _struct_7, *P_struct_7;
+
+typedef struct _struct_8 _struct_8, *P_struct_8;
+
+typedef double LONGLONG;
+
+struct _D3DINDEXBUFFER_DESC {
+    D3DFORMAT Format;
+    D3DRESOURCETYPE Type;
+    DWORD Usage;
+    D3DPOOL Pool;
+    UINT Size;
+};
+
+struct tagPOINT {
+    LONG x;
+    LONG y;
+};
+
+struct _D3DGAMMARAMP {
+    WORD red[256];
+    WORD green[256];
+    WORD blue[256];
+};
+
+struct IDirect3DVolume8 {
+    struct IDirect3DVolume8Vtbl *lpVtbl;
+};
+
+struct IDirect3DVolumeTexture8 {
+    struct IDirect3DVolumeTexture8Vtbl *lpVtbl;
+};
+
+struct tagRECT {
+    LONG left;
+    LONG top;
+    LONG right;
+    LONG bottom;
+};
+
+struct _RGNDATAHEADER {
+    DWORD dwSize;
+    DWORD iType;
+    DWORD nCount;
+    DWORD nRgnSize;
+    RECT rcBound;
+};
+
+struct _struct_7 {
+    DWORD LowPart;
+    LONG HighPart;
+};
+
+struct _struct_8 {
+    DWORD LowPart;
+    LONG HighPart;
+};
+
+union _LARGE_INTEGER {
+    struct _struct_7 field0;
+    struct _struct_8 u;
+    LONGLONG QuadPart;
+};
+
+struct IDirect3DTexture8Vtbl {
+    HRESULT (*QueryInterface)(struct IDirect3DTexture8 *, IID *, void **);
+    ULONG (*AddRef)(struct IDirect3DTexture8 *);
+    ULONG (*Release)(struct IDirect3DTexture8 *);
+    HRESULT (*GetDevice)(struct IDirect3DTexture8 *, struct IDirect3DDevice8 **);
+    HRESULT (*SetPrivateData)(struct IDirect3DTexture8 *, GUID *, void *, DWORD, DWORD);
+    HRESULT (*GetPrivateData)(struct IDirect3DTexture8 *, GUID *, void *, DWORD *);
+    HRESULT (*FreePrivateData)(struct IDirect3DTexture8 *, GUID *);
+    DWORD (*SetPriority)(struct IDirect3DTexture8 *, DWORD);
+    DWORD (*GetPriority)(struct IDirect3DTexture8 *);
+    void (*PreLoad)(struct IDirect3DTexture8 *);
+    D3DRESOURCETYPE (*GetType)(struct IDirect3DTexture8 *);
+    DWORD (*SetLOD)(struct IDirect3DTexture8 *, DWORD);
+    DWORD (*GetLOD)(struct IDirect3DTexture8 *);
+    DWORD (*GetLevelCount)(struct IDirect3DTexture8 *);
+    HRESULT (*GetLevelDesc)(struct IDirect3DTexture8 *, UINT, D3DSURFACE_DESC *);
+    HRESULT (*GetSurfaceLevel)(struct IDirect3DTexture8 *, UINT, struct IDirect3DSurface8 **);
+    HRESULT (*LockRect)(struct IDirect3DTexture8 *, UINT, D3DLOCKED_RECT *, RECT *, DWORD);
+    HRESULT (*UnlockRect)(struct IDirect3DTexture8 *, UINT);
+    HRESULT (*AddDirtyRect)(struct IDirect3DTexture8 *, RECT *);
+};
+
+struct _D3DRECTPATCH_INFO {
+    UINT StartVertexOffsetWidth;
+    UINT StartVertexOffsetHeight;
+    UINT Width;
+    UINT Height;
+    UINT Stride;
+    D3DBASISTYPE Basis;
+    D3DORDERTYPE Order;
+};
+
+struct IDirect3DDevice8Vtbl {
+    HRESULT (*QueryInterface)(struct IDirect3DDevice8 *, IID *, void **);
+    ULONG (*AddRef)(struct IDirect3DDevice8 *);
+    ULONG (*Release)(struct IDirect3DDevice8 *);
+    HRESULT (*TestCooperativeLevel)(struct IDirect3DDevice8 *);
+    UINT (*GetAvailableTextureMem)(struct IDirect3DDevice8 *);
+    HRESULT (*ResourceManagerDiscardBytes)(struct IDirect3DDevice8 *, DWORD);
+    HRESULT (*GetDirect3D)(struct IDirect3DDevice8 *, struct IDirect3D8 **);
+    HRESULT (*GetDeviceCaps)(struct IDirect3DDevice8 *, D3DCAPS8 *);
+    HRESULT (*GetDisplayMode)(struct IDirect3DDevice8 *, D3DDISPLAYMODE *);
+    HRESULT (*GetCreationParameters)(struct IDirect3DDevice8 *, D3DDEVICE_CREATION_PARAMETERS *);
+    HRESULT (*SetCursorProperties)(struct IDirect3DDevice8 *, UINT, UINT, struct IDirect3DSurface8 *);
+    void (*SetCursorPosition)(struct IDirect3DDevice8 *, UINT, UINT, DWORD);
+    BOOL (*ShowCursor)(struct IDirect3DDevice8 *, BOOL);
+    HRESULT (*CreateAdditionalSwapChain)(struct IDirect3DDevice8 *, D3DPRESENT_PARAMETERS *, struct IDirect3DSwapChain8 **);
+    HRESULT (*Reset)(struct IDirect3DDevice8 *, D3DPRESENT_PARAMETERS *);
+    HRESULT (*Present)(struct IDirect3DDevice8 *, RECT *, RECT *, HWND, RGNDATA *);
+    HRESULT (*GetBackBuffer)(struct IDirect3DDevice8 *, UINT, D3DBACKBUFFER_TYPE, struct IDirect3DSurface8 **);
+    HRESULT (*GetRasterStatus)(struct IDirect3DDevice8 *, D3DRASTER_STATUS *);
+    void (*SetGammaRamp)(struct IDirect3DDevice8 *, DWORD, D3DGAMMARAMP *);
+    void (*GetGammaRamp)(struct IDirect3DDevice8 *, D3DGAMMARAMP *);
+    HRESULT (*CreateTexture)(struct IDirect3DDevice8 *, UINT, UINT, UINT, DWORD, D3DFORMAT, D3DPOOL, struct IDirect3DTexture8 **);
+    HRESULT (*CreateVolumeTexture)(struct IDirect3DDevice8 *, UINT, UINT, UINT, UINT, DWORD, D3DFORMAT, D3DPOOL, struct IDirect3DVolumeTexture8 **);
+    HRESULT (*CreateCubeTexture)(struct IDirect3DDevice8 *, UINT, UINT, DWORD, D3DFORMAT, D3DPOOL, struct IDirect3DCubeTexture8 **);
+    HRESULT (*CreateVertexBuffer)(struct IDirect3DDevice8 *, UINT, DWORD, DWORD, D3DPOOL, struct IDirect3DVertexBuffer8 **);
+    HRESULT (*CreateIndexBuffer)(struct IDirect3DDevice8 *, UINT, DWORD, D3DFORMAT, D3DPOOL, struct IDirect3DIndexBuffer8 **);
+    HRESULT (*CreateRenderTarget)(struct IDirect3DDevice8 *, UINT, UINT, D3DFORMAT, D3DMULTISAMPLE_TYPE, BOOL, struct IDirect3DSurface8 **);
+    HRESULT (*CreateDepthStencilSurface)(struct IDirect3DDevice8 *, UINT, UINT, D3DFORMAT, D3DMULTISAMPLE_TYPE, struct IDirect3DSurface8 **);
+    HRESULT (*CreateImageSurface)(struct IDirect3DDevice8 *, UINT, UINT, D3DFORMAT, struct IDirect3DSurface8 **);
+    HRESULT (*CopyRects)(struct IDirect3DDevice8 *, struct IDirect3DSurface8 *, RECT *, UINT, struct IDirect3DSurface8 *, POINT *);
+    HRESULT (*UpdateTexture)(struct IDirect3DDevice8 *, struct IDirect3DBaseTexture8 *, struct IDirect3DBaseTexture8 *);
+    HRESULT (*GetFrontBuffer)(struct IDirect3DDevice8 *, struct IDirect3DSurface8 *);
+    HRESULT (*SetRenderTarget)(struct IDirect3DDevice8 *, struct IDirect3DSurface8 *, struct IDirect3DSurface8 *);
+    HRESULT (*GetRenderTarget)(struct IDirect3DDevice8 *, struct IDirect3DSurface8 **);
+    HRESULT (*GetDepthStencilSurface)(struct IDirect3DDevice8 *, struct IDirect3DSurface8 **);
+    HRESULT (*BeginScene)(struct IDirect3DDevice8 *);
+    HRESULT (*EndScene)(struct IDirect3DDevice8 *);
+    HRESULT (*Clear)(struct IDirect3DDevice8 *, DWORD, D3DRECT *, DWORD, D3DCOLOR, float, DWORD);
+    HRESULT (*SetTransform)(struct IDirect3DDevice8 *, D3DTRANSFORMSTATETYPE, D3DMATRIX *);
+    HRESULT (*GetTransform)(struct IDirect3DDevice8 *, D3DTRANSFORMSTATETYPE, D3DMATRIX *);
+    HRESULT (*MultiplyTransform)(struct IDirect3DDevice8 *, D3DTRANSFORMSTATETYPE, D3DMATRIX *);
+    HRESULT (*SetViewport)(struct IDirect3DDevice8 *, D3DVIEWPORT8 *);
+    HRESULT (*GetViewport)(struct IDirect3DDevice8 *, D3DVIEWPORT8 *);
+    HRESULT (*SetMaterial)(struct IDirect3DDevice8 *, D3DMATERIAL8 *);
+    HRESULT (*GetMaterial)(struct IDirect3DDevice8 *, D3DMATERIAL8 *);
+    HRESULT (*SetLight)(struct IDirect3DDevice8 *, DWORD, D3DLIGHT8 *);
+    HRESULT (*GetLight)(struct IDirect3DDevice8 *, DWORD, D3DLIGHT8 *);
+    HRESULT (*LightEnable)(struct IDirect3DDevice8 *, DWORD, BOOL);
+    HRESULT (*GetLightEnable)(struct IDirect3DDevice8 *, DWORD, BOOL *);
+    HRESULT (*SetClipPlane)(struct IDirect3DDevice8 *, DWORD, float *);
+    HRESULT (*GetClipPlane)(struct IDirect3DDevice8 *, DWORD, float *);
+    HRESULT (*SetRenderState)(struct IDirect3DDevice8 *, D3DRENDERSTATETYPE, DWORD);
+    HRESULT (*GetRenderState)(struct IDirect3DDevice8 *, D3DRENDERSTATETYPE, DWORD *);
+    HRESULT (*BeginStateBlock)(struct IDirect3DDevice8 *);
+    HRESULT (*EndStateBlock)(struct IDirect3DDevice8 *, DWORD *);
+    HRESULT (*ApplyStateBlock)(struct IDirect3DDevice8 *, DWORD);
+    HRESULT (*CaptureStateBlock)(struct IDirect3DDevice8 *, DWORD);
+    HRESULT (*DeleteStateBlock)(struct IDirect3DDevice8 *, DWORD);
+    HRESULT (*CreateStateBlock)(struct IDirect3DDevice8 *, D3DSTATEBLOCKTYPE, DWORD *);
+    HRESULT (*SetClipStatus)(struct IDirect3DDevice8 *, D3DCLIPSTATUS8 *);
+    HRESULT (*GetClipStatus)(struct IDirect3DDevice8 *, D3DCLIPSTATUS8 *);
+    HRESULT (*GetTexture)(struct IDirect3DDevice8 *, DWORD, struct IDirect3DBaseTexture8 **);
+    HRESULT (*SetTexture)(struct IDirect3DDevice8 *, DWORD, struct IDirect3DBaseTexture8 *);
+    HRESULT (*GetTextureStageState)(struct IDirect3DDevice8 *, DWORD, D3DTEXTURESTAGESTATETYPE, DWORD *);
+    HRESULT (*SetTextureStageState)(struct IDirect3DDevice8 *, DWORD, D3DTEXTURESTAGESTATETYPE, DWORD);
+    HRESULT (*ValidateDevice)(struct IDirect3DDevice8 *, DWORD *);
+    HRESULT (*GetInfo)(struct IDirect3DDevice8 *, DWORD, void *, DWORD);
+    HRESULT (*SetPaletteEntries)(struct IDirect3DDevice8 *, UINT, PALETTEENTRY *);
+    HRESULT (*GetPaletteEntries)(struct IDirect3DDevice8 *, UINT, PALETTEENTRY *);
+    HRESULT (*SetCurrentTexturePalette)(struct IDirect3DDevice8 *, UINT);
+    HRESULT (*GetCurrentTexturePalette)(struct IDirect3DDevice8 *, UINT *);
+    HRESULT (*DrawPrimitive)(struct IDirect3DDevice8 *, D3DPRIMITIVETYPE, UINT, UINT);
+    HRESULT (*DrawIndexedPrimitive)(struct IDirect3DDevice8 *, D3DPRIMITIVETYPE, UINT, UINT, UINT, UINT);
+    HRESULT (*DrawPrimitiveUP)(struct IDirect3DDevice8 *, D3DPRIMITIVETYPE, UINT, void *, UINT);
+    HRESULT (*DrawIndexedPrimitiveUP)(struct IDirect3DDevice8 *, D3DPRIMITIVETYPE, UINT, UINT, UINT, void *, D3DFORMAT, void *, UINT);
+    HRESULT (*ProcessVertices)(struct IDirect3DDevice8 *, UINT, UINT, UINT, struct IDirect3DVertexBuffer8 *, DWORD);
+    HRESULT (*CreateVertexShader)(struct IDirect3DDevice8 *, DWORD *, DWORD *, DWORD *, DWORD);
+    HRESULT (*SetVertexShader)(struct IDirect3DDevice8 *, DWORD);
+    HRESULT (*GetVertexShader)(struct IDirect3DDevice8 *, DWORD *);
+    HRESULT (*DeleteVertexShader)(struct IDirect3DDevice8 *, DWORD);
+    HRESULT (*SetVertexShaderConstant)(struct IDirect3DDevice8 *, DWORD, void *, DWORD);
+    HRESULT (*GetVertexShaderConstant)(struct IDirect3DDevice8 *, DWORD, void *, DWORD);
+    HRESULT (*GetVertexShaderDeclaration)(struct IDirect3DDevice8 *, DWORD, void *, DWORD *);
+    HRESULT (*GetVertexShaderFunction)(struct IDirect3DDevice8 *, DWORD, void *, DWORD *);
+    HRESULT (*SetStreamSource)(struct IDirect3DDevice8 *, UINT, struct IDirect3DVertexBuffer8 *, UINT);
+    HRESULT (*GetStreamSource)(struct IDirect3DDevice8 *, UINT, struct IDirect3DVertexBuffer8 **, UINT *);
+    HRESULT (*SetIndices)(struct IDirect3DDevice8 *, struct IDirect3DIndexBuffer8 *, UINT);
+    HRESULT (*GetIndices)(struct IDirect3DDevice8 *, struct IDirect3DIndexBuffer8 **, UINT *);
+    HRESULT (*CreatePixelShader)(struct IDirect3DDevice8 *, DWORD *, DWORD *);
+    HRESULT (*SetPixelShader)(struct IDirect3DDevice8 *, DWORD);
+    HRESULT (*GetPixelShader)(struct IDirect3DDevice8 *, DWORD *);
+    HRESULT (*DeletePixelShader)(struct IDirect3DDevice8 *, DWORD);
+    HRESULT (*SetPixelShaderConstant)(struct IDirect3DDevice8 *, DWORD, void *, DWORD);
+    HRESULT (*GetPixelShaderConstant)(struct IDirect3DDevice8 *, DWORD, void *, DWORD);
+    HRESULT (*GetPixelShaderFunction)(struct IDirect3DDevice8 *, DWORD, void *, DWORD *);
+    HRESULT (*DrawRectPatch)(struct IDirect3DDevice8 *, UINT, float *, D3DRECTPATCH_INFO *);
+    HRESULT (*DrawTriPatch)(struct IDirect3DDevice8 *, UINT, float *, D3DTRIPATCH_INFO *);
+    HRESULT (*DeletePatch)(struct IDirect3DDevice8 *, UINT);
+};
+
+struct IDirect3D8 {
+    struct IDirect3D8Vtbl *lpVtbl;
+};
+
+struct IDirect3DSurface8 {
+    struct IDirect3DSurface8Vtbl *lpVtbl;
+};
+
+struct _D3DBOX {
+    UINT Left;
+    UINT Top;
+    UINT Right;
+    UINT Bottom;
+    UINT Front;
+    UINT Back;
+};
+
+struct _D3DDISPLAYMODE {
+    UINT Width;
+    UINT Height;
+    UINT RefreshRate;
+    D3DFORMAT Format;
+};
+
+struct _D3DRASTER_STATUS {
+    BOOL InVBlank;
+    UINT ScanLine;
+};
+
+struct IDirect3DVolume8Vtbl {
+    HRESULT (*QueryInterface)(struct IDirect3DVolume8 *, IID *, void **);
+    ULONG (*AddRef)(struct IDirect3DVolume8 *);
+    ULONG (*Release)(struct IDirect3DVolume8 *);
+    HRESULT (*GetDevice)(struct IDirect3DVolume8 *, struct IDirect3DDevice8 **);
+    HRESULT (*SetPrivateData)(struct IDirect3DVolume8 *, GUID *, void *, DWORD, DWORD);
+    HRESULT (*GetPrivateData)(struct IDirect3DVolume8 *, GUID *, void *, DWORD *);
+    HRESULT (*FreePrivateData)(struct IDirect3DVolume8 *, GUID *);
+    HRESULT (*GetContainer)(struct IDirect3DVolume8 *, IID *, void **);
+    HRESULT (*GetDesc)(struct IDirect3DVolume8 *, D3DVOLUME_DESC *);
+    HRESULT (*LockBox)(struct IDirect3DVolume8 *, D3DLOCKED_BOX *, D3DBOX *, DWORD);
+    HRESULT (*UnlockBox)(struct IDirect3DVolume8 *);
+};
+
+struct IDirect3DSurface8Vtbl {
+    HRESULT (*QueryInterface)(struct IDirect3DSurface8 *, IID *, void **);
+    ULONG (*AddRef)(struct IDirect3DSurface8 *);
+    ULONG (*Release)(struct IDirect3DSurface8 *);
+    HRESULT (*GetDevice)(struct IDirect3DSurface8 *, struct IDirect3DDevice8 **);
+    HRESULT (*SetPrivateData)(struct IDirect3DSurface8 *, GUID *, void *, DWORD, DWORD);
+    HRESULT (*GetPrivateData)(struct IDirect3DSurface8 *, GUID *, void *, DWORD *);
+    HRESULT (*FreePrivateData)(struct IDirect3DSurface8 *, GUID *);
+    HRESULT (*GetContainer)(struct IDirect3DSurface8 *, IID *, void **);
+    HRESULT (*GetDesc)(struct IDirect3DSurface8 *, D3DSURFACE_DESC *);
+    HRESULT (*LockRect)(struct IDirect3DSurface8 *, D3DLOCKED_RECT *, RECT *, DWORD);
+    HRESULT (*UnlockRect)(struct IDirect3DSurface8 *);
+};
+
+struct _D3DCOLORVALUE {
+    float r;
+    float g;
+    float b;
+    float a;
+};
+
+struct _D3DMATERIAL8 {
+    D3DCOLORVALUE Diffuse;
+    D3DCOLORVALUE Ambient;
+    D3DCOLORVALUE Specular;
+    D3DCOLORVALUE Emissive;
+    float Power;
+};
+
+struct _D3DCAPS8 {
+    D3DDEVTYPE DeviceType;
+    UINT AdapterOrdinal;
+    DWORD Caps;
+    DWORD Caps2;
+    DWORD Caps3;
+    DWORD PresentationIntervals;
+    DWORD CursorCaps;
+    DWORD DevCaps;
+    DWORD PrimitiveMiscCaps;
+    DWORD RasterCaps;
+    DWORD ZCmpCaps;
+    DWORD SrcBlendCaps;
+    DWORD DestBlendCaps;
+    DWORD AlphaCmpCaps;
+    DWORD ShadeCaps;
+    DWORD TextureCaps;
+    DWORD TextureFilterCaps;
+    DWORD CubeTextureFilterCaps;
+    DWORD VolumeTextureFilterCaps;
+    DWORD TextureAddressCaps;
+    DWORD VolumeTextureAddressCaps;
+    DWORD LineCaps;
+    DWORD MaxTextureWidth;
+    DWORD MaxTextureHeight;
+    DWORD MaxVolumeExtent;
+    DWORD MaxTextureRepeat;
+    DWORD MaxTextureAspectRatio;
+    DWORD MaxAnisotropy;
+    float MaxVertexW;
+    float GuardBandLeft;
+    float GuardBandTop;
+    float GuardBandRight;
+    float GuardBandBottom;
+    float ExtentsAdjust;
+    DWORD StencilCaps;
+    DWORD FVFCaps;
+    DWORD TextureOpCaps;
+    DWORD MaxTextureBlendStages;
+    DWORD MaxSimultaneousTextures;
+    DWORD VertexProcessingCaps;
+    DWORD MaxActiveLights;
+    DWORD MaxUserClipPlanes;
+    DWORD MaxVertexBlendMatrices;
+    DWORD MaxVertexBlendMatrixIndex;
+    float MaxPointSize;
+    DWORD MaxPrimitiveCount;
+    DWORD MaxVertexIndex;
+    DWORD MaxStreams;
+    DWORD MaxStreamStride;
+    DWORD VertexShaderVersion;
+    DWORD MaxVertexShaderConst;
+    DWORD PixelShaderVersion;
+    float MaxPixelShaderValue;
+};
+
+struct IDirect3DIndexBuffer8 {
+    struct IDirect3DIndexBuffer8Vtbl *lpVtbl;
+};
+
+struct _D3DLIGHT8 {
+    D3DLIGHTTYPE Type;
+    D3DCOLORVALUE Diffuse;
+    D3DCOLORVALUE Specular;
+    D3DCOLORVALUE Ambient;
+    D3DVECTOR Position;
+    D3DVECTOR Direction;
+    float Range;
+    float Falloff;
+    float Attenuation0;
+    float Attenuation1;
+    float Attenuation2;
+    float Theta;
+    float Phi;
+};
+
+struct _D3DVIEWPORT8 {
+    DWORD X;
+    DWORD Y;
+    DWORD Width;
+    DWORD Height;
+    float MinZ;
+    float MaxZ;
+};
+
+struct IDirect3DDevice8 {
+    struct IDirect3DDevice8Vtbl *lpVtbl;
+};
+
+struct _D3DADAPTER_IDENTIFIER8 {
+    char Driver[512];
+    char Description[512];
+    LARGE_INTEGER DriverVersion;
+    DWORD VendorId;
+    DWORD DeviceId;
+    DWORD SubSysId;
+    DWORD Revision;
+    GUID DeviceIdentifier;
+    DWORD WHQLLevel;
+};
+
+struct tagLOGFONTA {
+    LONG lfHeight;
+    LONG lfWidth;
+    LONG lfEscapement;
+    LONG lfOrientation;
+    LONG lfWeight;
+    BYTE lfItalic;
+    BYTE lfUnderline;
+    BYTE lfStrikeOut;
+    BYTE lfCharSet;
+    BYTE lfOutPrecision;
+    BYTE lfClipPrecision;
+    BYTE lfQuality;
+    BYTE lfPitchAndFamily;
+    CHAR lfFaceName[32];
+};
+
+struct IDirect3DBaseTexture8 {
+    struct IDirect3DBaseTexture8Vtbl *lpVtbl;
+};
+
+struct IDirect3DVolumeTexture8Vtbl {
+    HRESULT (*QueryInterface)(struct IDirect3DVolumeTexture8 *, IID *, void **);
+    ULONG (*AddRef)(struct IDirect3DVolumeTexture8 *);
+    ULONG (*Release)(struct IDirect3DVolumeTexture8 *);
+    HRESULT (*GetDevice)(struct IDirect3DVolumeTexture8 *, struct IDirect3DDevice8 **);
+    HRESULT (*SetPrivateData)(struct IDirect3DVolumeTexture8 *, GUID *, void *, DWORD, DWORD);
+    HRESULT (*GetPrivateData)(struct IDirect3DVolumeTexture8 *, GUID *, void *, DWORD *);
+    HRESULT (*FreePrivateData)(struct IDirect3DVolumeTexture8 *, GUID *);
+    DWORD (*SetPriority)(struct IDirect3DVolumeTexture8 *, DWORD);
+    DWORD (*GetPriority)(struct IDirect3DVolumeTexture8 *);
+    void (*PreLoad)(struct IDirect3DVolumeTexture8 *);
+    D3DRESOURCETYPE (*GetType)(struct IDirect3DVolumeTexture8 *);
+    DWORD (*SetLOD)(struct IDirect3DVolumeTexture8 *, DWORD);
+    DWORD (*GetLOD)(struct IDirect3DVolumeTexture8 *);
+    DWORD (*GetLevelCount)(struct IDirect3DVolumeTexture8 *);
+    HRESULT (*GetLevelDesc)(struct IDirect3DVolumeTexture8 *, UINT, D3DVOLUME_DESC *);
+    HRESULT (*GetVolumeLevel)(struct IDirect3DVolumeTexture8 *, UINT, struct IDirect3DVolume8 **);
+    HRESULT (*LockBox)(struct IDirect3DVolumeTexture8 *, UINT, D3DLOCKED_BOX *, D3DBOX *, DWORD);
+    HRESULT (*UnlockBox)(struct IDirect3DVolumeTexture8 *, UINT);
+    HRESULT (*AddDirtyBox)(struct IDirect3DVolumeTexture8 *, D3DBOX *);
+};
+
+struct _RGNDATA {
+    RGNDATAHEADER rdh;
+    char Buffer[1];
+};
+
+struct IDirect3DSwapChain8Vtbl {
+    HRESULT (*QueryInterface)(struct IDirect3DSwapChain8 *, IID *, void **);
+    ULONG (*AddRef)(struct IDirect3DSwapChain8 *);
+    ULONG (*Release)(struct IDirect3DSwapChain8 *);
+    HRESULT (*Present)(struct IDirect3DSwapChain8 *, RECT *, RECT *, HWND, RGNDATA *);
+    HRESULT (*GetBackBuffer)(struct IDirect3DSwapChain8 *, UINT, D3DBACKBUFFER_TYPE, struct IDirect3DSurface8 **);
+};
+
+struct IDirect3DVertexBuffer8Vtbl {
+    HRESULT (*QueryInterface)(struct IDirect3DVertexBuffer8 *, IID *, void **);
+    ULONG (*AddRef)(struct IDirect3DVertexBuffer8 *);
+    ULONG (*Release)(struct IDirect3DVertexBuffer8 *);
+    HRESULT (*GetDevice)(struct IDirect3DVertexBuffer8 *, struct IDirect3DDevice8 **);
+    HRESULT (*SetPrivateData)(struct IDirect3DVertexBuffer8 *, GUID *, void *, DWORD, DWORD);
+    HRESULT (*GetPrivateData)(struct IDirect3DVertexBuffer8 *, GUID *, void *, DWORD *);
+    HRESULT (*FreePrivateData)(struct IDirect3DVertexBuffer8 *, GUID *);
+    DWORD (*SetPriority)(struct IDirect3DVertexBuffer8 *, DWORD);
+    DWORD (*GetPriority)(struct IDirect3DVertexBuffer8 *);
+    void (*PreLoad)(struct IDirect3DVertexBuffer8 *);
+    D3DRESOURCETYPE (*GetType)(struct IDirect3DVertexBuffer8 *);
+    HRESULT (*Lock)(struct IDirect3DVertexBuffer8 *, UINT, UINT, BYTE **, DWORD);
+    HRESULT (*Unlock)(struct IDirect3DVertexBuffer8 *);
+    HRESULT (*GetDesc)(struct IDirect3DVertexBuffer8 *, D3DVERTEXBUFFER_DESC *);
+};
+
+struct _D3DSURFACE_DESC {
+    D3DFORMAT Format;
+    D3DRESOURCETYPE Type;
+    DWORD Usage;
+    D3DPOOL Pool;
+    UINT Size;
+    D3DMULTISAMPLE_TYPE MultiSampleType;
+    UINT Width;
+    UINT Height;
+};
+
+struct IDirect3DBaseTexture8Vtbl {
+    HRESULT (*QueryInterface)(struct IDirect3DBaseTexture8 *, IID *, void **);
+    ULONG (*AddRef)(struct IDirect3DBaseTexture8 *);
+    ULONG (*Release)(struct IDirect3DBaseTexture8 *);
+    HRESULT (*GetDevice)(struct IDirect3DBaseTexture8 *, struct IDirect3DDevice8 **);
+    HRESULT (*SetPrivateData)(struct IDirect3DBaseTexture8 *, GUID *, void *, DWORD, DWORD);
+    HRESULT (*GetPrivateData)(struct IDirect3DBaseTexture8 *, GUID *, void *, DWORD *);
+    HRESULT (*FreePrivateData)(struct IDirect3DBaseTexture8 *, GUID *);
+    DWORD (*SetPriority)(struct IDirect3DBaseTexture8 *, DWORD);
+    DWORD (*GetPriority)(struct IDirect3DBaseTexture8 *);
+    void (*PreLoad)(struct IDirect3DBaseTexture8 *);
+    D3DRESOURCETYPE (*GetType)(struct IDirect3DBaseTexture8 *);
+    DWORD (*SetLOD)(struct IDirect3DBaseTexture8 *, DWORD);
+    DWORD (*GetLOD)(struct IDirect3DBaseTexture8 *);
+    DWORD (*GetLevelCount)(struct IDirect3DBaseTexture8 *);
+};
+
+struct _D3DLOCKED_RECT {
+    INT Pitch;
+    void *pBits;
+};
+
+struct CMyFont {
+    LPD3DXFONT m_lpFont;
+};
+
+struct ID3DXFont {
+    struct ID3DXFontVtbl *lpVtbl;
+};
+
+struct _D3DTRIPATCH_INFO {
+    UINT StartVertexOffset;
+    UINT NumVertices;
+    D3DBASISTYPE Basis;
+    D3DORDERTYPE Order;
+};
+
+struct _D3DLOCKED_BOX {
+    INT RowPitch;
+    INT SlicePitch;
+    void *pBits;
+};
+
+struct IDirect3DSwapChain8 {
+    struct IDirect3DSwapChain8Vtbl *lpVtbl;
+};
+
+struct _D3DPRESENT_PARAMETERS_ {
+    UINT BackBufferWidth;
+    UINT BackBufferHeight;
+    D3DFORMAT BackBufferFormat;
+    UINT BackBufferCount;
+    D3DMULTISAMPLE_TYPE MultiSampleType;
+    D3DSWAPEFFECT SwapEffect;
+    HWND hDeviceWindow;
+    BOOL Windowed;
+    BOOL EnableAutoDepthStencil;
+    D3DFORMAT AutoDepthStencilFormat;
+    DWORD Flags;
+    UINT FullScreen_RefreshRateInHz;
+    UINT FullScreen_PresentationInterval;
+};
+
+struct IDirect3DVertexBuffer8 {
+    struct IDirect3DVertexBuffer8Vtbl *lpVtbl;
+};
+
+struct _D3DCLIPSTATUS8 {
+    DWORD ClipUnion;
+    DWORD ClipIntersection;
+};
+
+struct IDirect3D8Vtbl {
+    HRESULT (*QueryInterface)(struct IDirect3D8 *, IID *, void **);
+    ULONG (*AddRef)(struct IDirect3D8 *);
+    ULONG (*Release)(struct IDirect3D8 *);
+    HRESULT (*RegisterSoftwareDevice)(struct IDirect3D8 *, void *);
+    UINT (*GetAdapterCount)(struct IDirect3D8 *);
+    HRESULT (*GetAdapterIdentifier)(struct IDirect3D8 *, UINT, DWORD, D3DADAPTER_IDENTIFIER8 *);
+    UINT (*GetAdapterModeCount)(struct IDirect3D8 *, UINT);
+    HRESULT (*EnumAdapterModes)(struct IDirect3D8 *, UINT, UINT, D3DDISPLAYMODE *);
+    HRESULT (*GetAdapterDisplayMode)(struct IDirect3D8 *, UINT, D3DDISPLAYMODE *);
+    HRESULT (*CheckDeviceType)(struct IDirect3D8 *, UINT, D3DDEVTYPE, D3DFORMAT, D3DFORMAT, BOOL);
+    HRESULT (*CheckDeviceFormat)(struct IDirect3D8 *, UINT, D3DDEVTYPE, D3DFORMAT, DWORD, D3DRESOURCETYPE, D3DFORMAT);
+    HRESULT (*CheckDeviceMultiSampleType)(struct IDirect3D8 *, UINT, D3DDEVTYPE, D3DFORMAT, BOOL, D3DMULTISAMPLE_TYPE);
+    HRESULT (*CheckDepthStencilMatch)(struct IDirect3D8 *, UINT, D3DDEVTYPE, D3DFORMAT, D3DFORMAT, D3DFORMAT);
+    HRESULT (*GetDeviceCaps)(struct IDirect3D8 *, UINT, D3DDEVTYPE, D3DCAPS8 *);
+    HMONITOR (*GetAdapterMonitor)(struct IDirect3D8 *, UINT);
+    HRESULT (*CreateDevice)(struct IDirect3D8 *, UINT, D3DDEVTYPE, HWND, DWORD, D3DPRESENT_PARAMETERS *, struct IDirect3DDevice8 **);
+};
+
+struct HMONITOR__ {
+    int unused;
+};
+
+struct ID3DXFontVtbl {
+    HRESULT (*QueryInterface)(struct IDirect3DVolume8 *, IID *, LPVOID *);
+    ULONG (*AddRef)(struct IDirect3DVolume8 *);
+    ULONG (*Release)(struct IDirect3DVolume8 *);
+    HRESULT (*GetDevice)(struct IDirect3DVolume8 *, LPDIRECT3DDEVICE8 *);
+    HRESULT (*GetLogFont)(struct IDirect3DVolume8 *, LOGFONT *);
+    HRESULT (*Begin)(struct IDirect3DVolume8 *);
+    INT (*DrawTextA)(struct IDirect3DVolume8 *, LPCSTR, INT, LPRECT, DWORD, D3DCOLOR);
+    INT (*DrawTextW)(struct IDirect3DVolume8 *, LPCWSTR, INT, LPRECT, DWORD, D3DCOLOR);
+    HRESULT (*End)(struct IDirect3DVolume8 *);
+};
+
+struct _D3DVOLUME_DESC {
+    D3DFORMAT Format;
+    D3DRESOURCETYPE Type;
+    DWORD Usage;
+    D3DPOOL Pool;
+    UINT Size;
+    UINT Width;
+    UINT Height;
+    UINT Depth;
+};
+
+struct _D3DDEVICE_CREATION_PARAMETERS {
+    UINT AdapterOrdinal;
+    D3DDEVTYPE DeviceType;
+    HWND hFocusWindow;
+    DWORD BehaviorFlags;
+};
+
+struct _D3DVERTEXBUFFER_DESC {
+    D3DFORMAT Format;
+    D3DRESOURCETYPE Type;
+    DWORD Usage;
+    D3DPOOL Pool;
+    UINT Size;
+    DWORD FVF;
+};
+
+struct tagPALETTEENTRY {
+    BYTE peRed;
+    BYTE peGreen;
+    BYTE peBlue;
+    BYTE peFlags;
+};
+
+struct IDirect3DIndexBuffer8Vtbl {
+    HRESULT (*QueryInterface)(struct IDirect3DIndexBuffer8 *, IID *, void **);
+    ULONG (*AddRef)(struct IDirect3DIndexBuffer8 *);
+    ULONG (*Release)(struct IDirect3DIndexBuffer8 *);
+    HRESULT (*GetDevice)(struct IDirect3DIndexBuffer8 *, struct IDirect3DDevice8 **);
+    HRESULT (*SetPrivateData)(struct IDirect3DIndexBuffer8 *, GUID *, void *, DWORD, DWORD);
+    HRESULT (*GetPrivateData)(struct IDirect3DIndexBuffer8 *, GUID *, void *, DWORD *);
+    HRESULT (*FreePrivateData)(struct IDirect3DIndexBuffer8 *, GUID *);
+    DWORD (*SetPriority)(struct IDirect3DIndexBuffer8 *, DWORD);
+    DWORD (*GetPriority)(struct IDirect3DIndexBuffer8 *);
+    void (*PreLoad)(struct IDirect3DIndexBuffer8 *);
+    D3DRESOURCETYPE (*GetType)(struct IDirect3DIndexBuffer8 *);
+    HRESULT (*Lock)(struct IDirect3DIndexBuffer8 *, UINT, UINT, BYTE **, DWORD);
+    HRESULT (*Unlock)(struct IDirect3DIndexBuffer8 *);
+    HRESULT (*GetDesc)(struct IDirect3DIndexBuffer8 *, D3DINDEXBUFFER_DESC *);
+};
+
+struct IDirect3DCubeTexture8Vtbl {
+    HRESULT (*QueryInterface)(struct IDirect3DCubeTexture8 *, IID *, void **);
+    ULONG (*AddRef)(struct IDirect3DCubeTexture8 *);
+    ULONG (*Release)(struct IDirect3DCubeTexture8 *);
+    HRESULT (*GetDevice)(struct IDirect3DCubeTexture8 *, struct IDirect3DDevice8 **);
+    HRESULT (*SetPrivateData)(struct IDirect3DCubeTexture8 *, GUID *, void *, DWORD, DWORD);
+    HRESULT (*GetPrivateData)(struct IDirect3DCubeTexture8 *, GUID *, void *, DWORD *);
+    HRESULT (*FreePrivateData)(struct IDirect3DCubeTexture8 *, GUID *);
+    DWORD (*SetPriority)(struct IDirect3DCubeTexture8 *, DWORD);
+    DWORD (*GetPriority)(struct IDirect3DCubeTexture8 *);
+    void (*PreLoad)(struct IDirect3DCubeTexture8 *);
+    D3DRESOURCETYPE (*GetType)(struct IDirect3DCubeTexture8 *);
+    DWORD (*SetLOD)(struct IDirect3DCubeTexture8 *, DWORD);
+    DWORD (*GetLOD)(struct IDirect3DCubeTexture8 *);
+    DWORD (*GetLevelCount)(struct IDirect3DCubeTexture8 *);
+    HRESULT (*GetLevelDesc)(struct IDirect3DCubeTexture8 *, UINT, D3DSURFACE_DESC *);
+    HRESULT (*GetCubeMapSurface)(struct IDirect3DCubeTexture8 *, D3DCUBEMAP_FACES, UINT, struct IDirect3DSurface8 **);
+    HRESULT (*LockRect)(struct IDirect3DCubeTexture8 *, D3DCUBEMAP_FACES, UINT, D3DLOCKED_RECT *, RECT *, DWORD);
+    HRESULT (*UnlockRect)(struct IDirect3DCubeTexture8 *, D3DCUBEMAP_FACES, UINT);
+    HRESULT (*AddDirtyRect)(struct IDirect3DCubeTexture8 *, D3DCUBEMAP_FACES, RECT *);
+};
+
+struct IDirect3DCubeTexture8 {
+    struct IDirect3DCubeTexture8Vtbl *lpVtbl;
+};
+
+struct _D3DRECT {
+    LONG x1;
+    LONG y1;
+    LONG x2;
+    LONG y2;
+};
+
+struct IDirect3DTexture8 {
+    struct IDirect3DTexture8Vtbl *lpVtbl;
+};
+
 typedef struct EffectInfo EffectInfo, *PEffectInfo;
 
 typedef struct Effect Effect, *PEffect;
@@ -1111,11 +2206,6 @@ struct D3DXQUATERNION {
     FLOAT y;
     FLOAT z;
     FLOAT w;
-};
-
-struct EffectInfo {
-    int anmFileIndex;
-    int (*update_callback)(struct Effect *);
 };
 
 struct Effect {
@@ -1135,6 +2225,11 @@ struct Effect {
     byte effect_id;
     byte field14_0x17a;
     undefined field15_0x17b;
+};
+
+struct EffectInfo {
+    int anmFileIndex;
+    int (*update_callback)(struct Effect *);
 };
 
 typedef enum EclVarId {
@@ -1251,6 +2346,14 @@ typedef struct Pbg3Archive Pbg3Archive, *PPbg3Archive;
 
 typedef struct Pbg3Entry Pbg3Entry, *PPbg3Entry;
 
+struct Pbg3Archive {
+    struct Pbg3Parser *parser;
+    int unk;
+    int numOfEntries;
+    int fileTableOffset;
+    struct Pbg3Entry *entries;
+};
+
 struct Pbg3Entry {
     uint unk1; /* Created by retype action */
     uint unk2; /* Created by retype action */
@@ -1258,14 +2361,6 @@ struct Pbg3Entry {
     uint dataOffset; /* Created by retype action */
     uint checksum; /* Created by retype action */
     char filename[256];
-};
-
-struct Pbg3Archive {
-    struct Pbg3Parser *parser;
-    int unk;
-    int numOfEntries;
-    int fileTableOffset;
-    struct Pbg3Entry *entries;
 };
 
 typedef struct MsgRawInstrArgTextDialogue MsgRawInstrArgTextDialogue, *PMsgRawInstrArgTextDialogue;
@@ -1327,36 +2422,6 @@ typedef enum SoundIdx {
 
 typedef struct EclRawInstrArgs EclRawInstrArgs, *PEclRawInstrArgs;
 
-struct EnemyBulletShooter {
-    ushort sprite;
-    ushort spriteOffset;
-    struct D3DXVECTOR3 position;
-    float angle1;
-    float angle2;
-    float speed1;
-    float speed2;
-    float ex_floats[4];
-    int ex_ints[4];
-    int field9_0x40;
-    ushort count1;
-    ushort count2;
-    ushort aim_mode;
-    ushort unk_4a;
-    uint flags;
-    enum SoundIdx sfx;
-};
-
-struct EclRawInstrArgs {
-    int ecl_var_id;
-    float float_var_1;
-    float float_var_2;
-    float float_var_3;
-    float float_var_4;
-    float float_var_5;
-    float float_var_6;
-    float float_var_7;
-};
-
 struct EnemyEclContext {
     struct EclRawInstr *current_instr;
     struct ZunTimer time;
@@ -1398,6 +2463,25 @@ struct EnemyLaserShooter {
     ushort type;
     i32 flags;
     uint field19_0x50;
+};
+
+struct EnemyBulletShooter {
+    ushort sprite;
+    ushort spriteOffset;
+    struct D3DXVECTOR3 position;
+    float angle1;
+    float angle2;
+    float speed1;
+    float speed2;
+    float ex_floats[4];
+    int ex_ints[4];
+    int field9_0x40;
+    ushort count1;
+    ushort count2;
+    ushort aim_mode;
+    ushort unk_4a;
+    uint flags;
+    enum SoundIdx sfx;
 };
 
 struct Enemy {
@@ -1468,6 +2552,28 @@ struct Enemy {
     struct ZunTimer exInsFunc6Timer;
 };
 
+struct EclRawInstrArgs {
+    int ecl_var_id;
+    float float_var_1;
+    float float_var_2;
+    float float_var_3;
+    float float_var_4;
+    float float_var_5;
+    float float_var_6;
+    float float_var_7;
+};
+
+struct EclRawInstr {
+    int time;
+    short opcode;
+    short offset_to_next;
+    byte unk_8;
+    byte skip_insn_on_difficulty;
+    undefined field5_0xa;
+    undefined field6_0xb;
+    struct EclRawInstrArgs args;
+};
+
 struct Laser {
     struct AnmVm vm0;
     struct AnmVm vm1;
@@ -1488,17 +2594,6 @@ struct Laser {
     short flags;
     short color;
     byte state;
-};
-
-struct EclRawInstr {
-    int time;
-    short opcode;
-    short offset_to_next;
-    byte unk_8;
-    byte skip_insn_on_difficulty;
-    undefined field5_0xa;
-    undefined field6_0xb;
-    struct EclRawInstrArgs args;
 };
 
 typedef struct UnkVars476264 UnkVars476264, *PUnkVars476264;
@@ -1670,16 +2765,6 @@ typedef union MsgRawInstrArgs MsgRawInstrArgs, *PMsgRawInstrArgs;
 
 typedef struct MsgRawInstrArgPortraitAnmScript MsgRawInstrArgPortraitAnmScript, *PMsgRawInstrArgPortraitAnmScript;
 
-struct MsgRawHeader {
-    int num_entries;
-    struct MsgRawInstr *entries[1];
-};
-
-struct MsgRawInstrArgPortraitAnmScript {
-    u16 portrait;
-    u16 anmScriptIdx;
-};
-
 struct GuiImplChildB {
     struct D3DXVECTOR3 pos;
     int fmtArg;
@@ -1723,6 +2808,11 @@ struct GuiImpl {
     struct GuiImplChildB spellCardBonus;
 };
 
+struct MsgRawInstrArgPortraitAnmScript {
+    u16 portrait;
+    u16 anmScriptIdx;
+};
+
 union MsgRawInstrArgs {
     struct MsgRawInstrArgPortraitAnmScript portraitAnmScript;
     struct MsgRawInstrArgTextDialogue textDialogue;
@@ -1733,6 +2823,11 @@ struct MsgRawInstr {
     byte opcode;
     byte argsize;
     union MsgRawInstrArgs args;
+};
+
+struct MsgRawHeader {
+    int num_entries;
+    struct MsgRawInstr *entries[1];
 };
 
 typedef struct Pbg3FileName Pbg3FileName, *PPbg3FileName;
@@ -1988,12 +3083,6 @@ typedef struct Hscr Hscr, *PHscr;
 
 typedef struct Th6k Th6k, *PTh6k;
 
-struct ScoreListNode {
-    struct ScoreListNode *prev;
-    struct ScoreListNode *next;
-    struct Hscr *data;
-};
-
 struct Th6k {
     uint magic;
     ushort th6k_len;
@@ -2002,6 +3091,12 @@ struct Th6k {
     undefined field4_0x9;
     undefined field5_0xa;
     undefined field6_0xb;
+};
+
+struct ScoreListNode {
+    struct ScoreListNode *prev;
+    struct ScoreListNode *next;
+    struct Hscr *data;
 };
 
 struct Hscr {
@@ -2039,15 +3134,6 @@ typedef struct StdRawQuadBasic StdRawQuadBasic, *PStdRawQuadBasic;
 
 typedef struct StdRawInstrArgs StdRawInstrArgs, *PStdRawInstrArgs;
 
-struct StdRawQuadBasic {
-    short type;
-    short byteSize;
-    short anmScript;
-    short vmIndex;
-    struct D3DXVECTOR3 position;
-    struct D3DXVECTOR2 size;
-};
-
 struct StdRawInstrArgs {
     int values[3];
 };
@@ -2057,15 +3143,6 @@ struct StdRawInstr {
     ushort opcode;
     ushort size;
     struct StdRawInstrArgs args;
-};
-
-struct StdRawObject {
-    ushort id;
-    char zLevel;
-    uchar flags;
-    struct D3DXVECTOR3 position;
-    struct D3DXVECTOR3 size;
-    struct StdRawQuadBasic firstQuad;
 };
 
 struct StageCameraSky {
@@ -2106,6 +3183,24 @@ struct Stage {
     int positionInterpEndTime;
     struct D3DXVECTOR3 positionInterpInitial;
     int positionInterpStartTime;
+};
+
+struct StdRawQuadBasic {
+    short type;
+    short byteSize;
+    short anmScript;
+    short vmIndex;
+    struct D3DXVECTOR3 position;
+    struct D3DXVECTOR2 size;
+};
+
+struct StdRawObject {
+    ushort id;
+    char zLevel;
+    uchar flags;
+    struct D3DXVECTOR3 position;
+    struct D3DXVECTOR3 size;
+    struct StdRawQuadBasic firstQuad;
 };
 
 struct StdRawInstance {
@@ -2365,10 +3460,6 @@ typedef struct HINSTANCE__ HINSTANCE__, *PHINSTANCE__;
 
 typedef struct HINSTANCE__ *HINSTANCE;
 
-typedef struct IDirect3D8 IDirect3D8, *PIDirect3D8;
-
-typedef struct IDirect3DDevice8 IDirect3DDevice8, *PIDirect3DDevice8;
-
 typedef struct IDirectInput8A IDirectInput8A, *PIDirectInput8A;
 
 typedef struct IDirectInputDevice8A IDirectInputDevice8A, *PIDirectInputDevice8A;
@@ -2380,315 +3471,7 @@ typedef struct DIDEVCAPS DIDEVCAPS, *PDIDEVCAPS;
 
 /* WARNING! conflicting data type names: /deps/WinDef.h/HWND - /deps/windef.h/HWND */
 
-typedef struct _D3DVIEWPORT8 _D3DVIEWPORT8, *P_D3DVIEWPORT8;
-
-typedef struct _D3DVIEWPORT8 D3DVIEWPORT8;
-
-typedef struct _D3DPRESENT_PARAMETERS_ _D3DPRESENT_PARAMETERS_, *P_D3DPRESENT_PARAMETERS_;
-
-typedef struct _D3DPRESENT_PARAMETERS_ D3DPRESENT_PARAMETERS;
-
 typedef struct GameConfiguration GameConfiguration, *PGameConfiguration;
-
-typedef struct _D3DCAPS8 _D3DCAPS8, *P_D3DCAPS8;
-
-typedef struct _D3DCAPS8 D3DCAPS8;
-
-typedef struct IDirect3D8Vtbl IDirect3D8Vtbl, *PIDirect3D8Vtbl;
-
-typedef struct _D3DADAPTER_IDENTIFIER8 _D3DADAPTER_IDENTIFIER8, *P_D3DADAPTER_IDENTIFIER8;
-
-typedef struct _D3DADAPTER_IDENTIFIER8 D3DADAPTER_IDENTIFIER8;
-
-typedef struct _D3DDISPLAYMODE _D3DDISPLAYMODE, *P_D3DDISPLAYMODE;
-
-typedef struct _D3DDISPLAYMODE D3DDISPLAYMODE;
-
-typedef enum _D3DDEVTYPE {
-    D3DDEVTYPE_HAL=1,
-    D3DDEVTYPE_REF=2,
-    D3DDEVTYPE_SW=3,
-    D3DDEVTYPE_FORCE_DWORD=2147483647
-} _D3DDEVTYPE;
-
-typedef enum _D3DDEVTYPE D3DDEVTYPE;
-
-typedef enum _D3DRESOURCETYPE {
-    D3DRTYPE_SURFACE=1,
-    D3DRTYPE_VOLUME=2,
-    D3DRTYPE_TEXTURE=3,
-    D3DRTYPE_VOLUMETEXTURE=4,
-    D3DRTYPE_CUBETEXTURE=5,
-    D3DRTYPE_VERTEXBUFFER=6,
-    D3DRTYPE_INDEXBUFFER=7,
-    D3DRTYPE_FORCE_DWORD=2147483647
-} _D3DRESOURCETYPE;
-
-typedef enum _D3DRESOURCETYPE D3DRESOURCETYPE;
-
-typedef enum _D3DMULTISAMPLE_TYPE {
-    D3DMULTISAMPLE_NONE=0,
-    D3DMULTISAMPLE_2_SAMPLES=2,
-    D3DMULTISAMPLE_3_SAMPLES=3,
-    D3DMULTISAMPLE_4_SAMPLES=4,
-    D3DMULTISAMPLE_5_SAMPLES=5,
-    D3DMULTISAMPLE_6_SAMPLES=6,
-    D3DMULTISAMPLE_7_SAMPLES=7,
-    D3DMULTISAMPLE_8_SAMPLES=8,
-    D3DMULTISAMPLE_9_SAMPLES=9,
-    D3DMULTISAMPLE_10_SAMPLES=10,
-    D3DMULTISAMPLE_11_SAMPLES=11,
-    D3DMULTISAMPLE_12_SAMPLES=12,
-    D3DMULTISAMPLE_13_SAMPLES=13,
-    D3DMULTISAMPLE_14_SAMPLES=14,
-    D3DMULTISAMPLE_15_SAMPLES=15,
-    D3DMULTISAMPLE_16_SAMPLES=16,
-    D3DMULTISAMPLE_FORCE_DWORD=2147483647
-} _D3DMULTISAMPLE_TYPE;
-
-typedef enum _D3DMULTISAMPLE_TYPE D3DMULTISAMPLE_TYPE;
-
-typedef struct HMONITOR__ HMONITOR__, *PHMONITOR__;
-
-typedef struct HMONITOR__ *HMONITOR;
-
-typedef struct IDirect3DDevice8Vtbl IDirect3DDevice8Vtbl, *PIDirect3DDevice8Vtbl;
-
-typedef struct _D3DDEVICE_CREATION_PARAMETERS _D3DDEVICE_CREATION_PARAMETERS, *P_D3DDEVICE_CREATION_PARAMETERS;
-
-typedef struct _D3DDEVICE_CREATION_PARAMETERS D3DDEVICE_CREATION_PARAMETERS;
-
-typedef struct IDirect3DSurface8 IDirect3DSurface8, *PIDirect3DSurface8;
-
-typedef struct IDirect3DSwapChain8 IDirect3DSwapChain8, *PIDirect3DSwapChain8;
-
-typedef struct tagRECT tagRECT, *PtagRECT;
-
-typedef struct tagRECT RECT;
-
-typedef struct _RGNDATA _RGNDATA, *P_RGNDATA;
-
-typedef struct _RGNDATA RGNDATA;
-
-typedef enum _D3DBACKBUFFER_TYPE {
-    D3DBACKBUFFER_TYPE_MONO=0,
-    D3DBACKBUFFER_TYPE_LEFT=1,
-    D3DBACKBUFFER_TYPE_RIGHT=2,
-    D3DBACKBUFFER_TYPE_FORCE_DWORD=2147483647
-} _D3DBACKBUFFER_TYPE;
-
-typedef enum _D3DBACKBUFFER_TYPE D3DBACKBUFFER_TYPE;
-
-typedef struct _D3DRASTER_STATUS _D3DRASTER_STATUS, *P_D3DRASTER_STATUS;
-
-typedef struct _D3DRASTER_STATUS D3DRASTER_STATUS;
-
-typedef struct _D3DGAMMARAMP _D3DGAMMARAMP, *P_D3DGAMMARAMP;
-
-typedef struct _D3DGAMMARAMP D3DGAMMARAMP;
-
-typedef enum _D3DPOOL {
-    D3DPOOL_DEFAULT=0,
-    D3DPOOL_MANAGED=1,
-    D3DPOOL_SYSTEMMEM=2,
-    D3DPOOL_FORCE_DWORD=2147483647
-} _D3DPOOL;
-
-typedef enum _D3DPOOL D3DPOOL;
-
-typedef struct IDirect3DTexture8 IDirect3DTexture8, *PIDirect3DTexture8;
-
-typedef struct IDirect3DVolumeTexture8 IDirect3DVolumeTexture8, *PIDirect3DVolumeTexture8;
-
-typedef struct IDirect3DCubeTexture8 IDirect3DCubeTexture8, *PIDirect3DCubeTexture8;
-
-typedef struct IDirect3DVertexBuffer8 IDirect3DVertexBuffer8, *PIDirect3DVertexBuffer8;
-
-typedef struct IDirect3DIndexBuffer8 IDirect3DIndexBuffer8, *PIDirect3DIndexBuffer8;
-
-typedef struct tagPOINT tagPOINT, *PtagPOINT;
-
-typedef struct tagPOINT POINT;
-
-typedef struct IDirect3DBaseTexture8 IDirect3DBaseTexture8, *PIDirect3DBaseTexture8;
-
-typedef struct _D3DRECT _D3DRECT, *P_D3DRECT;
-
-typedef struct _D3DRECT D3DRECT;
-
-typedef enum _D3DTRANSFORMSTATETYPE {
-    D3DTS_VIEW=2,
-    D3DTS_PROJECTION=3,
-    D3DTS_TEXTURE0=16,
-    D3DTS_TEXTURE1=17,
-    D3DTS_TEXTURE2=18,
-    D3DTS_TEXTURE3=19,
-    D3DTS_TEXTURE4=20,
-    D3DTS_TEXTURE5=21,
-    D3DTS_TEXTURE6=22,
-    D3DTS_TEXTURE7=23,
-    D3DTS_FORCE_DWORD=2147483647
-} _D3DTRANSFORMSTATETYPE;
-
-typedef enum _D3DTRANSFORMSTATETYPE D3DTRANSFORMSTATETYPE;
-
-typedef struct _D3DMATERIAL8 _D3DMATERIAL8, *P_D3DMATERIAL8;
-
-typedef struct _D3DMATERIAL8 D3DMATERIAL8;
-
-typedef struct _D3DLIGHT8 _D3DLIGHT8, *P_D3DLIGHT8;
-
-typedef struct _D3DLIGHT8 D3DLIGHT8;
-
-typedef enum _D3DRENDERSTATETYPE {
-    D3DRS_ZENABLE=7,
-    D3DRS_FILLMODE=8,
-    D3DRS_SHADEMODE=9,
-    D3DRS_LINEPATTERN=10,
-    D3DRS_ZWRITEENABLE=14,
-    D3DRS_ALPHATESTENABLE=15,
-    D3DRS_LASTPIXEL=16,
-    D3DRS_SRCBLEND=19,
-    D3DRS_DESTBLEND=20,
-    D3DRS_CULLMODE=22,
-    D3DRS_ZFUNC=23,
-    D3DRS_ALPHAREF=24,
-    D3DRS_ALPHAFUNC=25,
-    D3DRS_DITHERENABLE=26,
-    D3DRS_ALPHABLENDENABLE=27,
-    D3DRS_FOGENABLE=28,
-    D3DRS_SPECULARENABLE=29,
-    D3DRS_ZVISIBLE=30,
-    D3DRS_FOGCOLOR=34,
-    D3DRS_FOGTABLEMODE=35,
-    D3DRS_FOGSTART=36,
-    D3DRS_FOGEND=37,
-    D3DRS_FOGDENSITY=38,
-    D3DRS_EDGEANTIALIAS=40,
-    D3DRS_ZBIAS=47,
-    D3DRS_RANGEFOGENABLE=48,
-    D3DRS_STENCILENABLE=52,
-    D3DRS_STENCILFAIL=53,
-    D3DRS_STENCILZFAIL=54,
-    D3DRS_STENCILPASS=55,
-    D3DRS_STENCILFUNC=56,
-    D3DRS_STENCILREF=57,
-    D3DRS_STENCILMASK=58,
-    D3DRS_STENCILWRITEMASK=59,
-    D3DRS_TEXTUREFACTOR=60,
-    D3DRS_WRAP0=128,
-    D3DRS_WRAP1=129,
-    D3DRS_WRAP2=130,
-    D3DRS_WRAP3=131,
-    D3DRS_WRAP4=132,
-    D3DRS_WRAP5=133,
-    D3DRS_WRAP6=134,
-    D3DRS_WRAP7=135,
-    D3DRS_CLIPPING=136,
-    D3DRS_LIGHTING=137,
-    D3DRS_AMBIENT=139,
-    D3DRS_FOGVERTEXMODE=140,
-    D3DRS_COLORVERTEX=141,
-    D3DRS_LOCALVIEWER=142,
-    D3DRS_NORMALIZENORMALS=143,
-    D3DRS_DIFFUSEMATERIALSOURCE=145,
-    D3DRS_SPECULARMATERIALSOURCE=146,
-    D3DRS_AMBIENTMATERIALSOURCE=147,
-    D3DRS_EMISSIVEMATERIALSOURCE=148,
-    D3DRS_VERTEXBLEND=151,
-    D3DRS_CLIPPLANEENABLE=152,
-    D3DRS_SOFTWAREVERTEXPROCESSING=153,
-    D3DRS_POINTSIZE=154,
-    D3DRS_POINTSIZE_MIN=155,
-    D3DRS_POINTSPRITEENABLE=156,
-    D3DRS_POINTSCALEENABLE=157,
-    D3DRS_POINTSCALE_A=158,
-    D3DRS_POINTSCALE_B=159,
-    D3DRS_POINTSCALE_C=160,
-    D3DRS_MULTISAMPLEANTIALIAS=161,
-    D3DRS_MULTISAMPLEMASK=162,
-    D3DRS_PATCHEDGESTYLE=163,
-    D3DRS_PATCHSEGMENTS=164,
-    D3DRS_DEBUGMONITORTOKEN=165,
-    D3DRS_POINTSIZE_MAX=166,
-    D3DRS_INDEXEDVERTEXBLENDENABLE=167,
-    D3DRS_COLORWRITEENABLE=168,
-    D3DRS_TWEENFACTOR=170,
-    D3DRS_BLENDOP=171,
-    D3DRS_FORCE_DWORD=2147483647
-} _D3DRENDERSTATETYPE;
-
-typedef enum _D3DRENDERSTATETYPE D3DRENDERSTATETYPE;
-
-typedef enum _D3DSTATEBLOCKTYPE {
-    D3DSBT_ALL=1,
-    D3DSBT_PIXELSTATE=2,
-    D3DSBT_VERTEXSTATE=3,
-    D3DSBT_FORCE_DWORD=2147483647
-} _D3DSTATEBLOCKTYPE;
-
-typedef enum _D3DSTATEBLOCKTYPE D3DSTATEBLOCKTYPE;
-
-typedef struct _D3DCLIPSTATUS8 _D3DCLIPSTATUS8, *P_D3DCLIPSTATUS8;
-
-typedef struct _D3DCLIPSTATUS8 D3DCLIPSTATUS8;
-
-typedef enum _D3DTEXTURESTAGESTATETYPE {
-    D3DTSS_COLOROP=1,
-    D3DTSS_COLORARG1=2,
-    D3DTSS_COLORARG2=3,
-    D3DTSS_ALPHAOP=4,
-    D3DTSS_ALPHAARG1=5,
-    D3DTSS_ALPHAARG2=6,
-    D3DTSS_BUMPENVMAT00=7,
-    D3DTSS_BUMPENVMAT01=8,
-    D3DTSS_BUMPENVMAT10=9,
-    D3DTSS_BUMPENVMAT11=10,
-    D3DTSS_TEXCOORDINDEX=11,
-    D3DTSS_ADDRESSU=13,
-    D3DTSS_ADDRESSV=14,
-    D3DTSS_BORDERCOLOR=15,
-    D3DTSS_MAGFILTER=16,
-    D3DTSS_MINFILTER=17,
-    D3DTSS_MIPFILTER=18,
-    D3DTSS_MIPMAPLODBIAS=19,
-    D3DTSS_MAXMIPLEVEL=20,
-    D3DTSS_MAXANISOTROPY=21,
-    D3DTSS_BUMPENVLSCALE=22,
-    D3DTSS_BUMPENVLOFFSET=23,
-    D3DTSS_TEXTURETRANSFORMFLAGS=24,
-    D3DTSS_ADDRESSW=25,
-    D3DTSS_COLORARG0=26,
-    D3DTSS_ALPHAARG0=27,
-    D3DTSS_RESULTARG=28,
-    D3DTSS_FORCE_DWORD=2147483647
-} _D3DTEXTURESTAGESTATETYPE;
-
-typedef enum _D3DTEXTURESTAGESTATETYPE D3DTEXTURESTAGESTATETYPE;
-
-typedef struct tagPALETTEENTRY tagPALETTEENTRY, *PtagPALETTEENTRY;
-
-typedef struct tagPALETTEENTRY PALETTEENTRY;
-
-typedef enum _D3DPRIMITIVETYPE {
-    D3DPT_POINTLIST=1,
-    D3DPT_LINELIST=2,
-    D3DPT_LINESTRIP=3,
-    D3DPT_TRIANGLELIST=4,
-    D3DPT_TRIANGLESTRIP=5,
-    D3DPT_TRIANGLEFAN=6,
-    D3DPT_FORCE_DWORD=2147483647
-} _D3DPRIMITIVETYPE;
-
-typedef enum _D3DPRIMITIVETYPE D3DPRIMITIVETYPE;
-
-typedef struct _D3DRECTPATCH_INFO _D3DRECTPATCH_INFO, *P_D3DRECTPATCH_INFO;
-
-typedef struct _D3DRECTPATCH_INFO D3DRECTPATCH_INFO;
-
-typedef struct _D3DTRIPATCH_INFO _D3DTRIPATCH_INFO, *P_D3DTRIPATCH_INFO;
-
-typedef struct _D3DTRIPATCH_INFO D3DTRIPATCH_INFO;
 
 typedef struct IDirectInput8AVtbl IDirectInput8AVtbl, *PIDirectInput8AVtbl;
 
@@ -2781,16 +3564,6 @@ typedef struct _DIDEVICEIMAGEINFOHEADERA _DIDEVICEIMAGEINFOHEADERA, *P_DIDEVICEI
 
 typedef struct _DIDEVICEIMAGEINFOHEADERA *LPDIDEVICEIMAGEINFOHEADERA;
 
-typedef enum _D3DSWAPEFFECT {
-    D3DSWAPEFFECT_DISCARD=1,
-    D3DSWAPEFFECT_FLIP=2,
-    D3DSWAPEFFECT_COPY=3,
-    D3DSWAPEFFECT_COPY_VSYNC=4,
-    D3DSWAPEFFECT_FORCE_DWORD=2147483647
-} _D3DSWAPEFFECT;
-
-typedef enum _D3DSWAPEFFECT D3DSWAPEFFECT;
-
 typedef enum MusicMode {
     OFF=0,
     WAV=1,
@@ -2803,105 +3576,6 @@ typedef enum DefaultDifficulty {
     HARD=2,
     LUNATIC=3
 } DefaultDifficulty;
-
-typedef union _LARGE_INTEGER _LARGE_INTEGER, *P_LARGE_INTEGER;
-
-typedef union _LARGE_INTEGER LARGE_INTEGER;
-
-typedef struct IDirect3DSurface8Vtbl IDirect3DSurface8Vtbl, *PIDirect3DSurface8Vtbl;
-
-typedef struct _D3DSURFACE_DESC _D3DSURFACE_DESC, *P_D3DSURFACE_DESC;
-
-typedef struct _D3DSURFACE_DESC D3DSURFACE_DESC;
-
-typedef struct _D3DLOCKED_RECT _D3DLOCKED_RECT, *P_D3DLOCKED_RECT;
-
-typedef struct _D3DLOCKED_RECT D3DLOCKED_RECT;
-
-typedef struct IDirect3DSwapChain8Vtbl IDirect3DSwapChain8Vtbl, *PIDirect3DSwapChain8Vtbl;
-
-typedef struct _RGNDATAHEADER _RGNDATAHEADER, *P_RGNDATAHEADER;
-
-typedef struct _RGNDATAHEADER RGNDATAHEADER;
-
-typedef struct IDirect3DTexture8Vtbl IDirect3DTexture8Vtbl, *PIDirect3DTexture8Vtbl;
-
-typedef struct IDirect3DVolumeTexture8Vtbl IDirect3DVolumeTexture8Vtbl, *PIDirect3DVolumeTexture8Vtbl;
-
-typedef struct _D3DVOLUME_DESC _D3DVOLUME_DESC, *P_D3DVOLUME_DESC;
-
-typedef struct _D3DVOLUME_DESC D3DVOLUME_DESC;
-
-typedef struct IDirect3DVolume8 IDirect3DVolume8, *PIDirect3DVolume8;
-
-typedef struct _D3DLOCKED_BOX _D3DLOCKED_BOX, *P_D3DLOCKED_BOX;
-
-typedef struct _D3DLOCKED_BOX D3DLOCKED_BOX;
-
-typedef struct _D3DBOX _D3DBOX, *P_D3DBOX;
-
-typedef struct _D3DBOX D3DBOX;
-
-typedef struct IDirect3DCubeTexture8Vtbl IDirect3DCubeTexture8Vtbl, *PIDirect3DCubeTexture8Vtbl;
-
-typedef enum _D3DCUBEMAP_FACES {
-    D3DCUBEMAP_FACE_POSITIVE_X=0,
-    D3DCUBEMAP_FACE_NEGATIVE_X=1,
-    D3DCUBEMAP_FACE_POSITIVE_Y=2,
-    D3DCUBEMAP_FACE_NEGATIVE_Y=3,
-    D3DCUBEMAP_FACE_POSITIVE_Z=4,
-    D3DCUBEMAP_FACE_NEGATIVE_Z=5,
-    D3DCUBEMAP_FACE_FORCE_DWORD=2147483647
-} _D3DCUBEMAP_FACES;
-
-typedef enum _D3DCUBEMAP_FACES D3DCUBEMAP_FACES;
-
-typedef struct IDirect3DVertexBuffer8Vtbl IDirect3DVertexBuffer8Vtbl, *PIDirect3DVertexBuffer8Vtbl;
-
-typedef struct _D3DVERTEXBUFFER_DESC _D3DVERTEXBUFFER_DESC, *P_D3DVERTEXBUFFER_DESC;
-
-typedef struct _D3DVERTEXBUFFER_DESC D3DVERTEXBUFFER_DESC;
-
-typedef struct IDirect3DIndexBuffer8Vtbl IDirect3DIndexBuffer8Vtbl, *PIDirect3DIndexBuffer8Vtbl;
-
-typedef struct _D3DINDEXBUFFER_DESC _D3DINDEXBUFFER_DESC, *P_D3DINDEXBUFFER_DESC;
-
-typedef struct _D3DINDEXBUFFER_DESC D3DINDEXBUFFER_DESC;
-
-typedef struct IDirect3DBaseTexture8Vtbl IDirect3DBaseTexture8Vtbl, *PIDirect3DBaseTexture8Vtbl;
-
-typedef struct _D3DCOLORVALUE _D3DCOLORVALUE, *P_D3DCOLORVALUE;
-
-typedef struct _D3DCOLORVALUE D3DCOLORVALUE;
-
-typedef enum _D3DLIGHTTYPE {
-    D3DLIGHT_POINT=1,
-    D3DLIGHT_SPOT=2,
-    D3DLIGHT_DIRECTIONAL=3,
-    D3DLIGHT_FORCE_DWORD=2147483647
-} _D3DLIGHTTYPE;
-
-typedef enum _D3DLIGHTTYPE D3DLIGHTTYPE;
-
-typedef struct D3DXVECTOR3 D3DVECTOR;
-
-typedef enum _D3DBASISTYPE {
-    D3DBASIS_BEZIER=0,
-    D3DBASIS_BSPLINE=1,
-    D3DBASIS_INTERPOLATE=2,
-    D3DBASIS_FORCE_DWORD=2147483647
-} _D3DBASISTYPE;
-
-typedef enum _D3DBASISTYPE D3DBASISTYPE;
-
-typedef enum _D3DORDERTYPE {
-    D3DORDER_LINEAR=1,
-    D3DORDER_CUBIC=3,
-    D3DORDER_QUINTIC=5,
-    D3DORDER_FORCE_DWORD=2147483647
-} _D3DORDERTYPE;
-
-typedef enum _D3DORDERTYPE D3DORDERTYPE;
 
 typedef struct _DIACTIONA _DIACTIONA, *P_DIACTIONA;
 
@@ -2933,36 +3607,7 @@ typedef struct _DIDEVICEIMAGEINFOA _DIDEVICEIMAGEINFOA, *P_DIDEVICEIMAGEINFOA;
 
 typedef struct _DIDEVICEIMAGEINFOA *LPDIDEVICEIMAGEINFOA;
 
-typedef struct _struct_7 _struct_7, *P_struct_7;
-
-typedef struct _struct_8 _struct_8, *P_struct_8;
-
-typedef double LONGLONG;
-
-typedef int INT;
-
-typedef struct IDirect3DVolume8Vtbl IDirect3DVolume8Vtbl, *PIDirect3DVolume8Vtbl;
-
 typedef union _union_2537 _union_2537, *P_union_2537;
-
-struct _D3DINDEXBUFFER_DESC {
-    D3DFORMAT Format;
-    D3DRESOURCETYPE Type;
-    DWORD Usage;
-    D3DPOOL Pool;
-    UINT Size;
-};
-
-struct tagPOINT {
-    LONG x;
-    LONG y;
-};
-
-struct _D3DGAMMARAMP {
-    WORD red[256];
-    WORD green[256];
-    WORD blue[256];
-};
 
 struct _DIDEVICEIMAGEINFOHEADERA {
     DWORD dwSize;
@@ -2976,82 +3621,11 @@ struct _DIDEVICEIMAGEINFOHEADERA {
     LPDIDEVICEIMAGEINFOA lprgImageInfoArray;
 };
 
-struct IDirect3DVolume8 {
-    struct IDirect3DVolume8Vtbl *lpVtbl;
-};
-
 struct DIPROPHEADER {
     DWORD dwSize;
     DWORD dwHeaderSize;
     DWORD dwObj;
     DWORD dwHow;
-};
-
-struct IDirect3DVolumeTexture8 {
-    struct IDirect3DVolumeTexture8Vtbl *lpVtbl;
-};
-
-struct tagRECT {
-    LONG left;
-    LONG top;
-    LONG right;
-    LONG bottom;
-};
-
-struct _RGNDATAHEADER {
-    DWORD dwSize;
-    DWORD iType;
-    DWORD nCount;
-    DWORD nRgnSize;
-    RECT rcBound;
-};
-
-struct _struct_7 {
-    DWORD LowPart;
-    LONG HighPart;
-};
-
-struct _struct_8 {
-    DWORD LowPart;
-    LONG HighPart;
-};
-
-union _LARGE_INTEGER {
-    struct _struct_7 field0;
-    struct _struct_8 u;
-    LONGLONG QuadPart;
-};
-
-struct IDirect3DTexture8Vtbl {
-    HRESULT (*QueryInterface)(struct IDirect3DTexture8 *, IID *, void **);
-    ULONG (*AddRef)(struct IDirect3DTexture8 *);
-    ULONG (*Release)(struct IDirect3DTexture8 *);
-    HRESULT (*GetDevice)(struct IDirect3DTexture8 *, struct IDirect3DDevice8 **);
-    HRESULT (*SetPrivateData)(struct IDirect3DTexture8 *, GUID *, void *, DWORD, DWORD);
-    HRESULT (*GetPrivateData)(struct IDirect3DTexture8 *, GUID *, void *, DWORD *);
-    HRESULT (*FreePrivateData)(struct IDirect3DTexture8 *, GUID *);
-    DWORD (*SetPriority)(struct IDirect3DTexture8 *, DWORD);
-    DWORD (*GetPriority)(struct IDirect3DTexture8 *);
-    void (*PreLoad)(struct IDirect3DTexture8 *);
-    D3DRESOURCETYPE (*GetType)(struct IDirect3DTexture8 *);
-    DWORD (*SetLOD)(struct IDirect3DTexture8 *, DWORD);
-    DWORD (*GetLOD)(struct IDirect3DTexture8 *);
-    DWORD (*GetLevelCount)(struct IDirect3DTexture8 *);
-    HRESULT (*GetLevelDesc)(struct IDirect3DTexture8 *, UINT, D3DSURFACE_DESC *);
-    HRESULT (*GetSurfaceLevel)(struct IDirect3DTexture8 *, UINT, struct IDirect3DSurface8 **);
-    HRESULT (*LockRect)(struct IDirect3DTexture8 *, UINT, D3DLOCKED_RECT *, RECT *, DWORD);
-    HRESULT (*UnlockRect)(struct IDirect3DTexture8 *, UINT);
-    HRESULT (*AddDirtyRect)(struct IDirect3DTexture8 *, RECT *);
-};
-
-struct _D3DRECTPATCH_INFO {
-    UINT StartVertexOffsetWidth;
-    UINT StartVertexOffsetHeight;
-    UINT Width;
-    UINT Height;
-    UINT Stride;
-    D3DBASISTYPE Basis;
-    D3DORDERTYPE Order;
 };
 
 struct DIDEVCAPS {
@@ -3066,110 +3640,6 @@ struct DIDEVCAPS {
     DWORD dwFirmwareRevision;
     DWORD dwHardwareRevision;
     DWORD dwFFDriverVersion;
-};
-
-struct IDirect3DDevice8Vtbl {
-    HRESULT (*QueryInterface)(struct IDirect3DDevice8 *, IID *, void **);
-    ULONG (*AddRef)(struct IDirect3DDevice8 *);
-    ULONG (*Release)(struct IDirect3DDevice8 *);
-    HRESULT (*TestCooperativeLevel)(struct IDirect3DDevice8 *);
-    UINT (*GetAvailableTextureMem)(struct IDirect3DDevice8 *);
-    HRESULT (*ResourceManagerDiscardBytes)(struct IDirect3DDevice8 *, DWORD);
-    HRESULT (*GetDirect3D)(struct IDirect3DDevice8 *, struct IDirect3D8 **);
-    HRESULT (*GetDeviceCaps)(struct IDirect3DDevice8 *, D3DCAPS8 *);
-    HRESULT (*GetDisplayMode)(struct IDirect3DDevice8 *, D3DDISPLAYMODE *);
-    HRESULT (*GetCreationParameters)(struct IDirect3DDevice8 *, D3DDEVICE_CREATION_PARAMETERS *);
-    HRESULT (*SetCursorProperties)(struct IDirect3DDevice8 *, UINT, UINT, struct IDirect3DSurface8 *);
-    void (*SetCursorPosition)(struct IDirect3DDevice8 *, UINT, UINT, DWORD);
-    BOOL (*ShowCursor)(struct IDirect3DDevice8 *, BOOL);
-    HRESULT (*CreateAdditionalSwapChain)(struct IDirect3DDevice8 *, D3DPRESENT_PARAMETERS *, struct IDirect3DSwapChain8 **);
-    HRESULT (*Reset)(struct IDirect3DDevice8 *, D3DPRESENT_PARAMETERS *);
-    HRESULT (*Present)(struct IDirect3DDevice8 *, RECT *, RECT *, HWND, RGNDATA *);
-    HRESULT (*GetBackBuffer)(struct IDirect3DDevice8 *, UINT, D3DBACKBUFFER_TYPE, struct IDirect3DSurface8 **);
-    HRESULT (*GetRasterStatus)(struct IDirect3DDevice8 *, D3DRASTER_STATUS *);
-    void (*SetGammaRamp)(struct IDirect3DDevice8 *, DWORD, D3DGAMMARAMP *);
-    void (*GetGammaRamp)(struct IDirect3DDevice8 *, D3DGAMMARAMP *);
-    HRESULT (*CreateTexture)(struct IDirect3DDevice8 *, UINT, UINT, UINT, DWORD, D3DFORMAT, D3DPOOL, struct IDirect3DTexture8 **);
-    HRESULT (*CreateVolumeTexture)(struct IDirect3DDevice8 *, UINT, UINT, UINT, UINT, DWORD, D3DFORMAT, D3DPOOL, struct IDirect3DVolumeTexture8 **);
-    HRESULT (*CreateCubeTexture)(struct IDirect3DDevice8 *, UINT, UINT, DWORD, D3DFORMAT, D3DPOOL, struct IDirect3DCubeTexture8 **);
-    HRESULT (*CreateVertexBuffer)(struct IDirect3DDevice8 *, UINT, DWORD, DWORD, D3DPOOL, struct IDirect3DVertexBuffer8 **);
-    HRESULT (*CreateIndexBuffer)(struct IDirect3DDevice8 *, UINT, DWORD, D3DFORMAT, D3DPOOL, struct IDirect3DIndexBuffer8 **);
-    HRESULT (*CreateRenderTarget)(struct IDirect3DDevice8 *, UINT, UINT, D3DFORMAT, D3DMULTISAMPLE_TYPE, BOOL, struct IDirect3DSurface8 **);
-    HRESULT (*CreateDepthStencilSurface)(struct IDirect3DDevice8 *, UINT, UINT, D3DFORMAT, D3DMULTISAMPLE_TYPE, struct IDirect3DSurface8 **);
-    HRESULT (*CreateImageSurface)(struct IDirect3DDevice8 *, UINT, UINT, D3DFORMAT, struct IDirect3DSurface8 **);
-    HRESULT (*CopyRects)(struct IDirect3DDevice8 *, struct IDirect3DSurface8 *, RECT *, UINT, struct IDirect3DSurface8 *, POINT *);
-    HRESULT (*UpdateTexture)(struct IDirect3DDevice8 *, struct IDirect3DBaseTexture8 *, struct IDirect3DBaseTexture8 *);
-    HRESULT (*GetFrontBuffer)(struct IDirect3DDevice8 *, struct IDirect3DSurface8 *);
-    HRESULT (*SetRenderTarget)(struct IDirect3DDevice8 *, struct IDirect3DSurface8 *, struct IDirect3DSurface8 *);
-    HRESULT (*GetRenderTarget)(struct IDirect3DDevice8 *, struct IDirect3DSurface8 **);
-    HRESULT (*GetDepthStencilSurface)(struct IDirect3DDevice8 *, struct IDirect3DSurface8 **);
-    HRESULT (*BeginScene)(struct IDirect3DDevice8 *);
-    HRESULT (*EndScene)(struct IDirect3DDevice8 *);
-    HRESULT (*Clear)(struct IDirect3DDevice8 *, DWORD, D3DRECT *, DWORD, D3DCOLOR, float, DWORD);
-    HRESULT (*SetTransform)(struct IDirect3DDevice8 *, D3DTRANSFORMSTATETYPE, D3DMATRIX *);
-    HRESULT (*GetTransform)(struct IDirect3DDevice8 *, D3DTRANSFORMSTATETYPE, D3DMATRIX *);
-    HRESULT (*MultiplyTransform)(struct IDirect3DDevice8 *, D3DTRANSFORMSTATETYPE, D3DMATRIX *);
-    HRESULT (*SetViewport)(struct IDirect3DDevice8 *, D3DVIEWPORT8 *);
-    HRESULT (*GetViewport)(struct IDirect3DDevice8 *, D3DVIEWPORT8 *);
-    HRESULT (*SetMaterial)(struct IDirect3DDevice8 *, D3DMATERIAL8 *);
-    HRESULT (*GetMaterial)(struct IDirect3DDevice8 *, D3DMATERIAL8 *);
-    HRESULT (*SetLight)(struct IDirect3DDevice8 *, DWORD, D3DLIGHT8 *);
-    HRESULT (*GetLight)(struct IDirect3DDevice8 *, DWORD, D3DLIGHT8 *);
-    HRESULT (*LightEnable)(struct IDirect3DDevice8 *, DWORD, BOOL);
-    HRESULT (*GetLightEnable)(struct IDirect3DDevice8 *, DWORD, BOOL *);
-    HRESULT (*SetClipPlane)(struct IDirect3DDevice8 *, DWORD, float *);
-    HRESULT (*GetClipPlane)(struct IDirect3DDevice8 *, DWORD, float *);
-    HRESULT (*SetRenderState)(struct IDirect3DDevice8 *, D3DRENDERSTATETYPE, DWORD);
-    HRESULT (*GetRenderState)(struct IDirect3DDevice8 *, D3DRENDERSTATETYPE, DWORD *);
-    HRESULT (*BeginStateBlock)(struct IDirect3DDevice8 *);
-    HRESULT (*EndStateBlock)(struct IDirect3DDevice8 *, DWORD *);
-    HRESULT (*ApplyStateBlock)(struct IDirect3DDevice8 *, DWORD);
-    HRESULT (*CaptureStateBlock)(struct IDirect3DDevice8 *, DWORD);
-    HRESULT (*DeleteStateBlock)(struct IDirect3DDevice8 *, DWORD);
-    HRESULT (*CreateStateBlock)(struct IDirect3DDevice8 *, D3DSTATEBLOCKTYPE, DWORD *);
-    HRESULT (*SetClipStatus)(struct IDirect3DDevice8 *, D3DCLIPSTATUS8 *);
-    HRESULT (*GetClipStatus)(struct IDirect3DDevice8 *, D3DCLIPSTATUS8 *);
-    HRESULT (*GetTexture)(struct IDirect3DDevice8 *, DWORD, struct IDirect3DBaseTexture8 **);
-    HRESULT (*SetTexture)(struct IDirect3DDevice8 *, DWORD, struct IDirect3DBaseTexture8 *);
-    HRESULT (*GetTextureStageState)(struct IDirect3DDevice8 *, DWORD, D3DTEXTURESTAGESTATETYPE, DWORD *);
-    HRESULT (*SetTextureStageState)(struct IDirect3DDevice8 *, DWORD, D3DTEXTURESTAGESTATETYPE, DWORD);
-    HRESULT (*ValidateDevice)(struct IDirect3DDevice8 *, DWORD *);
-    HRESULT (*GetInfo)(struct IDirect3DDevice8 *, DWORD, void *, DWORD);
-    HRESULT (*SetPaletteEntries)(struct IDirect3DDevice8 *, UINT, PALETTEENTRY *);
-    HRESULT (*GetPaletteEntries)(struct IDirect3DDevice8 *, UINT, PALETTEENTRY *);
-    HRESULT (*SetCurrentTexturePalette)(struct IDirect3DDevice8 *, UINT);
-    HRESULT (*GetCurrentTexturePalette)(struct IDirect3DDevice8 *, UINT *);
-    HRESULT (*DrawPrimitive)(struct IDirect3DDevice8 *, D3DPRIMITIVETYPE, UINT, UINT);
-    HRESULT (*DrawIndexedPrimitive)(struct IDirect3DDevice8 *, D3DPRIMITIVETYPE, UINT, UINT, UINT, UINT);
-    HRESULT (*DrawPrimitiveUP)(struct IDirect3DDevice8 *, D3DPRIMITIVETYPE, UINT, void *, UINT);
-    HRESULT (*DrawIndexedPrimitiveUP)(struct IDirect3DDevice8 *, D3DPRIMITIVETYPE, UINT, UINT, UINT, void *, D3DFORMAT, void *, UINT);
-    HRESULT (*ProcessVertices)(struct IDirect3DDevice8 *, UINT, UINT, UINT, struct IDirect3DVertexBuffer8 *, DWORD);
-    HRESULT (*CreateVertexShader)(struct IDirect3DDevice8 *, DWORD *, DWORD *, DWORD *, DWORD);
-    HRESULT (*SetVertexShader)(struct IDirect3DDevice8 *, DWORD);
-    HRESULT (*GetVertexShader)(struct IDirect3DDevice8 *, DWORD *);
-    HRESULT (*DeleteVertexShader)(struct IDirect3DDevice8 *, DWORD);
-    HRESULT (*SetVertexShaderConstant)(struct IDirect3DDevice8 *, DWORD, void *, DWORD);
-    HRESULT (*GetVertexShaderConstant)(struct IDirect3DDevice8 *, DWORD, void *, DWORD);
-    HRESULT (*GetVertexShaderDeclaration)(struct IDirect3DDevice8 *, DWORD, void *, DWORD *);
-    HRESULT (*GetVertexShaderFunction)(struct IDirect3DDevice8 *, DWORD, void *, DWORD *);
-    HRESULT (*SetStreamSource)(struct IDirect3DDevice8 *, UINT, struct IDirect3DVertexBuffer8 *, UINT);
-    HRESULT (*GetStreamSource)(struct IDirect3DDevice8 *, UINT, struct IDirect3DVertexBuffer8 **, UINT *);
-    HRESULT (*SetIndices)(struct IDirect3DDevice8 *, struct IDirect3DIndexBuffer8 *, UINT);
-    HRESULT (*GetIndices)(struct IDirect3DDevice8 *, struct IDirect3DIndexBuffer8 **, UINT *);
-    HRESULT (*CreatePixelShader)(struct IDirect3DDevice8 *, DWORD *, DWORD *);
-    HRESULT (*SetPixelShader)(struct IDirect3DDevice8 *, DWORD);
-    HRESULT (*GetPixelShader)(struct IDirect3DDevice8 *, DWORD *);
-    HRESULT (*DeletePixelShader)(struct IDirect3DDevice8 *, DWORD);
-    HRESULT (*SetPixelShaderConstant)(struct IDirect3DDevice8 *, DWORD, void *, DWORD);
-    HRESULT (*GetPixelShaderConstant)(struct IDirect3DDevice8 *, DWORD, void *, DWORD);
-    HRESULT (*GetPixelShaderFunction)(struct IDirect3DDevice8 *, DWORD, void *, DWORD *);
-    HRESULT (*DrawRectPatch)(struct IDirect3DDevice8 *, UINT, float *, D3DRECTPATCH_INFO *);
-    HRESULT (*DrawTriPatch)(struct IDirect3DDevice8 *, UINT, float *, D3DTRIPATCH_INFO *);
-    HRESULT (*DeletePatch)(struct IDirect3DDevice8 *, UINT);
-};
-
-struct IDirect3D8 {
-    struct IDirect3D8Vtbl *lpVtbl;
 };
 
 struct IDirectInput8A {
@@ -3189,10 +3659,6 @@ struct _DIACTIONA {
     GUID guidInstance;
     DWORD dwObjID;
     DWORD dwHow;
-};
-
-struct IDirect3DSurface8 {
-    struct IDirect3DSurface8Vtbl *lpVtbl;
 };
 
 struct _FILETIME {
@@ -3215,96 +3681,6 @@ struct _DIACTIONFORMATA {
     FILETIME ftTimeStamp;
     DWORD dwCRC;
     CHAR tszActionMap[260];
-};
-
-struct _D3DBOX {
-    UINT Left;
-    UINT Top;
-    UINT Right;
-    UINT Bottom;
-    UINT Front;
-    UINT Back;
-};
-
-struct _D3DPRESENT_PARAMETERS_ {
-    UINT BackBufferWidth;
-    UINT BackBufferHeight;
-    D3DFORMAT BackBufferFormat;
-    UINT BackBufferCount;
-    D3DMULTISAMPLE_TYPE MultiSampleType;
-    D3DSWAPEFFECT SwapEffect;
-    HWND hDeviceWindow;
-    BOOL Windowed;
-    BOOL EnableAutoDepthStencil;
-    D3DFORMAT AutoDepthStencilFormat;
-    DWORD Flags;
-    UINT FullScreen_RefreshRateInHz;
-    UINT FullScreen_PresentationInterval;
-};
-
-struct _D3DVIEWPORT8 {
-    DWORD X;
-    DWORD Y;
-    DWORD Width;
-    DWORD Height;
-    float MinZ;
-    float MaxZ;
-};
-
-struct _D3DCAPS8 {
-    D3DDEVTYPE DeviceType;
-    UINT AdapterOrdinal;
-    DWORD Caps;
-    DWORD Caps2;
-    DWORD Caps3;
-    DWORD PresentationIntervals;
-    DWORD CursorCaps;
-    DWORD DevCaps;
-    DWORD PrimitiveMiscCaps;
-    DWORD RasterCaps;
-    DWORD ZCmpCaps;
-    DWORD SrcBlendCaps;
-    DWORD DestBlendCaps;
-    DWORD AlphaCmpCaps;
-    DWORD ShadeCaps;
-    DWORD TextureCaps;
-    DWORD TextureFilterCaps;
-    DWORD CubeTextureFilterCaps;
-    DWORD VolumeTextureFilterCaps;
-    DWORD TextureAddressCaps;
-    DWORD VolumeTextureAddressCaps;
-    DWORD LineCaps;
-    DWORD MaxTextureWidth;
-    DWORD MaxTextureHeight;
-    DWORD MaxVolumeExtent;
-    DWORD MaxTextureRepeat;
-    DWORD MaxTextureAspectRatio;
-    DWORD MaxAnisotropy;
-    float MaxVertexW;
-    float GuardBandLeft;
-    float GuardBandTop;
-    float GuardBandRight;
-    float GuardBandBottom;
-    float ExtentsAdjust;
-    DWORD StencilCaps;
-    DWORD FVFCaps;
-    DWORD TextureOpCaps;
-    DWORD MaxTextureBlendStages;
-    DWORD MaxSimultaneousTextures;
-    DWORD VertexProcessingCaps;
-    DWORD MaxActiveLights;
-    DWORD MaxUserClipPlanes;
-    DWORD MaxVertexBlendMatrices;
-    DWORD MaxVertexBlendMatrixIndex;
-    float MaxPointSize;
-    DWORD MaxPrimitiveCount;
-    DWORD MaxVertexIndex;
-    DWORD MaxStreams;
-    DWORD MaxStreamStride;
-    DWORD VertexShaderVersion;
-    DWORD MaxVertexShaderConst;
-    DWORD PixelShaderVersion;
-    float MaxPixelShaderValue;
 };
 
 struct GameConfiguration {
@@ -3380,13 +3756,6 @@ struct Supervisor {
     D3DCAPS8 d3dCaps;
 };
 
-struct _D3DDISPLAYMODE {
-    UINT Width;
-    UINT Height;
-    UINT RefreshRate;
-    D3DFORMAT Format;
-};
-
 struct IDirectInput8AVtbl {
     HRESULT (*QueryInterface)(struct IDirectInput8A *, IID *, LPVOID *);
     ULONG (*AddRef)(struct IDirectInput8A *);
@@ -3399,58 +3768,6 @@ struct IDirectInput8AVtbl {
     HRESULT (*FindDevice)(struct IDirectInput8A *, GUID *, LPCSTR, LPGUID);
     HRESULT (*EnumDevicesBySemantics)(struct IDirectInput8A *, LPCSTR, LPDIACTIONFORMATA, LPDIENUMDEVICESBYSEMANTICSCBA, LPVOID, DWORD);
     HRESULT (*ConfigureDevices)(struct IDirectInput8A *, LPDICONFIGUREDEVICESCALLBACK, LPDICONFIGUREDEVICESPARAMSA, DWORD, LPVOID);
-};
-
-struct _D3DRASTER_STATUS {
-    BOOL InVBlank;
-    UINT ScanLine;
-};
-
-struct IDirect3DSurface8Vtbl {
-    HRESULT (*QueryInterface)(struct IDirect3DSurface8 *, IID *, void **);
-    ULONG (*AddRef)(struct IDirect3DSurface8 *);
-    ULONG (*Release)(struct IDirect3DSurface8 *);
-    HRESULT (*GetDevice)(struct IDirect3DSurface8 *, struct IDirect3DDevice8 **);
-    HRESULT (*SetPrivateData)(struct IDirect3DSurface8 *, GUID *, void *, DWORD, DWORD);
-    HRESULT (*GetPrivateData)(struct IDirect3DSurface8 *, GUID *, void *, DWORD *);
-    HRESULT (*FreePrivateData)(struct IDirect3DSurface8 *, GUID *);
-    HRESULT (*GetContainer)(struct IDirect3DSurface8 *, IID *, void **);
-    HRESULT (*GetDesc)(struct IDirect3DSurface8 *, D3DSURFACE_DESC *);
-    HRESULT (*LockRect)(struct IDirect3DSurface8 *, D3DLOCKED_RECT *, RECT *, DWORD);
-    HRESULT (*UnlockRect)(struct IDirect3DSurface8 *);
-};
-
-struct IDirect3DVolume8Vtbl {
-    HRESULT (*QueryInterface)(struct IDirect3DVolume8 *, IID *, void **);
-    ULONG (*AddRef)(struct IDirect3DVolume8 *);
-    ULONG (*Release)(struct IDirect3DVolume8 *);
-    HRESULT (*GetDevice)(struct IDirect3DVolume8 *, struct IDirect3DDevice8 **);
-    HRESULT (*SetPrivateData)(struct IDirect3DVolume8 *, GUID *, void *, DWORD, DWORD);
-    HRESULT (*GetPrivateData)(struct IDirect3DVolume8 *, GUID *, void *, DWORD *);
-    HRESULT (*FreePrivateData)(struct IDirect3DVolume8 *, GUID *);
-    HRESULT (*GetContainer)(struct IDirect3DVolume8 *, IID *, void **);
-    HRESULT (*GetDesc)(struct IDirect3DVolume8 *, D3DVOLUME_DESC *);
-    HRESULT (*LockBox)(struct IDirect3DVolume8 *, D3DLOCKED_BOX *, D3DBOX *, DWORD);
-    HRESULT (*UnlockBox)(struct IDirect3DVolume8 *);
-};
-
-struct _D3DCOLORVALUE {
-    float r;
-    float g;
-    float b;
-    float a;
-};
-
-struct _D3DMATERIAL8 {
-    D3DCOLORVALUE Diffuse;
-    D3DCOLORVALUE Ambient;
-    D3DCOLORVALUE Specular;
-    D3DCOLORVALUE Emissive;
-    float Power;
-};
-
-struct IDirect3DIndexBuffer8 {
-    struct IDirect3DIndexBuffer8Vtbl *lpVtbl;
 };
 
 struct IDirectInputDevice8AVtbl {
@@ -3488,22 +3805,6 @@ struct IDirectInputDevice8AVtbl {
     HRESULT (*GetImageInfo)(struct IDirectInputDevice8A *, LPDIDEVICEIMAGEINFOHEADERA);
 };
 
-struct _D3DLIGHT8 {
-    D3DLIGHTTYPE Type;
-    D3DCOLORVALUE Diffuse;
-    D3DCOLORVALUE Specular;
-    D3DCOLORVALUE Ambient;
-    D3DVECTOR Position;
-    D3DVECTOR Direction;
-    float Range;
-    float Falloff;
-    float Attenuation0;
-    float Attenuation1;
-    float Attenuation2;
-    float Theta;
-    float Phi;
-};
-
 struct _DIDEVICEIMAGEINFOA {
     CHAR tszImagePath[260];
     DWORD dwFlags;
@@ -3525,80 +3826,8 @@ struct DIEFFESCAPE {
     DWORD cbOutBuffer;
 };
 
-struct IDirect3DDevice8 {
-    struct IDirect3DDevice8Vtbl *lpVtbl;
-};
-
-struct _D3DADAPTER_IDENTIFIER8 {
-    char Driver[512];
-    char Description[512];
-    LARGE_INTEGER DriverVersion;
-    DWORD VendorId;
-    DWORD DeviceId;
-    DWORD SubSysId;
-    DWORD Revision;
-    GUID DeviceIdentifier;
-    DWORD WHQLLevel;
-};
-
-struct IDirect3DBaseTexture8 {
-    struct IDirect3DBaseTexture8Vtbl *lpVtbl;
-};
-
 struct IDirectInputDevice8A {
     struct IDirectInputDevice8AVtbl *lpVtbl;
-};
-
-struct IDirect3DVolumeTexture8Vtbl {
-    HRESULT (*QueryInterface)(struct IDirect3DVolumeTexture8 *, IID *, void **);
-    ULONG (*AddRef)(struct IDirect3DVolumeTexture8 *);
-    ULONG (*Release)(struct IDirect3DVolumeTexture8 *);
-    HRESULT (*GetDevice)(struct IDirect3DVolumeTexture8 *, struct IDirect3DDevice8 **);
-    HRESULT (*SetPrivateData)(struct IDirect3DVolumeTexture8 *, GUID *, void *, DWORD, DWORD);
-    HRESULT (*GetPrivateData)(struct IDirect3DVolumeTexture8 *, GUID *, void *, DWORD *);
-    HRESULT (*FreePrivateData)(struct IDirect3DVolumeTexture8 *, GUID *);
-    DWORD (*SetPriority)(struct IDirect3DVolumeTexture8 *, DWORD);
-    DWORD (*GetPriority)(struct IDirect3DVolumeTexture8 *);
-    void (*PreLoad)(struct IDirect3DVolumeTexture8 *);
-    D3DRESOURCETYPE (*GetType)(struct IDirect3DVolumeTexture8 *);
-    DWORD (*SetLOD)(struct IDirect3DVolumeTexture8 *, DWORD);
-    DWORD (*GetLOD)(struct IDirect3DVolumeTexture8 *);
-    DWORD (*GetLevelCount)(struct IDirect3DVolumeTexture8 *);
-    HRESULT (*GetLevelDesc)(struct IDirect3DVolumeTexture8 *, UINT, D3DVOLUME_DESC *);
-    HRESULT (*GetVolumeLevel)(struct IDirect3DVolumeTexture8 *, UINT, struct IDirect3DVolume8 **);
-    HRESULT (*LockBox)(struct IDirect3DVolumeTexture8 *, UINT, D3DLOCKED_BOX *, D3DBOX *, DWORD);
-    HRESULT (*UnlockBox)(struct IDirect3DVolumeTexture8 *, UINT);
-    HRESULT (*AddDirtyBox)(struct IDirect3DVolumeTexture8 *, D3DBOX *);
-};
-
-struct _RGNDATA {
-    RGNDATAHEADER rdh;
-    char Buffer[1];
-};
-
-struct IDirect3DSwapChain8Vtbl {
-    HRESULT (*QueryInterface)(struct IDirect3DSwapChain8 *, IID *, void **);
-    ULONG (*AddRef)(struct IDirect3DSwapChain8 *);
-    ULONG (*Release)(struct IDirect3DSwapChain8 *);
-    HRESULT (*Present)(struct IDirect3DSwapChain8 *, RECT *, RECT *, HWND, RGNDATA *);
-    HRESULT (*GetBackBuffer)(struct IDirect3DSwapChain8 *, UINT, D3DBACKBUFFER_TYPE, struct IDirect3DSurface8 **);
-};
-
-struct IDirect3DVertexBuffer8Vtbl {
-    HRESULT (*QueryInterface)(struct IDirect3DVertexBuffer8 *, IID *, void **);
-    ULONG (*AddRef)(struct IDirect3DVertexBuffer8 *);
-    ULONG (*Release)(struct IDirect3DVertexBuffer8 *);
-    HRESULT (*GetDevice)(struct IDirect3DVertexBuffer8 *, struct IDirect3DDevice8 **);
-    HRESULT (*SetPrivateData)(struct IDirect3DVertexBuffer8 *, GUID *, void *, DWORD, DWORD);
-    HRESULT (*GetPrivateData)(struct IDirect3DVertexBuffer8 *, GUID *, void *, DWORD *);
-    HRESULT (*FreePrivateData)(struct IDirect3DVertexBuffer8 *, GUID *);
-    DWORD (*SetPriority)(struct IDirect3DVertexBuffer8 *, DWORD);
-    DWORD (*GetPriority)(struct IDirect3DVertexBuffer8 *);
-    void (*PreLoad)(struct IDirect3DVertexBuffer8 *);
-    D3DRESOURCETYPE (*GetType)(struct IDirect3DVertexBuffer8 *);
-    HRESULT (*Lock)(struct IDirect3DVertexBuffer8 *, UINT, UINT, BYTE **, DWORD);
-    HRESULT (*Unlock)(struct IDirect3DVertexBuffer8 *);
-    HRESULT (*GetDesc)(struct IDirect3DVertexBuffer8 *, D3DVERTEXBUFFER_DESC *);
 };
 
 struct IDirectInputEffectVtbl {
@@ -3617,39 +3846,6 @@ struct IDirectInputEffectVtbl {
     HRESULT (*Escape)(struct IDirectInputEffect *, LPDIEFFESCAPE);
 };
 
-struct _D3DSURFACE_DESC {
-    D3DFORMAT Format;
-    D3DRESOURCETYPE Type;
-    DWORD Usage;
-    D3DPOOL Pool;
-    UINT Size;
-    D3DMULTISAMPLE_TYPE MultiSampleType;
-    UINT Width;
-    UINT Height;
-};
-
-struct IDirect3DBaseTexture8Vtbl {
-    HRESULT (*QueryInterface)(struct IDirect3DBaseTexture8 *, IID *, void **);
-    ULONG (*AddRef)(struct IDirect3DBaseTexture8 *);
-    ULONG (*Release)(struct IDirect3DBaseTexture8 *);
-    HRESULT (*GetDevice)(struct IDirect3DBaseTexture8 *, struct IDirect3DDevice8 **);
-    HRESULT (*SetPrivateData)(struct IDirect3DBaseTexture8 *, GUID *, void *, DWORD, DWORD);
-    HRESULT (*GetPrivateData)(struct IDirect3DBaseTexture8 *, GUID *, void *, DWORD *);
-    HRESULT (*FreePrivateData)(struct IDirect3DBaseTexture8 *, GUID *);
-    DWORD (*SetPriority)(struct IDirect3DBaseTexture8 *, DWORD);
-    DWORD (*GetPriority)(struct IDirect3DBaseTexture8 *);
-    void (*PreLoad)(struct IDirect3DBaseTexture8 *);
-    D3DRESOURCETYPE (*GetType)(struct IDirect3DBaseTexture8 *);
-    DWORD (*SetLOD)(struct IDirect3DBaseTexture8 *, DWORD);
-    DWORD (*GetLOD)(struct IDirect3DBaseTexture8 *);
-    DWORD (*GetLevelCount)(struct IDirect3DBaseTexture8 *);
-};
-
-struct _D3DLOCKED_RECT {
-    INT Pitch;
-    void *pBits;
-};
-
 struct _DICOLORSET {
     DWORD dwSize;
     D3DCOLOR cTextFore;
@@ -3662,29 +3858,12 @@ struct _DICOLORSET {
     D3DCOLOR cAreaFill;
 };
 
-struct _D3DTRIPATCH_INFO {
-    UINT StartVertexOffset;
-    UINT NumVertices;
-    D3DBASISTYPE Basis;
-    D3DORDERTYPE Order;
-};
-
 struct DIENVELOPE {
     DWORD dwSize;
     DWORD dwAttackLevel;
     DWORD dwAttackTime;
     DWORD dwFadeLevel;
     DWORD dwFadeTime;
-};
-
-struct _D3DLOCKED_BOX {
-    INT RowPitch;
-    INT SlicePitch;
-    void *pBits;
-};
-
-struct IDirect3DSwapChain8 {
-    struct IDirect3DSwapChain8Vtbl *lpVtbl;
 };
 
 struct DIDEVICEOBJECTDATA {
@@ -3706,40 +3885,8 @@ struct _DICONFIGUREDEVICESPARAMSA {
     struct IUnknown *lpUnkDDSTarget;
 };
 
-struct IDirect3DVertexBuffer8 {
-    struct IDirect3DVertexBuffer8Vtbl *lpVtbl;
-};
-
-struct _D3DCLIPSTATUS8 {
-    DWORD ClipUnion;
-    DWORD ClipIntersection;
-};
-
-struct IDirect3D8Vtbl {
-    HRESULT (*QueryInterface)(struct IDirect3D8 *, IID *, void **);
-    ULONG (*AddRef)(struct IDirect3D8 *);
-    ULONG (*Release)(struct IDirect3D8 *);
-    HRESULT (*RegisterSoftwareDevice)(struct IDirect3D8 *, void *);
-    UINT (*GetAdapterCount)(struct IDirect3D8 *);
-    HRESULT (*GetAdapterIdentifier)(struct IDirect3D8 *, UINT, DWORD, D3DADAPTER_IDENTIFIER8 *);
-    UINT (*GetAdapterModeCount)(struct IDirect3D8 *, UINT);
-    HRESULT (*EnumAdapterModes)(struct IDirect3D8 *, UINT, UINT, D3DDISPLAYMODE *);
-    HRESULT (*GetAdapterDisplayMode)(struct IDirect3D8 *, UINT, D3DDISPLAYMODE *);
-    HRESULT (*CheckDeviceType)(struct IDirect3D8 *, UINT, D3DDEVTYPE, D3DFORMAT, D3DFORMAT, BOOL);
-    HRESULT (*CheckDeviceFormat)(struct IDirect3D8 *, UINT, D3DDEVTYPE, D3DFORMAT, DWORD, D3DRESOURCETYPE, D3DFORMAT);
-    HRESULT (*CheckDeviceMultiSampleType)(struct IDirect3D8 *, UINT, D3DDEVTYPE, D3DFORMAT, BOOL, D3DMULTISAMPLE_TYPE);
-    HRESULT (*CheckDepthStencilMatch)(struct IDirect3D8 *, UINT, D3DDEVTYPE, D3DFORMAT, D3DFORMAT, D3DFORMAT);
-    HRESULT (*GetDeviceCaps)(struct IDirect3D8 *, UINT, D3DDEVTYPE, D3DCAPS8 *);
-    HMONITOR (*GetAdapterMonitor)(struct IDirect3D8 *, UINT);
-    HRESULT (*CreateDevice)(struct IDirect3D8 *, UINT, D3DDEVTYPE, HWND, DWORD, D3DPRESENT_PARAMETERS *, struct IDirect3DDevice8 **);
-};
-
 struct IDirectInputEffect {
     struct IDirectInputEffectVtbl *lpVtbl;
-};
-
-struct HMONITOR__ {
-    int unused;
 };
 
 struct DIEFFECTINFOA {
@@ -3793,84 +3940,11 @@ struct DIDEVICEOBJECTINSTANCEA {
     WORD wReportId;
 };
 
-struct _D3DDEVICE_CREATION_PARAMETERS {
-    UINT AdapterOrdinal;
-    D3DDEVTYPE DeviceType;
-    HWND hFocusWindow;
-    DWORD BehaviorFlags;
-};
-
-struct _D3DVOLUME_DESC {
-    D3DFORMAT Format;
-    D3DRESOURCETYPE Type;
-    DWORD Usage;
-    D3DPOOL Pool;
-    UINT Size;
-    UINT Width;
-    UINT Height;
-    UINT Depth;
-};
-
-struct _D3DVERTEXBUFFER_DESC {
-    D3DFORMAT Format;
-    D3DRESOURCETYPE Type;
-    DWORD Usage;
-    D3DPOOL Pool;
-    UINT Size;
-    DWORD FVF;
-};
-
-struct tagPALETTEENTRY {
-    BYTE peRed;
-    BYTE peGreen;
-    BYTE peBlue;
-    BYTE peFlags;
-};
-
-struct IDirect3DIndexBuffer8Vtbl {
-    HRESULT (*QueryInterface)(struct IDirect3DIndexBuffer8 *, IID *, void **);
-    ULONG (*AddRef)(struct IDirect3DIndexBuffer8 *);
-    ULONG (*Release)(struct IDirect3DIndexBuffer8 *);
-    HRESULT (*GetDevice)(struct IDirect3DIndexBuffer8 *, struct IDirect3DDevice8 **);
-    HRESULT (*SetPrivateData)(struct IDirect3DIndexBuffer8 *, GUID *, void *, DWORD, DWORD);
-    HRESULT (*GetPrivateData)(struct IDirect3DIndexBuffer8 *, GUID *, void *, DWORD *);
-    HRESULT (*FreePrivateData)(struct IDirect3DIndexBuffer8 *, GUID *);
-    DWORD (*SetPriority)(struct IDirect3DIndexBuffer8 *, DWORD);
-    DWORD (*GetPriority)(struct IDirect3DIndexBuffer8 *);
-    void (*PreLoad)(struct IDirect3DIndexBuffer8 *);
-    D3DRESOURCETYPE (*GetType)(struct IDirect3DIndexBuffer8 *);
-    HRESULT (*Lock)(struct IDirect3DIndexBuffer8 *, UINT, UINT, BYTE **, DWORD);
-    HRESULT (*Unlock)(struct IDirect3DIndexBuffer8 *);
-    HRESULT (*GetDesc)(struct IDirect3DIndexBuffer8 *, D3DINDEXBUFFER_DESC *);
-};
-
 struct DIFILEEFFECT {
     DWORD dwSize;
     GUID GuidEffect;
     LPCDIEFFECT lpDiEffect;
     CHAR szFriendlyName[260];
-};
-
-struct IDirect3DCubeTexture8Vtbl {
-    HRESULT (*QueryInterface)(struct IDirect3DCubeTexture8 *, IID *, void **);
-    ULONG (*AddRef)(struct IDirect3DCubeTexture8 *);
-    ULONG (*Release)(struct IDirect3DCubeTexture8 *);
-    HRESULT (*GetDevice)(struct IDirect3DCubeTexture8 *, struct IDirect3DDevice8 **);
-    HRESULT (*SetPrivateData)(struct IDirect3DCubeTexture8 *, GUID *, void *, DWORD, DWORD);
-    HRESULT (*GetPrivateData)(struct IDirect3DCubeTexture8 *, GUID *, void *, DWORD *);
-    HRESULT (*FreePrivateData)(struct IDirect3DCubeTexture8 *, GUID *);
-    DWORD (*SetPriority)(struct IDirect3DCubeTexture8 *, DWORD);
-    DWORD (*GetPriority)(struct IDirect3DCubeTexture8 *);
-    void (*PreLoad)(struct IDirect3DCubeTexture8 *);
-    D3DRESOURCETYPE (*GetType)(struct IDirect3DCubeTexture8 *);
-    DWORD (*SetLOD)(struct IDirect3DCubeTexture8 *, DWORD);
-    DWORD (*GetLOD)(struct IDirect3DCubeTexture8 *);
-    DWORD (*GetLevelCount)(struct IDirect3DCubeTexture8 *);
-    HRESULT (*GetLevelDesc)(struct IDirect3DCubeTexture8 *, UINT, D3DSURFACE_DESC *);
-    HRESULT (*GetCubeMapSurface)(struct IDirect3DCubeTexture8 *, D3DCUBEMAP_FACES, UINT, struct IDirect3DSurface8 **);
-    HRESULT (*LockRect)(struct IDirect3DCubeTexture8 *, D3DCUBEMAP_FACES, UINT, D3DLOCKED_RECT *, RECT *, DWORD);
-    HRESULT (*UnlockRect)(struct IDirect3DCubeTexture8 *, D3DCUBEMAP_FACES, UINT);
-    HRESULT (*AddDirtyRect)(struct IDirect3DCubeTexture8 *, D3DCUBEMAP_FACES, RECT *);
 };
 
 struct _DIDATAFORMAT {
@@ -3880,17 +3954,6 @@ struct _DIDATAFORMAT {
     DWORD dwDataSize;
     DWORD dwNumObjs;
     LPDIOBJECTDATAFORMAT rgodf;
-};
-
-struct IDirect3DCubeTexture8 {
-    struct IDirect3DCubeTexture8Vtbl *lpVtbl;
-};
-
-struct _D3DRECT {
-    LONG x1;
-    LONG y1;
-    LONG x2;
-    LONG y2;
 };
 
 struct DIDEVICEINSTANCEA {
@@ -3907,10 +3970,6 @@ struct DIDEVICEINSTANCEA {
 
 struct HINSTANCE__ {
     int unused;
-};
-
-struct IDirect3DTexture8 {
-    struct IDirect3DTexture8Vtbl *lpVtbl;
 };
 
 typedef struct ZunRect ZunRect, *PZunRect;
@@ -4614,65 +4673,6 @@ struct unk {
     int unk4;
     int unk8;
     int unkc;
-};
-
-typedef struct CMyFont CMyFont, *PCMyFont;
-
-typedef struct ID3DXFont ID3DXFont, *PID3DXFont;
-
-typedef struct ID3DXFont *LPD3DXFONT;
-
-typedef struct ID3DXFontVtbl ID3DXFontVtbl, *PID3DXFontVtbl;
-
-typedef struct IDirect3DDevice8 *LPDIRECT3DDEVICE8;
-
-typedef struct tagLOGFONTA tagLOGFONTA, *PtagLOGFONTA;
-
-typedef struct tagLOGFONTA LOGFONTA;
-
-typedef LOGFONTA LOGFONT;
-
-typedef struct tagRECT *LPRECT;
-
-typedef wchar_t WCHAR;
-
-typedef WCHAR *LPCWSTR;
-
-struct tagLOGFONTA {
-    LONG lfHeight;
-    LONG lfWidth;
-    LONG lfEscapement;
-    LONG lfOrientation;
-    LONG lfWeight;
-    BYTE lfItalic;
-    BYTE lfUnderline;
-    BYTE lfStrikeOut;
-    BYTE lfCharSet;
-    BYTE lfOutPrecision;
-    BYTE lfClipPrecision;
-    BYTE lfQuality;
-    BYTE lfPitchAndFamily;
-    CHAR lfFaceName[32];
-};
-
-struct CMyFont {
-    LPD3DXFONT m_lpFont;
-};
-
-struct ID3DXFont {
-    struct ID3DXFontVtbl *lpVtbl;
-};
-
-struct ID3DXFontVtbl {
-    HRESULT (*QueryInterface)(struct IDirect3DVolume8 *, IID *, LPVOID *);
-    ULONG (*AddRef)(struct IDirect3DVolume8 *);
-    ULONG (*Release)(struct IDirect3DVolume8 *);
-    HRESULT (*GetDevice)(struct IDirect3DVolume8 *, LPDIRECT3DDEVICE8 *);
-    HRESULT (*GetLogFont)(struct IDirect3DVolume8 *, LOGFONT *);
-    HRESULT (*Begin)(struct IDirect3DVolume8 *);
-    INT (*DrawTextA)(struct IDirect3DVolume8 *, LPCSTR, INT, LPRECT, DWORD, D3DCOLOR);
-    INT (*DrawTextW)(struct IDirect3DVolume8 *, LPCWSTR, INT, LPRECT, DWORD, D3DCOLOR);
-    HRESULT (*End)(struct IDirect3DVolume8 *);
 };
 
 typedef sbyte i8;

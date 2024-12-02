@@ -1,5 +1,5 @@
 
-void __thiscall CMyFont::Print(CMyFont *this,char *str,int x,int y,D3DCOLOR color)
+void __thiscall th06::CMyFont::Print(CMyFont *this,char *str,int x,int y,D3DCOLOR color)
 
 {
   RECT local_14;

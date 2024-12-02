@@ -4,7 +4,7 @@
    
    Library: Visual Studio 2003 Debug */
 
-void __thiscall CMyFont::Clean(CMyFont *this)
+void __thiscall th06::CMyFont::Clean(CMyFont *this)
 
 {
   if (this[1].m_lpFont != (LPD3DXFONT)NULL) {

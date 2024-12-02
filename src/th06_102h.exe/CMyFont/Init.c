@@ -1,5 +1,5 @@
 
-void __thiscall CMyFont::Init(CMyFont *this,LPDIRECT3DDEVICE8 lpD3DDEV,int w,int h)
+void __thiscall th06::CMyFont::Init(CMyFont *this,LPDIRECT3DDEVICE8 lpD3DDEV,int w,int h)
 
 {
   HDC hTextDC;

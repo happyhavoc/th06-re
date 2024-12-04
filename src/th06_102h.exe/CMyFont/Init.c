@@ -12,7 +12,7 @@ void __thiscall th06::CMyFont::Init(CMyFont *this,LPDIRECT3DDEVICE8 lpD3DDEV,int
                       CLIP_DEFAULT_PRECIS,DEFAULT_QUALITY,DEFAULT_PITCH,"ＭＳ ゴシック");
   if (hFont != (HFONT)NULL) {
     hOldFont = SelectObject(hTextDC,hFont);
-    HVar1 = D3DXCreateFont(lpD3DDEV,(HFONT)hFont,&this[1].m_lpFont);
+    HVar1 = D3DXCreateFont(lpD3DDEV,(HFONT)hFont,&this->m_lpFont);
     if (HVar1 < 0) {
       MessageBoxA((HWND)0x0,"D3DXCreateFontIndirect FALSE","ok",MB_OK);
     }

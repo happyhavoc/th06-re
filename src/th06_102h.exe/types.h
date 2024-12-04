@@ -1102,47 +1102,15 @@ struct AsciiManagerString {
 
 typedef struct CMyFont CMyFont, *PCMyFont;
 
-typedef struct ID3DXFont ID3DXFont, *PID3DXFont;
-
-typedef struct ID3DXFont *LPD3DXFONT;
-
-typedef struct ID3DXFontVtbl ID3DXFontVtbl, *PID3DXFontVtbl;
-
-typedef struct IDirect3DVolume8 IDirect3DVolume8, *PIDirect3DVolume8;
+typedef struct CMyFontVtbl CMyFontVtbl, *PCMyFontVtbl;
 
 typedef struct IDirect3DDevice8 IDirect3DDevice8, *PIDirect3DDevice8;
 
 typedef struct IDirect3DDevice8 *LPDIRECT3DDEVICE8;
 
-typedef struct tagLOGFONTA tagLOGFONTA, *PtagLOGFONTA;
+typedef struct ID3DXFont ID3DXFont, *PID3DXFont;
 
-typedef struct tagLOGFONTA LOGFONTA;
-
-typedef LOGFONTA LOGFONT;
-
-typedef int INT;
-
-typedef struct tagRECT tagRECT, *PtagRECT;
-
-typedef struct tagRECT *LPRECT;
-
-typedef wchar_t WCHAR;
-
-typedef WCHAR *LPCWSTR;
-
-typedef struct IDirect3DVolume8Vtbl IDirect3DVolume8Vtbl, *PIDirect3DVolume8Vtbl;
-
-typedef struct _D3DVOLUME_DESC _D3DVOLUME_DESC, *P_D3DVOLUME_DESC;
-
-typedef struct _D3DVOLUME_DESC D3DVOLUME_DESC;
-
-typedef struct _D3DLOCKED_BOX _D3DLOCKED_BOX, *P_D3DLOCKED_BOX;
-
-typedef struct _D3DLOCKED_BOX D3DLOCKED_BOX;
-
-typedef struct _D3DBOX _D3DBOX, *P_D3DBOX;
-
-typedef struct _D3DBOX D3DBOX;
+typedef struct ID3DXFont *LPD3DXFONT;
 
 typedef struct IDirect3DDevice8Vtbl IDirect3DDevice8Vtbl, *PIDirect3DDevice8Vtbl;
 
@@ -1167,6 +1135,8 @@ typedef struct _D3DPRESENT_PARAMETERS_ _D3DPRESENT_PARAMETERS_, *P_D3DPRESENT_PA
 typedef struct _D3DPRESENT_PARAMETERS_ D3DPRESENT_PARAMETERS;
 
 typedef struct IDirect3DSwapChain8 IDirect3DSwapChain8, *PIDirect3DSwapChain8;
+
+typedef struct tagRECT tagRECT, *PtagRECT;
 
 typedef struct tagRECT RECT;
 
@@ -1420,18 +1390,23 @@ typedef struct _D3DTRIPATCH_INFO _D3DTRIPATCH_INFO, *P_D3DTRIPATCH_INFO;
 
 typedef struct _D3DTRIPATCH_INFO D3DTRIPATCH_INFO;
 
-typedef enum _D3DRESOURCETYPE {
-    D3DRTYPE_SURFACE=1,
-    D3DRTYPE_VOLUME=2,
-    D3DRTYPE_TEXTURE=3,
-    D3DRTYPE_VOLUMETEXTURE=4,
-    D3DRTYPE_CUBETEXTURE=5,
-    D3DRTYPE_VERTEXBUFFER=6,
-    D3DRTYPE_INDEXBUFFER=7,
-    D3DRTYPE_FORCE_DWORD=2147483647
-} _D3DRESOURCETYPE;
+typedef struct ID3DXFontVtbl ID3DXFontVtbl, *PID3DXFontVtbl;
 
-typedef enum _D3DRESOURCETYPE D3DRESOURCETYPE;
+typedef struct IDirect3DVolume8 IDirect3DVolume8, *PIDirect3DVolume8;
+
+typedef struct tagLOGFONTA tagLOGFONTA, *PtagLOGFONTA;
+
+typedef struct tagLOGFONTA LOGFONTA;
+
+typedef LOGFONTA LOGFONT;
+
+typedef int INT;
+
+typedef struct tagRECT *LPRECT;
+
+typedef wchar_t WCHAR;
+
+typedef WCHAR *LPCWSTR;
 
 typedef struct IDirect3D8Vtbl IDirect3D8Vtbl, *PIDirect3D8Vtbl;
 
@@ -1447,6 +1422,19 @@ typedef enum _D3DDEVTYPE {
 } _D3DDEVTYPE;
 
 typedef enum _D3DDEVTYPE D3DDEVTYPE;
+
+typedef enum _D3DRESOURCETYPE {
+    D3DRTYPE_SURFACE=1,
+    D3DRTYPE_VOLUME=2,
+    D3DRTYPE_TEXTURE=3,
+    D3DRTYPE_VOLUMETEXTURE=4,
+    D3DRTYPE_CUBETEXTURE=5,
+    D3DRTYPE_VERTEXBUFFER=6,
+    D3DRTYPE_INDEXBUFFER=7,
+    D3DRTYPE_FORCE_DWORD=2147483647
+} _D3DRESOURCETYPE;
+
+typedef enum _D3DRESOURCETYPE D3DRESOURCETYPE;
 
 typedef struct HMONITOR__ HMONITOR__, *PHMONITOR__;
 
@@ -1481,6 +1469,18 @@ typedef struct _RGNDATAHEADER RGNDATAHEADER;
 typedef struct IDirect3DTexture8Vtbl IDirect3DTexture8Vtbl, *PIDirect3DTexture8Vtbl;
 
 typedef struct IDirect3DVolumeTexture8Vtbl IDirect3DVolumeTexture8Vtbl, *PIDirect3DVolumeTexture8Vtbl;
+
+typedef struct _D3DVOLUME_DESC _D3DVOLUME_DESC, *P_D3DVOLUME_DESC;
+
+typedef struct _D3DVOLUME_DESC D3DVOLUME_DESC;
+
+typedef struct _D3DLOCKED_BOX _D3DLOCKED_BOX, *P_D3DLOCKED_BOX;
+
+typedef struct _D3DLOCKED_BOX D3DLOCKED_BOX;
+
+typedef struct _D3DBOX _D3DBOX, *P_D3DBOX;
+
+typedef struct _D3DBOX D3DBOX;
 
 typedef struct IDirect3DCubeTexture8Vtbl IDirect3DCubeTexture8Vtbl, *PIDirect3DCubeTexture8Vtbl;
 
@@ -1542,6 +1542,8 @@ typedef enum _D3DORDERTYPE {
 } _D3DORDERTYPE;
 
 typedef enum _D3DORDERTYPE D3DORDERTYPE;
+
+typedef struct IDirect3DVolume8Vtbl IDirect3DVolume8Vtbl, *PIDirect3DVolume8Vtbl;
 
 typedef union _LARGE_INTEGER _LARGE_INTEGER, *P_LARGE_INTEGER;
 
@@ -1743,6 +1745,12 @@ struct IDirect3DDevice8Vtbl {
     HRESULT (*DeletePatch)(struct IDirect3DDevice8 *, UINT);
 };
 
+struct CMyFontVtbl {
+    void (*Init)(LPDIRECT3DDEVICE8, int, int);
+    void (*Print)(char *, int, int, D3DCOLOR);
+    void (*Clean)(void);
+};
+
 struct IDirect3D8 {
     struct IDirect3D8Vtbl *lpVtbl;
 };
@@ -1772,20 +1780,6 @@ struct _D3DRASTER_STATUS {
     UINT ScanLine;
 };
 
-struct IDirect3DVolume8Vtbl {
-    HRESULT (*QueryInterface)(struct IDirect3DVolume8 *, IID *, void **);
-    ULONG (*AddRef)(struct IDirect3DVolume8 *);
-    ULONG (*Release)(struct IDirect3DVolume8 *);
-    HRESULT (*GetDevice)(struct IDirect3DVolume8 *, struct IDirect3DDevice8 **);
-    HRESULT (*SetPrivateData)(struct IDirect3DVolume8 *, GUID *, void *, DWORD, DWORD);
-    HRESULT (*GetPrivateData)(struct IDirect3DVolume8 *, GUID *, void *, DWORD *);
-    HRESULT (*FreePrivateData)(struct IDirect3DVolume8 *, GUID *);
-    HRESULT (*GetContainer)(struct IDirect3DVolume8 *, IID *, void **);
-    HRESULT (*GetDesc)(struct IDirect3DVolume8 *, D3DVOLUME_DESC *);
-    HRESULT (*LockBox)(struct IDirect3DVolume8 *, D3DLOCKED_BOX *, D3DBOX *, DWORD);
-    HRESULT (*UnlockBox)(struct IDirect3DVolume8 *);
-};
-
 struct IDirect3DSurface8Vtbl {
     HRESULT (*QueryInterface)(struct IDirect3DSurface8 *, IID *, void **);
     ULONG (*AddRef)(struct IDirect3DSurface8 *);
@@ -1798,6 +1792,20 @@ struct IDirect3DSurface8Vtbl {
     HRESULT (*GetDesc)(struct IDirect3DSurface8 *, D3DSURFACE_DESC *);
     HRESULT (*LockRect)(struct IDirect3DSurface8 *, D3DLOCKED_RECT *, RECT *, DWORD);
     HRESULT (*UnlockRect)(struct IDirect3DSurface8 *);
+};
+
+struct IDirect3DVolume8Vtbl {
+    HRESULT (*QueryInterface)(struct IDirect3DVolume8 *, IID *, void **);
+    ULONG (*AddRef)(struct IDirect3DVolume8 *);
+    ULONG (*Release)(struct IDirect3DVolume8 *);
+    HRESULT (*GetDevice)(struct IDirect3DVolume8 *, struct IDirect3DDevice8 **);
+    HRESULT (*SetPrivateData)(struct IDirect3DVolume8 *, GUID *, void *, DWORD, DWORD);
+    HRESULT (*GetPrivateData)(struct IDirect3DVolume8 *, GUID *, void *, DWORD *);
+    HRESULT (*FreePrivateData)(struct IDirect3DVolume8 *, GUID *);
+    HRESULT (*GetContainer)(struct IDirect3DVolume8 *, IID *, void **);
+    HRESULT (*GetDesc)(struct IDirect3DVolume8 *, D3DVOLUME_DESC *);
+    HRESULT (*LockBox)(struct IDirect3DVolume8 *, D3DLOCKED_BOX *, D3DBOX *, DWORD);
+    HRESULT (*UnlockBox)(struct IDirect3DVolume8 *);
 };
 
 struct _D3DCOLORVALUE {
@@ -1916,6 +1924,10 @@ struct _D3DADAPTER_IDENTIFIER8 {
     DWORD WHQLLevel;
 };
 
+struct IDirect3DBaseTexture8 {
+    struct IDirect3DBaseTexture8Vtbl *lpVtbl;
+};
+
 struct tagLOGFONTA {
     LONG lfHeight;
     LONG lfWidth;
@@ -1931,10 +1943,6 @@ struct tagLOGFONTA {
     BYTE lfQuality;
     BYTE lfPitchAndFamily;
     CHAR lfFaceName[32];
-};
-
-struct IDirect3DBaseTexture8 {
-    struct IDirect3DBaseTexture8Vtbl *lpVtbl;
 };
 
 struct IDirect3DVolumeTexture8Vtbl {
@@ -2023,6 +2031,7 @@ struct _D3DLOCKED_RECT {
 };
 
 struct CMyFont {
+    struct CMyFontVtbl *vtbl;
     LPD3DXFONT m_lpFont;
 };
 
@@ -2107,6 +2116,13 @@ struct ID3DXFontVtbl {
     HRESULT (*End)(struct IDirect3DVolume8 *);
 };
 
+struct _D3DDEVICE_CREATION_PARAMETERS {
+    UINT AdapterOrdinal;
+    D3DDEVTYPE DeviceType;
+    HWND hFocusWindow;
+    DWORD BehaviorFlags;
+};
+
 struct _D3DVOLUME_DESC {
     D3DFORMAT Format;
     D3DRESOURCETYPE Type;
@@ -2116,13 +2132,6 @@ struct _D3DVOLUME_DESC {
     UINT Width;
     UINT Height;
     UINT Depth;
-};
-
-struct _D3DDEVICE_CREATION_PARAMETERS {
-    UINT AdapterOrdinal;
-    D3DDEVTYPE DeviceType;
-    HWND hFocusWindow;
-    DWORD BehaviorFlags;
 };
 
 struct _D3DVERTEXBUFFER_DESC {
